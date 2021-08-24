@@ -5,7 +5,6 @@ import corgiaoc.byg.core.BYGTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.BooleanProperty;
@@ -22,7 +21,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -57,7 +55,7 @@ public class HypogealImperiumBlock extends Block {
         if (!worldIn.isClientSide) {
             TileEntity tile = worldIn.getBlockEntity(pos);
             if (tile instanceof HypogealImperiumTE) {
-                NetworkHooks.openGui((ServerPlayerEntity) player, (HypogealImperiumTE) tile, pos);
+                player.openMenu((HypogealImperiumTE) tile);
                 return ActionResultType.SUCCESS;
             }
         }

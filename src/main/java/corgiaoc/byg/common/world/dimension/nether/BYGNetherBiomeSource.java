@@ -38,13 +38,20 @@ public class BYGNetherBiomeSource extends BiomeProvider {
         Map<ResourceLocation, WeightedList<ResourceLocation>> hills = new HashMap<>();
         Map<ResourceLocation, ResourceLocation> edges = new HashMap<>();
         Set<ResourceLocation> allBiomes = new HashSet<>();
-        BiomeDataHolders.WeightedBiomeDataHolder endWeightedBiomeDataHolder = BYG.getNetherData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json"));
-        endWeightedBiomeDataHolder.getBiomeData().forEach(((biome, endBiomeData) -> {
+        BiomeDataHolders.WeightedBiomeDataHolder netherData = BYG.getNetherData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json"));
+        netherData.getBiomeData().forEach(((biome, endBiomeData) -> {
             biomes.add(biome, endBiomeData.getWeight());
             hills.put(biome, endBiomeData.getSubBiomes());
-            edges.put(biome, endBiomeData.getEdgeBiome());
+            ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(BYG.EMPTY)) {
+                edges.put(biome, edgeBiome);
+            }
             allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
         }));
+
+        edges.remove(BYG.EMPTY);
+        hills.remove(BYG.EMPTY);
+        allBiomes.remove(BYG.EMPTY);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
         this.biomeLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().netherBiomeSize, biomes, hills, edges);
     }

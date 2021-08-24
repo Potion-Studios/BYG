@@ -48,7 +48,10 @@ public class BYGEndBiomeSource extends BiomeProvider {
         endBiomeDataHolder.getEndBiomeData().forEach(((biome, endBiomeData) -> {
             endBiomes.add(biome, endBiomeData.getWeight());
             endHills.put(biome, endBiomeData.getSubBiomes());
-            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(BYG.EMPTY)) {
+                biomeToEdge.put(biome, edgeBiome);
+            }
             allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
         }));
         endHills.remove(BYG.EMPTY);
