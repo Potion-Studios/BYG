@@ -64,7 +64,10 @@ public class BYGEndBiomeSource extends BiomeProvider {
         endBiomeDataHolder.getVoidBiomeData().forEach(((biome, endBiomeData) -> {
             voidBiomes.add(biome, endBiomeData.getWeight());
             voidHillsMap.put(biome, endBiomeData.getSubBiomes());
-            voidBiomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(BYG.EMPTY)) {
+                voidBiomeToEdge.put(biome, edgeBiome);
+            }
             allBiomes.add(biome);
             allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
         }));
@@ -72,13 +75,19 @@ public class BYGEndBiomeSource extends BiomeProvider {
         BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = BYG.getEndSubBiomeData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
 
         endSubBiomeDataHolder.getEndSubBiomeData().forEach(((biome, endBiomeData) -> {
-            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(BYG.EMPTY)) {
+                biomeToEdge.put(biome, edgeBiome);
+            }
             allBiomes.add(biome);
             allBiomes.add(endBiomeData.getEdgeBiome());
         }));
 
         endSubBiomeDataHolder.getVoidSubBiomeData().forEach(((biome, endBiomeData) -> {
-            biomeToEdge.put(biome, endBiomeData.getEdgeBiome());
+            ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(BYG.EMPTY)) {
+                voidBiomeToEdge.put(biome, edgeBiome);
+            }
             allBiomes.add(biome);
             allBiomes.add(endBiomeData.getEdgeBiome());
         }));

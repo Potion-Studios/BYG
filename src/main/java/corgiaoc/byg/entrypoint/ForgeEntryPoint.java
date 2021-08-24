@@ -3,14 +3,10 @@ package corgiaoc.byg.entrypoint;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.BYGWorldTypeThatIsntAWorldtype;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
-import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.BYGEntities;
-import corgiaoc.byg.core.BYGItems;
-import corgiaoc.byg.core.BYGTileEntities;
+import corgiaoc.byg.core.*;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.data.providers.BYGBlockTagsProvider;
 import corgiaoc.byg.mixin.access.FillerBlockTypeAccess;
-import corgiaoc.byg.server.command.GenDataCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -20,6 +16,7 @@ import net.minecraft.network.IPacket;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import net.minecraft.world.gen.feature.Feature;
@@ -35,7 +32,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.network.NetworkHooks;
@@ -111,6 +107,13 @@ public class ForgeEntryPoint implements EntryPoint {
     }
 
     @SubscribeEvent
+    public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+        BYG.LOGGER.debug("BYG: Registering sounds...");
+        BYGSounds.SOUNDS.forEach(soundEvent -> event.getRegistry().register(soundEvent));
+        BYG.LOGGER.info("BYG: Sounds registered!");
+    }
+
+    @SubscribeEvent
     public static void registerContainers(RegistryEvent.Register<ContainerType<?>> event) {
         BYG.LOGGER.debug("BYG: Registering block entities...");
         BYGEntities.init();
@@ -161,7 +164,6 @@ public class ForgeEntryPoint implements EntryPoint {
         BYGSurfaceBuilders.surfaceBuilders.forEach(surfaceBuilder -> event.getRegistry().register(surfaceBuilder));
         BYG.LOGGER.info("BYG: Surface builders Registered!");
     }
-
 
     @SubscribeEvent
     public static void registerBlockPlacerType(RegistryEvent.Register<BlockPlacerType<?>> event) {
