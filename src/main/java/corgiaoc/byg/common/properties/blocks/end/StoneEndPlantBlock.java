@@ -1,16 +1,16 @@
 package corgiaoc.byg.common.properties.blocks.end;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BushBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
@@ -26,13 +26,13 @@ public class StoneEndPlantBlock extends BushBlock {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos map, ISelectionContext ctx) {
-        Vector3d Vector3d = state.getOffset(reader, map);
+    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos map, CollisionContext ctx) {
+        Vec3 Vector3d = state.getOffset(reader, map);
         return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld worldIn, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
         if (random.nextInt(25) == 0) {
             int i = 5;
             int j = 4;
@@ -64,12 +64,12 @@ public class StoneEndPlantBlock extends BushBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return state.is(BYGBlocks.CRYPTIC_MAGMA_BLOCK) || state.is(BYGBlocks.CRYPTIC_STONE) || state.is(BYGBlocks.CRYPTIC_REDSTONE_ORE) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.below();
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }

@@ -5,9 +5,9 @@ import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.SaplingData;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,10 +22,10 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight();
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {

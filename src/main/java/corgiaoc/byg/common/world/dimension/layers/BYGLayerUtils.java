@@ -3,16 +3,16 @@ package corgiaoc.byg.common.world.dimension.layers;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.INoiseRandom;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.newbiome.context.Context;
 
 public class BYGLayerUtils {
 
     @Nullable
-    public static Biome getBiomeFromWeightedList(WeightedList<ResourceLocation> oceanBiomeList, INoiseRandom layerRandom, Registry<Biome> biomeRegistry) {
+    public static Biome getBiomeFromWeightedList(WeightedList<ResourceLocation> oceanBiomeList, Context layerRandom, Registry<Biome> biomeRegistry) {
         if (((WeightedListAccess<ResourceLocation>) oceanBiomeList).getEntries().size() > 0) {
             return biomeRegistry.get(LayerRandomWeightedListUtil.getBiomeFromID(oceanBiomeList, layerRandom));
         } else {

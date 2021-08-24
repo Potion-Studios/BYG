@@ -2,29 +2,29 @@ package corgiaoc.byg.mixin.client;
 
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.core.BYGEntities;
-import net.minecraft.client.GameSettings;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.Options;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.resources.IReloadableResourceManager;
+import net.minecraft.server.packs.resources.ReloadableResourceManager;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(EntityRendererManager.class)
+@Mixin(EntityRenderDispatcher.class)
 public abstract class MixinEntityRendererManager {
 
     @Shadow
-    public abstract <T extends Entity> void register(EntityType<T> entityType, EntityRenderer<? super T> entityRenderer);
+    protected abstract <T extends Entity> void register(EntityType<T> entityType, EntityRenderer<? super T> entityRenderer);
 
-    @Inject(method = "<init>", at = @At("RETURN"))
-    private void registerBYGRenderers(TextureManager textureManager, ItemRenderer itemRenderer, IReloadableResourceManager resourceManager, FontRenderer fontRenderer, GameSettings settings, CallbackInfo ci) {
-        register(BYGEntities.BOAT, new BYGBoatRenderer((EntityRendererManager) (Object) this));
+    @Inject(method = "registerRenderers", at = @At("RETURN"))
+    private void registerBYGRenderers(ItemRenderer itemRenderer, ReloadableResourceManager reloadableResourceManager, CallbackInfo ci) {
+        register(BYGEntities.BOAT, new BYGBoatRenderer((EntityRenderDispatcher) (Object) this));
     }
 }

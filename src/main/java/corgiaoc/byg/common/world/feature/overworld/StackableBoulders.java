@@ -5,14 +5,14 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.config.BoulderConfig;
 import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -28,11 +28,11 @@ public class StackableBoulders extends Feature<BoulderConfig> {
     public static int stopSpamInt = 0;
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2 + random.nextInt(10)));
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
 

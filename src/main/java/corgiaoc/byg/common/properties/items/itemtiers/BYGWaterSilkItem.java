@@ -3,45 +3,50 @@ package corgiaoc.byg.common.properties.items.itemtiers;
 
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class BYGWaterSilkItem extends BlockItem {
     public BYGWaterSilkItem(Block blockIn, Properties builder) {
         super(blockIn, builder);
     }
 
-    public ActionResultType useOn(ItemUseContext context) {
-        return ActionResultType.PASS;
+    public InteractionResult useOn(UseOnContext context) {
+        return InteractionResult.PASS;
     }
 
-    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
         ItemStack itemstack = playerIn.getItemInHand(handIn);
-        RayTraceResult raytraceresult = getPlayerPOVHitResult(worldIn, playerIn, RayTraceContext.FluidMode.SOURCE_ONLY);
-        if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-            return new ActionResult<>(ActionResultType.PASS, itemstack);
+        HitResult raytraceresult = getPlayerPOVHitResult(worldIn, playerIn, ClipContext.Fluid.SOURCE_ONLY);
+        if (raytraceresult.getType() == HitResult.Type.MISS) {
+            return new InteractionResultHolder<>(InteractionResult.PASS, itemstack);
         } else {
-            if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
-                BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceresult;
+            if (raytraceresult.getType() == HitResult.Type.BLOCK) {
+                BlockHitResult blockraytraceresult = (BlockHitResult) raytraceresult;
                 BlockPos blockpos = blockraytraceresult.getBlockPos();
                 Direction direction = blockraytraceresult.getDirection();
                 if (!worldIn.mayInteract(playerIn, blockpos) || !playerIn.mayUseItemAt(blockpos.relative(direction), direction, itemstack)) {
-                    return new ActionResult<>(ActionResultType.FAIL, itemstack);
+                    return new InteractionResultHolder<>(InteractionResult.FAIL, itemstack);
                 }
 
                 BlockPos blockpos1 = blockpos.above();
@@ -49,17 +54,10 @@ public class BYGWaterSilkItem extends BlockItem {
                 Material material = blockstate.getMaterial();
                 FluidState FluidState = worldIn.getFluidState(blockpos);
                 if ((FluidState.getType() == Fluids.WATER || material == Material.ICE) && worldIn.isEmptyBlock(blockpos1)) {
-
                     // special case for handling block placement with water lilies
-                    net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.create(worldIn.dimension(), worldIn, blockpos1);
                     worldIn.setBlock(blockpos1, BYGBlocks.WATER_SILK.defaultBlockState(), 11);
-                    if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(playerIn, blocksnapshot, Direction.UP)) {
-                        blocksnapshot.restore(true, false);
-                        return new ActionResult<ItemStack>(ActionResultType.FAIL, itemstack);
-                    }
-
-                    if (playerIn instanceof ServerPlayerEntity) {
-                        CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayerEntity) playerIn, blockpos1, itemstack);
+                    if (playerIn instanceof ServerPlayer) {
+                        CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer) playerIn, blockpos1, itemstack);
                     }
 
                     if (!playerIn.abilities.instabuild) {
@@ -67,12 +65,12 @@ public class BYGWaterSilkItem extends BlockItem {
                     }
 
                     playerIn.awardStat(Stats.ITEM_USED.get(this));
-                    worldIn.playSound(playerIn, blockpos, SoundEvents.LILY_PAD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                    return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+                    worldIn.playSound(playerIn, blockpos, SoundEvents.LILY_PAD_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    return new InteractionResultHolder<>(InteractionResult.SUCCESS, itemstack);
                 }
             }
 
-            return new ActionResult<>(ActionResultType.FAIL, itemstack);
+            return new InteractionResultHolder<>(InteractionResult.FAIL, itemstack);
         }
     }
 }

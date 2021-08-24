@@ -11,28 +11,27 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
 import corgiaoc.byg.BYG;
-import net.minecraft.command.CommandSource;
-import net.minecraft.command.Commands;
-import net.minecraft.command.ISuggestionProvider;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.text.*;
-import net.minecraft.util.text.event.ClickEvent;
-import net.minecraft.util.text.event.HoverEvent;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.carver.ConfiguredCarver;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.StructureProcessorList;
-import net.minecraft.world.gen.settings.DimensionGeneratorSettings;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraft.world.storage.FolderName;
-import net.minecraft.world.storage.ServerWorldInfo;
-import net.minecraftforge.fml.ModList;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.commands.SharedSuggestionProvider;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.WorldGenSettings;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuilder;
+import net.minecraft.world.level.storage.LevelResource;
+import net.minecraft.world.level.storage.PrimaryLevelData;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,37 +43,36 @@ import java.util.function.Supplier;
 @SuppressWarnings("deprecation")
 public class GenDataCommand {
 
-    public static void dataGenCommand(CommandDispatcher<CommandSource> dispatcher) {
+    public static void dataGenCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
         String commandString = "gendata";
         List<String> modIdList = new ArrayList<>();
-        ModList.get().getMods().forEach(modContainer -> {
-            String modId = modContainer.getModId();
-            if (!modId.equals("forge"))
-                modIdList.add(modId);
+        FabricLoader.getInstance().getAllMods().forEach(modContainer -> {
+            String modId = modContainer.getMetadata().getId();
+            modIdList.add(modId);
         });
 
-        LiteralCommandNode<CommandSource> source = dispatcher.register(Commands.literal(commandString).then(Commands.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> ISuggestionProvider.suggest(modIdList.stream(), sb)).executes(cs -> {
+        LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString).then(Commands.argument("modid", StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(modIdList.stream(), sb)).executes(cs -> {
             GenDataCommand.createBiomeDatapack(cs.getArgument("modid", String.class), cs);
             return 1;
         })));
         dispatcher.register(Commands.literal(commandString).redirect(source));
     }
 
-    public static void createBiomeDatapack(String modId, CommandContext<CommandSource> commandSource) {
+    public static void createBiomeDatapack(String modId, CommandContext<CommandSourceStack> commandSource) {
         List<Biome> biomeList = new ArrayList<>();
         boolean stopSpamFlag = false;
-        Path dataPackPath = dataPackPath(commandSource.getSource().getLevel().getServer().getWorldPath(FolderName.DATAPACK_DIR), modId);
+        Path dataPackPath = dataPackPath(commandSource.getSource().getLevel().getServer().getWorldPath(LevelResource.DATAPACK_DIR), modId);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        DynamicRegistries manager = commandSource.getSource().getLevel().registryAccess();
+        RegistryAccess manager = commandSource.getSource().getLevel().registryAccess();
         Registry<Biome> biomeRegistry = manager.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<ConfiguredFeature<?, ?>> featuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY);
-        Registry<StructureFeature<?, ?>> structuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
-        Registry<ConfiguredCarver<?>> carverRegistry = manager.registryOrThrow(Registry.CONFIGURED_CARVER_REGISTRY);
+        Registry<ConfiguredStructureFeature<?, ?>> structuresRegistry = manager.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
+        Registry<ConfiguredWorldCarver<?>> carverRegistry = manager.registryOrThrow(Registry.CONFIGURED_CARVER_REGISTRY);
         Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry = manager.registryOrThrow(Registry.CONFIGURED_SURFACE_BUILDER_REGISTRY);
         Registry<StructureProcessorList> structureProcessorRegistry = manager.registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY);
 
-        Function<DimensionGeneratorSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(DimensionGeneratorSettings.CODEC);
-        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((ServerWorldInfo) commandSource.getSource().getLevel().getLevelData()).worldGenSettings());
+        Function<WorldGenSettings, DataResult<JsonElement>> dimensionGeneratorSettingsCodec = JsonOps.INSTANCE.withEncoder(WorldGenSettings.CODEC);
+        DataResult<JsonElement> jsonResult = dimensionGeneratorSettingsCodec.apply(((PrimaryLevelData) commandSource.getSource().getLevel().getLevelData()).worldGenSettings());
 
         try {
             Path worldImportPath = worldImportJsonPath(dataPackPath.getParent(), "world_settings");
@@ -86,16 +84,16 @@ public class GenDataCommand {
 
         createJson(modId, dataPackPath, gson, surfaceBuilderRegistry, ConfiguredSurfaceBuilder.CODEC);
         createJson(modId, dataPackPath, gson, featuresRegistry, ConfiguredFeature.CODEC);
-        createJson(modId, dataPackPath, gson, carverRegistry, ConfiguredCarver.CODEC);
-        createJson(modId, dataPackPath, gson, structuresRegistry, StructureFeature.CODEC);
-        createJson(modId, dataPackPath, gson, structureProcessorRegistry, IStructureProcessorType.LIST_CODEC);
+        createJson(modId, dataPackPath, gson, carverRegistry, ConfiguredWorldCarver.CODEC);
+        createJson(modId, dataPackPath, gson, structuresRegistry, ConfiguredStructureFeature.CODEC);
+        createJson(modId, dataPackPath, gson, structureProcessorRegistry, StructureProcessorType.LIST_CODEC);
         createBiomeJsonAndPackMcMeta(modId, commandSource, dataPackPath, gson, biomeRegistry, featuresRegistry, structuresRegistry, carverRegistry, surfaceBuilderRegistry);
     }
 
-    private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSource> commandSource, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<StructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
+    private static void createBiomeJsonAndPackMcMeta(String modId, CommandContext<CommandSourceStack> commandSource, Path dataPackPath, Gson gson, Registry<Biome> biomeRegistry, Registry<ConfiguredFeature<?, ?>> featuresRegistry, Registry<ConfiguredStructureFeature<?, ?>> structuresRegistry, Registry<ConfiguredWorldCarver<?>> carverRegistry, Registry<ConfiguredSurfaceBuilder<?>> surfaceBuilderRegistry) {
         int hits = 0;
         int failedHits = 0;
-        for (Map.Entry<RegistryKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
+        for (Map.Entry<ResourceKey<Biome>, Biome> entry : biomeRegistry.entrySet()) {
             ResourceLocation key = entry.getKey().location();
             Biome biome = entry.getValue();
 
@@ -124,9 +122,9 @@ public class GenDataCommand {
                     root.getAsJsonObject().addProperty("surface_builder", surfaceBuilder);
 
                     JsonObject carvers = new JsonObject();
-                    for (GenerationStage.Carving step : GenerationStage.Carving.values()) {
+                    for (GenerationStep.Carving step : GenerationStep.Carving.values()) {
                         JsonArray stage = new JsonArray();
-                        for (Supplier<ConfiguredCarver<?>> carver : biome.getGenerationSettings().getCarvers(step)) {
+                        for (Supplier<ConfiguredWorldCarver<?>> carver : biome.getGenerationSettings().getCarvers(step)) {
                             carverRegistry.getResourceKey(carver.get()).ifPresent(carverKey -> stage.add(carverKey.location().toString()));
                         }
                         if (stage.size() > 0) {
@@ -135,7 +133,7 @@ public class GenDataCommand {
                     }
                     root.getAsJsonObject().add("carvers", carvers);
                     JsonArray starts = new JsonArray();
-                    for (Supplier<StructureFeature<?, ?>> start : biome.getGenerationSettings().structures()) {
+                    for (Supplier<ConfiguredStructureFeature<?, ?>> start : biome.getGenerationSettings().structures()) {
                         structuresRegistry.getResourceKey(start.get()).ifPresent(structureKey -> starts.add(structureKey.location().toString()));
                     }
                     root.getAsJsonObject().add("starts", starts);
@@ -143,36 +141,36 @@ public class GenDataCommand {
                 } else {
                     failedHits++;
                     BYG.LOGGER.warn("No parsable element found for: " + key);
-                    commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.parse", key).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))), false);
+                    commandSource.getSource().sendSuccess(new TranslatableComponent("commands.gendata.failed.parse", key).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))), false);
                 }
             } catch (IOException e) {
                 failedHits++;
                 e.printStackTrace();
-                commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.failed.ioexception", key, e.getMessage()).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)), false);
+                commandSource.getSource().sendSuccess(new TranslatableComponent("commands.gendata.failed.ioexception", key, e.getMessage()).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)).withBold(true)), false);
             }
         }
 
         try {
             createPackMCMeta(dataPackPath, modId);
         } catch (IOException e) {
-            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))));
+            commandSource.getSource().sendFailure(new TranslatableComponent("commands.gendata.mcmeta.failed", modId).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))));
         }
 
-        ITextComponent filePathText = (new StringTextComponent(dataPackPath.toString())).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext"))));
-        ITextComponent filePathText2 = (new StringTextComponent("https://github.com/CorgiTaco/BYG/issues/194")).withStyle(TextFormatting.UNDERLINE).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.DARK_RED)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/CorgiTaco/BYG/issues/194")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslationTextComponent("commands.gendata.hovertext.link"))));
+        Component filePathText = (new TextComponent(dataPackPath.toString())).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.GREEN)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, dataPackPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("commands.gendata.hovertext"))));
+        Component filePathText2 = (new TextComponent("https://github.com/CorgiTaco/BYG/issues/194")).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_RED)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/CorgiTaco/BYG/issues/194")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("commands.gendata.hovertext.link"))));
         if (failedHits > 0) {
-            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.failed.parse.recommend.new.world", filePathText2).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED)).withBold(true)));
+            commandSource.getSource().sendFailure(new TranslatableComponent("commands.gendata.failed.parse.recommend.new.world", filePathText2).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED)).withBold(true)));
         }
 
         if (hits > 0) {
-            commandSource.getSource().sendSuccess(new TranslationTextComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
+            commandSource.getSource().sendSuccess(new TranslatableComponent("commands.gendata.success", commandSource.getArgument("modid", String.class), filePathText), false);
         } else {
-            commandSource.getSource().sendFailure(new TranslationTextComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(Color.fromLegacyFormat(TextFormatting.RED))));
+            commandSource.getSource().sendFailure(new TranslatableComponent("commands.gendata.listisempty", modId).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.RED))));
         }
     }
 
     private static <T> void createJson(String modId, Path dataPackPath, Gson gson, Registry<T> registry, Codec<Supplier<T>> encoder) {
-        for (Map.Entry<RegistryKey<T>, T> entry : registry.entrySet()) {
+        for (Map.Entry<ResourceKey<T>, T> entry : registry.entrySet()) {
             Function<Supplier<T>, DataResult<JsonElement>> featureCodec = JsonOps.INSTANCE.withEncoder(encoder);
 
             T object = entry.getValue();
@@ -200,7 +198,7 @@ public class GenDataCommand {
         return path.resolve("import/" + jsonName + ".json");
     }
 
-    private static <T> Path createPath(Path path, ResourceLocation identifier, String modId, RegistryKey<? extends Registry<T>> registry) {
+    private static <T> Path createPath(Path path, ResourceLocation identifier, String modId, ResourceKey<? extends Registry<T>> registry) {
         return path.resolve("data/" + modId + "/" + registry.location().toString().replace("minecraft:", "") + "/" + identifier.getPath() + ".json");
     }
 

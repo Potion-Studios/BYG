@@ -2,14 +2,14 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public abstract class BYGHugeMushroom {
     @Nullable
     protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random);
 
-    public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean withSpawner(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
         ConfiguredFeature<BYGMushroomConfig, ?> abstractMushroomFeature = this.getHugeMushroomFeature(random);
         if (abstractMushroomFeature == null) {
             return false;
@@ -35,12 +35,12 @@ public abstract class BYGHugeMushroom {
 
 
     public static abstract class Massive extends BYGHugeMushroom {
-        public static boolean canMassiveMushroomSpawnAt(BlockState blockUnder, IBlockReader worldIn, BlockPos pos, int xOffset, int zOffset) {
+        public static boolean canMassiveMushroomSpawnAt(BlockState blockUnder, BlockGetter worldIn, BlockPos pos, int xOffset, int zOffset) {
             Block block = blockUnder.getBlock();
             return block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset, 0, zOffset + 1)).getBlock() && block == worldIn.getBlockState(pos.offset(xOffset + 1, 0, zOffset + 1)).getBlock();
         }
 
-        public boolean withSpawner(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+        public boolean withSpawner(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
             for (int i = 0; i >= -1; --i) {
                 for (int j = 0; j >= -1; --j) {
                     if (canMassiveMushroomSpawnAt(blockUnder, worldIn, pos, i, j)) {
@@ -55,7 +55,7 @@ public abstract class BYGHugeMushroom {
         @Nullable
         protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getMassiveMushroomFeature(Random random);
 
-        public boolean massiveMushroom(ISeedReader worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
+        public boolean massiveMushroom(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random, int xOffset, int zOffset) {
             ConfiguredFeature<BYGMushroomConfig, ?> abstractMushroomFeature = this.getMassiveMushroomFeature(random);
             if (abstractMushroomFeature == null) {
                 return false;

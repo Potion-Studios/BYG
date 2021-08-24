@@ -1,23 +1,22 @@
 package corgiaoc.byg.util;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.Util;
-import net.minecraftforge.common.BiomeManager;
+import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
+import net.minecraft.Util;
+import net.minecraft.util.StringRepresentable;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public enum MLClimate implements IStringSerializable {
-    HOT(BiomeManager.BiomeType.DESERT),
-    HOT_LEGACY(BiomeManager.BiomeType.DESERT_LEGACY),
-    WARM(BiomeManager.BiomeType.WARM),
-    COOL(BiomeManager.BiomeType.COOL),
-    COLD(BiomeManager.BiomeType.ICY);
+public enum MLClimate implements StringRepresentable {
+    HOT(OverworldClimate.DRY),
+    WARM(OverworldClimate.TEMPERATE),
+    COOL(OverworldClimate.COOL),
+    COLD(OverworldClimate.SNOWY);
 
-    private final BiomeManager.BiomeType climate;
+    private final OverworldClimate climate;
 
-    public static final Codec<MLClimate> CODEC = IStringSerializable.fromEnum(MLClimate::values, MLClimate::byName);
+    public static final Codec<MLClimate> CODEC = StringRepresentable.fromEnum(MLClimate::values, MLClimate::byName);
 
     private static final Map<String, String> OLD_TO_NEW_NAME = Util.make(new HashMap<>(), (map) -> {
         map.put("DESERT", "HOT");
@@ -33,11 +32,11 @@ public enum MLClimate implements IStringSerializable {
     }
 
 
-    MLClimate(BiomeManager.BiomeType climate) {
+    MLClimate(OverworldClimate climate) {
         this.climate = climate;
     }
 
-    public BiomeManager.BiomeType getClimate() {
+    public OverworldClimate getClimate() {
         return climate;
     }
 

@@ -5,15 +5,15 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.util.SurfaceContext;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -22,7 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
 
     private static long seed;
     public static FastNoise noise;
@@ -38,7 +38,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
     private static final float[] CELL_WEIGHTS = (float[]) Util.make(new float[25], (array) -> {
         for (int i = -2; i < 2; ++i) {
             for (int j = -2; j < 2; ++j) {
-                float f = 10.0F / MathHelper.sqrt((float) (i * i + j * j) + 0.2F);
+                float f = 10.0F / Mth.sqrt((float) (i * i + j * j) + 0.2F);
                 array[i + 2 + (j + 2) * 5] = f;
             }
         }
@@ -57,7 +57,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
     }
 
 
-    public CanyonSurfaceBuilder(Codec<SurfaceBuilderConfig> codec) {
+    public CanyonSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> codec) {
         super(codec);
     }
 
@@ -66,10 +66,10 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         setupNoise(seed);
         // A null SurfaceContext indicates we're not the SURFACE stage of ChunkStatus so exit early.
-        BlockPos.Mutable localPos = new BlockPos.Mutable().set(x & 15, 0, z & 15);
+        BlockPos.MutableBlockPos localPos = new BlockPos.MutableBlockPos().set(x & 15, 0, z & 15);
         boolean isFinalIteration = localPos.getX() == 15 && localPos.getZ() == 15;
         boolean isFirstIteration = localPos.getX() == 0 && localPos.getZ() == 0;
 
@@ -104,7 +104,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
 ////            }
 //        }
 
-        localPos.setY(chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, localPos.getX(), localPos.getZ()));
+        localPos.setY(chunkIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, localPos.getX(), localPos.getZ()));
         chunkIn.setBlockState(localPos, BYGBlocks.OVERGROWN_STONE.defaultBlockState(), false);
 
         if (isFinalIteration) {

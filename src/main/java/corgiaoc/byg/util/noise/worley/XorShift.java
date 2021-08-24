@@ -82,8 +82,8 @@ public class XorShift {
      *
      * @return a new random number generator instance.
      */
-    public XorShift.Instance getInstance() {
-        return new XorShift.Instance();
+    public Instance getInstance() {
+        return new Instance();
     }
 
     @Override

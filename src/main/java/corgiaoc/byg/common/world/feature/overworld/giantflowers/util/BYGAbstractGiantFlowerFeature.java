@@ -5,19 +5,19 @@ import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.GiantFlowerConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.MLBlockTags;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -27,60 +27,60 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         super(configCodec);
     }
 
-    public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
+    public static boolean canStemPlaceHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
+        return worldReader.isStateAtPosition(blockPos, BlockBehaviour.BlockStateBase::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+    public boolean canStemPlaceHereWater(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean isAnotherFlowerHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+    public boolean isAnotherFlowerHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
         });
     }
 
-    public boolean isAnotherFlowerLikeThisHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
+    public boolean isAnotherFlowerLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block == logBlock || block == leafBlock;
         });
     }
 
-    public void placeStem(BlockState stemBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeStem(BlockState stemBlockState, WorldGenLevel reader, BlockPos pos) {
         if (canStemPlaceHere(reader, pos)) {
             this.setFinalBlockState(reader, pos, stemBlockState);
         }
     }
 
-    public void placeStemBranch(BlockState stemBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeStemBranch(BlockState stemBlockState, WorldGenLevel reader, BlockPos pos) {
         if (canStemPlaceHere(reader, pos)) {
             this.setFinalBlockState(reader, pos, stemBlockState);
         }
     }
 
-    public void placePetal(BlockState petalBlockState, ISeedReader reader, BlockPos pos) {
+    public void placePetal(BlockState petalBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, petalBlockState);
         }
     }
 
-    public void placePetal2(BlockState petalBlockState, ISeedReader reader, BlockPos pos) {
+    public void placePetal2(BlockState petalBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, petalBlockState);
         }
     }
 
-    public void placePetal3(BlockState petalBlockState, ISeedReader reader, BlockPos pos) {
+    public void placePetal3(BlockState petalBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, petalBlockState);
         }
     }
 
 
-    public void placePollen(BlockState pollenBlockState, ISeedReader reader, BlockPos pos) {
+    public void placePollen(BlockState pollenBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, pollenBlockState);
         }
@@ -94,7 +94,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param pos    Position to check.
      * @return Determine whether or not the pos can support a sapling's tree.
      */
-    public boolean canGiantFlowerGrowHere(IWorldGenerationBaseReader reader, BlockPos pos) {
+    public boolean canGiantFlowerGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
@@ -107,11 +107,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determines whether or not a pos is air.
      */
 
-    public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
+    public static boolean isAir(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
-    public boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+    public boolean isAirOrWater(LevelSimulatedReader worldIn, BlockPos pos) {
         return worldIn.isStateAtPosition(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
@@ -121,7 +121,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwDirtTag(LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
@@ -137,7 +137,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param desiredGroundBlock Add a blacklist of blocks that we want.
      * @return Determines if the pos contains a block from our whitelist.
      */
-    public boolean isDesiredGround(IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public boolean isDesiredGround(LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
@@ -162,11 +162,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesFlowerHaveSpaceToGrow(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesFlowerHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         //Skip if this is not a sapling.
         if (isSapling) {
             //Check the tree trunk and determine whether or not there's a block in the way.
@@ -214,11 +214,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesFlowerHaveSpaceToGrow(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesFlowerHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being called during world gen.
         if (isSapling) {
@@ -264,11 +264,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
      * @return Determines whether or not any tree is within the givem distance
      */
-    public boolean isAnotherFlowerNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
+    public boolean isAnotherFlowerNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, boolean isSapling) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being spawned with a sapling.
         if (!isSapling) {
@@ -299,11 +299,11 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @return Determines whether or not the tree we're searching for is within the given distance.
      */
 
-    public boolean isAnotherFlowerLikeThisNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
+    public boolean isAnotherFlowerLikeThisNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being spawned with a sapling.
         if (!isSapling) {
@@ -329,20 +329,20 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param trunkPositions List of trunk poss where the base is built under the given poss.
      */
 
-    public void buildStem(IWorldGenerationBaseReader reader, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
+    public void buildStem(LevelSimulatedReader reader, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canStemPlaceHere(reader, mutableTrunk)) {
                         if (fill <= 7)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                     } else {
                         if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                         fill = 15;
                     }
                     mutableTrunk.move(Direction.DOWN);
@@ -360,23 +360,23 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * @param earthBlock          The block used under logs. Typically a block found in the dirt tag
      * @param trunkPositions      List of trunk poss where the base is built under the given poss.
      */
-    public void buildBase(IWorldGenerationBaseReader reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
+    public void buildBase(LevelSimulatedReader reader, int earthBlockThreshold, Block fillerBlock, Block earthBlock, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 for (int fill = 1; fill <= 15; fill++) {
                     if (canStemPlaceHere(reader, mutableTrunk)) {
                         if (fill <= earthBlockThreshold)
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         else
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                     } else {
                         if (canStemPlaceHere(reader, mutableTrunk)) {
-                            setFinalBlockState((IWorldWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
+                            setFinalBlockState((LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         } else {
                             if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                                setFinalBlockState((IWorldWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
+                                setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                             fill = 15;
                         }
                     }
@@ -390,35 +390,35 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
      * Use this to set the soil under small trunked trees.
      */
 
-    public void setSoil(IWorldGenerationBaseReader reader, Block soil, BlockPos... trunkPositions) {
+    public void setSoil(LevelSimulatedReader reader, Block soil, BlockPos... trunkPositions) {
         if (trunkPositions.length > 0) {
-            BlockPos.Mutable mutableTrunk = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
                 if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
-                    setFinalBlockState((IWorldWriter) reader, mutableTrunk.move(Direction.DOWN), soil.defaultBlockState());
+                    setFinalBlockState((LevelWriter) reader, mutableTrunk.move(Direction.DOWN), soil.defaultBlockState());
             }
         }
     }
 
-    public final void setFinalBlockState(IWorldWriter worldIn, BlockPos pos, BlockState blockState) {
+    public final void setFinalBlockState(LevelWriter worldIn, BlockPos pos, BlockState blockState) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
     }
 
-    public void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+    public void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         worldWriter.setBlock(blockPos, blockState, 2);
     }
 
     @Override
-    protected void setBlock(IWorldWriter worldIn, BlockPos pos, BlockState state) {
+    protected void setBlock(LevelWriter worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
     @Override
-    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeFlower(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 
-    protected abstract boolean placeFlower(ISeedReader worldIn, Random rand, BlockPos pos, boolean isFlower, T config);
+    protected abstract boolean placeFlower(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isFlower, T config);
 
 }

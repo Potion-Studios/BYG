@@ -2,14 +2,14 @@ package corgiaoc.byg.common.world.feature.nether;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.HangingColumnWithBaseConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -20,7 +20,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         super(codec);
     }
 
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         if (!world.isEmptyBlock(pos)) {
             return false;
         } else {
@@ -35,10 +35,10 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         }
     }
 
-    private void generateBase(IWorld world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    private void generateBase(LevelAccessor world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         world.setBlock(pos, config.getBaseBlockProvider().getState(rand, pos), 2);
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos();
 
         for (int i = 0; i < 200; ++i) {
             mutable.setWithOffset(pos, rand.nextInt(6) - rand.nextInt(6), rand.nextInt(2) - rand.nextInt(5), rand.nextInt(6) - rand.nextInt(6));
@@ -64,15 +64,15 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     }
 
-    private void generateVinesInArea(IWorld world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+    private void generateVinesInArea(LevelAccessor world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (int i = 0; i < 100; ++i) {
             mutable.setWithOffset(pos, rand.nextInt(8) - rand.nextInt(8), rand.nextInt(2) - rand.nextInt(7), rand.nextInt(8) - rand.nextInt(8));
             if (world.isEmptyBlock(mutable)) {
                 BlockState blockstate = world.getBlockState(mutable.above());
                 if (config.getWhitelist().contains(blockstate.getBlock())) {
-                    int length = MathHelper.nextInt(rand, config.getMinLength(), config.getMaxLength());
+                    int length = Mth.nextInt(rand, config.getMinLength(), config.getMaxLength());
                     if (rand.nextInt(6) == 0) {
                         length *= 2;
                     }
@@ -87,7 +87,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     }
 
-    public static void generateLength(IWorld world, BlockPos.Mutable mutable, int length, Random rand, HangingColumnWithBaseConfig config) {
+    public static void generateLength(LevelAccessor world, BlockPos.MutableBlockPos mutable, int length, Random rand, HangingColumnWithBaseConfig config) {
         for (int i = 0; i <= length; ++i) {
             if (world.isEmptyBlock(mutable)) {
                 if (i == length || !world.isEmptyBlock(mutable.below())) {

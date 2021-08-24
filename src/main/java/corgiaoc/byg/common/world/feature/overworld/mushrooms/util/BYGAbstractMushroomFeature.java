@@ -4,18 +4,18 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.util.MLBlockTags;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
+import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.LevelWriter;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -25,60 +25,60 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         super(configCodec);
     }
 
-    public static boolean canStemPlaceHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, AbstractBlock.AbstractBlockState::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
+    public static boolean canStemPlaceHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
+        return worldReader.isStateAtPosition(blockPos, BlockBehaviour.BlockStateBase::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean canStemPlaceHereWater(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+    public boolean canStemPlaceHereWater(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean isAnotherMushroomHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos) {
+    public boolean isAnotherMushroomHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
         });
     }
 
-    public boolean isAnotherMushroomLikeThisHere(IWorldGenerationBaseReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
+    public boolean isAnotherMushroomLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
             return block == logBlock || block == leafBlock;
         });
     }
 
-    public void placeStem(BlockState stemBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeStem(BlockState stemBlockState, WorldGenLevel reader, BlockPos pos) {
         if (canStemPlaceHere(reader, pos)) {
             this.setFinalBlockState(reader, pos, stemBlockState);
         }
     }
 
-    public void placeStemBranch(BlockState stemBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeStemBranch(BlockState stemBlockState, WorldGenLevel reader, BlockPos pos) {
         if (canStemPlaceHere(reader, pos)) {
             this.setFinalBlockState(reader, pos, stemBlockState);
         }
     }
 
-    public void placeMushroom(BlockState mushroomBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeMushroom(BlockState mushroomBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, mushroomBlockState);
         }
     }
 
-    public void placeMushroom2(BlockState mushroomBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeMushroom2(BlockState mushroomBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, mushroomBlockState);
         }
     }
 
-    public void placeMushroom3(BlockState mushroomBlockState, ISeedReader reader, BlockPos pos) {
+    public void placeMushroom3(BlockState mushroomBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, mushroomBlockState);
         }
     }
 
 
-    public void placePollen(BlockState pollenBlockState, ISeedReader reader, BlockPos pos) {
+    public void placePollen(BlockState pollenBlockState, WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, pollenBlockState);
         }
@@ -92,7 +92,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @param pos    Position to check.
      * @return Determine whether or not the pos can support a sapling's tree.
      */
-    public boolean canGiantMushroomGrowHere(IWorldGenerationBaseReader reader, BlockPos pos) {
+    public boolean canGiantMushroomGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
@@ -105,11 +105,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @return Determines whether or not a pos is air.
      */
 
-    public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
+    public static boolean isAir(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
-    public boolean isAirOrWater(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+    public boolean isAirOrWater(LevelSimulatedReader worldIn, BlockPos pos) {
         return worldIn.isStateAtPosition(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
@@ -119,7 +119,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @param desiredGroundBlock Allows to add other blocks that do not have the dirt tag.
      * @return Determines if the pos is of the dirt tag or another block.
      */
-    public static boolean isDesiredGroundwDirtTag(BYGMushroomConfig config, IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwDirtTag(BYGMushroomConfig config, LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
         if (config.isPlacementForced())
             return true;
 
@@ -132,7 +132,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         });
     }
 
-    public static boolean isDesiredGroundwEndTags(BYGMushroomConfig config, IWorldGenerationBaseReader reader, BlockPos pos, Block... desiredGroundBlock) {
+    public static boolean isDesiredGroundwEndTags(BYGMushroomConfig config, LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
         if (config.isPlacementForced())
             return true;
 
@@ -160,11 +160,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesMushroomHaveSpaceToGrow(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesMushroomHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xDistance, int zDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         //Skip if this is not a sapling.
         if (isSapling) {
             //Check the tree trunk and determine whether or not there's a block in the way.
@@ -212,11 +212,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
      */
 
-    public boolean doesMushroomHaveSpaceToGrow(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
+    public boolean doesMushroomHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if tree is being called during world gen.
         if (isSapling) {
@@ -265,11 +265,11 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @return Determines whether or not the tree we're searching for is within the given distance.
      */
 
-    public boolean isAnotherMushroomLikeThisNearby(IWorldGenerationBaseReader reader, BlockPos pos, int treeHeight, int distance, Block stemBlock, Block mushroomBlock, boolean isMushroom) {
+    public boolean isAnotherMushroomLikeThisNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, Block stemBlock, Block mushroomBlock, boolean isMushroom) {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         //Skip if mushroom is being spawned with a small mushroom/fungus.
         if (!isMushroom) {
@@ -286,24 +286,24 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return true;
     }
 
-    public final void setFinalBlockState(IWorldWriter worldIn, BlockPos pos, BlockState blockState) {
+    public final void setFinalBlockState(LevelWriter worldIn, BlockPos pos, BlockState blockState) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
     }
 
-    public void setBlockStateWithoutUpdates(IWorldWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+    public void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         worldWriter.setBlock(blockPos, blockState, 2);
     }
 
     @Override
-    protected void setBlock(IWorldWriter worldIn, BlockPos pos, BlockState state) {
+    protected void setBlock(LevelWriter worldIn, BlockPos pos, BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 
     @Override
-    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeMushroom(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 
-    protected abstract boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, T config);
+    protected abstract boolean placeMushroom(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isMushroom, T config);
 }
 

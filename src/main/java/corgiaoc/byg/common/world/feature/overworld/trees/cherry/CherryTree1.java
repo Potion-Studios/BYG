@@ -3,10 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.cherry;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
@@ -17,13 +17,13 @@ public class CherryTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
-        BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().set(pos.relative(Direction.SOUTH));
-        BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().set(pos.relative(Direction.EAST));
-        BlockPos.Mutable mainmutable4 = new BlockPos.Mutable().set(pos.relative(Direction.EAST).relative(Direction.SOUTH));
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
+        BlockPos.MutableBlockPos mainmutable2 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.SOUTH));
+        BlockPos.MutableBlockPos mainmutable3 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.EAST));
+        BlockPos.MutableBlockPos mainmutable4 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.EAST).relative(Direction.SOUTH));
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {

@@ -3,22 +3,22 @@ package corgiaoc.byg.common.world.surfacebuilder;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.PerlinNoiseGenerator;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 
 import java.util.Arrays;
 import java.util.Random;
 
 @SuppressWarnings("deprecation")
-public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
     private static final BlockState PACKED_ICE = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
     private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.defaultBlockState();
     private static final BlockState PACKED_ICE2 = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
@@ -28,15 +28,15 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     private static final BlockState PACKED_ICE4 = BYGBlocks.PACKED_BLACK_ICE.defaultBlockState();
     protected BlockState[] blockState;
     protected long seed;
-    protected PerlinNoiseGenerator perlin1;
-    protected PerlinNoiseGenerator perlin2;
-    protected PerlinNoiseGenerator perlin3;
+    protected PerlinSimplexNoise perlin1;
+    protected PerlinSimplexNoise perlin2;
+    protected PerlinSimplexNoise perlin3;
 
-    public ShatteredGlacierSB(Codec<SurfaceBuilderConfig> config) {
+    public ShatteredGlacierSB(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
-    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstate = PACKED_ICE;
@@ -46,7 +46,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         int l = -1;
         boolean flag1 = false;
         int i1 = 0;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int chunkY = startHeight; chunkY >= 0; --chunkY) {
             if (i1 < 15) {
@@ -117,9 +117,9 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         }
 
         if (this.seed != seed || this.perlin1 == null || this.perlin2 == null) {
-            SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-            this.perlin1 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
-            this.perlin2 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
+            WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
+            this.perlin1 = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
+            this.perlin2 = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.seed = seed;
@@ -128,8 +128,8 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderConfig> {
     protected void fillBlockStateArray(long seed) {
         this.blockState = new BlockState[64];
         Arrays.fill(this.blockState, PACKED_ICE2);
-        SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
-        this.perlin3 = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
+        this.perlin3 = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
 
         for (int l1 = 0; l1 < 64; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;

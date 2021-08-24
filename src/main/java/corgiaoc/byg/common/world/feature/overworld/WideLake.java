@@ -5,19 +5,19 @@ import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.Fluids;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.PerlinNoiseGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 import java.util.Set;
@@ -28,12 +28,12 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
     protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.WEB, Material.CACTUS, Material.HEAVY_METAL, Material.VEGETABLE, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
 
     protected long noiseSeed;
-    protected PerlinNoiseGenerator noiseGen;
+    protected PerlinSimplexNoise noiseGen;
 
     public void setSeed(long seed) {
-        SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
         if (this.noiseSeed != seed || this.noiseGen == null) {
-            this.noiseGen = new PerlinNoiseGenerator(sharedseedrandom, ImmutableList.of(0));
+            this.noiseGen = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
         }
 
         this.noiseSeed = seed;
@@ -46,9 +46,9 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2));
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2));
 
         // creates the actual lakes
         boolean containedFlag;
@@ -120,12 +120,12 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
      * @param blockpos$Mutable - location to check if valid
      * @return - if the spot is valid
      */
-    private boolean checkIfValidSpot(IWorld world, BlockPos.Mutable blockpos$Mutable, double noise) {
+    private boolean checkIfValidSpot(LevelAccessor world, BlockPos.MutableBlockPos blockpos$Mutable, double noise) {
         Material material;
         BlockState blockState;
 
         //cannot be under ledge
-        BlockPos.Mutable temp = new BlockPos.Mutable().set(blockpos$Mutable);
+        BlockPos.MutableBlockPos temp = new BlockPos.MutableBlockPos().set(blockpos$Mutable);
         blockState = world.getBlockState(temp.above());
         while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
             temp.move(Direction.UP);

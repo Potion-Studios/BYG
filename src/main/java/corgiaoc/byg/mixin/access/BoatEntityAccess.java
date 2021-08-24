@@ -1,10 +1,10 @@
 package corgiaoc.byg.mixin.access;
 
-import net.minecraft.entity.item.BoatEntity;
+import net.minecraft.world.entity.vehicle.Boat;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(BoatEntity.class)
+@Mixin(Boat.class)
 public interface BoatEntityAccess {
 
     @Accessor
@@ -14,5 +14,5 @@ public interface BoatEntityAccess {
     void setLastYd(double lastYd);
 
     @Accessor
-    BoatEntity.Status getStatus();
+    Boat.Status getStatus();
 }

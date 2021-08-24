@@ -3,9 +3,9 @@ package corgiaoc.byg.common.properties.vanilla;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.mixin.access.FireBlockAccess;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FireBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FireBlock;
 
 public class BYGFlammables {
     public static void flammableBlock(Block block, int flameOdd, int burnOdd) {

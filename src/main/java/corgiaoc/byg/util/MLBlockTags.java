@@ -1,21 +1,22 @@
 package corgiaoc.byg.util;
 
-import net.minecraft.block.Block;
+import corgiaoc.byg.mixin.access.BlockTagsAccess;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.level.block.Block;
 
 public class MLBlockTags {
 
-    public static final String MOD_LOADER_TAG_TARGET = "forge";
+    public static final String MOD_LOADER_TAG_TARGET = "c";
 
-    public static final ITag.INamedTag<Block> NETHERRACK = createTag("netherrack");
-    public static final ITag.INamedTag<Block> DIRT = createTag("dirt");
-    public static final ITag.INamedTag<Block> END_STONES = createTag("end_stones");
-    public static final ITag.INamedTag<Block> ORES = createTag("ores");
+    public static final Tag.Named<Block> NETHERRACK = createTag("netherrack");
+    public static final Tag.Named<Block> DIRT = createTag("dirt");
+    public static final Tag.Named<Block> END_STONES = createTag("end_stones");
+    public static final Tag.Named<Block> ORES = createTag("ores");
 
 
-    public static ITag.INamedTag<Block> createTag(String path) {
-        return BlockTags.bind(new ResourceLocation(MOD_LOADER_TAG_TARGET, path).toString());
+    public static Tag.Named<Block> createTag(String path) {
+        return BlockTagsAccess.invokeBind(new ResourceLocation(MOD_LOADER_TAG_TARGET, path).toString());
     }
 }

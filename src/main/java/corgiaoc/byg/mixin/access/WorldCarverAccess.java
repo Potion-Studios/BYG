@@ -1,7 +1,7 @@
 package corgiaoc.byg.mixin.access;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.gen.carver.WorldCarver;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 

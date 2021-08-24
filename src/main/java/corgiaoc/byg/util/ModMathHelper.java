@@ -1,7 +1,7 @@
 package corgiaoc.byg.util;
 
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3f;
+import com.mojang.math.Vector3f;
+import net.minecraft.util.Mth;
 
 import java.util.Random;
 //Credits to BetterEnd & Pauelevs
@@ -24,9 +24,9 @@ import java.util.Random;
 
     public static int getColor(int r, int g, int b)
     {
-        r = MathHelper.clamp(r, 0, 255);
-        g = MathHelper.clamp(g, 0, 255);
-        b = MathHelper.clamp(b, 0, 255);
+        r = Mth.clamp(r, 0, 255);
+        g = Mth.clamp(g, 0, 255);
+        b = Mth.clamp(b, 0, 255);
         return color(r, g, b);
     }
 

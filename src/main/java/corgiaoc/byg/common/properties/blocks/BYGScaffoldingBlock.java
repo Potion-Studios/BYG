@@ -1,35 +1,34 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
-import net.minecraft.block.ScaffoldingBlock;
-import net.minecraft.entity.item.FallingBlockEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.ScaffoldingBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.Random;
 
-public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLoggable {
+public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWaterloggedBlock {
 
-    protected BYGScaffoldingBlock(AbstractBlock.Properties properties) {
+    protected BYGScaffoldingBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
         return useContext.getItemInHand().getItem() == this.asItem();
     }
 
-    public static int calculateDISTANCE(IBlockReader blockReader, BlockPos pos) {
-        BlockPos.Mutable blockpos$mutable = (new BlockPos.Mutable().set(pos)).move(Direction.DOWN);
+    public static int calculateDISTANCE(BlockGetter blockReader, BlockPos pos) {
+        BlockPos.MutableBlockPos blockpos$mutable = (new BlockPos.MutableBlockPos().set(pos)).move(Direction.DOWN);
         BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
         int i = 7;
         if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
@@ -52,15 +51,15 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos blockpos = context.getClickedPos();
-        World world = context.getLevel();
+        Level world = context.getLevel();
         int i = calculateDISTANCE(world, blockpos);
         return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(world, blockpos, i)));
     }
 
     @Override
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
         int i = calculateDISTANCE(worldIn, pos);
         BlockState blockstate = state.setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
         if (blockstate.getValue(DISTANCE) == 7) {
@@ -76,16 +75,16 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLogga
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         return calculateDISTANCE(worldIn, pos) < 7;
     }
 
-    private boolean shouldBeBOTTOM(IBlockReader blockReader, BlockPos pos, int DISTANCE) {
+    private boolean shouldBeBOTTOM(BlockGetter blockReader, BlockPos pos, int DISTANCE) {
         return DISTANCE > 0 && blockReader.getBlockState(pos.below()).getBlock() != this;
     }
 
     @Override
-    public void onPlace(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
+    public void onPlace(BlockState state, Level worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         if (!worldIn.isClientSide) {
             worldIn.getBlockTicks().scheduleTick(pos, this, 1);
         }

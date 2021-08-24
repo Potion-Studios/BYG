@@ -4,19 +4,19 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.QuartzSpikeConfig;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.pattern.BlockStateMatcher;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
 public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
-    private static final BlockStateMatcher IS_QUARTZ_SAND = BlockStateMatcher.forBlock(BYGBlocks.QUARTZITE_SAND);
-    private static final BlockStateMatcher IS_AIR = BlockStateMatcher.forBlock(Blocks.CAVE_AIR);
+    private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND);
+    private static final BlockStatePredicate IS_AIR = BlockStatePredicate.forBlock(Blocks.CAVE_AIR);
 
 
     public QuartzSpikeFeature(Codec<QuartzSpikeConfig> codec) {
@@ -24,7 +24,7 @@ public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, QuartzSpikeConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, QuartzSpikeConfig config) {
 
         if (!IS_QUARTZ_SAND.test(world.getBlockState(pos.below()))){
             return false;

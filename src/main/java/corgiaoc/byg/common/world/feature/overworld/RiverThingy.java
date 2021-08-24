@@ -2,18 +2,18 @@ package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class RiverThingy extends Feature<NoFeatureConfig> {
-    public RiverThingy(Codec<NoFeatureConfig> config) {
+public class RiverThingy extends Feature<NoneFeatureConfiguration> {
+    public RiverThingy(Codec<NoneFeatureConfiguration> config) {
         super(config);
     }
 
@@ -21,9 +21,9 @@ public class RiverThingy extends Feature<NoFeatureConfig> {
     FastNoise fastNoise2 = null;
     FastNoise fastNoise3 = null;
 
-    public boolean place(ISeedReader worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         setSeed(worldIn.getSeed());
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         int multiplier = 15;
 
         for (int x = 0; x < 16; x++) {

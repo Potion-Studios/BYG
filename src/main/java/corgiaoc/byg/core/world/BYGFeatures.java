@@ -150,22 +150,25 @@ import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree3;
 import corgiaoc.byg.common.world.feature.overworld.volcano.VolcanoFeature;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static corgiaoc.byg.core.world.util.WorldGenRegistrationHelper.createFeature;
 
-
 public class BYGFeatures {
 
     public static List<Feature<?>> features = new ArrayList<>();
 
-    public static final Feature<NoFeatureConfig> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoFeatureConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoFeatureConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoFeatureConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> HUH = createFeature("river_feature", new RiverThingy(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoneFeatureConfiguration.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoneFeatureConfiguration.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> HUH = createFeature("river_feature", new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
@@ -183,10 +186,10 @@ public class BYGFeatures {
     public static final Feature<Simple2BlockProviderConfig> ICE_SNOW = createFeature("ice_and_snow", new ConfigurableIceAndSnow(Simple2BlockProviderConfig.CODEC.stable()));
 
     //Lakes
-    public static final Feature<BlockStateFeatureConfig> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateFeatureConfig.CODEC.stable()));
+    public static final Feature<BlockStateConfiguration> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> WIDE_LAKE = createFeature("wide_lake", new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final Feature<NoFeatureConfig> END_LAKE = createFeature("end_lake", new EndLakeFeature());
-    public static final Feature<NoFeatureConfig> OVERWORLD_LAKE = createFeature("overworld_lake", new OverworldLakeFeature());
+    public static final Feature<NoneFeatureConfiguration> END_LAKE = createFeature("end_lake", new EndLakeFeature());
+    public static final Feature<NoneFeatureConfiguration> OVERWORLD_LAKE = createFeature("overworld_lake", new OverworldLakeFeature());
 
     //Pumpkins
     public static final Feature<PumpkinConfig> LARGE_PUMPKIN1 = createFeature("pumpkin", new LargePumpkin1(PumpkinConfig.CODEC.stable()));
@@ -312,7 +315,7 @@ public class BYGFeatures {
     public static final Feature<HangingColumnWithBaseConfig> HANGING_FEATURE = createFeature("hanging_feature", new HangingColumnWithBase(HangingColumnWithBaseConfig.CODEC.stable()));
 
     //Sythian
-    public static final Feature<ProbabilityConfig> SYTHIAN_STALK = createFeature("sythian_stalk", new SythianStalk(ProbabilityConfig.CODEC.stable()));
+    public static final Feature<ProbabilityFeatureConfiguration> SYTHIAN_STALK = createFeature("sythian_stalk", new SythianStalk(ProbabilityFeatureConfiguration.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE1 = createFeature("sythian_fungus_tree1", new SythianFungusTree1(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE2 = createFeature("sythian_fungus_tree2", new SythianFungusTree2(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> SYTHIAN_FUNGUS_TREE3 = createFeature("sythian_fungus_tree3", new SythianFungusTree3(BYGMushroomConfig.CODEC.stable()));
@@ -332,7 +335,7 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WARPED_FUNGUS_TREE2 = createFeature("warped_fungus_tree2", new WarpedFungus2(BYGMushroomConfig.CODEC.stable()));
 
     //Wailing
-    public static final Feature<NoFeatureConfig> WAILING_VINES = createFeature("wailing_vine", new WailingVine(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> WAILING_VINES = createFeature("wailing_vine", new WailingVine(NoneFeatureConfiguration.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WAILING_PILLAR1 = createFeature("wailing_pillar1", new WailingPillar1(BYGTreeConfig.CODEC.stable()));
 
     //Embur
@@ -346,11 +349,11 @@ public class BYGFeatures {
     public static final Feature<HangingColumnConfig> HANGING_COLUMN = createFeature("hanging_column", new HangingColumn(HangingColumnConfig.CODEC.stable()));
 
     //QuartzDesert
-    public static final Feature<ColumnConfig> QUARTZ_COLUMNS = createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnConfig.CODEC.stable()));
+    public static final Feature<ColumnFeatureConfiguration> QUARTZ_COLUMNS = createFeature("quartz_columns", new RawQuartzColumnFeature(ColumnFeatureConfiguration.CODEC.stable()));
     public static final Feature<QuartzSpikeConfig> QUARTZ_SPIKES = createFeature("quartz_spikes", new QuartzSpikeFeature(QuartzSpikeConfig.CODEC.stable()));
 
     //Subzero
-    public static final Feature<NoFeatureConfig> SUBZERO_CRYSTAL = createFeature("subzero_crystal", new SubzeroCrystalFeature(NoFeatureConfig.CODEC.stable()));
+    public static final Feature<NoneFeatureConfiguration> SUBZERO_CRYSTAL = createFeature("subzero_crystal", new SubzeroCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
 
     /********************************************************************Structures***********************************************************************/
 

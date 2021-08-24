@@ -2,18 +2,18 @@ package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
 import corgiaoc.byg.core.BYGBlocks;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.block.BambooBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.properties.BambooLeaves;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BambooLeaves;
+import net.minecraft.world.level.material.FluidState;
 
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class SythianStalkBlock extends BambooBlock {
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext ctx) {
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
         if (!fluidState.isEmpty()) {
             return null;
@@ -49,23 +49,14 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
         if (!state.canSurvive(worldIn, pos)) {
             worldIn.destroyBlock(pos, true);
-        } else if (state.getValue(STAGE) == 0) {
-            if (true) {
-                int i = this.getHeightBelowUpToMax(worldIn, pos) + 1;
-                if (i < 16 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(3) == 0 && worldIn.isEmptyBlock(pos.above()) && worldIn.getRawBrightness(pos.above(), 0) <= 12)) {
-                    this.growBamboo(state, worldIn, pos, rand, i);
-                    net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state);
-                }
-            }
-
         }
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState state2, IWorld world, BlockPos pos, BlockPos posFrom) {
+    public BlockState updateShape(BlockState state, Direction direction, BlockState state2, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
         if (!state.canSurvive(world, pos)) {
             world.getBlockTicks().scheduleTick(pos, this, 1);
         }
@@ -78,7 +69,7 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    protected void growBamboo(BlockState state, World world, BlockPos pos, Random rand, int i) {
+    protected void growBamboo(BlockState state, Level world, BlockPos pos, Random rand, int i) {
         BlockState stateDOWN = world.getBlockState(pos.below());
         BlockPos posDOWN2 = pos.below(2);
         BlockState blockStateDOWN2 = world.getBlockState(posDOWN2);
@@ -103,7 +94,7 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK;
     }
 

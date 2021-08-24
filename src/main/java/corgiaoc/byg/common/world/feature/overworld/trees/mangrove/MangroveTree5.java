@@ -3,10 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.mangrove;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
@@ -17,10 +17,10 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = 6 + rand.nextInt(5);
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
@@ -40,10 +40,10 @@ public class MangroveTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 mainmutable.set(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.offset(0, 0, -3));
-                BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.offset(-3, 0, 0));
-                BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.offset(3, 0, 0));
-                BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.offset(0, 0, 3));
+                BlockPos.MutableBlockPos rootMutable = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, -3));
+                BlockPos.MutableBlockPos rootMutable2 = new BlockPos.MutableBlockPos().set(mainmutable.offset(-3, 0, 0));
+                BlockPos.MutableBlockPos rootMutable3 = new BlockPos.MutableBlockPos().set(mainmutable.offset(3, 0, 0));
+                BlockPos.MutableBlockPos rootMutable4 = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, 3));
 
 
                 placeBranch(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(0, 1, -2), boundsIn);

@@ -3,13 +3,13 @@ package corgiaoc.byg.common.world.feature.overworld.pumpkins;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.PumpkinConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -20,12 +20,12 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
         int height = posY + 5;
 
         if (world.getBlockState(pos.below()) == config.getPumpkinProvider().getState(rand, pos) || !world.getBlockState(pos.below()).canOcclude())
@@ -95,13 +95,13 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
         return true;
     }
 
-    private void setPumpkinState(Random rand, BlockPos pos, PumpkinConfig config, ISeedReader world) {
+    private void setPumpkinState(Random rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos) || FeatureUtil.isPlant(world, pos)) {
             world.setBlock(pos, config.getPumpkinProvider().getState(rand, pos), 2);
         }
     }
 
-    private void setLeavesState(Random rand, BlockPos pos, PumpkinConfig config, ISeedReader world) {
+    private void setLeavesState(Random rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos)) {
             BlockState state = config.getLeavesProvider().getState(rand, pos);
             if (state.hasProperty(BlockStateProperties.PERSISTENT))

@@ -1,27 +1,26 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.Property;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class CrystalClusterBlock extends Block implements IWaterLoggable {
+public class CrystalClusterBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -31,7 +30,7 @@ public class CrystalClusterBlock extends Block implements IWaterLoggable {
     protected final VoxelShape westAabb;
     protected final VoxelShape upAabb;
     protected final VoxelShape downAabb;
-    public CrystalClusterBlock(int i, int j, AbstractBlock.Properties properties) {
+    public CrystalClusterBlock(int i, int j, Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, true).setValue(WATERLOGGED, false).setValue(FACING, Direction.UP));
         this.upAabb = Block.box(j, 0.0D,  j, 16 - j,  i,  (16 - j));
@@ -42,7 +41,7 @@ public class CrystalClusterBlock extends Block implements IWaterLoggable {
         this.westAabb = Block.box( (16 - i),  j,  j, 16.0D,  (16 - j),  (16 - j));
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
         switch(direction) {
             case NORTH:
@@ -61,13 +60,13 @@ public class CrystalClusterBlock extends Block implements IWaterLoggable {
         }
     }
 
-    public boolean canSurvive(BlockState state, IBlockReader world, BlockPos pos) {
+    public boolean canSurvive(BlockState state, BlockGetter world, BlockPos pos) {
         Direction direction = state.getValue(FACING);
         BlockPos blockPos = pos.relative(direction.getOpposite());
         return world.getBlockState(blockPos).isFaceSturdy(world, blockPos, direction);
     }
 
-    public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, IWorld levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
+    public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
         if (blockState.getValue(WATERLOGGED)) {
             levelAccessor.getLiquidTicks().scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
         }
@@ -76,8 +75,8 @@ public class CrystalClusterBlock extends Block implements IWaterLoggable {
     }
 
     @Nullable
-    public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-        IWorld levelAccessor = ctx.getLevel();
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        LevelAccessor levelAccessor = ctx.getLevel();
         BlockPos blockPos = ctx.getClickedPos();
         return this.defaultBlockState().setValue(WATERLOGGED, levelAccessor.getFluidState(blockPos).getType() == Fluids.WATER).setValue(FACING, ctx.getClickedFace());
     }
@@ -94,7 +93,7 @@ public class CrystalClusterBlock extends Block implements IWaterLoggable {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{WATERLOGGED, LIT, FACING});
     }
 

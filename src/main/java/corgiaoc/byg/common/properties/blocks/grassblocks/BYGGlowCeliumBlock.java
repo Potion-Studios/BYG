@@ -1,37 +1,37 @@
 package corgiaoc.byg.common.properties.blocks.grassblocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.IGrowable;
-import net.minecraft.block.SpreadableSnowyDirtBlock;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.FlowersFeature;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.SpreadingSnowyDirtBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.AbstractFlowerFeature;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 import java.util.List;
 import java.util.Random;
 
-public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGrowable {
+public class BYGGlowCeliumBlock extends SpreadingSnowyDirtBlock implements BonemealableBlock {
     public BYGGlowCeliumBlock(Properties properties) {
         super(properties);
     }
 
-    public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return worldIn.getBlockState(pos.above()).isAir();
     }
 
-    public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState blockState, World world, BlockPos blockPos, Random rand) {
+    @Environment(EnvType.CLIENT)
+    public void animateTick(BlockState blockState, Level world, BlockPos blockPos, Random rand) {
         super.animateTick(blockState, world, blockPos, rand);
         if (rand.nextInt(10) == 0) {
             world.addParticle(ParticleTypes.MYCELIUM, (double) blockPos.getX() + (double) rand.nextFloat(), (double) blockPos.getY() + 1.1D, (double) blockPos.getZ() + (double) rand.nextFloat(), 0.0D, 0.0D, 0.0D);
@@ -39,7 +39,7 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
 
     }
 
-    public void performBonemeal(ServerWorld world, Random rand, BlockPos blockPos, BlockState state) {
+    public void performBonemeal(ServerLevel world, Random rand, BlockPos blockPos, BlockState state) {
         BlockPos blockpos = blockPos.above();
         BlockState blockstate = Blocks.GRASS.defaultBlockState();
 
@@ -51,7 +51,7 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
                 if (j >= i / 16) {
                     BlockState blockstate2 = world.getBlockState(blockpos1);
                     if (blockstate2.getBlock() == blockstate.getBlock() && rand.nextInt(10) == 0) {
-                        ((IGrowable) blockstate.getBlock()).performBonemeal(world, rand, blockpos1, blockstate2);
+                        ((BonemealableBlock) blockstate.getBlock()).performBonemeal(world, rand, blockpos1, blockstate2);
                     }
 
                     if (!blockstate2.isAir()) {
@@ -66,7 +66,7 @@ public class BYGGlowCeliumBlock extends SpreadableSnowyDirtBlock implements IGro
                         }
 
                         ConfiguredFeature<?, ?> configuredfeature = list.get(0);
-                        FlowersFeature flowersfeature = (FlowersFeature) configuredfeature.feature;
+                        AbstractFlowerFeature flowersfeature = (AbstractFlowerFeature) configuredfeature.feature;
                         blockstate1 = flowersfeature.getRandomFlower(rand, blockpos1, configuredfeature.config());
                     } else {
                         blockstate1 = blockstate;

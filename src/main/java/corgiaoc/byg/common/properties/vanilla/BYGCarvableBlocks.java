@@ -2,9 +2,9 @@ package corgiaoc.byg.common.properties.vanilla;
 
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.mixin.access.WorldCarverAccess;
-import net.minecraft.block.Block;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.carver.WorldCarver;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 
 import java.util.HashSet;
 import java.util.Set;

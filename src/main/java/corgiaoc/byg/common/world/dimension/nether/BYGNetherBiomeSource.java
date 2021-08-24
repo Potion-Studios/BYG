@@ -9,18 +9,18 @@ import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.common.world.dimension.end.SimpleLayerProvider;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryLookupCodec;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryLookupCodec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unchecked")
-public class BYGNetherBiomeSource extends BiomeProvider {
+public class BYGNetherBiomeSource extends BiomeSource {
     public static final Codec<BYGNetherBiomeSource> BYGNETHERCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGNetherBiomeSource::new)));
 
     private final DatapackLayer biomeLayer;
@@ -46,7 +46,7 @@ public class BYGNetherBiomeSource extends BiomeProvider {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 edges.put(biome, edgeBiome);
             }
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
         }));
 
         edges.remove(BYG.EMPTY);
@@ -57,12 +57,12 @@ public class BYGNetherBiomeSource extends BiomeProvider {
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> codec() {
+    protected Codec<? extends BiomeSource> codec() {
         return BYGNETHERCODEC;
     }
 
     @Override
-    public BiomeProvider withSeed(long seed) {
+    public BiomeSource withSeed(long seed) {
         return new BYGNetherBiomeSource(biomeRegistry, seed);
     }
 

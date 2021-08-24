@@ -1,30 +1,30 @@
 package corgiaoc.byg.common.properties.blocks.nether.weepingmire;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractBodyPlantBlock;
-import net.minecraft.block.AbstractTopPlantBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantBodyBlock;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class LamentVinePlantBlock extends AbstractBodyPlantBlock {
+public class LamentVinePlantBlock extends GrowingPlantBodyBlock {
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     protected LamentVinePlantBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    protected AbstractTopPlantBlock getHeadBlock() {
-        return (AbstractTopPlantBlock) BYGBlocks.LAMENT_VINE;
+    protected GrowingPlantHeadBlock getHeadBlock() {
+        return (GrowingPlantHeadBlock) BYGBlocks.LAMENT_VINE;
     }
 
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
     }
 }
 

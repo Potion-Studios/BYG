@@ -2,14 +2,11 @@ package corgiaoc.byg.config;
 
 import com.electronwill.nightconfig.core.CommentedConfig;
 import corgiaoc.byg.BYG;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeDictionary;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 
 import java.nio.file.Path;
 import java.util.Arrays;
-
-import static net.minecraftforge.common.BiomeDictionary.Type.getType;
 
 public class WorldConfig {
     private final AbstractCommentedConfigHelper configHelper;
@@ -63,7 +60,7 @@ public class WorldConfig {
         this.configHelper.build();
     }
 
-    public static boolean conditionPasses(String conditionString, RegistryKey<Biome> biomeKey, Biome biome) {
+    public static boolean conditionPasses(String conditionString, ResourceKey<Biome> biomeKey, Biome biome) {
         if (conditionString.isEmpty()) {
             return false;
         }
@@ -84,7 +81,7 @@ public class WorldConfig {
                 }
                 if (result.startsWith("#")) {
                     String categoryString = result.substring(1);
-                    categoryExists = Arrays.stream(Biome.Category.values()).anyMatch(bc -> bc.toString().equalsIgnoreCase(categoryString));
+                    categoryExists = Arrays.stream(Biome.BiomeCategory.values()).anyMatch(bc -> bc.toString().equalsIgnoreCase(categoryString));
                     if (!categoryExists) {
                         BYG.LOGGER.error("\"" + categoryString + "\" is not a valid biome category!");
                     }
@@ -98,9 +95,7 @@ public class WorldConfig {
                 if (result.startsWith("!")) {
                     result = result.substring(1);
                 }
-                if (result.startsWith("$")) {
-                    fail = BiomeDictionary.hasType(biomeKey, getType(result.substring(1).toUpperCase()));
-                } else if (result.startsWith("#")) {
+                if (result.startsWith("#")) {
                     String categoryString = result.substring(1);
                     fail = !biome.getBiomeCategory().getName().equalsIgnoreCase(categoryString);
                 } else if (!biomeLocation.equalsIgnoreCase(result) && !result.equalsIgnoreCase(biomeNamespace)) {

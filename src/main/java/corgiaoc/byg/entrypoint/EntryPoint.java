@@ -1,7 +1,7 @@
 package corgiaoc.byg.entrypoint;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.network.IPacket;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.entity.Entity;
 
 import java.nio.file.Path;
 
@@ -10,5 +10,5 @@ public interface EntryPoint {
     Path configDirectory();
 
 
-    IPacket<?> getEntitySpawnPacket(Entity entity);
+    Packet<?> getEntitySpawnPacket(Entity entity);
 }

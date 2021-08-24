@@ -2,30 +2,30 @@ package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BeehiveBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tileentity.BeehiveTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Bee;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.BeehiveBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class BeeHiveFeature extends Feature<NoFeatureConfig> {
-    public BeeHiveFeature(Codec<NoFeatureConfig> codec) {
+public class BeeHiveFeature extends Feature<NoneFeatureConfiguration> {
+    public BeeHiveFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         if (world.isEmptyBlock(pos) && world.isEmptyBlock(pos.below())){
             if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS) || world.getBlockState(pos.above()).is(BYGBlocks.EMBUR_GEL_BLOCK)) {
                 Direction direction;
@@ -42,14 +42,14 @@ public class BeeHiveFeature extends Feature<NoFeatureConfig> {
                 BlockState beeHiveState = Blocks.BEE_NEST.defaultBlockState().setValue(BeehiveBlock.FACING, direction);
 
                 world.setBlock(pos, beeHiveState, 2);
-                TileEntity tileEntity = world.getBlockEntity(pos);
+                BlockEntity tileEntity = world.getBlockEntity(pos);
 
-                if (tileEntity instanceof BeehiveTileEntity) {
-                    BeehiveTileEntity beehiveTileEntity = (BeehiveTileEntity) tileEntity;
+                if (tileEntity instanceof BeehiveBlockEntity) {
+                    BeehiveBlockEntity beehiveTileEntity = (BeehiveBlockEntity) tileEntity;
                     int beeCount = rand.nextInt(4);
 
                     for (int bee = 0; bee <= beeCount; bee++) {
-                        BeeEntity beeEntity = new BeeEntity(EntityType.BEE, world.getLevel());
+                        Bee beeEntity = new Bee(EntityType.BEE, world.getLevel());
                         beehiveTileEntity.addOccupantWithPresetTicks(beeEntity, false, rand.nextInt(599));
                     }
                 }

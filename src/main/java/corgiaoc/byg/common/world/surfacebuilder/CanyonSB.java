@@ -3,19 +3,19 @@ package corgiaoc.byg.common.world.surfacebuilder;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.Random;
 
-public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
-    public CanyonSB(Codec<SurfaceBuilderConfig> config) {
+public class CanyonSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
+    public CanyonSB(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
@@ -29,9 +29,9 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
     public BlockState layerBlock = Blocks.TERRACOTTA.defaultBlockState();
 
-    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int groundHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         initNoise(seed);
-        BlockPos.Mutable block = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;
 
@@ -167,7 +167,7 @@ public class CanyonSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         }
     }
 
-    public static SurfaceBuilderConfig randomSurfaceConfig(Random random) {
+    public static SurfaceBuilderBaseConfiguration randomSurfaceConfig(Random random) {
         int randomizer = random.nextInt(7);
         if (randomizer == 1) {
             return BYGSurfaceBuilders.Configs.GRASSMOUNTAIN_CF;

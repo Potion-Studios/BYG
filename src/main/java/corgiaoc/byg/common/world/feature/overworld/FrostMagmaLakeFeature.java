@@ -2,32 +2,32 @@ package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.LightType;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
-public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
+public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
     private static final BlockState AIR;
 
     static {
         AIR = Blocks.AIR.defaultBlockState();
     }
 
-    public FrostMagmaLakeFeature(Codec<BlockStateFeatureConfig> config) {
+    public FrostMagmaLakeFeature(Codec<BlockStateConfiguration> config) {
         super(config);
     }
 
-    public boolean place(ISeedReader world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateFeatureConfig blockStateFeatureConfig) {
+    public boolean place(WorldGenLevel world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateConfiguration blockStateFeatureConfig) {
         while (blockPos.getY() > 5 && world.isEmptyBlock(blockPos)) {
             blockPos = blockPos.below();
         }
@@ -104,7 +104,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateFeatureConfig> {
                     for (lvt_11_4_ = 4; lvt_11_4_ < 8; ++lvt_11_4_) {
                         if (flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_]) {
                             lvt_12_5_ = blockPos.offset(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
-                            if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getBrightness(LightType.SKY, blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
+                            if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getBrightness(LightLayer.SKY, blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
                                 if (lvt_13_2_.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial().getBlock() == BYGBlocks.FROST_MAGMA) {
                                     world.setBlock(lvt_12_5_, BYGBlocks.FROST_MAGMA.defaultBlockState(), 2);

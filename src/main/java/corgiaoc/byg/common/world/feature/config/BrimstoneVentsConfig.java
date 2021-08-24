@@ -3,14 +3,14 @@ package corgiaoc.byg.common.world.feature.config;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
-public class BrimstoneVentsConfig implements IFeatureConfig {
+public class BrimstoneVentsConfig implements FeatureConfiguration {
 
     public static final Codec<BrimstoneVentsConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
@@ -39,26 +39,26 @@ public class BrimstoneVentsConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(BYGBlocks.BRIMSTONE.defaultBlockState());
-        private BlockStateProvider lavaProvider = new SimpleBlockStateProvider(Blocks.LAVA.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleStateProvider(BYGBlocks.BRIMSTONE.defaultBlockState());
+        private BlockStateProvider lavaProvider = new SimpleStateProvider(Blocks.LAVA.defaultBlockState());
 
-        public BrimstoneVentsConfig.Builder setBlock(Block block) {
-            this.blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+        public Builder setBlock(Block block) {
+            this.blockProvider = new SimpleStateProvider(block.defaultBlockState());
             return this;
         }
 
-        public BrimstoneVentsConfig.Builder setBlock(BlockState state) {
-            this.blockProvider = new SimpleBlockStateProvider(state);
+        public Builder setBlock(BlockState state) {
+            this.blockProvider = new SimpleStateProvider(state);
             return this;
         }
 
-        public BrimstoneVentsConfig.Builder setLavaBlock(Block block) {
-            this.lavaProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+        public Builder setLavaBlock(Block block) {
+            this.lavaProvider = new SimpleStateProvider(block.defaultBlockState());
             return this;
         }
 
-        public BrimstoneVentsConfig.Builder setLavaBlock(BlockState state) {
-            this.lavaProvider = new SimpleBlockStateProvider(state);
+        public Builder setLavaBlock(BlockState state) {
+            this.lavaProvider = new SimpleStateProvider(state);
             return this;
         }
 

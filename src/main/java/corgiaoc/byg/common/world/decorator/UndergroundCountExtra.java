@@ -2,11 +2,11 @@ package corgiaoc.byg.common.world.decorator;
 
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.WorldDecoratingHelper;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.placement.DecorationContext;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -14,13 +14,13 @@ import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
+public class UndergroundCountExtra extends FeatureDecorator<FrequencyWithExtraChanceDecoratorConfiguration> {
 
-    public UndergroundCountExtra(Codec<AtSurfaceWithExtraConfig> codec) {
+    public UndergroundCountExtra(Codec<FrequencyWithExtraChanceDecoratorConfiguration> codec) {
         super(codec);
     }
 
-    public Stream<BlockPos> getPositions(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(DecorationContext decoratorContext, Random random, FrequencyWithExtraChanceDecoratorConfiguration config, BlockPos pos) {
         int c = config.count;
         if (random.nextFloat() < config.extraChance) {
             c += config.extraCount;
@@ -34,7 +34,7 @@ public class UndergroundCountExtra extends Placement<AtSurfaceWithExtraConfig> {
             int x = random.nextInt(16);
             int z = random.nextInt(16);
             BlockPos newPos = new BlockPos(pos.offset(x, 0, z));
-            int height = decoratorContext.getHeight(Heightmap.Type.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
+            int height = decoratorContext.getHeight(Heightmap.Types.MOTION_BLOCKING, newPos.getX(), newPos.getZ()) - 5;
 
             while (height > 15) {
                 airBlock = decoratorContext.getBlockState(pos.offset(x, height, z)).isAir();

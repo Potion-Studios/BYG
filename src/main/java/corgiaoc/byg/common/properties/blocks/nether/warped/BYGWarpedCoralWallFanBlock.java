@@ -1,14 +1,13 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DeadCoralWallFanBlock;
-import net.minecraft.util.Direction;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.BaseCoralWallFanBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
-    protected BYGWarpedCoralWallFanBlock(AbstractBlock.Properties block) {
+public class BYGWarpedCoralWallFanBlock extends BaseCoralWallFanBlock {
+    protected BYGWarpedCoralWallFanBlock(Properties block) {
         super(block);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }

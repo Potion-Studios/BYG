@@ -2,16 +2,16 @@ package corgiaoc.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
 import java.util.Random;
 
-public class NoisySphereConfig implements IFeatureConfig {
+public class NoisySphereConfig implements FeatureConfiguration {
 
     public static final Codec<NoisySphereConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
@@ -171,8 +171,8 @@ public class NoisySphereConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
-        private BlockStateProvider topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
+        private BlockStateProvider topBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
         private int minStackHeight = 1;
         private int maxStackHeight = 1;
         private int minXRadius = 1;
@@ -187,17 +187,17 @@ public class NoisySphereConfig implements IFeatureConfig {
 
         public Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                blockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public Builder setBlock(BlockState state) {
             if (state != null)
-                blockProvider = new SimpleBlockStateProvider(state);
+                blockProvider = new SimpleStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -205,23 +205,23 @@ public class NoisySphereConfig implements IFeatureConfig {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public Builder setTopBlock(Block block) {
             if (block != null)
-                topBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                topBlockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public Builder setTopBlock(BlockState state) {
             if (state != null)
-                topBlockProvider = new SimpleBlockStateProvider(state);
+                topBlockProvider = new SimpleStateProvider(state);
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -229,7 +229,7 @@ public class NoisySphereConfig implements IFeatureConfig {
             if (provider != null)
                 topBlockProvider = provider;
             else
-                topBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 

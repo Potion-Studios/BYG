@@ -4,23 +4,23 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.particles.IParticleData;
-import net.minecraft.particles.ParticleType;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.Mth;
 
 import java.util.Locale;
 
-public class BoricFlameParticle extends DeceleratingParticle implements IParticleData {
-    public BoricFlameParticle(ClientWorld world, double x, double y, double z, double motionX, double motionY, double motionZ) {
+public class BoricFlameParticle extends RisingParticle implements ParticleOptions {
+    public BoricFlameParticle(ClientLevel world, double x, double y, double z, double motionX, double motionY, double motionZ) {
         super(world, x, y, z, motionX, motionY, motionZ);
     }
 
-    public IParticleRenderType getRenderType() {
-        return IParticleRenderType.PARTICLE_SHEET_OPAQUE;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
     public void move(double motionX, double motionY, double motionZ) {
@@ -35,7 +35,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
 
     public int getLightColor(float color) {
         float f = ((float) this.age + color) / (float) this.lifetime;
-        f = MathHelper.clamp(f, 0.0F, 1.0F);
+        f = Mth.clamp(f, 0.0F, 1.0F);
         int i = super.getLightColor(color);
         int j = i & 255;
         int k = i >> 16 & 255;
@@ -53,7 +53,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
     }
 
     @Override
-    public void writeToNetwork(PacketBuffer p_197553_1_) {
+    public void writeToNetwork(FriendlyByteBuf p_197553_1_) {
 
     }
 
@@ -63,21 +63,21 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
     }
 
 
-    public static class Factory implements IParticleFactory<BoricParticleData> {
-        private final IAnimatedSprite spriteSet;
+    public static class Factory implements ParticleProvider<BoricParticleData> {
+        private final SpriteSet spriteSet;
 
-        public Factory(IAnimatedSprite spriteIn) {
+        public Factory(SpriteSet spriteIn) {
             this.spriteSet = spriteIn;
         }
 
-        public Particle createParticle(BoricParticleData particle, ClientWorld world, double x, double y, double z, double motionX, double motionY, double motionZ) {
+        public Particle createParticle(BoricParticleData particle, ClientLevel world, double x, double y, double z, double motionX, double motionY, double motionZ) {
             BoricFlameParticle flameparticle = new BoricFlameParticle(world, x, y, z, motionX, motionY, motionZ);
             flameparticle.pickSprite(spriteSet);
             return flameparticle;
         }
     }
 
-    public static class BoricParticleData implements IParticleData {
+    public static class BoricParticleData implements ParticleOptions {
         public static final BoricParticleData BORIC = new BoricParticleData(0.0F, 1.0F, 0.2F, 1.0F);
         public static final Codec<BoricParticleData> CODEC = RecordCodecBuilder.create((p_239803_0_) -> {
             return p_239803_0_.group(Codec.FLOAT.fieldOf("r").forGetter((p_239807_0_) -> {
@@ -91,7 +91,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
             })).apply(p_239803_0_, BoricParticleData::new);
         });
 
-        public static final IParticleData.IDeserializer<BoricParticleData> DESERIALIZER = new IParticleData.IDeserializer<BoricParticleData>() {
+        public static final Deserializer<BoricParticleData> DESERIALIZER = new Deserializer<BoricParticleData>() {
 
             @Override
             public BoricParticleData fromCommand(ParticleType<BoricParticleData> particleTypeIn,
@@ -110,7 +110,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
 
 
             @Override
-            public BoricParticleData fromNetwork(ParticleType<BoricParticleData> particleTypeIn, PacketBuffer buffer) {
+            public BoricParticleData fromNetwork(ParticleType<BoricParticleData> particleTypeIn, FriendlyByteBuf buffer) {
                 return new BoricParticleData(buffer.readFloat(), buffer.readFloat(), buffer.readFloat(),
                         buffer.readFloat());
             }
@@ -125,7 +125,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
             this.red = redIn;
             this.green = greenIn;
             this.blue = blueIn;
-            this.alpha = MathHelper.clamp(alphaIn, 0.01f, 4.0f);
+            this.alpha = Mth.clamp(alphaIn, 0.01f, 4.0f);
         }
 
         @Override
@@ -134,7 +134,7 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
         }
 
         @Override
-        public void writeToNetwork(PacketBuffer buffer) {
+        public void writeToNetwork(FriendlyByteBuf buffer) {
             buffer.writeFloat(this.red);
             buffer.writeFloat(this.green);
             buffer.writeFloat(this.blue);

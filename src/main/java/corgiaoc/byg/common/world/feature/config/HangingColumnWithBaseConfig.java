@@ -3,19 +3,19 @@ package corgiaoc.byg.common.world.feature.config;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class HangingColumnWithBaseConfig implements IFeatureConfig {
+public class HangingColumnWithBaseConfig implements FeatureConfiguration {
 
     public static final Codec<HangingColumnWithBaseConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("base_block_provider").forGetter((config) -> {
@@ -47,7 +47,7 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
         this.endBlockProvider = endBlockProvider;
         this.minLength = minLength;
         this.maxLength = maxLength;
-        this.whitelist = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
+        this.whitelist = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
 
     }
 
@@ -84,78 +84,78 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider baseBlockProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
-        private BlockStateProvider endBlockProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());;
+        private BlockStateProvider baseBlockProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+        private BlockStateProvider endBlockProvider = new SimpleStateProvider(Blocks.AIR.defaultBlockState());;
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minLength = 1;
         private int maxLength = 9;
 
-        public HangingColumnWithBaseConfig.Builder setBaseBlock(Block block) {
+        public Builder setBaseBlock(Block block) {
             if (block != null)
-                baseBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                baseBlockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                baseBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setBaseBlock(BlockState state) {
+        public Builder setBaseBlock(BlockState state) {
             if (state != null)
-                baseBlockProvider = new SimpleBlockStateProvider(state);
+                baseBlockProvider = new SimpleStateProvider(state);
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                baseBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setBaseBlock(BlockStateProvider provider) {
+        public Builder setBaseBlock(BlockStateProvider provider) {
             if (provider != null)
                 baseBlockProvider = provider;
             else
-                baseBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                baseBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setBlock(Block block) {
+        public Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                blockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setBlock(BlockState state) {
+        public Builder setBlock(BlockState state) {
             if (state != null)
-                blockProvider = new SimpleBlockStateProvider(state);
+                blockProvider = new SimpleStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setBlock(BlockStateProvider provider) {
+        public Builder setBlock(BlockStateProvider provider) {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setEndBlock(Block block) {
+        public Builder setEndBlock(Block block) {
             if (block != null)
-                endBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                endBlockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
                 endBlockProvider = blockProvider;
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setEndBlock(BlockState state) {
+        public Builder setEndBlock(BlockState state) {
             if (state != null)
-                endBlockProvider = new SimpleBlockStateProvider(state);
+                endBlockProvider = new SimpleStateProvider(state);
             else
                 endBlockProvider = blockProvider;
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setEndBlock(BlockStateProvider provider) {
+        public Builder setEndBlock(BlockStateProvider provider) {
             if (provider != null)
                 endBlockProvider = provider;
             else
@@ -163,12 +163,12 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setMinLength(int minLength) {
+        public Builder setMinLength(int minLength) {
             this.minLength = minLength;
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setMaxLength(int maxPossibleHeight) {
+        public Builder setMaxLength(int maxPossibleHeight) {
             if (maxPossibleHeight != 0)
                 this.maxLength = maxPossibleHeight + 1;
             else
@@ -176,12 +176,12 @@ public class HangingColumnWithBaseConfig implements IFeatureConfig {
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
+        public Builder setWhitelist(ImmutableList<Block> whitelist) {
             this.whitelist = whitelist;
             return this;
         }
 
-        public HangingColumnWithBaseConfig.Builder copy(HangingColumnWithBaseConfig config) {
+        public Builder copy(HangingColumnWithBaseConfig config) {
             this.baseBlockProvider = config.baseBlockProvider;
             this.blockProvider = config.blockProvider;
             this.endBlockProvider = config.endBlockProvider;

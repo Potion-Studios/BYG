@@ -3,8 +3,8 @@ package corgiaoc.byg.config.json.biomedata;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.util.MLClimate;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
 
 import java.util.ArrayList;
 import java.util.Arrays;

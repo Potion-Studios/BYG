@@ -1,9 +1,9 @@
 package corgiaoc.byg.mixin.access;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.NyliumBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.NyliumBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface NyliumBlockAccess {
 
     @Invoker
-    static boolean invokeCanBeNylium(BlockState state, IWorldReader worldReader, BlockPos pos) {
+    static boolean invokeCanBeNylium(BlockState state, LevelReader worldReader, BlockPos pos) {
         throw new Error("Mixin did not apply");
     }
 }

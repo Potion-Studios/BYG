@@ -2,27 +2,28 @@ package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.gui.HypogealImperiumContainer;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import corgiaoc.byg.mixin.access.MenuTypeAccess;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@OnlyIn(Dist.CLIENT)
+@Environment(EnvType.CLIENT)
 public class BYGContainerTypes {
 
-    public static final List<ContainerType<?>> CONTAINER_TYPES = new ArrayList<>();
+    public static final List<MenuType<?>> CONTAINER_TYPES = new ArrayList<>();
 
-    public static final ContainerType<HypogealImperiumContainer> HYPOGEAL_CONTAINER = register("bygcampfire", HypogealImperiumContainer::new);
+    public static final MenuType<HypogealImperiumContainer> HYPOGEAL_CONTAINER = register("bygcampfire", HypogealImperiumContainer::new);
 
 
-    private static <T extends Container> ContainerType<T> register(String key, ContainerType.IFactory<T> builder) {
-        ContainerType<T> containerType = new ContainerType<>(builder);
-        containerType.setRegistryName(new ResourceLocation(BYG.MOD_ID, key));
-
+    private static <T extends AbstractContainerMenu> MenuType<T> register(String key, MenuType.MenuSupplier<T> builder) {
+        MenuType<T> containerType = MenuTypeAccess.create(builder);
+        Registry.register(Registry.MENU, new ResourceLocation(BYG.MOD_ID, key), containerType);
         CONTAINER_TYPES.add(containerType);
         return containerType;
     }

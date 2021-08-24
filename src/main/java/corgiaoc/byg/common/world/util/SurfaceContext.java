@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.util;
 
 import corgiaoc.byg.BYG;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ProtoChunk;
 
 import java.lang.ref.WeakReference;
 
@@ -16,13 +16,13 @@ public class SurfaceContext {
 
     private static final ThreadLocal<SurfaceContext> CONTEXT = new ThreadLocal<>();
 
-    private final WeakReference<ServerWorld> world;
+    private final WeakReference<ServerLevel> world;
 
-    public SurfaceContext(ServerWorld world) {
+    public SurfaceContext(ServerLevel world) {
         this.world = new WeakReference<>(world);
     }
 
-    public ServerWorld getWorld() {
+    public ServerLevel getWorld() {
         return world.get();
     }
 
@@ -50,8 +50,8 @@ public class SurfaceContext {
     /**
      * Should only be called during the surface builder stage (ChunkStatus.SURFACE).
      */
-    public static void push(ServerWorld world, IChunk chunk) {
-        if (chunk instanceof ChunkPrimer) {
+    public static void push(ServerLevel world, ChunkAccess chunk) {
+        if (chunk instanceof ProtoChunk) {
             CONTEXT.set(new SurfaceContext(world));
         } else if (chunk != null) {
             // Shouldn't ever happen unless another mod has done a similar hook in ChunkStatus and changed the IChunk type

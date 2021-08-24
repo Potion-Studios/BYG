@@ -2,13 +2,13 @@ package corgiaoc.byg.common.world.surfacebuilder;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 import java.util.Random;
 
@@ -18,11 +18,11 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
     private static final BlockState BLUE_ICE = BYGBlocks.BLACK_ICE.defaultBlockState();
     private static final BlockState BLUE_ICE2 = Blocks.SNOW_BLOCK.defaultBlockState();
 
-    public ShatteredGlacierSB2(Codec<SurfaceBuilderConfig> config) {
+    public ShatteredGlacierSB2(Codec<SurfaceBuilderBaseConfiguration> config) {
         super(config);
     }
 
-    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         double d0 = 0.0D;
         double d1 = Math.min(Math.abs(noise), this.perlin1.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {
@@ -44,7 +44,7 @@ public class ShatteredGlacierSB2 extends ShatteredGlacierSB {
         boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
         int j = -1;
         boolean flag1 = false;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
         for (int k = Math.max(startHeight, (int) d0 + 1); k >= 0; --k) {
             blockpos$mutable.set(chunkX, k, chunkZ);

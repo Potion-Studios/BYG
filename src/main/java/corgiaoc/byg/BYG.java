@@ -22,14 +22,15 @@ import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import corgiaoc.byg.mixin.access.BlockEntityTypeAccess;
+import corgiaoc.byg.mixin.access.ItemBlockRenderTypeAccess;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.block.Block;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -99,7 +100,7 @@ public class BYG {
         handleOverWorldConfig(gson);
         handleOverWorldSubConfig(gson);
 
-        BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess)  TileEntityType.CAMPFIRE;
+        BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess)  BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.getValidBlocks());
         validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
@@ -107,7 +108,7 @@ public class BYG {
     }
 
     public static BiomeDataHolders.EndBiomeDataHolder getEndData(Gson gson, Path biomesConfigPath) {
-        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGEndBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGEndBiome.extractDefaultHolder(BuiltinRegistries.BIOME);
 
         File biomesConfigFile = biomesConfigPath.toFile();
         try {
@@ -132,7 +133,7 @@ public class BYG {
     }
 
     public static BiomeDataHolders.WeightedBiomeDataHolder getNetherData(Gson gson, Path biomesConfigPath) {
-        BiomeDataHolders.WeightedBiomeDataHolder endWeightedBiomeDataHolder = BYGNetherBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
+        BiomeDataHolders.WeightedBiomeDataHolder endWeightedBiomeDataHolder = BYGNetherBiome.extractDefaultHolder(BuiltinRegistries.BIOME);
 
         File biomesConfigFile = biomesConfigPath.toFile();
         try {
@@ -157,7 +158,7 @@ public class BYG {
 
 
     public static BiomeDataHolders.EndSubBiomeDataHolder getEndSubBiomeData(Gson gson, Path biomesConfigPath) {
-        BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
+        BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(BuiltinRegistries.BIOME);
 
         File biomesConfigFile = biomesConfigPath.toFile();
         try {
@@ -264,7 +265,7 @@ public class BYG {
     public static void clientLoad() {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BYGCutoutRenders.renderCutOuts();
+        BYGCutoutRenders.renderCutOuts(ItemBlockRenderTypeAccess.getTypeByBlock());
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 
@@ -276,15 +277,6 @@ public class BYG {
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGPaths.addBYGPaths();
-        cleanMemory();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
-    }
-
-    //Minimize BYG's ram footprint.
-    private static void cleanMemory() {
-        BYG.LOGGER.debug("Cleaning memory...");
-        BYGBlocks.flowerPotBlocks = null;
-        FILE_PATH = null;
-        BYG.LOGGER.debug("Cleaned memory!");
     }
 }

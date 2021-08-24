@@ -1,33 +1,37 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.mixin.access.SpreadableSnowyDirtBlockAccess;
-import net.minecraft.block.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.GrassBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class BYGGrassBlock extends GrassBlock implements IGrowable {
+public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
 
     @Nullable
-    private final BlockClusterFeatureConfig featureConfig;
+    private final RandomPatchConfiguration featureConfig;
     private final Block dirtBlock;
 
-    public BYGGrassBlock(Properties properties, @Nullable BlockClusterFeatureConfig featureConfig, Block dirtBlock) {
+    public BYGGrassBlock(Properties properties, @Nullable RandomPatchConfiguration featureConfig, Block dirtBlock) {
         super(properties);
         this.featureConfig = featureConfig;
         this.dirtBlock = dirtBlock;
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
         if (!SpreadableSnowyDirtBlockAccess.invokeCanBeGrass(state, world, pos)) {
             world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
             return;
@@ -45,7 +49,7 @@ public class BYGGrassBlock extends GrassBlock implements IGrowable {
     }
 
     @Override
-    public void performBonemeal(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState state) {
         if (featureConfig != null) {
             place(world, random, pos.above(), this.featureConfig);
         } else {
@@ -56,9 +60,9 @@ public class BYGGrassBlock extends GrassBlock implements IGrowable {
         }
     }
 
-    public static boolean place(ISeedReader world, Random random, BlockPos pos, BlockClusterFeatureConfig config) {
+    public static boolean place(WorldGenLevel world, Random random, BlockPos pos, RandomPatchConfiguration config) {
         int i = 0;
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (int j = 0; j < config.tries; ++j) {
             mutable.setWithOffset(pos, random.nextInt(config.xspread + 1) - random.nextInt(config.xspread + 1), random.nextInt(config.yspread + 1) - random.nextInt(config.yspread + 1), random.nextInt(config.zspread + 1) - random.nextInt(config.zspread + 1));

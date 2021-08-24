@@ -8,34 +8,34 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryLookupCodec;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.biome.provider.EndBiomeProvider;
-import net.minecraft.world.gen.SimplexNoiseGenerator;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryLookupCodec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.TheEndBiomeSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class BYGEndBiomeSource extends BiomeProvider {
+public class BYGEndBiomeSource extends BiomeSource {
     public static final Codec<BYGEndBiomeSource> BYGENDCODEC = RecordCodecBuilder.create((instance) -> instance.group(RegistryLookupCodec.create(Registry.BIOME_REGISTRY).forGetter((theEndBiomeSource) -> theEndBiomeSource.biomeRegistry), Codec.LONG.fieldOf("seed").stable().forGetter((theEndBiomeSource) -> theEndBiomeSource.seed)).apply(instance, instance.stable(BYGEndBiomeSource::new)));
 
     private final long seed;
     private final DatapackLayer mainIslandLayer;
     private final DatapackLayer smallIslandLayer;
     private final Registry<Biome> biomeRegistry;
-    private final SimplexNoiseGenerator generator;
+    private final SimplexNoise generator;
 
     @SuppressWarnings("unchecked")
     public BYGEndBiomeSource(Registry<Biome> registry, long seed) {
         super(new ArrayList<>());
         this.seed = seed;
-        SharedSeedRandom sharedseedrandom = new SharedSeedRandom(seed);
+        WorldgenRandom sharedseedrandom = new WorldgenRandom(seed);
         sharedseedrandom.consumeCount(17292);
         this.biomeRegistry = registry;
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
@@ -52,7 +52,7 @@ public class BYGEndBiomeSource extends BiomeProvider {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 biomeToEdge.put(biome, edgeBiome);
             }
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
         }));
         endHills.remove(BYG.EMPTY);
         biomeToEdge.remove(BYG.EMPTY);
@@ -69,7 +69,7 @@ public class BYGEndBiomeSource extends BiomeProvider {
                 voidBiomeToEdge.put(biome, edgeBiome);
             }
             allBiomes.add(biome);
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.Entry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
         }));
 
         BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = BYG.getEndSubBiomeData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
@@ -96,16 +96,16 @@ public class BYGEndBiomeSource extends BiomeProvider {
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
         this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes, endHills, biomeToEdge);
         this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes, voidHillsMap, voidBiomeToEdge);
-        this.generator = new SimplexNoiseGenerator(sharedseedrandom);
+        this.generator = new SimplexNoise(sharedseedrandom);
     }
 
     @Override
-    protected Codec<? extends BiomeProvider> codec() {
+    protected Codec<? extends BiomeSource> codec() {
         return BYGENDCODEC;
     }
 
     @Override
-    public BiomeProvider withSeed(long seed) {
+    public BiomeSource withSeed(long seed) {
         return new BYGEndBiomeSource(biomeRegistry, seed);
     }
 
@@ -116,7 +116,7 @@ public class BYGEndBiomeSource extends BiomeProvider {
         if ((long) xBitOffset * (long) xBitOffset + (long) zBitOffset * (long) zBitOffset <= 4096L) {
             return biomeRegistry.getOrThrow(Biomes.THE_END);
         } else {
-            float sampledNoise = EndBiomeProvider.getHeightValue(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
+            float sampledNoise = TheEndBiomeSource.getHeightValue(this.generator, xBitOffset * 2 + 1, zBitOffset * 2 + 1);
             if (sampledNoise >= -20.0F) {
                 return mainIslandLayer.sampleEnd(biomeRegistry, x, z);
             } else {

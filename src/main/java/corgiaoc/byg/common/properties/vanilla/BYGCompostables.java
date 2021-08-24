@@ -2,11 +2,11 @@ package corgiaoc.byg.common.properties.vanilla;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGItems;
-import net.minecraft.block.ComposterBlock;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.ComposterBlock;
 
 public class BYGCompostables {
-    public static void compostibleBlocks(float chance, IItemProvider item) {
+    public static void compostibleBlocks(float chance, ItemLike item) {
         ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
     }
 

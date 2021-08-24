@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.decorator.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.world.gen.placement.IPlacementConfig;
+import net.minecraft.world.level.levelgen.feature.configurations.DecoratorConfiguration;
 
-public class AtOrBelowSeaLevelCountExtraConfig implements IPlacementConfig {
+public class AtOrBelowSeaLevelCountExtraConfig implements DecoratorConfiguration {
     public static final Codec<AtOrBelowSeaLevelCountExtraConfig> CODEC = RecordCodecBuilder.create((configRecorder) -> {
         return configRecorder.group(Codec.INT.fieldOf("count").forGetter((config) -> {
             return config.count;

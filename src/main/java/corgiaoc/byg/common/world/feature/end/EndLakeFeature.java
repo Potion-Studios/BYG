@@ -6,31 +6,31 @@ import corgiaoc.byg.util.BlockHelper;
 import corgiaoc.byg.util.FeatureHelper;
 import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.ModMathHelper;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
 //Credits to BetterEnd & Pauelevs
-public class EndLakeFeature extends Feature<NoFeatureConfig> {
+public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
     private static final BlockState END_STONE = Blocks.END_STONE.defaultBlockState();
     private static final OpenSimplexNoiseEnd NOISE = new OpenSimplexNoiseEnd(15152);
-    private static final BlockPos.Mutable POS = new BlockPos.Mutable();
+    private static final BlockPos.MutableBlockPos POS = new BlockPos.MutableBlockPos();
 
     public EndLakeFeature() {
-        super(NoFeatureConfig.CODEC);
+        super(NoneFeatureConfiguration.CODEC);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator_, Random random,
-                         BlockPos blockPos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
+                         BlockPos blockPos, NoneFeatureConfiguration config) {
         double radius = ModMathHelper.randRange(10.0, 20.0, random);
         double depth = radius * 0.5 * ModMathHelper.randRange(0.8, 1.2, random);
         int dist = ModMathHelper.floor(radius);

@@ -3,9 +3,9 @@ package corgiaoc.byg.common.properties.blocks.vanilla;
 import corgiaoc.byg.common.world.feature.overworld.trees.TreeSpawners;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceOpenHashMap;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 public interface ITreeSpawner {
 

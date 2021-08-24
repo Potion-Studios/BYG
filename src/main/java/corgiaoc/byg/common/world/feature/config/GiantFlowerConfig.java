@@ -3,15 +3,15 @@ package corgiaoc.byg.common.world.feature.config;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 
-public class GiantFlowerConfig implements IFeatureConfig {
+public class GiantFlowerConfig implements FeatureConfiguration {
 
     public static final Codec<GiantFlowerConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
@@ -99,62 +99,62 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
-        private BlockStateProvider petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+        private BlockStateProvider stemProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider petalProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider petal2Provider = this.petalProvider;
         private BlockStateProvider petal3Provider = this.petalProvider;
-        private BlockStateProvider pollenProvider = new SimpleBlockStateProvider(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
+        private BlockStateProvider pollenProvider = new SimpleStateProvider(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
 
         public Builder setStemBlock(Block block) {
             if (block != null)
-                stemProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                stemProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+                stemProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setStemBlock(BlockState state) {
             if (state != null)
-                stemProvider = new SimpleBlockStateProvider(state);
+                stemProvider = new SimpleStateProvider(state);
             else
-                stemProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+                stemProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setPetalBlock(Block block) {
             if (block != null)
-                petalProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                petalProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                petalProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
         public Builder setPetalBlock(BlockState state) {
             if (state != null)
-                petalProvider = new SimpleBlockStateProvider(state);
+                petalProvider = new SimpleStateProvider(state);
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                petalProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
-        public Builder setPetalBlock(WeightedBlockStateProvider statesList) {
+        public Builder setPetalBlock(WeightedStateProvider statesList) {
             if (statesList != null)
                 petalProvider = statesList;
             else
-                petalProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                petalProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
         public Builder setPetal2Block(Block block) {
             if (block != null)
-                petal2Provider = new SimpleBlockStateProvider(block.defaultBlockState());
+                petal2Provider = new SimpleStateProvider(block.defaultBlockState());
             else
                 petal2Provider = this.petalProvider;
 
@@ -163,7 +163,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPetal2Block(BlockState state) {
             if (state != null)
-                petal2Provider = new SimpleBlockStateProvider(state);
+                petal2Provider = new SimpleStateProvider(state);
             else
                 petal2Provider = this.petalProvider;
 
@@ -172,7 +172,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPetal3Block(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
+                petal3Provider = new SimpleStateProvider(block.defaultBlockState());
             else
                 petal3Provider = this.petalProvider;
 
@@ -181,7 +181,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPetal3Block(BlockState state) {
             if (state != null)
-                petal3Provider = new SimpleBlockStateProvider(state);
+                petal3Provider = new SimpleStateProvider(state);
             else
                 petal3Provider = this.petalProvider;
 
@@ -190,7 +190,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPollenBlock(Block block) {
             if (block != null)
-                petal3Provider = new SimpleBlockStateProvider(block.defaultBlockState());
+                petal3Provider = new SimpleStateProvider(block.defaultBlockState());
             else
                 petal3Provider = this.petalProvider;
             return this;
@@ -198,7 +198,7 @@ public class GiantFlowerConfig implements IFeatureConfig {
 
         public Builder setPollenBlock(BlockState state) {
             if (state != null)
-                petal3Provider = new SimpleBlockStateProvider(state);
+                petal3Provider = new SimpleStateProvider(state);
             else
                 petal3Provider = this.petalProvider;
             return this;

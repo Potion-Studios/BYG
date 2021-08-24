@@ -3,11 +3,11 @@ package corgiaoc.byg.common.world.feature.overworld;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.PointyRockConfig;
 import corgiaoc.byg.util.noise.fastnoise.FNVector3f;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.Heightmap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.Random;
 
@@ -18,11 +18,11 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
     }
 
     @Override
-    public boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, PointyRockConfig config) {
+    public boolean generate(WorldGenLevel world, Random random, ChunkAccess chunkIn, int x, int z, PointyRockConfig config) {
         config.setUpNoise(world.getSeed());
         int xPos = x & 15;
         int zPos = z & 15;
-        BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos(xPos, 0, zPos);
 
         FNVector3f fnVector3f = new FNVector3f(x, 0, z);
 
@@ -30,7 +30,7 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
 
         float sampleNoise = config.getNoiseGen().GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, x, z);
 
         if (!chunkIn.getBlockState(mutable.above(groundLevel)).isAir()) {
             if (sampleNoise < 0.43) {

@@ -2,14 +2,14 @@ package corgiaoc.byg.common.world.feature.nether;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -19,17 +19,17 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     }
 
     //A copy paste of Minecraft's Basalt Pillar Feature where the blocks can be chosen in a config rather than hardcoded.
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (world.isEmptyBlock(pos) && !world.isEmptyBlock(pos.above())) {
-            BlockPos.Mutable mutable = pos.mutable();
-            BlockPos.Mutable mutable2 = pos.mutable();
+            BlockPos.MutableBlockPos mutable = pos.mutable();
+            BlockPos.MutableBlockPos mutable2 = pos.mutable();
             boolean flag = true;
             boolean flag1 = true;
             boolean flag2 = true;
             boolean flag3 = true;
 
             while (world.isEmptyBlock(mutable)) {
-                if (World.isOutsideBuildHeight(mutable)) {
+                if (Level.isOutsideBuildHeight(mutable)) {
                     return true;
                 }
 
@@ -47,11 +47,11 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
             this.randChanceBlock(world, rand, mutable2.setWithOffset(mutable, Direction.WEST), config);
             this.randChanceBlock(world, rand, mutable2.setWithOffset(mutable, Direction.EAST), config);
             mutable.move(Direction.DOWN);
-            BlockPos.Mutable mutable3 = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutable3 = new BlockPos.MutableBlockPos();
 
             for (int i = -3; i < 4; ++i) {
                 for (int j = -3; j < 4; ++j) {
-                    int k = MathHelper.abs(i) * MathHelper.abs(j);
+                    int k = Mth.abs(i) * Mth.abs(j);
                     if (rand.nextInt(10) < 10 - k) {
                         mutable3.set(mutable.offset(i, 0, j));
                         int l = 3;
@@ -77,14 +77,14 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
         }
     }
 
-    private void randChanceBlock(IWorld world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    private void randChanceBlock(LevelAccessor world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (rand.nextBoolean()) {
             world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
         }
 
     }
 
-    private boolean randChanceBlock2(IWorld world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    private boolean randChanceBlock2(LevelAccessor world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (rand.nextInt(10) != 0) {
             world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
             return true;

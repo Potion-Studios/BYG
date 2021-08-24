@@ -6,14 +6,14 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.HillsLayer;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.RegionHillsLayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("deprecation")
-@Mixin(HillsLayer.class)
+@Mixin(RegionHillsLayer.class)
 public abstract class MixinHillsLayer {
 
     private static final List<Biome> topOceanList = new ArrayList<>();
@@ -32,15 +32,15 @@ public abstract class MixinHillsLayer {
 
     @SuppressWarnings("ConstantConditions")
     @Inject(method = "applyPixel",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/INoiseRandom;nextRandom(I)I"),
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/newbiome/context/Context;nextRandom(I)I"),
             cancellable = true,
             locals = LocalCapture.CAPTURE_FAILHARD)
-    private void injectBYGSubBiomes(INoiseRandom rand, IArea area1, IArea area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j, int k) {
+    private void injectBYGSubBiomes(Context rand, Area area1, Area area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j, int k) {
         if (rand.nextRandom(9) == 0 || k == 0) {
             int l = i;
-            Biome biome = WorldGenRegistries.BIOME.byId(i);
+            Biome biome = BuiltinRegistries.BIOME.byId(i);
             if (topOceanList.contains(biome))
-                l = WorldGenRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
+                l = BuiltinRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
             cir.setReturnValue(l);
         }
         if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
@@ -61,7 +61,7 @@ public abstract class MixinHillsLayer {
     }
 
     @Nullable
-    private static ResourceLocation getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, INoiseRandom layerRandom) {
+    private static ResourceLocation getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, Context layerRandom) {
         if (((WeightedListAccess<Biome>) biomeHolder).getEntries().size() > 0) {
             return LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom);
         }
@@ -72,8 +72,8 @@ public abstract class MixinHillsLayer {
 
 
     static {
-        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_OCEAN));
-        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_LUKEWARM_OCEAN));
-        topOceanList.add(WorldGenRegistries.BIOME.getOrThrow(Biomes.DEEP_WARM_OCEAN));
+        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_OCEAN));
+        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_LUKEWARM_OCEAN));
+        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_WARM_OCEAN));
     }
 }

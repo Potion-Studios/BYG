@@ -2,17 +2,17 @@ package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.structure.largefeature.VolcanoPiece;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
-import net.minecraft.world.gen.feature.structure.IStructurePieceType;
-import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BYGStructures {
-    public static List<Structure<?>> structures = new ArrayList<>();
+    public static List<StructureFeature<?>> structures = new ArrayList<>();
 
     /*************************Structure Pieces*************************/
-    public static final IStructurePieceType VOLCANO_PIECE = WorldGenRegistrationHelper.createStructurePiece("volcano1", (structurePieceTypeIn, componentTypeIn) -> new VolcanoPiece(componentTypeIn));
+    public static final StructurePieceType VOLCANO_PIECE = WorldGenRegistrationHelper.createStructurePiece("volcano1", (structurePieceTypeIn, componentTypeIn) -> new VolcanoPiece(componentTypeIn));
 
     /*************************Structures*************************/
 

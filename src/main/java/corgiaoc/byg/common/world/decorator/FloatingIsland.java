@@ -2,22 +2,22 @@ package corgiaoc.byg.common.world.decorator;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.mixin.access.WorldDecoratingHelperAccess;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.WorldDecoratingHelper;
-import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
-import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.levelgen.placement.DecorationContext;
+import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
+import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
 
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class FloatingIsland extends Placement<AtSurfaceWithExtraConfig> {
+public class FloatingIsland extends FeatureDecorator<FrequencyWithExtraChanceDecoratorConfiguration> {
 
-    public FloatingIsland(Codec<AtSurfaceWithExtraConfig> config) {
+    public FloatingIsland(Codec<FrequencyWithExtraChanceDecoratorConfiguration> config) {
         super(config);
     }
 
-    public Stream<BlockPos> getPositions(WorldDecoratingHelper decoratorContext, Random random, AtSurfaceWithExtraConfig config, BlockPos pos) {
+    public Stream<BlockPos> getPositions(DecorationContext decoratorContext, Random random, FrequencyWithExtraChanceDecoratorConfiguration config, BlockPos pos) {
         int i = config.count;
         if (random.nextFloat() < config.extraChance) {
             i += config.extraCount;

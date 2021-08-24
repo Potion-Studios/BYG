@@ -4,10 +4,10 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
@@ -18,10 +18,10 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
 
@@ -39,10 +39,10 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 }
                 mainmutable.set(pos);
 
-                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.offset(0, 0, -2));
-                BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.offset(-2, 0, 0));
-                BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.offset(2, 0, 0));
-                BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.offset(0, 0, 2));
+                BlockPos.MutableBlockPos rootMutable = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, -2));
+                BlockPos.MutableBlockPos rootMutable2 = new BlockPos.MutableBlockPos().set(mainmutable.offset(-2, 0, 0));
+                BlockPos.MutableBlockPos rootMutable3 = new BlockPos.MutableBlockPos().set(mainmutable.offset(2, 0, 0));
+                BlockPos.MutableBlockPos rootMutable4 = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, 2));
 
                 for (int buildRoot = 0; buildRoot <= 5; buildRoot++) {
                     placeBranch(pos, config, rand, changedBlocks, worldIn, rootMutable, boundsIn);
@@ -300,9 +300,9 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-    private void stem(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
-        blockpos = (BlockPos.Mutable) getTransformedPos(config, startPos, blockpos);
+    private void stem(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+        BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos().set(pos);
+        blockpos = (BlockPos.MutableBlockPos) getTransformedPos(config, startPos, blockpos);
 
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.RED_GLOWSHROOM_STEM.defaultBlockState(), boundingBox);
@@ -310,9 +310,9 @@ public class WillowTreeM1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     }
 
 
-    private void glowshroom(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, ISeedReader reader, BlockPos pos, MutableBoundingBox boundingBox) {
-        BlockPos.Mutable blockpos = new BlockPos.Mutable().set(pos);
-        blockpos = (BlockPos.Mutable) getTransformedPos(config, startPos, blockpos);
+    private void glowshroom(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+        BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos().set(pos);
+        blockpos = (BlockPos.MutableBlockPos) getTransformedPos(config, startPos, blockpos);
         if (isAir(reader, blockpos)) {
             this.setFinalBlockState(startPos, config, blockPos, reader, blockpos, BYGBlocks.PURPLE_GLOWSHROOM_BLOCK.defaultBlockState(), boundingBox);
         }

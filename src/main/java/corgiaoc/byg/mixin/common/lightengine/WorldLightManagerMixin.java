@@ -1,7 +1,7 @@
 package corgiaoc.byg.mixin.common.lightengine;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.lighting.WorldLightManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.lighting.LevelLightEngine;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * Code taken from the following PR in Applied Energistics 2 w/ allowed permission(clarified here aswell): https://github.com/AppliedEnergistics/Applied-Energistics-2/pull/4935
  *
  */
-@Mixin(WorldLightManager.class)
+@Mixin(LevelLightEngine.class)
 public class WorldLightManagerMixin {
     @Inject(method = "onBlockEmissionIncrease", at = @At("HEAD"), cancellable = true)
     public void onBlockEmissionIncrease(BlockPos blockPos, int lightLevel, CallbackInfo ci) {

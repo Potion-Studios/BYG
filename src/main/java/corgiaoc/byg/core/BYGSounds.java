@@ -1,8 +1,9 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ public class BYGSounds {
     public static SoundEvent createSound(String location) {
         ResourceLocation soundLocation = new ResourceLocation(BYG.MOD_ID, location);
         SoundEvent soundEvent = new SoundEvent(soundLocation);
-        soundEvent.setRegistryName(soundLocation);
+        Registry.register(Registry.SOUND_EVENT, soundLocation, soundEvent);
         SOUNDS.add(soundEvent);
         return soundEvent;
     }

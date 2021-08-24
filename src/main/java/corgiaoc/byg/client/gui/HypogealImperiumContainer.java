@@ -2,31 +2,31 @@ package corgiaoc.byg.client.gui;
 
 import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
 import corgiaoc.byg.core.world.BYGContainerTypes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 import java.util.Objects;
 
-public class HypogealImperiumContainer extends Container {
+public class HypogealImperiumContainer extends AbstractContainerMenu {
 
-    public final IInventory inventory;
-    private final IIntArray fuelTime;
+    public final Container inventory;
+    private final ContainerData fuelTime;
 
 
-    public HypogealImperiumContainer(int windowId, PlayerInventory playerInv) {
-        this(windowId, playerInv, new Inventory(3), new IntArray(2));
+    public HypogealImperiumContainer(int windowId, Inventory playerInv) {
+        this(windowId, playerInv, new SimpleContainer(3), new SimpleContainerData(2));
     }
 
-    public HypogealImperiumContainer(int windowId, PlayerInventory playerInv, IInventory inventory, IIntArray fuelTime) {
+    public HypogealImperiumContainer(int windowId, Inventory playerInv, Container inventory, ContainerData fuelTime) {
         super(BYGContainerTypes.HYPOGEAL_CONTAINER, windowId);
         this.fuelTime = fuelTime;
 
@@ -55,10 +55,10 @@ public class HypogealImperiumContainer extends Container {
         this.addDataSlots(fuelTime);
     }
 
-    private static HypogealImperiumTE getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
+    private static HypogealImperiumTE getTileEntity(final Inventory playerInv, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInv, "playerInv cannot be null");
         Objects.requireNonNull(data, "data cannot be null");
-        final TileEntity tileAtPos = playerInv.player.level.getBlockEntity(data.readBlockPos());
+        final BlockEntity tileAtPos = playerInv.player.level.getBlockEntity(data.readBlockPos());
         if (tileAtPos instanceof HypogealImperiumTE) {
             return (HypogealImperiumTE) tileAtPos;
         }
@@ -66,7 +66,7 @@ public class HypogealImperiumContainer extends Container {
     }
 
     @Override
-    public ItemStack quickMoveStack(PlayerEntity playerIn, int index) {
+    public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
@@ -88,22 +88,22 @@ public class HypogealImperiumContainer extends Container {
         return itemstack;
     }
 
-    public void onContainerClosed(PlayerEntity playerIn) {
+    public void onContainerClosed(Player playerIn) {
         super.removed(playerIn);
     }
 
 
     @Override
-    public boolean stillValid(PlayerEntity playerIn) {
+    public boolean stillValid(Player playerIn) {
         return this.inventory.stillValid(playerIn);
     }
 
-    public IIntArray getFuelTime() {
+    public ContainerData getFuelTime() {
         return fuelTime;
     }
 
     static class CrystalSlot extends Slot {
-        public CrystalSlot(IInventory p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
+        public CrystalSlot(Container p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
             super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
         }
 
@@ -117,7 +117,7 @@ public class HypogealImperiumContainer extends Container {
     }
 
     static class NumberSlot extends Slot {
-        public NumberSlot(IInventory p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
+        public NumberSlot(Container p_i47069_1_, int p_i47069_2_, int p_i47069_3_, int p_i47069_4_) {
             super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
         }
 
@@ -130,7 +130,7 @@ public class HypogealImperiumContainer extends Container {
         }
 
         @Override
-        public boolean mayPickup(PlayerEntity p_82869_1_) {
+        public boolean mayPickup(Player p_82869_1_) {
             return false;
         }
     }

@@ -1,14 +1,14 @@
 package corgiaoc.byg.common.world.dimension.layers;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.layer.traits.ICastleTransformer;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.traits.CastleTransformer;
 
 import java.util.Map;
 
-public class BYGEdgeLayer implements ICastleTransformer {
+public class BYGEdgeLayer implements CastleTransformer {
 
     private final Map<ResourceLocation, ResourceLocation> edgeMap;
     private final Registry<Biome> biomeRegistry;
@@ -20,7 +20,7 @@ public class BYGEdgeLayer implements ICastleTransformer {
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    public int apply(INoiseRandom context, int n, int w, int s, int e, int centre) {
+    public int apply(Context context, int n, int w, int s, int e, int centre) {
         final int[] ArrayNESW = {n, w, s, e};
 
         for (int idx : ArrayNESW) {

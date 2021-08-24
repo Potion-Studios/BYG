@@ -2,25 +2,25 @@ package corgiaoc.byg.common.world.feature.nether.subzero;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.pattern.BlockStateMatcher;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
 
-public class SubzeroCrystalFeature extends Feature<NoFeatureConfig> {
-    private static final BlockStateMatcher IS_TRAVERTINE = BlockStateMatcher.forBlock(BYGBlocks.TRAVERTINE);
+public class SubzeroCrystalFeature extends Feature<NoneFeatureConfiguration> {
+    private static final BlockStatePredicate IS_TRAVERTINE = BlockStatePredicate.forBlock(BYGBlocks.TRAVERTINE);
 
-    public SubzeroCrystalFeature(Codec<NoFeatureConfig> codec) {
+    public SubzeroCrystalFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
 
         int type = random.nextInt(2);
 

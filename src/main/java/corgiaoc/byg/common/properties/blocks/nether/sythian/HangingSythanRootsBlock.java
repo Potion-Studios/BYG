@@ -1,20 +1,20 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractTopPlantBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PlantBlockHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.NetherVines;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
+public class HangingSythanRootsBlock extends GrowingPlantHeadBlock {
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
     protected HangingSythanRootsBlock(Properties properties) {
@@ -26,7 +26,7 @@ public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
      * return a random value at least 1.
      */
     protected int getBlocksToGrowWhenBonemealed(Random rand) {
-        return PlantBlockHelper.getBlocksToGrowWhenBonemealed(rand);
+        return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 
     protected Block getBodyBlock() {
@@ -34,10 +34,10 @@ public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
     }
 
     protected boolean canGrowInto(BlockState state) {
-        return PlantBlockHelper.isValidGrowthState(state);
+        return NetherVines.isValidGrowthState(state);
     }
 
-//    @OnlyIn(Dist.CLIENT)
+//    @Environment(EnvType.CLIENT)
 //    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 //        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.dummy());
 //        Vector3d lvt_6_1_ = lvt_5_1_.getBoundingBox().getCenter();
@@ -52,7 +52,7 @@ public class HangingSythanRootsBlock extends AbstractTopPlantBlock {
 //
 //    }
 
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
     }
 }

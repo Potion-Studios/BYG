@@ -1,13 +1,13 @@
 package corgiaoc.byg.common.properties.items.itemtiers;
 
 import corgiaoc.byg.core.BYGItems;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum BYGItemTiers implements IItemTier {
+public enum BYGItemTiers implements Tier {
     AMETRINE(4, 64, 16.0F, 0.8F, 25, () -> {
         return Ingredient.of(BYGItems.AMETRINE_GEMS);
     }),
@@ -20,7 +20,7 @@ public enum BYGItemTiers implements IItemTier {
     private final float efficiency;
     private final float attackDamage;
     private final int enchantability;
-    private final LazyValue<Ingredient> repairMaterial;
+    private final LazyLoadedValue<Ingredient> repairMaterial;
 
     BYGItemTiers(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
         this.harvestLevel = harvestLevelIn;
@@ -28,7 +28,7 @@ public enum BYGItemTiers implements IItemTier {
         this.efficiency = efficiencyIn;
         this.attackDamage = attackDamageIn;
         this.enchantability = enchantabilityIn;
-        this.repairMaterial = new LazyValue<>(repairMaterialIn);
+        this.repairMaterial = new LazyLoadedValue<>(repairMaterialIn);
     }
 
     public int getUses() {

@@ -1,23 +1,23 @@
 package corgiaoc.byg.common.properties.blocks.nether.glowstonegardens;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractTopPlantBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PlantBlockHelper;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.level.block.NetherVines;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-public class SoulShroomSporeEndBlock extends AbstractTopPlantBlock {
+public class SoulShroomSporeEndBlock extends GrowingPlantHeadBlock {
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
     protected SoulShroomSporeEndBlock(Properties properties) {
@@ -29,7 +29,7 @@ public class SoulShroomSporeEndBlock extends AbstractTopPlantBlock {
      * return a random value at least 1.
      */
     protected int getBlocksToGrowWhenBonemealed(Random rand) {
-        return PlantBlockHelper.getBlocksToGrowWhenBonemealed(rand);
+        return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 
     protected Block getBodyBlock() {
@@ -37,13 +37,13 @@ public class SoulShroomSporeEndBlock extends AbstractTopPlantBlock {
     }
 
     protected boolean canGrowInto(BlockState state) {
-        return PlantBlockHelper.isValidGrowthState(state);
+        return NetherVines.isValidGrowthState(state);
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.empty());
-        Vector3d lvt_6_1_ = lvt_5_1_.bounds().getCenter();
+    @Environment(EnvType.CLIENT)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
+        Vec3 lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
         double lvt_9_1_ = (double) pos.getZ() + lvt_6_1_.z;
 

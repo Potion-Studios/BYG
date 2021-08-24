@@ -2609,9 +2609,9 @@ public class FastNoiseLite
 
     public static FastNoiseLite createSpongePerlin(int seed) {
         FastNoiseLite fnlNoise = new FastNoiseLite(seed);
-        fnlNoise.SetNoiseType(FastNoiseLite.NoiseType.Perlin); // We will use 3D with a domain rotation to improve the look.
-        fnlNoise.SetRotationType3D(FastNoiseLite.RotationType3D.ImproveXZPlanes); // Make the Perlin look better than Simplex, but only in 2D slices of 3D.
-        fnlNoise.SetFractalType(FastNoiseLite.FractalType.FBm);
+        fnlNoise.SetNoiseType(NoiseType.Perlin); // We will use 3D with a domain rotation to improve the look.
+        fnlNoise.SetRotationType3D(RotationType3D.ImproveXZPlanes); // Make the Perlin look better than Simplex, but only in 2D slices of 3D.
+        fnlNoise.SetFractalType(FractalType.FBm);
         fnlNoise.SetFractalOctaves(6);
         return fnlNoise;
     }

@@ -3,9 +3,9 @@ package corgiaoc.byg.common.properties.vanilla;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.mixin.access.AxeItemAccess;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.IdentityHashMap;
 import java.util.Map;

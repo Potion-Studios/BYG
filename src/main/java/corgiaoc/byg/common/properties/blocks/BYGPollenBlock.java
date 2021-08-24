@@ -1,18 +1,18 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
@@ -23,18 +23,18 @@ public class BYGPollenBlock extends Block {
 
     }
 
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != EntityType.BAT) {
-            entityIn.makeStuckInBlock(state, new Vector3d(0.8F, 0.75D, 0.8F));
+            entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
             double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
             double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
-        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, ISelectionContext.empty());
-        Vector3d lvt_6_1_ = lvt_5_1_.bounds().getCenter();
+    @Environment(EnvType.CLIENT)
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+        VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
+        Vec3 lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
         double lvt_9_1_ = (double) pos.getZ() + lvt_6_1_.z;
 

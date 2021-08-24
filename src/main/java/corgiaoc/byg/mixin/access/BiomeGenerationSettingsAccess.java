@@ -1,8 +1,8 @@
 package corgiaoc.byg.mixin.access;
 
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.StructureFeature;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
@@ -19,9 +19,9 @@ public interface BiomeGenerationSettingsAccess {
     void setFeatures(List<List<Supplier<ConfiguredFeature<?, ?>>>> features);
 
     @Accessor
-    List<Supplier<StructureFeature<?, ?>>> getStructureStarts();
+    List<Supplier<ConfiguredStructureFeature<?, ?>>> getStructureStarts();
 
 
     @Accessor
-    void setStructureStarts(List<Supplier<StructureFeature<?, ?>>> structureStarts);
+    void setStructureStarts(List<Supplier<ConfiguredStructureFeature<?, ?>>> structureStarts);
 }

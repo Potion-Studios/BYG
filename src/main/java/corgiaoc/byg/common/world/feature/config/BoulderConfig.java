@@ -2,14 +2,14 @@ package corgiaoc.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
-public class BoulderConfig implements IFeatureConfig {
+public class BoulderConfig implements FeatureConfiguration {
 
     public static final Codec<BoulderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
@@ -95,7 +95,7 @@ public class BoulderConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
         private int minStackHeight = 1;
         private int maxStackHeight = 1;
         private int minRadius = 1;
@@ -105,17 +105,17 @@ public class BoulderConfig implements IFeatureConfig {
 
         public Builder setBlock(Block block) {
             if (block != null)
-                blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                blockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
         public Builder setBlock(BlockState state) {
             if (state != null)
-                blockProvider = new SimpleBlockStateProvider(state);
+                blockProvider = new SimpleStateProvider(state);
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
@@ -123,7 +123,7 @@ public class BoulderConfig implements IFeatureConfig {
             if (provider != null)
                 blockProvider = provider;
             else
-                blockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                blockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 

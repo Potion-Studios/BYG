@@ -3,10 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.trees.cypress;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
@@ -18,14 +18,14 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         super(configIn);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = config.getMinHeight();
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
-        BlockPos.Mutable mainmutable2 = new BlockPos.Mutable().set(pos.relative(Direction.NORTH));
-        BlockPos.Mutable mainmutable3 = new BlockPos.Mutable().set(pos.relative(Direction.SOUTH));
-        BlockPos.Mutable mainmutable4 = new BlockPos.Mutable().set(pos.relative(Direction.WEST));
-        BlockPos.Mutable mainmutable5 = new BlockPos.Mutable().set(pos.relative(Direction.EAST));
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
+        BlockPos.MutableBlockPos mainmutable2 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.NORTH));
+        BlockPos.MutableBlockPos mainmutable3 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.SOUTH));
+        BlockPos.MutableBlockPos mainmutable4 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.WEST));
+        BlockPos.MutableBlockPos mainmutable5 = new BlockPos.MutableBlockPos().set(pos.relative(Direction.EAST));
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
@@ -56,14 +56,14 @@ public class CypressTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 mainmutable.set(pos);
 
                 //Roots
-                BlockPos.Mutable rootMutable = new BlockPos.Mutable().set(mainmutable.offset(-4, 0, 0));
-                BlockPos.Mutable rootMutable2 = new BlockPos.Mutable().set(mainmutable.offset(0, 0, 4));
-                BlockPos.Mutable rootMutable3 = new BlockPos.Mutable().set(mainmutable.offset(0, 0, -4));
-                BlockPos.Mutable rootMutable4 = new BlockPos.Mutable().set(mainmutable.offset(4, 0, 0));
-                BlockPos.Mutable rootMutable5 = new BlockPos.Mutable().set(mainmutable.offset(-4, 0, -4));
-                BlockPos.Mutable rootMutable6 = new BlockPos.Mutable().set(mainmutable.offset(4, 0, -4));
-                BlockPos.Mutable rootMutable7 = new BlockPos.Mutable().set(mainmutable.offset(4, 0, 4));
-                BlockPos.Mutable rootMutable8 = new BlockPos.Mutable().set(mainmutable.offset(-4, 0, 4));
+                BlockPos.MutableBlockPos rootMutable = new BlockPos.MutableBlockPos().set(mainmutable.offset(-4, 0, 0));
+                BlockPos.MutableBlockPos rootMutable2 = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, 4));
+                BlockPos.MutableBlockPos rootMutable3 = new BlockPos.MutableBlockPos().set(mainmutable.offset(0, 0, -4));
+                BlockPos.MutableBlockPos rootMutable4 = new BlockPos.MutableBlockPos().set(mainmutable.offset(4, 0, 0));
+                BlockPos.MutableBlockPos rootMutable5 = new BlockPos.MutableBlockPos().set(mainmutable.offset(-4, 0, -4));
+                BlockPos.MutableBlockPos rootMutable6 = new BlockPos.MutableBlockPos().set(mainmutable.offset(4, 0, -4));
+                BlockPos.MutableBlockPos rootMutable7 = new BlockPos.MutableBlockPos().set(mainmutable.offset(4, 0, 4));
+                BlockPos.MutableBlockPos rootMutable8 = new BlockPos.MutableBlockPos().set(mainmutable.offset(-4, 0, 4));
 
                 for (int buildRoot = 0; buildRoot <= 5; buildRoot++) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {

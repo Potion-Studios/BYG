@@ -3,19 +3,19 @@ package corgiaoc.byg.common.world.surfacebuilder.config;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class FillSurfaceBuilderConfig implements ISurfaceBuilderConfig {
+public class FillSurfaceBuilderConfig implements SurfaceBuilderConfiguration {
 
     public static final Codec<FillSurfaceBuilderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("top_material").forGetter((config) -> {
@@ -46,7 +46,7 @@ public class FillSurfaceBuilderConfig implements ISurfaceBuilderConfig {
         this.fillMaterial = fillMaterial;
         this.fillDownToY = fillDownToY;
         this.fillUpToY = fillUpToY;
-        this.replaceList = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
+        this.replaceList = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
     }
 
     public BlockState getTopMaterial() {
@@ -82,97 +82,97 @@ public class FillSurfaceBuilderConfig implements ISurfaceBuilderConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider topMaterial = new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.defaultBlockState());
-        private BlockStateProvider underMaterial = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
-        private BlockStateProvider fillMaterial = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
+        private BlockStateProvider topMaterial = new SimpleStateProvider(Blocks.GRASS_BLOCK.defaultBlockState());
+        private BlockStateProvider underMaterial = new SimpleStateProvider(Blocks.DIRT.defaultBlockState());
+        private BlockStateProvider fillMaterial = new SimpleStateProvider(Blocks.DIRT.defaultBlockState());
         private int fillUpToY = 63;
         private int fillDownToY = 0;
         private List<Block> replaceList = ImmutableList.of(Blocks.STONE);
 
 
-        public FillSurfaceBuilderConfig.Builder setTopBlock(Block block) {
+        public Builder setTopBlock(Block block) {
             if (block != null)
-                topMaterial = new SimpleBlockStateProvider(block.defaultBlockState());
+                topMaterial = new SimpleStateProvider(block.defaultBlockState());
             else
-                topMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setTopBlock(BlockState state) {
+        public Builder setTopBlock(BlockState state) {
             if (state != null)
-                topMaterial = new SimpleBlockStateProvider(state);
+                topMaterial = new SimpleStateProvider(state);
             else
-                topMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setTopBlock(BlockStateProvider provider) {
+        public Builder setTopBlock(BlockStateProvider provider) {
             if (provider != null)
                 topMaterial = provider;
             else
-                topMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                topMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setUnderBlock(Block block) {
+        public Builder setUnderBlock(Block block) {
             if (block != null)
-                underMaterial = new SimpleBlockStateProvider(block.defaultBlockState());
+                underMaterial = new SimpleStateProvider(block.defaultBlockState());
             else
-                underMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                underMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setUnderBlock(BlockState state) {
+        public Builder setUnderBlock(BlockState state) {
             if (state != null)
-                underMaterial = new SimpleBlockStateProvider(state);
+                underMaterial = new SimpleStateProvider(state);
             else
-                underMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                underMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setUnderBlock(BlockStateProvider provider) {
+        public Builder setUnderBlock(BlockStateProvider provider) {
             if (provider != null)
                 underMaterial = provider;
             else
-                underMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                underMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setFillBlock(Block block) {
+        public Builder setFillBlock(Block block) {
             if (block != null)
-                fillMaterial = new SimpleBlockStateProvider(block.defaultBlockState());
+                fillMaterial = new SimpleStateProvider(block.defaultBlockState());
             else
-                fillMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                fillMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setFillBlock(BlockState state) {
+        public Builder setFillBlock(BlockState state) {
             if (state != null)
-                fillMaterial = new SimpleBlockStateProvider(state);
+                fillMaterial = new SimpleStateProvider(state);
             else
-                fillMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                fillMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setFillBlock(BlockStateProvider provider) {
+        public Builder setFillBlock(BlockStateProvider provider) {
             if (provider != null)
                 fillMaterial = provider;
             else
-                fillMaterial = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                fillMaterial = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setFillDownToY(int fillDownToY) {
+        public Builder setFillDownToY(int fillDownToY) {
             this.fillDownToY = fillDownToY;
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setFillUpToY(int fillUpToY) {
+        public Builder setFillUpToY(int fillUpToY) {
             this.fillUpToY = fillUpToY;
             return this;
         }
 
-        public FillSurfaceBuilderConfig.Builder setReplaceList(ImmutableList<Block> replaceList) {
+        public Builder setReplaceList(ImmutableList<Block> replaceList) {
             this.replaceList = replaceList;
             return this;
         }

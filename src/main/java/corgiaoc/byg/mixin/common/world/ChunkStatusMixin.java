@@ -2,13 +2,13 @@ package corgiaoc.byg.mixin.common.world;
 
 import com.mojang.datafixers.util.Either;
 import corgiaoc.byg.common.world.util.SurfaceContext;
-import net.minecraft.world.chunk.ChunkStatus;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.template.TemplateManager;
-import net.minecraft.world.server.ChunkHolder;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.server.ServerWorldLightManager;
+import net.minecraft.server.level.ChunkHolder;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ThreadedLevelLightEngine;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkStatus;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,13 +22,13 @@ import java.util.function.Function;
 @Mixin(ChunkStatus.class)
 public class ChunkStatusMixin {
     @Inject(method = "generate", at = @At(value = "HEAD"))
-    private void pushCarvingContext(ServerWorld worldIn,
+    private void pushCarvingContext(ServerLevel worldIn,
                                     ChunkGenerator chunkGeneratorIn,
-                                    TemplateManager templateManagerIn,
-                                    ServerWorldLightManager lightManager,
-                                    Function<IChunk, CompletableFuture<Either<IChunk, ChunkHolder.IChunkLoadingError>>> loadingFunction,
-                                    List<IChunk> chunks,
-                                    CallbackInfoReturnable<CompletableFuture<Either<IChunk, ChunkHolder.IChunkLoadingError>>> cir) {
+                                    StructureManager templateManagerIn,
+                                    ThreadedLevelLightEngine lightManager,
+                                    Function<ChunkAccess, CompletableFuture<Either<ChunkAccess, ChunkHolder.ChunkLoadingFailure>>> loadingFunction,
+                                    List<ChunkAccess> chunks,
+                                    CallbackInfoReturnable<CompletableFuture<Either<ChunkAccess, ChunkHolder.ChunkLoadingFailure>>> cir) {
         // Limit context to CARVERS (air carving stage)
         if (Objects.equals((ChunkStatus) (Object) this, ChunkStatus.SURFACE)) {
             // Refer to ChunkStatus::doGenerationWork for method of getting the main chunk.

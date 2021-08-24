@@ -1,4 +1,4 @@
-//package corgiaoc.byg.common.properties.blocks.end.viscalisle;
+package corgiaoc.byg.common.properties.blocks.end.viscalisle;//package corgiaoc.byg.common.properties.blocks.end.viscalisle;
 //
 //import corgiaoc.byg.core.BYGBlocks;
 //import corgiaoc.byg.core.BYGItems;

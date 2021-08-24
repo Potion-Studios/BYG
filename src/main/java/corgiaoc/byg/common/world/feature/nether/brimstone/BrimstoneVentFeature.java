@@ -3,18 +3,18 @@ package corgiaoc.byg.common.world.feature.nether.brimstone;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BrimstoneVentsConfig;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.pattern.BlockStateMatcher;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
 public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
-    private static final BlockStateMatcher IS_BRIMSTONE = BlockStateMatcher.forBlock(BYGBlocks.BRIMSTONE);
+    private static final BlockStatePredicate IS_BRIMSTONE = BlockStatePredicate.forBlock(BYGBlocks.BRIMSTONE);
     private final BlockState brimstone = BYGBlocks.BRIMSTONE.defaultBlockState();
     private final BlockState lava = Blocks.LAVA.defaultBlockState();
 
@@ -23,7 +23,7 @@ public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, BrimstoneVentsConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, BrimstoneVentsConfig config) {
 
         if (world.getBlockState(pos.below()) != config.getBlockProvider().getState(random, pos) || !world.getBlockState(pos.below()).canOcclude())
             return false;

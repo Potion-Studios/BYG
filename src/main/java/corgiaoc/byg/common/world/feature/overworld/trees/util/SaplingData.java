@@ -1,6 +1,6 @@
 package corgiaoc.byg.common.world.feature.overworld.trees.util;
 
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 
 import java.util.Set;
 

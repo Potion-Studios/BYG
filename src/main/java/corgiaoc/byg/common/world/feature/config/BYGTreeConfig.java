@@ -3,30 +3,30 @@ package corgiaoc.byg.common.world.feature.config;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BYGTreeConfig implements IFeatureConfig {
+public class BYGTreeConfig implements FeatureConfiguration {
 
     public static final Codec<BYGTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState())).forGetter((config) -> {
+        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState())).forGetter((config) -> {
             return config.trunkProvider;
-        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> {
             return config.leavesProvider;
-        }), BlockStateProvider.CODEC.fieldOf("ground_replacement_provider").orElse(new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("ground_replacement_provider").orElse(new SimpleStateProvider(Blocks.DIRT.defaultBlockState())).forGetter((config) -> {
             return config.groundReplacementProvider;//TODO: Remove Ground Replacement Provider
-        }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(new SimpleStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.diskProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
@@ -59,7 +59,7 @@ public class BYGTreeConfig implements IFeatureConfig {
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
         this.diskRadius = diskRadius;
-        this.whitelist = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
+        this.whitelist = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
     }
 
     /**
@@ -133,11 +133,11 @@ public class BYGTreeConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
-        private BlockStateProvider leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+        private BlockStateProvider trunkProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
+        private BlockStateProvider leavesProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
         @Deprecated
-        private BlockStateProvider groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
-        private BlockStateProvider diskProvider = new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState());
+        private BlockStateProvider groundReplacementProvider = new SimpleStateProvider(Blocks.DIRT.defaultBlockState());
+        private BlockStateProvider diskProvider = new SimpleStateProvider(Blocks.PODZOL.defaultBlockState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
@@ -145,18 +145,18 @@ public class BYGTreeConfig implements IFeatureConfig {
 
         public Builder setTrunkBlock(Block block) {
             if (block != null)
-                trunkProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                trunkProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+                trunkProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setTrunkBlock(BlockState state) {
             if (state != null)
-                trunkProvider = new SimpleBlockStateProvider(state);
+                trunkProvider = new SimpleStateProvider(state);
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+                trunkProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
@@ -165,25 +165,25 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 trunkProvider = stateProvider;
             else
-                trunkProvider = new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState());
+                trunkProvider = new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState());
 
             return this;
         }
 
         public Builder setLeavesBlock(Block block) {
             if (block != null)
-                leavesProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                leavesProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                leavesProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
 
         public Builder setLeavesBlock(BlockState state) {
             if (state != null)
-                leavesProvider = new SimpleBlockStateProvider(state);
+                leavesProvider = new SimpleStateProvider(state);
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                leavesProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -192,7 +192,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 leavesProvider = stateProvider;
             else
-                leavesProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                leavesProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -200,9 +200,9 @@ public class BYGTreeConfig implements IFeatureConfig {
         @Deprecated
         public Builder setGroundReplacementBlock(Block block) {
             if (block != null)
-                groundReplacementProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                groundReplacementProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.DIRT.defaultBlockState());
+                groundReplacementProvider = new SimpleStateProvider(Blocks.DIRT.defaultBlockState());
 
             return this;
         }
@@ -210,9 +210,9 @@ public class BYGTreeConfig implements IFeatureConfig {
         @Deprecated
         public Builder setGroundReplacementBlock(BlockState state) {
             if (state != null)
-                groundReplacementProvider = new SimpleBlockStateProvider(state);
+                groundReplacementProvider = new SimpleStateProvider(state);
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
+                groundReplacementProvider = new SimpleStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
@@ -222,7 +222,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 groundReplacementProvider = stateProvider;
             else
-                groundReplacementProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                groundReplacementProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }
@@ -230,18 +230,18 @@ public class BYGTreeConfig implements IFeatureConfig {
 
         public Builder setDiskBlock(Block block) {
             if (block != null)
-                diskProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                diskProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
+                diskProvider = new SimpleStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
 
         public Builder setDiskBlock(BlockState state) {
             if (state != null)
-                diskProvider = new SimpleBlockStateProvider(state);
+                diskProvider = new SimpleStateProvider(state);
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.AIR.defaultBlockState());
+                diskProvider = new SimpleStateProvider(Blocks.AIR.defaultBlockState());
 
             return this;
         }
@@ -250,7 +250,7 @@ public class BYGTreeConfig implements IFeatureConfig {
             if (stateProvider != null)
                 diskProvider = stateProvider;
             else
-                diskProvider = new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
+                diskProvider = new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState());
 
             return this;
         }

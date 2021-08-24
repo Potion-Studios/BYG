@@ -3,19 +3,19 @@ package corgiaoc.byg.common.world.feature.config;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class ChainConfig implements IFeatureConfig {
+public class ChainConfig implements FeatureConfiguration {
 
     public static final Codec<ChainConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("x_axis_block_provider").forGetter((config) -> {
@@ -43,7 +43,7 @@ public class ChainConfig implements IFeatureConfig {
         this.zAxisBlockProvider = blockProvider;
         this.minLength = minLength;
         this.maxLength = maxLength;
-        this.whitelist = whitelist.stream().map(AbstractBlock.AbstractBlockState::getBlock).collect(Collectors.toSet());
+        this.whitelist = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
     }
 
     public BlockStateProvider getXAxisBlockProvider() {
@@ -75,66 +75,66 @@ public class ChainConfig implements IFeatureConfig {
     }
 
     public static class Builder {
-        private BlockStateProvider xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.defaultBlockState());
-        private BlockStateProvider zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.COBBLESTONE.defaultBlockState());
+        private BlockStateProvider xAxisBlockProvider = new SimpleStateProvider(Blocks.COBBLESTONE.defaultBlockState());
+        private BlockStateProvider zAxisBlockProvider = new SimpleStateProvider(Blocks.COBBLESTONE.defaultBlockState());
         private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
         private int minLength = 1;
         private int maxLength = 9;
 
-        public ChainConfig.Builder setXAxisBlock(Block block) {
+        public Builder setXAxisBlock(Block block) {
             if (block != null)
-                xAxisBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                xAxisBlockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                xAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setXAxisBlock(BlockState state) {
+        public Builder setXAxisBlock(BlockState state) {
             if (state != null)
-                xAxisBlockProvider = new SimpleBlockStateProvider(state);
+                xAxisBlockProvider = new SimpleStateProvider(state);
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                xAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setXAxisBlock(BlockStateProvider provider) {
+        public Builder setXAxisBlock(BlockStateProvider provider) {
             if (provider != null)
                 xAxisBlockProvider = provider;
             else
-                xAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                xAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setZAxisBlock(Block block) {
+        public Builder setZAxisBlock(Block block) {
             if (block != null)
-                zAxisBlockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+                zAxisBlockProvider = new SimpleStateProvider(block.defaultBlockState());
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                zAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setZAxisBlock(BlockState state) {
+        public Builder setZAxisBlock(BlockState state) {
             if (state != null)
-                zAxisBlockProvider = new SimpleBlockStateProvider(state);
+                zAxisBlockProvider = new SimpleStateProvider(state);
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                zAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setZAxisBlock(BlockStateProvider provider) {
+        public Builder setZAxisBlock(BlockStateProvider provider) {
             if (provider != null)
                 zAxisBlockProvider = provider;
             else
-                zAxisBlockProvider = new SimpleBlockStateProvider(Blocks.STONE.defaultBlockState());
+                zAxisBlockProvider = new SimpleStateProvider(Blocks.STONE.defaultBlockState());
             return this;
         }
 
-        public ChainConfig.Builder setMinLength(int minLength) {
+        public Builder setMinLength(int minLength) {
             this.minLength = minLength;
             return this;
         }
 
-        public ChainConfig.Builder setMaxLength(int maxPossibleHeight) {
+        public Builder setMaxLength(int maxPossibleHeight) {
             if (maxPossibleHeight != 0)
                 this.maxLength = maxPossibleHeight + 1;
             else
@@ -142,12 +142,12 @@ public class ChainConfig implements IFeatureConfig {
             return this;
         }
 
-        public ChainConfig.Builder setWhitelist(ImmutableList<Block> whitelist) {
+        public Builder setWhitelist(ImmutableList<Block> whitelist) {
             this.whitelist = whitelist;
             return this;
         }
 
-        public ChainConfig.Builder copy(ChainConfig config) {
+        public Builder copy(ChainConfig config) {
             this.xAxisBlockProvider = config.xAxisBlockProvider;
             this.zAxisBlockProvider = config.zAxisBlockProvider;
             this.minLength = config.minLength;

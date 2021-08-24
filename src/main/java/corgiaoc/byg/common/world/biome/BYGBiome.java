@@ -7,12 +7,12 @@ import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.mixin.access.WeightedListEntryAccess;
 import corgiaoc.byg.util.MLClimate;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.*;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.world.level.biome.*;
 
 import java.util.*;
 
@@ -26,12 +26,12 @@ public class BYGBiome {
     public static final Map<ResourceLocation, ResourceLocation> BIOME_TO_EDGE_LIST = new HashMap<>();
     public static final Map<ResourceLocation, ResourceLocation> BIOME_TO_RIVER_LIST = new HashMap<>();
 
-    public BYGBiome(Biome.Climate climate, Biome.Category category, float depth, float scale, BiomeAmbience effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnInfo mobSpawnInfo) {
+    public BYGBiome(Biome.ClimateSettings climate, Biome.BiomeCategory category, float depth, float scale, BiomeSpecialEffects effects, BiomeGenerationSettings biomeGenerationSettings, MobSpawnSettings mobSpawnInfo) {
         biome = BiomeAccess.create(climate, category, depth, scale, effects, biomeGenerationSettings, mobSpawnInfo);
         BYG_BIOMES.add(this);
     }
 
-    public BYGBiome(Biome.Builder builder) {
+    public BYGBiome(Biome.BiomeBuilder builder) {
         this.biome = builder.build();
         BYG_BIOMES.add(this);
     }
@@ -46,7 +46,7 @@ public class BYGBiome {
     }
 
     public Biome getRiver() {
-        return WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER);
+        return BuiltinRegistries.BIOME.getOrThrow(Biomes.RIVER);
     }
 
     public WeightedList<Biome> getHills() {
@@ -60,7 +60,7 @@ public class BYGBiome {
 
     @Nullable
     public Biome getBeach() {
-        return WorldGenRegistries.BIOME.getOrThrow(Biomes.BEACH);
+        return BuiltinRegistries.BIOME.getOrThrow(Biomes.BEACH);
     }
 
 
@@ -80,16 +80,16 @@ public class BYGBiome {
         Map<ResourceLocation, OverworldPrimaryBiomeData> biomeData = new HashMap<>();
         for (BYGBiome bygBiome : BYG_BIOMES) {
             WeightedList<ResourceLocation> weightedListByLocation = new WeightedList<>();
-            for (WeightedList.Entry<Biome> entry : ((WeightedListAccess<Biome>) bygBiome.getHills()).getEntries()) {
-                weightedListByLocation.add(WorldGenRegistries.BIOME.getKey(entry.getData()), ((WeightedListEntryAccess) entry).getWeight());
+            for (WeightedList.WeightedEntry<Biome> entry : ((WeightedListAccess<Biome>) bygBiome.getHills()).getEntries()) {
+                weightedListByLocation.add(BuiltinRegistries.BIOME.getKey(entry.getData()), ((WeightedListEntryAccess) entry).getWeight());
             }
 
-            biomeData.put(WorldGenRegistries.BIOME.getKey(bygBiome.getBiome()), new OverworldPrimaryBiomeData(bygBiome.getClimate(), bygBiome.getWeight(), Arrays.asList(bygBiome.getBiomeDictionary()), weightedListByLocation, bygBiome.getEdge() != null ? WorldGenRegistries.BIOME.getKey(bygBiome.getEdge()) : new ResourceLocation(""), WorldGenRegistries.BIOME.getKey(bygBiome.getBeach()), WorldGenRegistries.BIOME.getKey(bygBiome.getRiver())));
+            biomeData.put(BuiltinRegistries.BIOME.getKey(bygBiome.getBiome()), new OverworldPrimaryBiomeData(bygBiome.getClimate(), bygBiome.getWeight(), Arrays.asList(bygBiome.getBiomeDictionary()), weightedListByLocation, bygBiome.getEdge() != null ? BuiltinRegistries.BIOME.getKey(bygBiome.getEdge()) : new ResourceLocation(""), BuiltinRegistries.BIOME.getKey(bygBiome.getBeach()), BuiltinRegistries.BIOME.getKey(bygBiome.getRiver())));
         }
         return new BiomeDataHolders.OverworldPrimaryBiomeDataHolder(biomeData);
     }
 
-    public RegistryKey<Biome> getKey() {
-        return RegistryKey.create(Registry.BIOME_REGISTRY, Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(this.biome)));
+    public ResourceKey<Biome> getKey() {
+        return ResourceKey.create(Registry.BIOME_REGISTRY, Objects.requireNonNull(BuiltinRegistries.BIOME.getKey(this.biome)));
     }
 }

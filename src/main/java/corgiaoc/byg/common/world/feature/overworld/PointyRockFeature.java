@@ -3,11 +3,11 @@ package corgiaoc.byg.common.world.feature.overworld;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.PointyRockConfig;
 import corgiaoc.byg.util.noise.simplex.OpenSimplex2;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -33,13 +33,13 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
+    public boolean place(WorldGenLevel world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
         long seed1 = rand.nextLong();
         long seed2 = rand.nextLong();
 
         int baseX = position.getX();
         int baseZ = position.getZ();
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         
         double effectiveConfiguredHeightMultiplier = config.getHeightMultiplier() * EFFECTIVE_HEIGHT_MULTIPLIER;
         for (int z = 1-RADIUS; z < RADIUS; z++) {
@@ -66,7 +66,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
 
                 // Determine range to place blocks
                 int maximumHeight = (int)noise;
-                int terrainHeight = world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, worldX, worldZ);
+                int terrainHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, worldX, worldZ);
                 
                 // If there are any blocks to place this column...
                 if (maximumHeight > terrainHeight) {

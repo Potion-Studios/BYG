@@ -3,31 +3,31 @@ package corgiaoc.byg.common.world.surfacebuilder;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.util.noise.fastnoise.FNVector3f;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 import java.util.Random;
 
-public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
 
-    public StoneForestSB(Codec<SurfaceBuilderConfig> codec) {
+    public StoneForestSB(Codec<SurfaceBuilderBaseConfiguration> codec) {
         super(codec);
     }
 
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         initNoise(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
-        BlockPos.Mutable mutable = new BlockPos.Mutable(xPos, 0, zPos);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos(xPos, 0, zPos);
 
         FNVector3f fnVector3f = new FNVector3f(x, 0, z);
 
@@ -35,7 +35,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
 
         float sampleNoise = noiseGen.GetNoise(fnVector3f.x, fnVector3f.z);
 
-        int groundLevel = chunkIn.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, x, z);
+        int groundLevel = chunkIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, x, z);
 
         if (sampleNoise < 0.43) {
             int topHeight = startHeight + 55;
@@ -62,7 +62,7 @@ public class StoneForestSB extends SurfaceBuilder<SurfaceBuilderConfig> {
                 mutable.move(Direction.DOWN);
             }
         } else
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderConfig(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial()));
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderBaseConfiguration(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderwaterMaterial()));
     }
 
     @Override

@@ -1,12 +1,12 @@
 package corgiaoc.byg.common.properties.blocks.end;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LanternBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Lantern;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class CrypticLanternBlock extends LanternBlock {
+public class CrypticLanternBlock extends Lantern {
     public CrypticLanternBlock(Properties builder) {
         super(builder);
     }
@@ -15,7 +15,7 @@ public class CrypticLanternBlock extends LanternBlock {
         return true;
     }
 
-    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+    public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
         return 10;
     }
 }

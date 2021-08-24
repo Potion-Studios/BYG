@@ -1,10 +1,10 @@
 package corgiaoc.byg.common.properties.items;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.block.Block;
 
 public class BaobabFruitItem extends BlockItem {
     public BaobabFruitItem(Block blockIn, Properties builder) {
@@ -15,8 +15,8 @@ public class BaobabFruitItem extends BlockItem {
         return 32;
     }
 
-    public UseAction getUseAnimation(ItemStack stack) {
-        return UseAction.EAT;
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.EAT;
     }
 
     public String getDescriptionId() {

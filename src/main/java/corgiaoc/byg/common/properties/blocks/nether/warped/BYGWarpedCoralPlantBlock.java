@@ -1,25 +1,24 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.AbstractCoralPlantBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorldReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BaseCoralPlantTypeBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
+public class BYGWarpedCoralPlantBlock extends BaseCoralPlantTypeBlock {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 15.0D, 14.0D);
 
-    protected BYGWarpedCoralPlantBlock(AbstractBlock.Properties properties) {
+    protected BYGWarpedCoralPlantBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos blockPos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos blockPos, CollisionContext context) {
         return SHAPE;
     }
 
@@ -28,7 +27,7 @@ public class BYGWarpedCoralPlantBlock extends AbstractCoralPlantBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockPos posDown = pos.below();
         return this.isValidGround(worldIn.getBlockState(posDown));
     }

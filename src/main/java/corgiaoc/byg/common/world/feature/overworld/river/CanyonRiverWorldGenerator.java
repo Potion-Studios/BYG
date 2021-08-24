@@ -4,26 +4,26 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
 
 import java.util.*;
 
-public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
-    public CanyonRiverWorldGenerator(Codec<NoFeatureConfig> codec) {
+public class CanyonRiverWorldGenerator extends Feature<NoneFeatureConfiguration> {
+    public CanyonRiverWorldGenerator(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
     }
 
@@ -32,20 +32,20 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
     private static long seed;
 
 
-    private final Map<World, CanyonCache> worldToCanyonPoint = new WeakHashMap<>();
+    private final Map<Level, CanyonCache> worldToCanyonPoint = new WeakHashMap<>();
 
     public static FastNoise noise;
 
     @Override
-    public boolean place(ISeedReader worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+    public boolean place(WorldGenLevel worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         setupNoise(worldRegion.getSeed());
         NoisyCaveSphereWater.setSeed(worldRegion.getSeed());
 
-        IChunk chunk = worldRegion.getChunk(pos);
+        ChunkAccess chunk = worldRegion.getChunk(pos);
         ChunkPos chunkPos = chunk.getPos();
 
         CanyonCache canyonCache = worldToCanyonPoint.computeIfAbsent(worldRegion.getLevel(), (world) -> {
-            return new CanyonCache(worldRegion.getLevel().getChunkSource().generator, Collections.singleton(worldRegion.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).get(BYGBiomes.CANYON_KEY)));
+            return new CanyonCache(worldRegion.getLevel().getChunkSource().getGenerator(), Collections.singleton(worldRegion.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).get(BYGBiomes.CANYON_KEY)));
         });
 
         for (int xMegaScan = -MAX_RIVER_DISTANCE_IN_MEGA_CHUNKS; xMegaScan <= MAX_RIVER_DISTANCE_IN_MEGA_CHUNKS; xMegaScan++) {
@@ -81,7 +81,7 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         return true;
     }
 
-    private void generateForChunk(ISeedReader worldRegion, ChunkPos chunkPos, RiverGenerator riverGenerator) {
+    private void generateForChunk(WorldGenLevel worldRegion, ChunkPos chunkPos, RiverGenerator riverGenerator) {
         List<RiverGenerator.Node> nodes = riverGenerator.getNodesForChunk(chunkPos);
 
         for (int idx = 0; idx < nodes.size(); idx++) {
@@ -91,9 +91,9 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         }
     }
 
-    private void carveRiverNode(ISeedReader worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode, RiverGenerator riverGenerator) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(node.getPos());
-        BlockPos.Mutable prevMutable = new BlockPos.Mutable().set(prevNode.getPos());
+    private void carveRiverNode(WorldGenLevel worldRegion, RiverGenerator.Node node, RiverGenerator.Node prevNode, RiverGenerator riverGenerator) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(node.getPos());
+        BlockPos.MutableBlockPos prevMutable = new BlockPos.MutableBlockPos().set(prevNode.getPos());
 
         int xRadius = 10;
         int yRadius = 10;
@@ -127,14 +127,14 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
             minZRadius = minZRadius + zDiff;
         }
 
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
 
         int yDiff = prevMutable.getY() - mutable.getY();
 
         for (int x = minXRadius; x <= maxXRadius; x++) {
             for (int z = minZRadius; z <= maxZRadius; z++) {
                 mutable2.set(mutable).move(x, 0, z);
-                int height = worldRegion.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
+                int height = worldRegion.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
                 mutable2.setY(mutable2.getY() - 3);
 
                 for (int y = -yRadius; y <= 25; y++) {
@@ -175,7 +175,7 @@ public class CanyonRiverWorldGenerator extends Feature<NoFeatureConfig> {
         }
     }
 
-    private boolean isSolidAllAround(ISeedReader worldRegion, BlockPos pos3) {
+    private boolean isSolidAllAround(WorldGenLevel worldRegion, BlockPos pos3) {
         for (Direction direction : Direction.values()) {
             if (direction != Direction.UP) {
                 BlockPos relative = pos3.relative(direction);

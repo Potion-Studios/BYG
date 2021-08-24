@@ -1,8 +1,8 @@
 package corgiaoc.byg.helper;
 
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 
 public interface BlockEntityPacketHandler {
 
-    void handleClientPacketNoTypeCheck(SUpdateTileEntityPacket sUpdateTileEntityPacket);
+    void handleClientPacketNoTypeCheck(ClientboundBlockEntityDataPacket sUpdateTileEntityPacket);
 }

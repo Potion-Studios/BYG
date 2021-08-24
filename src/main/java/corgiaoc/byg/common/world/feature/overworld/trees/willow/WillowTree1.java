@@ -3,16 +3,16 @@ package corgiaoc.byg.common.world.feature.overworld.trees.willow;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 
 import java.util.Random;
 import java.util.Set;
 
-import static net.minecraft.util.Direction.*;
+import static net.minecraft.core.Direction.*;
 
 
 public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
@@ -22,12 +22,12 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.BLUE_SPRUCE_SAPLING);
     }
 
-    protected boolean generate(Set<BlockPos> changedBlocks, ISeedReader worldIn, Random rand, BlockPos pos, MutableBoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
-        BlockPos.Mutable block = new BlockPos.Mutable().set(blockPos);
-        BlockPos.Mutable mainMutable = new BlockPos.Mutable().set(block);
+        BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos().set(blockPos);
+        BlockPos.MutableBlockPos mainMutable = new BlockPos.MutableBlockPos().set(block);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
@@ -39,13 +39,13 @@ public class WillowTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
             } else {
                 //Trunk
                 for (int i = 3; i <= randTreeHeight; i++) {
-                    BlockPos.Mutable mutable = new BlockPos.Mutable().set(block);
+                    BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(block);
                     placeTrunk(pos, config, rand, changedBlocks, worldIn, mutable.move(UP, i), boundsIn);
                 }
 
                 for (int baseSize = 0; baseSize < 4; baseSize++) {
-                    BlockPos.Mutable mutable = new BlockPos.Mutable().set(block.above(3));
-                    for (Direction direction : Direction.Plane.HORIZONTAL) {
+                    BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(block.above(3));
+                    for (Direction direction : Plane.HORIZONTAL) {
                         mutable.set(block.above(3).relative(direction, baseSize));
                         if (worldIn.getBlockState(mutable).getBlock() != Blocks.DIRT)
                             placeTrunk(pos, config, rand, changedBlocks, worldIn, mutable.move(DOWN, baseSize), boundsIn);

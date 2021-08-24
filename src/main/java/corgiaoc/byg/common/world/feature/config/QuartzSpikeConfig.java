@@ -2,14 +2,14 @@ package corgiaoc.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 
-public class QuartzSpikeConfig implements IFeatureConfig {
+public class QuartzSpikeConfig implements FeatureConfiguration {
 
     public static final Codec<QuartzSpikeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
@@ -30,15 +30,15 @@ public class QuartzSpikeConfig implements IFeatureConfig {
 
 
     public static class Builder {
-        private BlockStateProvider blockProvider = new SimpleBlockStateProvider(Blocks.SMOOTH_QUARTZ.defaultBlockState());
+        private BlockStateProvider blockProvider = new SimpleStateProvider(Blocks.SMOOTH_QUARTZ.defaultBlockState());
 
-        public QuartzSpikeConfig.Builder setBlock(Block block) {
-            this.blockProvider = new SimpleBlockStateProvider(block.defaultBlockState());
+        public Builder setBlock(Block block) {
+            this.blockProvider = new SimpleStateProvider(block.defaultBlockState());
             return this;
         }
 
-        public QuartzSpikeConfig.Builder setBlock(BlockState state) {
-            this.blockProvider = new SimpleBlockStateProvider(state);
+        public Builder setBlock(BlockState state) {
+            this.blockProvider = new SimpleStateProvider(state);
             return this;
         }
 

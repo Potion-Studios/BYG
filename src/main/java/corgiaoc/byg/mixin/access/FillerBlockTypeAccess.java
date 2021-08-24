@@ -1,11 +1,11 @@
 package corgiaoc.byg.mixin.access;
 
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.template.RuleTest;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(OreFeatureConfig.FillerBlockType.class)
+@Mixin(OreConfiguration.Predicates.class)
 public interface FillerBlockTypeAccess {
 
     @Accessor("NETHERRACK")

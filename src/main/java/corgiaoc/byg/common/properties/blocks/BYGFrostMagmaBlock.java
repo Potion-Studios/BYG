@@ -1,15 +1,15 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
@@ -19,7 +19,7 @@ public class BYGFrostMagmaBlock extends Block {
         super(properties);
     }
 
-    public void stepOn(World block, BlockPos pos, Entity entity) {
+    public void stepOn(Level block, BlockPos pos, Entity entity) {
         if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
             entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
@@ -27,7 +27,7 @@ public class BYGFrostMagmaBlock extends Block {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random rand) {
         BlockState blockAbove = world.getBlockState(pos.above());
         if (blockAbove.getBlock() == Blocks.WATER) {
             world.setBlock(pos.above(), Blocks.ICE.defaultBlockState(), 2);
@@ -44,7 +44,7 @@ public class BYGFrostMagmaBlock extends Block {
         return 20;
     }
 
-    public void onPlace(BlockState state, World world, BlockPos pos, BlockState state2, boolean isMoving) {
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState state2, boolean isMoving) {
         world.getBlockTicks().scheduleTick(pos, this, this.tickRate());
     }
 

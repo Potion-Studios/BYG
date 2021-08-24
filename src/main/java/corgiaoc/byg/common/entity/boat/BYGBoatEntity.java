@@ -5,44 +5,44 @@ import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.mixin.access.BoatEntityAccess;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.BoatEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IndirectEntityDamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.IndirectEntityDamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 @SuppressWarnings("EntityConstructor")
-public class BYGBoatEntity extends BoatEntity {
-    private static final DataParameter<Integer> BYG_BOAT_TYPE = EntityDataManager.defineId(BYGBoatEntity.class, DataSerializers.INT);
+public class BYGBoatEntity extends Boat {
+    private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoatEntity.class, EntityDataSerializers.INT);
 
 
-    public BYGBoatEntity(World worldIn, double x, double y, double z) {
+    public BYGBoatEntity(Level worldIn, double x, double y, double z) {
         this(BYGEntities.BOAT, worldIn);
         this.setPos(x, y, z);
-        this.setDeltaMovement(Vector3d.ZERO);
+        this.setDeltaMovement(Vec3.ZERO);
         this.xo = x;
         this.yo = y;
         this.zo = z;
     }
 
-    public BYGBoatEntity(EntityType<? extends BoatEntity> boatEntityType, World worldType) {
+    public BYGBoatEntity(EntityType<? extends Boat> boatEntityType, Level worldType) {
         super(boatEntityType, worldType);
     }
 
@@ -161,18 +161,18 @@ public class BYGBoatEntity extends BoatEntity {
 
 
     @Override
-    protected void addAdditionalSaveData(CompoundNBT compound) {
+    protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putString("BYGType", this.getBYGBoatType().getName());
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundNBT compound) {
+    protected void readAdditionalSaveData(CompoundTag compound) {
         if (compound.contains("BYGType", 8)) {
             this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
         }
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @Environment(EnvType.CLIENT)
     @Override
     public void animateHurt() {
         this.setHurtDir(-this.getHurtDir());
@@ -187,7 +187,7 @@ public class BYGBoatEntity extends BoatEntity {
         if (!this.isPassenger()) {
             if (onGroundIn) {
                 if (this.fallDistance > 3.0F) {
-                    if (((BoatEntityAccess) this).getStatus() != BoatEntity.Status.ON_LAND) {
+                    if (((BoatEntityAccess) this).getStatus() != Status.ON_LAND) {
                         this.fallDistance = 0.0F;
                         return;
                     }
@@ -229,7 +229,7 @@ public class BYGBoatEntity extends BoatEntity {
                 this.setHurtTime(10);
                 this.setDamage(this.getDamage() + amount * 10.0F);
                 this.markHurt();
-                boolean flag = source.getEntity() instanceof PlayerEntity && ((PlayerEntity) source.getEntity()).abilities.instabuild;
+                boolean flag = source.getEntity() instanceof Player && ((Player) source.getEntity()).abilities.instabuild;
                 if (flag || this.getDamage() > 40.0F) {
                     if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                         this.spawnAtLocation(this.getDropItem());
@@ -246,7 +246,7 @@ public class BYGBoatEntity extends BoatEntity {
     }
 
     @Override
-    public IPacket<?> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return BYG.entryPoint.getEntitySpawnPacket(this);
     }
 

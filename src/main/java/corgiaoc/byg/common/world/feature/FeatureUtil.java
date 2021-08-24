@@ -1,34 +1,34 @@
 package corgiaoc.byg.common.world.feature;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
+import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.IWorldGenerationBaseReader;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 
 public class FeatureUtil {
 
-    public static boolean isPlant(IWorldGenerationBaseReader world, BlockPos pos) {
+    public static boolean isPlant(LevelSimulatedReader world, BlockPos pos) {
         return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.LEAVES) || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.REPLACEABLE_FIREPROOF_PLANT);
     }
 
-    public static boolean isTerrainOrRock(IWorldGenerationBaseReader world, BlockPos pos) {
+    public static boolean isTerrainOrRock(LevelSimulatedReader world, BlockPos pos) {
         return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.DIRT || state.is(BlockTags.SAND) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
     }
 
-    public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {
+    public static boolean isAir(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, BlockState::isAir);
     }
 
-    public static boolean isAirInRange(IWorldGenerationBaseReader world, BlockPos pos, int xRange, int yRange, int zRange) {
+    public static boolean isAirInRange(LevelSimulatedReader world, BlockPos pos, int xRange, int yRange, int zRange) {
         return isAirInRange(world, pos, xRange, yRange, zRange, xRange, yRange, zRange);
     }
 
-    public static boolean isAirInRange(IWorldGenerationBaseReader world, BlockPos pos, int xNegRange, int yNegRange, int zNegRange, int xPosRange, int yPosRange, int zPosRange) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+    public static boolean isAirInRange(LevelSimulatedReader world, BlockPos pos, int xNegRange, int yNegRange, int zNegRange, int xPosRange, int yPosRange, int zPosRange) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         for (int x = -xNegRange; x <= xPosRange; x++) {
             for (int y = -yNegRange; y <= yPosRange; y++) {
                 for (int z = -zNegRange; z <= zPosRange; z++) {
@@ -42,7 +42,7 @@ public class FeatureUtil {
     }
 
 
-    public static void transformMutable(BlockPos.Mutable pos, Mirror mirrorIn, Rotation rotationIn) {
+    public static void transformMutable(BlockPos.MutableBlockPos pos, Mirror mirrorIn, Rotation rotationIn) {
         switch (mirrorIn) {
             case LEFT_RIGHT:
                 pos.setZ(-pos.getZ());
@@ -91,7 +91,7 @@ public class FeatureUtil {
     }
 
     public static BlockPos extractOffset(BlockPos startPos, BlockPos blockPos) {
-        return blockPos instanceof BlockPos.Mutable ? new BlockPos.Mutable(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ()) :
+        return blockPos instanceof BlockPos.MutableBlockPos ? new BlockPos.MutableBlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ()) :
                 new BlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ());
     }
 }

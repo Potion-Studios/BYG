@@ -1,21 +1,21 @@
 package corgiaoc.byg.common.properties.blocks.nether.glowstonegardens;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.AbstractBodyPlantBlock;
-import net.minecraft.block.AbstractTopPlantBlock;
-import net.minecraft.block.Block;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GrowingPlantBodyBlock;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SoulShroomSporeBlock extends AbstractBodyPlantBlock {
+public class SoulShroomSporeBlock extends GrowingPlantBodyBlock {
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
     protected SoulShroomSporeBlock(Properties properties) {
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    protected AbstractTopPlantBlock getHeadBlock() {
-        return (AbstractTopPlantBlock) BYGBlocks.SOUL_SHROOM_SPORE_END;
+    protected GrowingPlantHeadBlock getHeadBlock() {
+        return (GrowingPlantHeadBlock) BYGBlocks.SOUL_SHROOM_SPORE_END;
     }
 }
 

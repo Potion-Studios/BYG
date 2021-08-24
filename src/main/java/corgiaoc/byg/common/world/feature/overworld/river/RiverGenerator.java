@@ -1,16 +1,16 @@
 package corgiaoc.byg.common.world.feature.overworld.river;
 
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.vector.Vector2f;
-import net.minecraft.util.math.vector.Vector3i;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.phys.Vec2;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -22,7 +22,7 @@ public class RiverGenerator {
     private final List<Node> nodes;
     private final Map<ChunkPos, List<Node>> fastNodes;
 
-    public RiverGenerator(FastNoise noise, ISeedReader world, BlockPos startPos, ChunkGenerator generator, Predicate<BlockPos> isInvalid, Predicate<BlockPos> isValid, int maxDistance) {
+    public RiverGenerator(FastNoise noise, WorldGenLevel world, BlockPos startPos, ChunkGenerator generator, Predicate<BlockPos> isInvalid, Predicate<BlockPos> isValid, int maxDistance) {
         List<Node> nodes = new ArrayList<>();
         Map<ChunkPos, List<Node>> fastNodes = new HashMap<>();
 
@@ -36,13 +36,13 @@ public class RiverGenerator {
             Node prevNode = nodes.get(i - 1);
             float angle = noise.GetNoise(prevNode.getPos().getX(), 0, prevNode.getPos().getZ());
 
-            Vector2f dAngle = get2DAngle(angle * 5, 5);
+            Vec2 dAngle = get2DAngle(angle * 5, 5);
             BlockPos previousNodePos = prevNode.getPos();
-            Vector3i vecAngle = new Vector3i(dAngle.x, 0, dAngle.y);
+            Vec3i vecAngle = new Vec3i(dAngle.x, 0, dAngle.y);
 
             BlockPos addedPos = previousNodePos.offset(vecAngle);
-            RegistryKey<Biome> biomeRegistryKey = world.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(generator.getBiomeSource().getNoiseBiome(addedPos.getX() >> 2, addedPos.getY() >> 2, addedPos.getZ() >> 2)).get();
-            int newY = /*biomeRegistryKey == BYGBiomes.CANYON_KEY ? 218 :*/ generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
+            ResourceKey<Biome> biomeRegistryKey = world.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(generator.getBiomeSource().getNoiseBiome(addedPos.getX() >> 2, addedPos.getY() >> 2, addedPos.getZ() >> 2)).get();
+            int newY = /*biomeRegistryKey == BYGBiomes.CANYON_KEY ? 218 :*/ generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG);
 
             if (newY > previousNodePos.getY()) {
                 newY = previousNodePos.getY();
@@ -109,11 +109,11 @@ public class RiverGenerator {
         return this.nodes.get(0).getPos();
     }
 
-    public static Vector2f get2DAngle(float angle, float length) {
+    public static Vec2 get2DAngle(float angle, float length) {
         float x = (float) (Math.sin(angle) * length);
         float y = (float) (Math.cos(angle) * length);
 
-        return new Vector2f(x, y);
+        return new Vec2(x, y);
     }
 
 

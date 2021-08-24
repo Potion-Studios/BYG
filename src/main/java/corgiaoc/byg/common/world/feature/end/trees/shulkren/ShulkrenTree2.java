@@ -4,9 +4,9 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
@@ -16,14 +16,14 @@ public class ShulkrenTree2 extends BYGAbstractMushroomFeature<BYGMushroomConfig>
         super(configIn);
     }
 
-    protected boolean placeMushroom(ISeedReader worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
+    protected boolean placeMushroom(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
         BlockState STEM = config.getStemProvider().getState(rand, pos);
         BlockState MUSHROOM = config.getMushroomProvider().getState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getState(rand, pos);
         BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
         int randTreeHeight = 8 + rand.nextInt(5);
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwEndTags(config, worldIn, pos.below(), BYGBlocks.SHULKREN_PHYLIUM)) {
@@ -418,19 +418,19 @@ public class ShulkrenTree2 extends BYGAbstractMushroomFeature<BYGMushroomConfig>
         return true;
     }
 
-        private void placeShroomlight(ISeedReader reader, BlockPos pos) {
+        private void placeShroomlight(WorldGenLevel reader, BlockPos pos) {
             if (isAir(reader, pos)) {
                 this.setFinalBlockState(reader, pos, BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState());
             }
         }
 
-    private void placeHangingEnd(ISeedReader reader, BlockPos pos) {
+    private void placeHangingEnd(WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, BYGBlocks.SHULKREN_VINE.defaultBlockState());
         }
     }
 
-    private void placeHangingBody(ISeedReader reader, BlockPos pos) {
+    private void placeHangingBody(WorldGenLevel reader, BlockPos pos) {
         if (isAir(reader, pos)) {
             this.setFinalBlockState(reader, pos, BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState());
         }

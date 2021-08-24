@@ -4,28 +4,28 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.core.BYGBlocks;
 import edu.umd.cs.findbugs.annotations.Nullable;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.ColumnConfig;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 
 import java.util.Random;
 
-public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
+public class RawQuartzColumnFeature extends Feature<ColumnFeatureConfiguration> {
     private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(Blocks.LAVA, Blocks.BEDROCK, Blocks.MAGMA_BLOCK, Blocks.SOUL_SAND, Blocks.NETHER_BRICKS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICK_STAIRS, Blocks.NETHER_WART, Blocks.CHEST, Blocks.SPAWNER);
 
     public RawQuartzColumnFeature(
-            Codec<ColumnConfig> codec) {
+            Codec<ColumnFeatureConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, ColumnConfig config) {
+    public boolean place(WorldGenLevel reader, ChunkGenerator generator, Random rand, BlockPos pos, ColumnFeatureConfiguration config) {
         int i = generator.getSeaLevel();
         if (!canPlaceAt(reader, i, pos.mutable())) {
             return false;
@@ -47,7 +47,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
         }
     }
 
-    private boolean placeColumn(IWorld p_236248_1_, int p_236248_2_, BlockPos p_236248_3_, int p_236248_4_, int p_236248_5_) {
+    private boolean placeColumn(LevelAccessor p_236248_1_, int p_236248_2_, BlockPos p_236248_3_, int p_236248_4_, int p_236248_5_) {
         boolean flag = false;
 
         for (BlockPos blockpos : BlockPos.betweenClosed(p_236248_3_.getX() - p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() - p_236248_5_, p_236248_3_.getX() + p_236248_5_, p_236248_3_.getY(), p_236248_3_.getZ() + p_236248_5_)) {
@@ -56,7 +56,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
             if (blockpos1 != null) {
                 int j = p_236248_4_ - i / 2;
 
-                for (BlockPos.Mutable blockpos$mutable = blockpos1.mutable(); j >= 0; --j) {
+                for (BlockPos.MutableBlockPos blockpos$mutable = blockpos1.mutable(); j >= 0; --j) {
                     if (isAirOrLavaOcean(p_236248_1_, p_236248_2_, blockpos$mutable)) {
                         this.setBlock(p_236248_1_, blockpos$mutable, BYGBlocks.RAW_QUARTZ_BLOCK.defaultBlockState());
                         blockpos$mutable.move(Direction.UP);
@@ -76,7 +76,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
     }
 
     @Nullable
-    private static BlockPos findSurface(IWorld p_236246_0_, int p_236246_1_, BlockPos.Mutable p_236246_2_, int p_236246_3_) {
+    private static BlockPos findSurface(LevelAccessor p_236246_0_, int p_236246_1_, BlockPos.MutableBlockPos p_236246_2_, int p_236246_3_) {
         while (p_236246_2_.getY() > 1 && p_236246_3_ > 0) {
             --p_236246_3_;
             if (canPlaceAt(p_236246_0_, p_236246_1_, p_236246_2_)) {
@@ -89,7 +89,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
         return null;
     }
 
-    private static boolean canPlaceAt(IWorld p_242762_0_, int p_242762_1_, BlockPos.Mutable p_242762_2_) {
+    private static boolean canPlaceAt(LevelAccessor p_242762_0_, int p_242762_1_, BlockPos.MutableBlockPos p_242762_2_) {
         if (!isAirOrLavaOcean(p_242762_0_, p_242762_1_, p_242762_2_)) {
             return false;
         } else {
@@ -100,7 +100,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
     }
 
     @Nullable
-    private static BlockPos findAir(IWorld p_236249_0_, BlockPos.Mutable p_236249_1_, int p_236249_2_) {
+    private static BlockPos findAir(LevelAccessor p_236249_0_, BlockPos.MutableBlockPos p_236249_1_, int p_236249_2_) {
         while (p_236249_1_.getY() < p_236249_0_.getMaxBuildHeight() && p_236249_2_ > 0) {
             --p_236249_2_;
             BlockState blockstate = p_236249_0_.getBlockState(p_236249_1_);
@@ -118,7 +118,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnConfig> {
         return null;
     }
 
-    private static boolean isAirOrLavaOcean(IWorld p_236247_0_, int p_236247_1_, BlockPos p_236247_2_) {
+    private static boolean isAirOrLavaOcean(LevelAccessor p_236247_0_, int p_236247_1_, BlockPos p_236247_2_) {
         BlockState blockstate = p_236247_0_.getBlockState(p_236247_2_);
         return blockstate.isAir() || blockstate.is(Blocks.LAVA) && p_236247_2_.getY() <= p_236247_1_;
     }

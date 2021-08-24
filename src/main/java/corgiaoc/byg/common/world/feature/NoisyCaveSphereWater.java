@@ -3,14 +3,14 @@ package corgiaoc.byg.common.world.feature;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.Blocks;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.Random;
 
@@ -23,11 +23,11 @@ public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position);
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int xRadius = config.getRandomXRadius(random);
         int yRadius = config.getRandomYRadius(random);
@@ -37,9 +37,9 @@ public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
             for (int x = -xRadius; x <= xRadius; x++) {
                 for (int z = -zRadius; z <= zRadius; z++) {
                     for (int y = -yRadius; y <= 0; y++) {
-                        mutable.setY(world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, mutable.getX() + x, mutable.getZ() + z));
+                        mutable.setY(world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX() + x, mutable.getZ() + z));
                         mutable2.set(mutable).move(x, y, z);
-                        IChunk chunk = world.getChunk(mutable2);
+                        ChunkAccess chunk = world.getChunk(mutable2);
 //                        BitSet airCarvingMask = ((ChunkPrimer) chunk).getOrAddCarvingMask(GenerationStage.Carving.AIR);
 
                         //Credits to Hex_26 for this equation!

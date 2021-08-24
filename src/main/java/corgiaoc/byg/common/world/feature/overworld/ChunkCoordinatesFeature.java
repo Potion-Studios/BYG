@@ -1,24 +1,24 @@
 package corgiaoc.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
 import java.util.Random;
 
-public abstract class ChunkCoordinatesFeature<FC extends IFeatureConfig> extends Feature<FC> {
+public abstract class ChunkCoordinatesFeature<FC extends FeatureConfiguration> extends Feature<FC> {
 
     public ChunkCoordinatesFeature(Codec<FC> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
         ChunkPos chunk = world.getChunk(pos).getPos();
         int xStart = chunk.getMinBlockX();
         int zStart = chunk.getMinBlockZ();
@@ -33,5 +33,5 @@ public abstract class ChunkCoordinatesFeature<FC extends IFeatureConfig> extends
     }
 
 
-    public abstract boolean generate(ISeedReader world, Random random, IChunk chunkIn, int x, int z, FC config);
+    public abstract boolean generate(WorldGenLevel world, Random random, ChunkAccess chunkIn, int x, int z, FC config);
 }

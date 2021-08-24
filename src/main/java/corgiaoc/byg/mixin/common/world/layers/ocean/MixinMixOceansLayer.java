@@ -1,19 +1,19 @@
 package corgiaoc.byg.mixin.common.world.layers.ocean;
 
-import net.minecraft.world.gen.INoiseRandom;
-import net.minecraft.world.gen.area.IArea;
-import net.minecraft.world.gen.layer.MixOceansLayer;
+import net.minecraft.world.level.newbiome.area.Area;
+import net.minecraft.world.level.newbiome.context.Context;
+import net.minecraft.world.level.newbiome.layer.OceanMixerLayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(MixOceansLayer.class)
+@Mixin(OceanMixerLayer.class)
 public class MixinMixOceansLayer {
 
 
     @Inject(method = "applyPixel", at = @At("RETURN"), cancellable = true)
-    private void addOceans(INoiseRandom rand, IArea area, IArea area1, int x, int z, CallbackInfoReturnable<Integer> cir) {
+    private void addOceans(Context rand, Area area, Area area1, int x, int z, CallbackInfoReturnable<Integer> cir) {
 //        final Registry<Biome> biomeRegistry = ServerLifecycleHooks.getCurrentServer().getLevel(World.OVERWORLD).registryAccess().registry(Registry.BIOME_REGISTRY).get();
 //
 //

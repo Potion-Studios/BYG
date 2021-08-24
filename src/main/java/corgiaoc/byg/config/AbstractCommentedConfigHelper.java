@@ -6,7 +6,7 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.electronwill.nightconfig.toml.TomlFormat;
 import com.electronwill.nightconfig.toml.TomlWriter;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.StringRepresentable;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
@@ -123,10 +123,10 @@ public class AbstractCommentedConfigHelper {
         }
 
         if (config.getComment(key) == null) {
-            StringBuilder builder = new StringBuilder().append("Values: ").append(defaultValue instanceof IStringSerializable ? "\n" : "");
+            StringBuilder builder = new StringBuilder().append("Values: ").append(defaultValue instanceof StringRepresentable ? "\n" : "");
             for (T value : defaultValue.getDeclaringClass().getEnumConstants()) {
-                if (defaultValue instanceof IStringSerializable) {
-                    builder.append(((IStringSerializable) value).getSerializedName()).append("\n");
+                if (defaultValue instanceof StringRepresentable) {
+                    builder.append(((StringRepresentable) value).getSerializedName()).append("\n");
                 } else {
                     builder.append(value.name()).append(", ");
                 }

@@ -2,10 +2,10 @@ package corgiaoc.byg.mixin.common.entity;
 
 import corgiaoc.byg.core.BYGItems;
 import it.unimi.dsi.fastutil.objects.Reference2ReferenceOpenHashMap;
-import net.minecraft.entity.monster.piglin.PiglinEntity;
-import net.minecraft.entity.monster.piglin.PiglinTasks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Util;
+import net.minecraft.Util;
+import net.minecraft.world.entity.monster.piglin.Piglin;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-@Mixin(PiglinTasks.class)
+@Mixin(PiglinAi.class)
 public class MixinPiglinTasks {
 
     //Weight to item stack
@@ -26,7 +26,7 @@ public class MixinPiglinTasks {
     });
 
     @Inject(method = "getBarterResponseItems", at = @At("RETURN"), cancellable = true)
-    private static void addBYGBlocksForBarter(PiglinEntity piglin, CallbackInfoReturnable<List<ItemStack>> cir) {
+    private static void addBYGBlocksForBarter(Piglin piglin, CallbackInfoReturnable<List<ItemStack>> cir) {
         for (Map.Entry<Double, ItemStack> entry : BYG_BARTER_ITEMS.entrySet()) {
             Double weight = entry.getKey();
             ItemStack itemstack = entry.getValue();

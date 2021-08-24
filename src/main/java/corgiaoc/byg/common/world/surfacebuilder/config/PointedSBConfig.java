@@ -2,22 +2,22 @@ package corgiaoc.byg.common.world.surfacebuilder.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
-public class PointedSBConfig implements ISurfaceBuilderConfig {
+public class PointedSBConfig implements SurfaceBuilderConfiguration {
 
     public static final Codec<PointedSBConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
         return codecRecorder.group(BlockState.CODEC.fieldOf("top_material").forGetter((config) -> {
             return config.topMaterial;
         }), BlockState.CODEC.fieldOf("under_material").forGetter((config) -> {
             return config.underMaterial;
-        }), BlockStateProvider.CODEC.fieldOf("spike_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("spike_provider").orElse(new SimpleStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.spikeProvider;
-        }), BlockStateProvider.CODEC.fieldOf("spike_top_provider").orElse(new SimpleBlockStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
+        }), BlockStateProvider.CODEC.fieldOf("spike_top_provider").orElse(new SimpleStateProvider(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.spikeTopBlockProvider;
         }), Codec.INT.fieldOf("spike_height").orElse(150).forGetter((config) -> {
             return config.spikeHeight;

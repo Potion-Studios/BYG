@@ -3,10 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.giantflowers;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.GiantFlowerConfig;
 import corgiaoc.byg.common.world.feature.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConf
         super(configIn);
     }
 
-    protected boolean placeFlower(ISeedReader worldIn, Random rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
+    protected boolean placeFlower(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
         BlockState STEM = config.getStemProvider().getState(rand, pos);
         BlockState PETAL = config.getPetalProvider().getState(rand, pos);
         BlockState PETAL2 = config.getPetal2Provider().getState(rand, pos);
@@ -24,7 +24,7 @@ public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConf
         BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());
-        BlockPos.Mutable mainmutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), Blocks.GRASS_BLOCK)) {

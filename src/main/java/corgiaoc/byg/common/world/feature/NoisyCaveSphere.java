@@ -3,15 +3,15 @@ package corgiaoc.byg.common.world.feature;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.NoisySphereConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.material.Material;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
 
@@ -24,11 +24,11 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(position.below(2 + random.nextInt(10)));
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable().set(mutable);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int xRadius = config.getRandomXRadius(random);
         int yRadius = config.getRandomYRadius(random);

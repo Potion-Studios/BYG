@@ -3,11 +3,11 @@ package corgiaoc.byg.common.world.feature.overworld;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -21,19 +21,19 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
     protected static FastNoise fastNoise;
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
         int curveLength = 35;
 
-        BlockPos.Mutable mutable2 = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos();
 
             for (int z = -curveLength; z <= curveLength; z++) {
                 mutable2.set(mutable.getX(), 0, mutable.getZ() + z);
                 int height = getArchHeight(z);
                 mutable2.move(Direction.UP, height + pos.getY() + 15);
 
-                BlockPos.Mutable thicknessPos = new BlockPos.Mutable().set(mutable2);
+                BlockPos.MutableBlockPos thicknessPos = new BlockPos.MutableBlockPos().set(mutable2);
 
 
                 int horizontalThicknessTotal = 4;

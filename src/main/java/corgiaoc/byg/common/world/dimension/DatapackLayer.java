@@ -1,19 +1,19 @@
 package corgiaoc.byg.common.world.dimension;
 
 import corgiaoc.byg.BYG;
-import net.minecraft.util.SharedConstants;
-import net.minecraft.util.Util;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeRegistry;
-import net.minecraft.world.gen.area.IAreaFactory;
-import net.minecraft.world.gen.area.LazyArea;
+import net.minecraft.SharedConstants;
+import net.minecraft.Util;
+import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.biome.Biomes;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.newbiome.area.AreaFactory;
+import net.minecraft.world.level.newbiome.area.LazyArea;
 
 public class DatapackLayer {
 
     private final LazyArea lazyArea;
 
-    public DatapackLayer(IAreaFactory<LazyArea> lazyAreaFactoryIn) {
+    public DatapackLayer(AreaFactory<LazyArea> lazyAreaFactoryIn) {
         this.lazyArea = lazyAreaFactoryIn.make();
     }
 
@@ -32,7 +32,7 @@ public class DatapackLayer {
                     BYG.LOGGER.warn("BYG's Nether Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamNether++;
                 }
-                return registry.get(BiomeRegistry.byId(8));
+                return registry.get(Biomes.byId(8));
             }
         } else {
             return biome;
@@ -52,7 +52,7 @@ public class DatapackLayer {
                     BYG.LOGGER.warn("BYG's End Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamEnd++;
                 }
-                return registry.get(BiomeRegistry.byId(43));
+                return registry.get(Biomes.byId(43));
             }
         } else {
             return biome;
@@ -70,7 +70,7 @@ public class DatapackLayer {
                     BYG.LOGGER.warn("BYG's End Void Layer: Unknown biome id: " + biomeID);
                     stopLoggerSpamVoid++;
                 }
-                return registry.get(BiomeRegistry.byId(40));
+                return registry.get(Biomes.byId(40));
             }
         } else {
             return biome;

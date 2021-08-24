@@ -5,11 +5,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonPrimitive;
 import com.mojang.datafixers.util.Pair;
 import corgiaoc.byg.BYG;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.logging.log4j.LogManager;
@@ -48,8 +48,8 @@ public class BlockDataGenerator {
         }
 
 
-        for (Biome biome : WorldGenRegistries.BIOME) {
-            String biomeID = Objects.requireNonNull(WorldGenRegistries.BIOME.getKey(biome)).toString();
+        for (Biome biome : BuiltinRegistries.BIOME) {
+            String biomeID = Objects.requireNonNull(BuiltinRegistries.BIOME.getKey(biome)).toString();
 
             if (biomeID.contains(BYG.MOD_ID))
                 biomeIDList.add(biomeID.replace(BYG.MOD_ID + ":", ""));

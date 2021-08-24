@@ -1,33 +1,33 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Random;
 
 public class BYGSapling extends SaplingBlock {
-    private final ITag<Block> groundTag;
+    private final Tag<Block> groundTag;
     private final TreeSpawner tree;
 
-    public BYGSapling(Properties properties, ITag<Block> groundTag, TreeSpawner tree) {
+    public BYGSapling(Properties properties, Tag<Block> groundTag, TreeSpawner tree) {
         super(null, properties);
         this.groundTag = groundTag;
         this.tree = tree;
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return state.is(this.groundTag);
     }
 
     @Override
-    public void advanceTree(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
+    public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, Random rand) {
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {

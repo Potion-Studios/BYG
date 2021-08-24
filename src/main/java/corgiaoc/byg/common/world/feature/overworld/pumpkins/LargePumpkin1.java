@@ -3,10 +3,10 @@ package corgiaoc.byg.common.world.feature.overworld.pumpkins;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.PumpkinConfig;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import java.util.Random;
 
@@ -17,8 +17,8 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
         int posX = pos.getX();
         int posY = pos.getY();
@@ -39,7 +39,7 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
         return true;
     }
 
-    private void setPumpkinState(BlockPos pos, Random rand, PumpkinConfig config, ISeedReader world) {
+    private void setPumpkinState(BlockPos pos, Random rand, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos) || FeatureUtil.isPlant(world, pos)) {
             world.setBlock(pos, config.getPumpkinProvider().getState(rand, pos), 2);
         }
