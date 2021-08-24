@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.overworld;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.config.BoulderConfig;
+import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
@@ -12,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -117,6 +117,6 @@ public class StackableBoulders extends Feature<BoulderConfig> {
         return state.isAir() || state.getMaterial() == Material.DIRT || state.getMaterial() == Material.PLANT ||
                 state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.LEAVES ||
                 state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.is(Tags.Blocks.DIRT);
+                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.is(MLBlockTags.DIRT);
     }
 }

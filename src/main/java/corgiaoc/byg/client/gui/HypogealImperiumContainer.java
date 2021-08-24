@@ -1,36 +1,40 @@
 package corgiaoc.byg.client.gui;
 
 import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
-import corgiaoc.byg.core.BYGBlocks;
-import corgiaoc.byg.core.BYGItems;
 import corgiaoc.byg.core.world.BYGContainerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.BrewingStandContainer;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.IIntArray;
+import net.minecraft.util.IntArray;
 
 import java.util.Objects;
 
 public class HypogealImperiumContainer extends Container {
 
-    public final HypogealImperiumTE tileEntity;
-    private final IWorldPosCallable canInteractWithCallable;
+    public final IInventory inventory;
+    private final IIntArray fuelTime;
 
-    public HypogealImperiumContainer(final int windowId, final PlayerInventory playerInv,
-                          final HypogealImperiumTE tileEntityIn) {
-        super(BYGContainerTypes.HYPOGEAL_CONTAINER.get(), windowId);
-        this.tileEntity = tileEntityIn;
-        this.canInteractWithCallable = IWorldPosCallable.create(tileEntityIn.getLevel(), tileEntityIn.getBlockPos());
 
-        this.addSlot(new CrystalSlot(tileEntityIn, 0, 17, 17));
-        this.addSlot(new Slot(tileEntityIn, 1, 79, 58));
-        this.addSlot(new NumberSlot(tileEntityIn, 2, 79, 17));
+    public HypogealImperiumContainer(int windowId, PlayerInventory playerInv) {
+        this(windowId, playerInv, new Inventory(3), new IntArray(2));
+    }
+
+    public HypogealImperiumContainer(int windowId, PlayerInventory playerInv, IInventory inventory, IIntArray fuelTime) {
+        super(BYGContainerTypes.HYPOGEAL_CONTAINER, windowId);
+        this.fuelTime = fuelTime;
+
+        this.addSlot(new CrystalSlot(inventory, 0, 17, 17));
+        this.addSlot(new Slot(inventory, 1, 79, 58));
+        this.addSlot(new NumberSlot(inventory, 2, 79, 17));
+
+        this.inventory = inventory;
 
         // Main Inventory
         int startX = 8;
@@ -47,10 +51,8 @@ public class HypogealImperiumContainer extends Container {
         for (int column = 0; column < 9; column++) {
             this.addSlot(new Slot(playerInv, column, startX + (column * slotSizePlus2), 142));
         }
-    }
 
-    public HypogealImperiumContainer(final int windowId, final PlayerInventory playerInv, final PacketBuffer data) {
-        this(windowId, playerInv, getTileEntity(playerInv, data));
+        this.addDataSlots(fuelTime);
     }
 
     private static HypogealImperiumTE getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
@@ -93,7 +95,11 @@ public class HypogealImperiumContainer extends Container {
 
     @Override
     public boolean stillValid(PlayerEntity playerIn) {
-        return stillValid(canInteractWithCallable, playerIn, BYGBlocks.HYPOGEAL_IMPERIUM);
+        return this.inventory.stillValid(playerIn);
+    }
+
+    public IIntArray getFuelTime() {
+        return fuelTime;
     }
 
     static class CrystalSlot extends Slot {
@@ -107,7 +113,7 @@ public class HypogealImperiumContainer extends Container {
 
         public int getMaxStackSize() {
             return 64;
-       }
+        }
     }
 
     static class NumberSlot extends Slot {

@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class FungalPatch extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("funal_patch", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FUNGAL_RAINFOREST, SurfaceBuilder.CONFIG_GRASS));
@@ -34,8 +33,8 @@ public class FungalPatch extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.HOT, BiomeDictionary.Type.DENSE, BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"JUNGLE", "HOT", "DENSE", "MAGICAL", "OVERWORLD"};
     }
 
     static {

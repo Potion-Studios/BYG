@@ -4,9 +4,26 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "byg.refmap.json",
   "mixins": [
+    "access.AxeItemAccess",
+    "access.BiomeAccess",
     "access.BiomeContainerAccess",
+    "access.BiomeGenerationSettingsAccess",
+    "access.BlockEntityTypeAccess",
+    "access.BlockEntityTypeBuilderAccess",
+    "access.BoatEntityAccess",
+    "access.DimensionStructuresSettingsAccess",
+    "access.FillerBlockTypeAccess",
+    "access.FireBlockAccess",
+    "access.HoeItemAccess",
     "access.NyliumBlockAccess",
     "access.SpreadableSnowyDirtBlockAccess",
+    "access.StructureAccess",
+    "access.TileEntityTypeBuilderAccess",
+    "access.VillagerTypeAccess",
+    "access.WeightedListAccess",
+    "access.WeightedListEntryAccess",
+    "access.WorldCarverAccess",
+    "access.WorldDecoratingHelperAccess",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
@@ -25,12 +42,16 @@
     "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer",
     "common.world.layers.ocean.MixinMixOceansLayer",
+    "server.MixinCommands",
     "server.MixinMinecraftServer"
   ],
   "client": [
+    "client.MixinBlockColors",
+    "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
-    "client.MixinMinecraft"
-
+    "client.MixinEntityRendererManager",
+    "client.MixinItemColors",
+    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

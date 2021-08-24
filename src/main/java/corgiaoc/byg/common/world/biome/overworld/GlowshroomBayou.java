@@ -3,19 +3,16 @@ package corgiaoc.byg.common.world.biome.overworld;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
-import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class GlowshroomBayou extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("glowshroom_bayou", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWSHROOM_BAYOU, SurfaceBuilder.CONFIG_GRASS));
@@ -50,13 +47,13 @@ public class GlowshroomBayou extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.SWAMP, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET,BiomeDictionary.Type.MAGICAL, BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"SWAMP", "FOREST", "WET","MAGICAL", "RARE", "OVERWORLD"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.WARM;
+    public MLClimate getClimate() {
+        return MLClimate.WARM;
     }
 
     @Override

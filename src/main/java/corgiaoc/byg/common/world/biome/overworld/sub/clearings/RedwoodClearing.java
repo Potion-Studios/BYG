@@ -13,7 +13,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class RedwoodClearing extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("redwood_clearing", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, new SurfaceBuilderConfig(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState())));
@@ -43,8 +42,8 @@ public class RedwoodClearing extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.FOREST, BiomeDictionary.Type.SPARSE, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"FOREST", "SPARSE", "OVERWORLD"};
     }
 
     static {

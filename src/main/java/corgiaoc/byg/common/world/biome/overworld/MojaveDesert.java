@@ -5,6 +5,8 @@ import corgiaoc.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -14,10 +16,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class MojaveDesert extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("mojave", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MOJAVE, new SurfaceBuilderConfig(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState())));
@@ -47,13 +45,13 @@ public class MojaveDesert extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"DRY", "HOT", "SANDY", "OVERWORLD"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.DESERT;
+    public MLClimate getClimate() {
+        return MLClimate.HOT;
     }
 
     @Override

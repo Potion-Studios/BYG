@@ -1,5 +1,6 @@
 package corgiaoc.byg.common.properties.blocks;
 
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -9,10 +10,6 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
-import net.minecraftforge.common.Tags;
-
-import net.minecraft.block.AbstractBlock.OffsetType;
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGSnowyPlants extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -34,6 +31,6 @@ public class BYGSnowyPlants extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SNOW_BLOCK || is(Tags.Blocks.DIRT);
+        return block == Blocks.SNOW_BLOCK || is(MLBlockTags.DIRT);
     }
 }

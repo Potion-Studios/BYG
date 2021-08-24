@@ -1,7 +1,6 @@
 package corgiaoc.byg.core;
 
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.client.particle.BoricFlameParticle;
 import corgiaoc.byg.client.textures.BYGMaterials;
 import corgiaoc.byg.common.properties.BYGBlockProperties;
 import corgiaoc.byg.common.properties.EtherBulbsBlock;
@@ -1508,7 +1507,7 @@ public class BYGBlocks {
     }
 
     static Block createCampfireBlock(int type, String id) {
-        Block createBlock = new BYGCampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel(litBlockEmission(14)));
+        Block createBlock = new CampfireBlock(true, type, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD).noOcclusion().lightLevel(litBlockEmission(14)));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1935,15 +1934,8 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createBlock(Block block, String id) {
+    public static Block createBlock(Block block, String id) {
         block.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(block);
-        return block;
-    }
-
-    static Block createBlock(Block block, ResourceLocation id) {
-        //Registry.register(Registry.BLOCK, id, createBlock);
-        block.setRegistryName(id);
         blocksList.add(block);
         return block;
     }

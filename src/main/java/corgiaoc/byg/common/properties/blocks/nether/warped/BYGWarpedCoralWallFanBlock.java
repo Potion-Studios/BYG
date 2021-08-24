@@ -1,12 +1,11 @@
 package corgiaoc.byg.common.properties.blocks.nether.warped;
 
 import corgiaoc.byg.core.BYGBlocks;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DeadCoralWallFanBlock;
 import net.minecraft.util.Direction;
-
-import net.minecraft.block.AbstractBlock;
 
 public class BYGWarpedCoralWallFanBlock extends DeadCoralWallFanBlock {
     protected BYGWarpedCoralWallFanBlock(AbstractBlock.Properties block) {

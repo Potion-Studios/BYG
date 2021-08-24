@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.GiantFlowerConfig;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,7 +18,6 @@ import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -125,9 +125,9 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.is(Tags.Blocks.DIRT) || block == block1;
+                return block.is(MLBlockTags.DIRT) || block == block1;
             }
-            return block.is(Tags.Blocks.DIRT);
+            return block.is(MLBlockTags.DIRT);
         });
     }
 

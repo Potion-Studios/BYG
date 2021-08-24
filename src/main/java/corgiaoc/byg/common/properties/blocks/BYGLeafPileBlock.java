@@ -1,23 +1,15 @@
 package corgiaoc.byg.common.properties.blocks;
 
-import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.Tags;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class BYGLeafPileBlock extends BushBlock {
     protected static final VoxelShape LEAF_PILE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
@@ -32,7 +24,7 @@ public class BYGLeafPileBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return state.is(Tags.Blocks.DIRT) || state.is(Tags.Blocks.END_STONES) || state.is(BlockTags.NYLIUM) || state.is(Tags.Blocks.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(MLBlockTags.DIRT) || state.is(MLBlockTags.END_STONES) || state.is(BlockTags.NYLIUM) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

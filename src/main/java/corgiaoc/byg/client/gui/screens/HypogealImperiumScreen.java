@@ -4,7 +4,6 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.gui.HypogealImperiumContainer;
-import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -14,7 +13,6 @@ import net.minecraft.util.text.ITextComponent;
 public class HypogealImperiumScreen extends ContainerScreen<HypogealImperiumContainer> {
 
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(BYG.MOD_ID, "textures/gui/container/hypogeal_imperium.png");
-    private static final int[] BUBBLELENGTHS = new int[]{29, 24, 20, 16, 11, 6, 0};
     public int k;
 
 
@@ -41,7 +39,7 @@ public class HypogealImperiumScreen extends ContainerScreen<HypogealImperiumCont
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         this.blit(p_230450_1_, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        if (this.menu.tileEntity.getFuel() > 0){
+        if (this.menu.getFuelTime().get(0) > 0){
             k = 20;
         } else {
             k = 0;

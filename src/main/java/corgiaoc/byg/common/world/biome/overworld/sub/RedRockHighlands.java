@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class RedRockHighlands extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_rock_highlands", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_ROCK_SB, SurfaceBuilder.CONFIG_GRASS));
@@ -34,8 +33,8 @@ public class RedRockHighlands extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.MOUNTAIN, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.HOT};
+    public String[] getBiomeDictionary() {
+        return new String[]{"MOUNTAIN", "OVERWORLD", "HOT"};
     }
 
     static {

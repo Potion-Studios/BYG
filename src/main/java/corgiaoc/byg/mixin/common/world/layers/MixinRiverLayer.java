@@ -1,6 +1,8 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.INoiseRandom;
@@ -11,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "ConstantConditions"})
 @Mixin(MixRiverLayer.class)
 public abstract class MixinRiverLayer {
 
@@ -21,8 +23,10 @@ public abstract class MixinRiverLayer {
         int area2Value = area2.get(((MixRiverLayer) (Object) this).getParentX(x), ((MixRiverLayer) (Object) this).getParentY(z));
 
         if (area2Value == WorldGenRegistries.BIOME.getId(WorldGenRegistries.BIOME.getOrThrow(Biomes.RIVER))) {
-            if (BYGBiome.BIOME_TO_RIVER_LIST.containsKey(area1Value))
-                cir.setReturnValue(WorldGenRegistries.BIOME.getId(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Value)));
+            ResourceLocation area1Location = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(area1Value));
+
+            if (BYGBiome.BIOME_TO_RIVER_LIST.containsKey(area1Location))
+                cir.setReturnValue(BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiome.BIOME_TO_RIVER_LIST.get(area1Location))));
         }
     }
 }

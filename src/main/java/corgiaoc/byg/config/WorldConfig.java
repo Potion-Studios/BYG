@@ -9,6 +9,8 @@ import net.minecraftforge.common.BiomeDictionary;
 import java.nio.file.Path;
 import java.util.Arrays;
 
+import static net.minecraftforge.common.BiomeDictionary.Type.getType;
+
 public class WorldConfig {
     private final AbstractCommentedConfigHelper configHelper;
 
@@ -97,7 +99,7 @@ public class WorldConfig {
                     result = result.substring(1);
                 }
                 if (result.startsWith("$")) {
-                    fail = BiomeDictionary.hasType(biomeKey, BiomeDictionary.Type.getType(result.substring(1).toUpperCase()));
+                    fail = BiomeDictionary.hasType(biomeKey, getType(result.substring(1).toUpperCase()));
                 } else if (result.startsWith("#")) {
                     String categoryString = result.substring(1);
                     fail = !biome.getBiomeCategory().getName().equalsIgnoreCase(categoryString);

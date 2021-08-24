@@ -6,6 +6,8 @@ import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
@@ -13,10 +15,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class BorealForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("boreal_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BOREAL, SurfaceBuilder.CONFIG_GRASS));
@@ -55,13 +53,13 @@ public class BorealForest extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"FOREST", "OVERWORLD"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
+    public MLClimate getClimate() {
+        return MLClimate.COOL;
     }
 
     static {

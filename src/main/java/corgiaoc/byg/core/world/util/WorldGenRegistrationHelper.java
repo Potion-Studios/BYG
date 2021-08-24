@@ -3,6 +3,8 @@ package corgiaoc.byg.core.world.util;
 import com.google.common.collect.ImmutableMap;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.world.*;
+import corgiaoc.byg.mixin.access.DimensionStructuresSettingsAccess;
+import corgiaoc.byg.mixin.access.StructureAccess;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -68,13 +70,13 @@ public class WorldGenRegistrationHelper {
         BYGStructures.structures.add(structure);
         Structure.STRUCTURES_REGISTRY.put(bygID.toString(), structure);
 
-        Structure.STEP.put(structure, decorationStage);
+        StructureAccess.getStructureStep().put(structure, decorationStage);
 
-        DimensionStructuresSettings.DEFAULTS =
+        DimensionStructuresSettingsAccess.setDefaults(
                 ImmutableMap.<Structure<?>, StructureSeparationSettings>builder()
                         .putAll(DimensionStructuresSettings.DEFAULTS)
                         .put(structure, new StructureSeparationSettings(minChunkDistance, maxChunkDistance, seedModifier))
-                        .build();
+                        .build());
         return structure;
     }
 

@@ -6,14 +6,13 @@ import corgiaoc.byg.common.world.surfacebuilder.config.FillSurfaceBuilderConfig;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.WeightedList;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
 
 public class Dunes extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("dunes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FILL, new FillSurfaceBuilderConfig.Builder().setFillBlock(Blocks.SAND).setTopBlock(Blocks.SAND).setUnderBlock(Blocks.SAND).setFillDownToY(63).build()));
@@ -43,13 +42,13 @@ public class Dunes extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.DRY, BiomeDictionary.Type.HOT, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"DRY", "HOT", "SANDY", "OVERWORLD"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.DESERT;
+    public MLClimate getClimate() {
+        return MLClimate.HOT;
     }
 
     @Override

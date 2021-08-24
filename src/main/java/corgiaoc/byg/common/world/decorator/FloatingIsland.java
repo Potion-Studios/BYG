@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.world.decorator;
 
 import com.mojang.serialization.Codec;
+import corgiaoc.byg.mixin.access.WorldDecoratingHelperAccess;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
@@ -25,7 +26,7 @@ public class FloatingIsland extends Placement<AtSurfaceWithExtraConfig> {
         return IntStream.range(0, i).mapToObj((streamedInt) -> {
             int x = random.nextInt(16) + pos.getX();
             int z = random.nextInt(16) + pos.getZ();
-            int y = random.nextInt(decoratorContext.level.getMaxBuildHeight() - 40) + 20;
+            int y = random.nextInt(((WorldDecoratingHelperAccess) decoratorContext).getLevel().getMaxBuildHeight() - 40) + 20;
             return new BlockPos(x, y, z);
         });
     }

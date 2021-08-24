@@ -11,7 +11,6 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class SnowyRockyBlackBeach extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("snowy_rock_black_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKY_BLACK_BEACH, BYGSurfaceBuilders.Configs.BLACK_SAND));
@@ -38,8 +37,8 @@ public class SnowyRockyBlackBeach extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.BEACH, BiomeDictionary.Type.SNOWY};
+    public String[] getBiomeDictionary() {
+        return new String[]{"OVERWORLD", "BEACH", "SNOWY"};
     }
 
     @Override

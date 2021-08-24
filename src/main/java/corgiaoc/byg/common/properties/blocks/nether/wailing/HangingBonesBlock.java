@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks.nether.wailing;
 
 import corgiaoc.byg.core.BYGBlocks;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -15,10 +16,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class HangingBonesBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);

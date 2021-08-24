@@ -2,11 +2,12 @@ package corgiaoc.byg.common.world.structure.village.villagepools;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.jigsaw.*;
-import net.minecraft.world.gen.feature.template.*;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPatternRegistry;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
+import net.minecraft.world.gen.feature.template.ProcessorLists;
 
 public class SkyrisVillagePools {
    public static final JigsawPattern SkyrisVillageJigsaw = JigsawPatternRegistry.register(new JigsawPattern(new ResourceLocation("byg:village/skyris/town_centers"),

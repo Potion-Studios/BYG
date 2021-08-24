@@ -6,6 +6,8 @@ import corgiaoc.byg.common.world.biome.BiomeUtil;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.WeightedList;
@@ -13,10 +15,6 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.INoiseRandom;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class TheBlackForest extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("the_black_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
@@ -73,13 +71,13 @@ public class TheBlackForest extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"CONIFEROUS", "COLD", "FOREST", "OVERWORLD"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.COOL;
+    public MLClimate getClimate() {
+        return MLClimate.COOL;
     }
 
     @Override

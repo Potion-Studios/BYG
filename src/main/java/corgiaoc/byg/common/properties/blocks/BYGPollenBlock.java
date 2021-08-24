@@ -16,8 +16,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class BYGPollenBlock extends Block {
 
     protected BYGPollenBlock(Properties builder) {

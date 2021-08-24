@@ -4,6 +4,7 @@ import corgiaoc.byg.common.world.OpenSimplexNoiseEnd;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.util.BlockHelper;
 import corgiaoc.byg.util.FeatureHelper;
+import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.ModMathHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -236,7 +237,7 @@ public class OverworldLakeFeature extends Feature<NoFeatureConfig>
       return state.getMaterial().isReplaceable()
               || state.is(Tags.Blocks.STONE)
               || state.is(BlockTags.FLOWERS)
-              || state.is(Tags.Blocks.ORES) // Handles floating ores
+              || state.is(MLBlockTags.ORES) // Handles floating ores
               || state.is(Blocks.PODZOL) // Handles other blocks that could be left floating
               || state.is(Blocks.COARSE_DIRT) // Handles other blocks that could be left floating
               || state.is(Blocks.DIRT) // Handles other blocks that could be left floating

@@ -10,6 +10,7 @@ import corgiaoc.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomB
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.noise.fastnoise.FastNoise;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Block;
@@ -34,7 +35,6 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
-import net.minecraftforge.common.Tags;
 
 import java.util.*;
 
@@ -194,9 +194,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(Tags.Blocks.DIRT) || block == block1;
+                return block.is(MLBlockTags.DIRT) || block == block1;
             }
-            return block.is(Tags.Blocks.DIRT);
+            return block.is(MLBlockTags.DIRT);
         });
     }
 
@@ -207,9 +207,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(Tags.Blocks.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
+                return block.is(MLBlockTags.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
             }
-            return block.is(Tags.Blocks.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS);
+            return block.is(MLBlockTags.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS);
         });
     }
 
@@ -220,9 +220,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(Tags.Blocks.END_STONES) || block == block1;
+                return block.is(MLBlockTags.END_STONES) || block == block1;
             }
-            return block.is(Tags.Blocks.END_STONES);
+            return block.is(MLBlockTags.END_STONES);
         });
     }
 
@@ -233,9 +233,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(Tags.Blocks.SAND) || block.is(BlockTags.SAND) || block == block1;
+                return block.is(BlockTags.SAND) || block == block1;
             }
-            return block.is(Tags.Blocks.SAND) || block.is(BlockTags.SAND);
+            return block.is(BlockTags.SAND);
         });
     }
 

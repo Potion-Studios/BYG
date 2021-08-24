@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks.nether.sythian;
 
 import corgiaoc.byg.core.BYGBlocks;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.BambooBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -14,10 +15,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class SythianStalkBlock extends BambooBlock {
 

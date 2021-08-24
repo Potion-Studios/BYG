@@ -8,7 +8,6 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
-import net.minecraftforge.common.Tags;
 
 public class FeatureUtil {
 
@@ -17,7 +16,7 @@ public class FeatureUtil {
     }
 
     public static boolean isTerrainOrRock(IWorldGenerationBaseReader world, BlockPos pos) {
-        return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.DIRT || state.is(BlockTags.SAND) || state.is(Tags.Blocks.SAND) || state.is(Tags.Blocks.SAND_COLORLESS) || state.is(Tags.Blocks.SAND_RED) || state.is(Tags.Blocks.SANDSTONE) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
+        return world.isStateAtPosition(pos, (state) -> state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.STONE || state.is(BlockTags.BASE_STONE_OVERWORLD) || state.getMaterial() == Material.DIRT || state.is(BlockTags.SAND) || state.getMaterial() == Material.SAND || state.getBlock() == Blocks.GRASS_BLOCK);
     }
 
     public static boolean isAir(IWorldGenerationBaseReader reader, BlockPos pos) {

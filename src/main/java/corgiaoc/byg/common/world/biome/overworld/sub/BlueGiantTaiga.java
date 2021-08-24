@@ -9,7 +9,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class BlueGiantTaiga extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("blue_giant_taiga", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.GIANT_TREE_TAIGA, SurfaceBuilder.CONFIG_GRASS));
@@ -31,8 +30,8 @@ public class BlueGiantTaiga extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.RARE, BiomeDictionary.Type.OVERWORLD};
+    public String[] getBiomeDictionary() {
+        return new String[]{"RARE", "OVERWORLD"};
     }
 
     static {

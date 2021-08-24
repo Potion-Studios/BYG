@@ -1,7 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.ScaffoldingBlock;
@@ -16,8 +16,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock;
 
 public class BYGScaffoldingBlock extends ScaffoldingBlock implements IWaterLoggable {
 

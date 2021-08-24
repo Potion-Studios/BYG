@@ -28,7 +28,8 @@ public class BYGEdgeLayer implements ICastleTransformer {
             ResourceLocation idxKey = biomeRegistry.getKey(biomeRegistry.byId(idx));
 
             if (edgeMap.containsKey(centreKey) && idxKey != centreKey) {
-                return biomeRegistry.getId(biomeRegistry.get(edgeMap.get(centreKey)));
+                int id = biomeRegistry.getId(biomeRegistry.get(edgeMap.get(centreKey)));
+                return id;
             }
         }
         return centre;

@@ -1,18 +1,16 @@
 package corgiaoc.byg.common.properties.blocks.end;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.IWaterLoggable;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -30,10 +28,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class TallVentBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);

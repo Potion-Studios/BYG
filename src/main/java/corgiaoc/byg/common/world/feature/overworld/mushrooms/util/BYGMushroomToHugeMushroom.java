@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class BYGMushroomToHugeMushroom {

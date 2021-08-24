@@ -12,8 +12,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
-import net.minecraft.block.AbstractBlock.Properties;
-
 public class ShulkrenVinePlantBlock extends AbstractBodyPlantBlock {
     public static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 

@@ -1,8 +1,10 @@
 package corgiaoc.byg.common.entity.boat;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.BYGItems;
+import corgiaoc.byg.mixin.access.BoatEntityAccess;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,8 +27,6 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.FMLPlayMessages;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends BoatEntity {
@@ -45,11 +45,6 @@ public class BYGBoatEntity extends BoatEntity {
     public BYGBoatEntity(EntityType<? extends BoatEntity> boatEntityType, World worldType) {
         super(boatEntityType, worldType);
     }
-
-    public BYGBoatEntity(FMLPlayMessages.SpawnEntity packet, World world) {
-        super(BYGEntities.BOAT, world);
-    }
-
 
     @Override
     public Item getDropItem() {
@@ -188,11 +183,11 @@ public class BYGBoatEntity extends BoatEntity {
 
     @Override
     protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
-        this.lastYd = this.getDeltaMovement().y;
+        ((BoatEntityAccess) this).setLastYd(this.getDeltaMovement().y);
         if (!this.isPassenger()) {
             if (onGroundIn) {
                 if (this.fallDistance > 3.0F) {
-                    if (this.status != BoatEntity.Status.ON_LAND) {
+                    if (((BoatEntityAccess) this).getStatus() != BoatEntity.Status.ON_LAND) {
                         this.fallDistance = 0.0F;
                         return;
                     }
@@ -252,7 +247,7 @@ public class BYGBoatEntity extends BoatEntity {
 
     @Override
     public IPacket<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
+        return BYG.entryPoint.getEntitySpawnPacket(this);
     }
 
     public enum BYGType {

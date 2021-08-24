@@ -4,20 +4,14 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import corgiaoc.byg.core.BYGParticles;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.particles.BasicParticleType;
 import net.minecraft.particles.IParticleData;
 import net.minecraft.particles.ParticleType;
-import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-import java.awt.*;
 import java.util.Locale;
 
 public class BoricFlameParticle extends DeceleratingParticle implements IParticleData {
@@ -69,7 +63,6 @@ public class BoricFlameParticle extends DeceleratingParticle implements IParticl
     }
 
 
-    @OnlyIn(Dist.CLIENT)
     public static class Factory implements IParticleFactory<BoricParticleData> {
         private final IAnimatedSprite spriteSet;
 

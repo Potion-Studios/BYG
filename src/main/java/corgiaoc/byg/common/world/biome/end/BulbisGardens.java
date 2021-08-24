@@ -17,7 +17,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class BulbisGardens extends BYGEndBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("bulbis_gardens", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BULBIS_GARDENS, BYGSurfaceBuilders.Configs.BULBIS_PHYCELIUM_CF));
@@ -41,7 +40,7 @@ public class BulbisGardens extends BYGEndBiome {
                 .fogColor(8339307)
                 .skyColor(0)
                 .ambientParticle(new ParticleEffectAmbience(ParticleTypes.WITCH, 0.00428F))
-                .ambientLoopSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
+                .ambientLoopSound(BYGSounds.AMBIENT_END_FOREST_LOOP)
                 .ambientMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                 .backgroundMusic(BackgroundMusicTracks.createGameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
@@ -54,8 +53,8 @@ public class BulbisGardens extends BYGEndBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.END};
+    public String[] getBiomeDictionary() {
+        return new String[]{"END"};
     }
 
     static {

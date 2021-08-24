@@ -1,17 +1,14 @@
 package corgiaoc.byg.common.world.feature.end.trees.bulbis;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.properties.EtherBulbsBlock;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 
 import java.util.Random;
-import java.util.Set;
 
 public class BulbisBush1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 

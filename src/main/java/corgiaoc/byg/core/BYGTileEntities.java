@@ -1,24 +1,35 @@
 package corgiaoc.byg.core;
 
+import com.mojang.datafixers.types.Type;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.entity.tileentities.BYGCampfireTE;
 import corgiaoc.byg.common.entity.tileentities.HypogealImperiumTE;
+import corgiaoc.byg.mixin.access.BlockEntityTypeBuilderAccess;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Util;
+import net.minecraft.util.datafix.TypeReferences;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BYGTileEntities {
 
-    public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = DeferredRegister.create(
-            ForgeRegistries.TILE_ENTITIES, BYG.MOD_ID);
+    public static final List<TileEntityType<?>> BLOCK_ENTITIES = new ArrayList<>();
 
-    public static final RegistryObject<TileEntityType<BYGCampfireTE>> BYGCAMPFIRE = TILE_ENTITY_TYPES
-            .register("bygcampfire", () -> TileEntityType.Builder
-                    .of(BYGCampfireTE::new, BYGBlocks.BORIC_CAMPFIRE, BYGBlocks.CRYPTIC_CAMPFIRE).build(null));
+    public static final TileEntityType<HypogealImperiumTE> HYPOGEAL  = register("hypogeal", TileEntityType.Builder.of(HypogealImperiumTE::new, BYGBlocks.HYPOGEAL_IMPERIUM));
 
-    public static final RegistryObject<TileEntityType<HypogealImperiumTE>> HYPOGEAL = TILE_ENTITY_TYPES
-            .register("hypogeal", () -> TileEntityType.Builder
-                    .of(HypogealImperiumTE::new, BYGBlocks.HYPOGEAL_IMPERIUM).build(null));
 
+    private static <T extends TileEntity> TileEntityType<T> register(String key, TileEntityType.Builder<T> builder) {
+        if (((BlockEntityTypeBuilderAccess) (Object) builder).getValidBlocks().isEmpty()) {
+            BYG.LOGGER.warn("Block entity type {} requires at least one valid block to be defined!", (Object) key);
+        }
+
+        Type<?> type = Util.fetchChoiceType(TypeReferences.BLOCK_ENTITY, key);
+        TileEntityType<T> blockEntityType = builder.build(type);
+        blockEntityType.setRegistryName(new ResourceLocation(BYG.MOD_ID, key));
+
+        BLOCK_ENTITIES.add(blockEntityType);
+        return blockEntityType;
+    }
 }

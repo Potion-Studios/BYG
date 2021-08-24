@@ -7,6 +7,8 @@ import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.util.MLClimate;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -15,10 +17,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeManager;
-
-import edu.umd.cs.findbugs.annotations.Nullable;
 
 public class ShatteredGlacier extends BYGBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("shattered_glacier", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SHATTERED_GLACIER, new SurfaceBuilderConfig(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState())));
@@ -51,13 +49,13 @@ public class ShatteredGlacier extends BYGBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.SNOWY, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.RARE};
+    public String[] getBiomeDictionary() {
+        return new String[]{"SNOWY", "OVERWORLD", "RARE"};
     }
 
     @Override
-    public BiomeManager.BiomeType getBiomeType() {
-        return BiomeManager.BiomeType.ICY;
+    public MLClimate getClimate() {
+        return MLClimate.COLD;
     }
 
     @Override

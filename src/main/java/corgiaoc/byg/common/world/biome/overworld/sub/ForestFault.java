@@ -11,7 +11,6 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class ForestFault extends BYGSubBiome {
     static final ConfiguredSurfaceBuilder SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("forest_fault", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
@@ -35,8 +34,8 @@ public class ForestFault extends BYGSubBiome {
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.CONIFEROUS, BiomeDictionary.Type.COLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.RARE};
+    public String[] getBiomeDictionary() {
+        return new String[]{"CONIFEROUS", "COLD", "FOREST", "OVERWORLD", "RARE"};
     }
 
     @Nullable

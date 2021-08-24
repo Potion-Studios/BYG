@@ -2,6 +2,7 @@ package corgiaoc.byg.common.world.decorator;
 
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
+import corgiaoc.byg.mixin.access.WorldDecoratingHelperAccess;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.WorldDecoratingHelper;
@@ -27,7 +28,7 @@ public class AtOrBelowSeaLevelCountExtra extends Placement<AtOrBelowSeaLevelCoun
             int moveDown = 0;
             int j = random.nextInt(16) + pos.getX();
             int k = random.nextInt(16) + pos.getZ();
-            int l = ctx.generator.getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
+            int l = ((WorldDecoratingHelperAccess) ctx).getGenerator().getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
 
             BlockPos.Mutable mutable = new BlockPos.Mutable(j, l, k);
             while (moveDown <= config.belowSeaLevel) {

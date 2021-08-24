@@ -19,7 +19,6 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilder;
-import net.minecraftforge.common.BiomeDictionary;
 
 public class EtherealIslands extends BYGEndBiome {
     static final ConfiguredSurfaceBuilder<?> SURFACE_BUILDER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ethereal_islands", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ETHEREAL, BYGSurfaceBuilders.Configs.ETHER));
@@ -43,15 +42,15 @@ public class EtherealIslands extends BYGEndBiome {
                 .fogColor(8339307)
                 .skyColor(0)
                 .ambientParticle(new ParticleEffectAmbience(ParticleTypes.REVERSE_PORTAL, 0.00128F))
-                .ambientLoopSound(BYGSounds.SoundRegistry.AMBIENT_END_FOREST_LOOP)
+                .ambientLoopSound(BYGSounds.AMBIENT_END_FOREST_LOOP)
                 .ambientMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D))
                 .backgroundMusic(BackgroundMusicTracks.createGameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());
     }
 
     @Override
-    public BiomeDictionary.Type[] getBiomeDictionary() {
-        return new BiomeDictionary.Type[]{BiomeDictionary.Type.END};
+    public String[] getBiomeDictionary() {
+        return new String[]{"END"};
     }
 
     @SuppressWarnings("ConstantConditions")

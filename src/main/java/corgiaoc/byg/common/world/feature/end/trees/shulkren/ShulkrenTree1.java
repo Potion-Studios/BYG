@@ -5,13 +5,10 @@ import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;
 
 import java.util.Random;
-import java.util.Set;
 
 public class ShulkrenTree1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 

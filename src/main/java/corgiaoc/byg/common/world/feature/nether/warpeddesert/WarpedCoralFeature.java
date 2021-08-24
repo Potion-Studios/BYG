@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.nether.warpeddesert;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.config.WhitelistedSimpleBlockProviderConfig;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Direction.Plane;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IWorld;
@@ -11,10 +12,7 @@ import net.minecraft.world.gen.feature.Feature;
 
 import java.util.Random;
 
-import static net.minecraft.util.Direction.Plane;
 import static net.minecraft.util.Direction.UP;
-
-import net.minecraft.util.Direction.Plane;
 
 public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderConfig> {
 
