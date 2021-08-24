@@ -1934,7 +1934,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createBlock(Block block, String id) {
+    public static Block createBlock(Block block, String id) {
         block.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
         blocksList.add(block);
         return block;
