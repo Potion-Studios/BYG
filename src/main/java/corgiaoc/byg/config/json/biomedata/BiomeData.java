@@ -13,7 +13,7 @@ public class BiomeData {
     public static final Codec<BiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), ResourceLocation.CODEC.fieldOf("edgeBiome").orElse(new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), ResourceLocation.CODEC.optionalFieldOf("edgeBiome", new ResourceLocation("")).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
         })).apply(builder, BiomeData::new);
     });

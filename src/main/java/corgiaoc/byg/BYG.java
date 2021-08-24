@@ -21,18 +21,17 @@ import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
-import corgiaoc.byg.config.json.biomedata.OverworldPrimaryBiomeData;
-import corgiaoc.byg.config.json.biomedata.OverworldSubBiomeData;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import corgiaoc.byg.mixin.access.BlockEntityTypeAccess;
-import corgiaoc.byg.mixin.access.TileEntityTypeBuilderAccess;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -55,6 +54,7 @@ public class BYG {
     public static Path CONFIG_PATH = null;
     public static EntryPoint entryPoint = null;
     public static WorldConfig worldConfig = null;
+    public static final ResourceLocation EMPTY = new ResourceLocation("");
 
     public static Registry<Biome> biomeRegistryAccess = null;
 
@@ -109,8 +109,8 @@ public class BYG {
         builderAccess.setValidBlocks(validBlocks);
     }
 
-    public static BiomeDataHolders.EndBiomeDataHolder getEndData(Gson gson, Path biomesConfigPath, Registry<Biome> biomeRegistry) {
-        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGEndBiome.extractDefaultHolder(biomeRegistry);
+    public static BiomeDataHolders.EndBiomeDataHolder getEndData(Gson gson, Path biomesConfigPath) {
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGEndBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
 
         File biomesConfigFile = biomesConfigPath.toFile();
         try {
@@ -134,8 +134,8 @@ public class BYG {
         return endBiomeDataHolder;
     }
 
-    public static BiomeDataHolders.EndSubBiomeDataHolder getEndSubBiomeData(Gson gson, Path biomesConfigPath, Registry<Biome> biomeRegistry) {
-        BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(biomeRegistry);
+    public static BiomeDataHolders.EndSubBiomeDataHolder getEndSubBiomeData(Gson gson, Path biomesConfigPath) {
+        BiomeDataHolders.EndSubBiomeDataHolder endBiomeDataHolder = BYGEndSubBiome.extractDefaultHolder(WorldGenRegistries.BIOME);
 
         File biomesConfigFile = biomesConfigPath.toFile();
         try {
@@ -180,10 +180,20 @@ public class BYG {
             e.printStackTrace();
         }
         overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((location, primaryBiomeData) -> {
-            BYGBiome.BIOME_TO_RIVER_LIST.put(location, primaryBiomeData.getRiver());
-            BYGBiome.BIOME_TO_BEACH_LIST.put(location, primaryBiomeData.getBeach());
-            BYGBiome.BIOME_TO_EDGE_LIST.put(location, primaryBiomeData.getEdgeBiome());
-            BYGBiome.BIOME_TO_HILLS_LIST.put(location, primaryBiomeData.getSubBiomes());
+            ResourceLocation river = primaryBiomeData.getRiver();
+            if (!river.equals(EMPTY)) {
+                BYGBiome.BIOME_TO_RIVER_LIST.put(location, river);
+            }
+            ResourceLocation beach = primaryBiomeData.getBeach();
+            if (!beach.equals(EMPTY)) {
+                BYGBiome.BIOME_TO_BEACH_LIST.put(location, beach);
+            }
+            ResourceLocation edgeBiome = primaryBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(EMPTY)) {
+                BYGBiome.BIOME_TO_EDGE_LIST.put(location, edgeBiome);
+            }
+            WeightedList<ResourceLocation> subBiomes = primaryBiomeData.getSubBiomes();
+            BYGBiome.BIOME_TO_HILLS_LIST.put(location, subBiomes);
         }));
         
 
@@ -212,9 +222,18 @@ public class BYG {
         }
 
         overworldSubBiomeDataHolder.getBiomeData().forEach(((location, subBiomeData) -> {
-            BYGBiome.BIOME_TO_RIVER_LIST.put(location, subBiomeData.getRiver());
-            BYGBiome.BIOME_TO_BEACH_LIST.put(location, subBiomeData.getBeach());
-            BYGBiome.BIOME_TO_EDGE_LIST.put(location, subBiomeData.getEdgeBiome());
+            ResourceLocation river = subBiomeData.getRiver();
+            if (!river.equals(EMPTY) ) {
+                BYGBiome.BIOME_TO_RIVER_LIST.put(location, river);
+            }
+            ResourceLocation beach = subBiomeData.getBeach();
+            if (!beach.equals(EMPTY) ) {
+                BYGBiome.BIOME_TO_BEACH_LIST.put(location, beach);
+            }
+            ResourceLocation edgeBiome = subBiomeData.getEdgeBiome();
+            if (!edgeBiome.equals(EMPTY)) {
+                BYGBiome.BIOME_TO_EDGE_LIST.put(location, edgeBiome);
+            }
         }));
 
         BYGBiomes.fillBiomeDictionary(overworldSubBiomeDataHolder.getBiomeData());
