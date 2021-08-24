@@ -1199,64 +1199,56 @@ public class BYGBlocks {
     static Block createWailingBellBlossom(String id) {
         Block createBlock = new WailingBulbBlossomBlock(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.COLOR_PURPLE).sound(SoundType.SHROOMLIGHT).harvestTool(ToolType.HOE).noOcclusion().lightLevel((state) -> 14));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWailingVine(String id) {
         Block createBlock = new VineBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.TWISTING_VINES).instabreak().randomTicks().noCollission());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWailingPlant(String id) {
         Block createBlock = new WailingPlantBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.ROOTS).instabreak().noCollission());
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelBlock(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelVine(String id) {
         Block createBlock = new EmburVineBlock(AbstractBlock.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission().harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelVinePlant(String id) {
         Block createBlock = new EmburVinePlantBlock(AbstractBlock.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission().harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createArisianBloomBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
@@ -1545,25 +1537,22 @@ public class BYGBlocks {
 
     static Block createMushroomPlant(BYGHugeMushroom mushroom, String id) {
         Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
         Block createBlock = new BYGMushroomPlantBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createFlower(String id, ITag.INamedTag<Block> groundTag) {
         Block createBlock = new BYGFlowerBlock(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         flowerIDs.add(new ResourceLocation(BYG.MOD_ID, id));
         return createBlock;
     }
@@ -1742,41 +1731,36 @@ public class BYGBlocks {
 
     static Block createSapling(ITag<Block> groundTag, TreeSpawner tree, String id) {
         Block createBlock = new BYGSapling(AbstractBlock.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createJacarandaBush(String id) {
         Block createBlock = new JacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createFloweringJacarandaBush(int taskRange, TreeSpawner tree, String id) {
         Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createIndigoJacarandaBush(String id) {
         Block createBlock = new IndigoJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion());
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
     static Block createFloweringIndigoJacarandaBush(int taskRange, TreeSpawner tree, String id) {
         Block createBlock = new FloweringJacarandaBushBlock(AbstractBlock.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
+        createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
-        blocksList.add(createBlock);
         return createBlock;
     }
 
@@ -1790,64 +1774,56 @@ public class BYGBlocks {
 
     static Block createShroomlight(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_PURPLE).strength(1.0F).sound(SoundType.SHROOMLIGHT).harvestTool(ToolType.HOE).lightLevel((state) -> 14));
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusVine(String id) {
         Block createBlock = new ImpariusVineBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusVinePlant(String id) {
         Block createBlock = new ImpariusVinePlantBlock(AbstractBlock.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission().harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id)); //Forge
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusMushroom(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_CYAN).strength(0.2F).sound(SoundType.TWISTING_VINES).speedFactor(0.5F).jumpFactor(0.5F).harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusMushroomBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(AbstractBlock.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_CYAN).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFungalImpariusFilamentBlock(String id) {
         Block createBlock = new SlimeBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).strength(0.2F).sound(SoundType.HONEY_BLOCK).speedFactor(0.5F).jumpFactor(2.5F).harvestTool(ToolType.HOE).lightLevel((state) -> 15));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFungalImpariusFilament(String id) {
         Block createBlock = new FungalImpariusFilamentBlock(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().harvestTool(ToolType.HOE).lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFungalImparius(String id) {
         Block createBlock = new Block(AbstractBlock.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).strength(0.2F).sound(SoundType.HONEY_BLOCK).harvestTool(ToolType.HOE));
         //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock.setRegistryName(new ResourceLocation(BYG.MOD_ID, id));
-        blocksList.add(createBlock);
+        createBlock(createBlock, id);
         return createBlock;
     }
 
