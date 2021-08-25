@@ -19,7 +19,8 @@ import java.util.Random;
 
 @Mixin(Slime.class)
 public class MixinSlimeEntity {
-    @Inject(at = @At("HEAD"), method = "checkSlimeSpawnRules(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/IWorld;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/util/math/BlockPos;Ljava/util/Random;)Z", cancellable = true)
+
+    @Inject(at = @At("HEAD"), method = "checkSlimeSpawnRules", cancellable = true)
     private static void injectSwampCategory(EntityType<Slime> entity, LevelAccessor world, MobSpawnType reason, BlockPos withSpawnerPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDifficulty() != Difficulty.PEACEFUL) {
             Biome biome = world.getBiome(withSpawnerPos);
