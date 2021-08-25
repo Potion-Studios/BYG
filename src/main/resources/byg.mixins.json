@@ -2,7 +2,6 @@
   "required": true,
   "package": "corgiaoc.byg.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "byg.refmap.json",
   "mixins": [
     "access.AxeItemAccess",
     "access.BiomeAccess",
