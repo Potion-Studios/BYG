@@ -15,7 +15,7 @@ public class BYGContainerTypes {
 
     public static final List<ContainerType<?>> CONTAINER_TYPES = new ArrayList<>();
 
-    public static final ContainerType<HypogealImperiumContainer> HYPOGEAL_CONTAINER = register("bygcampfire", HypogealImperiumContainer::new);
+    public static final ContainerType<HypogealImperiumContainer> HYPOGEAL_CONTAINER = register("hypogeal", HypogealImperiumContainer::new);
 
 
     private static <T extends Container> ContainerType<T> register(String key, ContainerType.IFactory<T> builder) {
