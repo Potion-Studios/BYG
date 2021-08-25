@@ -6,8 +6,8 @@ import corgiaoc.byg.mixin.access.ClientLevelAccess;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.network.PacketContext;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
@@ -51,12 +51,11 @@ public class NetworkUtil {
         buf.writeDouble(velocity.x);
         buf.writeDouble(velocity.y);
         buf.writeDouble(velocity.z);
-        return ServerSidePacketRegistry.INSTANCE.toPacket(SPAWN_PACKET_ID, buf);
+         return ServerPlayNetworking.createS2CPacket(SPAWN_PACKET_ID, buf);
     }
 
     @Environment(EnvType.CLIENT)
-    public static void receiveSpawnPacket(PacketContext context, FriendlyByteBuf buf) {
-        Minecraft client = Minecraft.getInstance();
+    public static void receiveSpawnPacket(Minecraft client, FriendlyByteBuf buf) {
         if (client == null || client.level == null)
             return;
 
@@ -91,11 +90,8 @@ public class NetworkUtil {
         entity.xRot = pitch;
         entity.yRot = yaw;
         entity.setDeltaMovement(velocityX, velocityY, velocityZ);
-
-        context.getTaskQueue().execute(() -> {
-            client.execute(() -> {
-                ((ClientLevelAccess) client.level).invokeAddEntity(id, entity);
-            });
+        client.execute(() -> {
+            ((ClientLevelAccess) client.level).invokeAddEntity(id, entity);
         });
     }
 }
