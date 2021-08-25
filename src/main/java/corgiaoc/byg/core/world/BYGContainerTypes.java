@@ -11,7 +11,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.ArrayList;
 import java.util.List;
 
-@OnlyIn(Dist.CLIENT)
 public class BYGContainerTypes {
 
     public static final List<ContainerType<?>> CONTAINER_TYPES = new ArrayList<>();
