@@ -1,8 +1,10 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
+import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -23,7 +25,7 @@ public class BYGSapling extends SaplingBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(this.groundTag);
+        return this == BYGBlocks.PALM_SAPLING ? state.is(BlockTags.SAND) && state.is(this.groundTag) : state.is(this.groundTag);
     }
 
     @Override
