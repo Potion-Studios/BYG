@@ -6,7 +6,6 @@ import corgiaoc.byg.mixin.access.ClientLevelAccess;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
@@ -51,7 +50,7 @@ public class NetworkUtil {
         buf.writeDouble(velocity.x);
         buf.writeDouble(velocity.y);
         buf.writeDouble(velocity.z);
-         return ServerPlayNetworking.createS2CPacket(SPAWN_PACKET_ID, buf);
+        return ServerPlayNetworking.createS2CPacket(SPAWN_PACKET_ID, buf);
     }
 
     @Environment(EnvType.CLIENT)
