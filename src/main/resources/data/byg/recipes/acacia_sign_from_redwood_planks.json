@@ -10,7 +10,7 @@
       "item": "byg:redwood_planks"
     },
     "X": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     }
   },
   "result": {

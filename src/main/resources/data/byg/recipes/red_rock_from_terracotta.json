@@ -5,7 +5,7 @@
       "item": "minecraft:terracotta"
     },
     {
-      "tag": "forge:cobblestone"
+      "tag": "minecraft:stone_crafting_materials"
     }
   ],
   "result": {

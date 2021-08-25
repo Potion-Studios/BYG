@@ -10,7 +10,7 @@
       "item": "byg:baobab_planks"
     },
     "X": {
-      "tag": "forge:rods/wooden"
+      "item": "minecraft:stick"
     }
   },
   "result": {
