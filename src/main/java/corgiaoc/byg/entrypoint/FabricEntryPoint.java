@@ -5,6 +5,7 @@ import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.core.*;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.mixin.access.FillerBlockTypeAccess;
+import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.NetworkUtil;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -12,6 +13,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.MenuType;
@@ -43,6 +45,7 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
         bootStrap();
         commonSetup();
         loadComplete();
+        Tag.Named<Block> dirt = MLBlockTags.DIRT;
     }
 
     private static void commonSetup() {
