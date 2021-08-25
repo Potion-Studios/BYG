@@ -41,6 +41,7 @@
     "access.WorldCarverAccess",
     "access.WorldDecoratingHelperAccess",
     "common.block.MixinAbstractFireBlock",
+    "common.block.MixinAbstractFurnaceBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
     "common.block.MixinNetherrackBlock",
