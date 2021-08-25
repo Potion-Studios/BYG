@@ -13,6 +13,6 @@ public interface BoatEntityAccess {
     @Accessor
     void setLastYd(double lastYd);
 
-    @Accessor
-    Boat.Status getStatus();
+    @Accessor("status")
+    Boat.Status getStatusField();
 }

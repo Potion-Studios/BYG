@@ -187,7 +187,7 @@ public class BYGBoatEntity extends Boat {
         if (!this.isPassenger()) {
             if (onGroundIn) {
                 if (this.fallDistance > 3.0F) {
-                    if (((BoatEntityAccess) this).getStatus() != Status.ON_LAND) {
+                    if (((BoatEntityAccess) this).getStatusField() != Boat.Status.ON_LAND) {
                         this.fallDistance = 0.0F;
                         return;
                     }
