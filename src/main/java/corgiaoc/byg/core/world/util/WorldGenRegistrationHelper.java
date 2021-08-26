@@ -7,6 +7,7 @@ import corgiaoc.byg.mixin.access.DimensionStructuresSettingsAccess;
 import corgiaoc.byg.mixin.access.StructureAccess;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -114,7 +115,7 @@ public class WorldGenRegistrationHelper {
 
     static Set<Integer> integerList = new HashSet<>();
 
-    public static Biome createBiome(String id, Biome biome, int numericalID) {
+    public static ResourceKey<Biome> createBiome(String id, Biome biome, int numericalID) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
         if (BuiltinRegistries.BIOME.keySet().contains(bygID))
             throw new IllegalStateException("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
@@ -127,6 +128,6 @@ public class WorldGenRegistrationHelper {
 
         BYGBiomes.biomeList.add(new BYGBiomes.PreserveBiomeOrder(biome, numericalID));
         integerList.add(numericalID);
-        return biome;
+        return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
     }
 }

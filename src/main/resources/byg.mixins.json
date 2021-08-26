@@ -33,6 +33,7 @@
     "access.StructureAccess",
     "access.TileEntityTypeBuilderAccess",
     "access.TrapDoorBlockAccess",
+    "access.VanillaBiomeAccess",
     "access.VillagerTypeAccess",
     "access.WeightedListAccess",
     "access.WeightedListEntryAccess",
