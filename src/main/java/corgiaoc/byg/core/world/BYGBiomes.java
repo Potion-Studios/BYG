@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGOverworldBiomes;
+import corgiaoc.byg.common.world.biome.EndBiomes;
+import corgiaoc.byg.common.world.biome.NetherBiomes;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.*;
 import corgiaoc.byg.common.world.biome.nether.*;
@@ -179,39 +181,39 @@ public class BYGBiomes {
 
 
     /************Nether Biomes************/
-    public static ResourceKey<Biome> BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createBiome("brimstone_caverns", new BrimstoneCaverns().getBiome(), 156);
-    public static ResourceKey<Biome> CRIMSON_GARDENS = WorldGenRegistrationHelper.createBiome("crimson_gardens", new CrimsonGardens().getBiome(), 157);
-    public static ResourceKey<Biome> EMBUR_BOG = WorldGenRegistrationHelper.createBiome("embur_bog", new EmburBog().getBiome(), 144);
-    public static ResourceKey<Biome> GLOWSTONE_GARDENS = WorldGenRegistrationHelper.createBiome("glowstone_gardens", new GlowstoneGardens().getBiome(), 143);
-    public static ResourceKey<Biome> MAGMA_WASTES = WorldGenRegistrationHelper.createBiome("magma_wastes", new MagmaWastes().getBiome(), 158);
-    public static ResourceKey<Biome> SUBZERO_HYPOGEAL = WorldGenRegistrationHelper.createBiome("subzero_hypogeal", new SubzeroHypogeal().getBiome(), 159);
-    public static ResourceKey<Biome> SYTHIAN_TORRIDS = WorldGenRegistrationHelper.createBiome("sythian_torrids", new SythianTorrids().getBiome(), 142);
-    public static ResourceKey<Biome> WARPED_DESERT = WorldGenRegistrationHelper.createBiome("warped_desert", new WarpedDesert().getBiome(), 141);
-    public static ResourceKey<Biome> WAILING_GARTH = WorldGenRegistrationHelper.createBiome("wailing_garth", new WailingGarth().getBiome(), 160);
-    public static ResourceKey<Biome> WITHERING_WOODS = WorldGenRegistrationHelper.createBiome("withering_woods", new WitheringWoods().getBiome(), 161);
-    public static ResourceKey<Biome> WEEPING_MIRE = WorldGenRegistrationHelper.createBiome("weeping_mire", new WeepingMire().getBiome(), 162);
-    public static ResourceKey<Biome> QUARTZ_DESERT = WorldGenRegistrationHelper.createBiome("quartz_desert", new QuartzDesert().getBiome(), 163);
+    public static ResourceKey<Biome> BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createBiome("brimstone_caverns", NetherBiomes.brimstoneCaverns(), 156);
+    public static ResourceKey<Biome> CRIMSON_GARDENS = WorldGenRegistrationHelper.createBiome("crimson_gardens", NetherBiomes.crimsonGardens(), 157);
+    public static ResourceKey<Biome> EMBUR_BOG = WorldGenRegistrationHelper.createBiome("embur_bog", NetherBiomes.emburBog(), 144);
+    public static ResourceKey<Biome> GLOWSTONE_GARDENS = WorldGenRegistrationHelper.createBiome("glowstone_gardens", NetherBiomes.glowstoneGardens(), 143);
+    public static ResourceKey<Biome> MAGMA_WASTES = WorldGenRegistrationHelper.createBiome("magma_wastes", NetherBiomes.magmaWastes(), 158);
+    public static ResourceKey<Biome> SUBZERO_HYPOGEAL = WorldGenRegistrationHelper.createBiome("subzero_hypogeal", NetherBiomes.subzeroHypogeal(), 159);
+    public static ResourceKey<Biome> SYTHIAN_TORRIDS = WorldGenRegistrationHelper.createBiome("sythian_torrids", NetherBiomes.sythianTorrids(), 142);
+    public static ResourceKey<Biome> WARPED_DESERT = WorldGenRegistrationHelper.createBiome("warped_desert", NetherBiomes.warpedDesert(), 141);
+    public static ResourceKey<Biome> WAILING_GARTH = WorldGenRegistrationHelper.createBiome("wailing_garth", NetherBiomes.wailingGarth(), 160);
+    public static ResourceKey<Biome> WITHERING_WOODS = WorldGenRegistrationHelper.createBiome("withering_woods", NetherBiomes.witheringWoods(), 161);
+    public static ResourceKey<Biome> WEEPING_MIRE = WorldGenRegistrationHelper.createBiome("weeping_mire", NetherBiomes.weepingMire(), 162);
+    public static ResourceKey<Biome> QUARTZ_DESERT = WorldGenRegistrationHelper.createBiome("quartz_desert", NetherBiomes.quartzDesert(), 163);
 
 
     /************End Biomes************/
-    public static ResourceKey<Biome> IVIS_FIELDS = WorldGenRegistrationHelper.createBiome("ivis_fields", new IvisFields().getBiome(), 145);
-    public static ResourceKey<Biome> NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", new NightshadeForest().getBiome(), 164);
-    public static ResourceKey<Biome> ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", new EtherealIslands().getBiome(), 165);
-    public static ResourceKey<Biome> VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", new ViscalIsles().getBiome(), 166);
-    public static ResourceKey<Biome> BULBIS_GARDENS = WorldGenRegistrationHelper.createBiome("bulbis_gardens", new BulbisGardens().getBiome(), 167);
-    public static ResourceKey<Biome> SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", new ShatteredDesert().getBiome(), 168);
-    public static ResourceKey<Biome> SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", new ShulkrenForest().getBiome(), 169);
-    public static ResourceKey<Biome> PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", new PurpurPeaks().getBiome(), 170);
-    public static ResourceKey<Biome> CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", new CrypticWastes().getBiome(), 171);
-    public static ResourceKey<Biome> IMPARIUS_GROVE = WorldGenRegistrationHelper.createBiome("imparius_grove", new ImpariusGrove().getBiome(), 178);
+    public static ResourceKey<Biome> IVIS_FIELDS = WorldGenRegistrationHelper.createBiome("ivis_fields", EndBiomes.ivisFields(), 145);
+    public static ResourceKey<Biome> NIGHTSHADE_FOREST = WorldGenRegistrationHelper.createBiome("nightshade_forest", EndBiomes.nightshadeForest(), 164);
+    public static ResourceKey<Biome> ETHEREAL_ISLANDS = WorldGenRegistrationHelper.createBiome("ethereal_islands", EndBiomes.etherealIslands(), 165);
+    public static ResourceKey<Biome> VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("viscal_isles", EndBiomes.viscalIsles(), 166);
+    public static ResourceKey<Biome> BULBIS_GARDENS = WorldGenRegistrationHelper.createBiome("bulbis_gardens", EndBiomes.bulbisGardens(), 167);
+    public static ResourceKey<Biome> SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", EndBiomes.shatteredDesert(), 168);
+    public static ResourceKey<Biome> SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", EndBiomes.shulkrenForest(), 169);
+    public static ResourceKey<Biome> PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", EndBiomes.purpurPeaks(), 170);
+    public static ResourceKey<Biome> CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes",EndBiomes.crypticWastes(), 171);
+    public static ResourceKey<Biome> IMPARIUS_GROVE = WorldGenRegistrationHelper.createBiome("imparius_grove", EndBiomes.impariusGrove(), 178);
 
     /************End Sub-Biomes************/
-    public static ResourceKey<Biome> SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", new ShatteredViscalIsles().getBiome(), 173);
-    public static ResourceKey<Biome> BULBIS_GARDENS_EDGE = WorldGenRegistrationHelper.createBiome("bulbis_gardens_edge", new BulbisGardensEdge().getBiome(), 174);
-    public static ResourceKey<Biome> ETHEREAL_FOREST = WorldGenRegistrationHelper.createBiome("ethereal_forest", new EtherealForest().getBiome(), 175);
-    public static ResourceKey<Biome> ETHEREAL_CLEARING = WorldGenRegistrationHelper.createBiome("ethereal_clearing", new EtherealClearing().getBiome(), 176);
-    public static ResourceKey<Biome> SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", new ShatteredDesertIsles().getBiome(), 177);
-    public static ResourceKey<Biome> IMPARIUS_CLEARING = WorldGenRegistrationHelper.createBiome("imparius_clearing", new ImpariusClearing().getBiome(), 179);
+    public static ResourceKey<Biome> SHATTERED_VISCAL_ISLES = WorldGenRegistrationHelper.createBiome("shattered_viscal_isles", EndBiomes.shatteredViscalIsles(), 173);
+    public static ResourceKey<Biome> BULBIS_GARDENS_EDGE = WorldGenRegistrationHelper.createBiome("bulbis_gardens_edge", EndBiomes.bulbisGardensEdge(), 174);
+    public static ResourceKey<Biome> ETHEREAL_FOREST = WorldGenRegistrationHelper.createBiome("ethereal_forest", EndBiomes.etherealForest(), 175);
+    public static ResourceKey<Biome> ETHEREAL_CLEARING = WorldGenRegistrationHelper.createBiome("ethereal_clearing", EndBiomes.etherealClearing(), 176);
+    public static ResourceKey<Biome> SHATTERED_DESERT_ISLES = WorldGenRegistrationHelper.createBiome("shattered_desert_isles", EndBiomes.shatteredDesertIsles(), 177);
+    public static ResourceKey<Biome> IMPARIUS_CLEARING = WorldGenRegistrationHelper.createBiome("imparius_clearing", EndBiomes.impariusClearing(), 179);
 
     public static ResourceKey<Biome> CANYON_KEY;
 
