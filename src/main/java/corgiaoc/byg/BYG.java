@@ -13,7 +13,6 @@ import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
 import corgiaoc.byg.common.properties.vanilla.*;
-import corgiaoc.byg.common.world.biome.*;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;

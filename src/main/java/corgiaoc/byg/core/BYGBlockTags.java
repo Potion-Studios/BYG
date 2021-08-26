@@ -3,7 +3,6 @@ package corgiaoc.byg.core;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.mixin.access.BlockTagsAccess;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 

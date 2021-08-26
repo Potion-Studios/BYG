@@ -3,8 +3,6 @@ package corgiaoc.byg.core.world;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.client.gui.HypogealImperiumContainer;
 import corgiaoc.byg.mixin.access.MenuTypeAccess;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.AbstractContainerMenu;

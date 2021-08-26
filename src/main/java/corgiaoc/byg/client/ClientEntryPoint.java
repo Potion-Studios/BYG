@@ -4,7 +4,6 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.util.NetworkUtil;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 
 public class ClientEntryPoint implements ClientModInitializer {
 

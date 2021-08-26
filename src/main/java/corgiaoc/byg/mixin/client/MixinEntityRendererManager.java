@@ -2,12 +2,9 @@ package corgiaoc.byg.mixin.client;
 
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
 import corgiaoc.byg.core.BYGEntities;
-import net.minecraft.client.Options;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.server.packs.resources.ReloadableResourceManager;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

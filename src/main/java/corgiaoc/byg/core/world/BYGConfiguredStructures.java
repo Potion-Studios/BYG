@@ -1,6 +1,9 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.structure.village.villagepools.*;
+import corgiaoc.byg.common.world.structure.village.villagepools.AdobeVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.RuinsVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.SkyrisVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.TropicalVillagePools;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
