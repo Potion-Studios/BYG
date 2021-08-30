@@ -24,6 +24,7 @@
     "access.WeightedListEntryAccess",
     "access.WorldCarverAccess",
     "access.WorldDecoratingHelperAccess",
+    "common.MixinWalkNodeProcessor",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
