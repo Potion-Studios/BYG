@@ -6,7 +6,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
+import corgiaoc.byg.config.json.biomedata.BiomeData;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.WeightedBiomeData;
 import corgiaoc.byg.mixin.access.WeightedListAccess;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
@@ -45,7 +47,10 @@ public class BYGEndBiomeSource extends BiomeSource {
         Map<ResourceLocation, ResourceLocation> biomeToEdge = new HashMap<>();
         Set<ResourceLocation> allBiomes = new HashSet<>();
         BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYG.getEndData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json"));
-        endBiomeDataHolder.getEndBiomeData().forEach(((biome, endBiomeData) -> {
+        Map<ResourceLocation, WeightedBiomeData> endBiomeData1 = endBiomeDataHolder.getEndBiomeData();
+        endBiomeData1.remove(null);
+        endBiomeData1.remove(BYG.EMPTY);
+        endBiomeData1.forEach(((biome, endBiomeData) -> {
             endBiomes.add(biome, endBiomeData.getWeight());
             endHills.put(biome, endBiomeData.getSubBiomes());
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
@@ -56,12 +61,16 @@ public class BYGEndBiomeSource extends BiomeSource {
         }));
         endHills.remove(BYG.EMPTY);
         biomeToEdge.remove(BYG.EMPTY);
-
+        endHills.remove(null);
+        biomeToEdge.remove(null);
         WeightedList<ResourceLocation> voidBiomes = new WeightedList<>();
         Map<ResourceLocation, WeightedList<ResourceLocation>> voidHillsMap = new HashMap<>();
         Map<ResourceLocation, ResourceLocation> voidBiomeToEdge = new HashMap<>();
 
-        endBiomeDataHolder.getVoidBiomeData().forEach(((biome, endBiomeData) -> {
+        Map<ResourceLocation, WeightedBiomeData> voidBiomeData = endBiomeDataHolder.getVoidBiomeData();
+        voidBiomeData.remove(null);
+        voidBiomeData.remove(BYG.EMPTY);
+        voidBiomeData.forEach(((biome, endBiomeData) -> {
             voidBiomes.add(biome, endBiomeData.getWeight());
             voidHillsMap.put(biome, endBiomeData.getSubBiomes());
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
@@ -74,7 +83,10 @@ public class BYGEndBiomeSource extends BiomeSource {
 
         BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = BYG.getEndSubBiomeData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
 
-        endSubBiomeDataHolder.getEndSubBiomeData().forEach(((biome, endBiomeData) -> {
+        Map<ResourceLocation, BiomeData> endSubBiomeData = endSubBiomeDataHolder.getEndSubBiomeData();
+        endSubBiomeData.remove(null);
+        endSubBiomeData.remove(BYG.EMPTY);
+        endSubBiomeData.forEach(((biome, endBiomeData) -> {
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 biomeToEdge.put(biome, edgeBiome);
@@ -83,7 +95,10 @@ public class BYGEndBiomeSource extends BiomeSource {
             allBiomes.add(endBiomeData.getEdgeBiome());
         }));
 
-        endSubBiomeDataHolder.getVoidSubBiomeData().forEach(((biome, endBiomeData) -> {
+        Map<ResourceLocation, BiomeData> voidSubBiomeData = endSubBiomeDataHolder.getVoidSubBiomeData();
+        voidSubBiomeData.remove(null);
+        voidBiomeData.remove(BYG.EMPTY);
+        voidSubBiomeData.forEach(((biome, endBiomeData) -> {
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 voidBiomeToEdge.put(biome, edgeBiome);
@@ -93,6 +108,8 @@ public class BYGEndBiomeSource extends BiomeSource {
         }));
         voidHillsMap.remove(BYG.EMPTY);
         voidBiomeToEdge.remove(BYG.EMPTY);
+        voidHillsMap.remove(null);
+        voidBiomeToEdge.remove(null);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
         this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes, endHills, biomeToEdge);
         this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes, voidHillsMap, voidBiomeToEdge);
