@@ -88,8 +88,8 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
     /*********************** Disk Start ***********************/
 
     @Override
-    public void load(BlockState state, CompoundTag nbt) {
-        super.load(state, nbt);
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
         readData(nbt);
     }
 

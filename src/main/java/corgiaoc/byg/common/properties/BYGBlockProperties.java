@@ -1121,7 +1121,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLantern extends Lantern {
+    public static class BYGLantern extends LanternBlock {
         public BYGLantern(String registryName) {
             super(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES)
                     .sound(SoundType.LANTERN)

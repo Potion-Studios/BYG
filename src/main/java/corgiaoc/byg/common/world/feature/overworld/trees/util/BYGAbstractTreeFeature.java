@@ -31,6 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
@@ -64,8 +65,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public boolean isAnotherTreeHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
-            Block block = state.getBlock();
-            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
+            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
         });
     }
 
@@ -163,8 +163,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      */
     public boolean canSaplingGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
-            Block block = state.getBlock();
-            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
+            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
         });
     }
 
@@ -195,9 +194,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(MLBlockTags.DIRT) || block == block1;
+                return block.defaultBlockState().is(MLBlockTags.DIRT) || block == block1;
             }
-            return block.is(MLBlockTags.DIRT);
+            return block.defaultBlockState().is(MLBlockTags.DIRT);
         });
     }
 
@@ -208,9 +207,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(MLBlockTags.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
+                return block.defaultBlockState().is(MLBlockTags.NETHERRACK) || block.defaultBlockState().is(BlockTags.NYLIUM) || block.defaultBlockState().is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || block == block1;
             }
-            return block.is(MLBlockTags.NETHERRACK) || block.is(BlockTags.NYLIUM) || block.is(BlockTags.SOUL_FIRE_BASE_BLOCKS);
+            return block.defaultBlockState().is(MLBlockTags.NETHERRACK) || block.defaultBlockState().is(BlockTags.NYLIUM) || block.defaultBlockState().is(BlockTags.SOUL_FIRE_BASE_BLOCKS);
         });
     }
 
@@ -221,9 +220,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(MLBlockTags.END_STONES) || block == block1;
+                return block.defaultBlockState().is(MLBlockTags.END_STONES) || block == block1;
             }
-            return block.is(MLBlockTags.END_STONES);
+            return block.defaultBlockState().is(MLBlockTags.END_STONES);
         });
     }
 
@@ -234,9 +233,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.is(BlockTags.SAND) || block == block1;
+                return block.defaultBlockState().is(BlockTags.SAND) || block == block1;
             }
-            return block.is(BlockTags.SAND);
+            return block.defaultBlockState().is(BlockTags.SAND);
         });
     }
 
@@ -516,7 +515,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public final void setFinalBlockState(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> changedBlocks, LevelWriter worldIn, BlockPos pos, BlockState blockState, BoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(startPos, config, worldIn, pos, blockState);
-        boundingBox.expand(new BoundingBox(pos, pos));
+        boundingBox.encapsulate(new BoundingBox(pos));
         if (BlockTags.LOGS.contains(blockState.getBlock())) {
             changedBlocks.add(pos.immutable());
         }
@@ -531,6 +530,10 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<TFC> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
 
         if (worldIn.getLevel().dimension() == Level.OVERWORLD && !BYG.ENABLE_OVERWORLD_TREES) {
@@ -546,9 +549,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public boolean placeTree(WorldGenLevel worldIn, Random rand, BlockPos pos, TFC config) {
         Set<BlockPos> set = Sets.newHashSet();
-        BoundingBox mutableboundingbox = BoundingBox.getUnknownBox();
+        BoundingBox mutableboundingbox = BoundingBox.infinite();
         boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
-        if (mutableboundingbox.x0 > mutableboundingbox.x1) {
+        if (mutableboundingbox.minX() > mutableboundingbox.maxX()) {
             return false;
         } else {
             List<Set<BlockPos>> list = Lists.newArrayList();
@@ -572,7 +575,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 if (flag && !set.isEmpty()) {
                     for (BlockPos blockpos : Lists.newArrayList(set)) {
                         if (mutableboundingbox.isInside(blockpos)) {
-                            voxelshapepart.setFull(blockpos.getX() - mutableboundingbox.x0, blockpos.getY() - mutableboundingbox.y0, blockpos.getZ() - mutableboundingbox.z0, true, true);
+                            voxelshapepart.fill(blockpos.getX() - mutableboundingbox.minX(), blockpos.getY() - mutableboundingbox.minY(), blockpos.getZ() - mutableboundingbox.minZ());
                         }
 
                         for (Direction direction : Direction.values()) {
@@ -583,7 +586,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                                     list.get(0).add(posInPool.immutable());
                                     this.setBlockStateWithoutUpdates(pos, config, worldIn, posInPool, blockstate.setValue(BlockStateProperties.DISTANCE, 1));
                                     if (mutableboundingbox.isInside(posInPool)) {
-                                        voxelshapepart.setFull(posInPool.getX() - mutableboundingbox.x0, posInPool.getY() - mutableboundingbox.y0, posInPool.getZ() - mutableboundingbox.z0, true, true);
+                                        voxelshapepart.fill(posInPool.getX() - mutableboundingbox.minX(), posInPool.getY() - mutableboundingbox.minY(), posInPool.getZ() - mutableboundingbox.minZ());
                                     }
                                 }
                             }
@@ -597,7 +600,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
                     for (BlockPos blockpos1 : set1) {
                         if (mutableboundingbox.isInside(blockpos1)) {
-                            voxelshapepart.setFull(blockpos1.getX() - mutableboundingbox.x0, blockpos1.getY() - mutableboundingbox.y0, blockpos1.getZ() - mutableboundingbox.z0, true, true);
+                            voxelshapepart.fill(blockpos1.getX() - mutableboundingbox.minX(), blockpos1.getY() - mutableboundingbox.minY(), blockpos1.getZ() - mutableboundingbox.minZ());
                         }
 
                         for (Direction direction1 : Direction.values()) {
@@ -616,7 +619,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                                             this.setBlockStateWithoutUpdates(pos, config, worldIn, posInPool, blockstate2);
 
                                         if (mutableboundingbox.isInside(posInPool)) {
-                                            voxelshapepart.setFull(posInPool.getX() - mutableboundingbox.x0, posInPool.getY() - mutableboundingbox.y0, posInPool.getZ() - mutableboundingbox.z0, true, true);
+                                            voxelshapepart.fill(posInPool.getX() - mutableboundingbox.minX(), posInPool.getY() - mutableboundingbox.minY(), posInPool.getZ() - mutableboundingbox.minZ());
                                         }
 
                                         set2.add(posInPool.immutable());
@@ -628,7 +631,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 }
             }
 
-            StructureTemplate.updateShapeAtEdge(worldIn, 3, voxelshapepart, mutableboundingbox.x0, mutableboundingbox.y0, mutableboundingbox.z0);
+            StructureTemplate.updateShapeAtEdge(worldIn, 3, voxelshapepart, mutableboundingbox.minX(), mutableboundingbox.minY(), mutableboundingbox.minZ());
             setDisk(worldIn, rand, pos.below(), config);
             return flag;
         }
@@ -645,7 +648,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     static {
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_BLOCK, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
-        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.GRASS_PATH, Blocks.DIRT);
+        SPREADABLE_TO_NON_SPREADABLE.put(Blocks.DIRT_PATH, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE, BYGBlocks.DACITE);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.PODZOL_DACITE, BYGBlocks.DACITE);
