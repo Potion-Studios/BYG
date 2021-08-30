@@ -15,6 +15,7 @@ public class BYGBlockPlacerTypes {
     public static List<BlockPlacerType<?>> types = new ArrayList<>();
 
     public static final BlockPlacerType<DoubleBlockPlacer> DOUBLE_BLOCK = createBlockPlacer("simple_block_placer", BlockPlacerTypeAccess.create(DoubleBlockPlacer.CODEC));
+    public static final BlockPlacerType<OnWaterOnlyBlockPlacer> WATER_ONLY = createBlockPlacer("water_only", BlockPlacerTypeAccess.create(OnWaterOnlyBlockPlacer.CODEC));
 
 
     private static <P extends BlockPlacer> BlockPlacerType<P> createBlockPlacer(String id, BlockPlacerType<P> type) {
