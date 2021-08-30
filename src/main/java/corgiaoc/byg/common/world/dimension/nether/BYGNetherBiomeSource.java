@@ -8,6 +8,7 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.common.world.dimension.end.SimpleLayerProvider;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
+import corgiaoc.byg.config.json.biomedata.WeightedBiomeData;
 import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
@@ -41,7 +42,10 @@ public class BYGNetherBiomeSource extends BiomeSource {
         Map<ResourceLocation, ResourceLocation> edges = new HashMap<>();
         Set<ResourceLocation> allBiomes = new HashSet<>();
         BiomeDataHolders.WeightedBiomeDataHolder netherData = new BiomeDataHolders.WeightedBiomeDataHolder(new HashMap<>());
-        netherData.getBiomeData().forEach(((biome, endBiomeData) -> {
+        Map<ResourceLocation, WeightedBiomeData> biomeData = netherData.getBiomeData();
+        biomeData.remove(null);
+        biomeData.remove(BYG.EMPTY);
+        biomeData.forEach(((biome, endBiomeData) -> {
             biomes.add(biome, endBiomeData.getWeight());
             hills.put(biome, endBiomeData.getSubBiomes());
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
@@ -54,6 +58,9 @@ public class BYGNetherBiomeSource extends BiomeSource {
         edges.remove(BYG.EMPTY);
         hills.remove(BYG.EMPTY);
         allBiomes.remove(BYG.EMPTY);
+        edges.remove(null);
+        hills.remove(null);
+        allBiomes.remove(null);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
         this.biomeLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().netherBiomeSize, biomes.build(), hills, edges);
     }

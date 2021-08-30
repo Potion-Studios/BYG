@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @SuppressWarnings("deprecation")
@@ -22,7 +23,7 @@ public class BiomeDataHolders {
 
         public EndSubBiomeDataHolder(Map<ResourceLocation, BiomeData>  endSubBiomeData, Map<ResourceLocation, BiomeData>  voidSubBiomeData) {
             super(endSubBiomeData);
-            this.voidSubBiomeData = voidSubBiomeData;
+            this.voidSubBiomeData = new HashMap<>(voidSubBiomeData);
         }
 
         public Map<ResourceLocation, BiomeData> getEndSubBiomeData() {
@@ -47,7 +48,7 @@ public class BiomeDataHolders {
 
         public EndBiomeDataHolder(Map<ResourceLocation, WeightedBiomeData> endBiomeData, Map<ResourceLocation, WeightedBiomeData> voidBiomeData) {
             super(endBiomeData);
-            this.voidSubBiomeData = voidBiomeData;
+            this.voidSubBiomeData = new HashMap<>(voidBiomeData);
         }
 
         public Map<ResourceLocation, WeightedBiomeData> getEndBiomeData() {
