@@ -450,20 +450,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGWarpedFanCoral extends BYGWarpedFinBlock {
-        public BYGWarpedFanCoral(String registryName) {
-            super(AbstractBlock.Properties.of(Material.WATER_PLANT)
-                    .sound(SoundType.WET_GRASS)
-                    .strength(0.0F)
-                    .noCollission()
-                    .noOcclusion()
-                    .dropsLike(BYGBlocks.WARPED_CORAL)
-                    .lightLevel((state) -> 8)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BYGWarpedWallFanCoral extends BYGWarpedCoralWallFanBlock {
         public BYGWarpedWallFanCoral(String registryName) {
             super(AbstractBlock.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
