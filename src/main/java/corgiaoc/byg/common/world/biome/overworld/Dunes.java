@@ -57,8 +57,6 @@ public class Dunes extends BYGBiome {
     }
 
     static {
-        GENERATION_SETTINGS.addStructureStart(StructureFeatures.VILLAGE_PLAINS); //Plains Village
-        GENERATION_SETTINGS.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         GENERATION_SETTINGS.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         DefaultBiomeFeatures.addDefaultOverworldLandStructures(GENERATION_SETTINGS);
         DefaultBiomeFeatures.addFossilDecoration(GENERATION_SETTINGS);
