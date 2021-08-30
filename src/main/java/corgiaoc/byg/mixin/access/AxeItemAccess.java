@@ -4,7 +4,6 @@ import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Accessor;
@@ -21,13 +20,13 @@ public interface AxeItemAccess {
     }
 
     @Accessor("STRIPPABLES")
-    static Map<Block, BlockState> getStripables() {
+    static Map<Block, Block> getStripables() {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("STRIPPABLES")
     @Mutable
-    static void setStripables(Map<Block, BlockState> newMap) {
+    static void setStripables(Map<Block, Block> newMap) {
         throw new Error("Mixin did not apply");
     }
 }
