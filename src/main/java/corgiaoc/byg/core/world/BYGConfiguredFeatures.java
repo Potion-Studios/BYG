@@ -8,6 +8,7 @@ import corgiaoc.byg.common.properties.blocks.end.TheriumCrystalBlock;
 import corgiaoc.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
 import corgiaoc.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
 import corgiaoc.byg.common.world.feature.blockplacer.DoubleBlockPlacer;
+import corgiaoc.byg.common.world.feature.blockplacer.OnWaterOnlyBlockPlacer;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.block.AbstractTopPlantBlock;
@@ -64,7 +65,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MINI_CACTI = createConfiguredFeature("mini_cacti", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.MINI_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(4).build()));
     public static final ConfiguredFeature<?, ?> HORSEWEED = createConfiguredFeature("horse_weed", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.HORSEWEED.defaultBlockState()), new SimpleBlockPlacer())).tries(4).build()));
     public static final ConfiguredFeature<?, ?> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.TINY_LILYPADS.defaultBlockState()), new SimpleBlockPlacer())).tries(10).build()));
-    public static final ConfiguredFeature<?, ?> WATER_SILK = createConfiguredFeature("water_silk", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WATER_SILK.defaultBlockState()), new SimpleBlockPlacer())).tries(128).build()));
+    public static final ConfiguredFeature<?, ?> WATER_SILK = createConfiguredFeature("water_silk", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WATER_SILK.defaultBlockState()), new OnWaterOnlyBlockPlacer())).tries(128).build()));
     public static final ConfiguredFeature<?, ?> WINTER_SUCCULENT = createConfiguredFeature("winter_succulent", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.WINTER_SUCCULENT.defaultBlockState()), new SimpleBlockPlacer())).tries(10).build()));
     public static final ConfiguredFeature<?, ?> BEACH_GRASS = createConfiguredFeature("beach_grass_patch", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.BEACH_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(20).build()));
     public static final ConfiguredFeature<?, ?> BEACH_SHORT_GRASS_PATCH = createConfiguredFeature("short_beach_grass_patch", Feature.RANDOM_PATCH.configured((new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(BYGBlocks.SHORT_BEACH_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(20).build()));
