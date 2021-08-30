@@ -20,12 +20,12 @@ public interface AxeItemAccess {
     }
 
     @Accessor("STRIPABLES")
-    static Map<Block, BlockState> getStripables() {
+    static Map<Block, Block> getStripables() {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("STRIPABLES")
-    static void setStripables(Map<Block, BlockState> newMap) {
+    static void setStripables(Map<Block, Block> newMap) {
         throw new Error("Mixin did not apply");
     }
 }
