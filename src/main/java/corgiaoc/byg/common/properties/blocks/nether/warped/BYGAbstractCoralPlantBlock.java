@@ -27,7 +27,7 @@ public class BYGAbstractCoralPlantBlock extends Block implements SimpleWaterlogg
 
     protected BYGAbstractCoralPlantBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
     @Nullable
