@@ -1,0 +1,54 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: [ bug ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Prior to filling out this bug report please try the following:**
+        -Reset your configs! Configurations typically change between mod updates and are typically the most common causes of crashes. To reset your configs, move your existing configs to a seperate directory that isn't your MC installation directory, run the game, and update the values from your old config in the newly generated config!
+
+        -Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
+  - type: input
+    id: mod-version
+    attributes:
+      label: Mod Version
+      description: What version of the mod are you using?
+      placeholder: ex. 1.2.1
+    validations:
+      required: true
+  - type: dropdown
+    id: mod-loader
+    attributes:
+      label: Mod Loader
+      description: What Mod Loader are you running?
+      options:
+        - Fabric
+        - Forge
+    validations:
+      required: true
+  - type: input
+    id: mod-loader-version
+    attributes:
+      label: Mod Loader Version
+      description: What version of the mod loader are you using?
+      placeholder: ex. 36.0.45
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Please give a thorough explanation of what happened. Attach/Link relevant images/files in relation to the issue!
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: latest.log
+      description: Please upload your latest.log file directly here or use https://gist.github.com/ and leave the link here.
+      placeholder: Drag and drop latest.log file here or link it with https://gist.github.com/!
+    validations:
+      required: true
