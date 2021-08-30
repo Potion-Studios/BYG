@@ -38,6 +38,7 @@
     "access.WoodButtonBlockAccess",
     "access.WorldCarverAccess",
     "access.WorldDecoratingHelperAccess",
+    "common.MixinWalkNodeProcessor",
     "common.block.MixinAbstractBlockStateBookshelf",
     "common.block.MixinAbstractFireBlock",
     "common.block.MixinAbstractFurnaceBlock",
