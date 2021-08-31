@@ -59,6 +59,7 @@ public class BYGEndBiomeSource extends BiomeSource {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 biomeToEdge.put(biome, edgeBiome);
             }
+            allBiomes.add(biome);
             allBiomes.addAll(((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) endBiomeData.getSubBiomes()).getItems().stream().map(WeightedEntry.Wrapper::getData).collect(Collectors.toList()));
         }));
         endHills.remove(BYG.EMPTY);
@@ -112,7 +113,7 @@ public class BYGEndBiomeSource extends BiomeSource {
         voidBiomeToEdge.remove(BYG.EMPTY);
         voidHillsMap.remove(null);
         voidBiomeToEdge.remove(null);
-        this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
+        this.possibleBiomes.addAll(allBiomes.stream().filter(resourceLocation -> resourceLocation != null && !resourceLocation.equals(BYG.EMPTY)).map(registry::get).collect(Collectors.toList()));
         this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes.build(), endHills, biomeToEdge);
         this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes.build(), voidHillsMap, voidBiomeToEdge);
         this.generator = new SimplexNoise(sharedseedrandom);

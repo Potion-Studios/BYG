@@ -52,6 +52,7 @@ public class BYGNetherBiomeSource extends BiomeSource {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 edges.put(biome, edgeBiome);
             }
+            allBiomes.add(biome);
             allBiomes.addAll(((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) endBiomeData.getSubBiomes()).getItems().stream().map(WeightedEntry.Wrapper::getData).collect(Collectors.toList()));
         }));
 
@@ -61,7 +62,7 @@ public class BYGNetherBiomeSource extends BiomeSource {
         edges.remove(null);
         hills.remove(null);
         allBiomes.remove(null);
-        this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
+        this.possibleBiomes.addAll(allBiomes.stream().filter(resourceLocation -> resourceLocation != null && !resourceLocation.equals(BYG.EMPTY)).map(registry::get).collect(Collectors.toList()));
         this.biomeLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().netherBiomeSize, biomes.build(), hills, edges);
     }
 
