@@ -65,13 +65,13 @@ public class BYGConfigHandler {
     }
 
     public static void createReadMe(Path path) {
-        File readmeFile = new File(String.valueOf(path));
+        File readmeFile = path.toFile();
         String text = "If you need help understanding what the byg-biomes or byg-sub-biomes configs allow you to do, please watch this video: https://youtu.be/iq0q09O7ZYo\n\nIf you need help with datapacking, please watch this: https://youtu.be/TF_p8OeB-hc";
         if (!readmeFile.exists()) {
             try {
                 Files.write(path, text.getBytes());
             } catch (IOException e) {
-                BYG.LOGGER.error(BYG.MOD_ID + "'s README.txt could not be created");
+                BYG.LOGGER.error(path.toAbsolutePath() + " could not be created!");
             }
         }
     }
