@@ -1,7 +1,7 @@
 {   "parent": "block/block",
   "textures": {
     "particle": "byg:block/meadow_dirt",
-    "top": "block/grass_path_top",
+    "top": "block/dirt_path_top",
     "side": "byg:block/meadow_grass_path_side",
     "bottom": "byg:block/meadow_dirt"
   },
