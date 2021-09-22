@@ -2,10 +2,12 @@ package corgiaoc.byg.config.json.biomedata;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.ResourceLocation;
+import corgiaoc.byg.util.BiomeKeyUtil;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandomList;
+import net.minecraft.world.level.biome.Biome;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,23 +20,23 @@ public class WeightedBiomeData extends BiomeData {
             return subBiomeData.getWeight();
         }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(ResourceLocation.CODEC)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
+        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(BiomeKeyUtil.BIOME_KEY)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
         })).apply(builder, WeightedBiomeData::new);
     });
 
     private final int weight;
-    private final WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes;
+    private final WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes;
 
-    public WeightedBiomeData(int weight, List<String> dictionary, ResourceLocation edgeBiome, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes) {
+    public WeightedBiomeData(int weight, List<String> dictionary, ResourceKey<Biome> edgeBiome, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
         super(dictionary, edgeBiome);
         this.weight = weight;
         this.subBiomes = subBiomes;
     }
 
-    public WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> getSubBiomes() {
+    public WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> getSubBiomes() {
         return subBiomes;
     }
 

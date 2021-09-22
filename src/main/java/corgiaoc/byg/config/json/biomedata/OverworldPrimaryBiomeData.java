@@ -2,11 +2,14 @@ package corgiaoc.byg.config.json.biomedata;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.util.BiomeKeyUtil;
 import corgiaoc.byg.util.MLClimate;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandomList;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,23 +24,31 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
             return subBiomeData.getWeight();
         }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(ResourceLocation.CODEC)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
+        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(BiomeKeyUtil.BIOME_KEY)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
-        }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), ResourceLocation.CODEC.optionalFieldOf("beach", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("beach", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getBeach();
-        }), ResourceLocation.CODEC.optionalFieldOf("river", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("river", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getRiver();
         })).apply(builder, OverworldPrimaryBiomeData::new);
     });
 
     private final MLClimate climate;
     private final int weight;
-    private final ResourceLocation beachBiome;
-    private final ResourceLocation riverBiome;
+    private final ResourceKey<Biome> beachBiome;
+    private final ResourceKey<Biome> riverBiome;
 
-    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes, ResourceLocation edgeBiome, ResourceLocation beachBiome, ResourceLocation riverBiome) {
+    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
+        this(climate, weight, dictionary, subBiomes, BiomeKeyUtil.EMPTY);
+    }
+
+    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes, ResourceKey<Biome> edgeBiome) {
+        this(climate, weight, dictionary, subBiomes, edgeBiome, Biomes.BEACH, Biomes.RIVER);
+    }
+
+    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes, ResourceKey<Biome> edgeBiome, ResourceKey<Biome> beachBiome, ResourceKey<Biome> riverBiome) {
         super(dictionary, subBiomes, edgeBiome);
         this.climate = climate;
         this.weight = weight;
@@ -53,11 +64,11 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
         return weight;
     }
 
-    public ResourceLocation getBeach() {
+    public ResourceKey<Biome> getBeach() {
         return beachBiome;
     }
 
-    public ResourceLocation getRiver() {
+    public ResourceKey<Biome> getRiver() {
         return riverBiome;
     }
 }

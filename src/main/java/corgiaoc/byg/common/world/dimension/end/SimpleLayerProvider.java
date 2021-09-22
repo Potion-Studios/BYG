@@ -6,7 +6,7 @@ import corgiaoc.byg.common.world.dimension.layers.BYGEdgeLayer;
 import corgiaoc.byg.common.world.dimension.layers.BYGHillsLayer;
 import corgiaoc.byg.common.world.dimension.layers.WeightedMasterLayer;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.function.LongFunction;
 
 public class SimpleLayerProvider {
-    public static DatapackLayer stackLayers(Registry<Biome> biomeRegistry, long seed, int biomeSize, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> endBiomes, Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> hills, Map<ResourceLocation, ResourceLocation> edges) {
+    public static DatapackLayer stackLayers(Registry<Biome> biomeRegistry, long seed, int biomeSize, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> endBiomes, Map<ResourceKey<Biome>, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>>> hills, Map<ResourceKey<Biome>, ResourceKey<Biome>> edges) {
         LongFunction<BigContext<LazyArea>> randomProvider = salt -> new LazyAreaContext(1, seed, salt);
 
         AreaFactory<LazyArea> endLayer = new WeightedMasterLayer(biomeRegistry, endBiomes).run(randomProvider.apply(1003958L));

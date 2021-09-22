@@ -1,8 +1,6 @@
 package corgiaoc.byg;
 
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
@@ -11,13 +9,16 @@ import corgiaoc.byg.common.properties.vanilla.*;
 import corgiaoc.byg.common.world.dimension.end.BYGEndBiomeSource;
 import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
+import corgiaoc.byg.config.json.BYGConfigHandler;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import corgiaoc.byg.mixin.access.BlockEntityTypeAccess;
 import corgiaoc.byg.mixin.access.ItemBlockRenderTypeAccess;
+import corgiaoc.byg.util.BiomeKeyUtil;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -39,7 +40,7 @@ public class BYG {
     public static Path CONFIG_PATH = null;
     public static EntryPoint entryPoint = null;
     public static WorldConfig worldConfig = null;
-    public static final ResourceLocation EMPTY = new ResourceLocation("");
+    public static final ResourceKey<Biome> EMPTY = BiomeKeyUtil.EMPTY;
 
     public static Registry<Biome> biomeRegistryAccess = null;
 
@@ -83,15 +84,14 @@ public class BYG {
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "byg_nether"), BYGNetherBiomeSource.BYGNETHERCODEC);
         Registry.register(Registry.BIOME_SOURCE, new ResourceLocation(MOD_ID, "byg_end"), BYGEndBiomeSource.BYGENDCODEC);
         BYGVillagerType.setVillagerForBYGBiomes();
-        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.getValidBlocks());
         validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
         builderAccess.setValidBlocks(validBlocks);
         BYGBiomes.handleOverworldEntries();
+        BYGConfigHandler.handleAll(CONFIG_PATH);
     }
-
 
     public static void clientLoad() {
         isClient = true;

@@ -4,6 +4,7 @@ import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandomList;
@@ -59,7 +60,7 @@ public abstract class MixinHillsLayer {
     }
 
     @Nullable
-    private static ResourceLocation getHillBiomeValue(WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> biomeHolder, Context layerRandom) {
+    private static ResourceLocation getHillBiomeValue(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeHolder, Context layerRandom) {
         if ((((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeHolder).getItems().size() > 0)) {
             return LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom);
         } else {

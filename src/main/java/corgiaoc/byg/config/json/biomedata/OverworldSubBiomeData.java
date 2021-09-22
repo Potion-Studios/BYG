@@ -2,7 +2,9 @@ package corgiaoc.byg.config.json.biomedata;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.ResourceLocation;
+import corgiaoc.byg.util.BiomeKeyUtil;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,30 +14,30 @@ public class OverworldSubBiomeData extends BiomeData {
     public static final Codec<OverworldSubBiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), ResourceLocation.CODEC.optionalFieldOf("beach", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("beach", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getBeach();
-        }), ResourceLocation.CODEC.optionalFieldOf("river", new ResourceLocation("")).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("river", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getRiver();
         })).apply(builder, OverworldSubBiomeData::new);
     });
 
 
-    private final ResourceLocation beach;
-    private final ResourceLocation river;
+    private final ResourceKey<Biome> beach;
+    private final ResourceKey<Biome> river;
 
-    public OverworldSubBiomeData(List<String> dictionary, ResourceLocation edgeBiome, ResourceLocation beach, ResourceLocation river) {
+    public OverworldSubBiomeData(List<String> dictionary, ResourceKey<Biome> edgeBiome, ResourceKey<Biome> beach, ResourceKey<Biome> river) {
         super(dictionary, edgeBiome);
         this.beach = beach;
         this.river = river;
     }
 
-    public ResourceLocation getBeach() {
+    public ResourceKey<Biome> getBeach() {
         return beach;
     }
 
-    public ResourceLocation getRiver() {
+    public ResourceKey<Biome> getRiver() {
         return river;
     }
 }

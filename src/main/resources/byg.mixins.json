@@ -26,6 +26,7 @@
     "access.NyliumBlockAccess",
     "access.PickaxeItemAccess",
     "access.PressurePlateBlockAccess",
+    "access.RegistryAccess",
     "access.ShovelItemAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
