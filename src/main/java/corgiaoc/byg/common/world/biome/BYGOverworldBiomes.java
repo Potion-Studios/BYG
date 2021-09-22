@@ -1044,8 +1044,6 @@ public class BYGOverworldBiomes {
     public static Biome dunes(boolean red) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(red ? BYGConfiguredSurfaceBuilders.FILL_SAND_RED : BYGConfiguredSurfaceBuilders.FILL_SAND);
-        generationSettings.addStructureStart(StructureFeatures.VILLAGE_PLAINS); //Plains Village
-        generationSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
