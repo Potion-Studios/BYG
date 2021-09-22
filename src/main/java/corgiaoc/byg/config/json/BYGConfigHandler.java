@@ -39,7 +39,8 @@ public class BYGConfigHandler {
                 writer.flush();
                 writer.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                BYG.LOGGER.warn(path.toAbsolutePath() + " could not be created. Using defaults...\n" + e);
+                return defaultValue;
             }
         }
 
@@ -47,13 +48,13 @@ public class BYGConfigHandler {
             JsonParser jsonReader = new JsonParser();
             Optional<Pair<T, JsonElement>> possibleResult = codec.decode(JsonOps.INSTANCE, jsonReader.parse(new BufferedReader(new FileReader(path.toFile())))).result();
             if (possibleResult.isEmpty()) {
-                BYG.LOGGER.warn(path.toAbsolutePath() + " could not be read.");
+                BYG.LOGGER.warn(path.toAbsolutePath() + " could not be read. Using defaults...");
                 return defaultValue;
             }
             T first = possibleResult.get().getFirst();
             return first;
         } catch (FileNotFoundException e) {
-            BYG.LOGGER.warn(path.toAbsolutePath() + " was not found." + e);
+            BYG.LOGGER.warn(path.toAbsolutePath() + " was not found. Using defaults...\n" + e);
             return defaultValue;
         }
     }
