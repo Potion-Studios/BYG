@@ -30,6 +30,7 @@
     "access.ShovelItemAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
+    "access.StaticTagHelperWrapperAccess",
     "access.StructureAccess",
     "access.TileEntityTypeBuilderAccess",
     "access.TrapDoorBlockAccess",
@@ -70,8 +71,8 @@
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
     "client.MixinItemColors",
-    "client.MixinScreenManager",
-    "client.MixinLayerDefinitions"
+    "client.MixinLayerDefinitions",
+    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

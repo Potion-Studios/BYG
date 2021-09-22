@@ -1,6 +1,8 @@
 package corgiaoc.byg.mixin.common.block;
 
+import corgiaoc.byg.mixin.access.StaticTagHelperWrapperAccess;
 import corgiaoc.byg.util.MLBlockTags;
+import net.minecraft.tags.StaticTagHelper;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -16,10 +18,15 @@ public abstract class MixinAbstractBlockStateBookshelf {
 
     @Shadow public abstract boolean is(Tag<Block> tag);
 
+    @SuppressWarnings("unchecked")
     @Inject(at = @At("HEAD"), method = "is(Lnet/minecraft/world/level/block/Block;)Z", cancellable = true)
     private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
-        if (block.equals(Blocks.BOOKSHELF)) {
-            info.setReturnValue(this.is(MLBlockTags.BOOKSHELVES));
+        // We need to make sure we're bounded first before using
+        if (MLBlockTags.BOOKSHELVES instanceof StaticTagHelper.Wrapper<Block> bookShelves){
+            if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null)
+                if (block.equals(Blocks.BOOKSHELF)) {
+                    info.setReturnValue(this.is(bookShelves));
+                }
         }
     }
 }
