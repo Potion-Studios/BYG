@@ -5,16 +5,21 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.EndBiomes;
 import corgiaoc.byg.common.world.biome.NetherBiomes;
+import corgiaoc.byg.config.BYGBiomeWorldProperties;
 import corgiaoc.byg.config.WorldConfig;
-import corgiaoc.byg.config.json.biomedata.BiomeData;
+import corgiaoc.byg.config.json.BYGConfigHandler;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import corgiaoc.byg.mixin.access.BiomesAccess;
 import corgiaoc.byg.util.MLClimate;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -32,6 +37,11 @@ import static corgiaoc.byg.common.world.biome.BYGOverworldBiomes.*;
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
     public static List<PreserveBiomeOrder> biomeList = new ArrayList<>();
+
+    public static final Map<ResourceKey<Biome>, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>>> OVERWORLD_HILLS = new Object2ObjectOpenHashMap<>();
+    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_EDGES = new Object2ObjectOpenHashMap<>();
+    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_BEACHES = new Object2ObjectOpenHashMap<>();
+    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_RIVERS = new Object2ObjectOpenHashMap<>();
 
     /************Primary Biomes************/
     public static ResourceKey<Biome> ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", alliumFields(), 1);
@@ -183,23 +193,27 @@ public class BYGBiomes {
 
     }
 
-    @SuppressWarnings("ConstantConditions")
     public static void handleOverworldEntries() {
-        for (PreserveBiomeOrder preserveBiomeOrder : biomeList) {
-            OverworldBiomes.addContinentalBiome(preserveBiomeOrder.key, MLClimate.COOL.getClimate(), 5);
+        BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder = BYGConfigHandler.processAndGetFromCodec(BYG.CONFIG_PATH.resolve("byg-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_DEFAULTS, BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC);
+        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((key, overworldPrimaryBiomeData) -> {
+            OverworldBiomes.addContinentalBiome(key, MLClimate.COOL.getClimate(), overworldPrimaryBiomeData.getWeight());
+            OVERWORLD_HILLS.put(key, overworldPrimaryBiomeData.getSubBiomes());
+            ResourceKey<Biome> beach = overworldPrimaryBiomeData.getBeach();
+            if (beach != BYG.EMPTY) {
+                OVERWORLD_BEACHES.put(key, beach);
+            }
+            ResourceKey<Biome> edgeBiome = overworldPrimaryBiomeData.getEdgeBiome();
+            if (edgeBiome != BYG.EMPTY) {
+                OVERWORLD_EDGES.put(key, edgeBiome);
+            }
 
-        }
+            ResourceKey<Biome> riverBiome = overworldPrimaryBiomeData.getRiver();
+            if (riverBiome != BYG.EMPTY) {
+                OVERWORLD_RIVERS.put(key, riverBiome);
+            }
+        }));
 
         addBiomeNumericalIDs();
-    }
-
-    public static void fillBiomeDictionary(Map<ResourceLocation, ? extends BiomeData> biomeDataList) {
-//        biomeDataList.forEach(((biome, biomeData) -> {
-//            ResourceKey<Biome> biomeRegistryKey = ResourceKey.create(Registry.BIOME_REGISTRY, biome);
-//            for (String dictionaryType : biomeData.getDictionaryTypes()) {
-//                BiomeDictionary.addTypes(biomeRegistryKey, BiomeDictionary.Type.getType(dictionaryType));
-//            }
-//        }));
     }
 
     //used in MixinMinecraftServer

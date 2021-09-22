@@ -1,6 +1,10 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.newbiome.context.Context;
 import net.minecraft.world.level.newbiome.layer.ShoreLayer;
@@ -8,6 +12,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Optional;
 
 @SuppressWarnings({"deprecation", "ConstantConditions"})
 @Mixin(ShoreLayer.class)
@@ -28,34 +34,44 @@ public abstract class MixinShoreLayer {
 
     @Inject(at = @At("HEAD"), method = "apply", cancellable = true)
     private void injectBYGEdges(Context rand, int n, int w, int s, int e, int c, CallbackInfoReturnable<Integer> cir) {
-//        final int[] ArrayNESW = {n, w, s, e};
-//
-//        ResourceLocation centre = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(c));
-//
-//        for (int idx : ArrayNESW) {
-//            if (BYGBiome.BIOME_TO_EDGE_LIST.containsKey(centre))
-//                if (!isEdgeCompatible(idx)) {
-//                    int id = BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiome.BIOME_TO_EDGE_LIST.get(centre)));
-//                    cir.setReturnValue(id);
-//                    return;
-//                }
-//
-//            if (BYGBiome.BIOME_TO_BEACH_LIST.containsKey(centre)) {
-//                if (isOcean(idx)) {
-//                    int id = BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiome.BIOME_TO_BEACH_LIST.get(centre)));
-//                    cir.setReturnValue(id);
-//                }
-//            }
-//        }
+        final int[] ArrayNESW = {n, w, s, e};
+
+        Optional<ResourceKey<Biome>> resourceKeyOptional = BYG.biomeRegistryAccess.getResourceKey(BYG.biomeRegistryAccess.byId(c));
+
+        if (resourceKeyOptional.isEmpty()) {
+            return;
+        }
+
+        ResourceKey<Biome> biomeResourceKey = resourceKeyOptional.get();
+
+        for (int idx : ArrayNESW) {
+            if (BYGBiomes.OVERWORLD_EDGES.containsKey(biomeResourceKey)) {
+                if (!isEdgeCompatible(idx)) {
+                    int id = BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiomes.OVERWORLD_EDGES.get(biomeResourceKey)));
+                    cir.setReturnValue(id);
+                    return;
+                }
+            }
+
+            if (BYGBiomes.OVERWORLD_BEACHES.containsKey(biomeResourceKey)) {
+                if (BYG.biomeRegistryAccess.byId(idx).getBiomeCategory() == Biome.BiomeCategory.OCEAN) {
+                    int id = BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.get(BYGBiomes.OVERWORLD_BEACHES.get(biomeResourceKey)));
+                    cir.setReturnValue(id);
+                }
+            }
+        }
     }
 
-//    private static boolean isEdgeCompatible(int idx) {
-//        ResourceLocation idxLocation = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(idx));
-//
-////        return BYGBiome.BIOME_TO_EDGE_LIST.containsKey(idxLocation) || isOcean(idx);
-//    }
+    private static boolean isEdgeCompatible(int idx) {
+        Biome biome = BYG.biomeRegistryAccess.byId(idx);
+        Optional<ResourceKey<Biome>> resourceKeyOptional = BYG.biomeRegistryAccess.getResourceKey(biome);
 
-    private static boolean isOcean(int biome) {
-        return biome == WARM_OCEAN || biome == LUKEWARM_OCEAN || biome == OCEAN || biome == COLD_OCEAN || biome == FROZEN_OCEAN || biome == DEEP_WARM_OCEAN || biome == DEEP_LUKEWARM_OCEAN || biome == DEEP_OCEAN || biome == DEEP_COLD_OCEAN || biome == DEEP_FROZEN_OCEAN;
+        if (resourceKeyOptional.isEmpty()) {
+            return false;
+        }
+        ResourceKey<Biome> idxLocation = resourceKeyOptional.get();
+
+        return BYGBiomes.OVERWORLD_EDGES.containsKey(idxLocation) || biome.getBiomeCategory() == Biome.BiomeCategory.OCEAN;
     }
+
 }

@@ -30,6 +30,10 @@ public class BYGConfigHandler {
         createReadMe(path.resolve("README.txt"));
     }
 
+    public static <T> T processAndGetFromCodec(Path path, T defaultValue, Codec<T> codec) {
+        return processAndGetFromCodec(new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create(), path, defaultValue, codec);
+    }
+
     public static <T> T processAndGetFromCodec(Gson gson, Path path, T defaultValue, Codec<T> codec) {
         if (!path.toFile().exists()) {
             try {

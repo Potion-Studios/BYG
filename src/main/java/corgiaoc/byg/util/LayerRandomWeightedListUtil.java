@@ -15,11 +15,11 @@ public class LayerRandomWeightedListUtil {
         return (double) random.nextRandom(Integer.MAX_VALUE) * weightTotal / Integer.MAX_VALUE;
     }
 
-    public static ResourceLocation getBiomeFromID(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeWeightedList, Context layerNoise) {
+    public static ResourceKey<Biome> getBiomeFromID(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeWeightedList, Context layerNoise) {
         return pickBiomeFromID(biomeWeightedList, layerNoise);
     }
 
-    public static ResourceLocation pickBiomeFromID(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeWeightedList, Context rand) {
+    public static ResourceKey<Biome> pickBiomeFromID(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeWeightedList, Context rand) {
         double total = 0;
 
         for (WeightedEntry.Wrapper<ResourceLocation> biomeEntry : ((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeWeightedList).getItems())
@@ -33,6 +33,6 @@ public class LayerRandomWeightedListUtil {
             randVal -= ((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeWeightedList).getItems().get(i).getWeight().asInt();
         }
 
-        return ((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeWeightedList).getItems().get(i).getData();
+        return ((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) biomeWeightedList).getItems().get(i).getData();
     }
 }

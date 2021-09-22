@@ -1,5 +1,7 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.BYG;
+import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
@@ -21,57 +23,52 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @SuppressWarnings("deprecation")
 @Mixin(RegionHillsLayer.class)
 public abstract class MixinHillsLayer {
 
-    private static final List<Biome> topOceanList = new ArrayList<>();
-
+    @Inject(method = "applyPixel", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/newbiome/area/Area;get(II)I", ordinal = 1), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
+    private void addIslands(Context rand, Area area, Area area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j) {
+        if (rand.nextRandom(2) == 0) {
+            int l = i;
+            Biome biome = BYG.biomeRegistryAccess.byId(i);
+            if (biome.getBiomeCategory() == Biome.BiomeCategory.OCEAN && biome.getDepth() < -1.5) {
+                l = BYG.biomeRegistryAccess.getId(BYG.biomeRegistryAccess.getOrThrow(BYGBiomes.TROPICAL_ISLAND));
+            }
+            cir.setReturnValue(l);
+        }
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Inject(method = "applyPixel",
-            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/newbiome/context/Context;nextRandom(I)I"),
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/level/newbiome/context/Context;nextRandom(I)I", ordinal = 0),
             cancellable = true,
             locals = LocalCapture.CAPTURE_FAILHARD)
     private void injectBYGSubBiomes(Context rand, Area area1, Area area2, int x, int z, CallbackInfoReturnable<Integer> cir, int i, int j, int k) {
-//        if (rand.nextRandom(9) == 0 || k == 0) {
-//            int l = i;
-//            Biome biome = BuiltinRegistries.BIOME.byId(i);
-//            if (topOceanList.contains(biome))
-//                l = BuiltinRegistries.BIOME.getId(BYGBiomes.TROPICAL_ISLAND);
-//            cir.setReturnValue(l);
-//        }
-//        if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
-//            if (rand.nextRandom(3) == 0 || k == 0) {
-//                int l = i;
-//                ResourceLocation biomeKey = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(i));
-//                if (biomeKey != null) {
-//                    if (BYGBiome.BIOME_TO_HILLS_LIST.containsKey(biomeKey)) {
-//                        Biome hill = BYG.biomeRegistryAccess.get(getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(biomeKey), rand));
-//                        if (hill != null) {
-//                            l = BYG.biomeRegistryAccess.getId(hill);
-//                        }
-//                    }
-//                }
-//                cir.setReturnValue(l);
-//            }
-//        }
+        int l = i;
+        Optional<ResourceKey<Biome>> optionalResourceKey = BYG.biomeRegistryAccess.getResourceKey(BYG.biomeRegistryAccess.byId(i));
+        if (optionalResourceKey.isPresent()) {
+            ResourceKey<Biome> biomeKey = optionalResourceKey.get();
+            if (biomeKey != null) {
+                if (BYGBiomes.OVERWORLD_HILLS.containsKey(biomeKey)) {
+                    Biome hill = BYG.biomeRegistryAccess.get(getHillBiomeValue(BYGBiomes.OVERWORLD_HILLS.get(biomeKey), rand));
+                    if (hill != null) {
+                        l = BYG.biomeRegistryAccess.getId(hill);
+                    }
+                }
+            }
+            cir.setReturnValue(l);
+        }
     }
 
     @Nullable
-    private static ResourceLocation getHillBiomeValue(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeHolder, Context layerRandom) {
+    private static ResourceKey<Biome> getHillBiomeValue(WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> biomeHolder, Context layerRandom) {
         if ((((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeHolder).getItems().size() > 0)) {
             return LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom);
         } else {
             return null;
         }
-    }
-
-
-    static {
-        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_OCEAN));
-        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_LUKEWARM_OCEAN));
-        topOceanList.add(BuiltinRegistries.BIOME.getOrThrow(Biomes.DEEP_WARM_OCEAN));
     }
 }
