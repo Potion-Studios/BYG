@@ -24,7 +24,7 @@ public abstract class MixinAbstractBlockStateBookshelf {
         // We need to make sure we're bounded first before using
         if (MLBlockTags.BOOKSHELVES instanceof StaticTagHelper.Wrapper<Block> bookShelves){
             if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null) {
-                if (block.equals(Blocks.BOOKSHELF)) {
+                if (block == Blocks.BOOKSHELF) {
                     info.setReturnValue(this.is(bookShelves));
                 }
             }
