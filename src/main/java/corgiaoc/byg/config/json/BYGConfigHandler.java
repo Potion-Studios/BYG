@@ -21,16 +21,16 @@ public class BYGConfigHandler {
 
     private BYGConfigHandler(){}
 
-    public static void handleAll(Path path) {
+    public static void fillBiomeDictionary(Path path) {
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-        processAndGet(gson, path.resolve("byg-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_DEFAULTS, BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC);
-        processAndGet(gson, path.resolve("byg-sub-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_SUB_DEFAULTS, BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC);
-        processAndGet(gson, path.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC);
-        processAndGet(gson, path.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC);
+        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_DEFAULTS, BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC));
+        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-sub-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_SUB_DEFAULTS, BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC));
+        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC));
+        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC));
         createReadMe(path.resolve("README.txt"));
     }
 
-    public static <T extends BiomeDataListHolder<?>> T processAndGet(Gson gson, Path path, T defaultValue, Codec<T> codec) {
+    public static <T> T processAndGetFromCodec(Gson gson, Path path, T defaultValue, Codec<T> codec) {
         if (!path.toFile().exists()) {
             try {
                 Files.createDirectories(path.getParent());
@@ -51,11 +51,9 @@ public class BYGConfigHandler {
                 return defaultValue;
             }
             T first = possibleResult.get().getFirst();
-            uploadBiomeDictionary(first);
             return first;
         } catch (FileNotFoundException e) {
             BYG.LOGGER.warn(path.toAbsolutePath() + " was not found." + e);
-            uploadBiomeDictionary(defaultValue);
             return defaultValue;
         }
     }

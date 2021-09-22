@@ -44,7 +44,7 @@ public class BYGNetherBiomeSource extends BiomeSource {
         Map<ResourceKey<Biome>, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>>> hills = new HashMap<>();
         Map<ResourceKey<Biome>, ResourceKey<Biome>> edges = new HashMap<>();
         Set<ResourceKey<Biome>> allBiomes = new HashSet<>();
-        BiomeDataHolders.WeightedBiomeDataHolder netherData = BYGConfigHandler.processAndGet(gson, BYG.CONFIG_PATH.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC);
+        BiomeDataHolders.WeightedBiomeDataHolder netherData = BYGConfigHandler.processAndGetFromCodec(gson, BYG.CONFIG_PATH.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC);
         Map<ResourceKey<Biome>, WeightedBiomeData> biomeData = netherData.getBiomeData();
         biomeData.remove(null);
         biomeData.remove(BYG.EMPTY);

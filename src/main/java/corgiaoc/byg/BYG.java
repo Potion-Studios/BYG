@@ -90,7 +90,7 @@ public class BYG {
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
         builderAccess.setValidBlocks(validBlocks);
         BYGBiomes.handleOverworldEntries();
-        BYGConfigHandler.handleAll(CONFIG_PATH);
+        BYGConfigHandler.fillBiomeDictionary(CONFIG_PATH);
     }
 
     public static void clientLoad() {

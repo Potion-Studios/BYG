@@ -50,7 +50,7 @@ public class BYGEndBiomeSource extends BiomeSource {
         Map<ResourceKey<Biome>, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>>> endHills = new HashMap<>();
         Map<ResourceKey<Biome>, ResourceKey<Biome>> biomeToEdge = new HashMap<>();
         Set<ResourceKey<Biome>> allBiomes = new HashSet<>();
-        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGConfigHandler.processAndGet(gson, BYG.CONFIG_PATH.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC);
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYGConfigHandler.processAndGetFromCodec(gson, BYG.CONFIG_PATH.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC);
         Map<ResourceKey<Biome>, WeightedBiomeData> endBiomeData1 = endBiomeDataHolder.getEndBiomeData();
         endBiomeData1.remove(null);
         endBiomeData1.remove(BYG.EMPTY);
