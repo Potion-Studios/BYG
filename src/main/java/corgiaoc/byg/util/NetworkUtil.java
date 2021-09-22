@@ -33,9 +33,9 @@ public class NetworkUtil {
         buf.writeDouble(e.getX());
         buf.writeDouble(e.getY());
         buf.writeDouble(e.getZ());
-        buf.writeFloat(e.xRot);
+        buf.writeFloat(e.getXRot());
         //buf.writeByte(MathHelper.floor(e.pitch * 256.0F / 360.0F));
-        buf.writeFloat(e.yRot);
+        buf.writeFloat(e.getYRot());
         //buf.writeByte(MathHelper.floor(e.yaw * 256.0F / 360.0F));
         Integer owner = 0;
         if (e instanceof Projectile) {
@@ -86,8 +86,8 @@ public class NetworkUtil {
         entity.setUUID(uuid);
         entity.absMoveTo(x, y, z);
         entity.setPacketCoordinates(x, y, z);
-        entity.xRot = pitch;
-        entity.yRot = yaw;
+        entity.setXRot(pitch);
+        entity.setYRot(yaw);
         entity.setDeltaMovement(velocityX, velocityY, velocityZ);
         client.execute(() -> {
             ((ClientLevelAccess) client.level).invokeAddEntity(id, entity);

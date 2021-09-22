@@ -24,7 +24,7 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
     public static FastNoise noiseGen = null;
     public static FastNoise noiseGen3D = null;
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, PointedSBConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, PointedSBConfig config) {
         initNoise(random.nextLong());
         int xPos = x & 15;
         int zPos = z & 15;
@@ -58,7 +58,7 @@ public class PointedSB extends SurfaceBuilder<PointedSBConfig> {
                 }
             }
         } else
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderBaseConfiguration(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderMaterial()));
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, minSurfaceLevel, seed, new SurfaceBuilderBaseConfiguration(config.getTopMaterial(), config.getUnderMaterial(), config.getUnderMaterial()));
     }
 
     @Override

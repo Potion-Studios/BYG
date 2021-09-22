@@ -37,6 +37,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -574,10 +575,10 @@ public class BYGBlocks {
     public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
-    public static final Block BLUE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_quartz_ore");
-    public static final Block BLUE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_gold_ore");
-    public static final Block BRIMSTONE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_YELLOW, "brimstone_nether_quartz_ore");
-    public static final Block BRIMSTONE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_YELLOW, "brimstone_nether_gold_ore");
+    public static final Block BLUE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_quartz_ore", UniformInt.of(2, 5));
+    public static final Block BLUE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_gold_ore", UniformInt.of(0, 1));
+    public static final Block BRIMSTONE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_YELLOW, "brimstone_nether_quartz_ore", UniformInt.of(2, 5));
+    public static final Block BRIMSTONE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_YELLOW, "brimstone_nether_gold_ore", UniformInt.of(0, 1));
 
     public static final Block WAILING_BELL_BLOSSOM = createWailingBellBlossom("wailing_bell_blossom");
     public static final Block WAILING_VINES = createWailingVine("whaling_vine");
@@ -1108,7 +1109,7 @@ public class BYGBlocks {
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MaterialColor.COLOR_MAGENTA, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.SHULKREN_CONFIG, "shulkren_phylium");
-    public static final Block MEADOW_GRASS_PATH = createBlock(GrassPathBlockAccess.create(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block MEADOW_GRASS_PATH = createBlock(DirtPathBlockAccess.create(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
@@ -1484,7 +1485,7 @@ public class BYGBlocks {
     }
 
     static Block createAmetrineOre(String id) {
-        Block createBlock = new BYGOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).breakByTool(FabricToolTags.PICKAXES, 4).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).breakByTool(FabricToolTags.PICKAXES, 4).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(3, 9));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1509,7 +1510,7 @@ public class BYGBlocks {
 
 
     static Block createPendoriteOre(String id) {
-        Block createBlock = new BYGOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.PICKAXES, 4).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).breakByTool(FabricToolTags.PICKAXES, 4).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1527,13 +1528,13 @@ public class BYGBlocks {
     }
 
     static Block createEmeralditeOre(String id) {
-        Block createBlock = new BYGOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.COLOR_GREEN).breakByTool(FabricToolTags.PICKAXES, 3).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.COLOR_GREEN).breakByTool(FabricToolTags.PICKAXES, 3).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(4, 7));
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createNetherOre(SoundType sound, MaterialColor color, String id) {
-        Block createBlock = new BYGOreBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES, 1).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f));
+    static Block createNetherOre(SoundType sound, MaterialColor color, String id, UniformInt xpRange) {
+        Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES, 1).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange);
         createBlock(createBlock, id);
         return createBlock;
     }

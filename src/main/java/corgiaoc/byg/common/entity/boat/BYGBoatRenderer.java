@@ -1,87 +1,89 @@
 package corgiaoc.byg.common.entity.boat;
 
+import com.google.common.collect.ImmutableMap;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.math.Quaternion;
 import com.mojang.math.Vector3f;
+import corgiaoc.byg.BYG;
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
+import java.util.Map;
+import java.util.stream.Stream;
+
 public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
 
-    private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[]{
-            new ResourceLocation("byg:textures/entity/boat/aspen.png"),
-            new ResourceLocation("byg:textures/entity/boat/baobab.png"),
-            new ResourceLocation("byg:textures/entity/boat/blue_enchanted.png"),
-            new ResourceLocation("byg:textures/entity/boat/cherry.png"),
-            new ResourceLocation("byg:textures/entity/boat/cika.png"),
-            new ResourceLocation("byg:textures/entity/boat/cypress.png"),
-            new ResourceLocation("byg:textures/entity/boat/ebony.png"),
-            new ResourceLocation("byg:textures/entity/boat/fir.png"),
-            new ResourceLocation("byg:textures/entity/boat/green_enchanted.png"),
-            new ResourceLocation("byg:textures/entity/boat/holly.png"),
-            new ResourceLocation("byg:textures/entity/boat/jacaranda.png"),
-            new ResourceLocation("byg:textures/entity/boat/mahogany.png"),
-            new ResourceLocation("byg:textures/entity/boat/mangrove.png"),
-            new ResourceLocation("byg:textures/entity/boat/maple.png"),
-            new ResourceLocation("byg:textures/entity/boat/palm.png"),
-            new ResourceLocation("byg:textures/entity/boat/pine.png"),
-            new ResourceLocation("byg:textures/entity/boat/rainbow_eucalyptus.png"),
-            new ResourceLocation("byg:textures/entity/boat/redwood.png"),
-            new ResourceLocation("byg:textures/entity/boat/skyris.png"),
-            new ResourceLocation("byg:textures/entity/boat/willow.png"),
-            new ResourceLocation("byg:textures/entity/boat/witch_hazel.png"),
-            new ResourceLocation("byg:textures/entity/boat/zelkova.png")
-    };
-    protected final BoatModel modelBoat = new BoatModel();
+    private final Map<BYGBoatEntity.BYGType, Pair<ResourceLocation, BoatModel>> boatResources;
 
-    public BYGBoatRenderer(EntityRenderDispatcher renderManagerIn) {
-        super(renderManagerIn);
+    public BYGBoatRenderer(EntityRendererProvider.Context context) {
+        super(context);
         this.shadowRadius = 0.8F;
+        this.boatResources = Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> {
+            return type;
+        }, (type) -> {
+            return Pair.of(new ResourceLocation(BYG.MOD_ID, "textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))));
+        }));
+    }
+
+    public static ModelLayerLocation createBoatModelName(BYGBoatEntity.BYGType type) {
+        return createLocation("boat/" + type.getName(), "main");
+    }
+
+    private static ModelLayerLocation createLocation(String string, String string2) {
+        return new ModelLayerLocation(new ResourceLocation(BYG.MOD_ID, string), string2);
     }
 
     @Override
-    public void render(BYGBoatEntity entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn) {
+    public void render(BYGBoatEntity boat, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource multiBufferSource, int packedLightIn) {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.375D, 0.0D);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
-        float f = (float) entityIn.getHurtTime() - partialTicks;
-        float f1 = entityIn.getDamage() - partialTicks;
-        if (f1 < 0.0F) {
-            f1 = 0.0F;
+        float h = (float)boat.getHurtTime() - partialTicks;
+        float j = boat.getDamage() - partialTicks;
+        if (j < 0.0F) {
+            j = 0.0F;
         }
 
-        if (f > 0.0F) {
-            matrixStackIn.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(f) * f * f1 / 10.0F * (float) entityIn.getHurtDir()));
+        if (h > 0.0F) {
+            matrixStackIn.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(h) * h * j / 10.0F * (float)boat.getHurtDir()));
         }
 
-        float f2 = entityIn.getBubbleAngle(partialTicks);
-        if (!Mth.equal(f2, 0.0F)) {
-            matrixStackIn.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), entityIn.getBubbleAngle(partialTicks), true));
+        float k = boat.getBubbleAngle(partialTicks);
+        if (!Mth.equal(k, 0.0F)) {
+            matrixStackIn.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), boat.getBubbleAngle(partialTicks), true));
         }
 
+        Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBYGBoatType());
+        ResourceLocation resourceLocation = (ResourceLocation)pair.getFirst();
+        BoatModel boatModel = (BoatModel)pair.getSecond();
         matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(90.0F));
-        this.modelBoat.setupAnim(entityIn, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
-        VertexConsumer ivertexbuilder = bufferIn.getBuffer(this.modelBoat.renderType(this.getTextureLocation(entityIn)));
-        this.modelBoat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-        VertexConsumer ivertexbuilder1 = bufferIn.getBuffer(RenderType.waterMask());
-        this.modelBoat.waterPatch().render(matrixStackIn, ivertexbuilder1, packedLightIn, OverlayTexture.NO_OVERLAY);
+        boatModel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
+        VertexConsumer vertexConsumer = multiBufferSource.getBuffer(boatModel.renderType(resourceLocation));
+        boatModel.renderToBuffer(matrixStackIn, vertexConsumer, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        if (!boat.isUnderWater()) {
+            VertexConsumer vertexConsumer2 = multiBufferSource.getBuffer(RenderType.waterMask());
+            boatModel.waterPatch().render(matrixStackIn, vertexConsumer2, packedLightIn, OverlayTexture.NO_OVERLAY);
+        }
+
         matrixStackIn.popPose();
-        super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
+        super.render(boat, entityYaw, partialTicks, matrixStackIn, multiBufferSource, packedLightIn);
     }
+
 
     /**
      * Returns the location of an entity's texture.
      */
-    @Override
-    public ResourceLocation getTextureLocation(BYGBoatEntity entity) {
-        return BOAT_TEXTURES[entity.getBYGBoatType().ordinal()];
+    public ResourceLocation getTextureLocation(BYGBoatEntity boat) {
+        return this.boatResources.get(boat.getBoatType()).getFirst();
     }
 }

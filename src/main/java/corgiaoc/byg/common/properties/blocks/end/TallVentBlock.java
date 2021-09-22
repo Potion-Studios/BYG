@@ -43,12 +43,12 @@ public class TallVentBlock extends Block {
         builder.add(HALF);
     }
 
-    public void stepOn(Level worldIn, BlockPos pos, Entity entityIn) {
+    public void stepOn(Level worldIn, BlockPos pos, BlockState blockState, Entity entityIn) {
         if (!entityIn.fireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
             entityIn.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
 
-        super.stepOn(worldIn, pos, entityIn);
+        super.stepOn(worldIn, pos, blockState, entityIn);
     }
 
     public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {

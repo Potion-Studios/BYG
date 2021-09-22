@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
@@ -29,7 +30,13 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
         super(NoneFeatureConfiguration.CODEC);
     }
 
+
+
     @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
                          BlockPos blockPos, NoneFeatureConfiguration config) {
         double radius = ModMathHelper.randRange(10.0, 20.0, random);
@@ -168,7 +175,7 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
                                 BlockHelper.setWithoutUpdate(world, POS, state);
                             }
                             pos = POS.below();
-                            if (world.getBlockState(pos).getBlock().is(BlockTags.BASE_STONE_OVERWORLD)) {
+                            if (world.getBlockState(pos).is(BlockTags.BASE_STONE_OVERWORLD)) {
                                 BlockHelper.setWithoutUpdate(world, pos, Blocks.GRAVEL.defaultBlockState());
                             }
                             pos = POS.above();

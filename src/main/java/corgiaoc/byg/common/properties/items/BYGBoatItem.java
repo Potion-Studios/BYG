@@ -51,13 +51,13 @@ public class BYGBoatItem extends Item {
             if (raytraceresult.getType() == HitResult.Type.BLOCK) {
                 BYGBoatEntity bygBoatEntity = new BYGBoatEntity(worldIn, raytraceresult.getLocation().x, raytraceresult.getLocation().y, raytraceresult.getLocation().z);
                 bygBoatEntity.setBYGBoatType(this.type);
-                bygBoatEntity.yRot = playerIn.yRot;
+                bygBoatEntity.setYRot(playerIn.getYRot());
                 if (!worldIn.noCollision(bygBoatEntity, bygBoatEntity.getBoundingBox().inflate(-0.1D))) {
                     return InteractionResultHolder.fail(itemstack);
                 } else {
                     if (!worldIn.isClientSide) {
                         worldIn.addFreshEntity(bygBoatEntity);
-                        if (!playerIn.abilities.instabuild) {
+                        if (!playerIn.getAbilities().instabuild) {
                             itemstack.shrink(1);
                         }
                     }

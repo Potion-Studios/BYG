@@ -17,7 +17,7 @@ public class QuartzDesertSB extends SurfaceBuilder<SurfaceBuilderBaseConfigurati
         super(p_i51312_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;

@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -23,6 +24,10 @@ public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<BrimstoneVentsConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, BrimstoneVentsConfig config) {
 
         if (world.getBlockState(pos.below()) != config.getBlockProvider().getState(random, pos) || !world.getBlockState(pos.below()).canOcclude())

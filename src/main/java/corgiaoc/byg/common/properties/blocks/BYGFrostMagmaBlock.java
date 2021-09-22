@@ -19,11 +19,11 @@ public class BYGFrostMagmaBlock extends Block {
         super(properties);
     }
 
-    public void stepOn(Level block, BlockPos pos, Entity entity) {
+    public void stepOn(Level block, BlockPos pos, BlockState state, Entity entity) {
         if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
             entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
-        super.stepOn(block, pos, entity);
+        super.stepOn(block, pos, state, entity);
     }
 
     @Override

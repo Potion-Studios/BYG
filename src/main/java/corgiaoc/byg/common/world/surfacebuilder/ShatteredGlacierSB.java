@@ -36,7 +36,7 @@ public class ShatteredGlacierSB extends SurfaceBuilder<SurfaceBuilderBaseConfigu
         super(config);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         int chunkX = x & 15;
         int chunkZ = z & 15;
         BlockState blockstate = PACKED_ICE;

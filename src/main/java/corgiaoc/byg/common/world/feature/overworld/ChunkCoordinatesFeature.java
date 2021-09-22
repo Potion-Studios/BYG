@@ -7,6 +7,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
 import java.util.Random;
@@ -18,6 +19,10 @@ public abstract class ChunkCoordinatesFeature<FC extends FeatureConfiguration> e
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<FC> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
         ChunkPos chunk = world.getChunk(pos).getPos();
         int xStart = chunk.getMinBlockX();

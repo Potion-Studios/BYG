@@ -8,7 +8,6 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.world.BYGBiomes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ServerResources;
@@ -39,12 +38,12 @@ public class MixinMinecraftServer {
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void addBYGFeatures(Thread thread, RegistryAccess.RegistryHolder impl, LevelStorageSource.LevelStorageAccess session, WorldData saveProperties, PackRepository resourcePackManager, Proxy proxy, DataFixer dataFixer, ServerResources serverResourceManager, MinecraftSessionService minecraftSessionService, GameProfileRepository gameProfileRepository, GameProfileCache userCache, ChunkProgressListenerFactory worldGenerationProgressListenerFactory, CallbackInfo ci) {
-        Optional<WritableRegistry<Biome>> biomeMutableRegistry = this.registryHolder.registry(Registry.BIOME_REGISTRY);
-        if (biomeMutableRegistry.isPresent()) {
-            for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeMutableRegistry.get().entrySet()) {
+        Optional<? extends Registry<Biome>> biomeRegistry = this.registryHolder.registry(Registry.BIOME_REGISTRY);
+        if (biomeRegistry.isPresent()) {
+            for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.get().entrySet()) {
                 BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey());
             }
-            BYG.biomeRegistryAccess = biomeMutableRegistry.get();
+            BYG.biomeRegistryAccess = biomeRegistry.get();
         }
     }
 }

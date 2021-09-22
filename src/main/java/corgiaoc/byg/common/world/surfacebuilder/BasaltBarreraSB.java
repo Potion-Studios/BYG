@@ -23,7 +23,8 @@ public class BasaltBarreraSB extends SurfaceBuilder<SurfaceBuilderBaseConfigurat
         super(codec);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         initNoise(seed);
         int xPos = x & 15;
         int zPos = z & 15;

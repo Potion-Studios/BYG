@@ -21,7 +21,7 @@ public class TallPinkAlliumBlock extends TallGrassBlock implements BonemealableB
     public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
         DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.TALL_PINK_ALLIUM ? BYGBlocks.TALL_PINK_ALLIUM : BYGBlocks.TALL_PINK_ALLIUM);
         if (doubleplantblock.defaultBlockState().canSurvive(worldIn, pos) && worldIn.isEmptyBlock(pos.above())) {
-            doubleplantblock.placeAt(worldIn, pos, 2);
+            DoublePlantBlock.placeAt(worldIn, state, pos, 2);
         }
 
     }

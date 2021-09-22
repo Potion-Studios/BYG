@@ -8,6 +8,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.Random;
@@ -20,6 +21,11 @@ public class RiverThingy extends Feature<NoneFeatureConfiguration> {
     FastNoise fastNoise = null;
     FastNoise fastNoise2 = null;
     FastNoise fastNoise3 = null;
+
+    @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
 
     public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         setSeed(worldIn.getSeed());

@@ -8,6 +8,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -33,7 +34,11 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
     }
 
     @Override
-    public boolean place(WorldGenLevel world,  ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
+    public boolean place(FeaturePlaceContext<PointyRockConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
+    public boolean place(WorldGenLevel world, ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
         long seed1 = rand.nextLong();
         long seed2 = rand.nextLong();
 

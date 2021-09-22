@@ -495,7 +495,7 @@ public class BYGBlockProperties {
                     .strength(0.2f)
                     .noOcclusion()
                     .randomTicks()
-                    .lightLevel((state) -> 8)
+                    .lightLevel((state) -> 8).dynamicShape()
             );
             BYGBlocks.createBlock(this, registryName);
 
@@ -836,7 +836,7 @@ public class BYGBlockProperties {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
-    public static class BYGPervadedNetherrack extends BYGOreBlock {
+    public static class BYGPervadedNetherrack extends OreBlock {
         public BYGPervadedNetherrack(String registryName) {
             super(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2)
                     .sound(SoundType.NETHER_GOLD_ORE)
@@ -849,7 +849,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class AnthraciteOre extends BYGOreBlock {
+    public static class AnthraciteOre extends OreBlock {
         public AnthraciteOre(String registryName) {
             super(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 3)
                     .sound(SoundType.NETHER_ORE)

@@ -5,6 +5,7 @@ import corgiaoc.byg.core.world.BYGStructures;
 import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.WorldGenLevel;
@@ -31,8 +32,7 @@ public class VolcanoPiece extends StructurePiece {
     int volcanoSizeZMax;
 
     protected VolcanoPiece(BlockPos pos, int baseRadius, double lavaLeakage, int volcanoConeSize, int volcanoStartHeight, double threshold, FastNoiseLite fastNoiseLite, int volcanoConeSizeXMin, int volcanoConeSizeXMax, int volcanoConeSizeZMin, int volcanoConeSizeZMax) {
-        super(BYGStructures.VOLCANO_PIECE, 0);
-        this.boundingBox = new BoundingBox(pos, pos);
+        super(BYGStructures.VOLCANO_PIECE, 0, new BoundingBox(pos));
         this.fnlPerlin = fastNoiseLite;
         this.baseRadius = baseRadius;
         this.volcanoConeSize = volcanoConeSize;
@@ -51,21 +51,20 @@ public class VolcanoPiece extends StructurePiece {
         super(BYGStructures.VOLCANO_PIECE, nbt);
     }
 
+
     @Override
-    protected void addAdditionalSaveData(CompoundTag tagCompound) {
-        //Leave this empty
+    protected void addAdditionalSaveData(ServerLevel serverLevel, CompoundTag compoundTag) {
+
     }
-
-
 
     @Override
     public boolean postProcess(WorldGenLevel world, StructureFeatureManager manager, ChunkGenerator generator, Random rand, BoundingBox structureBoundingBox, ChunkPos chunkPos, BlockPos aPos) {
 
 //        if (world.getBlockState(pos.down()).getMaterial() == Material.AIR || world.getBlockState(pos.down()).getMaterial() == Material.WATER || world.getBlockState(pos.down()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
 //            return false;
-        int yHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, this.boundingBox.x0, this.boundingBox.z0);
+        int yHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, this.boundingBox.minX(), this.boundingBox.minZ());
 
-        BlockPos pos = new BlockPos(this.boundingBox.x0, yHeight, this.boundingBox.z0);
+        BlockPos pos = new BlockPos(this.boundingBox.minX(), yHeight, this.boundingBox.minZ());
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
@@ -75,7 +74,7 @@ public class VolcanoPiece extends StructurePiece {
         int volcanoStartHeight = volcanoConeSize - 5;
         double threshold = 0.5;
 
-        BoundingBox boundingBoxExpander = new BoundingBox();
+        BoundingBox boundingBoxExpander = BoundingBox.infinite();
 
         for (double x = -volcanoSizeXMin; x <= volcanoSizeXMax; x++) {
             for (double y = -volcanoConeSize; y <= -15; y++) {

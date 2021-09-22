@@ -4,11 +4,12 @@ import com.mojang.serialization.Codec;
 import corgiaoc.byg.util.noise.fastnoise.lite.FastNoiseLite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
@@ -28,17 +29,18 @@ public class VolcanoStructure extends StructureFeature<NoneFeatureConfiguration>
 
         private static FastNoiseLite fnlPerlin = null;
 
-        public Start(StructureFeature<NoneFeatureConfiguration> structure, int chunkX, int chunkZ, BoundingBox boundingBox, int reference, long seed) {
-            super(structure, chunkX, chunkZ, boundingBox, reference, seed);
+        public Start(StructureFeature<NoneFeatureConfiguration> structureFeature, ChunkPos chunkPos, int reference, long seed) {
+            super(structureFeature, chunkPos, reference, seed);
             this.seed = seed;
         }
 
+
         @Override
-        public void generatePieces(RegistryAccess dynamicRegistry, ChunkGenerator generator, StructureManager templateManager, int chunkX, int chunkZ, Biome biome, NoneFeatureConfiguration config) {
+        public void generatePieces(RegistryAccess dynamicRegistry, ChunkGenerator generator, StructureManager templateManager, ChunkPos pos, Biome biome, NoneFeatureConfiguration config, LevelHeightAccessor accessor) {
             setSeed(this.seed);
 
-            int x = chunkX * 16;
-            int z = chunkZ * 16;
+            int x = pos.x * 16;
+            int z = pos.z * 16;
             BlockPos blockpos = new BlockPos(x + 9, 90, z + 9);
 
 
@@ -53,7 +55,7 @@ public class VolcanoStructure extends StructureFeature<NoneFeatureConfiguration>
             this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, 0, volcanoConeSize));
             this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, volcanoConeSize, 0, volcanoConeSize, 0));
             this.pieces.add(new VolcanoPiece(blockpos, baseRadius, lavaLeakage, volcanoConeSize, volcanoStartHeight, threshold, fnlPerlin, 0, volcanoConeSize, volcanoConeSize, 0));
-            this.calculateBoundingBox();
+            this.getBoundingBox();
         }
 
 

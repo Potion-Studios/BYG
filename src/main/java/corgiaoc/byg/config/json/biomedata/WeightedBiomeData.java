@@ -3,7 +3,9 @@ package corgiaoc.byg.config.json.biomedata;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,21 +20,21 @@ public class WeightedBiomeData extends BiomeData {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
         }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), WeightedList.codec(ResourceLocation.CODEC).optionalFieldOf("hills", new WeightedList<>()).forGetter((subBiomeData) -> {
+        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(ResourceLocation.CODEC)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
         })).apply(builder, WeightedBiomeData::new);
     });
 
     private final int weight;
-    private final WeightedList<ResourceLocation> subBiomes;
+    private final WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes;
 
-    public WeightedBiomeData(int weight, List<String> dictionary, ResourceLocation edgeBiome, WeightedList<ResourceLocation> subBiomes) {
+    public WeightedBiomeData(int weight, List<String> dictionary, ResourceLocation edgeBiome, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes) {
         super(dictionary, edgeBiome);
         this.weight = weight;
         this.subBiomes = subBiomes;
     }
 
-    public WeightedList<ResourceLocation> getSubBiomes() {
+    public WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> getSubBiomes() {
         return subBiomes;
     }
 

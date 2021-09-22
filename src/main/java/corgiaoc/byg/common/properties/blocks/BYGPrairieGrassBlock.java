@@ -23,7 +23,7 @@ public class BYGPrairieGrassBlock extends TallGrassBlock implements Bonemealable
     public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
         DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.PRAIRIE_GRASS ? BYGBlocks.TALL_PRAIRIE_GRASS : BYGBlocks.TALL_PRAIRIE_GRASS);
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
-            doubleplantblock.placeAt(world, pos, 2);
+            DoublePlantBlock.placeAt(world, state, pos, 2);
         }
 
     }

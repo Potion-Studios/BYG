@@ -20,7 +20,7 @@ public class ErodedSierraSB extends SierraSB {
         super(p_i51314_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         double d0 = 0.0D;
         double d1 = Math.min(Math.abs(noise), this.pillarNoise.getValue((double) x * 0.25D, (double) z * 0.25D, false) * 15.0D);
         if (d1 > 0.0D) {

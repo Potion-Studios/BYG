@@ -66,7 +66,7 @@ public class CanyonSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfi
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double surfaceNoise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         setupNoise(seed);
         // A null SurfaceContext indicates we're not the SURFACE stage of ChunkStatus so exit early.
         BlockPos.MutableBlockPos localPos = new BlockPos.MutableBlockPos().set(x & 15, 0, z & 15);

@@ -1,11 +1,12 @@
 package corgiaoc.byg.common.world.dimension.layers;
 
-import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.newbiome.area.Area;
 import net.minecraft.world.level.newbiome.context.Context;
@@ -14,13 +15,14 @@ import net.minecraft.world.level.newbiome.layer.traits.DimensionOffset1Transform
 
 import java.util.Map;
 
+@SuppressWarnings("unchecked")
 public class BYGHillsLayer implements AreaTransformer2, DimensionOffset1Transformer {
 
-    private final Map<ResourceLocation, WeightedList<ResourceLocation>> hillMap;
+    private final Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> hillMap;
     private final Registry<Biome> biomeRegistry;
     private final int hillReplacementChance;
 
-    public BYGHillsLayer(Registry<Biome> biomeRegistry, Map<ResourceLocation, WeightedList<ResourceLocation>> hillMap, int hillReplacementChance) {
+    public BYGHillsLayer(Registry<Biome> biomeRegistry, Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> hillMap, int hillReplacementChance) {
         this.hillMap = hillMap;
         this.biomeRegistry = biomeRegistry;
         this.hillReplacementChance = hillReplacementChance;
@@ -47,8 +49,8 @@ public class BYGHillsLayer implements AreaTransformer2, DimensionOffset1Transfor
     }
 
     @Nullable
-    private Biome getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, Context layerRandom) {
-        if (((WeightedListAccess<ResourceLocation>) biomeHolder).getEntries().size() > 0) {
+    private Biome getHillBiomeValue(WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> biomeHolder, Context layerRandom) {
+        if ((((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) biomeHolder).getItems().size() > 0)) {
             return biomeRegistry.get(LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom));
         }
         else {

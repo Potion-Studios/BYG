@@ -9,6 +9,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -18,6 +19,11 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
 
     public WarpedCoralFeature(Codec<WhitelistedSimpleBlockProviderConfig> config) {
         super(config);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<WhitelistedSimpleBlockProviderConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {

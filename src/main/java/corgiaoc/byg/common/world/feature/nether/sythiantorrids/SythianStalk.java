@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 
 import java.util.Random;
@@ -23,6 +24,11 @@ public class SythianStalk extends Feature<ProbabilityFeatureConfiguration> {
 
     public SythianStalk(Codec<ProbabilityFeatureConfiguration> config) {
         super(config);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityFeatureConfiguration config) {
@@ -42,7 +48,7 @@ public class SythianStalk extends Feature<ProbabilityFeatureConfiguration> {
                             int zBuild = z - pos.getZ();
                             if (xBuild * xBuild + zBuild * zBuild <= randNextInt * randNextInt) {
                                 mutable2.set(x, world.getHeight(Heightmap.Types.WORLD_SURFACE, x, z) - 1, z);
-                                if (isDirt(world.getBlockState(mutable2).getBlock())) {
+                                if (isDirt(world.getBlockState(mutable2))) {
                                     world.setBlock(mutable2, BYGBlocks.SYTHIAN_NYLIUM.defaultBlockState(), 2);
                                 }
                             }

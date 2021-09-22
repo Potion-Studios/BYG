@@ -5,20 +5,13 @@ import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.EndBiomes;
 import corgiaoc.byg.common.world.biome.NetherBiomes;
-import corgiaoc.byg.common.world.biome.end.*;
-import corgiaoc.byg.common.world.biome.end.sub.*;
-import corgiaoc.byg.common.world.biome.nether.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.beach.*;
-import corgiaoc.byg.common.world.biome.overworld.sub.clearings.*;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
-import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
 import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import corgiaoc.byg.mixin.access.BiomesAccess;
+import corgiaoc.byg.util.MLClimate;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
-import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -31,7 +24,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -44,14 +36,14 @@ public class BYGBiomes {
     /************Primary Biomes************/
     public static ResourceKey<Biome> ALLIUM_FIELDS = WorldGenRegistrationHelper.createBiome("allium_fields", alliumFields(), 1);
     public static ResourceKey<Biome> AMARANTH_FIELDS = WorldGenRegistrationHelper.createBiome("amaranth_fields", amaranthFields(), 2);
-    public static ResourceKey<Biome> ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("ancient_forest", ancientForest(), 3);
-    public static ResourceKey<Biome> ARAUCARIA_SAVANNA = WorldGenRegistrationHelper.createBiome("araucaria_savanna", araucariaSavanna(), 4);
+    public static ResourceKey<Biome> ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("ancient_forest", ancientForest(false, false), 3);
+    public static ResourceKey<Biome> ARAUCARIA_SAVANNA = WorldGenRegistrationHelper.createBiome("araucaria_savanna", araucariaSavanna(false), 4);
     public static ResourceKey<Biome> ASPEN_FOREST = WorldGenRegistrationHelper.createBiome("aspen_forest", aspenForest(), 5);
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = WorldGenRegistrationHelper.createBiome("autumnal_valley", autumnalValley(), 6);
     public static ResourceKey<Biome> BAOBAB_SAVANNA = WorldGenRegistrationHelper.createBiome("baobab_savanna", baobabSavanna(), 7);
     public static ResourceKey<Biome> BAYOU = WorldGenRegistrationHelper.createBiome("bayou", bayou(), 8);
-    public static ResourceKey<Biome> BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("blue_taiga", blueTaiga(false), 9);
-    public static ResourceKey<Biome> BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", bluffSteeps(), 10);
+    public static ResourceKey<Biome> BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("blue_taiga", blueTaiga(false, false), 9);
+    public static ResourceKey<Biome> BLUFF_STEEPS = WorldGenRegistrationHelper.createBiome("bluff_steeps", bluffSteeps(false), 10);
     public static ResourceKey<Biome> BOREAL_FOREST = WorldGenRegistrationHelper.createBiome("boreal_forest", borealForest(), 11);
     public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = WorldGenRegistrationHelper.createBiome("cherry_blossom_forest", cherryBlossomForest(), 15);
     public static ResourceKey<Biome> CIKA_WOODS = WorldGenRegistrationHelper.createBiome("cika_woods", cikaWoods(), 12);
@@ -61,25 +53,25 @@ public class BYGBiomes {
     public static ResourceKey<Biome> DEAD_SEA = WorldGenRegistrationHelper.createBiome("dead_sea", deadSea(), 20);
     public static ResourceKey<Biome> DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("deciduous_forest", deciduousForest(false), 21);
     public static ResourceKey<Biome> DOVER_MOUNTAINS = WorldGenRegistrationHelper.createBiome("dover_mountains", doverMountains(), 19);
-    public static ResourceKey<Biome> DUNES = WorldGenRegistrationHelper.createBiome("dunes", dunes(), 22);
+    public static ResourceKey<Biome> DUNES = WorldGenRegistrationHelper.createBiome("dunes", dunes(false), 22);
     public static ResourceKey<Biome> EBONY_WOODS = WorldGenRegistrationHelper.createBiome("ebony_woods", ebonyWoods(), 23);
     public static ResourceKey<Biome> ENCHANTED_FOREST = WorldGenRegistrationHelper.createBiome("enchanted_forest", enchantedForest(), 24);
-    public static ResourceKey<Biome> ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("enchanted_grove", enchantedGrove(), 30);
+    public static ResourceKey<Biome> ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("enchanted_grove", enchantedGrove(false), 30);
 
     public static ResourceKey<Biome> EVERGREEN_TAIGA = WorldGenRegistrationHelper.createBiome("evergreen_taiga", evergreenTaiga(false), 25);
     public static ResourceKey<Biome> GREAT_LAKES = WorldGenRegistrationHelper.createBiome("great_lakes", greatLakes(), 28);
-    public static ResourceKey<Biome> GROVE = WorldGenRegistrationHelper.createBiome("grove", grove(), 29);
+    public static ResourceKey<Biome> GROVE = WorldGenRegistrationHelper.createBiome("grove", grove(false), 29);
     public static ResourceKey<Biome> GUIANA_SHIELD = WorldGenRegistrationHelper.createBiome("guiana_shield", guianaShield(), 31);
     public static ResourceKey<Biome> JACARANDA_FOREST = WorldGenRegistrationHelper.createBiome("jacaranda_forest", jacarandaForest(), 32);
     public static ResourceKey<Biome> MANGROVE_MARSHES = WorldGenRegistrationHelper.createBiome("mangrove_marshes", mangroveMarshes(), 33);
     public static ResourceKey<Biome> MAPLE_TAIGA = WorldGenRegistrationHelper.createBiome("maple_taiga", mapleTaiga(), 34);
-    public static ResourceKey<Biome> MARSHLANDS = WorldGenRegistrationHelper.createBiome("marshlands", new MarshLands().getBiome(), 112);
-    public static ResourceKey<Biome> MEADOW = WorldGenRegistrationHelper.createBiome("meadow", meadow(), 35);
+    public static ResourceKey<Biome> MARSHLANDS = WorldGenRegistrationHelper.createBiome("marshlands", marshlands(), 112);
+    public static ResourceKey<Biome> MEADOW = WorldGenRegistrationHelper.createBiome("meadow", meadow(false, false), 35);
     public static ResourceKey<Biome> MOJAVE_DESERT = WorldGenRegistrationHelper.createBiome("mojave_desert", mojaveDesert(), 36);
     public static ResourceKey<Biome> LUSH_TUNDRA = WorldGenRegistrationHelper.createBiome("lush_tundra", lushTundra(), 37);
     public static ResourceKey<Biome> ORCHARD = WorldGenRegistrationHelper.createBiome("orchard", orchard(), 38);
     public static ResourceKey<Biome> PRAIRIE = WorldGenRegistrationHelper.createBiome("prairie", prairie(), 39);
-    public static ResourceKey<Biome> RED_DESERT = WorldGenRegistrationHelper.createBiome("red_desert", redDesert(), 40);
+    public static ResourceKey<Biome> RED_DESERT = WorldGenRegistrationHelper.createBiome("red_desert", redDesert(false), 40);
     public static ResourceKey<Biome> RED_OAK_FOREST = WorldGenRegistrationHelper.createBiome("red_oak_forest", redOakForest(), 42);
     public static ResourceKey<Biome> RED_ROCK_VALLEY = WorldGenRegistrationHelper.createBiome("red_rock_valley", redRockValley(), 9495858);
 
@@ -87,17 +79,17 @@ public class BYGBiomes {
     public static ResourceKey<Biome> SEASONAL_BIRCH_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_birch_forest", seasonalBirchForest(), 44);
     public static ResourceKey<Biome> SEASONAL_DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_forest", seasonalDeciduousForest(), 45);
     public static ResourceKey<Biome> SEASONAL_FOREST = WorldGenRegistrationHelper.createBiome("seasonal_forest", seasonalForest(), 46);
-    public static ResourceKey<Biome> SEASONAL_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_taiga", seasonalTaiga(), 47);
+    public static ResourceKey<Biome> SEASONAL_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_taiga", seasonalTaiga(false), 47);
     public static ResourceKey<Biome> SHATTERED_GLACIER = WorldGenRegistrationHelper.createBiome("shattered_glacier", shatteredGlacier(), 48);
     public static ResourceKey<Biome> SHRUBLANDS = WorldGenRegistrationHelper.createBiome("shrublands", shrublands(), 49);
     public static ResourceKey<Biome> SIERRA_VALLEY = WorldGenRegistrationHelper.createBiome("sierra_valley", sierraValley(), 59);
     public static ResourceKey<Biome> SKYRIS_HIGHLANDS = WorldGenRegistrationHelper.createBiome("skyris_highlands", skyrisHighlands(), 50);
     public static ResourceKey<Biome> REDWOOD_THICKET = WorldGenRegistrationHelper.createBiome("redwood_thicket", redwoodThicket(), 16);
-    public static ResourceKey<Biome> SNOWY_BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_taiga", blueTaiga(true), 51);
+    public static ResourceKey<Biome> SNOWY_BLUE_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_taiga", blueTaiga(true, false), 51);
     public static ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = WorldGenRegistrationHelper.createBiome("snowy_coniferous_forest", coniferousForest(true), 52);
     public static ResourceKey<Biome> SNOWY_DECIDUOUS_FOREST = WorldGenRegistrationHelper.createBiome("snowy_deciduous_forest", deciduousForest(true), 53);
     public static ResourceKey<Biome> SNOWY_EVERGREEN_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_evergreen_taiga", evergreenTaiga(true), 54);
-    public static ResourceKey<Biome> STONE_FOREST = WorldGenRegistrationHelper.createBiome("fragment_forest", fragmentForest(), 148);
+    public static ResourceKey<Biome> STONE_FOREST = WorldGenRegistrationHelper.createBiome("fragment_forest", fragmentForest(false), 148);
     public static ResourceKey<Biome> THE_BLACK_FOREST = WorldGenRegistrationHelper.createBiome("black_forest", blackForest(), 55);
     public static ResourceKey<Biome> TROPICAL_ISLAND = WorldGenRegistrationHelper.createBiome("tropical_islands", tropicalForest(), 140);
     public static ResourceKey<Biome> TROPICAL_RAINFOREST = WorldGenRegistrationHelper.createBiome("tropical_rainforest", tropicalForest(), 57);
@@ -107,75 +99,46 @@ public class BYGBiomes {
     public static ResourceKey<Biome> ZELKOVA_FOREST = WorldGenRegistrationHelper.createBiome("zelkova_forest", zelkovaForest(), 62);
 
 
-
     /************Sub Biomes************/
     //Beaches
-    public static ResourceKey<Biome> BASALT_BARRERA = WorldGenRegistrationHelper.createBiome("basalt_barrera", new BasaltBarrera().getBiome(), 150);
-    public static ResourceKey<Biome> RAINBOW_BEACH = WorldGenRegistrationHelper.createBiome("rainbow_beach", new RainbowBeach().getBiome(), 139);
-    public static ResourceKey<Biome> ROCKY_BEACH = WorldGenRegistrationHelper.createBiome("rocky_beach", new RockyBeach().getBiome(), 135);
-    public static ResourceKey<Biome> SNOWY_ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_rocky_black_beach", new SnowyRockyBlackBeach().getBiome(), 136);
-    public static ResourceKey<Biome> SNOWY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_black_beach", new SnowyBlackBeach().getBiome(), 137);
-    public static ResourceKey<Biome> WHITE_BEACH = WorldGenRegistrationHelper.createBiome("white_beach", new WhiteBeach().getBiome(), 138);
-
-    //Clearings
-    public static ResourceKey<Biome> ASPEN_CLEARING = WorldGenRegistrationHelper.createBiome("aspen_clearing", new AspenClearing().getBiome(), 82);
-    public static ResourceKey<Biome> BLACK_FOREST_CLEARING = WorldGenRegistrationHelper.createBiome("black_forest_clearing", new BlackForestClearing().getBiome(), 91);
-    public static ResourceKey<Biome> BOREAL_CLEARING = WorldGenRegistrationHelper.createBiome("boreal_clearing", new BorealClearing().getBiome(), 83);
-    public static ResourceKey<Biome> CHERRY_BLOSSOM_CLEARING = WorldGenRegistrationHelper.createBiome("cherry_blossom_clearing", new CherryBlossomClearing().getBiome(), 79);
-    public static ResourceKey<Biome> CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("coniferous_clearing", new ConiferousClearing().getBiome(), 80);
-    public static ResourceKey<Biome> DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("deciduous_clearing", new DeciduousClearing().getBiome(), 84);
-    public static ResourceKey<Biome> EVERGREEN_CLEARING = WorldGenRegistrationHelper.createBiome("evergreen_clearing", new EvergreenClearing().getBiome(), 73);
-    public static ResourceKey<Biome> GUIANA_CLEARING = WorldGenRegistrationHelper.createBiome("guiana_clearing", new GuianaClearing().getBiome(), 86);
-    public static ResourceKey<Biome> JACARANDA_CLEARING = WorldGenRegistrationHelper.createBiome("jacaranda_clearing", new JacarandaClearing().getBiome(), 87);
-    public static ResourceKey<Biome> PRAIRIE_CLEARING = WorldGenRegistrationHelper.createBiome("prairie_clearing", new PrairieClearing().getBiome(), 115);
-    public static ResourceKey<Biome> REDWOOD_CLEARING = WorldGenRegistrationHelper.createBiome("redwood_clearing", new RedwoodClearing().getBiome(), 63);
-    public static ResourceKey<Biome> SEASONAL_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("seasonal_deciduous_clearing", new SeasonalDeciduousClearing().getBiome(), 85);
-    public static ResourceKey<Biome> SNOWY_CONIFEROUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_coniferous_clearing", new SnowyConiferousClearing().getBiome(), 88);
-    public static ResourceKey<Biome> SNOWY_DECIDUOUS_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_deciduous_clearing", new SnowyDeciduousClearing().getBiome(), 89);
-    public static ResourceKey<Biome> SNOWY_EVERGREEN_CLEARING = WorldGenRegistrationHelper.createBiome("snowy_evergreen_clearing", new SnowyEvergreenClearing().getBiome(), 69);
-    public static ResourceKey<Biome> WEEPING_WTICH_CLEARING = WorldGenRegistrationHelper.createBiome("weeping_witch_clearing", new WeepingWitchClearing().getBiome(), 76);
-    public static ResourceKey<Biome> ZELKOVA_CLEARING = WorldGenRegistrationHelper.createBiome("zelkova_clearing", new ZelkovaClearing().getBiome(), 81);
+    public static ResourceKey<Biome> BASALT_BARRERA = WorldGenRegistrationHelper.createBiome("basalt_barrera", basaltBarrera(), 150);
+    public static ResourceKey<Biome> RAINBOW_BEACH = WorldGenRegistrationHelper.createBiome("rainbow_beach", rainbowBeach(), 139);
+    public static ResourceKey<Biome> ROCKY_BEACH = WorldGenRegistrationHelper.createBiome("rocky_beach", rockyBeach(), 135);
+    public static ResourceKey<Biome> SNOWY_ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_rocky_black_beach", snowyBlackBeach(true), 136);
+    public static ResourceKey<Biome> SNOWY_BLACK_BEACH = WorldGenRegistrationHelper.createBiome("snowy_black_beach", snowyBlackBeach(false), 137);
+    public static ResourceKey<Biome> WHITE_BEACH = WorldGenRegistrationHelper.createBiome("white_beach", whiteBeach(), 138);
 
     //Flowering
-    public static ResourceKey<Biome> FLOWERING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("flowering_ancient_forest", new FloweringAncientForest().getBiome(), 68);
-    public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("flowering_enchanted_grove", new FloweringEnchantedGrove().getBiome(), 95);
-    public static ResourceKey<Biome> FLOWERING_GROVE = WorldGenRegistrationHelper.createBiome("flowering_grove", new FloweringGrove().getBiome(), 94);
-    public static ResourceKey<Biome> FLOWERING_MEADOW = WorldGenRegistrationHelper.createBiome("flowering_meadow", new FloweringMeadow().getBiome(), 133);
+    public static ResourceKey<Biome> FLOWERING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("flowering_ancient_forest", ancientForest(true, false), 68);
+    public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = WorldGenRegistrationHelper.createBiome("flowering_enchanted_grove", enchantedGrove(true), 95);
+    public static ResourceKey<Biome> FLOWERING_GROVE = WorldGenRegistrationHelper.createBiome("flowering_grove", grove(true), 94);
+    public static ResourceKey<Biome> FLOWERING_MEADOW = WorldGenRegistrationHelper.createBiome("flowering_meadow", meadow(true, false), 133);
 
     //Forests
-    public static ResourceKey<Biome> ARAUCARIA_FOREST = WorldGenRegistrationHelper.createBiome("araucaria_forest", new AraucariaForest().getBiome(), 152);
-    public static ResourceKey<Biome> BAMBOO_FOREST = WorldGenRegistrationHelper.createBiome("bamboo_forest", new BambooForest().getBiome(), 78);
-    public static ResourceKey<Biome> FOREST_FAULT = WorldGenRegistrationHelper.createBiome("forest_fault", new ForestFault().getBiome(), 93);
-    public static ResourceKey<Biome> GLOWING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("glowing_ancient_forest", new GlowingAncientForest().getBiome(), 67);
-    public static ResourceKey<Biome> NORTHERN_FOREST = WorldGenRegistrationHelper.createBiome("northern_forest", new NorthernForest().getBiome(), 96);
-    public static ResourceKey<Biome> POINTY_STONE_FOREST = WorldGenRegistrationHelper.createBiome("pointed_stone_forest", new PointedStoneForest().getBiome(), 153);
-    public static ResourceKey<Biome> PUMPKIN_FOREST = WorldGenRegistrationHelper.createBiome("pumpkin_forest", new PumpkinForest().getBiome(), 77);
+    public static ResourceKey<Biome> ARAUCARIA_FOREST = WorldGenRegistrationHelper.createBiome("araucaria_forest", araucariaSavanna(true), 152);
+    public static ResourceKey<Biome> BAMBOO_FOREST = WorldGenRegistrationHelper.createBiome("bamboo_forest", bambooForest(), 78);
+    public static ResourceKey<Biome> FOREST_FAULT = WorldGenRegistrationHelper.createBiome("forest_fault", forestFault(), 93);
+    public static ResourceKey<Biome> GLOWING_ANCIENT_FOREST = WorldGenRegistrationHelper.createBiome("glowing_ancient_forest", ancientForest(false, true), 67);
+    public static ResourceKey<Biome> NORTHERN_FOREST = WorldGenRegistrationHelper.createBiome("northern_forest", northernForest(), 96);
+    public static ResourceKey<Biome> POINTY_STONE_FOREST = WorldGenRegistrationHelper.createBiome("pointed_fragment_forest", fragmentForest(true), 153);
+    public static ResourceKey<Biome> PUMPKIN_FOREST = WorldGenRegistrationHelper.createBiome("pumpkin_forest", pumpkinForest(), 77);
 
 
     //Mountains
-    public static ResourceKey<Biome> BLUFF_PEAKS = WorldGenRegistrationHelper.createBiome("bluff_peaks", new BluffPeaks().getBiome(), 103);
-    public static ResourceKey<Biome> WOODED_RED_ROCK_MOUNTAINS = WorldGenRegistrationHelper.createBiome("wooded_red_rock_mountains", new WoodedRedRockMountains().getBiome(), 119);
+    public static ResourceKey<Biome> BLUFF_PEAKS = WorldGenRegistrationHelper.createBiome("bluff_peaks", bluffSteeps(true), 103);
 
     //Sub
-    public static ResourceKey<Biome> BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("blue_giant_taiga", new BlueGiantTaiga().getBiome(), 102);
-    public static ResourceKey<Biome> CORAL_MANGROVES = WorldGenRegistrationHelper.createBiome("coral_mangroves", new CoralMangroves().getBiome(), 65);
-    public static ResourceKey<Biome> FUNGAL_PATCH = WorldGenRegistrationHelper.createBiome("fungal_patch", new FungalPatch().getBiome(), 75);
-    public static ResourceKey<Biome> GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createBiome("great_lake_isles", new GreatLakeIsles().getBiome(), 110);
-    public static ResourceKey<Biome> LUSH_RED_DESERT = WorldGenRegistrationHelper.createBiome("lush_red_desert", new LushRedDesert().getBiome(), 97);
-    public static ResourceKey<Biome> RED_ROCK_LOWLANDS = WorldGenRegistrationHelper.createBiome("red_rock_lowlands", new RedRockLowlands().getBiome(), 117);
-    public static ResourceKey<Biome> RED_ROCK_HIGHLANDS = WorldGenRegistrationHelper.createBiome("red_rock_highlands", new RedRockHighlands().getBiome(), 118);
-    public static ResourceKey<Biome> RED_SPRUCE_TAIGA = WorldGenRegistrationHelper.createBiome("red_spruce_taiga", new RedSpruceTaiga().getBiome(), 155);
-    public static ResourceKey<Biome> SIERRA_RANGE = WorldGenRegistrationHelper.createBiome("sierra_range", new SierraRange().getBiome(), 98);
-    public static ResourceKey<Biome> WOODED_GRASSLAND_PLATEAU = WorldGenRegistrationHelper.createBiome("wooded_grassland_plateau", new WoodedGrasslandPlateau().getBiome(), 131);
-    public static ResourceKey<Biome> SNOWY_BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_giant_taiga", new SnowyBlueGiantTaiga().getBiome(), 125);
-    public static ResourceKey<Biome> WOODED_MEADOW = WorldGenRegistrationHelper.createBiome("wooded_meadow", new WoodedMeadow().getBiome(), 134);
-    public static ResourceKey<Biome> SKYRIS_HIGHLANDS_CLEARING = WorldGenRegistrationHelper.createBiome("skyris_highlands_clearing", new SkyrisHighlandsClearing().getBiome(), 180);
-    public static ResourceKey<Biome> SKYRIS_PEAKS = WorldGenRegistrationHelper.createBiome("skyris_peaks", new SkyrisPeaks().getBiome(), 181);
-    public static ResourceKey<Biome> SKYRIS_STEEPS = WorldGenRegistrationHelper.createBiome("skyris_steeps", new SkyrisSteeps().getBiome(), 182);
-    public static ResourceKey<Biome> GUIANA_SPRINGS = WorldGenRegistrationHelper.createBiome("guiana_springs", new GuianaSprings().getBiome(), 183);
+    public static ResourceKey<Biome> BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("blue_giant_taiga", blueTaiga(false, true), 102);
+    public static ResourceKey<Biome> CORAL_MANGROVES = WorldGenRegistrationHelper.createBiome("coral_mangroves", coralMangroves(), 65);
+    public static ResourceKey<Biome> FUNGAL_PATCH = WorldGenRegistrationHelper.createBiome("fungal_patch", fungalPatch(), 75);
+    public static ResourceKey<Biome> GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createBiome("great_lake_isles", greatLakeIsles(), 110);
+    public static ResourceKey<Biome> LUSH_RED_DESERT = WorldGenRegistrationHelper.createBiome("lush_red_desert", redDesert(true), 97);
+    public static ResourceKey<Biome> RED_SPRUCE_TAIGA = WorldGenRegistrationHelper.createBiome("red_spruce_taiga", redTaiga(), 155);
+    public static ResourceKey<Biome> SNOWY_BLUE_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("snowy_blue_giant_taiga", blueTaiga(true, true), 125);
+    public static ResourceKey<Biome> WOODED_MEADOW = WorldGenRegistrationHelper.createBiome("wooded_meadow", meadow(false, true), 134);
 
     //Mutations
-    public static ResourceKey<Biome> SEASONAL_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_giant_taiga", new SeasonalGiantTaiga().getBiome(), 123);
+    public static ResourceKey<Biome> SEASONAL_GIANT_TAIGA = WorldGenRegistrationHelper.createBiome("seasonal_giant_taiga", seasonalTaiga(true), 123);
 
 
     /************Nether Biomes************/
@@ -202,7 +165,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> SHATTERED_DESERT = WorldGenRegistrationHelper.createBiome("shattered_desert", EndBiomes.shatteredDesert(), 168);
     public static ResourceKey<Biome> SHULKREN_FOREST = WorldGenRegistrationHelper.createBiome("shulkren_forest", EndBiomes.shulkrenForest(), 169);
     public static ResourceKey<Biome> PURPUR_PEAKS = WorldGenRegistrationHelper.createBiome("purpur_peaks", EndBiomes.purpurPeaks(), 170);
-    public static ResourceKey<Biome> CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes",EndBiomes.crypticWastes(), 171);
+    public static ResourceKey<Biome> CRYPTIC_WASTES = WorldGenRegistrationHelper.createBiome("cryptic_wastes", EndBiomes.crypticWastes(), 171);
     public static ResourceKey<Biome> IMPARIUS_GROVE = WorldGenRegistrationHelper.createBiome("imparius_grove", EndBiomes.impariusGrove(), 178);
 
     /************End Sub-Biomes************/
@@ -221,14 +184,12 @@ public class BYGBiomes {
     }
 
     @SuppressWarnings("ConstantConditions")
-    public static void handleOverworldEntries(BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder) {
-        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((biome, biomeData) -> {
-            if (biomeData.getWeight() > 0) {
-                OverworldBiomes.addContinentalBiome(ResourceKey.create(Registry.BIOME_REGISTRY, biome), biomeData.getClimate().getClimate(), biomeData.getWeight());
-            }
-        }));
+    public static void handleOverworldEntries() {
+        for (PreserveBiomeOrder preserveBiomeOrder : biomeList) {
+            OverworldBiomes.addContinentalBiome(preserveBiomeOrder.key, MLClimate.COOL.getClimate(), 5);
 
-        fillBiomeDictionary(overworldPrimaryBiomeDataHolder.getBiomeData());
+        }
+
         addBiomeNumericalIDs();
     }
 
@@ -329,19 +290,20 @@ public class BYGBiomes {
     public static void addBiomeNumericalIDs() {
         BYG.LOGGER.info("Adding Numerical Biome ID's");
         for (PreserveBiomeOrder biome : biomeList) {
-            Optional<ResourceKey<Biome>> key = BuiltinRegistries.BIOME.getResourceKey(biome.getBiome());
-            if (key.isPresent())
-                key.ifPresent(biomeRegistryKey -> BiomesAccess.getIDNameMap().put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(key.get())), biomeRegistryKey));
+            BiomesAccess.getIDNameMap().put(BuiltinRegistries.BIOME.getId(BuiltinRegistries.BIOME.getOrThrow(biome.getKey())), biome.getKey());
         }
         BYG.LOGGER.info("Added Numerical Biome ID's!");
 
     }
 
     public static class PreserveBiomeOrder {
+        private final ResourceKey<Biome> key;
         private final Biome biome;
         private final int orderPosition;
 
-        public PreserveBiomeOrder(Biome biome, int orderPosition) {
+        public PreserveBiomeOrder(ResourceKey<Biome> key, Biome biome, int orderPosition) {
+            this.key = key;
+
             this.biome = biome;
             this.orderPosition = orderPosition;
         }
@@ -352,6 +314,10 @@ public class BYGBiomes {
 
         public int getOrderPosition() {
             return orderPosition;
+        }
+
+        public ResourceKey<Biome> getKey() {
+            return key;
         }
     }
 }

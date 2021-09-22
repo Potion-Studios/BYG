@@ -8,9 +8,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface BoatEntityAccess {
 
     @Accessor
-    double getLastYd();
-
-    @Accessor
     void setLastYd(double lastYd);
 
     @Accessor("status")

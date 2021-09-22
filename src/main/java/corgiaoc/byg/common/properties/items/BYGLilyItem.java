@@ -62,7 +62,7 @@ public class BYGLilyItem extends BlockItem {
                         CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer) playerIn, blockpos1, itemstack);
                     }
 
-                    if (!playerIn.abilities.instabuild) {
+                    if (!playerIn.getAbilities().instabuild) {
                         itemstack.shrink(1);
                     }
 

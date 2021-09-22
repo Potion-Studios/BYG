@@ -31,6 +31,6 @@ public class BYGSnowyPlants extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SNOW_BLOCK || is(MLBlockTags.DIRT);
+        return block == Blocks.SNOW_BLOCK || state.is(MLBlockTags.DIRT);
     }
 }

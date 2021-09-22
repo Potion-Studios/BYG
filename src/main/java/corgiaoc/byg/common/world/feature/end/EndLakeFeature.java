@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
@@ -29,6 +30,10 @@ public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
                          BlockPos blockPos, NoneFeatureConfiguration config) {
         double radius = ModMathHelper.randRange(10.0, 20.0, random);
@@ -167,7 +172,7 @@ public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
                                 BlockHelper.setWithoutUpdate(world, POS, state);
                             }
                             pos = POS.below();
-                            if (world.getBlockState(pos).getBlock().is(MLBlockTags.END_STONES)) {
+                            if (world.getBlockState(pos).is(MLBlockTags.END_STONES)) {
                                 BlockHelper.setWithoutUpdate(world, pos, BYGBlocks.END_SAND.defaultBlockState());
                             }
                             pos = POS.above();

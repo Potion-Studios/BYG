@@ -22,7 +22,7 @@ public class MixinSugarCaneBlock {
     @Inject(method = "canSurvive", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z", ordinal = 0), cancellable = true)
     private void addBYGBlocks(BlockState state, LevelReader worldIn, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockStateDown = worldIn.getBlockState(pos.below());
-        if(blockStateDown.getBlock().is(BlockTags.SAND)) {
+        if(blockStateDown.is(BlockTags.SAND)) {
             BlockPos blockpos = pos.below();
 
             for(Direction direction : Direction.Plane.HORIZONTAL) {

@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -17,6 +18,10 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<PumpkinConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 

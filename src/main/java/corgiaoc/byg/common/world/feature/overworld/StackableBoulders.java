@@ -12,6 +12,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
@@ -28,6 +29,10 @@ public class StackableBoulders extends Feature<BoulderConfig> {
     public static int stopSpamInt = 0;
 
     @Override
+    public boolean place(FeaturePlaceContext<BoulderConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
         setSeed(world.getSeed());
 

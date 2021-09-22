@@ -17,7 +17,7 @@ public class FillerSurfaceBuilder extends SurfaceBuilder<FillSurfaceBuilderConfi
         super(config);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, FillSurfaceBuilderConfig config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, FillSurfaceBuilderConfig config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;

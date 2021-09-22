@@ -63,16 +63,16 @@ public class MegaChunk {
 
         BlockPos startPos = this.megaChunkPos.unpackLocalPos(canyonChunkByte).getWorldPosition();
 
-        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), this.chunkGenerator.getFirstFreeHeight(startPos.getX(), startPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG) /*218*/, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
+        this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(startPos.getX(), this.chunkGenerator.getFirstFreeHeight(startPos.getX(), startPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, world) /*218*/, startPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.BiomeCategory category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
-            return category == Biome.BiomeCategory.RIVER || category == Biome.BiomeCategory.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
+            return category == Biome.BiomeCategory.RIVER || category == Biome.BiomeCategory.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, world) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 
     public void createRiverGenerator(FastNoise noise, BlockPos generatorStartPos, WorldGenLevel world, int maxRiverDistance) {
         this.riverGenerator = new RiverGenerator(noise, world, new BlockPos(generatorStartPos.getX(), 218, generatorStartPos.getZ()), this.chunkGenerator, blockpos -> false, blockpos -> {
             Biome.BiomeCategory category = this.provider.getNoiseBiome(blockpos.getX() >> 2, blockpos.getY() >> 2, blockpos.getZ() >> 2).getBiomeCategory();
-            return category == Biome.BiomeCategory.RIVER || category == Biome.BiomeCategory.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG) <= this.chunkGenerator.getSeaLevel();
+            return category == Biome.BiomeCategory.RIVER || category == Biome.BiomeCategory.OCEAN || this.chunkGenerator.getBaseHeight(blockpos.getX(), blockpos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, world) <= this.chunkGenerator.getSeaLevel();
         }, maxRiverDistance);
     }
 }

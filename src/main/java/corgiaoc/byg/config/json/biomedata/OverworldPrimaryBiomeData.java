@@ -4,7 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.util.MLClimate;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +21,7 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
             return subBiomeData.getWeight();
         }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), WeightedList.codec(ResourceLocation.CODEC).optionalFieldOf("hills", new WeightedList<>()).forGetter((subBiomeData) -> {
+        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(ResourceLocation.CODEC)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
         }), ResourceLocation.CODEC.optionalFieldOf("edge", new ResourceLocation("")).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
@@ -35,7 +37,7 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
     private final ResourceLocation beachBiome;
     private final ResourceLocation riverBiome;
 
-    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedList<ResourceLocation> subBiomes, ResourceLocation edgeBiome, ResourceLocation beachBiome, ResourceLocation riverBiome) {
+    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>> subBiomes, ResourceLocation edgeBiome, ResourceLocation beachBiome, ResourceLocation riverBiome) {
         super(dictionary, subBiomes, edgeBiome);
         this.climate = climate;
         this.weight = weight;

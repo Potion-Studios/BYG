@@ -192,9 +192,9 @@ public class BYGBoatEntity extends Boat {
                         return;
                     }
 
-                    this.causeFallDamage(this.fallDistance, 1.0F);
-                    if (!this.level.isClientSide && !this.removed) {
-                        this.remove();
+                    this.causeFallDamage(this.fallDistance, 1.0F, DamageSource.FALL);
+                    if (!this.level.isClientSide && !this.isRemoved()) {
+                        this.kill();
                         if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                             for (int i = 0; i < 3; ++i) {
                                 this.spawnAtLocation(this.getPlanks());
@@ -221,7 +221,7 @@ public class BYGBoatEntity extends Boat {
     public boolean hurt(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
-        } else if (!this.level.isClientSide && !this.removed) {
+        } else if (!this.level.isClientSide && !this.isRemoved()) {
             if (source instanceof IndirectEntityDamageSource && source.getEntity() != null && this.hasPassenger(source.getEntity())) {
                 return false;
             } else {
@@ -229,13 +229,13 @@ public class BYGBoatEntity extends Boat {
                 this.setHurtTime(10);
                 this.setDamage(this.getDamage() + amount * 10.0F);
                 this.markHurt();
-                boolean flag = source.getEntity() instanceof Player && ((Player) source.getEntity()).abilities.instabuild;
+                boolean flag = source.getEntity() instanceof Player && ((Player) source.getEntity()).getAbilities().instabuild;
                 if (flag || this.getDamage() > 40.0F) {
                     if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                         this.spawnAtLocation(this.getDropItem());
                     }
 
-                    this.remove();
+                    this.discard();
                 }
 
                 return true;

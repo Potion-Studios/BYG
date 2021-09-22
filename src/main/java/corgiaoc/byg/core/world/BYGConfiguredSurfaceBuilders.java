@@ -1,15 +1,21 @@
 package corgiaoc.byg.core.world;
 
 import corgiaoc.byg.common.world.surfacebuilder.config.FillSurfaceBuilderConfig;
+import corgiaoc.byg.common.world.surfacebuilder.config.PointedSBConfig;
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
 
 public class BYGConfiguredSurfaceBuilders {
 
+    public static final ConfiguredSurfaceBuilder<?> BASALT_BARRERA = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("basalt_barrera", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BASALT_BARRERA, BYGSurfaceBuilders.Configs.BLACK_SAND));
     public static final ConfiguredSurfaceBuilder<?> BLACK_FOREST = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("black_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
     public static final ConfiguredSurfaceBuilder<?> BLACK_SAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("black_sand", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.BLACK_SAND));
     public static final ConfiguredSurfaceBuilder<?> BOREAL_FOREST = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("boreal_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BOREAL, SurfaceBuilder.CONFIG_GRASS));
@@ -17,18 +23,25 @@ public class BYGConfiguredSurfaceBuilders {
     public static final ConfiguredSurfaceBuilder<?> EBONY_WOODS = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("ebony_woods", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.EBONY, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<?> FILL_DACITE_PODZOL = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("fill_dacite", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FILL, new FillSurfaceBuilderConfig.Builder().setFillBlock(Blocks.SAND).setTopBlock(BYGBlocks.PODZOL_DACITE).setUnderBlock(BYGBlocks.DACITE).setFillDownToY(63).build()));
     public static final ConfiguredSurfaceBuilder<?> FILL_SAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("fill_sand", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FILL, new FillSurfaceBuilderConfig.Builder().setFillBlock(Blocks.SAND).setTopBlock(Blocks.SAND).setUnderBlock(Blocks.SAND).setFillDownToY(63).build()));
+    public static final ConfiguredSurfaceBuilder<?> FILL_SAND_RED = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("fill_sand_red", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FILL, new FillSurfaceBuilderConfig.Builder().setFillBlock(Blocks.RED_SAND).setTopBlock(Blocks.RED_SAND).setUnderBlock(Blocks.RED_SAND).setFillDownToY(63).build()));
+    public static final ConfiguredSurfaceBuilder<?> GLOWING_ANCIENT_FOREST = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("glowing_ancient_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GLOWING_ANCIENT_FOREST, SurfaceBuilder.CONFIG_GRASS));
+    public static final ConfiguredSurfaceBuilder<?> GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("great_lake_isles", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.GREAT_LAKE_ISLES, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<?> LUSH_TUNDRA = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("lush_tundra", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.LUSH_TUNDRA, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<?> MOJAVE = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("mojave", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MOJAVE, new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> MARSHLAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("marshland", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.MARSHLAND, new SurfaceBuilderBaseConfiguration(Blocks.GRASS_BLOCK.defaultBlockState(), Blocks.DIRT.defaultBlockState(), BYGBlocks.MUD_BLOCK.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> MEADOW = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("meadow", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderBaseConfiguration(BYGBlocks.MEADOW_GRASSBLOCK.defaultBlockState(), BYGBlocks.MEADOW_DIRT.defaultBlockState(), BYGBlocks.MEADOW_DIRT.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> OVERGROWN_STONE = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("overgrown_stone", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderBaseConfiguration(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> PEAT_GRASS = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("peat_grass", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.CONIFEROUS, BYGSurfaceBuilders.Configs.PEATGRASS_CF));
+    public static final ConfiguredSurfaceBuilder<?> RAINBOW_BEACH = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("rainbow_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RAINBOW_BEACH, BYGSurfaceBuilders.Configs.PURPLE_SAND));
     public static final ConfiguredSurfaceBuilder<?> RED_SAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_sand", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, new SurfaceBuilderBaseConfiguration(Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SAND.defaultBlockState(), Blocks.RED_SANDSTONE.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> RED_ROCK = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("red_rock", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.RED_ROCK_SB, SurfaceBuilder.CONFIG_GRASS));
+    public static final ConfiguredSurfaceBuilder<?> ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("rocky_black_beach", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.ROCKY_BLACK_BEACH, BYGSurfaceBuilders.Configs.BLACK_SAND));
     public static final ConfiguredSurfaceBuilder<?> SHATTERED_GLACIER = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("shattered_glacier", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SHATTERED_GLACIER, new SurfaceBuilderBaseConfiguration(Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState(), Blocks.SNOW_BLOCK.defaultBlockState())));
     public static final ConfiguredSurfaceBuilder<?> SIERRA_VALLEY = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("sierra_valley", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.SIERRA_VALLEY, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<?> STONE_FOREST = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.STONE_FOREST, new SurfaceBuilderBaseConfiguration(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState())));
+    public static final ConfiguredSurfaceBuilder<?> STONE_FOREST_POINTED = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("pointed_stone_forest", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.POINTED, new PointedSBConfig(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.STONE.defaultBlockState(), 2)), new SimpleStateProvider(BYGBlocks.OVERGROWN_STONE.defaultBlockState()), 170)));
     public static final ConfiguredSurfaceBuilder<?> TWILIGHT_VALLEY = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("twilight_valley", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.TWILIGHT_VALLEY, SurfaceBuilder.CONFIG_GRASS));
+    public static final ConfiguredSurfaceBuilder<?> WHITE_SAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("white_sand", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.WHITE_SAND));
 
     //nether
     public static final ConfiguredSurfaceBuilder<?> BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("brimstone_caverns", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BRIMSTONE_CAVERNS, BYGSurfaceBuilders.Configs.BRIMSTONE));

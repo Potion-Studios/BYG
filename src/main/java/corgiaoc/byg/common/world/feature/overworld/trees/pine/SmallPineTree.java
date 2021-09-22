@@ -11,11 +11,13 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
@@ -25,6 +27,10 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         if (pos.getX() == -4 && pos.getZ() == -4) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
@@ -37,15 +43,16 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
             }
 
             StructureManager templatemanager = world.getLevel().getStructureManager();
-            StructureTemplate template = templatemanager.get(new ResourceLocation(BYG.MOD_ID + ":features/trees/withering_oak_tree5"));
+            Optional<StructureTemplate> structureTemplate = templatemanager.get(new ResourceLocation(BYG.MOD_ID, ":features/trees/withering_oak_tree5"));
 
-            if (template == null) {
+            if (structureTemplate.isEmpty()) {
                 BYG.LOGGER.warn("NBT does not exist!");
                 return false;
             }
+            StructureTemplate template = structureTemplate.get();
 
-            StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false).setChunkPos(null);
-            template.placeInWorldChunk(world, pos, placementsettings, rand);
+            StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setMirror(Mirror.NONE).setRotation(Rotation.NONE).setIgnoreEntities(false);
+            template.placeInWorld(world, pos, pos, placementsettings, rand, 2);
             return true;
         }
         return false;

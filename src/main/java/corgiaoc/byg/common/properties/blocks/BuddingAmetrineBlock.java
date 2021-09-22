@@ -4,19 +4,21 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.Random;
 
-public class BuddingAmetrineBlock extends BYGOreBlock {
+public class BuddingAmetrineBlock extends OreBlock {
     private static final Direction[] DIRECTIONS = Direction.values();
 
     public BuddingAmetrineBlock(Properties builder) {
-        super(builder);
+        super(builder, UniformInt.of(3, 9));
     }
 
     public PushReaction getPistonPushReaction(BlockState state) {

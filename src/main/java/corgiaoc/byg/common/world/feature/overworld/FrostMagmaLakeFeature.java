@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 import net.minecraft.world.level.material.Material;
 
@@ -25,6 +26,11 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
 
     public FrostMagmaLakeFeature(Codec<BlockStateConfiguration> config) {
         super(config);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<BlockStateConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateConfiguration blockStateFeatureConfig) {
@@ -104,7 +110,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
                     for (lvt_11_4_ = 4; lvt_11_4_ < 8; ++lvt_11_4_) {
                         if (flagArray[(lvt_9_5_ * 16 + lvt_10_5_) * 8 + lvt_11_4_]) {
                             lvt_12_5_ = blockPos.offset(lvt_9_5_, lvt_11_4_ - 1, lvt_10_5_);
-                            if (isDirt(world.getBlockState(lvt_12_5_).getBlock()) && world.getBrightness(LightLayer.SKY, blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
+                            if (isDirt(world.getBlockState(lvt_12_5_)) && world.getBrightness(LightLayer.SKY, blockPos.offset(lvt_9_5_, lvt_11_4_, lvt_10_5_)) > 0) {
                                 Biome lvt_13_2_ = world.getBiome(lvt_12_5_);
                                 if (lvt_13_2_.getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial().getBlock() == BYGBlocks.FROST_MAGMA) {
                                     world.setBlock(lvt_12_5_, BYGBlocks.FROST_MAGMA.defaultBlockState(), 2);

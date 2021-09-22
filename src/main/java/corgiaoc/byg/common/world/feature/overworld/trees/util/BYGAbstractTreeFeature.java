@@ -549,7 +549,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public boolean placeTree(WorldGenLevel worldIn, Random rand, BlockPos pos, TFC config) {
         Set<BlockPos> set = Sets.newHashSet();
-        BoundingBox mutableboundingbox = BoundingBox.infinite();
+        BoundingBox mutableboundingbox = new BoundingBox(0, 0, 0, 0, 0, 0);
         boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
         if (mutableboundingbox.minX() > mutableboundingbox.maxX()) {
             return false;

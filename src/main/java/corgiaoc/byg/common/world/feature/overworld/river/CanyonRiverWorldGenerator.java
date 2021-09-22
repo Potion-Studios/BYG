@@ -16,6 +16,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
@@ -37,6 +38,10 @@ public class CanyonRiverWorldGenerator extends Feature<NoneFeatureConfiguration>
     public static FastNoise noise;
 
     @Override
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel worldRegion, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         setupNoise(worldRegion.getSeed());
         NoisyCaveSphereWater.setSeed(worldRegion.getSeed());

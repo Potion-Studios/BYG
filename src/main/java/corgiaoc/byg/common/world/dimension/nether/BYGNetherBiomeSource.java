@@ -8,11 +8,13 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.common.world.dimension.end.SimpleLayerProvider;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
-import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 
@@ -34,11 +36,11 @@ public class BYGNetherBiomeSource extends BiomeSource {
         biomeRegistry = registry;
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-        WeightedList<ResourceLocation> biomes = new WeightedList<>();
-        Map<ResourceLocation, WeightedList<ResourceLocation>> hills = new HashMap<>();
+        SimpleWeightedRandomList.Builder<ResourceLocation> biomes = SimpleWeightedRandomList.builder();
+        Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> hills = new HashMap<>();
         Map<ResourceLocation, ResourceLocation> edges = new HashMap<>();
         Set<ResourceLocation> allBiomes = new HashSet<>();
-        BiomeDataHolders.WeightedBiomeDataHolder netherData = BYG.getNetherData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json"));
+        BiomeDataHolders.WeightedBiomeDataHolder netherData = new BiomeDataHolders.WeightedBiomeDataHolder(new HashMap<>());
         netherData.getBiomeData().forEach(((biome, endBiomeData) -> {
             biomes.add(biome, endBiomeData.getWeight());
             hills.put(biome, endBiomeData.getSubBiomes());
@@ -46,14 +48,14 @@ public class BYGNetherBiomeSource extends BiomeSource {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 edges.put(biome, edgeBiome);
             }
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) endBiomeData.getSubBiomes()).getItems().stream().map(WeightedEntry.Wrapper::getData).collect(Collectors.toList()));
         }));
 
         edges.remove(BYG.EMPTY);
         hills.remove(BYG.EMPTY);
         allBiomes.remove(BYG.EMPTY);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
-        this.biomeLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().netherBiomeSize, biomes, hills, edges);
+        this.biomeLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().netherBiomeSize, biomes.build(), hills, edges);
     }
 
     @Override

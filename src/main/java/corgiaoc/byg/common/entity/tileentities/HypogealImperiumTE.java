@@ -27,15 +27,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
-import net.minecraft.world.level.block.entity.TickableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 import java.util.Random;
 
-public class HypogealImperiumTE extends RandomizableContainerBlockEntity implements TickableBlockEntity, BlockEntityPacketHandler {
+public class HypogealImperiumTE extends RandomizableContainerBlockEntity implements BlockEntityPacketHandler {
 
     private NonNullList<ItemStack> contents = NonNullList.withSize(20, ItemStack.EMPTY);
     protected int numPlayersUsing;
@@ -60,8 +60,12 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
         }
     };
 
-    public HypogealImperiumTE() {
-        super(BYGTileEntities.HYPOGEAL);
+    public HypogealImperiumTE(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+        super(blockEntityType, blockPos, blockState);
+    }
+
+    public HypogealImperiumTE(BlockPos blockPos, BlockState blockState) {
+        super(BYGTileEntities.HYPOGEAL, blockPos, blockState);
     }
 
     /*********************** Packets Start ***********************/
@@ -116,49 +120,49 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
         }
     }
 
-    @Override
-    public void tick() {
-        this.playSound();
-        this.addEffectsToMobs();
-        this.changeBlocksInRadius();
-        this.doCrystalLoad();
-        this.addParticles();
-        this.setLit();
+
+    public static void tick(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        playSound(level, blockPos, blockState, hypogealImperiumTE);
+        hypogealImperiumTE.addEffectsToMobs(level, blockPos, blockState, hypogealImperiumTE);
+        hypogealImperiumTE.changeBlocksInRadius(level, blockPos, blockState, hypogealImperiumTE);
+        hypogealImperiumTE.doCrystalLoad(level, blockPos, blockState, hypogealImperiumTE);
+        hypogealImperiumTE.addParticles(level, blockPos, blockState, hypogealImperiumTE);
+        hypogealImperiumTE.setLit(level, blockPos, blockState, hypogealImperiumTE);
     }
 
-    public void playSound(){
-        if (this.isLit()) {
-            if (this.level.getGameTime() % 80 == 0) {
-                this.level.playLocalSound(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.BLOCKS, 1, 1, false);
+    public static void playSound(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        if (hypogealImperiumTE.isLit()) {
+            if (level.getGameTime() % 80 == 0) {
+                level.playLocalSound(blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.BLOCKS, 1, 1, false);
             }
         }
     }
 
-    public void setLit() {
-        if (this.isLit()) {
-            this.level.setBlock(this.worldPosition, this.level.getBlockState(this.worldPosition).setValue(HypogealImperiumBlock.LIT, this.isLit()), 3);
-            this.setChanged();
+    public static void setLit(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        if (hypogealImperiumTE.isLit()) {
+            level.setBlock(hypogealImperiumTE.worldPosition, level.getBlockState(hypogealImperiumTE.worldPosition).setValue(HypogealImperiumBlock.LIT, hypogealImperiumTE.isLit()), 3);
+            hypogealImperiumTE.setChanged();
         }
     }
 
-    public void doCrystalLoad() {
-        ItemStack itemFuelItem = this.getItem(0);
-        ItemStack itemCatalystItem = this.getItem(1);
-        ItemStack resultItem = this.getItem(2);
+    public static void doCrystalLoad(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        ItemStack itemFuelItem = hypogealImperiumTE.getItem(0);
+        ItemStack itemCatalystItem = hypogealImperiumTE.getItem(1);
+        ItemStack resultItem = hypogealImperiumTE.getItem(2);
 
-        if (this.getCrystal() < 12) {
-            if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && this.getFuel() <= 0) {
-                this.setFuel(9);
+        if (hypogealImperiumTE.getCrystal() < 12) {
+            if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && hypogealImperiumTE.getFuel() <= 0) {
+                hypogealImperiumTE.setFuel(9);
                 itemFuelItem.shrink(1);
             }
             if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                if (this.getFuel() > 0) {
-                    this.setFuel(this.getFuel() - 1);
+                if (hypogealImperiumTE.getFuel() > 0) {
+                    hypogealImperiumTE.setFuel(hypogealImperiumTE.getFuel() - 1);
                     itemCatalystItem.shrink(1);
-                    this.setCrystal(this.getCrystal() + 1);
-                    this.getLevel().sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 13);
+                    hypogealImperiumTE.setCrystal(hypogealImperiumTE.getCrystal() + 1);
+                    hypogealImperiumTE.getLevel().sendBlockUpdated(hypogealImperiumTE.worldPosition, hypogealImperiumTE.getBlockState(), hypogealImperiumTE.getBlockState(), 13);
                     if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                        this.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
+                        hypogealImperiumTE.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
                     }
                     if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
                         resultItem.setCount(resultItem.getCount() + 1);
@@ -168,18 +172,17 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
         }
     }
 
-    public void addParticles() {
-        Level world = this.level;
-        int h = 6 + this.getCrystal();
-        for (int x1 = this.getBlockPos().getX() - h; x1 <= this.getBlockPos().getX() + h; ++x1) {
-            for (int y1 = this.getBlockPos().getY(); y1 <= this.getBlockPos().getY() + 6; ++y1) {
-                for (int z1 = this.getBlockPos().getZ() - h; z1 <= this.getBlockPos().getZ() + h; ++z1) {
-                    if (this.level.isClientSide) {
-                        if (getFuel() > 0) {
+    public static void addParticles(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        int h = 6 + hypogealImperiumTE.getCrystal();
+        if (level.isClientSide) {
+            for (int x1 = hypogealImperiumTE.getBlockPos().getX() - h; x1 <= hypogealImperiumTE.getBlockPos().getX() + h; ++x1) {
+                for (int y1 = hypogealImperiumTE.getBlockPos().getY(); y1 <= hypogealImperiumTE.getBlockPos().getY() + 6; ++y1) {
+                    for (int z1 = hypogealImperiumTE.getBlockPos().getZ() - h; z1 <= hypogealImperiumTE.getBlockPos().getZ() + h; ++z1) {
+                        if (hypogealImperiumTE.getFuel() > 0) {
                             Random rand = new Random();
                             int i = rand.nextInt(7);
                             if (i >= 4) {
-                                world.addParticle(ParticleTypes.WHITE_ASH, (double) x1, (double) y1, (double) z1, 0D, 5.0E-4D, 0D);
+                                level.addParticle(ParticleTypes.WHITE_ASH, (double) x1, (double) y1, (double) z1, 0D, 5.0E-4D, 0D);
                             }
                         }
                     }
@@ -188,18 +191,18 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
         }
     }
 
-    public void addEffectsToMobs() {
-        if (!this.level.isClientSide) {
-            AABB axisalignedbb = (new AABB(this.worldPosition)).inflate(6 + getCrystal()).expandTowards(0.0D, this.level.getHeight(), 0.0D);
-            List<Monster> list = this.level.getEntitiesOfClass(Monster.class, axisalignedbb);
+    public static void addEffectsToMobs(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        if (!level.isClientSide) {
+            AABB axisalignedbb = (new AABB(hypogealImperiumTE.worldPosition)).inflate(6 + hypogealImperiumTE.getCrystal()).expandTowards(0.0D, level.getHeight(), 0.0D);
+            List<Monster> list = level.getEntitiesOfClass(Monster.class, axisalignedbb);
             for (Monster mob : list) {
-                if (getFuel() > 0) {
+                if (hypogealImperiumTE.getFuel() > 0) {
                     mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
-                    --this.damageTime;
-                    if (this.damageTime <= 0) {
+                    --hypogealImperiumTE.damageTime;
+                    if (hypogealImperiumTE.damageTime <= 0) {
                         mob.hurt(DamageSource.MAGIC, 2);
-                        useFuel();
-                        this.damageTime = 100;
+                        useFuel(level, blockPos, blockState, hypogealImperiumTE);
+                        hypogealImperiumTE.damageTime = 100;
                     }
                 }
             }
@@ -207,21 +210,20 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
     }
 
 
-    public void changeBlocksInRadius() {
-        Level world = this.level;
-        if (getFuel() > 0) {
-            int h = 6 + this.getCrystal();
-            for (int x1 = this.getBlockPos().getX() - h; x1 <= this.getBlockPos().getX() + h; ++x1) {
-                for (int y1 = this.getBlockPos().getY() - 2; y1 <= this.getBlockPos().getY() + 5; ++y1) {
-                    for (int z1 = this.getBlockPos().getZ() - h; z1 <= this.getBlockPos().getZ() + h; ++z1) {
-                        if (!world.isClientSide) {
-                            if (world.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.WATER.defaultBlockState()) {
-                                world.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.ICE.defaultBlockState());
-                                useFuel();
+    public static void changeBlocksInRadius(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
+        if (!level.isClientSide) {
+            if (hypogealImperiumTE.getFuel() > 0) {
+                int h = 6 + hypogealImperiumTE.getCrystal();
+                for (int x1 = hypogealImperiumTE.getBlockPos().getX() - h; x1 <= hypogealImperiumTE.getBlockPos().getX() + h; ++x1) {
+                    for (int y1 = hypogealImperiumTE.getBlockPos().getY() - 2; y1 <= hypogealImperiumTE.getBlockPos().getY() + 5; ++y1) {
+                        for (int z1 = hypogealImperiumTE.getBlockPos().getZ() - h; z1 <= hypogealImperiumTE.getBlockPos().getZ() + h; ++z1) {
+                            if (level.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.WATER.defaultBlockState()) {
+                                level.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.ICE.defaultBlockState());
+                                useFuel(level, blockPos, blockState, hypogealImperiumTE);
                             }
-                            if (world.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.LAVA.defaultBlockState()) {
-                                world.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.OBSIDIAN.defaultBlockState());
-                                useFuel();
+                            if (level.getBlockState(new BlockPos(x1, y1, z1)) == Blocks.LAVA.defaultBlockState()) {
+                                level.setBlockAndUpdate(new BlockPos(x1, y1, z1), Blocks.OBSIDIAN.defaultBlockState());
+                                useFuel(level, blockPos, blockState, hypogealImperiumTE);
                             }
                         }
                     }
@@ -230,12 +232,12 @@ public class HypogealImperiumTE extends RandomizableContainerBlockEntity impleme
         }
     }
 
-    public void useFuel() {
+    public static void useFuel(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumTE hypogealImperiumTE) {
         int useFuel;
         Random random = new Random();
         useFuel = random.nextInt(11);
         if (useFuel > 9) {
-            this.setFuel(this.getFuel() - 1);
+            hypogealImperiumTE.setFuel(hypogealImperiumTE.getFuel() - 1);
         }
     }
 

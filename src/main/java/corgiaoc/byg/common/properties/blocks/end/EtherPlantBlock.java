@@ -4,8 +4,10 @@ import corgiaoc.byg.core.BYGBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,7 +15,9 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class EtherPlantBlock extends BushBlock {
+import java.util.Random;
+
+public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
     public EtherPlantBlock(Properties builder) {
@@ -41,12 +45,23 @@ public class EtherPlantBlock extends BushBlock {
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
-    public void performBonemeal(ServerLevel world, BlockPos pos) {
+    @Override
+    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+        return blockGetter.getBlockState(blockPos.above()).isAir();
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
+        return (double)level.random.nextFloat() < 0.45D;
+    }
+
+    public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState blockState) {
         DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS ? BYGBlocks.TALL_ETHER_GRASS : BYGBlocks.TALL_ETHER_GRASS);
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
-            doubleplantblock.placeAt(world, pos, 2);
+            DoublePlantBlock.placeAt(world, blockState, pos, 2);
         }
-
     }
+
+
 }
 

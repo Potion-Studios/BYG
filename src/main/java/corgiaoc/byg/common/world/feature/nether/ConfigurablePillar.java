@@ -5,17 +5,22 @@ import corgiaoc.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
 public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     public ConfigurablePillar(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<SimpleBlockProviderConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     //A copy paste of Minecraft's Basalt Pillar Feature where the blocks can be chosen in a config rather than hardcoded.
@@ -29,7 +34,7 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
             boolean flag3 = true;
 
             while (world.isEmptyBlock(mutable)) {
-                if (Level.isOutsideBuildHeight(mutable)) {
+                if (world.isOutsideBuildHeight(mutable)) {
                     return true;
                 }
 

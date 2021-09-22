@@ -8,6 +8,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -20,7 +21,12 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
     protected long seed;
     protected static FastNoise fastNoise;
 
+
     @Override
+    public boolean place(FeaturePlaceContext<SimpleBlockProviderConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);

@@ -42,7 +42,7 @@ public class RiverGenerator {
 
             BlockPos addedPos = previousNodePos.offset(vecAngle);
             ResourceKey<Biome> biomeRegistryKey = world.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY).getResourceKey(generator.getBiomeSource().getNoiseBiome(addedPos.getX() >> 2, addedPos.getY() >> 2, addedPos.getZ() >> 2)).get();
-            int newY = /*biomeRegistryKey == BYGBiomes.CANYON_KEY ? 218 :*/ generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG);
+            int newY = /*biomeRegistryKey == BYGBiomes.CANYON_KEY ? 218 :*/ generator.getFirstFreeHeight(addedPos.getX(), addedPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, world);
 
             if (newY > previousNodePos.getY()) {
                 newY = previousNodePos.getY();

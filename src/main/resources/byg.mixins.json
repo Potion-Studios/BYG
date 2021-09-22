@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "corgiaoc.byg.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "mixins": [
     "access.AxeItemAccess",
     "access.BiomeAccess",
@@ -16,10 +16,9 @@
     "access.BoatEntityAccess",
     "access.ClientLevelAccess",
     "access.DimensionStructuresSettingsAccess",
+    "access.DirtPathBlockAccess",
     "access.DoorBlockAccess",
-    "access.FillerBlockTypeAccess",
     "access.FireBlockAccess",
-    "access.GrassPathBlockAccess",
     "access.HoeItemAccess",
     "access.IronBarsBlockAccess",
     "access.ItemBlockRenderTypeAccess",
@@ -35,8 +34,7 @@
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",
     "access.VillagerTypeAccess",
-    "access.WeightedListAccess",
-    "access.WeightedListEntryAccess",
+    "access.WeightedRandomListAccess",
     "access.WoodButtonBlockAccess",
     "access.WorldCarverAccess",
     "access.WorldDecoratingHelperAccess",
@@ -55,12 +53,12 @@
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
     "common.world.ChunkStatusMixin",
+    "common.world.MixinOreConfigurationPredicates",
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.layers.MixinDimensionType",
     "common.world.layers.MixinHillsLayer",
     "common.world.layers.MixinRiverLayer",
     "common.world.layers.MixinShoreLayer",
-    "common.world.layers.ocean.MixinMixOceansLayer",
     "server.MixinCommands",
     "server.MixinMinecraftServer"
   ],
@@ -68,9 +66,10 @@
     "client.MixinBlockColors",
     "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
-    "client.MixinEntityRendererManager",
+    "client.MixinEntityRenderers",
     "client.MixinItemColors",
-    "client.MixinScreenManager"
+    "client.MixinScreenManager",
+    "client.MixinLayerDefinitions"
   ],
   "injectors": {
     "defaultRequire": 1

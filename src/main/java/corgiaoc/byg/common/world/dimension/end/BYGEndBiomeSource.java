@@ -7,11 +7,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.dimension.DatapackLayer;
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
-import corgiaoc.byg.mixin.access.WeightedListAccess;
+import corgiaoc.byg.mixin.access.WeightedRandomListAccess;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.ai.behavior.WeightedList;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedEntry;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Biomes;
@@ -40,11 +42,11 @@ public class BYGEndBiomeSource extends BiomeSource {
         this.biomeRegistry = registry;
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-        WeightedList<ResourceLocation> endBiomes = new WeightedList<>();
-        Map<ResourceLocation, WeightedList<ResourceLocation>> endHills = new HashMap<>();
+        SimpleWeightedRandomList.Builder<ResourceLocation> endBiomes = SimpleWeightedRandomList.builder();
+        Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> endHills = new HashMap<>();
         Map<ResourceLocation, ResourceLocation> biomeToEdge = new HashMap<>();
         Set<ResourceLocation> allBiomes = new HashSet<>();
-        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = BYG.getEndData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json"));
+        BiomeDataHolders.EndBiomeDataHolder endBiomeDataHolder = new BiomeDataHolders.EndBiomeDataHolder(new HashMap<>(), new HashMap<>());
         endBiomeDataHolder.getEndBiomeData().forEach(((biome, endBiomeData) -> {
             endBiomes.add(biome, endBiomeData.getWeight());
             endHills.put(biome, endBiomeData.getSubBiomes());
@@ -52,13 +54,13 @@ public class BYGEndBiomeSource extends BiomeSource {
             if (!edgeBiome.equals(BYG.EMPTY)) {
                 biomeToEdge.put(biome, edgeBiome);
             }
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) endBiomeData.getSubBiomes()).getItems().stream().map(WeightedEntry.Wrapper::getData).collect(Collectors.toList()));
         }));
         endHills.remove(BYG.EMPTY);
         biomeToEdge.remove(BYG.EMPTY);
 
-        WeightedList<ResourceLocation> voidBiomes = new WeightedList<>();
-        Map<ResourceLocation, WeightedList<ResourceLocation>> voidHillsMap = new HashMap<>();
+        SimpleWeightedRandomList.Builder<ResourceLocation> voidBiomes = SimpleWeightedRandomList.builder();
+        Map<ResourceLocation, WeightedRandomList<WeightedEntry.Wrapper<ResourceLocation>>> voidHillsMap = new HashMap<>();
         Map<ResourceLocation, ResourceLocation> voidBiomeToEdge = new HashMap<>();
 
         endBiomeDataHolder.getVoidBiomeData().forEach(((biome, endBiomeData) -> {
@@ -69,10 +71,10 @@ public class BYGEndBiomeSource extends BiomeSource {
                 voidBiomeToEdge.put(biome, edgeBiome);
             }
             allBiomes.add(biome);
-            allBiomes.addAll(((WeightedListAccess<ResourceLocation>) endBiomeData.getSubBiomes()).getEntries().stream().map(WeightedList.WeightedEntry::getData).collect(Collectors.toList()));
+            allBiomes.addAll(((WeightedRandomListAccess<WeightedEntry.Wrapper<ResourceLocation>>) endBiomeData.getSubBiomes()).getItems().stream().map(WeightedEntry.Wrapper::getData).collect(Collectors.toList()));
         }));
 
-        BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = BYG.getEndSubBiomeData(gson, BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-sub-biomes.json"));
+        BiomeDataHolders.EndSubBiomeDataHolder endSubBiomeDataHolder = new BiomeDataHolders.EndSubBiomeDataHolder(new HashMap<>(), new HashMap<>());
 
         endSubBiomeDataHolder.getEndSubBiomeData().forEach(((biome, endBiomeData) -> {
             ResourceLocation edgeBiome = endBiomeData.getEdgeBiome();
@@ -94,8 +96,8 @@ public class BYGEndBiomeSource extends BiomeSource {
         voidHillsMap.remove(BYG.EMPTY);
         voidBiomeToEdge.remove(BYG.EMPTY);
         this.possibleBiomes.addAll(allBiomes.stream().map(registry::get).collect(Collectors.toList()));
-        this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes, endHills, biomeToEdge);
-        this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes, voidHillsMap, voidBiomeToEdge);
+        this.mainIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().endBiomeSize, endBiomes.build(), endHills, biomeToEdge);
+        this.smallIslandLayer = SimpleLayerProvider.stackLayers(this.biomeRegistry, seed, BYG.worldConfig().voidBiomeSize, voidBiomes.build(), voidHillsMap, voidBiomeToEdge);
         this.generator = new SimplexNoise(sharedseedrandom);
     }
 

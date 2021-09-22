@@ -26,7 +26,7 @@ public class BYGFairySlipperBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.getBlock().is(BlockTags.LOGS) || state.getBlock().is(MLBlockTags.DIRT);
+        return state.is(BlockTags.LOGS) || state.is(MLBlockTags.DIRT);
     }
 
     @Override

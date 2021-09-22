@@ -34,7 +34,7 @@ public class LunaSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
         super(p_i51317_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         int i = x & 15;
         int j = z & 15;
         BlockState blockstate = TERRACOTTA;

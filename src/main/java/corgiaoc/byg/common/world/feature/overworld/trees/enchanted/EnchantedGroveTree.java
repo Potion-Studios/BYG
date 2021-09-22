@@ -25,7 +25,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
     protected static boolean isDirtOrPeatBlock(LevelSimulatedReader worldIn, BlockPos pos) {
         return worldIn.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return block.is(MLBlockTags.DIRT) || block == BYGBlocks.PEAT;
+            return state.is(MLBlockTags.DIRT) || block == BYGBlocks.PEAT;
         });
     }
 

@@ -28,7 +28,7 @@ public class AtOrBelowSeaLevelCountExtra extends FeatureDecorator<AtOrBelowSeaLe
             int moveDown = 0;
             int j = random.nextInt(16) + pos.getX();
             int k = random.nextInt(16) + pos.getZ();
-            int l = ((WorldDecoratingHelperAccess) ctx).getGenerator().getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
+            int l = ((WorldDecoratingHelperAccess) ctx).getLevel().getSeaLevel(); //Sea level from the chunk generator since this value is actually modified in the Nether.
 
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos(j, l, k);
             while (moveDown <= config.belowSeaLevel) {

@@ -17,7 +17,7 @@ public class CanyonEdgeSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration
         super(config);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;
@@ -34,6 +34,6 @@ public class CanyonEdgeSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration
                 chunkIn.getLiquidTicks().scheduleTick(mutable, Fluids.WATER, 0);
             }
         }
-        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState()));
+        SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, minSurfaceLevel, seed, new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState()));
     }
 }

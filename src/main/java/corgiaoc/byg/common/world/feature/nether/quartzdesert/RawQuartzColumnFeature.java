@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 
 import java.util.Random;
@@ -23,6 +24,11 @@ public class RawQuartzColumnFeature extends Feature<ColumnFeatureConfiguration> 
     public RawQuartzColumnFeature(
             Codec<ColumnFeatureConfiguration> codec) {
         super(codec);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<ColumnFeatureConfiguration> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel reader, ChunkGenerator generator, Random rand, BlockPos pos, ColumnFeatureConfiguration config) {

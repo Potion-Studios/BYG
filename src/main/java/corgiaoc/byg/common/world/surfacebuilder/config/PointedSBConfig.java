@@ -46,6 +46,11 @@ public class PointedSBConfig implements SurfaceBuilderConfiguration {
         return this.underMaterial;
     }
 
+    @Override
+    public BlockState getUnderwaterMaterial() {
+        return Blocks.AIR.defaultBlockState();
+    }
+
     public BlockStateProvider getSpikeProvider() {
         return this.spikeProvider;
     }

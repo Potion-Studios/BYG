@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 
 import java.util.Random;
@@ -38,7 +39,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     public boolean isAnotherFlowerHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
             Block block = state.getBlock();
-            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES);
+            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
         });
     }
 
@@ -97,7 +98,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     public boolean canGiantFlowerGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return block.is(BlockTags.LOGS) || block.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
+            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
         });
     }
 
@@ -125,9 +126,9 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.is(MLBlockTags.DIRT) || block == block1;
+                return state.is(MLBlockTags.DIRT) || block == block1;
             }
-            return block.is(MLBlockTags.DIRT);
+            return state.is(MLBlockTags.DIRT);
         });
     }
 
@@ -415,6 +416,10 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<T> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
         return placeFlower(worldIn, rand, pos, config.isPlacementForced(), config);
     }

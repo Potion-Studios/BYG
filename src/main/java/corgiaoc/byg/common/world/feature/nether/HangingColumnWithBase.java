@@ -10,6 +10,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -18,6 +19,11 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     public HangingColumnWithBase(Codec<HangingColumnWithBaseConfig> codec) {
         super(codec);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<HangingColumnWithBaseConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {

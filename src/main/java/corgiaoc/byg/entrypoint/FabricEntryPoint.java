@@ -4,7 +4,6 @@ import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.feature.blockplacer.BYGBlockPlacerTypes;
 import corgiaoc.byg.core.*;
 import corgiaoc.byg.core.world.*;
-import corgiaoc.byg.mixin.access.FillerBlockTypeAccess;
 import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.NetworkUtil;
 import net.fabricmc.api.ModInitializer;
@@ -12,7 +11,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -23,7 +21,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
-import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 
 import java.nio.file.Path;
@@ -34,6 +31,7 @@ import java.util.Set;
 
 public class FabricEntryPoint implements EntryPoint, ModInitializer {
     public static ResourceLocation SPAWN_PACKET_ID = new ResourceLocation(BYG.MOD_ID, "custom_spawn_packet");
+
     public FabricEntryPoint() {
         BYG.entryPoint = this;
         BYG.CONFIG_PATH = configDirectory();
@@ -125,7 +123,6 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
         BYG.LOGGER.debug("BYG: Registering biomes...");
         BYGBiomes.init();
         BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
-        BYGBiomes.CANYON_KEY = BYGBiomes.CANYON.getKey();
         BYG.LOGGER.info("BYG: Biomes registered!");
     }
 
@@ -146,7 +143,6 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
 
     public static void registerFeatures() {
         BYG.LOGGER.debug("BYG: Registering features...");
-        FillerBlockTypeAccess.setNetherFillerType(new TagMatchTest(BlockTags.BASE_STONE_NETHER));
         BYGFeatures.init();
         List<Feature<?>> features = BYGFeatures.features;
         BYG.LOGGER.info("BYG: Features registered!");

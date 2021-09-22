@@ -18,17 +18,17 @@ public class RedDunesSB extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> 
         super(p_i51312_1_);
     }
 
-    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderBaseConfiguration config) {
+    public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int minSurfaceLevel, long seed, SurfaceBuilderBaseConfiguration config) {
         BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos();
         int xPos = x & 15;
         int zPos = z & 15;
         for (int yPos = startHeight - 3; yPos >= seaLevel; --yPos) {
             block.set(xPos, yPos, zPos);
             BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-            if (currentBlockToReplace.getBlock().is(BlockTags.BASE_STONE_OVERWORLD) || currentBlockToReplace == Blocks.RED_SANDSTONE.defaultBlockState()) {
+            if (currentBlockToReplace.is(BlockTags.BASE_STONE_OVERWORLD) || currentBlockToReplace == Blocks.RED_SANDSTONE.defaultBlockState()) {
                 chunkIn.setBlockState(block, Blocks.RED_SAND.defaultBlockState(), false);
             }
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.REDSAND_CF);
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, minSurfaceLevel, seed, BYGSurfaceBuilders.Configs.REDSAND_CF);
         }
     }
 }

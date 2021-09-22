@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Random;
 
@@ -24,6 +25,10 @@ public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     }
 
     @Override
+    public boolean place(FeaturePlaceContext<QuartzSpikeConfig> featurePlaceContext) {
+        return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
+    }
+
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, QuartzSpikeConfig config) {
 
         if (!IS_QUARTZ_SAND.test(world.getBlockState(pos.below()))){
