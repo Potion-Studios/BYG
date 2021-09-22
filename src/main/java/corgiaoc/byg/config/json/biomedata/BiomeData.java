@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.EitherCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.util.BiomeKeyUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -17,7 +18,7 @@ public class BiomeData {
     public static final Codec<BiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(new EitherCodec<>(Codec.STRING,  Codec.STRING.listOf()).xmap(e -> e.map((string) -> Arrays.asList(string.split(",")), list -> list), Either::right).optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", null).forGetter((subBiomeData) -> {
+        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
         })).apply(builder, BiomeData::new);
     });
