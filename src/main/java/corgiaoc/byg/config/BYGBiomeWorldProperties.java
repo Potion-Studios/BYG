@@ -2,6 +2,7 @@ package corgiaoc.byg.config;
 
 import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.config.json.biomedata.OverworldPrimaryBiomeData;
+import corgiaoc.byg.config.json.biomedata.WeightedBiomeData;
 import corgiaoc.byg.util.MLClimate;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.Util;
@@ -58,16 +59,45 @@ public class BYGBiomeWorldProperties {
     }));
 
     public static final BiomeDataHolders.WeightedBiomeDataHolder NETHER_DEFAULTS = new BiomeDataHolders.WeightedBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
+        map.put(BRIMSTONE_CAVERNS, new WeightedBiomeData(6, List.of("NETHER"), BRIMSTONE_CAVERNS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(CRIMSON_GARDENS, new WeightedBiomeData(6, List.of("NETHER"), CRIMSON_GARDENS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(EMBUR_BOG, new WeightedBiomeData(6, List.of("NETHER"), EMBUR_BOG, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(GLOWSTONE_GARDENS, new WeightedBiomeData(6, List.of("NETHER"), GLOWSTONE_GARDENS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(MAGMA_WASTES, new WeightedBiomeData(6, List.of("NETHER"), MAGMA_WASTES, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(QUARTZ_DESERT, new WeightedBiomeData(6, List.of("NETHER"), QUARTZ_DESERT, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SUBZERO_HYPOGEAL, new WeightedBiomeData(6, List.of("NETHER"), SUBZERO_HYPOGEAL, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SYTHIAN_TORRIDS, new WeightedBiomeData(6, List.of("NETHER"), SYTHIAN_TORRIDS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(WAILING_GARTH, new WeightedBiomeData(6, List.of("NETHER"), WAILING_GARTH, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(WARPED_DESERT, new WeightedBiomeData(6, List.of("NETHER"), WARPED_DESERT, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(WEEPING_MIRE, new WeightedBiomeData(6, List.of("NETHER"), WEEPING_MIRE, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(WITHERING_WOODS, new WeightedBiomeData(6, List.of("NETHER"), WITHERING_WOODS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
 
     }));
 
     public static final BiomeDataHolders.EndBiomeDataHolder END_DEFAULTS = new BiomeDataHolders.EndBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
+        map.put(BULBIS_GARDENS, new WeightedBiomeData(6, List.of("END"), BULBIS_GARDENS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(CRYPTIC_WASTES, new WeightedBiomeData(6, List.of("END"), CRYPTIC_WASTES, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(ETHEREAL_ISLANDS, new WeightedBiomeData(6, List.of("END"), ETHEREAL_ISLANDS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(IMPARIUS_GROVE, new WeightedBiomeData(6, List.of("END"), IMPARIUS_GROVE, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(IVIS_FIELDS, new WeightedBiomeData(6, List.of("END"), IVIS_FIELDS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(NIGHTSHADE_FOREST, new WeightedBiomeData(6, List.of("END"), NIGHTSHADE_FOREST, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(PURPUR_PEAKS, new WeightedBiomeData(6, List.of("END"), PURPUR_PEAKS, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SHATTERED_DESERT, new WeightedBiomeData(6, List.of("END"), SHATTERED_DESERT, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SHATTERED_DESERT_ISLES, new WeightedBiomeData(6, List.of("END"), SHATTERED_DESERT_ISLES, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SHULKREN_FOREST, new WeightedBiomeData(6, List.of("END"), SHULKREN_FOREST, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(VISCAL_ISLES, new WeightedBiomeData(6, List.of("END"), VISCAL_ISLES, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+
 
     }), Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
 
     }));
 
     public static final BiomeDataHolders.EndSubBiomeDataHolder END_SUB_DEFAULTS = new BiomeDataHolders.EndSubBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
+        map.put(BULBIS_GARDENS_EDGE, new WeightedBiomeData(6, List.of("END"), BULBIS_GARDENS_EDGE, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(ETHEREAL_CLEARING, new WeightedBiomeData(6, List.of("END"), ETHEREAL_CLEARING, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(ETHEREAL_FOREST, new WeightedBiomeData(6, List.of("END"), ETHEREAL_FOREST, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(IMPARIUS_CLEARING, new WeightedBiomeData(6, List.of("END"), IMPARIUS_CLEARING, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+        map.put(SHATTERED_VISCAL_ISLES, new WeightedBiomeData(6, List.of("END"), SHATTERED_VISCAL_ISLES, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
 
     }), Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
 
