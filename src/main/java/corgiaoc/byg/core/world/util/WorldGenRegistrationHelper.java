@@ -127,7 +127,7 @@ public class WorldGenRegistrationHelper {
             BYG.LOGGER.warn("Duplicate Biome Numerical ID: " + numericalID + " at byg:" + id);
         ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
 
-        BYGBiomes.biomeList.add(new BYGBiomes.PreserveBiomeOrder(key, biome, numericalID));
+        BYGBiomes.BIOMES.add(new BYGBiomes.PreserveBiomeOrder(key, biome, numericalID));
         integerList.add(numericalID);
         return key;
     }

@@ -122,7 +122,7 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
     public static void registerBiomes() {
         BYG.LOGGER.debug("BYG: Registering biomes...");
         BYGBiomes.init();
-        BYGBiomes.biomeList.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
+        BYGBiomes.BIOMES.sort(Comparator.comparingInt(BYGBiomes.PreserveBiomeOrder::getOrderPosition));
         BYG.LOGGER.info("BYG: Biomes registered!");
     }
 

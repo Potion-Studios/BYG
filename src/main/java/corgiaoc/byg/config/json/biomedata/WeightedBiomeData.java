@@ -30,6 +30,10 @@ public class WeightedBiomeData extends BiomeData {
     private final int weight;
     private final WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes;
 
+    public WeightedBiomeData(int weight, List<String> dictionary, ResourceKey<Biome> edgeBiome) {
+        this(weight, dictionary, edgeBiome, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build());
+    }
+
     public WeightedBiomeData(int weight, List<String> dictionary, ResourceKey<Biome> edgeBiome, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
         super(dictionary, edgeBiome);
         this.weight = weight;

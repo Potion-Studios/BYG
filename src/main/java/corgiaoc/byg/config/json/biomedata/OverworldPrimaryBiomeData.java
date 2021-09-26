@@ -40,6 +40,10 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
     private final ResourceKey<Biome> beachBiome;
     private final ResourceKey<Biome> riverBiome;
 
+    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary) {
+        this(climate, weight, dictionary, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build());
+    }
+
     public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
         this(climate, weight, dictionary, subBiomes, BiomeKeyUtil.EMPTY);
     }
