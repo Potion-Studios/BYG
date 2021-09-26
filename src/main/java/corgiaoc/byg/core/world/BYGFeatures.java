@@ -1,9 +1,6 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.feature.Column;
-import corgiaoc.byg.common.world.feature.MineralDeposit;
-import corgiaoc.byg.common.world.feature.NoisyCaveSphere;
-import corgiaoc.byg.common.world.feature.NoisyCaveSphereWater;
+import corgiaoc.byg.common.world.feature.*;
 import corgiaoc.byg.common.world.feature.config.*;
 import corgiaoc.byg.common.world.feature.end.EndLakeFeature;
 import corgiaoc.byg.common.world.feature.end.islands.*;
@@ -176,6 +173,7 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisySphereConfig.CODEC.stable()));
+    public static final Feature<NoisySphereConfig> NOISY_SPHERE = createFeature("noisy_sphere", new NoisySphere(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> MINERAL_DEPOSIT = createFeature("mineral_deposit", new MineralDeposit(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> COLUMN = createFeature("column", new Column(NoisySphereConfig.CODEC.stable()));
