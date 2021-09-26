@@ -137,8 +137,8 @@ public class EndBiomes {
     public static Biome ivisFields() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(BYGConfiguredSurfaceBuilders.IVIS_FIELDS);
-        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES);
-        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES2);
+        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_FIELDS_COLUMN);
+//        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.IVIS_SPIKES2);
         BYGDefaultBiomeFeatures.addIvisPlants(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(generationSettings);
         generationSettings.addStructureStart(StructureFeatures.END_CITY).addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, Features.END_GATEWAY);

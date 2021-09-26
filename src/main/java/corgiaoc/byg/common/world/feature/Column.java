@@ -47,7 +47,7 @@ public class Column extends Feature<NoisySphereConfig> {
                         mutable2.set(mutable).move(x, y, z);
                         //Credits to Hex_26 for this equation!
                         double equationResult = Math.pow(x, 2) / Math.pow(xRadius, 2) + Math.pow(y, 2) / Math.pow(yRadius, 2) + Math.pow(z, 2) / Math.pow(zRadius, 2);
-                        float noise = use2D ? fastNoise.GetNoise(mutable2.getX(), mutable2.getZ()) : fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
+                        float noise = use2D ? fastNoise.GetNoise(mutable2.getX(), mutable2.getZ()) : fastNoise.GetNoise(mutable2.getX(), mutable2.getY() / 1.5F, mutable2.getZ());
                         if (noise < 0) {
                             int i = 0;
                         }
@@ -55,7 +55,9 @@ public class Column extends Feature<NoisySphereConfig> {
                         if (equationResult >= threshold) {
                             continue;
                         }
-                        world.setBlock(mutable2, config.getBlockProvider().getState(random, mutable2), 2);
+
+                        world.setBlock(mutable2.move(Direction.DOWN), config.getTopBlockProvider().getState(random, mutable2), 2);
+                        world.setBlock(mutable2.move(Direction.DOWN), config.getBlockProvider().getState(random, mutable2), 2);
                     }
                 }
             }
