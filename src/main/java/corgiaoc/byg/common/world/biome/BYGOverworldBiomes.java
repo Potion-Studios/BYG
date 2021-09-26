@@ -2549,7 +2549,7 @@ public class BYGOverworldBiomes {
 
         public static Biome fragmentForest(boolean pointed) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(pointed ? BYGConfiguredSurfaceBuilders.STONE_FOREST_POINTED : BYGConfiguredSurfaceBuilders.STONE_FOREST);
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(SurfaceBuilders.GRASS);
         generationSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
@@ -2568,6 +2568,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.STONE_FOREST_COLUMN);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

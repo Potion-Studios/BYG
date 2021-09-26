@@ -2,6 +2,7 @@ package corgiaoc.byg.config.json.biomedata;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.util.BiomeKeyUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;

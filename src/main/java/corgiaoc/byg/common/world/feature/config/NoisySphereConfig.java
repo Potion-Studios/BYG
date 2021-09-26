@@ -241,7 +241,7 @@ public class NoisySphereConfig implements FeatureConfiguration {
             return this;
         }
 
-        public Builder setMaxHeight(int maxPossibleHeight) {
+        public Builder setMaxStackHeight(int maxPossibleHeight) {
             if (maxPossibleHeight <= 0)
                 this.maxStackHeight = minStackHeight + 1;
             else
@@ -317,7 +317,7 @@ public class NoisySphereConfig implements FeatureConfiguration {
         }
 
         public NoisySphereConfig build() {
-            return new NoisySphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius / 2, maxYRadius / 2, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency, this.fluidStartY);
+            return new NoisySphereConfig(this.blockProvider, this.topBlockProvider, this.minStackHeight, this.maxStackHeight, this.minXRadius / 2, this.maxXRadius / 2, minYRadius, maxYRadius, minZRadius / 2, maxZRadius / 2, this.radiusDivisorPerStack, this.noiseFrequency, this.fluidStartY);
         }
     }
 }
