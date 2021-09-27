@@ -49,13 +49,14 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
             int height = getArchHeight(z, curviness);
             mutable2.move(Direction.UP, height + pos.getY() + 15);
 
-
             int worldHeight = world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, mutable2.getX(), mutable2.getZ());
             if(worldHeight - 5 < mutable2.getY()) {
-                BYGFeatures.NOISY_SPHERE.place(new FeaturePlaceContext<>(world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).setMinXRadius(4).setMaxXRadius(7).setMinZRadius(4).setMaxZRadius(7).setMinYRadius(7).setMaxYRadius(10).build()));
+                FeaturePlaceContext<NoisySphereConfig> featurePlaceContext = new FeaturePlaceContext<>(world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).setMinXRadius(4).setMaxXRadius(7).setMinZRadius(4).setMaxZRadius(7).setMinYRadius(7).setMaxYRadius(10).build());
+                BYGFeatures.NOISY_SPHERE.place(featurePlaceContext);
+                // Make sure we find a floor and connect it.
                 if (z == -curveLength || z == curveLength) {
                     while (mutable2.getY() > worldHeight - 5) {
-                        BYGFeatures.NOISY_SPHERE.place(new FeaturePlaceContext<>(world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).setMinXRadius(4).setMaxXRadius(7).setMinZRadius(4).setMaxZRadius(7).setMinYRadius(7).setMaxYRadius(10).build()));
+                        BYGFeatures.NOISY_SPHERE.place(featurePlaceContext);
                         mutable2.move(Direction.DOWN, 3);
                     }
                 }

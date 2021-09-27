@@ -69,7 +69,7 @@ public class Column extends Feature<NoisySphereConfig> {
                             continue;
                         }
 
-                        world.setBlock(mutable2.move(Direction.DOWN), config.getTopBlockProvider().getState(random, mutable2), 2);
+                        world.setBlock(mutable2, config.getTopBlockProvider().getState(random, mutable2), 2);
                         world.setBlock(mutable2.move(Direction.DOWN), config.getBlockProvider().getState(random, mutable2), 2);
                     }
                 }
