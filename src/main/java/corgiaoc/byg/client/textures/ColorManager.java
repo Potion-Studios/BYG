@@ -26,6 +26,8 @@ public class ColorManager {
             return blockColors.getColor(state, null, null, tintIndex);
         };
 
+        BYGItems.init(); // Make sure we've initialized.
+
         if (itemBlockColourHandler != null) {
             itemColors.register(itemBlockColourHandler,
                     BYGItems.MEADOW_GRASSBLOCK, BYGItems.OVERGROWN_NETHERRACK, BYGItems.MAHOGANY_LEAVES,
