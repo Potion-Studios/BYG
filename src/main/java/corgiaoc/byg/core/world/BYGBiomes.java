@@ -63,7 +63,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea(), 20);
     public static ResourceKey<Biome> DECIDUOUS_FOREST = createBiome("deciduous_forest", deciduousForest(false), 21);
     public static ResourceKey<Biome> DOVER_MOUNTAINS = createBiome("dover_mountains", doverMountains(), 19);
-    public static ResourceKey<Biome> DUNES = createBiome("dunes", dunes(false), 21);
+    public static ResourceKey<Biome> DUNES = createBiome("dunes", dunes(false), 26);
     public static ResourceKey<Biome> RED_DESERT_DUNES = createBiome("red_desert_dunes", dunes(true), 22);
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods(), 23);
     public static ResourceKey<Biome> ENCHANTED_FOREST = createBiome("enchanted_forest", enchantedForest(), 24);
