@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.FireBlock;
 public class BYGFlammables {
     public static void flammableBlock(Block block, int flameOdd, int burnOdd) {
         FireBlock fire = (FireBlock) Blocks.FIRE;
-        ((FireBlockAccess) fire).invokeSetFlammable(block, flameOdd, burnOdd);
+        ((FireBlockAccess) fire).byg_setFlammable(block, flameOdd, burnOdd);
     }
 
     public static void flammablesBYG() {
