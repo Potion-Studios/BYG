@@ -1200,24 +1200,34 @@ public class BYGOverworldBiomes {
     public static Biome forestFault() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(BYGConfiguredSurfaceBuilders.BLACK_FOREST);
+        generationSettings.addStructureStart(StructureFeatures.WOODLAND_MANSION); //Mansion
+        generationSettings.addStructureStart(StructureFeatures.VILLAGE_PLAINS); //Taiga Village
+        generationSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
+        generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
-        BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
+        BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
+        BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BiomeDefaultFeatures.addDefaultSprings(generationSettings);
+        BiomeDefaultFeatures.addSparseBerryBushes(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseBlackForestTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
-        BYGDefaultBiomeFeatures.addTulips(generationSettings);
-        BYGDefaultBiomeFeatures.addTulips(generationSettings);
-        BYGDefaultBiomeFeatures.addTulips(generationSettings);
+        BYGDefaultBiomeFeatures.addSages(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+        BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
+        BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
