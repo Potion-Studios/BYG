@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.mixin.access.AxeItemAccess;
@@ -1220,14 +1221,25 @@ public class BYGItems {
 
     public static Item createItem(Item item, Block block) {
         ResourceLocation id = Registry.BLOCK.getKey(block);
-
-        if (id != null && !id.equals(new ResourceLocation("minecraft:air"))) {
-            final RegistryObject<Item> tRegistryObject = new RegistryObject<>(item, id.getPath());
-            ITEMS.add(tRegistryObject);
-            return item;
-        } else {
-            throw new IllegalArgumentException("Could not construct item from block!");
+        if (id == null || !id.equals(new ResourceLocation("minecraft:air"))) {
+            boolean recovered = false;
+            for (RegistryObject<Block> blockRegistryObject : BYGBlocks.BLOCKS) {
+                if (blockRegistryObject.object() == block) {
+                    recovered = true;
+                    id = new ResourceLocation(BYG.MOD_ID, blockRegistryObject.id());
+                    break;
+                }
+            }
+            if (recovered) {
+                BYG.LOGGER.error(String.format("Block \"%s\" was null in the block registry. Using value from BYG's tracked registered blocks...", id.toString()));
+            } else {
+                throw new IllegalArgumentException("Could not construct item from block using BYG's tracked block list! This should not be possible...");
+            }
         }
+
+        final RegistryObject<Item> tRegistryObject = new RegistryObject<>(item, id.getPath());
+        ITEMS.add(tRegistryObject);
+        return item;
     }
 
     public static Item createItem(Item item, String id) {
@@ -1237,5 +1249,8 @@ public class BYGItems {
 
     public static void bootStrap(Consumer<Collection<RegistryObject<Item>>> registryStrategy) {
         registryStrategy.accept(ITEMS);
+    }
+
+    public static void init() {
     }
 }

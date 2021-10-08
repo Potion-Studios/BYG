@@ -1963,7 +1963,7 @@ public class BYGBlocks {
         return block;
     }
 
-    public static void staticInit() {
+    public static void init() {
 
     }
     public static void bootStrap(Consumer<Collection<RegistryObject<Block>>> registryStrategy) {
