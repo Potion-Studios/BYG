@@ -58,12 +58,12 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest(), 15);
     public static ResourceKey<Biome> CIKA_WOODS = createBiome("cika_woods", cikaWoods(), 12);
     public static ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", coniferousForest(false), 13);
-    public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens(), 13);
+    public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens(), 14);
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands(), 18);
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea(), 20);
     public static ResourceKey<Biome> DECIDUOUS_FOREST = createBiome("deciduous_forest", deciduousForest(false), 21);
     public static ResourceKey<Biome> DOVER_MOUNTAINS = createBiome("dover_mountains", doverMountains(), 19);
-    public static ResourceKey<Biome> DUNES = createBiome("dunes", dunes(false), 22);
+    public static ResourceKey<Biome> DUNES = createBiome("dunes", dunes(false), 26);
     public static ResourceKey<Biome> RED_DESERT_DUNES = createBiome("red_desert_dunes", dunes(true), 22);
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods(), 23);
     public static ResourceKey<Biome> ENCHANTED_FOREST = createBiome("enchanted_forest", enchantedForest(), 24);

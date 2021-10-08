@@ -24,10 +24,12 @@ public class MixinWalkNodeProcessor {
         }
     }
 
-    @Inject(method = "getBlockPathTypeRaw", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z", ordinal = 0), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir, BlockState blockstate, Block block, Material material) {
-        if (blockstate.is(BYGBlocks.QUARTZ_CRYSTAL)) {
+    @Inject(method = "getBlockPathTypeRaw", at = @At("RETURN"), cancellable = true)
+    private static void avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir) {
+        BlockState blockState = blockGetter.getBlockState(blockPos);
+        if (blockState.is(BYGBlocks.QUARTZ_CRYSTAL)) {
             cir.setReturnValue(BlockPathTypes.DAMAGE_OTHER);
         }
     }
+
 }
