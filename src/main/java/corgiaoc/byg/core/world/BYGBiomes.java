@@ -52,7 +52,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley(), 6);
     public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna(), 7);
     public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou(), 8);
-    public static ResourceKey<Biome> BLUE_TAIGA = createBiome("blue_taiga", blueTaiga(false, false), 9);
     public static ResourceKey<Biome> BLUFF_STEEPS = createBiome("bluff_steeps", bluffSteeps(false), 10);
     public static ResourceKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", borealForest(), 11);
     public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest(), 15);
@@ -63,8 +62,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea(), 20);
     public static ResourceKey<Biome> DECIDUOUS_FOREST = createBiome("deciduous_forest", deciduousForest(false), 21);
     public static ResourceKey<Biome> DOVER_MOUNTAINS = createBiome("dover_mountains", doverMountains(), 19);
-    public static ResourceKey<Biome> DUNES = createBiome("dunes", dunes(false), 26);
-    public static ResourceKey<Biome> RED_DESERT_DUNES = createBiome("red_desert_dunes", dunes(true), 22);
+    public static ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", windsweptDunes(false), 26);
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods(), 23);
     public static ResourceKey<Biome> ENCHANTED_FOREST = createBiome("enchanted_forest", enchantedForest(), 24);
     public static ResourceKey<Biome> ENCHANTED_GROVE = createBiome("enchanted_grove", enchantedGrove(false), 30);
@@ -77,7 +75,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> MANGROVE_MARSHES = createBiome("mangrove_marshes", mangroveMarshes(), 33);
     public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga(), 34);
     public static ResourceKey<Biome> MARSHLANDS = createBiome("marshlands", marshlands(), 112);
-    public static ResourceKey<Biome> MEADOW = createBiome("meadow", meadow(false, false), 35);
+    public static ResourceKey<Biome> ALPINE_MEADOW = createBiome("alpine_meadow", alpineMeadow(false, false), 35);
     public static ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", mojaveDesert(), 36);
     public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra(), 37);
     public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard(), 38);
@@ -90,15 +88,14 @@ public class BYGBiomes {
     public static ResourceKey<Biome> SEASONAL_BIRCH_FOREST = createBiome("seasonal_birch_forest", seasonalBirchForest(), 44);
     public static ResourceKey<Biome> SEASONAL_DECIDUOUS_FOREST = createBiome("seasonal_deciduous_forest", seasonalDeciduousForest(), 45);
     public static ResourceKey<Biome> SEASONAL_FOREST = createBiome("seasonal_forest", seasonalForest(), 46);
-    public static ResourceKey<Biome> SEASONAL_TAIGA = createBiome("seasonal_taiga", seasonalTaiga(false), 47);
+    public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false), 47);
     public static ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", shatteredGlacier(), 48);
-    public static ResourceKey<Biome> SHRUBLANDS = createBiome("shrublands", shrublands(), 49);
+    public static ResourceKey<Biome> FIRE_CRACKER_SHRUBLANDS = createBiome("firecracker_shrublands", firecrackerShrublands(), 49);
     public static ResourceKey<Biome> SIERRA_VALLEY = createBiome("sierra_valley", sierraValley(), 59);
-    public static ResourceKey<Biome> SKYRIS_HIGHLANDS = createBiome("skyris_highlands", skyrisHighlands(), 50);
+    public static ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", skyrisVale(), 50);
     public static ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", redwoodThicket(), 16);
-    public static ResourceKey<Biome> SNOWY_BLUE_TAIGA = createBiome("snowy_blue_taiga", blueTaiga(true, false), 51);
+    public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false), 51);
     public static ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = createBiome("snowy_coniferous_forest", coniferousForest(true), 52);
-    public static ResourceKey<Biome> SNOWY_DECIDUOUS_FOREST = createBiome("snowy_deciduous_forest", deciduousForest(true), 53);
     public static ResourceKey<Biome> SNOWY_EVERGREEN_TAIGA = createBiome("snowy_evergreen_taiga", evergreenTaiga(true), 54);
     public static ResourceKey<Biome> STONE_FOREST = createBiome("fragment_forest", fragmentForest(false), 148);
     public static ResourceKey<Biome> THE_BLACK_FOREST = createBiome("black_forest", blackForest(), 55);
@@ -108,7 +105,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest(), 60);
     public static ResourceKey<Biome> WOODLANDS = createBiome("woodlands", temperateRainForest(), 61);
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest(), 62);
-
 
     /************Sub Biomes************/
     //Beaches
@@ -123,7 +119,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> FLOWERING_ANCIENT_FOREST = createBiome("flowering_ancient_forest", ancientForest(true, false), 68);
     public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = createBiome("flowering_enchanted_grove", enchantedGrove(true), 95);
     public static ResourceKey<Biome> FLOWERING_GROVE = createBiome("flowering_grove", grove(true), 94);
-    public static ResourceKey<Biome> FLOWERING_MEADOW = createBiome("flowering_meadow", meadow(true, false), 133);
+    public static ResourceKey<Biome> FLOWERING_ALPINE_MEADOW = createBiome("flowering_alpine_meadow", alpineMeadow(true, false), 133);
 
     //Forests
     public static ResourceKey<Biome> ARAUCARIA_FOREST = createBiome("araucaria_forest", araucariaSavanna(true), 152);
@@ -139,17 +135,16 @@ public class BYGBiomes {
     public static ResourceKey<Biome> BLUFF_PEAKS = createBiome("bluff_peaks", bluffSteeps(true), 103);
 
     //Sub
-    public static ResourceKey<Biome> BLUE_GIANT_TAIGA = createBiome("blue_giant_taiga", blueTaiga(false, true), 102);
+    public static ResourceKey<Biome> FROSTED_GIANT_TAIGA = createBiome("frosted_giant_taiga", frostedTaiga(true, true), 102);
     public static ResourceKey<Biome> CORAL_MANGROVES = createBiome("coral_mangroves", coralMangroves(), 65);
     public static ResourceKey<Biome> FUNGAL_PATCH = createBiome("fungal_patch", fungalPatch(), 75);
     public static ResourceKey<Biome> GREAT_LAKE_ISLES = createBiome("great_lake_isles", greatLakeIsles(), 110);
     public static ResourceKey<Biome> LUSH_RED_DESERT = createBiome("lush_red_desert", redDesert(true), 97);
     public static ResourceKey<Biome> RED_SPRUCE_TAIGA = createBiome("red_spruce_taiga", redTaiga(), 155);
-    public static ResourceKey<Biome> SNOWY_BLUE_GIANT_TAIGA = createBiome("snowy_blue_giant_taiga", blueTaiga(true, true), 125);
-    public static ResourceKey<Biome> WOODED_MEADOW = createBiome("wooded_meadow", meadow(false, true), 134);
+    public static ResourceKey<Biome> WOODED_ALPINE_MEADOW = createBiome("wooded_alpine_meadow", alpineMeadow(false, true), 134);
 
     //Mutations
-    public static ResourceKey<Biome> SEASONAL_GIANT_TAIGA = createBiome("seasonal_giant_taiga", seasonalTaiga(true), 123);
+    public static ResourceKey<Biome> AUTUMNAL_GIANT_TAIGA = createBiome("autumnal_giant_taiga", autumnalTaiga(true), 123);
 
 
     /************Nether Biomes************/

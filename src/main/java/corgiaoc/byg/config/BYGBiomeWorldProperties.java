@@ -27,7 +27,7 @@ public class BYGBiomeWorldProperties {
         map.put(AUTUMNAL_VALLEY, new OverworldPrimaryBiomeData(MLClimate.COOL, 5, List.of("PLAINS", "DRY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(CIKA_WOODS, 5).build()));
         map.put(BAOBAB_SAVANNA, new OverworldPrimaryBiomeData(MLClimate.HOT, 6, List.of("SAVANNA", "SPARSE", "DRY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(SAVANNA, 5).build()));
         map.put(BAYOU, new OverworldPrimaryBiomeData(MLClimate.WARM, 5, List.of("SWAMP", "FOREST", "WET", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, BAYOU, BAYOU));
-        map.put(BLUE_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COOL, 6, List.of("FOREST", "COLD", "CONIFEROUS", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(BLUE_GIANT_TAIGA, 5).build()));
+        map.put(FROSTED_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COOL, 6, List.of("FOREST", "SNOWY", "CONIFEROUS", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FROSTED_GIANT_TAIGA, 5).build()));
         map.put(BLUFF_STEEPS, new OverworldPrimaryBiomeData(MLClimate.COOL, 6, List.of("MOUNTAIN", "CONIFEROUS", "COLD", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(BLUFF_PEAKS, 10).build()));
         map.put(BOREAL_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 6, List.of("FOREST", "OVERWORLD")));
         map.put(CHERRY_BLOSSOM_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 6, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(BAMBOO_FOREST, 2).add(GROVE, 5).add(FLOWERING_GROVE, 1).build()));
@@ -38,7 +38,7 @@ public class BYGBiomeWorldProperties {
         map.put(DEAD_SEA, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("OCEAN", "WASTELAND", "SPOOKY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, DEAD_SEA, DEAD_SEA));
         map.put(DECIDUOUS_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 6, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_GROVE, 1).add(GROVE, 7).build()));
         map.put(DOVER_MOUNTAINS, new OverworldPrimaryBiomeData(MLClimate.COOL, 3, List.of("MOUNTAIN", "COLD", "CONIFEROUS", "OVERWORLD")));
-        map.put(DUNES, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("DRY", "HOT", "SANDY", "OVERWORLD")));
+        map.put(WINDSWEPT_DUNES, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("DRY", "HOT", "SANDY", "OVERWORLD")));
         map.put(EBONY_WOODS, new OverworldPrimaryBiomeData(MLClimate.WARM, 4, List.of("FOREST", "DENSE", "OVERWORLD")));
         map.put(ENCHANTED_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "RARE", "MAGICAL", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(ENCHANTED_GROVE, 10).add(FLOWERING_ENCHANTED_GROVE, 5).build()));
         map.put(ENCHANTED_GROVE, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("PLAINS", "LUSH", "MAGICAL", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_ENCHANTED_GROVE, 1).build()));
@@ -50,11 +50,11 @@ public class BYGBiomeWorldProperties {
         map.put(LUSH_TUNDRA, new OverworldPrimaryBiomeData(MLClimate.COLD, 6, List.of("PLAINS", "COLD", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(NORTHERN_FOREST, 10).build(), EMPTY, BASALT_BARRERA, EMPTY));
         map.put(MANGROVE_MARSHES, new OverworldPrimaryBiomeData(MLClimate.WARM, 4, List.of("SWAMP", "FOREST", "WET", "DENSE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(CORAL_MANGROVES, 10).build(), EMPTY, MANGROVE_MARSHES, MANGROVE_MARSHES));
         map.put(MAPLE_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COOL, 5, List.of("FOREST", "COLD", "OVERWORLD")));
-        map.put(MEADOW, new OverworldPrimaryBiomeData(MLClimate.WARM, 7, List.of("PLAINS", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(WOODED_MEADOW, 10).build()));
+        map.put(ALPINE_MEADOW, new OverworldPrimaryBiomeData(MLClimate.COOL, 7, List.of("PLAINS", "LUSH", "COLD", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(WOODED_ALPINE_MEADOW, 1).add(FLOWERING_ALPINE_MEADOW, 2).build()));
         map.put(MOJAVE_DESERT, new OverworldPrimaryBiomeData(MLClimate.HOT, 3, List.of("DRY", "HOT", "SANDY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(DESERT, 10).build()));
         map.put(ORCHARD, new OverworldPrimaryBiomeData(MLClimate.WARM, 3, List.of("PLAINS", "LUSH", "FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(GROVE, 6).add(FLOWERING_GROVE, 2).build()));
         map.put(PRAIRIE, new OverworldPrimaryBiomeData(MLClimate.WARM, 5, List.of("PLAINS", "DRY", "OVERWORLD")));
-        map.put(RED_DESERT, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("DRY", "HOT", "SANDY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(RED_DESERT_DUNES, 5).add(LUSH_RED_DESERT, 5).build()));
+        map.put(RED_DESERT, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("DRY", "HOT", "SANDY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(LUSH_RED_DESERT, 5).build()));
         map.put(RED_OAK_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 7, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_GROVE, 2).add(GROVE, 4).build()));
         map.put(RED_ROCK_VALLEY, new OverworldPrimaryBiomeData(MLClimate.HOT, 4, List.of("DRY", "HOT", "MOUNTAIN", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, EMPTY, RED_ROCK_VALLEY));
         map.put(REDWOOD_THICKET, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "DENSE", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, ROCKY_BEACH, RED_ROCK_VALLEY));
@@ -62,12 +62,13 @@ public class BYGBiomeWorldProperties {
         map.put(SEASONAL_BIRCH_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 7, List.of("FOREST", "COLD", "OVERWORLD")));
         map.put(SEASONAL_DECIDUOUS_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 6, List.of("FOREST", "COLD", "OVERWORLD")));
         map.put(SEASONAL_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 7, List.of("FOREST", "COLD", "OVERWORLD")));
-        map.put(SEASONAL_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COOL, 7, List.of("FOREST", "COLD", "CONIFEROUS", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(SEASONAL_GIANT_TAIGA, 5).build()));
+        map.put(AUTUMNAL_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COOL, 7, List.of("FOREST", "COLD", "CONIFEROUS", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(AUTUMNAL_GIANT_TAIGA, 5).build()));
         map.put(SHATTERED_GLACIER, new OverworldPrimaryBiomeData(MLClimate.COLD, 2, List.of("SNOWY", "OVERWORLD", "RARE"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, BASALT_BARRERA, SHATTERED_GLACIER));
-        map.put(SHRUBLANDS, new OverworldPrimaryBiomeData(MLClimate.HOT, 6, List.of("PLAINS", "DRY", "SPARSE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, EMPTY, SHRUBLANDS));
+        map.put(FIRE_CRACKER_SHRUBLANDS, new OverworldPrimaryBiomeData(MLClimate.HOT, 6, List.of("PLAINS", "DRY", "SPARSE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, EMPTY, FIRE_CRACKER_SHRUBLANDS));
         map.put(SIERRA_VALLEY, new OverworldPrimaryBiomeData(MLClimate.HOT, 5, List.of("DRY", "HOT", "PLAINS", "OVERWORLD")));
+        map.put(SKYRIS_VALE, new OverworldPrimaryBiomeData(MLClimate.COOL, 2, List.of("MAGICAL", "FOREST", "LUSH", "RARE", "OVERWORLD")));
         map.put(SNOWY_CONIFEROUS_FOREST, new OverworldPrimaryBiomeData(MLClimate.COLD, 5, List.of("FOREST", "SNOWY", "CONIFEROUS", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, SNOWY_ROCKY_BLACK_BEACH, FROZEN_RIVER));
-        map.put(SNOWY_DECIDUOUS_FOREST, new OverworldPrimaryBiomeData(MLClimate.COLD, 6, List.of("FOREST", "SNOWY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, SNOWY_ROCKY_BLACK_BEACH, FROZEN_RIVER));
+        map.put(SNOWY_EVERGREEN_TAIGA, new OverworldPrimaryBiomeData(MLClimate.COLD, 5, List.of("CONIFEROUS", "FOREST", "SNOWY", "OVERWORLD")));
         map.put(STONE_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("OVERWORLD", "DENSE", "PLATEAU"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, ROCKY_BEACH, RIVER));
         map.put(THE_BLACK_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 4, List.of("OVERWORLD", "DENSE", "PLATEAU"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FOREST_FAULT, 10).build(), EMPTY, ROCKY_BEACH, RIVER));
         map.put(TWILIGHT_VALLEY, new OverworldPrimaryBiomeData(MLClimate.COOL, 2, List.of("COLD", "WASTELAND", "MAGICAL", "OVERWORLD")));
