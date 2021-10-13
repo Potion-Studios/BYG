@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "particle": "byg:block/lush_dirt",
+    "bottom": "byg:block/lush_dirt",
+    "top": "byg:block/lush_grass_top",
+    "side": "byg:block/lush_grass_snow_side"
+  }
+}

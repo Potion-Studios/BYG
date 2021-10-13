@@ -29,9 +29,9 @@ public class BYGItems {
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
     public static final Item PEAT = createItem(new PeatBlockItem(BYGBlocks.PEAT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
-    public static final Item MEADOW_GRASSBLOCK = createItem(new BlockItem(BYGBlocks.MEADOW_GRASSBLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASSBLOCK));
-    public static final Item MEADOW_GRASS_PATH = createItem(new BlockItem(BYGBlocks.MEADOW_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_GRASS_PATH));
-    public static final Item MEADOW_DIRT = createItem(new BlockItem(BYGBlocks.MEADOW_DIRT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MEADOW_DIRT));
+    public static final Item LUSH_GRASS_BLOCK = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_BLOCK));
+    public static final Item LUSH_GRASS_PATH = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_PATH));
+    public static final Item LUSH_DIRT = createItem(new BlockItem(BYGBlocks.LUSH_DIRT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_DIRT));
     public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GLOWCELIUM));
     public static final Item MUD_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "mud_ball");
     public static final Item MUD_BLOCK = createItem(new BlockItem(BYGBlocks.MUD_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MUD_BLOCK));
@@ -1120,6 +1120,7 @@ public class BYGItems {
     public static final Item BROWN_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.BROWN_MUSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BROWN_MUSHROOM_STEM));
 
     //Plants
+    public static final Item SHRUB = createItem(new BlockItem(BYGBlocks.SHRUB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SHRUB));
     public static final Item BLUE_BERRY = createItem(new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
     public static final Item BLUEBERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
     public static final Item CATTAIL = createItem(new BlockItem(BYGBlocks.CATTAIL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CATTAIL));
@@ -1202,14 +1203,10 @@ public class BYGItems {
     public static final Item TALL_PINK_ALLIUM = createItem(new BlockItem(BYGBlocks.TALL_PINK_ALLIUM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.TALL_PINK_ALLIUM));
     public static final Item PINK_ANEMONE = createItem(new BlockItem(BYGBlocks.PINK_ANEMONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_ANEMONE));
     public static final Item PINK_DAFFODIL = createItem(new BlockItem(BYGBlocks.PINK_DAFFODIL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_DAFFODIL));
-    public static final Item PINK_ORCHID = createItem(new BlockItem(BYGBlocks.PINK_ORCHID, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_ORCHID));
     public static final Item PROTEA_FLOWER = createItem(new BlockItem(BYGBlocks.PROTEA_FLOWER, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PROTEA_FLOWER));
     public static final Item PURPLE_AMARANTH = createItem(new BlockItem(BYGBlocks.PURPLE_AMARANTH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_AMARANTH));
-    public static final Item PURPLE_ORCHID = createItem(new BlockItem(BYGBlocks.PURPLE_ORCHID, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_ORCHID));
     public static final Item PURPLE_SAGE = createItem(new BlockItem(BYGBlocks.PURPLE_SAGE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_SAGE));
     public static final Item PURPLE_TULIP = createItem(new BlockItem(BYGBlocks.PURPLE_TULIP, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_TULIP));
-    public static final Item RED_CORNFLOWER = createItem(new BlockItem(BYGBlocks.RED_CORNFLOWER, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RED_CORNFLOWER));
-    public static final Item RED_ORCHID = createItem(new BlockItem(BYGBlocks.RED_ORCHID, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RED_ORCHID));
     public static final Item RICHEA = createItem(new BlockItem(BYGBlocks.RICHEA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RICHEA));
     public static final Item ROSE = createItem(new BlockItem(BYGBlocks.ROSE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.ROSE));
     public static final Item SILVER_VASE_FLOWER = createItem(new BlockItem(BYGBlocks.SILVER_VASE_FLOWER, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SILVER_VASE_FLOWER));

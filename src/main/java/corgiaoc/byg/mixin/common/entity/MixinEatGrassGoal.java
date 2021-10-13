@@ -42,7 +42,7 @@ public class MixinEatGrassGoal {
         if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
             cir.setReturnValue(true);
         } else {
-            boolean flag = this.level.getBlockState(blockpos.below()).is(BYGBlocks.MEADOW_GRASSBLOCK);
+            boolean flag = this.level.getBlockState(blockpos.below()).is(BYGBlocks.LUSH_GRASS_BLOCK);
             if (flag)
                 cir.setReturnValue(true);
         }
@@ -51,10 +51,10 @@ public class MixinEatGrassGoal {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/BlockPos;below()Lnet/minecraft/core/BlockPos;"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void addModdedGrassChecks(CallbackInfo ci, BlockPos pos) {
         BlockPos blockpos1 = pos.below();
-        if (this.level.getBlockState(blockpos1).is(BYGBlocks.MEADOW_GRASSBLOCK)) {
+        if (this.level.getBlockState(blockpos1).is(BYGBlocks.LUSH_GRASS_BLOCK)) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
-                this.level.levelEvent(2001, blockpos1, Block.getId(BYGBlocks.MEADOW_GRASSBLOCK.defaultBlockState()));
-                this.level.setBlock(blockpos1, BYGBlocks.MEADOW_DIRT.defaultBlockState(), 2);
+                this.level.levelEvent(2001, blockpos1, Block.getId(BYGBlocks.LUSH_GRASS_BLOCK.defaultBlockState()));
+                this.level.setBlock(blockpos1, BYGBlocks.LUSH_DIRT.defaultBlockState(), 2);
                 this.mob.ate();
             }
         }

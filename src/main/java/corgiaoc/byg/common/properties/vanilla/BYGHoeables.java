@@ -14,8 +14,8 @@ public class BYGHoeables {
     public static void hoeablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Hoeable Blocks...");
         Map<Block, BlockState> tillables = new IdentityHashMap<>(HoeItemAccess.getTillables());
-        tillables.put(BYGBlocks.MEADOW_GRASSBLOCK, Blocks.FARMLAND.defaultBlockState());
-        tillables.put(BYGBlocks.MEADOW_DIRT, Blocks.FARMLAND.defaultBlockState());
+        tillables.put(BYGBlocks.LUSH_GRASS_BLOCK, Blocks.FARMLAND.defaultBlockState());
+        tillables.put(BYGBlocks.LUSH_DIRT, Blocks.FARMLAND.defaultBlockState());
         tillables.put(BYGBlocks.PEAT, Blocks.FARMLAND.defaultBlockState());
         HoeItemAccess.setTillables(tillables);
         BYG.LOGGER.info("BYG: Added Hoeable Blocks!");

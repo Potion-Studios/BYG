@@ -105,7 +105,7 @@ public class BYGOverworldBiomes {
         }
         BYGDefaultBiomeFeatures.addAncientTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addShrubs(generationSettings);
+        BYGDefaultBiomeFeatures.addShrub(generationSettings);
         BYGDefaultBiomeFeatures.addHugeMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
@@ -403,9 +403,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addRedorchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPurpleOrchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPinkOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
 
@@ -810,9 +807,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addRedorchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPurpleOrchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPinkOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BYGDefaultBiomeFeatures.addMGCoral(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
@@ -902,9 +896,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addRedorchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPurpleOrchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPinkOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
 
@@ -1547,9 +1538,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addRedorchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPurpleOrchid(generationSettings);
-        BYGDefaultBiomeFeatures.addPinkOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
 
@@ -1644,11 +1632,10 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1, 1));
-
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.SWAMP).depth(-0.28F).scale(-0.01F).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6388580).waterFogColor(2302743).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome alpineMeadow(boolean flowering, boolean wooded) {
+    public static Biome coconinoMeadow(boolean flowering, boolean wooded) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(BYGConfiguredSurfaceBuilders.MEADOW);
         generationSettings.addStructureStart(StructureFeatures.VILLAGE_TAIGA); //Plains Village
@@ -1657,6 +1644,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
         if (wooded) {
             BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
+            spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
         }
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
@@ -1668,20 +1656,18 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
         BYGDefaultBiomeFeatures.addGrass(generationSettings);
+        BYGDefaultBiomeFeatures.addShrub(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
+        BYGDefaultBiomeFeatures.addAlpineBellflower(generationSettings);
         if (flowering) {
             BYGDefaultBiomeFeatures.addTulips(generationSettings);
             BYGDefaultBiomeFeatures.addSunFlowers(generationSettings);
-            BYGDefaultBiomeFeatures.addAlpineBellflower(generationSettings);
             BiomeDefaultFeatures.addForestFlowers(generationSettings);
         }
 
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
         spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
@@ -1693,7 +1679,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.PLAINS).depth(0.15F).scale(0.1F).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8168831).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.PLAINS).depth(0.15F).scale(0.1F).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6530407).foliageColorOverride(5999709).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome mojaveDesert() {
@@ -2424,7 +2410,7 @@ public class BYGOverworldBiomes {
         generationSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
-        BYGDefaultBiomeFeatures.addShrubs(generationSettings);
+        BYGDefaultBiomeFeatures.addShrub(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
         BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);

@@ -49,13 +49,9 @@ public class BYGBlockTags {
     public static final Tag.Named<Block> GROUND_PINK_ALLIUM = createPlantTag("ground_pink_allium");
     public static final Tag.Named<Block> GROUND_PINK_ANEMONE = createPlantTag("ground_pink_anemone");
     public static final Tag.Named<Block> GROUND_PINK_DAFFODIL = createPlantTag("ground_pink_daffodil");
-    public static final Tag.Named<Block> GROUND_PINK_ORCHID = createPlantTag("ground_pink_orchid");
     public static final Tag.Named<Block> GROUND_PROTEA_FLOWER = createPlantTag("ground_protea_flower");
-    public static final Tag.Named<Block> GROUND_PURPLE_ORCHID = createPlantTag("ground_purple_orchid");
     public static final Tag.Named<Block> GROUND_PURPLE_SAGE = createPlantTag("ground_purple_sage");
     public static final Tag.Named<Block> GROUND_PURPLE_TULIP = createPlantTag("ground_purple_tulip");
-    public static final Tag.Named<Block> GROUND_RED_CORNFLOWER = createPlantTag("ground_red_cornflower");
-    public static final Tag.Named<Block> GROUND_RED_ORCHID = createPlantTag("ground_red_orchid");
     public static final Tag.Named<Block> GROUND_RICHEA = createPlantTag("ground_richea");
     public static final Tag.Named<Block> GROUND_ROSE = createPlantTag("ground_rose");
     public static final Tag.Named<Block> GROUND_SILVER_VASE_FLOWER = createPlantTag("ground_silver_vase_flower");

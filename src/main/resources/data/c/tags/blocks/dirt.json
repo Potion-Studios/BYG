@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "byg:meadow_grass_block",
-    "byg:meadow_dirt",
+    "byg:lush_grass_block",
+    "byg:lush_dirt",
     "byg:peat",
     "byg:overgrown_stone",
     "byg:overgrown_dacite",

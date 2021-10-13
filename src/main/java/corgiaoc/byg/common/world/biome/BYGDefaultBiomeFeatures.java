@@ -280,18 +280,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CYAN_ROSES);
     }
 
-    public static void addRedorchid(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORCHID);
-    }
-
-    public static void addPurpleOrchid(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORCHID);
-    }
-
-    public static void addPinkOrchid(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORCHID);
-    }
-
     public static void addPeachleatherflower(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LEATHER_FLOWER);
     }
@@ -306,6 +294,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addGrass(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_GRASS);
+    }
+
+    public static void addShrub(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_SHRUB);
     }
 
     public static void addMarshGrass(BiomeGenerationSettings.Builder gen) {
@@ -331,10 +323,6 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addJacarandaBushes(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JACARANDA_BUSHES);
-    }
-
-    public static void addRedCornflower(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RED_CORNFLOWERS);
     }
 
     public static void addBYGTropicFlowers(BiomeGenerationSettings.Builder gen) {

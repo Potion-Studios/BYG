@@ -12,7 +12,7 @@ public class BYGPaths {
 
     public static void addBYGPaths() {
         Map<Block, BlockState> flattenables = new IdentityHashMap<>(ShovelItemAccess.getFlattenables());
-        flattenables.put(BYGBlocks.MEADOW_GRASSBLOCK, BYGBlocks.MEADOW_GRASS_PATH.defaultBlockState());
+        flattenables.put(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.LUSH_GRASS_PATH.defaultBlockState());
         ShovelItemAccess.setFlattenables(flattenables);
     }
 }

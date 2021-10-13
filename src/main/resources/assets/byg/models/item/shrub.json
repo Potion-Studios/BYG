@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/red_orchid"
+    "layer0": "byg:block/shrub"
   }
 }

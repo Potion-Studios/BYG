@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "byg:meadow_grass_block"
+              "name": "byg:lush_grass_block"
             },
             {
               "type": "minecraft:item",
@@ -33,7 +33,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "byg:meadow_dirt"
+              "name": "byg:lush_dirt"
             }
           ]
         }

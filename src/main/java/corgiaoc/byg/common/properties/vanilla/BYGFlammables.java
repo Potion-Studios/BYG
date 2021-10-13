@@ -308,15 +308,11 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PINK_ALLIUM_FLOWER_BUSH, 60, 100);
         flammableBlock(BYGBlocks.PINK_ANEMONE, 60, 100);
         flammableBlock(BYGBlocks.PINK_DAFFODIL, 60, 100);
-        flammableBlock(BYGBlocks.PINK_ORCHID, 60, 100);
         flammableBlock(BYGBlocks.PRAIRIE_GRASS, 60, 100);
         flammableBlock(BYGBlocks.PROTEA_FLOWER, 60, 100);
         flammableBlock(BYGBlocks.PURPLE_AMARANTH, 60, 100);
-        flammableBlock(BYGBlocks.PURPLE_ORCHID, 60, 100);
         flammableBlock(BYGBlocks.PURPLE_SAGE, 60, 100);
         flammableBlock(BYGBlocks.PURPLE_TULIP, 60, 100);
-        flammableBlock(BYGBlocks.RED_CORNFLOWER, 60, 100);
-        flammableBlock(BYGBlocks.RED_ORCHID, 60, 100);
         flammableBlock(BYGBlocks.RICHEA, 60, 100);
         flammableBlock(BYGBlocks.ROSE, 60, 100);
         flammableBlock(BYGBlocks.SILVER_VASE_FLOWER, 60, 100);
@@ -338,6 +334,11 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.WINTER_SUCCULENT, 60, 100);
         flammableBlock(BYGBlocks.SHORT_GRASS, 60, 200);
         flammableBlock(BYGBlocks.POISON_IVY, 15, 100);
+        flammableBlock(BYGBlocks.SHRUB, 15, 100);
+        flammableBlock(BYGBlocks.JACARANDA_BUSH, 15, 100);
+        flammableBlock(BYGBlocks.FLOWERING_JACARANDA_BUSH, 15, 100);
+        flammableBlock(BYGBlocks.INDIGO_JACARANDA_BUSH, 15, 100);
+        flammableBlock(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH, 15, 100);
 
         BYG.LOGGER.info("BYG: Added Flammables!");
     }

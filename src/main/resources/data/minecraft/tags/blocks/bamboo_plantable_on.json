@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "byg:peat",
-    "byg:meadow_grass_block",
-    "byg:meadow_dirt",
+    "byg:lush_grass_block",
+    "byg:lush_dirt",
     "byg:overgrown_stone",
     "#c:sand"
   ]

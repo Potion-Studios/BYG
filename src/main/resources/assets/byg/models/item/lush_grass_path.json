@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/meadow_dirt",
+  "parent": "byg:block/lush_grass_path",
   "display": {
     "thirdperson": {
       "rotation": [

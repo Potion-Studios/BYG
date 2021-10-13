@@ -190,7 +190,6 @@ public class BYGCutoutRenders {
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, RenderType.translucent());
         map.put(BYGBlocks.TALL_PRAIRIE_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PRAIRIE_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.SHORT_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_GRASS, RenderType.translucent());
 
@@ -201,6 +200,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.LEAF_PILE, RenderType.cutoutMipped());
         map.put(BYGBlocks.CLOVER_PATCH, RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWER_PATCH, RenderType.cutoutMipped());
+        map.put(BYGBlocks.SHRUB, RenderType.cutoutMipped());
 
 
         //Saplings
@@ -299,14 +299,10 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.PINK_ALLIUM_FLOWER_BUSH, RenderType.cutoutMipped());
         map.put(BYGBlocks.PINK_ANEMONE, RenderType.cutoutMipped());
         map.put(BYGBlocks.PINK_DAFFODIL, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_ORCHID, RenderType.cutoutMipped());
         map.put(BYGBlocks.PROTEA_FLOWER, RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_AMARANTH, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PURPLE_ORCHID, RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_SAGE, RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_TULIP, RenderType.cutoutMipped());
-        map.put(BYGBlocks.RED_CORNFLOWER, RenderType.cutoutMipped());
-        map.put(BYGBlocks.RED_ORCHID, RenderType.cutoutMipped());
         map.put(BYGBlocks.RICHEA, RenderType.cutoutMipped());
         map.put(BYGBlocks.ROSE, RenderType.cutoutMipped());
         map.put(BYGBlocks.SNOWDROPS, RenderType.cutoutMipped());
@@ -346,7 +342,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.OVERGROWN_STONE, RenderType.cutoutMipped());
         map.put(BYGBlocks.OVERGROWN_DACITE, RenderType.cutoutMipped());
         map.put(BYGBlocks.PRAIRIE_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.MEADOW_GRASSBLOCK, RenderType.cutoutMipped());
+        map.put(BYGBlocks.LUSH_GRASS_BLOCK, RenderType.cutoutMipped());
         map.put(BYGBlocks.GLOWCELIUM, RenderType.cutoutMipped());
         map.put(BYGBlocks.POISON_IVY, RenderType.cutoutMipped());
         map.put(BYGBlocks.SKYRIS_VINE, RenderType.cutoutMipped());

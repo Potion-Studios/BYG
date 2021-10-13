@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/red_cornflower",
-    "particle": "byg:block/red_cornflower"
-  }
-}

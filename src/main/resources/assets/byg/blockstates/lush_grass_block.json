@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "byg:block/lush_grass_block"
+      },
+      {
+        "model": "byg:block/lush_grass_block",
+        "y": 90
+      },
+      {
+        "model": "byg:block/lush_grass_block",
+        "y": 180
+      },
+      {
+        "model": "byg:block/lush_grass_block",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "byg:block/lush_grass_block_snowy"
+    }
+  }
+}

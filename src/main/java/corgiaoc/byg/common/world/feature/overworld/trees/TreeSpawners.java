@@ -165,6 +165,13 @@ public class TreeSpawners {
         }
     };
 
+    public static final TreeSpawner SHRUB = new TreeSpawner() {
+        @Nullable
+        public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(3) == 0 ? BYGConfiguredFeatures.SHRUB_MEADOW : BYGConfiguredFeatures.SHRUB_PRAIRIE2;
+        }
+    };
+
     public static final TreeSpawner JACARANDA = new TreeSpawner() {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {

@@ -22,7 +22,7 @@ public class BYGCarvableBlocks {
             blocks.add(BYGBlocks.MOSSY_STONE);
             blocks.add(BYGBlocks.OVERGROWN_STONE);
             blocks.add(BYGBlocks.SCORIA_STONE);
-            blocks.add(BYGBlocks.MEADOW_DIRT);
+            blocks.add(BYGBlocks.LUSH_DIRT);
             blocks.add(BYGBlocks.PEAT);
             ((WorldCarverAccess) worldCarver).setReplaceableBlocks(blocks);
         }

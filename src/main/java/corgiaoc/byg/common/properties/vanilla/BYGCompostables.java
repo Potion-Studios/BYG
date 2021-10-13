@@ -150,15 +150,12 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.PINK_ALLIUM_FLOWER_BUSH);
         compostibleBlocks(0.65f, BYGItems.PINK_ANEMONE);
         compostibleBlocks(0.65f, BYGItems.PINK_DAFFODIL);
-        compostibleBlocks(0.65f, BYGItems.PINK_ORCHID);
         compostibleBlocks(0.65f, BYGItems.PRAIRIE_GRASS);
+        compostibleBlocks(0.65f, BYGItems.SHRUB);
         compostibleBlocks(0.65f, BYGItems.PROTEA_FLOWER);
         compostibleBlocks(0.65f, BYGItems.PURPLE_AMARANTH);
-        compostibleBlocks(0.65f, BYGItems.PURPLE_ORCHID);
         compostibleBlocks(0.65f, BYGItems.PURPLE_SAGE);
         compostibleBlocks(0.65f, BYGItems.PURPLE_TULIP);
-        compostibleBlocks(0.65f, BYGItems.RED_CORNFLOWER);
-        compostibleBlocks(0.65f, BYGItems.RED_ORCHID);
         compostibleBlocks(0.65f, BYGItems.RICHEA);
         compostibleBlocks(0.65f, BYGItems.ROSE);
         compostibleBlocks(0.65f, BYGItems.SILVER_VASE_FLOWER);

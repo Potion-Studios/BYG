@@ -20,7 +20,7 @@ public class MixinAnimalEntity {
     @Inject(at = @At("HEAD"), method = "checkAnimalSpawnRules", cancellable = true)
     private static void addModdedGrass(EntityType<? extends Animal> animal, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random random, CallbackInfoReturnable<Boolean> cir) {
         BlockState state = worldIn.getBlockState(pos.below());
-        if (state.getBlock() == BYGBlocks.OVERGROWN_STONE || state.getBlock() == BYGBlocks.OVERGROWN_DACITE || state.getBlock() == BYGBlocks.MEADOW_GRASSBLOCK) {
+        if (state.getBlock() == BYGBlocks.OVERGROWN_STONE || state.getBlock() == BYGBlocks.OVERGROWN_DACITE || state.getBlock() == BYGBlocks.LUSH_GRASS_BLOCK) {
             cir.setReturnValue(worldIn.getRawBrightness(pos, 0) > 8);
         }
     }

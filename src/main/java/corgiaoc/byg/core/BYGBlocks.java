@@ -393,7 +393,7 @@ public class BYGBlocks {
 
     public static final Block PEAT = createDirt("peat");
     public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
-    public static final Block MEADOW_DIRT = createDirt("meadow_dirt");
+    public static final Block LUSH_DIRT = createDirt("lush_dirt");
     public static final Block ETHER_SOIL = createDirt("ether_soil");
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
@@ -449,7 +449,7 @@ public class BYGBlocks {
 
     public static final Block JACARANDA_BUSH = createJacarandaBush("jacaranda_bush");
     public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
-
+    public static final Block SHRUB = createShrub(TreeSpawners.SHRUB,"shrub");
 
     public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
@@ -1071,15 +1071,11 @@ public class BYGBlocks {
     public static final Block PINK_ALLIUM_FLOWER_BUSH = new BYGBlockProperties.BYGPinkAllium("pink_allium_flower_bush");
     public static final Block PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
     public static final Block PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
-    public static final Block PINK_ORCHID = createFlower("pink_orchid", BYGBlockTags.GROUND_PINK_ORCHID);
     public static final Block PRAIRIE_GRASS = new BYGBlockProperties.BYGPrairieGrass("prairie_grass");
     public static final Block PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
     public static final Block PURPLE_AMARANTH = new BYGBlockProperties.BYGAmaranth("purple_amaranth");
-    public static final Block PURPLE_ORCHID = createFlower("purple_orchid", BYGBlockTags.GROUND_PURPLE_ORCHID);
     public static final Block PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
     public static final Block PURPLE_TULIP = createFlower("purple_tulip", BYGBlockTags.GROUND_PURPLE_TULIP);
-    public static final Block RED_CORNFLOWER = createFlower("red_cornflower", BYGBlockTags.GROUND_RED_CORNFLOWER);
-    public static final Block RED_ORCHID = createFlower("red_orchid", BYGBlockTags.GROUND_RED_ORCHID);
     public static final Block RICHEA = createFlower("richea", BYGBlockTags.GROUND_RICHEA);
     public static final Block ROSE = createFlower("rose", BYGBlockTags.GROUND_ROSE);
     public static final Block SNOWDROPS = new BYGBlockProperties.BYGSnowyPlant("snowdrops");
@@ -1104,12 +1100,12 @@ public class BYGBlocks {
     public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MaterialColor.COLOR_ORANGE, BYGConfiguredFeatures.SpreadableBlockConfigs.EMBUR_ROOTS, "embur_nylium");
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_YELLOW, BYGConfiguredFeatures.SpreadableBlockConfigs.SYTHIAN_CONFIG, "sythian_nylium");
     public static final Block WAILING_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_PURPLE, BYGConfiguredFeatures.SpreadableBlockConfigs.WAILING_CONFIG, "wailing_nylium");
-    public static final Block MEADOW_GRASSBLOCK = createDirtSpreadable(MEADOW_DIRT, MaterialColor.COLOR_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.MEADOW_CONFIG, "meadow_grass_block");
+    public static final Block LUSH_GRASS_BLOCK = createDirtSpreadable(LUSH_DIRT, MaterialColor.COLOR_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.LUSH_GRASS_CONFIG, "lush_grass_block");
     public static final Block NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_BLUE, BYGConfiguredFeatures.SpreadableBlockConfigs.NIGHTSHADE_CONFIG, "nightshade_phylium");
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MaterialColor.COLOR_MAGENTA, BYGConfiguredFeatures.SpreadableBlockConfigs.ETHER_CONFIG, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, BYGConfiguredFeatures.SpreadableBlockConfigs.VERMILION_SCULK_CONFIG, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, BYGConfiguredFeatures.SpreadableBlockConfigs.SHULKREN_CONFIG, "shulkren_phylium");
-    public static final Block MEADOW_GRASS_PATH = createBlock(DirtPathBlockAccess.create(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "meadow_grass_path");
+    public static final Block LUSH_GRASS_PATH = createBlock(DirtPathBlockAccess.create(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, BYGConfiguredFeatures.SpreadableBlockConfigs.BULBIS_CONFIG, "imparius_phylium");
 
@@ -1735,6 +1731,13 @@ public class BYGBlocks {
 
     static Block createSapling(Tag<Block> groundTag, TreeSpawner tree, String id) {
         Block createBlock = new BYGSapling(FabricBlockSettings.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
+        createBlock(createBlock, id);
+        createPottedBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createShrub(TreeSpawner tree, String id) {
+        Block createBlock = new ShrubBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().noCollission(), tree);
         createBlock(createBlock, id);
         createPottedBlock(createBlock, id);
         return createBlock;
