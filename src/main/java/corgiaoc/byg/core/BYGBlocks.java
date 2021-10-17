@@ -452,62 +452,63 @@ public class BYGBlocks {
     public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
     public static final Block SHRUB = createShrub(TreeSpawners.SHRUB,"shrub");
 
-    public static final Block ARAUCARIA_LEAVES = createLeaves("araucaria_leaves");
-    public static final Block ASPEN_LEAVES = createLeaves("aspen_leaves");
-    public static final Block BAOBAB_LEAVES = createLeaves("baobab_leaves");
-    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = createGlowingLeaves("blooming_witch_hazel_leaves");
-    public static final Block BLUE_ENCHANTED_LEAVES = createGlowingLeaves("blue_enchanted_leaves");
-    public static final Block BLUE_SPRUCE_LEAVES = createLeaves("blue_spruce_leaves");
-    public static final Block BROWN_BIRCH_LEAVES = createLeaves("brown_birch_leaves");
-    public static final Block BROWN_OAK_LEAVES = createLeaves("brown_oak_leaves");
-    public static final Block BROWN_ZELKOVA_LEAVES = createLeaves("brown_zelkova_leaves");
-    public static final Block CIKA_LEAVES = createLeaves("cika_leaves");
-    public static final Block CYPRESS_LEAVES = createLeaves("cypress_leaves");
-    public static final Block EBONY_LEAVES = createLeaves("ebony_leaves");
-    public static final Block FIR_LEAVES = createLeaves("fir_leaves");
-    public static final Block FLOWERING_ORCHARD_LEAVES = createLeaves("flowering_orchard_leaves");
-    public static final Block FLOWERING_PALO_VERDE_LEAVES = createLeaves("flowering_palo_verde_leaves");
-    public static final Block GREEN_ENCHANTED_LEAVES = createGlowingLeaves("green_enchanted_leaves");
-    public static final Block HOLLY_BERRY_LEAVES = createLeaves("holly_berry_leaves");
-    public static final Block HOLLY_LEAVES = createLeaves("holly_leaves");
-    public static final Block JACARANDA_LEAVES = createLeaves("jacaranda_leaves");
-    public static final Block INDIGO_JACARANDA_LEAVES = createLeaves("indigo_jacaranda_leaves");
-    public static final Block FLOWERING_JACARANDA_LEAVES = createLeaves("flowering_jacaranda_leaves");
-    public static final Block FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves("flowering_indigo_jacaranda_leaves");
-    public static final Block JOSHUA_LEAVES = createLeaves("joshua_leaves");
-    public static final Block RIPE_JOSHUA_LEAVES = createLeaves("ripe_joshua_leaves");
-    public static final Block MAHOGANY_LEAVES = createLeaves("mahogany_leaves");
-    public static final Block MANGROVE_LEAVES = createLeaves("mangrove_leaves");
-    public static final Block MAPLE_LEAVES = createLeaves("maple_leaves");
-    public static final Block ORANGE_BIRCH_LEAVES = createLeaves("orange_birch_leaves");
-    public static final Block ORANGE_OAK_LEAVES = createLeaves("orange_oak_leaves");
-    public static final Block ORANGE_SPRUCE_LEAVES = createLeaves("orange_spruce_leaves");
-    public static final Block ORCHARD_LEAVES = createLeaves("orchard_leaves");
-    public static final Block PALO_VERDE_LEAVES = createLeaves("palo_verde_leaves");
-    public static final Block PINE_LEAVES = createLeaves("pine_leaves");
-    public static final Block PINK_CHERRY_LEAVES = createLeaves("pink_cherry_leaves");
-    public static final Block RAINBOW_EUCALYPTUS_LEAVES = createLeaves("rainbow_eucalyptus_leaves");
-    public static final Block RED_BIRCH_LEAVES = createLeaves("red_birch_leaves");
-    public static final Block RED_MAPLE_LEAVES = createLeaves("red_maple_leaves");
-    public static final Block RED_OAK_LEAVES = createLeaves("red_oak_leaves");
-    public static final Block RED_SPRUCE_LEAVES = createLeaves("red_spruce_leaves");
-    public static final Block REDWOOD_LEAVES = createLeaves("redwood_leaves");
-    public static final Block RIPE_ORCHARD_LEAVES = createLeaves("ripe_orchard_leaves");
-    public static final Block SILVER_MAPLE_LEAVES = createLeaves("silver_maple_leaves");
-    public static final Block SKYRIS_LEAVES_GREEN_APPLE = createLeaves("green_apple_skyris_leaves");
-    public static final Block SKYRIS_LEAVES = createLeaves("skyris_leaves");
-    public static final Block WHITE_CHERRY_LEAVES = createLeaves("white_cherry_leaves");
-    public static final Block WILLOW_LEAVES = createLeaves("willow_leaves");
-    public static final Block WITCH_HAZEL_LEAVES = createLeaves("witch_hazel_leaves");
-    public static final Block YELLOW_BIRCH_LEAVES = createLeaves("yellow_birch_leaves");
-    public static final Block YELLOW_SPRUCE_LEAVES = createLeaves("yellow_spruce_leaves");
-    public static final Block ZELKOVA_LEAVES = createLeaves("zelkova_leaves");
-    public static final Block PALM_LEAVES = createLeaves("palm_leaves");
-    public static final Block LAMENT_LEAVES = createLeaves("lament_leaves");
-    public static final Block WITHERING_OAK_LEAVES = createLeaves("withering_oak_leaves");
-    public static final Block FLOWERING_NIGHTSHADE_LEAVES = createGlowingLeaves("flowering_nightshade_leaves");
-    public static final Block NIGHTSHADE_LEAVES = createLeaves("nightshade_leaves");
-    public static final Block ETHER_LEAVES = createLeaves("ether_leaves");
+    public static final Block ARAUCARIA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"araucaria_leaves");
+    public static final Block ASPEN_LEAVES = createLeaves(MaterialColor.TERRACOTTA_YELLOW,"aspen_leaves");
+    public static final Block BAOBAB_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN,"baobab_leaves");
+    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = createGlowingLeaves(MaterialColor.COLOR_BROWN,15,"blooming_witch_hazel_leaves");
+    public static final Block BLUE_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_BLUE,15,"blue_enchanted_leaves");
+    public static final Block BLUE_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_BLUE,"blue_spruce_leaves");
+    public static final Block BROWN_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_BROWN,"brown_birch_leaves");
+    public static final Block BROWN_OAK_LEAVES = createLeaves(MaterialColor.COLOR_BROWN,"brown_oak_leaves");
+    public static final Block BROWN_ZELKOVA_LEAVES = createLeaves(MaterialColor.COLOR_BROWN,"brown_zelkova_leaves");
+    public static final Block CIKA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_ORANGE,"cika_leaves");
+    public static final Block CYPRESS_LEAVES = createLeaves(MaterialColor.TERRACOTTA_LIGHT_GREEN,"cypress_leaves");
+    public static final Block EBONY_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"ebony_leaves");
+    public static final Block FIR_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"fir_leaves");
+    public static final Block FLOWERING_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"flowering_orchard_leaves");
+    public static final Block FLOWERING_PALO_VERDE_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW,"flowering_palo_verde_leaves");
+    public static final Block GREEN_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_GREEN,15,"green_enchanted_leaves");
+    public static final Block HOLLY_BERRY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN,"holly_berry_leaves");
+    public static final Block HOLLY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN,"holly_leaves");
+    public static final Block JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_PURPLE,"jacaranda_leaves");
+    public static final Block INDIGO_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_BLUE,"indigo_jacaranda_leaves");
+    public static final Block FLOWERING_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_PURPLE,"flowering_jacaranda_leaves");
+    public static final Block FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_BLUE,"flowering_indigo_jacaranda_leaves");
+    public static final Block JOSHUA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"joshua_leaves");
+    public static final Block RIPE_JOSHUA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"ripe_joshua_leaves");
+    public static final Block MAHOGANY_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"mahogany_leaves");
+    public static final Block MANGROVE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"mangrove_leaves");
+    public static final Block MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"maple_leaves");
+    public static final Block ORANGE_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE,"orange_birch_leaves");
+    public static final Block ORANGE_OAK_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE,"orange_oak_leaves");
+    public static final Block ORANGE_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE,"orange_spruce_leaves");
+    public static final Block ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"orchard_leaves");
+    public static final Block PALO_VERDE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"palo_verde_leaves");
+    public static final Block PINE_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN,"pine_leaves");
+    public static final Block PINK_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_PINK,"pink_cherry_leaves");
+    public static final Block RAINBOW_EUCALYPTUS_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"rainbow_eucalyptus_leaves");
+    public static final Block RED_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_RED,"red_birch_leaves");
+    public static final Block RED_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_RED,"red_maple_leaves");
+    public static final Block RED_OAK_LEAVES = createLeaves(MaterialColor.COLOR_RED,"red_oak_leaves");
+    public static final Block RED_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_RED,"red_spruce_leaves");
+    public static final Block REDWOOD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"redwood_leaves");
+    public static final Block RIPE_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"ripe_orchard_leaves");
+    public static final Block SILVER_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY,"silver_maple_leaves");
+    public static final Block SKYRIS_LEAVES_GREEN_APPLE = createLeaves(MaterialColor.COLOR_PINK,"green_apple_skyris_leaves");
+    public static final Block SKYRIS_LEAVES = createLeaves(MaterialColor.COLOR_PINK,"skyris_leaves");
+    public static final Block WHITE_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY,"white_cherry_leaves");
+    public static final Block WILLOW_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN,"willow_leaves");
+    public static final Block WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_BROWN,"witch_hazel_leaves");
+    public static final Block YELLOW_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW,"yellow_birch_leaves");
+    public static final Block YELLOW_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW,"yellow_spruce_leaves");
+    public static final Block ZELKOVA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_RED,"zelkova_leaves");
+    public static final Block PALM_LEAVES = createLeaves(MaterialColor.COLOR_GREEN,"palm_leaves");
+    public static final Block LAMENT_LEAVES = createLeaves(MaterialColor.COLOR_MAGENTA,"lament_leaves");
+    public static final Block WITHERING_OAK_LEAVES = createLeaves(MaterialColor.COLOR_GRAY,"withering_oak_leaves");
+    public static final Block FLOWERING_NIGHTSHADE_LEAVES = createGlowingLeaves(MaterialColor.COLOR_ORANGE,15,"flowering_nightshade_leaves");
+    public static final Block NIGHTSHADE_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE,"nightshade_leaves");
+    public static final Block ETHER_LEAVES = createLeaves(MaterialColor.COLOR_CYAN,"ether_leaves");
+    public static final Block FIRECRACKER_LEAVES = createFirecrackerLeavesBlock(MaterialColor.COLOR_GREEN,"firecracker_leaves");
 
     public static final Block GREEN_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("green_mushroom_block");
     public static final Block MILKCAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("weeping_milkcap_mushroom_block");
@@ -1050,7 +1051,7 @@ public class BYGBlocks {
     public static final Block DAFFODIL = createFlower("daffodil", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final Block DELPHINIUM = createTallFlower("delphinium", BYGBlockTags.GROUND_DELPHINIUM);
     public static final Block FAIRY_SLIPPER = new BYGBlockProperties.BYGFairySlipperFlower("fairy_slipper");
-    public static final Block FIRECRACKER_FLOWER_BUSH = createFlower("firecracker_flower_bush", BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH);
+    public static final Block FIRECRACKER_FLOWER_BUSH = createShrub(TreeSpawners.FIRECRACKER,"firecracker_flower_bush");
     public static final Block FOXGLOVE = createTallFlower("foxglove", BYGBlockTags.GROUND_FOXGLOVE);
     public static final Block GOLDEN_SPINED_CACTUS = createDesertPlant("golden_spined_cactus", BYGBlockTags.GROUND_GOLDEN_SPINED_CACTUS);
     public static final Block GREEN_TULIP = createFlower("green_tulip", BYGBlockTags.GROUND_GREEN_TULIP);
@@ -1853,18 +1854,21 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createLeaves(String id) {
-        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false));
+    static Block createLeaves(MaterialColor color, String id) {
+        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES, color).breakByTool(FabricToolTags.HOES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false));
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createGlowingLeaves(String id) {
-        return createGlowingLeaves(15, id);
+
+    static Block createGlowingLeaves(MaterialColor color, int lightLevel, String id) {
+        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES, color).breakByTool(FabricToolTags.HOES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel));
+        createBlock(createBlock, id);
+        return createBlock;
     }
 
-    static Block createGlowingLeaves(int lightLevel, String id) {
-        Block createBlock = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).breakByTool(FabricToolTags.HOES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel));
+    static Block createFirecrackerLeavesBlock(MaterialColor color, String id) {
+        Block createBlock = new FirecrackerLeavesBlock(FabricBlockSettings.of(Material.LEAVES, color).breakByTool(FabricToolTags.HOES).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false));
         createBlock(createBlock, id);
         return createBlock;
     }

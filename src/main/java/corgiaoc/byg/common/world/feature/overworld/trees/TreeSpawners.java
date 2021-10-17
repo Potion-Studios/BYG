@@ -219,6 +219,13 @@ public class TreeSpawners {
         }
     };
 
+    public static final TreeSpawner FIRECRACKER = new TreeSpawner() {
+        @Nullable
+        public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {
+            return random.nextInt(2) == 0 ? BYGConfiguredFeatures.FIRECRACKER_SHRUB : BYGConfiguredFeatures.FIRECRACKER_SHRUB2;
+        }
+    };
+
     public static final TreeSpawner ASPEN = new TreeSpawner() {
         @Nullable
         public ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random) {

@@ -62,6 +62,7 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.NIGHTSHADE_LEAVES);
         compostibleBlocks(0.3f, BYGItems.LAMENT_LEAVES);
         compostibleBlocks(0.3f, BYGItems.WITHERING_OAK_LEAVES);
+        compostibleBlocks(0.3f, BYGItems.FIRECRACKER_LEAVES);
 
         //Saplings
         compostibleBlocks(0.3f, BYGItems.ASPEN_SAPLING);

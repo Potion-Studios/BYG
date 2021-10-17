@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.biome;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.core.world.BYGConfiguredStructures;
 import corgiaoc.byg.core.world.BYGConfiguredSurfaceBuilders;
+import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import corgiaoc.byg.mixin.access.VanillaBiomeAccess;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
@@ -14,6 +15,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuilder;
+
+import java.util.function.Supplier;
 
 public class BYGOverworldBiomes {
 
@@ -2289,21 +2293,24 @@ public class BYGOverworldBiomes {
 
     public static Biome firecrackerShrublands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(SurfaceBuilders.GRASS);
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(BYGConfiguredSurfaceBuilders.FIRECRACKER_SHRUBLANDS);
         generationSettings.addStructureStart(StructureFeatures.VILLAGE_PLAINS); //Plains Village
         generationSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST); //Pillager Outpost
         generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD); //Ruined Portal Standard
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseOakForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addShrub(generationSettings);
+        BYGDefaultBiomeFeatures.addFirecrackerShrubs(generationSettings);
+        BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
         BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSurfaceFreezing(generationSettings);
+        BiomeDefaultFeatures.addDesertVegetation(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

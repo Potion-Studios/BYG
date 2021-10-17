@@ -60,6 +60,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> WITHERING_WOODS = WorldGenRegistrationHelper.createSurfaceBuilder("withering_woods", new WitheringWoodsSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> QUARTZ_DESERT = WorldGenRegistrationHelper.createSurfaceBuilder("quartz_desert", new QuartzDesertSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> WEEPING_MIRE = WorldGenRegistrationHelper.createSurfaceBuilder("weeping_mire", new WeepingMireSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> FIRECRACKER_SHRUBLANDS = WorldGenRegistrationHelper.createSurfaceBuilder("firecracker_shrublands", new FirecrackerShrublandsSB(SurfaceBuilderBaseConfiguration.CODEC));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> IVIS_FIELDS = WorldGenRegistrationHelper.createSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderBaseConfiguration.CODEC));
@@ -84,6 +85,8 @@ public class BYGSurfaceBuilders {
         public static final SurfaceBuilderBaseConfiguration PURPLE_SAND = new SurfaceBuilderBaseConfiguration(BYGBlocks.PURPLE_SAND.defaultBlockState(), BYGBlocks.PURPLE_SAND.defaultBlockState(), BYGBlocks.PURPLE_SANDSTONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration WHITE_SAND = new SurfaceBuilderBaseConfiguration(BYGBlocks.WHITE_SAND.defaultBlockState(), BYGBlocks.WHITE_SAND.defaultBlockState(), BYGBlocks.WHITE_SANDSTONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration SAND = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration SANDSTONE = new SurfaceBuilderBaseConfiguration(Blocks.SANDSTONE.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState());
+
         public static final SurfaceBuilderBaseConfiguration ROCKY = new SurfaceBuilderBaseConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState(), BYGBlocks.ROCKY_STONE.defaultBlockState(), BYGBlocks.ROCKY_STONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration STONE = new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration COARSE = new SurfaceBuilderBaseConfiguration(Blocks.COARSE_DIRT.defaultBlockState(), Blocks.COARSE_DIRT.defaultBlockState(), Blocks.COARSE_DIRT.defaultBlockState());

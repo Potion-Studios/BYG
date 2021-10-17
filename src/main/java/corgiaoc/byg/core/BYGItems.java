@@ -892,6 +892,9 @@ public class BYGItems {
     public static final Item YELLOW_SPRUCE_SAPLING = createItem(new BlockItem(BYGBlocks.YELLOW_SPRUCE_SAPLING, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_SPRUCE_SAPLING));
     public static final Item YELLOW_SPRUCE_LEAVES = createItem(new BlockItem(BYGBlocks.YELLOW_SPRUCE_LEAVES, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_SPRUCE_LEAVES));
 
+    public static final Item FIRECRACKER_LEAVES = createItem(new BlockItem(BYGBlocks.FIRECRACKER_LEAVES, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FIRECRACKER_LEAVES));
+    public static final Item FIRECRACKER_FLOWER_BUSH = createItem(new BlockItem(BYGBlocks.FIRECRACKER_FLOWER_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FIRECRACKER_FLOWER_BUSH));
+
     //Glowcane
     public static final Item BLUE_GLOWCANE_DUST = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_glowcane_dust");
     public static final Item BLUE_GLOWCANE = createItem(new BlockItem(BYGBlocks.BLUE_GLOWCANE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLUE_GLOWCANE));
@@ -1185,7 +1188,6 @@ public class BYGItems {
     public static final Item DAFFODIL = createItem(new BlockItem(BYGBlocks.DAFFODIL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.DAFFODIL));
     public static final Item DELPHINIUM = createItem(new BlockItem(BYGBlocks.DELPHINIUM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.DELPHINIUM));
     public static final Item FAIRY_SLIPPER = createItem(new BlockItem(BYGBlocks.FAIRY_SLIPPER, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FAIRY_SLIPPER));
-    public static final Item FIRECRACKER_FLOWER_BUSH = createItem(new BlockItem(BYGBlocks.FIRECRACKER_FLOWER_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FIRECRACKER_FLOWER_BUSH));
     public static final Item FOXGLOVE = createItem(new BlockItem(BYGBlocks.FOXGLOVE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FOXGLOVE));
     public static final Item GREEN_TULIP = createItem(new BlockItem(BYGBlocks.GREEN_TULIP, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GREEN_TULIP));
     public static final Item GUZMANIA = createItem(new BlockItem(BYGBlocks.GUZMANIA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GUZMANIA));

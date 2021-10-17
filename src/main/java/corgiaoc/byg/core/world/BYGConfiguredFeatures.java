@@ -53,6 +53,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> SHRUB = createConfiguredFeature("shrub_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.SHRUB.defaultBlockState()), new SimpleBlockPlacer())).tries(24).build()));
 
+
     public static final ConfiguredFeature<?, ?> SHORT_GRASS = createConfiguredFeature("short_grass_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.SHORT_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(24).build()));
     public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE_PATCH = createConfiguredFeature("nylium_soul_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(Blocks.SOUL_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.SOUL_SOIL, BYGBlocks.NYLIUM_SOUL_SOIL, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).noProjection().build()));
     public static final ConfiguredFeature<?, ?> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.BORIC_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).noProjection().build()));
@@ -714,7 +715,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> DEAD_HAZEL_TREE3 = createConfiguredFeature("dead_hazel_tree3", BYGFeatures.DEAD_HAZEL_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG).setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(BYGBlocks.WITCH_HAZEL_LEAVES.defaultBlockState(), 4).build())).setMaxHeight(16).setMinHeight(11).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> DEAD_HAZEL_TREE4 = createConfiguredFeature("dead_hazel_tree4", BYGFeatures.DEAD_HAZEL_TREE4.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WITCH_HAZEL_LOG).setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(BYGBlocks.WITCH_HAZEL_LEAVES.defaultBlockState(), 4).build())).setMaxHeight(7).setMinHeight(5).build()));
 
-    public static final ConfiguredFeature<BYGTreeConfig, ?> DECIDUOUS_SEASONAL_SHRUB = createConfiguredFeature("seasonal_deciduous_shrub", BYGFeatures.SHRUB1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMinHeight(2).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> FIRECRACKER_SHRUB = createConfiguredFeature("firecracker_shrub", BYGFeatures.SHRUB1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.FIRECRACKER_LEAVES).setMinHeight(2).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> FIRECRACKER_SHRUB2 = createConfiguredFeature("firecracker_shrub2", BYGFeatures.SHRUB2.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.FIRECRACKER_LEAVES).setMinHeight(2).build()));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> DECIDUOUS_TREE1 = createConfiguredFeature("deciduous_tree1", BYGFeatures.DECIDUOUS_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(19).setMinHeight(14).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> DECIDUOUS_TREE2 = createConfiguredFeature("deciduous_tree2", BYGFeatures.DECIDUOUS_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(22).setMinHeight(17).build()));
@@ -1055,9 +1057,10 @@ public class BYGConfiguredFeatures {
 
     /***********************************************************Configured Placement***********************************************************/
 
-    public static final ConfiguredFeature<?, ?> SHRUBLAND_SHRUB = createConfiguredFeature("shrubland_shrub", SHRUB.decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 2))));
-
+    public static final ConfiguredFeature<?, ?> FIRECRACKER_SHRUBS = createConfiguredFeature("firecracker_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            FIRECRACKER_SHRUB.weighted(0.20F)),
+            FIRECRACKER_SHRUB2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
+            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.25F, 2))));
 
     /***********************************************************Random Selectors***********************************************************/
 
@@ -1266,19 +1269,6 @@ public class BYGConfiguredFeatures {
             REDWOOD_TREE2.weighted(0.1F)),
             REDWOOD_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
             new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.2F, 2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_SHRUB = createConfiguredFeature("seasonal_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            SHRUB.weighted(0.4F)),
-            DECIDUOUS_SEASONAL_SHRUB)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.4F, 2))));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_DECIDUOUS_SPARSE_TREE = createConfiguredFeature("sparse_seasonal_deciduous_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            DECIDUOUS_RED_TREE1.weighted(0.2F),
-            DECIDUOUS_ORANGE_TREE1.weighted(0.2F),
-            DECIDUOUS_SEASONAL_SHRUB.weighted(0.2F),
-            DECIDUOUS_BROWN_TREE1.weighted(0.2F)),
-            DECIDUOUS_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SEASONAL_TAIGA_MISC_TREE = createConfiguredFeature("seasonal_taiga_misc_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PINE_TREE1.weighted(0.25F),
@@ -1626,7 +1616,7 @@ public class BYGConfiguredFeatures {
             OAK_TREE_LARGE1.weighted(0.1F),
             OAK_TREE_LARGE2.weighted(0.1F)),
             OAK_TREE_LARGE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 1))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_TREE = createConfiguredFeature("red_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             RED_OAK_TREE1.weighted(0.3F),

@@ -3,23 +3,24 @@ package corgiaoc.byg.common.properties.blocks;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.Tag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import java.util.Random;
 
-public class FloweringJacarandaBushBlock extends JacarandaBushBlock implements BonemealableBlock {
+public class FirecrackerBushBlock extends BYGFlowerBlock implements BonemealableBlock {
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
     private final TreeSpawner tree;
 
-    public FloweringJacarandaBushBlock(Properties properties, TreeSpawner tree, int taskRange) {
-        super(properties);
+    public FirecrackerBushBlock(Properties properties, TreeSpawner tree, Tag.Named<Block> validGround) {
+        super(properties, validGround);
+
         this.tree = tree;
         this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
     }
@@ -46,10 +47,4 @@ public class FloweringJacarandaBushBlock extends JacarandaBushBlock implements B
     public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
         this.grow(world, pos, state, rand);
     }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(STAGE);
-    }
-
 }

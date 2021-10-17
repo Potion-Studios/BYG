@@ -269,6 +269,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.YELLOW_BIRCH_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES, 30, 60);
         flammableBlock(BYGBlocks.PALM_LEAVES, 30, 60);
+        flammableBlock(BYGBlocks.FIRECRACKER_LEAVES, 60, 30);
 
         //Flowers
         flammableBlock(BYGBlocks.ALLIUM_FLOWER_BUSH, 60, 100);
