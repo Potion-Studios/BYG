@@ -1,0 +1,37 @@
+{
+    "textures": {
+        "puff_mushroom_block": "byg:block/white_puffball_block",
+        "white_mushroom_stem": "byg:block/white_mushroom_stem",
+        "particle": "byg:block/white_puffball_block"
+    },
+    "elements": [
+        {
+            "name": "Stem",
+            "from": [ 7, 0, 7 ], 
+            "to": [ 9, 3, 9 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 3 ] },
+                "east": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 3 ] },
+                "south": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 3 ] },
+                "west": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 3 ] },
+                "up": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 2 ] },
+                "down": { "texture": "#white_mushroom_stem", "uv": [ 0, 0, 2, 2 ] }
+            }
+        },
+        {
+            "name": "Ball",
+            "from": [ 5, 3, 5 ], 
+            "to": [ 11, 7, 11 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] },
+                "east": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] },
+                "west": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#puff_mushroom_block", "uv": [ 0, 0, 16, 16 ] }
+            }
+        }
+    ]
+}

@@ -182,7 +182,6 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.GREEN_MUSHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.MILKCAP_MUSHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.BLEWIT_MUSHROOM_BLOCK);
-        compostibleBlocks(0.85f, BYGItems.PUFF_MUSHROOM_BLOCK);
         compostibleBlocks(0.85f, BYGItems.WHITE_MUSHROOM_STEM);
         compostibleBlocks(0.85f, BYGItems.BROWN_MUSHROOM_STEM);
         compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_STEM);
@@ -200,7 +199,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.GREEN_APPLE);
         compostibleBlocks(0.65f, BYGItems.GREEN_APPLE_PIE);
         compostibleBlocks(0.65f, BYGItems.GREEN_MUSHSHROOM);
-        compostibleBlocks(0.65f, BYGItems.BLACK_PUFF);
+        compostibleBlocks(0.65f, BYGItems.WHITE_PUFFBALL_CAP);
         compostibleBlocks(0.65f, BYGItems.WEEPING_MILKCAP);
         compostibleBlocks(0.65f, BYGItems.WOOD_BLEWIT);
         compostibleBlocks(0.65f, BYGItems.NIGHTSHADE_BERRIES);

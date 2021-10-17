@@ -33,6 +33,7 @@ import corgiaoc.byg.core.world.BYGConfiguredFeatures;
 import corgiaoc.byg.mixin.access.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -511,7 +512,6 @@ public class BYGBlocks {
     public static final Block GREEN_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("green_mushroom_block");
     public static final Block MILKCAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("weeping_milkcap_mushroom_block");
     public static final Block BLEWIT_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("wood_blewit_mushroom_block");
-    public static final Block PUFF_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("black_puff_mushroom_block");
     public static final Block WHITE_MUSHROOM_STEM = new BYGBlockProperties.BlockHugeMushroom("white_mushroom_stem");
     public static final Block BROWN_MUSHROOM_STEM = new BYGBlockProperties.BlockHugeMushroom("brown_mushroom_stem");
     public static final Block BLUE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("blue_glowshroom_block");
@@ -842,7 +842,7 @@ public class BYGBlocks {
     public static final Block IMPARIUS_HYPHAE = new BYGBlockProperties.BYGNetherWood("imparius_hyphae");
     public static final Block FUNGAL_IMPARIUS_HYPHAE = new BYGBlockProperties.BYGNetherWood("fungal_imparius_hyphae");
 
-    public static final Block BLACK_PUFF = createMushroomPlant(new BYGMushroomToHugeMushroom.BlackPuff(), "black_puff");
+    public static final Block WHITE_PUFFBALL = createWhitePuffBlock(SoundType.FUNGUS, MaterialColor.TERRACOTTA_WHITE , "white_puffball");
     public static final Block WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
     public static final Block WOOD_BLEWIT = createMushroomPlant(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit");
     public static final Block GREEN_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
@@ -1532,6 +1532,13 @@ public class BYGBlocks {
     static Block createNetherOre(SoundType sound, MaterialColor color, String id, UniformInt xpRange) {
         Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES, 1).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange);
         createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createWhitePuffBlock(SoundType sound, MaterialColor color, String id) {
+        Block createBlock = new WhitePuffballBlock(FabricBlockSettings.of(Material.PLANT, color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks());
+        createBlock(createBlock, id);
+        createPottedBlock(createBlock, id);
         return createBlock;
     }
 

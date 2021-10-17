@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "byg:item/cooked_white_puffball_cap"
+  }
+}

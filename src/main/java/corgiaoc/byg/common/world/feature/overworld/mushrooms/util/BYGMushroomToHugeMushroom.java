@@ -9,13 +9,6 @@ import java.util.Random;
 
 public class BYGMushroomToHugeMushroom {
 
-    public static class BlackPuff extends BYGHugeMushroom {
-        @Nullable
-        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
-            return BYGConfiguredFeatures.BLACK_PUFF_HUGE;
-        }
-    }
-
     public static class BlueGlowshroom extends BYGHugeMushroom.Massive {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {

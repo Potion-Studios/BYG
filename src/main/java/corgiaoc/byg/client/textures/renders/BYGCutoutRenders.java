@@ -255,7 +255,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.WITHERING_OAK_SAPLING, RenderType.cutoutMipped());
 
         //Mushrooms
-        map.put(BYGBlocks.BLACK_PUFF, RenderType.cutoutMipped());
+        map.put(BYGBlocks.WHITE_PUFFBALL, RenderType.cutoutMipped());
         map.put(BYGBlocks.WEEPING_MILKCAP, RenderType.cutoutMipped());
         map.put(BYGBlocks.WOOD_BLEWIT, RenderType.cutoutMipped());
         map.put(BYGBlocks.GREEN_MUSHROOM, RenderType.cutoutMipped());

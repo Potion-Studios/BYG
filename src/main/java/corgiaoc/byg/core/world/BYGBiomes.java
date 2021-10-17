@@ -84,10 +84,9 @@ public class BYGBiomes {
     public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest(), 42);
     public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley(), 9495858);
 
+
     public static ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", roseFields(), 147);
-    public static ResourceKey<Biome> SEASONAL_BIRCH_FOREST = createBiome("seasonal_birch_forest", seasonalBirchForest(), 44);
-    public static ResourceKey<Biome> SEASONAL_DECIDUOUS_FOREST = createBiome("seasonal_deciduous_forest", seasonalDeciduousForest(), 45);
-    public static ResourceKey<Biome> SEASONAL_FOREST = createBiome("seasonal_forest", seasonalForest(), 46);
+    public static ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", autumnalForest(), 46);
     public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false), 47);
     public static ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", shatteredGlacier(), 48);
     public static ResourceKey<Biome> FIRE_CRACKER_SHRUBLANDS = createBiome("firecracker_shrublands", firecrackerShrublands(), 49);

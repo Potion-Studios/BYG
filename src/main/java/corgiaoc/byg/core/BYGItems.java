@@ -1114,8 +1114,11 @@ public class BYGItems {
     public static final Item MILKCAP_MUSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.MILKCAP_MUSHROOM_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MILKCAP_MUSHROOM_BLOCK));
     public static final Item WOOD_BLEWIT = createItem(new BlockItem(BYGBlocks.WOOD_BLEWIT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6f).build())), Registry.BLOCK.getKey(BYGBlocks.WOOD_BLEWIT));
     public static final Item BLEWIT_MUSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.BLEWIT_MUSHROOM_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLEWIT_MUSHROOM_BLOCK));
-    public static final Item BLACK_PUFF = createItem(new BlockItem(BYGBlocks.BLACK_PUFF, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6f).build())), Registry.BLOCK.getKey(BYGBlocks.BLACK_PUFF));
-    public static final Item PUFF_MUSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.PUFF_MUSHROOM_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PUFF_MUSHROOM_BLOCK));
+    public static final Item WHITE_PUFFBALL_SPORES = createItem(new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
+    public static final Item WHITE_PUFFBALL_CAP = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
+    public static final Item COOKED_WHITE_PUFFBALL_CAP = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f).build())), "cooked_white_puffball_cap");
+    public static final Item WHITE_PUFFBALL_STEW = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
+
     public static final Item WHITE_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.WHITE_MUSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WHITE_MUSHROOM_STEM));
     public static final Item BROWN_MUSHROOM_STEM = createItem(new BlockItem(BYGBlocks.BROWN_MUSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BROWN_MUSHROOM_STEM));
 

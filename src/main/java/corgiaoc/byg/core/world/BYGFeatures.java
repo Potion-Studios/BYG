@@ -206,7 +206,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> GREEN_MUSHROOM_HUGE = createFeature("green_mushroom_huge", new GreenMushroomHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WOOD_BLEWIT_HUGE = createFeature("wood_blewit_huge", new WoodBlewitHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WEEPING_MILKCAP_HUGE = createFeature("weeping_milkcap_huge", new WeepingMilkcapHuge(BYGMushroomConfig.CODEC.stable()));
-    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BLACK_PUFF_HUGE = createFeature("black_puff_huge", new BlackPuffHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BLUE_GLOWSHROOM_HUGE = createFeature("blue_glowshroom_huge", new BlueGlowshroomHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> PURPLE_GLOWSHROOM_HUGE = createFeature("purple_glowshroom_huge", new PurpleGlowshroomHuge(BYGMushroomConfig.CODEC.stable()));
 
@@ -215,7 +214,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_RED_MUSHROOM = createFeature("mini_red_mushroom", new MiniRedMushroom(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_BROWN_MUSHROOM = createFeature("mini_brown_mushroom", new MiniBrownMushroom(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_WEEPING_MILKCAP = createFeature("mini_weeping_milkcap", new MiniWeepingMilkcap(BYGMushroomConfig.CODEC.stable()));
-    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_BLACK_PUFF = createFeature("mini_black_puff", new MiniBlackPuff(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_WOOD_BLEWIT = createFeature("mini_wood_blewit", new MiniWoodBlewit(BYGMushroomConfig.CODEC.stable()));
 
     /********************************************************************End Features********************************************************************/
