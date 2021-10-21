@@ -209,6 +209,29 @@ public class BYGItems {
     public static final Item PINK_CUT_SANDSTONE = createItem(new BlockItem(BYGBlocks.PINK_CUT_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_CUT_SANDSTONE));
     public static final Item PINK_SMOOTH_SANDSTONE = createItem(new BlockItem(BYGBlocks.PINK_SMOOTH_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_SMOOTH_SANDSTONE));
 
+    public static final Item WINDSWEPT_SAND = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SAND, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SAND));
+    public static final Item WINDSWEPT_SANDSTONE = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SANDSTONE));
+    public static final Item WINDSWEPT_SANDSTONE_SLAB = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SANDSTONE_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SANDSTONE_SLAB));
+    public static final Item WINDSWEPT_SANDSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SANDSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SANDSTONE_STAIRS));
+    public static final Item WINDSWEPT_SANDSTONE_WALL = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SANDSTONE_WALL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SANDSTONE_WALL));
+
+    public static final Item CHISELED_WINDSWEPT_SANDSTONE = createItem(new BlockItem(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE));
+    public static final Item CHISELED_WINDSWEPT_SANDSTONE_SLAB = createItem(new BlockItem(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_SLAB));
+    public static final Item CHISELED_WINDSWEPT_SANDSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_STAIRS));
+    public static final Item CHISELED_WINDSWEPT_SANDSTONE_WALL = createItem(new BlockItem(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_WALL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CHISELED_WINDSWEPT_SANDSTONE_WALL));
+
+    public static final Item CUT_WINDSWEPT_SANDSTONE = createItem(new BlockItem(BYGBlocks.CUT_WINDSWEPT_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CUT_WINDSWEPT_SANDSTONE));
+    public static final Item CUT_WINDSWEPT_SANDSTONE_SLAB = createItem(new BlockItem(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_SLAB));
+    public static final Item CUT_WINDSWEPT_SANDSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_STAIRS));
+    public static final Item CUT_WINDSWEPT_SANDSTONE_WALL = createItem(new BlockItem(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_WALL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CUT_WINDSWEPT_SANDSTONE_WALL));
+
+    public static final Item SMOOTH_WINDSWEPT_SANDSTONE = createItem(new BlockItem(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE));
+    public static final Item SMOOTH_WINDSWEPT_SANDSTONE_SLAB = createItem(new BlockItem(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_SLAB));
+    public static final Item SMOOTH_WINDSWEPT_SANDSTONE_STAIRS = createItem(new BlockItem(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_STAIRS));
+    public static final Item SMOOTH_WINDSWEPT_SANDSTONE_WALL = createItem(new BlockItem(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_WALL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE_WALL));
+
+    public static final Item WINDSWEPT_SANDSTONE_PILLAR = createItem(new BlockItem(BYGBlocks.WINDSWEPT_SANDSTONE_PILLAR, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.WINDSWEPT_SANDSTONE_PILLAR));
+
     //Aspen Woodtype
     public static final Item ASPEN_SAPLING = createItem(new BlockItem(BYGBlocks.ASPEN_SAPLING, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.ASPEN_SAPLING));
     public static final Item ASPEN_LEAVES = createItem(new BlockItem(BYGBlocks.ASPEN_LEAVES, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.ASPEN_LEAVES));

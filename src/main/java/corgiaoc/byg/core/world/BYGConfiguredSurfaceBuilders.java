@@ -43,6 +43,7 @@ public class BYGConfiguredSurfaceBuilders {
     public static final ConfiguredSurfaceBuilder<?> TWILIGHT_VALLEY = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("twilight_valley", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.TWILIGHT_VALLEY, SurfaceBuilder.CONFIG_GRASS));
     public static final ConfiguredSurfaceBuilder<?> WHITE_SAND = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("white_sand", new ConfiguredSurfaceBuilder<>(SurfaceBuilder.DEFAULT, BYGSurfaceBuilders.Configs.WHITE_SAND));
     public static final ConfiguredSurfaceBuilder<?> FIRECRACKER_SHRUBLANDS = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("firecracker_shrublands", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.FIRECRACKER_SHRUBLANDS, SurfaceBuilder.CONFIG_GRASS));
+    public static final ConfiguredSurfaceBuilder<?> WINDSWEPT_DUNES = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("windswept_dunes", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.WINDSWEPT_DUNES, BYGSurfaceBuilders.Configs.WINDSWEPT_SANDSTONE));
 
     //nether
     public static final ConfiguredSurfaceBuilder<?> BRIMSTONE_CAVERNS = WorldGenRegistrationHelper.createConfiguredSurfaceBuilder("brimstone_caverns", new ConfiguredSurfaceBuilder<>(BYGSurfaceBuilders.BRIMSTONE_CAVERNS, BYGSurfaceBuilders.Configs.BRIMSTONE));

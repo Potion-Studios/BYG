@@ -1,7 +1,38 @@
 {
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/cattail_bottom",
-    "particle": "byg:block/cattail_bottom"
-  }
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "cattail_bottom": "byg:block/cattail_bottom"
+    },
+    "elements": [
+        {
+            "name": "PlantBottom1",
+            "from": [ 8, 0, -3 ], 
+            "to": [ 8, 16, 19 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] }
+            }
+        },
+        {
+            "name": "PlantBottom2",
+            "from": [ 8, 0, -3 ], 
+            "to": [ 8, 16, 19 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "east": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "south": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "west": { "texture": "#cattail_bottom", "uv": [ 0, 0, 16, 16 ] },
+                "up": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] },
+                "down": { "texture": "#cattail_bottom", "uv": [ 0, 0, 0, 16 ] }
+            }
+        }
+    ]
 }

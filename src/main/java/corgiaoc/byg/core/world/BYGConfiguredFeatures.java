@@ -300,8 +300,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.DIORITE.defaultBlockState(), 2))).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
     public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> WINDSWEPT_BOULDER = createConfiguredFeature("windswept_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(8).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.35F, 1))));
+
     public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(new SimpleStateProvider(Blocks.DIAMOND_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
-    public static final ConfiguredFeature<?, ?> ARCH2 = createConfiguredFeature("arch2", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(new SimpleStateProvider(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.015F, 1))));
+    public static final ConfiguredFeature<?, ?> WINDSWEPT_ARCH = createConfiguredFeature("windswept_arch", BYGFeatures.WINDSWEPT_ARCH.configured(new SimpleBlockProviderConfig(new SimpleStateProvider(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
     public static final ConfiguredFeature<?, ?> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
     public static final ConfiguredFeature<?, ?> GLOWSHROOM_CAVES = createConfiguredFeature("glow_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).setFluidStartY(12).build())).decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(25), VerticalAnchor.aboveBottom(40)))).count(1)));
     public static final ConfiguredFeature<?, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.COLUMN.configured((new NoisySphereConfig.Builder().setMinXRadius(4).setMaxXRadius(14).setMinYRadius(35).setMaxYRadius(45).setMinZRadius(4).setMaxZRadius(14).setMinStackHeight(1).setMaxStackHeight(2).setRadiusDivisor(2).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 5))).setTopBlock(BYGBlocks.OVERGROWN_STONE).setFluidStartY(12).build())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
@@ -400,7 +402,7 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_GRASS = createConfiguredFeature("grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SHORT_GRASS.weighted(0.50F)),
-            Features.PATCH_GRASS_NORMAL)).decorated(Features.Decorators.ADD_32).count(10));
+            Features.PATCH_GRASS_NORMAL)).decorated(Features.Decorators.ADD_32).count(5));
 
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_SHRUB = createConfiguredFeature("shrub", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SHRUB.weighted(0.50F)),
@@ -1515,14 +1517,14 @@ public class BYGConfiguredFeatures {
             PALM_TREE3.weighted(0.35F),
             PALM_TREE2.weighted(0.35F)),
             PALM_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.6F, 1))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_DENSE_PALM_TREE = createConfiguredFeature("palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> RANDOM_DUNE_PALM_TREE = createConfiguredFeature("dune_palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             PALM_TREE4.weighted(0.05F),
             PALM_TREE3.weighted(0.35F),
             PALM_TREE2.weighted(0.35F)),
             PALM_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(7, 0.3F, -3))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_CHERRY_TREE = createConfiguredFeature("cherry_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             CHERRY_PINK_TREE1.weighted(0.2F),

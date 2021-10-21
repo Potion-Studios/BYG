@@ -45,6 +45,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRANITE_BOULDER);
     }
 
+    public static void addWindsweptBoulders(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WINDSWEPT_BOULDER);
+    }
+
     public static void addBYGDesertPlants(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
     }
@@ -849,7 +853,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPalmTree(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DUNE_PALM_TREE);
     }
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder gen) {

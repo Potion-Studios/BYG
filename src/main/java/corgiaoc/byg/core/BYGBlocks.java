@@ -659,7 +659,7 @@ public class BYGBlocks {
 
     public static final Block ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final Block ODDITY_BUSH = createOddityDesertPlant("oddity_bush");
-    public static final Block END_SAND = createSand(16053687, "end_sand");
+    public static final Block END_SAND = createSand(MaterialColor.SAND,16053687, "end_sand");
 
     public static final Block VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
@@ -744,35 +744,58 @@ public class BYGBlocks {
     public static final Block PLANT_STEM = createLog("plant_stem");
     public static final Block POLLEN_BLOCK = new BYGBlockProperties.BYGPollen("pollen_block");
 
-    public static final Block BLACK_SAND = createSand(5197647, "black_sand");
+    public static final Block BLACK_SAND = createSand(MaterialColor.TERRACOTTA_BLACK, 5197647, "black_sand");
     public static final Block BLACK_SANDSTONE = new BYGBlockProperties.BYGStone("black_sandstone");
     public static final Block BLACK_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("black_chiseled_sandstone");
     public static final Block BLACK_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("black_cut_sandstone");
     public static final Block BLACK_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("black_smooth_sandstone");
 
-    public static final Block WHITE_SAND = createSand(15395562, "white_sand");
+    public static final Block WHITE_SAND = createSand(MaterialColor.TERRACOTTA_WHITE,15395562, "white_sand");
     public static final Block WHITE_SANDSTONE = new BYGBlockProperties.BYGStone("white_sandstone");
     public static final Block WHITE_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("white_chiseled_sandstone");
     public static final Block WHITE_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("white_cut_sandstone");
     public static final Block WHITE_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("white_smooth_sandstone");
 
-    public static final Block BLUE_SAND = createSand(13559021, "blue_sand");
+    public static final Block BLUE_SAND = createSand(MaterialColor.TERRACOTTA_WHITE,13559021, "blue_sand");
     public static final Block BLUE_SANDSTONE = new BYGBlockProperties.BYGStone("blue_sandstone");
     public static final Block BLUE_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("blue_chiseled_sandstone");
     public static final Block BLUE_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("blue_cut_sandstone");
     public static final Block BLUE_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("blue_smooth_sandstone");
 
-    public static final Block PURPLE_SAND = createSand(12887002, "purple_sand");
+    public static final Block PURPLE_SAND = createSand(MaterialColor.TERRACOTTA_PURPLE,12887002, "purple_sand");
     public static final Block PURPLE_SANDSTONE = new BYGBlockProperties.BYGStone("purple_sandstone");
     public static final Block PURPLE_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("purple_chiseled_sandstone");
     public static final Block PURPLE_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("purple_cut_sandstone");
     public static final Block PURPLE_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("purple_smooth_sandstone");
 
-    public static final Block PINK_SAND = createSand(15585004, "pink_sand");
+    public static final Block PINK_SAND = createSand(MaterialColor.COLOR_PINK,15585004, "pink_sand");
     public static final Block PINK_SANDSTONE = new BYGBlockProperties.BYGStone("pink_sandstone");
     public static final Block PINK_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("pink_chiseled_sandstone");
     public static final Block PINK_CUT_SANDSTONE = new BYGBlockProperties.BYGStone("pink_cut_sandstone");
     public static final Block PINK_SMOOTH_SANDSTONE = new BYGBlockProperties.BYGStone("pink_smooth_sandstone");
+
+    public static final Block WINDSWEPT_SAND = createSand(MaterialColor.TERRACOTTA_PINK,15585004, "windswept_sand");
+    public static final Block WINDSWEPT_SANDSTONE = createSandstone(MaterialColor.TERRACOTTA_PINK,"windswept_sandstone");
+    public static final Block WINDSWEPT_SANDSTONE_SLAB = createSandstoneSlab(MaterialColor.TERRACOTTA_PINK,"windswept_sandstone_slab");
+    public static final Block WINDSWEPT_SANDSTONE_STAIRS = createSandstoneStairs(MaterialColor.TERRACOTTA_PINK,"windswept_sandstone_stairs");
+    public static final Block WINDSWEPT_SANDSTONE_WALL = createSandstoneWall(MaterialColor.TERRACOTTA_PINK,"windswept_sandstone_wall");
+
+    public static final Block CHISELED_WINDSWEPT_SANDSTONE = createSandstone(MaterialColor.TERRACOTTA_PINK,"chiseled_windswept_sandstone");
+    public static final Block CHISELED_WINDSWEPT_SANDSTONE_SLAB = createSandstoneSlab(MaterialColor.TERRACOTTA_PINK,"chiseled_windswept_sandstone_slab");
+    public static final Block CHISELED_WINDSWEPT_SANDSTONE_STAIRS = createSandstoneStairs(MaterialColor.TERRACOTTA_PINK,"chiseled_windswept_sandstone_stairs");
+    public static final Block CHISELED_WINDSWEPT_SANDSTONE_WALL = createSandstoneWall(MaterialColor.TERRACOTTA_PINK,"chiseled_windswept_sandstone_wall");
+
+    public static final Block CUT_WINDSWEPT_SANDSTONE = createSandstone(MaterialColor.TERRACOTTA_PINK,"cut_windswept_sandstone");
+    public static final Block CUT_WINDSWEPT_SANDSTONE_SLAB = createSandstoneSlab(MaterialColor.TERRACOTTA_PINK,"cut_windswept_sandstone_slab");
+    public static final Block CUT_WINDSWEPT_SANDSTONE_STAIRS = createSandstoneStairs(MaterialColor.TERRACOTTA_PINK,"cut_windswept_sandstone_stairs");
+    public static final Block CUT_WINDSWEPT_SANDSTONE_WALL = createSandstoneWall(MaterialColor.TERRACOTTA_PINK,"cut_windswept_sandstone_wall");
+
+    public static final Block SMOOTH_WINDSWEPT_SANDSTONE = createSandstone(MaterialColor.TERRACOTTA_PINK,"smooth_windswept_sandstone");
+    public static final Block SMOOTH_WINDSWEPT_SANDSTONE_SLAB = createSandstoneSlab(MaterialColor.TERRACOTTA_PINK,"smooth_windswept_sandstone_slab");
+    public static final Block SMOOTH_WINDSWEPT_SANDSTONE_STAIRS = createSandstoneStairs(MaterialColor.TERRACOTTA_PINK,"smooth_windswept_sandstone_stairs");
+    public static final Block SMOOTH_WINDSWEPT_SANDSTONE_WALL = createSandstoneWall(MaterialColor.TERRACOTTA_PINK,"smooth_windswept_sandstone_wall");
+
+    public static final Block WINDSWEPT_SANDSTONE_PILLAR = createSandstonePillar(MaterialColor.TERRACOTTA_PINK,"windswept_sandstone_pillar");
 
 
     public static final Block ASPEN_LOG = createLog("aspen_log");
@@ -1331,8 +1354,38 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createSand(int dustColor, String id) {
-        Block createBlock = new SandBlock(dustColor, FabricBlockSettings.of(Material.SAND).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.SAND).strength(0.2f));
+    static Block createSand(MaterialColor color, int dustColor, String id) {
+        Block createBlock = new SandBlock(dustColor, FabricBlockSettings.of(Material.SAND, color).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.SAND).strength(0.2f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSandstone(MaterialColor color, String id) {
+        Block createBlock = new Block(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSandstoneSlab(MaterialColor color, String id) {
+        Block createBlock = new SlabBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSandstoneWall(MaterialColor color, String id) {
+        Block createBlock = new WallBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSandstoneStairs(MaterialColor color, String id) {
+        Block createBlock = StairBlockAccess.create(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(),FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createSandstonePillar(MaterialColor color, String id) {
+        Block createBlock = new RotatedPillarBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
         createBlock(createBlock, id);
         return createBlock;
     }

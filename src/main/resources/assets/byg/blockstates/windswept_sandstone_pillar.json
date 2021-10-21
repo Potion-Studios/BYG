@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/windswept_sandstone_pillar"
+    },
+    "axis=z": {
+      "model": "byg:block/windswept_sandstone_pillar",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/windswept_sandstone_pillar",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

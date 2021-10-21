@@ -49,6 +49,10 @@
     "byg:cobbled_ether_stone_stairs",
     "byg:purpur_stone_stairs",
     "byg:imparius_stairs",
-    "byg:chiseled_fungal_imparius_stairs"
+    "byg:chiseled_fungal_imparius_stairs",
+    "byg:windswept_sandstone_stairs",
+    "byg:cut_windswept_sandstone_stairs",
+    "byg:chiseled_windswept_sandstone_stairs",
+    "byg:smooth_windswept_sandstone_stairs"
   ]
 }

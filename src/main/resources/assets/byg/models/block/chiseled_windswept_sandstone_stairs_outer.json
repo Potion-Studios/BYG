@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "byg:block/windswept_sandstone_top",
+    "top": "byg:block/windswept_sandstone_top",
+    "side": "byg:block/chiseled_windswept_sandstone"
+  }
+}

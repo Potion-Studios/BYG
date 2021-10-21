@@ -61,6 +61,7 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> QUARTZ_DESERT = WorldGenRegistrationHelper.createSurfaceBuilder("quartz_desert", new QuartzDesertSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> WEEPING_MIRE = WorldGenRegistrationHelper.createSurfaceBuilder("weeping_mire", new WeepingMireSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> FIRECRACKER_SHRUBLANDS = WorldGenRegistrationHelper.createSurfaceBuilder("firecracker_shrublands", new FirecrackerShrublandsSB(SurfaceBuilderBaseConfiguration.CODEC));
+    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> WINDSWEPT_DUNES = WorldGenRegistrationHelper.createSurfaceBuilder("windswept_dunes", new WindsweptSB(SurfaceBuilderBaseConfiguration.CODEC));
 
     //End
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> IVIS_FIELDS = WorldGenRegistrationHelper.createSurfaceBuilder("ivis_fields", new IvisFieldsSB(SurfaceBuilderBaseConfiguration.CODEC));
@@ -86,6 +87,8 @@ public class BYGSurfaceBuilders {
         public static final SurfaceBuilderBaseConfiguration WHITE_SAND = new SurfaceBuilderBaseConfiguration(BYGBlocks.WHITE_SAND.defaultBlockState(), BYGBlocks.WHITE_SAND.defaultBlockState(), BYGBlocks.WHITE_SANDSTONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration SAND = new SurfaceBuilderBaseConfiguration(Blocks.SAND.defaultBlockState(), Blocks.SAND.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration SANDSTONE = new SurfaceBuilderBaseConfiguration(Blocks.SANDSTONE.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration WINDSWEPT_SAND = new SurfaceBuilderBaseConfiguration(BYGBlocks.WINDSWEPT_SAND.defaultBlockState(), BYGBlocks.WINDSWEPT_SAND.defaultBlockState(), BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState());
+        public static final SurfaceBuilderBaseConfiguration WINDSWEPT_SANDSTONE = new SurfaceBuilderBaseConfiguration(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState());
 
         public static final SurfaceBuilderBaseConfiguration ROCKY = new SurfaceBuilderBaseConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState(), BYGBlocks.ROCKY_STONE.defaultBlockState(), BYGBlocks.ROCKY_STONE.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration STONE = new SurfaceBuilderBaseConfiguration(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "byg:block/windswept_sandstone_top",
+    "top": "byg:block/windswept_sandstone_top",
+    "side": "byg:block/windswept_sandstone_top"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:block/windswept_sandstone_pillar_top",
+    "side": "byg:block/windswept_sandstone_pillar"
+  }
+}

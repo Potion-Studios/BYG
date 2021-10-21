@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/chiseled_windswept_sandstone_slab"
+    },
+    "type=double": {
+      "model": "byg:block/chiseled_windswept_sandstone"
+    },
+    "type=top": {
+      "model": "byg:block/chiseled_windswept_sandstone_slab_top"
+    }
+  }
+}

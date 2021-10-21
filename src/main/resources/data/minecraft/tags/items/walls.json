@@ -29,6 +29,10 @@
     "byg:travertine_wall",
     "byg:polished_travertine_wall",
     "byg:chiseled_travertine_wall",
-    "byg:chiseled_fungal_imparius_wall"
+    "byg:chiseled_fungal_imparius_wall",
+    "byg:windswept_sandstone_wall",
+    "byg:cut_windswept_sandstone_wall",
+    "byg:chiseled_windswept_sandstone_wall",
+    "byg:smooth_windswept_sandstone_wall"
   ]
 }

@@ -15,6 +15,11 @@
     "byg:purple_cut_sandstone",
     "byg:pink_sandstone",
     "byg:pink_chiseled_sandstone",
-    "byg:pink_cut_sandstone"
+    "byg:pink_cut_sandstone",
+    "byg:windswept_sandstone",
+    "byg:chiseled_windswept_sandstone",
+    "byg:cut_windswept_sandstone",
+    "byg:smooth_windswept_sandstone",
+    "byg:windswept_sandstone_pillar"
   ]
 }

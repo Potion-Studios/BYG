@@ -170,6 +170,8 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> WINDSWEPT_ARCH = createFeature("windswept_arch", new WindsweptArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
+
     public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisySphereConfig.CODEC.stable()));

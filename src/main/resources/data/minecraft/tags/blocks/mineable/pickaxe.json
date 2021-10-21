@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "byg:windswept_sandstone_wall",
+    "byg:cut_windswept_sandstone_wall",
+    "byg:chiseled_windswept_sandstone_wall",
+    "byg:smooth_windswept_sandstone_wall",
+    "byg:windswept_sandstone_stairs",
+    "byg:cut_windswept_sandstone_stairs",
+    "byg:chiseled_windswept_sandstone_stairs",
+    "byg:smooth_windswept_sandstone_stairs",
+    "byg:windswept_sandstone_slab",
+    "byg:cut_windswept_sandstone_slab",
+    "byg:chiseled_windswept_sandstone_slab",
+    "byg:smooth_windswept_sandstone_slab",
+    "byg:windswept_sandstone",
+    "byg:chiseled_windswept_sandstone",
+    "byg:cut_windswept_sandstone",
+    "byg:smooth_windswept_sandstone",
+    "byg:windswept_sandstone_pillar"
+  ]
+}
