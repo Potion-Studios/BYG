@@ -2,7 +2,8 @@
     "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
         "cattail_sprout_base": "byg:block/cattail_sprout",
-        "cattail_top": "byg:block/cattail_top"
+        "cattail_top": "byg:block/cattail_top",
+        "particle": "byg:block/cattail_sprout"
     },
     "elements": [
         {

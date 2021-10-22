@@ -1,10 +1,16 @@
 {
   "variants": {
-    "half=lower": {
-      "model": "byg:block/cattail_bottom"
-    },
-    "half=upper": {
-      "model": "byg:block/cattail_top"
-    }
+    "half=lower": [
+      { "model": "byg:block/cattail_bottom" },
+      { "model": "byg:block/cattail_bottom", "y": 90 },
+      { "model": "byg:block/cattail_bottom", "y": 180 },
+      { "model": "byg:block/cattail_bottom", "y": 270 }
+    ],
+    "half=upper": [
+      { "model": "byg:block/cattail_top" },
+      { "model": "byg:block/cattail_top", "y": 90 },
+      { "model": "byg:block/cattail_top", "y": 180 },
+      { "model": "byg:block/cattail_top", "y": 270 }
+    ]
   }
 }

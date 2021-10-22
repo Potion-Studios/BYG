@@ -1152,7 +1152,8 @@ public class BYGItems {
     public static final Item SHRUB = createItem(new BlockItem(BYGBlocks.SHRUB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.SHRUB));
     public static final Item BLUE_BERRY = createItem(new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
     public static final Item BLUEBERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
-    public static final Item CATTAIL = createItem(new BlockItem(BYGBlocks.CATTAIL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CATTAIL));
+
+    public static final Item CATTAIL_SPROUT = createItem(new BlockItem(BYGBlocks.CATTAIL_SPROUT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.CATTAIL_SPROUT));
     public static final Item GOLDEN_SPINED_CACTUS = createItem(new BlockItem(BYGBlocks.GOLDEN_SPINED_CACTUS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GOLDEN_SPINED_CACTUS));
     public static final Item HORSEWEED = createItem(new BlockItem(BYGBlocks.HORSEWEED, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.HORSEWEED));
     public static final Item MINI_CACTUS = createItem(new BlockItem(BYGBlocks.MINI_CACTUS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MINI_CACTUS));

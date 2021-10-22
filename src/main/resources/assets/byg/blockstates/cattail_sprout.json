@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/cattail_sprout" },
+      { "model": "byg:block/cattail_sprout", "y": 90 },
+      { "model": "byg:block/cattail_sprout", "y": 180 },
+      { "model": "byg:block/cattail_sprout", "y": 270 }
+    ]
+  }
+}

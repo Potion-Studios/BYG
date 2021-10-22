@@ -221,7 +221,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.CLOVER_PATCH);
         compostibleBlocks(0.65f, BYGItems.LEAF_PILE);
         compostibleBlocks(0.65f, BYGItems.SYTHIAN_STALK_BLOCK);
-        compostibleBlocks(0.65f, BYGItems.CATTAIL);
+        compostibleBlocks(0.65f, BYGItems.CATTAIL_SPROUT);
         compostibleBlocks(0.65f, BYGItems.REEDS);
         compostibleBlocks(0.65f, BYGItems.HORSEWEED);
         compostibleBlocks(0.65f, BYGItems.MINI_CACTUS);

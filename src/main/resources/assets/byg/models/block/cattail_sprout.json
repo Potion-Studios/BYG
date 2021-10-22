@@ -1,0 +1,68 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "cattail_sprout_base": "byg:block/cattail_sprout",
+        "cattail_sprout_roots": "byg:block/cattail_sprout_roots",
+        "particle": "byg:block/cattail_sprout"
+    },
+    "elements": [
+        {
+            "name": "Base",
+            "from": [ 6, 0.011, 6 ], 
+            "to": [ 10, 10.011, 10 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#cattail_sprout_base", "uv": [ 6, 6, 10, 16 ] },
+                "east": { "texture": "#cattail_sprout_base", "uv": [ 6, 6, 10, 16 ] },
+                "south": { "texture": "#cattail_sprout_base", "uv": [ 6, 6, 10, 16 ] },
+                "west": { "texture": "#cattail_sprout_base", "uv": [ 6, 6, 10, 16 ] },
+                "up": { "texture": "#cattail_sprout_base", "uv": [ 6, 2, 10, 6 ] },
+                "down": { "texture": "#cattail_sprout_base", "uv": [ 6, 2, 10, 6 ] }
+            }
+        },
+        {
+            "name": "Tip",
+            "from": [ 8, 10, 7 ], 
+            "to": [ 8, 16, 9 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": 45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 6 ] },
+                "east": { "texture": "#cattail_sprout_base", "uv": [ 10, 16, 12, 10 ] },
+                "south": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 6 ] },
+                "west": { "texture": "#cattail_sprout_base", "uv": [ 10, 10, 12, 16 ] },
+                "up": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 2 ] },
+                "down": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 2 ] }
+            }
+        },
+        {
+            "name": "Tip2",
+            "from": [ 8, 10, 7 ], 
+            "to": [ 8, 16, 9 ], 
+            "shade": false,
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "y", "angle": -45.0 },
+            "faces": {
+                "north": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 6 ] },
+                "east": { "texture": "#cattail_sprout_base", "uv": [ 10, 10, 12, 16 ] },
+                "south": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 6 ] },
+                "west": { "texture": "#cattail_sprout_base", "uv": [ 10, 10, 12, 16 ] },
+                "up": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 2 ] },
+                "down": { "texture": "#cattail_sprout_base", "uv": [ 0, 0, 0, 2 ] }
+            }
+        },
+        {
+            "name": "Roots",
+            "from": [ 1, 0.01, 1 ], 
+            "to": [ 15, 0.02, 15 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#cattail_sprout_roots", "uv": [ 1, 0, 15, 0.01 ] },
+                "east": { "texture": "#cattail_sprout_roots", "uv": [ 0, 0, 14, 0.01 ] },
+                "south": { "texture": "#cattail_sprout_roots", "uv": [ 0, 0, 14, 0.01 ] },
+                "west": { "texture": "#cattail_sprout_roots", "uv": [ 0, 0, 14, 0.01 ] },
+                "up": { "texture": "#cattail_sprout_roots", "uv": [ 1, 1, 15, 15 ] },
+                "down": { "texture": "#cattail_sprout_roots", "uv": [ 1, 1, 15, 15 ] }
+            }
+        }
+    ]
+}

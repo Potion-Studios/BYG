@@ -525,7 +525,8 @@ public class BYGBlocks {
     public static final Block BULBIS_SHELL = new BYGBlockProperties.BulbisShell("bulbis_shell");
     public static final Block PURPLE_BULBIS_SHELL = new BYGBlockProperties.BulbisShell("purple_bulbis_shell");
 
-    public static final Block CATTAIL = new BYGBlockProperties.BlockCattail("cattail");
+    public static final Block CATTAIL_SPROUT = createCattailSproutBlock("cattail_sprout");
+    public static final Block CATTAIL = createCattailPlantBlock("cattail");
     public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
     public static final Block REED_THATCH = new BYGBlockProperties.BYGThatch("reed_thatch");
     public static final Block REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet");
@@ -1585,6 +1586,18 @@ public class BYGBlocks {
 
     static Block createNetherOre(SoundType sound, MaterialColor color, String id, UniformInt xpRange) {
         Block createBlock = new OreBlock(FabricBlockSettings.of(Material.STONE, color).breakByTool(FabricToolTags.PICKAXES, 1).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createCattailSproutBlock(String id) {
+        Block createBlock = new CattailSproutBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WET_GRASS).strength(0.0f).randomTicks().noCollission().noOcclusion());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createCattailPlantBlock(String id) {
+        Block createBlock = new CattailPlantBlock(FabricBlockSettings.of(Material.PLANT, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WET_GRASS).strength(0.0f).noCollission().noOcclusion());
         createBlock(createBlock, id);
         return createBlock;
     }

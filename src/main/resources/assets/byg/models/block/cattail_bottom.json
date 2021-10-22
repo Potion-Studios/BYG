@@ -1,7 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
-        "cattail_bottom": "byg:block/cattail_bottom"
+        "cattail_bottom": "byg:block/cattail_bottom",
+        "particle": "byg:block/cattail_bottom"
     },
     "elements": [
         {

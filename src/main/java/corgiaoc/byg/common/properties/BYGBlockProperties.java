@@ -420,19 +420,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGWarpedCactus extends WarpedCactusBlock {
-        public BYGWarpedCactus(String registryName) {
-            super(FabricBlockSettings.of(Material.CACTUS)
-                    .sound(SoundType.WOOL)
-                    .strength(0.2f)
-                    .randomTicks()
-                    .noOcclusion()
-                    .lightLevel((state) -> 8)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BYGWarpedCoral extends BYGWarpedCoralPlantBlock {
         public BYGWarpedCoral(String registryName) {
             super(FabricBlockSettings.of(Material.WATER_PLANT)
@@ -757,19 +744,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BoricCampfire extends CampfireBlock {
-        public BoricCampfire(String registryName) {
-            super(true, 5, FabricBlockSettings.of(Material.WOOD, MaterialColor.PODZOL)
-                    .strength(2.0F)
-                    .sound(SoundType.WOOD)
-                    .randomTicks()
-                    .noOcclusion()
-                    .lightLevel((state) -> 14)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BoricFire extends BoricFireBlock {
         public BoricFire(String registryName) {
             super(FabricBlockSettings.of(Material.FIRE, MaterialColor.COLOR_GREEN)
@@ -788,18 +762,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.WOOL)
                     .noCollission()
                     .instabreak()
-                    .lightLevel((state) -> 14)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class CrypticCampfire extends CampfireBlock {
-        public CrypticCampfire(String registryName) {
-            super(true, 5, FabricBlockSettings.of(Material.WOOD, MaterialColor.PODZOL)
-                    .strength(2.0F)
-                    .sound(SoundType.WOOD)
-                    .noOcclusion()
                     .lightLevel((state) -> 14)
             );
             BYGBlocks.createBlock(this, registryName);
@@ -907,17 +869,6 @@ public class BYGBlockProperties {
                     .noOcclusion()
                     .noCollission()
                     .randomTicks()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BYGBerryBush extends BlueBerryBush {
-        public BYGBerryBush(String registryName) {
-            super(FabricBlockSettings.of(Material.PLANT)
-                    .sound(SoundType.SWEET_BERRY_BUSH)
-                    .strength(0.0f, 0.0f)
-                    .noCollission()
             );
             BYGBlocks.createBlock(this, registryName);
         }
