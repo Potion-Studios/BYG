@@ -10,24 +10,47 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.BambooSaplingBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 import java.util.Random;
 
-public class CattailSproutBlock extends BambooSaplingBlock {
+public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWaterloggedBlock {
+
+    public static final BooleanProperty WATERLOGGED;
+
+
     public CattailSproutBlock(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, true));
     }
 
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
+        BlockPos blockPos = blockPlaceContext.getClickedPos();
+        FluidState fluidState = blockPlaceContext.getLevel().getFluidState(blockPos);
+        BlockState blockState = this.defaultBlockState().setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
+        Level level = blockPlaceContext.getLevel();
+        if (level.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
+            return blockState;
+        }
+        else return level.getBlockState(blockPos);
+    }
 
     public boolean canSurvive(@NotNull BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
         BlockState blockState2 = levelReader.getBlockState(blockPos.below());
@@ -48,6 +71,11 @@ public class CattailSproutBlock extends BambooSaplingBlock {
 
             return false;
         }
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(WATERLOGGED);
     }
 
     public BlockState updateShape(BlockState blockState, @NotNull Direction direction, @NotNull BlockState blockState2, @NotNull LevelAccessor levelAccessor, @NotNull BlockPos blockPos, @NotNull BlockPos blockPos2) {
@@ -78,5 +106,9 @@ public class CattailSproutBlock extends BambooSaplingBlock {
         CattailPlantBlock cattailplantblock = (CattailPlantBlock) (BYGBlocks.CATTAIL);
         if (cattailplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             CattailPlantBlock.placeAt(world, state, pos, 2);
-        }    }
+        }
+    }
+    static {
+        WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    }
 }
