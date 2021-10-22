@@ -39,6 +39,14 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, true));
     }
 
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
+        CattailPlantBlock cattailplantblock = (CattailPlantBlock)(blockState.is(BYGBlocks.CATTAIL_SPROUT) ? BYGBlocks.CATTAIL : BYGBlocks.CATTAIL);
+        if (cattailplantblock.defaultBlockState().canSurvive(serverLevel, blockPos) && serverLevel.isEmptyBlock(blockPos.above())) {
+            CattailPlantBlock.placeAt(serverLevel, blockState, blockPos, 2);
+        }
+
+    }
+
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
@@ -95,7 +103,13 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
     }
 
     public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        this.growCattail(serverLevel, blockPos, blockState);
+        CattailPlantBlock cattailplantblock = (CattailPlantBlock)(blockState.is(BYGBlocks.CATTAIL_SPROUT) ? BYGBlocks.CATTAIL : BYGBlocks.CATTAIL);
+        if (cattailplantblock.defaultBlockState().canSurvive(serverLevel, blockPos) && serverLevel.isEmptyBlock(blockPos.above())) {
+            CattailPlantBlock.placeAt(serverLevel, blockState, blockPos, 2);
+        }
+
+
+
     }
 
     public float getDestroyProgress(@NotNull BlockState blockState, Player player, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
@@ -107,6 +121,9 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         if (cattailplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             CattailPlantBlock.placeAt(world, state, pos, 2);
         }
+
+
+
     }
     static {
         WATERLOGGED = BlockStateProperties.WATERLOGGED;
