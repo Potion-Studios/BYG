@@ -114,6 +114,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.IMPARIUS_BUSH, RenderType.cutoutMipped());
 
         //Sea Plants
+        map.put(BYGBlocks.CATTAIL_SPROUT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CATTAIL, RenderType.cutoutMipped());
         map.put(BYGBlocks.REEDS, RenderType.cutoutMipped());
         map.put(BYGBlocks.TINY_LILYPADS, RenderType.cutoutMipped());
