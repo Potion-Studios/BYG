@@ -19,6 +19,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class BYGItems {
     public static List<Item> itemsList = new ArrayList<>();
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
+    public static final Item MAN_O_WAR_SPAWN_EGG = createItem(new SpawnEggItem(BYGEntities.MANOWAR, new Color(252, 182, 210).getRGB(), new Color(255, 84, 150).getRGB(), new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_spawn_egg");
     public static final Item PEAT = createItem(new PeatBlockItem(BYGBlocks.PEAT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
     public static final Item LUSH_GRASS_BLOCK = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_BLOCK));
     public static final Item LUSH_GRASS_PATH = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_PATH));

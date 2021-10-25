@@ -8,4 +8,6 @@ public class BYGArmorItem extends ArmorItem {
     public BYGArmorItem(BYGArmorTiers materialIn, EquipmentSlot slot, Properties builder) {
         super(materialIn, slot, builder);
     }
+
+
 }

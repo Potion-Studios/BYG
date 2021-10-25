@@ -41,7 +41,6 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
 
             if (world.getFluidState(pos).getType() == Fluids.WATER)
                 return canGrow(ground);
-
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 if (world.getFluidState(groundPos.relative(direction)).getType() == Fluids.WATER) {
                     return canGrow(ground);

@@ -3,6 +3,8 @@ package corgiaoc.byg.mixin.client;
 import com.google.common.collect.ImmutableMap;
 import corgiaoc.byg.common.entity.boat.BYGBoatEntity;
 import corgiaoc.byg.common.entity.boat.BYGBoatRenderer;
+import corgiaoc.byg.common.entity.manowar.ManOWarModel;
+import corgiaoc.byg.common.entity.manowar.ManOWarRenderer;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -24,5 +26,6 @@ public class MixinLayerDefinitions {
         for (BYGBoatEntity.BYGType value : BYGBoatEntity.BYGType.values()) {
             builder.put(BYGBoatRenderer.createBoatModelName(value), BoatModel.createBodyModel());
         }
+        builder.put(ManOWarRenderer.MODEL_LAYER, ManOWarModel.createBodyLayer());
     }
 }

@@ -2,6 +2,8 @@ package corgiaoc.byg;
 
 
 import corgiaoc.byg.client.textures.renders.BYGCutoutRenders;
+import corgiaoc.byg.common.entity.manowar.ManOWar;
+import corgiaoc.byg.common.entity.manowar.ManOWarRenderer;
 import corgiaoc.byg.common.entity.villager.BYGVillagerType;
 import corgiaoc.byg.common.properties.BYGCreativeTab;
 import corgiaoc.byg.common.properties.blocks.vanilla.ITreeSpawner;
@@ -11,15 +13,19 @@ import corgiaoc.byg.common.world.dimension.nether.BYGNetherBiomeSource;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.BYGConfigHandler;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.core.BYGEntities;
 import corgiaoc.byg.core.world.BYGBiomes;
 import corgiaoc.byg.entrypoint.EntryPoint;
 import corgiaoc.byg.mixin.access.BlockEntityTypeAccess;
 import corgiaoc.byg.mixin.access.ItemBlockRenderTypeAccess;
 import corgiaoc.byg.util.BiomeKeyUtil;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -91,12 +97,14 @@ public class BYG {
         builderAccess.setValidBlocks(validBlocks);
         BYGBiomes.handleOverworldEntries();
         BYGConfigHandler.fillBiomeDictionary(CONFIG_PATH);
+        FabricDefaultAttributeRegistry.register(BYGEntities.MANOWAR, ManOWar.createAttributes());
     }
 
     public static void clientLoad() {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BYGCutoutRenders.renderCutOuts(ItemBlockRenderTypeAccess.getTypeByBlock());
+        EntityRendererRegistry.register(BYGEntities.MANOWAR, ManOWarRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 
