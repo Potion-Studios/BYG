@@ -1,6 +1,10 @@
 package corgiaoc.byg.core.world;
 
-import corgiaoc.byg.common.world.structure.village.villagepools.*;
+import corgiaoc.byg.common.world.structure.village.villagepools.AdobeVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.EndRuins;
+import corgiaoc.byg.common.world.structure.village.villagepools.RuinsVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.SkyrisVillagePools;
+import corgiaoc.byg.common.world.structure.village.villagepools.TropicalVillagePools;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -12,19 +16,19 @@ public class BYGConfiguredStructures {
         return EndRuins.START;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_SKYRIS = register("village_skyris", Structure.VILLAGE.configured(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_SKYRIS = register("village_skyris", BYGStructures.SKYRIS_VILLAGE.configured(new VillageConfig(() -> {
         return SkyrisVillagePools.SkyrisVillageJigsaw;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_RUINS = register("village_ruins", Structure.VILLAGE.configured(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_RUINS = register("village_ruins", BYGStructures.RUINS_VILLAGE.configured(new VillageConfig(() -> {
         return RuinsVillagePools.RuinsVillageJigsaw;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", Structure.VILLAGE.configured(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_ADOBE = register("village_adobe", BYGStructures.ADOBE_VILLAGE.configured(new VillageConfig(() -> {
         return AdobeVillagePools.ADOBE_VILLAGE_JIGSAW;
     }, 6)));
 
-    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", Structure.VILLAGE.configured(new VillageConfig(() -> {
+    public static final StructureFeature<VillageConfig, ? extends Structure<VillageConfig>> VILLAGE_TROPICAL = register("village_tropical", BYGStructures.TROPICAL_VILLAGE.configured(new VillageConfig(() -> {
         return TropicalVillagePools.TropicalVillageJigsaw;
     }, 6)));
 
