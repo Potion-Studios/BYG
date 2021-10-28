@@ -1,10 +1,13 @@
 package corgiaoc.byg.core.world.util;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.world.*;
 import corgiaoc.byg.mixin.access.DimensionStructuresSettingsAccess;
 import corgiaoc.byg.mixin.access.StructureAccess;
+import net.fabricmc.fabric.mixin.structure.StructureFeatureAccessor;
+import net.fabricmc.fabric.mixin.structure.StructuresConfigAccessor;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +23,9 @@ import net.minecraft.world.level.levelgen.surfacebuilders.ConfiguredSurfaceBuild
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @SuppressWarnings("deprecation")
@@ -57,7 +62,7 @@ public class WorldGenRegistrationHelper {
         return feature;
     }
 
-    public static <C extends FeatureConfiguration, F extends StructureFeature<C>> F createStructure(String id, F structure, int minChunkDistance, int maxChunkDistance, int seedModifier, GenerationStep.Decoration decorationStage) {
+    public static <C extends FeatureConfiguration, F extends StructureFeature<C>> F createStructure(String id, F structure, int minChunkDistance, int maxChunkDistance, int seedModifier, GenerationStep.Decoration decorationStage, boolean terraforms) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
         if (Registry.STRUCTURE_FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Structure Feature ID: \"" + bygID.toString() + "\" already exists in the Structure Features registry!");
@@ -67,12 +72,32 @@ public class WorldGenRegistrationHelper {
         StructureFeature.STRUCTURES_REGISTRY.put(bygID.toString(), structure);
 
         StructureAccess.getStructureStep().put(structure, decorationStage);
-
+        StructureFeatureConfiguration structureConfig = new StructureFeatureConfiguration(minChunkDistance, maxChunkDistance, seedModifier);
         DimensionStructuresSettingsAccess.setDefaults(
                 ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder()
                         .putAll(StructureSettings.DEFAULTS)
-                        .put(structure, new StructureFeatureConfiguration(minChunkDistance, maxChunkDistance, seedModifier))
+                        .put(structure, structureConfig)
                         .build());
+
+        if(terraforms){
+            StructureFeatureAccessor.setSurfaceAdjustingStructures(
+                    ImmutableList.<StructureFeature<?>>builder()
+                            .addAll(StructureFeature.NOISE_AFFECTING_FEATURES)
+                            .add(structure)
+                            .build());
+        }
+
+        BuiltinRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
+            Map<StructureFeature<?>, StructureFeatureConfiguration> structureMap = settings.getValue().structureSettings().structureConfig();
+            if(structureMap instanceof ImmutableMap){
+                Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(structureMap);
+                tempMap.put(structure, structureConfig);
+                ((DimensionStructuresSettingsAccess)settings.getValue().structureSettings().structureConfig()).setStructureConfig(tempMap);
+            }
+            else{
+                structureMap.put(structure, structureConfig);
+            }
+        });
         return structure;
     }
 

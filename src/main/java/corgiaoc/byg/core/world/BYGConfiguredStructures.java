@@ -9,19 +9,19 @@ import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfigura
 
 public class BYGConfiguredStructures {
 
-    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_SKYRIS = register("village_skyris", StructureFeature.VILLAGE.configured(new JigsawConfiguration(() -> {
+    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_SKYRIS = register("village_skyris", BYGStructures.SKYRIS_VILLAGE.configured(new JigsawConfiguration(() -> {
         return SkyrisVillagePools.SkyrisVillageJigsaw;
     }, 6)));
 
-    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_RUINS = register("village_ruins", StructureFeature.VILLAGE.configured(new JigsawConfiguration(() -> {
+    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_RUINS = register("village_ruins", BYGStructures.RUINS_VILLAGE.configured(new JigsawConfiguration(() -> {
         return RuinsVillagePools.RuinsVillageJigsaw;
     }, 6)));
 
-    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_ADOBE = register("village_adobe", StructureFeature.VILLAGE.configured(new JigsawConfiguration(() -> {
+    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_ADOBE = register("village_adobe", BYGStructures.ADOBE_VILLAGE.configured(new JigsawConfiguration(() -> {
         return AdobeVillagePools.ADOBE_VILLAGE_JIGSAW;
     }, 6)));
 
-    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_TROPICAL = register("village_tropical", StructureFeature.VILLAGE.configured(new JigsawConfiguration(() -> {
+    public static final ConfiguredStructureFeature<JigsawConfiguration, ? extends StructureFeature<JigsawConfiguration>> VILLAGE_TROPICAL = register("village_tropical", BYGStructures.TROPICAL_VILLAGE.configured(new JigsawConfiguration(() -> {
         return TropicalVillagePools.TropicalVillageJigsaw;
     }, 6)));
 

@@ -9,6 +9,7 @@ import corgiaoc.byg.util.MLBlockTags;
 import corgiaoc.byg.util.NetworkUtil;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.Registry;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
@@ -139,8 +141,7 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
     public static void registerStructures() {
         BYG.LOGGER.debug("BYG: Registering structures...");
         BYGStructures.init();
-//            BYGStructures.structures.forEach(structure -> event.getRegistry().register(structure));
-//            Structure.STRUCTURE_DECORATION_STAGE_MAP.forEach(((structure, decoration) -> System.out.println(Registry.STRUCTURE_FEATURE.getKey(structure).toString())));
+        List<StructureFeature<?>> structureFeatures = BYGStructures.structures;
         BYG.LOGGER.info("BYG: Structures registered!");
     }
 
