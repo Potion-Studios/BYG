@@ -61,13 +61,12 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands(), 18);
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea(), 20);
     public static ResourceKey<Biome> DECIDUOUS_FOREST = createBiome("deciduous_forest", deciduousForest(false), 21);
-    public static ResourceKey<Biome> DOVER_MOUNTAINS = createBiome("dover_mountains", doverMountains(), 19);
+    public static ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", daciteRidges(), 19);
     public static ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", windsweptDunes(), 26);
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods(), 23);
     public static ResourceKey<Biome> ENCHANTED_FOREST = createBiome("enchanted_forest", enchantedForest(), 24);
     public static ResourceKey<Biome> ENCHANTED_GROVE = createBiome("enchanted_grove", enchantedGrove(false), 30);
 
-    public static ResourceKey<Biome> EVERGREEN_TAIGA = createBiome("evergreen_taiga", evergreenTaiga(false), 25);
     public static ResourceKey<Biome> GREAT_LAKES = createBiome("great_lakes", greatLakes(), 28);
     public static ResourceKey<Biome> GROVE = createBiome("grove", grove(false), 29);
     public static ResourceKey<Biome> GUIANA_SHIELD = createBiome("guiana_shield", guianaShield(), 31);
@@ -95,7 +94,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", redwoodThicket(), 16);
     public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false), 51);
     public static ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = createBiome("snowy_coniferous_forest", coniferousForest(true), 52);
-    public static ResourceKey<Biome> SNOWY_EVERGREEN_TAIGA = createBiome("snowy_evergreen_taiga", evergreenTaiga(true), 54);
     public static ResourceKey<Biome> STONE_FOREST = createBiome("fragment_forest", fragmentForest(false), 148);
     public static ResourceKey<Biome> THE_BLACK_FOREST = createBiome("black_forest", blackForest(), 55);
     public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalForest(), 140);

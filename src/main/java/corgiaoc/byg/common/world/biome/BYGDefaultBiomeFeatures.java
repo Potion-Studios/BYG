@@ -734,9 +734,7 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLUFF_TREE);
     }
 
-    public static void addDoverMTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SEASONAL_TAIGA_MISC_TREE);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_TREE);
+    public static void addDaciteRidgeTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DOVER_TREE);
     }
 

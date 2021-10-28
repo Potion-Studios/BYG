@@ -1211,10 +1211,10 @@ public class BYGConfiguredFeatures {
             new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_DOVER_TREE = createConfiguredFeature("dover_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            PINE_LARGE_TREE1.weighted(0.25F),
-            PINE_LARGE_TREE2.weighted(0.25F)),
+            SPRUCE_TREE_MEDIUM2.weighted(0.25F),
+            SPRUCE_TREE_MEDIUM1.weighted(0.25F)),
             SPRUCE_TREE_LARGE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.4F, 2))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = createConfiguredFeature("eucalyptus_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             RAINBOW_TREE1.weighted(0.1F)),
@@ -1566,7 +1566,7 @@ public class BYGConfiguredFeatures {
             HOLLY_TREE2.weighted(0.2F),
             HOLLY_TREE3.weighted(0.1F)),
             HOLLY_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.35F, -5))));
+            new FrequencyWithExtraChanceDecoratorConfiguration(8, 0.35F, -5))));
 
     public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_HOLLY_TREE = createConfiguredFeature("sparse_holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             HOLLY_TREE1.weighted(0.2F),
