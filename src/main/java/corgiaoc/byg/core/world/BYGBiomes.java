@@ -46,7 +46,7 @@ public class BYGBiomes {
     /************Primary Biomes************/
     public static ResourceKey<Biome> ALLIUM_FIELDS = createBiome("allium_fields", alliumFields(), 1);
     public static ResourceKey<Biome> AMARANTH_FIELDS = createBiome("amaranth_fields", amaranthFields(), 2);
-    public static ResourceKey<Biome> ANCIENT_FOREST = createBiome("ancient_forest", ancientForest(false, false), 3);
+    public static ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", forgottenForest(), 3);
     public static ResourceKey<Biome> ARAUCARIA_SAVANNA = createBiome("araucaria_savanna", araucariaSavanna(false), 4);
     public static ResourceKey<Biome> ASPEN_FOREST = createBiome("aspen_forest", aspenForest(), 5);
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley(), 6);
@@ -113,7 +113,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> WHITE_BEACH = createBiome("white_beach", whiteBeach(), 138);
 
     //Flowering
-    public static ResourceKey<Biome> FLOWERING_ANCIENT_FOREST = createBiome("flowering_ancient_forest", ancientForest(true, false), 68);
     public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = createBiome("flowering_enchanted_grove", enchantedGrove(true), 95);
     public static ResourceKey<Biome> FLOWERING_GROVE = createBiome("flowering_grove", grove(true), 94);
     public static ResourceKey<Biome> FLOWERING_COCONINO_MEADOW = createBiome("flowering_coconino_meadow", coconinoMeadow(true, false), 133);
@@ -122,7 +121,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> ARAUCARIA_FOREST = createBiome("araucaria_forest", araucariaSavanna(true), 152);
     public static ResourceKey<Biome> BAMBOO_FOREST = createBiome("bamboo_forest", bambooForest(), 78);
     public static ResourceKey<Biome> FOREST_FAULT = createBiome("forest_fault", forestFault(), 93);
-    public static ResourceKey<Biome> GLOWING_ANCIENT_FOREST = createBiome("glowing_ancient_forest", ancientForest(false, true), 67);
     public static ResourceKey<Biome> NORTHERN_FOREST = createBiome("northern_forest", northernForest(), 96);
     public static ResourceKey<Biome> POINTY_STONE_FOREST = createBiome("pointed_fragment_forest", fragmentForest(true), 153);
     public static ResourceKey<Biome> PUMPKIN_FOREST = createBiome("pumpkin_forest", pumpkinForest(), 77);

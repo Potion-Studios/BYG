@@ -102,8 +102,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RICHEA = createConfiguredFeature("richea", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.RICHEA.defaultBlockState()), new SimpleBlockPlacer())).tries(10).build()));
     public static final ConfiguredFeature<?, ?> PRAIRIE_GRASS_PATCH = createConfiguredFeature("prairie_grass_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.PRAIRIE_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(100).noProjection().build()));
     public static final ConfiguredFeature<?, ?> PRAIRIE_TALL_GRASS_PATCH = createConfiguredFeature("tall_prairie_grass_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.TALL_PRAIRIE_GRASS.defaultBlockState()), new DoublePlantPlacer())).tries(100).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> BLUE_GLOWSHROOM = createConfiguredFeature("blue_glowshroom", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.BLUE_GLOWSHROOM.defaultBlockState()), new SimpleBlockPlacer())).tries(18).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> PURPLE_GLOWSHROOM = createConfiguredFeature("purple_glowshroom", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.PURPLE_GLOWSHROOM.defaultBlockState()), new SimpleBlockPlacer())).tries(18).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ROSE_BUSH = createConfiguredFeature("rose_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(Blocks.ROSE_BUSH.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.DELPHINIUM.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createConfiguredFeature("japanese_orchid", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.JAPANESE_ORCHID.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
@@ -167,11 +165,6 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> REED = createConfiguredFeature("reed", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.REEDS.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().needWater().build()));
     public static final ConfiguredFeature<?, ?> CATTAIL = createConfiguredFeature("cattail", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.CATTAIL.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().needWater().build()));
-
-    public static final ConfiguredFeature<?, ?> GLOWCANE_BLUE = createConfiguredFeature("blue_glowcane", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.BLUE_GLOWCANE.defaultBlockState()), new ColumnPlacer(UniformInt.of(2, 3)))).tries(32).xspread(4).yspread(0).zspread(4).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> GLOWCANE_PURPLE = createConfiguredFeature("purple_glowcane", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.PURPLE_GLOWCANE.defaultBlockState()), new ColumnPlacer(UniformInt.of(2, 3)))).tries(32).xspread(4).yspread(0).zspread(4).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> GLOWCANE_RED = createConfiguredFeature("red_glowcane", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.RED_GLOWCANE.defaultBlockState()), new ColumnPlacer(UniformInt.of(2, 3)))).tries(32).xspread(4).yspread(0).zspread(4).noProjection().build()));
-    public static final ConfiguredFeature<?, ?> GLOWCANE_PINK = createConfiguredFeature("pink_glowcane", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.PINK_GLOWCANE.defaultBlockState()), new ColumnPlacer(UniformInt.of(2, 3)))).tries(32).xspread(4).yspread(0).zspread(4).noProjection().build()));
 
     public static final ConfiguredFeature<?, ?> LOLIPOP_FLOWER = createConfiguredFeature("lolipop_flower", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.LOLIPOP_FLOWER.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> LEATHER_FLOWER_PEACH = createConfiguredFeature("peach_leather_flower", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(BYGBlocks.PEACH_LEATHER_FLOWER.defaultBlockState()), new SimpleBlockPlacer())).tries(64).noProjection().build()));
@@ -394,12 +387,6 @@ public class BYGConfiguredFeatures {
             BEACH_GRASS.weighted(0.50F)),
             BEACH_SHORT_GRASS_PATCH)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWCANE = createConfiguredFeature("glowcane", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            GLOWCANE_BLUE.weighted(0.25F),
-            GLOWCANE_PINK.weighted(0.25F),
-            GLOWCANE_PURPLE.weighted(0.25F)),
-            GLOWCANE_RED)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(60));
-
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_GRASS = createConfiguredFeature("grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SHORT_GRASS.weighted(0.50F)),
             Features.PATCH_GRASS_NORMAL)).decorated(Features.Decorators.ADD_32).count(5));
@@ -411,10 +398,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> RANDOM_BYG_FERN_GRASS = createConfiguredFeature("fern_grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             SHORT_GRASS.weighted(0.50F)),
             Features.PATCH_TAIGA_GRASS)).decorated(Features.Decorators.ADD_32).count(10));
-
-    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSHROOM = createConfiguredFeature("glowshrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            BLUE_GLOWSHROOM.weighted(0.50F)),
-            PURPLE_GLOWSHROOM)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
 
     public static final ConfiguredFeature<?, ?> RANDOM_MUSHROOM = createConfiguredFeature("mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             WOOD_BLEWIT.weighted(0.40F),
@@ -927,8 +910,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> WOODLANDS_TREE1 = createConfiguredFeature("woodlands_tree1", BYGFeatures.WOODLANDS_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(Blocks.OAK_LEAVES).setMaxHeight(5).setMinHeight(25).build()));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_DEAD_TREE1 = createConfiguredFeature("dead_willow_tree1", BYGFeatures.WILLOW_DEAD_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_M_TREE1 = createConfiguredFeature("mutated_willow_tree1", BYGFeatures.WILLOW_M_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(11).setMinHeight(6).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_M_TREE2 = createConfiguredFeature("mutated_willow_tree2", BYGFeatures.WILLOW_M_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_TREE1 = createConfiguredFeature("willow_tree1", BYGFeatures.WILLOW_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(14).setMinHeight(8).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_TREE2 = createConfiguredFeature("willow_tree2", BYGFeatures.WILLOW_TREE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> WILLOW_TREE3 = createConfiguredFeature("willow_tree3", BYGFeatures.WILLOW_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(BYGBlocks.WILLOW_LOG).setLeavesBlock(BYGBlocks.WILLOW_LEAVES).setMaxHeight(12).setMinHeight(7).build()));
@@ -946,8 +927,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGMushroomConfig, ?> GREEN_MUSHROOM_HUGE = createConfiguredFeature("huge_green_mushroom", BYGFeatures.GREEN_MUSHROOM_HUGE.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.GREEN_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> WOOD_BLEWIT_HUGE = createConfiguredFeature("huge_wood_blewit", BYGFeatures.WOOD_BLEWIT_HUGE.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.BROWN_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.BLEWIT_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
     public static final ConfiguredFeature<BYGMushroomConfig, ?> WEEPING_MILKCAP_HUGE = createConfiguredFeature("huge_weeping_milkcap", BYGFeatures.WEEPING_MILKCAP_HUGE.configured(new BYGMushroomConfig.Builder().setStemBlock(Blocks.MUSHROOM_STEM).setMushroomBlock(BYGBlocks.MILKCAP_MUSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
-    public static final ConfiguredFeature<BYGMushroomConfig, ?> BLUE_GLOWSHROOM_HUGE = createConfiguredFeature("huge_blue_glowshroom", BYGFeatures.BLUE_GLOWSHROOM_HUGE.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.YELLOW_GLOWSHROOM_STEM).setMushroomBlock(BYGBlocks.BLUE_GLOWSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
-    public static final ConfiguredFeature<BYGMushroomConfig, ?> PURPLE_GLOWSHROOM_HUGE = createConfiguredFeature("huge_purple_glowshroom", BYGFeatures.PURPLE_GLOWSHROOM_HUGE.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.RED_GLOWSHROOM_STEM).setMushroomBlock(BYGBlocks.PURPLE_GLOWSHROOM_BLOCK).setMinHeight(6).setMaxHeight(12).build()));
 
     //Mini Mushrooms
     public static final ConfiguredFeature<?, ?> GREEN_MUSHROOM_MINI = createConfiguredFeature("mini_green_mushroom", BYGFeatures.MINI_GREEN_MUSHROOM.configured(new BYGMushroomConfig.Builder().setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM).setMushroomBlock(BYGBlocks.GREEN_MUSHROOM_BLOCK).setMinHeight(3).setMaxHeight(3).build()));

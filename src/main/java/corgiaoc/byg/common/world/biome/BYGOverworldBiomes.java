@@ -98,15 +98,12 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.PLAINS).depth(0.125F).scale(0.05F).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome ancientForest(boolean flowering, boolean glowing) {
+    public static Biome forgottenForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder().setPlayerCanSpawn();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(glowing ? BYGConfiguredSurfaceBuilders.GLOWING_ANCIENT_FOREST : SurfaceBuilders.GRASS);
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder().surfaceBuilder(SurfaceBuilders.GRASS);
         generationSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
         generationSettings.addStructureStart(StructureFeatures.WOODLAND_MANSION);
         BiomeDefaultFeatures.addDefaultOverworldLandStructures(generationSettings);
-        if (flowering) {
-            BYGDefaultBiomeFeatures.addGiantFlowerFeatures(generationSettings);
-        }
         BYGDefaultBiomeFeatures.addAncientTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addShrub(generationSettings);
@@ -127,9 +124,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
-        if (glowing) {
-            BYGDefaultBiomeFeatures.addGlowshrooms(generationSettings);
-        }
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
@@ -804,7 +798,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBYGLilyPad(generationSettings);
         BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGlowcane(generationSettings);
         BiomeDefaultFeatures.addDefaultCarvers(generationSettings);
         BiomeDefaultFeatures.addDefaultMonsterRoom(generationSettings);
         BiomeDefaultFeatures.addDefaultUndergroundVariety(generationSettings);

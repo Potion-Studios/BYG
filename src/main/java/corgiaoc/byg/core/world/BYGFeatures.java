@@ -140,8 +140,6 @@ import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree2;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree3;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.WillowTree4;
 import corgiaoc.byg.common.world.feature.overworld.trees.willow.dead.WillowDeadTree1;
-import corgiaoc.byg.common.world.feature.overworld.trees.willow.mutated.WillowTreeM1;
-import corgiaoc.byg.common.world.feature.overworld.trees.willow.mutated.WillowTreeM2;
 import corgiaoc.byg.common.world.feature.overworld.trees.woodlands.WoodlandsTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree1;
 import corgiaoc.byg.common.world.feature.overworld.trees.zelkova.ZelkovaTree2;
@@ -208,8 +206,6 @@ public class BYGFeatures {
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> GREEN_MUSHROOM_HUGE = createFeature("green_mushroom_huge", new GreenMushroomHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WOOD_BLEWIT_HUGE = createFeature("wood_blewit_huge", new WoodBlewitHuge(BYGMushroomConfig.CODEC.stable()));
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> WEEPING_MILKCAP_HUGE = createFeature("weeping_milkcap_huge", new WeepingMilkcapHuge(BYGMushroomConfig.CODEC.stable()));
-    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> BLUE_GLOWSHROOM_HUGE = createFeature("blue_glowshroom_huge", new BlueGlowshroomHuge(BYGMushroomConfig.CODEC.stable()));
-    public static final BYGAbstractMushroomFeature<BYGMushroomConfig> PURPLE_GLOWSHROOM_HUGE = createFeature("purple_glowshroom_huge", new PurpleGlowshroomHuge(BYGMushroomConfig.CODEC.stable()));
 
     /*********************************************************************Mini Mushroom Features*********************************************************/
     public static final BYGAbstractMushroomFeature<BYGMushroomConfig> MINI_GREEN_MUSHROOM = createFeature("mini_green_mushroom", new MiniGreenMushroom(BYGMushroomConfig.CODEC.stable()));
@@ -550,8 +546,6 @@ public class BYGFeatures {
 
     //Willow
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_DEAD_TREE1 = createFeature("dead_willow_tree", new WillowDeadTree1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_M_TREE1 = createFeature("mutated_willow_tree1", new WillowTreeM1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_M_TREE2 = createFeature("mutated_willow_tree2", new WillowTreeM2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE1 = createFeature("willow_tree1", new WillowTree2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE2 = createFeature("willow_tree2", new WillowTree2(BYGTreeConfig.CODEC.stable()));
     public static final BYGAbstractTreeFeature<BYGTreeConfig> WILLOW_TREE3 = createFeature("willow_tree3", new WillowTree3(BYGTreeConfig.CODEC.stable()));

@@ -9,6 +9,8 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeManager;
+import net.minecraft.world.level.biome.Biomes;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class BYGBiomeWorldProperties {
     public static final BiomeDataHolders.OverworldPrimaryBiomeDataHolder OVERWORLD_DEFAULTS = new BiomeDataHolders.OverworldPrimaryBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
         map.put(ALLIUM_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(RED_OAK_FOREST, 2).build()));
         map.put(AMARANTH_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(JACARANDA_FOREST, 2).build()));
-        map.put(ANCIENT_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "MAGICAL", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_ANCIENT_FOREST, 5).add(GLOWING_ANCIENT_FOREST, 5).build(), EMPTY));
+        map.put(FORGOTTEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "MAGICAL", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(PLAINS, 1).add(GROVE, 2).build(), EMPTY));
         map.put(ARAUCARIA_SAVANNA, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(ARAUCARIA_FOREST, 5).build()));
         map.put(ASPEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 6, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_GROVE, 1).add(GROVE, 7).build()));
         map.put(AUTUMNAL_VALLEY, new OverworldPrimaryBiomeData(MLClimate.COOL, 5, List.of("PLAINS", "DRY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(CIKA_WOODS, 5).build()));
