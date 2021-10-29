@@ -395,6 +395,8 @@ public class BYGBlocks {
     public static final Block PEAT = createDirt("peat");
     public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
     public static final Block LUSH_DIRT = createDirt("lush_dirt");
+    public static final Block LUSH_FARMLAND = createLushFarmland("lush_farmland");
+
     public static final Block ETHER_SOIL = createDirt("ether_soil");
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
@@ -1947,6 +1949,12 @@ public class BYGBlocks {
 
     static Block createDirt(String id) {
         Block createBlock = new Block(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.GRAVEL).strength(0.2f).randomTicks());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createLushFarmland(String id) {
+        Block createBlock = new LushFarmBlock(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.GRAVEL).strength(0.2f));
         createBlock(createBlock, id);
         return createBlock;
     }

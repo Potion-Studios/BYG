@@ -34,6 +34,8 @@ public class BYGItems {
     public static final Item LUSH_GRASS_BLOCK = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_BLOCK));
     public static final Item LUSH_GRASS_PATH = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_PATH));
     public static final Item LUSH_DIRT = createItem(new BlockItem(BYGBlocks.LUSH_DIRT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_DIRT));
+    public static final Item LUSH_FARMLAND = createItem(new BlockItem(BYGBlocks.LUSH_FARMLAND, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_FARMLAND));
+
     public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GLOWCELIUM));
     public static final Item MUD_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "mud_ball");
     public static final Item MUD_BLOCK = createItem(new BlockItem(BYGBlocks.MUD_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MUD_BLOCK));
