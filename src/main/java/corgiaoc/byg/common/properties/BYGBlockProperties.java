@@ -319,20 +319,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGGlowcelium extends BYGGlowCeliumBlock {
-        public BYGGlowcelium(String registryName) {
-            super(FabricBlockSettings.of(BYGMaterials.GLOWCELIUM)
-                    .sound(SoundType.GRAVEL)
-                    .strength(0.6f)
-                    .randomTicks()
-                    .lightLevel((state) -> 10)
-
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-
     public static class BYGLeafFoilage extends LeafFoliageBlock {
         public BYGLeafFoilage(String registryName) {
             super(DyeColor.GREEN, FabricBlockSettings.of(Material.LEAVES, MaterialColor.GRASS)
@@ -809,58 +795,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGREDGlowCane extends BYGGlowcane {
-        public BYGREDGlowCane(String registryName) {
-            super(FabricBlockSettings.of(BYGMaterials.RED_GLOWCANE)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f, 0.0f)
-                    .noCollission()
-                    .lightLevel((state) -> 10)
-                    .randomTicks()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BYGPINKGlowCane extends BYGGlowcane {
-        public BYGPINKGlowCane(String registryName) {
-            super(FabricBlockSettings.of(BYGMaterials.PINK_GLOWCANE)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f, 0.0f)
-                    .noCollission()
-                    .lightLevel((state) -> 10)
-                    .randomTicks()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BYGPURPLEGlowCane extends BYGGlowcane {
-        public BYGPURPLEGlowCane(String registryName) {
-            super(FabricBlockSettings.of(BYGMaterials.PURPLE_GLOWCANE)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f, 0.0f)
-                    .noCollission()
-                    .lightLevel((state) -> 10)
-                    .randomTicks()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BYGBLUEGlowCane extends BYGGlowcane {
-        public BYGBLUEGlowCane(String registryName) {
-            super(FabricBlockSettings.of(BYGMaterials.BLUE_GLOWCANE)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f, 0.0f)
-                    .noCollission()
-                    .lightLevel((state) -> 10)
-                    .randomTicks()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BlockCattail extends BYGRiverPlantBlock {
         public BlockCattail(String registryName) {
             super(FabricBlockSettings.of(Material.PLANT)
@@ -908,41 +842,6 @@ public class BYGBlockProperties {
             super(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.DIRT)
                     .sound(SoundType.STEM)
                     .strength(0.2F)
-            );
-            BYGBlocks.createBlock(this, registryName);
-            this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, true).setValue(EAST, true).setValue(SOUTH, true).setValue(WEST, true).setValue(UP, true).setValue(DOWN, true));
-        }
-
-        @Environment(EnvType.CLIENT)
-        public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
-            return adjacentBlockState.getBlock() == this || super.skipRendering(state, adjacentBlockState, side);
-        }
-    }
-
-    public static class BlockHugeGlowshroom extends HugeMushroomBlock {
-        public BlockHugeGlowshroom(String registryName) {
-            super(FabricBlockSettings.of(Material.GLASS, MaterialColor.DIRT)
-                    .sound(SoundType.STEM)
-                    .strength(0.2F)
-                    .noOcclusion()
-                    .lightLevel((state) -> 12)
-            );
-            BYGBlocks.createBlock(this, registryName);
-            this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, true).setValue(EAST, true).setValue(SOUTH, true).setValue(WEST, true).setValue(UP, true).setValue(DOWN, true));
-        }
-
-        @Environment(EnvType.CLIENT)
-        public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
-            return adjacentBlockState.getBlock() == this || super.skipRendering(state, adjacentBlockState, side);
-        }
-    }
-
-    public static class BlockHugeGlowshroomStem extends HugeMushroomBlock {
-        public BlockHugeGlowshroomStem(String registryName) {
-            super(FabricBlockSettings.of(Material.WOOD, MaterialColor.DIRT)
-                    .sound(SoundType.STEM)
-                    .strength(0.2F)
-                    .lightLevel((state) -> 12)
             );
             BYGBlocks.createBlock(this, registryName);
             this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, true).setValue(EAST, true).setValue(SOUTH, true).setValue(WEST, true).setValue(UP, true).setValue(DOWN, true));

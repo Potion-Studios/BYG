@@ -9,39 +9,12 @@ import java.util.Random;
 
 public class BYGMushroomToHugeMushroom {
 
-    public static class BlueGlowshroom extends BYGHugeMushroom.Massive {
-        @Nullable
-        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
-            return BYGConfiguredFeatures.BLUE_GLOWSHROOM_HUGE;
-        }
-
-        @Nullable
-        @Override
-        protected ConfiguredFeature<BYGMushroomConfig, ?> getMassiveMushroomFeature(Random random) {
-            return null;
-        }
-    }
-
     public static class GreenMushroom extends BYGHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
             return BYGConfiguredFeatures.GREEN_MUSHROOM_HUGE;
         }
     }
-
-    public static class PurpleGlowshroom extends BYGHugeMushroom.Massive {
-        @Nullable
-        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
-            return BYGConfiguredFeatures.PURPLE_GLOWSHROOM_HUGE;
-        }
-
-        @Nullable
-        @Override
-        protected ConfiguredFeature<BYGMushroomConfig, ?> getMassiveMushroomFeature(Random random) {
-            return null;
-        }
-    }
-
 
     public static class WeepingMilkCap extends BYGHugeMushroom {
         @Nullable

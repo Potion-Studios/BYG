@@ -342,7 +342,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
                         else
                             setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                     } else {
-                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
+                        if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE))
                             setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                         fill = 15;
                     }
@@ -376,7 +376,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
                         if (canStemPlaceHere(reader, mutableTrunk)) {
                             setFinalBlockState((LevelWriter) reader, mutableTrunk, fillerBlock.defaultBlockState());
                         } else {
-                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
+                            if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE))
                                 setFinalBlockState((LevelWriter) reader, mutableTrunk, earthBlock.defaultBlockState());
                             fill = 15;
                         }
@@ -396,7 +396,7 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
             BlockPos.MutableBlockPos mutableTrunk = new BlockPos.MutableBlockPos();
             for (BlockPos trunkPos : trunkPositions) {
                 mutableTrunk.set(trunkPos);
-                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE, BYGBlocks.GLOWCELIUM))
+                if (isDesiredGround(reader, mutableTrunk, Blocks.PODZOL, Blocks.MYCELIUM, BYGBlocks.PODZOL_DACITE, BYGBlocks.OVERGROWN_STONE))
                     setFinalBlockState((LevelWriter) reader, mutableTrunk.move(Direction.DOWN), soil.defaultBlockState());
             }
         }

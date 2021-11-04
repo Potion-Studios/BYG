@@ -2,6 +2,6 @@
   "parent": "block/cube_column",
   "textures": {
     "end": "byg:block/dacite_pillar_top",
-    "side": "byg:block/dacite_pillar_side"
+    "side": "byg:block/dacite_pillar"
   }
 }

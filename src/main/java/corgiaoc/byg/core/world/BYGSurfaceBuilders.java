@@ -27,7 +27,6 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GREAT_LAKE_ISLES = WorldGenRegistrationHelper.createSurfaceBuilder("great_lakes_isles", new GreatLakeIsleSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> ERODED_SIERRA = WorldGenRegistrationHelper.createSurfaceBuilder("eroded_sierra", new ErodedSierraSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> SIERRA_VALLEY = WorldGenRegistrationHelper.createSurfaceBuilder("sierra_valley", new SierraValleySB(SurfaceBuilderBaseConfiguration.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GLOWSHROOM_BAYOU = WorldGenRegistrationHelper.createSurfaceBuilder("glowshroom_bayou", new GlowShroomBayouSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> CRAG_GARDENS = WorldGenRegistrationHelper.createSurfaceBuilder("crag_gardens", new CragGardensSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RED_ROCK_SB = WorldGenRegistrationHelper.createSurfaceBuilder("red_rock", new RedRockSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RED_ROCK_LOWLANDS = WorldGenRegistrationHelper.createSurfaceBuilder("red_rock_lowlands", new RedRockLowlandsSB(SurfaceBuilderBaseConfiguration.CODEC));
@@ -40,7 +39,6 @@ public class BYGSurfaceBuilders {
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> LUSH_TUNDRA = WorldGenRegistrationHelper.createSurfaceBuilder("lush_tundra", new LushTundraSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> FUNGAL_RAINFOREST = WorldGenRegistrationHelper.createSurfaceBuilder("fungal_rainforest", new FungalRainforestSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> EBONY = WorldGenRegistrationHelper.createSurfaceBuilder("ebony_woods", new EbonyWoodsSB(SurfaceBuilderBaseConfiguration.CODEC));
-    public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> GLOWING_ANCIENT_FOREST = WorldGenRegistrationHelper.createSurfaceBuilder("glowing_ancient_forest", new GlowingAncientForestSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> EMBUR_BOG = WorldGenRegistrationHelper.createSurfaceBuilder("embur_bog", new EmburBogSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> ROCKY_BLACK_BEACH = WorldGenRegistrationHelper.createSurfaceBuilder("rocky_black_beach", new RockyBlackBeachSB(SurfaceBuilderBaseConfiguration.CODEC));
     public static final SurfaceBuilder<SurfaceBuilderBaseConfiguration> RAINBOW_BEACH = WorldGenRegistrationHelper.createSurfaceBuilder("rainbow_beach", new RainbowBeachSB(SurfaceBuilderBaseConfiguration.CODEC));
@@ -127,7 +125,6 @@ public class BYGSurfaceBuilders {
         public static final SurfaceBuilderBaseConfiguration PEATGRASS_CF = new SurfaceBuilderBaseConfiguration(BYGBlocks.PEAT.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration MUD_CF = new SurfaceBuilderBaseConfiguration(BYGBlocks.MUD_BLOCK.defaultBlockState(), BYGBlocks.MUD_BLOCK.defaultBlockState(), BYGBlocks.MUD_BLOCK.defaultBlockState());
         public static final SurfaceBuilderBaseConfiguration TERRACOTTA_CF = new SurfaceBuilderBaseConfiguration(Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState(), Blocks.TERRACOTTA.defaultBlockState());
-        public static final SurfaceBuilderBaseConfiguration GLOWCELIUM_CF = new SurfaceBuilderBaseConfiguration(BYGBlocks.GLOWCELIUM.defaultBlockState(), Blocks.DIRT.defaultBlockState(), Blocks.DIRT.defaultBlockState());
 
         public static final SurfaceBuilderBaseConfiguration GREEN_CONCRETE_POWDER_CF = new SurfaceBuilderBaseConfiguration(BYGBlocks.OVERGROWN_STONE.defaultBlockState(), BYGBlocks.MOSSY_STONE.defaultBlockState(), Blocks.STONE.defaultBlockState());
 

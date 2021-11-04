@@ -3,6 +3,6 @@
   "textures": {
     "bottom": "byg:block/dacite",
     "top": "block/podzol_top",
-    "side": "byg:block/podzol_dacite_side"
+    "side": "byg:block/podzol_dacite"
   }
 }

@@ -57,8 +57,6 @@ import java.util.function.ToIntFunction;
 @SuppressWarnings("deprecation")
 public class BYGBlocks {
     public static List<Block> blocksList = new ArrayList<>();
-
-
     public static List<Block> flowerPotBlocks = new ArrayList<>();
     public static List<ResourceLocation> flowerIDs = new ArrayList<>();
 
@@ -393,8 +391,9 @@ public class BYGBlocks {
     public static final Block IMPARIUS_FENCE = createFence("imparius_fence");
 
     public static final Block PEAT = createDirt("peat");
-    public static final Block GLOWCELIUM = new BYGBlockProperties.BYGGlowcelium("glowcelium_block");
     public static final Block LUSH_DIRT = createDirt("lush_dirt");
+    public static final Block LUSH_FARMLAND = createLushFarmland("lush_farmland");
+
     public static final Block ETHER_SOIL = createDirt("ether_soil");
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
@@ -515,10 +514,6 @@ public class BYGBlocks {
     public static final Block BLEWIT_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeMushroom("wood_blewit_mushroom_block");
     public static final Block WHITE_MUSHROOM_STEM = new BYGBlockProperties.BlockHugeMushroom("white_mushroom_stem");
     public static final Block BROWN_MUSHROOM_STEM = new BYGBlockProperties.BlockHugeMushroom("brown_mushroom_stem");
-    public static final Block BLUE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("blue_glowshroom_block");
-    public static final Block PURPLE_GLOWSHROOM_BLOCK = new BYGBlockProperties.BlockHugeGlowshroom("purple_glowshroom_block");
-    public static final Block RED_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("red_glowshroom_stem");
-    public static final Block YELLOW_GLOWSHROOM_STEM = new BYGBlockProperties.BlockHugeGlowshroomStem("yellow_glowshroom_stem");
     public static final Block SOUL_SHROOM_STEM = new BYGBlockProperties.BlockHugeNetherMushroomStem("soul_shroom_stem");
     public static final Block SOUL_SHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("soul_shroom_block");
     public static final Block DEATH_CAP_MUSHROOM_BLOCK = new BYGBlockProperties.BlockHugeNetherMushroom("death_cap_mushroom_block");
@@ -538,10 +533,6 @@ public class BYGBlocks {
     public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
     public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
     public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
-    public static final Block BLUE_GLOWCANE = new BYGBlockProperties.BYGBLUEGlowCane("blue_glowcane");
-    public static final Block RED_GLOWCANE = new BYGBlockProperties.BYGREDGlowCane("red_glowcane");
-    public static final Block PURPLE_GLOWCANE = new BYGBlockProperties.BYGPURPLEGlowCane("purple_glowcane");
-    public static final Block PINK_GLOWCANE = new BYGBlockProperties.BYGPINKGlowCane("pink_glowcane");
     public static final Block POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
     public static final Block SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
     public static final Block BLUEBERRY_BUSH = createBlueBerryBush("blueberry_bush");
@@ -710,11 +701,6 @@ public class BYGBlocks {
     public static final Block SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
     public static final Block PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
-    public static final Block BLUE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("blue_glowcane_block");
-    public static final Block RED_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("red_glowcane_block");
-    public static final Block PINK_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("pink_glowcane_block");
-    public static final Block PURPLE_GLOWCANE_BLOCK = new BYGBlockProperties.BYGGlowCaneBlock("purple_glowcane_block");
-
     public static final Block GLOWSTONE_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("glowstone_lamp");
     public static final Block PERVADED_NETHERRACK = new BYGBlockProperties.BYGPervadedNetherrack("pervaded_netherrack");
     public static final Block GLOWSTONE_LANTERN = new BYGBlockProperties.BYGLantern("glowstone_lantern");
@@ -871,8 +857,6 @@ public class BYGBlocks {
     public static final Block WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
     public static final Block WOOD_BLEWIT = createMushroomPlant(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit");
     public static final Block GREEN_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
-    public static final Block BLUE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.BlueGlowshroom(), "blue_glowshroom");
-    public static final Block PURPLE_GLOWSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleGlowshroom(), "purple_glowshroom");
 
     public static final Block SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
     public static final Block SOUL_SHROOM = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
@@ -1947,6 +1931,12 @@ public class BYGBlocks {
 
     static Block createDirt(String id) {
         Block createBlock = new Block(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.GRAVEL).strength(0.2f).randomTicks());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createLushFarmland(String id) {
+        Block createBlock = new LushFarmBlock(FabricBlockSettings.of(Material.DIRT).breakByTool(FabricToolTags.SHOVELS).sound(SoundType.GRAVEL).strength(0.2f));
         createBlock(createBlock, id);
         return createBlock;
     }

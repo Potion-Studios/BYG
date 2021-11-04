@@ -29,12 +29,13 @@ public class BYGItems {
     public static List<Item> itemsList = new ArrayList<>();
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
-    public static final Item MAN_O_WAR_SPAWN_EGG = createItem(new SpawnEggItem(BYGEntities.MANOWAR, new Color(252, 182, 210).getRGB(), new Color(255, 84, 150).getRGB(), new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_spawn_egg");
+    public static final Item MAN_O_WAR_SPAWN_EGG = createItem(new SpawnEggItem(BYGEntities.MANOWAR, new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_spawn_egg");
     public static final Item PEAT = createItem(new PeatBlockItem(BYGBlocks.PEAT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PEAT));
     public static final Item LUSH_GRASS_BLOCK = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_BLOCK));
     public static final Item LUSH_GRASS_PATH = createItem(new BlockItem(BYGBlocks.LUSH_GRASS_PATH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_GRASS_PATH));
     public static final Item LUSH_DIRT = createItem(new BlockItem(BYGBlocks.LUSH_DIRT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_DIRT));
-    public static final Item GLOWCELIUM = createItem(new BlockItem(BYGBlocks.GLOWCELIUM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.GLOWCELIUM));
+    public static final Item LUSH_FARMLAND = createItem(new BlockItem(BYGBlocks.LUSH_FARMLAND, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.LUSH_FARMLAND));
+
     public static final Item MUD_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "mud_ball");
     public static final Item MUD_BLOCK = createItem(new BlockItem(BYGBlocks.MUD_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MUD_BLOCK));
     public static final Item MUD_BRICKS = createItem(new BlockItem(BYGBlocks.MUD_BRICKS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.MUD_BRICKS));
@@ -919,31 +920,6 @@ public class BYGItems {
 
     public static final Item FIRECRACKER_LEAVES = createItem(new BlockItem(BYGBlocks.FIRECRACKER_LEAVES, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FIRECRACKER_LEAVES));
     public static final Item FIRECRACKER_FLOWER_BUSH = createItem(new BlockItem(BYGBlocks.FIRECRACKER_FLOWER_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.FIRECRACKER_FLOWER_BUSH));
-
-    //Glowcane
-    public static final Item BLUE_GLOWCANE_DUST = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_glowcane_dust");
-    public static final Item BLUE_GLOWCANE = createItem(new BlockItem(BYGBlocks.BLUE_GLOWCANE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLUE_GLOWCANE));
-    public static final Item BLUE_GLOWCANE_BLOCK = createItem(new BlockItem(BYGBlocks.BLUE_GLOWCANE_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLUE_GLOWCANE_BLOCK));
-
-    public static final Item PINK_GLOWCANE_DUST = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "pink_glowcane_dust");
-    public static final Item PINK_GLOWCANE = createItem(new BlockItem(BYGBlocks.PINK_GLOWCANE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_GLOWCANE));
-    public static final Item PINK_GLOWCANE_BLOCK = createItem(new BlockItem(BYGBlocks.PINK_GLOWCANE_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PINK_GLOWCANE_BLOCK));
-
-    public static final Item PURPLE_GLOWCANE_DUST = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "purple_glowcane_dust");
-    public static final Item PURPLE_GLOWCANE = createItem(new BlockItem(BYGBlocks.PURPLE_GLOWCANE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_GLOWCANE));
-    public static final Item PURPLE_GLOWCANE_BLOCK = createItem(new BlockItem(BYGBlocks.PURPLE_GLOWCANE_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_GLOWCANE_BLOCK));
-
-    public static final Item RED_GLOWCANE_DUST = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "red_glowcane_dust");
-    public static final Item RED_GLOWCANE = createItem(new BlockItem(BYGBlocks.RED_GLOWCANE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RED_GLOWCANE));
-    public static final Item RED_GLOWCANE_BLOCK = createItem(new BlockItem(BYGBlocks.RED_GLOWCANE_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RED_GLOWCANE_BLOCK));
-
-    //Glowshroom
-    public static final Item BLUE_GLOWSHROOM = createItem(new BlockItem(BYGBlocks.BLUE_GLOWSHROOM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLUE_GLOWSHROOM));
-    public static final Item BLUE_GLOWSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.BLUE_GLOWSHROOM_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.BLUE_GLOWSHROOM_BLOCK));
-    public static final Item PURPLE_GLOWSHROOM = createItem(new BlockItem(BYGBlocks.PURPLE_GLOWSHROOM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_GLOWSHROOM));
-    public static final Item PURPLE_GLOWSHROOM_BLOCK = createItem(new BlockItem(BYGBlocks.PURPLE_GLOWSHROOM_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.PURPLE_GLOWSHROOM_BLOCK));
-    public static final Item RED_GLOWSHROOM_STEM = createItem(new BlockItem(BYGBlocks.RED_GLOWSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.RED_GLOWSHROOM_STEM));
-    public static final Item YELLOW_GLOWSHROOM_STEM = createItem(new BlockItem(BYGBlocks.YELLOW_GLOWSHROOM_STEM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.YELLOW_GLOWSHROOM_STEM));
 
     //Nether
     public static final Item OVERGROWN_CRIMSON_BLACKSTONE = createItem(new BlockItem(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), Registry.BLOCK.getKey(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE));

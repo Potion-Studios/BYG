@@ -120,12 +120,6 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.TINY_LILYPADS, RenderType.cutoutMipped());
         map.put(BYGBlocks.WATER_SILK, RenderType.translucent());
 
-        //GlowCane
-        map.put(BYGBlocks.BLUE_GLOWCANE, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_GLOWCANE, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PURPLE_GLOWCANE, RenderType.cutoutMipped());
-        map.put(BYGBlocks.RED_GLOWCANE, RenderType.cutoutMipped());
-
         //Doors
         map.put(BYGBlocks.ASPEN_DOOR, RenderType.translucent());
         map.put(BYGBlocks.BAOBAB_DOOR, RenderType.cutoutMipped());
@@ -320,10 +314,6 @@ public class BYGCutoutRenders {
 
         //Other renders
         map.put(BYGBlocks.AMETRINE_CLUSTER, RenderType.cutoutMipped());
-        map.put(BYGBlocks.PURPLE_GLOWSHROOM, RenderType.translucent());
-        map.put(BYGBlocks.PURPLE_GLOWSHROOM_BLOCK, RenderType.translucent());
-        map.put(BYGBlocks.BLUE_GLOWSHROOM, RenderType.translucent());
-        map.put(BYGBlocks.BLUE_GLOWSHROOM_BLOCK, RenderType.translucent());
         map.put(BYGBlocks.BORIC_FIRE, RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_FIRE, RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_GLASS, RenderType.translucent());
@@ -344,7 +334,6 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.OVERGROWN_DACITE, RenderType.cutoutMipped());
         map.put(BYGBlocks.PRAIRIE_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.LUSH_GRASS_BLOCK, RenderType.cutoutMipped());
-        map.put(BYGBlocks.GLOWCELIUM, RenderType.cutoutMipped());
         map.put(BYGBlocks.POISON_IVY, RenderType.cutoutMipped());
         map.put(BYGBlocks.SKYRIS_VINE, RenderType.cutoutMipped());
 
