@@ -19,15 +19,23 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class ManOWar extends WaterAnimal {
+public class ManOWar extends WaterAnimal implements IAnimatable {
 
+    private final AnimationFactory factory = new AnimationFactory(this);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.INT);
 
-    public ManOWar(EntityType<? extends WaterAnimal> entityType, Level level) {
+    public ManOWar(EntityType<? extends ManOWar> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -137,6 +145,34 @@ public class ManOWar extends WaterAnimal {
         } else {
             return Colors.RAINBOW;
         }
+    }
+
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        AnimationController controller = event.getController();
+        controller.transitionLengthTicks = 0;
+
+        if (this.isInWater() && event.isMoving()) {
+            controller.setAnimation(new AnimationBuilder().addAnimation("man_o_war.animation.swim", true));
+            return PlayState.CONTINUE;
+        } else if (this.isInWater() && !event.isMoving()) {
+            controller.setAnimation(new AnimationBuilder().addAnimation("man_o_war.animation.idle", true));
+            return PlayState.CONTINUE;
+        } else if (!this.isInWater()){
+            controller.setAnimation(new AnimationBuilder().addAnimation("man_o_war.animation.beached", true));
+            return PlayState.CONTINUE;
+        } else{
+            return PlayState.STOP;
+        }
+    }
+
+    @Override
+    public void registerControllers(AnimationData data) {
+        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    public AnimationFactory getFactory() {
+        return this.factory;
     }
 
     public enum Colors {

@@ -22,6 +22,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import software.bernie.geckolib3.GeckoLib;
 
 import java.nio.file.Path;
 import java.util.Comparator;
@@ -44,6 +45,7 @@ public class FabricEntryPoint implements EntryPoint, ModInitializer {
         commonSetup();
         loadComplete();
         Tag.Named<Block> dirt = MLBlockTags.DIRT;
+        GeckoLib.initialize();
     }
 
     private static void commonSetup() {

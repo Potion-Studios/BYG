@@ -39,8 +39,11 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
     }
 
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
-        if (serverLevel.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
-            growCatTail(serverLevel, blockPos);
+        int i = random.nextInt(5);
+        if (i == 4) {
+            if (serverLevel.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
+                growCatTail(serverLevel, blockPos);
+            }
         }
     }
 
@@ -61,10 +64,11 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
     public void growCatTail(ServerLevel serverLevel, BlockPos blockPos) {
         if (serverLevel.getFluidState(blockPos).getType() == Fluids.WATER) {
             serverLevel.setBlock(blockPos, BYGBlocks.CATTAIL.defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, true), 3);
-        } else{
+        } else {
             serverLevel.setBlock(blockPos, BYGBlocks.CATTAIL.defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.LOWER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
         }
         serverLevel.setBlock(blockPos.above(), BYGBlocks.CATTAIL.defaultBlockState().setValue(CattailPlantBlock.HALF, DoubleBlockHalf.UPPER).setValue(CattailPlantBlock.WATERLOGGED, false), 3);
+
     }
 
     @Override
@@ -73,7 +77,7 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         BlockState blockState2 = levelReader.getBlockState(blockPos.below());
 
         if (levelReader.getBlockState(blockPos.above(1)) == Blocks.AIR.defaultBlockState() &&
-                blockState2.is(BlockTags.DIRT) || blockState2.is(Blocks.SAND) || blockState2.is(Blocks.RED_SAND) &&
+                (blockState2.is(BlockTags.DIRT) || blockState2.is(Blocks.SAND) || blockState2.is(Blocks.RED_SAND)) &&
                 state == Blocks.WATER.defaultBlockState()) {
             return true;
         }if (blockState2.is(BlockTags.DIRT) || blockState2.is(Blocks.SAND) || blockState2.is(Blocks.RED_SAND)) {
