@@ -20,7 +20,7 @@ repositories {
         url "https://nexus.resourcefulbees.com/repository/maven-public/"
     }
     maven {
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        url 'https://sizableshrimp.me/maven/'
     }
 
 }
@@ -46,7 +46,7 @@ dependencies {
     include implementation("com.electronwill.night-config:core:${project.nightconfig_version}")
 
     // GeckoLib
-    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.17:3.0.19:dev'
+    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.17:3.0.21-mojmap-fix'
 }
 
 loom {

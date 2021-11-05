@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.mano.idle": {
+		"man_o_war.animation.idle": {
 			"loop": true,
 			"animation_length": 2.32,
 			"bones": {
@@ -67,7 +67,7 @@
 				}
 			}
 		},
-		"animation.mano.swim": {
+		"man_o_war.animation.swim": {
 			"loop": true,
 			"animation_length": 0.76,
 			"bones": {
@@ -101,7 +101,7 @@
 				}
 			}
 		},
-		"animation.mano.beached": {
+		"man_o_war.animation.beached": {
 			"loop": true,
 			"animation_length": 1.4,
 			"override_previous_animation": true,
