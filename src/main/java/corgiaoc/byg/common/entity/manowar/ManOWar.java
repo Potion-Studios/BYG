@@ -4,6 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
@@ -65,7 +66,9 @@ public class ManOWar extends WaterAnimal implements IAnimatable {
 
     @Override
     public void playerTouch(Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 0), this);
+        if (player instanceof ServerPlayer && player.hurt(DamageSource.mobAttack(this), (float)(1))) {
+            player.addEffect(new MobEffectInstance(MobEffects.POISON, 60, 1), this);
+        }
     }
 
     protected Entity.MovementEmission getMovementEmission() {
