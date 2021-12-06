@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "potionstudios.byg.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinCommands",
+    "client.MixinBlockColors"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
