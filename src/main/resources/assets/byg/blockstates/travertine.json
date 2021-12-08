@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "byg:block/travertine" },
+      { "model": "byg:block/travertine", "y": 90 },
+      { "model": "byg:block/travertine", "y": 180 },
+      { "model": "byg:block/travertine", "y": 270 }
+    ]
+  }
+}

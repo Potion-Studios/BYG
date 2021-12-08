@@ -1,9 +1,12 @@
 package corgiaoc.byg.mixin.common.world.layers;
 
+import corgiaoc.byg.BYG;
 import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.core.world.BYGBiomes;
+import corgiaoc.byg.mixin.access.WeightedListAccess;
 import corgiaoc.byg.util.LayerRandomWeightedListUtil;
 import edu.umd.cs.findbugs.annotations.Nullable;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
@@ -27,6 +30,7 @@ public abstract class MixinHillsLayer {
     private static final List<Biome> topOceanList = new ArrayList<>();
 
 
+    @SuppressWarnings("ConstantConditions")
     @Inject(method = "applyPixel",
             at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/gen/INoiseRandom;nextRandom(I)I"),
             cancellable = true,
@@ -42,12 +46,12 @@ public abstract class MixinHillsLayer {
         if (BYGBiome.BIOME_TO_HILLS_LIST.size() > 0) {
             if (rand.nextRandom(3) == 0 || k == 0) {
                 int l = i;
-                Biome biome = WorldGenRegistries.BIOME.byId(i);
-                if (biome != null) {
-                    if (BYGBiome.BIOME_TO_HILLS_LIST.containsKey(i)) {
-                        Biome hill = getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(i), rand);
+                ResourceLocation biomeKey = BYG.biomeRegistryAccess.getKey(BYG.biomeRegistryAccess.byId(i));
+                if (biomeKey != null) {
+                    if (BYGBiome.BIOME_TO_HILLS_LIST.containsKey(biomeKey)) {
+                        Biome hill = BYG.biomeRegistryAccess.get(getHillBiomeValue(BYGBiome.BIOME_TO_HILLS_LIST.get(biomeKey), rand));
                         if (hill != null) {
-                            l = WorldGenRegistries.BIOME.getId(hill);
+                            l = BYG.biomeRegistryAccess.getId(hill);
                         }
                     }
                 }
@@ -57,9 +61,9 @@ public abstract class MixinHillsLayer {
     }
 
     @Nullable
-    private static Biome getHillBiomeValue(WeightedList<Biome> biomeHolder, INoiseRandom layerRandom) {
-        if (biomeHolder.entries.size() > 0) {
-            return LayerRandomWeightedListUtil.getBiome(biomeHolder, layerRandom);
+    private static ResourceLocation getHillBiomeValue(WeightedList<ResourceLocation> biomeHolder, INoiseRandom layerRandom) {
+        if (((WeightedListAccess<Biome>) biomeHolder).getEntries().size() > 0) {
+            return LayerRandomWeightedListUtil.getBiomeFromID(biomeHolder, layerRandom);
         }
         else {
             return null;

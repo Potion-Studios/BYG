@@ -1,12 +1,8 @@
 package corgiaoc.byg.common.world.feature.end.trees.ether;
 
 import com.mojang.serialization.Codec;
-import corgiaoc.byg.common.properties.EtherBulbsBlock;
-import corgiaoc.byg.common.properties.blocks.BaobabFruitBlock;
 import corgiaoc.byg.common.world.feature.config.BYGTreeConfig;
 import corgiaoc.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.ISeedReader;

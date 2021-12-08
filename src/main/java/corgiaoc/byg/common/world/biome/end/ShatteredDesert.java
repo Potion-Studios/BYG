@@ -39,7 +39,7 @@ public class ShatteredDesert extends BYGEndBiome {
                 .fogColor(8339307)
                 .skyColor(0)
                 .ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.00428F))
-                .ambientLoopSound(BYGSounds.SoundRegistry.AMBIENT_END_OMINOUS_LOOP)
+                .ambientLoopSound(BYGSounds.AMBIENT_END_OMINOUS_LOOP)
                 .ambientMoodSound(new MoodSoundAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D))
                 .ambientAdditionsSound(new SoundAdditionsAmbience(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D))
                 .backgroundMusic(BackgroundMusicTracks.createGameMusic(SoundEvents.MUSIC_END)).build(), GENERATION_SETTINGS.build(), SPAWN_SETTINGS.build());

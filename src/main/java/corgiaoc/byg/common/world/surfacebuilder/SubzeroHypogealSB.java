@@ -5,7 +5,6 @@ import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.world.BYGSurfaceBuilders;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunk;
@@ -25,42 +24,24 @@ public class SubzeroHypogealSB extends SurfaceBuilder<SurfaceBuilderConfig> {
         BlockPos.Mutable block = new BlockPos.Mutable();
         int xPos = x & 15;
         int zPos = z & 15;
-
-        if (noise > 1.5) {
-            for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.set(xPos, yPos, zPos);
-                BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.below());
-
-                if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck == Blocks.AIR.defaultBlockState())
-                    chunkIn.setBlockState(block, BYGBlocks.FROST_MAGMA.defaultBlockState(), false);
-                for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.relative(direction));
-
-
-                    if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck2 == Blocks.AIR.defaultBlockState())
-                        chunkIn.setBlockState(block, BYGBlocks.FROST_MAGMA.defaultBlockState(), false);
-                }
-            }
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.FROST_MAGMA);
-        } else {
-            for (int yPos = 256; yPos >= seaLevel; --yPos) {
-                block.set(xPos, yPos, zPos);
-                BlockState currentBlockToReplace = chunkIn.getBlockState(block);
-                BlockState airCheck = chunkIn.getBlockState(block.below());
-
-                if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck == Blocks.AIR.defaultBlockState())
-                    chunkIn.setBlockState(block, BYGBlocks.SUBZERO_ASH_BLOCK.defaultBlockState(), false);
-                for (Direction direction : Direction.Plane.HORIZONTAL) {
-                    BlockState airCheck2 = chunkIn.getBlockState(block.relative(direction));
-
-
-                    if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && airCheck2 == Blocks.AIR.defaultBlockState())
-                        chunkIn.setBlockState(block, BYGBlocks.SUBZERO_ASH_BLOCK.defaultBlockState(), false);
-                }
-            }
-            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
+        for (int yPos = 256; yPos >= seaLevel; --yPos) {
+            block.set(xPos, yPos, zPos);
+            BlockState currentBlockToReplace = chunkIn.getBlockState(block);
+            BlockState checkAirForSB = chunkIn.getBlockState(block.above());
+            if (currentBlockToReplace == Blocks.NETHERRACK.defaultBlockState() && !(checkAirForSB.getBlock() == Blocks.AIR))
+                chunkIn.setBlockState(block, BYGBlocks.TRAVERTINE.defaultBlockState(), false);
         }
+
+        int randomizer = random.nextInt(5);
+
+        if (randomizer <= 1)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
+        if (randomizer == 2)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
+        if (randomizer == 3)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
+        if (randomizer == 4)
+            SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock, defaultFluid, seaLevel, seed, BYGSurfaceBuilders.Configs.SUBZERO_ASH);
 
     }
 }

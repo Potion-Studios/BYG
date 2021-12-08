@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "byg:block/arisian_bloom_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "byg:block/arisian_bloom_branch"
+    },
+    "facing=south": {
+      "model": "byg:block/arisian_bloom_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/arisian_bloom_branch",
+      "y": 270
+    }
+  }
+}

@@ -1,17 +1,14 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.core.BYGBlocks;
-import net.minecraft.block.Block;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock;
 
 public class BYGOreBlock extends OreBlock implements IForgeBlock {
 
@@ -27,6 +24,14 @@ public class BYGOreBlock extends OreBlock implements IForgeBlock {
             return MathHelper.nextInt(rand, 2, 5);
         } else if (this == BYGBlocks.CRYPTIC_REDSTONE_ORE) {
             return MathHelper.nextInt(rand, 3, 7);
+        } else if (this == BYGBlocks.BLUE_NETHER_GOLD_ORE) {
+            return MathHelper.nextInt(rand, 0, 1);
+        } else if (this == BYGBlocks.BLUE_NETHER_QUARTZ_ORE) {
+            return MathHelper.nextInt(rand, 2, 5);
+        } else if (this == BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE) {
+            return MathHelper.nextInt(rand, 0, 1);
+        } else if (this == BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE) {
+            return MathHelper.nextInt(rand, 2, 5);
         } else if (this == BYGBlocks.BUDDING_AMETRINE_ORE) {
             return MathHelper.nextInt(rand, 3, 9);
         } else {

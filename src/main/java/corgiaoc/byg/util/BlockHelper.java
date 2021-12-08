@@ -12,7 +12,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IWorldWriter;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 import java.util.Set;
@@ -290,7 +289,7 @@ public class BlockHelper
 	
 	public static boolean isEndNylium(Block block) 
 	{
-		return block.is(BlockTags.NYLIUM) && block.is(Tags.Blocks.END_STONES);
+		return block.is(BlockTags.NYLIUM) && block.is(MLBlockTags.END_STONES);
 	}
 	
 	public static boolean isEndNylium(BlockState state) 

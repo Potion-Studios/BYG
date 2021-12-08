@@ -2,14 +2,15 @@ package corgiaoc.byg.common.properties.vanilla;
 
 import corgiaoc.byg.BYG;
 import corgiaoc.byg.core.BYGBlocks;
+import corgiaoc.byg.mixin.access.FireBlockAccess;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
 
 public class BYGFlammables {
-    public static void flammableBlock(Block block, int encouragement, int flammability) {
+    public static void flammableBlock(Block block, int flameOdd, int burnOdd) {
         FireBlock fire = (FireBlock) Blocks.FIRE;
-        fire.setFlammable(block, encouragement, flammability);
+        ((FireBlockAccess) fire).invokeSetFlammable(block, flameOdd, burnOdd);
     }
 
     public static void flammablesBYG() {

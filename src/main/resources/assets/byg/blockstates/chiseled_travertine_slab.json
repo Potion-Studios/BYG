@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/chiseled_travertine_slab"
+    },
+    "type=double": {
+      "model": "byg:block/chiseled_travertine"
+    },
+    "type=top": {
+      "model": "byg:block/chiseled_travertine_slab_top"
+    }
+  }
+}

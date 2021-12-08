@@ -108,6 +108,11 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.EMBUR_SPROUTS);
     }
 
+    public static void addBlueNetherOres(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BLUE_NETHER_GOLD);
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BLUE_NETHER_QUARTZ);
+    }
+
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.AZALEAS);
     }
@@ -385,8 +390,18 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.MAGMA_PILLARS);
     }
 
+    public static void addBrimstoneOres(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BRIMSTONE_NETHER_GOLD);
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BRIMSTONE_NETHER_QUARTZ);
+    }
+
     public static void addBrimstonePillars(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BRIMSTONE_PILLARS);
+    }
+
+    public static void addBrimstoneVents(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BRIMSTONE_VENTS);
     }
 
     public static void addBoricFire(BiomeGenerationSettings.Builder gen) {
@@ -441,6 +456,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addQuartzDesertVegetations(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.QUARTZ_CRYSTALS);
         gen.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, BYGConfiguredFeatures.QUARTZ_COLUMNS);
+        gen.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.QUARTZ_SPIKE);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_BONE_FEATURE);
     }
 
@@ -927,6 +943,10 @@ public class BYGDefaultBiomeFeatures {
     public static void addLamentTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_TWISTY_LAMENT_TREE);
         gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WEEPING_LAMENT_TREE);
+    }
+
+    public static void addWailingPillars(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WAILING_PILLAR);
     }
 
     public static void addWitheringOakTrees(BiomeGenerationSettings.Builder gen) {

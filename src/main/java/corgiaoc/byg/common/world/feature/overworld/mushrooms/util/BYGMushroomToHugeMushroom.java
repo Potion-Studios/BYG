@@ -2,9 +2,9 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
 import corgiaoc.byg.core.world.BYGConfiguredFeatures;
+import edu.umd.cs.findbugs.annotations.Nullable;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-import edu.umd.cs.findbugs.annotations.Nullable;
 import java.util.Random;
 
 public class BYGMushroomToHugeMushroom {
@@ -103,6 +103,13 @@ public class BYGMushroomToHugeMushroom {
         @Nullable
         public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
             return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.SOUL_SHROOM_TREE1 : BYGConfiguredFeatures.SOUL_SHROOM_TREE2;
+        }
+    }
+
+    public static class WitheringOak extends BYGHugeMushroom {
+        @Nullable
+        public ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random) {
+            return (random.nextInt(2) == 0) ? BYGConfiguredFeatures.WITHERING_OAK_TREE3 : BYGConfiguredFeatures.WITHERING_OAK_TREE4;
         }
     }
 

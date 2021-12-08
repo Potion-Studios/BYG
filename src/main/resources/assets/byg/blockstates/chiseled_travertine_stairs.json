@@ -1,0 +1,209 @@
+{
+  "variants": {
+    "shape=outer_right,half=bottom,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_outer"
+    },
+    "shape=inner_right,half=top,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=inner_right,half=bottom,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=straight,half=bottom,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=inner_right,half=top,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=straight,half=top,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "x": 180,
+      "uvlock": true
+    },
+    "shape=outer_right,half=bottom,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=outer_left,half=top,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=outer_right,half=top,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=outer_left,half=bottom,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_outer"
+    },
+    "shape=straight,half=bottom,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=outer_right,half=top,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=inner_left,half=bottom,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=inner_right,half=top,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "uvlock": true
+    },
+    "shape=straight,half=top,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=straight,half=bottom,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=outer_right,half=bottom,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=straight,half=bottom,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs"
+    },
+    "shape=outer_right,half=top,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "uvlock": true
+    },
+    "shape=inner_right,half=top,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=inner_right,half=bottom,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=inner_left,half=top,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=straight,half=top,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=inner_right,half=bottom,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=inner_left,half=top,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=outer_right,half=top,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=inner_left,half=top,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=inner_right,half=bottom,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_inner"
+    },
+    "shape=outer_right,half=bottom,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=outer_left,half=bottom,facing=north": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=inner_left,half=bottom,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=outer_left,half=top,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=outer_left,half=bottom,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=inner_left,half=top,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "x": 180,
+      "uvlock": true
+    },
+    "shape=inner_left,half=bottom,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs_inner"
+    },
+    "shape=straight,half=top,facing=south": {
+      "model": "byg:block/chiseled_travertine_stairs",
+      "x": 180,
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=outer_left,half=top,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "y": 180,
+      "uvlock": true
+    },
+    "shape=inner_left,half=bottom,facing=west": {
+      "model": "byg:block/chiseled_travertine_stairs_inner",
+      "y": 90,
+      "uvlock": true
+    },
+    "shape=outer_left,half=bottom,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "y": 270,
+      "uvlock": true
+    },
+    "shape=outer_left,half=top,facing=east": {
+      "model": "byg:block/chiseled_travertine_stairs_outer",
+      "x": 180,
+      "uvlock": true
+    }
+  }
+}

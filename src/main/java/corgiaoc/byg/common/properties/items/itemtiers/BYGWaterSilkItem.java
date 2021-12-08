@@ -21,8 +21,6 @@ import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import net.minecraft.item.Item.Properties;
-
 public class BYGWaterSilkItem extends BlockItem {
     public BYGWaterSilkItem(Block blockIn, Properties builder) {
         super(blockIn, builder);

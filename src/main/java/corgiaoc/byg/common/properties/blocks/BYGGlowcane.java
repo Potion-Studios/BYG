@@ -1,6 +1,7 @@
 package corgiaoc.byg.common.properties.blocks;
 
 import corgiaoc.byg.core.BYGBlocks;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.IntegerProperty;
@@ -17,8 +18,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock;
 
 public class BYGGlowcane extends Block implements IPlantable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_15;

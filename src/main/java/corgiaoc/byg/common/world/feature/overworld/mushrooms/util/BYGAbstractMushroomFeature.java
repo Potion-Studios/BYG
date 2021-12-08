@@ -3,6 +3,7 @@ package corgiaoc.byg.common.world.feature.overworld.mushrooms.util;
 import com.mojang.serialization.Codec;
 import corgiaoc.byg.common.world.feature.FeatureUtil;
 import corgiaoc.byg.common.world.feature.config.BYGMushroomConfig;
+import corgiaoc.byg.util.MLBlockTags;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,7 +16,6 @@ import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.common.Tags;
 
 import java.util.Random;
 
@@ -126,9 +126,9 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.is(Tags.Blocks.DIRT) || block == block1;
+                return block.is(MLBlockTags.DIRT) || block == block1;
             }
-            return block.is(Tags.Blocks.DIRT);
+            return block.is(MLBlockTags.DIRT);
         });
     }
 
@@ -139,9 +139,9 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return block.is(Tags.Blocks.END_STONES) || block == block1;
+                return block.is(MLBlockTags.END_STONES) || block == block1;
             }
-            return block.is(Tags.Blocks.END_STONES);
+            return block.is(MLBlockTags.END_STONES);
         });
     }
 

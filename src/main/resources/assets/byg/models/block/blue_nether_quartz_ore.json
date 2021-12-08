@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/blue_nether_quartz_ore",
+    "particle": "byg:block/blue_nether_quartz_ore"
+  }
+}

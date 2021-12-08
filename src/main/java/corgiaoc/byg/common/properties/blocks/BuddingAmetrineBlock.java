@@ -8,7 +8,6 @@ import net.minecraft.block.material.PushReaction;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
 
 import java.util.Random;
@@ -34,7 +33,7 @@ public class BuddingAmetrineBlock extends BYGOreBlock {
                 block = BYGBlocks.AMETRINE_CLUSTER;
             }
             if (block != null) {
-                BlockState blockState2 = block.defaultBlockState().setValue(AmetrineClusterBlock.FACING, direction).setValue(AmetrineClusterBlock.WATERLOGGED, blockState.getFluidState().getType() == Fluids.WATER);
+                BlockState blockState2 = block.defaultBlockState().setValue(CrystalClusterBlock.FACING, direction).setValue(CrystalClusterBlock.WATERLOGGED, blockState.getFluidState().getType() == Fluids.WATER);
                 world.setBlockAndUpdate(blockPos, blockState2);
             }
 

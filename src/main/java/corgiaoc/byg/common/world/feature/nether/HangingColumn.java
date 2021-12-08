@@ -10,7 +10,6 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 
 import java.util.Random;
 

@@ -3,7 +3,7 @@ package corgiaoc.byg.core.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import corgiaoc.byg.BYG;
-import corgiaoc.byg.common.world.biome.*;
+import corgiaoc.byg.common.world.biome.BYGBiome;
 import corgiaoc.byg.common.world.biome.end.*;
 import corgiaoc.byg.common.world.biome.end.sub.*;
 import corgiaoc.byg.common.world.biome.nether.*;
@@ -18,15 +18,12 @@ import corgiaoc.byg.common.world.biome.overworld.sub.lakes.Oasis;
 import corgiaoc.byg.common.world.biome.overworld.sub.lakes.PollutedLake;
 import corgiaoc.byg.config.WorldConfig;
 import corgiaoc.byg.config.json.biomedata.BiomeData;
-import corgiaoc.byg.config.json.endbiomedata.EndBiomeData;
-import corgiaoc.byg.config.json.endbiomedata.sub.EndSubBiomeData;
-import corgiaoc.byg.config.json.subbiomedata.SubBiomeData;
+import corgiaoc.byg.config.json.biomedata.BiomeDataHolders;
 import corgiaoc.byg.core.world.util.WorldGenRegistrationHelper;
+import corgiaoc.byg.mixin.access.BiomeGenerationSettingsAccess;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.WeightedList;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
@@ -36,9 +33,8 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -269,83 +265,27 @@ public class BYGBiomes {
 
 
     public static void init() {
-    }
 
-    public static final IdentityHashMap<BiomeManager.BiomeType, WeightedList<ResourceLocation>> TRACKED_OCEANS = new IdentityHashMap<>();
+    }
 
     @SuppressWarnings("ConstantConditions")
-    public static void addBiomeEntries() {
-        for (BiomeData biomeData : BYGBiome.biomeData) {
-            List<BiomeDictionary.Type> dictionaryList = Arrays.stream(biomeData.getDictionaryTypes()).collect(Collectors.toList());
-            ResourceLocation key = WorldGenRegistries.BIOME.getKey(biomeData.getBiome());
-
-//            if (!dictionaryList.contains(OCEAN)) {
-            if (biomeData.getBiomeWeight() > 0) {
-                BiomeManager.addBiome(biomeData.getBiomeType(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, key), biomeData.getBiomeWeight()));
+    public static void handleOverworldEntries(BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder) {
+        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((biome, biomeData) -> {
+            if (biomeData.getWeight() > 0) {
+                BiomeManager.addBiome(biomeData.getClimate().getClimate(), new BiomeManager.BiomeEntry(RegistryKey.create(Registry.BIOME_REGISTRY, biome), biomeData.getWeight()));
             }
-//            } else {
-//                TRACKED_OCEANS.computeIfAbsent(biomeData.getBiomeType(), (biomeType) -> new WeightedList<>()).add(key, biomeData.getBiomeWeight());
-//            }
-        }
+        }));
 
-        addDefaultOceans();
+        fillBiomeDictionary(overworldPrimaryBiomeDataHolder.getBiomeData());
     }
 
-    private static void addDefaultOceans() {
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.ICY, (biometype) -> new WeightedList<>()).add(Biomes.FROZEN_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.COOL, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_COLD_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(null, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.WARM, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_LUKEWARM_OCEAN.getRegistryName(), 5);
-        TRACKED_OCEANS.computeIfAbsent(BiomeManager.BiomeType.DESERT, (biometype) -> new WeightedList<>()).add(Biomes.DEEP_WARM_OCEAN.getRegistryName(), 5);
-    }
-
-    public static void fillBiomeDictionary(Registry<Biome> biomeRegistry) {
-        for (EndBiomeData endBiomeData : BYGEndBiome.endBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
+    public static void fillBiomeDictionary(Map<ResourceLocation, ? extends BiomeData> biomeDataList) {
+        biomeDataList.forEach(((biome, biomeData) -> {
+            RegistryKey<Biome> biomeRegistryKey = RegistryKey.create(Registry.BIOME_REGISTRY, biome);
+            for (String dictionaryType : biomeData.getDictionaryTypes()) {
+                BiomeDictionary.addTypes(biomeRegistryKey, BiomeDictionary.Type.getType(dictionaryType));
             }
-        }
-        for (EndBiomeData endBiomeData : BYGEndBiome.voidBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-
-        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.endSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-
-        for (EndSubBiomeData endBiomeData : BYGEndSubBiome.voidSubBiomeData) {
-            RegistryKey<Biome> key = biomeRegistry.getResourceKey(biomeRegistry.getOptional(endBiomeData.getBiome()).get()).get();
-            for (int idx = 0; idx < endBiomeData.getDictionaryTypes().length; idx++) {
-                BiomeDictionary.Type type = endBiomeData.getDictionaryTypes()[idx];
-                if (!(BiomeDictionary.hasType(key, type)))
-                    BiomeDictionary.addTypes(key, type);
-            }
-        }
-    }
-
-    public static void fillBiomeDictionary() {
-        for (BiomeData bygBiome : BYGBiome.biomeData) {
-            BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygBiome.getBiome())), bygBiome.getDictionaryTypes());
-        }
-        for (SubBiomeData bygSubBiome : BYGSubBiome.subBiomeData) {
-            BiomeDictionary.addTypes(RegistryKey.create(Registry.BIOME_REGISTRY, WorldGenRegistries.BIOME.getKey(bygSubBiome.getBiome())), bygSubBiome.getDictionaryTypes());
-        }
-
-        for (BYGNetherBiome bygNetherBiome : BYGNetherBiome.BYG_NETHER_BIOMES)
-            BiomeDictionary.addTypes(bygNetherBiome.getKey(), bygNetherBiome.getBiomeDictionary());
+        }));
     }
 
     //used in MixinMinecraftServer
@@ -393,8 +333,8 @@ public class BYGBiomes {
     }
 
     public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {
-        ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
+        convertImmutableFeatures(biome);
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
 
         List<Supplier<ConfiguredFeature<?, ?>>> suppliers = biomeFeatures.get(GenerationStage.Decoration.RAW_GENERATION.ordinal());
 
@@ -406,30 +346,30 @@ public class BYGBiomes {
 
     //Use these to add our features to vanilla's biomes.
     public static void addFeatureToBiome(Biome biome, GenerationStage.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {
-        ConvertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = biome.getGenerationSettings().features;
+        convertImmutableFeatures(biome);
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
         while (biomeFeatures.size() <= feature.ordinal()) {
             biomeFeatures.add(Lists.newArrayList());
         }
         biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
     }
 
-    private static void ConvertImmutableFeatures(Biome biome) {
-        if (biome.getGenerationSettings().features instanceof ImmutableList) {
-            biome.getGenerationSettings().features = biome.getGenerationSettings().features.stream().map(Lists::newArrayList).collect(Collectors.toList());
+    private static void convertImmutableFeatures(Biome biome) {
+        List<List<Supplier<ConfiguredFeature<?, ?>>>> features = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
+        if (features instanceof ImmutableList) {
+            ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setFeatures(features.stream().map(Lists::newArrayList).collect(Collectors.toList()));
         }
     }
 
     //Use these to add our features to vanilla's biomes.
     public static void addStructureToBiome(Biome biome, StructureFeature<?, ?> configuredStructure) {
         convertImmutableStructures(biome);
-        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = biome.getGenerationSettings().structureStarts;
+        List<Supplier<StructureFeature<?, ?>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getStructureStarts();
         biomeFeatures.add(() -> configuredStructure);
-
     }
 
     private static void convertImmutableStructures(Biome biome) {
-        biome.getGenerationSettings().structureStarts = new ArrayList<>(biome.getGenerationSettings().structureStarts);
+        ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setStructureStarts(new ArrayList<>(((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getStructureStarts()));
     }
 
     public static class PreserveBiomeOrder {

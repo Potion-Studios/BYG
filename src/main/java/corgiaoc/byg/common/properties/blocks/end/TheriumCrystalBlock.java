@@ -2,20 +2,18 @@ package corgiaoc.byg.common.properties.blocks.end;
 
 import corgiaoc.byg.core.BYGBlocks;
 import corgiaoc.byg.core.BYGItems;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -31,8 +29,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
-
-import net.minecraft.block.AbstractBlock.Properties;
 
 public class TheriumCrystalBlock extends Block implements IGrowable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -79,7 +75,7 @@ public class TheriumCrystalBlock extends Block implements IGrowable {
             int j = 1;
             popResource(worldIn, pos, new ItemStack(BYGItems.THERIUM_CRYSTAL, j));
             worldIn.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundCategory.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return ActionResultType.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

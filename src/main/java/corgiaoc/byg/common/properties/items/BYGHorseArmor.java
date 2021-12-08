@@ -6,8 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import net.minecraft.item.Item.Properties;
-
 public class BYGHorseArmor extends HorseArmorItem {
     private final int bonus;
     private final ResourceLocation texture;
