@@ -16,7 +16,7 @@ import potionstudios.byg.common.properties.vanilla.*;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.config.json.BYGConfigHandler;
 import potionstudios.byg.core.BYGBlocks;
-import potionstudios.byg.core.world.BYGBiomes;
+import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.ItemBlockRenderTypeAccess;
 import potionstudios.byg.util.BiomeKeyUtil;

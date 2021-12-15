@@ -13,8 +13,8 @@ import potionstudios.byg.util.MLClimate;
 import java.util.List;
 
 import static net.minecraft.world.level.biome.Biomes.*;
-import static potionstudios.byg.core.world.BYGBiomes.GROVE;
-import static potionstudios.byg.core.world.BYGBiomes.*;
+import static potionstudios.byg.common.world.biome.BYGBiomes.GROVE;
+import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 import static potionstudios.byg.util.BiomeKeyUtil.EMPTY;
 
 public class BYGBiomeWorldProperties {

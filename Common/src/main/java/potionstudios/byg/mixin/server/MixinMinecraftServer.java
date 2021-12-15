@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
-import potionstudios.byg.core.world.BYGBiomes;
+import potionstudios.byg.common.world.biome.BYGBiomes;
 
 import java.net.Proxy;
 import java.util.Map;

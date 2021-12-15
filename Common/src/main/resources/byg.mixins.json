@@ -22,6 +22,7 @@
     "access.PickaxeItemAccess",
     "access.PressurePlateBlockAccess",
     "access.RegistryAccess",
+    "access.RegistryReadOpsAccess",
     "access.ShovelItemAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
@@ -37,6 +38,7 @@
     "client.MixinBlockColors",
     "client.MixinItemColors",
     "common.MixinDefaultAttributes",
+    "common.MixinRegistryLookupCodec",
     "common.MixinWalkNodeProcessor",
     "common.block.MixinAbstractBlockStateBookshelf",
     "common.block.MixinAbstractFireBlock",
@@ -52,6 +54,7 @@
     "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
+    "common.world.MixinMultiNoiseBiomeSource",
     "common.world.MixinOreFeatures",
     "common.world.feature.MixinBasaltColumnFeature",
     "server.MixinMinecraftServer"

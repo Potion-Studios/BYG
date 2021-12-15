@@ -7,6 +7,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import potionstudios.byg.common.properties.BYGCreativeTab;
+import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.core.*;
 import potionstudios.byg.core.world.BYGFeatures;
 import potionstudios.byg.core.world.BYGMenuTypes;
@@ -71,6 +73,7 @@ public class BYGForge {
         BYGSounds.bootStrap(registryObjects -> register(SoundEvent.class, eventBus, registryObjects));
         BYGMenuTypes.bootStrap(registryObjects -> register(MenuType.class, eventBus, registryObjects));
         BYGFeatures.bootStrap(registryObjects -> register(Feature.class, eventBus, registryObjects));
+        BYGBiomes.bootStrap(registryObjects -> register(Biome.class, eventBus, registryObjects));
     }
 
     @SuppressWarnings("rawtypes")

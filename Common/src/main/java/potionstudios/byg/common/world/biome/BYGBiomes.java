@@ -1,4 +1,4 @@
-package potionstudios.byg.core.world;
+package potionstudios.byg.common.world.biome;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -14,8 +14,6 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.EndBiomes;
-import potionstudios.byg.common.world.biome.NetherBiomes;
 import potionstudios.byg.config.BYGBiomeWorldProperties;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.config.json.BYGConfigHandler;
@@ -24,8 +22,10 @@ import potionstudios.byg.mixin.access.BiomeGenerationSettingsAccess;
 import potionstudios.byg.util.RegistryObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -179,18 +179,17 @@ public class BYGBiomes {
 
     public static ResourceKey<Biome> createBiome(String id, Biome biome) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
-        if (BuiltinRegistries.BIOME.keySet().contains(bygID))
+        if (BuiltinRegistries.BIOME.keySet().contains(bygID)) {
             throw new IllegalStateException("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
-
-//        Registry.register(BuiltinRegistries.BIOME, bygID, biome);
+        }
+        BIOMES.add(new RegistryObject<>(biome, id));
 
         return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
     }
 
-    public static void init() {
-
+    public static void bootStrap(Consumer<Collection<RegistryObject<Biome>>> registryStrategy) {
+        registryStrategy.accept(BIOMES);
     }
-
 
 
     public static void handleOverworldEntries() {
