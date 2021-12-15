@@ -24,6 +24,10 @@ public class BiomeSourceGenerationWorldProperties {
             list.add(new BiomeGenerationWorldProperties(BYGBiomes.ARAUCARIA_SAVANNA, 10));
             list.add(new BiomeGenerationWorldProperties(Biomes.SAVANNA, 10));
         }));
+        map.put(Biomes.MUSHROOM_FIELDS, Util.make(new ArrayList<>(), (list) -> {
+            list.add(new BiomeGenerationWorldProperties(Biomes.MUSHROOM_FIELDS, 5));
+            list.add(new BiomeGenerationWorldProperties(BYGBiomes.TROPICAL_ISLAND, 8));
+        }));
     }));
 
     private final Map<ResourceKey<Biome>, List<BiomeGenerationWorldProperties>> generationWorldProperties;
@@ -34,12 +38,12 @@ public class BiomeSourceGenerationWorldProperties {
 
 
 
-    public Climate.ParameterList<Supplier<Biome>> createWeightedPointParameterList(Climate.ParameterList<Supplier<Biome>> oldList) {
+    public Climate.ParameterList<Supplier<Biome>> createWeightedPointParameterList(Climate.ParameterList<Supplier<Biome>> oldList, Registry<Biome> biomeRegistry) {
         ImmutableList.Builder<Pair<Climate.ParameterPoint, Supplier<Biome>>> builder = ImmutableList.builder();
         for (Pair<Climate.ParameterPoint, Supplier<Biome>> pointToBiome : oldList.values()) {
             Climate.ParameterPoint parameterPoint = pointToBiome.getFirst();
             Biome biome = pointToBiome.getSecond().get();
-            ResourceKey<Biome> biomeResourceKey = ResourceKey.create(Registry.BIOME_REGISTRY, BYG.biomeRegistryAccess.getKey(biome));
+            ResourceKey<Biome> biomeResourceKey = ResourceKey.create(Registry.BIOME_REGISTRY, biomeRegistry.getKey(biome));
             if (!generationWorldProperties.containsKey(biomeResourceKey)) {
                 builder.add(pointToBiome);
                 continue;
@@ -73,7 +77,7 @@ public class BiomeSourceGenerationWorldProperties {
                 parameters[5] = createParameter(offset[5], resourceKeyIntegerPair, totalWeight, parameterPoint.weirdness());
                 offset[5] = parameters[5].max() - parameters[5].min();
 
-                builder.add(new Pair<>(new Climate.ParameterPoint(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], 0), () -> BYG.biomeRegistryAccess.get(resourceKeyIntegerPair.getSpawnsLike())));
+                builder.add(new Pair<>(new Climate.ParameterPoint(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], 0), () -> biomeRegistry.get(resourceKeyIntegerPair.getSpawnsLike())));
             }
         }
         return new Climate.ParameterList<>(builder.build());
