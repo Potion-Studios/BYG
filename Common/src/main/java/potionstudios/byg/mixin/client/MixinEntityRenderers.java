@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
-import potionstudios.byg.core.BYGEntities;
 
 @SuppressWarnings("UnresolvedMixinReference")
 @Mixin(EntityRenderers.class)

@@ -8,7 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import potionstudios.byg.core.BYGSounds;
+import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.mixin.access.VanillaBiomeAccess;
 
 public class EndBiomes {

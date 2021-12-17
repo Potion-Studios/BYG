@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
 
 import java.util.Random;
 

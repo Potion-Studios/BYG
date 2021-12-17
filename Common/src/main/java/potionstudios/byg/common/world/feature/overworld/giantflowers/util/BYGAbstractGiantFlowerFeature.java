@@ -15,9 +15,9 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.GiantFlowerConfig;
-import potionstudios.byg.core.BYGBlocks;
 import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;

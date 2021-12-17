@@ -3,7 +3,7 @@ package potionstudios.byg.client.textures.renders;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
 
 import java.util.Map;
 

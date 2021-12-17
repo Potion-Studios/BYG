@@ -21,9 +21,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import potionstudios.byg.core.BYGBlocks;
-import potionstudios.byg.core.BYGEntities;
-import potionstudios.byg.core.BYGItems;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
 
 @SuppressWarnings("EntityConstructor")

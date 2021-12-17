@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import potionstudios.byg.common.properties.blocks.end.EndStoneGrowable;
+import potionstudios.byg.common.block.end.EndStoneGrowable;
 
 @Mixin(Blocks.class)
 public class MixinBlocks {

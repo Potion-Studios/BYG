@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
 
 public class BYGMushroomConfig implements FeatureConfiguration {
 

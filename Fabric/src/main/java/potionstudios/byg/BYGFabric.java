@@ -7,11 +7,15 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import potionstudios.byg.common.properties.BYGCreativeTab;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.blockentity.BYGBlockEntities;
+import potionstudios.byg.common.container.BYGMenuTypes;
+import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.item.BYGCreativeTab;
+import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.core.*;
-import potionstudios.byg.core.world.BYGFeatures;
-import potionstudios.byg.core.world.BYGMenuTypes;
+import potionstudios.byg.common.world.feature.BYGFeatures;
 
 public class BYGFabric implements ModInitializer {
     

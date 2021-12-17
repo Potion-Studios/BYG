@@ -4,9 +4,9 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.core.BYGBlocks;
 
 import java.util.Random;
 import java.util.Set;

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
 
 @Mixin(WalkNodeEvaluator.class)
 public class MixinWalkNodeProcessor {

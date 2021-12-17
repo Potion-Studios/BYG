@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
 
 public class BrimstoneVentsConfig implements FeatureConfiguration {
 

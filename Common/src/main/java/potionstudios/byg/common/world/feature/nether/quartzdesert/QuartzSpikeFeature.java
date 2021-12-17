@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
-import potionstudios.byg.core.BYGBlocks;
 
 import java.util.Random;
 

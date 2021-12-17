@@ -28,12 +28,12 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.properties.EtherBulbsBlock;
-import potionstudios.byg.common.properties.blocks.BaobabFruitBlock;
-import potionstudios.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomBranchBlock;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BaobabFruitBlock;
+import potionstudios.byg.common.block.EtherBulbsBlock;
+import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
-import potionstudios.byg.core.BYGBlocks;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.noise.fastnoise.FastNoise;
 

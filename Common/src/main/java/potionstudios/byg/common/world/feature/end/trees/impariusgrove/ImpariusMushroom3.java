@@ -5,10 +5,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
-import potionstudios.byg.common.properties.blocks.end.impariusgrove.ImpariusMushroomBranchBlock;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-import potionstudios.byg.core.BYGBlocks;
 
 import java.util.Random;
 

@@ -11,8 +11,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import potionstudios.byg.common.entity.tileentities.HypogealImperiumTE;
-import potionstudios.byg.core.world.BYGMenuTypes;
+import potionstudios.byg.common.blockentity.HypogealImperiumBlockEntity;
+import potionstudios.byg.common.container.BYGMenuTypes;
 
 import java.util.Objects;
 
@@ -55,12 +55,12 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
         this.addDataSlots(fuelTime);
     }
 
-    private static HypogealImperiumTE getTileEntity(final Inventory playerInv, final FriendlyByteBuf data) {
+    private static HypogealImperiumBlockEntity getTileEntity(final Inventory playerInv, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInv, "playerInv cannot be null");
         Objects.requireNonNull(data, "data cannot be null");
         final BlockEntity tileAtPos = playerInv.player.level.getBlockEntity(data.readBlockPos());
-        if (tileAtPos instanceof HypogealImperiumTE) {
-            return (HypogealImperiumTE) tileAtPos;
+        if (tileAtPos instanceof HypogealImperiumBlockEntity) {
+            return (HypogealImperiumBlockEntity) tileAtPos;
         }
         throw new IllegalStateException("TileEntity is not correct " + tileAtPos);
     }

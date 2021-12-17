@@ -5,7 +5,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
-import potionstudios.byg.core.BYGBlockTags;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.util.MLBlockTags;
 
 public class BYGBlockTagsProvider extends BlockTagsProvider {

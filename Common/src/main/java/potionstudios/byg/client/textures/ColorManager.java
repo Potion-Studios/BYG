@@ -8,8 +8,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.state.BlockState;
-import potionstudios.byg.core.BYGBlocks;
-import potionstudios.byg.core.BYGItems;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.item.BYGItems;
 
 public class ColorManager {
 

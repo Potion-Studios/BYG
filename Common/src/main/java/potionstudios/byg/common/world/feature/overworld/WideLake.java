@@ -18,8 +18,8 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
-import potionstudios.byg.core.BYGBlocks;
 
 import java.util.Random;
 import java.util.Set;

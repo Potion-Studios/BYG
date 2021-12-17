@@ -12,10 +12,10 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
-import potionstudios.byg.core.BYGBlocks;
-import potionstudios.byg.core.world.BYGFeatures;
 import potionstudios.byg.util.noise.fastnoise.FastNoise;
 
 import java.util.Optional;

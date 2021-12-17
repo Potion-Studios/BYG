@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import potionstudios.byg.common.properties.blocks.end.CrypticFireBlock;
-import potionstudios.byg.common.properties.blocks.nether.BoricFireBlock;
-import potionstudios.byg.core.BYGBlocks;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.end.CrypticFireBlock;
+import potionstudios.byg.common.block.nether.BoricFireBlock;
 
 @Mixin(BaseFireBlock.class)
 public abstract class MixinAbstractFireBlock {

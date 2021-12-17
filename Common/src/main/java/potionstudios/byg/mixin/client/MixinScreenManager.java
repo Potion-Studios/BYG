@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.client.gui.screens.HypogealImperiumScreen;
-import potionstudios.byg.core.world.BYGMenuTypes;
+import potionstudios.byg.client.gui.screen.HypogealImperiumScreen;
+import potionstudios.byg.common.container.BYGMenuTypes;
 
 @SuppressWarnings("UnresolvedMixinReference")
 @Mixin(MenuScreens.class)
