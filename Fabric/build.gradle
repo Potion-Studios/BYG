@@ -14,12 +14,12 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
+    compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     implementation project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
-    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 
 //    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.1:dev'
 }

@@ -20,10 +20,10 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
 import potionstudios.byg.common.item.BYGItems;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWaterloggedBlock, BonemealableBlock {
@@ -69,7 +69,7 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
     }
 
     @Override
-    public boolean canSurvive(@NotNull BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
+    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
         BlockState state = levelReader.getBlockState(blockPos);
         BlockState blockState2 = levelReader.getBlockState(blockPos.below());
 
@@ -100,15 +100,15 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         return super.updateShape(blockState, direction, blockState2, levelAccessor, blockPos, blockPos2);
     }
 
-    public ItemStack getCloneItemStack(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         return new ItemStack(BYGItems.CATTAIL_SPROUT);
     }
 
-    public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {
         growCatTail(serverLevel, blockPos);
     }
 
-    public float getDestroyProgress(@NotNull BlockState blockState, Player player, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
+    public float getDestroyProgress(BlockState blockState, Player player, BlockGetter blockGetter, BlockPos blockPos) {
         return player.getMainHandItem().getItem() instanceof SwordItem ? 1.0F : super.getDestroyProgress(blockState, player, blockGetter, blockPos);
     }
 

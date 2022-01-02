@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import org.jetbrains.annotations.NotNull;
+
 import potionstudios.byg.common.item.BYGItems;
 
 import javax.annotation.Nullable;
@@ -32,7 +32,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     @Override
-    public boolean canSurvive(BlockState state, @NotNull LevelReader world, @NotNull BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         if (state.getValue(HALF) == DoubleBlockHalf.UPPER && state.getValue(WATERLOGGED)) {
             return false;
         }
@@ -62,12 +62,12 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
                 || ground == Blocks.GRAVEL || ground == Blocks.CLAY;
     }
 
-    public ItemStack getCloneItemStack(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         return new ItemStack(BYGItems.CATTAIL_SPROUT);
     }
 
     @Override
-    public void neighborChanged(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Block blockIn, @NotNull BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         if (!canSurvive(state, world, pos)) {
             if (state.getValue(WATERLOGGED)) {
                 world.setBlockAndUpdate(pos, Blocks.WATER.defaultBlockState());

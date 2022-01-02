@@ -2,6 +2,7 @@
   "required": true,
   "package": "potionstudios.byg.mixin",
   "compatibilityLevel": "JAVA_16",
+  "refmap": "${refmap_target}refmap.json",
   "mixins": [
     "access.AxeItemAccess",
     "access.BiomeGenerationSettingsAccess",

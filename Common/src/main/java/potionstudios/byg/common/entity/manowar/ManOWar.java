@@ -23,10 +23,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
@@ -272,7 +272,7 @@ public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
         }
     }
 
-    public static <T> T makeIndex(@NotNull T[] array, int index) {
+    public static <T> T makeIndex(T[] array, int index) {
         return array[index >= array.length ? 0 : index];
     }
 

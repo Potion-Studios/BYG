@@ -23,7 +23,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
+
 import potionstudios.byg.common.item.BYGItems;
 
 import java.util.Random;
@@ -54,7 +54,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         return blockState.getValue(AGE) < 3;
     }
 
-    public void randomTick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull Random random) {
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
         int i = blockState.getValue(AGE);
         if (i < 3 && random.nextInt(5) == 0 && serverLevel.getRawBrightness(blockPos.above(), 0) < 13) {
             serverLevel.setBlock(blockPos, blockState.setValue(AGE, i + 1), 2);
@@ -62,7 +62,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
 
     }
 
-    public InteractionResult use(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
         int i = blockState.getValue(AGE);
         boolean bl = i == 3;
         if (!bl && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
@@ -98,15 +98,15 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         builder.add(AGE);
     }
 
-    public boolean isValidBonemealTarget(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
         return blockState.getValue(AGE) < 3;
     }
 
-    public boolean isBonemealSuccess(@NotNull Level level, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {
         int i = Math.min(3, blockState.getValue(AGE) + 1);
         serverLevel.setBlock(blockPos, blockState.setValue(AGE, i), 2);
     }
