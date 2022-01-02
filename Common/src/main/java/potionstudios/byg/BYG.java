@@ -28,6 +28,7 @@ import java.util.Set;
 public class BYG {
     public static final String MOD_ID = "byg";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final boolean BIOMES = false;
 
     public static boolean isClient = false;
     public static boolean isUsingMixin;
@@ -68,8 +69,6 @@ public class BYG {
                 }
             }
         }
-        StringBuilder output = new StringBuilder();
-
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

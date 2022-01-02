@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.BYG;
 import potionstudios.byg.config.biome.BiomeSourceGenerationWorldProperties;
 import potionstudios.byg.util.BYGUtil;
 
@@ -38,6 +39,8 @@ public abstract class MixinMultiNoiseBiomeSource {
 
     @Inject(method = "<init>(Lnet/minecraft/world/level/biome/Climate$ParameterList;Ljava/util/Optional;)V", at = @At("RETURN"))
     private void forceAddBiomes(Climate.ParameterList<Supplier<Biome>> climateParameters, Optional<MultiNoiseBiomeSource.PresetInstance> optional, CallbackInfo ci) {
+        if (BYG.BIOMES) {
         this.parameters = BiomeSourceGenerationWorldProperties.INSTANCE.createWeightedPointParameterList(climateParameters, BYGUtil.CAPTURED_REGISTRY_ACCESS.get().registryOrThrow(Registry.BIOME_REGISTRY));
+        }
     }
 }

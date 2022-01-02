@@ -182,7 +182,9 @@ public class BYGBiomes {
         if (BuiltinRegistries.BIOME.keySet().contains(bygID)) {
             throw new IllegalStateException("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
         }
-        BIOMES.add(new RegistryObject<>(biome, id));
+        if (BYG.BIOMES) {
+            BIOMES.add(new RegistryObject<>(biome, id));
+        }
 
         return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
     }
