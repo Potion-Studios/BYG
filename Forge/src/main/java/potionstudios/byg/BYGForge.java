@@ -40,7 +40,7 @@ public class BYGForge {
     public BYGForge() {
         BYG.init(FMLPaths.CONFIGDIR.get());
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        BYGCreativeTab.init(new CreativeModeTab("byg") {
+        BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
             public ItemStack makeIcon() {
                 return new ItemStack(BYGItems.BYG_LOGO);
