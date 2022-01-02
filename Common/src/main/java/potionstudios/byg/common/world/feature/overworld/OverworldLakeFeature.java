@@ -12,9 +12,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
 import potionstudios.byg.util.BlockHelper;
-import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModMathHelper;
 

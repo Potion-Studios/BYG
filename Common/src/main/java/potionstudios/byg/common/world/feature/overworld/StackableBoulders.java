@@ -12,8 +12,8 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.config.BoulderConfig;
-import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
+import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 

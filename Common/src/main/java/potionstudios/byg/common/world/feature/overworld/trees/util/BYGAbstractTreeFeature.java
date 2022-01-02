@@ -34,8 +34,8 @@ import potionstudios.byg.common.block.EtherBulbsBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
-import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
+import potionstudios.byg.util.MLBlockTags;
 
 import javax.annotation.Nullable;
 import java.util.*;
