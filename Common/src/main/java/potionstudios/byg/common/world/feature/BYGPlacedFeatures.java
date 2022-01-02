@@ -15,7 +15,7 @@ public class BYGPlacedFeatures {
 
     public static <PF extends PlacedFeature> PF createPlacedFeature(String id, PF placedFeature) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
-        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
+        if (BuiltinRegistries.PLACED_FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Placed Feature ID: \"" + bygID.toString() + "\" already exists in the Placed Features registry!");
 
         Registry.register(BuiltinRegistries.PLACED_FEATURE, bygID, placedFeature);

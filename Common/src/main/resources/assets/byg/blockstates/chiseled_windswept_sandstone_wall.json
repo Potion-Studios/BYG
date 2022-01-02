@@ -14,7 +14,16 @@
         "uvlock": true
       },
       "when": {
-        "north": "true"
+        "north": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "byg:block/chiseled_windswept_sandstone_wall_side_tall",
+        "uvlock": true
+      },
+      "when": {
+        "north": "tall"
       }
     },
     {
@@ -24,7 +33,17 @@
         "uvlock": true
       },
       "when": {
-        "east": "true"
+        "east": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "byg:block/chiseled_windswept_sandstone_wall_side_tall",
+        "y": 90,
+        "uvlock": true
+      },
+      "when": {
+        "east": "tall"
       }
     },
     {
@@ -34,7 +53,17 @@
         "uvlock": true
       },
       "when": {
-        "south": "true"
+        "south": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "byg:block/chiseled_windswept_sandstone_wall_side_tall",
+        "y": 180,
+        "uvlock": true
+      },
+      "when": {
+        "south": "tall"
       }
     },
     {
@@ -44,7 +73,17 @@
         "uvlock": true
       },
       "when": {
-        "west": "true"
+        "west": "low"
+      }
+    },
+    {
+      "apply": {
+        "model": "byg:block/chiseled_windswept_sandstone_wall_side_tall",
+        "y": 270,
+        "uvlock": true
+      },
+      "when": {
+        "west": "tall"
       }
     }
   ]
