@@ -7,7 +7,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
-import potionstudios.byg.util.noise.fastnoise.FNVector3f;
+import potionstudios.byg.common.world.math.noise.fastnoise.FNVector3f;
 
 import java.util.Random;
 

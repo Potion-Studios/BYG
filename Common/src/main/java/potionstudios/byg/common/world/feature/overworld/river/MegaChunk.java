@@ -9,7 +9,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
-import potionstudios.byg.util.noise.fastnoise.FastNoise;
+import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Set;

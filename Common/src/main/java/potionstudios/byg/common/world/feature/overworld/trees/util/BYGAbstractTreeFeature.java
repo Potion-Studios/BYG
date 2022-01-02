@@ -35,7 +35,7 @@ import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBl
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.util.MLBlockTags;
-import potionstudios.byg.util.noise.fastnoise.FastNoise;
+import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import javax.annotation.Nullable;
 import java.util.*;

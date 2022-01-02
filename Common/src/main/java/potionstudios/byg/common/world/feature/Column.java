@@ -8,7 +8,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
-import potionstudios.byg.util.noise.fastnoise.FastNoise;
+import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.util.Random;
 

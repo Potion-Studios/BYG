@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.worley;
+package potionstudios.byg.common.world.math.noise.worley;
 
 import java.util.Objects;
 import java.util.Random;

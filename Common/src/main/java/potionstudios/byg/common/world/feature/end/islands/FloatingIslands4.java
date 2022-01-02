@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
-import potionstudios.byg.util.noise.fastnoise.lite.FastNoiseLite;
+import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 import java.util.Random;
 

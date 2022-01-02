@@ -26,7 +26,7 @@
 // off every 'zix'.)
 //
 
-package potionstudios.byg.util.noise.fastnoise;
+package potionstudios.byg.common.world.math.noise.fastnoise;
 
 
 public class FastNoise {

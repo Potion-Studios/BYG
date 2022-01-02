@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
-import potionstudios.byg.util.noise.simplex.OpenSimplex2;
+import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
 
 import java.util.Random;
 

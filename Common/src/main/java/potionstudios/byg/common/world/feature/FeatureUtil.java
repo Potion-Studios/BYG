@@ -2,12 +2,15 @@ package potionstudios.byg.common.world.feature;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
+import potionstudios.byg.util.BlockHelper;
 
 public class FeatureUtil {
 
@@ -44,23 +47,13 @@ public class FeatureUtil {
 
     public static void transformMutable(BlockPos.MutableBlockPos pos, Mirror mirrorIn, Rotation rotationIn) {
         switch (mirrorIn) {
-            case LEFT_RIGHT:
-                pos.setZ(-pos.getZ());
-                break;
-            case FRONT_BACK:
-                pos.setX(-pos.getX());
-                break;
+            case LEFT_RIGHT -> pos.setZ(-pos.getZ());
+            case FRONT_BACK -> pos.setX(-pos.getX());
         }
         switch (rotationIn) {
-            case COUNTERCLOCKWISE_90:
-                pos.set(pos.getZ(), pos.getY(), -pos.getX());
-                break;
-            case CLOCKWISE_90:
-                pos.set(-pos.getZ(), pos.getY(), pos.getX());
-                break;
-            case CLOCKWISE_180:
-                pos.set(-pos.getX(), pos.getY(), -pos.getZ());
-                break;
+            case COUNTERCLOCKWISE_90 -> pos.set(pos.getZ(), pos.getY(), -pos.getX());
+            case CLOCKWISE_90 -> pos.set(-pos.getZ(), pos.getY(), pos.getX());
+            case CLOCKWISE_180 -> pos.set(-pos.getX(), pos.getY(), -pos.getZ());
         }
     }
 
@@ -69,29 +62,52 @@ public class FeatureUtil {
         int posZ = pos.getZ();
         boolean mirror = true;
         switch (mirrorIn) {
-            case LEFT_RIGHT:
-                posZ = -posZ;
-                break;
-            case FRONT_BACK:
-                posX = -posX;
-                break;
-            default:
-                mirror = false;
+            case LEFT_RIGHT -> posZ = -posZ;
+            case FRONT_BACK -> posX = -posX;
+            default -> mirror = false;
         }
-        switch (rotationIn) {
-            case COUNTERCLOCKWISE_90:
-                return new BlockPos(posZ, pos.getY(), -posX);
-            case CLOCKWISE_90:
-                return new BlockPos(-posZ, pos.getY(), posX);
-            case CLOCKWISE_180:
-                return new BlockPos(-posX, pos.getY(), -posZ);
-            default:
-                return mirror ? new BlockPos(posX, pos.getY(), posZ) : pos;
-        }
+        return switch (rotationIn) {
+            case COUNTERCLOCKWISE_90 -> new BlockPos(posZ, pos.getY(), -posX);
+            case CLOCKWISE_90 -> new BlockPos(-posZ, pos.getY(), posX);
+            case CLOCKWISE_180 -> new BlockPos(-posX, pos.getY(), -posZ);
+            default -> mirror ? new BlockPos(posX, pos.getY(), posZ) : pos;
+        };
     }
 
     public static BlockPos extractOffset(BlockPos startPos, BlockPos blockPos) {
         return blockPos instanceof BlockPos.MutableBlockPos ? new BlockPos.MutableBlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ()) :
                 new BlockPos(startPos.getX() - blockPos.getX(), blockPos.getY(), startPos.getZ() - blockPos.getZ());
+    }
+
+
+    public static int getYOnSurface(LevelReader world, int x, int z)
+    {
+        return world.getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+    }
+
+    public static int getYOnSurfaceWG(LevelReader world, int x, int z)
+    {
+        return world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, x, z);
+    }
+
+    public static BlockPos getPosOnSurface(LevelReader world, BlockPos pos)
+    {
+        return world.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, pos);
+    }
+
+    public static BlockPos getPosOnSurfaceWG(LevelReader world, BlockPos pos)
+    {
+        return world.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG, pos);
+    }
+
+    public static BlockPos getPosOnSurfaceRaycast(LevelReader world, BlockPos pos)
+    {
+        return getPosOnSurfaceRaycast(world, pos, 256);
+    }
+
+    public static BlockPos getPosOnSurfaceRaycast(LevelReader world, BlockPos pos, int dist)
+    {
+        int h = BlockHelper.downRay(world, pos, dist);
+        return pos.below(h);
     }
 }

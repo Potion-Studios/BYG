@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.simplex;
+package potionstudios.byg.common.world.math.noise.simplex;
 
 /**
  * K.jpg's OpenSimplex2 noise

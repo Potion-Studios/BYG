@@ -1,15 +1,17 @@
-//package potionstudios.byg.core.world;
+//package potionstudios.byg.common.world.feature;
 //
 //import com.google.common.collect.ImmutableList;
 //import com.google.common.collect.ImmutableSet;
+//import net.minecraft.core.Registry;
+//import net.minecraft.data.BuiltinRegistries;
+//import net.minecraft.resources.ResourceLocation;
 //import potionstudios.byg.BYG;
-//import potionstudios.byg.common.properties.blocks.BlueBerryBush;
-//import potionstudios.byg.common.properties.blocks.WhitePuffballBlock;
-//import potionstudios.byg.common.properties.blocks.end.TheriumCrystalBlock;
-//import potionstudios.byg.common.properties.blocks.nether.crimson.CrimsonBerryBushBlock;
-//import potionstudios.byg.common.world.decorator.config.AtOrBelowSeaLevelCountExtraConfig;
-//import potionstudios.byg.common.world.feature.blockplacer.DoubleBlockPlacer;
-//import potionstudios.byg.common.world.feature.blockplacer.OnWaterOnlyBlockPlacer;
+//import potionstudios.byg.common.block.BlueBerryBush;
+//import potionstudios.byg.common.block.WhitePuffballBlock;
+//import potionstudios.byg.common.block.end.TheriumCrystalBlock;
+//import potionstudios.byg.common.block.nether.crimson.CrimsonBerryBushBlock;
+//import potionstudios.byg.common.world.feature.DoubleBlockPlacer;
+//import potionstudios.byg.common.world.feature.OnWaterOnlyBlockPlacer;
 //import potionstudios.byg.common.world.feature.config.*;
 //import potionstudios.byg.common.block.BYGBlocks;
 //import net.minecraft.data.worldgen.Features;
@@ -33,8 +35,6 @@
 //import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
 //import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 //import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-//
-//import static potionstudios.byg.core.world.util.WorldGenRegistrationHelper.createConfiguredFeature;
 //
 //public class BYGConfiguredFeatures {
 //
@@ -1841,7 +1841,18 @@
 //            SHATTERED_FLOATING_ISLAND4)).decorated(BYGDecorators.ISLAND.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.13F, 1))));
 //
-//    //Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
+//
+//    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
+//        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+//        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
+//            throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
+//
+//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, bygID, configuredFeature);
+//        return configuredFeature;
+//    }
+//}
+//
+////Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
 //    public static class SpreadableBlockConfigs {
 //        public static final RandomPatchConfiguration EMBUR_ROOTS = new RandomPatchConfiguration.GrassConfigurationBuilder(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.EMBUR_ROOTS.defaultBlockState(), 50).add(BYGBlocks.EMBUR_SPROUTS.defaultBlockState(), 35).add(BYGBlocks.EMBUR_WART.defaultBlockState(), 11)), new DoubleBlockPlacer()).build();
 //        public static final RandomPatchConfiguration LUSH_GRASS_CONFIG = new RandomPatchConfiguration.GrassConfigurationBuilder(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.CLOVER_PATCH.defaultBlockState(), 15).add(BYGBlocks.FLOWER_PATCH.defaultBlockState(), 15).add(Blocks.GRASS.defaultBlockState(), 55).add(BYGBlocks.SHRUB.defaultBlockState(), 25).add(Blocks.PINK_TULIP.defaultBlockState(), 15).add(BYGBlocks.MAGENTA_TULIP.defaultBlockState(), 15).add(BYGBlocks.CYAN_TULIP.defaultBlockState(), 15).add(BYGBlocks.WHITE_ANEMONE.defaultBlockState(), 15).add(BYGBlocks.ROSE.defaultBlockState(), 10).add(BYGBlocks.ALPINE_BELLFLOWER.defaultBlockState(), 20)), new DoubleBlockPlacer()).build();

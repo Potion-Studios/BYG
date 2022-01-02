@@ -8,7 +8,7 @@ import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import potionstudios.byg.util.BiomeKeyUtil;
+import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.MLClimate;
 
 import java.util.ArrayList;
@@ -24,13 +24,13 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
             return subBiomeData.getWeight();
         }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(BiomeKeyUtil.BIOME_KEY)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
+        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(BYGUtil.BIOME_KEY)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
             return subBiomeData.getSubBiomes();
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("edge", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("beach", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("beach", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getBeach();
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("river", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("river", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getRiver();
         })).apply(builder, OverworldPrimaryBiomeData::new);
     });
@@ -45,7 +45,7 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
     }
 
     public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
-        this(climate, weight, dictionary, subBiomes, BiomeKeyUtil.EMPTY);
+        this(climate, weight, dictionary, subBiomes, BYGUtil.EMPTY);
     }
 
     public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes, ResourceKey<Biome> edgeBiome) {

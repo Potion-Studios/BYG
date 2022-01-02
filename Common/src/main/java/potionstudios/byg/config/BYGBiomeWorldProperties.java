@@ -15,7 +15,7 @@ import java.util.List;
 import static net.minecraft.world.level.biome.Biomes.*;
 import static potionstudios.byg.common.world.biome.BYGBiomes.GROVE;
 import static potionstudios.byg.common.world.biome.BYGBiomes.*;
-import static potionstudios.byg.util.BiomeKeyUtil.EMPTY;
+import static potionstudios.byg.util.BYGUtil.EMPTY;
 
 public class BYGBiomeWorldProperties {
 

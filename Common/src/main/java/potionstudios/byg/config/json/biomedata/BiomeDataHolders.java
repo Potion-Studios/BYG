@@ -5,7 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import potionstudios.byg.util.BiomeKeyUtil;
+import potionstudios.byg.util.BYGUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +15,9 @@ public class BiomeDataHolders {
 
     public static class EndSubBiomeDataHolder extends BiomeDataListHolder<BiomeData> {
         public static final Codec<EndSubBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, BiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(BYGUtil.BIOME_KEY, BiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.getEndSubBiomeData();
-            }), Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, BiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
+            }), Codec.unboundedMap(BYGUtil.BIOME_KEY, BiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.voidSubBiomeData;
             })).apply(builder, EndSubBiomeDataHolder::new);
         });
@@ -44,9 +44,9 @@ public class BiomeDataHolders {
 
     public static class EndBiomeDataHolder extends BiomeDataListHolder<WeightedBiomeData> {
         public static final Codec<EndBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(BYGUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.getEndBiomeData();
-            }), Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
+            }), Codec.unboundedMap(BYGUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("void-biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.voidBiomeData;
             })).apply(builder, EndBiomeDataHolder::new);
         });
@@ -73,7 +73,7 @@ public class BiomeDataHolders {
 
     public static class WeightedBiomeDataHolder extends BiomeDataListHolder<WeightedBiomeData> {
         public static final Codec<WeightedBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubWeightedBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(BYGUtil.BIOME_KEY, WeightedBiomeData.CODEC).fieldOf("biomes").forGetter((endSubWeightedBiomeDataHolder) -> {
                 return endSubWeightedBiomeDataHolder.getBiomeData();
             })).apply(builder, WeightedBiomeDataHolder::new);
         });
@@ -85,7 +85,7 @@ public class BiomeDataHolders {
 
     public static class OverworldPrimaryBiomeDataHolder extends BiomeDataListHolder<OverworldPrimaryBiomeData> {
         public static final Codec<OverworldPrimaryBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, OverworldPrimaryBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(BYGUtil.BIOME_KEY, OverworldPrimaryBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.getBiomeData();
             })).apply(builder, OverworldPrimaryBiomeDataHolder::new);
         });
@@ -97,7 +97,7 @@ public class BiomeDataHolders {
 
     public static class OverworldSubBiomeDataHolder extends BiomeDataListHolder<OverworldSubBiomeData> {
         public static final Codec<OverworldSubBiomeDataHolder> CODEC = RecordCodecBuilder.create((builder) -> {
-            return builder.group(Codec.unboundedMap(BiomeKeyUtil.BIOME_KEY, OverworldSubBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
+            return builder.group(Codec.unboundedMap(BYGUtil.BIOME_KEY, OverworldSubBiomeData.CODEC).fieldOf("biomes").forGetter((endSubBiomeDataHolder) -> {
                 return endSubBiomeDataHolder.getBiomeData();
             })).apply(builder, OverworldSubBiomeDataHolder::new);
         });

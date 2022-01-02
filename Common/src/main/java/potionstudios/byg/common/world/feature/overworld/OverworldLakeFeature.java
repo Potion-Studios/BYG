@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
 import potionstudios.byg.util.BlockHelper;
-import potionstudios.byg.util.FeatureHelper;
+import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModMathHelper;
 
@@ -45,24 +45,24 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
         int dist2 = ModMathHelper.floor(radius * 1.5);
         int bott = ModMathHelper.floor(depth);
 
-        blockPos = FeatureHelper.getPosOnSurfaceWG(world, blockPos);
+        blockPos = FeatureUtil.getPosOnSurfaceWG(world, blockPos);
         if (blockPos.getY() < 10) return false;
 
         int waterLevel = blockPos.getY();
 
-        BlockPos pos = FeatureHelper.getPosOnSurfaceRaycast(world, blockPos.north(dist).above(10), 20);
+        BlockPos pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.north(dist).above(10), 20);
         if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
         waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
 
-        pos = FeatureHelper.getPosOnSurfaceRaycast(world, blockPos.south(dist).above(10), 20);
+        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.south(dist).above(10), 20);
         if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
         waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
 
-        pos = FeatureHelper.getPosOnSurfaceRaycast(world, blockPos.east(dist).above(10), 20);
+        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.east(dist).above(10), 20);
         if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
         waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
 
-        pos = FeatureHelper.getPosOnSurfaceRaycast(world, blockPos.west(dist).above(10), 20);
+        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.west(dist).above(10), 20);
         if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
         waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
         BlockState state;

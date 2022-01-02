@@ -16,7 +16,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
-import potionstudios.byg.util.noise.fastnoise.FastNoise;
+import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.util.Optional;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.simplex.biome;
+package potionstudios.byg.common.world.math.noise.simplex.biome;
 
 import java.util.Random;
 

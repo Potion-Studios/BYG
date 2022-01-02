@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.worley;/*
+package potionstudios.byg.common.world.math.noise.worley;/*
  * This code is released into the public domain.
  * It is a conversion of Matt Pharr's original C++ implementation.
  * The licensing of the original code follows:

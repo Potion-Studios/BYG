@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.cubic;
+package potionstudios.byg.common.world.math.noise.cubic;
 
 public class CubicNoise {
     private static final int RND_A = 134775813;

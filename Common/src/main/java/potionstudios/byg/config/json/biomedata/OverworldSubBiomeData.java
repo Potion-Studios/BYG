@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import potionstudios.byg.util.BiomeKeyUtil;
+import potionstudios.byg.util.BYGUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,11 +14,11 @@ public class OverworldSubBiomeData extends BiomeData {
     public static final Codec<OverworldSubBiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("edge", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("edge", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getEdgeBiome();
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("beach", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("beach", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getBeach();
-        }), BiomeKeyUtil.BIOME_KEY.optionalFieldOf("river", BiomeKeyUtil.EMPTY).forGetter((subBiomeData) -> {
+        }), BYGUtil.BIOME_KEY.optionalFieldOf("river", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
             return subBiomeData.getRiver();
         })).apply(builder, OverworldSubBiomeData::new);
     });

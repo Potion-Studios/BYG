@@ -19,7 +19,7 @@ import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.config.json.BYGConfigHandler;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.ItemBlockRenderTypeAccess;
-import potionstudios.byg.util.BiomeKeyUtil;
+import potionstudios.byg.util.BYGUtil;
 
 import java.nio.file.Path;
 import java.util.Set;
@@ -33,7 +33,7 @@ public class BYG {
     public static String FILE_PATH = "yeet";
     public static Path CONFIG_PATH = null;
     public static WorldConfig worldConfig = null;
-    public static final ResourceKey<Biome> EMPTY = BiomeKeyUtil.EMPTY;
+    public static final ResourceKey<Biome> EMPTY = BYGUtil.EMPTY;
 
     public static Registry<Biome> biomeRegistryAccess = null;
 

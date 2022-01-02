@@ -1,4 +1,4 @@
-package potionstudios.byg.util.noise.fastnoise.lite;// MIT License
+package potionstudios.byg.common.world.math.noise.fastnoise.lite;// MIT License
 //
 // Copyright(c) 2020 Jordan Peck (jordan.me2@gmail.com)
 // Copyright(c) 2020 Contributors
