@@ -1156,7 +1156,6 @@ public class BYGItems {
     public static final Item CLOVER_PATCH = createItem(new BlockItem(BYGBlocks.CLOVER_PATCH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CLOVER_PATCH);
     public static final Item FLOWER_PATCH = createItem(new BlockItem(BYGBlocks.FLOWER_PATCH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.FLOWER_PATCH);
 
-
     //Petal Blocks
     public static final Item WHITE_PETAL = createItem(new BlockItem(BYGBlocks.WHITE_PETAL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WHITE_PETAL);
     public static final Item BLUE_PETAL = createItem(new BlockItem(BYGBlocks.BLUE_PETAL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.BLUE_PETAL);
