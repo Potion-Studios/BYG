@@ -1,5 +1,6 @@
 package potionstudios.byg;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
@@ -31,6 +32,8 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.util.RegistryObject;
+import potionstudios.byg.world.BYGBiomeProvider;
+import terrablender.api.BiomeProviders;
 
 import java.util.Collection;
 
@@ -62,7 +65,6 @@ public class BYGForge {
                 return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
             }
         });
-
         bootStrap(eventBus);
 
         eventBus.addListener(this::commonLoad);
@@ -94,6 +96,9 @@ public class BYGForge {
     private void commonLoad(FMLCommonSetupEvent event) {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
+        event.enqueueWork(() -> {
+            BiomeProviders.register(new BYGBiomeProvider(BYGBiomeProvider.LOCATION));
+        });
     }
 
     private void loadFinish(FMLLoadCompleteEvent event) {
@@ -102,5 +107,6 @@ public class BYGForge {
 
     private void clientLoad(FMLClientSetupEvent event) {
         BYG.clientLoad();
+        BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
     }
 }

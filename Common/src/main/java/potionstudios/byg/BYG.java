@@ -27,7 +27,7 @@ import java.util.Set;
 public class BYG {
     public static final String MOD_ID = "byg";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final boolean BIOMES = false;
+    public static final boolean BIOMES = true;
 
     public static boolean isClient = false;
     public static boolean isUsingMixin;
@@ -87,7 +87,6 @@ public class BYG {
     public static void clientLoad() {
         isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BYGCutoutRenders.renderCutOuts(ItemBlockRenderTypeAccess.getTypeByBlock());
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }

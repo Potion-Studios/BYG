@@ -1,10 +1,14 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import potionstudios.byg.common.world.feature.BYGConfiguredFeatures;
+import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 
 public class BYGDefaultBiomeFeatures {
     public static void addAlliumFieldFlowers(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ALLIUM_FLOWER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ALLIUM_FIELD_FLOWERS);
     }
 
     public static void addBasaltFeatures(BiomeGenerationSettings.Builder gen) {
@@ -290,7 +294,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_GRASS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BYG_GRASS);
     }
 
     public static void addShrub(BiomeGenerationSettings.Builder gen) {

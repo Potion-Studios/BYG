@@ -1,49 +1,35 @@
-//package potionstudios.byg.common.world.feature;
-//
-//import com.google.common.collect.ImmutableList;
-//import com.google.common.collect.ImmutableSet;
-//import net.minecraft.core.Registry;
-//import net.minecraft.data.BuiltinRegistries;
-//import net.minecraft.resources.ResourceLocation;
-//import potionstudios.byg.BYG;
-//import potionstudios.byg.common.block.BlueBerryBush;
-//import potionstudios.byg.common.block.WhitePuffballBlock;
-//import potionstudios.byg.common.block.end.TheriumCrystalBlock;
-//import potionstudios.byg.common.block.nether.crimson.CrimsonBerryBushBlock;
-//import potionstudios.byg.common.world.feature.DoubleBlockPlacer;
-//import potionstudios.byg.common.world.feature.OnWaterOnlyBlockPlacer;
-//import potionstudios.byg.common.world.feature.config.*;
-//import potionstudios.byg.common.block.BYGBlocks;
-//import net.minecraft.data.worldgen.Features;
-//import net.minecraft.util.random.SimpleWeightedRandomList;
-//import net.minecraft.util.valueproviders.UniformInt;
-//import net.minecraft.world.level.block.Blocks;
-//import net.minecraft.world.level.block.GrowingPlantHeadBlock;
-//import net.minecraft.world.level.block.LanternBlock;
-//import net.minecraft.world.level.block.state.BlockState;
-//import net.minecraft.world.level.levelgen.VerticalAnchor;
-//import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-//import net.minecraft.world.level.levelgen.feature.Feature;
-//import net.minecraft.world.level.levelgen.feature.blockplacers.ColumnPlacer;
-//import net.minecraft.world.level.levelgen.feature.blockplacers.DoublePlantPlacer;
-//import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
-//import net.minecraft.world.level.levelgen.feature.configurations.*;
-//import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-//import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-//import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
-//import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
-//import net.minecraft.world.level.levelgen.placement.FrequencyWithExtraChanceDecoratorConfiguration;
-//import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-//import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-//
-//public class BYGConfiguredFeatures {
-//
-//    /***********************************************************Configured Features***********************************************************/
-//
-//    public static final ConfiguredFeature<?, ?> ALLIUM_BUSH = createConfiguredFeature("allium_bush", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.ALLIUM_FLOWER_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(100).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> ALLIUM_PINK_BUSH = createConfiguredFeature("pink_allium_bush", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PINK_ALLIUM_FLOWER_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(100).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> ALLIUM_TALL_BUSH = createConfiguredFeature("tall_allium_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.TALL_ALLIUM.defaultBlockState()), new DoublePlantPlacer())).tries(100).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> ALLIUM_TALL_PINK_BUSH = createConfiguredFeature("tall_pink_allium_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.TALL_PINK_ALLIUM.defaultBlockState()), new DoublePlantPlacer())).tries(100).noProjection().build()));
+package potionstudios.byg.common.world.feature;
+
+import com.google.common.collect.ImmutableList;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlocks;
+
+import java.util.List;
+
+import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.invokeGrassPatch;
+
+public class BYGConfiguredFeatures {
+
+    /***********************************************************Configured Features***********************************************************/
+
+    public static final ConfiguredFeature<?, ?> ALLIUM_BUSH = createConfiguredFeature("allium_bush", Feature.FLOWER.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.ALLIUM_FLOWER_BUSH.defaultBlockState()), 15)));
+    public static final ConfiguredFeature<?, ?> ALLIUM_PINK_BUSH = createConfiguredFeature("pink_allium_bush", Feature.FLOWER.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.PINK_ALLIUM_FLOWER_BUSH.defaultBlockState()), 15)));
+    public static final ConfiguredFeature<?, ?> ALLIUM_TALL_BUSH = createConfiguredFeature("tall_allium_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TALL_ALLIUM))), List.of(), 15)));
+    public static final ConfiguredFeature<?, ?> ALLIUM_TALL_PINK_BUSH = createConfiguredFeature("tall_pink_allium_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TALL_PINK_ALLIUM))), List.of(), 15)));
 //
 //    public static final ConfiguredFeature<?, ?> AMARANTH = createConfiguredFeature("amaranth", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.AMARANTH.defaultBlockState()), new SimpleBlockPlacer())).tries(100).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> AMARANTH_MAGENTA = createConfiguredFeature("magenta_amaranth", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.MAGENTA_AMARANTH.defaultBlockState()), new SimpleBlockPlacer())).tries(100).noProjection().build()));
@@ -54,8 +40,16 @@
 //    public static final ConfiguredFeature<?, ?> SHRUB = createConfiguredFeature("shrub_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SHRUB.defaultBlockState()), new SimpleBlockPlacer())).tries(24).build()));
 //
 //
-//    public static final ConfiguredFeature<?, ?> SHORT_GRASS = createConfiguredFeature("short_grass_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(24).build()));
-//    public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE_PATCH = createConfiguredFeature("nylium_soul_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(Blocks.SOUL_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.SOUL_SOIL, BYGBlocks.NYLIUM_SOUL_SOIL, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).noProjection().build()));
+    public static final ConfiguredFeature<?, ?> SHORT_GRASS_PATCH = createConfiguredFeature("short_grass_patch", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), 32)));
+    public static final ConfiguredFeature<?, ?> SHORT_GRASS_PATCH_EXTRA = createConfiguredFeature("short_grass_patch_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), 100)));
+    public static final ConfiguredFeature<?, ?> PATCH_GRASS_EXTRA = createConfiguredFeature("patch_grass_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(Blocks.GRASS.defaultBlockState()), 100)));
+    public static final ConfiguredFeature<?, ?> BYG_GRASS_EXTRA = createConfiguredFeature("short_grass_and_grass_extra", Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SHORT_GRASS_PATCH_EXTRA.placed(), 0.5F)), PATCH_GRASS_EXTRA.placed())));
+
+    public static final ConfiguredFeature<?, ?> ALLIUM_FIELD_FLOWERS = createConfiguredFeature("allium_field_flowers", Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(ALLIUM_TALL_BUSH.placed(), 0.25F), new WeightedPlacedFeature(ALLIUM_TALL_PINK_BUSH.placed(), 0.25F), new WeightedPlacedFeature(ALLIUM_BUSH.placed(), 0.25F)), ALLIUM_PINK_BUSH.placed())));
+
+    //    public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE_PATCH = createConfiguredFeature("nylium_soul_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(Blocks.SOUL_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(Blocks.SOUL_SOIL, BYGBlocks.NYLIUM_SOUL_SOIL, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.BORIC_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.BRIMSTONE, BYGBlocks.FROST_MAGMA)).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> MAGMA_FIRE_PATCH = createConfiguredFeature("magma_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(Blocks.FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.MAGMATIC_STONE, Blocks.MAGMA_BLOCK, BYGBlocks.QUARTZITE_SAND)).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> SUBZERO_ASH = createConfiguredFeature("subzero_ash", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SUBZERO_ASH.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.SUBZERO_ASH_BLOCK, BYGBlocks.FROST_MAGMA)).noProjection().build()));
@@ -387,9 +381,6 @@
 //            BEACH_GRASS.weighted(0.50F)),
 //            BEACH_SHORT_GRASS_PATCH)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BYG_GRASS = createConfiguredFeature("grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SHORT_GRASS.weighted(0.50F)),
-//            Features.PATCH_GRASS_NORMAL)).decorated(Features.Decorators.ADD_32).count(5));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_BYG_SHRUB = createConfiguredFeature("shrub", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            SHRUB.weighted(0.50F)),
@@ -1842,14 +1833,19 @@
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.13F, 1))));
 //
 //
-//    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
-//        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
-//        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
-//            throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
-//
-//        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, bygID, configuredFeature);
-//        return configuredFeature;
-//    }
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
+        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
+            throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
+
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, bygID, configuredFeature);
+        if (configuredFeature == null) {
+            String s = "";
+        }
+        return configuredFeature;
+    }
+
+    public static void bootStrap(){}
 //}
 //
 ////Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
@@ -1882,4 +1878,4 @@
 //        public static final ConfiguredFeature<?, ?> ORE_SCORIA_STONE = createConfiguredFeature("ore_scoria_stone", Feature.ORE.configured(new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE, BYGBlocks.SCORIA_STONE.defaultBlockState(), 20)).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60)))).squared().count(10));
 //        public static final ConfiguredFeature<?, ?> ORE_SOAP_STONE = createConfiguredFeature("ore_soap_stone", Feature.ORE.configured(new OreConfiguration(OreConfiguration.Predicates.NATURAL_STONE, BYGBlocks.SOAPSTONE.defaultBlockState(), 20)).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(60)))).squared().count(10));
 //    }
-//}
+}

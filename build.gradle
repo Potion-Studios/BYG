@@ -1,11 +1,11 @@
 subprojects {
-    
+
     apply plugin: 'java'
-    
+
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
     java.withSourcesJar()
     java.withJavadocJar()
-        
+
     jar {
         manifest {
             attributes([
@@ -22,7 +22,7 @@ subprojects {
             ])
         }
     }
-    
+
     repositories {
 
         mavenCentral()
@@ -36,8 +36,12 @@ subprojects {
             name = 'BlameJared Maven (CrT / Bookshelf)'
             url = 'https://maven.blamejared.com'
         }
+        maven {
+            name= 'forge'
+            url = 'https://maven.minecraftforge.net'
+        }
     }
-    
+
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'

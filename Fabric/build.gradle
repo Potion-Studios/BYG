@@ -8,6 +8,10 @@ archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven {
+        name = 'forge'
+        url = 'https://maven.minecraftforge.net'
+    }
 }
 
 
@@ -20,7 +24,7 @@ dependencies {
     implementation project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
-
+    modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
 //    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.1:dev'
 }
 

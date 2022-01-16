@@ -5,12 +5,14 @@ import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class BYGCutoutRenders {
-    public static void renderCutOuts(Map<Block, RenderType> map) {
+    public static void renderCutOuts(Consumer<Map<Block, RenderType>> mapConsumer) {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
-
+        Map<Block, RenderType> map = new HashMap<>();
         //Plants
         map.put(BYGBlocks.HORSEWEED, RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SAGE, RenderType.cutoutMipped());
@@ -221,7 +223,6 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.MAHOGANY_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.MANGROVE_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_SAPLING, RenderType.cutoutMipped());
-        map.put(BYGBlocks.HOLLY_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_BIRCH_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_OAK_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING, RenderType.cutoutMipped());
@@ -341,5 +342,7 @@ public class BYGCutoutRenders {
             map.put(potBlock, RenderType.cutoutMipped());
 
         BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
+
+        mapConsumer.accept(map);
     }
 }

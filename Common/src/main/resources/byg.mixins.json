@@ -30,6 +30,7 @@
     "access.TileEntityTypeBuilderAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",
+    "access.VegetationFeaturesAccess",
     "access.VillagerTypeAccess",
     "access.WeightedRandomListAccess",
     "access.WoodButtonBlockAccess",
