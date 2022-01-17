@@ -79,7 +79,9 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
+    add project(":Common").sourceSets.main, "${mod_id}.refmap.json"
+    add sourceSets.main, "${mod_id}_forge.refmap.json"
+
     config "${mod_id}.mixins.json"
     config "${mod_id}_forge.mixins.json"
 }
