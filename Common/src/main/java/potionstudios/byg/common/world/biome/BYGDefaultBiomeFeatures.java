@@ -1,5 +1,7 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.data.worldgen.features.VegetationFeatures;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
@@ -190,7 +192,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCrocus(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CROCUSES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CROCUS);
     }
 
     public static void addAlpineBellflower(BiomeGenerationSettings.Builder gen) {
@@ -289,10 +291,6 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addKovanFlower(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.KOVAN_FLOWERS);
-    }
-
-    public static void addGrass(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BYG_GRASS);
     }
 
     public static void addShrub(BiomeGenerationSettings.Builder gen) {
@@ -756,7 +754,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBaobabTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BAOBAB_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BAOBAB_TREES);
     }
 
     public static void addSavannaCanopyTrees(BiomeGenerationSettings.Builder gen) {
@@ -767,7 +765,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMeadowShrubs(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MEADOW_SHRUB);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MEADOW_SHRUBS);
     }
 
     public static void addMeadowTrees(BiomeGenerationSettings.Builder gen) {

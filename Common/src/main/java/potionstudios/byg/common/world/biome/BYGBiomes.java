@@ -46,9 +46,9 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AMARANTH_FIELDS = createBiome("amaranth_fields", amaranthFields());
     public static ResourceKey<Biome> ARAUCARIA_SAVANNA = createBiome("araucaria_savanna", araucariaSavanna(false));
     public static ResourceKey<Biome> ASPEN_FOREST = createBiome("aspen_forest", aspenForest());
-//    public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley());
-//    public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna());
-//    public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou());
+    public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley());
+    public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna());
+    public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou());
 //    public static ResourceKey<Biome> BLUFF_STEEPS = createBiome("bluff_steeps", bluffSteeps(false));
 //    public static ResourceKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", borealForest());
 //    public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest());
@@ -114,7 +114,6 @@ public class BYGBiomes {
 //
 //    //Forests
 //    public static ResourceKey<Biome> ARAUCARIA_FOREST = createBiome("araucaria_forest", araucariaSavanna(true));
-//    public static ResourceKey<Biome> BAMBOO_FOREST = createBiome("bamboo_forest", bambooForest());
 //    public static ResourceKey<Biome> FOREST_FAULT = createBiome("forest_fault", forestFault());
 //    public static ResourceKey<Biome> NORTHERN_FOREST = createBiome("northern_forest", northernForest());
 //    public static ResourceKey<Biome> POINTY_STONE_FOREST = createBiome("pointed_fragment_forest", fragmentForest(true));

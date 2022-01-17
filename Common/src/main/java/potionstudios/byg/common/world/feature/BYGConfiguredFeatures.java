@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
@@ -73,7 +74,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> SHORT_GRASS_PATCH_EXTRA = createConfiguredFeature("short_grass_patch_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), 100)));
     public static final ConfiguredFeature<?, ?> PATCH_GRASS_EXTRA = createConfiguredFeature("patch_grass_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(Blocks.GRASS.defaultBlockState()), 100)));
     public static final ConfiguredFeature<?, ?> BYG_GRASS_EXTRA = createConfiguredFeature("short_grass_and_grass_extra", Feature.RANDOM_SELECTOR.configured(
-            new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SHORT_GRASS_PATCH_EXTRA.placed(), 0.5F)), PATCH_GRASS_EXTRA.placed())));
+            new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PATCH_GRASS_EXTRA.placed(), 0.5F)), PATCH_GRASS_EXTRA.placed())));
 
     public static final ConfiguredFeature<?, ?> ALLIUM_FIELD_FLOWERS = createConfiguredFeature("allium_field_flowers", Feature.RANDOM_SELECTOR.configured(
             new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(ALLIUM_TALL_BUSH.placed(), 0.25F), new WeightedPlacedFeature(ALLIUM_TALL_PINK_BUSH.placed(), 0.25F), new WeightedPlacedFeature(ALLIUM_BUSH.placed(), 0.25F)), ALLIUM_PINK_BUSH.placed())));
@@ -1384,14 +1385,11 @@ public class BYGConfiguredFeatures {
 //            SKYRIS_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BAOBAB_TREE = createConfiguredFeature("baobab_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            Features.ACACIA.weighted(0.15F),
-//            BAOBAB_TREE1.weighted(0.35F),
-//            BAOBAB_TREE2.weighted(0.35F)),
-//            BAOBAB_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.25F, 1))));
-//
-//
+    public static final ConfiguredFeature<?, ?> BAOBAB_TREES = createConfiguredFeature("baobab_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BAOBAB_TREE1.placed(), 0.35F),
+            new WeightedPlacedFeature(BAOBAB_TREE2.placed(), 0.35F)),
+            BAOBAB_TREE3.placed())));
+
     public static final ConfiguredFeature<?, ?> ARAUCARIA_TREES = createConfiguredFeature("araucaria_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(ARAUCARIA_TREE1.placed(), 0.5F)), ARAUCARIA_TREE2.placed())));
     //
@@ -1401,10 +1399,8 @@ public class BYGConfiguredFeatures {
 //            ZELKOVA_BROWN_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.25F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_SHRUB = createConfiguredFeature("meadow_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SHRUB_MEADOW.weighted(0.1F)),
-//            SHRUB_PRAIRIE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.4F, 2))));
+    public static final ConfiguredFeature<?, ?> MEADOW_SHRUBS = createConfiguredFeature("meadow_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SHRUB_MEADOW.placed(), 0.5F)), SHRUB_MEADOW2.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_TREE = createConfiguredFeature("meadow_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            MEADOW_TREE1.weighted(0.2F),

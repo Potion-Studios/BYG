@@ -31,6 +31,7 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.config.BYGBiomeConfig;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
 import terrablender.api.BiomeProviders;
@@ -97,7 +98,9 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
-            BiomeProviders.register(new BYGBiomeProvider(BYGBiomeProvider.LOCATION));
+            BYGBiomeConfig.DEFAULT.biomeProperties().forEach((biomeResourceKey, biomeProperties) -> {
+                BiomeProviders.register(new BYGBiomeProvider(biomeResourceKey, biomeProperties, new ResourceLocation(BYG.MOD_ID, biomeResourceKey.location().getPath() + "_provider")));
+            });
         });
     }
 

@@ -25,10 +25,9 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-
         BYGDefaultBiomeFeatures.addAlliumFieldFlowers(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addSparseRedOakForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
@@ -56,10 +55,10 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BYGDefaultBiomeFeatures.addAmaranthFieldFlowers(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addSparseJacarandaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
@@ -87,6 +86,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addSavannaTrees(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
@@ -98,7 +98,6 @@ public class BYGOverworldBiomes {
         } else {
             BYGDefaultBiomeFeatures.addSparseAraucariaTrees(generationSettings);
         }
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
 
@@ -126,13 +125,13 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         addDefaultOverworldGeneration(generationSettings);
-        
+
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BYGDefaultBiomeFeatures.addAspenTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
@@ -162,12 +161,12 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addLargePumpkins(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
@@ -190,64 +189,18 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.PLAINS).temperature(0.35F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome bambooForest() {
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
-        
-        BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        
-        BiomeDefaultFeatures.addDefaultOres(generationSettings);
-        BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGBambooJungleVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addSparseCherryTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addJapaneseOrchid(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
-        BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
-        
-
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PANDA, 80, 1, 2));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-        spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 95, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CREEPER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
-
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.JUNGLE).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10999916).foliageColorOverride(10999916).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-
-    }
-
     public static Biome baobabSavanna() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-
-        BYGDefaultBiomeFeatures.addBaobabTrees(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
-        
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addSavannaTrees(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
+        BYGDefaultBiomeFeatures.addBaobabTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
@@ -309,7 +262,6 @@ public class BYGOverworldBiomes {
         
 //        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
@@ -359,7 +311,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
 
@@ -407,7 +358,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
 
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
@@ -492,7 +442,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -528,7 +477,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addCherryTrees(generationSettings);
         BYGDefaultBiomeFeatures.addJapaneseOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addCherryFoliage(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
@@ -652,8 +600,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
@@ -734,7 +681,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
         
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
@@ -798,7 +744,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addHorseweed(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addBYGWhitePuffball(generationSettings);
@@ -902,8 +847,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addHorseweed(generationSettings);
@@ -943,8 +887,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
@@ -972,8 +915,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
@@ -1019,7 +961,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
 
@@ -1056,7 +997,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLolliPop(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
@@ -1094,7 +1034,6 @@ public class BYGOverworldBiomes {
         
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addTropFungalMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -1173,7 +1112,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addOsiria(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
 
@@ -1203,8 +1141,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
@@ -1247,7 +1184,6 @@ public class BYGOverworldBiomes {
         
         BYGDefaultBiomeFeatures.addRainForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addWeedGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -1285,7 +1221,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addJacarandaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGBambooJungleVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addDelphinium(generationSettings);
@@ -1320,7 +1255,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWinterScilla(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
@@ -1356,7 +1290,6 @@ public class BYGOverworldBiomes {
         
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
         BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
@@ -1394,8 +1327,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
@@ -1470,8 +1402,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addShrub(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addBYGWhitePuffball(generationSettings);
@@ -1522,7 +1453,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
         BiomeDefaultFeatures.addDesertExtraVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BiomeDefaultFeatures.addBadlandGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBushes(generationSettings);
 
@@ -1549,7 +1479,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWinterScilla(generationSettings);
         BYGDefaultBiomeFeatures.addWinterRose(generationSettings);
@@ -1588,8 +1517,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addLolliPop(generationSettings);
@@ -1620,7 +1548,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addPrairieTree(generationSettings);
         BYGDefaultBiomeFeatures.addSparseOakForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addPrairieGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
@@ -1663,8 +1590,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
@@ -1807,7 +1733,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addTerracottaBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
 //        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ARCH);
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
@@ -1867,7 +1792,6 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
@@ -1935,7 +1859,6 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BYGDefaultBiomeFeatures.addRoseFieldFlowers(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
@@ -1981,7 +1904,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addSeasonalForestTrees(generationSettings);
         BiomeDefaultFeatures.addOtherBirchTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
@@ -2029,7 +1951,6 @@ public class BYGOverworldBiomes {
         }
 
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
@@ -2098,9 +2019,8 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addFirecrackerShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
-        
-        
+
+
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
@@ -2178,7 +2098,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addFoxgloves(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -2240,7 +2159,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addStoneForestTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
@@ -2287,7 +2205,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addTropFungalMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWeedGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
@@ -2327,8 +2244,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         
         BiomeDefaultFeatures.addJungleTrees(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addMGCoral(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
@@ -2397,7 +2313,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addDeadHazelTrees(generationSettings);
         BYGDefaultBiomeFeatures.addHugeMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addSmallSpruceTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
@@ -2457,8 +2372,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
