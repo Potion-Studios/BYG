@@ -23,7 +23,7 @@ public class BYGFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {
-        BYG.init(FabricLoader.getInstance().getConfigDir());
+        BYG.init(FabricLoader.getInstance().getConfigDir().resolve("byg"));
         BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
         BYGCreativeTab.init(FabricItemGroupBuilder.build(new ResourceLocation(BYG.MOD_ID, "byg"), () -> new ItemStack(BYGItems.BYG_LOGO)));
         BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));

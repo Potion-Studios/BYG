@@ -59,6 +59,7 @@
     "common.lightengine.WorldLightManagerMixin",
     "common.world.MixinMultiNoiseBiomeSource",
     "common.world.MixinOreFeatures",
+    "common.world.MixinServerLevel",
     "common.world.carver.MixinWorldCarver",
     "common.world.feature.MixinBasaltColumnFeature",
     "server.MixinMinecraftServer"
