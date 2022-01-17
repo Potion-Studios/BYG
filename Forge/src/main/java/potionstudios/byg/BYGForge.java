@@ -32,7 +32,7 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.util.RegistryObject;
-import potionstudios.byg.world.BYGBiomeProvider;
+import potionstudios.byg.world.biome.BYGBiomeProvider;
 import terrablender.api.BiomeProviders;
 
 import java.util.Collection;

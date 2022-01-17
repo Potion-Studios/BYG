@@ -25,7 +25,7 @@ public class BiomeSourceGenerationWorldProperties {
         }));
         map.put(Biomes.MUSHROOM_FIELDS, Util.make(new ArrayList<>(), (list) -> {
             list.add(new BiomeGenerationWorldProperties(Biomes.MUSHROOM_FIELDS, 5));
-            list.add(new BiomeGenerationWorldProperties(BYGBiomes.TROPICAL_ISLAND, 8));
+//            list.add(new BiomeGenerationWorldProperties(BYGBiomes.TROPICAL_ISLAND, 8));
         }));
     }));
 

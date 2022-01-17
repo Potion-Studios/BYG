@@ -1,9 +1,7 @@
 package potionstudios.byg.common.world.biome;
 
-import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import potionstudios.byg.common.world.feature.BYGConfiguredFeatures;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 
 public class BYGDefaultBiomeFeatures {
@@ -23,7 +21,7 @@ public class BYGDefaultBiomeFeatures {
 
 
     public static void addAmaranthFieldFlowers(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_AMARANTH_FLOWER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.AMARANTH_FIELD_FLOWERS);
     }
 
     public static void addRoseFieldFlowers(BiomeGenerationSettings.Builder gen) {
@@ -51,7 +49,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFirecracker(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FIRECRACKER_BUSHES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FIRECRACKER_BUSH);
     }
 
     public static void addPrairieGrass(BiomeGenerationSettings.Builder gen) {
@@ -143,11 +141,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLeafPile(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.LEAF_PILES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LEAF_PILES);
     }
 
     public static void addCloverFlowerPatch(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CLOVER_FLOWER_PATCH);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CLOVER_FLOWERS);
     }
 
     public static void addCherryFoliage(BiomeGenerationSettings.Builder gen) {
@@ -204,7 +202,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addYellowDaffodil(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.YELLOW_DAFFODILS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DAFFODIL_YELLOW);
     }
 
     public static void addDaffodil(BiomeGenerationSettings.Builder gen) {
@@ -220,7 +218,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRose(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ROSES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSES);
     }
 
     public static void addBlackRose(BiomeGenerationSettings.Builder gen) {
@@ -244,7 +242,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBYGMushrooms(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MUSHROOM);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MUSHROOMS);
     }
 
     public static void addBYGWhitePuffball(BiomeGenerationSettings.Builder gen) {
@@ -256,7 +254,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addAnemones(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ANEMONE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ANEMONES);
     }
 
     public static void addFoxgloves(BiomeGenerationSettings.Builder gen) {
@@ -315,7 +313,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addOrangeDaisy(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ORANGE_DAISIES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DAISY_ORANGE);
     }
 
     public static void addPinkAllium(BiomeGenerationSettings.Builder gen) {
@@ -646,11 +644,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseJacarandaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JACARANDA_SPARSE_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_JACARANDA_TREES);
     }
 
     public static void addSparseRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_RED_OAK_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_RED_OAK_TREES);
     }
 
     public static void addSparseOakForestTrees(BiomeGenerationSettings.Builder gen) {
@@ -746,11 +744,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addAraucariaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ARAUCARIA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ARAUCARIA_TREES);
     }
 
     public static void addSparseAraucariaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ARAUCARIA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_ARAUCARIA_TREES);
     }
 
     public static void addBrownZelkovaTrees(BiomeGenerationSettings.Builder gen) {
@@ -789,7 +787,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLargePumpkins(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PUMPKIN_PATCH);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LARGE_PUMPKINS);
     }
 
     //TODO: Configured Pumpkin Random Selector
@@ -806,8 +804,8 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addAspenTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ASPEN_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ASPEN_SHRUB);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ASPEN_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ASPEN_SHRUBS);
 
     }
 

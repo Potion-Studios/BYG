@@ -24,9 +24,9 @@ public class BYGConfigHandler {
     public static void fillBiomeDictionary(Path path) {
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
         uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_DEFAULTS, BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC));
-        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-sub-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_SUB_DEFAULTS, BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC));
-        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC));
-        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC));
+//        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-sub-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_SUB_DEFAULTS, BiomeDataHolders.OverworldSubBiomeDataHolder.CODEC));
+//        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-nether-biomes.json"), BYGBiomeWorldProperties.NETHER_DEFAULTS, BiomeDataHolders.WeightedBiomeDataHolder.CODEC));
+//        uploadBiomeDictionary(processAndGetFromCodec(gson, path.resolve("byg-end-biomes.json"), BYGBiomeWorldProperties.END_DEFAULTS, BiomeDataHolders.EndBiomeDataHolder.CODEC));
         createReadMe(path.resolve("README.txt"));
     }
 

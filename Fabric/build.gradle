@@ -49,7 +49,7 @@ processResources {
     inputs.property "version", project.version
 
     filesMatching("fabric.mod.json") {
-        expand "version": "${mod_version}.${System.getenv().BUILD_NUMBER}"
+        expand "version": project.version
     }
 
     filesMatching("${mod_id}.mixins.json") {

@@ -21,3 +21,10 @@ mandatory = true
 versionRange = "[36.0.4,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.byg]]
+modId = "terrablender"
+mandatory = true
+versionRange = "[1.1.0.55,)"
+ordering = "NONE"
+side = "BOTH"

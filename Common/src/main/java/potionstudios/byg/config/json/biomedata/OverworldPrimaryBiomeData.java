@@ -18,20 +18,8 @@ import java.util.List;
 public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
 
     public static final Codec<OverworldPrimaryBiomeData> CODEC = RecordCodecBuilder.create((builder) -> {
-        return builder.group(MLClimate.CODEC.fieldOf("climate").forGetter((subBiomeData) -> {
-            return subBiomeData.getClimate();
-        }), Codec.INT.optionalFieldOf("weight", 0).forGetter((subBiomeData) -> {
-            return subBiomeData.getWeight();
-        }), Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
+        return builder.group(Codec.STRING.listOf().optionalFieldOf("dictionary", new ArrayList<>()).forGetter((subBiomeData) -> {
             return Arrays.asList(subBiomeData.getDictionaryTypes());
-        }), SimpleWeightedRandomList.codec(WeightedEntry.Wrapper.codec(BYGUtil.BIOME_KEY)).optionalFieldOf("hills", SimpleWeightedRandomList.create()).forGetter((subBiomeData) -> {
-            return subBiomeData.getSubBiomes();
-        }), BYGUtil.BIOME_KEY.optionalFieldOf("edge", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
-            return subBiomeData.getEdgeBiome();
-        }), BYGUtil.BIOME_KEY.optionalFieldOf("beach", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
-            return subBiomeData.getBeach();
-        }), BYGUtil.BIOME_KEY.optionalFieldOf("river", BYGUtil.EMPTY).forGetter((subBiomeData) -> {
-            return subBiomeData.getRiver();
         })).apply(builder, OverworldPrimaryBiomeData::new);
     });
 
@@ -40,8 +28,8 @@ public class OverworldPrimaryBiomeData extends PrimaryBiomeData {
     private final ResourceKey<Biome> beachBiome;
     private final ResourceKey<Biome> riverBiome;
 
-    public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary) {
-        this(climate, weight, dictionary, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build());
+    public OverworldPrimaryBiomeData(List<String> dictionary) {
+        this(null, 0, dictionary, new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build());
     }
 
     public OverworldPrimaryBiomeData(MLClimate climate, int weight, List<String> dictionary, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>> subBiomes) {
