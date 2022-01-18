@@ -20,6 +20,7 @@ public record BYGBiomeConfig(Map<ResourceKey<Biome>, BiomeProperties> biomePrope
         map.put(BYGBiomes.AUTUMNAL_VALLEY, new BiomeProperties(List.of("FOREST", "OVERWORLD"), List.of(Biomes.FOREST), List.of(), 4));
         map.put(BYGBiomes.BAOBAB_SAVANNA, new BiomeProperties(List.of("SAVANNA", "OVERWORLD"), List.of(Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU), List.of(), 8));
         map.put(BYGBiomes.BAYOU, new BiomeProperties(List.of("SWAMP", "OVERWORLD"), List.of(Biomes.SWAMP), List.of(), 15));
+        map.put(BYGBiomes.BOREAL_FOREST, new BiomeProperties(List.of("FOREST", "OVERWORLD"), List.of(Biomes.TAIGA), List.of(), 4));
     }));
 
     public record BiomeProperties(Collection<String> biomeDictionary, Collection<ResourceKey<Biome>> spawnsLike, Collection<Climate.ParameterPoint> additonalPoints, int weight) {

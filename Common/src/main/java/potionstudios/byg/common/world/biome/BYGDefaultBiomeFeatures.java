@@ -63,7 +63,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBlueberries(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BLUE_BERRY_BUSHES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLUE_BERRY_BUSH);
     }
 
     public static void addLushBlueberries(BiomeGenerationSettings.Builder gen) {
@@ -180,7 +180,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addIris(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.IRISES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.IRIS);
     }
 
     public static void addTulips(BiomeGenerationSettings.Builder gen) {
@@ -570,7 +570,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBorealTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BOREAL_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BOREAL_TREES);
     }
 
     public static void addBorealSparseTrees(BiomeGenerationSettings.Builder gen) {

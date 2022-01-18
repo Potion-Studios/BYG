@@ -29,6 +29,7 @@
     "access.StairBlockAccess",
     "access.StaticTagHelperWrapperAccess",
     "access.StructureAccess",
+    "access.SurfaceRuleDataAccess",
     "access.TileEntityTypeBuilderAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",

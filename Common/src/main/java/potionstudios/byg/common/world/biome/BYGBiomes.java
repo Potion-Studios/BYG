@@ -49,8 +49,8 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley());
     public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna());
     public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou());
-//    public static ResourceKey<Biome> BLUFF_STEEPS = createBiome("bluff_steeps", bluffSteeps(false));
-//    public static ResourceKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", borealForest());
+    public static ResourceKey<Biome> BOREAL_FOREST = createBiome("boreal_forest", borealForest());
+//    public static ResourceKey<Biome> BLUFF_STEEPS = createBiome("canadian_shield", canadianShield(false));
 //    public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest());
 //    public static ResourceKey<Biome> CIKA_WOODS = createBiome("cika_woods", cikaWoods());
 //    public static ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", coniferousForest(false));

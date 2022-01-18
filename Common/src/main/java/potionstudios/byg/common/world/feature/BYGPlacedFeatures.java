@@ -21,12 +21,14 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature FIRECRACKER_BUSH = createPlacedFeature("firecracker_bush", BYGConfiguredFeatures.FIRECRACKER_BUSH.placed(VegetationPlacements.worldSurfaceSquaredWithCount(3)));
     public static final PlacedFeature SHORT_GRASS = createPlacedGroundVegetationFeature("short_grass", BYGConfiguredFeatures.SHORT_GRASS_PATCH);
     public static final PlacedFeature BYG_GRASS = createPlacedFeature("grass", BYGConfiguredFeatures.BYG_GRASS_EXTRA.placed(VegetationPlacements.worldSurfaceSquaredWithCount(8)));
+    public static final PlacedFeature BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGConfiguredFeatures.BYG_GRASS_EXTRA.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LEAF_PILES = createPlacedFeature("leaf_piles", BYGConfiguredFeatures.LEAF_PILE.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CLOVER_FLOWERS = createPlacedFeature("clover_flower_patch", BYGConfiguredFeatures.CLOVER_PATCH.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CROCUS = createPlacedFeature("crocus", BYGConfiguredFeatures.CROCUS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ANEMONES = createPlacedFeature("anemones", BYGConfiguredFeatures.ANEMONES.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ROSES = createPlacedFeature("rose", BYGConfiguredFeatures.ROSE.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAISY_ORANGE = createPlacedFeature("orange_daisy", BYGConfiguredFeatures.DAISY_ORANGE.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature IRIS = createPlacedFeature("iris", BYGConfiguredFeatures.IRIS.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGConfiguredFeatures.DAFFODIL_YELLOW.placed(VegetationPlacements.worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LARGE_PUMPKINS = createPlacedFeature("large_pumpkins", BYGConfiguredFeatures.LARGE_PUMPKINS.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
 
@@ -35,6 +37,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ASPEN_SHRUBS = createPlacedFeature("aspen_shrubs", BYGConfiguredFeatures.ASPEN_SHRUBS.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature ASPEN_TREES = createPlacedFeature("aspen_trees", BYGConfiguredFeatures.ASPEN_TREES.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(6, 0.25F, 3))));
     public static final PlacedFeature BAOBAB_TREES = createPlacedFeature("baobab_trees", BYGConfiguredFeatures.BAOBAB_TREES.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
+    public static final PlacedFeature BOREAL_TREES = createPlacedFeature("boreal_trees", BYGConfiguredFeatures.BOREAL_TREES.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(4, 0.2F, 2))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
 

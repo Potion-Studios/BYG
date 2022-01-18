@@ -5,16 +5,16 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
-import potionstudios.byg.BYG;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.BYGBiomeConfig;
 import terrablender.api.BiomeProvider;
 import terrablender.api.ParameterUtils;
 import terrablender.worldgen.TBClimate;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class BYGBiomeProvider extends BiomeProvider {
@@ -35,6 +35,7 @@ public class BYGBiomeProvider extends BiomeProvider {
                 mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), this.biomeResourceKey));
             }
         }
+
 
         for (Climate.ParameterPoint parameterPoint : this.biomeProperties.additonalPoints()) {
             mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPoint, getUniquenessParameter()), this.biomeResourceKey));
@@ -65,5 +66,14 @@ public class BYGBiomeProvider extends BiomeProvider {
 //        for (Climate.ParameterPoint vanillaParameterPoint : ParameterUtils.getVanillaParameterPoints(Biomes.TAIGA)) {
 //            mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.ASPEN_FOREST));
 //        }
+    }
+
+    @Override
+    public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
+        if (this.biomeResourceKey == BYGBiomes.ALLIUM_FIELDS) {
+            return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
+        } else {
+            return super.getOverworldSurfaceRules();
+        }
     }
 }
