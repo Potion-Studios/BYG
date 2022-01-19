@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -32,12 +33,15 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.BYGBiomeConfig;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
+import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Mod(BYG.MOD_ID)
 
@@ -99,6 +103,12 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
+            BiomeProviders.register(new BiomeProvider(new ResourceLocation(BYG.MOD_ID, "surface_data"), 0) {
+                @Override
+                public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
+                    return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
+                }
+            });
             BYGOverworldBiomeBuilder.DEFAULTS.forEach(biomeProviderData -> {
                 BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
             });
