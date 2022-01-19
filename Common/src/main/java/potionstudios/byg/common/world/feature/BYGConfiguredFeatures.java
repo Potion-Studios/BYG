@@ -400,9 +400,6 @@ public class BYGConfiguredFeatures {
 //            SHRUB.weighted(0.50F)),
 //            SHRUB)).decorated(Features.Decorators.ADD_32).count(1));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BYG_FERN_GRASS = createConfiguredFeature("fern_grass", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SHORT_GRASS.weighted(0.50F)),
-//            Features.PATCH_TAIGA_GRASS)).decorated(Features.Decorators.ADD_32).count(10));
 //
     public static final ConfiguredFeature<?, ?> MUSHROOMS = createConfiguredFeature("mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(WOOD_BLEWIT.placed(), 0.33F), new WeightedPlacedFeature(WEEPING_MILKCAP.placed(), 0.33F)), GREEN_MUSHROOM.placed())));
@@ -1067,11 +1064,10 @@ public class BYGConfiguredFeatures {
 //            PINE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_CIKA_TREE = createConfiguredFeature("cika_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            CIKA_TREE2.weighted(0.2F),
-//            CIKA_TREE3.weighted(0.1F)),
-//            CIKA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(2, 0.35F, 2))));
+    public static final ConfiguredFeature<?, ?> CIKA_TREES = createConfiguredFeature("cika_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(CIKA_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(CIKA_TREE3.placed(), 0.1F)),
+            CIKA_TREE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_TREE = createConfiguredFeature("conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            CONIFER_TREE1.weighted(0.06F),

@@ -28,10 +28,6 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ROSE_FIELD_FLOWER);
     }
 
-    public static void addFernGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_FERN_GRASS);
-    }
-
     public static void addGrasslandBoulders(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRASSLAND_BOULDER);
     }
@@ -693,7 +689,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCikaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CIKA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CIKA_TREES);
     }
 
     public static void addPrairieTree(BiomeGenerationSettings.Builder gen) {

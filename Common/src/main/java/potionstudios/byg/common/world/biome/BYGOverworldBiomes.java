@@ -311,9 +311,9 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -461,25 +461,22 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-
-        BYGDefaultBiomeFeatures.addLargePumpkins(generationSettings);
-        BYGDefaultBiomeFeatures.addCikaTrees(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        
-        
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addFernGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+        BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
+
+        BYGDefaultBiomeFeatures.addCikaTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addLargePumpkins(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
-        BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
-        BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
-        BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
+        BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -1766,7 +1763,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addFernGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addRedwoodTrees(generationSettings);
         BYGDefaultBiomeFeatures.addGrasslandBoulders(generationSettings);
@@ -2277,7 +2273,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addFernGrass(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addGraniteBoulder(generationSettings);
