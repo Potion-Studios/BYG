@@ -36,10 +36,12 @@ public class BYGBiomeProvider extends BiomeProvider {
         overworldBiomeBuilderAccess.setPLATEAU_BIOMES_VARIANT(plateauBiomesVariant);
         overworldBiomeBuilderAccess.setEXTREME_HILLS(extremeHills);
         dumpArrays((biomeResourceKey -> {
-            if (biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)) {
-                bygKeys.add(biomeResourceKey);
-                if (swapper.containsValue(biomeResourceKey)) {
-                    throw new IllegalArgumentException("Swapper cannot contain elements found in the temperature arrays.");
+            if (biomeResourceKey != null) {
+                if (biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)) {
+                    bygKeys.add(biomeResourceKey);
+                    if (swapper.containsValue(biomeResourceKey)) {
+                        throw new IllegalArgumentException("Swapper cannot contain elements found in the temperature arrays.");
+                    }
                 }
             }
         }), middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, extremeHills);
