@@ -33,7 +33,7 @@ public abstract class MixinServerLevel {
                     serverPlayer.displayClientMessage(new TranslatableComponent("byg.experimental.warning").withStyle(ChatFormatting.YELLOW), false);
                     try {
                         Files.createDirectories(marker.getParent());
-                        Files.write(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer generate".getBytes());
+                        Files.write(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat.".getBytes());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
