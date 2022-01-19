@@ -65,7 +65,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLushBlueberries(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.LUSH_BLUE_BERRY_BUSHES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLUE_BERRY_BUSH_LUSH);
     }
 
     public static void addBeachGrass(BiomeGenerationSettings.Builder gen) {
@@ -170,7 +170,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addWinterSucculent(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WINTER_SUCCLULENTS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WINTER_SUCCULENT);
     }
 
     public static void addShortGrass(BiomeGenerationSettings.Builder gen) {
@@ -222,7 +222,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBlackRose(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BLACK_ROSES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLACK_ROSE);
     }
 
     public static void addOsiria(BiomeGenerationSettings.Builder gen) {
@@ -300,7 +300,7 @@ public class BYGDefaultBiomeFeatures {
 
 
     public static void addSages(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SAGE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SAGES);
     }
 
     public static void addOrangeDaisy(BiomeGenerationSettings.Builder gen) {
@@ -328,7 +328,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ROCKY_STONE_BOULDERS);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ROCKY_STONE_BOULDER);
     }
 
     public static void addGiantLunaRocks(BiomeGenerationSettings.Builder gen) {
@@ -342,7 +342,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMossyStoneBoulder(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.MOSSY_STONE_BOULDER);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.MOSSY_STONE_BOULDER);
     }
 
     public static void addFrostMagmaLakes(BiomeGenerationSettings.Builder gen) {
@@ -555,7 +555,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBlackForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLACK_FOREST_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLACK_FOREST_TREES);
     }
 
     public static void addSparseBlackForestTrees(BiomeGenerationSettings.Builder gen) {

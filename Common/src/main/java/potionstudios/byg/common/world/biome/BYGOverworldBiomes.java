@@ -25,6 +25,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addPlainGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAlliumFieldFlowers(generationSettings);
@@ -55,6 +56,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         addDefaultOverworldGeneration(generationSettings);
+        BiomeDefaultFeatures.addPlainGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
@@ -128,6 +130,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
@@ -300,8 +303,8 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
+
         BYGDefaultBiomeFeatures.addBlackForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);

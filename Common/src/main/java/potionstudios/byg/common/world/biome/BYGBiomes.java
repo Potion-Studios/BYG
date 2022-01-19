@@ -36,6 +36,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley());
     public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna());
     public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou());
+    public static ResourceKey<Biome> BLACK_FOREST = createBiome("black_forest", blackForest());
     public static ResourceKey<Biome> BOREALIS_GROVE = createBiome("borealis_grove", borealisGrove());
 //    public static ResourceKey<Biome> BLUFF_STEEPS = createBiome("canadian_shield", canadianShield(false));
 //    public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest());
@@ -77,7 +78,6 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false));
 //    public static ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = createBiome("snowy_coniferous_forest", coniferousForest(true));
 //    public static ResourceKey<Biome> STONE_FOREST = createBiome("fragment_forest", fragmentForest(false));
-//    public static ResourceKey<Biome> THE_BLACK_FOREST = createBiome("black_forest", blackForest());
 //    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalForest());
 //    public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalForest());
 //    public static ResourceKey<Biome> TWILIGHT_VALLEY = createBiome("twilight_valley", twilightValley());
