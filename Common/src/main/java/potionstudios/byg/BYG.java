@@ -9,18 +9,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.vanilla.ITreeSpawner;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.config.WorldConfig;
-import potionstudios.byg.config.json.BYGConfigHandler;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
-import potionstudios.byg.mixin.access.ItemBlockRenderTypeAccess;
 import potionstudios.byg.util.BYGUtil;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
 
@@ -42,7 +40,7 @@ public class BYG {
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {
-            worldConfig = new WorldConfig(CONFIG_PATH.resolve("byg-world.toml"));
+            worldConfig = new WorldConfig(CONFIG_PATH.resolve("world.toml"));
         }
         return worldConfig;
     }
@@ -70,6 +68,12 @@ public class BYG {
                 }
             }
         }
+        try {
+            Files.createDirectories(CONFIG_PATH);
+            Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 
@@ -82,8 +86,6 @@ public class BYG {
         validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
         builderAccess.setValidBlocks(validBlocks);
-        BYGBiomes.handleOverworldEntries();
-        BYGConfigHandler.fillBiomeDictionary(CONFIG_PATH);
     }
 
     public static void clientLoad() {

@@ -1,29 +1,13 @@
 package potionstudios.byg.config;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.Util;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.level.biome.Biome;
-import potionstudios.byg.config.json.biomedata.BiomeDataHolders;
-import potionstudios.byg.config.json.biomedata.OverworldPrimaryBiomeData;
-import potionstudios.byg.config.json.biomedata.WeightedBiomeData;
-import potionstudios.byg.util.MLClimate;
-
-import java.util.List;
-
-import static net.minecraft.world.level.biome.Biomes.*;
-import static potionstudios.byg.common.world.biome.BYGBiomes.*;
-import static potionstudios.byg.util.BYGUtil.EMPTY;
-
 public class BYGBiomeWorldProperties {
 
-    public static final BiomeDataHolders.OverworldPrimaryBiomeDataHolder OVERWORLD_DEFAULTS = new BiomeDataHolders.OverworldPrimaryBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
-        map.put(ALLIUM_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
-        map.put(AMARANTH_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
-//        map.put(FORGOTTEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "MAGICAL", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(PLAINS, 1).add(GROVE, 2).build(), EMPTY));
-        map.put(ARAUCARIA_SAVANNA, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
-        map.put(ASPEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 6, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+//    public static final BiomeDataHolders.OverworldPrimaryBiomeDataHolder OVERWORLD_DEFAULTS = new BiomeDataHolders.OverworldPrimaryBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
+//        map.put(ALLIUM_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+//        map.put(AMARANTH_FIELDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 2, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+////        map.put(FORGOTTEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 1, List.of("FOREST", "MAGICAL", "RARE", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(PLAINS, 1).add(GROVE, 2).build(), EMPTY));
+//        map.put(ARAUCARIA_SAVANNA, new OverworldPrimaryBiomeData(MLClimate.HOT, 2, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
+//        map.put(ASPEN_FOREST, new OverworldPrimaryBiomeData(MLClimate.WARM, 6, List.of("FOREST", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build()));
 //        map.put(AUTUMNAL_VALLEY, new OverworldPrimaryBiomeData(MLClimate.COOL, 5, List.of("PLAINS", "DRY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(CIKA_WOODS, 5).build()));
 //        map.put(BAOBAB_SAVANNA, new OverworldPrimaryBiomeData(MLClimate.HOT, 6, List.of("SAVANNA", "SPARSE", "DRY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(SAVANNA, 5).build()));
 //        map.put(BAYOU, new OverworldPrimaryBiomeData(MLClimate.WARM, 5, List.of("SWAMP", "FOREST", "WET", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().build(), EMPTY, BAYOU, BAYOU));
@@ -71,7 +55,7 @@ public class BYGBiomeWorldProperties {
 //        map.put(WEEPING_WITCH_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 1, List.of("FOREST", "COLD", "MAGICAL", "RARE", "SPOOKY", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(PUMPKIN_FOREST, 5).build()));
 //        map.put(WOODLANDS, new OverworldPrimaryBiomeData(MLClimate.WARM, 4, List.of("FOREST", "DENSE", "MAGICAL", "OVERWORLD"), new SimpleWeightedRandomList.Builder<ResourceKey<Biome>>().add(FLOWERING_GROVE, 1).add(GROVE, 9).build()));
 //        map.put(ZELKOVA_FOREST, new OverworldPrimaryBiomeData(MLClimate.COOL, 5, List.of("CONIFEROUS", "COLD", "FOREST", "OVERWORLD")));
-    }));
+//    }));
 //
 //    public static final BiomeDataHolders.OverworldSubBiomeDataHolder OVERWORLD_SUB_DEFAULTS = new BiomeDataHolders.OverworldSubBiomeDataHolder(Util.make(new Object2ObjectOpenHashMap<>(), (map) -> {
 //

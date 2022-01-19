@@ -2,29 +2,21 @@ package potionstudios.byg.common.world.biome;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.random.WeightedEntry;
-import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
-import potionstudios.byg.config.BYGBiomeWorldProperties;
-import potionstudios.byg.config.WorldConfig;
-import potionstudios.byg.config.json.BYGConfigHandler;
-import potionstudios.byg.config.json.biomedata.BiomeDataHolders;
 import potionstudios.byg.mixin.access.BiomeGenerationSettingsAccess;
 import potionstudios.byg.util.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -35,11 +27,6 @@ import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 public class BYGBiomes {
 
     public static final List<RegistryObject<Biome>> BIOMES = new ArrayList<>();
-
-    public static final Map<ResourceKey<Biome>, WeightedRandomList<WeightedEntry.Wrapper<ResourceKey<Biome>>>> OVERWORLD_HILLS = new Object2ObjectOpenHashMap<>();
-    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_EDGES = new Object2ObjectOpenHashMap<>();
-    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_BEACHES = new Object2ObjectOpenHashMap<>();
-    public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> OVERWORLD_RIVERS = new Object2ObjectOpenHashMap<>();
 
     /************Primary Biomes************/
     public static ResourceKey<Biome> ALLIUM_FIELDS = createBiome("allium_fields", alliumFields());
@@ -189,28 +176,6 @@ public class BYGBiomes {
         registryStrategy.accept(BIOMES);
     }
 
-
-    public static void handleOverworldEntries() {
-        BiomeDataHolders.OverworldPrimaryBiomeDataHolder overworldPrimaryBiomeDataHolder = BYGConfigHandler.processAndGetFromCodec(BYG.CONFIG_PATH.resolve("byg-biomes.json"), BYGBiomeWorldProperties.OVERWORLD_DEFAULTS, BiomeDataHolders.OverworldPrimaryBiomeDataHolder.CODEC);
-        overworldPrimaryBiomeDataHolder.getBiomeData().forEach(((key, overworldPrimaryBiomeData) -> {
-//            OverworldBiomes.addContinentalBiome(key, MLClimate.COOL.getClimate(), overworldPrimaryBiomeData.getWeight());
-            OVERWORLD_HILLS.put(key, overworldPrimaryBiomeData.getSubBiomes());
-            ResourceKey<Biome> beach = overworldPrimaryBiomeData.getBeach();
-            if (beach != BYG.EMPTY) {
-                OVERWORLD_BEACHES.put(key, beach);
-            }
-            ResourceKey<Biome> edgeBiome = overworldPrimaryBiomeData.getEdgeBiome();
-            if (edgeBiome != BYG.EMPTY) {
-                OVERWORLD_EDGES.put(key, edgeBiome);
-            }
-
-            ResourceKey<Biome> riverBiome = overworldPrimaryBiomeData.getRiver();
-            if (riverBiome != BYG.EMPTY) {
-                OVERWORLD_RIVERS.put(key, riverBiome);
-            }
-        }));
-    }
-
     //used in MixinMinecraftServer
     public static void addBYGFeaturesToBiomes(Biome biome, ResourceKey<Biome> biomeKey) {
         ResourceLocation locationKey = biomeKey.location();
@@ -229,30 +194,30 @@ public class BYGBiomes {
 //                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CATTAILS);
             }
         }
-        if (WorldConfig.conditionPasses(BYG.worldConfig().pendoriteSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
-        }
-
-        if (WorldConfig.conditionPasses(BYG.worldConfig().emeralditeSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_EMERALDITE);
-        }
-
-        if (WorldConfig.conditionPasses(BYG.worldConfig().rockyStoneSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
-        }
-        if (WorldConfig.conditionPasses(BYG.worldConfig().ametrineSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
-        }
-        if (WorldConfig.conditionPasses(BYG.worldConfig().buddingAmetrineSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE_BUDDING);
-        }
-        if (WorldConfig.conditionPasses(BYG.worldConfig().scoriaSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
-        }
-
-        if (WorldConfig.conditionPasses(BYG.worldConfig().soapStoneSpawns, biomeKey, biome)) {
-//            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
-        }
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().pendoriteSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
+//        }
+//
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().emeralditeSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_EMERALDITE);
+//        }
+//
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().rockyStoneSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
+//        }
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().ametrineSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
+//        }
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().buddingAmetrineSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE_BUDDING);
+//        }
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().scoriaSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
+//        }
+//
+//        if (WorldConfig.conditionPasses(BYG.worldConfig().soapStoneSpawns, biomeKey, biome)) {
+////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
+//        }
     }
 
     public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {

@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -31,10 +32,10 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
-import potionstudios.byg.config.BYGBiomeConfig;
+import potionstudios.byg.config.json.BiomeDictionaryConfig;
+import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
 import terrablender.api.BiomeProvider;
@@ -48,7 +49,7 @@ import java.util.Optional;
 public class BYGForge {
 
     public BYGForge() {
-        BYG.init(FMLPaths.CONFIGDIR.get());
+        BYG.init(FMLPaths.CONFIGDIR.get().resolve("byg"));
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
@@ -109,9 +110,12 @@ public class BYGForge {
                     return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
                 }
             });
-            BYGOverworldBiomeBuilder.DEFAULTS.forEach(biomeProviderData -> {
+            OverworldBiomeConfig.getConfig(true).values().forEach(biomeProviderData -> {
                 BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
             });
+        });
+        BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
+            BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
     }
 
