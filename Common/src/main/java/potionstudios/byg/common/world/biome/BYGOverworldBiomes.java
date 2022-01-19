@@ -251,7 +251,6 @@ public class BYGOverworldBiomes {
     public static Biome bayou() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addBayouVegetation(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
@@ -259,12 +258,11 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
-        
-//        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_NORMAL);
+
+        BYGDefaultBiomeFeatures.addBayouVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
+        BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         
 
@@ -601,8 +599,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
+        BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BYGDefaultBiomeFeatures.addMGCoral(generationSettings);
         
@@ -681,8 +678,7 @@ public class BYGOverworldBiomes {
         
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
+        BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         
 
@@ -1290,8 +1286,7 @@ public class BYGOverworldBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addPeachleatherflower(generationSettings);
-        BYGDefaultBiomeFeatures.addVioletleatherflower(generationSettings);
+        BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         
 

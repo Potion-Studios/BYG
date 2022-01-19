@@ -1,7 +1,5 @@
 package potionstudios.byg.common.world.biome;
 
-import net.minecraft.data.worldgen.features.VegetationFeatures;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
@@ -155,7 +153,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBYGSwampVegetation(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SWAMP_PLANTS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SWAMP_WATER_VEGETATION);
     }
 
     public static void addBYGLilyPad(BiomeGenerationSettings.Builder gen) {
@@ -240,7 +238,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMudDisks(BiomeGenerationSettings.Builder biomeIn) {
-//        biomeIn.withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.DISK.configure(new DiskFeatureConfig(BYGBlocks.MUD_BLOCK.getDefaultState(), 4, 1, Lists.newArrayList(Blocks.DIRT.getDefaultState(), Blocks.GRASS_BLOCK.getDefaultState()))).decorate(Decorator.COUNT_TOP_SOLID.configure(new CountDecoratorConfig(1))));
+        biomeIn.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BYGPlacedFeatures.DISK_MUD);
     }
 
     public static void addBYGMushrooms(BiomeGenerationSettings.Builder gen) {
@@ -264,8 +262,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCattails(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CATTAILS);
-
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CATTAIL);
     }
 
     public static void addReeds(BiomeGenerationSettings.Builder gen) {
@@ -281,12 +278,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CYAN_ROSES);
     }
 
-    public static void addPeachleatherflower(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LEATHER_FLOWER);
-    }
-
-    public static void addVioletleatherflower(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_LEATHER_FLOWER);
+    public static void addLeatherFlowers(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LEATHER_FLOWERS);
     }
 
     public static void addKovanFlower(BiomeGenerationSettings.Builder gen) {
@@ -794,7 +787,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBayouVegetation(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BAYOU_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BAYOU_TREES);
     }
 
     public static void addSparseWillowTrees(BiomeGenerationSettings.Builder gen) {
