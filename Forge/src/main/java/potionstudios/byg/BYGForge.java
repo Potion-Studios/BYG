@@ -30,6 +30,7 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.config.BYGBiomeConfig;
 import potionstudios.byg.util.RegistryObject;
@@ -98,8 +99,8 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
-            BYGBiomeConfig.DEFAULT.biomeProperties().forEach((biomeResourceKey, biomeProperties) -> {
-                BiomeProviders.register(new BYGBiomeProvider(biomeResourceKey, biomeProperties, new ResourceLocation(BYG.MOD_ID, biomeResourceKey.location().getPath() + "_provider")));
+            BYGOverworldBiomeBuilder.DEFAULTS.forEach(biomeProviderData -> {
+                BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
             });
         });
     }

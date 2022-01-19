@@ -1,79 +1,74 @@
 package potionstudios.byg.world.biome;
 
 import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.levelgen.SurfaceRules;
-import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
-import potionstudios.byg.config.BYGBiomeConfig;
+import net.minecraft.world.level.biome.OverworldBiomeBuilder;
+import potionstudios.byg.BYG;
+import potionstudios.byg.mixin.access.OverworldBiomeBuilderAccess;
 import terrablender.api.BiomeProvider;
 import terrablender.api.ParameterUtils;
 import terrablender.worldgen.TBClimate;
 
-import java.util.Optional;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class BYGBiomeProvider extends BiomeProvider {
-    private final ResourceKey<Biome> biomeResourceKey;
-    private final BYGBiomeConfig.BiomeProperties biomeProperties;
+    private static int count = 0;
 
-    public BYGBiomeProvider(ResourceKey<Biome> biomeResourceKey, BYGBiomeConfig.BiomeProperties biomeProperties, ResourceLocation name) {
-        super(name, biomeProperties.weight());
-        this.biomeResourceKey = biomeResourceKey;
-        this.biomeProperties = biomeProperties;
+    private final OverworldBiomeBuilder overworldBiomeBuilder = new OverworldBiomeBuilder();
+    private final Set<ResourceKey<Biome>> bygKeys = new ObjectOpenHashSet<>();
+    private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
+
+    public BYGBiomeProvider(int overworldWeight, ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes, ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes, ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] extremeHills, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+        super(new ResourceLocation(BYG.MOD_ID,"biome_provider_" + count++), overworldWeight);
+        this.swapper = swapper;
+
+        OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) (Object) overworldBiomeBuilder;
+        overworldBiomeBuilderAccess.setOCEANS(oceans);
+        overworldBiomeBuilderAccess.setMIDDLE_BIOMES(middleBiomes);
+        overworldBiomeBuilderAccess.setMIDDLE_BIOMES_VARIANT(middleBiomesVariant);
+        overworldBiomeBuilderAccess.setPLATEAU_BIOMES(plateauBiomes);
+        overworldBiomeBuilderAccess.setPLATEAU_BIOMES_VARIANT(plateauBiomesVariant);
+        overworldBiomeBuilderAccess.setEXTREME_HILLS(extremeHills);
+        dumpArrays((biomeResourceKey -> {
+            if (biomeResourceKey != null) {
+                if (biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)) {
+                    bygKeys.add(biomeResourceKey);
+                    if (swapper.containsValue(biomeResourceKey)) {
+                        throw new IllegalArgumentException("Swapper cannot contain elements found in the temperature arrays.");
+                    }
+                }
+            }
+        }), middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, extremeHills);
     }
 
     @Override
     public void addOverworldBiomes(Registry<Biome> registry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper) {
 
-        for (ResourceKey<Biome> resourceKey : this.biomeProperties.spawnsLike()) {
-            for (Climate.ParameterPoint vanillaParameterPoint : ParameterUtils.getVanillaParameterPoints(resourceKey)) {
-                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), this.biomeResourceKey));
+        ((OverworldBiomeBuilderAccess) (Object) this.overworldBiomeBuilder).invokeAddBiomes((parameterPointResourceKeyPair -> {
+            ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
+            if (this.bygKeys.contains(biomeKey)) {
+                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPointResourceKeyPair.getFirst(), getUniquenessParameter()), biomeKey));
             }
-        }
-
-
-        for (Climate.ParameterPoint parameterPoint : this.biomeProperties.additonalPoints()) {
-            mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPoint, getUniquenessParameter()), this.biomeResourceKey));
-        }
-
-////        ((OverworldBiomeBuilderAccess) (Object) BYGOverworldBiomeBuilder.BYG).invokeAddBiomes((parameterPointResourceKeyPair ->
-////                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPointResourceKeyPair.getFirst(), getUniquenessParameter()), parameterPointResourceKeyPair.getSecond()))));
-////
-////        for (Climate.ParameterPoint vanillaParameterPoint : ParameterUtils.getVanillaParameterPoints(Biomes.STONY_PEAKS)) {
-////            mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.DACITE_RIDGES));
-////        }
-//
-//        List<Climate.ParameterPoint> vanillaParameterPoints = ParameterUtils.getVanillaParameterPoints(Biomes.PLAINS);
-//        for (int i = 0; i < vanillaParameterPoints.size(); i++) {
-//            Climate.ParameterPoint vanillaParameterPoint = vanillaParameterPoints.get(i);
-//            if (i < vanillaParameterPoints.size() / 2) {
-//                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.ALLIUM_FIELDS));
-//            } else {
-//                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.AMARANTH_FIELDS));
-//
-//            }
-//        }
-//
-//        for (Climate.ParameterPoint vanillaParameterPoint : ParameterUtils.getVanillaParameterPoints(Biomes.SAVANNA)) {
-//            mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.ARAUCARIA_SAVANNA));
-//        }
-//
-//        for (Climate.ParameterPoint vanillaParameterPoint : ParameterUtils.getVanillaParameterPoints(Biomes.TAIGA)) {
-//            mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(vanillaParameterPoint, getUniquenessParameter()), BYGBiomes.ASPEN_FOREST));
-//        }
+            if (this.swapper.containsKey(biomeKey)) {
+                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPointResourceKeyPair.getFirst(), getUniquenessParameter()), this.swapper.get(biomeKey)));
+            }
+        }));
     }
 
-    @Override
-    public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-        if (this.biomeResourceKey == BYGBiomes.ALLIUM_FIELDS) {
-            return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
-        } else {
-            return super.getOverworldSurfaceRules();
+    @SafeVarargs
+    private static void dumpArrays(Consumer<ResourceKey<Biome>> biomeConsumer, ResourceKey<Biome>[][]... resourceKeys) {
+        for (ResourceKey<Biome>[][] resourceKey : resourceKeys) {
+            for (ResourceKey<Biome>[] keys : resourceKey) {
+                for (ResourceKey<Biome> key : keys) {
+                    biomeConsumer.accept(key);
+                }
+            }
         }
     }
 }
