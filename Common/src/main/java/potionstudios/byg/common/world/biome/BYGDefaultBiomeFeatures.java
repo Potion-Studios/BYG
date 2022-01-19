@@ -125,7 +125,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addJapaneseOrchid(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.JAPANESE_ORCHIDS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JAPANESE_ORCHID);
     }
 
     public static void addWiltedGrass(BiomeGenerationSettings.Builder gen) {
@@ -149,7 +149,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCherryFoliage(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CHERRY_FOLIAGE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CHERRY_FOLIAGE);
     }
 
     public static void addBYGSwampVegetation(BiomeGenerationSettings.Builder gen) {
@@ -837,7 +837,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CHERRY_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CHERRY_TREES);
     }
 
     public static void addSparseCherryTrees(BiomeGenerationSettings.Builder gen) {
