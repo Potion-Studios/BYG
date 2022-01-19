@@ -1031,14 +1031,13 @@ public class BYGConfiguredFeatures {
 //            Feature.CORAL_CLAW.configured(FeatureConfiguration.NONE))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(20, 0.3F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BLUFF_TREE = createConfiguredFeature("bluff_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            PINE_TREE1.weighted(0.05F),
-//            PINE_TREE2.weighted(0.05F),
-//            BLUFF_TREE1.weighted(0.3F),
-//            BLUFF_TREE2.weighted(0.3F),
-//            BLUFF_TREE3.weighted(0.25F)),
-//            CONIFER_TREE6)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(6, 0.45F, -2))));
+    public static final ConfiguredFeature<?, ?> CANADIAN_SHIELD_TREES = createConfiguredFeature("canadian_shield_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(PINE_TREE1.placed(), 0.05F),
+            new WeightedPlacedFeature(PINE_TREE2.placed(), 0.05F),
+            new WeightedPlacedFeature(BLUFF_TREE1.placed(), 0.3F),
+            new WeightedPlacedFeature(BLUFF_TREE2.placed(), 0.3F),
+            new WeightedPlacedFeature(BLUFF_TREE3.placed(), 0.25F)),
+            CONIFER_TREE6.placed())));
 //
     public static final ConfiguredFeature<?, ?> BOREAL_TREES = createConfiguredFeature("boreal_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(BIRCH_YELLOW_BOREAL_TREE1.placed(), 0.3F),
@@ -1220,17 +1219,16 @@ public class BYGConfiguredFeatures {
 //            SPRUCE_TREE_LARGE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_TREE = createConfiguredFeature("spruce_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SPRUCE_TREE1.weighted(0.06F),
-//            SPRUCE_TREE2.weighted(0.5F),
-//            SPRUCE_TREE3.weighted(0.04F),
-//            SPRUCE_TREE4.weighted(0.2F),
-//            SPRUCE_TREE_MEDIUM1.weighted(0.2F),
-//            SPRUCE_TREE_MEDIUM2.weighted(0.2F),
-//            SPRUCE_TREE_MEDIUM3.weighted(0.2F),
-//            SPRUCE_TREE_MEDIUM4.weighted(0.1F)),
-//            SPRUCE_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
+    public static final ConfiguredFeature<?, ?> SPRUCE_TREES = createConfiguredFeature("spruce_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SPRUCE_TREE1.placed(), 0.06F),
+            new WeightedPlacedFeature(SPRUCE_TREE2.placed(), 0.5F),
+            new WeightedPlacedFeature(SPRUCE_TREE3.placed(), 0.04F),
+            new WeightedPlacedFeature(SPRUCE_TREE4.placed(), 0.2F),
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM1.placed(), 0.2F),
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM2.placed(), 0.2F),
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM3.placed(), 0.2F),
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM4.placed(), 0.1F)),
+            SPRUCE_TREE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_YELLOW_TREE = createConfiguredFeature("spruce_yellow_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            SPRUCE_YELLOW_TREE1.weighted(0.06F),

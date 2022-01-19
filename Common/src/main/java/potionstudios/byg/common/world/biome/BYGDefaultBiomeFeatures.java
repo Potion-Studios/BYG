@@ -700,8 +700,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PRAIRIE_TREE);
     }
 
-    public static void addSpruceTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_TREE);
+    public static void addScarceSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
     public static void addRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
@@ -712,8 +712,8 @@ public class BYGDefaultBiomeFeatures {
         ////gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.TREE.configure(SPRUCE_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
     }
 
-    public static void addBluffTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BLUFF_TREE);
+    public static void addCanadianShieldTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CANADIAN_SHIELD_TREES);
     }
 
     public static void addDaciteRidgeTrees(BiomeGenerationSettings.Builder gen) {
@@ -806,8 +806,8 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseAspenTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ASPEN_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ASPEN_SHRUB);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ASPEN_TREES_SPARSE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ASPEN_SHRUBS);
     }
 
     public static void addZelkovaTrees(BiomeGenerationSettings.Builder gen) {

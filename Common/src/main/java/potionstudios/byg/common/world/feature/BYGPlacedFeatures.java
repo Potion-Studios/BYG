@@ -47,10 +47,13 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ARAUCARIA_TREES = createPlacedFeature("araucaria_trees", BYGConfiguredFeatures.ARAUCARIA_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature ASPEN_SHRUBS = createPlacedFeature("aspen_shrubs", BYGConfiguredFeatures.ASPEN_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature ASPEN_TREES = createPlacedFeature("aspen_trees", BYGConfiguredFeatures.ASPEN_TREES.placed(treePlacement(PlacementUtils.countExtra(6, 0.25F, 3))));
+    public static final PlacedFeature ASPEN_TREES_SPARSE = createPlacedFeature("aspen_trees_sparse", BYGConfiguredFeatures.ASPEN_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
     public static final PlacedFeature BAOBAB_TREES = createPlacedFeature("baobab_trees", BYGConfiguredFeatures.BAOBAB_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
     public static final PlacedFeature BOREAL_TREES = createPlacedFeature("boreal_trees", BYGConfiguredFeatures.BOREAL_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.2F, 2))));
     public static final PlacedFeature BAYOU_TREES = createPlacedFeature("bayou_trees", BYGConfiguredFeatures.BAYOU_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(4, 0.2F, 2))));
     public static final PlacedFeature BLACK_FOREST_TREES = createPlacedFeature("black_forest_trees", BYGConfiguredFeatures.BLACK_FOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(8, 0.2F, 2))));
+    public static final PlacedFeature CANADIAN_SHIELD_TREES = createPlacedFeature("canadian_shield_trees", BYGConfiguredFeatures.CANADIAN_SHIELD_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 2))));
+    public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
 
