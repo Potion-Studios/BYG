@@ -15,7 +15,7 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.ConditionSource ABOVE_63 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(63), 0);
 
 
-    public static final SurfaceRules.RuleSource NOISE_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BOREAL_FOREST), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
+    public static final SurfaceRules.RuleSource NOISE_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BOREALIS_GROVE), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
 
 
     public static final SurfaceRules.RuleSource SWAMP_SURFACE_RULES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BAYOU),

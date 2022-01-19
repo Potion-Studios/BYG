@@ -4,6 +4,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
+import potionstudios.byg.BYG;
 
 import java.util.*;
 
@@ -36,7 +37,7 @@ public class BYGOverworldBiomeBuilder {
     };
     private static final ResourceKey<Biome>[][] PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
             {null, null, null, null, null},
-            {null, null, null, null, null},
+            {null, null, null, null, BYGBiomes.BOREALIS_GROVE},
             {null, null, null, null, null},
             {null, null, null, null, null},
             {null, null, null, null, null}
@@ -44,14 +45,14 @@ public class BYGOverworldBiomeBuilder {
 
     private static final ResourceKey<Biome>[][] EXTREME_HILLS = new ResourceKey[][]{
             {null, null, null, null, null},
-            {null, null, null, null, BYGBiomes.BOREAL_FOREST},
+            {null, null, null, null, null},
             {null, null, null, null, null},
             {null, null, null, null, null},
             {null, null, null, null, null}
     };
 
     public static final Collection<BiomeProviderData> DEFAULTS = Util.make(new ArrayList<>(), list -> {
-        list.add(new BiomeProviderData(4, OCEANS, MIDDLE_BIOMES, MIDDLE_BIOMES_VARIANT, PLATEAU_BIOMES, PLATEAU_BIOMES_VARIANT, EXTREME_HILLS, Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU))));
+        list.add(new BiomeProviderData(BYG.worldConfig(true).overworldBiomeRegionWeight, OCEANS, MIDDLE_BIOMES, MIDDLE_BIOMES_VARIANT, PLATEAU_BIOMES, PLATEAU_BIOMES_VARIANT, EXTREME_HILLS, Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU))));
     });
 
     public record BiomeProviderData(int overworldWeight, ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes, ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes, ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] extremeHills, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {}

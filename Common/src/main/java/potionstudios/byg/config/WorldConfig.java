@@ -14,7 +14,7 @@ public class WorldConfig {
     public final int netherBiomeSize;
     public final boolean controlNether;
 
-    public final int overworldBiomeRegionSize;
+    public final int overworldBiomeRegionWeight;
     public final int endBiomeSize;
     public final int voidBiomeSize;
     public final boolean controlEnd;
@@ -30,7 +30,7 @@ public class WorldConfig {
 
     public WorldConfig(Path path) {
         this.configHelper = new AbstractCommentedConfigHelper(path);
-        this.overworldBiomeRegionSize = this.configHelper.addNumber("This value determines BYG's terrablender biome region size!", "overworldBiomeRegionSize", 5, 0, 25);
+        this.overworldBiomeRegionWeight = this.configHelper.addNumber("This value determines BYG's terrablender biome region weight!", "overworldBiomeRegionWeight", 4, 0, 25);
 
         AbstractCommentedConfigHelper netherSubConfig = new AbstractCommentedConfigHelper(this.configHelper.getValue("nether") != null ? this.configHelper.getValue("nether") : CommentedConfig.inMemory());
         this.netherBiomeSize = netherSubConfig.addNumber("Nether Biome Size\nDefault: 3", "netherBiomeSize", 3, 1, 10);
