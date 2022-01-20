@@ -1140,16 +1140,11 @@ public class BYGItems {
     public static final Item CATTAIL_THATCH_CARPET = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH_CARPET, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH_CARPET);
     public static final Item CATTAIL_THATCH_SLAB = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH_SLAB);
 
-    public static final Item SHORT_GRASS = createItem(new BlockItem(BYGBlocks.SHORT_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.SHORT_GRASS);
     public static final Item TALL_PRAIRIE_GRASS = createItem(new BlockItem(BYGBlocks.TALL_PRAIRIE_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TALL_PRAIRIE_GRASS);
     public static final Item TINY_LILYPADS = createItem(new BYGLilyItem(BYGBlocks.TINY_LILYPADS, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TINY_LILYPADS);
     public static final Item WATER_SILK = createItem(new BYGWaterSilkItem(BYGBlocks.WATER_SILK, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WATER_SILK);
     public static final Item WINTER_SUCCULENT = createItem(new BlockItem(BYGBlocks.WINTER_SUCCULENT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WINTER_SUCCULENT);
 
-    public static final Item WINTER_GRASS = createItem(new BlockItem(BYGBlocks.WINTER_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WINTER_GRASS);
-    public static final Item WEED_GRASS = createItem(new BlockItem(BYGBlocks.WEED_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WEED_GRASS);
-    public static final Item WILTED_GRASS = createItem(new BlockItem(BYGBlocks.WILTED_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WILTED_GRASS);
-    public static final Item SHORT_BEACH_GRASS = createItem(new BlockItem(BYGBlocks.SHORT_BEACH_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.SHORT_BEACH_GRASS);
     public static final Item BEACH_GRASS = createItem(new BlockItem(BYGBlocks.BEACH_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.BEACH_GRASS);
     public static final Item LEAF_PILE = createItem(new BlockItem(BYGBlocks.LEAF_PILE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.LEAF_PILE);
     public static final Item CLOVER_PATCH = createItem(new BlockItem(BYGBlocks.CLOVER_PATCH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CLOVER_PATCH);

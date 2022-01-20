@@ -226,7 +226,6 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.MINI_CACTUS);
         compostibleBlocks(0.65f, BYGItems.PRICKLY_PEAR_CACTUS);
         compostibleBlocks(0.65f, BYGItems.WINTER_SUCCULENT);
-        compostibleBlocks(0.35f, BYGItems.SHORT_GRASS);
         compostibleBlocks(0.75f, BYGItems.POISON_IVY);
         compostibleBlocks(0.65f, BYGItems.TINY_LILYPADS);
         compostibleBlocks(0.65f, BYGItems.ENDER_LILY);

@@ -220,8 +220,6 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
                 || state.is(Blocks.GRASS)
                 || state.is(Blocks.GRASS_BLOCK)
                 || state.is(BYGBlocks.OVERGROWN_STONE)
-                || state.is(BYGBlocks.WEED_GRASS)
-                || state.is(BYGBlocks.SHORT_GRASS)
                 || state.getMaterial().equals(Material.PLANT)
                 || state.getMaterial().equals(Material.WATER_PLANT)
                 || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);

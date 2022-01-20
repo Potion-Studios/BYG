@@ -526,7 +526,6 @@ public class BYGBlocks {
     public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
     public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
     public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
-    public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
     public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
     public static final Block POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
     public static final Block SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
@@ -535,10 +534,6 @@ public class BYGBlocks {
     public static final Block WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk");
     public static final Block WEEPING_ROOTS = new BYGBlockProperties.BYGHangingVine("weeping_roots");
     public static final Block WEEPING_ROOTS_PLANT = new BYGBlockProperties.BYGHangingVinePlant("weeping_roots_plant");
-    public static final Block WINTER_GRASS = new BYGBlockProperties.BYGWinterTallGrass("winter_grass");
-    public static final Block WEED_GRASS = new BYGBlockProperties.BYGTallGrass("weed_grass");
-    public static final Block WILTED_GRASS = new BYGBlockProperties.BYGTallGrass("wilted_grass");
-    public static final Block SHORT_BEACH_GRASS = new BYGBlockProperties.BYGBeachGrass("short_beach_grass");
     public static final Block BEACH_GRASS = new BYGBlockProperties.BYGBeachGrass("beach_grass");
     public static final Block LEAF_PILE = new BYGBlockProperties.BYGLeafPile("leaf_pile");
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");

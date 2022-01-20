@@ -186,13 +186,7 @@ public class BYGCutoutRenders {
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, RenderType.translucent());
         map.put(BYGBlocks.TALL_PRAIRIE_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHORT_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WINTER_GRASS, RenderType.translucent());
-
-        map.put(BYGBlocks.SHORT_BEACH_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.BEACH_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WILTED_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEED_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.LEAF_PILE, RenderType.cutoutMipped());
         map.put(BYGBlocks.CLOVER_PATCH, RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWER_PATCH, RenderType.cutoutMipped());

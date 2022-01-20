@@ -48,8 +48,6 @@ public class BYGConfiguredFeatures {
 
     public static final ConfiguredFeature<?, ?> CLOVER_PATCH = createFlowerConfiguredFeature("clover_patch", BYGBlocks.CLOVER_PATCH);
     public static final ConfiguredFeature<?, ?> FLOWER_PATCH = createFlowerConfiguredFeature("flower_patch", BYGBlocks.FLOWER_PATCH);
-    public static final ConfiguredFeature<?, ?> WEED_GRASS_PATCH = createFlowerConfiguredFeature("weed_grass_patch", BYGBlocks.WEED_GRASS);
-    public static final ConfiguredFeature<?, ?> WINTER_GRASS_PATCH = createFlowerConfiguredFeature("winter_grass_patch", BYGBlocks.WINTER_GRASS);
     public static final ConfiguredFeature<?, ?> CALIFORNIA_POPPY = createFlowerConfiguredFeature("california_poppy", BYGBlocks.CALIFORNIA_POPPY);
     public static final ConfiguredFeature<?, ?> WHITE_PUFFBALL = createFlowerConfiguredFeature("white_puffball", BYGBlocks.WHITE_PUFFBALL);
     public static final ConfiguredFeature<?, ?> WEEPING_MILKCAP = createFlowerConfiguredFeature("weeping_milkcap", BYGBlocks.WEEPING_MILKCAP);
@@ -69,8 +67,6 @@ public class BYGConfiguredFeatures {
     //    public static final ConfiguredFeature<?, ?> SHRUB = createConfiguredFeature("shrub_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SHRUB.defaultBlockState()), new SimpleBlockPlacer())).tries(24).build()));
 //
 //
-    public static final ConfiguredFeature<?, ?> SHORT_GRASS_PATCH = createConfiguredFeature("short_grass_patch", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), 32)));
-    public static final ConfiguredFeature<?, ?> SHORT_GRASS_PATCH_EXTRA = createConfiguredFeature("short_grass_patch_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(BYGBlocks.SHORT_GRASS.defaultBlockState()), 100)));
     public static final ConfiguredFeature<?, ?> PATCH_GRASS_EXTRA = createConfiguredFeature("patch_grass_extra", Feature.RANDOM_PATCH.configured(invokeGrassPatch(SimpleStateProvider.simple(Blocks.GRASS.defaultBlockState()), 100)));
     public static final ConfiguredFeature<?, ?> BYG_GRASS_EXTRA = createConfiguredFeature("short_grass_and_grass_extra", Feature.RANDOM_SELECTOR.configured(
             new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PATCH_GRASS_EXTRA.placed(), 0.5F)), PATCH_GRASS_EXTRA.placed())));

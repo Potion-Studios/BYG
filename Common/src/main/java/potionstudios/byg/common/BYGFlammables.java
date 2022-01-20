@@ -333,7 +333,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.CLOVER_PATCH, 60, 100);
         flammableBlock(BYGBlocks.HORSEWEED, 60, 100);
         flammableBlock(BYGBlocks.WINTER_SUCCULENT, 60, 100);
-        flammableBlock(BYGBlocks.SHORT_GRASS, 60, 200);
         flammableBlock(BYGBlocks.POISON_IVY, 15, 100);
         flammableBlock(BYGBlocks.SHRUB, 15, 100);
         flammableBlock(BYGBlocks.JACARANDA_BUSH, 15, 100);
