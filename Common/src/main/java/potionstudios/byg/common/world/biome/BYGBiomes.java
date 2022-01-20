@@ -45,10 +45,9 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens());
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands());
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea());
-//    public static ResourceKey<Biome> DECIDUOUS_FOREST = createBiome("deciduous_forest", deciduousForest(false));
 //    public static ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", daciteRidges());
 //    public static ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", windsweptDunes());
-//    public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods());
+    public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods());
 //    public static ResourceKey<Biome> ENCHANTED_FOREST = createBiome("enchanted_forest", enchantedForest());
 //    public static ResourceKey<Biome> ENCHANTED_GROVE = createBiome("enchanted_grove", enchantedGrove(false));
 //    public static ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", forgottenForest());

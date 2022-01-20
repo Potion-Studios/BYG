@@ -109,7 +109,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addAzalea(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.AZALEAS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.AZALEA);
     }
 
     public static void addSunFlowers(BiomeGenerationSettings.Builder gen) {
@@ -162,7 +162,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHorseweed(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HORSEWEEDS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HORSEWEED);
     }
 
     public static void addWinterSucculent(BiomeGenerationSettings.Builder gen) {
@@ -241,8 +241,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MUSHROOMS);
     }
 
-    public static void addBYGWhitePuffball(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PUFFBALL);
+    public static void addWhitePuffball(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WHITE_PUFFBALL);
     }
 
     public static void addMGCoral(BiomeGenerationSettings.Builder gen) {
@@ -578,10 +578,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CYPRESS_TREES);
     }
 
-    public static void addDeciduousTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DECIDUOUS_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SHRUB);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ASPEN_TREE);
+    public static void addDeciduousForestTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DECIDUOUS_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PRAIRIE_SHRUBS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ASPEN_TREES_SPARSE);
     }
 
     public static void addDeciduousSparseTrees(BiomeGenerationSettings.Builder gen) {
@@ -849,7 +849,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEbonyTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_EBONY_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EBONY_TREES);
     }
 
     public static void addHollyTrees(BiomeGenerationSettings.Builder gen) {
@@ -873,7 +873,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHugeMushrooms(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HUGE_MUSHROOM);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HUGE_MUSHROOMS);
     }
 
     public static void addWoodlandTrees(BiomeGenerationSettings.Builder gen) {

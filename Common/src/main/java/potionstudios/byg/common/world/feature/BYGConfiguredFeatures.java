@@ -99,7 +99,7 @@ public class BYGConfiguredFeatures {
 //
 //
 //    public static final ConfiguredFeature<?, ?> MINI_CACTI = createConfiguredFeature("mini_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.MINI_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(4).build()));
-//    public static final ConfiguredFeature<?, ?> HORSEWEED = createConfiguredFeature("horse_weed", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.HORSEWEED.defaultBlockState()), new SimpleBlockPlacer())).tries(4).build()));
+    public static final ConfiguredFeature<?, ?> HORSEWEED = createConfiguredFeature("horseweed", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.HORSEWEED))), List.of(), 10)));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad", Feature.RANDOM_PATCH.configured(new RandomPatchConfiguration(10, 7, 3, () -> {
         return Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TINY_LILYPADS))).onlyWhenEmpty();
     })));
@@ -118,8 +118,8 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.DELPHINIUM.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BYGBlocks.JAPANESE_ORCHID);
     //    public static final ConfiguredFeature<?, ?> FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FOXGLOVE.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> AZALEA = createConfiguredFeature("azalea", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.AZALEA.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
-//
+    public static final ConfiguredFeature<?, ?> AZALEA = createFlowerConfiguredFeature("azalea", BYGBlocks.AZALEA);
+    //
 //    public static final ConfiguredFeature<?, ?> FLOWERING_INDIGO_JACARANDA_BUSH = createConfiguredFeature("flowering_indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
 //    public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_BUSH = createConfiguredFeature("indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.INDIGO_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
 //    public static final ConfiguredFeature<?, ?> FLOWERING_JACARANDA_BUSH = createConfiguredFeature("flowering_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FLOWERING_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
@@ -238,7 +238,7 @@ public class BYGConfiguredFeatures {
 //
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(65).build()));
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(85).build()));
-//    public static final ConfiguredFeature<?, ?> IVIS_SPIKES = createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(120).setHeightMultiplier(0.4).build()));
+    //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES = createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(120).setHeightMultiplier(0.4).build()));
 //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES2 = createConfiguredFeature("ivis_spikes2", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(15676).setHeightMultiplier(0.8).build()));
 //
 //    public static final ConfiguredFeature<?, ?> END_STONE_BRICK_SPIKE = createConfiguredFeature("end_stone_brick_spike1", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.END_STONE_BRICKS.defaultBlockState(), 24).add(Blocks.END_STONE.defaultBlockState(), 1))).setSeed(120).setHeightMultiplier(0.3).build()));
@@ -341,7 +341,6 @@ public class BYGConfiguredFeatures {
 //
 //    public static final ConfiguredFeature<?, ?> CALIFORNIA_POPPIES = createConfiguredFeature("california_poppies", CALIFORNIA_POPPY.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //    public static final ConfiguredFeature<?, ?> WINTER_SUCCLULENTS = createConfiguredFeature("winter_succulents", WINTER_SUCCULENT.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
-//    public static final ConfiguredFeature<?, ?> HORSEWEEDS = createConfiguredFeature("horseweeds", HORSEWEED.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //    public static final ConfiguredFeature<?, ?> BLACKSTONE_BOULDERS = createConfiguredFeature("blackstone_boulders", BLACKSTONE_BOULDER.decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 3))));
 //    public static final ConfiguredFeature<?, ?> ROCKY_STONE_BOULDERS = createConfiguredFeature("rocky_stone_boulders", ROCKY_STONE_BOULDER.decorated(Features.Decorators.HEIGHTMAP_SQUARE).countRandom(2));
 //    public static final ConfiguredFeature<?, ?> MOSSY_STONE_BOULDERS = createConfiguredFeature("mossy_stone_boulders", MOSSY_STONE_BOULDER.decorated(Features.Decorators.HEIGHTMAP_SQUARE).countRandom(2));
@@ -405,10 +404,6 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MUSHROOMS = createConfiguredFeature("mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(WOOD_BLEWIT.placed(), 0.33F), new WeightedPlacedFeature(WEEPING_MILKCAP.placed(), 0.33F)), GREEN_MUSHROOM.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_PUFFBALL = createConfiguredFeature("puffballs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            WHITE_PUFFBALL.weighted(0.50F)),
-//            WHITE_PUFFBALL)).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
-//
 //    public static final ConfiguredFeature<?, ?> RANDOM_GLOWSTONE_GARDEN_VEGETATION = createConfiguredFeature("glowstone_garden_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            SOUL_SHROOM.weighted(0.2F),
 //            DEATH_CAP.weighted(0.2F)),
@@ -565,7 +560,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(DEAD_SEA_SPIKE.placed(), 0.75F)),
             DEAD_SEA_SPIKE_TALL.placed())));
-//
+    //
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKINS = createConfiguredFeature("large_pumpkin", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(PUMPKIN1.placed(), 0.5F)), PUMPKIN2.placed())));
     //
@@ -1104,13 +1099,12 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CYPRESS_TREE2.placed(), 0.33F)),
             CYPRESS_TREE3.placed())));
 
-//    public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = createConfiguredFeature("deciduous_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            DECIDUOUS_TREE1.weighted(0.25F),
-//            DECIDUOUS_TREE2.weighted(0.25F),
-//            DECIDUOUS_TREE3.weighted(0.25F)),
-//            DECIDUOUS_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(3, 0.4F, 2))));
-//
+    public static final ConfiguredFeature<?, ?> DECIDUOUS_TREES = createConfiguredFeature("deciduous_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(DECIDUOUS_TREE1.placed(), 0.25F),
+            new WeightedPlacedFeature(DECIDUOUS_TREE2.placed(), 0.25F),
+            new WeightedPlacedFeature(DECIDUOUS_TREE3.placed(), 0.25F)),
+            DECIDUOUS_TREE4.placed())));
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_RED_TREE = createConfiguredFeature("deciduous_red_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            DECIDUOUS_RED_TREE1.weighted(0.25F),
 //            DECIDUOUS_RED_TREE2.weighted(0.25F),
@@ -1419,11 +1413,10 @@ public class BYGConfiguredFeatures {
 //            JOSHUA_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.2F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_SHRUB = createConfiguredFeature("prairie_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SHRUB_PRAIRIE1.weighted(0.1F)),
-//            SHRUB_PRAIRIE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 2))));
-//
+    public static final ConfiguredFeature<?, ?> PRAIRIE_SHRUBS = createConfiguredFeature("prairie_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SHRUB_PRAIRIE1.placed(), 0.5F)),
+            SHRUB_PRAIRIE2.placed())));
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_PALM_TREE = createConfiguredFeature("sparse_palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            PALM_TREE4.weighted(0.05F),
 //            PALM_TREE3.weighted(0.35F),
@@ -1464,13 +1457,11 @@ public class BYGConfiguredFeatures {
 //            DEAD_HAZEL_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_EBONY_TREE = createConfiguredFeature("ebony_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            EBONY_TREE1.weighted(0.2F),
-//            EBONY_TREE2.weighted(0.2F),
-//            EBONY_BUSH1.weighted(0.1F)),
-//            EBONY_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(8, 0.35F, -4))));
-//
+    public static final ConfiguredFeature<?, ?> EBONY_TREES = createConfiguredFeature("ebony_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(EBONY_TREE1.placed(), 0.45F),
+            new WeightedPlacedFeature(EBONY_TREE2.placed(), 0.45F)),
+            EBONY_BUSH1.placed())));
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_HOLLY_TREE = createConfiguredFeature("holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            HOLLY_TREE1.weighted(0.2F),
 //            HOLLY_TREE2.weighted(0.2F),
@@ -1583,12 +1574,13 @@ public class BYGConfiguredFeatures {
 //            GREEN_MUSHROOM_MINI)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.3F, 3))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_HUGE_MUSHROOM = createConfiguredFeature("huge_mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            GREEN_MUSHROOM_HUGE.weighted(0.4F),
-//            WOOD_BLEWIT_HUGE.weighted(0.4F),
-//            WEEPING_MILKCAP_HUGE.weighted(0.4F)),
-//            GREEN_MUSHROOM_HUGE)).decorated(FeatureDecorator.DARK_OAK_TREE.configured(DecoratorConfiguration.NONE)));
-//
+    public static final ConfiguredFeature<?, ?> HUGE_MUSHROOMS = createConfiguredFeature("huge_mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(GREEN_MUSHROOM_HUGE.placed(), 0.25F),
+            new WeightedPlacedFeature(WOOD_BLEWIT_HUGE.placed(), 0.25F),
+            new WeightedPlacedFeature(WEEPING_MILKCAP_HUGE.placed(), 0.25F)),
+            GREEN_MUSHROOM_HUGE.placed())));
+
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_EMBUR_MUSHROOM = createConfiguredFeature("embur_mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            EMBUR_MUSHROOM4.weighted(0.25F),
 //            EMBUR_MUSHROOM3.weighted(0.25F),
