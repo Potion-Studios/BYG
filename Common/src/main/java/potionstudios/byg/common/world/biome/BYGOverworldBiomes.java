@@ -307,12 +307,13 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addBlackForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
-        BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
-        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
+
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
@@ -663,15 +664,14 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
 
         BYGDefaultBiomeFeatures.addDaciteRidgeTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addCrocus(generationSettings);
-        BYGDefaultBiomeFeatures.addIris(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addHollyTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
+        BYGDefaultBiomeFeatures.addCrocus(generationSettings);
+        BYGDefaultBiomeFeatures.addIris(generationSettings);
+        BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
-        
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));

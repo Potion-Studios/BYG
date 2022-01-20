@@ -1133,11 +1133,10 @@ public class BYGConfiguredFeatures {
 //            DECIDUOUS_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_DOVER_TREE = createConfiguredFeature("dover_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SPRUCE_TREE_MEDIUM2.weighted(0.25F),
-//            SPRUCE_TREE_MEDIUM1.weighted(0.25F)),
-//            SPRUCE_TREE_LARGE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
+    public static final ConfiguredFeature<?, ?> DACITE_RIDGE_TREES = createConfiguredFeature("dacite_ridge_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM2.placed(), 0.25F),
+            new WeightedPlacedFeature(SPRUCE_TREE_MEDIUM1.placed(), 0.25F)),
+            SPRUCE_TREE_LARGE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_EUCALYPTUS_TREE = createConfiguredFeature("eucalyptus_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            RAINBOW_TREE1.weighted(0.1F)),
@@ -1462,12 +1461,11 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(EBONY_TREE2.placed(), 0.45F)),
             EBONY_BUSH1.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_HOLLY_TREE = createConfiguredFeature("holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            HOLLY_TREE1.weighted(0.2F),
-//            HOLLY_TREE2.weighted(0.2F),
-//            HOLLY_TREE3.weighted(0.1F)),
-//            HOLLY_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(8, 0.35F, -5))));
+    public static final ConfiguredFeature<?, ?> HOLLY_TREES = createConfiguredFeature("holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(HOLLY_TREE1.placed(), 0.2F),
+            new WeightedPlacedFeature(HOLLY_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(HOLLY_TREE3.placed(), 0.1F)),
+            HOLLY_TREE4.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_HOLLY_TREE = createConfiguredFeature("sparse_holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            HOLLY_TREE1.weighted(0.2F),

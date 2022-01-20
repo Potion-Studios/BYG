@@ -63,8 +63,10 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CIKA_TREES = createPlacedFeature("cika_trees", BYGConfiguredFeatures.CIKA_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
     public static final PlacedFeature CONIFER_TREES = createPlacedFeature("conifer_trees", BYGConfiguredFeatures.CONIFER_TREES.placed(treePlacement(PlacementUtils.countExtra(7, 0.25F, 3))));
     public static final PlacedFeature CYPRESS_TREES = createPlacedFeature("cypress_trees", BYGConfiguredFeatures.CYPRESS_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(4, 0.25F, 1))));
+    public static final PlacedFeature DACITE_RIDGE_TREES = createPlacedFeature("dacite_ridge_trees", BYGConfiguredFeatures.DACITE_RIDGE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature DECIDUOUS_TREES = createPlacedFeature("deciduous_trees", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacement(PlacementUtils.countExtra(3, 0.25F, 2))));
     public static final PlacedFeature EBONY_TREES = createPlacedFeature("ebony_trees", BYGConfiguredFeatures.EBONY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
+    public static final PlacedFeature HOLLY_TREES = createPlacedFeature("holly_trees", BYGConfiguredFeatures.HOLLY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
     public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
 

@@ -713,7 +713,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addDaciteRidgeTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DOVER_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DACITE_RIDGE_TREES);
     }
 
     public static void addNorthernForestTrees(BiomeGenerationSettings.Builder gen) {
@@ -853,7 +853,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHollyTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_HOLLY_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HOLLY_TREES);
     }
 
     public static void addSparseHollyTrees(BiomeGenerationSettings.Builder gen) {
