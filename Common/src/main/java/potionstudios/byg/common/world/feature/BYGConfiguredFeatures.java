@@ -22,6 +22,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
 
 import java.util.List;
@@ -235,8 +236,8 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> SOUL_SHROOM = createConfiguredFeature("soul_shroom", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SOUL_SHROOM.defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(64).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> DEATH_CAP = createConfiguredFeature("death_cap", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.DEATH_CAP.defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(64).noProjection().build()));
 //
-//    public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(65).build()));
-//    public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(85).build()));
+    public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(65).build()));
+    public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(85).build()));
 //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES = createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(120).setHeightMultiplier(0.4).build()));
 //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES2 = createConfiguredFeature("ivis_spikes2", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(15676).setHeightMultiplier(0.8).build()));
 //
@@ -561,9 +562,9 @@ public class BYGConfiguredFeatures {
 //            CRYPTIC_VENT.weighted(0.50F)),
 //            TALL_CRYPTIC_VENT)).decorated(Features.Decorators.ADD_32).count(2));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            DEAD_SEA_SPIKE.weighted(0.75F)),
-//            DEAD_SEA_SPIKE_TALL)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(2, 0.5F, 1))));
+    public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(DEAD_SEA_SPIKE.placed(), 0.75F)),
+            DEAD_SEA_SPIKE_TALL.placed())));
 //
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKINS = createConfiguredFeature("large_pumpkin", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(PUMPKIN1.placed(), 0.5F)), PUMPKIN2.placed())));

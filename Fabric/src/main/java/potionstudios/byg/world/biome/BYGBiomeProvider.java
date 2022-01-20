@@ -44,7 +44,7 @@ public class BYGBiomeProvider extends BiomeProvider {
                     }
                 }
             }
-        }), middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, extremeHills);
+        }), oceans, middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, extremeHills);
     }
 
     @Override

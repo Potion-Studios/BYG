@@ -442,7 +442,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addDeadSeaSpires(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_DEAD_SEA_SPIKE);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.DEAD_SEA_SPIKES);
     }
 
     public static void addHugeNetherMushrooms(BiomeGenerationSettings.Builder gen) {
