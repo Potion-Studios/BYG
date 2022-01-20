@@ -118,7 +118,6 @@ public class BYGCutoutRenders {
         //Sea Plants
         map.put(BYGBlocks.CATTAIL_SPROUT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CATTAIL, RenderType.cutoutMipped());
-        map.put(BYGBlocks.REEDS, RenderType.cutoutMipped());
         map.put(BYGBlocks.TINY_LILYPADS, RenderType.cutoutMipped());
         map.put(BYGBlocks.WATER_SILK, RenderType.translucent());
 
@@ -262,7 +261,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.ALPINE_BELLFLOWER, RenderType.cutoutMipped());
         map.put(BYGBlocks.AMARANTH, RenderType.cutoutMipped());
         map.put(BYGBlocks.ANGELICA, RenderType.cutoutMipped());
-        map.put(BYGBlocks.AZALEA, RenderType.cutoutMipped());
+        map.put(BYGBlocks.HYDRANGEA_BUSH, RenderType.cutoutMipped());
         map.put(BYGBlocks.BEGONIA, RenderType.cutoutMipped());
         map.put(BYGBlocks.BISTORT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CALIFORNIA_POPPY, RenderType.cutoutMipped());

@@ -21,7 +21,6 @@ public class BYGBlockTags {
     public static final Tag.Named<Block> GROUND_WINTER_SUCCULENT = createPlantTag("ground_winter_succulent");
     public static final Tag.Named<Block> GROUND_ALPINE_BELLFLOWER = createPlantTag("ground_alpine_bellflower");
     public static final Tag.Named<Block> GROUND_ANGELICA = createPlantTag("ground_angelica");
-    public static final Tag.Named<Block> GROUND_AZALEA = createPlantTag("ground_azalea");
     public static final Tag.Named<Block> GROUND_BEGONIA = createPlantTag("ground_begonia");
     public static final Tag.Named<Block> GROUND_BISTORT = createPlantTag("ground_bistort");
     public static final Tag.Named<Block> GROUND_BLUE_SAGE = createPlantTag("ground_blue_sage");
@@ -61,6 +60,7 @@ public class BYGBlockTags {
     public static final Tag.Named<Block> GROUND_WHITE_SAGE = createPlantTag("ground_white_sage");
     public static final Tag.Named<Block> GROUND_YELLOW_DAFFODIL = createPlantTag("ground_yellow_daffodil");
     public static final Tag.Named<Block> GROUND_YELLOW_TULIP = createPlantTag("ground_yellow_tulip");
+    public static final Tag.Named<Block> GROUND_HYDRANGEA_BUSH = createPlantTag("ground_hydrangea_bush");
 
     public static final Tag.Named<Block> GROUND_ARAUCARIA_SAPLING = createPlantTag("ground_araucaria_sapling");
     public static final Tag.Named<Block> GROUND_ASPEN_SAPLING = createPlantTag("ground_aspen_sapling");

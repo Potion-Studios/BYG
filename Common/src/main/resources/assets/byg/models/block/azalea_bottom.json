@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/azalea_bush_bottom",
-    "particle": "byg:block/azalea_bush_bottom"
-  }
-}

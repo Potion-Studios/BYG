@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "byg:block/cattail_thatch_top",
+    "side": "byg:block/cattail_thatch_side"
+  }
+}

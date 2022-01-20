@@ -1135,11 +1135,10 @@ public class BYGItems {
     public static final Item POISON_IVY = createItem(new BlockItem(BYGBlocks.POISON_IVY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.POISON_IVY);
     public static final Item PRICKLY_PEAR_CACTUS = createItem(new BlockItem(BYGBlocks.PRICKLY_PEAR_CACTUS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final Item PRAIRIE_GRASS = createItem(new BlockItem(BYGBlocks.PRAIRIE_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.PRAIRIE_GRASS);
-    public static final Item REEDS = createItem(new BlockItem(BYGBlocks.REEDS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.REEDS);
-    public static final Item REED_THATCH = createItem(new BlockItem(BYGBlocks.REED_THATCH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.REED_THATCH);
-    public static final Item REED_THATCH_STAIRS = createItem(new BlockItem(BYGBlocks.REED_THATCH_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.REED_THATCH_STAIRS);
-    public static final Item REED_THATCH_CARPET = createItem(new BlockItem(BYGBlocks.REED_THATCH_CARPET, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.REED_THATCH_CARPET);
-    public static final Item REED_THATCH_SLAB = createItem(new BlockItem(BYGBlocks.REED_THATCH_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.REED_THATCH_SLAB);
+    public static final Item CATTAIL_THATCH = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH);
+    public static final Item CATTAIL_THATCH_STAIRS = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH_STAIRS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH_STAIRS);
+    public static final Item CATTAIL_THATCH_CARPET = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH_CARPET, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH_CARPET);
+    public static final Item CATTAIL_THATCH_SLAB = createItem(new BlockItem(BYGBlocks.CATTAIL_THATCH_SLAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_THATCH_SLAB);
 
     public static final Item SHORT_GRASS = createItem(new BlockItem(BYGBlocks.SHORT_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.SHORT_GRASS);
     public static final Item TALL_PRAIRIE_GRASS = createItem(new BlockItem(BYGBlocks.TALL_PRAIRIE_GRASS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TALL_PRAIRIE_GRASS);
@@ -1173,7 +1172,7 @@ public class BYGItems {
     public static final Item ALPINE_BELLFLOWER = createItem(new BlockItem(BYGBlocks.ALPINE_BELLFLOWER, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.ALPINE_BELLFLOWER);
     public static final Item AMARANTH = createItem(new BlockItem(BYGBlocks.AMARANTH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.AMARANTH);
     public static final Item ANGELICA = createItem(new BlockItem(BYGBlocks.ANGELICA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.ANGELICA);
-    public static final Item AZALEA = createItem(new BlockItem(BYGBlocks.AZALEA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.AZALEA);
+    public static final Item HYDRANGEA_BUSH = createItem(new BlockItem(BYGBlocks.HYDRANGEA_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.HYDRANGEA_BUSH);
     public static final Item BEGONIA = createItem(new BlockItem(BYGBlocks.BEGONIA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.BEGONIA);
     public static final Item BISTORT = createItem(new BlockItem(BYGBlocks.BISTORT, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.BISTORT);
     public static final Item BLACK_ROSE = createItem(new BlockItem(BYGBlocks.BLACK_ROSE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.BLACK_ROSE);

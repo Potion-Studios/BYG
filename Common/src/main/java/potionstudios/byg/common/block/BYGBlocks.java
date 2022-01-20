@@ -518,11 +518,10 @@ public class BYGBlocks {
 
     public static final Block CATTAIL_SPROUT = createCattailSproutBlock("cattail_sprout");
     public static final Block CATTAIL = createCattailPlantBlock("cattail");
-    public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
-    public static final Block REED_THATCH = new BYGBlockProperties.BYGThatch("reed_thatch");
-    public static final Block REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet");
-    public static final Block REED_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("reed_thatch_stairs");
-    public static final Block REED_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("reed_thatch_slab");
+    public static final Block CATTAIL_THATCH = new BYGBlockProperties.BYGThatch("cattail_thatch");
+    public static final Block CATTAIL_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("cattail_thatch_carpet");
+    public static final Block CATTAIL_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("cattail_thatch_stairs");
+    public static final Block CATTAIL_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("cattail_thatch_slab");
     public static final Block HORSEWEED = createFlower("horseweed", BYGBlockTags.GROUND_HORSEWEED);
     public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
     public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
@@ -1042,7 +1041,6 @@ public class BYGBlocks {
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
     public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final Block ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
-    public static final Block AZALEA = createTallFlower("azalea", BYGBlockTags.GROUND_AZALEA);
     public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
     public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
     public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
@@ -1094,7 +1092,7 @@ public class BYGBlocks {
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
-
+    public static final Block HYDRANGEA_BUSH = createFlower("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
     public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_BROWN, null, "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, null, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, MaterialColor.COLOR_GREEN, null, "overgrown_stone");

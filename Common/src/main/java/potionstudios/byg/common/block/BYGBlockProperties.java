@@ -589,7 +589,7 @@ public class BYGBlockProperties {
 
     public static class ThatchStairs extends StairBlock {
         public ThatchStairs(String registryName) {
-            super(BYGBlocks.REED_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.REED_THATCH)
+            super(BYGBlocks.CATTAIL_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.CATTAIL_THATCH)
                     .sound(SoundType.GRASS)
                     .strength(0.5f)
             );
@@ -783,19 +783,6 @@ public class BYGBlockProperties {
                     .strength(0.4F, 0.4F)
                     .requiresCorrectToolForDrops()
 
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BlockCattail extends BYGRiverPlantBlock {
-        public BlockCattail(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0F, 0.0F)
-                    .noOcclusion()
-                    .noCollission()
-                    .randomTicks()
             );
             BYGBlocks.createBlock(this, registryName);
         }
