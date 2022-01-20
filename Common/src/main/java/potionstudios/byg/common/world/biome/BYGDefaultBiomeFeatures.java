@@ -108,10 +108,6 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BLUE_NETHER_QUARTZ);
     }
 
-    public static void addAzalea(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.AZALEA);
-    }
-
     public static void addSunFlowers(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SUNFLOWERS);
     }
@@ -855,6 +851,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addHollyTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HOLLY_TREES);
     }
+
 
     public static void addSparseHollyTrees(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_HOLLY_TREE);

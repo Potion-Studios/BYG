@@ -1332,7 +1332,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addAlpineBellflower(generationSettings);
         if (flowering) {
             BYGDefaultBiomeFeatures.addTulips(generationSettings);
@@ -1517,7 +1516,6 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -1617,7 +1615,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addRedOakForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addShortGrass(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addHorseweed(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
@@ -2196,7 +2193,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBrownZelkovaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
@@ -2237,7 +2233,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addSmallSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -2297,7 +2292,6 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addAzalea(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
