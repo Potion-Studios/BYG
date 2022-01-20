@@ -1069,16 +1069,15 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CIKA_TREE3.placed(), 0.1F)),
             CIKA_TREE1.placed())));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_TREE = createConfiguredFeature("conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            CONIFER_TREE1.weighted(0.06F),
-//            CONIFER_TREE2.weighted(0.5F),
-//            CONIFER_TREE3.weighted(0.04F),
-//            CONIFER_TREE4.weighted(0.2F),
-//            CONIFER_TREE5.weighted(0.2F),
-//            CONIFER_TREE6.weighted(0.2F),
-//            CONIFER_TREE7.weighted(0.1F)),
-//            CONIFER_TREE8)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.35F, -3))));
+    public static final ConfiguredFeature<?, ?> CONIFER_TREES = createConfiguredFeature("conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(CONIFER_TREE1.placed(), 0.06F),
+            new WeightedPlacedFeature(CONIFER_TREE2.placed(), 0.5F),
+            new WeightedPlacedFeature(CONIFER_TREE3.placed(), 0.04F),
+            new WeightedPlacedFeature(CONIFER_TREE4.placed(), 0.2F),
+            new WeightedPlacedFeature(CONIFER_TREE5.placed(), 0.2F),
+            new WeightedPlacedFeature(CONIFER_TREE6.placed(), 0.2F),
+            new WeightedPlacedFeature(CONIFER_TREE7.placed(), 0.1F)),
+            CONIFER_TREE8.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = createConfiguredFeature("sparse_conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            CONIFER_TREE1.weighted(0.06F),

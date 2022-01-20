@@ -567,7 +567,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addConiferousTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CONIFER_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CONIFER_TREES);
     }
 
     public static void addConiferousSparseTrees(BiomeGenerationSettings.Builder gen) {

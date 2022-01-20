@@ -17,6 +17,7 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource NOISE_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BOREALIS_GROVE), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.state(Blocks.PODZOL.defaultBlockState()))));
+    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CONIFEROUS_FOREST), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
 
     public static final SurfaceRules.RuleSource SWAMP_SURFACE_RULES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BAYOU),
             SurfaceRules.ifTrue(
@@ -29,6 +30,6 @@ public class BYGSurfaceRules {
                     )
             ));
 
-    public static final SurfaceRules.RuleSource BYG_SURFACE_RULES = SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL);
+    public static final SurfaceRules.RuleSource BYG_SURFACE_RULES = SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT);
 
 }

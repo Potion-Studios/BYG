@@ -57,6 +57,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CANADIAN_SHIELD_TREES = createPlacedFeature("canadian_shield_trees", BYGConfiguredFeatures.CANADIAN_SHIELD_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 2))));
     public static final PlacedFeature CHERRY_TREES = createPlacedFeature("cherry_trees", BYGConfiguredFeatures.CHERRY_TREES.placed(treePlacement(PlacementUtils.countExtra(6, 0.25F, 2))));
     public static final PlacedFeature CIKA_TREES = createPlacedFeature("cika_trees", BYGConfiguredFeatures.CIKA_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
+    public static final PlacedFeature CONIFER_TREES = createPlacedFeature("conifer_trees", BYGConfiguredFeatures.CONIFER_TREES.placed(treePlacement(PlacementUtils.countExtra(7, 0.25F, 3))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
