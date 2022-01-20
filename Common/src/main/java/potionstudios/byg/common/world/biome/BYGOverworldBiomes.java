@@ -506,9 +506,8 @@ public class BYGOverworldBiomes {
         
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addGiantTaigaVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
@@ -589,20 +588,22 @@ public class BYGOverworldBiomes {
     public static Biome cypressSwamplands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addCypressTrees(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
-        
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
+
+        BYGDefaultBiomeFeatures.addCypressTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
-        
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

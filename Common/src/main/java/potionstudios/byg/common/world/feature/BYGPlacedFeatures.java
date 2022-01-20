@@ -12,6 +12,7 @@ import potionstudios.byg.mixin.access.VegetationPlacementsAccess;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
@@ -27,7 +28,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGConfiguredFeatures.BYG_GRASS_EXTRA.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGConfiguredFeatures.BYG_GRASS_EXTRA.placed(worldSurfaceSquaredWithCount(5)));
 
-    public static final PlacedFeature CATTAIL = createPlacedFeature("cattails", BYGConfiguredFeatures.CATTAIL.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature CATTAIL = createPlacedFeature("cattails", BYGConfiguredFeatures.CATTAIL.placed(oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2))));
     public static final PlacedFeature LEATHER_FLOWERS = createPlacedFeature("leather_flowers", BYGConfiguredFeatures.LEATHER_FLOWERS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LEAF_PILES = createPlacedFeature("leaf_piles", BYGConfiguredFeatures.LEAF_PILE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CLOVER_FLOWERS = createPlacedFeature("clover_flower_patch", BYGConfiguredFeatures.CLOVER_PATCH.placed(worldSurfaceSquaredWithCount(2)));
@@ -43,7 +44,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature WINTER_SUCCULENT = createPlacedFeature("winter_succulent", BYGConfiguredFeatures.WINTER_SUCCULENT.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGConfiguredFeatures.DAFFODIL_YELLOW.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LARGE_PUMPKINS = createPlacedFeature("large_pumpkins", BYGConfiguredFeatures.LARGE_PUMPKINS.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 1))));
-    public static final PlacedFeature SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGConfiguredFeatures.SWAMP_WATER_VEGETATION.placed(worldSurfaceSquaredWithCount(4)));
+    public static final PlacedFeature SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGConfiguredFeatures.SWAMP_WATER_VEGETATION.placed(worldSurfaceSquaredWithCount(25)));
 
     public static final PlacedFeature MUSHROOMS = createPlacedFeature("mushrooms", BYGConfiguredFeatures.MUSHROOMS.placed(VegetationPlacementsAccess.invokeGetMushroomPlacement(512, null)));
     public static final PlacedFeature ARAUCARIA_TREES = createPlacedFeature("araucaria_trees", BYGConfiguredFeatures.ARAUCARIA_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
@@ -58,6 +59,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CHERRY_TREES = createPlacedFeature("cherry_trees", BYGConfiguredFeatures.CHERRY_TREES.placed(treePlacement(PlacementUtils.countExtra(6, 0.25F, 2))));
     public static final PlacedFeature CIKA_TREES = createPlacedFeature("cika_trees", BYGConfiguredFeatures.CIKA_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
     public static final PlacedFeature CONIFER_TREES = createPlacedFeature("conifer_trees", BYGConfiguredFeatures.CONIFER_TREES.placed(treePlacement(PlacementUtils.countExtra(7, 0.25F, 3))));
+    public static final PlacedFeature CYPRESS_TREES = createPlacedFeature("cypress_trees", BYGConfiguredFeatures.CYPRESS_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(4, 0.25F, 1))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
@@ -83,6 +85,19 @@ public class BYGPlacedFeatures {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
     }
 
+    public static List<PlacementModifier> oceanFloorSquaredWithCount(int $$0) {
+        return oceanFloorSquaredWithCountAndMaxDepth($$0, OptionalInt.empty());
+    }
+
+    public static List<PlacementModifier> oceanFloorSquaredWithCountAndMaxDepth(int $$0, OptionalInt maxDepth) {
+        ArrayList<PlacementModifier> placementModifiers = new ArrayList<>(List.of(CountPlacement.of($$0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
+        if (maxDepth.isPresent()) {
+            placementModifiers.add(SurfaceWaterDepthFilter.forMaxDepth(maxDepth.getAsInt()));
+        }
+        return placementModifiers;
+    }
+
+
     public static <PF extends PlacedFeature> PF createPlacedFeature(String id, PF placedFeature) {
         ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
         if (BuiltinRegistries.PLACED_FEATURE.keySet().contains(bygID))
@@ -92,5 +107,6 @@ public class BYGPlacedFeatures {
         return placedFeature;
     }
 
-    public static void bootStrap(){}
+    public static void bootStrap() {
+    }
 }

@@ -116,7 +116,7 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> ROSE_BUSH = createConfiguredFeature("rose_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(Blocks.ROSE_BUSH.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.DELPHINIUM.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BYGBlocks.JAPANESE_ORCHID);
-//    public static final ConfiguredFeature<?, ?> FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FOXGLOVE.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
+    //    public static final ConfiguredFeature<?, ?> FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FOXGLOVE.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> AZALEA = createConfiguredFeature("azalea", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.AZALEA.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
 //
 //    public static final ConfiguredFeature<?, ?> FLOWERING_INDIGO_JACARANDA_BUSH = createConfiguredFeature("flowering_indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
@@ -130,7 +130,7 @@ public class BYGConfiguredFeatures {
 //
     public static final ConfiguredFeature<?, ?> PINK_CHERRY_FOLIAGE = createConfiguredFeature("pink_cherry_foliage", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.PINK_CHERRY_FOLIAGE))), List.of(), 15)));
     public static final ConfiguredFeature<?, ?> WHITE_CHERRY_FOLIAGE = createConfiguredFeature("white_cherry_foliage", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WHITE_CHERRY_FOLIAGE))), List.of(), 15)));
-//
+    //
 //    public static final ConfiguredFeature<?, ?> WARPED_CACTI = createConfiguredFeature("warped_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.WARPED_CACTUS.defaultBlockState()), new ColumnPlacer(UniformInt.of(1, 3)))).tries(10).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> WARPED_BUSH = createConfiguredFeature("warped_bush", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.WARPED_BUSH.defaultBlockState()), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()))));
 //    public static final ConfiguredFeature<?, ?> WARPED_CORAL = createConfiguredFeature("warped_coral", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.WARPED_CORAL.defaultBlockState()), ImmutableList.of(BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), Blocks.NETHERRACK.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SAND.defaultBlockState(), BYGBlocks.NYLIUM_SOUL_SOIL.defaultBlockState()))));
@@ -490,7 +490,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> CHERRY_FOLIAGE = createConfiguredFeature("cherry_foliage", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(WHITE_CHERRY_FOLIAGE.placed(), 0.5F)),
             PINK_CHERRY_FOLIAGE.placed())));
-//
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_WARPED_DESERT_VEGETATION = createConfiguredFeature("warped_desert_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            WARPED_BUSH.weighted(0.25F),
 //            WARPED_CORAL.weighted(0.25F),
@@ -1068,7 +1068,7 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CIKA_TREE2.placed(), 0.2F),
             new WeightedPlacedFeature(CIKA_TREE3.placed(), 0.1F)),
             CIKA_TREE1.placed())));
-//
+    //
     public static final ConfiguredFeature<?, ?> CONIFER_TREES = createConfiguredFeature("conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(CONIFER_TREE1.placed(), 0.06F),
             new WeightedPlacedFeature(CONIFER_TREE2.placed(), 0.5F),
@@ -1078,7 +1078,7 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CONIFER_TREE6.placed(), 0.2F),
             new WeightedPlacedFeature(CONIFER_TREE7.placed(), 0.1F)),
             CONIFER_TREE8.placed())));
-//
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_CONIFER_SPARSE_TREE = createConfiguredFeature("sparse_conifer_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            CONIFER_TREE1.weighted(0.06F),
 //            CONIFER_TREE2.weighted(0.5F),
@@ -1098,12 +1098,11 @@ public class BYGConfiguredFeatures {
 //            MAHOGANY_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.35F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_CYPRESS_TREE = createConfiguredFeature("cypress_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            CYPRESS_TREE1.weighted(0.5F),
-//            CYPRESS_TREE2.weighted(0.4F)),
-//            CYPRESS_TREE3)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(4, 0.4F, 1))));
-//
+    public static final ConfiguredFeature<?, ?> CYPRESS_TREES = createConfiguredFeature("cypress_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(CYPRESS_TREE1.placed(), 0.33F),
+            new WeightedPlacedFeature(CYPRESS_TREE2.placed(), 0.33F)),
+            CYPRESS_TREE3.placed())));
+
 //    public static final ConfiguredFeature<?, ?> RANDOM_DECIDUOUS_TREE = createConfiguredFeature("deciduous_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            DECIDUOUS_TREE1.weighted(0.25F),
 //            DECIDUOUS_TREE2.weighted(0.25F),
@@ -1443,7 +1442,7 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CHERRY_PINK_TREE2.placed(), 0.25F),
             new WeightedPlacedFeature(CHERRY_WHITE_TREE1.placed(), 0.25F)),
             CHERRY_WHITE_TREE2.placed())));
-//    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = createConfiguredFeature("sparse_cherry_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+    //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = createConfiguredFeature("sparse_cherry_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            CHERRY_PINK_TREE1.weighted(0.2F),
 //            CHERRY_PINK_TREE2.weighted(0.2F),
 //            CHERRY_WHITE_TREE1.weighted(0.1F)),

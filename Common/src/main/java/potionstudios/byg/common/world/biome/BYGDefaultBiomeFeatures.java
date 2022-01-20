@@ -575,7 +575,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCypressTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CYPRESS_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CYPRESS_TREES);
     }
 
     public static void addDeciduousTrees(BiomeGenerationSettings.Builder gen) {
