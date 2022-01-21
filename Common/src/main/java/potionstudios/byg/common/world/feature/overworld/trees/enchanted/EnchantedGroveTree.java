@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.overworld.trees.enchanted;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -10,7 +11,6 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 import java.util.Set;
@@ -25,7 +25,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
     protected static boolean isDirtOrPeatBlock(LevelSimulatedReader worldIn, BlockPos pos) {
         return worldIn.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
-            return state.is(MLBlockTags.DIRT) || block == BYGBlocks.PEAT;
+            return state.is(BlockTags.DIRT) || block == BYGBlocks.PEAT;
         });
     }
 

@@ -24,7 +24,7 @@ public class BYGLeafPileBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(MLBlockTags.DIRT) || state.is(MLBlockTags.END_STONES) || state.is(BlockTags.NYLIUM) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BlockTags.DIRT) || state.is(MLBlockTags.END_STONES) || state.is(BlockTags.NYLIUM) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

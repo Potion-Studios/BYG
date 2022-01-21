@@ -13,7 +13,6 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.config.BoulderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 
@@ -122,6 +121,6 @@ public class StackableBoulders extends Feature<BoulderConfig> {
         return state.isAir() || state.getMaterial() == Material.DIRT || state.getMaterial() == Material.PLANT ||
                 state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.LEAVES ||
                 state.getMaterial() == Material.SAND || state.getMaterial() == Material.BAMBOO || state.getMaterial() == Material.CACTUS
-                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.is(MLBlockTags.DIRT);
+                || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA || state.is(BlockTags.DIRT);
     }
 }

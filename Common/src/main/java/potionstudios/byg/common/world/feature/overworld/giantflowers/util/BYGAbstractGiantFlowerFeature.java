@@ -18,7 +18,6 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.GiantFlowerConfig;
-import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 
@@ -126,9 +125,9 @@ public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig>
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : desiredGroundBlock) {
-                return state.is(MLBlockTags.DIRT) || block == block1;
+                return state.is(BlockTags.DIRT) || block == block1;
             }
-            return state.is(MLBlockTags.DIRT);
+            return state.is(BlockTags.DIRT);
         });
     }
 

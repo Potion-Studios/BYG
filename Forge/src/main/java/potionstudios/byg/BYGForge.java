@@ -49,7 +49,7 @@ import java.util.Optional;
 public class BYGForge {
 
     public BYGForge() {
-        BYG.init(FMLPaths.CONFIGDIR.get().resolve("byg"));
+        BYG.init(FMLPaths.CONFIGDIR.get().resolve("byg"), "forge");
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override

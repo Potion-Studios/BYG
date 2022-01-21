@@ -16,7 +16,7 @@ import java.util.Optional;
 public class BYGTerraBlenderEntry implements TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized() {
-        BYG.init(FabricLoader.getInstance().getConfigDir().resolve("byg"));
+        BYG.init(FabricLoader.getInstance().getConfigDir().resolve("byg"), "c");
         BiomeProviders.register(new BiomeProvider(new ResourceLocation(BYG.MOD_ID, "surface_data"), 0) {
             @Override
             public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {

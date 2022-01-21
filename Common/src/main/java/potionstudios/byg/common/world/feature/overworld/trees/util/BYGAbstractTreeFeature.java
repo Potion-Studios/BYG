@@ -194,9 +194,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
             for (Block block1 : config.getWhitelist()) {
-                return block.defaultBlockState().is(MLBlockTags.DIRT) || block == block1;
+                return block.defaultBlockState().is(BlockTags.DIRT) || block == block1;
             }
-            return block.defaultBlockState().is(MLBlockTags.DIRT);
+            return block.defaultBlockState().is(BlockTags.DIRT);
         });
     }
 

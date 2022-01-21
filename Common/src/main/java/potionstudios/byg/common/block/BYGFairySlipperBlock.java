@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import potionstudios.byg.util.MLBlockTags;
 
 public class BYGFairySlipperBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -26,7 +25,7 @@ public class BYGFairySlipperBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BlockTags.LOGS) || state.is(MLBlockTags.DIRT);
+        return state.is(BlockTags.LOGS) || state.is(BlockTags.DIRT);
     }
 
     @Override

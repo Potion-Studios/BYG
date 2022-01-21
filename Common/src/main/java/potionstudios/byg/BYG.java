@@ -16,6 +16,7 @@ import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.MLBlockTags;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,6 +34,7 @@ public class BYG {
     public static boolean isUsingMixin;
     public static String FILE_PATH = "yeet";
     public static Path CONFIG_PATH = null;
+    public static String MOD_LOADER_TAG_TARGET = null;
     public static WorldConfig worldConfig = null;
     public static final ResourceKey<Biome> EMPTY = BYGUtil.EMPTY;
 
@@ -54,8 +56,10 @@ public class BYG {
     public static boolean ENABLE_NYLIUM_FUNGI = true;
     public static boolean ENABLE_NETHER_MUSHROOMS = true;
 
-    public static void init(Path path) {
+    public static void init(Path path, String modloaderTagTarget) {
         CONFIG_PATH = path;
+        MOD_LOADER_TAG_TARGET = modloaderTagTarget;
+        MLBlockTags.bootStrap();
     }
 
     public static void commonLoad() {
