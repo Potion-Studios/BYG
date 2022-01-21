@@ -9,7 +9,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import potionstudios.byg.BYG;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.CodecUtil;
 
@@ -70,6 +69,13 @@ public class BYGOverworldBiomeBuilder {
             {Biomes.THE_VOID, BYGBiomes.BAOBAB_SAVANNA, BYGBiomes.CHERRY_BLOSSOM_FOREST, BYGBiomes.EBONY_WOODS, Biomes.THE_VOID},
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
     };
+    private static final ResourceKey<Biome>[][] MIDDLE_BIOMES_2 = new ResourceKey[][]{
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.FORGOTTEN_FOREST, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
+    };
     private static final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
             {Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.ASPEN_FOREST, Biomes.THE_VOID, Biomes.THE_VOID},
@@ -119,7 +125,7 @@ public class BYGOverworldBiomeBuilder {
 
     public static final List<BiomeProviderData> OVERWORLD_DEFAULTS = Util.make(new ArrayList<>(), list -> {
         list.add(new BiomeProviderData(4, OCEANS, MIDDLE_BIOMES, MIDDLE_BIOMES_VARIANT, PLATEAU_BIOMES, PLATEAU_BIOMES_VARIANT, EXTREME_HILLS, Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU))));
-        list.add(new BiomeProviderData(4, OCEANS_EMPTY, MIDDLE_BIOMES_EMPTY, MIDDLE_BIOMES_VARIANT_EMPTY, PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_EMPTY, EXTREME_HILLS_EMPTY, Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS))));
+        list.add(new BiomeProviderData(4, OCEANS_EMPTY, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_EMPTY, PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_EMPTY, EXTREME_HILLS_EMPTY, Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS))));
         list.add(new BiomeProviderData(4, OCEANS_EMPTY, MIDDLE_BIOMES_EMPTY, MIDDLE_BIOMES_VARIANT_EMPTY, PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_EMPTY, EXTREME_HILLS_EMPTY, new IdentityHashMap<>()));
     });
 

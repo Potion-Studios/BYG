@@ -263,11 +263,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFairyslipper(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FAIRY_SLIPPER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FAIRY_SLIPPER);
     }
 
     public static void addCyanRose(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CYAN_ROSES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CYAN_ROSE);
     }
 
     public static void addLeatherFlowers(BiomeGenerationSettings.Builder gen) {
@@ -766,7 +766,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEnchantedTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ENCHANTED_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ENCHANTED_TREES);
     }
 
     public static void addLargePumpkins(BiomeGenerationSettings.Builder gen) {
