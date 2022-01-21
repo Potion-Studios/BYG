@@ -51,10 +51,9 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> ENCHANTED_GROVE = createBiome("enchanted_grove", enchantedGrove(false));
     public static ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", forgottenForest());
 //    public static ResourceKey<Biome> GREAT_LAKES = createBiome("great_lakes", greatLakes());
-    public static ResourceKey<Biome> GROVE = createBiome("grove", temperateGrove(false));
+    public static ResourceKey<Biome> GROVE = createBiome("temperate_grove", temperateGrove(false));
     public static ResourceKey<Biome> GUIANA_SHIELD = createBiome("guiana_shield", guianaShield());
     public static ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", jacarandaForest());
-//    public static ResourceKey<Biome> MANGROVE_MARSHES = createBiome("mangrove_marshes", mangroveMarshes());
 //    public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga());
 //    public static ResourceKey<Biome> MARSHLANDS = createBiome("marshlands", marshlands());
 //    public static ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", coconinoMeadow(false, false));
@@ -80,6 +79,7 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalForest());
 //    public static ResourceKey<Biome> TWILIGHT_VALLEY = createBiome("twilight_valley", twilightValley());
 //    public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest());
+//    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
 //    public static ResourceKey<Biome> WOODLANDS = createBiome("woodlands", temperateRainForest());
 //    public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 //

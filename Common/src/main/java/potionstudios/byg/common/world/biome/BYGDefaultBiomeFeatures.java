@@ -850,7 +850,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMangroveTrees(BiomeGenerationSettings.Builder gen) {
-//        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MANGROVE_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MANGROVE_TREES);
     }
 
     public static void addSparseMangroveMarshes(BiomeGenerationSettings.Builder gen) {

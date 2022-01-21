@@ -1465,14 +1465,13 @@ public class BYGConfiguredFeatures {
 //            HOLLY_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_TREE = createConfiguredFeature("mangrove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            MANGROVE_TREE1.weighted(0.2F),
-//            MANGROVE_TREE2.weighted(0.2F),
-//            MANGROVE_TREE3.weighted(0.2F),
-//            MANGROVE_TREE4.weighted(0.1F)),
-//            MANGROVE_TREE5)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(8, 0.3F, -4))));
-//
+    public static final ConfiguredFeature<?, ?> MANGROVE_TREES = createConfiguredFeature("mangrove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(MANGROVE_TREE1.placed(), 0.2F),
+            new WeightedPlacedFeature(MANGROVE_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(MANGROVE_TREE3.placed(), 0.2F),
+            new WeightedPlacedFeature(MANGROVE_TREE4.placed(), 0.2F)),
+            MANGROVE_TREE5.placed())));
+
 //    public static final ConfiguredFeature<?, ?> RANDOM_MANGROVE_SPARSE_TREE = createConfiguredFeature("sparse_mangrove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            MANGROVE_TREE1.weighted(0.2F),
 //            MANGROVE_TREE2.weighted(0.2F),
