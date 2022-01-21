@@ -918,19 +918,21 @@ public class BYGOverworldBiomes {
         invokeGlobalOverworldGeneration(generationSettings);
         
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        
+
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
+
         BYGDefaultBiomeFeatures.addJacarandaTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGBambooJungleVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addDelphinium(generationSettings);
         BYGDefaultBiomeFeatures.addJacarandaBushes(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

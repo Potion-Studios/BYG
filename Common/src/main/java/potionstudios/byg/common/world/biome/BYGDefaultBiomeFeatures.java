@@ -301,7 +301,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addJacarandaBushes(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JACARANDA_BUSHES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JACARANDA_BUSHES);
     }
 
     public static void addBYGTropicFlowers(BiomeGenerationSettings.Builder gen) {
@@ -310,10 +310,6 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addMiniCactus(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
-    }
-
-    public static void addBYGBambooJungleVegetation(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.BAMBOO);
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
@@ -620,7 +616,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addJacarandaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JACARANDA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_JACARANDA_TREES);
     }
 
     public static void addSparseJacarandaTrees(BiomeGenerationSettings.Builder gen) {

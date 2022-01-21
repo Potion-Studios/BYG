@@ -114,10 +114,10 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.DELPHINIUM.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BYGBlocks.JAPANESE_ORCHID);
     //    public static final ConfiguredFeature<?, ?> FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FOXGLOVE.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> FLOWERING_INDIGO_JACARANDA_BUSH = createConfiguredFeature("flowering_indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_BUSH = createConfiguredFeature("indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.INDIGO_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> FLOWERING_JACARANDA_BUSH = createConfiguredFeature("flowering_jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FLOWERING_JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> JACARANDA_BUSH = createConfiguredFeature("jacaranda_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.JACARANDA_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> FLOWERING_INDIGO_JACARANDA_BUSH = createConfiguredFeature("flowering_indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH))), List.of(), 32)));
+    public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_BUSH = createConfiguredFeature("indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.INDIGO_JACARANDA_BUSH))), List.of(), 32)));
+    public static final ConfiguredFeature<?, ?> FLOWERING_JACARANDA_BUSH = createConfiguredFeature("flowering_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.FLOWERING_JACARANDA_BUSH))), List.of(), 32)));
+    public static final ConfiguredFeature<?, ?> JACARANDA_BUSH = createConfiguredFeature("jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.JACARANDA_BUSH))), List.of(), 32)));
 //
 //
 //    public static final ConfiguredFeature<?, ?> PRICKLY_PEAR_CACTI = createConfiguredFeature("prickly_pear_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PRICKLY_PEAR_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(5).build()));
@@ -459,11 +459,11 @@ public class BYGConfiguredFeatures {
 //
 //
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_JACARANDA_BUSHES = createConfiguredFeature("jacaranda_bushes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            FLOWERING_INDIGO_JACARANDA_BUSH.weighted(0.25F),
-//            FLOWERING_JACARANDA_BUSH.weighted(0.25F),
-//            INDIGO_JACARANDA_BUSH.weighted(0.25F)),
-//            JACARANDA_BUSH)).decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(2))));
+    public static final ConfiguredFeature<?, ?> JACARANDA_BUSHES = createConfiguredFeature("jacaranda_bushes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(FLOWERING_INDIGO_JACARANDA_BUSH.placed(), 0.25F),
+            new WeightedPlacedFeature(FLOWERING_JACARANDA_BUSH.placed(), 0.25F),
+            new WeightedPlacedFeature(INDIGO_JACARANDA_BUSH.placed(), 0.25F)),
+            JACARANDA_BUSH.placed())));
 //
     public static final ConfiguredFeature<?, ?> SWAMP_WATER_VEGETATION = createConfiguredFeature("swamp_water_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(TINY_LILY_PAD.placed(), 0.50F)),
