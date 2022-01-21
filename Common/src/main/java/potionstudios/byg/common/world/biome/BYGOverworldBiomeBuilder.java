@@ -88,7 +88,7 @@ public class BYGOverworldBiomeBuilder {
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.CANADIAN_SHIELD, BYGBiomes.BLACK_FOREST},
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
             {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
-            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.GUIANA_SHIELD}
     };
 
     private static final ResourceKey<Biome>[][] PLATEAU_BIOMES_2 = new ResourceKey[][]{

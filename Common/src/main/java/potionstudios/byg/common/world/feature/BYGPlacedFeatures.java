@@ -46,6 +46,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature SAGES = createPlacedFeature("sages", BYGConfiguredFeatures.SAGES.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature WINTER_SUCCULENT = createPlacedFeature("winter_succulent", BYGConfiguredFeatures.WINTER_SUCCULENT.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGConfiguredFeatures.DAFFODIL_YELLOW.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature JUNGLE_FLOWERS = createPlacedFeature("jungle_flowers", BYGConfiguredFeatures.JUNGLE_FLOWERS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LARGE_PUMPKINS = createPlacedFeature("large_pumpkins", BYGConfiguredFeatures.LARGE_PUMPKINS.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 1))));
     public static final PlacedFeature SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGConfiguredFeatures.SWAMP_WATER_VEGETATION.placed(worldSurfaceSquaredWithCount(25)));
 
@@ -67,9 +68,10 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature DECIDUOUS_TREES = createPlacedFeature("deciduous_trees", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacement(PlacementUtils.countExtra(3, 0.25F, 2))));
     public static final PlacedFeature EBONY_TREES = createPlacedFeature("ebony_trees", BYGConfiguredFeatures.EBONY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
     public static final PlacedFeature ENCHANTED_TREES = createPlacedFeature("enchanted_trees", BYGConfiguredFeatures.ENCHANTED_TREES.placed(treePlacement(PlacementUtils.countExtra(5, 0.2F, 2))));
-    public static final PlacedFeature GROVE = createPlacedFeature("grove_trees", BYGConfiguredFeatures.GROVE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
+    public static final PlacedFeature TEMPERATE_GROVE_TREES = createPlacedFeature("temperate_grove_trees", BYGConfiguredFeatures.TEMPERATE_GROVE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature HOLLY_TREES = createPlacedFeature("holly_trees", BYGConfiguredFeatures.HOLLY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
-    public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature RAINFOREST_TREES = createPlacedFeature("rainforest_trees", BYGConfiguredFeatures.RAINFOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(15, 0.25F, 1))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
 
     public static final PlacedFeature HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGConfiguredFeatures.HUGE_MUSHROOMS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));

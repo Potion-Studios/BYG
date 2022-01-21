@@ -830,7 +830,7 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(snowy ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.TAIGA).temperature(snowy ? -0.5F : 0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome grove(boolean flowering) {
+    public static Biome temperateGrove(boolean flowering) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         invokeGlobalOverworldGeneration(generationSettings);
@@ -883,11 +883,12 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
+        BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
+        BiomeDefaultFeatures.addJungleVines(generationSettings);
+
         BYGDefaultBiomeFeatures.addRainForestTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addWeedGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -1903,7 +1904,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addTropFungalMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addWeedGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);

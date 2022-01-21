@@ -125,10 +125,6 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WILTED_GRASS);
     }
 
-    public static void addWeedGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WEED_GRASS);
-    }
-
     public static void addWinterGrass(BiomeGenerationSettings.Builder gen) {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WINTER_GRASS);
     }
@@ -309,7 +305,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBYGTropicFlowers(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JUNGLE_FLOWERS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JUNGLE_FLOWERS);
     }
 
     public static void addMiniCactus(BiomeGenerationSettings.Builder gen) {
@@ -659,8 +655,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRainForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RAINFOREST_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.VINES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RAINFOREST_TREES);
     }
 
     public static void addStoneForestTrees(BiomeGenerationSettings.Builder gen) {
@@ -759,7 +754,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addGroveTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.GROVE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.TEMPERATE_GROVE_TREES);
     }
 
     public static void addEnchantedGroveTrees(BiomeGenerationSettings.Builder gen) {
