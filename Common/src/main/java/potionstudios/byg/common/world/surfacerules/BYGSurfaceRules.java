@@ -14,19 +14,40 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.ConditionSource ABOVE_62 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(62), 0);
     public static final SurfaceRules.ConditionSource ABOVE_63 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(63), 0);
+    public static final SurfaceRules.ConditionSource WATER_CHECK = SurfaceRules.waterBlockCheck(-1, 0);
 
+    public static final SurfaceRules.RuleSource PEAT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState())));
+    public static final SurfaceRules.RuleSource COARSE_DIRT_DIRT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DIRT.defaultBlockState())));
+    public static final SurfaceRules.RuleSource PODZOL_DIRT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.PODZOL.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DIRT.defaultBlockState())));
+    public static final SurfaceRules.RuleSource OVERGROWN_STONE_STONE_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_STONE.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.STONE.defaultBlockState())));
+    public static final SurfaceRules.RuleSource OVERGROWN_DACITE_DACITE_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_DACITE.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())));
+    public static final SurfaceRules.RuleSource OVERGROWN_PODZOL_DACITE_STONE_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PODZOL_DACITE.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())));
 
-    public static final SurfaceRules.RuleSource NOISE_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BOREALIS_GROVE), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
-    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.state(Blocks.PODZOL.defaultBlockState()))));
-    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CONIFEROUS_FOREST), SurfaceRules.sequence(SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))));
-    public static final SurfaceRules.RuleSource OVERGROWN_STONE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CANADIAN_SHIELD), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.OVERGROWN_STONE.defaultBlockState())), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, true, CaveSurface.FLOOR), SurfaceRules.state(Blocks.STONE.defaultBlockState()))));
+    public static final SurfaceRules.RuleSource NOISE_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BOREALIS_GROVE), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), PEAT_SURFACE));
 
-
-    public static final SurfaceRules.RuleSource DACITE_RIDGES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.DACITE_RIDGES),
+    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS),
             SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, false, CaveSurface.FLOOR), SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, true, CaveSurface.FLOOR), SurfaceRules.state(Blocks.DIRT.defaultBlockState())))),
-                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, false, CaveSurface.FLOOR), SurfaceRules.ifTrue(ABOVE_62, SurfaceRules.state(BYGBlocks.PODZOL_DACITE.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, true, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())))),
-                    SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, false, CaveSurface.FLOOR), SurfaceRules.ifTrue(ABOVE_62, SurfaceRules.state(BYGBlocks.OVERGROWN_DACITE.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(0, false, true, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())))
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE),
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE)
+            )
+    );
+    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CONIFEROUS_FOREST, BYGBiomes.BLACK_FOREST),
+            SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE),
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), PEAT_SURFACE)
+            )
+    );
+    public static final SurfaceRules.RuleSource OVERGROWN_STONE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CANADIAN_SHIELD), OVERGROWN_STONE_STONE_SURFACE);
+
+
+    public static final SurfaceRules.RuleSource DACITE_RIDGES_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.DACITE_RIDGES),
+            SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE),
+                    SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
+                    OVERGROWN_DACITE_DACITE_SURFACE,
+                    SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, true, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
+                    SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, true, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
+            )
     );
 
     public static final SurfaceRules.RuleSource SWAMP_SURFACE_RULES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BAYOU, BYGBiomes.CYPRESS_SWAMPLANDS),
@@ -40,6 +61,7 @@ public class BYGSurfaceRules {
                     )
             ));
 
-    public static final SurfaceRules.RuleSource BYG_SURFACE_RULES = SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES);
+    public static final SurfaceRules.RuleSource ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE));
+    public static final SurfaceRules.RuleSource BYG_SURFACE_RULES = SurfaceRules.sequence(ABOVE_PRELIMINARY_SURFACE);
 
 }
