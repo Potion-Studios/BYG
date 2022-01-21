@@ -1148,13 +1148,12 @@ public class BYGConfiguredFeatures {
 //            JACARANDA_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.2F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_TREE = createConfiguredFeature("maple_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            MAPLE_RED_TREE1.weighted(0.4F),
-//            MAPLE_RED_TREE2.weighted(0.03F),
-//            MAPLE_SILVER_TREE1.weighted(0.2F),
-//            MAPLE_SILVER_TREE2.weighted(0.1F)),
-//            MAPLE_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(4, 0.3F, 2))));
+    public static final ConfiguredFeature<?, ?> MAPLE_TREES = createConfiguredFeature("maple_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(MAPLE_RED_TREE1.placed(), 0.2F),
+            new WeightedPlacedFeature(MAPLE_RED_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(MAPLE_SILVER_TREE1.placed(), 0.2F),
+            new WeightedPlacedFeature(MAPLE_SILVER_TREE2.placed(), 0.2F)),
+            MAPLE_TREE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_MAPLE_SPARSE_TREE = createConfiguredFeature("sparse_maple_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            MAPLE_TREE1.weighted(0.06F),

@@ -584,7 +584,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMapleTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MAPLE_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MAPLE_TREES);
     }
 
     public static void addMapleSparseTrees(BiomeGenerationSettings.Builder gen) {
@@ -693,7 +693,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSmallSpruceTrees(BiomeGenerationSettings.Builder gen) {
-        ////gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.TREE.configure(SPRUCE_TREE_CONFIG).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(2, 0.3F, 1))));
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
     public static void addCanadianShieldTrees(BiomeGenerationSettings.Builder gen) {
