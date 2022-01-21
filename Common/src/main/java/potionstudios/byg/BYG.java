@@ -28,7 +28,7 @@ public class BYG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
-    public static final int EXPERIMENTAL_WARNING_VERSION = 1;
+    public static final int EXPERIMENTAL_WARNING_VERSION = 2;
 
     public static boolean isClient = false;
     public static boolean isUsingMixin;
