@@ -616,7 +616,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addJacarandaTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_JACARANDA_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JACARANDA_TREES);
     }
 
     public static void addSparseJacarandaTrees(BiomeGenerationSettings.Builder gen) {
@@ -850,7 +850,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMangroveTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MANGROVE_TREE);
+//        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MANGROVE_TREE);
     }
 
     public static void addSparseMangroveMarshes(BiomeGenerationSettings.Builder gen) {
