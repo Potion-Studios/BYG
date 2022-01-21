@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
@@ -108,8 +109,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BLUE_NETHER_QUARTZ);
     }
 
-    public static void addSunFlowers(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.SUNFLOWERS);
+    public static void addVanillaSunFlowers(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUNFLOWER);
     }
 
     public static void addDelphinium(BiomeGenerationSettings.Builder gen) {
@@ -174,7 +175,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTulips(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_TULIP);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.TULIPS);
     }
 
     public static void addCaliforniaPoppy(BiomeGenerationSettings.Builder gen) {
@@ -758,7 +759,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addGroveTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_GROVE_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.GROVE);
     }
 
     public static void addEnchantedGroveTrees(BiomeGenerationSettings.Builder gen) {

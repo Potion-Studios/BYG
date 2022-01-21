@@ -162,11 +162,11 @@ public class BYGConfiguredFeatures {
 //
 //    public static final ConfiguredFeature<?, ?> NETHER_BRISTLE = createConfiguredFeature("nether_bristle", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.NETHER_BRISTLE.defaultBlockState()), new DoublePlantPlacer())).whitelist(ImmutableSet.of(BYGBlocks.OVERGROWN_NETHERRACK)).tries(1).noProjection().build()));
 //
-//    public static final ConfiguredFeature<?, ?> TULIP_GREEN = createConfiguredFeature("green_tulip", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.GREEN_TULIP.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> TULIP_CYAN = createConfiguredFeature("cyan_tulip", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CYAN_TULIP.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> TULIP_MAGENTA = createConfiguredFeature("magenta_tulip", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.MAGENTA_TULIP.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> TULIP_PURPLE = createConfiguredFeature("purple_tulip", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PURPLE_TULIP.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> TULIP_YELLOW = createConfiguredFeature("yellow_tulip", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.YELLOW_TULIP.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
+    public static final ConfiguredFeature<?, ?> TULIP_GREEN = createFlowerConfiguredFeature("green_tulip", BYGBlocks.GREEN_TULIP);
+    public static final ConfiguredFeature<?, ?> TULIP_CYAN = createFlowerConfiguredFeature("cyan_tulip", BYGBlocks.CYAN_TULIP);
+    public static final ConfiguredFeature<?, ?> TULIP_MAGENTA = createFlowerConfiguredFeature("magenta_tulip", BYGBlocks.MAGENTA_TULIP);
+    public static final ConfiguredFeature<?, ?> TULIP_PURPLE = createFlowerConfiguredFeature("purple_tulip", BYGBlocks.PURPLE_TULIP);
+    public static final ConfiguredFeature<?, ?> TULIP_YELLOW = createFlowerConfiguredFeature("yellow_tulip", BYGBlocks.YELLOW_TULIP);
 //
 //    public static final ConfiguredFeature<?, ?> REED = createConfiguredFeature("reed", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.REEDS.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().needWater().build()));
     public static final ConfiguredFeature<?, ?> CATTAIL = createConfiguredFeature("cattail", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.CATTAIL))), List.of(), 15)));
@@ -508,12 +508,12 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(SAGE_PURPLE.placed(), 0.5F)),
             SAGE_WHITE.placed())));
 
-    //    public static final ConfiguredFeature<?, ?> RANDOM_TULIP = createConfiguredFeature("tulips", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            TULIP_MAGENTA.weighted(0.5F),
-//            TULIP_YELLOW.weighted(0.5F),
-//            TULIP_PURPLE.weighted(0.5F),
-//            TULIP_CYAN.weighted(0.5F)),
-//            TULIP_GREEN)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
+        public static final ConfiguredFeature<?, ?> TULIPS = createConfiguredFeature("tulips", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(TULIP_MAGENTA.placed(), 0.2F),
+            new WeightedPlacedFeature(TULIP_YELLOW.placed(), 0.2F),
+            new WeightedPlacedFeature(TULIP_PURPLE.placed(), 0.2F),
+            new WeightedPlacedFeature(TULIP_CYAN.placed(), 0.2F)),
+            TULIP_GREEN.placed())));
 //
     public static final ConfiguredFeature<?, ?> LEATHER_FLOWERS = createConfiguredFeature("leather_flowers", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(LEATHER_FLOWER_PEACH.placed(), 0.5F)), LEATHER_FLOWER_VIOLET.placed())));
@@ -1345,10 +1345,9 @@ public class BYGConfiguredFeatures {
 //            MEADOW_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(2, 0.25F, 3))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_GROVE_TREE = createConfiguredFeature("grove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            BIRCH_YELLOW_BOREAL_TREE1.weighted(0.5F)),
-//            BIRCH_BOREAL_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.25F, 2))));
+    public static final ConfiguredFeature<?, ?> GROVE_TREES = createConfiguredFeature("grove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BIRCH_YELLOW_BOREAL_TREE1.placed(), 0.5F)),
+            BIRCH_BOREAL_TREE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_ENCHANTED_GROVE_TREE = createConfiguredFeature("enchanted_grove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            ENCHANTED_BLUE_GROVE_TREE1.weighted(0.5F)),
