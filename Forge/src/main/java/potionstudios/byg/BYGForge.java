@@ -43,6 +43,7 @@ import terrablender.api.BiomeProviders;
 
 import java.util.Collection;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @Mod(BYG.MOD_ID)
 
@@ -80,21 +81,22 @@ public class BYGForge {
     }
 
     private void bootStrap(IEventBus eventBus) {
-        BYGBlocks.bootStrap(registryObjects -> register(Block.class, eventBus, registryObjects));
-        BYGItems.bootStrap(registryObjects -> register(Item.class, eventBus, registryObjects));
-        BYGEntities.bootStrap(registryObjects -> register(EntityType.class, eventBus, registryObjects));
-        BYGBlockEntities.bootStrap(registryObjects -> register(BlockEntityType.class, eventBus, registryObjects));
-        BYGSounds.bootStrap(registryObjects -> register(SoundEvent.class, eventBus, registryObjects));
-        BYGMenuTypes.bootStrap(registryObjects -> register(MenuType.class, eventBus, registryObjects));
-        BYGFeatures.bootStrap(registryObjects -> register(Feature.class, eventBus, registryObjects));
-        BYGBiomes.bootStrap(registryObjects -> register(Biome.class, eventBus, registryObjects));
+        register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
+        register(Item.class, eventBus, () -> BYGItems.bootStrap());
+        register(EntityType.class, eventBus, () -> BYGEntities.bootStrap());
+        register(BlockEntityType.class, eventBus, () -> BYGBlockEntities.bootStrap());
+        register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
+        register(MenuType.class, eventBus, () -> BYGMenuTypes.bootStrap());
+        register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
+        register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
     }
 
     @SuppressWarnings("rawtypes")
-    private <T extends IForgeRegistryEntry<T>> void register(Class clazz, IEventBus eventBus, Collection<RegistryObject<T>> registryObjects) {
-        registryObjects.forEach(blockRegistryObject -> blockRegistryObject.object().setRegistryName(new ResourceLocation(BYG.MOD_ID, blockRegistryObject.id())));
+    private <T extends IForgeRegistryEntry<T>> void register(Class clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {
         eventBus.addGenericListener(clazz, (RegistryEvent.Register<T> event) -> {
+            Collection<RegistryObject<T>> registryObjects = registryObjectsSupplier.get();
             for (RegistryObject<T> registryObject : registryObjects) {
+                registryObject.object().setRegistryName(new ResourceLocation(BYG.MOD_ID, registryObject.id()));
                 event.getRegistry().register(registryObject.object());
             }
         });

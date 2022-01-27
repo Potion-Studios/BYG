@@ -567,6 +567,10 @@ public class BYGFeatures {
     public static void bootStrap(Consumer<Collection<RegistryObject<Feature<?>>>> registryStrategy) {
         registryStrategy.accept(FEATURES);
     }
+
+    public static Collection<RegistryObject<Feature<?>>> bootStrap() {
+        return FEATURES;
+    }
 }
 
 

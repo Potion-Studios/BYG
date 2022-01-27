@@ -174,6 +174,10 @@ public class BYGBiomes {
         registryStrategy.accept(BIOMES);
     }
 
+    public static Collection<RegistryObject<Biome>> bootStrap() {
+        return BIOMES;
+    }
+
     //used in MixinMinecraftServer
     public static void addBYGFeaturesToBiomes(Biome biome, ResourceKey<Biome> biomeKey) {
         ResourceLocation locationKey = biomeKey.location();

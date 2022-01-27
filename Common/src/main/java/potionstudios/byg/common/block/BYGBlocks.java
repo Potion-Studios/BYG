@@ -1966,6 +1966,10 @@ public class BYGBlocks {
     public static void init() {
 
     }
+    public static Collection<RegistryObject<Block>> bootStrap() {
+        return BLOCKS;
+    }
+
     public static void bootStrap(Consumer<Collection<RegistryObject<Block>>> registryStrategy) {
         registryStrategy.accept(BLOCKS);
     }

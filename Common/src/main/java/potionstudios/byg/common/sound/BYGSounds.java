@@ -30,4 +30,8 @@ public class BYGSounds {
     public static void bootStrap(Consumer<Collection<RegistryObject<SoundEvent>>> registryStrategy) {
         registryStrategy.accept(SOUNDS);
     }
+
+    public static Collection<RegistryObject<SoundEvent>> bootStrap() {
+        return SOUNDS;
+    }
 }

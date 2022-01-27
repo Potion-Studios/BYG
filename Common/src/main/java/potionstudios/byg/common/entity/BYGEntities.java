@@ -30,4 +30,8 @@ public class BYGEntities {
     public static void bootStrap(Consumer<Collection<RegistryObject<EntityType<?>>>> registryStrategy) {
         registryStrategy.accept(ENTITIES);
     }
+
+    public static Collection<RegistryObject<EntityType<?>>> bootStrap() {
+        return ENTITIES;
+    }
 }

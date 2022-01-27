@@ -4,8 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "byg_forge.refmap.json",
   "mixins": [
-    "MixinCommands",
-    "MixinForgeRegistry"
+    "MixinCommands"
   ],
   "client": [
   ],

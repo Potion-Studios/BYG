@@ -1221,7 +1221,7 @@ public class BYGItems {
 
     public static Item createItem(Item item, Block block) {
         ResourceLocation id = Registry.BLOCK.getKey(block);
-        if (id == null || !id.equals(new ResourceLocation("minecraft:air"))) {
+        if (id == null || id.equals(new ResourceLocation("minecraft:air"))) {
             boolean recovered = false;
             for (RegistryObject<Block> blockRegistryObject : BYGBlocks.BLOCKS) {
                 if (blockRegistryObject.object() == block) {
@@ -1249,6 +1249,10 @@ public class BYGItems {
 
     public static void bootStrap(Consumer<Collection<RegistryObject<Item>>> registryStrategy) {
         registryStrategy.accept(ITEMS);
+    }
+
+    public static Collection<RegistryObject<Item>> bootStrap() {
+        return ITEMS;
     }
 
     public static void init() {

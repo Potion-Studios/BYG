@@ -36,4 +36,9 @@ public class BYGBlockEntities {
     public static void bootStrap(Consumer<Collection<RegistryObject<BlockEntityType<?>>>> registryStrategy) {
         registryStrategy.accept(BLOCK_ENTITIES);
     }
+
+    public static Collection<RegistryObject<BlockEntityType<?>>> bootStrap() {
+        return BLOCK_ENTITIES;
+    }
+
 }
