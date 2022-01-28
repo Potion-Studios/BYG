@@ -1,4 +1,4 @@
-package potionstudios.byg.mixin.access;
+package potionstudios.byg.mixin.access.client;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;

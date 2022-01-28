@@ -1,4 +1,4 @@
-package potionstudios.byg.mixin.access;
+package potionstudios.byg.mixin.access.client;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.entity.Entity;

@@ -10,14 +10,12 @@
     "access.BlockEntityTypeBuilderAccess",
     "access.BlockTagsAccess",
     "access.BoatEntityAccess",
-    "access.ClientLevelAccess",
     "access.DimensionStructuresSettingsAccess",
     "access.DirtPathBlockAccess",
     "access.DoorBlockAccess",
     "access.FireBlockAccess",
     "access.HoeItemAccess",
     "access.IronBarsBlockAccess",
-    "access.ItemBlockRenderTypeAccess",
     "access.MenuTypeAccess",
     "access.NyliumBlockAccess",
     "access.OverworldBiomeBuilderAccess",
@@ -39,8 +37,6 @@
     "access.WeightedRandomListAccess",
     "access.WoodButtonBlockAccess",
     "access.WorldCarverAccess",
-    "client.MixinBlockColors",
-    "client.MixinItemColors",
     "common.MixinDefaultAttributes",
     "common.MixinWalkNodeProcessor",
     "common.RegistryAccessMixin",
@@ -68,7 +64,11 @@
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
     "client.MixinLayerDefinitions",
-    "client.MixinScreenManager"
+    "client.MixinScreenManager",
+    "access.client.ClientLevelAccess",
+    "client.MixinBlockColors",
+    "client.MixinItemColors",
+    "access.client.ItemBlockRenderTypeAccess"
   ],
   "injectors": {
     "defaultRequire": 1
