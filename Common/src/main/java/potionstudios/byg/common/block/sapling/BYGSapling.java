@@ -26,13 +26,11 @@ public class BYGSapling extends SaplingBlock {
     private final String id;
     private boolean patternsSerialized;
     private final Tag<Block> groundTag;
-    private final TreeSpawner tree;
 
-    public BYGSapling(String id, Properties properties, Tag<Block> groundTag, TreeSpawner tree) {
+    public BYGSapling(String id, Properties properties, Tag<Block> groundTag) {
         super(null, properties);
         this.id = id;
         this.groundTag = groundTag;
-        this.tree = tree;
     }
 
     private void serializePatterns(ResourceLocation key) {
@@ -77,7 +75,7 @@ public class BYGSapling extends SaplingBlock {
                         char[] charArray = substring.toCharArray();
                         for (int j = -1; j < charArray.length - 1; j++) {
                             char c = charArray[j + 1];
-                            if (c == 'x') {
+                            if (c == 'x' || c == 'X') {
                                 newEntry.getFirst().add(new BlockPos(j, 0, i));
                             }
                         }
@@ -123,6 +121,7 @@ public class BYGSapling extends SaplingBlock {
                             BlockState offsetState = world.getBlockState(movedPos);
                             if (offsetState.getBlock() != this) {
                                 matchedPattern = false;
+                                break;
                             }
                         }
                         if (matchedPattern) {

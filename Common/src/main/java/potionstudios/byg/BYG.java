@@ -11,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.vanilla.ITreeSpawner;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
@@ -65,13 +64,6 @@ public class BYG {
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
 
-        for (Block block : Registry.BLOCK) {
-            if (block instanceof ITreeSpawner) {
-                if (ITreeSpawner.VANILLA_SAPLING_BYG_TREE_SPAWNERS.containsKey(block)) {
-                    ((ITreeSpawner) block).setTreeSpawner(ITreeSpawner.VANILLA_SAPLING_BYG_TREE_SPAWNERS.get(block));
-                }
-            }
-        }
         try {
             Files.createDirectories(CONFIG_PATH);
             Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
