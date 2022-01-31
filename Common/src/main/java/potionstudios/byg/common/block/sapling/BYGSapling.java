@@ -44,7 +44,7 @@ public class BYGSapling extends SaplingBlock {
                 for (String s : p.pattern()) {
                     char[] chars = s.toCharArray();
                     for (char aChar : chars) {
-                        if (aChar == 'x') {
+                        if (aChar == 'x' || aChar == 'X') {
                             saplingCount++;
                         }
                     }
