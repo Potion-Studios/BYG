@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
@@ -188,8 +189,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (config.isPlacementForced())
+        if (reader instanceof WorldGenRegion) {
             return true;
+        }
 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
@@ -201,8 +203,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwNetherTags(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (config.isPlacementForced())
+        if (reader instanceof WorldGenRegion) {
             return true;
+        }
 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
@@ -214,8 +217,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwEndTags(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (config.isPlacementForced())
+        if (reader instanceof WorldGenRegion) {
             return true;
+        }
 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
@@ -227,8 +231,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwSandTag(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (config.isPlacementForced())
+        if (reader instanceof WorldGenRegion) {
             return true;
+        }
 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
@@ -473,7 +478,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public void setDisk(WorldGenLevel world, Random random, BlockPos pos, BYGTreeConfig config) {
-        if (config.isPlacementForced() || config.getDiskRadius() <= 0)
+        if (world instanceof WorldGenRegion || config.getDiskRadius() <= 0)
             return;
 
         setSeed(world.getSeed());
@@ -550,7 +555,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     public boolean placeTree(WorldGenLevel worldIn, Random rand, BlockPos pos, TFC config) {
         Set<BlockPos> set = Sets.newHashSet();
         BoundingBox mutableboundingbox = new BoundingBox(pos);
-        boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, config.isPlacementForced(), config);
+        boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, false, config);
         if (mutableboundingbox.minX() > mutableboundingbox.maxX()) {
             return false;
         } else {

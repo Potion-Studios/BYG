@@ -49,7 +49,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
     private final int maxHeight;
     private final int diskRadius;
     private final Set<Block> whitelist;
-    private boolean forcedPlacement = false;
 
     BYGTreeConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider groundReplacementProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
         this.trunkProvider = trunkProvider;
@@ -61,14 +60,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
         this.diskRadius = diskRadius;
         this.whitelist = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
     }
-
-    /**
-     * Used to generate trees from saplings
-     */
-    public void forcePlacement() {
-        forcedPlacement = true;
-    }
-
 
     public BlockStateProvider getTrunkProvider() {
         return this.trunkProvider;
@@ -109,10 +100,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
             returnValue = 1;
 
         return returnValue;
-    }
-
-    public boolean isPlacementForced() {
-        return forcedPlacement;
     }
 
     private Rotation rotation = Rotation.NONE;

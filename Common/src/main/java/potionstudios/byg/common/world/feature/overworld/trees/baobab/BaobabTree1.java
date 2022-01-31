@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature.overworld.trees.baobab;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
@@ -830,7 +831,7 @@ public class BaobabTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 24, -2), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(4, 24, -1), boundsIn);
                 placeLeaves(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(5, 24, -2), boundsIn);
-                if(!config.isPlacementForced()) {
+                if(!(worldIn instanceof WorldGenRegion)) {
                     this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(-5, 19, 4), boundsIn);
                     this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(1, 19, -9), boundsIn);
                     this.baobabFruit(pos, config, rand, changedBlocks, worldIn, mainmutable.set(pos).move(2, 19, 6), boundsIn);

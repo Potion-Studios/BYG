@@ -45,7 +45,6 @@ public abstract class HugeTreeSpawner extends TreeSpawner {
             worldIn.setBlock(pos.offset(xOffset, 0, zOffset + 1), blockstate, 4);
             worldIn.setBlock(pos.offset(xOffset + 1, 0, zOffset + 1), blockstate, 4);
 
-            configuredTreeFeature.config.forcePlacement();
             if (configuredTreeFeature.place(worldIn, chunkGenerator, random, pos.offset(xOffset, 0, zOffset))) {
                 return true;
             } else {
