@@ -24,8 +24,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
             return config.trunkProvider;
         }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> {
             return config.leavesProvider;
-        }), BlockStateProvider.CODEC.fieldOf("ground_replacement_provider").orElse(SimpleStateProvider.simple(Blocks.DIRT.defaultBlockState())).forGetter((config) -> {
-            return config.groundReplacementProvider;//TODO: Remove Ground Replacement Provider
         }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(SimpleStateProvider.simple(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
             return config.diskProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
@@ -42,18 +40,15 @@ public class BYGTreeConfig implements FeatureConfiguration {
 
     private final BlockStateProvider trunkProvider;
     private final BlockStateProvider leavesProvider;
-    @Deprecated
-    private final BlockStateProvider groundReplacementProvider;
     private final BlockStateProvider diskProvider;
     private final int minHeight;
     private final int maxHeight;
     private final int diskRadius;
     private final Set<Block> whitelist;
 
-    BYGTreeConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider groundReplacementProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
+    BYGTreeConfig(BlockStateProvider trunkProvider, BlockStateProvider leavesProvider, BlockStateProvider diskProvider, int minHeight, int maxHeight, int diskRadius, List<BlockState> whitelist) {
         this.trunkProvider = trunkProvider;
         this.leavesProvider = leavesProvider;
-        this.groundReplacementProvider = groundReplacementProvider;
         this.diskProvider = diskProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
@@ -67,11 +62,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
 
     public BlockStateProvider getLeavesProvider() {
         return this.leavesProvider;
-    }
-
-    @Deprecated
-    public BlockStateProvider getGroundReplacementProvider() {
-        return groundReplacementProvider;
     }
 
     public BlockStateProvider getDiskProvider() {
@@ -184,36 +174,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
             return this;
         }
 
-        @Deprecated
-        public Builder setGroundReplacementBlock(Block block) {
-            if (block != null)
-                groundReplacementProvider = SimpleStateProvider.simple(block.defaultBlockState());
-            else
-                groundReplacementProvider = SimpleStateProvider.simple(Blocks.DIRT.defaultBlockState());
-
-            return this;
-        }
-
-        @Deprecated
-        public Builder setGroundReplacementBlock(BlockState state) {
-            if (state != null)
-                groundReplacementProvider = SimpleStateProvider.simple(state);
-            else
-                groundReplacementProvider = SimpleStateProvider.simple(Blocks.AIR.defaultBlockState());
-
-            return this;
-        }
-
-        @Deprecated
-        public Builder setGroundReplacementBlock(BlockStateProvider stateProvider) {
-            if (stateProvider != null)
-                groundReplacementProvider = stateProvider;
-            else
-                groundReplacementProvider = SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState());
-
-            return this;
-        }
-
 
         public Builder setDiskBlock(Block block) {
             if (block != null)
@@ -268,7 +228,6 @@ public class BYGTreeConfig implements FeatureConfiguration {
         public Builder copy(BYGTreeConfig config) {
             this.trunkProvider = config.trunkProvider;
             this.leavesProvider = config.leavesProvider;
-            this.groundReplacementProvider = config.groundReplacementProvider;
             this.diskProvider = config.diskProvider;
             this.maxPossibleHeight = config.maxHeight;
             this.minHeight = config.minHeight;
@@ -278,7 +237,7 @@ public class BYGTreeConfig implements FeatureConfiguration {
         }
 
         public BYGTreeConfig build() {
-            return new BYGTreeConfig(this.trunkProvider, this.leavesProvider, this.groundReplacementProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
+            return new BYGTreeConfig(this.trunkProvider, this.leavesProvider, this.diskProvider, this.minHeight, this.maxPossibleHeight, this.diskRadius, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
         }
     }
 }

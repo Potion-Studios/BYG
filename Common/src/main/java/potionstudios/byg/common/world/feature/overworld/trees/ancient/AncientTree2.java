@@ -422,10 +422,4 @@ public class AncientTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         }
         return true;
     }
-
-    private void leafs2(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, BYGBlocks.POLLEN_BLOCK.defaultBlockState(), boundingBox);
-        }
-    }
 }

@@ -30,13 +30,8 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return worldReader.isStateAtPosition(blockPos, BlockBehaviour.BlockStateBase::isAir) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
-    public boolean canStemPlaceHereWater(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
-    }
-
     public boolean isAnotherMushroomHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> {
-            Block block = state.getBlock();
             return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
         });
     }
@@ -66,25 +61,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         }
     }
 
-    public void placeMushroom2(BlockState mushroomBlockState, WorldGenLevel reader, BlockPos pos) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, mushroomBlockState);
-        }
-    }
-
-    public void placeMushroom3(BlockState mushroomBlockState, WorldGenLevel reader, BlockPos pos) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, mushroomBlockState);
-        }
-    }
-
-
-    public void placePollen(BlockState pollenBlockState, WorldGenLevel reader, BlockPos pos) {
-        if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, pollenBlockState);
-        }
-    }
-
     /**
      * We use this to determine if a sapling's tree can grow at the given pos.
      * This is likely if not guaranteed to be used in a for loop checking the surrounding in another method as it's useless like this.
@@ -95,7 +71,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      */
     public boolean canGiantMushroomGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
-            Block block = state.getBlock();
             return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
         });
     }
@@ -108,10 +83,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
 
     public static boolean isAir(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, BlockState::isAir);
-    }
-
-    public boolean isAirOrWater(LevelSimulatedReader worldIn, BlockPos pos) {
-        return worldIn.isStateAtPosition(pos, (state) -> state.isAir() || state.getBlock() == Blocks.WATER);
     }
 
     /**
@@ -186,62 +157,6 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
             for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
                 for (int xOffset = -xDistance; xOffset <= xDistance; ++xOffset) {
                     for (int zOffset = -zDistance; zOffset <= zDistance; ++zOffset) {
-                        if (!canGiantMushroomGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Use this method instead of the previous if the canopy does not have a mirror shape on the X/Z axises.
-     * Only used during sapling growth.
-     *
-     * @param reader            Gives us access to world.
-     * @param pos               The start pos of the feature from the decorator/pos of the sapling.
-     * @param treeHeight        The height of the given tree.
-     * @param canopyStartHeight The start height at which leaves begin to generate. I.E: "randTreeHeight - 15".
-     * @param xNegativeDistance Used to check the canopy's negative X offset blocks.
-     * @param zNegativeDistance Used to check the canopy's negative Z offset blocks.
-     * @param xPositiveDistance Used to check the canopy's positive x offset blocks.
-     * @param zPositiveDistance Used to check the canopy's positive Z offset blocks.
-     * @param isSapling         Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
-     * @param trunkPositions    Typically this is going to be the bottom most logs of the trunk for the tree.
-     * @return Determine Whether or not a sapling can grow at the given pos by checking the surrounding area.
-     */
-
-    public boolean doesMushroomHaveSpaceToGrow(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int canopyStartHeight, int xNegativeDistance, int zNegativeDistance, int xPositiveDistance, int zPositiveDistance, boolean isSapling, BlockPos... trunkPositions) {
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-
-        //Skip if tree is being called during world gen.
-        if (isSapling) {
-
-            //Check the tree trunk and determine whether or not there's a block in the way.
-            for (int yOffSet = 0; yOffSet <= treeHeight; yOffSet++) {
-                if (!canGiantMushroomGrowHere(reader, mutable.set(x, y + yOffSet, z))) {
-                    return false;
-                }
-
-                //If the list of trunk poss(other than the center trunk) is greater than 0, we check each of these trunk poss from the bottom to the tree height.
-                if (trunkPositions.length > 0) {
-                    for (BlockPos trunkPos : trunkPositions) {
-                        if (!canGiantMushroomGrowHere(reader, mutable.set(trunkPos.getX(), trunkPos.getY() + yOffSet, trunkPos.getZ()))) {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            //We use canopyStartHeight instead of 0 because we want to check the area only in the canopy's area and not around the trunk. This makes our saplings much smarter and easier to grow.
-            for (int yOffset = canopyStartHeight; yOffset <= treeHeight + 1; ++yOffset) {
-                for (int xOffset = -xNegativeDistance; xOffset <= xPositiveDistance; ++xOffset) {
-                    for (int zOffset = -zNegativeDistance; zOffset <= zPositiveDistance; ++zOffset) {
                         if (!canGiantMushroomGrowHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset))) {
                             return false;
                         }

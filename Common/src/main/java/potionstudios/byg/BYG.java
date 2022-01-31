@@ -30,14 +30,11 @@ public class BYG {
     public static final int EXPERIMENTAL_WARNING_VERSION = 2;
 
     public static boolean isClient = false;
-    public static boolean isUsingMixin;
-    public static String FILE_PATH = "yeet";
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;
     public static WorldConfig worldConfig = null;
     public static final ResourceKey<Biome> EMPTY = BYGUtil.EMPTY;
 
-    public static Registry<Biome> biomeRegistryAccess = null;
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {

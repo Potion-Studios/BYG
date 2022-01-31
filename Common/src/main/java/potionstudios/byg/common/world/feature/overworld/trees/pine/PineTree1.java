@@ -15,11 +15,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //Blocks used for the tree.
-    //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
-    Random random = new Random();
 
     public PineTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);

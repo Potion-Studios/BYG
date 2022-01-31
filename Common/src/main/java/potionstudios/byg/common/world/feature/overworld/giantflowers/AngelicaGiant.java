@@ -19,8 +19,6 @@ public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConf
     protected boolean placeFlower(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
         BlockState STEM = config.getStemProvider().getState(rand, pos);
         BlockState PETAL = config.getPetalProvider().getState(rand, pos);
-        BlockState PETAL2 = config.getPetal2Provider().getState(rand, pos);
-        BlockState PETAL3 = config.getPetal3Provider().getState(rand, pos);
         BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
 
         int randTreeHeight = config.getMinHeight() + rand.nextInt(config.getMaxPossibleHeight());

@@ -729,7 +729,7 @@ public class LamentWeepingTree3 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     private void placeShroomLights(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.SHROOMLIGHT.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, Blocks.SHROOMLIGHT.defaultBlockState(), boundingBox);
         }
     }
 }

@@ -18,13 +18,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class AbstractCommentedConfigHelper {
+public class CommentedConfigBuilder {
 
     private final CommentedConfig config;
     @Nullable
     private final Path filePath;
 
-    public AbstractCommentedConfigHelper(Path filePath) {
+    public CommentedConfigBuilder(Path filePath) {
         this.filePath = filePath;
         if (!filePath.getParent().toFile().exists()) {
             try {
@@ -40,7 +40,7 @@ public class AbstractCommentedConfigHelper {
         this.config = builtConfig;
     }
 
-    public AbstractCommentedConfigHelper(CommentedConfig config) {
+    public CommentedConfigBuilder(CommentedConfig config) {
         this.config = config;
         this.filePath = null;
     }
@@ -57,7 +57,7 @@ public class AbstractCommentedConfigHelper {
         return config.get(key);
     }
 
-    public AbstractCommentedConfigHelper addSubConfig(String comment, String key, AbstractCommentedConfigHelper defaultValue) {
+    public CommentedConfigBuilder addSubConfig(String comment, String key, CommentedConfigBuilder defaultValue) {
         if (config.get(key) == null) {
             config.set(key, organizeConfig(defaultValue.config));
         }
@@ -68,7 +68,7 @@ public class AbstractCommentedConfigHelper {
             config.setComment(key, comment);
         }
 
-        return new AbstractCommentedConfigHelper(subConfig);
+        return new CommentedConfigBuilder(subConfig);
     }
 
 

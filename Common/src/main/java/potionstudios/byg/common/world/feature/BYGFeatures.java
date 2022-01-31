@@ -52,7 +52,6 @@ import potionstudios.byg.common.world.feature.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.overworld.river.CanyonRiverWorldGenerator;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree3;
@@ -162,7 +161,6 @@ public class BYGFeatures {
 
     public static final Feature<NoneFeatureConfiguration> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
-    public static final Feature<NoneFeatureConfiguration> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> HUH = createFeature("river_feature", new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));

@@ -35,7 +35,6 @@ public class Column extends Feature<NoisySphereConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int xRadius = config.getRandomXRadius(random);
         int yRadius = config.getRandomYRadius(random) * 2 + 10;
         int zRadius = config.getRandomZRadius(random);

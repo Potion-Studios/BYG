@@ -6,17 +6,11 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.common.world.feature.overworld.trees.util.SaplingData;
 
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-
-    public static SaplingData saplingData = null;
 
     public RedwoodTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
@@ -913,15 +907,4 @@ public class RedwoodTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-    @Nullable
-    @Override
-    public SaplingData saplingData(BlockPos pos) {
-        if (saplingData == null) {
-            BlockPos[] posArray = {pos.offset(0, 0, -2), pos.offset(-1, 0, -1), pos.offset(1, 0, -1), pos.offset(-2, 0, 0), pos.offset(2, 0, 0), pos.offset(-1, 0, 1), pos.offset(1, 0, 1), pos.offset(0, 0, 2), pos.offset(0, 0, -1), pos.offset(-1, 0, 0), pos.offset(1, 0, 0), pos.offset(0, 0, 1)};
-            Set<BlockPos> set = new HashSet<>(Arrays.asList(posArray));
-            saplingData = new SaplingData(set, 4);
-        }
-
-        return saplingData;
-    }
 }

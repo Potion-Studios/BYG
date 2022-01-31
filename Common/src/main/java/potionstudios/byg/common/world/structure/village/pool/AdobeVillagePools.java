@@ -17,9 +17,6 @@ public class AdobeVillagePools {
                     Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 35),
                     Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_3", ProcessorLists.MOSSIFY_10_PERCENT), 35)), StructureTemplatePool.Projection.RIGID));
 
-    public static void init() {
-    }
-
     static {
         //Normal
         Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/streets"),

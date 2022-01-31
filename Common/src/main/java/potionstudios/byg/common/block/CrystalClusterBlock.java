@@ -60,12 +60,6 @@ public class CrystalClusterBlock extends Block implements SimpleWaterloggedBlock
         }
     }
 
-    public boolean canSurvive(BlockState state, BlockGetter world, BlockPos pos) {
-        Direction direction = state.getValue(FACING);
-        BlockPos blockPos = pos.relative(direction.getOpposite());
-        return world.getBlockState(blockPos).isFaceSturdy(world, blockPos, direction);
-    }
-
     public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos2) {
         if (blockState.getValue(WATERLOGGED)) {
             levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));

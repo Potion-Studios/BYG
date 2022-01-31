@@ -12,8 +12,4 @@ public class BYGWarpedCoralWallFanBlock extends BaseCoralWallFanBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
 
-    protected boolean isValidGround(BlockState state) {
-        Block block = state.getBlock();
-        return block == BYGBlocks.NYLIUM_SOUL_SAND || block == BYGBlocks.NYLIUM_SOUL_SOIL;
-    }
 }

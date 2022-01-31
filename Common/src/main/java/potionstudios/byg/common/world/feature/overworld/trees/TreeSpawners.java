@@ -2,7 +2,6 @@ package potionstudios.byg.common.world.feature.overworld.trees;
 
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
-import potionstudios.byg.common.world.feature.overworld.trees.util.HugeTreeSpawner;
 import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 
 import javax.annotation.Nullable;

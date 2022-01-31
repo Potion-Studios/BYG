@@ -33,7 +33,6 @@ public class SculkGrowthBlock extends BushBlock {
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
         if (random.nextInt(25) == 0) {
             int i = 5;
-            int j = 4;
 
             for(BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
                 if (worldIn.getBlockState(blockpos).is(this)) {

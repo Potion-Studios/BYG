@@ -17,7 +17,6 @@ import java.util.Random;
 
 public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND);
-    private static final BlockStatePredicate IS_AIR = BlockStatePredicate.forBlock(Blocks.CAVE_AIR);
 
 
     public QuartzSpikeFeature(Codec<QuartzSpikeConfig> codec) {

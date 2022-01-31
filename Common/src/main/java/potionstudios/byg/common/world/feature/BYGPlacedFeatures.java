@@ -96,12 +96,6 @@ public class BYGPlacedFeatures {
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
 
-    public static PlacedFeature createPlacedGroundVegetationFeature(String id, ConfiguredFeature<?, ?> flowerConfiguredFeature, PlacementModifier... additionalModifiers) {
-        List<PlacementModifier> spread = new ArrayList<>(List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
-        spread.addAll(List.of(additionalModifiers));
-        return createPlacedFeature(id, flowerConfiguredFeature.placed(spread));
-    }
-
     private static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
     }
@@ -126,8 +120,5 @@ public class BYGPlacedFeatures {
 
         Registry.register(BuiltinRegistries.PLACED_FEATURE, bygID, placedFeature);
         return placedFeature;
-    }
-
-    public static void bootStrap() {
     }
 }

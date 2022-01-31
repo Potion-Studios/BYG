@@ -12,7 +12,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.Random;
 
 public class BYGPrairieGrassBlock extends TallGrassBlock implements BonemealableBlock {
-    protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
     protected BYGPrairieGrassBlock(Properties properties) {
         super(properties);

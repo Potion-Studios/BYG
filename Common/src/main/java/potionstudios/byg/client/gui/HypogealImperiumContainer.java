@@ -55,16 +55,6 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
         this.addDataSlots(fuelTime);
     }
 
-    private static HypogealImperiumBlockEntity getTileEntity(final Inventory playerInv, final FriendlyByteBuf data) {
-        Objects.requireNonNull(playerInv, "playerInv cannot be null");
-        Objects.requireNonNull(data, "data cannot be null");
-        final BlockEntity tileAtPos = playerInv.player.level.getBlockEntity(data.readBlockPos());
-        if (tileAtPos instanceof HypogealImperiumBlockEntity) {
-            return (HypogealImperiumBlockEntity) tileAtPos;
-        }
-        throw new IllegalStateException("TileEntity is not correct " + tileAtPos);
-    }
-
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
@@ -86,10 +76,6 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
             }
         }
         return itemstack;
-    }
-
-    public void onContainerClosed(Player playerIn) {
-        super.removed(playerIn);
     }
 
 

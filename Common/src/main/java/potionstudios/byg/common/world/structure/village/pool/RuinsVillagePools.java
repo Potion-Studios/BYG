@@ -17,9 +17,6 @@ public class RuinsVillagePools {
                     Pair.of(StructurePoolElement.legacy("byg:village/ruins/town_centers/ruins_meeting_point_3", ProcessorLists.MOSSIFY_10_PERCENT), 30),
                     Pair.of(StructurePoolElement.legacy("byg:village/ruins/town_centers/ruins_meeting_point_4", ProcessorLists.MOSSIFY_10_PERCENT), 10)), StructureTemplatePool.Projection.RIGID));
 
-    public static void init() {
-    }
-
     static {
         //Normal
         Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/streets"),

@@ -32,13 +32,11 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.block.EtherBulbsBlock;
-import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
 import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.util.MLBlockTags;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
@@ -53,10 +51,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean canLogPlaceHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
-    }
-
-    public boolean canLogPlaceHereWater(LevelSimulatedReader worldReader, BlockPos blockPos) {
         return worldReader.isStateAtPosition(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureUtil.isPlant(worldReader, blockPos);
     }
 
@@ -80,21 +74,21 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     public void placeTrunk(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
     public void placeBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
     public void placeLeaves(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
         }
     }
 
@@ -104,7 +98,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         pos = getTransformedPos(config, startPos, pos);
 
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
         }
     }
 
@@ -124,32 +118,27 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public void etherBulbs(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
-        this.setFinalBlockState(startPos, config, blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
-    }
-
-    public void ArisianBloomBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox, Direction direction) {
-        pos = getTransformedPos(config, startPos, pos);
-        this.setFinalBlockState(startPos, config, blockSet, reader, pos, BYGBlocks.ARISIAN_BLOOM_BRANCH.defaultBlockState().setValue(ImpariusMushroomBranchBlock.FACING, direction), boundingBox);
+        this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
     }
 
     public void baobabFruit(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGBlocks.BAOBAB_LEAVES) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
 
     public void placeNetherTrunk(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHereNether(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
     public void placeNetherBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHereNether(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
@@ -241,22 +230,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                 return block.defaultBlockState().is(BlockTags.SAND) || block == block1;
             }
             return block.defaultBlockState().is(BlockTags.SAND);
-        });
-    }
-
-    /**
-     * @param reader             Gives us access to world.
-     * @param pos                Position to check.
-     * @param desiredGroundBlock Add a blacklist of blocks that we want.
-     * @return Determines if the pos contains a block from our whitelist.
-     */
-    public boolean isDesiredGround(LevelSimulatedReader reader, BlockPos pos, Block... desiredGroundBlock) {
-        return reader.isStateAtPosition(pos, (state) -> {
-            Block block = state.getBlock();
-            for (Block block1 : desiredGroundBlock) {
-                return block == block1;
-            }
-            return false;
         });
     }
 
@@ -399,41 +372,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return true;
     }
 
-    /**
-     * Checks the area surrounding the pos for a tree matching its wood/leaves block.
-     * Called only during world gen
-     *
-     * @param reader     Gives us access to world
-     * @param pos        The given pos of either the feature during world gen or the sapling.
-     * @param treeHeight The height of the given tree.
-     * @param distance   Checks the surrounding pos
-     * @param logBlock   The log block we're checking for.
-     * @param leafBlock  The leaf block we're checking for.
-     * @param isSapling  Boolean passed in to determine whether or not the tree is being generated during world gen or with a sapling.
-     * @return Determines whether or not the tree we're searching for is within the given distance.
-     */
-
-    public boolean isAnotherTreeLikeThisNearby(LevelSimulatedReader reader, BlockPos pos, int treeHeight, int distance, Block logBlock, Block leafBlock, boolean isSapling) {
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        MutableBlockPos mutable = new MutableBlockPos();
-
-        //Skip if tree is being spawned with a sapling.
-        if (!isSapling) {
-            for (int yOffset = 0; yOffset <= treeHeight + 1; ++yOffset) {
-                for (int xOffset = -distance; xOffset <= distance; ++xOffset) {
-                    for (int zOffset = -distance; zOffset <= distance; ++zOffset) {
-                        if (isAnotherTreeLikeThisHere(reader, mutable.set(x + xOffset, y + yOffset, z + zOffset), logBlock, leafBlock)) {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
     public boolean isCliff(LevelSimulatedReader reader, BlockPos... trunkPositions) {
         return isCliff(reader, 5, trunkPositions);
     }
@@ -518,19 +456,19 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
 
-    public final void setFinalBlockState(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> changedBlocks, LevelWriter worldIn, BlockPos pos, BlockState blockState, BoundingBox boundingBox) {
-        this.setBlockStateWithoutUpdates(startPos, config, worldIn, pos, blockState);
+    public final void setFinalBlockState(Set<BlockPos> changedBlocks, LevelWriter worldIn, BlockPos pos, BlockState blockState, BoundingBox boundingBox) {
+        this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
         boundingBox.encapsulate(new BoundingBox(pos));
         if (BlockTags.LOGS.contains(blockState.getBlock())) {
             changedBlocks.add(pos.immutable());
         }
     }
 
-    public void setBlockStateWithoutUpdates(BlockPos startPos, BYGTreeConfig config, LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
+    public void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState) {
         worldWriter.setBlock(blockPos, blockState, 18);
     }
 
-    public void setBlockStateWithoutUpdates(BlockPos startPos, BYGTreeConfig config, LevelWriter worldWriter, BlockPos blockPos, BlockState blockState, int flags) {
+    public void setBlockStateWithoutUpdates(LevelWriter worldWriter, BlockPos blockPos, BlockState blockState, int flags) {
         worldWriter.setBlock(blockPos, blockState, flags);
     }
 
@@ -589,7 +527,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                                 BlockState blockstate = worldIn.getBlockState(posInPool);
                                 if (blockstate.hasProperty(BlockStateProperties.DISTANCE)) {
                                     list.get(0).add(posInPool.immutable());
-                                    this.setBlockStateWithoutUpdates(pos, config, worldIn, posInPool, blockstate.setValue(BlockStateProperties.DISTANCE, 1));
+                                    this.setBlockStateWithoutUpdates(worldIn, posInPool, blockstate.setValue(BlockStateProperties.DISTANCE, 1));
                                     if (mutableboundingbox.isInside(posInPool)) {
                                         voxelshapepart.fill(posInPool.getX() - mutableboundingbox.minX(), posInPool.getY() - mutableboundingbox.minY(), posInPool.getZ() - mutableboundingbox.minZ());
                                     }
@@ -619,9 +557,9 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
                                         BlockState blockstate2 = blockstate1.setValue(BlockStateProperties.DISTANCE, newDistance);
 
                                         if (newDistance >= 7)
-                                            this.setBlockStateWithoutUpdates(pos, config, worldIn, posInPool, Blocks.AIR.defaultBlockState(), 2); //If leaves distance is or exceeds 7, set air
+                                            this.setBlockStateWithoutUpdates(worldIn, posInPool, Blocks.AIR.defaultBlockState(), 2); //If leaves distance is or exceeds 7, set air
                                         else
-                                            this.setBlockStateWithoutUpdates(pos, config, worldIn, posInPool, blockstate2);
+                                            this.setBlockStateWithoutUpdates(worldIn, posInPool, blockstate2);
 
                                         if (mutableboundingbox.isInside(posInPool)) {
                                             voxelshapepart.fill(posInPool.getX() - mutableboundingbox.minX(), posInPool.getY() - mutableboundingbox.minY(), posInPool.getZ() - mutableboundingbox.minZ());
@@ -643,11 +581,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     protected abstract boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, TFC config);
-
-    @Nullable
-    public SaplingData saplingData(BlockPos pos) {
-        return new SaplingData(new HashSet<>(), 0);
-    }
 
 
     static {
@@ -713,18 +646,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
         public PooledMutable set(Vec3i vec3i) {
             return (PooledMutable) super.set(vec3i);
-        }
-
-        public PooledMutable setOffset(Direction direction) {
-            return this.setOffset(direction, 1);
-        }
-
-        public PooledMutable setOffset(Direction direction, int distance) {
-            return this.set(this.getX() + direction.getStepX() * distance, this.getY() + direction.getStepY() * distance, this.getZ() + direction.getStepZ() * distance);
-        }
-
-        public MutableBlockPos setOffset(int x, int y, int z) {
-            return this.set(this.getX() + x, this.getY() + y, this.getZ() + z);
         }
 
         public void close() {

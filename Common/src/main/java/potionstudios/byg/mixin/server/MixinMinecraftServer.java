@@ -43,7 +43,6 @@ public class MixinMinecraftServer {
             for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.get().entrySet()) {
                 BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey());
             }
-            BYG.biomeRegistryAccess = biomeRegistry.get();
         }
     }
 }

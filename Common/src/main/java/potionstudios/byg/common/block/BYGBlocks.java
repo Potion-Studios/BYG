@@ -1636,12 +1636,6 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createCrystal(String id) {
-        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
-        createBlock(createBlock, id);
-        return createBlock;
-    }
-
     static Block createAmetrineCluster(String id) {
         Block createBlock = new CrystalClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
@@ -1698,13 +1692,6 @@ public class BYGBlocks {
 
     static Block createSculkPlant(String id) {
         Block createBlock = new SculkPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock(createBlock, id);
-        return createBlock;
-    }
-
-    static Block createShulkrenPlant(String id) {
-        Block createBlock = new ShulkrenPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
 //        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
@@ -1964,9 +1951,6 @@ public class BYGBlocks {
         return block;
     }
 
-    public static void init() {
-
-    }
     public static Collection<RegistryObject<Block>> bootStrap() {
         return BLOCKS;
     }

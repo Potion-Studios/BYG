@@ -51,10 +51,6 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
         return INSTANCE;
     }
 
-    public static void setConfigInstance(BiomeDictionaryConfig config) {
-        INSTANCE = config;
-    }
-
     private static BiomeDictionaryConfig readConfig() {
         final Path path = BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-biome-dictionary.json");
 

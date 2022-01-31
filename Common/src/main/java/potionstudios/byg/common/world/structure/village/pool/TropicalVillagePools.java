@@ -15,9 +15,6 @@ public class TropicalVillagePools {
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 90),
                     Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 10)), StructureTemplatePool.Projection.RIGID));
 
-    public static void init() {
-    }
-
     static {
         //Normal
         Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/streets"),

@@ -18,9 +18,6 @@ public class SkyrisVillagePools {
                     Pair.of(StructurePoolElement.legacy("byg:village/skyris/town_centers/skyris_meeting_point_3", ProcessorLists.MOSSIFY_10_PERCENT), 25),
                     Pair.of(StructurePoolElement.legacy("byg:village/skyris/town_centers/skyris_meeting_point_4", ProcessorLists.MOSSIFY_10_PERCENT), 25)), StructureTemplatePool.Projection.RIGID));
 
-    public static void init() {
-    }
-
     static {
         //Normal
         Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/streets"),
