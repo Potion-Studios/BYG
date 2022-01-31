@@ -178,7 +178,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      * @return Determines if the pos is of the dirt tag or another block.
      */
     public static boolean isDesiredGroundwDirtTag(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (reader instanceof WorldGenRegion) {
+        if (!(reader instanceof WorldGenRegion)) {
             return true;
         }
 
@@ -192,7 +192,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwNetherTags(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (reader instanceof WorldGenRegion) {
+        if (!(reader instanceof WorldGenRegion)) {
             return true;
         }
 
@@ -206,7 +206,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwEndTags(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (reader instanceof WorldGenRegion) {
+        if (!(reader instanceof WorldGenRegion)) {
             return true;
         }
 
@@ -220,7 +220,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean isDesiredGroundwSandTag(LevelSimulatedReader reader, BlockPos pos, BYGTreeConfig config) {
-        if (reader instanceof WorldGenRegion) {
+        if (!(reader instanceof WorldGenRegion)) {
             return true;
         }
 
@@ -416,7 +416,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public void setDisk(WorldGenLevel world, Random random, BlockPos pos, BYGTreeConfig config) {
-        if (world instanceof WorldGenRegion || config.getDiskRadius() <= 0)
+        if (!(world instanceof WorldGenRegion) || config.getDiskRadius() <= 0)
             return;
 
         setSeed(world.getSeed());
