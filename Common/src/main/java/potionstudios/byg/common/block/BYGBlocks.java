@@ -37,6 +37,7 @@ import potionstudios.byg.common.block.nether.subzerohypogeal.BuddingSubzeroCryst
 import potionstudios.byg.common.block.nether.wailing.WailingBulbBlossomBlock;
 import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
+import potionstudios.byg.common.block.sapling.BYGSapling;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.overworld.trees.TreeSpawners;
@@ -1771,7 +1772,7 @@ public class BYGBlocks {
     }
 
     static Block createSapling(Tag<Block> groundTag, TreeSpawner tree, String id) {
-        Block createBlock = new BYGSapling(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
+        Block createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
