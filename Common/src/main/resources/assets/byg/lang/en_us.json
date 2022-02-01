@@ -2,6 +2,8 @@
   "biome.byg.allium_fields": "Allium Fields",
   "biome.byg.alpine_foothills": "Alpine Foothills",
   "biome.byg.alps": "Alps",
+  "byg.command.config.error": "\"%s\" is not a valid config type!",
+  "byg.command.config.success": "\"%s\" config was reloaded!",
   "biome.byg.amaranth_fields": "Amaranth Fields",
   "biome.byg.ancient_forest": "Ancient Forest",
   "biome.byg.araucaria_forest": "Araucaria Forest",

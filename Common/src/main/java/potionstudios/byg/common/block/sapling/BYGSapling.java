@@ -21,6 +21,8 @@ import java.util.*;
 
 public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
+    public static final List<CommonSetupLoad> SERIALIZERS = new ArrayList<>();
+
     private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>>> patternsToSpawner = new ArrayList<>();
     private final String id;
     private final Tag<Block> groundTag;
@@ -29,9 +31,11 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
         super(null, properties);
         this.id = id;
         this.groundTag = groundTag;
+        SERIALIZERS.add(this);
     }
 
     private void serializePatterns(ResourceLocation key) {
+        this.patternsToSpawner.clear();
         Map<ResourceLocation, List<SaplingPatterns.Entry>> patterns = SaplingPatterns.getConfig().saplingPatterns();
         if (patterns.containsKey(key)) {
             List<SaplingPatterns.Entry> patternsToSpawner = new ArrayList<>(patterns.get(key));
