@@ -166,7 +166,7 @@ public class BYGOverworldBiomeBuilder {
         private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
 
         public BiomeProviderData(int overworldWeight, List<List<ResourceKey<Biome>>> oceans, List<List<ResourceKey<Biome>>> middleBiomes, List<List<ResourceKey<Biome>>> middleBiomesVariant, List<List<ResourceKey<Biome>>> plateauBiomes, List<List<ResourceKey<Biome>>> plateauBiomesVariant, List<List<ResourceKey<Biome>>> extremeHills, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
-            this(overworldWeight, BYGUtil.convert2DResourceKeyBiomeList(oceans), BYGUtil.convert2DResourceKeyBiomeList(middleBiomes), BYGUtil.convert2DResourceKeyBiomeList(middleBiomesVariant), BYGUtil.convert2DResourceKeyBiomeList(plateauBiomes), BYGUtil.convert2DResourceKeyBiomeList(plateauBiomesVariant), BYGUtil.convert2DResourceKeyBiomeList(extremeHills), swapper);
+            this(overworldWeight, BYGUtil.convert2DResourceKeyArrayTo2DList(oceans), BYGUtil.convert2DResourceKeyArrayTo2DList(middleBiomes), BYGUtil.convert2DResourceKeyArrayTo2DList(middleBiomesVariant), BYGUtil.convert2DResourceKeyArrayTo2DList(plateauBiomes), BYGUtil.convert2DResourceKeyArrayTo2DList(plateauBiomesVariant), BYGUtil.convert2DResourceKeyArrayTo2DList(extremeHills), swapper);
         }
 
         public BiomeProviderData(int overworldWeight, ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes, ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes, ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] extremeHills, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {

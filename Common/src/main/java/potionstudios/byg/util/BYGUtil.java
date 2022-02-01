@@ -3,7 +3,6 @@ package potionstudios.byg.util;
 
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,12 +28,13 @@ public class BYGUtil {
         return convertedArrays;
     }
 
-    public static ResourceKey<Biome>[][] convert2DResourceKeyBiomeList(List<List<ResourceKey<Biome>>> listToConvert) {
-        List<ResourceKey<Biome>[]> resultList = new ArrayList<>(listToConvert.size());
-        for (List<ResourceKey<Biome>> vs : listToConvert) {
-            resultList.add(vs.toArray(new ResourceKey[0]));
+    @SuppressWarnings("unchecked")
+    public static <T> ResourceKey<T>[][] convert2DResourceKeyArrayTo2DList(List<List<ResourceKey<T>>> listToConvert) {
+        List<ResourceKey<T>[]> resultList = new ArrayList<>(listToConvert.size());
+        for (List<ResourceKey<T>> vs : listToConvert) {
+            resultList.add(vs.toArray(ResourceKey[]::new));
         }
 
-        return resultList.toArray(new ResourceKey[0][0]);
+        return resultList.toArray(ResourceKey[][]::new);
     }
 }
