@@ -1749,7 +1749,7 @@ public class BYGConfiguredFeatures {
 //
 //
     public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
-        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        ResourceLocation bygID = BYG.createLocation(id);
         if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
 

@@ -16,14 +16,14 @@ package potionstudios.byg.common.entity.manowar;
 //public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 //
 //    public static final Map<ManOWar.Colors, ResourceLocation> TEXTURES = Util.make(Maps.newEnumMap(ManOWar.Colors.class), (map) -> {
-//        map.put(ManOWar.Colors.MAGENTA, new ResourceLocation(BYG.MOD_ID, "textures/entity/manowar/magenta.png"));
-//        map.put(ManOWar.Colors.RAINBOW, new ResourceLocation(BYG.MOD_ID, "textures/entity/manowar/rainbow.png"));
-//        map.put(ManOWar.Colors.PURPLE, new ResourceLocation(BYG.MOD_ID, "textures/entity/manowar/purple.png"));
-//        map.put(ManOWar.Colors.BLUE, new ResourceLocation(BYG.MOD_ID, "textures/entity/manowar/blue.png"));
+//        map.put(ManOWar.Colors.MAGENTA, BYG.createLocation("textures/entity/manowar/magenta.png"));
+//        map.put(ManOWar.Colors.RAINBOW, BYG.createLocation("textures/entity/manowar/rainbow.png"));
+//        map.put(ManOWar.Colors.PURPLE, BYG.createLocation("textures/entity/manowar/purple.png"));
+//        map.put(ManOWar.Colors.BLUE, BYG.createLocation("textures/entity/manowar/blue.png"));
 //
 //    });
 //
-//    public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(BYG.MOD_ID, "man_o_war"), "main");
+//    public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BYG.createLocation("man_o_war"), "main");
 //
 //    public ManOWarRenderer(EntityRendererProvider.Context context) {
 //        super(context, new ManOWarModel());

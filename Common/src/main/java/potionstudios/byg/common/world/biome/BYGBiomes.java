@@ -159,7 +159,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CANYON_KEY;
 
     public static ResourceKey<Biome> createBiome(String id, Biome biome) {
-        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        ResourceLocation bygID = BYG.createLocation(id);
         if (BuiltinRegistries.BIOME.keySet().contains(bygID)) {
             throw new IllegalStateException("Biome ID: \"" + bygID.toString() + "\" already exists in the Biome registry!");
         }

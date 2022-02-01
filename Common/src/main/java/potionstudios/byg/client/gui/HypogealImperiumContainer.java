@@ -1,6 +1,5 @@
 package potionstudios.byg.client.gui;
 
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -10,11 +9,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import potionstudios.byg.common.blockentity.HypogealImperiumBlockEntity;
 import potionstudios.byg.common.container.BYGMenuTypes;
-
-import java.util.Objects;
 
 public class HypogealImperiumContainer extends AbstractContainerMenu {
 

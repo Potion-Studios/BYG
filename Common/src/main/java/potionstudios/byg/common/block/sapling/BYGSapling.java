@@ -151,6 +151,6 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
     @Override
     public void load() {
-        serializePatterns(new ResourceLocation(BYG.MOD_ID, id));
+        serializePatterns(BYG.createLocation(id));
     }
 }

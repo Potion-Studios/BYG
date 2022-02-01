@@ -26,7 +26,7 @@ public class BYGBiomeProvider extends BiomeProvider {
     private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
 
     public BYGBiomeProvider(int overworldWeight, ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes, ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes, ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] extremeHills, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
-        super(new ResourceLocation(BYG.MOD_ID, "biome_provider_" + count++), overworldWeight);
+        super(BYG.createLocation("biome_provider_" + count++), overworldWeight);
         this.swapper = swapper;
 
         OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) (Object) overworldBiomeBuilder;

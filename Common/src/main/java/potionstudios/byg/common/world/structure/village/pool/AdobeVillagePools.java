@@ -9,9 +9,10 @@ import net.minecraft.data.worldgen.placement.VillagePlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import potionstudios.byg.BYG;
 
 public class AdobeVillagePools {
-    public static final StructureTemplatePool ADOBE_VILLAGE_JIGSAW = Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/town_centers"),
+    public static final StructureTemplatePool ADOBE_VILLAGE_JIGSAW = Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 30),
                     Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 35),
@@ -19,8 +20,8 @@ public class AdobeVillagePools {
 
     static {
         //Normal
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/streets"),
-                new ResourceLocation("byg:village/adobe/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/streets"),
+                BYG.createLocation("village/adobe/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/streets/adobe_corner_01"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/streets/adobe_corner_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/streets/adobe_straight_01"), 4),
@@ -33,8 +34,8 @@ public class AdobeVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/streets/adobe_square_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/streets/adobe_turn_01"), 3)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/houses"),
-                new ResourceLocation("byg:village/adobe/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/houses"),
+                BYG.createLocation("village/adobe/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/houses/adobe_small_house_1"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/houses/adobe_small_house_2"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/houses/adobe_small_house_3"), 3),
@@ -64,19 +65,19 @@ public class AdobeVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/houses/adobe_animal_pen_2"), 2),
                         Pair.of(StructurePoolElement.empty(), 10)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/terminators"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/terminators/adobe_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/terminators/adobe_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/adobe_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_CACTUS_DECORATED), 3),
                         Pair.of(StructurePoolElement.feature(VillagePlacements.PILE_HAY_VILLAGE), 2),
                         Pair.of(StructurePoolElement.empty(), 6)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/adobe/villagers"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/villagers"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/villagers/baby"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/adobe/villagers/baby"), 1),

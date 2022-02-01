@@ -10,6 +10,6 @@ public class BYGHorseArmor extends HorseArmorItem {
     }
     
     public ResourceLocation getTexture() {
-        return new ResourceLocation(BYG.MOD_ID, super.getTexture().getPath());
+        return BYG.createLocation(super.getTexture().getPath());
     }
 }

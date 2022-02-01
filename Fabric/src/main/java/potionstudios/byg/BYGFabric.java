@@ -22,15 +22,15 @@ public class BYGFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve("byg"), "c");
-        BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGCreativeTab.init(FabricItemGroupBuilder.build(new ResourceLocation(BYG.MOD_ID, "byg"), () -> new ItemStack(BYGItems.BYG_LOGO)));
-        BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ENTITY_TYPE, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGBlockEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK_ENTITY_TYPE, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGSounds.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.SOUND_EVENT, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
-        BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, new ResourceLocation(BYG.MOD_ID, registryObject.id()), registryObject.object())));
+        BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGCreativeTab.init(FabricItemGroupBuilder.build(BYG.createLocation("byg"), () -> new ItemStack(BYGItems.BYG_LOGO)));
+        BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ENTITY_TYPE, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGBlockEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK_ENTITY_TYPE, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGSounds.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.SOUND_EVENT, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, BYG.createLocation(registryObject.id()), registryObject.object())));
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();

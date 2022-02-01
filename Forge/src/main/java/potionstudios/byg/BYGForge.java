@@ -96,7 +96,7 @@ public class BYGForge {
         eventBus.addGenericListener(clazz, (RegistryEvent.Register<T> event) -> {
             Collection<RegistryObject<T>> registryObjects = registryObjectsSupplier.get();
             for (RegistryObject<T> registryObject : registryObjects) {
-                registryObject.object().setRegistryName(new ResourceLocation(BYG.MOD_ID, registryObject.id()));
+                registryObject.object().setRegistryName(BYG.createLocation(registryObject.id()));
                 event.getRegistry().register(registryObject.object());
             }
         });
@@ -106,7 +106,7 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
-            BiomeProviders.register(new BiomeProvider(new ResourceLocation(BYG.MOD_ID, "surface_data"), 0) {
+            BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
                 @Override
                 public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
                     return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);

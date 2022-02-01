@@ -10,7 +10,7 @@ package potionstudios.byg.common.entity.manowar;
 //
 //		@Override
 //		public ResourceLocation getModelLocation(T object) {
-//			return new ResourceLocation(BYG.MOD_ID, "geo/man_o_war.geo.json");
+//			return BYG.createLocation("geo/man_o_war.geo.json");
 //		}
 //		@Override
 //		public ResourceLocation getTextureLocation(T object) {
@@ -19,6 +19,6 @@ package potionstudios.byg.common.entity.manowar;
 //		}
 //		@Override
 //		public ResourceLocation getAnimationFileLocation(T animatable) {
-//			return new ResourceLocation(BYG.MOD_ID, "animations/man_o_war.animation.json");
+//			return BYG.createLocation("animations/man_o_war.animation.json");
 //	}
 //}

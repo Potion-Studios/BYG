@@ -1230,7 +1230,7 @@ public class BYGItems {
             for (RegistryObject<Block> blockRegistryObject : BYGBlocks.BLOCKS) {
                 if (blockRegistryObject.object() == block) {
                     recovered = true;
-                    id = new ResourceLocation(BYG.MOD_ID, blockRegistryObject.id());
+                    id = BYG.createLocation(blockRegistryObject.id());
                     break;
                 }
             }

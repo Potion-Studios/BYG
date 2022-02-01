@@ -3,7 +3,6 @@ package potionstudios.byg.common.world.feature.overworld.trees.jacaranda;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;

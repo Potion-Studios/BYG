@@ -8,9 +8,10 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import potionstudios.byg.BYG;
 
 public class RuinsVillagePools {
-    public static final StructureTemplatePool RuinsVillageJigsaw = Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/town_centers"),
+    public static final StructureTemplatePool RuinsVillageJigsaw = Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/town_centers/ruins_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 30),
                     Pair.of(StructurePoolElement.legacy("byg:village/ruins/town_centers/ruins_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 30),
@@ -19,8 +20,8 @@ public class RuinsVillagePools {
 
     static {
         //Normal
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/streets"),
-                new ResourceLocation("byg:village/ruins/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/streets"),
+                BYG.createLocation("village/ruins/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/streets/ruins_corner_01"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/streets/ruins_corner_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/streets/ruins_straight_01"), 4),
@@ -34,8 +35,8 @@ public class RuinsVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/streets/ruins_square_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/streets/ruins_turn_01"), 3)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/houses"),
-                new ResourceLocation("byg:village/ruins/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/houses"),
+                BYG.createLocation("village/ruins/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/houses/ruins_small_house_1"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/houses/ruins_small_house_2"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/houses/ruins_small_house_3"), 2),
@@ -50,19 +51,19 @@ public class RuinsVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/houses/ruins_medium_house_4"), 2),
                         Pair.of(StructurePoolElement.empty(), 10)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/terminators"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/terminators/s_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/terminators/s_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/ruins_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_BERRY_COMMON), 4),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.RED_MUSHROOM_NORMAL), 4),
                         Pair.of(StructurePoolElement.empty(), 6)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/ruins/villagers"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/villagers"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/villagers/baby"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/ruins/villagers/baby"), 1),

@@ -1,11 +1,8 @@
 package potionstudios.byg.util;
 
 
-import com.mojang.serialization.Codec;
-import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 
 import java.util.ArrayList;
@@ -13,8 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BYGUtil {
-
-    public static final ResourceKey<Biome> EMPTY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(""));
 
     /*
      * Part of the Cyanide mod.

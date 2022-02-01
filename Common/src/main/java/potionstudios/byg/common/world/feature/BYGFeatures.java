@@ -554,7 +554,7 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ZELKOVA_TREE3 = createFeature("zelkova_tree3", new ZelkovaTree3(BYGTreeConfig.CODEC.stable()));
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> F createFeature(String id, F feature) {
-        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        ResourceLocation bygID = BYG.createLocation(id);
         if (Registry.FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Feature ID: \"" + bygID.toString() + "\" already exists in the Features registry!");
 

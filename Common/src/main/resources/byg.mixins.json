@@ -56,14 +56,14 @@
     "server.MixinMinecraftServer"
   ],
   "client": [
+    "access.client.ClientLevelAccess",
+    "access.client.ItemBlockRenderTypeAccess",
+    "client.MixinBlockColors",
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
-    "client.MixinLayerDefinitions",
-    "client.MixinScreenManager",
-    "access.client.ClientLevelAccess",
-    "client.MixinBlockColors",
     "client.MixinItemColors",
-    "access.client.ItemBlockRenderTypeAccess"
+    "client.MixinLayerDefinitions",
+    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

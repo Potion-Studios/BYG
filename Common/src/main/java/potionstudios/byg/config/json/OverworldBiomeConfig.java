@@ -9,7 +9,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;

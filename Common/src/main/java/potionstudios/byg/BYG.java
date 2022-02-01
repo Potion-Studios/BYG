@@ -2,6 +2,7 @@ package potionstudios.byg;
 
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.logging.log4j.LogManager;
@@ -92,5 +93,9 @@ public class BYG {
         BYGCarvableBlocks.addCarverBlocks();
         BYGPaths.addBYGPaths();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+    }
+
+    public static ResourceLocation createLocation(String path) {
+        return new ResourceLocation(MOD_ID, path);
     }
 }

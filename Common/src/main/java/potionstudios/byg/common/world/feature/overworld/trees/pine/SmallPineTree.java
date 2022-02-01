@@ -3,7 +3,6 @@ package potionstudios.byg.common.world.feature.overworld.trees.pine;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -43,7 +42,7 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
             }
 
             StructureManager templatemanager = world.getLevel().getStructureManager();
-            Optional<StructureTemplate> structureTemplate = templatemanager.get(new ResourceLocation(BYG.MOD_ID, ":features/trees/withering_oak_tree5"));
+            Optional<StructureTemplate> structureTemplate = templatemanager.get(BYG.createLocation(":features/trees/withering_oak_tree5"));
 
             if (structureTemplate.isEmpty()) {
                 BYG.LOGGER.warn("NBT does not exist!");

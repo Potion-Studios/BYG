@@ -5,7 +5,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.VegetationPlacementsAccess;
@@ -114,7 +113,7 @@ public class BYGPlacedFeatures {
 
 
     public static <PF extends PlacedFeature> PF createPlacedFeature(String id, PF placedFeature) {
-        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        ResourceLocation bygID = BYG.createLocation(id);
         if (BuiltinRegistries.PLACED_FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Placed Feature ID: \"" + bygID.toString() + "\" already exists in the Placed Features registry!");
 

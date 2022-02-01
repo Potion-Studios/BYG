@@ -127,7 +127,7 @@ public class BYGBlockTags {
     private static Tag.Named<Block> createTag(String location) {
         if (!LOCATIONS.contains(location)) {
             LOCATIONS.add(location);
-            return createTag(new ResourceLocation(BYG.MOD_ID, location));
+            return createTag(BYG.createLocation(location));
         } else {
             throw new RuntimeException("Duplicate key: " + location);
         }

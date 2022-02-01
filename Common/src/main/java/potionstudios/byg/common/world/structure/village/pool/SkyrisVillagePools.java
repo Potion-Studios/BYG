@@ -9,9 +9,10 @@ import net.minecraft.data.worldgen.placement.VillagePlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import potionstudios.byg.BYG;
 
 public class SkyrisVillagePools {
-    public static final StructureTemplatePool SKYRIS_VILLAGE_POOL = Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/town_centers"),
+    public static final StructureTemplatePool SKYRIS_VILLAGE_POOL = Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/town_centers/skyris_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 25),
                     Pair.of(StructurePoolElement.legacy("byg:village/skyris/town_centers/skyris_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 25),
@@ -20,8 +21,8 @@ public class SkyrisVillagePools {
 
     static {
         //Normal
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/streets"),
-                new ResourceLocation("byg:village/skyris/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/streets"),
+                BYG.createLocation("village/skyris/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/streets/skyris_corner_01"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/streets/skyris_corner_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/streets/skyris_straight_01"), 4),
@@ -34,8 +35,8 @@ public class SkyrisVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/streets/skyris_square_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/streets/skyris_turn_01"), 3)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/houses"),
-                new ResourceLocation("byg:village/skyris/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/houses"),
+                BYG.createLocation("village/skyris/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_small_house_1"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_small_house_2"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_small_house_3"), 2),
@@ -59,19 +60,19 @@ public class SkyrisVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_animal_pen_2"), 2),
                         Pair.of(StructurePoolElement.empty(), 10)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/terminators"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/terminators/s_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/terminators/s_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/skyris_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_BERRY_COMMON), 4),
                         Pair.of(StructurePoolElement.feature(VillagePlacements.PILE_HAY_VILLAGE), 4),
                         Pair.of(StructurePoolElement.empty(), 6)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/skyris/villagers"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/villagers"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/skyris/villagers/baby"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/skyris/villagers/baby"), 1),

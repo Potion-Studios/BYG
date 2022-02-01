@@ -13,7 +13,7 @@ import potionstudios.byg.client.gui.HypogealImperiumContainer;
 
 public class HypogealImperiumScreen extends AbstractContainerScreen<HypogealImperiumContainer> {
 
-    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(BYG.MOD_ID, "textures/gui/container/hypogeal_imperium.png");
+    private static final ResourceLocation BACKGROUND_TEXTURE = BYG.createLocation("textures/gui/container/hypogeal_imperium.png");
     public int k;
 
 
