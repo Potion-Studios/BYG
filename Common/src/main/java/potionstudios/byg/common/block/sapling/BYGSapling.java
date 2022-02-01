@@ -138,7 +138,7 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                             for (BlockPos offset : offsets) {
                                                 BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
                                                 BlockState offsetState = world.getBlockState(movedPos);
-                                                if (offsetState.is(BlockTags.SAPLINGS)) {
+                                                if (offsetState.getBlock() == this) {
                                                     world.removeBlock(movedPos, false);
                                                 }
                                             }
