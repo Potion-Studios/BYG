@@ -15,16 +15,14 @@ import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
+import potionstudios.byg.util.CommonSetupLoad;
 
 import java.util.*;
 
-public class BYGSapling extends SaplingBlock {
+public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
     private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>>> patternsToSpawner = new ArrayList<>();
     private final String id;
-    private boolean patternsSerialized;
     private final Tag<Block> groundTag;
 
     public BYGSapling(String id, Properties properties, Tag<Block> groundTag) {
@@ -56,11 +54,12 @@ public class BYGSapling extends SaplingBlock {
                 SimpleWeightedRandomList<ResourceLocation> spawner = entry.spawners();
                 Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>> newEntry = Pair.of(new ArrayList<>(), spawner);
                 patternsToSpawnerMapped.add(newEntry);
+                int patternLoopSize = Math.min(pattern.size(), SaplingPatterns.MAX_PATTERN_SIZE);
 
                 StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < Math.min(pattern.size(), 2); i++) {
+                for (int i = 0; i < patternLoopSize; i++) {
                     String s = pattern.get(i);
-                    String substring = s.substring(0, Math.min(2, s.length()));
+                    String substring = s.substring(0, Math.min(s.length(), SaplingPatterns.MAX_PATTERN_SIZE));
                     builder.append(substring);
                 }
 
@@ -68,29 +67,33 @@ public class BYGSapling extends SaplingBlock {
 
                 String trimmed = patternCombined.trim();
                 if (trimmed.length() > 1) {
-                    for (int i = -1; i < Math.min(pattern.size(), 2); i++) {
-                        String s = pattern.get(i + 1);
-                        String substring = s.substring(0, Math.min(3, s.length()));
-                        builder.append(substring);
+                    int zOffset = -patternLoopSize / 2;
+                    for (int i = 0; i < patternLoopSize; i++) {
+                        String s = pattern.get(i);
+                        int range = Math.min(s.length(), SaplingPatterns.MAX_PATTERN_SIZE);
+                        String substring = s.substring(0, range);
+                        int xOffset = -range / 2;
                         char[] charArray = substring.toCharArray();
-                        for (int j = -1; j < charArray.length - 1; j++) {
-                            char c = charArray[j + 1];
+                        for (char c : charArray) {
                             if (c == 'x' || c == 'X') {
-                                newEntry.getFirst().add(new BlockPos(j, 0, i));
+                                newEntry.getFirst().add(new BlockPos(xOffset, 0, zOffset));
                             }
+                            xOffset++;
                         }
+                        zOffset++;
                     }
                 } else {
                     newEntry.getFirst().add(new BlockPos(0, 0, 0));
                 }
             }
             this.patternsToSpawner.addAll(patternsToSpawnerMapped);
+            Collections.reverse(this.patternsToSpawner);
         }
     }
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return this == BYGBlocks.PALM_SAPLING ? state.is(BlockTags.SAND) && state.is(this.groundTag) : state.is(this.groundTag);
+        return state.is(this.groundTag);
     }
 
     @Override
@@ -98,22 +101,15 @@ public class BYGSapling extends SaplingBlock {
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
-            if (!this.patternsSerialized) {
-                ResourceLocation key = new ResourceLocation(BYG.MOD_ID, id);
-                serializePatterns(key);
-                this.patternsSerialized = true;
-            }
-
-            int range = 1;
+            int range = (SaplingPatterns.MAX_PATTERN_SIZE - 1) / 2;
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
+            for (Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>> entry : this.patternsToSpawner) {
+                for (int xMove = -range; xMove <= range; xMove++) {
+                    for (int zMove = -range; zMove <= range; zMove++) {
+                        boolean matchedPattern = true;
+                        BlockPos.MutableBlockPos mutableBlockPos1 = new BlockPos.MutableBlockPos().set(mutableBlockPos.set(pos).move(xMove, 0, zMove));
 
-            for (int xMove = -range; xMove <= range; xMove++) {
-                for (int zMove = -range; zMove <= range; zMove++) {
-                    boolean matchedPattern = true;
-                    BlockPos.MutableBlockPos mutableBlockPos1 = new BlockPos.MutableBlockPos().set(mutableBlockPos.set(pos).move(xMove, 0, zMove));
 
-
-                    for (Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>> entry : this.patternsToSpawner) {
                         List<BlockPos> offsets = entry.getFirst();
                         SimpleWeightedRandomList<ResourceLocation> treePicker = entry.getSecond();
                         for (BlockPos offset : offsets) {
@@ -125,12 +121,6 @@ public class BYGSapling extends SaplingBlock {
                             }
                         }
                         if (matchedPattern) {
-                            // Clear saplings
-                            for (BlockPos offset : offsets) {
-                                BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
-                                world.removeBlock(movedPos, false);
-                            }
-
                             // Set tree
                             Optional<WritableRegistry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
                             if (configuredFeaturesOptionalRegistry.isPresent()) {
@@ -139,7 +129,16 @@ public class BYGSapling extends SaplingBlock {
                                 if (randomValue.isPresent()) {
                                     ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(randomValue.get());
                                     if (configuredFeature != null) {
-                                        configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1);
+                                        if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1)) {
+                                            // Clear saplings
+                                            for (BlockPos offset : offsets) {
+                                                BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
+                                                BlockState offsetState = world.getBlockState(movedPos);
+                                                if (offsetState.is(BlockTags.SAPLINGS)) {
+                                                    world.removeBlock(movedPos, false);
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -148,5 +147,10 @@ public class BYGSapling extends SaplingBlock {
                 }
             }
         }
+    }
+
+    @Override
+    public void load() {
+        serializePatterns(new ResourceLocation(BYG.MOD_ID, id));
     }
 }

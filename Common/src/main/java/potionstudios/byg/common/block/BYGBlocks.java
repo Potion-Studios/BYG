@@ -43,6 +43,7 @@ import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGMushro
 import potionstudios.byg.common.world.feature.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import potionstudios.byg.mixin.access.*;
+import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.RegistryObject;
 
 import javax.annotation.Nullable;
@@ -52,7 +53,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.ToIntFunction;
 
-@SuppressWarnings("deprecation")
 public class BYGBlocks {
     public static final List<RegistryObject<Block>> BLOCKS = new ArrayList<>();
     public static List<Block> flowerPotBlocks = new ArrayList<>();
@@ -1759,7 +1759,8 @@ public class BYGBlocks {
     }
 
     static Block createSapling(Tag<Block> groundTag, String id) {
-        Block createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
+        BYGSapling createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
+        CommonSetupLoad.ENTRIES.add(createBlock);
         createPottedBlock(createBlock, id);
         return createBlock;
     }

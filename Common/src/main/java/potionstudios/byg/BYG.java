@@ -2,9 +2,6 @@ package potionstudios.byg;
 
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +11,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
-import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.MLBlockTags;
 
 import java.io.IOException;
@@ -33,8 +30,6 @@ public class BYG {
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;
     public static WorldConfig worldConfig = null;
-    public static final ResourceKey<Biome> EMPTY = BYGUtil.EMPTY;
-
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {
@@ -60,7 +55,7 @@ public class BYG {
 
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
-
+        CommonSetupLoad.ENTRIES.forEach(CommonSetupLoad::load);
         try {
             Files.createDirectories(CONFIG_PATH);
             Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
