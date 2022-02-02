@@ -1,6 +1,7 @@
 package potionstudios.byg.util;
 
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
 
@@ -36,5 +37,14 @@ public class BYGUtil {
         }
 
         return resultList.toArray(ResourceKey[][]::new);
+    }
+
+    public static <T> String dumpRegistry(Registry<T> registry) {
+        StringBuilder registryElements = new StringBuilder();
+        for (int i = 0; i < registry.entrySet().size(); i++) {
+            final T object = registry.byId(i);
+            registryElements.append(i).append(". \"").append(registry.getKey(object).toString()).append("\"\n");
+        }
+        return registryElements.toString();
     }
 }

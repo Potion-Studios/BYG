@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.CommonSetupLoad;
 
 import java.util.*;
@@ -130,7 +131,8 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                 WritableRegistry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
                                 Optional<ResourceLocation> randomValue = treePicker.getRandomValue(rand);
                                 if (randomValue.isPresent()) {
-                                    ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(randomValue.get());
+                                    ResourceLocation resourceLocation = randomValue.get();
+                                    ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(resourceLocation);
                                     if (configuredFeature != null) {
                                         if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1)) {
                                             // Clear saplings
@@ -141,11 +143,14 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                     world.removeBlock(movedPos, false);
                                                 }
                                             }
-                                            return;
                                         }
+                                    } else {
+                                        BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn feature... \"%s\" is not a valid configured feature ID in this world's configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), resourceLocation, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
+
                                     }
                                 }
                             }
+                            return;
                         }
                     }
                 }
