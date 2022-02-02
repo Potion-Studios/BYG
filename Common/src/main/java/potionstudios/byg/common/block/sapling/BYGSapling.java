@@ -6,7 +6,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.BlockGetter;
@@ -142,6 +141,7 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                     world.removeBlock(movedPos, false);
                                                 }
                                             }
+                                            return;
                                         }
                                     }
                                 }

@@ -433,8 +433,8 @@ public class BYGFeatures {
 
     //Enchanted Trees
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE1 = createFeature("enchanted_tree1", new EnchantedTree1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE2 = createFeature("enchanted_tree2", new EnchantedTree3(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE3 = createFeature("enchanted_tree3", new EnchantedTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE2 = createFeature("enchanted_tree2", new EnchantedTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE3 = createFeature("enchanted_tree3", new EnchantedTree3(BYGTreeConfig.CODEC.stable()));
 
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_GROVE_TREE1 = createFeature("enchanted_grove_tree1", new EnchantedGroveTree(BYGTreeConfig.CODEC.stable()));
 
