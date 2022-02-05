@@ -23,7 +23,7 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
     public static final List<CommonSetupLoad> SERIALIZERS = new ArrayList<>();
 
-    private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>>> patternsToSpawner = new ArrayList<>();
+    private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner>>> patternsToSpawner = new ArrayList<>();
     private final String id;
     private final Tag<Block> groundTag;
 
@@ -36,9 +36,9 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
     private void serializePatterns(ResourceLocation key) {
         this.patternsToSpawner.clear();
-        Map<ResourceLocation, List<SaplingPatterns.Entry>> patterns = SaplingPatterns.getConfig().saplingPatterns();
+        Map<ResourceLocation, List<SaplingPatterns.PatternEntry>> patterns = SaplingPatterns.getConfig().saplingPatterns();
         if (patterns.containsKey(key)) {
-            List<SaplingPatterns.Entry> patternsToSpawner = new ArrayList<>(patterns.get(key));
+            List<SaplingPatterns.PatternEntry> patternsToSpawner = new ArrayList<>(patterns.get(key));
             patternsToSpawner.sort(Comparator.comparingInt(p -> {
                 int saplingCount = 0;
                 for (String s : p.pattern()) {
@@ -52,11 +52,11 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                 return saplingCount;
             }));
 
-            List<Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>>> patternsToSpawnerMapped = new ArrayList<>();
-            for (SaplingPatterns.Entry entry : patternsToSpawner) {
-                List<String> pattern = entry.pattern();
-                SimpleWeightedRandomList<ResourceLocation> spawner = entry.spawners();
-                Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>> newEntry = Pair.of(new ArrayList<>(), spawner);
+            List<Pair<List<BlockPos>, SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner>>> patternsToSpawnerMapped = new ArrayList<>();
+            for (SaplingPatterns.PatternEntry patternEntry : patternsToSpawner) {
+                List<String> pattern = patternEntry.pattern();
+                SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner> spawner = patternEntry.spawners();
+                Pair<List<BlockPos>, SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner>> newEntry = Pair.of(new ArrayList<>(), spawner);
                 patternsToSpawnerMapped.add(newEntry);
                 int patternLoopSize = Math.min(pattern.size(), SaplingPatterns.MAX_PATTERN_SIZE);
 
@@ -107,7 +107,7 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
         } else {
             int range = (SaplingPatterns.MAX_PATTERN_SIZE - 1) / 2;
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
-            for (Pair<List<BlockPos>, SimpleWeightedRandomList<ResourceLocation>> entry : this.patternsToSpawner) {
+            for (Pair<List<BlockPos>, SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner>> entry : this.patternsToSpawner) {
                 for (int xMove = -range; xMove <= range; xMove++) {
                     for (int zMove = -range; zMove <= range; zMove++) {
                         boolean matchedPattern = true;
@@ -115,7 +115,7 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
 
                         List<BlockPos> offsets = entry.getFirst();
-                        SimpleWeightedRandomList<ResourceLocation> treePicker = entry.getSecond();
+                        SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner> treePicker = entry.getSecond();
                         for (BlockPos offset : offsets) {
                             BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
                             BlockState offsetState = world.getBlockState(movedPos);
@@ -129,12 +129,12 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                             Optional<WritableRegistry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
                             if (configuredFeaturesOptionalRegistry.isPresent()) {
                                 WritableRegistry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
-                                Optional<ResourceLocation> randomValue = treePicker.getRandomValue(rand);
+                                Optional<SaplingPatterns.FeatureSpawner> randomValue = treePicker.getRandomValue(rand);
                                 if (randomValue.isPresent()) {
-                                    ResourceLocation resourceLocation = randomValue.get();
-                                    ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(resourceLocation);
+                                    SaplingPatterns.FeatureSpawner featureSpawner = randomValue.get();
+                                    ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
                                     if (configuredFeature != null) {
-                                        if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1)) {
+                                        if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1.offset(featureSpawner.spawnOffset()))) {
                                             // Clear saplings
                                             for (BlockPos offset : offsets) {
                                                 BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
@@ -144,11 +144,11 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                 }
                                             }
                                             if (BYG.LOG_SAPLING_GROWTHS) {
-                                                BYG.LOGGER.info(String.format("Sapling grew: %s", resourceLocation.toString()));
+                                                BYG.LOGGER.info(String.format("Sapling grew: %s", featureSpawner.toString()));
                                             }
                                         }
                                     } else {
-                                        BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn feature... \"%s\" is not a valid configured feature ID in this world's configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), resourceLocation, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
+                                        BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn feature... \"%s\" is not a valid configured feature ID in this world's configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
 
                                     }
                                 }
