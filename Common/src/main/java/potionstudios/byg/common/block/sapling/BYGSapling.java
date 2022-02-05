@@ -134,7 +134,8 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                     SaplingPatterns.FeatureSpawner featureSpawner = randomValue.get();
                                     ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
                                     if (configuredFeature != null) {
-                                        BlockPos growthPos = mutableBlockPos1.offset(featureSpawner.spawnOffset());
+                                        BlockPos spawnOffset = featureSpawner.spawnOffset();
+                                        BlockPos growthPos = mutableBlockPos1.offset(spawnOffset);
                                         if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, growthPos)) {
                                             // Clear saplings
                                             for (BlockPos offset : offsets) {
@@ -145,12 +146,11 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                 }
                                             }
                                             if (SaplingPatterns.getConfig().logSaplingGrowth()) {
-                                                BYG.LOGGER.info(String.format("Sapling \"%s\" grew configured feature \"%s\" at position %s.", Registry.BLOCK.getKey(this).toString(), featureSpawner.toString(), growthPos));
+                                                BYG.LOGGER.info(String.format("Sapling \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", Registry.BLOCK.getKey(this).toString(), featureSpawner.toString(), growthPos, spawnOffset));
                                             }
                                         }
                                     } else {
-                                        BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn feature... \"%s\" is not a valid configured feature ID in this world's configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
-
+                                        BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn configured feature \"%s\" at position %s. \"%s\" is not a valid configured feature ID in this world's datapack configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), featureSpawner, pos, featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
                                     }
                                 }
                             }
