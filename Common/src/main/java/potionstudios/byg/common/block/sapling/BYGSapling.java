@@ -143,6 +143,9 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                     world.removeBlock(movedPos, false);
                                                 }
                                             }
+                                            if (BYG.LOG_SAPLING_GROWTHS) {
+                                                BYG.LOGGER.info(String.format("Sapling grew: %s", resourceLocation.toString()));
+                                            }
                                         }
                                     } else {
                                         BYG.LOGGER.error(String.format("Sapling: \"%s\" failed when attempting to spawn feature... \"%s\" is not a valid configured feature ID in this world's configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(this).toString(), resourceLocation, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));

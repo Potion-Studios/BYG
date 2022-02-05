@@ -26,7 +26,7 @@ public class BYG {
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
     public static final int EXPERIMENTAL_WARNING_VERSION = 2;
-
+    public static final boolean LOG_SAPLING_GROWTHS = true;
     public static boolean isClient = false;
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;

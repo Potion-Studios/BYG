@@ -20,179 +20,332 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static potionstudios.byg.BYG.createLocation;
+
 public record SaplingPatterns(Map<ResourceLocation, List<Entry>> saplingPatterns) {
     public static final int MAX_PATTERN_SIZE = 5;
 
     public static final SaplingPatterns DEFAULT = new SaplingPatterns(Util.make(new HashMap<>(), map -> {
-        map.put(BYG.createLocation("araucaria_sapling"), List.of(
-                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(BYG.createLocation("araucaria_tree1"), 1).add(BYG.createLocation("araucaria_tree2"), 1).build())
+        map.put(createLocation("araucaria_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(createLocation("araucaria_tree1"), 1).add(createLocation("araucaria_tree2"), 1).build())
         ));
-        map.put(BYG.createLocation("aspen_sapling"), List.of(
-                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(BYG.createLocation("aspen_tree1"), 1).add(BYG.createLocation("aspen_tree2"), 1).add(BYG.createLocation("aspen_tree3"), 1).build())
+        map.put(createLocation("aspen_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(createLocation("aspen_tree1"), 1).add(createLocation("aspen_tree2"), 1).add(createLocation("aspen_tree3"), 1).build())
         ));
-        map.put(BYG.createLocation("baobab_sapling"), List.of(
+        map.put(createLocation("baobab_sapling"), List.of(
             new Entry(List.of(
                     "xxx",
                     "xxx",
-                    "xxx"), SimpleWeightedRandomList.<ResourceLocation>builder().add(BYG.createLocation("baobab_tree1"), 1).add(BYG.createLocation("baobab_tree2"), 1).build())
+                    "xxx"), SimpleWeightedRandomList.<ResourceLocation>builder().add(createLocation("baobab_tree1"), 1).add(createLocation("baobab_tree2"), 1).build())
         ));
-        map.put(BYG.createLocation("blue_enchanted_sapling"), List.of(
-                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(BYG.createLocation("blue_enchanted_tree1"), 1).add(BYG.createLocation("blue_enchanted_tree2"), 1).build())
+        map.put(createLocation("blue_enchanted_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder().add(createLocation("blue_enchanted_tree1"), 1).add(createLocation("blue_enchanted_tree2"), 1).build())
         ));
-        map.put(BYG.createLocation("blue_spruce_sapling"), List.of(
+        map.put(createLocation("blue_spruce_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("spruce_blue_tree1"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree2"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree3"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree4"), 1)
+                        .add(createLocation("spruce_blue_tree1"), 1)
+                        .add(createLocation("spruce_blue_tree2"), 1)
+                        .add(createLocation("spruce_blue_tree3"), 1)
+                        .add(createLocation("spruce_blue_tree4"), 1)
                         .build()),
                 new Entry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("spruce_blue_tree_medium1"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree_medium2"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree_medium3"), 1)
-                        .add(BYG.createLocation("spruce_blue_tree_medium4"), 1)
+                        .add(createLocation("spruce_blue_tree_medium1"), 1)
+                        .add(createLocation("spruce_blue_tree_medium2"), 1)
+                        .add(createLocation("spruce_blue_tree_medium3"), 1)
+                        .add(createLocation("spruce_blue_tree_medium4"), 1)
                         .build()),
                 new Entry(List.of(
                         "xxx",
                         "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(BYG.createLocation("spruce_blue_tree_large1")))
+                        "xxx"), SimpleWeightedRandomList.single(createLocation("spruce_blue_tree_large1")))
         ));
-        map.put(BYG.createLocation("brown_birch_sapling"), List.of(
+        map.put(createLocation("brown_birch_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("brown_birch_tree1"), 1)
-                        .add(BYG.createLocation("brown_birch_tree2"), 1)
-                        .add(BYG.createLocation("brown_birch_tree3"), 1)
-                        .add(BYG.createLocation("brown_birch_tree4"), 1)
+                        .add(createLocation("brown_birch_tree1"), 1)
+                        .add(createLocation("brown_birch_tree2"), 1)
+                        .add(createLocation("brown_birch_tree3"), 1)
+                        .add(createLocation("brown_birch_tree4"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("brown_oak_sapling"), List.of(
+        map.put(createLocation("brown_oak_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("deciduous_brown_tree1"), 1)
-                        .add(BYG.createLocation("deciduous_brown_tree2"), 1)
-                        .add(BYG.createLocation("deciduous_brown_tree3"), 1)
-                        .add(BYG.createLocation("deciduous_brown_tree4"), 1)
-                        .add(BYG.createLocation("brown_oak_tree1"), 1)
-                        .add(BYG.createLocation("brown_oak_tree2"), 1)
-                        .add(BYG.createLocation("brown_oak_tree3"), 1)
+                        .add(createLocation("deciduous_brown_tree1"), 1)
+                        .add(createLocation("deciduous_brown_tree2"), 1)
+                        .add(createLocation("deciduous_brown_tree3"), 1)
+                        .add(createLocation("deciduous_brown_tree4"), 1)
+                        .add(createLocation("brown_oak_tree1"), 1)
+                        .add(createLocation("brown_oak_tree2"), 1)
+                        .add(createLocation("brown_oak_tree3"), 1)
                         .build()),
                 new Entry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("large_brown_oak_tree1"), 1)
-                        .add(BYG.createLocation("large_brown_oak_tree2"), 1)
-                        .add(BYG.createLocation("large_brown_oak_tree3"), 1)
+                        .add(createLocation("large_brown_oak_tree1"), 1)
+                        .add(createLocation("large_brown_oak_tree2"), 1)
+                        .add(createLocation("large_brown_oak_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("brown_zelkova_sapling"), List.of(
+        map.put(createLocation("brown_zelkova_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("zelkova_brown_tree1"), 1)
-                        .add(BYG.createLocation("zelkova_brown_tree2"), 1)
-                        .add(BYG.createLocation("zelkova_brown_tree3"), 1)
+                        .add(createLocation("zelkova_brown_tree1"), 1)
+                        .add(createLocation("zelkova_brown_tree2"), 1)
+                        .add(createLocation("zelkova_brown_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("cika_sapling"), List.of(
+        map.put(createLocation("cika_sapling"), List.of(
                 new Entry(List.of(
                         " x ",
                         "xxx",
                         " x "), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("cika_tree1"), 1)
-                        .add(BYG.createLocation("cika_tree2"), 1)
-                        .add(BYG.createLocation("cika_tree3"), 1)
+                        .add(createLocation("cika_tree1"), 1)
+                        .add(createLocation("cika_tree2"), 1)
+                        .add(createLocation("cika_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("cypress_sapling"), List.of(
+        map.put(createLocation("cypress_sapling"), List.of(
                 new Entry(List.of(
                         "  x  ",
                         "  x  ",
                         "xxxxx",
                         "  x  ",
                         "  x  "), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("cypress_tree1"), 1)
-                        .add(BYG.createLocation("cypress_tree2"), 1)
-                        .add(BYG.createLocation("cypress_tree3"), 1)
+                        .add(createLocation("cypress_tree1"), 1)
+                        .add(createLocation("cypress_tree2"), 1)
+                        .add(createLocation("cypress_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("ebony_sapling"), List.of(
+        map.put(createLocation("ebony_sapling"), List.of(
                 new Entry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("ebony_bush1"), 1)
-                        .add(BYG.createLocation("ebony_tree1"), 1)
-                        .add(BYG.createLocation("ebony_tree2"), 1)
+                        .add(createLocation("ebony_bush1"), 1)
+                        .add(createLocation("ebony_tree1"), 1)
+                        .add(createLocation("ebony_tree2"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("fir_sapling"), List.of(
+        map.put(createLocation("fir_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("conifer_tree1"), 1)
-                        .add(BYG.createLocation("conifer_tree2"), 1)
-                        .add(BYG.createLocation("conifer_tree3"), 1)
-                        .add(BYG.createLocation("conifer_tree4"), 1)
-                        .add(BYG.createLocation("conifer_tree5"), 1)
-                        .add(BYG.createLocation("conifer_tree6"), 1)
-                        .add(BYG.createLocation("conifer_tree7"), 1)
+                        .add(createLocation("conifer_tree1"), 1)
+                        .add(createLocation("conifer_tree2"), 1)
+                        .add(createLocation("conifer_tree3"), 1)
+                        .add(createLocation("conifer_tree4"), 1)
+                        .add(createLocation("conifer_tree5"), 1)
+                        .add(createLocation("conifer_tree6"), 1)
+                        .add(createLocation("conifer_tree7"), 1)
                         .build()),
                 new Entry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("conifer_tree8"), 1)
+                        .add(createLocation("conifer_tree8"), 1)
                         .build())
 
         ));
-        map.put(BYG.createLocation("green_enchanted_sapling"), List.of(
+        map.put(createLocation("green_enchanted_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("green_enchanted_tree1"), 1)
-                        .add(BYG.createLocation("green_enchanted_tree2"), 1)
-                        .add(BYG.createLocation("green_enchanted_tree3"), 1)
+                        .add(createLocation("green_enchanted_tree1"), 1)
+                        .add(createLocation("green_enchanted_tree2"), 1)
+                        .add(createLocation("green_enchanted_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("holly_sapling"), List.of(
+        map.put(createLocation("holly_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("holly_tree1"), 1)
-                        .add(BYG.createLocation("holly_tree2"), 1)
-                        .add(BYG.createLocation("holly_tree4"), 1)
+                        .add(createLocation("holly_tree1"), 1)
+                        .add(createLocation("holly_tree2"), 1)
+                        .add(createLocation("holly_tree4"), 1)
                         .build()),
                 new Entry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("holly_tree3"), 1)
+                        .add(createLocation("holly_tree3"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("jacaranda_sapling"), List.of(
+        map.put(createLocation("jacaranda_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("jacaranda_tree1"), 1)
-                        .add(BYG.createLocation("jacaranda_tree2"), 1)
+                        .add(createLocation("jacaranda_tree1"), 1)
+                        .add(createLocation("jacaranda_tree2"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("indigo_jacaranda_sapling"), List.of(
+        map.put(createLocation("indigo_jacaranda_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("indigo_jacaranda_tree1"), 1)
-                        .add(BYG.createLocation("indigo_jacaranda_tree2"), 1)
+                        .add(createLocation("indigo_jacaranda_tree1"), 1)
+                        .add(createLocation("indigo_jacaranda_tree2"), 1)
                         .build())
         ));
-
-        map.put(BYG.createLocation("joshua_sapling"), List.of(
+        map.put(createLocation("joshua_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("joshua_tree1"), 1)
-                        .add(BYG.createLocation("joshua_tree2"), 1)
+                        .add(createLocation("joshua_tree1"), 1)
+                        .add(createLocation("joshua_tree2"), 1)
                         .build())
         ));
-        map.put(BYG.createLocation("mahogany_sapling"), List.of(
+        map.put(createLocation("mahogany_sapling"), List.of(
                 new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("mahogany_tree1"), 1)
-                        .add(BYG.createLocation("mahogany_tree2"), 1)
-                        .add(BYG.createLocation("mahogany_tree3"), 1)
-                        .add(BYG.createLocation("mahogany_tree4"), 1)
+                        .add(createLocation("mahogany_tree1"), 1)
+                        .add(createLocation("mahogany_tree2"), 1)
+                        .add(createLocation("mahogany_tree3"), 1)
+                        .add(createLocation("mahogany_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("maple_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("maple_tree1")))
+        ));
+        map.put(createLocation("orange_birch_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("orange_birch_tree1"), 1)
+                        .add(createLocation("orange_birch_tree2"), 1)
+                        .add(createLocation("orange_birch_tree3"), 1)
+                        .add(createLocation("orange_birch_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("orange_oak_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("deciduous_orange_tree1"), 1)
+                        .add(createLocation("deciduous_orange_tree2"), 1)
+                        .add(createLocation("deciduous_orange_tree3"), 1)
+                        .add(createLocation("deciduous_orange_tree4"), 1)
+                        .add(createLocation("orange_oak_tree1"), 1)
+                        .add(createLocation("orange_oak_tree2"), 1)
+                        .add(createLocation("orange_oak_tree3"), 1)
                         .build()),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("large_orange_oak_tree1"), 1)
+                        .add(createLocation("large_orange_oak_tree2"), 1)
+                        .add(createLocation("large_orange_oak_tree3"), 1)
+                        .build())
+        ));
+        map.put(createLocation("orange_spruce_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_orange_tree1"), 1)
+                        .add(createLocation("spruce_orange_tree2"), 1)
+                        .add(createLocation("spruce_orange_tree3"), 1)
+                        .add(createLocation("spruce_orange_tree4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_orange_tree_medium1"), 1)
+                        .add(createLocation("spruce_orange_tree_medium2"), 1)
+                        .add(createLocation("spruce_orange_tree_medium3"), 1)
+                        .add(createLocation("spruce_orange_tree_medium4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.single(createLocation("spruce_orange_tree_large1")))
+        ));
+        map.put(createLocation("orchard_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("orchard_tree1"), 1)
+                        .add(createLocation("orchard_tree3"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.single(createLocation("orchard_tree2")))
+        ));
+        map.put(createLocation("palo_verde_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("palo_verde_tree1"), 1)
+                        .add(createLocation("palo_verde_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("palo_verde_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("palo_verde_tree1"), 1)
+                        .add(createLocation("palo_verde_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("pine_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("pine_tree1"), 1)
+                        .add(createLocation("pine_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("pink_cherry_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("pink_cherry_tree2"))),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("pink_cherry_tree1")))
+        ));
+        map.put(createLocation("rainbow_eucalyptus_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("rainbow_eucalyptus_tree1"))),
+                new Entry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("large_rainbow_eucalyptus_tree1")))
+        ));
+        map.put(createLocation("red_birch_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("red_birch_tree1"), 1)
+                        .add(createLocation("red_birch_tree2"), 1)
+                        .add(createLocation("red_birch_tree3"), 1)
+                        .add(createLocation("red_birch_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("red_maple_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("red_maple_tree1"), 1)
+                        .add(createLocation("red_maple_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("red_oak_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("deciduous_red_tree1"), 1)
+                        .add(createLocation("deciduous_red_tree2"), 1)
+                        .add(createLocation("deciduous_red_tree3"), 1)
+                        .add(createLocation("deciduous_red_tree4"), 1)
+                        .add(createLocation("red_oak_tree1"), 1)
+                        .add(createLocation("red_oak_tree2"), 1)
+                        .add(createLocation("red_oak_tree3"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("large_red_oak_tree1"), 1)
+                        .add(createLocation("large_red_oak_tree2"), 1)
+                        .add(createLocation("large_red_oak_tree3"), 1)
+                        .build())
+        ));
+        map.put(createLocation("red_spruce_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_red_tree1"), 1)
+                        .add(createLocation("spruce_red_tree2"), 1)
+                        .add(createLocation("spruce_red_tree3"), 1)
+                        .add(createLocation("spruce_red_tree4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_red_tree_medium1"), 1)
+                        .add(createLocation("spruce_red_tree_medium2"), 1)
+                        .add(createLocation("spruce_red_tree_medium3"), 1)
+                        .add(createLocation("spruce_red_tree_medium4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.single(createLocation("spruce_red_tree_large1")))
+        ));
+        map.put(createLocation("redwood_sapling"), List.of(
+                new Entry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.single(createLocation("redwood_tree3"))),
+                new Entry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"
+                ), SimpleWeightedRandomList.single(createLocation("redwood_tree1"))),
                 new Entry(List.of(
                         "  x  ",
-                        "     ",
-                        "x   x",
-                        "     ",
-                        "  x  "), SimpleWeightedRandomList.<ResourceLocation>builder()
-                        .add(BYG.createLocation("mahogany_tree5"), 1)
-                        .build())
+                        " xxx ",
+                        "xxxxx",
+                        " xxx ",
+                        "  x  "
+                ), SimpleWeightedRandomList.single(createLocation("redwood_tree2")))
         ));
     }));
 
