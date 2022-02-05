@@ -11,9 +11,9 @@ import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTr
 import java.util.Random;
 import java.util.Set;
 
-public class DeadHazel1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
+public class HazelTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
-    public DeadHazel1(Codec<BYGTreeConfig> configIn) {
+    public HazelTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
     }
 

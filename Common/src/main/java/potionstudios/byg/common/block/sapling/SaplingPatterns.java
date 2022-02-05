@@ -347,6 +347,132 @@ public record SaplingPatterns(Map<ResourceLocation, List<Entry>> saplingPatterns
                         "  x  "
                 ), SimpleWeightedRandomList.single(createLocation("redwood_tree2")))
         ));
+        map.put(createLocation("silver_maple_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("silver_maple_tree1"), 1)
+                        .add(createLocation("silver_maple_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("skyris_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("skyris_tree1"), 1)
+                        .add(createLocation("skyris_tree2"), 1)
+                        .add(createLocation("skyris_tree3"), 1)
+                        .add(createLocation("skyris_tree4"), 1)
+                        .add(createLocation("skyris_tree5"), 1)
+                        .build())
+        ));
+        map.put(createLocation("white_cherry_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("white_cherry_tree2"))),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>single(createLocation("white_cherry_tree1")))
+        ));
+        map.put(createLocation("willow_sapling"), List.of(
+                new Entry(List.of(
+                        "  x  ",
+                        "     ",
+                        "x   x",
+                        "     ",
+                        "  x  "), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("willow_tree1"), 1)
+                        .add(createLocation("willow_tree2"), 1)
+                        .add(createLocation("willow_tree3"), 1)
+                        .add(createLocation("willow_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("witch_hazel_sapling"), List.of(
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("hazel_tree1"), 4)
+                        .add(createLocation("hazel_tree2"), 4)
+                        .add(createLocation("dead_hazel_tree1"), 1)
+                        .add(createLocation("dead_hazel_tree2"), 1)
+                        .build())
+        ));
+        map.put(createLocation("yellow_birch_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("yellow_birch_tree1"), 1)
+                        .add(createLocation("yellow_birch_tree2"), 1)
+                        .add(createLocation("yellow_birch_tree3"), 1)
+                        .add(createLocation("yellow_birch_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("yellow_spruce_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_yellow_tree1"), 1)
+                        .add(createLocation("spruce_yellow_tree2"), 1)
+                        .add(createLocation("spruce_yellow_tree3"), 1)
+                        .add(createLocation("spruce_yellow_tree4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xx",
+                        "xx"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("spruce_yellow_tree_medium1"), 1)
+                        .add(createLocation("spruce_yellow_tree_medium2"), 1)
+                        .add(createLocation("spruce_yellow_tree_medium3"), 1)
+                        .add(createLocation("spruce_yellow_tree_medium4"), 1)
+                        .build()),
+                new Entry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.single(createLocation("spruce_yellow_tree_large1")))
+        ));
+        map.put(createLocation("zelkova_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("zelkova_tree1"), 1)
+                        .add(createLocation("zelkova_tree2"), 1)
+                        .add(createLocation("zelkova_tree3"), 1)
+                        .add(createLocation("zelkova_brown_tree1"), 1)
+                        .add(createLocation("zelkova_brown_tree2"), 1)
+                        .add(createLocation("zelkova_brown_tree3"), 1)
+                        .build())
+        ));
+        map.put(createLocation("palm_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("palm_tree1"), 1)
+                        .add(createLocation("palm_tree2"), 1)
+                        .add(createLocation("palm_tree3"), 1)
+                        .add(createLocation("palm_tree4"), 1)
+                        .build())
+        ));
+        map.put(createLocation("lament_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("lament_twisty_tree1"), 1)
+                        .add(createLocation("lament_twisty_tree2"), 1)
+                        .add(createLocation("lament_twisty_tree3"), 1)
+                        .add(createLocation("lament_weeping_tree1"), 1)
+                        .add(createLocation("lament_weeping_tree2"), 1)
+                        .add(createLocation("lament_weeping_tree3"), 1)
+                        .build())
+        ));
+        map.put(createLocation("withering_oak_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("withering_oak_tree1"), 1)
+                        .add(createLocation("withering_oak_tree2"), 1)
+                        .add(createLocation("withering_oak_tree3"), 1)
+                        .add(createLocation("withering_oak_tree4"), 1)
+                        .add(createLocation("withering_oak_tree5"), 1)
+                        .build())
+        ));
+        map.put(createLocation("ether_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("ether_tree1"), 1)
+                        .add(createLocation("ether_tree2"), 1)
+                        .add(createLocation("ether_tree3"), 1)
+                        .add(createLocation("ether_tree4"), 1)
+                        .add(createLocation("ether_tree5"), 1)
+                        .build())
+        ));
+        map.put(createLocation("nightshade_sapling"), List.of(
+                new Entry(List.of("x"), SimpleWeightedRandomList.<ResourceLocation>builder()
+                        .add(createLocation("nightshade_tree1"), 1)
+                        .add(createLocation("nightshade_tree2"), 1)
+                        .add(createLocation("nightshade_tree3"), 1)
+                        .add(createLocation("nightshade_tree4"), 1)
+                        .build())
+        ));
     }));
 
     public static SaplingPatterns INSTANCE = null;

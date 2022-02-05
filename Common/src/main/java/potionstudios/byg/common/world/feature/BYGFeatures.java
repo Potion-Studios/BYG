@@ -78,10 +78,10 @@ import potionstudios.byg.common.world.feature.overworld.trees.coniferous.*;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree3;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel1;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel2;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel3;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel4;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree1;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree2;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree1;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree3;
@@ -415,10 +415,10 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> CYPRESS_TREE3 = createFeature("cypress_tree3", new CypressTree3(BYGTreeConfig.CODEC.stable()));
 
     //Dead Hazel
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE1 = createFeature("dead_hazel_tree1", new DeadHazel1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE2 = createFeature("dead_hazel_tree2", new DeadHazel2(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE3 = createFeature("dead_hazel_tree3", new DeadHazel3(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE4 = createFeature("dead_hazel_tree4", new DeadHazel4(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> HAZEL_TREE1 = createFeature("hazel_tree1", new HazelTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> HAZEL_TREE2 = createFeature("hazel_tree2", new HazelTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE1 = createFeature("dead_hazel_tree1", new DeadHazelTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE2 = createFeature("dead_hazel_tree2", new DeadHazelTree2(BYGTreeConfig.CODEC.stable()));
 
     //Deciduous
     public static final BYGAbstractTreeFeature<BYGTreeConfig> DECIDUOUS_TREE1 = createFeature("deciduous_tree1", new DeciduousTree1(BYGTreeConfig.CODEC.stable()));
