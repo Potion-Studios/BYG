@@ -134,7 +134,8 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                     SaplingPatterns.FeatureSpawner featureSpawner = randomValue.get();
                                     ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
                                     if (configuredFeature != null) {
-                                        if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, mutableBlockPos1.offset(featureSpawner.spawnOffset()))) {
+                                        BlockPos growthPos = mutableBlockPos1.offset(featureSpawner.spawnOffset());
+                                        if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, growthPos)) {
                                             // Clear saplings
                                             for (BlockPos offset : offsets) {
                                                 BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
@@ -143,8 +144,8 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                                                     world.removeBlock(movedPos, false);
                                                 }
                                             }
-                                            if (BYG.LOG_SAPLING_GROWTHS) {
-                                                BYG.LOGGER.info(String.format("Sapling grew: %s", featureSpawner.toString()));
+                                            if (SaplingPatterns.getConfig().logSaplingGrowth()) {
+                                                BYG.LOGGER.info(String.format("Sapling \"%s\" grew configured feature \"%s\" at position %s.", Registry.BLOCK.getKey(this).toString(), featureSpawner.toString(), growthPos));
                                             }
                                         }
                                     } else {

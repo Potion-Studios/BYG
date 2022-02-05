@@ -24,10 +24,10 @@ import java.util.Objects;
 
 import static potionstudios.byg.BYG.createLocation;
 
-public record SaplingPatterns(Map<ResourceLocation, List<PatternEntry>> saplingPatterns) {
+public record SaplingPatterns(boolean logSaplingGrowth, Map<ResourceLocation, List<PatternEntry>> saplingPatterns) {
     public static final int MAX_PATTERN_SIZE = 5;
 
-    public static final SaplingPatterns DEFAULT = new SaplingPatterns(Util.make(new HashMap<>(), map -> {
+    public static final SaplingPatterns DEFAULT = new SaplingPatterns(false, Util.make(new HashMap<>(), map -> {
         map.put(createLocation("araucaria_sapling"), List.of(
                 new PatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("araucaria_tree1")), 1).add(new FeatureSpawner(createLocation("araucaria_tree2")), 1).build())
         ));
@@ -481,6 +481,7 @@ public record SaplingPatterns(Map<ResourceLocation, List<PatternEntry>> saplingP
 
     public static final Codec<SaplingPatterns> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
+                Codec.BOOL.optionalFieldOf("logSaplingGrowth", false).forGetter(saplingPatterns -> saplingPatterns.logSaplingGrowth),
                 Codec.unboundedMap(ResourceLocation.CODEC, PatternEntry.CODEC.listOf()).fieldOf("sapling_patterns").forGetter(saplingPatterns -> saplingPatterns.saplingPatterns)
         ).apply(builder, SaplingPatterns::new);
     });
