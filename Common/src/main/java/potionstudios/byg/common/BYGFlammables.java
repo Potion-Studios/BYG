@@ -277,6 +277,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.AMARANTH, 60, 100);
         flammableBlock(BYGBlocks.ANGELICA, 60, 100);
         flammableBlock(BYGBlocks.HYDRANGEA_BUSH, 60, 100);
+        flammableBlock(BYGBlocks.HYDRANGEA_HEDGE, 60, 100);
         flammableBlock(BYGBlocks.BEGONIA, 60, 100);
         flammableBlock(BYGBlocks.BISTORT, 60, 100);
         flammableBlock(BYGBlocks.BLACK_ROSE, 60, 100);

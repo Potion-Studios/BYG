@@ -43,6 +43,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature TULIPS = createPlacedFeature("tulips", BYGConfiguredFeatures.TULIPS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature WHITE_PUFFBALL = createPlacedFeature("white_puffball", BYGConfiguredFeatures.WHITE_PUFFBALL.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature SAGES = createPlacedFeature("sages", BYGConfiguredFeatures.SAGES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature HYDRANGEAS = createPlacedFeature("hydrangeas", BYGConfiguredFeatures.HYDRANGEAS.placed(worldSurfaceSquaredWithCount(2)));
+
     public static final PlacedFeature WINTER_SUCCULENT = createPlacedFeature("winter_succulent", BYGConfiguredFeatures.WINTER_SUCCULENT.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGConfiguredFeatures.DAFFODIL_YELLOW.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature JUNGLE_FLOWERS = createPlacedFeature("jungle_flowers", BYGConfiguredFeatures.JUNGLE_FLOWERS.placed(worldSurfaceSquaredWithCount(2)));

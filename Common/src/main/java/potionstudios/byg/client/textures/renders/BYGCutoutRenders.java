@@ -256,6 +256,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.AMARANTH, RenderType.cutoutMipped());
         map.put(BYGBlocks.ANGELICA, RenderType.cutoutMipped());
         map.put(BYGBlocks.HYDRANGEA_BUSH, RenderType.cutoutMipped());
+        map.put(BYGBlocks.HYDRANGEA_HEDGE, RenderType.cutoutMipped());
         map.put(BYGBlocks.BEGONIA, RenderType.cutoutMipped());
         map.put(BYGBlocks.BISTORT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CALIFORNIA_POPPY, RenderType.cutoutMipped());

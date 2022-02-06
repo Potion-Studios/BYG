@@ -1169,6 +1169,7 @@ public class BYGItems {
     public static final Item AMARANTH = createItem(BYGBlocks.AMARANTH);
     public static final Item ANGELICA = createItem(BYGBlocks.ANGELICA);
     public static final Item HYDRANGEA_BUSH = createItem(BYGBlocks.HYDRANGEA_BUSH);
+    public static final Item HYDRANGEA_HEDGE = createItem(BYGBlocks.HYDRANGEA_HEDGE);
     public static final Item BEGONIA = createItem(BYGBlocks.BEGONIA);
     public static final Item BISTORT = createItem(BYGBlocks.BISTORT);
     public static final Item BLACK_ROSE = createItem(BYGBlocks.BLACK_ROSE);

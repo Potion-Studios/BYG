@@ -1087,7 +1087,8 @@ public class BYGBlocks {
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
-    public static final Block HYDRANGEA_BUSH = createFlower("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
+    public static final Block HYDRANGEA_BUSH = createHydrangeaBush("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
+    public static final Block HYDRANGEA_HEDGE = createHydrangeaHedge("hydrangea_hedge", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
     public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_BROWN, null, "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, null, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, MaterialColor.COLOR_GREEN, null, "overgrown_stone");
@@ -1591,6 +1592,17 @@ public class BYGBlocks {
         Block createBlock = new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
         createPottedBlock(createBlock, id);
         return createBlock;
+    }
+
+    static Block createHydrangeaBush(String id, Tag.Named<Block> groundTag) {
+        Block createBlock = new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag);
+        createPottedBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createHydrangeaHedge(String id, Tag.Named<Block> groundTag) {
+        Block createBlock = new HydrangeaHedgeBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.AZALEA).instabreak().noOcclusion(), groundTag);
+        return createBlock(createBlock,id);
     }
 
     static Block createFlower(String id, Tag.Named<Block> groundTag) {

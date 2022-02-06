@@ -118,6 +118,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.AMARANTH);
         compostibleBlocks(0.65f, BYGItems.ANGELICA);
         compostibleBlocks(0.85f, BYGItems.HYDRANGEA_BUSH);
+        compostibleBlocks(0.85f, BYGItems.HYDRANGEA_HEDGE);
         compostibleBlocks(0.65f, BYGItems.BEGONIA);
         compostibleBlocks(0.65f, BYGItems.BISTORT);
         compostibleBlocks(0.65f, BYGItems.BLACK_ROSE);

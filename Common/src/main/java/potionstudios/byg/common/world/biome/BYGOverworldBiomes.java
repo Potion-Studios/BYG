@@ -395,7 +395,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addScarceSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseAspenTrees(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
-        BYGDefaultBiomeFeatures.addSages(generationSettings);
+        BYGDefaultBiomeFeatures.addHydrangeas(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
