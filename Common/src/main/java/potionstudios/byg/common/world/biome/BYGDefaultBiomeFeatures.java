@@ -276,7 +276,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addShrub(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BYG_SHRUB);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SHRUB);
     }
 
     public static void addMarshGrass(BiomeGenerationSettings.Builder gen) {
