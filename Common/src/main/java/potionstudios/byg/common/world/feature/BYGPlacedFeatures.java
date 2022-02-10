@@ -31,6 +31,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CLOVER_FLOWERS = createPlacedFeature("clover_flower_patch", BYGConfiguredFeatures.CLOVER_PATCH.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CROCUS = createPlacedFeature("crocus", BYGConfiguredFeatures.CROCUS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ANEMONES = createPlacedFeature("anemones", BYGConfiguredFeatures.ANEMONES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature ALPINE_BELLFLOWER = createPlacedFeature("alpine_bellflower", BYGConfiguredFeatures.ALPINE_BELLFLOWER.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ROSES = createPlacedFeature("rose", BYGConfiguredFeatures.ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature BLACK_ROSE = createPlacedFeature("black_rose", BYGConfiguredFeatures.BLACK_ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CYAN_ROSE = createPlacedFeature("cyan_rose", BYGConfiguredFeatures.CYAN_ROSE.placed(worldSurfaceSquaredWithCount(2)));

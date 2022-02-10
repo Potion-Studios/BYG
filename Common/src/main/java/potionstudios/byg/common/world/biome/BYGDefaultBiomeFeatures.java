@@ -183,7 +183,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addAlpineBellflower(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ALPINE_BELLFLOWERS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ALPINE_BELLFLOWER);
     }
 
     public static void addWinterScilla(BiomeGenerationSettings.Builder gen) {

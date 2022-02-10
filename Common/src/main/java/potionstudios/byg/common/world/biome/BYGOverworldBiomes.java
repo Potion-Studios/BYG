@@ -857,9 +857,6 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
-
-
-
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
@@ -1058,70 +1055,34 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.TAIGA).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5406551).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome marshlands() {
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
-        
-        
-        BiomeDefaultFeatures.addDefaultOres(generationSettings);
-        BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
-        
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
-        BiomeDefaultFeatures.addFossilDecoration(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addWiltedGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addWiltedGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        
-
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
-        spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 95, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CREEPER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1, 1));
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.SWAMP).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6388580).waterFogColor(2302743).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-    }
-
-    public static Biome coconinoMeadow(boolean flowering, boolean wooded) {
+    public static Biome cocominoMeadow(boolean flowering, boolean wooded) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         if (wooded) {
             BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
             spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
         }
-        BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        
-        
+
+        BiomeDefaultFeatures.addForestFlowers(generationSettings);
+        BiomeDefaultFeatures.addPlainGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addShrub(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
+        BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
+        BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
+
         BYGDefaultBiomeFeatures.addAlpineBellflower(generationSettings);
         if (flowering) {
             BYGDefaultBiomeFeatures.addTulips(generationSettings);
             BYGDefaultBiomeFeatures.addVanillaSunFlowers(generationSettings);
-            BiomeDefaultFeatures.addForestFlowers(generationSettings);
         }
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
         spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
