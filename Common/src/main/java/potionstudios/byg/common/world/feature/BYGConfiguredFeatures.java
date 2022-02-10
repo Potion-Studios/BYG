@@ -94,7 +94,7 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<GiantFlowerConfig, ?> GIANT_ROSE_FLOWER = createConfiguredFeature("giant_rose", BYGFeatures.GIANT_ROSE_FLOWER.configured(new GiantFlowerConfig.Builder().setStemBlock(BYGBlocks.PLANT_STEM).setPetalBlock(BYGBlocks.RED_PETAL).setMaxHeight(12).setMinHeight(6).build()));
 //
 //
-//    public static final ConfiguredFeature<?, ?> MINI_CACTI = createConfiguredFeature("mini_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.MINI_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(4).build()));
+    public static final ConfiguredFeature<?, ?> MINI_CACTI = createConfiguredFeature("mini_cacti", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.MINI_CACTUS))), List.of(), 4)));
     public static final ConfiguredFeature<?, ?> HORSEWEED = createConfiguredFeature("horseweed", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.HORSEWEED))), List.of(), 10)));
     public static final ConfiguredFeature<RandomPatchConfiguration, ?> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad", Feature.RANDOM_PATCH.configured(new RandomPatchConfiguration(10, 7, 3, () -> {
         return Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TINY_LILYPADS))).onlyWhenEmpty();
@@ -120,8 +120,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> JACARANDA_BUSH = createConfiguredFeature("jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.JACARANDA_BUSH))), List.of(), 32)));
 //
 //
-//    public static final ConfiguredFeature<?, ?> PRICKLY_PEAR_CACTI = createConfiguredFeature("prickly_pear_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PRICKLY_PEAR_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(5).build()));
-//    public static final ConfiguredFeature<?, ?> GOLDEN_SPINED_CACTI = createConfiguredFeature("golden_spined_cacti", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.GOLDEN_SPINED_CACTUS.defaultBlockState()), new SimpleBlockPlacer())).tries(5).build()));
+    public static final ConfiguredFeature<?, ?> PRICKLY_PEAR_CACTI = createConfiguredFeature("prickly_pear_cacti", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.PRICKLY_PEAR_CACTUS))), List.of(), 5)));
+    public static final ConfiguredFeature<?, ?> GOLDEN_SPINED_CACTI = createConfiguredFeature("golden_spined_cacti", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.GOLDEN_SPINED_CACTUS))), List.of(), 5)));
 //
     public static final ConfiguredFeature<?, ?> PINK_CHERRY_FOLIAGE = createConfiguredFeature("pink_cherry_foliage", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.PINK_CHERRY_FOLIAGE))), List.of(), 15)));
     public static final ConfiguredFeature<?, ?> WHITE_CHERRY_FOLIAGE = createConfiguredFeature("white_cherry_foliage", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WHITE_CHERRY_FOLIAGE))), List.of(), 15)));
@@ -374,11 +374,11 @@ public class BYGConfiguredFeatures {
 //            ROSE.weighted(0.25F)),
 //            ROSE_BUSH)).decorated(Features.Decorators.FIRE).count(60));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_DESERT_PLANTS = createConfiguredFeature("desert_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            MINI_CACTI.weighted(0.3F),
-//            PRICKLY_PEAR_CACTI.weighted(0.3F),
-//            GOLDEN_SPINED_CACTI.weighted(0.3F)),
-//            FIRECRACKER_BUSH)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+    public static final ConfiguredFeature<?, ?> DESERT_VEGETATION = createConfiguredFeature("desert_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(MINI_CACTI.placed(), 0.3F),
+            new WeightedPlacedFeature(PRICKLY_PEAR_CACTI.placed(), 0.3F),
+            new WeightedPlacedFeature(GOLDEN_SPINED_CACTI.placed(), 0.3F)),
+            FIRECRACKER_BUSH.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_LUNA_BOULDERS = createConfiguredFeature("luna_boulders", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            RED_ROCK_BOULDER.weighted(0.5F)),
@@ -1404,10 +1404,9 @@ public class BYGConfiguredFeatures {
 //            PALO_VERDE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.5F, -1))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_JOSHUA_TREE = createConfiguredFeature("joshua_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            JOSHUA_TREE1.weighted(0.5F)),
-//            JOSHUA_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.2F, 2))));
+    public static final ConfiguredFeature<?, ?> JOSHUA_TREES = createConfiguredFeature("joshua_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(JOSHUA_TREE1.placed(), 0.5F)),
+            JOSHUA_TREE2.placed())));
 //
     public static final ConfiguredFeature<?, ?> PRAIRIE_SHRUBS = createConfiguredFeature("prairie_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(SHRUB_PRAIRIE1.placed(), 0.5F)),

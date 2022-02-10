@@ -26,6 +26,7 @@
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
     "access.StaticTagHelperWrapperAccess",
+    "access.SurfaceRuleContextAccess",
     "access.SurfaceRuleDataAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",
@@ -49,8 +50,10 @@
     "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
     "common.lightengine.WorldLightManagerMixin",
+    "common.world.MixinChunkAccess",
     "common.world.MixinOreFeatures",
     "common.world.MixinServerLevel",
+    "common.world.MixinSurfaceSystem",
     "common.world.carver.MixinWorldCarver",
     "common.world.feature.MixinBasaltColumnFeature",
     "server.MixinMinecraftServer"

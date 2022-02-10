@@ -697,7 +697,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGDesertPlants(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
 //        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WINDSWEPT_ARCH);
         BYGDefaultBiomeFeatures.addWindsweptBoulders(generationSettings);
         BYGDefaultBiomeFeatures.addPalmTree(generationSettings);
@@ -1103,8 +1103,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        
-        
+
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
@@ -1112,17 +1111,13 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDesertVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDesertExtraVegetation(generationSettings);
-        
         BiomeDefaultFeatures.addDesertExtraDecoration(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addMiniCactus(generationSettings);
+
         BYGDefaultBiomeFeatures.addJoshuaTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGDesertPlants(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
-        BiomeDefaultFeatures.addDesertExtraVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BiomeDefaultFeatures.addBadlandGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBushes(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 100, 4, 4));
@@ -1323,7 +1318,7 @@ public class BYGOverworldBiomes {
         
         BiomeDefaultFeatures.addDesertExtraDecoration(generationSettings);
         
-        BYGDefaultBiomeFeatures.addMiniCactus(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
         if (lush) {
             BYGDefaultBiomeFeatures.addPaloVerdeTrees(generationSettings);
         }

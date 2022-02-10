@@ -41,8 +41,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WINDSWEPT_BOULDER);
     }
 
-    public static void addBYGDesertPlants(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
+    public static void addBYGDesertVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DESERT_VEGETATION);
     }
 
     public static void addFirecracker(BiomeGenerationSettings.Builder gen) {
@@ -310,10 +310,6 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addBYGTropicFlowers(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JUNGLE_FLOWERS);
-    }
-
-    public static void addMiniCactus(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DESERT_PLANTS);
     }
 
     public static void addRockyStoneBoulder(BiomeGenerationSettings.Builder gen) {
@@ -811,7 +807,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addJoshuaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_JOSHUA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.JOSHUA_TREES);
     }
 
     //TODO: Random Selector Mojave Shrubs
