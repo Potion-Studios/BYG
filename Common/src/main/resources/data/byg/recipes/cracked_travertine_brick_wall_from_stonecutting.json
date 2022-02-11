@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:cracked_travertine_bricks"
+  },
+  "result": "byg:cracked_travertine_brick_wall",
+  "count": 1
+}
