@@ -21,7 +21,6 @@ public abstract class TreeSpawner {
             return false;
         } else {
             worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            configuredTreeFeature.config.forcePlacement();
             if (configuredTreeFeature.place(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {

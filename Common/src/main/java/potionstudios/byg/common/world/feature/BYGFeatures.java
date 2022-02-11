@@ -52,7 +52,6 @@ import potionstudios.byg.common.world.feature.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.overworld.river.CanyonRiverWorldGenerator;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.ancient.AncientTree3;
@@ -79,10 +78,10 @@ import potionstudios.byg.common.world.feature.overworld.trees.coniferous.*;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree3;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel1;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel2;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel3;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazel4;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree1;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree2;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree1;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree3;
@@ -162,7 +161,6 @@ public class BYGFeatures {
 
     public static final Feature<NoneFeatureConfiguration> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
-    public static final Feature<NoneFeatureConfiguration> CANYON_RIVER = createFeature("oh_no", new CanyonRiverWorldGenerator(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> HUH = createFeature("river_feature", new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
@@ -417,10 +415,10 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> CYPRESS_TREE3 = createFeature("cypress_tree3", new CypressTree3(BYGTreeConfig.CODEC.stable()));
 
     //Dead Hazel
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE1 = createFeature("dead_hazel_tree1", new DeadHazel1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE2 = createFeature("dead_hazel_tree2", new DeadHazel2(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE3 = createFeature("dead_hazel_tree3", new DeadHazel3(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE4 = createFeature("dead_hazel_tree4", new DeadHazel4(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> HAZEL_TREE1 = createFeature("hazel_tree1", new HazelTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> HAZEL_TREE2 = createFeature("hazel_tree2", new HazelTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE1 = createFeature("dead_hazel_tree1", new DeadHazelTree1(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> DEAD_HAZEL_TREE2 = createFeature("dead_hazel_tree2", new DeadHazelTree2(BYGTreeConfig.CODEC.stable()));
 
     //Deciduous
     public static final BYGAbstractTreeFeature<BYGTreeConfig> DECIDUOUS_TREE1 = createFeature("deciduous_tree1", new DeciduousTree1(BYGTreeConfig.CODEC.stable()));
@@ -435,8 +433,8 @@ public class BYGFeatures {
 
     //Enchanted Trees
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE1 = createFeature("enchanted_tree1", new EnchantedTree1(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE2 = createFeature("enchanted_tree2", new EnchantedTree3(BYGTreeConfig.CODEC.stable()));
-    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE3 = createFeature("enchanted_tree3", new EnchantedTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE2 = createFeature("enchanted_tree2", new EnchantedTree2(BYGTreeConfig.CODEC.stable()));
+    public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_TREE3 = createFeature("enchanted_tree3", new EnchantedTree3(BYGTreeConfig.CODEC.stable()));
 
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ENCHANTED_GROVE_TREE1 = createFeature("enchanted_grove_tree1", new EnchantedGroveTree(BYGTreeConfig.CODEC.stable()));
 
@@ -556,7 +554,7 @@ public class BYGFeatures {
     public static final BYGAbstractTreeFeature<BYGTreeConfig> ZELKOVA_TREE3 = createFeature("zelkova_tree3", new ZelkovaTree3(BYGTreeConfig.CODEC.stable()));
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> F createFeature(String id, F feature) {
-        ResourceLocation bygID = new ResourceLocation(BYG.MOD_ID, id);
+        ResourceLocation bygID = BYG.createLocation(id);
         if (Registry.FEATURE.keySet().contains(bygID))
             throw new IllegalStateException("Feature ID: \"" + bygID.toString() + "\" already exists in the Features registry!");
 
@@ -566,6 +564,10 @@ public class BYGFeatures {
     
     public static void bootStrap(Consumer<Collection<RegistryObject<Feature<?>>>> registryStrategy) {
         registryStrategy.accept(FEATURES);
+    }
+
+    public static Collection<RegistryObject<Feature<?>>> bootStrap() {
+        return FEATURES;
     }
 }
 

@@ -13,12 +13,12 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
-import potionstudios.byg.mixin.access.ClientLevelAccess;
+import potionstudios.byg.mixin.access.client.ClientLevelAccess;
 
 import java.util.UUID;
 
 public class NetworkUtil {
-    public static ResourceLocation SPAWN_PACKET_ID = new ResourceLocation(BYG.MOD_ID, "custom_spawn_packet");
+    public static ResourceLocation SPAWN_PACKET_ID = BYG.createLocation("custom_spawn_packet");
 
     public static Packet<?> getEntitySpawnPacket(Entity e) {
         if (e == null) {

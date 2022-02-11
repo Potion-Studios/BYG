@@ -13,19 +13,23 @@ import java.util.function.Consumer;
 
 public class BYGMenuTypes {
 
-    public static final List<RegistryObject<MenuType<?>>> CONTAINER_TYPES = new ArrayList<>();
+    public static final List<RegistryObject<MenuType<?>>> MENU_TYPES = new ArrayList<>();
 
     public static final MenuType<HypogealImperiumContainer> HYPOGEAL_CONTAINER = register("hypogeal", HypogealImperiumContainer::new);
 
 
     private static <T extends AbstractContainerMenu> MenuType<T> register(String key, MenuType.MenuSupplier<T> builder) {
         MenuType<T> containerType = MenuTypeAccess.create(builder);
-        CONTAINER_TYPES.add(new RegistryObject<>(containerType, key));
+        MENU_TYPES.add(new RegistryObject<>(containerType, key));
         return containerType;
     }
 
 
     public static void bootStrap(Consumer<Collection<RegistryObject<MenuType<?>>>> registryStrategy) {
-        registryStrategy.accept(CONTAINER_TYPES);
+        registryStrategy.accept(MENU_TYPES);
+    }
+
+    public static Collection<RegistryObject<MenuType<?>>> bootStrap() {
+        return MENU_TYPES;
     }
 }

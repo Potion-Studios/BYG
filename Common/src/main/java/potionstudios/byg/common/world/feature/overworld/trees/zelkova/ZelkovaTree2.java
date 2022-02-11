@@ -52,7 +52,6 @@ public class ZelkovaTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
                     }
 
                     int logplacer = posY + buildTrunk;
-                    int logplacer2 = posY + randTreeHeight;
                     BlockPos blockpos1 = new BlockPos(posX1, logplacer, posZ1);
 
                     //Sets Logs

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "byg:block/cattail_thatch"
+    },
+    "axis=z": {
+      "model": "byg:block/cattail_thatch",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "byg:block/cattail_thatch",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

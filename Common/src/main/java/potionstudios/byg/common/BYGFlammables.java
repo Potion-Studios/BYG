@@ -276,7 +276,8 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.ALPINE_BELLFLOWER, 60, 100);
         flammableBlock(BYGBlocks.AMARANTH, 60, 100);
         flammableBlock(BYGBlocks.ANGELICA, 60, 100);
-        flammableBlock(BYGBlocks.AZALEA, 60, 100);
+        flammableBlock(BYGBlocks.HYDRANGEA_BUSH, 60, 100);
+        flammableBlock(BYGBlocks.HYDRANGEA_HEDGE, 60, 100);
         flammableBlock(BYGBlocks.BEGONIA, 60, 100);
         flammableBlock(BYGBlocks.BISTORT, 60, 100);
         flammableBlock(BYGBlocks.BLACK_ROSE, 60, 100);
@@ -333,7 +334,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.CLOVER_PATCH, 60, 100);
         flammableBlock(BYGBlocks.HORSEWEED, 60, 100);
         flammableBlock(BYGBlocks.WINTER_SUCCULENT, 60, 100);
-        flammableBlock(BYGBlocks.SHORT_GRASS, 60, 200);
         flammableBlock(BYGBlocks.POISON_IVY, 15, 100);
         flammableBlock(BYGBlocks.SHRUB, 15, 100);
         flammableBlock(BYGBlocks.JACARANDA_BUSH, 15, 100);

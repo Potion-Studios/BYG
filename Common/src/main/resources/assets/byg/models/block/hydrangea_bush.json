@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/hydrangea_bush",
+    "particle": "byg:block/hydrangea_bush"
+  }
+}

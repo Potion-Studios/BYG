@@ -22,12 +22,16 @@ public class BYGEntities {
 //    public static final EntityType<ManOWar> MAN_O_WAR = createEntity("man_o_war", EntityType.Builder.of(ManOWar::new, MobCategory.AMBIENT).sized(0.6F, 1.75F).build(BYG.MOD_ID + ":man_o_war"));
 
     public static <E extends Entity, ET extends EntityType<E>> ET createEntity(String id, ET entityType) {
-//        Registry.register(Registry.ENTITY_TYPE, new ResourceLocation(BYG.MOD_ID, id), entityType);
+//        Registry.register(Registry.ENTITY_TYPE, BYG.createLocation(id), entityType);
         ENTITIES.add(new RegistryObject<>(entityType, id));
         return entityType;
     }
 
     public static void bootStrap(Consumer<Collection<RegistryObject<EntityType<?>>>> registryStrategy) {
         registryStrategy.accept(ENTITIES);
+    }
+
+    public static Collection<RegistryObject<EntityType<?>>> bootStrap() {
+        return ENTITIES;
     }
 }

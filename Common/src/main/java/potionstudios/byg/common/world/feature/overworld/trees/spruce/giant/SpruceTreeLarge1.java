@@ -6,9 +6,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.common.world.feature.overworld.trees.util.SaplingData;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 import java.util.Set;
 
@@ -1458,9 +1456,4 @@ public class SpruceTreeLarge1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         return true;
     }
 
-    @Nullable
-    @Override
-    public SaplingData saplingData(BlockPos pos) {
-        return super.saplingData(pos);
-    }
 }

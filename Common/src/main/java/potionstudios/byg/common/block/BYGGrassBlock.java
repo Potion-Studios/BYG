@@ -69,7 +69,7 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
             BlockPos blockpos1 = mutable.below();
             BlockState blockstate1 = world.getBlockState(blockpos1);
             //TODO: 1.18
-//            BlockState blockstate = config.stateProvider.getState(random, mutable);
+//            BlockState blockstate = config.weightedRuleSource.getState(random, mutable);
 //
 //            if ((world.isEmptyBlock(mutable) || config.canReplace && world.getBlockState(mutable).getMaterial().isReplaceable()) && blockstate.canSurvive(world, mutable) && (config.whitelist.isEmpty() || config.whitelist.contains(blockstate1.getBlock())) && !config.blacklist.contains(blockstate1) && (!config.needWater || world.getFluidState(blockpos1.west()).is(FluidTags.WATER) || world.getFluidState(blockpos1.east()).is(FluidTags.WATER) || world.getFluidState(blockpos1.north()).is(FluidTags.WATER) || world.getFluidState(blockpos1.south()).is(FluidTags.WATER))) {
 //                config.blockPlacer.place(world, mutable, blockstate, random);

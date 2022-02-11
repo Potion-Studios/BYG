@@ -24,8 +24,6 @@ public class BYGPollenBlock extends Block {
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.BEE && entityIn.getType() != EntityType.BAT) {
             entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
-            double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
-            double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
         }
     }
 

@@ -5,8 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.overworld.trees.util.BYGAbstractTreeFeature;
@@ -15,11 +13,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
-    //Blocks used for the tree.
-    //private static final BlockState LOG = BYGBlocks.PINE_LOG.getDefaultState();
-    //private static final BlockState LEAVES = BYGBlocks.PINE_LEAVES.getDefaultState();
-    private static final BlockState BEENEST = Blocks.BEE_NEST.defaultBlockState();
-    Random random = new Random();
 
     public PineTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);

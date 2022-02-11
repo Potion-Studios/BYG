@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "byg:block/reed_thatch_top",
-    "top": "byg:block/reed_thatch_top",
-    "side": "byg:block/reed_thatch_side"
-  }
-}

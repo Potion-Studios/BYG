@@ -30,7 +30,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         this.boatResources = Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> {
             return type;
         }, (type) -> {
-            return Pair.of(new ResourceLocation(BYG.MOD_ID, "textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))));
+            return Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))));
         }));
     }
 
@@ -39,7 +39,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
     }
 
     private static ModelLayerLocation createLocation(String string, String string2) {
-        return new ModelLayerLocation(new ResourceLocation(BYG.MOD_ID, string), string2);
+        return new ModelLayerLocation(BYG.createLocation(string), string2);
     }
 
     @Override

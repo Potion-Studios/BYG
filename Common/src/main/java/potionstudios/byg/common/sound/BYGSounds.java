@@ -21,7 +21,7 @@ public class BYGSounds {
 
 
     public static SoundEvent createSound(String location) {
-        ResourceLocation soundLocation = new ResourceLocation(BYG.MOD_ID, location);
+        ResourceLocation soundLocation = BYG.createLocation(location);
         SoundEvent soundEvent = new SoundEvent(soundLocation);
         SOUNDS.add(new RegistryObject<>(soundEvent, location));
         return soundEvent;
@@ -29,5 +29,9 @@ public class BYGSounds {
 
     public static void bootStrap(Consumer<Collection<RegistryObject<SoundEvent>>> registryStrategy) {
         registryStrategy.accept(SOUNDS);
+    }
+
+    public static Collection<RegistryObject<SoundEvent>> bootStrap() {
+        return SOUNDS;
     }
 }

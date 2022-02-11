@@ -2,7 +2,6 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -37,11 +36,13 @@ import potionstudios.byg.common.block.nether.subzerohypogeal.BuddingSubzeroCryst
 import potionstudios.byg.common.block.nether.wailing.WailingBulbBlossomBlock;
 import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
+import potionstudios.byg.common.block.sapling.BYGSapling;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGHugeMushroom;
 import potionstudios.byg.common.world.feature.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
 import potionstudios.byg.mixin.access.*;
+import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.RegistryObject;
 
 import javax.annotation.Nullable;
@@ -51,7 +52,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.ToIntFunction;
 
-@SuppressWarnings("deprecation")
 public class BYGBlocks {
     public static final List<RegistryObject<Block>> BLOCKS = new ArrayList<>();
     public static List<Block> flowerPotBlocks = new ArrayList<>();
@@ -394,54 +394,54 @@ public class BYGBlocks {
     public static final Block MUD_BLOCK = new BYGBlockProperties.BYGMud("mud_block");
     public static final Block MUD_BRICKS = createDirt("mud_bricks");
 
-    public static final Block ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, TreeSpawners.ARAUCARIA, "araucaria_sapling");
-    public static final Block ASPEN_SAPLING = createSapling(BYGBlockTags.GROUND_ASPEN_SAPLING, TreeSpawners.ASPEN, "aspen_sapling");
-    public static final Block BAOBAB_SAPLING = createSapling(BYGBlockTags.GROUND_BAOBAB_SAPLING, TreeSpawners.BAOBAB, "baobab_sapling");
-    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, TreeSpawners.BLUE_ENCHANTED, "blue_enchanted_sapling");
-    public static final Block BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, TreeSpawners.BLUE_SPRUCE, "blue_spruce_sapling");
-    public static final Block BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, TreeSpawners.BROWN_BIRCH, "brown_birch_sapling");
-    public static final Block BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, TreeSpawners.BROWN_OAK, "brown_oak_sapling");
-    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_ZELKOVA_SAPLING, TreeSpawners.BROWN_ZELKOVA, "brown_zelkova_sapling");
-    public static final Block CIKA_SAPLING = createSapling(BYGBlockTags.GROUND_CIKA_SAPLING, TreeSpawners.CIKA, "cika_sapling");
-    public static final Block CYPRESS_SAPLING = createSapling(BYGBlockTags.GROUND_CYPRESS_SAPLING, TreeSpawners.CYPRESS, "cypress_sapling");
-    public static final Block EBONY_SAPLING = createSapling(BYGBlockTags.GROUND_EBONY_SAPLING, TreeSpawners.EBONY, "ebony_sapling");
-    public static final Block FIR_SAPLING = createSapling(BYGBlockTags.GROUND_FIR_SAPLING, TreeSpawners.FIR, "fir_sapling");
-    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, TreeSpawners.GREEN_ENCHANTED, "green_enchanted_sapling");
-    public static final Block HOLLY_SAPLING = createSapling(BYGBlockTags.GROUND_HOLLY_SAPLING, TreeSpawners.HOLLY, "holly_sapling");
+    public static final Block ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, "araucaria_sapling");
+    public static final Block ASPEN_SAPLING = createSapling(BYGBlockTags.GROUND_ASPEN_SAPLING, "aspen_sapling");
+    public static final Block BAOBAB_SAPLING = createSapling(BYGBlockTags.GROUND_BAOBAB_SAPLING, "baobab_sapling");
+    public static final Block BLUE_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, "blue_enchanted_sapling");
+    public static final Block BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, "blue_spruce_sapling");
+    public static final Block BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, "brown_birch_sapling");
+    public static final Block BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, "brown_oak_sapling");
+    public static final Block BROWN_ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_ZELKOVA_SAPLING, "brown_zelkova_sapling");
+    public static final Block CIKA_SAPLING = createSapling(BYGBlockTags.GROUND_CIKA_SAPLING, "cika_sapling");
+    public static final Block CYPRESS_SAPLING = createSapling(BYGBlockTags.GROUND_CYPRESS_SAPLING, "cypress_sapling");
+    public static final Block EBONY_SAPLING = createSapling(BYGBlockTags.GROUND_EBONY_SAPLING, "ebony_sapling");
+    public static final Block FIR_SAPLING = createSapling(BYGBlockTags.GROUND_FIR_SAPLING, "fir_sapling");
+    public static final Block GREEN_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, "green_enchanted_sapling");
+    public static final Block HOLLY_SAPLING = createSapling(BYGBlockTags.GROUND_HOLLY_SAPLING, "holly_sapling");
     public static final Block FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, TreeSpawners.JACARANDA, "flowering_jacaranda_bush");
     public static final Block FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, TreeSpawners.INDIGO_JACARANDA, "flowering_indigo_jacaranda_bush");
-    public static final Block JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_JACARANDA_SAPLING, TreeSpawners.JACARANDA, "jacaranda_sapling");
-    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, TreeSpawners.INDIGO_JACARANDA, "indigo_jacaranda_sapling");
-    public static final Block JOSHUA_SAPLING = createSapling(BYGBlockTags.GROUND_JOSHUA_SAPLING, TreeSpawners.JOSHUA, "joshua_sapling");
-    public static final Block MAHOGANY_SAPLING = createSapling(BYGBlockTags.GROUND_MAHOGANY_SAPLING, TreeSpawners.MAHOGONY, "mahogany_sapling");
-    public static final Block MANGROVE_SAPLING = createSapling(BYGBlockTags.GROUND_MANGROVE_SAPLING, TreeSpawners.MANGROVE, "mangrove_sapling");
-    public static final Block MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_MAPLE_SAPLING, TreeSpawners.MAPLE, "maple_sapling");
-    public static final Block ORANGE_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_BIRCH_SAPLING, TreeSpawners.ORANGE_BIRCH, "orange_birch_sapling");
-    public static final Block ORANGE_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, TreeSpawners.ORANGE_OAK, "orange_oak_sapling");
-    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, TreeSpawners.ORANGE_SPRUCE, "orange_spruce_sapling");
-    public static final Block ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, TreeSpawners.ORCHARD, "orchard_sapling");
-    public static final Block PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, TreeSpawners.PALO_VERDE, "palo_verde_sapling");
-    public static final Block PINE_SAPLING = createSapling(BYGBlockTags.GROUND_PINE_SAPLING, TreeSpawners.PINE, "pine_sapling");
-    public static final Block PINK_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, TreeSpawners.PINK_CHERRY, "pink_cherry_sapling");
-    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, TreeSpawners.RAINBOW_EUCALYPTUS, "rainbow_eucalyptus_sapling");
-    public static final Block RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, TreeSpawners.RED_BIRCH, "red_birch_sapling");
-    public static final Block RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, TreeSpawners.RED_MAPLE, "red_maple_sapling");
-    public static final Block RED_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_RED_OAK_SAPLING, TreeSpawners.RED_OAK, "red_oak_sapling");
-    public static final Block RED_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_SPRUCE_SAPLING, TreeSpawners.RED_SPRUCE, "red_spruce_sapling");
-    public static final Block REDWOOD_SAPLING = createSapling(BYGBlockTags.GROUND_REDWOOD_SAPLING, TreeSpawners.REDWOOD, "redwood_sapling");
-    public static final Block SILVER_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, TreeSpawners.SILVER_MAPLE, "silver_maple_sapling");
-    public static final Block SKYRIS_SAPLING = createSapling(BYGBlockTags.GROUND_SKYRIS_SAPLING, TreeSpawners.SKYRIS, "skyris_sapling");
-    public static final Block WHITE_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, TreeSpawners.WHITE_CHERRY, "white_cherry_sapling");
-    public static final Block WILLOW_SAPLING = createSapling(BYGBlockTags.GROUND_WILLOW_SAPLING, TreeSpawners.WILLOW, "willow_sapling");
-    public static final Block WITCH_HAZEL_SAPLING = createSapling(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, TreeSpawners.WITCH_HAZEL, "witch_hazel_sapling");
-    public static final Block YELLOW_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, TreeSpawners.YELLOW_BIRCH, "yellow_birch_sapling");
-    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_SPRUCE_SAPLING, TreeSpawners.YELLOW_SPRUCE, "yellow_spruce_sapling");
-    public static final Block ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, TreeSpawners.ZELKOVA, "zelkova_sapling");
-    public static final Block PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, TreeSpawners.PALM, "palm_sapling");
-    public static final Block LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, TreeSpawners.LAMENT, "lament_sapling");
+    public static final Block JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_JACARANDA_SAPLING, "jacaranda_sapling");
+    public static final Block INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, "indigo_jacaranda_sapling");
+    public static final Block JOSHUA_SAPLING = createSapling(BYGBlockTags.GROUND_JOSHUA_SAPLING, "joshua_sapling");
+    public static final Block MAHOGANY_SAPLING = createSapling(BYGBlockTags.GROUND_MAHOGANY_SAPLING, "mahogany_sapling");
+    public static final Block MANGROVE_SAPLING = createSapling(BYGBlockTags.GROUND_MANGROVE_SAPLING, "mangrove_sapling");
+    public static final Block MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_MAPLE_SAPLING, "maple_sapling");
+    public static final Block ORANGE_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_BIRCH_SAPLING, "orange_birch_sapling");
+    public static final Block ORANGE_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, "orange_oak_sapling");
+    public static final Block ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, "orange_spruce_sapling");
+    public static final Block ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, "orchard_sapling");
+    public static final Block PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, "palo_verde_sapling");
+    public static final Block PINE_SAPLING = createSapling(BYGBlockTags.GROUND_PINE_SAPLING, "pine_sapling");
+    public static final Block PINK_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, "pink_cherry_sapling");
+    public static final Block RAINBOW_EUCALYPTUS_SAPLING = createSapling(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, "rainbow_eucalyptus_sapling");
+    public static final Block RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, "red_birch_sapling");
+    public static final Block RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, "red_maple_sapling");
+    public static final Block RED_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_RED_OAK_SAPLING, "red_oak_sapling");
+    public static final Block RED_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_SPRUCE_SAPLING, "red_spruce_sapling");
+    public static final Block REDWOOD_SAPLING = createSapling(BYGBlockTags.GROUND_REDWOOD_SAPLING, "redwood_sapling");
+    public static final Block SILVER_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, "silver_maple_sapling");
+    public static final Block SKYRIS_SAPLING = createSapling(BYGBlockTags.GROUND_SKYRIS_SAPLING, "skyris_sapling");
+    public static final Block WHITE_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, "white_cherry_sapling");
+    public static final Block WILLOW_SAPLING = createSapling(BYGBlockTags.GROUND_WILLOW_SAPLING, "willow_sapling");
+    public static final Block WITCH_HAZEL_SAPLING = createSapling(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, "witch_hazel_sapling");
+    public static final Block YELLOW_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, "yellow_birch_sapling");
+    public static final Block YELLOW_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_SPRUCE_SAPLING, "yellow_spruce_sapling");
+    public static final Block ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, "zelkova_sapling");
+    public static final Block PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, "palm_sapling");
+    public static final Block LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, "lament_sapling");
     public static final Block WITHERING_OAK_SAPLING = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.WitheringOak(), "withering_oak_sapling");
-    public static final Block ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, TreeSpawners.ETHER, "ether_sapling");
-    public static final Block NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, TreeSpawners.NIGHTSHADE, "nightshade_sapling");
+    public static final Block ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, "ether_sapling");
+    public static final Block NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, "nightshade_sapling");
 
     public static final Block JACARANDA_BUSH = createJacarandaBush("jacaranda_bush");
     public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
@@ -518,16 +518,14 @@ public class BYGBlocks {
 
     public static final Block CATTAIL_SPROUT = createCattailSproutBlock("cattail_sprout");
     public static final Block CATTAIL = createCattailPlantBlock("cattail");
-    public static final Block REEDS = new BYGBlockProperties.BlockCattail("reeds");
-    public static final Block REED_THATCH = new BYGBlockProperties.BYGThatch("reed_thatch");
-    public static final Block REED_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("reed_thatch_carpet");
-    public static final Block REED_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("reed_thatch_stairs");
-    public static final Block REED_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("reed_thatch_slab");
+    public static final Block CATTAIL_THATCH = new BYGBlockProperties.BYGThatch("cattail_thatch");
+    public static final Block CATTAIL_THATCH_CARPET = new BYGBlockProperties.ThatchCarpet("cattail_thatch_carpet");
+    public static final Block CATTAIL_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("cattail_thatch_stairs");
+    public static final Block CATTAIL_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("cattail_thatch_slab");
     public static final Block HORSEWEED = createFlower("horseweed", BYGBlockTags.GROUND_HORSEWEED);
     public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
     public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
     public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
-    public static final Block SHORT_GRASS = new BYGBlockProperties.BYGTallGrass("short_grass");
     public static final Block TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
     public static final Block POISON_IVY = new BYGBlockProperties.BYGPoisonIvy("poison_ivy");
     public static final Block SKYRIS_VINE = new BYGBlockProperties.BYGSkyrisVine("skyris_vine");
@@ -536,10 +534,6 @@ public class BYGBlocks {
     public static final Block WATER_SILK = new BYGBlockProperties.BYGWaterSilk("water_silk");
     public static final Block WEEPING_ROOTS = new BYGBlockProperties.BYGHangingVine("weeping_roots");
     public static final Block WEEPING_ROOTS_PLANT = new BYGBlockProperties.BYGHangingVinePlant("weeping_roots_plant");
-    public static final Block WINTER_GRASS = new BYGBlockProperties.BYGWinterTallGrass("winter_grass");
-    public static final Block WEED_GRASS = new BYGBlockProperties.BYGTallGrass("weed_grass");
-    public static final Block WILTED_GRASS = new BYGBlockProperties.BYGTallGrass("wilted_grass");
-    public static final Block SHORT_BEACH_GRASS = new BYGBlockProperties.BYGBeachGrass("short_beach_grass");
     public static final Block BEACH_GRASS = new BYGBlockProperties.BYGBeachGrass("beach_grass");
     public static final Block LEAF_PILE = new BYGBlockProperties.BYGLeafPile("leaf_pile");
     public static final Block CLOVER_PATCH = new BYGBlockProperties.BYGLeafPile("clover_patch");
@@ -1042,7 +1036,6 @@ public class BYGBlocks {
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
     public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final Block ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
-    public static final Block AZALEA = createTallFlower("azalea", BYGBlockTags.GROUND_AZALEA);
     public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
     public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
     public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
@@ -1094,7 +1087,8 @@ public class BYGBlocks {
     public static final Block WINTER_SCILLA = new BYGBlockProperties.BYGSnowyPlant("winter_scilla");
     public static final Block YELLOW_DAFFODIL = createFlower("yellow_daffodil", BYGBlockTags.GROUND_YELLOW_DAFFODIL);
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
-
+    public static final Block HYDRANGEA_BUSH = createHydrangeaBush("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
+    public static final Block HYDRANGEA_HEDGE = createHydrangeaHedge("hydrangea_hedge", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
     public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_BROWN, null, "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, null, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, MaterialColor.COLOR_GREEN, null, "overgrown_stone");
@@ -1203,56 +1197,56 @@ public class BYGBlocks {
 
     static Block createWailingBellBlossom(String id) {
         Block createBlock = new WailingBulbBlossomBlock(BlockBehaviour.Properties.of(Material.CLAY, MaterialColor.COLOR_PURPLE).sound(SoundType.SHROOMLIGHT).noOcclusion().lightLevel((state) -> 14));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWailingVine(String id) {
         Block createBlock = new VineBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.TWISTING_VINES).instabreak().randomTicks().noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWailingPlant(String id) {
         Block createBlock = new WailingPlantBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.ROOTS).instabreak().noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelBlock(String id) {
         Block createBlock = new Block(BlockBehaviour.Properties.of(Material.CLAY, MaterialColor.TERRACOTTA_YELLOW).sound(SoundType.HONEY_BLOCK).noOcclusion().speedFactor(1.3f));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelVine(String id) {
         Block createBlock = new EmburVineBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelVinePlant(String id) {
         Block createBlock = new EmburVinePlantBlock(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.TERRACOTTA_YELLOW).instabreak().randomTicks().sound(SoundType.HONEY_BLOCK).noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEmburGelBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().lightLevel((state) -> 10));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createArisianBloomBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().lightLevel((state) -> 10));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1396,7 +1390,7 @@ public class BYGBlocks {
     }
 
     static Block createWoodStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Registry.BLOCK.get(new ResourceLocation(BYG.MOD_ID, id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = StairBlockAccess.create(Registry.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1600,6 +1594,17 @@ public class BYGBlocks {
         return createBlock;
     }
 
+    static Block createHydrangeaBush(String id, Tag.Named<Block> groundTag) {
+        Block createBlock = new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag);
+        createPottedBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createHydrangeaHedge(String id, Tag.Named<Block> groundTag) {
+        Block createBlock = new HydrangeaHedgeBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.AZALEA).instabreak().noOcclusion(), groundTag);
+        return createBlock(createBlock,id);
+    }
+
     static Block createFlower(String id, Tag.Named<Block> groundTag) {
         Block createBlock = new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
@@ -1642,12 +1647,6 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createCrystal(String id) {
-        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
-        createBlock(createBlock, id);
-        return createBlock;
-    }
-
     static Block createAmetrineCluster(String id) {
         Block createBlock = new CrystalClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
@@ -1662,70 +1661,63 @@ public class BYGBlocks {
 
     static Block createSculkGrowth(String id) {
         Block createBlock = new SculkGrowthBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().randomTicks().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createIvisBulbisPlant(String id) {
         Block createBlock = new IvisPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEtherPlant(String id) {
         Block createBlock = new EtherPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createTallEtherPlant(String id) {
         Block createBlock = new TallEtherPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createNightshadePlant(String id) {
         Block createBlock = new NightshadePlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createTallNightshadePlant(String id) {
         Block createBlock = new TallNightshadePlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.ROOTS).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createSculkPlant(String id) {
         Block createBlock = new SculkPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
-        createBlock(createBlock, id);
-        return createBlock;
-    }
-
-    static Block createShulkrenPlant(String id) {
-        Block createBlock = new ShulkrenPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusPlant(String id) {
         Block createBlock = new ImpariusPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createOddityDesertPlant(String id) {
         Block createBlock = new DesertOddityPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission());
-//        Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+//        Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1777,8 +1769,9 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createSapling(Tag<Block> groundTag, TreeSpawner tree, String id) {
-        Block createBlock = new BYGSapling(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag, tree);
+    static Block createSapling(Tag<Block> groundTag, String id) {
+        BYGSapling createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
+        CommonSetupLoad.ENTRIES.add(createBlock);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
@@ -1828,42 +1821,42 @@ public class BYGBlocks {
 
     static Block createImpariusVine(String id) {
         Block createBlock = new ImpariusVineBlock(BlockBehaviour.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusVinePlant(String id) {
         Block createBlock = new ImpariusVinePlantBlock(BlockBehaviour.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission());
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusMushroom(String id) {
         Block createBlock = new Block(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_CYAN).strength(0.2F).sound(SoundType.TWISTING_VINES).speedFactor(0.5F).jumpFactor(0.5F));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createImpariusMushroomBranch(String id) {
         Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_CYAN).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().lightLevel((state) -> 10));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFungalImpariusFilamentBlock(String id) {
         Block createBlock = new SlimeBlock(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).strength(0.2F).sound(SoundType.HONEY_BLOCK).speedFactor(0.5F).jumpFactor(2.5F).lightLevel((state) -> 15));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createFungalImpariusFilament(String id) {
         Block createBlock = new FungalImpariusFilamentBlock(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.COLOR_LIGHT_BLUE).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().lightLevel((state) -> 10));
-        //Registry.register(Registry.BLOCK, new ResourceLocation(BYG.MOD_ID, id), createBlock);
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1970,9 +1963,10 @@ public class BYGBlocks {
         return block;
     }
 
-    public static void staticInit() {
-
+    public static Collection<RegistryObject<Block>> bootStrap() {
+        return BLOCKS;
     }
+
     public static void bootStrap(Consumer<Collection<RegistryObject<Block>>> registryStrategy) {
         registryStrategy.accept(BLOCKS);
     }

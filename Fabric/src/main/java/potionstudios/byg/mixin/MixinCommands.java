@@ -1,6 +1,7 @@
 package potionstudios.byg.mixin;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
@@ -12,7 +13,9 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.BYG;
 import potionstudios.byg.server.command.GenDataCommand;
+import potionstudios.byg.server.command.ReloadConfigsCommand;
 
 import java.util.stream.Collectors;
 
@@ -24,5 +27,8 @@ public class MixinCommands {
     @Inject(method = "<init>", at = @At("RETURN"))
     private void attachBYGCommands(Commands.CommandSelection environmentType, CallbackInfo ci) {
         GenDataCommand.dataGenCommand(this.dispatcher, FabricLoader.getInstance().getAllMods().stream().map(ModContainer::getMetadata).map(ModMetadata::getId).collect(Collectors.toSet()));
+        LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID).requires(commandSource -> commandSource.hasPermission(3));
+        bygCommands.then(ReloadConfigsCommand.register());
+        dispatcher.register(bygCommands);
     }
 }

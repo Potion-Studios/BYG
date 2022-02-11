@@ -1,6 +1,5 @@
 package potionstudios.byg.client.gui;
 
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -10,11 +9,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import potionstudios.byg.common.blockentity.HypogealImperiumBlockEntity;
 import potionstudios.byg.common.container.BYGMenuTypes;
-
-import java.util.Objects;
 
 public class HypogealImperiumContainer extends AbstractContainerMenu {
 
@@ -55,16 +50,6 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
         this.addDataSlots(fuelTime);
     }
 
-    private static HypogealImperiumBlockEntity getTileEntity(final Inventory playerInv, final FriendlyByteBuf data) {
-        Objects.requireNonNull(playerInv, "playerInv cannot be null");
-        Objects.requireNonNull(data, "data cannot be null");
-        final BlockEntity tileAtPos = playerInv.player.level.getBlockEntity(data.readBlockPos());
-        if (tileAtPos instanceof HypogealImperiumBlockEntity) {
-            return (HypogealImperiumBlockEntity) tileAtPos;
-        }
-        throw new IllegalStateException("TileEntity is not correct " + tileAtPos);
-    }
-
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
@@ -86,10 +71,6 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
             }
         }
         return itemstack;
-    }
-
-    public void onContainerClosed(Player playerIn) {
-        super.removed(playerIn);
     }
 
 

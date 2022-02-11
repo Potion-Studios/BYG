@@ -9,7 +9,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import potionstudios.byg.common.block.end.CrypticFireBlock;
 import potionstudios.byg.common.block.nether.BoricFireBlock;
-import potionstudios.byg.common.block.nether.CrystalBlock;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
 import potionstudios.byg.common.block.nether.embur.BlueNetherrackBlock;
 import potionstudios.byg.common.block.nether.embur.EmburPlantBlock;
@@ -155,30 +154,6 @@ public class BYGBlockProperties {
     }
 
 
-    public static class BYGTallGrass extends TallGrassBlock {
-        public BYGTallGrass(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BYGWinterTallGrass extends BYGSnowyPlants {
-        public BYGWinterTallGrass(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BYGPrairieGrass extends BYGPrairieGrassBlock {
         public BYGPrairieGrass(String registryName) {
             super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
@@ -314,7 +289,7 @@ public class BYGBlockProperties {
 
     public static class BYGLeafFoilage extends LeafFoliageBlock {
         public BYGLeafFoilage(String registryName) {
-            super(DyeColor.GREEN, BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.GRASS)
+            super(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.GRASS)
                     .strength(0.0F)
                     .randomTicks()
                     .sound(SoundType.GRASS)
@@ -351,18 +326,6 @@ public class BYGBlockProperties {
             BYGBlocks.createBlock(this, registryName);
         }
 
-    }
-
-    public static class Crystal extends CrystalBlock {
-        public Crystal(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.STONE)
-                    .sound(SoundType.GLASS)
-                    .strength(0.1F)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
     }
 
     public static class BYGQuartziteSand extends Block {
@@ -589,7 +552,7 @@ public class BYGBlockProperties {
 
     public static class ThatchStairs extends StairBlock {
         public ThatchStairs(String registryName) {
-            super(BYGBlocks.REED_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.REED_THATCH)
+            super(BYGBlocks.CATTAIL_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.CATTAIL_THATCH)
                     .sound(SoundType.GRASS)
                     .strength(0.5f)
             );
@@ -783,19 +746,6 @@ public class BYGBlockProperties {
                     .strength(0.4F, 0.4F)
                     .requiresCorrectToolForDrops()
 
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class BlockCattail extends BYGRiverPlantBlock {
-        public BlockCattail(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0F, 0.0F)
-                    .noOcclusion()
-                    .noCollission()
-                    .randomTicks()
             );
             BYGBlocks.createBlock(this, registryName);
         }

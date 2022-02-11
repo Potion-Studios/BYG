@@ -5,12 +5,14 @@ import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class BYGCutoutRenders {
-    public static void renderCutOuts(Map<Block, RenderType> map) {
+    public static void renderCutOuts(Consumer<Map<Block, RenderType>> mapConsumer) {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
-
+        Map<Block, RenderType> map = new HashMap<>();
         //Plants
         map.put(BYGBlocks.HORSEWEED, RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SAGE, RenderType.cutoutMipped());
@@ -116,7 +118,6 @@ public class BYGCutoutRenders {
         //Sea Plants
         map.put(BYGBlocks.CATTAIL_SPROUT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CATTAIL, RenderType.cutoutMipped());
-        map.put(BYGBlocks.REEDS, RenderType.cutoutMipped());
         map.put(BYGBlocks.TINY_LILYPADS, RenderType.cutoutMipped());
         map.put(BYGBlocks.WATER_SILK, RenderType.translucent());
 
@@ -185,13 +186,7 @@ public class BYGCutoutRenders {
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES, RenderType.translucent());
         map.put(BYGBlocks.TALL_PRAIRIE_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHORT_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WINTER_GRASS, RenderType.translucent());
-
-        map.put(BYGBlocks.SHORT_BEACH_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.BEACH_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WILTED_GRASS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEED_GRASS, RenderType.cutoutMipped());
         map.put(BYGBlocks.LEAF_PILE, RenderType.cutoutMipped());
         map.put(BYGBlocks.CLOVER_PATCH, RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWER_PATCH, RenderType.cutoutMipped());
@@ -221,7 +216,6 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.MAHOGANY_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.MANGROVE_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_SAPLING, RenderType.cutoutMipped());
-        map.put(BYGBlocks.HOLLY_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_BIRCH_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_OAK_SAPLING, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING, RenderType.cutoutMipped());
@@ -261,7 +255,8 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.ALPINE_BELLFLOWER, RenderType.cutoutMipped());
         map.put(BYGBlocks.AMARANTH, RenderType.cutoutMipped());
         map.put(BYGBlocks.ANGELICA, RenderType.cutoutMipped());
-        map.put(BYGBlocks.AZALEA, RenderType.cutoutMipped());
+        map.put(BYGBlocks.HYDRANGEA_BUSH, RenderType.cutoutMipped());
+        map.put(BYGBlocks.HYDRANGEA_HEDGE, RenderType.cutoutMipped());
         map.put(BYGBlocks.BEGONIA, RenderType.cutoutMipped());
         map.put(BYGBlocks.BISTORT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CALIFORNIA_POPPY, RenderType.cutoutMipped());
@@ -341,5 +336,7 @@ public class BYGCutoutRenders {
             map.put(potBlock, RenderType.cutoutMipped());
 
         BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
+
+        mapConsumer.accept(map);
     }
 }

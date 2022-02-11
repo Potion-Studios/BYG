@@ -1,19 +1,15 @@
 package potionstudios.byg.util;
 
 
-import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BYGUtil {
-
-    public static final ResourceKey<Biome> EMPTY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(""));
-
-    public static final Codec<ResourceKey<Biome>> BIOME_KEY = ResourceLocation.CODEC.xmap(resourceLocation -> ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation), ResourceKey::location);
-
 
     /*
      * Part of the Cyanide mod.
@@ -23,5 +19,32 @@ public class BYGUtil {
 
     public static void captureRegistryAccess(RegistryAccess registryAccess) {
         CAPTURED_REGISTRY_ACCESS.set(registryAccess);
+    }
+
+    public static <V> List<List<V>> convert2DArray(V[][] arrayToConvert) {
+        List<List<V>> convertedArrays = new ArrayList<>();
+        for (V[] vs : arrayToConvert) {
+            convertedArrays.add(Arrays.asList(vs));
+        }
+        return convertedArrays;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> ResourceKey<T>[][] convert2DResourceKeyArrayTo2DList(List<List<ResourceKey<T>>> listToConvert) {
+        List<ResourceKey<T>[]> resultList = new ArrayList<>(listToConvert.size());
+        for (List<ResourceKey<T>> vs : listToConvert) {
+            resultList.add(vs.toArray(ResourceKey[]::new));
+        }
+
+        return resultList.toArray(ResourceKey[][]::new);
+    }
+
+    public static <T> String dumpRegistry(Registry<T> registry) {
+        StringBuilder registryElements = new StringBuilder();
+        for (int i = 0; i < registry.entrySet().size(); i++) {
+            final T object = registry.byId(i);
+            registryElements.append(i).append(". \"").append(registry.getKey(object).toString()).append("\"\n");
+        }
+        return registryElements.toString();
     }
 }

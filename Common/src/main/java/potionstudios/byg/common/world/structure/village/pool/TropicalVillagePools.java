@@ -8,20 +8,18 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import potionstudios.byg.BYG;
 
 public class TropicalVillagePools {
-    public static final StructureTemplatePool TropicalVillageJigsaw = Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/town_centers"),
+    public static final StructureTemplatePool TropicalVillageJigsaw = Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 90),
                     Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 10)), StructureTemplatePool.Projection.RIGID));
 
-    public static void init() {
-    }
-
     static {
         //Normal
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/streets"),
-                new ResourceLocation("byg:village/tropical/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/streets"),
+                BYG.createLocation("village/tropical/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/streets/tropical_corner_01"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/streets/tropical_corner_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/streets/tropical_straight_01"), 4),
@@ -34,8 +32,8 @@ public class TropicalVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/streets/tropical_square_02"), 3),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/streets/tropical_turn_01"), 3)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/houses"),
-                new ResourceLocation("byg:village/tropical/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/houses"),
+                BYG.createLocation("village/tropical/terminators"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/houses/tropical_small_house_1"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/houses/tropical_small_house_2"), 2),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/houses/tropical_small_house_3"), 2),
@@ -64,19 +62,19 @@ public class TropicalVillagePools {
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/houses/tropical_animal_pen_2"), 2),
                         Pair.of(StructurePoolElement.empty(), 10)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/terminators"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/terminators"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("byg:village/tropical/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/tropical_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_MELON), 4),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.BAMBOO_LIGHT), 4),
                         Pair.of(StructurePoolElement.empty(), 6)), StructureTemplatePool.Projection.RIGID));
 
-        Pools.register(new StructureTemplatePool(new ResourceLocation("byg:village/tropical/villagers"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/villagers"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/villagers/baby"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/villagers/baby"), 1),

@@ -1270,7 +1270,7 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     private void honey(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.HONEY_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, Blocks.HONEY_BLOCK.defaultBlockState(), boundingBox);
         }
     }
 
@@ -1278,7 +1278,7 @@ public class MahoganyTree5 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     private void honeycomb(BlockPos startPos, BYGTreeConfig config, Set<BlockPos> blockPos, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(startPos, config, blockPos, reader, pos, Blocks.HONEYCOMB_BLOCK.defaultBlockState(), boundingBox);
+            this.setFinalBlockState(blockPos, reader, pos, Blocks.HONEYCOMB_BLOCK.defaultBlockState(), boundingBox);
         }
     }
 }

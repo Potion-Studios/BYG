@@ -1,7 +1,6 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BushBlock;
@@ -13,7 +12,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class LeafFoliageBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 
-    protected LeafFoliageBlock(DyeColor colorIn, Properties properties) {
+    protected LeafFoliageBlock(Properties properties) {
         super(properties);
     }
 

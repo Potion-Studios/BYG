@@ -8,20 +8,22 @@ archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven {
+        name = 'Forge'
+        url = 'https://maven.minecraftforge.net'
+    }
 }
-
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
-    compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    implementation project(":Common")
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+    compileOnly project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
-
-//    modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.1:dev'
+    modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
 }
 
 loom {
@@ -41,7 +43,6 @@ loom {
         }
     }
 }
-
 
 processResources {
     from project(":Common").sourceSets.main.resources
@@ -63,21 +64,5 @@ tasks.withType(JavaCompile) {
 jar {
     from("LICENSE") {
         rename { "${it}_${mod_name}" }
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
-    }
-
-    repositories {
     }
 }

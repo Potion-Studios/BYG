@@ -1,6 +1,7 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -9,7 +10,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import potionstudios.byg.util.MLBlockTags;
 
 public class BYGSnowyPlants extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -31,6 +31,6 @@ public class BYGSnowyPlants extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == Blocks.SNOW_BLOCK || state.is(MLBlockTags.DIRT);
+        return block == Blocks.SNOW_BLOCK || state.is(BlockTags.DIRT);
     }
 }
