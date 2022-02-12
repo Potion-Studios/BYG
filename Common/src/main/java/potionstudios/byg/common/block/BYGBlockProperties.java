@@ -686,30 +686,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BoricFire extends BoricFireBlock {
-        public BoricFire(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.FIRE, MaterialColor.COLOR_GREEN)
-                    .sound(SoundType.WOOL)
-                    .noCollission()
-                    .instabreak()
-                    .lightLevel((state) -> 14)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
-    public static class CrypticFire extends CrypticFireBlock {
-        public CrypticFire(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.FIRE, MaterialColor.COLOR_GREEN)
-                    .sound(SoundType.WOOL)
-                    .noCollission()
-                    .instabreak()
-                    .lightLevel((state) -> 14)
-            );
-            BYGBlocks.createBlock(this, registryName);
-        }
-    }
-
     public static class BYGNetherWood extends RotatedPillarBlock {
         public BYGNetherWood(String registryName) {
             super(BlockBehaviour.Properties.of(Material.NETHER_WOOD)
