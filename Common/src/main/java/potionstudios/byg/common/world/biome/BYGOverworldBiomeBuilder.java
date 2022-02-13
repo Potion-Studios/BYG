@@ -66,7 +66,7 @@ public class BYGOverworldBiomeBuilder {
     private static final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA, Biomes.TAIGA},
             {Biomes.PLAINS, Biomes.PLAINS, Biomes.FOREST, BYGBiomes.AUTUMNAL_VALLEY, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
-            {Biomes.FLOWER_FOREST, Biomes.PLAINS, BYGBiomes.ALLIUM_FIELDS, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
+            {Biomes.FLOWER_FOREST, BYGBiomes.PRAIRIE, BYGBiomes.ALLIUM_FIELDS, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
             {Biomes.SAVANNA, BYGBiomes.BAOBAB_SAVANNA, BYGBiomes.CHERRY_BLOSSOM_FOREST, BYGBiomes.EBONY_WOODS, BYGBiomes.JACARANDA_FOREST},
             {Biomes.DESERT, Biomes.DESERT, BYGBiomes.MOJAVE_DESERT, Biomes.DESERT, Biomes.DESERT}
     };
@@ -80,7 +80,7 @@ public class BYGOverworldBiomeBuilder {
     private static final ResourceKey<Biome>[][] MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{
             {Biomes.ICE_SPIKES, Biomes.THE_VOID, Biomes.SNOWY_TAIGA, Biomes.THE_VOID, Biomes.THE_VOID},
             {Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.ASPEN_FOREST, Biomes.THE_VOID, Biomes.OLD_GROWTH_PINE_TAIGA},
-            {Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.ORCHARD, Biomes.BIRCH_FOREST, Biomes.THE_VOID},
+            {Biomes.THE_VOID, BYGBiomes.PRAIRIE, BYGBiomes.ORCHARD, Biomes.BIRCH_FOREST, Biomes.THE_VOID},
             {Biomes.THE_VOID, BYGBiomes.ARAUCARIA_SAVANNA, Biomes.THE_VOID, BYGBiomes.AMARANTH_FIELDS, Biomes.THE_VOID},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
     };

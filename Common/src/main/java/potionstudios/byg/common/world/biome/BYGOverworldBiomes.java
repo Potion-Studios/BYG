@@ -1175,19 +1175,20 @@ public class BYGOverworldBiomes {
     public static Biome prairie() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addPrairieTree(generationSettings);
-        BYGDefaultBiomeFeatures.addSparseOakForestTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addPrairieGrass(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        
+
+        BYGDefaultBiomeFeatures.addPrairieShrubs(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseOakForestTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addPrairieGrass(generationSettings);
+
         BYGDefaultBiomeFeatures.addCaliforniaPoppy(generationSettings);
-        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
+        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

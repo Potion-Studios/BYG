@@ -50,7 +50,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPrairieGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PRAIRIE_GRASS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PRAIRIE_GRASS);
     }
 
     public static void addPumpkinPatch(BiomeGenerationSettings.Builder gen) {
@@ -628,7 +628,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_OAK_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_OAK_TREES);
     }
 
     public static void addSeasonalForestTrees(BiomeGenerationSettings.Builder gen) {
@@ -680,8 +680,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CIKA_TREES);
     }
 
-    public static void addPrairieTree(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PRAIRIE_TREE);
+    public static void addPrairieShrubs(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PRAIRIE_SHRUBS);
     }
 
     public static void addScarceSpruceTrees(BiomeGenerationSettings.Builder gen) {
