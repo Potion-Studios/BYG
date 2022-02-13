@@ -731,7 +731,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE3 = createConfiguredFeature("red_oak_tree3", BYGFeatures.OAK_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE1 = createConfiguredFeature("large_red_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE2 = createConfiguredFeature("large_red_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE3 = createConfiguredFeature("large_red_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> RED_OAK_TREE_LARGE3 = createConfiguredFeature("large_red_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.RED_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
 
     //Brown Oak
     public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE1 = createConfiguredFeature("brown_oak_tree1", BYGFeatures.OAK_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
@@ -739,7 +739,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE3 = createConfiguredFeature("brown_oak_tree3", BYGFeatures.OAK_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE1 = createConfiguredFeature("large_brown_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE2 = createConfiguredFeature("large_brown_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE3 = createConfiguredFeature("large_brown_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> BROWN_OAK_TREE_LARGE3 = createConfiguredFeature("large_brown_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
 
     //Orange Oak
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE1 = createConfiguredFeature("orange_oak_tree1", BYGFeatures.OAK_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
@@ -747,7 +747,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE3 = createConfiguredFeature("orange_oak_tree3", BYGFeatures.OAK_TREE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE1 = createConfiguredFeature("large_orange_oak_tree1", BYGFeatures.OAK_TREE_LARGE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE2 = createConfiguredFeature("large_orange_oak_tree2", BYGFeatures.OAK_TREE_LARGE2.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
-    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE3 = createConfiguredFeature("large_orange_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).setDiskBlock(Blocks.PODZOL).setDiskRadius(3).build()));
+    public static final ConfiguredFeature<BYGTreeConfig, ?> ORANGE_OAK_TREE_LARGE3 = createConfiguredFeature("large_orange_oak_tree3", BYGFeatures.OAK_TREE_LARGE3.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES).setMaxHeight(18).setMinHeight(13).build()));
 
     //Orchard
     public static final ConfiguredFeature<BYGTreeConfig, ?> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1", BYGFeatures.ORCHARD_TREE1.configured(new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG).setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10).add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1).add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))).setMaxHeight(18).setMinHeight(13).build()));
@@ -1500,7 +1500,7 @@ public class BYGConfiguredFeatures {
 //            OAK_TREE_LARGE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
 //
-    public static final ConfiguredFeature<?, ?> SPARSE_OAK_TREES = createConfiguredFeature("sparse_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> OAK_TREES = createConfiguredFeature("oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new  WeightedPlacedFeature(OAK_TREE1.placed(), 0.16F),
             new  WeightedPlacedFeature(OAK_TREE2.placed(), 0.16F),
             new  WeightedPlacedFeature(OAK_TREE3.placed(), 0.16F),
@@ -1518,8 +1518,12 @@ public class BYGConfiguredFeatures {
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
 //
     public static final ConfiguredFeature<?, ?> RED_OAK_TREES = createConfiguredFeature("red_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(RED_OAK_TREE1.placed(), 0.2F), new WeightedPlacedFeature(RED_OAK_TREE2.placed(), 0.2F), new WeightedPlacedFeature(RED_OAK_TREE3.placed(), 0.2F),
-            new WeightedPlacedFeature(RED_OAK_TREE_LARGE1.placed(), 0.1F), new WeightedPlacedFeature(RED_OAK_TREE_LARGE2.placed(), 0.1F)), RED_OAK_TREE_LARGE3.placed())));
+            new WeightedPlacedFeature(RED_OAK_TREE1.placed(), 0.16F),
+            new WeightedPlacedFeature(RED_OAK_TREE2.placed(), 0.16F),
+            new WeightedPlacedFeature(RED_OAK_TREE3.placed(), 0.16F),
+            new WeightedPlacedFeature(RED_OAK_TREE_LARGE1.placed(), 0.16F),
+            new WeightedPlacedFeature(RED_OAK_TREE_LARGE2.placed(), 0.16F)),
+            RED_OAK_TREE_LARGE3.placed())));
 
     //
 //    public static final ConfiguredFeature<?, ?> RANDOM_BROWN_OAK_TREE = createConfiguredFeature("brown_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(

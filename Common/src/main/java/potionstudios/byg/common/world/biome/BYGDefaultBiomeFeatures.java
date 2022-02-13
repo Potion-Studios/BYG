@@ -607,8 +607,8 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_OAK_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_RED_OAK_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.OAK_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_OAK_TREES);
     }
 
     public static void addOakForestTrees(BiomeGenerationSettings.Builder gen) {

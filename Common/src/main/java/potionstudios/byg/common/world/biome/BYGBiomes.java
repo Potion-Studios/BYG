@@ -60,8 +60,7 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
     public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard());
     public static ResourceKey<Biome> PRAIRIE = createBiome("prairie", prairie());
-//    public static ResourceKey<Biome> RED_DESERT = createBiome("red_desert", redDesert(false));
-//    public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest());
+    public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest());
 //    public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley());
 //    public static ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", roseFields());
 //    public static ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", autumnalForest());
