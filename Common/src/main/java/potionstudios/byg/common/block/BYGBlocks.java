@@ -553,7 +553,7 @@ public class BYGBlocks {
     public static final Block BRIMSTONE = createNetherStone(MaterialColor.TERRACOTTA_YELLOW, "brimstone");
     public static final Block YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks");
     public static final Block BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
-    public static final Block BORIC_FIRE = createCrypticFireBlock(MaterialColor.COLOR_GREEN,"boric_fire");
+    public static final Block BORIC_FIRE = createBoricFireBlock(MaterialColor.COLOR_GREEN,"boric_fire");
     public static final Block BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN,"boric_lantern");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
@@ -662,6 +662,7 @@ public class BYGBlocks {
     public static final Block THERIUM_GLASS = createTheriumGlass("therium_glass");
     public static final Block THERIUM_GLASS_PANE = createTheriumGlassPane("therium_glass_pane");
 
+    public static final Block CRYPTIC_END_ROD = createEndRodBlock(MaterialColor.COLOR_RED, "cryptic_end_rod");
     public static final Block CRYPTIC_CAMPFIRE = createCampfireBlock(4, "cryptic_campfire");
     public static final Block CRYPTIC_LANTERN = createCrypticLanternBlock(MaterialColor.COLOR_RED,"cryptic_lantern");
     public static final Block CRYPTIC_FIRE = createCrypticFireBlock(MaterialColor.COLOR_RED,"cryptic_fire");
@@ -1587,6 +1588,12 @@ public class BYGBlocks {
 
     static Block createCrypticLanternBlock(MaterialColor color, String id) {
         Block createBlock = new CrypticLanternBlock(BlockBehaviour.Properties.of(Material.METAL, color).noOcclusion().requiresCorrectToolForDrops().sound(SoundType.LANTERN).strength(3.5f).lightLevel((state) -> 15));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createEndRodBlock(MaterialColor color, String id) {
+        Block createBlock = new CrypticEndRodBlock(BlockBehaviour.Properties.of(Material.DECORATION, color).sound(SoundType.CANDLE).instabreak().noOcclusion().lightLevel((state) -> 14));
         createBlock(createBlock, id);
         return createBlock;
     }

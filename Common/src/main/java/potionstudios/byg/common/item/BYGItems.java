@@ -1094,6 +1094,7 @@ public class BYGItems {
     public static final Item SHULKREN_PHYLIUM = createItem(BYGBlocks.SHULKREN_PHYLIUM);
     public static final Item PURPLE_SHROOMLIGHT = createItem(BYGBlocks.PURPLE_SHROOMLIGHT);
 
+    public static final Item CRYPTIC_END_ROD = createItem(BYGBlocks.CRYPTIC_END_ROD);
     public static final Item CRYPTIC_CAMPFIRE = createItem(BYGBlocks.CRYPTIC_CAMPFIRE);
     public static final Item CRYPTIC_LANTERN = createItem(BYGBlocks.CRYPTIC_LANTERN);
     public static final Item CRYPTIC_MAGMA_BLOCK = createItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK);
