@@ -1502,16 +1502,23 @@ public class BYGConfiguredFeatures {
             new  WeightedPlacedFeature(OAK_TREE_LARGE1.placed(), 0.16F),
             new  WeightedPlacedFeature(OAK_TREE_LARGE2.placed(), 0.16F)),
             OAK_TREE_LARGE3.placed())));
-//
-//    public static final ConfiguredFeature<?, ?> RANDOM_RED_OAK_TREE = createConfiguredFeature("red_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            RED_OAK_TREE1.weighted(0.3F),
-//            RED_OAK_TREE2.weighted(0.2F),
-//            RED_OAK_TREE3.weighted(0.2F),
-//            RED_OAK_TREE_LARGE1.weighted(0.1F),
-//            RED_OAK_TREE_LARGE2.weighted(0.1F)),
-//            RED_OAK_TREE_LARGE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
-//
+
+    public static final ConfiguredFeature<?, ?> ORANGE_OAK_TREES = createConfiguredFeature("orange_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(ORANGE_OAK_TREE1.placed(), 0.16F),
+            new WeightedPlacedFeature(ORANGE_OAK_TREE2.placed(), 0.16F),
+            new WeightedPlacedFeature(ORANGE_OAK_TREE3.placed(), 0.16F),
+            new WeightedPlacedFeature(ORANGE_OAK_TREE_LARGE1.placed(), 0.16F),
+            new WeightedPlacedFeature(ORANGE_OAK_TREE_LARGE2.placed(), 0.16F)),
+            ORANGE_OAK_TREE_LARGE3.placed())));
+
+    public static final ConfiguredFeature<?, ?> BROWN_OAK_TREES = createConfiguredFeature("brown_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BROWN_OAK_TREE1.placed(), 0.16F),
+            new WeightedPlacedFeature(BROWN_OAK_TREE2.placed(), 0.16F),
+            new WeightedPlacedFeature(BROWN_OAK_TREE3.placed(), 0.16F),
+            new WeightedPlacedFeature(BROWN_OAK_TREE_LARGE1.placed(), 0.16F),
+            new WeightedPlacedFeature(BROWN_OAK_TREE_LARGE2.placed(), 0.16F)),
+            BROWN_OAK_TREE_LARGE3.placed())));
+
     public static final ConfiguredFeature<?, ?> RED_OAK_TREES = createConfiguredFeature("red_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(RED_OAK_TREE1.placed(), 0.16F),
             new WeightedPlacedFeature(RED_OAK_TREE2.placed(), 0.16F),
