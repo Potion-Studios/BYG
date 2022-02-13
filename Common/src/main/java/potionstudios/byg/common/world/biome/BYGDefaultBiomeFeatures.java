@@ -26,7 +26,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRoseFieldFlowers(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ROSE_FIELD_FLOWER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSE_FIELD_FLOWERS);
     }
 
     public static void addLargeBoulders(BiomeGenerationSettings.Builder gen) {
@@ -688,8 +688,12 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
-    public static void addRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_RED_TREE);
+//    public static void addRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
+//        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_RED_TREE);
+//    }
+
+    public static void addSpareRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_SPRUCE_TREES_SPARSE);
     }
 
     public static void addSmallSpruceTrees(BiomeGenerationSettings.Builder gen) {
