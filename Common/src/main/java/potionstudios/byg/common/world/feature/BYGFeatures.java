@@ -78,10 +78,10 @@ import potionstudios.byg.common.world.feature.overworld.trees.coniferous.*;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.cypress.CypressTree3;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree1;
-import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.DeadHazelTree2;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree1;
+import potionstudios.byg.common.world.feature.overworld.trees.deadhazel.HazelTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree1;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree2;
 import potionstudios.byg.common.world.feature.overworld.trees.deciduous.DeciduousTree3;
@@ -179,8 +179,6 @@ public class BYGFeatures {
     //DeadSea
     public static final Feature<PointyRockConfig> POINTY_ROCK = createFeature("pointed_rock", new PointyRockFeature(PointyRockConfig.CODEC.stable()));
     public static final Feature<PointyRockConfig> TALL_POINTED_ROCK = createFeature("tall_pointed_rock", new TallPointedRocks(PointyRockConfig.CODEC.stable()));
-
-    public static final Feature<Simple2BlockProviderConfig> ICE_SNOW = createFeature("ice_and_snow", new ConfigurableIceAndSnow(Simple2BlockProviderConfig.CODEC.stable()));
 
     //Lakes
     public static final Feature<BlockStateConfiguration> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateConfiguration.CODEC.stable()));

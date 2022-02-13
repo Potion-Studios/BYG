@@ -28,6 +28,7 @@
     "access.StaticTagHelperWrapperAccess",
     "access.SurfaceRuleContextAccess",
     "access.SurfaceRuleDataAccess",
+    "access.SurfaceSystemAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",
     "access.VegetationFeaturesAccess",

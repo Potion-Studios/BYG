@@ -132,7 +132,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         //cannot be under ledge
         BlockPos.MutableBlockPos temp = new BlockPos.MutableBlockPos().set(blockpos$Mutable);
         blockState = world.getBlockState(temp.above());
-        while (!blockState.getFluidState().isEmpty() && temp.getY() < 255) {
+        while (!blockState.getFluidState().isEmpty() && temp.getY() < world.getMaxBuildHeight()) {
             temp.move(Direction.UP);
         }
         if (!blockState.isAir() && blockState.getFluidState().isEmpty())

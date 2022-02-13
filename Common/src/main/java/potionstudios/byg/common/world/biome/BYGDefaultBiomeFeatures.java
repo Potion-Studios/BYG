@@ -125,10 +125,6 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WILTED_GRASS);
     }
 
-    public static void addWinterGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WINTER_GRASS);
-    }
-
     public static void addLeafPile(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LEAF_PILES);
     }
@@ -219,7 +215,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addWinterRose(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WINTER_ROSES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WINTER_ROSES);
     }
 
     public static void addSnowdrops(BiomeGenerationSettings.Builder gen) {
@@ -331,7 +327,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFrostMagmaLakes(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BYGConfiguredFeatures.FROST_MAGMA_LAKE);
+        gen.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BYGPlacedFeatures.FROST_MAGMA_LAKE);
     }
 
     public static void addWarpedVegetation(BiomeGenerationSettings.Builder gen) {
