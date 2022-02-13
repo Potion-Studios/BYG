@@ -50,7 +50,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods());
 //    public static ResourceKey<Biome> ENCHANTED_GROVE = createBiome("enchanted_grove", enchantedGrove(false));
     public static ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", forgottenForest());
-//    public static ResourceKey<Biome> GREAT_LAKES = createBiome("great_lakes", greatLakes());
     public static ResourceKey<Biome> GROVE = createBiome("temperate_grove", temperateGrove(false));
     public static ResourceKey<Biome> GUIANA_SHIELD = createBiome("guiana_shield", guianaShield());
     public static ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", jacarandaForest());
@@ -66,7 +65,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", autumnalForest());
     public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false));
     public static ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", shatteredGlacier());
-//    public static ResourceKey<Biome> FIRE_CRACKER_SHRUBLANDS = createBiome("firecracker_shrublands", firecrackerShrublands());
+    public static ResourceKey<Biome> FIRECRACKER_SHRUBLAND = createBiome("firecracker_shrubland", firecrackerShrubland());
 //    public static ResourceKey<Biome> SIERRA_VALLEY = createBiome("sierra_valley", sierraValley());
 //    public static ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", skyrisVale());
     public static ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", redwoodThicket());

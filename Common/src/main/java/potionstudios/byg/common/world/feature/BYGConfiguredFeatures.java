@@ -992,10 +992,9 @@ public class BYGConfiguredFeatures {
     //
 //    /***********************************************************Configured Placement***********************************************************/
 //
-//    public static final ConfiguredFeature<?, ?> FIRECRACKER_SHRUBS = createConfiguredFeature("firecracker_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            FIRECRACKER_SHRUB.weighted(0.20F)),
-//            FIRECRACKER_SHRUB2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.25F, 2))));
+    public static final ConfiguredFeature<?, ?> FIRECRACKER_SHRUBS = createConfiguredFeature("firecracker_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(FIRECRACKER_SHRUB.placed(), 0.20F)),
+            FIRECRACKER_SHRUB2.placed())));
 //
 //    /***********************************************************Random Selectors***********************************************************/
 //

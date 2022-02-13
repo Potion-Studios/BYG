@@ -111,6 +111,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGConfiguredFeatures.HUGE_MUSHROOMS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature FIRECRACKER_SHRUBS = createPlacedFeature("firecracker_shrubs", BYGConfiguredFeatures.FIRECRACKER_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
 
     public static final PlacedFeature SPARSE_RED_OAK_TREES = createPlacedFeature("sparse_red_oak_trees", BYGConfiguredFeatures.RED_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.2F, 1))));
 

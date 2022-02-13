@@ -636,7 +636,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFirecrackerShrubs(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FIRECRACKER_SHRUBS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FIRECRACKER_SHRUBS);
     }
 
     public static void addRainForestTrees(BiomeGenerationSettings.Builder gen) {
