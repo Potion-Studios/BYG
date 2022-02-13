@@ -19,7 +19,7 @@ import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSu
 public class BYGPlacedFeatures {
 
     public static final PlacedFeature ALLIUM_FIELD_FLOWERS = createPlacedFeature("allium_field_flowers", BYGConfiguredFeatures.ALLIUM_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
-    public static final PlacedFeature PINK_ALLIUMS = createPlacedFeature("pink_alliums", BYGConfiguredFeatures.ALLIUM_PINK_BUSH.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature PINK_ALLIUMS = createPlacedFeature("pink_alliums", BYGConfiguredFeatures.ALLIUM_PINK.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature AMARANTH_FIELD_FLOWERS = createPlacedFeature("amaranth_field_flowers", BYGConfiguredFeatures.AMARANTH_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
 
     public static final PlacedFeature SHRUB = createPlacedFeature("shrub", BYGConfiguredFeatures.SHRUB.placed(worldSurfaceSquaredWithCount(1)));
