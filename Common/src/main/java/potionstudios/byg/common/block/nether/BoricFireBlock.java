@@ -12,7 +12,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 
 public class BoricFireBlock extends BaseFireBlock {
 
-    protected BoricFireBlock(Properties properties) {
+    public BoricFireBlock(Properties properties) {
         super(properties, 3.5F);
     }
 

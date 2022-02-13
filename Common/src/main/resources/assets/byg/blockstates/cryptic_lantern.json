@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=true": {
+      "model": "byg:block/hanging_cryptic_lantern"
+    },
+    "hanging=false": {
+      "model": "byg:block/cryptic_lantern"
+    }
+  }
+}

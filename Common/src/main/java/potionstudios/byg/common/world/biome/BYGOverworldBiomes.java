@@ -101,7 +101,7 @@ public class BYGOverworldBiomes {
         } else {
             BYGDefaultBiomeFeatures.addSparseAraucariaTrees(generationSettings);
         }
-        BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
+        BYGDefaultBiomeFeatures.addShrub(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));

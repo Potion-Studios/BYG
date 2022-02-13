@@ -97,6 +97,9 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.NIGHTSHADE_ROOTS, RenderType.cutoutMipped());
         map.put(BYGBlocks.VERMILION_SCULK_GROWTH, RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_LANTERN, RenderType.cutoutMipped());
+        map.put(BYGBlocks.CRYPTIC_LANTERN, RenderType.cutoutMipped());
+        map.put(BYGBlocks.BORIC_LANTERN, RenderType.cutoutMipped());
+        map.put(BYGBlocks.CRYPTIC_END_ROD, RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_CACTUS, RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_BUSH, RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_CRYSTAL, RenderType.cutoutMipped());

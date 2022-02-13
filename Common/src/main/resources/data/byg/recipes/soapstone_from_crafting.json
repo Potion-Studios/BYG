@@ -1,18 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SC"
-  ],
-  "key": {
-    "S": {
-      "item": "minecraft:clay_ball"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:stone_crafting_materials"
     },
-    "C": {
-      "item": "minecraft:cobblestone"
+    {
+      "item": "minecraft:clay_ball"
     }
-  },
+  ],
   "result": {
     "item": "byg:soapstone",
-    "count": 2
+    "count": 1
   }
 }

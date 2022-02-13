@@ -1,19 +1,19 @@
 {
   "parent": "block/block",
   "textures": {
-    "particle": "byg:block/redstone_lantern_on",
-    "all": "byg:block/redstone_lantern_on"
+    "particle": "byg:block/cryptic_lantern",
+    "all": "byg:block/cryptic_lantern"
   },
   "elements": [
     {
       "from": [
         5,
-        1,
+        0,
         5
       ],
       "to": [
         11,
-        8,
+        7,
         11
       ],
       "faces": {
@@ -24,7 +24,8 @@
             6,
             15
           ],
-          "texture": "#all"
+          "texture": "#all",
+          "cullface": "down"
         },
         "up": {
           "uv": [
@@ -76,24 +77,15 @@
     {
       "from": [
         6,
-        8,
+        7,
         6
       ],
       "to": [
         10,
-        10,
+        9,
         10
       ],
       "faces": {
-        "down": {
-          "uv": [
-            1,
-            10,
-            5,
-            14
-          ],
-          "texture": "#all"
-        },
         "up": {
           "uv": [
             1,
@@ -144,12 +136,12 @@
     {
       "from": [
         6.5,
-        11,
+        9,
         8
       ],
       "to": [
         9.5,
-        15,
+        11,
         8
       ],
       "rotation": {
@@ -168,7 +160,7 @@
             11,
             1,
             14,
-            5
+            3
           ],
           "texture": "#all"
         },
@@ -177,7 +169,7 @@
             11,
             1,
             14,
-            5
+            3
           ],
           "texture": "#all"
         }
@@ -186,12 +178,12 @@
     {
       "from": [
         8,
-        10,
+        9,
         6.5
       ],
       "to": [
         8,
-        16,
+        11,
         9.5
       ],
       "rotation": {
@@ -208,7 +200,7 @@
         "west": {
           "uv": [
             11,
-            6,
+            10,
             14,
             12
           ],
@@ -217,7 +209,7 @@
         "east": {
           "uv": [
             11,
-            6,
+            10,
             14,
             12
           ],

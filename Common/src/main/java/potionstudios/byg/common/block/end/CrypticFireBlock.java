@@ -13,7 +13,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 
 public class CrypticFireBlock extends BaseFireBlock {
 
-    protected CrypticFireBlock(Properties properties) {
+    public CrypticFireBlock(Properties properties) {
         super(properties, 3.5F);
     }
 

@@ -45,6 +45,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> AMARANTH_CYAN = createFlowerConfiguredFeature("cyan_amaranth", BYGBlocks.CYAN_AMARANTH);
 
     public static final ConfiguredFeature<?, ?> FIRECRACKER_BUSH = createFlowerConfiguredFeature("firecracker_bush", BYGBlocks.FIRECRACKER_FLOWER_BUSH);
+    public static final ConfiguredFeature<?, ?> SHRUB = createFlowerConfiguredFeature("shrub", BYGBlocks.SHRUB);
 
     public static final ConfiguredFeature<?, ?> CLOVER_PATCH = createFlowerConfiguredFeature("clover_patch", BYGBlocks.CLOVER_PATCH);
     public static final ConfiguredFeature<?, ?> FLOWER_PATCH = createFlowerConfiguredFeature("flower_patch", BYGBlocks.FLOWER_PATCH);

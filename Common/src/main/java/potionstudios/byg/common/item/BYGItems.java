@@ -951,6 +951,7 @@ public class BYGItems {
     public static final Item BRIMSTONE = createItem(BYGBlocks.BRIMSTONE);
     public static final Item BRIM_POWDER = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "brim_powder");
     public static final Item BORIC_CAMPFIRE = createItem(BYGBlocks.BORIC_CAMPFIRE);
+    public static final Item BORIC_LANTERN = createItem(BYGBlocks.BORIC_LANTERN);
     public static final Item YELLOW_NETHER_BRICKS = createItem(BYGBlocks.YELLOW_NETHER_BRICKS);
     public static final Item YELLOW_NETHER_BRICK = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "yellow_nether_brick");
     public static final Item MAGMATIC_STONE = createItem(BYGBlocks.MAGMATIC_STONE);
@@ -1093,7 +1094,9 @@ public class BYGItems {
     public static final Item SHULKREN_PHYLIUM = createItem(BYGBlocks.SHULKREN_PHYLIUM);
     public static final Item PURPLE_SHROOMLIGHT = createItem(BYGBlocks.PURPLE_SHROOMLIGHT);
 
+    public static final Item CRYPTIC_END_ROD = createItem(BYGBlocks.CRYPTIC_END_ROD);
     public static final Item CRYPTIC_CAMPFIRE = createItem(BYGBlocks.CRYPTIC_CAMPFIRE);
+    public static final Item CRYPTIC_LANTERN = createItem(BYGBlocks.CRYPTIC_LANTERN);
     public static final Item CRYPTIC_MAGMA_BLOCK = createItem(BYGBlocks.CRYPTIC_MAGMA_BLOCK);
     public static final Item CRYPTIC_REDSTONE_ORE = createItem(BYGBlocks.CRYPTIC_REDSTONE_ORE);
     public static final Item CRYPTIC_STONE = createItem(BYGBlocks.CRYPTIC_STONE);

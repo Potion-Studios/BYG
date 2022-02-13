@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:travertine_bricks"
+  },
+  "result": "byg:chiseled_travertine_brick_stairs",
+  "count": 1
+}
