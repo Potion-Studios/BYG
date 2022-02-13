@@ -55,7 +55,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> GUIANA_SHIELD = createBiome("guiana_shield", guianaShield());
     public static ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", jacarandaForest());
     public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga());
-    public static ResourceKey<Biome> COCOMINO_MEADOW = createBiome("cocomino_meadow", cocominoMeadow(false, false));
+    public static ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", coconinoMeadow(false, false));
     public static ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", mojaveDesert());
 //    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
 //    public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard());
@@ -94,7 +94,7 @@ public class BYGBiomes {
 //    //Flowering
 //    public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = createBiome("flowering_enchanted_grove", enchantedGrove(true));
 //    public static ResourceKey<Biome> FLOWERING_GROVE = createBiome("flowering_grove", grove(true));
-//    public static ResourceKey<Biome> FLOWERING_COCONINO_MEADOW = createBiome("flowering_coconino_meadow", cocominoMeadow(true, false));
+//    public static ResourceKey<Biome> FLOWERING_COCONINO_MEADOW = createBiome("flowering_coconino_meadow", coconinoMeadow(true, false));
 //
 //    //Forests
 //    public static ResourceKey<Biome> ARAUCARIA_FOREST = createBiome("araucaria_forest", araucariaSavanna(true));
@@ -114,7 +114,7 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> GREAT_LAKE_ISLES = createBiome("great_lake_isles", greatLakeIsles());
 //    public static ResourceKey<Biome> LUSH_RED_DESERT = createBiome("lush_red_desert", redDesert(true));
 //    public static ResourceKey<Biome> RED_SPRUCE_TAIGA = createBiome("red_spruce_taiga", redTaiga());
-//    public static ResourceKey<Biome> WOODED_COCONINO_MEADOW = createBiome("wooded_coconino_meadow", cocominoMeadow(false, true));
+//    public static ResourceKey<Biome> WOODED_COCONINO_MEADOW = createBiome("wooded_coconino_meadow", coconinoMeadow(false, true));
 //
 //    //Mutations
 //    public static ResourceKey<Biome> AUTUMNAL_GIANT_TAIGA = createBiome("autumnal_giant_taiga", autumnalTaiga(true));

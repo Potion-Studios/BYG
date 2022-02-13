@@ -110,7 +110,7 @@ public class BYGOverworldBiomeBuilder {
 
     private static final ResourceKey<Biome>[][] PLATEAU_BIOMES_4 = new ResourceKey[][]{
             {Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA, Biomes.SNOWY_TAIGA},
-            {Biomes.MEADOW, Biomes.MEADOW, Biomes.FOREST, BYGBiomes.COCOMINO_MEADOW, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
+            {Biomes.MEADOW, Biomes.MEADOW, Biomes.FOREST, BYGBiomes.COCONINO_MEADOW, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.MEADOW, Biomes.MEADOW, Biomes.MEADOW, Biomes.MEADOW, Biomes.DARK_FOREST},
             {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, Biomes.FOREST, Biomes.FOREST, Biomes.JUNGLE},
             {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
