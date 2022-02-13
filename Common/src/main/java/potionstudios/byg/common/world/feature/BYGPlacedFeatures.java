@@ -19,6 +19,7 @@ import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSu
 public class BYGPlacedFeatures {
 
     public static final PlacedFeature ALLIUM_FIELD_FLOWERS = createPlacedFeature("allium_field_flowers", BYGConfiguredFeatures.ALLIUM_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
+    public static final PlacedFeature PINK_ALLIUMS = createPlacedFeature("pink_alliums", BYGConfiguredFeatures.ALLIUM_PINK_BUSH.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature AMARANTH_FIELD_FLOWERS = createPlacedFeature("amaranth_field_flowers", BYGConfiguredFeatures.AMARANTH_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
 
     public static final PlacedFeature SHRUB = createPlacedFeature("shrub", BYGConfiguredFeatures.SHRUB.placed(worldSurfaceSquaredWithCount(1)));
@@ -30,6 +31,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CATTAIL = createPlacedFeature("cattails", BYGConfiguredFeatures.CATTAIL.placed(oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2))));
     public static final PlacedFeature LEATHER_FLOWERS = createPlacedFeature("leather_flowers", BYGConfiguredFeatures.LEATHER_FLOWERS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature LEAF_PILES = createPlacedFeature("leaf_piles", BYGConfiguredFeatures.LEAF_PILE.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature LOLLIPOP_FLOWERS = createPlacedFeature("lollipop_flowers", BYGConfiguredFeatures.LOLLIPOP_FLOWER.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CLOVER_FLOWERS = createPlacedFeature("clover_flower_patch", BYGConfiguredFeatures.CLOVER_PATCH.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CROCUS = createPlacedFeature("crocus", BYGConfiguredFeatures.CROCUS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ANEMONES = createPlacedFeature("anemones", BYGConfiguredFeatures.ANEMONES.placed(worldSurfaceSquaredWithCount(2)));
@@ -79,6 +81,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature JOSHUA_TREES = createPlacedFeature("joshua_tree", BYGConfiguredFeatures.JOSHUA_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 2))));
     public static final PlacedFeature MANGROVE_TREES = createPlacedFeature("mangrove_trees", BYGConfiguredFeatures.MANGROVE_TREES.placed(treePlacementBaseOceanFloor(PlacementUtils.countExtra(6, 0.25F, 2))));
     public static final PlacedFeature MAPLE_TREES = createPlacedFeature("maple_trees", BYGConfiguredFeatures.MAPLE_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 2))));
+    public static final PlacedFeature NORTHERN_FOREST_TREES = createPlacedFeature("northern_forest_trees", BYGConfiguredFeatures.NORTHERN_FOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(3, 0.25F, 3))));
+    public static final PlacedFeature ORCHARD_TREES = createPlacedFeature("orchard_trees", BYGConfiguredFeatures.ORCHARD_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature HOLLY_TREES = createPlacedFeature("holly_trees", BYGConfiguredFeatures.HOLLY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
     public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.DECIDUOUS_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature RAINFOREST_TREES = createPlacedFeature("rainforest_trees", BYGConfiguredFeatures.RAINFOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(15, 0.25F, 1))));
@@ -96,6 +100,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature DISK_MUD = createPlacedFeature("disk_mud", BYGConfiguredFeatures.DISK_MUD.placed(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome()));
 
     public static final PlacedFeature MOSSY_STONE_BOULDER = createPlacedFeature("mossy_stone_boulder", BYGConfiguredFeatures.MOSSY_STONE_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+    public static final PlacedFeature BEEHIVES = createPlacedFeature("beehives", BYGConfiguredFeatures.BEEHIVES.placed(CountPlacement.of(2), InSquarePlacement.spread(), BiomeFilter.biome()));
     public static final PlacedFeature ROCKY_STONE_BOULDER = createPlacedFeature("rocky_stone_boulder", BYGConfiguredFeatures.ROCKY_STONE_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature BLACKSTONE_BOULDER = createPlacedFeature("blackstone_boulder", BYGConfiguredFeatures.BLACKSTONE_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature ORANGE_TERRACOTTA_BOULDER = createPlacedFeature("orange_terracotta_boulder", BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));

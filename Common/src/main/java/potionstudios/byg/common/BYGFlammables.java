@@ -300,7 +300,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.JAPANESE_ORCHID, 60, 100);
         flammableBlock(BYGBlocks.KOVAN_FLOWER, 60, 100);
         flammableBlock(BYGBlocks.LAZARUS_BELLFLOWER, 60, 100);
-        flammableBlock(BYGBlocks.LOLIPOP_FLOWER, 60, 100);
+        flammableBlock(BYGBlocks.LOLLIPOP_FLOWER, 60, 100);
         flammableBlock(BYGBlocks.MAGENTA_AMARANTH, 60, 100);
         flammableBlock(BYGBlocks.MAGENTA_TULIP, 60, 100);
         flammableBlock(BYGBlocks.ORANGE_DAISY, 60, 100);

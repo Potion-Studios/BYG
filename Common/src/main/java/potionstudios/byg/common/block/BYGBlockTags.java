@@ -40,7 +40,7 @@ public class BYGBlockTags {
     public static final Tag.Named<Block> GROUND_JAPANESE_ORCHID = createPlantTag("ground_japanese_orchid");
     public static final Tag.Named<Block> GROUND_KOVAN_FLOWER = createPlantTag("ground_kovan_flower");
     public static final Tag.Named<Block> GROUND_LAZARUS_BELLFLOWER = createPlantTag("ground_lazarus_bellflower");
-    public static final Tag.Named<Block> GROUND_LOLIPOP_FLOWER = createPlantTag("ground_lolipop_flower");
+    public static final Tag.Named<Block> GROUND_LOLLIPOP_FLOWER = createPlantTag("ground_lollipop_flower");
     public static final Tag.Named<Block> GROUND_MAGENTA_TULIP = createPlantTag("ground_magenta_tulip");
     public static final Tag.Named<Block> GROUND_ORANGE_DAISY = createPlantTag("ground_orange_daisy");
     public static final Tag.Named<Block> GROUND_ORSIRIA_ROSE = createPlantTag("ground_osiria_rose");

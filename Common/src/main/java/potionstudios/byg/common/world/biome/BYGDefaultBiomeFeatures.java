@@ -17,7 +17,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBeeHive(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BEEHIVES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BEEHIVES);
     }
 
 
@@ -203,7 +203,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLolliPop(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.LOLIPOP_FLOWERS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LOLLIPOP_FLOWERS);
     }
 
     public static void addRose(BiomeGenerationSettings.Builder gen) {
@@ -301,7 +301,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPinkAllium(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.PINK_ALLIUMS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PINK_ALLIUMS);
     }
 
     public static void addJacarandaBushes(BiomeGenerationSettings.Builder gen) {
@@ -705,9 +705,9 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addNorthernForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NORTHERN_FOREST_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DOVER_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.NORTHERN_FOREST_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DACITE_RIDGE_TREES);
     }
 
     public static void addSkyrisTrees(BiomeGenerationSettings.Builder gen) {
@@ -858,7 +858,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addOrchardTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ORCHARD_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ORCHARD_TREES);
     }
 
     public static void addHugeMushrooms(BiomeGenerationSettings.Builder gen) {

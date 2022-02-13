@@ -1193,7 +1193,7 @@ public class BYGItems {
     public static final Item JAPANESE_ORCHID = createItem(BYGBlocks.JAPANESE_ORCHID);
     public static final Item KOVAN_FLOWER = createItem(BYGBlocks.KOVAN_FLOWER);
     public static final Item LAZARUS_BELLFLOWER = createItem(BYGBlocks.LAZARUS_BELLFLOWER);
-    public static final Item LOLIPOP_FLOWER = createItem(BYGBlocks.LOLIPOP_FLOWER);
+    public static final Item LOLLIPOP_FLOWER = createItem(BYGBlocks.LOLLIPOP_FLOWER);
     public static final Item MAGENTA_AMARANTH = createItem(BYGBlocks.MAGENTA_AMARANTH);
     public static final Item MAGENTA_TULIP = createItem(BYGBlocks.MAGENTA_TULIP);
     public static final Item ORANGE_AMARANTH = createItem(BYGBlocks.ORANGE_AMARANTH);

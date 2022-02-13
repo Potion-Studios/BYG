@@ -141,7 +141,7 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.JAPANESE_ORCHID);
         compostibleBlocks(0.65f, BYGItems.KOVAN_FLOWER);
         compostibleBlocks(0.65f, BYGItems.LAZARUS_BELLFLOWER);
-        compostibleBlocks(0.65f, BYGItems.LOLIPOP_FLOWER);
+        compostibleBlocks(0.65f, BYGItems.LOLLIPOP_FLOWER);
         compostibleBlocks(0.65f, BYGItems.MAGENTA_AMARANTH);
         compostibleBlocks(0.65f, BYGItems.MAGENTA_TULIP);
         compostibleBlocks(0.65f, BYGItems.ORANGE_DAISY);

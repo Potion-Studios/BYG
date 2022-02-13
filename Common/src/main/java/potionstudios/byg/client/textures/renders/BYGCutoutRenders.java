@@ -281,7 +281,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.JAPANESE_ORCHID, RenderType.cutoutMipped());
         map.put(BYGBlocks.KOVAN_FLOWER, RenderType.cutoutMipped());
         map.put(BYGBlocks.LAZARUS_BELLFLOWER, RenderType.cutoutMipped());
-        map.put(BYGBlocks.LOLIPOP_FLOWER, RenderType.cutoutMipped());
+        map.put(BYGBlocks.LOLLIPOP_FLOWER, RenderType.cutoutMipped());
         map.put(BYGBlocks.MAGENTA_AMARANTH, RenderType.cutoutMipped());
         map.put(BYGBlocks.MAGENTA_TULIP, RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_AMARANTH, RenderType.cutoutMipped());
