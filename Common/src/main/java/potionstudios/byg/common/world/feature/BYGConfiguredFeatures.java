@@ -20,10 +20,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
-import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
-import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
-import potionstudios.byg.common.world.feature.config.PointyRockConfig;
-import potionstudios.byg.common.world.feature.config.PumpkinConfig;
+import potionstudios.byg.common.world.feature.config.*;
 
 import java.util.List;
 
@@ -300,7 +297,7 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> DENSE_OVERWORLD_LAKE = createConfiguredFeature("dense_overworld_lake", BYGFeatures.OVERWORLD_LAKE.configured(FeatureConfiguration.NONE).range(Features.Decorators.FULL_RANGE).squared().rarity(2));
 //
 //    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.DIORITE.defaultBlockState(), 2))).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
-//    public static final ConfiguredFeature<?, ?> GRASSLAND_BOULDER = createConfiguredFeature("grassland_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> LARGE_BOULDER = createConfiguredFeature("large_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()));
 //    public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_BOULDER = createConfiguredFeature("windswept_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(8).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.35F, 1))));
 //
@@ -1177,11 +1174,10 @@ public class BYGConfiguredFeatures {
             PINE_TREE2.placed())));
 
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_TREE = createConfiguredFeature("redwood_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            REDWOOD_TREE1.weighted(0.55F),
-//            REDWOOD_TREE2.weighted(0.1F)),
-//            REDWOOD_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.3F, 2))));
+    public static final ConfiguredFeature<?, ?> REDWOOD_TREES = createConfiguredFeature("redwood_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(REDWOOD_TREE1.placed(), 0.55F),
+            new WeightedPlacedFeature(REDWOOD_TREE2.placed(), 0.1F)),
+            REDWOOD_TREE3.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_REDWOOD_SPARSE_TREE = createConfiguredFeature("sparse_redwood_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            REDWOOD_TREE1.weighted(0.55F),

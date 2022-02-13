@@ -1273,6 +1273,7 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
+    // Come back later and do decent arches
     public static Biome redRockValley() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
@@ -1311,19 +1312,21 @@ public class BYGOverworldBiomes {
         invokeGlobalOverworldGeneration(generationSettings);
         
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        
+        BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BiomeDefaultFeatures.addFerns(generationSettings);
-        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
-        BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
+
         BYGDefaultBiomeFeatures.addRedwoodTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addGrasslandBoulders(generationSettings);
+        BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
+        BYGDefaultBiomeFeatures.addLargeBoulders(generationSettings);
+        BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

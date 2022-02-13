@@ -29,8 +29,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ROSE_FIELD_FLOWER);
     }
 
-    public static void addGrasslandBoulders(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRASSLAND_BOULDER);
+    public static void addLargeBoulders(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_BOULDERS);
     }
 
     public static void addGraniteBoulder(BiomeGenerationSettings.Builder gen) {
@@ -738,7 +738,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addRedwoodTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_REDWOOD_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.REDWOOD_TREES);
     }
 
     public static void addMeadowShrubs(BiomeGenerationSettings.Builder gen) {
