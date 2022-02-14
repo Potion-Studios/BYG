@@ -71,7 +71,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", redwoodThicket());
 //    public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false));
 //    public static ResourceKey<Biome> SNOWY_CONIFEROUS_FOREST = createBiome("snowy_coniferous_forest", coniferousForest(true));
-//    public static ResourceKey<Biome> STONE_FOREST = createBiome("fragment_forest", fragmentForest(false));
+    public static ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", fragmentForest());
 //    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalForest());
 //    public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalForest());
 //    public static ResourceKey<Biome> TWILIGHT_VALLEY = createBiome("twilight_valley", twilightValley());

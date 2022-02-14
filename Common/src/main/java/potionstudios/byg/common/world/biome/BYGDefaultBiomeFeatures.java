@@ -643,9 +643,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RAINFOREST_TREES);
     }
 
-    public static void addStoneForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_STONE_FOREST_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.VINES);
+    public static void addFragmentForestTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FRAGMENT_FOREST_TREES);
     }
 
     public static void addFungalRainForestTrees(BiomeGenerationSettings.Builder gen) {

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -308,7 +309,7 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_ARCH = createConfiguredFeature("windswept_arch", BYGFeatures.WINDSWEPT_ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
 //    public static final ConfiguredFeature<?, ?> GLOWSHROOM_CAVES = createConfiguredFeature("glow_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).setFluidStartY(12).build())).decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(25), VerticalAnchor.aboveBottom(40)))).count(1)));
-//    public static final ConfiguredFeature<?, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.COLUMN.configured((new NoisySphereConfig.Builder().setMinXRadius(4).setMaxXRadius(14).setMinYRadius(35).setMaxYRadius(45).setMinZRadius(4).setMaxZRadius(14).setMinStackHeight(1).setMaxStackHeight(2).setRadiusDivisor(2).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 5))).setTopBlock(BYGBlocks.OVERGROWN_STONE).setFluidStartY(12).build())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
+    public static final ConfiguredFeature<?, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.COLUMN.configured((new NoisySphereConfig.Builder().setMinXRadius(4).setMaxXRadius(14).setMinYRadius(35).setMaxYRadius(45).setMinZRadius(4).setMaxZRadius(14).setMinStackHeight(1).setMaxStackHeight(2).setRadiusDivisor(2).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 5))).setTopBlock(BYGBlocks.OVERGROWN_STONE).setFluidStartY(12).build())));
 //    public static final ConfiguredFeature<?, ?> IVIS_FIELDS_COLUMN = createConfiguredFeature("ivis_fields_column", BYGFeatures.COLUMN.configured((new NoisySphereConfig.Builder().setMinXRadius(4).setMaxXRadius(14).setMinYRadius(35).setMaxYRadius(45).setMinZRadius(4).setMaxZRadius(14).setMinStackHeight(1).setMaxStackHeight(2).setRadiusDivisor(2).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OBSIDIAN.defaultBlockState(), 9).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setTopBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OBSIDIAN.defaultBlockState(), 9).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setFluidStartY(12).build())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
 //    public static final ConfiguredFeature<?, ?> IRON_SURFACE_DEPOSIT = createConfiguredFeature("iron_surface_deposit", BYGFeatures.MINERAL_DEPOSIT.configured((new NoisySphereConfig.Builder().setMinXRadius(6).setMaxXRadius(14).setMinYRadius(4).setMaxYRadius(9).setMinZRadius(4).setMaxZRadius(7).setBlock(Blocks.IRON_ORE).build())).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.05F, 2))));
 //    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
@@ -1313,13 +1314,6 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(MAHOGANY_TREE4.placed(), 0.15F)),
             MAHOGANY_TREE1.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_STONE_FOREST_TREE = createConfiguredFeature("stone_forest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            EBONY_TREE1.weighted(0.1F),
-//            EBONY_TREE2.weighted(0.1F),
-//            Features.JUNGLE_BUSH.weighted(0.1F),
-//            DECIDUOUS_TREE1.weighted(0.1F)),
-//            DECIDUOUS_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.25F, -5))));
 //
     public static final ConfiguredFeature<?, ?> SKYRIS_TREES = createConfiguredFeature("skyris_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(SKYRIS_TREE1.placed(), 0.2F),
@@ -1464,6 +1458,11 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(EBONY_TREE1.placed(), 0.45F),
             new WeightedPlacedFeature(EBONY_TREE2.placed(), 0.45F)),
             EBONY_BUSH1.placed())));
+
+    public static final ConfiguredFeature<?, ?> FRAGMENT_FOREST_TREES = createConfiguredFeature("stone_forest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(TreeFeatures.JUNGLE_BUSH.placed(), 0.1F),
+            new WeightedPlacedFeature(EBONY_TREES.placed(), 0.45F)),
+            DECIDUOUS_TREES.placed())));
     //
     public static final ConfiguredFeature<?, ?> HOLLY_TREES = createConfiguredFeature("holly_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(HOLLY_TREE1.placed(), 0.2F),

@@ -15,6 +15,7 @@ import potionstudios.byg.common.world.placement.ChunkCoveringPlacement;
 import potionstudios.byg.mixin.access.VegetationPlacementsAccess;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
 
@@ -104,6 +105,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.PRAIRIE_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature RAINFOREST_TREES = createPlacedFeature("rainforest_trees", BYGConfiguredFeatures.RAINFOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(15, 0.25F, 1))));
     public static final PlacedFeature REDWOOD_TREES = createPlacedFeature("redwood_trees", BYGConfiguredFeatures.REDWOOD_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
+    public static final PlacedFeature FRAGMENT_FOREST_TREES = createPlacedFeature("fragment_forest_trees", BYGConfiguredFeatures.FRAGMENT_FOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
     public static final PlacedFeature SKYRIS_TREES = createPlacedFeature("skyris_trees", BYGConfiguredFeatures.SKYRIS_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature RED_SPRUCE_TREES_SPARSE = createPlacedFeature("red_spruce_trees_sparse", BYGConfiguredFeatures.RED_SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("spruce_trees_sparse", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
@@ -129,6 +131,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature BLACKSTONE_BOULDER = createPlacedFeature("blackstone_boulder", BYGConfiguredFeatures.BLACKSTONE_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature ORANGE_TERRACOTTA_BOULDER = createPlacedFeature("orange_terracotta_boulder", BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature BLACK_ICE_SNOW = createPlacedFeature("black_ice_snow", BYGConfiguredFeatures.BLACK_ICE.placed(ChunkCoveringPlacement.INSTANCE, PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.WATER, BlockPos.ZERO)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.AIR, new BlockPos(0, 1, 0)))));
+    public static final PlacedFeature STONE_FOREST_COLUMN = createPlacedFeature("stone_forest_column", BYGConfiguredFeatures.STONE_FOREST_COLUMN.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
 
@@ -136,15 +139,16 @@ public class BYGPlacedFeatures {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
     }
 
-    public static List<PlacementModifier> oceanFloorSquaredWithCount(int $$0) {
-        return oceanFloorSquaredWithCountAndMaxDepth($$0, OptionalInt.empty());
+    public static List<PlacementModifier> oceanFloorSquaredWithCount(int $$0, PlacementModifier... modifiers) {
+        return oceanFloorSquaredWithCountAndMaxDepth($$0, OptionalInt.empty(), modifiers);
     }
 
-    public static List<PlacementModifier> oceanFloorSquaredWithCountAndMaxDepth(int $$0, OptionalInt maxDepth) {
+    public static List<PlacementModifier> oceanFloorSquaredWithCountAndMaxDepth(int $$0, OptionalInt maxDepth, PlacementModifier... modifiers) {
         ArrayList<PlacementModifier> placementModifiers = new ArrayList<>(List.of(CountPlacement.of($$0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
         if (maxDepth.isPresent()) {
             placementModifiers.add(SurfaceWaterDepthFilter.forMaxDepth(maxDepth.getAsInt()));
         }
+        placementModifiers.addAll(Arrays.asList(modifiers));
         return placementModifiers;
     }
 
