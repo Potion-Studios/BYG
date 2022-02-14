@@ -41,7 +41,7 @@ public class BYGSurfaceRules {
                     SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), PODZOL_DIRT_SURFACE)
             )
     );
-    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CONIFEROUS_FOREST, BYGBiomes.BLACK_FOREST, BYGBiomes.TWILIGHT_MEADOW),
+    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PEAT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CONIFEROUS_FOREST, BYGBiomes.FROSTED_CONIFEROUS_FOREST, BYGBiomes.BLACK_FOREST, BYGBiomes.TWILIGHT_MEADOW),
             SurfaceRules.sequence(
                     NOISE_COARSE_DIRT,
                     SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), PEAT_SURFACE)
