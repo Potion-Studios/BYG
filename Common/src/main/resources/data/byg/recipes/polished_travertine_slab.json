@@ -5,11 +5,11 @@
   ],
   "key": {
     "#": {
-      "item": "byg:chiseled_travertine_bricks"
+      "item": "byg:polished_travertine"
     }
   },
   "result": {
-    "item": "byg:chiseled_travertine_brick_slab",
+    "item": "byg:polished_travertine_slab",
     "count": 6
   }
 }

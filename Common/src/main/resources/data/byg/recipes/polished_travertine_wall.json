@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "byg:travertine_bricks"
+      "item": "byg:polished_travertine"
     }
   },
   "result": {
-    "item": "byg:travertine_brick_wall",
+    "item": "byg:polished_travertine_wall",
     "count": 6
   }
 }

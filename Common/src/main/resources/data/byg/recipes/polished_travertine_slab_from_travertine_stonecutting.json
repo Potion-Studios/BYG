@@ -3,6 +3,6 @@
   "ingredient": {
     "item": "byg:travertine"
   },
-  "result": "byg:chiseled_travertine_brick_stairs",
-  "count": 1
+  "result": "byg:polished_travertine_slab",
+  "count": 2
 }
