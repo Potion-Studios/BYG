@@ -797,22 +797,21 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addRareBerryBushes(generationSettings);
 
 
         if (giant) {
             BYGDefaultBiomeFeatures.addGiantBlueTaigaTrees(generationSettings);
         } else {
-            BYGDefaultBiomeFeatures.addBlueTaigaTrees(generationSettings);
+            BYGDefaultBiomeFeatures.addBlueSpruceTrees(generationSettings);
         }
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
-
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
