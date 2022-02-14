@@ -74,7 +74,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", fragmentForest());
 //    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
     public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalRainforest());
-//    public static ResourceKey<Biome> TWILIGHT_VALLEY = createBiome("twilight_valley", twilightValley());
+    public static ResourceKey<Biome> TWILIGHT_VALLEY = createBiome("twilight_valley", twilightValley());
 //    public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest());
 //    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
 //    public static ResourceKey<Biome> WOODLANDS = createBiome("woodlands", temperateRainForest());

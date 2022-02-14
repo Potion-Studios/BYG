@@ -33,8 +33,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_BOULDERS);
     }
 
-    public static void addGraniteBoulder(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.GRANITE_BOULDER);
+    public static void addGraniteLargeBoulder(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_GRANITE_BOULDERS);
     }
 
     public static void addWindsweptBoulders(BiomeGenerationSettings.Builder gen) {
@@ -715,7 +715,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBrownZelkovaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BROWN_ZELKOVA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BROWN_ZELKOVA_TREES);
     }
 
     public static void addBaobabTrees(BiomeGenerationSettings.Builder gen) {

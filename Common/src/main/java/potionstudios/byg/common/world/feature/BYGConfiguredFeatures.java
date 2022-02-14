@@ -302,7 +302,7 @@ public class BYGConfiguredFeatures {
 //
 //    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.DIORITE.defaultBlockState(), 2))).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
     public static final ConfiguredFeature<?, ?> LARGE_BOULDER = createConfiguredFeature("large_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()));
-    //    public static final ConfiguredFeature<?, ?> GRANITE_BOULDER = createConfiguredFeature("granite_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.1F, 1))));
+    public static final ConfiguredFeature<?, ?> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()));
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_BOULDER = createConfiguredFeature("windswept_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(8).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.35F, 1))));
 //
 //    public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.DIAMOND_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
@@ -1336,11 +1336,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ARAUCARIA_TREES = createConfiguredFeature("araucaria_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(ARAUCARIA_TREE1.placed(), 0.5F)), ARAUCARIA_TREE2.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BROWN_ZELKOVA_TREE = createConfiguredFeature("brown_zelkova_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            ZELKOVA_BROWN_TREE3.weighted(0.35F),
-//            ZELKOVA_BROWN_TREE2.weighted(0.35F)),
-//            ZELKOVA_BROWN_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.25F, 2))));
+    public static final ConfiguredFeature<?, ?> BROWN_ZELKOVA_TREES = createConfiguredFeature("brown_zelkova_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(ZELKOVA_BROWN_TREE1.placed(), 0.33F),
+            new WeightedPlacedFeature(ZELKOVA_BROWN_TREE2.placed(), 0.33F)),
+            ZELKOVA_BROWN_TREE3.placed())));
 //
     public static final ConfiguredFeature<?, ?> MEADOW_SHRUBS = createConfiguredFeature("meadow_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(SHRUB_MEADOW.placed(), 0.5F)), SHRUB_MEADOW2.placed())));
