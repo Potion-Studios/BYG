@@ -1060,10 +1060,7 @@ public class BYGOverworldBiomes {
     public static Biome coconinoMeadow(boolean flowering, boolean wooded) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        if (wooded) {
-            BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
-            spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
-        }
+
         invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
@@ -1075,6 +1072,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addSparseMeadowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
@@ -1891,9 +1889,6 @@ public class BYGOverworldBiomes {
     public static Biome temperateRainForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addWoodlandTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
@@ -1902,12 +1897,15 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addTemperateRainforestTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addMeadowTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
-        BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

@@ -734,7 +734,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addMeadowTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_MEADOW_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MEADOW_TREES);
+    }
+
+    public static void addSparseMeadowTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MEADOW_TREES_SPARSE);
     }
 
     public static void addGroveTrees(BiomeGenerationSettings.Builder gen) {
@@ -857,8 +861,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HUGE_MUSHROOMS);
     }
 
-    public static void addWoodlandTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WOODLAND_TREE);
+    public static void addTemperateRainforestTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.TEMPERATE_RAINFOREST_TREES);
     }
 
     public static void addDummyTree(BiomeGenerationSettings.Builder gen) {

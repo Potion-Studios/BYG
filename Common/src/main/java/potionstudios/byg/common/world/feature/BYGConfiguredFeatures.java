@@ -1344,11 +1344,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> MEADOW_SHRUBS = createConfiguredFeature("meadow_shrubs", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(SHRUB_MEADOW.placed(), 0.5F)), SHRUB_MEADOW2.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_MEADOW_TREE = createConfiguredFeature("meadow_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            MEADOW_TREE1.weighted(0.2F),
-//            MEADOW_TREE2.weighted(0.1F)),
-//            MEADOW_TREE3)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(2, 0.25F, 3))));
+    public static final ConfiguredFeature<?, ?> MEADOW_TREES = createConfiguredFeature("meadow_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(MEADOW_TREE1.placed(), 0.3F),
+            new WeightedPlacedFeature(MEADOW_TREE2.placed(), 0.3F)),
+            MEADOW_TREE3.placed())));
 //
     public static final ConfiguredFeature<?, ?> TEMPERATE_GROVE_TREES = createConfiguredFeature("temperate_grove_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(BIRCH_YELLOW_BOREAL_TREE1.placed(), 0.5F)),
@@ -1493,10 +1492,9 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(ORCHARD_TREE2.placed(), 0.33F)),
             ORCHARD_TREE3.placed())));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_WOODLAND_TREE = createConfiguredFeature("woodland_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            WOODLANDS_TREE1.weighted(0.1F)),
-//            WOODLANDS_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.25F, 1))));
+    public static final ConfiguredFeature<?, ?> TEMPERATE_RAINFOREST_TREES = createConfiguredFeature("temperate_rainforest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(WOODLANDS_TREE1.placed(), 0.5F)),
+            WOODLANDS_TREE1.placed())));
 //
 
     public static final ConfiguredFeature<?, ?> OAK_TREES = createConfiguredFeature("oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
