@@ -66,7 +66,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false));
     public static ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", shatteredGlacier());
     public static ResourceKey<Biome> FIRECRACKER_SHRUBLAND = createBiome("firecracker_shrubland", firecrackerShrubland());
-//    public static ResourceKey<Biome> SIERRA_VALLEY = createBiome("sierra_valley", sierraValley());
+    public static ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", sierraBadlands());
 //    public static ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", skyrisVale());
     public static ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", redwoodThicket());
 //    public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false));

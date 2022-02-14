@@ -1576,7 +1576,7 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.DESERT).temperature(2.0F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(9874031).foliageColorOverride(7048739).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome sierraValley() {
+    public static Biome sierraBadlands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
@@ -1586,16 +1586,16 @@ public class BYGOverworldBiomes {
         
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addExtraGold(generationSettings);
-        BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        
-        BYGDefaultBiomeFeatures.addTerracottaBoulder(generationSettings);
+        BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
         BiomeDefaultFeatures.addBadlandGrass(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addBadlandExtraVegetation(generationSettings);
+
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addTerracottaBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
         spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));

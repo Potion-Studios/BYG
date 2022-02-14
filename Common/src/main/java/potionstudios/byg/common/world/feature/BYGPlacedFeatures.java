@@ -94,6 +94,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature HOLLY_TREES = createPlacedFeature("holly_trees", BYGConfiguredFeatures.HOLLY_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
     public static final PlacedFeature SPARSE_OAK_TREES = createPlacedFeature("sparse_oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.1F, 1))));
     public static final PlacedFeature OAK_TREES = createPlacedFeature("oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
+    public static final PlacedFeature PALO_VERDE_TREES = createPlacedFeature("palo_verde_trees", BYGConfiguredFeatures.PALO_VERDE_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.2F, 1))));
     public static final PlacedFeature RED_OAK_TREES = createPlacedFeature("red_oak_trees", BYGConfiguredFeatures.RED_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature ORANGE_OAK_TREES = createPlacedFeature("orange_oak_trees", BYGConfiguredFeatures.ORANGE_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature BROWN_OAK_TREES = createPlacedFeature("brown_oak_trees", BYGConfiguredFeatures.BROWN_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));

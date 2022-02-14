@@ -342,7 +342,6 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> BLACKSTONE_BOULDERS = createConfiguredFeature("blackstone_boulders", BLACKSTONE_BOULDER.decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.3F, 3))));
 //    public static final ConfiguredFeature<?, ?> ROCKY_STONE_BOULDERS = createConfiguredFeature("rocky_stone_boulders", ROCKY_STONE_BOULDER.decorated(Features.Decorators.HEIGHTMAP_SQUARE).countRandom(2));
 //    public static final ConfiguredFeature<?, ?> MOSSY_STONE_BOULDERS = createConfiguredFeature("mossy_stone_boulders", MOSSY_STONE_BOULDER.decorated(Features.Decorators.HEIGHTMAP_SQUARE).countRandom(2));
-//    public static final ConfiguredFeature<?, ?> ORANGE_TERRACOTTA_BOULDERS = createConfiguredFeature("orange_terracotta_boulders", ORANGE_TERRACOTTA_BOULDER.decorated(Features.Decorators.HEIGHTMAP_SQUARE).countRandom(2));
 //    public static final ConfiguredFeature<?, ?> FIRECRACKER_BUSHES = createConfiguredFeature("firecracker_bushes", FIRECRACKER_BUSH.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //    public static final ConfiguredFeature<?, ?> PUMPKINS = createConfiguredFeature("pumpkins", PUMPKIN.decorated(Features.Decorators.ADD_32).count(8));
 //    public static final ConfiguredFeature<?, ?> SHORT_GRASSES = createConfiguredFeature("short_grass", SHORT_GRASS.decorated(Features.Decorators.ADD_32).count(10));
@@ -1410,11 +1409,10 @@ public class BYGConfiguredFeatures {
 //            ZELKOVA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_PALO_VERDE_TREE = createConfiguredFeature("palo_verde_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            PALO_VERDE_TREE1.weighted(0.5F)),
-//            PALO_VERDE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.5F, -1))));
-//
+    public static final ConfiguredFeature<?, ?> PALO_VERDE_TREES = createConfiguredFeature("palo_verde_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(PALO_VERDE_TREE1.placed(), 0.5F)),
+            PALO_VERDE_TREE2.placed())));
+
     public static final ConfiguredFeature<?, ?> JOSHUA_TREES = createConfiguredFeature("joshua_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(JOSHUA_TREE1.placed(), 0.5F)),
             JOSHUA_TREE2.placed())));

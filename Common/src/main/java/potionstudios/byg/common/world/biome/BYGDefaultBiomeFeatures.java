@@ -319,7 +319,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTerracottaBoulder(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDERS);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ORANGE_TERRACOTTA_BOULDER);
     }
 
     public static void addMossyStoneBoulder(BiomeGenerationSettings.Builder gen) {
@@ -796,7 +796,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPaloVerdeTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALO_VERDE_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PALO_VERDE_TREES);
     }
 
     public static void addJoshuaTrees(BiomeGenerationSettings.Builder gen) {
