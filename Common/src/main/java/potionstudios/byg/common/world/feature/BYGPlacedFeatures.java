@@ -103,6 +103,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature AUTUMNAL_OAK_TREES = createPlacedFeature("autumnal_oak_trees", BYGConfiguredFeatures.AUTUMNAL_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.2F, 1))));
     public static final PlacedFeature AUTUMNAL_SPRUCE_TREES = createPlacedFeature("autumnal_spruce_trees", BYGConfiguredFeatures.AUTUMNAL_SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(4, 0.2F, 1))));
     public static final PlacedFeature PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGConfiguredFeatures.PRAIRIE_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature GUIANA_SHIELD_TREES = createPlacedFeature("guiana_shield_trees", BYGConfiguredFeatures.GUIANA_SHIELD_TREES.placed(treePlacement(PlacementUtils.countExtra(15, 0.25F, 1))));
     public static final PlacedFeature RAINFOREST_TREES = createPlacedFeature("rainforest_trees", BYGConfiguredFeatures.RAINFOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(15, 0.25F, 1))));
     public static final PlacedFeature REDWOOD_TREES = createPlacedFeature("redwood_trees", BYGConfiguredFeatures.REDWOOD_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature FRAGMENT_FOREST_TREES = createPlacedFeature("fragment_forest_trees", BYGConfiguredFeatures.FRAGMENT_FOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
@@ -113,7 +114,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGConfiguredFeatures.ROSE_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
     public static final PlacedFeature FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGConfiguredFeatures.FROST_MAGMA_LAKE.placed(worldSurfaceSquaredWithCount(3)));
 
-    public static final PlacedFeature HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGConfiguredFeatures.HUGE_MUSHROOMS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature SPARSE_HUGE_MUSHROOMS = createPlacedFeature("sparse_huge_mushrooms", BYGConfiguredFeatures.HUGE_MUSHROOMS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGConfiguredFeatures.HUGE_MUSHROOMS.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
 
     public static final PlacedFeature MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGConfiguredFeatures.MEADOW_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature FIRECRACKER_SHRUBS = createPlacedFeature("firecracker_shrubs", BYGConfiguredFeatures.FIRECRACKER_SHRUBS.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));

@@ -1282,16 +1282,18 @@ public class BYGConfiguredFeatures {
 //            SPRUCE_TREE_LARGE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_FUNGAL_TREE = createConfiguredFeature("fungal_rainforest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            RAINBOW_LARGE_TREE1.weighted(0.1F),
-//            RAINBOW_TREE1.weighted(0.1F),
-//            MAHOGANY_TREE5.weighted(0.1F),
-//            TROPICAL_SHRUB1.weighted(0.1F),
-//            MAHOGANY_TREE2.weighted(0.2F),
-//            MAHOGANY_TREE3.weighted(0.2F),
-//            MAHOGANY_TREE4.weighted(0.15F)),
-//            MAHOGANY_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.25F, -5))));
+
+    public static final ConfiguredFeature<?, ?> MAHOGANY_TREES = createConfiguredFeature("mahogany_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(MAHOGANY_TREE1.placed(), 0.1F),
+            new WeightedPlacedFeature(MAHOGANY_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(MAHOGANY_TREE3.placed(), 0.2F),
+            new WeightedPlacedFeature(MAHOGANY_TREE4.placed(), 0.15F)),
+            MAHOGANY_TREE5.placed())));
+
+
+    public static final ConfiguredFeature<?, ?> RAINFOREST_TREES = createConfiguredFeature("rainforest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(TROPICAL_SHRUB1.placed(), 0.1F)),
+            MAHOGANY_TREES.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_RAINFOREST_SPARSE_TREE = createConfiguredFeature("sparse_rainforest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            RAINBOW_LARGE_TREE1.weighted(0.1F),
@@ -1304,15 +1306,11 @@ public class BYGConfiguredFeatures {
 //            MAHOGANY_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.2F, 2))));
 //
-    public static final ConfiguredFeature<?, ?> RAINFOREST_TREES = createConfiguredFeature("rainforest_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> GUIANA_SHIELD_TREES = createConfiguredFeature("guiana_shield_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(RAINBOW_LARGE_TREE1.placed(), 0.1F),
             new WeightedPlacedFeature(RAINBOW_TREE1.placed(), 0.1F),
-            new WeightedPlacedFeature(MAHOGANY_TREE5.placed(), 0.1F),
-            new WeightedPlacedFeature(TROPICAL_SHRUB1.placed(), 0.1F),
-            new WeightedPlacedFeature(MAHOGANY_TREE2.placed(), 0.2F),
-            new WeightedPlacedFeature(MAHOGANY_TREE3.placed(), 0.2F),
-            new WeightedPlacedFeature(MAHOGANY_TREE4.placed(), 0.15F)),
-            MAHOGANY_TREE1.placed())));
+            new WeightedPlacedFeature(TROPICAL_SHRUB1.placed(), 0.1F)),
+            MAHOGANY_TREES.placed())));
     //
 //
     public static final ConfiguredFeature<?, ?> SKYRIS_TREES = createConfiguredFeature("skyris_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
