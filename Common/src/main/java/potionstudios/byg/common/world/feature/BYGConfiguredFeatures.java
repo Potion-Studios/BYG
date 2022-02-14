@@ -236,6 +236,11 @@ public class BYGConfiguredFeatures {
 //
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(65).build()));
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5).add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.ANDESITE.defaultBlockState(), 2).build())).setSeed(85).build()));
+
+    public static final ConfiguredFeature<?, ?> WINDSWEPT_SPIKE = createConfiguredFeature("windswept_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2).build())).setSeed(65).build()));
+    public static final ConfiguredFeature<?, ?> WINDSWEPT_SPIKE_TALL = createConfiguredFeature("windswept_tall_spike", BYGFeatures.POINTY_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2).build())).setSeed(85).build()));
+
+
     //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES = createConfiguredFeature("ivis_spikes1", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(120).setHeightMultiplier(0.4).build()));
 //    public static final ConfiguredFeature<?, ?> IVIS_SPIKES2 = createConfiguredFeature("ivis_spikes2", BYGFeatures.TALL_POINTED_ROCK.configured(new PointyRockConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.OBSIDIAN.defaultBlockState(), 24).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setSeed(15676).setHeightMultiplier(0.8).build()));
 //
@@ -297,13 +302,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> FROST_MAGMA_LAKE = createConfiguredFeature("wide_frost_magma_lake", BYGFeatures.WIDE_LAKE.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(BYGBlocks.FROST_MAGMA.defaultBlockState()))));
 //    public static final ConfiguredFeature<?, ?> END_LAKE = createConfiguredFeature("end_lake", BYGFeatures.END_LAKE.configured(FeatureConfiguration.NONE).range(Features.Decorators.FULL_RANGE).squared().rarity(4));
 //    public static final ConfiguredFeature<?, ?> BULBIS_WATER_LAKE = createConfiguredFeature("bulbis_water_lake", BYGFeatures.WIDE_LAKE.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.WATER.defaultBlockState()))).decorated(BYGDecorators.ANY_WATER_OR_SOLID_SURFACE.configured(new CountConfiguration(1))));
-//    public static final ConfiguredFeature<?, ?> OVERWORLD_LAKE = createConfiguredFeature("overworld_lake", BYGFeatures.OVERWORLD_LAKE.configured(FeatureConfiguration.NONE).range(Features.Decorators.FULL_RANGE).squared().rarity(25));
-//    public static final ConfiguredFeature<?, ?> DENSE_OVERWORLD_LAKE = createConfiguredFeature("dense_overworld_lake", BYGFeatures.OVERWORLD_LAKE.configured(FeatureConfiguration.NONE).range(Features.Decorators.FULL_RANGE).squared().rarity(2));
+    public static final ConfiguredFeature<?, ?> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE.configured(new LargeLakeFeatureConfig(15.0, 18.0, 0.8, 3.2, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND))));
 //
 //    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.DIORITE.defaultBlockState(), 2))).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
     public static final ConfiguredFeature<?, ?> LARGE_BOULDER = createConfiguredFeature("large_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()));
     public static final ConfiguredFeature<?, ?> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(9).build()));
-//    public static final ConfiguredFeature<?, ?> WINDSWEPT_BOULDER = createConfiguredFeature("windswept_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(8).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.35F, 1))));
+    public static final ConfiguredFeature<?, ?> LARGE_WINDSWEPT_BOULDER = createConfiguredFeature("large_windswept_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(5).setMaxRadius(8).build()));
 //
 //    public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.DIAMOND_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_ARCH = createConfiguredFeature("windswept_arch", BYGFeatures.WINDSWEPT_ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
@@ -562,6 +566,10 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(DEAD_SEA_SPIKE.placed(), 0.75F)),
             DEAD_SEA_SPIKE_TALL.placed())));
+
+    public static final ConfiguredFeature<?, ?> WINDSWEPT_SPIKES = createConfiguredFeature("windswept_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(WINDSWEPT_SPIKE.placed(), 0.75F)),
+            WINDSWEPT_SPIKE_TALL.placed())));
     //
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKINS = createConfiguredFeature("large_pumpkin", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(PUMPKIN1.placed(), 0.5F)), PUMPKIN2.placed())));
@@ -1408,13 +1416,12 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(SHRUB_PRAIRIE1.placed(), 0.5F)),
             SHRUB_PRAIRIE2.placed())));
     //
-//    public static final ConfiguredFeature<?, ?> RANDOM_PALM_TREE = createConfiguredFeature("sparse_palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            PALM_TREE4.weighted(0.05F),
-//            PALM_TREE3.weighted(0.35F),
-//            PALM_TREE2.weighted(0.35F)),
-//            PALM_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
-//
+    public static final ConfiguredFeature<?, ?> PALM_TREES = createConfiguredFeature("palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(PALM_TREE1.placed(), 0.25F),
+            new WeightedPlacedFeature(PALM_TREE2.placed(), 0.25F),
+            new WeightedPlacedFeature(PALM_TREE3.placed(), 0.25F)),
+            PALM_TREE4.placed())));
+
 //    public static final ConfiguredFeature<?, ?> RANDOM_DUNE_PALM_TREE = createConfiguredFeature("dune_palm_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            PALM_TREE4.weighted(0.05F),
 //            PALM_TREE3.weighted(0.35F),
@@ -1427,6 +1434,7 @@ public class BYGConfiguredFeatures {
             new WeightedPlacedFeature(CHERRY_PINK_TREE2.placed(), 0.25F),
             new WeightedPlacedFeature(CHERRY_WHITE_TREE1.placed(), 0.25F)),
             CHERRY_WHITE_TREE2.placed())));
+
     //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_CHERRY_TREE = createConfiguredFeature("sparse_cherry_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            CHERRY_PINK_TREE1.weighted(0.2F),
 //            CHERRY_PINK_TREE2.weighted(0.2F),

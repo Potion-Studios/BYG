@@ -184,7 +184,7 @@ public class BYGFeatures {
     public static final Feature<BlockStateConfiguration> FROSTED_LAKE = createFeature("frosted_lake", new FrostMagmaLakeFeature(BlockStateConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> WIDE_LAKE = createFeature("wide_lake", new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> END_LAKE = createFeature("end_lake", new EndLakeFeature());
-    public static final Feature<NoneFeatureConfiguration> OVERWORLD_LAKE = createFeature("overworld_lake", new OverworldLakeFeature());
+    public static final Feature<LargeLakeFeatureConfig> LARGE_LAKE = createFeature("overworld_lake", new LargeLakeFeature(LargeLakeFeatureConfig.CODEC));
 
     //Pumpkins
     public static final Feature<PumpkinConfig> LARGE_PUMPKIN1 = createFeature("pumpkin", new LargePumpkin1(PumpkinConfig.CODEC.stable()));

@@ -1,17 +1,20 @@
 package potionstudios.byg.common.world.feature;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.placement.ChunkCoveringPlacement;
+import potionstudios.byg.common.world.placement.NearWaterPlacementFilter;
 import potionstudios.byg.mixin.access.VegetationPlacementsAccess;
 
 import java.util.ArrayList;
@@ -99,6 +102,9 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature SPARSE_OAK_TREES = createPlacedFeature("sparse_oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.1F, 1))));
     public static final PlacedFeature OAK_TREES = createPlacedFeature("oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature PALO_VERDE_TREES = createPlacedFeature("palo_verde_trees", BYGConfiguredFeatures.PALO_VERDE_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.2F, 1))));
+    public static final PlacedFeature PALM_TREES = createPlacedFeature("palm_trees", BYGConfiguredFeatures.PALM_TREES.placed(Util.make(new ArrayList<>(treePlacement(PlacementUtils.countExtra(4, 0.2F, 1))), (list) -> {
+        list.add(new NearWaterPlacementFilter(4));
+    })));
     public static final PlacedFeature RED_OAK_TREES = createPlacedFeature("red_oak_trees", BYGConfiguredFeatures.RED_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature ORANGE_OAK_TREES = createPlacedFeature("orange_oak_trees", BYGConfiguredFeatures.ORANGE_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature BROWN_OAK_TREES = createPlacedFeature("brown_oak_trees", BYGConfiguredFeatures.BROWN_OAK_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
@@ -120,6 +126,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature MEADOW_TREES_SPARSE = createPlacedFeature("sparse_meadow_trees", BYGConfiguredFeatures.MEADOW_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
     public static final PlacedFeature LARGE_BOULDERS = createPlacedFeature("large_boulders", BYGConfiguredFeatures.LARGE_BOULDER.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
     public static final PlacedFeature LARGE_GRANITE_BOULDERS = createPlacedFeature("large_granite_boulders", BYGConfiguredFeatures.LARGE_GRANITE_BOULDER.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
+    public static final PlacedFeature LARGE_WINDSWEPT_BOULDERS = createPlacedFeature("large_windswept_boulders", BYGConfiguredFeatures.LARGE_WINDSWEPT_BOULDER.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2), RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-4, -3)))));
     public static final PlacedFeature ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGConfiguredFeatures.ROSE_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
     public static final PlacedFeature FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGConfiguredFeatures.FROST_MAGMA_LAKE.placed(worldSurfaceSquaredWithCount(3)));
 
@@ -143,8 +150,10 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ORANGE_TERRACOTTA_BOULDER = createPlacedFeature("orange_terracotta_boulder", BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature BLACK_ICE_SNOW = createPlacedFeature("black_ice_snow", BYGConfiguredFeatures.BLACK_ICE.placed(ChunkCoveringPlacement.INSTANCE, PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.WATER, BlockPos.ZERO)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.AIR, new BlockPos(0, 1, 0)))));
     public static final PlacedFeature STONE_FOREST_COLUMN = createPlacedFeature("stone_forest_column", BYGConfiguredFeatures.STONE_FOREST_COLUMN.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
+    public static final PlacedFeature LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGConfiguredFeatures.LARGE_WINDSWEPT_LAKE.placed(Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.add(RarityFilter.onAverageOnceEvery(2)))));
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
+    public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGConfiguredFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
 
     private static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();

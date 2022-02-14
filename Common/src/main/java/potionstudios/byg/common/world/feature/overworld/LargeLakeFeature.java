@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.feature.overworld;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
@@ -8,11 +9,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.FeatureUtil;
+import potionstudios.byg.common.world.feature.config.LargeLakeFeatureConfig;
 import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
 import potionstudios.byg.util.BlockHelper;
 import potionstudios.byg.util.MLBlockTags;
@@ -21,26 +22,25 @@ import potionstudios.byg.util.ModMathHelper;
 import java.util.Random;
 
 //Credits to BetterEnd & Pauelevs
-public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
+public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
     private static final BlockState END_STONE = Blocks.STONE.defaultBlockState();
     private static final OpenSimplexNoiseEnd NOISE = new OpenSimplexNoiseEnd(15152);
     private static final BlockPos.MutableBlockPos POS = new BlockPos.MutableBlockPos();
 
-    public OverworldLakeFeature() {
-        super(NoneFeatureConfiguration.CODEC);
+    public LargeLakeFeature(Codec<LargeLakeFeatureConfig> codec) {
+        super(codec);
     }
 
 
-
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+    public boolean place(FeaturePlaceContext<LargeLakeFeatureConfig> featurePlaceContext) {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
-                         BlockPos blockPos, NoneFeatureConfiguration config) {
-        double radius = ModMathHelper.randRange(10.0, 20.0, random);
-        double depth = radius * 0.5 * ModMathHelper.randRange(0.8, 1.2, random);
+                         BlockPos blockPos, LargeLakeFeatureConfig config) {
+        double radius = ModMathHelper.randRange(config.minRadius(), config.maxRadius(), random);
+        double depth = radius * 0.5 * ModMathHelper.randRange(config.minDepth(), config.maxDepth(), random);
         int dist = ModMathHelper.floor(radius);
         int dist2 = ModMathHelper.floor(radius * 1.5);
         int bott = ModMathHelper.floor(depth);
@@ -132,11 +132,11 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
                                     // TODO: 1.18
 //                                    state = world.getBiome(pos).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial();
                                     if (y > waterLevel + 1)
-                                        BlockHelper.setWithoutUpdate(world, pos, state);
+                                        BlockHelper.setWithoutUpdate(world, pos, config.borderStateProvider().getState(random, pos));
                                     else if (y > waterLevel)
-                                        BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? state : Blocks.GRAVEL.defaultBlockState());
+                                        BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? config.borderStateProvider().getState(random, pos) : config.lakeFloorStateProvider().getState(random, pos));
                                     else
-                                        BlockHelper.setWithoutUpdate(world, pos, Blocks.GRAVEL.defaultBlockState());
+                                        BlockHelper.setWithoutUpdate(world, pos, config.lakeFloorStateProvider().getState(random, pos));
                                 }
                             }
                         } else {
@@ -177,7 +177,7 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
                             }
                             pos = POS.below();
                             if (world.getBlockState(pos).is(BlockTags.BASE_STONE_OVERWORLD)) {
-                                BlockHelper.setWithoutUpdate(world, pos, Blocks.GRAVEL.defaultBlockState());
+                                BlockHelper.setWithoutUpdate(world, pos, config.lakeFloorStateProvider().getState(random, pos));
                             }
                             pos = POS.above();
                             while (canReplace(state = world.getBlockState(pos)) && !state.isAir() && state.getFluidState().isEmpty()) {
@@ -190,12 +190,12 @@ public class OverworldLakeFeature extends Feature<NoneFeatureConfiguration> {
                             if (world.isEmptyBlock(POS.above())) {
                                 //TODO: 1.18
 //                                state = world.getBiome(POS).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial();
-                                state = Blocks.GRASS_BLOCK.defaultBlockState();
-                                BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : Blocks.GRAVEL.defaultBlockState());
-                                BlockHelper.setWithoutUpdate(world, POS.below(), END_STONE);
+                                state = config.borderStateProvider().getState(random, pos);
+                                BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : config.lakeFloorStateProvider().getState(random, pos));
+                                BlockHelper.setWithoutUpdate(world, POS.below(), config.borderStateProvider().getState(random, pos));
                             } else {
                                 BlockHelper.setWithoutUpdate(world, POS, Blocks.GRAVEL.defaultBlockState());
-                                BlockHelper.setWithoutUpdate(world, POS.below(), END_STONE);
+                                BlockHelper.setWithoutUpdate(world, POS.below(), config.borderStateProvider().getState(random, pos));
                             }
                         }
                     }

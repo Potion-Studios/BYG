@@ -38,7 +38,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addWindsweptBoulders(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WINDSWEPT_BOULDER);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_WINDSWEPT_BOULDERS);
     }
 
     public static void addBYGDesertVegetation(BiomeGenerationSettings.Builder gen) {
@@ -81,8 +81,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.OVERWORLD_LAKE);
     }
 
-    public static void addDenseOverworldLake(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.DENSE_OVERWORLD_LAKE);
+    public static void addLargeWindsweptLake(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_WINDSWEPT_LAKE);
     }
 
     public static void addBulbisLake(BiomeGenerationSettings.Builder gen) {
@@ -808,7 +808,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addPalmTree(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DUNE_PALM_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PALM_TREES);
     }
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder gen) {

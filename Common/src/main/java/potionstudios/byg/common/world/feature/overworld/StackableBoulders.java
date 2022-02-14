@@ -2,7 +2,6 @@ package potionstudios.byg.common.world.feature.overworld;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,7 +34,7 @@ public class StackableBoulders extends Feature<BoulderConfig> {
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, BoulderConfig config) {
         setSeed(world.getSeed());
 
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
         int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         int radius = random.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius();
@@ -44,7 +43,7 @@ public class StackableBoulders extends Feature<BoulderConfig> {
         BlockState blockStateAtPosition = world.getBlockState(position);
 
 
-        if (blockStateDown.is(BlockTags.LEAVES) || blockStateDown.is(BlockTags.LOGS) || blockStateAtPosition.is(BlockTags.LEAVES) || blockStateAtPosition.is(BlockTags.LOGS) || blockStateAtPosition.getMaterial() == Material.AIR)
+        if (blockStateDown.is(BlockTags.LEAVES) || blockStateDown.is(BlockTags.LOGS) || blockStateAtPosition.is(BlockTags.LEAVES) || blockStateAtPosition.is(BlockTags.LOGS))
             return false;
 
         for (int boulderIDX = 0; boulderIDX < stackHeight; boulderIDX++) {
@@ -59,7 +58,8 @@ public class StackableBoulders extends Feature<BoulderConfig> {
             if (random.nextInt(2) == 1)
                 moveOnZ = -moveOnZ;
 
-            mutable.move(moveOnX, (int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5), moveOnZ);
+            int yMove = (int) (random.nextInt(Math.abs(radius) + 1) * 0.2f + radius * 0.8f) - 3 + -random.nextInt(5);
+            mutable.move(moveOnX, yMove, moveOnZ);
 
 
             int yPositiveRadius = (config.isTopBoulderFlat() && boulderIDX + 1 == stackHeight) ? 0 : radius;
@@ -86,10 +86,6 @@ public class StackableBoulders extends Feature<BoulderConfig> {
                         }
                     }
                 }
-            }
-
-            while (mutable.getY() < world.getMaxBuildHeight() && !world.getBlockState(mutable).isAir()) {
-                mutable.move(Direction.UP);
             }
 
 //            if (random.nextInt(9) == 0)

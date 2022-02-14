@@ -699,17 +699,18 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
+
 //        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WINDSWEPT_ARCH);
-        BYGDefaultBiomeFeatures.addWindsweptBoulders(generationSettings);
-        BYGDefaultBiomeFeatures.addPalmTree(generationSettings);
-        BiomeDefaultFeatures.addDefaultCrystalFormations(generationSettings);
-        
-        
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+
+        BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
+        BYGDefaultBiomeFeatures.addWindsweptBoulders(generationSettings);
+        BYGDefaultBiomeFeatures.addLargeWindsweptLake(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION,  BYGPlacedFeatures.WINDSWEPT_SPIKES);
+        BYGDefaultBiomeFeatures.addPalmTree(generationSettings);
 
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).biomeCategory(Biome.BiomeCategory.DESERT).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12638463).skyColor(VanillaBiomeAccess.invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
