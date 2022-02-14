@@ -243,7 +243,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addFoxgloves(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.FOXGLOVES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FOXGLOVES);
     }
 
     public static void addCattails(BiomeGenerationSettings.Builder gen) {
@@ -704,7 +704,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSkyrisTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SKYRIS_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SKYRIS_TREES);
     }
 
     public static void addSparseSkyrisTrees(BiomeGenerationSettings.Builder gen) {

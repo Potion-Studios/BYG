@@ -111,7 +111,7 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ROSE_BUSH = createConfiguredFeature("rose_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.ROSE_BUSH))), List.of(), 64)));
     //    public static final ConfiguredFeature<?, ?> DELPHINIUM = createConfiguredFeature("delphinium", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.DELPHINIUM.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
     public static final ConfiguredFeature<?, ?> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", BYGBlocks.JAPANESE_ORCHID);
-    //    public static final ConfiguredFeature<?, ?> FOXGLOVE = createConfiguredFeature("foxglove", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.FOXGLOVE.defaultBlockState()), new DoublePlantPlacer())).tries(64).noProjection().build()));
+    public static final ConfiguredFeature<?, ?> FOXGLOVE = createFlowerConfiguredFeature("foxglove", BYGBlocks.FOXGLOVE);
     public static final ConfiguredFeature<?, ?> FLOWERING_INDIGO_JACARANDA_BUSH = createConfiguredFeature("flowering_indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH))), List.of(), 32)));
     public static final ConfiguredFeature<?, ?> INDIGO_JACARANDA_BUSH = createConfiguredFeature("indigo_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.INDIGO_JACARANDA_BUSH))), List.of(), 32)));
     public static final ConfiguredFeature<?, ?> FLOWERING_JACARANDA_BUSH = createConfiguredFeature("flowering_jacaranda_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.FLOWERING_JACARANDA_BUSH))), List.of(), 32)));
@@ -1321,13 +1321,12 @@ public class BYGConfiguredFeatures {
 //            DECIDUOUS_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(15, 0.25F, -5))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_SKYRIS_TREE = createConfiguredFeature("skyris_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SKYRIS_TREE1.weighted(0.15F),
-//            SKYRIS_TREE5.weighted(0.25F),
-//            SKYRIS_TREE2.weighted(0.15F),
-//            SKYRIS_TREE3.weighted(0.25F)),
-//            SKYRIS_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.35F, 2))));
+    public static final ConfiguredFeature<?, ?> SKYRIS_TREES = createConfiguredFeature("skyris_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SKYRIS_TREE1.placed(), 0.2F),
+            new WeightedPlacedFeature(SKYRIS_TREE2.placed(), 0.2F),
+            new WeightedPlacedFeature(SKYRIS_TREE3.placed(), 0.2F),
+            new WeightedPlacedFeature(SKYRIS_TREE4.placed(), 0.2F)),
+            SKYRIS_TREE5.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_SKYRIS_TREE = createConfiguredFeature("sparse_skyris_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            SKYRIS_TREE1.weighted(0.15F),

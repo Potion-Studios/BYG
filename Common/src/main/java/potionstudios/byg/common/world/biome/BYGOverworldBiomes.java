@@ -1614,17 +1614,19 @@ public class BYGOverworldBiomes {
     public static Biome skyrisVale() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addSkyrisTrees(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
         
         
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
+        BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        BiomeDefaultFeatures.addExtraEmeralds(generationSettings);
-        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
+
+        BYGDefaultBiomeFeatures.addSkyrisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
+        BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addFoxgloves(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
