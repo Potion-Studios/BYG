@@ -680,7 +680,7 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_SPRUCE_TREES_SPARSE);
     }
 
-    public static void addSmallSpruceTrees(BiomeGenerationSettings.Builder gen) {
+    public static void addSparseSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
@@ -816,8 +816,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_CHERRY_TREE);
     }
 
-    public static void addDeadHazelTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_WITCH_HAZEL_TREE);
+    public static void addHazelTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HAZEL_TREES);
     }
 
     public static void addSparseDeadHazelTrees(BiomeGenerationSettings.Builder gen) {

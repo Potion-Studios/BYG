@@ -728,8 +728,8 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addEbonyTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addEbonyTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addHorseweed(generationSettings);
@@ -771,8 +771,8 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addEnchantedTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addEnchantedTrees(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
         BYGDefaultBiomeFeatures.addCyanRose(generationSettings);
@@ -1034,7 +1034,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BYGDefaultBiomeFeatures.addMapleTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addSmallSpruceTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
@@ -1840,11 +1840,11 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addDeadHazelTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addSmallSpruceTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseSpruceTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addHazelTrees(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

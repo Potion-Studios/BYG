@@ -1437,12 +1437,11 @@ public class BYGConfiguredFeatures {
 //            CHERRY_WHITE_TREE2)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_WITCH_HAZEL_TREE = createConfiguredFeature("witch_hazel_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            DEAD_HAZEL_TREE1.weighted(0.2F),
-//            DEAD_HAZEL_TREE2.weighted(0.2F),
-//            DEAD_HAZEL_TREE3.weighted(0.1F)),
-//            DEAD_HAZEL_TREE4)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.35F, -4))));
+    public static final ConfiguredFeature<?, ?> HAZEL_TREES = createConfiguredFeature("hazel_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(HAZEL_TREE1.placed(), 0.3F),
+            new WeightedPlacedFeature(HAZEL_TREE2.placed(), 0.3F),
+            new WeightedPlacedFeature(DEAD_HAZEL_TREE1.placed(), 0.2F)),
+            DEAD_HAZEL_TREE2.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_WITCH_HAZEL_TREE = createConfiguredFeature("sparse_witch_hazel_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            DEAD_HAZEL_TREE1.weighted(0.2F),
