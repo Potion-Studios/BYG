@@ -111,6 +111,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature FRAGMENT_FOREST_TREES = createPlacedFeature("fragment_forest_trees", BYGConfiguredFeatures.FRAGMENT_FOREST_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.25F, 2))));
     public static final PlacedFeature SKYRIS_TREES = createPlacedFeature("skyris_trees", BYGConfiguredFeatures.SKYRIS_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature RED_SPRUCE_TREES_SPARSE = createPlacedFeature("sparse_red_spruce_trees", BYGConfiguredFeatures.RED_SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(0, 0.25F, 1))));
+    public static final PlacedFeature BLUE_SPRUCE_TREES = createPlacedFeature("blue_spruce_trees", BYGConfiguredFeatures.BLUE_SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(2, 0.1F, 1))));
     public static final PlacedFeature SPRUCE_TREES_SPARSE = createPlacedFeature("sparse_spruce_trees", BYGConfiguredFeatures.SPRUCE_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature BROWN_ZELKOVA_TREES = createPlacedFeature("brown_zelkova_trees", BYGConfiguredFeatures.BROWN_ZELKOVA_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature ZELKOVA_TREES = createPlacedFeature("zelkova_trees", BYGConfiguredFeatures.ZELKOVA_TREES.placed(treePlacement(PlacementUtils.countExtra(5, 0.2F, 2))));

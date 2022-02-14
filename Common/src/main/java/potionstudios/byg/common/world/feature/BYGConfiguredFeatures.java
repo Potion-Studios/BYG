@@ -1265,17 +1265,16 @@ public class BYGConfiguredFeatures {
             SPRUCE_TREES.placed())));
 
 
-    //    public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE = createConfiguredFeature("spruce_blue_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            SPRUCE_BLUE_TREE1.weighted(0.06F),
-//            SPRUCE_BLUE_TREE2.weighted(0.5F),
-//            SPRUCE_BLUE_TREE3.weighted(0.04F),
-//            SPRUCE_BLUE_TREE4.weighted(0.2F),
-//            SPRUCE_BLUE_TREE_MEDIUM1.weighted(0.2F),
-//            SPRUCE_BLUE_TREE_MEDIUM2.weighted(0.2F),
-//            SPRUCE_BLUE_TREE_MEDIUM3.weighted(0.2F),
-//            SPRUCE_BLUE_TREE_MEDIUM4.weighted(0.1F)),
-//            SPRUCE_BLUE_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.15F, 1))));
+    public static final ConfiguredFeature<?, ?> BLUE_SPRUCE_TREES = createConfiguredFeature("blue_spruce_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE1.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE2.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE3.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE4.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE_MEDIUM1.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE_MEDIUM2.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE_MEDIUM3.placed(), 0.111F),
+            new WeightedPlacedFeature(SPRUCE_BLUE_TREE_MEDIUM4.placed(), 0.111F)),
+            SPRUCE_BLUE_TREE1.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPRUCE_BLUE_TREE_GIANT = createConfiguredFeature("spruce_blue_tree_giant", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            SPRUCE_BLUE_TREE_LARGE1.weighted(0.5F)),
