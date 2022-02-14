@@ -1,225 +1,165 @@
 package potionstudios.byg.common.world.feature.overworld;
 
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.world.feature.FeatureUtil;
 import potionstudios.byg.common.world.feature.config.LargeLakeFeatureConfig;
-import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
-import potionstudios.byg.util.BlockHelper;
+import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.util.MLBlockTags;
-import potionstudios.byg.util.ModMathHelper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 
-//Credits to BetterEnd & Pauelevs
 public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
-    private static final BlockState END_STONE = Blocks.STONE.defaultBlockState();
-    private static final OpenSimplexNoiseEnd NOISE = new OpenSimplexNoiseEnd(15152);
-    private static final BlockPos.MutableBlockPos POS = new BlockPos.MutableBlockPos();
 
-    public LargeLakeFeature(Codec<LargeLakeFeatureConfig> codec) {
-        super(codec);
+    public static Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.DOWN};
+    public static FastNoise fastNoise;
+    protected static long seed;
+
+    public LargeLakeFeature(Codec<LargeLakeFeatureConfig> $$0) {
+        super($$0);
     }
-
 
     @Override
     public boolean place(FeaturePlaceContext<LargeLakeFeatureConfig> featurePlaceContext) {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
-                         BlockPos blockPos, LargeLakeFeatureConfig config) {
-        double radius = ModMathHelper.randRange(config.minRadius(), config.maxRadius(), random);
-        double depth = radius * 0.5 * ModMathHelper.randRange(config.minDepth(), config.maxDepth(), random);
-        int dist = ModMathHelper.floor(radius);
-        int dist2 = ModMathHelper.floor(radius * 1.5);
-        int bott = ModMathHelper.floor(depth);
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LargeLakeFeatureConfig config) {
+        setSeed(world.getSeed());
 
-        blockPos = FeatureUtil.getPosOnSurfaceWG(world, blockPos);
-        if (blockPos.getY() < 10) return false;
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
+        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
+        int xRadius = config.getRandomRadius(random) / 2;
+        int yRadius = config.getRandomDepth(random);
+        int zRadius = config.getRandomRadius(random) / 2;
+
+        int blendSize = 0;
+        List<BlockPos> positions = new ArrayList<>();
+        Function<BlockPos, BlockState> lakeBorderStateFunction = (blockPos3) -> config.borderStateProvider().getState(random, blockPos3);
+        Function<BlockPos, BlockState> lakeFloorStateFunction = (blockPos3) -> config.lakeFloorStateProvider().getState(random, blockPos3);
+
+        for (int x = -xRadius - blendSize; x <= xRadius + blendSize; x++) {
+            for (int z = -zRadius - blendSize; z <= zRadius + blendSize; z++) {
+                for (int y = -yRadius; y < 0; y++) {
+//                    mutable.setY(world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX() + x, mutable.getZ() + z));
+                    mutable2.set(mutable).move(x, y, z);
+
+                    //Credits to Hex_26 for this equation!
+                    double xSquared = Math.pow(x, 2);
+                    double ySquared = Math.pow(y, 2);
+                    double zSquared = Math.pow(z, 2);
+                    double squaredDistance = xSquared + ySquared + zSquared;
+
+                    if (squaredDistance <= xRadius * zRadius) {
+                        double equationResult = xSquared / Math.pow(xRadius, 2) + ySquared / Math.pow(yRadius, 2) + zSquared / Math.pow(zRadius, 2);
+                        double threshold = 1 + 1.4 * fastNoise.GetNoise(mutable2.getX(), mutable2.getZ());
+                        if (equationResult >= threshold) {
+                            continue;
+                        }
+
+                        positions.add(new BlockPos(mutable2.getX(), mutable2.getY(), mutable2.getZ()));
+                    }
+                }
+            }
+        }
 
         int waterLevel = blockPos.getY();
-
-        BlockPos pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.north(dist).above(10), 20);
-        if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
-        waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
-
-        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.south(dist).above(10), 20);
-        if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
-        waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
-
-        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.east(dist).above(10), 20);
-        if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
-        waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
-
-        pos = FeatureUtil.getPosOnSurfaceRaycast(world, blockPos.west(dist).above(10), 20);
-        if (Math.abs(blockPos.getY() - pos.getY()) > 5) return false;
-        waterLevel = ModMathHelper.min(pos.getY(), waterLevel);
-        BlockState state;
-
-        int minX = blockPos.getX() - dist2;
-        int maxX = blockPos.getX() + dist2;
-        int minZ = blockPos.getZ() - dist2;
-        int maxZ = blockPos.getZ() + dist2;
-        int maskMinX = minX - 1;
-        int maskMinZ = minZ - 1;
-
-        boolean[][] mask = new boolean[maxX - minX + 3][maxZ - minZ + 3];
-        for (int x = minX; x <= maxX; x++) {
-            POS.setX(x);
-            int mx = x - maskMinX;
-            for (int z = minZ; z <= maxZ; z++) {
-                POS.setZ(z);
-                int mz = z - maskMinZ;
-                if (!mask[mx][mz]) {
-                    for (int y = waterLevel + 1; y <= waterLevel + 20; y++) {
-                        POS.setY(y);
-                        FluidState fluid = world.getFluidState(POS);
-                        if (!fluid.isEmpty()) {
-                            for (int i = -1; i < 2; i++) {
-                                int px = mx + i;
-                                for (int j = -1; j < 2; j++) {
-                                    int pz = mz + j;
-                                    mask[px][pz] = true;
-                                }
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
+        for (BlockPos position : positions) {
+           waterLevel = Math.min(world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, position.getX(), position.getZ()) - 1, waterLevel);
         }
 
-        for (int x = minX; x <= maxX; x++) {
-            POS.setX(x);
-            int x2 = x - blockPos.getX();
-            x2 *= x2;
-            int mx = x - maskMinX;
-            for (int z = minZ; z <= maxZ; z++) {
-                POS.setZ(z);
-                int z2 = z - blockPos.getZ();
-                z2 *= z2;
-                int mz = z - maskMinZ;
-                if (!mask[mx][mz]) {
-                    double size = 1;
-                    for (int y = blockPos.getY(); y <= blockPos.getY() + 20; y++) {
-                        POS.setY(y);
-                        double add = y - blockPos.getY();
-                        if (add > 5) {
-                            size *= 0.8;
-                            add = 5;
-                        }
-                        double r = (add * 1.8 + radius * (NOISE.eval(x * 0.2, y * 0.2, z * 0.2) * 0.25 + 0.75)) - 1.0 / size;
-                        if (r > 0) {
-                            r *= r;
-                            if (x2 + z2 <= r) {
-                                state = world.getBlockState(POS);
-                                if (state.is(BlockTags.BASE_STONE_OVERWORLD)) {
-                                    BlockHelper.setWithoutUpdate(world, POS, Blocks.AIR.defaultBlockState());
-                                }
-                                pos = POS.below();
-                                if (world.getBlockState(pos).is(BlockTags.BASE_STONE_OVERWORLD)) {
-                                    // TODO: 1.18
-//                                    state = world.getBiome(pos).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial();
-                                    if (y > waterLevel + 1)
-                                        BlockHelper.setWithoutUpdate(world, pos, config.borderStateProvider().getState(random, pos));
-                                    else if (y > waterLevel)
-                                        BlockHelper.setWithoutUpdate(world, pos, random.nextBoolean() ? config.borderStateProvider().getState(random, pos) : config.lakeFloorStateProvider().getState(random, pos));
-                                    else
-                                        BlockHelper.setWithoutUpdate(world, pos, config.lakeFloorStateProvider().getState(random, pos));
-                                }
-                            }
-                        } else {
-                            break;
-                        }
+        ArrayList<Pair<BlockPos, BlockState>> fallingBlocks = new ArrayList<>();
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+        for (BlockPos position : positions) {
+            BlockPos.MutableBlockPos mutable3 = mutableBlockPos.set(position.getX(), Math.min(position.getY(), waterLevel), position.getZ());
+
+            if(mutable3.getY() == waterLevel) {
+                setLakeBlocks(world, lakeBorderStateFunction, mutable3);
+                BlockPos.MutableBlockPos mutable4 = new BlockPos.MutableBlockPos().set(mutable3);
+                for (int i = 0; i < 10; i++) {
+                    mutable4.move(Direction.UP);
+                    BlockState blockStateAbove = world.getBlockState(mutable4);
+                    Block stateAboveBlock = blockStateAbove.getBlock();
+                    if (stateAboveBlock instanceof FallingBlock) {
+                        fallingBlocks.add(new Pair<>(mutable4.immutable(), blockStateAbove));
+                        world.removeBlock(mutable4, false);
+
+                    } else if (canReplace(blockStateAbove)) {
+                        world.removeBlock(mutable4, false);
+                    } else {
+                        break;
                     }
                 }
+            } else {
+                setLakeBlocks(world, lakeFloorStateFunction, mutable3);
             }
         }
-
-        double aspect = ((double) radius / (double) depth);
-
-        for (int x = blockPos.getX() - dist; x <= blockPos.getX() + dist; x++) {
-            POS.setX(x);
-            int x2 = x - blockPos.getX();
-            x2 *= x2;
-            int mx = x - maskMinX;
-            for (int z = blockPos.getZ() - dist; z <= blockPos.getZ() + dist; z++) {
-                POS.setZ(z);
-                int z2 = z - blockPos.getZ();
-                z2 *= z2;
-                int mz = z - maskMinZ;
-                if (!mask[mx][mz]) {
-                    for (int y = blockPos.getY() - bott; y < blockPos.getY(); y++) {
-                        POS.setY(y);
-                        double y2 = (double) (y - blockPos.getY()) * aspect;
-                        y2 *= y2;
-                        double r = radius * (NOISE.eval(x * 0.2, y * 0.2, z * 0.2) * 0.25 + 0.75);
-                        double rb = r * 1.2;
-                        r *= r;
-                        rb *= rb;
-                        if (y2 + x2 + z2 <= r) {
-                            state = world.getBlockState(POS);
-                            if (canReplace(state)) {
-                                state = world.getBlockState(POS.above());
-                                state = canReplace(state) ? (y < waterLevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState()) : state;
-                                BlockHelper.setWithoutUpdate(world, POS, state);
-                            }
-                            pos = POS.below();
-                            if (world.getBlockState(pos).is(BlockTags.BASE_STONE_OVERWORLD)) {
-                                BlockHelper.setWithoutUpdate(world, pos, config.lakeFloorStateProvider().getState(random, pos));
-                            }
-                            pos = POS.above();
-                            while (canReplace(state = world.getBlockState(pos)) && !state.isAir() && state.getFluidState().isEmpty()) {
-                                BlockHelper.setWithoutUpdate(world, pos, pos.getY() < waterLevel ? Blocks.WATER : Blocks.AIR);
-                                pos = pos.above();
-                            }
-                        }
-                        // Make border
-                        else if (y < waterLevel && y2 + x2 + z2 <= rb) {
-                            if (world.isEmptyBlock(POS.above())) {
-                                //TODO: 1.18
-//                                state = world.getBiome(POS).getGenerationSettings().getSurfaceBuilderConfig().getTopMaterial();
-                                state = config.borderStateProvider().getState(random, pos);
-                                BlockHelper.setWithoutUpdate(world, POS, random.nextBoolean() ? state : config.lakeFloorStateProvider().getState(random, pos));
-                                BlockHelper.setWithoutUpdate(world, POS.below(), config.borderStateProvider().getState(random, pos));
-                            } else {
-                                BlockHelper.setWithoutUpdate(world, POS, Blocks.GRAVEL.defaultBlockState());
-                                BlockHelper.setWithoutUpdate(world, POS.below(), config.borderStateProvider().getState(random, pos));
-                            }
-                        }
-                    }
-                }
+        for (Pair<BlockPos, BlockState> fallingBlock : fallingBlocks) {
+            BlockPos pos = fallingBlock.getFirst();
+            BlockPos.MutableBlockPos fallingMutable = new BlockPos.MutableBlockPos().set(pos);
+            while (!world.getBlockState(fallingMutable).canOcclude()) {
+                fallingMutable.move(Direction.DOWN);
             }
+            world.setBlock(fallingMutable.move(Direction.UP), fallingBlock.getSecond(), 2);
         }
-
-        BlockHelper.fixBlocks(world, new BlockPos(minX - 2, waterLevel - 2, minZ - 2), new BlockPos(maxX + 2, blockPos.getY() + 20, maxZ + 2));
 
         return true;
     }
 
-    private boolean canReplace(BlockState state) {
+    private void setLakeBlocks(WorldGenLevel world, Function<BlockPos, BlockState> stateFunction, BlockPos mutable2) {
+        world.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
+        world.scheduleTick(mutable2, Fluids.WATER, 0);
+
+        BlockPos.MutableBlockPos mutable3 = new BlockPos.MutableBlockPos().set(mutable2);
+        for (Direction value : DIRECTIONS) {
+            mutable3.setWithOffset(mutable2, value);
+            if (world.getBlockState(mutable3).getBlock() != Blocks.WATER) {
+                world.setBlock(mutable3, stateFunction.apply(mutable3), 2);
+            }
+        }
+    }
+
+    private void fillDownwards(WorldGenLevel world, Function<BlockPos, BlockState> stateFunction, BlockPos.MutableBlockPos mutable3) {
+        while (mutable3.getY() > world.getMinBuildHeight()) {
+            world.setBlock(mutable3, stateFunction.apply(mutable3), 2);
+            mutable3.move(Direction.DOWN);
+        }
+    }
+
+    public static void setSeed(long worldSeed) {
+        if (seed != worldSeed || fastNoise == null) {
+            fastNoise = new FastNoise((int) worldSeed);
+            fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
+            fastNoise.SetFrequency(0.05f);
+            seed = worldSeed;
+        }
+    }
+
+    private static boolean canReplace(BlockState state) {
         return state.getMaterial().isReplaceable()
                 || state.is(BlockTags.BASE_STONE_OVERWORLD)
+                || state.is(MLBlockTags.END_STONES)
+                || state.is(MLBlockTags.SANDSTONE)
                 || state.is(BlockTags.FLOWERS)
                 || state.is(MLBlockTags.ORES) // Handles floating ores
-                || state.is(Blocks.PODZOL) // Handles other blocks that could be left floating
-                || state.is(Blocks.COARSE_DIRT) // Handles other blocks that could be left floating
-                || state.is(Blocks.DIRT) // Handles other blocks that could be left floating
-                || state.is(Blocks.GRAVEL)
-                || state.is(Blocks.GRASS)
-                || state.is(Blocks.GRASS_BLOCK)
-                || state.is(BYGBlocks.OVERGROWN_STONE)
+                || state.is(BlockTags.DIRT)
+                || state.is(BlockTags.TERRACOTTA)
                 || state.getMaterial().equals(Material.PLANT)
                 || state.getMaterial().equals(Material.WATER_PLANT)
                 || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);

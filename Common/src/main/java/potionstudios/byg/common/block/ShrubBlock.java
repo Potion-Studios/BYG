@@ -2,11 +2,13 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
@@ -30,6 +32,11 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
         super(properties);
         this.tree = tree;
         this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        return super.canSurvive(state, level, pos) || level.getBlockState(pos.below()).is(BlockTags.SAND);
     }
 
     public void grow(ServerLevel world, BlockPos pos, BlockState state, Random rand) {

@@ -12,6 +12,7 @@ public class MLBlockTags {
     public static final Tag.Named<Block> END_STONES = createTag("end_stones");
     public static final Tag.Named<Block> ORES = createTag("ores");
     public static final Tag.Named<Block> BOOKSHELVES = createTag("bookshelves");
+    public static final Tag.Named<Block> SANDSTONE = createTag("sandstone");
 
     public static Tag.Named<Block> createTag(String path) {
         return BlockTagsAccess.invokeBind(new ResourceLocation(BYG.MOD_LOADER_TAG_TARGET, path).toString());
