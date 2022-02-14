@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:chiseled_travertine"
+  },
+  "result": "byg:chiseled_travertine_wall",
+  "count": 1
+}

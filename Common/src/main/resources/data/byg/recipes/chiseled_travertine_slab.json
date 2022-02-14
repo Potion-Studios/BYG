@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:chiseled_travertine"
+    }
+  },
+  "result": {
+    "item": "byg:chiseled_travertine_slab",
+    "count": 6
+  }
+}
