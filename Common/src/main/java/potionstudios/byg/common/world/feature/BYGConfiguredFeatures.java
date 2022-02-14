@@ -162,7 +162,7 @@ public class BYGConfiguredFeatures {
     //    public static final ConfiguredFeature<?, ?> PUMPKIN = createConfiguredFeature("pumpkin", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(Blocks.PUMPKIN.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, Blocks.PODZOL, Blocks.COARSE_DIRT, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.GRASS_BLOCK)).noProjection().build()));
     public static final ConfiguredFeature<?, ?> ALPINE_BELLFLOWER = createFlowerConfiguredFeature("alpine_bellflower", BYGBlocks.ALPINE_BELLFLOWER);
     //    public static final ConfiguredFeature<?, ?> WINTER_SCILLA = createConfiguredFeature("winter_scilla", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.WINTER_SCILLA.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> KOVAN_FLOWER = createConfiguredFeature("kovan_flower", Feature.FLOWER.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.KOVAN_FLOWER.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.OVERGROWN_STONE, Blocks.PODZOL, Blocks.GRASS_BLOCK)).noProjection().build()));
+    public static final ConfiguredFeature<?, ?> KOVAN_FLOWER = createFlowerConfiguredFeature("kovan_flower", BYGBlocks.KOVAN_FLOWER);
 //
 //    public static final ConfiguredFeature<?, ?> NETHER_BRISTLE = createConfiguredFeature("nether_bristle", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.NETHER_BRISTLE.defaultBlockState()), new DoublePlantPlacer())).whitelist(ImmutableSet.of(BYGBlocks.OVERGROWN_NETHERRACK)).tries(1).noProjection().build()));
 //
@@ -1386,11 +1386,10 @@ public class BYGConfiguredFeatures {
 //            ASPEN_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_ZELKOVA_TREE = createConfiguredFeature("zelkova_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            ZELKOVA_TREE2.weighted(0.2F),
-//            ZELKOVA_TREE3.weighted(0.1F)),
-//            ZELKOVA_TREE1)).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(10, 0.4F, -3))));
+    public static final ConfiguredFeature<?, ?> ZELKOVA_TREES = createConfiguredFeature("zelkova_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(ZELKOVA_TREE1.placed(), 0.33F),
+            new WeightedPlacedFeature(ZELKOVA_TREE2.placed(), 0.33F)),
+            ZELKOVA_TREE3.placed())));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_ZELKOVA_TREE = createConfiguredFeature("sparse_zelkova_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            ZELKOVA_TREE2.weighted(0.2F),

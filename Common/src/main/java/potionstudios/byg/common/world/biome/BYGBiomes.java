@@ -78,7 +78,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest());
 //    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
-//    public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
+    public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 //
 //    /************Sub Biomes************/
 //    //Beaches

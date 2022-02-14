@@ -268,7 +268,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addKovanFlower(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.KOVAN_FLOWERS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.KOVAN_FLOWERS);
     }
 
     public static void addShrub(BiomeGenerationSettings.Builder gen) {
@@ -787,7 +787,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addZelkovaTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ZELKOVA_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ZELKOVA_TREES);
     }
 
     public static void addSparseZelkovaTrees(BiomeGenerationSettings.Builder gen) {
