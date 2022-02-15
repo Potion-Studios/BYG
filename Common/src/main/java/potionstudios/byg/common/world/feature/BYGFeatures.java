@@ -163,17 +163,15 @@ public class BYGFeatures {
     public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> HUH = createFeature("river_feature", new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final Feature<BoulderConfig> STACKABLE_BOULDERS = createFeature("stacked_boulder", new StackableBoulders(BoulderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> WINDSWEPT_ARCH = createFeature("windswept_arch", new WindsweptArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
 
     public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisySphereConfig.CODEC.stable()));
-    public static final Feature<NoisySphereConfig> NOISY_SPHERE = createFeature("noisy_sphere", new NoisySphere(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> MINERAL_DEPOSIT = createFeature("mineral_deposit", new MineralDeposit(NoisySphereConfig.CODEC.stable()));
-    public static final Feature<NoisySphereConfig> COLUMN = createFeature("column", new Column(NoisySphereConfig.CODEC.stable()));
+    public static final Feature<NoisySphereConfig> NOISE_SPHERE = createFeature("column", new NoiseSphere(NoisySphereConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea

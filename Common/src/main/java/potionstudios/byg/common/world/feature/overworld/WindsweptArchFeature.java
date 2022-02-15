@@ -52,11 +52,11 @@ public class WindsweptArchFeature extends Feature<SimpleBlockProviderConfig> {
             int worldHeight = world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, mutable2.getX(), mutable2.getZ());
             if(worldHeight - 5 < mutable2.getY()) {
                 FeaturePlaceContext<NoisySphereConfig> featurePlaceContext = new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SMOOTH_WINDSWEPT_SANDSTONE.defaultBlockState(), 5).add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 5))).setMinXRadius(4).setMaxXRadius(7).setMinZRadius(4).setMaxZRadius(7).setMinYRadius(7).setMaxYRadius(10).build());
-                BYGFeatures.NOISY_SPHERE.place(featurePlaceContext);
+                BYGFeatures.NOISE_SPHERE.place(featurePlaceContext);
                 // Make sure we find a floor and connect it.
                 if (z == -curveLength || z == curveLength) {
                     while (mutable2.getY() > worldHeight - 5) {
-                        BYGFeatures.NOISY_SPHERE.place(featurePlaceContext);
+                        BYGFeatures.NOISE_SPHERE.place(featurePlaceContext);
                         mutable2.move(Direction.DOWN, 3);
                     }
                 }

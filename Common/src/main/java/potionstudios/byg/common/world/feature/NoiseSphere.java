@@ -7,16 +7,19 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
+import potionstudios.byg.common.world.feature.config.RadiusMatcher;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class Column extends Feature<NoisySphereConfig> {
+public class NoiseSphere extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
     protected long seed;
 
-    public Column(Codec<NoisySphereConfig> configCodec) {
+    public NoiseSphere(Codec<NoisySphereConfig> configCodec) {
         super(configCodec);
     }
 
@@ -27,24 +30,27 @@ public class Column extends Feature<NoisySphereConfig> {
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
-        setSeed(world.getSeed());
-//        if (random.nextInt(2) != 0) {
-//            return true;
-//        }
-        boolean use2D = random.nextInt(5) == 0;
+        setSeed(world.getSeed(), config.getNoiseFrequency());
 
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
+        boolean use2D = random.nextDouble() < config.getNoise2DChance();
+        RadiusMatcher radiusMatcher = config.getRadiusMatcher();
+
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
         int xRadius = config.getRandomXRadius(random);
-        int yRadius = config.getRandomYRadius(random) * 2 + 10;
-        int zRadius = config.getRandomZRadius(random);
+        int yRadius = radiusMatcher == RadiusMatcher.ALL ? xRadius : config.getRandomYRadius(random);
+        int zRadius = radiusMatcher == RadiusMatcher.ALL || radiusMatcher == RadiusMatcher.XZ ? xRadius : config.getRandomZRadius(random);
 
-        for (int stackIDX = 0; stackIDX < 2; stackIDX++) {
+        int lowestX = position.getX();
+        int lowestY = position.getY();
+        int lowestZ = position.getZ();
+
+        for (int stackIDX = 0; stackIDX < config.getRandomStackHeight(random); stackIDX++) {
             for (int x = -xRadius; x <= xRadius; x++) {
                 float xFract = x / (float) xRadius;
                 for (int z = -zRadius; z <= zRadius; z++) {
                     float zFract = z / (float) zRadius;
-                    for (int y = -yRadius; y <= yRadius + 15; y++) {
+                    for (int y = -yRadius; y <= yRadius + config.getPositiveYRadiusAddition(); y++) {
                         float yFract = y / (float) yRadius;
 
                         mutable2.set(mutable).move(x, y, z);
@@ -68,26 +74,39 @@ public class Column extends Feature<NoisySphereConfig> {
                             continue;
                         }
 
+
+                        int squaredDistance = (x * x) + (y * y) + (z * z);
+                        if (config.isSquaredDistanceChecked() && squaredDistance >= xRadius * zRadius) {
+                            continue;
+                        }
+
                         world.setBlock(mutable2, config.getTopBlockProvider().getState(random, mutable2), 2);
                         world.setBlock(mutable2.move(Direction.DOWN), config.getBlockProvider().getState(random, mutable2), 2);
+                        lowestX = Math.min(lowestX, mutable2.getX());
+                        lowestY = Math.min(lowestY, mutable2.getY());
+                        lowestZ = Math.min(lowestZ, mutable2.getZ());
                     }
                 }
             }
-                xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
-                yRadius = (int) (yRadius  * 0.1F);
-                mutable.setY(mutable.getY() + yRadius);
-                zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
+            xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
+            yRadius = (int) (yRadius * 0.1F);
+            mutable.setY(mutable.getY() + yRadius);
+            zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
         }
+        for (Supplier<PlacedFeature> spawningFeature : config.getSpawningFeatures()) {
+            spawningFeature.get().place(world, chunkGenerator, random, new BlockPos(lowestX, lowestY, lowestZ));
+        }
+
         return true;
     }
 
 
-    public void setSeed(long seed) {
+    public void setSeed(long seed, float noiseFreq) {
         if (this.seed != seed || fastNoise == null) {
             fastNoise = new FastNoise((int) seed);
             fastNoise.SetNoiseType(FastNoise.NoiseType.Cellular);
-            fastNoise.SetFrequency(0.09f);
             this.seed = seed;
         }
+        fastNoise.SetFrequency(noiseFreq);
     }
 }
