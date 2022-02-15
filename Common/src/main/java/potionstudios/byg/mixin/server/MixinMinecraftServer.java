@@ -19,7 +19,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 
@@ -43,5 +45,15 @@ public class MixinMinecraftServer {
                 BYGBiomes.addBYGFeaturesToBiomes(biomeEntry.getValue(), biomeEntry.getKey());
             }
         }
+    }
+
+    @ModifyConstant(method = "prepareLevels", constant = @Constant(intValue = 11, ordinal = 0))
+    private static int fastSpawn(int constant) {
+        return 0;
+    }
+
+    @ModifyConstant(method = "prepareLevels", constant = @Constant(intValue = 441, ordinal = 0))
+    private static int fastSpawn2(int constant) {
+        return 0;
     }
 }

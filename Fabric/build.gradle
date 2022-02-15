@@ -12,6 +12,16 @@ repositories {
         name = 'Forge'
         url = 'https://maven.minecraftforge.net'
     }
+    maven {
+        name = "Gegy"
+        url = "https://maven.gegy.dev"
+    }
+    maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -24,6 +34,11 @@ dependencies {
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
     modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
+//    modImplementation ("supercoder79:databreaker:${databreaker_version}") {
+//        exclude module: "fabric-loader"
+//    }
+
+//    modImplementation "curse.maven:dashloader-472772:3619672"
 }
 
 loom {
