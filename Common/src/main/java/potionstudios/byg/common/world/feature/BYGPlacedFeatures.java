@@ -12,6 +12,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.placement.ChunkCoveringPlacement;
@@ -153,7 +154,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ORANGE_TERRACOTTA_BOULDER = createPlacedFeature("orange_terracotta_boulder", BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature BLACK_ICE_SNOW = createPlacedFeature("black_ice_snow", BYGConfiguredFeatures.BLACK_ICE.placed(ChunkCoveringPlacement.INSTANCE, PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.WATER, BlockPos.ZERO)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.AIR, new BlockPos(0, 1, 0)))));
     public static final PlacedFeature STONE_FOREST_COLUMN = createPlacedFeature("stone_forest_column", BYGConfiguredFeatures.STONE_FOREST_COLUMN.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
-    public static final PlacedFeature LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGConfiguredFeatures.LARGE_WINDSWEPT_LAKE.placed(Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.add(RarityFilter.onAverageOnceEvery(12)))));
+    public static final PlacedFeature LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGConfiguredFeatures.LARGE_WINDSWEPT_LAKE.placed(Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.addAll(List.of(RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))))))));
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
     public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGConfiguredFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));

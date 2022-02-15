@@ -71,7 +71,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
 
                 // Determine range to place blocks
                 int maximumHeight = (int)noise;
-                int terrainHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, worldX, worldZ);
+                int terrainHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR, worldX, worldZ);
                 
                 // If there are any blocks to place this column...
                 if (maximumHeight > terrainHeight) {

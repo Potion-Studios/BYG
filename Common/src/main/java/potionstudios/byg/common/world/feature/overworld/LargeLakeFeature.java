@@ -29,6 +29,8 @@ import java.util.function.Supplier;
 
 public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
 
+    public static final boolean DEBUG = false;
+
     public static Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.DOWN};
     public static FastNoise fastNoise;
     protected static long seed;
@@ -102,31 +104,30 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         for (BlockPos position : positions) {
             BlockPos.MutableBlockPos mutable3 = mutableBlockPos.set(position.getX(), Math.min(position.getY(), waterLevel), position.getZ());
 
-            if (mutable3.getY() == waterLevel) {
-                setLakeBlocks(world, lakeBorderStateFunction, mutable3);
-                lakeSurfacePositions.add(mutable3.immutable().offset(0, 1, 0));
-                BlockPos.MutableBlockPos mutable4 = new BlockPos.MutableBlockPos().set(mutable3);
-                for (int i = 0; i < 10; i++) {
-                    mutable4.move(Direction.UP);
-                    BlockState blockStateAbove = world.getBlockState(mutable4);
-                    Block stateAboveBlock = blockStateAbove.getBlock();
-                    if (stateAboveBlock instanceof FallingBlock) {
-                        fallingBlocks.add(new Pair<>(mutable4.immutable(), blockStateAbove));
-                        world.removeBlock(mutable4, false);
+            for (int i = mutable3.getY(); i <= waterLevel; i++) {
+                setLakeBlocks(world, mutable3.getY() == waterLevel ? lakeBorderStateFunction : lakeFloorStateFunction, mutable3);
+                mutable3.move(Direction.UP);
+            }
+            lakeSurfacePositions.add(mutable3.immutable());
 
-                    } else if (canReplace(blockStateAbove)) {
-                        world.removeBlock(mutable4, false);
-                    } else {
-                        break;
-                    }
+
+            BlockPos.MutableBlockPos mutable4 = new BlockPos.MutableBlockPos().set(mutable3);
+            for (int i = 0; i < 10; i++) {
+                BlockState blockStateAbove = world.getBlockState(mutable4);
+                Block stateAboveBlock = blockStateAbove.getBlock();
+                if (stateAboveBlock instanceof FallingBlock) {
+                    fallingBlocks.add(new Pair<>(mutable4.immutable(), blockStateAbove));
+                    world.removeBlock(mutable4, false);
+                } else if (canReplace(blockStateAbove)) {
+                    world.removeBlock(mutable4, false);
+                } else {
+                    break;
                 }
-            } else {
-                for (int i = mutable3.getY(); i <= waterLevel; i++) {
-                    setLakeBlocks(world, lakeFloorStateFunction, mutable3);
-                    mutable3.move(Direction.UP);
-                }
+                mutable4.move(Direction.UP);
             }
         }
+
+
         for (Pair<BlockPos, BlockState> fallingBlock : fallingBlocks) {
             BlockPos pos = fallingBlock.getFirst();
             BlockPos.MutableBlockPos fallingMutable = new BlockPos.MutableBlockPos().set(pos);
@@ -147,7 +148,9 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
                 lakeSurfaceFeature.get().place(world, chunkGenerator, random, lakeEdgePosition);
             }
 
-            world.setBlock(lakeEdgePosition.offset(0, 6, 0), Blocks.GLOWSTONE.defaultBlockState(), 2);
+            if (DEBUG) {
+                world.setBlock(lakeEdgePosition.offset(0, 6, 0), Blocks.GLOWSTONE.defaultBlockState(), 2);
+            }
         }
         return true;
     }
@@ -182,7 +185,7 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
     }
 
     private static boolean canReplace(BlockState state) {
-        return state.getMaterial().isReplaceable()
+        return (!state.isAir() && state.getMaterial().isReplaceable())
                 || state.is(BlockTags.BASE_STONE_OVERWORLD)
                 || state.is(MLBlockTags.END_STONES)
                 || state.is(MLBlockTags.SANDSTONE)
