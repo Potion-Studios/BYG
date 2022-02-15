@@ -53,14 +53,13 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         int yRadius = config.getRandomDepth(random);
         int zRadius = config.getRandomRadius(random) / 2;
 
-        int blendSize = 0;
         List<BlockPos> positions = new ArrayList<>();
         List<BlockPos> edgePositions = new ArrayList<>();
         Function<BlockPos, BlockState> lakeBorderStateFunction = (blockPos3) -> config.borderStateProvider().getState(random, blockPos3);
         Function<BlockPos, BlockState> lakeFloorStateFunction = (blockPos3) -> config.lakeFloorStateProvider().getState(random, blockPos3);
 
-        for (int x = -xRadius - blendSize; x <= xRadius + blendSize; x++) {
-            for (int z = -zRadius - blendSize; z <= zRadius + blendSize; z++) {
+        for (int x = -xRadius; x <= xRadius; x++) {
+            for (int z = -zRadius; z <= zRadius; z++) {
                 for (int y = -yRadius; y <= 0; y++) {
                     mutable2.set(mutable).move(x, y, z);
 

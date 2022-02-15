@@ -157,7 +157,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGConfiguredFeatures.LARGE_WINDSWEPT_LAKE.placed(Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.addAll(List.of(RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))))))));
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
-    public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGConfiguredFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter.biome()));
+    public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGConfiguredFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome()));
 
     private static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
