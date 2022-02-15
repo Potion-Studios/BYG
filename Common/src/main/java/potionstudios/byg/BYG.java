@@ -25,7 +25,7 @@ public class BYG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
-    public static final int EXPERIMENTAL_WARNING_VERSION = 3;
+    public static final int EXPERIMENTAL_WARNING_VERSION = 2;
     public static boolean isClient = false;
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;
