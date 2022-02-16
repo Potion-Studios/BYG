@@ -44,6 +44,8 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ALLIUM_TALL_BUSH = createConfiguredFeature("tall_allium_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TALL_ALLIUM))), List.of(), 15)));
     public static final ConfiguredFeature<?, ?> ALLIUM_TALL_PINK_BUSH = createConfiguredFeature("tall_pink_allium_bush", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TALL_PINK_ALLIUM))), List.of(), 15)));
 
+    public static final ConfiguredFeature<?, ?> DUNE_TERRAIN = createConfiguredFeature("dune_terrain", BYGFeatures.DUNE_TERRAIN.configured(FeatureConfiguration.NONE));
+
     public static final ConfiguredFeature<?, ?> AMARANTH = createFlowerConfiguredFeature("amaranth", BYGBlocks.AMARANTH);
     public static final ConfiguredFeature<?, ?> AMARANTH_MAGENTA = createFlowerConfiguredFeature("magenta_amaranth", BYGBlocks.MAGENTA_AMARANTH);
     public static final ConfiguredFeature<?, ?> AMARANTH_ORANGE = createFlowerConfiguredFeature("orange_amaranth", BYGBlocks.ORANGE_AMARANTH);
@@ -324,7 +326,7 @@ public class BYGConfiguredFeatures {
             new NoisySphereConfig.Builder()
                     .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
                     .setTopBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
-                    .setMinStackHeight(1).setMaxStackHeight(1).setMinXRadius(16).setMaxXRadius(25).setMinYRadius(20).setMaxYRadius(25).setNoiseFrequency(0.15F).setRadiusMatcher(RadiusMatcher.XZ)
+                    .setMinStackHeight(1).setMaxStackHeight(1).setMinXRadius(16).setMaxXRadius(35).setMinZRadius(16).setMaxZRadius(35).setMinYRadius(20).setMaxYRadius(25).setNoiseFrequency(0.2F).setRadiusMatcher(RadiusMatcher.NONE)
                     .addSpawningFeature(() -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WINDSWEPT_SAND))).placed
                             (CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
                                     BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(Blocks.TUFF, new BlockPos(0, -1, 0)),

@@ -83,9 +83,6 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
                         double sizeAmplifier = 1.6;
                         if (y >= 0 && squaredDistance <= ((xRadius + (xRadius * sizeAmplifier)) * (zRadius + (zRadius * sizeAmplifier)))) {
                             edgePositions.add(mutable2.immutable());
-    //                        for (PlacementModifier modifier : config.modifiers()) {
-    //                            modifier.getPositions()
-    //                        }
                         }
                     }
                 }
@@ -94,7 +91,7 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
 
         int waterLevel = blockPos.getY();
         for (BlockPos position : positions) {
-            waterLevel = Math.min(world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, position.getX(), position.getZ()) - 1, waterLevel);
+            waterLevel = Math.min(world.getHeight(Heightmap.Types.WORLD_SURFACE, position.getX(), position.getZ()) - 1, waterLevel);
         }
 
         ArrayList<Pair<BlockPos, BlockState>> fallingBlocks = new ArrayList<>();
@@ -127,14 +124,14 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         }
 
 
-        for (Pair<BlockPos, BlockState> fallingBlock : fallingBlocks) {
-            BlockPos pos = fallingBlock.getFirst();
-            BlockPos.MutableBlockPos fallingMutable = new BlockPos.MutableBlockPos().set(pos);
-            while (!world.getBlockState(fallingMutable).canOcclude()) {
-                fallingMutable.move(Direction.DOWN);
-            }
-            world.setBlock(fallingMutable.move(Direction.UP), fallingBlock.getSecond(), 2);
-        }
+//        for (Pair<BlockPos, BlockState> fallingBlock : fallingBlocks) {
+//            BlockPos pos = fallingBlock.getFirst();
+//            BlockPos.MutableBlockPos fallingMutable = new BlockPos.MutableBlockPos().set(pos);
+//            while (!world.getBlockState(fallingMutable).canOcclude()) {
+//                fallingMutable.move(Direction.DOWN);
+//            }
+//            world.setBlock(fallingMutable.move(Direction.UP), fallingBlock.getSecond(), 2);
+//        }
 
         for (BlockPos lakeSurfacePosition : lakeSurfacePositions) {
             for (Supplier<PlacedFeature> lakeSurfaceFeature : config.lakeSurfaceFeatures()) {

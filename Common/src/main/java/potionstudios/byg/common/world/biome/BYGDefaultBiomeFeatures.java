@@ -87,7 +87,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addLargeWindsweptLake(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_WINDSWEPT_LAKE);
+        gen.addFeature(GenerationStep.Decoration.LAKES, BYGPlacedFeatures.LARGE_WINDSWEPT_LAKE);
     }
 
     public static void addBulbisLake(BiomeGenerationSettings.Builder gen) {
