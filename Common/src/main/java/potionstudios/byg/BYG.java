@@ -86,7 +86,7 @@ public class BYG {
     public static void threadSafeLoadFinish() {
         LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
         BYGCompostables.compostablesBYG();
-        BYGHoeables.hoeablesBYG();
+        BYGHoeables.tillablesBYG();
         BYGFlammables.flammablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
