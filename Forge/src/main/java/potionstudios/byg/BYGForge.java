@@ -36,11 +36,13 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
+import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
 import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
 
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -50,7 +52,13 @@ import java.util.function.Supplier;
 public class BYGForge {
 
     public BYGForge() {
-        BYG.init(FMLPaths.CONFIGDIR.get().resolve("byg"), "forge");
+        BYG.MODLOADER_DATA = new ModLoaderContext() {
+            @Override
+            public Path configPath() {
+                return FMLPaths.CONFIGDIR.get();
+            }
+        };
+        BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override

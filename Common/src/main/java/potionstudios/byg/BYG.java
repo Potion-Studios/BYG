@@ -14,6 +14,7 @@ import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.MLBlockTags;
+import potionstudios.byg.util.ModLoaderContext;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,6 +31,8 @@ public class BYG {
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;
     public static WorldConfig worldConfig = null;
+
+    public static ModLoaderContext MODLOADER_DATA = null;
 
     public static WorldConfig worldConfig(boolean refreshConfig) {
         if (worldConfig == null || refreshConfig) {

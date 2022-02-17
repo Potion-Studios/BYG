@@ -3,7 +3,6 @@
   "package": "potionstudios.byg.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinCommands"
   ],
   "client": [
   ],
