@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "byg:block/blooming_aloe_vera_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/blooming_aloe_vera_top"
+    }
+  }
+}

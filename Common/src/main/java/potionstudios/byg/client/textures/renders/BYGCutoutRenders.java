@@ -14,6 +14,9 @@ public class BYGCutoutRenders {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
         //Plants
+
+        map.put(BYGBlocks.ALOE_VERA, RenderType.cutoutMipped());
+        map.put(BYGBlocks.BLOOMING_ALOE_VERA, RenderType.cutoutMipped());
         map.put(BYGBlocks.HORSEWEED, RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SAGE, RenderType.cutoutMipped());
         map.put(BYGBlocks.MINI_CACTUS, RenderType.cutoutMipped());
