@@ -4,19 +4,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
 
-import javax.annotation.Nullable;
 import java.util.Random;
 
 public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlock {
@@ -35,13 +31,6 @@ public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlo
         }
     }
 
-    @Nullable
-    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
-        FluidState fluidState = blockPlaceContext.getLevel().getFluidState(blockPlaceContext.getClickedPos());
-        if (fluidState.getType() == Fluids.WATER) {
-            return super.getStateForPlacement(blockPlaceContext).setValue(WATERLOGGED, false);
-        } else return this.defaultBlockState();
-    }
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
@@ -66,7 +55,7 @@ public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlo
 
     @Override
     public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        if (serverLevel.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
+        if (serverLevel.getBlockState(blockPos.above()).isAir() && canSurvive(blockState, serverLevel, blockPos)) {
             growAloeVera(serverLevel, blockPos);
         }
     }

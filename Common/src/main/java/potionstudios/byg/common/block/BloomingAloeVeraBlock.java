@@ -5,16 +5,13 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,12 +28,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.below();
-        return this.mayPlaceOn(worldIn.getBlockState(blockpos));
-    }
-
-    protected boolean mayPlaceOn(BlockState state) {
+    protected boolean mayPlaceOn(BlockState state, BlockGetter $$1, BlockPos $$2) {
         return state.is(BlockTags.SAND);
     }
 
@@ -66,4 +58,6 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
         return new ItemStack(BYGItems.ALOE_VERA);
     }
+
+
 }
