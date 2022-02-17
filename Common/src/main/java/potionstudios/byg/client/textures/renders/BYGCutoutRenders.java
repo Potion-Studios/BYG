@@ -14,6 +14,9 @@ public class BYGCutoutRenders {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
         //Plants
+
+        map.put(BYGBlocks.ALOE_VERA, RenderType.cutoutMipped());
+        map.put(BYGBlocks.BLOOMING_ALOE_VERA, RenderType.cutoutMipped());
         map.put(BYGBlocks.HORSEWEED, RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SAGE, RenderType.cutoutMipped());
         map.put(BYGBlocks.MINI_CACTUS, RenderType.cutoutMipped());
@@ -142,7 +145,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.PALM_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.PINE_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.RAINBOW_EUCALYPTUS_DOOR, RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_DOOR, RenderType.cutoutMipped());
+        map.put(BYGBlocks.REDWOOD_DOOR, RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WILLOW_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_DOOR, RenderType.translucent());
@@ -173,7 +176,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.PALM_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.PINE_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR, RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_TRAPDOOR, RenderType.cutoutMipped());
+        map.put(BYGBlocks.REDWOOD_TRAPDOOR, RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WILLOW_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_TRAPDOOR, RenderType.translucent());

@@ -524,6 +524,8 @@ public class BYGBlocks {
     public static final Block CATTAIL_THATCH_STAIRS = new BYGBlockProperties.ThatchStairs("cattail_thatch_stairs");
     public static final Block CATTAIL_THATCH_SLAB = new BYGBlockProperties.ThatchSlab("cattail_thatch_slab");
     public static final Block HORSEWEED = createFlower("horseweed", BYGBlockTags.GROUND_HORSEWEED);
+    public static final Block ALOE_VERA = createAloeVeraPlantBlock("aloe_vera");
+    public static final Block BLOOMING_ALOE_VERA = createBloomingAloeVeraPlantBlock("blooming_aloe_vera");
     public static final Block MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
     public static final Block PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
     public static final Block WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
@@ -1606,6 +1608,18 @@ public class BYGBlocks {
 
     static Block createCattailPlantBlock(String id) {
         Block createBlock = new CattailPlantBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WET_GRASS).strength(0.0f).noCollission().noOcclusion());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createAloeVeraPlantBlock(String id) {
+        Block createBlock = new AloeVeraBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WET_GRASS).strength(0.0f).randomTicks().noCollission().noOcclusion());
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createBloomingAloeVeraPlantBlock(String id) {
+        Block createBlock = new BloomingAloeVeraBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.TERRACOTTA_GREEN).sound(SoundType.WET_GRASS).strength(0.0f).noCollission().noOcclusion());
         createBlock(createBlock, id);
         return createBlock;
     }

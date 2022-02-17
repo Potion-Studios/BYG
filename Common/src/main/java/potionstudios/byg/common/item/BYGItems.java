@@ -1132,13 +1132,15 @@ public class BYGItems {
     public static final Item BLUE_BERRY = createItem(new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
     public static final Item BLUEBERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
 
-    public static final Item CATTAIL_SPROUT = createItem(BYGBlocks.CATTAIL_SPROUT);
+
+    public static final Item ALOE_VERA = createItem(BYGBlocks.ALOE_VERA);
     public static final Item GOLDEN_SPINED_CACTUS = createItem(BYGBlocks.GOLDEN_SPINED_CACTUS);
     public static final Item HORSEWEED = createItem(BYGBlocks.HORSEWEED);
     public static final Item MINI_CACTUS = createItem(BYGBlocks.MINI_CACTUS);
     public static final Item POISON_IVY = createItem(BYGBlocks.POISON_IVY);
     public static final Item PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final Item PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
+    public static final Item CATTAIL_SPROUT = createItem(BYGBlocks.CATTAIL_SPROUT);
     public static final Item CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final Item CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final Item CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);

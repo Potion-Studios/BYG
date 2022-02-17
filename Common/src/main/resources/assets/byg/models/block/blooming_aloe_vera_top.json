@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "byg:block/blooming_aloe_vera_top",
+    "particle": "byg:block/blooming_aloe_vera_top"
+  }
+}
