@@ -46,6 +46,7 @@
     "common.block.MixinAbstractFurnaceBlock",
     "common.block.MixinBlocks",
     "common.block.MixinCactusBlock",
+    "common.block.MixinFarmBlock",
     "common.block.MixinNetherrackBlock",
     "common.block.MixinSugarCaneBlock",
     "common.block.PlantBlockMixin",

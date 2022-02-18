@@ -95,7 +95,7 @@ public class BYG {
         BYGFlammables.flammablesBYG();
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
-        BYGPaths.addBYGPaths();
+        BYGFlattenables.addFlattenables();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
 

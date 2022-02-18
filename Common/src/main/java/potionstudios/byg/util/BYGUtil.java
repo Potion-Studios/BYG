@@ -1,9 +1,11 @@
 package potionstudios.byg.util;
 
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.LevelReader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,6 +13,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiPredicate;
 
 public class BYGUtil {
 
@@ -64,5 +67,20 @@ public class BYGUtil {
                 return false;
             }
         }
+    }
+
+    public static boolean isNearby(LevelReader levelReader, BlockPos origin, int searchRange, BiPredicate<LevelReader, BlockPos> passes) {
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(origin);
+        for (int xOffset = -searchRange; xOffset < searchRange; xOffset++) {
+            for (int yOffset = -searchRange; yOffset < searchRange; yOffset++) {
+                for (int zOffset = -searchRange; zOffset < searchRange; zOffset++) {
+                    mutableBlockPos.set(origin).move(xOffset, yOffset, zOffset);
+                    if (passes.test(levelReader, mutableBlockPos)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

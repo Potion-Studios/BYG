@@ -555,8 +555,8 @@ public class BYGBlocks {
     public static final Block BRIMSTONE = createNetherStone(MaterialColor.TERRACOTTA_YELLOW, "brimstone");
     public static final Block YELLOW_NETHER_BRICKS = new BYGBlockProperties.BYGNetherrack("yellow_nether_bricks");
     public static final Block BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
-    public static final Block BORIC_FIRE = createBoricFireBlock(MaterialColor.COLOR_GREEN,"boric_fire");
-    public static final Block BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN,"boric_lantern");
+    public static final Block BORIC_FIRE = createBoricFireBlock(MaterialColor.COLOR_GREEN, "boric_fire");
+    public static final Block BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN, "boric_lantern");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
     public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
@@ -651,8 +651,8 @@ public class BYGBlocks {
     public static final Block VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
     public static final Block THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
     public static final Block THERIUM_BLOCK = createTheriumBlock("therium_block");
-    public static final Block THERIUM_LANTERN = createLanternBlock(MaterialColor.COLOR_CYAN,"therium_lantern");
-    public static final Block THERIUM_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("therium_lamp");
+    public static final Block THERIUM_LANTERN = createLanternBlock(MaterialColor.COLOR_CYAN, "therium_lantern");
+    public static final Block THERIUM_LAMP = createBlock(new Block(BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN)), "therium_lamp");
     public static final Block CHISELED_THERIUM = createChiseledTherium("chiseled_therium");
     public static final Block CHISELED_THERIUM_STAIRS = createChiseledTheriumStairs("chiseled_therium_stairs");
     public static final Block CHISELED_THERIUM_SLAB = createChiseledTheriumSlab("chiseled_therium_slab");
@@ -666,8 +666,8 @@ public class BYGBlocks {
 
     public static final Block CRYPTIC_END_ROD = createEndRodBlock(MaterialColor.COLOR_RED, "cryptic_end_rod");
     public static final Block CRYPTIC_CAMPFIRE = createCampfireBlock(4, "cryptic_campfire");
-    public static final Block CRYPTIC_LANTERN = createCrypticLanternBlock(MaterialColor.COLOR_RED,"cryptic_lantern");
-    public static final Block CRYPTIC_FIRE = createCrypticFireBlock(MaterialColor.COLOR_RED,"cryptic_fire");
+    public static final Block CRYPTIC_LANTERN = createCrypticLanternBlock(MaterialColor.COLOR_RED, "cryptic_lantern");
+    public static final Block CRYPTIC_FIRE = createCrypticFireBlock(MaterialColor.COLOR_RED, "cryptic_fire");
     public static final Block CRYPTIC_MAGMA_BLOCK = new BYGBlockProperties.BYGMagma("cryptic_magma_block");
     public static final Block CRYPTIC_STONE = new BYGBlockProperties.BYGStone("cryptic_stone");
     public static final Block CRYPTIC_STONE_SLAB = createStoneSlab("cryptic_stone_slab");
@@ -699,7 +699,7 @@ public class BYGBlocks {
 
     public static final Block GLOWSTONE_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("glowstone_lamp");
     public static final Block PERVADED_NETHERRACK = new BYGBlockProperties.BYGPervadedNetherrack("pervaded_netherrack");
-    public static final Block GLOWSTONE_LANTERN = createLanternBlock(MaterialColor.TERRACOTTA_PURPLE,"glowstone_lantern");
+    public static final Block GLOWSTONE_LANTERN = createLanternBlock(MaterialColor.TERRACOTTA_PURPLE, "glowstone_lantern");
     public static final Block PACKED_BLACK_ICE = new BYGBlockProperties.BYGPackedIceBlock("packed_black_ice");
     public static final Block BLACK_ICE = new BYGBlockProperties.BYGIceBlock("black_ice");
     public static final Block FROST_MAGMA = new BYGBlockProperties.BYGFrostMagma("frost_magma");
@@ -1474,7 +1474,7 @@ public class BYGBlocks {
     }
 
     static Block createBoricFireBlock(MaterialColor color, String id) {
-            Block createBlock = new BoricFireBlock(BlockBehaviour.Properties.of(Material.FIRE, color).sound(SoundType.WOOL).noCollission().instabreak().lightLevel((state) -> 14));
+        Block createBlock = new BoricFireBlock(BlockBehaviour.Properties.of(Material.FIRE, color).sound(SoundType.WOOL).noCollission().instabreak().lightLevel((state) -> 14));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1650,7 +1650,7 @@ public class BYGBlocks {
 
     static Block createHydrangeaHedge(String id, Tag.Named<Block> groundTag) {
         Block createBlock = new HydrangeaHedgeBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.AZALEA).instabreak().noOcclusion(), groundTag);
-        return createBlock(createBlock,id);
+        return createBlock(createBlock, id);
     }
 
     static Block createFlower(String id, Tag.Named<Block> groundTag) {
@@ -1959,7 +1959,7 @@ public class BYGBlocks {
     }
 
     static Block createLushFarmland(String id) {
-        Block createBlock = new LushFarmBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(0.2f));
+        Block createBlock = new LushFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).strength(0.2f));
         createBlock(createBlock, id);
         return createBlock;
     }
