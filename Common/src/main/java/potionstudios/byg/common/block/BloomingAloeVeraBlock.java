@@ -39,7 +39,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
         BlockPos blockPos3 = blockPos.above();
 
         if (player.getItemInHand(interactionHand).is(Items.SHEARS) && level.getBlockState(blockPos2).is(BlockTags.DIRT) || level.getBlockState(blockPos2).is(BlockTags.SAND)) {
-            level.playSound(null, blockPos, SoundEvents.BEEHIVE_SHEAR, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             double d = (double) blockPos.getX() + random.nextDouble();
             double e = (double) blockPos.getY() + 1.0D;
             double f = (double) blockPos.getZ() + random.nextDouble();

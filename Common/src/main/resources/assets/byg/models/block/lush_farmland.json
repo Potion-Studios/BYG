@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_farmland",
   "textures": {
     "dirt": "byg:block/lush_dirt",
-    "top": "byg:block/lush_farmland_moist"
+    "top": "byg:block/lush_farmland"
   }
 }

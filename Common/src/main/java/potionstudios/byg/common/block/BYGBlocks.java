@@ -568,8 +568,8 @@ public class BYGBlocks {
     public static final Block BRIMSTONE_NETHER_GOLD_ORE = createNetherOre(SoundType.NETHER_GOLD_ORE, MaterialColor.TERRACOTTA_YELLOW, "brimstone_nether_gold_ore", UniformInt.of(0, 1));
 
     public static final Block WAILING_BELL_BLOSSOM = createWailingBellBlossom("wailing_bell_blossom");
-    public static final Block WAILING_VINES = createWailingVine("whaling_vine");
-    public static final Block WAILING_GRASS = createWailingPlant("whaling_grass");
+    public static final Block WAILING_VINES = createWailingVine("wailing_vine");
+    public static final Block WAILING_GRASS = createWailingPlant("wailing_grass");
     public static final Block MAGMATIC_STONE = new BYGBlockProperties.BYGNetherrack("magmatic_stone");
     public static final Block SCORCHED_BUSH = new BYGBlockProperties.ScorchedPlant("scorched_bush");
     public static final Block SCORCHED_GRASS = new BYGBlockProperties.ScorchedPlant("scorched_grass");

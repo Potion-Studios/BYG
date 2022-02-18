@@ -1,25 +1,25 @@
 {
   "variants": {
     "moisture=0": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=1": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=2": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=3": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=4": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=5": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=6": {
-      "model": "minecraft:block/farmland"
+      "model": "byg:block/lush_farmland"
     },
     "moisture=7": {
       "model": "byg:block/lush_farmland_moist"
