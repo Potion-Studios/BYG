@@ -1,6 +1,7 @@
 package potionstudios.byg;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -32,6 +33,7 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
@@ -39,6 +41,7 @@ import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
+import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
 
@@ -48,7 +51,6 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 @Mod(BYG.MOD_ID)
-
 public class BYGForge {
 
     public BYGForge() {
@@ -117,7 +119,7 @@ public class BYGForge {
             BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
                 @Override
                 public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-                    return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
+                    return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
                 }
             });
             OverworldBiomeConfig.getConfig(true).values().forEach(biomeProviderData -> {
@@ -127,6 +129,7 @@ public class BYGForge {
         BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
+        Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
     }
 
     private void loadFinish(FMLLoadCompleteEvent event) {

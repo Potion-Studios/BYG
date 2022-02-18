@@ -25,6 +25,6 @@ side = "BOTH"
 [[dependencies.byg]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[1.1.0.73,)"
+versionRange = "[1.1.0.77,)"
 ordering = "NONE"
 side = "BOTH"

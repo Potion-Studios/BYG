@@ -6,6 +6,7 @@
   "mixins": [
     "access.AxeItemAccess",
     "access.BiomeGenerationSettingsAccess",
+    "access.BiomeSourceAccess",
     "access.BlockEntityTypeAccess",
     "access.BlockEntityTypeBuilderAccess",
     "access.BlockTagsAccess",
@@ -34,6 +35,7 @@
     "access.VegetationFeaturesAccess",
     "access.VegetationPlacementsAccess",
     "access.VillagerTypeAccess",
+    "access.WeightedListAccess",
     "access.WoodButtonBlockAccess",
     "access.WorldGenRegistryDumpReportAccess",
     "common.MixinDefaultAttributes",
@@ -56,9 +58,10 @@
     "common.world.MixinChunkAccess",
     "common.world.MixinOreFeatures",
     "common.world.MixinServerLevel",
-    "common.world.MixinSurfaceSystem",
     "common.world.carver.MixinWorldCarver",
     "common.world.feature.MixinBasaltColumnFeature",
+    "common.world.surface.MixinSurfaceRuleData",
+    "common.world.surface.MixinSurfaceSystem",
     "server.MixinMinecraftServer"
   ],
   "client": [

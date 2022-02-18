@@ -14,10 +14,14 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 
 import java.nio.file.Path;
+
+import static potionstudios.byg.BYG.createLocation;
 
 public class BYGFabric implements ModInitializer {
     
@@ -31,17 +35,18 @@ public class BYGFabric implements ModInitializer {
         };
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
-        BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGCreativeTab.init(FabricItemGroupBuilder.build(BYG.createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
-        BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ENTITY_TYPE, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGBlockEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK_ENTITY_TYPE, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGSounds.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.SOUND_EVENT, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, BYG.createLocation(registryObject.id()), registryObject.object())));
-        BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, BYG.createLocation(registryObject.id()), registryObject.object())));
+        BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, createLocation(registryObject.id()), registryObject.object())));
+        BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
+        BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, createLocation(registryObject.id()), registryObject.object())));
+        BYGEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ENTITY_TYPE, createLocation(registryObject.id()), registryObject.object())));
+        BYGBlockEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK_ENTITY_TYPE, createLocation(registryObject.id()), registryObject.object())));
+        BYGSounds.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.SOUND_EVENT, createLocation(registryObject.id()), registryObject.object())));
+        BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, createLocation(registryObject.id()), registryObject.object())));
+        BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, createLocation(registryObject.id()), registryObject.object())));
+        BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, createLocation(registryObject.id()), registryObject.object())));
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
+        Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
     }
 }

@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
+import potionstudios.byg.common.world.biome.EndBiomesConfig;
 import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.util.CommonSetupLoad;
@@ -65,6 +66,7 @@ public class BYG {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        EndBiomesConfig.getConfig(true);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

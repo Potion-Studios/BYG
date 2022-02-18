@@ -5,6 +5,9 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,5 +49,20 @@ public class BYGUtil {
             registryElements.append(i).append(". \"").append(registry.getKey(object).toString()).append("\"\n");
         }
         return registryElements.toString();
+    }
+
+    public static boolean createMarkerFile(Path path, String markerText) {
+        if (path.toFile().exists()) {
+            return false;
+        } else {
+            try {
+                Files.createDirectories(path.getParent());
+                Files.write(path, markerText.getBytes());
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
     }
 }

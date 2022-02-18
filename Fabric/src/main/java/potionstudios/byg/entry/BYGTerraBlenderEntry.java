@@ -29,7 +29,7 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
         BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
             @Override
             public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-                return Optional.of(BYGSurfaceRules.BYG_SURFACE_RULES);
+                return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
         });
         OverworldBiomeConfig.getConfig(true).values().forEach(biomeProviderData -> {

@@ -1,4 +1,4 @@
-package potionstudios.byg.mixin.common.world;
+package potionstudios.byg.mixin.common.world.surface;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
