@@ -65,7 +65,7 @@ public abstract class MixinServerLevel extends Level {
             EndBiomesConfig config = EndBiomesConfig.getConfig();
             if(config.warnBYGEndBiomeSourceNotUsedInNewWorlds() && config.useBYGEndBiomeSourceInNewWorlds() && dimension() == Level.END) {
                 if (!Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).invokeCodec()).equals(BYGEndBiomeSource.LOCATION)) {
-                    Path warningMarker = this.worldPath.resolve("END_BIOME_SOURCE_MARKER_WARNING.txt");
+                    Path warningMarker = this.worldPath.resolve("END_BIOME_SOURCE_WARNING_MARKER.txt");
                     if (BYGUtil.createMarkerFile(warningMarker, "This file exists as a marker to warn the user that their end is not controlled by BYG. Once this file generates, the warning will no longer show in the chat in this world!")) {
                         String configPath = EndBiomesConfig.CONFIG_PATH.get().toString();
                         
