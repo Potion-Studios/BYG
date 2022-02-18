@@ -57,8 +57,8 @@ public abstract class MixinServerLevel extends Level {
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         if (this.getServer().isSingleplayer()) {
             if (BYG.WARN_EXPERIMENTAL) {
-                final Path marker = BYG.CONFIG_PATH.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYG.EXPERIMENTAL_WARNING_VERSION + ".txt");
-                if (BYGUtil.createMarkerFile(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat.")) {
+                final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYG.EXPERIMENTAL_WARNING_VERSION + ".txt");
+                if (BYGUtil.createMarkerFile(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat in this world!")) {
                     serverPlayer.displayClientMessage(new TranslatableComponent("byg.experimental.warning").withStyle(ChatFormatting.YELLOW), false);
                 }
             }
@@ -66,7 +66,7 @@ public abstract class MixinServerLevel extends Level {
             if(config.warnBYGEndBiomeSourceNotUsedInNewWorlds() && config.useBYGEndBiomeSourceInNewWorlds() && dimension() == Level.END) {
                 if (!Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).invokeCodec()).equals(BYGEndBiomeSource.LOCATION)) {
                     Path warningMarker = this.worldPath.resolve("END_BIOME_SOURCE_MARKER_WARNING.txt");
-                    if (BYGUtil.createMarkerFile(warningMarker, "This file exists as a marker to warn the user that their end is not controlled by BYG. Once this file generates, the warning will no longer show in the chat.")) {
+                    if (BYGUtil.createMarkerFile(warningMarker, "This file exists as a marker to warn the user that their end is not controlled by BYG. Once this file generates, the warning will no longer show in the chat in this world!")) {
                         String configPath = EndBiomesConfig.CONFIG_PATH.get().toString();
                         
                         Component fileComponent = new TextComponent(configPath).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, configPath)).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
