@@ -21,7 +21,7 @@ import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 @Mixin(DimensionType.class)
 public class MixinDimensionType {
 
-    @Inject(method = "defaultDimensions(Lnet/minecraft/core/RegistryAccess;J)Lnet/minecraft/core/MappedRegistry;", at = @At("RETURN"))
+    @Inject(method = "defaultDimensions(Lnet/minecraft/core/RegistryAccess;J)Lnet/minecraft/core/MappedRegistry;", at = @At("RETURN"), cancellable = true)
     private static void useBYGEnd(RegistryAccess registryAccess, long seed, CallbackInfoReturnable<MappedRegistry<LevelStem>> cir) {
         MappedRegistry<LevelStem> returnValue = cir.getReturnValue();
         MappedRegistry<LevelStem> newRegistry = new MappedRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
