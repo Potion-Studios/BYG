@@ -1132,7 +1132,7 @@ public class BYGItems {
     public static final Item BLUE_BERRY = createItem(new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
     public static final Item BLUEBERRY_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
 
-
+    public static final Item ALOE_VERA_JUICE = createItem(new HoneyBottleItem(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.0F).build())), "aloe_vera_juice");
     public static final Item ALOE_VERA = createItem(BYGBlocks.ALOE_VERA);
     public static final Item GOLDEN_SPINED_CACTUS = createItem(BYGBlocks.GOLDEN_SPINED_CACTUS);
     public static final Item HORSEWEED = createItem(BYGBlocks.HORSEWEED);
