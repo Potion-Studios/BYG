@@ -451,7 +451,7 @@ public class BYGBlocks {
     public static final Block ARAUCARIA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves(MaterialColor.TERRACOTTA_YELLOW, "aspen_leaves");
     public static final Block BAOBAB_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "baobab_leaves");
-    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = createGlowingLeaves(MaterialColor.COLOR_BROWN, 15, "blooming_witch_hazel_leaves");
+    public static final Block BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE,  "blooming_witch_hazel_leaves");
     public static final Block BLUE_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_BLUE, 15, "blue_enchanted_leaves");
     public static final Block BLUE_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_BLUE, "blue_spruce_leaves");
     public static final Block BROWN_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_birch_leaves");
@@ -494,7 +494,7 @@ public class BYGBlocks {
     public static final Block SKYRIS_LEAVES = createLeaves(MaterialColor.COLOR_PINK, "skyris_leaves");
     public static final Block WHITE_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY, "white_cherry_leaves");
     public static final Block WILLOW_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "willow_leaves");
-    public static final Block WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "witch_hazel_leaves");
+    public static final Block WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "witch_hazel_leaves");
     public static final Block YELLOW_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW, "yellow_birch_leaves");
     public static final Block YELLOW_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW, "yellow_spruce_leaves");
     public static final Block ZELKOVA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_RED, "zelkova_leaves");

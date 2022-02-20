@@ -1628,9 +1628,9 @@ public class BYGConfiguredFeatures {
 //            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.3F, 3))));
 //
     public static final ConfiguredFeature<?, ?> HUGE_MUSHROOMS = createConfiguredFeature("huge_mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(GREEN_MUSHROOM_HUGE.placed(), 0.25F),
-            new WeightedPlacedFeature(WOOD_BLEWIT_HUGE.placed(), 0.25F),
-            new WeightedPlacedFeature(WEEPING_MILKCAP_HUGE.placed(), 0.25F)),
+            new WeightedPlacedFeature(GREEN_MUSHROOM_HUGE.placed(), 0.35F),
+            new WeightedPlacedFeature(WOOD_BLEWIT_HUGE.placed(), 0.35F),
+            new WeightedPlacedFeature(WEEPING_MILKCAP_HUGE.placed(), 0.35F)),
             GREEN_MUSHROOM_HUGE.placed())));
 
     //

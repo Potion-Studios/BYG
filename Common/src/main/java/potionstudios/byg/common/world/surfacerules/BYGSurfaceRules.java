@@ -33,10 +33,9 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT = SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE);
     public static final SurfaceRules.RuleSource NOISE_SNOW = SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), SNOW_BLOCK_SURFACE);
 
-    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.EBONY_WOODS, BYGBiomes.WEEPING_WITCH_FOREST), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE));
+    public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.EBONY_WOODS), SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE));
 
     public static final SurfaceRules.RuleSource WINDSWEPT_SAND_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WINDSWEPT_DUNES), WINDSWEPT_SAND_SURFACE);
-
 
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS, BYGBiomes.REDWOOD_THICKET, BYGBiomes.FROSTED_TAIGA),
             SurfaceRules.sequence(
@@ -80,7 +79,7 @@ public class BYGSurfaceRules {
                     .add(GRASS_DIRT_DIRT_SURFACE, 1)
                     .build()));
 
-    public static final SurfaceRules.RuleSource LUSH = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.COCONINO_MEADOW, BYGBiomes.TEMPERATE_RAINFOREST, BYGBiomes.AUTUMNAL_VALLEY), LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
+    public static final SurfaceRules.RuleSource LUSH = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.COCONINO_MEADOW, BYGBiomes.TEMPERATE_RAINFOREST, BYGBiomes.WEEPING_WITCH_FOREST, BYGBiomes.AUTUMNAL_VALLEY), LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
     public static final SurfaceRules.RuleSource BLACK_ICE_BANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SHATTERED_GLACIER), SurfaceRules.sequence(BYGRuleSources.bands(BYGBlocks.BLACK_ICE.defaultBlockState(), BYGBlocks.PACKED_BLACK_ICE.defaultBlockState())));
     public static final SurfaceRules.RuleSource SIERRA_BADLANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SIERRA_BADLANDS), SurfaceRules.sequence(NOISE_COARSE_DIRT, SurfaceRules.ifTrue(SurfaceRules.not(invokeSurfaceNoiseAbove(-0.95D)), GRASS_DIRT_DIRT_SURFACE), SurfaceRules.bandlands()));
