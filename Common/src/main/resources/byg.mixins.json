@@ -60,6 +60,7 @@
     "common.world.MixinChunkAccess",
     "common.world.MixinOreFeatures",
     "common.world.MixinServerLevel",
+    "common.world.MixinSimpleBlockFeature",
     "common.world.carver.MixinWorldCarver",
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.surface.MixinSurfaceRuleData",

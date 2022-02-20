@@ -103,7 +103,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> BULBIS_GARDENS = createBiome("bulbis_gardens", bulbisGardens());
     public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
     public static ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", shulkrenForest());
-    public static ResourceKey<Biome> PURPUR_PEAKS = createBiome("purpur_peaks", purpurPeaks());
     public static ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", crypticWastes());
     public static ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", impariusGrove());
 

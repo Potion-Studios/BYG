@@ -127,7 +127,6 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
                         .add(BULBIS_GARDENS, 2)
                         .add(SHATTERED_DESERT, 2)
                         .add(SHULKREN_FOREST, 2)
-                        .add(PURPUR_PEAKS, 2)
                         .add(CRYPTIC_WASTES, 2)
                         .add(IMPARIUS_GROVE, 2)
                         .build(), 3);

@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -15,7 +16,6 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -24,11 +24,9 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
@@ -95,10 +93,26 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> SUBZERO_ASH = createConfiguredFeature("subzero_ash", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SUBZERO_ASH.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.SUBZERO_ASH_BLOCK, BYGBlocks.FROST_MAGMA)).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = createConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.SUBZERO_ASH_BLOCK.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.SUBZERO_ASH_BLOCK, BYGBlocks.FROST_MAGMA)).noProjection().build()));
 //    public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = createConfiguredFeature("quartz_crystal", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.QUARTZ_CRYSTAL.defaultBlockState()), ImmutableList.of(BYGBlocks.QUARTZITE_SAND.defaultBlockState(), BYGBlocks.RAW_QUARTZ_BLOCK.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState(), BYGBlocks.QUARTZITE_SAND.defaultBlockState(), BYGBlocks.RAW_QUARTZ_BLOCK.defaultBlockState()))));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE.defaultBlockState()), new SimpleBlockPlacer())).tries(64).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_VENT = createConfiguredFeature("cryptic_vent", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT.defaultBlockState()), new SimpleBlockPlacer())).tries(24).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).build()));
-//    public static final ConfiguredFeature<?, ?> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT.defaultBlockState()), new DoubleBlockPlacer())).tries(24).whitelist(ImmutableSet.of(BYGBlocks.CRYPTIC_STONE, BYGBlocks.CRYPTIC_MAGMA_BLOCK)).build()));
-//
+    public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, BlockPos.ZERO.relative(Direction.DOWN));
+
+    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", Feature.RANDOM_PATCH.configured(
+            new RandomPatchConfiguration(24, 4, 7, () -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))).placed(createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER)))));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))));
+
+    public static final ConfiguredFeature<?, ?> CRYPTIC_VENT_PATCH = createConfiguredFeature("cryptic_vent_patch", Feature.RANDOM_PATCH.configured(
+            new RandomPatchConfiguration(24, 4, 7, () -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))).placed(createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER)))));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_VENT = createConfiguredFeature("cryptic_vent", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))));
+
+    public static final ConfiguredFeature<?, ?> TALL_CRYPTIC_VENT_PATCH = createConfiguredFeature("tall_cryptic_vent_patch", Feature.RANDOM_PATCH.configured(
+            new RandomPatchConfiguration(24, 4, 7, () -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))).placed(createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER)))));
+    public static final ConfiguredFeature<?, ?> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))));
+
+
+    public static final RuleTest CRYPTIC_STONE = new BlockMatchTest(BYGBlocks.CRYPTIC_STONE);
+
+    public static final ConfiguredFeature<?, ?> ORE_CRYPTIC_REDSTONE = createConfiguredFeature("cryptic_redstone", Feature.ORE.configured(new OreConfiguration(List.of(OreConfiguration.target(CRYPTIC_STONE, BYGBlocks.CRYPTIC_REDSTONE_ORE.defaultBlockState())), 8)));
+
+
     public static final ConfiguredFeature<?, ?> BEEHIVES = createConfiguredFeature("beehives", BYGFeatures.BEEHIVE.configured(new NoneFeatureConfiguration()));
     //    public static final ConfiguredFeature<?, ?> ETHER_BULBS = createConfiguredFeature("ether_bulbs", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(BYGBlocks.ETHER_LEAVES.defaultBlockState()))).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(0), VerticalAnchor.belowTop(0)))).squared().count(55));
 //
@@ -202,11 +216,12 @@ public class BYGConfiguredFeatures {
     public static final ConfiguredFeature<?, ?> ROSE_OSIRIA = createFlowerConfiguredFeature("osiria_rose", BYGBlocks.ORSIRIA_ROSE);
     public static final ConfiguredFeature<?, ?> FAIRY_SLIPPER = createFlowerConfiguredFeature("fairy_slipper", BYGBlocks.FAIRY_SLIPPER);
     //
-//    public static final ConfiguredFeature<?, ?> IVIS_ROOTS = createConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.IVIS_ROOTS.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> IVIS_SPROUT = createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.IVIS_SPROUT.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//
+    public static final ConfiguredFeature<?, ?> IVIS_ROOTS = createPatchConfiguredFeature("ivis_roots", BYGBlocks.IVIS_ROOTS, 32);
+    public static final ConfiguredFeature<?, ?> IVIS_SPROUT = createPatchConfiguredFeature("ivis_sprout", BYGBlocks.IVIS_SPROUT, 32);
+    //
     public static final ConfiguredFeature<?, ?> BULBIS_SPROUTS = createPatchConfiguredFeature("bulbis_sprouts", BYGBlocks.BULBIS_SPROUTS, 32);
-    //    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE_PATCH = createPatchConfiguredFeature("cryptic_bramble_patch", BYGBlocks.CRYPTIC_BRAMBLE, 32);
+    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE))));
     //
     public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BYGBlocks.BULBIS_ODDITY, 32);
     public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = createPatchConfiguredFeature("purple_bulbis_oddity", BYGBlocks.PURPLE_BULBIS_ODDITY, 32);
@@ -342,8 +357,20 @@ public class BYGConfiguredFeatures {
     //
 //    public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.DIAMOND_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_ARCH = createConfiguredFeature("windswept_arch", BYGFeatures.WINDSWEPT_ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
-//    public static final ConfiguredFeature<?, ?> GLOWSHROOM_CAVES = createConfiguredFeature("glow_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).setFluidStartY(12).build())).decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(25), VerticalAnchor.aboveBottom(40)))).count(1)));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured(
+            new NoisySphereConfig.Builder().withRadiusSettings(
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                    ).withBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR)).withFluidState(Fluids.LAVA.defaultFluidState())
+                    .withTopBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR)).withSpawningFeatures(
+                            List.of(
+                                    () -> BYGConfiguredFeatures.CRYPTIC_FIRE.placed(List.of(RarityFilter.onAverageOnceEvery(5), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0))))),
+                                    () -> BYGConfiguredFeatures.CRYPTIC_VENTS.placed(List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0))))),
+                                    () -> BYGConfiguredFeatures.CRYPTIC_BRAMBLE.placed(List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0)))))
+                            )
+                    ).build()));
+
+
+    //    public static final ConfiguredFeature<?, ?> GLOWSHROOM_CAVES = createConfiguredFeature("glow_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).setFluidStartY(12).build())).decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(25), VerticalAnchor.aboveBottom(40)))).count(1)));
     public static final ConfiguredFeature<NoisySphereConfig, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.NOISE_SPHERE.configured(
             new NoisySphereConfig.Builder().withStackHeight(UniformInt.of(3, 7))
                     .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18))
@@ -369,17 +396,16 @@ public class BYGConfiguredFeatures {
             ).build()));
 
 
-
     //    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.ENDER_LILY.defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(10).build()).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
 //
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_SPIKE = createConfiguredFeature("cryptic_spike", BYGFeatures.SPIKE.configured(new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.CRYPTIC_STONE.defaultBlockState(), 5).add(BYGBlocks.CRYPTIC_MAGMA_BLOCK.defaultBlockState(), 5)))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.18F, 1))));
+    public static final ConfiguredFeature<?, ?> CRYPTIC_SPIKE = createConfiguredFeature("cryptic_spike", BYGFeatures.SPIKE.configured(new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.CRYPTIC_STONE.defaultBlockState(), 5).add(BYGBlocks.CRYPTIC_MAGMA_BLOCK.defaultBlockState(), 5)))));
     public static final ConfiguredFeature<?, ?> BLACK_ICE = createConfiguredFeature("black_ice_snow", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE))));
     //    public static final ConfiguredFeature<?, ?> BULBIS_GARDENS_CAVES = createConfiguredFeature("bulbis_gardens_caves", BYGFeatures.NOISY_CAVE_SPHERE_WATER.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
 //    public static final ConfiguredFeature<?, ?> CANYON_RIVER = createConfiguredFeature("ahhhh", BYGFeatures.CANYON_RIVER.configured(new NoneFeatureConfiguration()).decorated(FeatureDecorator.NOPE.configured(new NoneDecoratorConfiguration())));
 //
     public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit",
-            BYGFeatures.NOISE_SPHERE.configured(
+            BYGFeatures.NOISE_SPIKE.configured(
                     new NoisySphereConfig.Builder()
                             .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 2)
@@ -388,7 +414,7 @@ public class BYGConfiguredFeatures {
                                     .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 4)
                                     .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 6))
                             )
-                            .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 35), ConstantInt.of(20), 0, BiasedToBottomInt.of(16, 35)))
+                            .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(13, 20), BiasedToBottomInt.of(20, 27), 0, BiasedToBottomInt.of(13, 20)))
                             .withNoiseFrequency(0.2F).withRadiusMatcher(RadiusMatcher.NONE).withPointed(true)
                             .withSpawningFeatures(List.of(
                                     () -> createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15).placed(
@@ -421,11 +447,9 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> SHORT_GRASSES = createConfiguredFeature("short_grass", SHORT_GRASS.decorated(Features.Decorators.ADD_32).count(10));
 //    public static final ConfiguredFeature<?, ?> EMBUR_SPROUTS = createConfiguredFeature("embur_sprouts", EMBUR_SPROUT.decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(30))));
 //    public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_FIRE = createConfiguredFeature("nylium_soul_fire", NYLIUM_SOUL_FIRE_PATCH.decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(1))));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire", CRYPTIC_FIRE_PATCH.decorated(Features.Decorators.FIRE).count(2));
 //    public static final ConfiguredFeature<?, ?> MAGMA_FIRE = createConfiguredFeature("magma_fire", MAGMA_FIRE_PATCH.decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(1))));
 //    public static final ConfiguredFeature<?, ?> BORIC_FIRE = createConfiguredFeature("boric_fire", BORIC_FIRE_PATCH.decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(1))));
 //    public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTALS = createConfiguredFeature("quartz_crystals", QUARTZ_CRYSTAL.decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(50))));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLES = createConfiguredFeature("cryptic_brambles", CRYPTIC_BRAMBLE.decorated(Features.Decorators.FIRE).count(1));
 //
 //
 //    /***********************************************************Configured Random Selector Features***********************************************************/
@@ -500,7 +524,7 @@ public class BYGConfiguredFeatures {
 //
 //    public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.configured(new ColumnFeatureConfiguration(UniformInt.of(1, 1), UniformInt.of(1, 3))).decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(4))));
     public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new QuartzSpikeConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.QUARTZ_BLOCK.defaultBlockState(), 3).add(Blocks.SMOOTH_QUARTZ.defaultBlockState(), 2))).build()));
-//
+    //
 //    public static final ConfiguredFeature<?, ?> SUBZERO_CRYSTAL = createConfiguredFeature("subzero_crystal", BYGFeatures.SUBZERO_CRYSTAL.configured(new NoneFeatureConfiguration()).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.top()))).squared().count(60));
 //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SYTHIAN_PLANT = createConfiguredFeature("sythian_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
@@ -599,10 +623,10 @@ public class BYGConfiguredFeatures {
 //            DAFFODIL.weighted(0.5F)),
 //            DAFFODIL_PINK)).decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            IVIS_ROOTS.weighted(0.5F)),
-//            IVIS_SPROUT)).decorated(Features.Decorators.FIRE).count(5));
-//
+    public static final ConfiguredFeature<?, ?> IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(IVIS_ROOTS.placed(), 0.5F)),
+            IVIS_SPROUT.placed())));
+    //
     public static final ConfiguredFeature<?, ?> BULBIS_ODDITIES = createConfiguredFeature("bulbis_oddities", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(BULBIS_ODDITY.placed(), 0.5F)),
             PURPLE_BULBIS_ODDITY.placed())));
@@ -624,10 +648,15 @@ public class BYGConfiguredFeatures {
 //            (BYG.ENABLE_CACTI ? ODDITY_CACTUS : Feature.NO_OP.configured(NoneFeatureConfiguration.INSTANCE)).weighted(0.5F)),
 //            ODDITY_BUSH)).decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(16))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_CRYPTIC_VENT = createConfiguredFeature("rs_cryptic_vent", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            CRYPTIC_VENT.weighted(0.50F)),
-//            TALL_CRYPTIC_VENT)).decorated(Features.Decorators.ADD_32).count(2));
-//
+    public static final ConfiguredFeature<?, ?> CRYPTIC_VENT_PATCHES = createConfiguredFeature("cryptic_vents_patch", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(CRYPTIC_VENT_PATCH.placed(), 0.50F)),
+            TALL_CRYPTIC_VENT_PATCH.placed())));
+
+    public static final ConfiguredFeature<?, ?> CRYPTIC_VENTS = createConfiguredFeature("cryptic_vents", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(CRYPTIC_VENT.placed(), 0.50F)),
+            TALL_CRYPTIC_VENT.placed())));
+
+    //
     public static final ConfiguredFeature<?, ?> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(DEAD_SEA_SPIKE.placed(), 0.75F)),
             DEAD_SEA_SPIKE_TALL.placed())));
@@ -1836,6 +1865,15 @@ public class BYGConfiguredFeatures {
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(Block block, int spread) {
         return (CF) Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(block))), List.of(), spread));
+    }
+
+    public static BlockPredicateFilter createSolidDownAndAirAllAroundFilter(BlockPredicate... predicates) {
+        return BlockPredicateFilter.forPredicate(BlockPredicate.allOf(new ImmutableList.Builder<BlockPredicate>().add(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.DOWN)),
+                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.WEST))),
+                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.EAST))),
+                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.NORTH))),
+                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.SOUTH))),
+                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.UP)))).add(predicates).add(BlockPredicate.matchesBlocks(List.of(Blocks.AIR, Blocks.CAVE_AIR))).build()));
     }
 //
 ////Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
