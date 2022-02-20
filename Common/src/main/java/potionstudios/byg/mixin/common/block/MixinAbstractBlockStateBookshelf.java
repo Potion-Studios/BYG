@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.mixin.access.StaticTagHelperWrapperAccess;
 import potionstudios.byg.util.MLBlockTags;
 
@@ -25,6 +26,13 @@ public abstract class MixinAbstractBlockStateBookshelf {
         // We need to make sure we're bounded first before using
         if (block == Blocks.BOOKSHELF) {
             if (MLBlockTags.BOOKSHELVES instanceof StaticTagHelper.Wrapper<Block> bookShelves) {
+                if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null) {
+                    info.setReturnValue(this.is(bookShelves));
+                }
+            }
+        }
+        if (block == Blocks.FARMLAND) {
+            if (BYGBlockTags.FARMLAND instanceof StaticTagHelper.Wrapper<Block> bookShelves) {
                 if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null) {
                     info.setReturnValue(this.is(bookShelves));
                 }

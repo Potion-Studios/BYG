@@ -36,7 +36,8 @@ public class LushFarmBlock extends FarmBlock {
         super.animateTick(blockState, level, blockPos, random);
 
         if (random.nextInt(10) == 0 && BYGUtil.isNearby(level, blockPos, THERIUM_LANTERN_SEARCH_RANGE, IS_THERIUM_LANTERN)) {
-            level.addParticle(ParticleTypes.WARPED_SPORE, blockPos.getX() + 0.5D, blockPos.getY() + 2.0D, blockPos.getZ() + 0.5D, (double) random.nextDouble() - 0.5D, random.nextDouble() - 1.0F, random.nextDouble() - 0.5D);
+//            level.addParticle(ParticleTypes.WARPED_SPORE, blockPos.getX() + 0.5D, blockPos.getY() + 2.0D, blockPos.getZ() + 0.5D, (double) random.nextDouble() - 0.5D, random.nextDouble() - 1.0F, random.nextDouble() - 0.5D);
+            level.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)blockPos.getX() + random.nextDouble(), (double)blockPos.getY() + 1.1D, (double)blockPos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
     }
 

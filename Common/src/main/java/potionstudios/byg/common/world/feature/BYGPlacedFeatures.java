@@ -171,6 +171,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));
     public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGConfiguredFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome()));
 
+    public static final PlacedFeature QUARTZ_SPIKE = createPlacedFeature("quartz_spike", BYGConfiguredFeatures.QUARTZ_SPIKE.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome()));
+
     private static List<PlacementModifier> clearingTreePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(CLEARING_NOISE).add(BiomeFilter.biome()).build();
     }

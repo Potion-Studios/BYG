@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "byg:lush_farmland",
+    "minecraft:farmland"
+  ]
+}

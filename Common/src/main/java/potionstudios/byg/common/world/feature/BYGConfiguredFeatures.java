@@ -15,6 +15,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
@@ -497,7 +499,7 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> BRIMSTONE_VENTS = createConfiguredFeature("brimstone_vent", BYGFeatures.BRIMSTONE_VENT_FEATURE.configured(new BrimstoneVentsConfig.Builder().setLavaBlock(Blocks.LAVA).setBlock(BYGBlocks.BRIMSTONE).build()).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(64)))).squared().count(30));
 //
 //    public static final ConfiguredFeature<?, ?> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS.configured(new ColumnFeatureConfiguration(UniformInt.of(1, 1), UniformInt.of(1, 3))).decorated(FeatureDecorator.COUNT_MULTILAYER.configured(new CountConfiguration(4))));
-//    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND).build()).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.top()))).squared().count(40));
+    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES.configured(new QuartzSpikeConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.QUARTZ_BLOCK.defaultBlockState(), 3).add(Blocks.SMOOTH_QUARTZ.defaultBlockState(), 2))).build()));
 //
 //    public static final ConfiguredFeature<?, ?> SUBZERO_CRYSTAL = createConfiguredFeature("subzero_crystal", BYGFeatures.SUBZERO_CRYSTAL.configured(new NoneFeatureConfiguration()).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.top()))).squared().count(60));
 //

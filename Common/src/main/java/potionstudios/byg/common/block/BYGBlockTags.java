@@ -111,6 +111,8 @@ public class BYGBlockTags {
     public static final Tag.Named<Block> GROUND_ETHER_SAPLING = createPlantTag("ground_ether_sapling");
     public static final Tag.Named<Block> GROUND_NIGHTSHADE_SAPLING = createPlantTag("ground_nightshade_sapling");
 
+    public static final Tag.Named<Block> FARMLAND = createTag("farmland");
+
 
     private static Tag.Named<Block> createPlantTag(String location) {
         Tag.Named<Block> blockTag = createTag(location);

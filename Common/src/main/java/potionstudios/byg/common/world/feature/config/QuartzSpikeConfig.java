@@ -42,6 +42,13 @@ public class QuartzSpikeConfig implements FeatureConfiguration {
             return this;
         }
 
+        public Builder setBlock(BlockStateProvider provider) {
+            if (provider != null)
+                blockProvider = provider;
+            else
+                blockProvider = SimpleStateProvider.simple(Blocks.STONE.defaultBlockState());
+            return this;
+        }
 
         public QuartzSpikeConfig build() {
             return new QuartzSpikeConfig(this.blockProvider);

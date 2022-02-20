@@ -1,24 +1,24 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "byg:block/whaling_vine",
-    "vine": "byg:block/whaling_vine"
+    "particle": "byg:block/wailing_vine",
+    "vine": "byg:block/wailing_vine"
   },
   "elements": [
     {
       "from": [
-        0,
         15.2,
+        0,
         0
       ],
       "to": [
-        16,
         15.2,
+        16,
         16
       ],
       "shade": false,
       "faces": {
-        "down": {
+        "west": {
           "uv": [
             0,
             0,
@@ -28,7 +28,7 @@
           "texture": "#vine",
           "tintindex": 0
         },
-        "up": {
+        "east": {
           "uv": [
             0,
             0,
@@ -42,18 +42,18 @@
     },
     {
       "from": [
+        0.8,
         0,
-        0,
-        15.2
+        0
       ],
       "to": [
+        0.8,
         16,
-        16,
-        15.2
+        16
       ],
       "shade": false,
       "faces": {
-        "north": {
+        "west": {
           "uv": [
             0,
             0,
@@ -63,7 +63,7 @@
           "texture": "#vine",
           "tintindex": 0
         },
-        "south": {
+        "east": {
           "uv": [
             0,
             0,
