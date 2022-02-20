@@ -373,15 +373,15 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addCrypticFire(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.CRYPTIC_FIRE);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.CRYPTIC_FIRE);
     }
 
     public static void addCrypticVents(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_CRYPTIC_VENT);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CRYPTIC_VENTS);
     }
 
     public static void addCrypticBramble(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CRYPTIC_BRAMBLES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CRYPTIC_BRAMBLE);
     }
 
     public static void addMagmaFire(BiomeGenerationSettings.Builder gen) {
