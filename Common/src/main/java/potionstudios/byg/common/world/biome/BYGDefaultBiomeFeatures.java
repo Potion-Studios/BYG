@@ -449,12 +449,12 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBulbisOddity(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_ODDITY);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.BULBIS_SPROUT_PLANT);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BULBIS_ODDITIES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BULBIS_SPROUTS);
     }
 
     public static void addBulbisAnomaly(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_ANOMALY);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BULBIS_ANOMALIES);
     }
 
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {
@@ -469,8 +469,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTheriumDeposit(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THERIUM_CRYSTAL_DEPOSIT);
-        //gen.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BYGConfiguredFeatures.THERIUM_CRYSTALS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.THERIUM_DEPOSIT);
     }
 
     public static void addEtherFoliage(BiomeGenerationSettings.Builder gen) {
@@ -891,11 +890,11 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBulbisTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BULBIS_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BULBIS_TREES);
     }
 
     public static void addPurpleBulbisTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PURPLE_BULBIS_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PURPLE_BULBIS_TREES);
     }
 
     public static void addSparseBulbisTrees(BiomeGenerationSettings.Builder gen) {

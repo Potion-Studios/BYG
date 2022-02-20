@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -35,6 +36,7 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
@@ -99,6 +101,7 @@ public class BYGForge {
         register(MenuType.class, eventBus, () -> BYGMenuTypes.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
         register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
+        register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
     }
 
     @SuppressWarnings("rawtypes")

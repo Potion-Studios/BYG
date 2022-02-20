@@ -34,10 +34,13 @@ public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
-        int xRadius = config.getRandomXRadius(random);
-        int yRadius = config.getRandomYRadius(random);
-        int zRadius = config.getRandomZRadius(random);
+        int stackHeight = config.stackHeight().sample(random);
+        NoisySphereConfig.RadiusSettings radiusSettings = config.radiusSettings();
+        int xRadius = radiusSettings.xRadius().sample(random);
+        int yRadius = radiusSettings.yRadius().sample(random);
+        int zRadius = radiusSettings.zRadius().sample(random);
+        fastNoise.SetFrequency(config.noiseFrequency());
+        double radiusDivisorPerStack = config.radiusDivisorPerStack();
 
         for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
             for (int x = -xRadius; x <= xRadius; x++) {
@@ -61,9 +64,9 @@ public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
                             world.scheduleTick(mutable2, Fluids.WATER, 0);
                         }
                     }
-                    xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
-                    yRadius = (int) (yRadius / config.getRadiusDivisorPerStack());
-                    zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
+                    xRadius = (int) (xRadius / radiusDivisorPerStack);
+                    yRadius = (int) (yRadius / radiusDivisorPerStack);
+                    zRadius = (int) (zRadius / radiusDivisorPerStack);
                 }
             }
         }

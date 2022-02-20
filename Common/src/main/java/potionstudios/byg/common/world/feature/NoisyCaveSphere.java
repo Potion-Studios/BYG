@@ -4,12 +4,10 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
@@ -35,10 +33,13 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2 + random.nextInt(10)));
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int stackHeight = random.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
-        int xRadius = config.getRandomXRadius(random);
-        int yRadius = config.getRandomYRadius(random);
-        int zRadius = config.getRandomZRadius(random);
+        int stackHeight = config.stackHeight().sample(random);
+        NoisySphereConfig.RadiusSettings radiusSettings = config.radiusSettings();
+        int xRadius = radiusSettings.xRadius().sample(random);
+        int yRadius = radiusSettings.yRadius().sample(random);
+        int zRadius = radiusSettings.zRadius().sample(random);
+        fastNoise.SetFrequency(config.noiseFrequency());
+        double radiusDivisorPerStack = config.radiusDivisorPerStack();
 
         for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
             for (int x = -xRadius; x <= xRadius; x++) {
@@ -52,7 +53,7 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
                             continue;
 
                         if (world.getBlockState(mutable2).canOcclude()) {
-                            if (mutable2.getY() <= config.getFluidStartY()) {
+                            if (mutable2.getY() <= config.fluidStartY()) {
                                 boolean isSolidAllAround = true;
                                 for (Direction direction : Direction.values()) {
                                     if (direction != Direction.UP) {
@@ -68,16 +69,16 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
                                 }
 
                                 if (isSolidAllAround) {
-                                    world.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
-                                    world.scheduleTick(mutable2, Fluids.WATER, 0);
+                                    world.setBlock(mutable2, config.fluidState().createLegacyBlock(), 2);
+                                    world.scheduleTick(mutable2, config.fluidState().getType(), 0);
                                 }
                             } else
-                                world.setBlock(mutable2, config.getBlockProvider().getState(random, mutable2), 2);
+                                world.setBlock(mutable2, config.blockProvider().getState(random, mutable2), 2);
                         }
                     }
-                    xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
-                    yRadius = (int) (yRadius / config.getRadiusDivisorPerStack());
-                    zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
+                    xRadius = (int) (xRadius / radiusDivisorPerStack);
+                    yRadius = (int) (yRadius / radiusDivisorPerStack);
+                    zRadius = (int) (zRadius / radiusDivisorPerStack);
                 }
             }
         }
@@ -89,7 +90,6 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
         if (this.seed != seed || fastNoise == null) {
             fastNoise = new FastNoise((int) seed);
             fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
-            fastNoise.SetFrequency(0.09f);
             this.seed = seed;
         }
     }

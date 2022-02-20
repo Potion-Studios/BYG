@@ -9,6 +9,7 @@
     "access.BiomeSourceAccess",
     "access.BlockEntityTypeAccess",
     "access.BlockEntityTypeBuilderAccess",
+    "access.BlockStateProviderAccess",
     "access.BlockTagsAccess",
     "access.BoatEntityAccess",
     "access.DimensionStructuresSettingsAccess",

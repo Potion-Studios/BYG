@@ -30,27 +30,29 @@ public class NoiseSphere extends Feature<NoisySphereConfig> {
     }
 
     public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
-        setSeed(world.getSeed(), config.getNoiseFrequency());
+        setSeed(world.getSeed(), config.noiseFrequency());
 
-        boolean use2D = random.nextDouble() < config.getNoise2DChance();
-        RadiusMatcher radiusMatcher = config.getRadiusMatcher();
+        boolean use2D = random.nextDouble() < config.noise2DChance();
+        RadiusMatcher radiusMatcher = config.radiusMatcher();
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int xRadius = config.getRandomXRadius(random);
-        int yRadius = radiusMatcher == RadiusMatcher.ALL ? xRadius : config.getRandomYRadius(random);
-        int zRadius = radiusMatcher == RadiusMatcher.ALL || radiusMatcher == RadiusMatcher.XZ ? xRadius : config.getRandomZRadius(random);
+        NoisySphereConfig.RadiusSettings radiusSettings = config.radiusSettings();
+        int xRadius = radiusSettings.xRadius().sample(random) / 2;
+        int yRadius = radiusMatcher == RadiusMatcher.ALL ? xRadius : radiusSettings.yRadius().sample(random);
+        int zRadius = radiusMatcher == RadiusMatcher.ALL || radiusMatcher == RadiusMatcher.XZ ? xRadius : (radiusSettings.zRadius().sample(random) / 2);
 
         int lowestX = position.getX();
         int lowestY = position.getY();
         int lowestZ = position.getZ();
 
-        for (int stackIDX = 0; stackIDX < config.getRandomStackHeight(random); stackIDX++) {
+        int stackHeight = config.stackHeight().sample(random);
+        for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
             for (int x = -xRadius; x <= xRadius; x++) {
                 float xFract = x / (float) xRadius;
                 for (int z = -zRadius; z <= zRadius; z++) {
                     float zFract = z / (float) zRadius;
-                    for (int y = -yRadius; y <= yRadius + config.getPositiveYRadiusAddition(); y++) {
+                    for (int y = -yRadius; y <= yRadius + radiusSettings.upperHalfAdditional(); y++) {
                         float yFract = y / (float) yRadius;
 
                         mutable2.set(mutable).move(x, y, z);
@@ -76,24 +78,24 @@ public class NoiseSphere extends Feature<NoisySphereConfig> {
 
 
                         int squaredDistance = (x * x) + (y * y) + (z * z);
-                        if (config.isSquaredDistanceChecked() && squaredDistance >= xRadius * zRadius) {
+                        if (config.checkSquareDistance() && squaredDistance >= xRadius * zRadius) {
                             continue;
                         }
 
-                        world.setBlock(mutable2, config.getTopBlockProvider().getState(random, mutable2), 2);
-                        world.setBlock(mutable2.move(Direction.DOWN), config.getBlockProvider().getState(random, mutable2), 2);
+                        world.setBlock(mutable2, config.topBlockProvider().getState(random, mutable2), 2);
+                        world.setBlock(mutable2.move(Direction.DOWN), config.blockProvider().getState(random, mutable2), 2);
                         lowestX = Math.min(lowestX, mutable2.getX());
                         lowestY = Math.min(lowestY, mutable2.getY());
                         lowestZ = Math.min(lowestZ, mutable2.getZ());
                     }
                 }
             }
-            xRadius = (int) (xRadius / config.getRadiusDivisorPerStack());
+            xRadius = (int) (xRadius / config.radiusDivisorPerStack());
             yRadius = (int) (yRadius * 0.1F);
             mutable.setY(mutable.getY() + yRadius);
-            zRadius = (int) (zRadius / config.getRadiusDivisorPerStack());
+            zRadius = (int) (zRadius / config.radiusDivisorPerStack());
         }
-        for (Supplier<PlacedFeature> spawningFeature : config.getSpawningFeatures()) {
+        for (Supplier<PlacedFeature> spawningFeature : config.spawningFeatures()) {
             spawningFeature.get().place(world, chunkGenerator, random, new BlockPos(lowestX, lowestY, lowestZ));
         }
 

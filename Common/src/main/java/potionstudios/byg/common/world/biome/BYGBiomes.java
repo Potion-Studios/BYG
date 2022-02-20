@@ -21,6 +21,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static potionstudios.byg.common.world.biome.BYGEndBiomes.*;
 import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 
 @SuppressWarnings("deprecation")
@@ -79,44 +80,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 //
-//    /************Sub Biomes************/
-//    //Beaches
-//    public static ResourceKey<Biome> BASALT_BARRERA = createBiome("basalt_barrera", basaltBarrera());
-//    public static ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", rainbowBeach());
-//    public static ResourceKey<Biome> ROCKY_BEACH = createBiome("rocky_beach", rockyBeach());
-//    public static ResourceKey<Biome> SNOWY_ROCKY_BLACK_BEACH = createBiome("snowy_rocky_black_beach", snowyBlackBeach(true));
-//    public static ResourceKey<Biome> SNOWY_BLACK_BEACH = createBiome("snowy_black_beach", snowyBlackBeach(false));
-//    public static ResourceKey<Biome> WHITE_BEACH = createBiome("white_beach", whiteBeach());
-//
-//    //Flowering
-//    public static ResourceKey<Biome> FLOWERING_ENCHANTED_GROVE = createBiome("flowering_enchanted_grove", enchantedGrove(true));
-//    public static ResourceKey<Biome> FLOWERING_GROVE = createBiome("flowering_grove", grove(true));
-//    public static ResourceKey<Biome> FLOWERING_COCONINO_MEADOW = createBiome("flowering_coconino_meadow", coconinoMeadow(true, false));
-//
-//    //Forests
-//    public static ResourceKey<Biome> ARAUCARIA_FOREST = createBiome("araucaria_forest", araucariaSavanna(true));
-//    public static ResourceKey<Biome> FOREST_FAULT = createBiome("forest_fault", forestFault());
-//    public static ResourceKey<Biome> NORTHERN_FOREST = createBiome("northern_forest", northernForest());
-//    public static ResourceKey<Biome> POINTY_STONE_FOREST = createBiome("pointed_fragment_forest", fragmentForest(true));
-//    public static ResourceKey<Biome> PUMPKIN_FOREST = createBiome("pumpkin_forest", pumpkinForest());
-//
-//
-//    //Mountains
-//    public static ResourceKey<Biome> BLUFF_PEAKS = createBiome("bluff_peaks", bluffSteeps(true));
-//
-//    //Sub
-//    public static ResourceKey<Biome> FROSTED_GIANT_TAIGA = createBiome("frosted_giant_taiga", frostedTaiga(true, true));
-//    public static ResourceKey<Biome> CORAL_MANGROVES = createBiome("coral_mangroves", coralMangroves());
-//    public static ResourceKey<Biome> FUNGAL_PATCH = createBiome("fungal_patch", fungalPatch());
-//    public static ResourceKey<Biome> GREAT_LAKE_ISLES = createBiome("great_lake_isles", greatLakeIsles());
-//    public static ResourceKey<Biome> LUSH_RED_DESERT = createBiome("lush_red_desert", redDesert(true));
-//    public static ResourceKey<Biome> RED_SPRUCE_TAIGA = createBiome("red_spruce_taiga", redTaiga());
-//    public static ResourceKey<Biome> WOODED_COCONINO_MEADOW = createBiome("wooded_coconino_meadow", coconinoMeadow(false, true));
-//
-//    //Mutations
-//    public static ResourceKey<Biome> AUTUMNAL_GIANT_TAIGA = createBiome("autumnal_giant_taiga", autumnalTaiga(true));
-//
-//
 //    /************Nether Biomes************/
 //    public static ResourceKey<Biome> BRIMSTONE_CAVERNS = createBiome("brimstone_caverns", NetherBiomes.brimstoneCaverns());
 //    public static ResourceKey<Biome> CRIMSON_GARDENS = createBiome("crimson_gardens", NetherBiomes.crimsonGardens());
@@ -133,26 +96,17 @@ public class BYGBiomes {
 //
 //
 //    /************End Biomes************/
-//    public static ResourceKey<Biome> IVIS_FIELDS = createBiome("ivis_fields", EndBiomes.ivisFields());
-//    public static ResourceKey<Biome> NIGHTSHADE_FOREST = createBiome("nightshade_forest", EndBiomes.nightshadeForest());
-//    public static ResourceKey<Biome> ETHEREAL_ISLANDS = createBiome("ethereal_islands", EndBiomes.etherealIslands());
-//    public static ResourceKey<Biome> VISCAL_ISLES = createBiome("viscal_isles", EndBiomes.viscalIsles());
-//    public static ResourceKey<Biome> BULBIS_GARDENS = createBiome("bulbis_gardens", EndBiomes.bulbisGardens());
-//    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", EndBiomes.shatteredDesert());
-//    public static ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", EndBiomes.shulkrenForest());
-//    public static ResourceKey<Biome> PURPUR_PEAKS = createBiome("purpur_peaks", EndBiomes.purpurPeaks());
-//    public static ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", EndBiomes.crypticWastes());
-//    public static ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", EndBiomes.impariusGrove());
-//
-//    /************End Sub-Biomes************/
-//    public static ResourceKey<Biome> SHATTERED_VISCAL_ISLES = createBiome("shattered_viscal_isles", EndBiomes.shatteredViscalIsles());
-//    public static ResourceKey<Biome> BULBIS_GARDENS_EDGE = createBiome("bulbis_gardens_edge", EndBiomes.bulbisGardensEdge());
-//    public static ResourceKey<Biome> ETHEREAL_FOREST = createBiome("ethereal_forest", EndBiomes.etherealForest());
-//    public static ResourceKey<Biome> ETHEREAL_CLEARING = createBiome("ethereal_clearing", EndBiomes.etherealClearing());
-//    public static ResourceKey<Biome> SHATTERED_DESERT_ISLES = createBiome("shattered_desert_isles", EndBiomes.shatteredDesertIsles());
-//    public static ResourceKey<Biome> IMPARIUS_CLEARING = createBiome("imparius_clearing", EndBiomes.impariusClearing());
+    public static ResourceKey<Biome> IVIS_FIELDS = createBiome("ivis_fields", ivisFields());
+    public static ResourceKey<Biome> NIGHTSHADE_FOREST = createBiome("nightshade_forest", nightshadeForest());
+    public static ResourceKey<Biome> ETHEREAL_ISLANDS = createBiome("ethereal_islands", etherealIslands());
+    public static ResourceKey<Biome> VISCAL_ISLES = createBiome("viscal_isles", viscalIsles());
+    public static ResourceKey<Biome> BULBIS_GARDENS = createBiome("bulbis_gardens", bulbisGardens());
+    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
+    public static ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", shulkrenForest());
+    public static ResourceKey<Biome> PURPUR_PEAKS = createBiome("purpur_peaks", purpurPeaks());
+    public static ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", crypticWastes());
+    public static ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", impariusGrove());
 
-    public static ResourceKey<Biome> CANYON_KEY;
 
     public static ResourceKey<Biome> createBiome(String id, Biome biome) {
         ResourceLocation bygID = BYG.createLocation(id);

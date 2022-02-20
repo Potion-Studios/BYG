@@ -30,7 +30,7 @@ import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSu
 
 public class BYGPlacedFeatures {
 
-   public static final NoiseThresholdCountPlacement CLEARING_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
+    public static final NoiseThresholdCountPlacement CLEARING_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
 
     public static final PlacedFeature ALLIUM_FIELD_FLOWERS = createPlacedFeature("allium_field_flowers", BYGConfiguredFeatures.ALLIUM_FIELD_FLOWERS.placed(worldSurfaceSquaredWithCount(20)));
     public static final PlacedFeature PINK_ALLIUMS = createPlacedFeature("pink_alliums", BYGConfiguredFeatures.ALLIUM_PINK.placed(worldSurfaceSquaredWithCount(2)));
@@ -53,6 +53,10 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ALPINE_BELLFLOWER = createPlacedFeature("alpine_bellflower", BYGConfiguredFeatures.ALPINE_BELLFLOWER.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ROSES = createPlacedFeature("rose", BYGConfiguredFeatures.ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature BLACK_ROSE = createPlacedFeature("black_rose", BYGConfiguredFeatures.BLACK_ROSE.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature BULBIS_ODDITIES = createPlacedFeature("bulbis_oddities", BYGConfiguredFeatures.BULBIS_ODDITIES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature BULBIS_SPROUTS = createPlacedFeature("bulbis_sprouts", BYGConfiguredFeatures.BULBIS_SPROUTS.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature BULBIS_ANOMALIES = createPlacedFeature("bulbis_anomalies", BYGConfiguredFeatures.BULBIS_ANOMALIES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature THERIUM_DEPOSIT = createPlacedFeature("therium_deposit", BYGConfiguredFeatures.THERIUM_CRYSTAL_DEPOSIT.placed(new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(50)).build()));
     public static final PlacedFeature CYAN_ROSE = createPlacedFeature("cyan_rose", BYGConfiguredFeatures.CYAN_ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature KOVAN_FLOWERS = createPlacedFeature("kovan_flowers", BYGConfiguredFeatures.KOVAN_FLOWER.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature DAISY_ORANGE = createPlacedFeature("orange_daisy", BYGConfiguredFeatures.DAISY_ORANGE.placed(worldSurfaceSquaredWithCount(2)));
@@ -110,6 +114,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature SPARSE_OAK_TREES = createPlacedFeature("sparse_oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.1F, 1))));
     public static final PlacedFeature OAK_TREES = createPlacedFeature("oak_trees", BYGConfiguredFeatures.OAK_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
     public static final PlacedFeature PALO_VERDE_TREES = createPlacedFeature("palo_verde_trees", BYGConfiguredFeatures.PALO_VERDE_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1))));
+    public static final PlacedFeature BULBIS_TREES = createPlacedFeature("bulbis_trees", BYGConfiguredFeatures.BULBIS_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
+    public static final PlacedFeature PURPLE_BULBIS_TREES = createPlacedFeature("purple_bulbis_trees", BYGConfiguredFeatures.PURPLE_BULBIS_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.1F, 1))));
     public static final PlacedFeature PALM_TREES = createPlacedFeature("palm_trees", BYGConfiguredFeatures.PALM_TREES.placed(Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGBlocks.PALM_SAPLING)), (list) -> {
         list.add(new NearWaterPlacementFilter(4));
     })));
@@ -158,6 +164,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ORANGE_TERRACOTTA_BOULDER = createPlacedFeature("orange_terracotta_boulder", BYGConfiguredFeatures.ORANGE_TERRACOTTA_BOULDER.placed(CountPlacement.of(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
     public static final PlacedFeature BLACK_ICE_SNOW = createPlacedFeature("black_ice_snow", BYGConfiguredFeatures.BLACK_ICE.placed(ChunkCoveringPlacement.INSTANCE, PlacementUtils.HEIGHTMAP_WORLD_SURFACE, RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.WATER, BlockPos.ZERO)), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(Blocks.AIR, new BlockPos(0, 1, 0)))));
     public static final PlacedFeature STONE_FOREST_COLUMN = createPlacedFeature("stone_forest_column", BYGConfiguredFeatures.STONE_FOREST_COLUMN.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(2))));
+    public static final PlacedFeature IVIS_FIELDS_SPIKE = createPlacedFeature("ivis_fields_spike", BYGConfiguredFeatures.IVIS_FIELDS_SPIKE.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(9), BlockPredicateFilter.forPredicate(BlockPredicate.solid(new BlockPos(0 , -1, 0))))));
+    public static final PlacedFeature IVIS_FIELDS_COLUMN = createPlacedFeature("ivis_fields_column", BYGConfiguredFeatures.IVIS_FIELDS_COLUMN.placed(oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(16), BlockPredicateFilter.forPredicate(BlockPredicate.solid(new BlockPos(0 , -1, 0))))));
     public static final PlacedFeature LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGConfiguredFeatures.LARGE_WINDSWEPT_LAKE.placed(Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.addAll(List.of(RarityFilter.onAverageOnceEvery(36), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))))))));
 
     public static final PlacedFeature DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGConfiguredFeatures.DEAD_SEA_SPIKES.placed(oceanFloorSquaredWithCount(3)));

@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -52,7 +53,7 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
 
             int worldHeight = world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, mutable2.getX(), mutable2.getZ());
             if(worldHeight - 5 < mutable2.getY()) {
-                FeaturePlaceContext<NoisySphereConfig> featurePlaceContext = new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).setMinXRadius(4).setMaxXRadius(7).setMinZRadius(4).setMaxZRadius(7).setMinYRadius(7).setMaxYRadius(10).build());
+                FeaturePlaceContext<NoisySphereConfig> featurePlaceContext = new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().withBlockProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(4, 7), UniformInt.of(7, 10), 0, UniformInt.of(4, 7))).build());
                 BYGFeatures.NOISE_SPHERE.place(featurePlaceContext);
                 // Make sure we find a floor and connect it.
                 if (z == -curveLength || z == curveLength) {

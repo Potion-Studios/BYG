@@ -16,6 +16,7 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 
@@ -44,6 +45,7 @@ public class BYGFabric implements ModInitializer {
         BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, createLocation(registryObject.id()), registryObject.object())));
         BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, createLocation(registryObject.id()), registryObject.object())));
         BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, createLocation(registryObject.id()), registryObject.object())));
+        BYGStateProviders.bootStrap().forEach(registryObject -> Registry.register(Registry.BLOCKSTATE_PROVIDER_TYPES, createLocation(registryObject.id()), registryObject.object()));
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();

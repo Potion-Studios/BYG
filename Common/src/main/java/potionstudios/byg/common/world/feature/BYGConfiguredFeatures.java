@@ -9,6 +9,8 @@ import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -25,11 +27,13 @@ import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
 import potionstudios.byg.common.world.feature.config.*;
+import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 
 import java.util.List;
 
@@ -199,15 +203,15 @@ public class BYGConfiguredFeatures {
 //    public static final ConfiguredFeature<?, ?> IVIS_ROOTS = createConfiguredFeature("ivis_roots", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.IVIS_ROOTS.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
 //    public static final ConfiguredFeature<?, ?> IVIS_SPROUT = createConfiguredFeature("ivis_sprout", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.IVIS_SPROUT.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
 //
-//    public static final ConfiguredFeature<?, ?> BULBIS_SPROUTS = createConfiguredFeature("bulbis_sprouts", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.BULBIS_SPROUTS.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//
-//    public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = createConfiguredFeature("bulbis_oddity", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.BULBIS_ODDITY.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = createConfiguredFeature("purple_bulbis_oddity", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PURPLE_BULBIS_ODDITY.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
-//
-//    public static final ConfiguredFeature<?, ?> BULBIS_ANOMALY = createConfiguredFeature("bulbis_anomaly", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.BULBIS_ANOMALY.defaultBlockState()), new DoublePlantPlacer())).tries(48).noProjection().build()));
-//    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ANOMALY = createConfiguredFeature("purple_bulbis_anomaly", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.PURPLE_BULBIS_ANOMALY.defaultBlockState()), new DoublePlantPlacer())).tries(48).noProjection().build()));
-//
+    public static final ConfiguredFeature<?, ?> BULBIS_SPROUTS = createPatchConfiguredFeature("bulbis_sprouts", BYGBlocks.BULBIS_SPROUTS, 32);
+    //    public static final ConfiguredFeature<?, ?> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
+    //
+    public static final ConfiguredFeature<?, ?> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BYGBlocks.BULBIS_ODDITY, 32);
+    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ODDITY = createPatchConfiguredFeature("purple_bulbis_oddity", BYGBlocks.PURPLE_BULBIS_ODDITY, 32);
+    //
+    public static final ConfiguredFeature<?, ?> BULBIS_ANOMALY = createPatchConfiguredFeature("bulbis_anomaly", BYGBlocks.BULBIS_ANOMALY, 48);
+    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ANOMALY = createPatchConfiguredFeature("purple_bulbis_anomaly", BYGBlocks.PURPLE_BULBIS_ANOMALY, 48);
+    //
 //    public static final ConfiguredFeature<?, ?> TALL_ETHER_GRASS = createConfiguredFeature("tall_ether_grass", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.TALL_ETHER_GRASS.defaultBlockState()), new DoublePlantPlacer())).tries(32).build()));
 //    public static final ConfiguredFeature<?, ?> ETHER_GRASS = createConfiguredFeature("ether_grass", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.ETHER_GRASS.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
 //    public static final ConfiguredFeature<?, ?> ETHER_BUSH = createConfiguredFeature("ether_bush", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.ETHER_BUSH.defaultBlockState()), new SimpleBlockPlacer())).tries(32).build()));
@@ -320,26 +324,51 @@ public class BYGConfiguredFeatures {
                     List.of(() -> LargeLakeFeatureConfig.createDripLeavesPlacedFeature(8, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR), () -> BYGConfiguredFeatures.PALM_TREES.placed(RarityFilter.onAverageOnceEvery(30), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(BYGBlocks.PALM_SAPLING.defaultBlockState(), BlockPos.ZERO)))), List.of())));
     //
 //    public static final ConfiguredFeature<?, ?> STACKED_BOULDERS = createConfiguredFeature("stacked_boulders", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.STONE.defaultBlockState(), 3).add(Blocks.DIORITE.defaultBlockState(), 2))).setMinStackHeight(10).setMaxHeight(15).setMinRadius(8).setMaxRadius(28).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.15F, 1))));
-    public static final ConfiguredFeature<?, ?> LARGE_BOULDER = createConfiguredFeature("large_boulder", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxStackHeight(1).setMinXRadius(8).setMaxXRadius(12).setRadiusMatcher(RadiusMatcher.XZ).build()));
-    public static final ConfiguredFeature<?, ?> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxStackHeight(1).setMinXRadius(5).setMaxXRadius(9).setRadiusMatcher(RadiusMatcher.XZ).build()));
-    public static final ConfiguredFeature<?, ?> LARGE_WINDSWEPT_BOULDER = createConfiguredFeature("large_windswept_boulders", BYGFeatures.NOISE_SPHERE.configured(
+    public static final ConfiguredFeature<NoisySphereConfig, ?> LARGE_BOULDER = createConfiguredFeature("large_boulder", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder().withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3).add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))).withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 30), BiasedToBottomInt.of(16, 30), 0, BiasedToBottomInt.of(16, 30))).build()));
+    public static final ConfiguredFeature<NoisySphereConfig, ?> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder().copy(LARGE_BOULDER.config).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.GRANITE.defaultBlockState(), 3).add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))).build()));
+    public static final ConfiguredFeature<NoisySphereConfig, ?> LARGE_WINDSWEPT_BOULDER = createConfiguredFeature("large_windswept_boulders", BYGFeatures.NOISE_SPHERE.configured(
             new NoisySphereConfig.Builder()
-                    .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
-                    .setTopBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
-                    .setMinStackHeight(1).setMaxStackHeight(1).setMinXRadius(16).setMaxXRadius(35).setMinZRadius(16).setMaxZRadius(35).setMinYRadius(20).setMaxYRadius(25).setNoiseFrequency(0.2F).setRadiusMatcher(RadiusMatcher.NONE)
-                    .addSpawningFeature(() -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WINDSWEPT_SAND))).placed
-                            (CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(Blocks.TUFF, new BlockPos(0, -1, 0)),
-                                            BlockPredicate.matchesBlock(Blocks.DEEPSLATE_EMERALD_ORE, new BlockPos(0, -1, 0)), BlockPredicate.matchesBlock(BYGBlocks.ROCKY_STONE, new BlockPos(0, -1, 0)))))).build()));
+                    .withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
+                    .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158).add(Blocks.TUFF.defaultBlockState(), 41).add(Blocks.DEEPSLATE_EMERALD_ORE.defaultBlockState(), 1)))
+                    .withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 35), UniformInt.of(20, 25), 0, BiasedToBottomInt.of(16, 35))).withNoiseFrequency(0.2F)
+                    .withSpawningFeatures(List.of(
+                            () -> Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WINDSWEPT_SAND))).placed
+                                    (CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                                            BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(Blocks.TUFF, new BlockPos(0, -1, 0)),
+                                                    BlockPredicate.matchesBlock(Blocks.DEEPSLATE_EMERALD_ORE, new BlockPos(0, -1, 0)), BlockPredicate.matchesBlock(BYGBlocks.ROCKY_STONE, new BlockPos(0, -1, 0)))))
+                    )).build()));
     //
 //    public static final ConfiguredFeature<?, ?> ARCH = createConfiguredFeature("arch", BYGFeatures.ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.DIAMOND_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> WINDSWEPT_ARCH = createConfiguredFeature("windswept_arch", BYGFeatures.WINDSWEPT_ARCH.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.EMERALD_BLOCK.defaultBlockState()))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
 //    public static final ConfiguredFeature<?, ?> GLOWSHROOM_CAVES = createConfiguredFeature("glow_caves", BYGFeatures.NOISY_CAVE_SPHERE.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).setFluidStartY(12).build())).decorated(FeatureDecorator.RANGE.configured(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.aboveBottom(25), VerticalAnchor.aboveBottom(40)))).count(1)));
-    public static final ConfiguredFeature<?, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder().setMinXRadius(8).setMaxXRadius(20).setMinYRadius(80).setMaxYRadius(100).setMinZRadius(6).setMaxZRadius(18).setMinStackHeight(1).setMaxStackHeight(4).setRadiusDivisor(2).setNoise2DChance(0.25).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 5))).setTopBlock(BYGBlocks.OVERGROWN_STONE).setFluidStartY(12).setNoiseFrequency(0.09F).setPositiveYRadiusAddition(17).setRadiusMatcher(RadiusMatcher.NONE).setSquaredDistanceCheck(false).build()));
-    //    public static final ConfiguredFeature<?, ?> IVIS_FIELDS_COLUMN = createConfiguredFeature("ivis_fields_column", BYGFeatures.COLUMN.configured((new NoisySphereConfig.Builder().setMinXRadius(4).setMaxXRadius(14).setMinYRadius(35).setMaxYRadius(45).setMinZRadius(4).setMaxZRadius(14).setMinStackHeight(1).setMaxStackHeight(2).setRadiusDivisor(2).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OBSIDIAN.defaultBlockState(), 9).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setTopBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OBSIDIAN.defaultBlockState(), 9).add(Blocks.CRYING_OBSIDIAN.defaultBlockState(), 1))).setFluidStartY(12).build())).decorated(Features.Decorators.HEIGHTMAP_SQUARE).decorated(FeatureDecorator.COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.45F, 1))));
-//    public static final ConfiguredFeature<?, ?> IRON_SURFACE_DEPOSIT = createConfiguredFeature("iron_surface_deposit", BYGFeatures.MINERAL_DEPOSIT.configured((new NoisySphereConfig.Builder().setMinXRadius(6).setMaxXRadius(14).setMinYRadius(4).setMaxYRadius(9).setMinZRadius(4).setMaxZRadius(7).setBlock(Blocks.IRON_ORE).build())).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.05F, 2))));
-//    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
+    public static final ConfiguredFeature<NoisySphereConfig, ?> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column", BYGFeatures.NOISE_SPHERE.configured(
+            new NoisySphereConfig.Builder().withStackHeight(UniformInt.of(3, 7))
+                    .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18))
+                    ).withRadiusDivisorPerStack(2).withNoise2DChance(0.25)
+                    .withBlockProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.STONE.defaultBlockState(), 5)))
+                    .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE)).withNoiseFrequency(0.09F).withRadiusMatcher(RadiusMatcher.NONE)
+                    .withCheckSquareDistance(false).build()));
+
+    public static final ConfiguredFeature<NoisySphereConfig, ?> IVIS_FIELDS_SPIKE = createConfiguredFeature("ivis_fields_spike", BYGFeatures.NOISE_SPIKE.configured(new NoisySphereConfig.Builder()
+            .copy(STONE_FOREST_COLUMN.config).withStackHeight(ConstantInt.of(1))
+            .withBlockProvider(
+                    new BetweenNoiseThresholdProvider(2222, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1, BetweenNoiseThresholdProvider.createThresholds(0.0125F, -1, 1), SimpleStateProvider.simple(Blocks.CRYING_OBSIDIAN), SimpleStateProvider.simple(Blocks.OBSIDIAN), false)
+            ).withTopBlockProvider(
+                    new BetweenNoiseThresholdProvider(2222, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1, BetweenNoiseThresholdProvider.createThresholds(0.0125F, -1, 1), SimpleStateProvider.simple(Blocks.CRYING_OBSIDIAN), SimpleStateProvider.simple(Blocks.OBSIDIAN), false)
+            ).withBelowSurfaceDepth(ConstantInt.of(1)).withCheckSquareDistance(true).withPointed(true).build()));
+
+    public static final ConfiguredFeature<NoisySphereConfig, ?> IVIS_FIELDS_COLUMN = createConfiguredFeature("ivis_fields_column", BYGFeatures.NOISE_SPHERE.configured(new NoisySphereConfig.Builder()
+            .copy(STONE_FOREST_COLUMN.config)
+            .withBlockProvider(
+                    new BetweenNoiseThresholdProvider(2222, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1, BetweenNoiseThresholdProvider.createThresholds(0.0125F, -1, 1), SimpleStateProvider.simple(Blocks.CRYING_OBSIDIAN), SimpleStateProvider.simple(Blocks.OBSIDIAN), false)
+            ).withTopBlockProvider(
+                    new BetweenNoiseThresholdProvider(2222, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1, BetweenNoiseThresholdProvider.createThresholds(0.0125F, -1, 1), SimpleStateProvider.simple(Blocks.CRYING_OBSIDIAN), SimpleStateProvider.simple(Blocks.OBSIDIAN), false)
+            ).build()));
+
+
+
+    //    public static final ConfiguredFeature<?, ?> ETHER_STONE_BOULDER = createConfiguredFeature("ether_stone_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinStackHeight(1).setMaxHeight(1).setMinRadius(8).setMaxRadius(12).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.1F, 1))));
 //    public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily", Feature.RANDOM_PATCH.configured((new RandomPatchConfiguration.GrassConfigurationBuilder(SimpleStateProvider.simple(BYGBlocks.ENDER_LILY.defaultBlockState()), SimpleBlockPlacer.INSTANCE)).tries(10).build()).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(4));
 //
 //    public static final ConfiguredFeature<?, ?> CRYPTIC_SPIKE = createConfiguredFeature("cryptic_spike", BYGFeatures.SPIKE.configured(new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.CRYPTIC_STONE.defaultBlockState(), 5).add(BYGBlocks.CRYPTIC_MAGMA_BLOCK.defaultBlockState(), 5)))).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.18F, 1))));
@@ -347,8 +376,24 @@ public class BYGConfiguredFeatures {
     //    public static final ConfiguredFeature<?, ?> BULBIS_GARDENS_CAVES = createConfiguredFeature("bulbis_gardens_caves", BYGFeatures.NOISY_CAVE_SPHERE_WATER.configured((new NoisySphereConfig.Builder().setMinXRadius(20).setMaxXRadius(30).setMinYRadius(10).setMaxYRadius(16).setMinZRadius(14).setMaxZRadius(20).setBlock(Blocks.CAVE_AIR).build())).range(new RangeDecoratorConfiguration(UniformHeight.of(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(55)))).squared().count(2));
 //    public static final ConfiguredFeature<?, ?> CANYON_RIVER = createConfiguredFeature("ahhhh", BYGFeatures.CANYON_RIVER.configured(new NoneFeatureConfiguration()).decorated(FeatureDecorator.NOPE.configured(new NoneDecoratorConfiguration())));
 //
-//    public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 20).add(BYGBlocks.ETHER_STONE.defaultBlockState(), 2))).setMinStackHeight(0).setMaxHeight(0).setMinRadius(4).setMaxRadius(5).build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.015F, 1))));
-//
+    public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit",
+            BYGFeatures.NOISE_SPHERE.configured(
+                    new NoisySphereConfig.Builder()
+                            .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                                    .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 2)
+                                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 8))
+                            ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                                    .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 4)
+                                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 6))
+                            )
+                            .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 35), ConstantInt.of(20), 0, BiasedToBottomInt.of(16, 35)))
+                            .withNoiseFrequency(0.2F).withRadiusMatcher(RadiusMatcher.NONE).withPointed(true)
+                            .withSpawningFeatures(List.of(
+                                    () -> createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15).placed(
+                                            CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
+                                            BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK, new BlockPos(0, -1, 0)))))))
+                            .build()));
+    //
 //    public static final ConfiguredFeature<?, ?> RED_ROCK_BOULDER = createConfiguredFeature("red_rock_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.RED_ROCK.defaultBlockState(), 3).add(BYGBlocks.RED_ROCK.defaultBlockState(), 9).add(Blocks.RED_CONCRETE.defaultBlockState(), 1))).setMinStackHeight(7).setMaxHeight(12).setMinRadius(8).setMaxRadius(12).build()));
 //    public static final ConfiguredFeature<?, ?> WHITE_SANDSTONE_BOULDER = createConfiguredFeature("white_sandstone_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.WHITE_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.WHITE_SMOOTH_SANDSTONE.defaultBlockState(), 2).add(BYGBlocks.WHITE_SMOOTH_SANDSTONE.defaultBlockState(), 3).add(BYGBlocks.WHITE_SAND.defaultBlockState(), 5))).setMinStackHeight(3).setMaxHeight(12).setMinRadius(13).setMaxRadius(20).setRadiusDivisor(1.1).flattenTopBoulder().build()).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.04F, 1))));
 //    public static final ConfiguredFeature<?, ?> TERRACOTTA_BOULDER = createConfiguredFeature("terracotta_boulder", BYGFeatures.STACKABLE_BOULDERS.configured(new BoulderConfig.Builder().setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.TERRACOTTA.defaultBlockState(), 3).add(Blocks.TERRACOTTA.defaultBlockState(), 3).add(Blocks.RED_TERRACOTTA.defaultBlockState(), 7))).setMinStackHeight(7).setMaxHeight(12).setMinRadius(8).setMaxRadius(12).build()));
@@ -363,7 +408,6 @@ public class BYGConfiguredFeatures {
 //
 //    /***********************************************************Configured Placement***********************************************************/
 //
-//    public static final ConfiguredFeature<?, ?> BULBIS_SPROUT_PLANT = createConfiguredFeature("bulbis_sprout_plant", BULBIS_SPROUTS.decorated(Features.Decorators.FIRE).count(5));
 //
 //    public static final ConfiguredFeature<?, ?> CALIFORNIA_POPPIES = createConfiguredFeature("california_poppies", CALIFORNIA_POPPY.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 //    public static final ConfiguredFeature<?, ?> WINTER_SUCCLULENTS = createConfiguredFeature("winter_succulents", WINTER_SUCCULENT.decorated(Features.Decorators.ADD_32).decorated(Features.Decorators.HEIGHTMAP_DOUBLE_SQUARE).count(2));
@@ -557,14 +601,14 @@ public class BYGConfiguredFeatures {
 //            IVIS_ROOTS.weighted(0.5F)),
 //            IVIS_SPROUT)).decorated(Features.Decorators.FIRE).count(5));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_ODDITY = createConfiguredFeature("bulbis_oddities", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            BULBIS_ODDITY.weighted(0.5F)),
-//            PURPLE_BULBIS_ODDITY)).decorated(Features.Decorators.FIRE).count(1));
-//
-//    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_ANOMALY = createConfiguredFeature("bulbis_anomalies", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            BULBIS_ANOMALY.weighted(0.5F)),
-//            PURPLE_BULBIS_ANOMALY)).decorated(Features.Decorators.FIRE).count(1));
-//
+    public static final ConfiguredFeature<?, ?> BULBIS_ODDITIES = createConfiguredFeature("bulbis_oddities", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BULBIS_ODDITY.placed(), 0.5F)),
+            PURPLE_BULBIS_ODDITY.placed())));
+    //
+    public static final ConfiguredFeature<?, ?> BULBIS_ANOMALIES = createConfiguredFeature("bulbis_anomalies", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BULBIS_ANOMALY.placed(), 0.5F)),
+            PURPLE_BULBIS_ANOMALY.placed())));
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_ETHER_PLANT = createConfiguredFeature("ether_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            TALL_ETHER_GRASS.weighted(0.35F),
 //            ETHER_BUSH.weighted(0.2F)),
@@ -1639,17 +1683,17 @@ public class BYGConfiguredFeatures {
 //            WAILING_PILLAR1)).decorated(BYGDecorators.UNDERGROUND_COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.4F, 1))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_BULBIS_TREE = createConfiguredFeature("bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            BULBIS_BUSH1.weighted(0.1F),
-//            BULBIS_TREE1.weighted(0.15F),
-//            BULBIS_TREE2.weighted(0.15F),
-//            BULBIS_TREE3.weighted(0.1F),
-//            BULBIS_TREE4.weighted(0.15F),
-//            BULBIS_TREE5.weighted(0.15F),
-//            BULBIS_TREE6.weighted(0.1F)),
-//            BULBIS_TREE7)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.1F, 1))));
-//
+    public static final ConfiguredFeature<?, ?> BULBIS_TREES = createConfiguredFeature("bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(BULBIS_BUSH1.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE1.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE2.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE3.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE4.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE5.placed(), 0.14285f),
+            new WeightedPlacedFeature(BULBIS_TREE6.placed(), 0.14285f)),
+            BULBIS_TREE7.placed())));
+
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_BULBIS_TREE = createConfiguredFeature("sparse_bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            BULBIS_BUSH1.weighted(0.1F),
 //            BULBIS_TREE1.weighted(0.15F),
@@ -1661,17 +1705,17 @@ public class BYGConfiguredFeatures {
 //            BULBIS_TREE7)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
 //            new FrequencyWithExtraChanceDecoratorConfiguration(0, 0.2F, 2))));
 //
-//    public static final ConfiguredFeature<?, ?> RANDOM_PURPLE_BULBIS_TREE = createConfiguredFeature("purple_bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-//            PURPLE_BULBIS_BUSH1.weighted(0.1F),
-//            PURPLE_BULBIS_TREE1.weighted(0.15F),
-//            PURPLE_BULBIS_TREE2.weighted(0.15F),
-//            PURPLE_BULBIS_TREE3.weighted(0.1F),
-//            PURPLE_BULBIS_TREE4.weighted(0.15F),
-//            PURPLE_BULBIS_TREE5.weighted(0.15F),
-//            PURPLE_BULBIS_TREE6.weighted(0.1F)),
-//            PURPLE_BULBIS_TREE7)).decorated(BYGDecorators.OCEAN_FLOOR_COUNT_EXTRA.configured(
-//            new FrequencyWithExtraChanceDecoratorConfiguration(1, 0.3F, 1))));
-//
+    public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_TREES = createConfiguredFeature("purple_bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(PURPLE_BULBIS_BUSH1.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE1.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE2.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE3.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE4.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE5.placed(), 0.14285f),
+            new WeightedPlacedFeature(PURPLE_BULBIS_TREE6.placed(), 0.14285f)),
+            PURPLE_BULBIS_TREE7.placed())));
+
+    //
 //    public static final ConfiguredFeature<?, ?> RANDOM_SPARSE_PURPLE_BULBIS_TREE = createConfiguredFeature("sparse_purple_bulbis_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
 //            PURPLE_BULBIS_BUSH1.weighted(0.1F),
 //            PURPLE_BULBIS_TREE1.weighted(0.15F),
@@ -1783,7 +1827,14 @@ public class BYGConfiguredFeatures {
     public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createFlowerConfiguredFeature(String id, Block flowerBlock) {
         return (CF) createConfiguredFeature(id, Feature.FLOWER.configured(invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15)));
     }
-//}
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(String id, Block block, int spread) {
+        return (CF) createConfiguredFeature(id, Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(block))), List.of(), spread)));
+    }
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(Block block, int spread) {
+        return (CF) Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(block))), List.of(), spread));
+    }
 //
 ////Initialize these later so our blocks don't throw NPEs initializing other configured features in this class.
 //    public static class SpreadableBlockConfigs {

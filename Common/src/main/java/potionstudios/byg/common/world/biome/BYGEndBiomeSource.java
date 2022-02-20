@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.world.level.biome.TheEndBiomeSource.getHeightValue;
+import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 
 public abstract class BYGEndBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
@@ -72,10 +73,12 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
             return this.biomeRegistry.get(Biomes.THE_END);
         } else {
             float heightValue = getHeightValue(this.islandNoise, chunkX * 2 + 1, chunkZ * 2 + 1);
-            if (heightValue >= -20.0F) {
-                return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+            if (heightValue > 40.0F) {
+                return this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
+            } else if (heightValue >= 0.0F) {
+                return this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
             } else {
-                return this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) ;
+                return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
             }
         }
     }
@@ -113,8 +116,26 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
             ).apply(builder, LayersBiomeData::new);
         });
 
-        public static final LayersBiomeData DEFAULT_END_ISLANDS = new LayersBiomeData(SimpleWeightedRandomList.<ResourceKey<Biome>>builder().add(Biomes.END_MIDLANDS, 2).add(Biomes.END_BARRENS, 2).add(Biomes.END_HIGHLANDS, 2).build(), 3);
+        public static final LayersBiomeData DEFAULT_END_ISLANDS = new LayersBiomeData(
+                SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
+                        .add(Biomes.END_MIDLANDS, 2)
+                        .add(Biomes.END_BARRENS, 2)
+                        .add(Biomes.END_HIGHLANDS, 2)
+                        .add(IVIS_FIELDS, 2)
+                        .add(NIGHTSHADE_FOREST, 2)
+                        .add(ETHEREAL_ISLANDS, 2)
+                        .add(BULBIS_GARDENS, 2)
+                        .add(SHATTERED_DESERT, 2)
+                        .add(SHULKREN_FOREST, 2)
+                        .add(PURPUR_PEAKS, 2)
+                        .add(CRYPTIC_WASTES, 2)
+                        .add(IMPARIUS_GROVE, 2)
+                        .build(), 3);
 
-        public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(SimpleWeightedRandomList.<ResourceKey<Biome>>builder().add(Biomes.SMALL_END_ISLANDS, 2).build(), 2);
+        public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(
+                SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
+                        .add(Biomes.SMALL_END_ISLANDS, 2)
+                        .add(VISCAL_ISLES, 2)
+                        .build(), 2);
     }
 }

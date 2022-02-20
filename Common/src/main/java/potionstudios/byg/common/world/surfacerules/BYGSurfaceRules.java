@@ -85,10 +85,14 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource BLACK_ICE_BANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SHATTERED_GLACIER), SurfaceRules.sequence(BYGRuleSources.bands(BYGBlocks.BLACK_ICE.defaultBlockState(), BYGBlocks.PACKED_BLACK_ICE.defaultBlockState())));
     public static final SurfaceRules.RuleSource SIERRA_BADLANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SIERRA_BADLANDS), SurfaceRules.sequence(NOISE_COARSE_DIRT, SurfaceRules.ifTrue(SurfaceRules.not(invokeSurfaceNoiseAbove(-0.95D)), GRASS_DIRT_DIRT_SURFACE), SurfaceRules.bandlands()));
 
-    public static final SurfaceRules.RuleSource ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER));
-    public static final SurfaceRules.RuleSource OVERWORLD_SURFACE_RULES = SurfaceRules.sequence(ABOVE_PRELIMINARY_SURFACE);
+    public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER));
+    public static final SurfaceRules.RuleSource OVERWORLD_SURFACE_RULES = SurfaceRules.sequence(OVERWORLD_ABOVE_PRELIMINARY_SURFACE);
 
-    public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(SurfaceRules.state(Blocks.END_STONE.defaultBlockState()));
+    public static final SurfaceRules.RuleSource BULBIS_PHYCELIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BULBIS_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BULBIS_PHYCELIUM.defaultBlockState())))));
+    public static final SurfaceRules.RuleSource IVIS_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.IVIS_FIELDS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.IVIS_PHYLIUM.defaultBlockState())))));
+    public static final SurfaceRules.RuleSource CRYPTIC_FILL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CRYPTIC_WASTES), BYGRuleSources.bands(BYGBlocks.CRYPTIC_STONE.defaultBlockState()));
+
+    public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(SurfaceRules.sequence(BULBIS_PHYCELIUM, IVIS_PHYLIUM, CRYPTIC_FILL));
 
 
 }
