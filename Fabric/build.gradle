@@ -13,14 +13,14 @@ repositories {
         url = 'https://maven.minecraftforge.net'
     }
     maven {
-        name = "Gegy"
-        url = "https://maven.gegy.dev"
-    }
-    maven {
         url "https://www.cursemaven.com"
         content {
             includeGroup "curse.maven"
         }
+    }
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io"
     }
 }
 
@@ -34,11 +34,13 @@ dependencies {
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
     modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
-//    modImplementation ("supercoder79:databreaker:${databreaker_version}") {
-//        exclude module: "fabric-loader"
-//    }
 
-//    modImplementation "curse.maven:dashloader-472772:3619672"
+
+    modImplementation ("com.github.CorgiTaco:databreaker:${databreaker_version}") {
+        exclude module: "fabric-loader"
+    }
+
+    modImplementation "curse.maven:starlight-521783:3554912"
 }
 
 loom {
@@ -81,3 +83,5 @@ jar {
         rename { "${it}_${mod_name}" }
     }
 }
+
+sourceSets.main.resources.srcDirs project(":Common").sourceSets.main.resources.srcDirs
