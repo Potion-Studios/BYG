@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 
 import java.util.Random;
 

@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import potionstudios.byg.common.world.feature.overworld.trees.util.TreeSpawner;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 
 import java.util.Random;
 
