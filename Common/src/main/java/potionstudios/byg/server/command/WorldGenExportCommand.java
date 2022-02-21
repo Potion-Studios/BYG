@@ -25,6 +25,7 @@ import net.minecraft.world.level.storage.PrimaryLevelData;
 import potionstudios.byg.util.ModLoaderContext;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static potionstudios.byg.mixin.access.WorldGenRegistryDumpReportAccess.invokeDumpRegistry;
@@ -60,6 +61,7 @@ public class WorldGenExportCommand {
             for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
                 invokeDumpRegistryCap(cache, exportPath, registry, ops, knownRegistry);
             }
+            createPackMCMeta(exportPath, builtin);
 
             MappedRegistry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
 
@@ -72,5 +74,16 @@ public class WorldGenExportCommand {
             source.sendFailure(new TranslatableComponent("byg.worldgenexport.failed"));
             e.printStackTrace();
         }
+    }
+
+    private static void createPackMCMeta(Path path, boolean builtIn) throws IOException {
+        String fileString = "{\n" +
+            "\t\"pack\":{\n" +
+            "\t\t\"pack_format\": 8,\n" +
+            "\t\t\"description\": \"" + " Generated world gen datapack from " + (builtIn ? "built in registries" : "current world registries") + ".\"\n" +
+            "\t}\n" +
+            "}\n";
+
+        Files.write(path.resolve("reports").resolve("pack.mcmeta"), fileString.getBytes());
     }
 }
