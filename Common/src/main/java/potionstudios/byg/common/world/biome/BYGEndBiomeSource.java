@@ -26,7 +26,6 @@ import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 public abstract class BYGEndBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
 
-
     private final SimplexNoise islandNoise;
     private final Registry<Biome> biomeRegistry;
     private final LayersBiomeData islandLayersBiomeData;
@@ -142,14 +141,13 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
                         .add(Biomes.END_MIDLANDS, 2)
                         .add(Biomes.END_BARRENS, 2)
                         .add(Biomes.END_HIGHLANDS, 2)
-                        .add(IVIS_FIELDS, 2)
-                        .add(NIGHTSHADE_FOREST, 2)
-                        .add(ETHEREAL_ISLANDS, 2)
-                        .add(BULBIS_GARDENS, 2)
-                        .add(SHATTERED_DESERT, 2)
-                        .add(SHULKREN_FOREST, 2)
-                        .add(CRYPTIC_WASTES, 2)
-                        .add(IMPARIUS_GROVE, 2)
+                        .add(IVIS_FIELDS, 1)
+                        .add(NIGHTSHADE_FOREST, 3)
+                        .add(ETHEREAL_ISLANDS, 3)
+                        .add(BULBIS_GARDENS, 3)
+                        .add(SHULKREN_FOREST, 3)
+                        .add(CRYPTIC_WASTES, 1)
+                        .add(IMPARIUS_GROVE, 3)
                         .build(), 3);
 
         public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(

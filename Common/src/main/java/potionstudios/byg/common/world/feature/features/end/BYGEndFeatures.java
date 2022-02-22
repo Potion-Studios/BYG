@@ -9,7 +9,9 @@ import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -20,10 +22,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
@@ -142,6 +141,26 @@ public class BYGEndFeatures {
         BYGFeatures.NOISE_SPIKE.configured(
             new NoisySphereConfig.Builder()
                 .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 8)
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 2))
+                ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 6)
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 4))
+                )
+                .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(5, 10), BiasedToBottomInt.of(6, 12), 0, BiasedToBottomInt.of(5, 10)))
+                .withNoiseFrequency(0.5F).withVerifiesHeight(false).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
+                .withSpawningFeatures(List.of(
+                    () -> createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15).placed(
+                        CountPlacement.of(UniformInt.of(15, 30)), HeightRangePlacement.uniform(VerticalAnchor.absolute(200), VerticalAnchor.absolute(256)), InSquarePlacement.spread(),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK, new BlockPos(0, -1, 0)))))))
+                .build()
+        ));
+
+
+    public static final ConfiguredFeature<?, ?> THERIUM_CRYSTAL_DEPOSIT_LARGE = createConfiguredFeature("therium_crystal_deposit_large",
+        BYGFeatures.NOISE_SPIKE.configured(
+            new NoisySphereConfig.Builder()
+                .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 2)
                     .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 8))
                 ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -166,16 +185,72 @@ public class BYGEndFeatures {
         )
     ));
 
+    public static final ConfiguredFeature<?, ?> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build()));
+
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeature("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeature("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build()));
 
-    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1", BYGFeatures.FLOATING_ISLAND1.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinRadius(11).setMaxRadius(13).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = createConfiguredFeature("floating_island2", BYGFeatures.FLOATING_ISLAND2.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinRadius(11).setMaxRadius(13).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = createConfiguredFeature("floating_island3", BYGFeatures.FLOATING_ISLAND3.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinRadius(11).setMaxRadius(13).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4", BYGFeatures.FLOATING_ISLAND4.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinRadius(13).setMaxRadius(17).build()));
-    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5", BYGFeatures.FLOATING_ISLAND5.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20).add(BYGBlocks.LIGNITE_ORE.defaultBlockState(), 2))).setMinRadius(13).setMaxRadius(17).build()));
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1",
+        BYGFeatures.FLOATING_ISLAND1.configured(
+            new FloatingIslandConfig.Builder()
+                .setTopBlock(BYGBlocks.VERMILION_SCULK)
+                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
+                )
+                .setMinRadius(11)
+                .setMaxRadius(13)
+                .build()
+        ));
+
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = createConfiguredFeature("floating_island2",
+        BYGFeatures.FLOATING_ISLAND2.configured(
+            new FloatingIslandConfig.Builder()
+                .setTopBlock(BYGBlocks.VERMILION_SCULK)
+                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
+                )
+                .setMinRadius(11)
+                .setMaxRadius(13)
+                .build()
+        ));
+
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = createConfiguredFeature("floating_island3",
+        BYGFeatures.FLOATING_ISLAND3.configured(
+            new FloatingIslandConfig.Builder()
+                .setTopBlock(BYGBlocks.VERMILION_SCULK)
+                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
+                )
+                .setMinRadius(11)
+                .setMaxRadius(13)
+                .build()
+        ));
+
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4",
+        BYGFeatures.FLOATING_ISLAND4.configured(
+            new FloatingIslandConfig.Builder()
+                .setTopBlock(BYGBlocks.VERMILION_SCULK)
+                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
+                )
+                .setMinRadius(13)
+                .setMaxRadius(17)
+                .build()
+        ));
+
+    public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5",
+        BYGFeatures.FLOATING_ISLAND5.configured(
+            new FloatingIslandConfig.Builder()
+                .setTopBlock(BYGBlocks.VERMILION_SCULK)
+                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
+                )
+                .setMinRadius(13)
+                .setMaxRadius(17)
+                .build()
+        ));
 
 
     public static final ConfiguredFeature<?, ?> ISLANDS = createConfiguredFeature("floating_islands", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(

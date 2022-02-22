@@ -503,7 +503,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_THERIUM_LANTERNS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
     }
 
     public static void addHangingChains(BiomeGenerationSettings.Builder gen) {
@@ -930,7 +930,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addDeadEtherTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_DEAD_ETHER_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DEAD_ETHER_TREES);
     }
 
     public static void addNightShadeTrees(BiomeGenerationSettings.Builder gen) {

@@ -681,12 +681,19 @@ public class BYGEndVegetationFeatures {
         TALL_ETHER_GRASS.placed())
     ));
 
-    public static final ConfiguredFeature<?, ?> SPARSE_ETHER_TREES = createConfiguredFeature("sparse_ether_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+    public static final ConfiguredFeature<?, ?> ETHER_TREES = createConfiguredFeature("ether_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(ETHER_TREE1.placed(), 0.2F),
         new WeightedPlacedFeature(ETHER_TREE2.placed(), 0.2F),
         new WeightedPlacedFeature(ETHER_TREE3.placed(), 0.2F),
         new WeightedPlacedFeature(ETHER_TREE4.placed(), 0.2F)),
-        ETHER_TREE5.placed())));
+        ETHER_TREE5.placed())
+    ));
+
+    public static final ConfiguredFeature<?, ?> DEAD_ETHER_TREES = createConfiguredFeature("dead_ether_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(ETHER_TREE_DEAD1.placed(), 0.33F),
+        new WeightedPlacedFeature(ETHER_TREE_DEAD2.placed(), 0.33F)),
+        ETHER_TREE_DEAD3.placed())
+    ));
 
     public static final ConfiguredFeature<?, ?> ETHER_BUSHES = createConfiguredFeature("ether_bushes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(ETHER_BUSH1.placed(), 0.5F)),

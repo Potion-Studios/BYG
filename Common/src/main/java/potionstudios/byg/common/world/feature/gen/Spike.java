@@ -48,7 +48,7 @@ public class Spike extends Feature<NoisySphereConfig> {
         int lowestY = position.getY();
         int lowestZ = position.getZ();
 
-        boolean verifiedHeight = false;
+        boolean verifiedHeight = !config.verfiesHeight();
         float perlin = fastNoise.GetPerlin((float) position.getX(), (float) position.getY(), (float) position.getZ());
         double scaledNoise = (perlin) * 8;
 
@@ -107,7 +107,7 @@ public class Spike extends Feature<NoisySphereConfig> {
                                 for (int noiseExtensionY = 0; noiseExtensionY < addedHeight; noiseExtensionY++) {
                                     int minY = Math.min(position.getY(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable3.getX(), mutable3.getZ()));
                                     boolean belowSurfaceDepth = minY - mutable3.getY() < config.belowSurfaceDepth().sample(random);
-                                    if (belowSurfaceDepth) {
+                                    if (!config.verfiesHeight() || belowSurfaceDepth) {
                                         world.setBlock(mutable3, config.topBlockProvider().getState(random, mutable3), 2);
                                         world.setBlock(mutable3.relative(Direction.DOWN), config.blockProvider().getState(random, mutable3), 2);
                                     }
