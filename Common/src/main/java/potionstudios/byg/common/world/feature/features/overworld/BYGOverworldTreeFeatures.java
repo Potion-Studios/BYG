@@ -1,4 +1,4 @@
-package potionstudios.byg.common.world.feature;
+package potionstudios.byg.common.world.feature.features.overworld;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.data.worldgen.features.TreeFeatures;
@@ -14,9 +14,9 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 
-import static potionstudios.byg.common.world.feature.BYGConfiguredFeatures.createConfiguredFeature;
+import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 
-public class BYGTreeFeatures {
+public class BYGOverworldTreeFeatures {
     public static final ConfiguredFeature<BYGTreeConfig, ?> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",
         BYGFeatures.ARAUCARIA_TREE1.configured(
             new BYGTreeConfig.Builder()
@@ -2499,4 +2499,11 @@ public class BYGTreeFeatures {
                 new WeightedPlacedFeature(RED_OAK_TREE_LARGE2.placed(), 0.16F)),
                 RED_OAK_TREE_LARGE3.placed())
         ));
+
+    public static final ConfiguredFeature<?, ?> AUTUMNAL_OAK_TREES = createConfiguredFeature("autumnal_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(RED_OAK_TREES.placed(), 0.25F),
+        new WeightedPlacedFeature(BROWN_OAK_TREES.placed(), 0.25F),
+        new WeightedPlacedFeature(ORANGE_OAK_TREES.placed(), 0.25F)),
+        OAK_TREES.placed())
+    ));
 }
