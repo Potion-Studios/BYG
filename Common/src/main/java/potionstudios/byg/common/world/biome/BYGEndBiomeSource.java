@@ -68,17 +68,17 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
     @Override
     public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
         int chunkX = x >> 2;
-        int chunkZ = y >> 2;
+        int chunkZ = z >> 2;
         if ((long) chunkX * (long) chunkX + (long) chunkZ * (long) chunkZ <= 4096L) {
             return this.biomeRegistry.get(Biomes.THE_END);
         } else {
             float heightValue = getHeightValue(this.islandNoise, chunkX * 2 + 1, chunkZ * 2 + 1);
             if (heightValue > 40.0F) {
-                return this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
+                return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
             } else if (heightValue >= 0.0F) {
-                return this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
+                return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
             } else {
-                return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, (int) heightValue, z, sampler);
+                return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
             }
         }
     }
