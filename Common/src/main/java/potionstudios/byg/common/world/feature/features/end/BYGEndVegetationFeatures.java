@@ -6,6 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -21,6 +22,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createPatchConfiguredFeature;
@@ -52,6 +54,19 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGBlocks.IMPARIUS_MUSHROOM, 32);
     public static final ConfiguredFeature<?, ?> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeature("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS, 32);
     public static final ConfiguredFeature<?, ?> IMPARIUS_BUSH = createPatchConfiguredFeature("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);
+    public static final ConfiguredFeature<?, ?> SHULKREN_FUNGUS = createPatchConfiguredFeature("shulkren_fungus", BYGBlocks.SHULKREN_FUNGUS, 32);
+    public static final ConfiguredFeature<?, ?> SHULKREN_MOSS = createPatchConfiguredFeature("shulkren_moss", BYGBlocks.SHULKREN_MOSS_BLANKET, 32);
+
+    public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = createConfiguredFeature("hanging_shulkren_vine",
+        BYGFeatures.HANGING_FEATURE.configured(
+            new HangingColumnWithBaseConfig.Builder()
+                .setBaseBlock(Blocks.END_STONE)
+                .setBlock(BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState())
+                .setEndBlock(BYGBlocks.SHULKREN_VINE.defaultBlockState().setValue(BlockStateProperties.AGE_25, 23))
+                .setMinLength(1)
+                .setMaxLength(8)
+                .setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM))
+                .build()));
 
     public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily",
         Feature.RANDOM_PATCH.configured(
@@ -592,6 +607,13 @@ public class BYGEndVegetationFeatures {
                 NIGHTSHADE_TREE4.placed())
         ));
 
+    public static final ConfiguredFeature<?, ?> SHULKREN_TREES = createConfiguredFeature("shulkren_trees",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(SHULKREN_TREE1.placed(), 0.5F)),
+                SHULKREN_TREE2.placed())
+        ));
+
     public static final ConfiguredFeature<?, ?> NIGHTSHADE_SHRUBS = createConfiguredFeature("nightshade_shrubs",
         Feature.RANDOM_SELECTOR.configured(
             new RandomFeatureConfiguration(ImmutableList.of(
@@ -634,6 +656,11 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> BULBIS_ANOMALIES = createConfiguredFeature("bulbis_anomalies", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(BULBIS_ANOMALY.placed(), 0.5F)),
         PURPLE_BULBIS_ANOMALY.placed())
+    ));
+
+    public static final ConfiguredFeature<?, ?> SHULKREN_PLANTS = createConfiguredFeature("shulkren_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SHULKREN_FUNGUS.placed(), 0.5F)),
+        SHULKREN_MOSS.placed())
     ));
 
     public static final ConfiguredFeature<?, ?> NIGHTSHADE_PLANTS = createConfiguredFeature("nightshade_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(

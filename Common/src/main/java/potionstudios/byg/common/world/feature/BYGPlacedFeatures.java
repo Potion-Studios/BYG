@@ -68,6 +68,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature NIGHTSHADE_PLANTS = createPlacedFeature("nightshade_plants", BYGEndVegetationFeatures.NIGHTSHADE_PLANTS.placed(worldSurfaceSquaredWithCount(7)));
     public static final PlacedFeature IMPARIUS_PLANTS = createPlacedFeature("imparius_plants", BYGEndVegetationFeatures.IMPARIUS_PLANTS.placed(worldSurfaceSquaredWithCount(8)));
     public static final PlacedFeature BULBIS_ANOMALIES = createPlacedFeature("bulbis_anomalies", BYGEndVegetationFeatures.BULBIS_ANOMALIES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature SHULKREN_PLANTS = createPlacedFeature("shulkren_plants", BYGEndVegetationFeatures.SHULKREN_PLANTS.placed(worldSurfaceSquaredWithCount(5)));
+    public static final PlacedFeature SHULKREN_HANGING_VINES = createPlacedFeature("shulkren_hanging_vines", BYGEndVegetationFeatures.HANGING_SHULKREN_VINE.placed(CountPlacement.of(6), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
     public static final PlacedFeature THERIUM_DEPOSIT = createPlacedFeature("therium_deposit", BYGEndFeatures.THERIUM_CRYSTAL_DEPOSIT.placed(new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(65)).build()));
     public static final PlacedFeature CYAN_ROSE = createPlacedFeature("cyan_rose", BYGOverworldVegetationFeatures.CYAN_ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature CRYPTIC_FIRE = createPlacedFeature("cryptic_fire", BYGEndFeatures.CRYPTIC_FIRE_PATCH.placed(new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(2)).build()));
@@ -127,6 +129,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature HOLLY_TREES = createPlacedFeature("holly_trees", BYGOverworldTreeFeatures.HOLLY_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(4, 0.25F, 4))));
     public static final PlacedFeature HAZEL_TREES = createPlacedFeature("hazel_trees", BYGOverworldTreeFeatures.HAZEL_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));
     public static final PlacedFeature IMPARIUS_MUSHROOMS = createPlacedFeature("imparis_mushrooms", BYGEndVegetationFeatures.LARGE_IMPARIUS_MUSHROOMS.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
+    public static final PlacedFeature SHULKREN_TREES = createPlacedFeature("shulkren_trees", BYGEndVegetationFeatures.SHULKREN_TREES.placed(treePlacement(PlacementUtils.countExtra(1, 0.2F, 2))));
     public static final PlacedFeature FUNGAL_IMPARIUS = createPlacedFeature("fungal_imparis_mushrooms", BYGEndVegetationFeatures.FUNGAL_IMPARIUS.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2))));
     public static final PlacedFeature SPARSE_OAK_TREES = createPlacedFeature("sparse_oak_trees", BYGOverworldTreeFeatures.OAK_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.1F, 1))));
     public static final PlacedFeature OAK_TREES = createPlacedFeature("oak_trees", BYGOverworldTreeFeatures.OAK_TREES.placed(clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1))));
