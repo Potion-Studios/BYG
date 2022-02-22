@@ -89,7 +89,7 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
                                 // Remove non solids
                                 for (int i = 0; i < 8; i++) {
                                     BlockState blockState = world.getBlockState(mutable2);
-                                    if (!blockState.canOcclude() && !blockState.isAir() || blockState.is(BYGBlocks.CRYPTIC_VENT) || blockState.is(BYGBlocks.TALL_CRYPTIC_VENT)) {
+                                    if ((!blockState.canOcclude() && !blockState.isAir()) || blockState.is(BYGBlocks.CRYPTIC_VENT) || blockState.is(BYGBlocks.TALL_CRYPTIC_VENT) || blockState.is(BYGBlocks.CRYPTIC_FIRE)) {
                                         world.removeBlock(mutable2, false);
                                     }
                                     mutable2.move(Direction.UP);

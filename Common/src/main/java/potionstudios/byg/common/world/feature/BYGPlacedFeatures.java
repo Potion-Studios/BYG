@@ -184,7 +184,7 @@ public class BYGPlacedFeatures {
 
 
     public static final PlacedFeature CRYPTIC_CAVE = createPlacedFeature("cryptic_caves", BYGEndFeatures.CRYPTIC_CAVES.placed(new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(2)).add(RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-15, -7))).build()));
-    public static final PlacedFeature CRYPTIC_VENTS = createPlacedFeature("cryptic_vents", BYGEndFeatures.CRYPTIC_VENT_PATCHES.placed(new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(2)).add(RarityFilter.onAverageOnceEvery(25)).build()));
+    public static final PlacedFeature CRYPTIC_VENTS = createPlacedFeature("cryptic_vents", BYGEndFeatures.CRYPTIC_VENT_PATCHES.placed(new ImmutableList.Builder<PlacementModifier>().add(RarityFilter.onAverageOnceEvery(2)).addAll(oceanFloorSquaredWithCount(3)).build()));
 
 
     public static final PlacedFeature QUARTZ_SPIKE = createPlacedFeature("quartz_spike", BYGOverworldVegetationFeatures.QUARTZ_SPIKE.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome()));

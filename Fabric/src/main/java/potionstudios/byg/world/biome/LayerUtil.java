@@ -11,6 +11,7 @@ import potionstudios.byg.mixin.access.WeightedListAccess;
 import terrablender.worldgen.noise.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.LongFunction;
 
 import static terrablender.worldgen.noise.LayeredNoiseUtil.zoom;
@@ -46,7 +47,9 @@ public class LayerUtil {
             if (totalWeight == 0) {
                 return biomeRegistry.getId(biomeRegistry.get(Biomes.OCEAN));
             }
-            return biomeRegistry.getId(biomeRegistry.get((ResourceKey<Biome>) WeightedRandom.getWeightedItem(this.entries, areaContext.nextRandom(this.totalWeight)).get()));
+            Optional<WeightedEntry> weightedItem = WeightedRandom.getWeightedItem(this.entries, areaContext.nextRandom(this.totalWeight));
+            WeightedEntry.Wrapper<ResourceKey<Biome>> resourceKeyWrapper = (WeightedEntry.Wrapper<ResourceKey<Biome>>) weightedItem.get();
+            return biomeRegistry.getId(biomeRegistry.get(resourceKeyWrapper.getData()));
         }
     }
 }

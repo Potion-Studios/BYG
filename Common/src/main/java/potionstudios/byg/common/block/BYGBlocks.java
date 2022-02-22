@@ -675,7 +675,7 @@ public class BYGBlocks {
     public static final Block CRYPTIC_STONE_WALL = createStoneWall("cryptic_stone_wall");
     public static final Block CRYPTIC_VENT = createVent("cryptic_vent");
     public static final Block TALL_CRYPTIC_VENT = createTallVent("tall_cryptic_vent");
-    public static final Block CRYPTIC_REDSTONE_ORE = createBlock(new PoweredBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.NETHER_GOLD_ORE).strength(0.4F, 0.4F).lightLevel((state) -> 13).requiresCorrectToolForDrops()), "cryptic_redstone_ore");
+    public static final Block CRYPTIC_REDSTONE_ORE = createBlock(new RedStoneOreBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.NETHER_GOLD_ORE).strength(0.4F, 0.4F).lightLevel(litBlockEmission(13)).requiresCorrectToolForDrops()), "cryptic_redstone_ore");
     public static final Block CRYPTIC_BRAMBLE = createStoneEndPlant("cryptic_bramble");
 
     public static final Block IMPARIUS_MUSHROOM_BLOCK = createImpariusMushroom("imparius_mushroom_block");

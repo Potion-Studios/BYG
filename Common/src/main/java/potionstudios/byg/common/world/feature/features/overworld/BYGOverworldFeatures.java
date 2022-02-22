@@ -93,23 +93,6 @@ public class BYGOverworldFeatures {
                 .build()
         ));
 
-
-    public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN1 = createConfiguredFeature("pumpkin1",
-        BYGFeatures.LARGE_PUMPKIN1.configured(
-            new PumpkinConfig.Builder()
-                .setPumpkinBlock(Blocks.PUMPKIN)
-                .build()
-        ));
-
-    public static final ConfiguredFeature<PumpkinConfig, ?> PUMPKIN2 = createConfiguredFeature("pumpkin2",
-        BYGFeatures.LARGE_PUMPKIN2.configured(
-            new PumpkinConfig.Builder()
-                .setPumpkinBlock(Blocks.PUMPKIN)
-                .setStemBlock(Blocks.DARK_OAK_LOG)
-                .setLeavesBlock(Blocks.DARK_OAK_LEAVES)
-                .build()
-        ));
-
     public static final ConfiguredFeature<?, ?> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE.configured(
         new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND),
             List.of(

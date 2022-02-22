@@ -77,7 +77,8 @@ public class BYGSurfaceRules {
             BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SAND_SURFACE, 3).add(COARSE_DIRT_DIRT_SURFACE, 1)
                     .add(GRASS_DIRT_DIRT_SURFACE, 1)
-                    .build()));
+                    .build()
+            ));
 
     public static final SurfaceRules.RuleSource LUSH = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.COCONINO_MEADOW, BYGBiomes.TEMPERATE_RAINFOREST, BYGBiomes.WEEPING_WITCH_FOREST, BYGBiomes.AUTUMNAL_VALLEY), LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE);
 
@@ -89,7 +90,7 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource BULBIS_PHYCELIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BULBIS_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BULBIS_PHYCELIUM.defaultBlockState())))));
     public static final SurfaceRules.RuleSource IVIS_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.IVIS_FIELDS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.IVIS_PHYLIUM.defaultBlockState())))));
-    public static final SurfaceRules.RuleSource CRYPTIC_FILL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CRYPTIC_WASTES), BYGRuleSources.bands(BYGBlocks.CRYPTIC_STONE.defaultBlockState()));
+    public static final SurfaceRules.RuleSource CRYPTIC_FILL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CRYPTIC_WASTES), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.CALCITE, -0.0125D, 0.0125D), SurfaceRules.state(BYGBlocks.CRYPTIC_MAGMA_BLOCK.defaultBlockState())), SurfaceRules.state(BYGBlocks.CRYPTIC_STONE.defaultBlockState())));
 
     public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(SurfaceRules.sequence(BULBIS_PHYCELIUM, IVIS_PHYLIUM, CRYPTIC_FILL));
 
