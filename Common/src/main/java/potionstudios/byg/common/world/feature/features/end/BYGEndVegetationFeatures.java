@@ -1,16 +1,22 @@
 package potionstudios.byg.common.world.feature.features.end;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
@@ -43,6 +49,17 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> NIGHTSHADE_SPROUTS = createPatchConfiguredFeature("nightshade_sprouts", BYGBlocks.NIGHTSHADE_SPROUTS, 32);
     public static final ConfiguredFeature<?, ?> NIGHTSHADE_ROOTS = createPatchConfiguredFeature("nightshade_roots", BYGBlocks.NIGHTSHADE_ROOTS, 32);
     public static final ConfiguredFeature<?, ?> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeature("nightshade_berry_bush", BYGBlocks.NIGHTSHADE_BERRY_BUSH, 32);
+    public static final ConfiguredFeature<?, ?> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGBlocks.IMPARIUS_MUSHROOM, 32);
+    public static final ConfiguredFeature<?, ?> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeature("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS, 32);
+    public static final ConfiguredFeature<?, ?> IMPARIUS_BUSH = createPatchConfiguredFeature("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);
+
+    public static final ConfiguredFeature<?, ?> ENDER_LILY = createConfiguredFeature("ender_lily",
+        Feature.RANDOM_PATCH.configured(
+            new RandomPatchConfiguration(32, 4, 8,
+                () -> Feature.SIMPLE_BLOCK.configured(
+                    new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.ENDER_LILY))
+                ).placed(BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, BlockPos.ZERO.relative(Direction.DOWN)))))
+        ));
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
         BYGFeatures.ETHER_BUSH1.configured(
@@ -582,6 +599,28 @@ public class BYGEndVegetationFeatures {
                 NIGHTSHADE_SHRUB2.placed())
         ));
 
+    public static final ConfiguredFeature<?, ?> LARGE_IMPARIUS_MUSHROOMS = createConfiguredFeature("large_imparius_mushrooms",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(IMPARIUS_MUSHROOM1.placed(), 0.166F),
+                new WeightedPlacedFeature(IMPARIUS_MUSHROOM2.placed(), 0.166F),
+                new WeightedPlacedFeature(IMPARIUS_MUSHROOM3.placed(), 0.166F),
+                new WeightedPlacedFeature(IMPARIUS_MUSHROOM4.placed(), 0.166F),
+                new WeightedPlacedFeature(IMPARIUS_MUSHROOM5.placed(), 0.166F)),
+                IMPARIUS_MUSHROOM6.placed())
+        ));
+
+    public static final ConfiguredFeature<?, ?> FUNGAL_IMPARIUS = createConfiguredFeature("fungal_imparius",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(FUNGAL_IMPARIUS1.placed(), 0.2F),
+                new WeightedPlacedFeature(FUNGAL_IMPARIUS2.placed(), 0.2F),
+                new WeightedPlacedFeature(FUNGAL_IMPARIUS3.placed(), 0.2F),
+                new WeightedPlacedFeature(FUNGAL_IMPARIUS4.placed(), 0.2F)),
+                FUNGAL_IMPARIUS5.placed())
+        ));
+
+
     public static final ConfiguredFeature<?, ?> IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(IVIS_ROOTS.placed(), 0.5F)),
         IVIS_SPROUT.placed())
@@ -601,5 +640,11 @@ public class BYGEndVegetationFeatures {
         new WeightedPlacedFeature(NIGHTSHADE_BERRY_BUSH.placed(), 0.2F),
         new WeightedPlacedFeature(NIGHTSHADE_ROOTS.placed(), 0.4F)),
         NIGHTSHADE_SPROUTS.placed())
+    ));
+
+    public static final ConfiguredFeature<?, ?> IMPARIUS_PLANTS = createConfiguredFeature("imparius_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(IMPARIUS_BUSH.placed(), 0.2F),
+        new WeightedPlacedFeature(FUNGAL_IMPARIUS_PATCH.placed(), 0.4F)),
+        IMPARIUS_MUSHROOM.placed())
     ));
 }
