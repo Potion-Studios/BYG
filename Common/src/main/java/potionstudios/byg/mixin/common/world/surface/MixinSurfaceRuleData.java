@@ -13,6 +13,6 @@ public class MixinSurfaceRuleData {
 
     @Inject(method = "end", at = @At("RETURN"), cancellable = true)
     private static void addBYGEndSurfaceRules(CallbackInfoReturnable<SurfaceRules.RuleSource> cir) {
-        cir.setReturnValue(BYGSurfaceRules.END_SURFACE_RULES);
+        cir.setReturnValue(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, cir.getReturnValue()));
     }
 }

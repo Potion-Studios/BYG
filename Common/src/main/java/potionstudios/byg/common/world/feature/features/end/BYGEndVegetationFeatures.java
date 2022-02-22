@@ -40,6 +40,9 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> BULBIS_ANOMALY = createPatchConfiguredFeature("bulbis_anomaly", BYGBlocks.BULBIS_ANOMALY, 48);
 
     public static final ConfiguredFeature<?, ?> PURPLE_BULBIS_ANOMALY = createPatchConfiguredFeature("purple_bulbis_anomaly", BYGBlocks.PURPLE_BULBIS_ANOMALY, 48);
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_SPROUTS = createPatchConfiguredFeature("nightshade_sprouts", BYGBlocks.NIGHTSHADE_SPROUTS, 32);
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_ROOTS = createPatchConfiguredFeature("nightshade_roots", BYGBlocks.NIGHTSHADE_ROOTS, 32);
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeature("nightshade_berry_bush", BYGBlocks.NIGHTSHADE_BERRY_BUSH, 32);
 
     public static final ConfiguredFeature<BYGTreeConfig, ?> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
         BYGFeatures.ETHER_BUSH1.configured(
@@ -141,7 +144,7 @@ public class BYGEndVegetationFeatures {
                 .build()
         ));
 
-    public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH1 = createConfiguredFeature("nightshade_bush1",
+    public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_SHRUB1 = createConfiguredFeature("nightshade_shrub1",
         BYGFeatures.NIGHTSHADE_BUSH1.configured(
             new BYGTreeConfig.Builder()
                 .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -157,7 +160,7 @@ public class BYGEndVegetationFeatures {
                 .build()
         ));
 
-    public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_BUSH2 = createConfiguredFeature("nightshade_bush2",
+    public static final ConfiguredFeature<BYGTreeConfig, ?> NIGHTSHADE_SHRUB2 = createConfiguredFeature("nightshade_shrub2",
         BYGFeatures.NIGHTSHADE_BUSH2.configured(
             new BYGTreeConfig.Builder()
                 .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -562,6 +565,23 @@ public class BYGEndVegetationFeatures {
                 PURPLE_BULBIS_TREE7.placed())
         ));
 
+
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_TREES = createConfiguredFeature("nightshade_trees",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(NIGHTSHADE_TREE1.placed(), 0.15F),
+                new WeightedPlacedFeature(NIGHTSHADE_TREE2.placed(), 0.3F),
+                new WeightedPlacedFeature(NIGHTSHADE_TREE3.placed(), 0.3F)),
+                NIGHTSHADE_TREE4.placed())
+        ));
+
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_SHRUBS = createConfiguredFeature("nightshade_shrubs",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(NIGHTSHADE_SHRUB1.placed(), 0.5F)),
+                NIGHTSHADE_SHRUB2.placed())
+        ));
+
     public static final ConfiguredFeature<?, ?> IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(IVIS_ROOTS.placed(), 0.5F)),
         IVIS_SPROUT.placed())
@@ -575,5 +595,11 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> BULBIS_ANOMALIES = createConfiguredFeature("bulbis_anomalies", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(BULBIS_ANOMALY.placed(), 0.5F)),
         PURPLE_BULBIS_ANOMALY.placed())
+    ));
+
+    public static final ConfiguredFeature<?, ?> NIGHTSHADE_PLANTS = createConfiguredFeature("nightshade_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(NIGHTSHADE_BERRY_BUSH.placed(), 0.2F),
+        new WeightedPlacedFeature(NIGHTSHADE_ROOTS.placed(), 0.4F)),
+        NIGHTSHADE_SPROUTS.placed())
     ));
 }

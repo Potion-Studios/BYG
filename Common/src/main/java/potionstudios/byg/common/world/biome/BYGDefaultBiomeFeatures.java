@@ -445,7 +445,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addIvisPlants(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_IVIS_PLANTS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.IVIS_PLANTS);
     }
 
     public static void addBulbisOddity(BiomeGenerationSettings.Builder gen) {
@@ -477,8 +477,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addNightshadePlants(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_PLANT);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.NIGHTSHADE_BERRY_BUSHES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.NIGHTSHADE_PLANTS);
     }
 
     public static void addShulkrenPlants(BiomeGenerationSettings.Builder gen) {
@@ -902,7 +901,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparsePurpleBulbisTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_PURPLE_BULBIS_TREE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_PURPLE_BULBIS_TREES);
     }
 
     public static void addEtherTrees(BiomeGenerationSettings.Builder gen) {
@@ -941,7 +940,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addNightShadeTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_NIGHTSHADE_BUSH);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.NIGHTSHADE_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.NIGHTSHADE_SHRUBS);
     }
 }
