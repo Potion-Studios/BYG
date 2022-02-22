@@ -48,8 +48,8 @@ public class BYGEndBiomes {
     public static Biome etherealIslands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-//        generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_LIGNITE);
         BYGDefaultBiomeFeatures.addEtherPlants(generationSettings);
+        BYGDefaultBiomeFeatures.addEtherFoliage(generationSettings);
         BYGDefaultBiomeFeatures.addSparseEtherTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
 

@@ -462,10 +462,9 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEtherPlants(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_PLANT);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.THEREAL_BELLFLOWERS);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_BULBS);
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.ETHER_STONE_BOULDER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ETHER_PLANTS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.THEREAL_BELLFLOWER);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ETHER_BULBS);
     }
 
     public static void addTheriumDeposit(BiomeGenerationSettings.Builder gen) {
@@ -473,7 +472,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addEtherFoliage(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.ETHER_FOLIAGES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ETHER_FOLIAGE);
     }
 
     public static void addNightshadePlants(BiomeGenerationSettings.Builder gen) {
@@ -910,8 +909,8 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addSparseEtherTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPARSE_ETHER_TREE);
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_ETHER_BUSH);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_ETHER_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ETHER_BUSHES);
     }
 
     public static void addShulkrenTrees(BiomeGenerationSettings.Builder gen) {

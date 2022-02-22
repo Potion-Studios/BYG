@@ -24,8 +24,7 @@ import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 
-import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
-import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createPatchConfiguredFeature;
+import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
 public class BYGEndVegetationFeatures {
 
@@ -56,6 +55,13 @@ public class BYGEndVegetationFeatures {
     public static final ConfiguredFeature<?, ?> IMPARIUS_BUSH = createPatchConfiguredFeature("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);
     public static final ConfiguredFeature<?, ?> SHULKREN_FUNGUS = createPatchConfiguredFeature("shulkren_fungus", BYGBlocks.SHULKREN_FUNGUS, 32);
     public static final ConfiguredFeature<?, ?> SHULKREN_MOSS = createPatchConfiguredFeature("shulkren_moss", BYGBlocks.SHULKREN_MOSS_BLANKET, 32);
+    public static final ConfiguredFeature<?, ?> THEREAL_BELLFLOWER = createFlowerConfiguredFeature("thereal_bellflower", BYGBlocks.THEREAL_BELLFLOWER);
+
+    public static final ConfiguredFeature<?, ?> TALL_ETHER_GRASS = createPatchConfiguredFeature("tall_ether_grass", BYGBlocks.TALL_ETHER_GRASS.defaultBlockState(), 32);
+    public static final ConfiguredFeature<?, ?> ETHER_GRASS = createPatchConfiguredFeature("ether_grass", BYGBlocks.ETHER_GRASS, 32);
+    public static final ConfiguredFeature<?, ?> ETHER_BUSH = createPatchConfiguredFeature("ether_bush", BYGBlocks.ETHER_BUSH, 32);
+    public static final ConfiguredFeature<?, ?> ETHER_FOLIAGE = createPatchConfiguredFeature("ether_foliage", BYGBlocks.ETHER_FOLIAGE, 32);
+    public static final ConfiguredFeature<?, ?> ETHER_BULB = createSimpleBlockConfiguredFeature("ether_bulb", BYGBlocks.ETHER_BULB);
 
     public static final ConfiguredFeature<?, ?> HANGING_SHULKREN_VINE = createConfiguredFeature("hanging_shulkren_vine",
         BYGFeatures.HANGING_FEATURE.configured(
@@ -668,6 +674,23 @@ public class BYGEndVegetationFeatures {
         new WeightedPlacedFeature(NIGHTSHADE_ROOTS.placed(), 0.4F)),
         NIGHTSHADE_SPROUTS.placed())
     ));
+
+    public static final ConfiguredFeature<?, ?> ETHER_PLANTS = createConfiguredFeature("ether_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(ETHER_BUSH.placed(), 0.2F),
+        new WeightedPlacedFeature(ETHER_GRASS.placed(), 0.4F)),
+        TALL_ETHER_GRASS.placed())
+    ));
+
+    public static final ConfiguredFeature<?, ?> SPARSE_ETHER_TREES = createConfiguredFeature("sparse_ether_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(ETHER_TREE1.placed(), 0.2F),
+        new WeightedPlacedFeature(ETHER_TREE2.placed(), 0.2F),
+        new WeightedPlacedFeature(ETHER_TREE3.placed(), 0.2F),
+        new WeightedPlacedFeature(ETHER_TREE4.placed(), 0.2F)),
+        ETHER_TREE5.placed())));
+
+    public static final ConfiguredFeature<?, ?> ETHER_BUSHES = createConfiguredFeature("ether_bushes", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(ETHER_BUSH1.placed(), 0.5F)),
+        ETHER_BUSH2.placed())));
 
     public static final ConfiguredFeature<?, ?> IMPARIUS_PLANTS = createConfiguredFeature("imparius_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(IMPARIUS_BUSH.placed(), 0.2F),
