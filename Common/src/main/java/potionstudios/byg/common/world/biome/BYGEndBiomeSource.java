@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.biome;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
+import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -30,16 +31,20 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
     private final Registry<Biome> biomeRegistry;
     private final LayersBiomeData islandLayersBiomeData;
     private final LayersBiomeData voidLayersBiomeData;
+    private final LayersBiomeData skyLayersBiomeData;
     private final BiomeResolver islandBiomeResolver;
     private final BiomeResolver voidBiomeResolver;
+    private final BiomeResolver skyBiomeResolver;
+    private final int skyLayersStartY;
     private final long seed;
 
-    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData) {
+    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
         super(Util.make(() -> {
             EndBiomesConfig config = EndBiomesConfig.getConfig(true);
             LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
             LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
-            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer);
+            LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
+            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
             biomesFromBiomeData.add(biomeRegistry.get(Biomes.THE_END));
             return biomesFromBiomeData;
         }));
@@ -52,18 +57,25 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         this.islandNoise = new SimplexNoise(worldgenrandom);
         this.islandLayersBiomeData = islandLayersBiomeData;
         this.voidLayersBiomeData = voidLayersBiomeData;
+        this.skyLayersBiomeData = skyLayersBiomeData;
         EndBiomesConfig config = EndBiomesConfig.getConfig(true);
 
         LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
         LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
+        LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
 
         this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, usedIslandLayer);
         this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, usedVoidLayer);
+        this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, usedSkyLayer);
+        this.skyLayersStartY = QuartPos.fromBlock(config.skyLayerStartY());
     }
 
     public abstract BiomeResolver getIslandBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData);
 
     public abstract BiomeResolver getVoidBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData voidLayersBiomeData);
+
+    public abstract BiomeResolver getSkyBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData skyLayersBiomeData);
+
 
     @Override
     public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
@@ -72,13 +84,18 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         if ((long) chunkX * (long) chunkX + (long) chunkZ * (long) chunkZ <= 4096L) {
             return this.biomeRegistry.get(Biomes.THE_END);
         } else {
-            float heightValue = getHeightValue(this.islandNoise, chunkX * 2 + 1, chunkZ * 2 + 1);
-            if (heightValue > 40.0F) {
-                return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
-            } else if (heightValue >= 0.0F) {
-                return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+            if (y > this.skyLayersStartY) {
+                return this.skyBiomeResolver.getNoiseBiome(x, y, z, sampler);
             } else {
-                return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+
+                float heightValue = getHeightValue(this.islandNoise, chunkX * 2 + 1, chunkZ * 2 + 1);
+                if (heightValue > 40.0F) {
+                    return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+                } else if (heightValue >= 0.0F) {
+                    return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+                } else {
+                    return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+                }
             }
         }
     }
@@ -93,6 +110,10 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     public LayersBiomeData getVoidLayersBiomeData() {
         return voidLayersBiomeData;
+    }
+
+    public LayersBiomeData getSkyLayersBiomeData() {
+        return skyLayersBiomeData;
     }
 
     public long getSeed() {
@@ -134,7 +155,12 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(
                 SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
                         .add(Biomes.SMALL_END_ISLANDS, 2)
-                        .add(VISCAL_ISLES, 2)
                         .build(), 2);
+
+        public static final LayersBiomeData DEFAULT_SKY = new LayersBiomeData(
+            SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
+                .add(VISCAL_ISLES, 1)
+                .add(Biomes.THE_END, 9)
+                .build(), 2);
     }
 }

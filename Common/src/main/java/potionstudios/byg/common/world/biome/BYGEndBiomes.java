@@ -132,7 +132,7 @@ public class BYGEndBiomes {
     public static Biome viscalIsles() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-//        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.RANDOM_ISLAND);
+        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ISLANDS);
         BYGDefaultBiomeFeatures.addVermilionSculkGrowth(generationSettings);
         BYGDefaultBiomeFeatures.addVermilionSculkTendrils(generationSettings);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(generationSettings);

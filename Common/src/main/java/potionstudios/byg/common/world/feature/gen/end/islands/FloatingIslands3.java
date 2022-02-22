@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
@@ -30,11 +29,8 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         setSeed(world.getSeed());
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        double radius = rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;
+        double radius = rand.nextInt(Math.max(1, config.getMaxPossibleRadius() - config.getMinRadius())) + config.getMinRadius();
         double thirdRadius = radius / 3;
-
-        if (world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
-            return false;
 
         for (double x = -radius - 5; x <= radius + 5; x++) {
             for (double y = -radius - 5; y <= radius + 5; y++) {

@@ -8,6 +8,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class FloatingIslandConfig implements FeatureConfiguration {
 
@@ -20,6 +25,8 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             return config.minRadius;
         }), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> {
             return config.maxRadius;
+        }), PlacedFeature.LIST_CODEC.fieldOf("island_features").forGetter(floatingIslandConfig -> {
+            return floatingIslandConfig.features;
         })).apply(codecRecorder, FloatingIslandConfig::new);
     });
 
@@ -27,13 +34,15 @@ public class FloatingIslandConfig implements FeatureConfiguration {
     private final BlockStateProvider blockProvider;
     private final int minRadius;
     private final int maxRadius;
+    private final List<Supplier<PlacedFeature>> features;
 
 
-    FloatingIslandConfig(BlockStateProvider topBlockProvider, BlockStateProvider blockProvider, int minRadius, int maxRadius) {
+    FloatingIslandConfig(BlockStateProvider topBlockProvider, BlockStateProvider blockProvider, int minRadius, int maxRadius, List<Supplier<PlacedFeature>> features) {
         this.topBlockProvider = topBlockProvider;
         this.blockProvider = blockProvider;
         this.minRadius = minRadius;
         this.maxRadius = maxRadius;
+        this.features = features;
     }
 
     public BlockStateProvider getBlockProvider() {
@@ -65,6 +74,8 @@ public class FloatingIslandConfig implements FeatureConfiguration {
         private BlockStateProvider blockProvider = SimpleStateProvider.simple(Blocks.STONE.defaultBlockState());
         private int minRadius = 1;
         private int maxRadius = 3;
+        private List<Supplier<PlacedFeature>> features = new ArrayList<>();
+
 
         public Builder setTopBlock(Block block) {
             if (block != null)
@@ -130,16 +141,21 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             return this;
         }
 
+        public List<Supplier<PlacedFeature>> getFeatures() {
+            return features;
+        }
+
         public Builder copy(FloatingIslandConfig config) {
             this.topBlockProvider = config.topBlockProvider;
             this.blockProvider = config.blockProvider;
             this.minRadius = config.minRadius;
             this.maxRadius = config.maxRadius;
+            this.features = config.features;
             return this;
         }
 
         public FloatingIslandConfig build() {
-            return new FloatingIslandConfig(this.topBlockProvider, this.blockProvider, this.minRadius, this.maxRadius);
+            return new FloatingIslandConfig(this.topBlockProvider, this.blockProvider, this.minRadius, this.maxRadius, features);
         }
     }
 }

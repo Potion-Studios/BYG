@@ -15,7 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.Supplier;
 
-public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds, boolean useUpdatingConfig, BYGEndBiomeSource.LayersBiomeData islandLayers, BYGEndBiomeSource.LayersBiomeData voidLayers) {
+public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds, boolean useUpdatingConfig, BYGEndBiomeSource.LayersBiomeData islandLayers, BYGEndBiomeSource.LayersBiomeData voidLayers, BYGEndBiomeSource.LayersBiomeData skyLayers, int skyLayerStartY) {
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json");
 
     public static final Codec<EndBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
@@ -24,12 +24,14 @@ public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean w
                 Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
                 Codec.BOOL.fieldOf("warnBYGEndBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGEndBiomeSourceNotUsedInNewWorlds),
                 BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
-                BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers)
-        ).apply(builder, EndBiomesConfig::new);
+            BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
+            BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers),
+            Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY)
+            ).apply(builder, EndBiomesConfig::new);
     });
     public static EndBiomesConfig INSTANCE = null;
 
-    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_ISLANDS, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_VOID);
+    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_ISLANDS, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_VOID, BYGEndBiomeSource.LayersBiomeData.DEFAULT_SKY, 180);
 
 
     public static EndBiomesConfig getConfig() {

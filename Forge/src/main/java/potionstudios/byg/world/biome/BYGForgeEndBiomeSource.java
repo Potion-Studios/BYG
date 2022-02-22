@@ -22,11 +22,13 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
             return bygEndBiomeSource.getIslandLayersBiomeData();
         }), LayersBiomeData.CODEC.fieldOf("voidLayersBiomeData").stable().forGetter((bygEndBiomeSource) -> {
             return bygEndBiomeSource.getVoidLayersBiomeData();
+        }), LayersBiomeData.CODEC.fieldOf("voidLayersBiomeData").stable().forGetter((bygEndBiomeSource) -> {
+            return bygEndBiomeSource.getSkyLayersBiomeData();
         })).apply(builder, builder.stable(BYGForgeEndBiomeSource::new));
     });
 
-    public BYGForgeEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData) {
-        super(biomeRegistry, seed, islandLayersBiomeData, voidLayersBiomeData);
+    public BYGForgeEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
+        super(biomeRegistry, seed, islandLayersBiomeData, voidLayersBiomeData, skyLayersBiomeData);
     }
 
     @Override
@@ -41,6 +43,11 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
         return (x, y, z, sampler) -> biomeRegistry.byIdOrThrow(layers.get(x, z));
     }
 
+    @Override
+    public BiomeResolver getSkyBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData skyLayersBiomeData) {
+        Area layers = createLayers(biomeRegistry, seed, skyLayersBiomeData.biomeWeights(), skyLayersBiomeData.biomeSize());
+        return (x, y, z, sampler) -> biomeRegistry.byIdOrThrow(layers.get(x, z));
+    }
 
     @Override
     protected Codec<? extends BiomeSource> codec() {
@@ -49,6 +56,6 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
 
     @Override
     public BiomeSource withSeed(long l) {
-        return new BYGForgeEndBiomeSource(getBiomeRegistry(), l, getIslandLayersBiomeData(), getVoidLayersBiomeData());
+        return new BYGForgeEndBiomeSource(getBiomeRegistry(), l, getIslandLayersBiomeData(), getVoidLayersBiomeData(), getSkyLayersBiomeData());
     }
 }

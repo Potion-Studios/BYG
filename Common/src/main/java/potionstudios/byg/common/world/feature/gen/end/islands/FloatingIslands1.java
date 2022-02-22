@@ -4,7 +4,6 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
@@ -29,10 +28,7 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
-        double radius = 15; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;*/
-
-        if (world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) > 4)
-            return false;
+        double radius = 10; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;*/
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 

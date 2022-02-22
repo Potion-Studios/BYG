@@ -40,7 +40,7 @@ public class MixinDimensionType {
             if (levelStemResourceKey == LevelStem.END) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(() -> {
                     return dimensionTypeRegistry.getOrThrow(DimensionType.END_LOCATION);
-                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGFabricEndBiomeSource(biomeRegistry, seed, config.islandLayers(), config.voidLayers()), seed, () -> {
+                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGFabricEndBiomeSource(biomeRegistry, seed, config.islandLayers(), config.voidLayers(), config.skyLayers()), seed, () -> {
                     return noiseGeneratorSettingsRegistry.getOrThrow(NoiseGeneratorSettings.END);
                 })), Lifecycle.experimental());
 
