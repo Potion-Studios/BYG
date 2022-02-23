@@ -67,7 +67,7 @@ public class Spike extends Feature<NoisySphereConfig> {
                     double zFract = (double) z / zRadius;
 
                     if (verifiedHeight) {
-                        double addedHeight = config.useScaledNoiseHeight() ? getScaledNoiseExtensionHeight(mutable2, scaledNoise, centerHeight) : 1;
+                        double addedHeight = config.useScaledNoiseHeight() ? getScaledNoiseExtensionHeight(mutable2, centerHeight) : 1;
                         if (addedHeight > built[x + xRadius][z + zRadius]) {
 
                             for (double y = -yRadius; y <= yRadius; y++) {
@@ -95,7 +95,7 @@ public class Spike extends Feature<NoisySphereConfig> {
 //                            }
 
 
-                                double density = stackIDX == stackHeight && config.pointed() ? (y + yRadius + 1) / ((yRadius * 2) + 1) : 1;
+                                double density = stackIDX == stackHeight && config.pointed() ? (y + yRadius + 1) / ((yRadius * 2) + 1) : 0;
 
                                 double squaredDistance = ((x * x) + (z * z)) / Mth.clampedLerp(0.1, 1, 1 - density);
                                 if (config.checkSquareDistance() && squaredDistance >= xRadius * zRadius) {
@@ -107,10 +107,10 @@ public class Spike extends Feature<NoisySphereConfig> {
                                 for (int noiseExtensionY = 0; noiseExtensionY < addedHeight; noiseExtensionY++) {
                                     int minY = Math.min(position.getY(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable3.getX(), mutable3.getZ()));
                                     boolean belowSurfaceDepth = minY - mutable3.getY() < config.belowSurfaceDepth().sample(random);
-                                    if (!config.verfiesHeight() || belowSurfaceDepth) {
-                                        world.setBlock(mutable3, config.topBlockProvider().getState(random, mutable3), 2);
-                                        world.setBlock(mutable3.relative(Direction.DOWN), config.blockProvider().getState(random, mutable3), 2);
-                                    }
+//                                    if (!config.verfiesHeight() || belowSurfaceDepth) {
+                                    world.setBlock(mutable3, config.topBlockProvider().getState(random, mutable3), 2);
+                                    world.setBlock(mutable3.relative(Direction.DOWN), config.blockProvider().getState(random, mutable3), 2);
+//                                    }
                                     mutable3.move(Direction.UP);
                                 }
 
@@ -121,11 +121,12 @@ public class Spike extends Feature<NoisySphereConfig> {
                                 lowestZ = Math.min(lowestZ, mutable2.getZ());
                             }
                         }
-                    }
-                    int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
+                    } else {
+                        int oceanFloor = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable2.getX(), mutable2.getZ());
 
-                    if (world.isOutsideBuildHeight(oceanFloor - 1) || position.getY() - oceanFloor > 15) {
-                        return false;
+                        if (world.isOutsideBuildHeight(oceanFloor - 1) || position.getY() - oceanFloor > 15) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -145,9 +146,9 @@ public class Spike extends Feature<NoisySphereConfig> {
         return true;
     }
 
-    private double getScaledNoiseExtensionHeight(BlockPos.MutableBlockPos mutable2, double scaledNoise, double centerHeight) {
+    private double getScaledNoiseExtensionHeight(BlockPos.MutableBlockPos mutable2, double centerHeight) {
         float perlin1 = Math.abs(fastNoise.GetPerlin((float) mutable2.getX(), (float) mutable2.getZ()));
-        double height = Mth.lerp(scaledNoise, 2, 7);
+        double height = Mth.lerp(perlin1, 2, 5);
         return Mth.lerp(perlin1, height, centerHeight + 25);
     }
 

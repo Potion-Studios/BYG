@@ -38,7 +38,7 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
             RadiusMatcher.CODEC.fieldOf("radius_matcher").orElse(RadiusMatcher.NONE).forGetter(config -> config.radiusMatcher),
             Codec.BOOL.fieldOf("squared_distance_check").orElse(true).forGetter(config -> config.checkSquareDistance),
             Codec.BOOL.fieldOf("use_scaled_noise_height").orElse(false).forGetter(config -> config.useScaledNoiseHeight),
-            Codec.BOOL.fieldOf("verifies_height").orElse(true).forGetter(config -> config.useScaledNoiseHeight),
+            Codec.BOOL.fieldOf("verifies_height").orElse(true).forGetter(config -> config.verfiesHeight),
             Codec.BOOL.fieldOf("pointed").orElse(false).forGetter(config -> config.pointed),
             IntProvider.CODEC.fieldOf("belowSurfaceDepth").forGetter(config -> config.belowSurfaceDepth),
             PlacedFeature.LIST_CODEC.fieldOf("edge_features").forGetter(noisySphereConfig -> noisySphereConfig.spawningFeatures)
@@ -73,7 +73,7 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
         private boolean checkSquareDistance = true;
         private boolean useScaledNoiseHeight = true;
         private boolean pointed = false;
-        private boolean verifiesHeight = true;
+        private boolean verifiesHeight = false;
         private IntProvider belowSurfaceDepth = ConstantInt.of(Integer.MAX_VALUE);
         private List<Supplier<PlacedFeature>> spawningFeatures = new ArrayList<>();
 

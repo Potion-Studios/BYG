@@ -147,8 +147,8 @@ public class BYGEndFeatures {
                     .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 6)
                     .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 4))
                 )
-                .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(5, 10), BiasedToBottomInt.of(6, 12), 0, BiasedToBottomInt.of(5, 10)))
-                .withNoiseFrequency(0.5F).withVerifiesHeight(false).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
+                .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(8, 15), BiasedToBottomInt.of(5, 10), 0, BiasedToBottomInt.of(8, 15)))
+                .withNoiseFrequency(0.5F).withVerifiesHeight(false).withBelowSurfaceDepth(ConstantInt.of(Integer.MIN_VALUE)).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
                 .withSpawningFeatures(List.of(
                     () -> createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15).placed(
                         CountPlacement.of(UniformInt.of(15, 30)), HeightRangePlacement.uniform(VerticalAnchor.absolute(200), VerticalAnchor.absolute(256)), InSquarePlacement.spread(),
@@ -192,6 +192,8 @@ public class BYGEndFeatures {
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build()));
 
+    public static final PlacedFeature ISLAND_DEPOSIT = THERIUM_CRYSTAL_DEPOSIT.placed(RarityFilter.onAverageOnceEvery(5), PlacementUtils.HEIGHTMAP);
+
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1",
         BYGFeatures.FLOATING_ISLAND1.configured(
             new FloatingIslandConfig.Builder()
@@ -201,6 +203,7 @@ public class BYGEndFeatures {
                 )
                 .setMinRadius(11)
                 .setMaxRadius(13)
+                .addFeatures(() -> ISLAND_DEPOSIT)
                 .build()
         ));
 
@@ -213,6 +216,7 @@ public class BYGEndFeatures {
                 )
                 .setMinRadius(11)
                 .setMaxRadius(13)
+                .addFeatures(() -> ISLAND_DEPOSIT)
                 .build()
         ));
 
@@ -225,6 +229,7 @@ public class BYGEndFeatures {
                 )
                 .setMinRadius(11)
                 .setMaxRadius(13)
+                .addFeatures(() -> ISLAND_DEPOSIT)
                 .build()
         ));
 
@@ -237,6 +242,7 @@ public class BYGEndFeatures {
                 )
                 .setMinRadius(13)
                 .setMaxRadius(17)
+                .addFeatures(() -> ISLAND_DEPOSIT)
                 .build()
         ));
 
@@ -249,6 +255,7 @@ public class BYGEndFeatures {
                 )
                 .setMinRadius(13)
                 .setMaxRadius(17)
+                .addFeatures(() -> ISLAND_DEPOSIT)
                 .build()
         ));
 
