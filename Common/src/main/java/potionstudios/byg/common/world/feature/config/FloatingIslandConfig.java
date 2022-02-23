@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProv
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -67,6 +68,10 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             returnValue = 1;
 
         return Math.abs(returnValue);
+    }
+
+    public List<Supplier<PlacedFeature>> getPlacedFeatures() {
+        return features;
     }
 
     public static class Builder {
@@ -143,6 +148,12 @@ public class FloatingIslandConfig implements FeatureConfiguration {
 
         public List<Supplier<PlacedFeature>> getFeatures() {
             return features;
+        }
+
+
+        public Builder addFeatures(Supplier<PlacedFeature>... features) {
+            this.features.addAll(Arrays.asList(features));
+            return this;
         }
 
         public Builder copy(FloatingIslandConfig config) {

@@ -7,11 +7,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
 
@@ -66,6 +68,10 @@ public class FloatingIslands4 extends Feature<FloatingIslandConfig> {
                     }
                 }
             }
+        }
+
+        for (Supplier<PlacedFeature> feature : config.getPlacedFeatures()) {
+            feature.get().place(world, generator, rand, pos.above(2));
         }
 
         return true;

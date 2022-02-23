@@ -135,7 +135,6 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addVermilionSculkTendrils(generationSettings);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(generationSettings);
         BYGDefaultBiomeFeatures.addDeadEtherTrees(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BYGPlacedFeatures.THERIUM_CRYSTAL_DEPOSIT);
         generationSettings.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 5, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
