@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/coral_wall_fan",
+  "textures": {
+    "fan": "byg:block/witch_hazel_branch"
+  }
+}

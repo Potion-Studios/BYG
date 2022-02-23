@@ -19,7 +19,7 @@ import potionstudios.byg.client.textures.BYGMaterials;
 import potionstudios.byg.common.block.end.*;
 import potionstudios.byg.common.block.end.bulbisgardens.TallBulbisBlock;
 import potionstudios.byg.common.block.end.impariusgrove.FungalImpariusFilamentBlock;
-import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
+import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVinePlantBlock;
 import potionstudios.byg.common.block.end.nightshade.NightshadeBerryBushBlock;
@@ -448,6 +448,9 @@ public class BYGBlocks {
     public static final Block INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
     public static final Block SHRUB = createShrub(TreeSpawners.SHRUB, "shrub");
 
+    public static final Block WITCH_HAZEL_BRANCH = createTreeBranchBlock(MaterialColor.COLOR_ORANGE, "witch_hazel_branch");
+    public static final Block WITCH_HAZEL_BLOSSOM = createWitchHazelBlossomBlock(MaterialColor.COLOR_YELLOW, "witch_hazel_blossom");
+
     public static final Block ARAUCARIA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "araucaria_leaves");
     public static final Block ASPEN_LEAVES = createLeaves(MaterialColor.TERRACOTTA_YELLOW, "aspen_leaves");
     public static final Block BAOBAB_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "baobab_leaves");
@@ -679,7 +682,7 @@ public class BYGBlocks {
     public static final Block CRYPTIC_BRAMBLE = createStoneEndPlant("cryptic_bramble");
 
     public static final Block IMPARIUS_MUSHROOM_BLOCK = createImpariusMushroom("imparius_mushroom_block");
-    public static final Block IMPARIUS_MUSHROOM_BRANCH = createImpariusMushroomBranch("imparius_mushroom_branch");
+    public static final Block IMPARIUS_MUSHROOM_BRANCH = createGlowingTreeBranchBlock(MaterialColor.COLOR_CYAN, "imparius_mushroom_branch");
     public static final Block FUNGAL_IMPARIUS_BLOCK = createFungalImparius("fungal_imparius_block");
     public static final Block CHISELED_FUNGAL_IMPARIUS = createFungalImparius("chiseled_fungal_imparius");
     public static final Block CHISELED_FUNGAL_IMPARIUS_SLAB = createChiseledFungalImpariusSlab("chiseled_fungal_imparius_slab");
@@ -1244,14 +1247,14 @@ public class BYGBlocks {
     }
 
     static Block createEmburGelBranch(String id) {
-        Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().lightLevel((state) -> 10));
+        Block createBlock = new TreeBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.TERRACOTTA_YELLOW).instabreak().sound(SoundType.HONEY_BLOCK).noOcclusion().noCollission().lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createArisianBloomBranch(String id) {
-        Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().lightLevel((state) -> 10));
+        Block createBlock = new TreeBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
@@ -1888,8 +1891,22 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createImpariusMushroomBranch(String id) {
-        Block createBlock = new ImpariusMushroomBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_CYAN).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().lightLevel((state) -> 10));
+    static Block createTreeBranchBlock(MaterialColor color,String id) {
+        Block createBlock = new TreeBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, color).instabreak().sound(SoundType.WOOD).noOcclusion().noCollission());
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createGlowingTreeBranchBlock(MaterialColor color,String id) {
+        Block createBlock = new TreeBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, color).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().lightLevel((state) -> 10));
+        //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createWitchHazelBlossomBlock(MaterialColor color,String id) {
+        Block createBlock = new WitchHazelBlossomBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, color).instabreak().sound(SoundType.TWISTING_VINES).noOcclusion().noCollission().lightLevel((state) -> 10));
         //Registry.register(Registry.BLOCK, BYG.createLocation(id), createBlock);
         createBlock(createBlock, id);
         return createBlock;
