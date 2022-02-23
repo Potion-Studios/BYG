@@ -494,14 +494,6 @@ public class BYGDefaultBiomeFeatures {
 //        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER);
     }
 
-    public static void addVermilionSculkGrowth(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.VERMILION_SCULK_GROWTHS);
-    }
-
-    public static void addVermilionSculkTendrils(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.VERMILION_SCULK_TENDRIL);
-    }
-
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
     }

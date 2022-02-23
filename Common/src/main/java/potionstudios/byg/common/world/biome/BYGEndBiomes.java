@@ -131,8 +131,6 @@ public class BYGEndBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ISLANDS);
-        BYGDefaultBiomeFeatures.addVermilionSculkGrowth(generationSettings);
-        BYGDefaultBiomeFeatures.addVermilionSculkTendrils(generationSettings);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(generationSettings);
         BYGDefaultBiomeFeatures.addDeadEtherTrees(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);

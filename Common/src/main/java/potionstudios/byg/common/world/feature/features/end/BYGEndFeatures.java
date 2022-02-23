@@ -201,6 +201,17 @@ public class BYGEndFeatures {
                 )
         )).placed(PlacementUtils.HEIGHTMAP);
 
+    public static final PlacedFeature ISLAND_SCULK_PLANTS = Feature.RANDOM_PATCH.configured(
+        new RandomPatchConfiguration(64, 16, 4, () ->
+            Feature.SIMPLE_BLOCK.configured(
+                    new SimpleBlockConfiguration(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                        .add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 5)
+                        .add(BYGBlocks.VERMILION_SCULK_TENDRILS.defaultBlockState(), 5)
+                        .build()
+                    )))
+                .placed(PlacementUtils.HEIGHTMAP)
+        )).placed(PlacementUtils.HEIGHTMAP);
+
     public static final WeightedStateProvider ISLAND_SURFACE_PROVIDER = new WeightedStateProvider(
         new SimpleWeightedRandomList.Builder<BlockState>()
             .add(BYGBlocks.VERMILION_SCULK.defaultBlockState(), 25)
@@ -223,7 +234,7 @@ public class BYGEndFeatures {
                 .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS, () -> ISLAND_SCULK_PLANTS)
                 .build()
         ));
 
@@ -234,7 +245,7 @@ public class BYGEndFeatures {
                 .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS, () -> ISLAND_SCULK_PLANTS)
                 .build()
         ));
 
@@ -245,7 +256,7 @@ public class BYGEndFeatures {
                 .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS, () -> ISLAND_SCULK_PLANTS)
                 .build()
         ));
 
@@ -256,7 +267,7 @@ public class BYGEndFeatures {
                 .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(13)
                 .setMaxRadius(17)
-                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS, () -> ISLAND_SCULK_PLANTS)
                 .build()
         ));
 
@@ -267,7 +278,7 @@ public class BYGEndFeatures {
                 .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(13)
                 .setMaxRadius(17)
-                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS, () -> ISLAND_SCULK_PLANTS)
                 .build()
         ));
 
