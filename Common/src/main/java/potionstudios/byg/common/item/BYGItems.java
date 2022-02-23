@@ -778,6 +778,9 @@ public class BYGItems {
     public static final Item WILLOW_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "willow_boat");
 
     //Witch-Hazel Woodtype
+    public static final Item WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
+    public static final Item WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
+
     public static final Item BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
     public static final Item WITCH_HAZEL_SAPLING = createItem(BYGBlocks.WITCH_HAZEL_SAPLING);
     public static final Item WITCH_HAZEL_LEAVES = createItem(BYGBlocks.WITCH_HAZEL_LEAVES);

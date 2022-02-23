@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "byg:block/witch_hazel_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "byg:block/witch_hazel_branch"
+    },
+    "facing=south": {
+      "model": "byg:block/witch_hazel_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "byg:block/witch_hazel_branch",
+      "y": 270
+    }
+  }
+}

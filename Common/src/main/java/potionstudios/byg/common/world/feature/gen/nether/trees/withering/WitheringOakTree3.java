@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.end.impariusgrove.ImpariusMushroomBranchBlock;
+import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 
@@ -286,7 +286,7 @@ public class WitheringOakTree3 extends BYGAbstractMushroomFeature<BYGMushroomCon
     }
     private void ArisianBloomBranch(WorldGenLevel reader, BlockPos pos, Direction direction) {
         if (isAir(reader, pos)) {
-            this.setFinalBlockState(reader, pos, BYGBlocks.ARISIAN_BLOOM_BRANCH.defaultBlockState().setValue(ImpariusMushroomBranchBlock.FACING, direction));
+            this.setFinalBlockState(reader, pos, BYGBlocks.ARISIAN_BLOOM_BRANCH.defaultBlockState().setValue(TreeBranchBlock.FACING, direction));
         }
     }
 }

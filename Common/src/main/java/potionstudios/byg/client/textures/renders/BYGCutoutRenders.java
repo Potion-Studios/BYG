@@ -15,6 +15,8 @@ public class BYGCutoutRenders {
         Map<Block, RenderType> map = new HashMap<>();
         //Plants
 
+        map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM, RenderType.cutoutMipped());
+        map.put(BYGBlocks.WITCH_HAZEL_BRANCH, RenderType.cutoutMipped());
         map.put(BYGBlocks.ALOE_VERA, RenderType.cutoutMipped());
         map.put(BYGBlocks.BLOOMING_ALOE_VERA, RenderType.cutoutMipped());
         map.put(BYGBlocks.HORSEWEED, RenderType.cutoutMipped());
