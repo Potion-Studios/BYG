@@ -68,12 +68,13 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature BULBIS_ODDITIES = createPlacedFeature("bulbis_oddities", BYGEndVegetationFeatures.BULBIS_ODDITIES.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature BULBIS_SPROUTS = createPlacedFeature("bulbis_sprouts", BYGEndVegetationFeatures.BULBIS_SPROUTS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature THEREAL_BELLFLOWER = createPlacedFeature("thereal_bellflower", BYGEndVegetationFeatures.THEREAL_BELLFLOWER.placed(worldSurfaceSquaredWithCount(6)));
-    public static final PlacedFeature IVIS_PLANTS = createPlacedFeature("ivis_plants", BYGEndVegetationFeatures.IVIS_PLANTS.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature IVIS_PLANTS = createPlacedFeature("ivis_plants", BYGEndVegetationFeatures.IVIS_PLANTS.placed(worldSurfaceSquaredWithCount(5)));
     public static final PlacedFeature ETHER_PLANTS = createPlacedFeature("ether_plants", BYGEndVegetationFeatures.ETHER_PLANTS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ETHER_BULBS = createPlacedFeature("ether_bulbs", BYGEndVegetationFeatures.ETHER_BULB.placed(CountPlacement.of(UniformInt.of(15, 25)), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));
     public static final PlacedFeature ENDER_LILY = createPlacedFeature("ender_lily", BYGEndVegetationFeatures.ENDER_LILY.placed(worldSurfaceSquaredWithCount(6)));
     public static final PlacedFeature NIGHTSHADE_PLANTS = createPlacedFeature("nightshade_plants", BYGEndVegetationFeatures.NIGHTSHADE_PLANTS.placed(worldSurfaceSquaredWithCount(7)));
-    public static final PlacedFeature IMPARIUS_PLANTS = createPlacedFeature("imparius_plants", BYGEndVegetationFeatures.IMPARIUS_PLANTS.placed(worldSurfaceSquaredWithCount(8)));
+    public static final PlacedFeature IMPARIUS_PLANTS = createPlacedFeature("imparius_plants", BYGEndVegetationFeatures.IMPARIUS_PLANTS.placed(worldSurfaceSquaredWithCount(12)));
+    public static final PlacedFeature SPARSE_BULBIS_ANOMALIES = createPlacedFeature("sparse_anomalies", BYGEndVegetationFeatures.BULBIS_ANOMALIES.placed(new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(4)).build()));
     public static final PlacedFeature BULBIS_ANOMALIES = createPlacedFeature("bulbis_anomalies", BYGEndVegetationFeatures.BULBIS_ANOMALIES.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature SHULKREN_PLANTS = createPlacedFeature("shulkren_plants", BYGEndVegetationFeatures.SHULKREN_PLANTS.placed(worldSurfaceSquaredWithCount(5)));
     public static final PlacedFeature SHULKREN_HANGING_VINES = createPlacedFeature("shulkren_hanging_vines", BYGEndVegetationFeatures.HANGING_SHULKREN_VINE.placed(CountPlacement.of(6), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.top())));

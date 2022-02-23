@@ -457,6 +457,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BULBIS_ANOMALIES);
     }
 
+    public static void addSparseBulbisAnomaly(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BULBIS_ANOMALIES);
+    }
+
     public static void addEnderLily(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ENDER_LILY);
     }

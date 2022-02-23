@@ -79,7 +79,7 @@ public class BYGEndBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IVIS_FIELDS_SPIKE);
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IVIS_FIELDS_COLUMN);
         BYGDefaultBiomeFeatures.addIvisPlants(generationSettings);
-        BYGDefaultBiomeFeatures.addBulbisAnomaly(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addSparsePurpleBulbisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
 
