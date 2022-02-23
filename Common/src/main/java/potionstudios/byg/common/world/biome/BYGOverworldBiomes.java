@@ -1063,11 +1063,9 @@ public class BYGOverworldBiomes {
         invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
-        BiomeDefaultFeatures.addPlainGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BYGDefaultBiomeFeatures.addMeadowGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_PLAIN);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 

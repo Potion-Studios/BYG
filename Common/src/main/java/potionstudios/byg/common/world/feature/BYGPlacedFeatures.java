@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
@@ -62,6 +63,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CRYPTIC_BRAMBLE = createPlacedFeature("cryptic_bramble", BYGEndVegetationFeatures.CRYPTIC_BRAMBLE_PATCH.placed(new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(2)).build()));
     public static final PlacedFeature CROCUS = createPlacedFeature("crocus", BYGOverworldVegetationFeatures.CROCUS.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ANEMONES = createPlacedFeature("anemones", BYGOverworldVegetationFeatures.ANEMONES.placed(worldSurfaceSquaredWithCount(2)));
+    public static final PlacedFeature MEADOW_GRASS = createPlacedFeature("meadow_grass", VegetationFeatures.PATCH_GRASS.placed(worldSurfaceSquaredWithCount(8)));
     public static final PlacedFeature ALPINE_BELLFLOWER = createPlacedFeature("alpine_bellflower", BYGOverworldVegetationFeatures.ALPINE_BELLFLOWER.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature ROSES = createPlacedFeature("rose", BYGOverworldVegetationFeatures.ROSE.placed(worldSurfaceSquaredWithCount(2)));
     public static final PlacedFeature BLACK_ROSE = createPlacedFeature("black_rose", BYGOverworldVegetationFeatures.BLACK_ROSE.placed(worldSurfaceSquaredWithCount(2)));
