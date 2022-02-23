@@ -472,7 +472,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addTheriumDeposit(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.THERIUM_DEPOSIT);
+//        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.THERIUM_DEPOSIT);
     }
 
     public static void addEtherFoliage(BiomeGenerationSettings.Builder gen) {
