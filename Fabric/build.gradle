@@ -83,5 +83,5 @@ jar {
         rename { "${it}_${mod_name}" }
     }
 }
-
+// Disable to build with gradle //TODO: Fix gradle + building w/ intellij
 sourceSets.main.resources.srcDirs project(":Common").sourceSets.main.resources.srcDirs
