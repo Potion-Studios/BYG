@@ -41,6 +41,7 @@ dependencies {
     }
 
     modImplementation "curse.maven:starlight-521783:3554912"
+    modImplementation "curse.maven:cyanide-543444:3538092"
 }
 
 loom {
