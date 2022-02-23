@@ -192,78 +192,90 @@ public class BYGEndFeatures {
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build()));
     public static final ConfiguredFeature<?, ?> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4.configured(new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build()));
 
-    public static final PlacedFeature ISLAND_DEPOSIT = THERIUM_CRYSTAL_DEPOSIT.placed(RarityFilter.onAverageOnceEvery(5), PlacementUtils.HEIGHTMAP);
+    public static final PlacedFeature ISLAND_AMETRINE_CLUSTERS = Feature.RANDOM_PATCH.configured(
+        new RandomPatchConfiguration(64, 16, 4, () ->
+            Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.AMETRINE_CLUSTER)))
+                .placed(
+                    PlacementUtils.HEIGHTMAP,
+                    BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(BYGBlocks.BUDDING_AMETRINE_ORE, BlockPos.ZERO.relative(Direction.DOWN)))
+                )
+        )).placed(PlacementUtils.HEIGHTMAP);
+
+    public static final WeightedStateProvider ISLAND_SURFACE_PROVIDER = new WeightedStateProvider(
+        new SimpleWeightedRandomList.Builder<BlockState>()
+            .add(BYGBlocks.VERMILION_SCULK.defaultBlockState(), 25)
+            .add(BYGBlocks.BUDDING_AMETRINE_ORE.defaultBlockState(), 1)
+            .add(BYGBlocks.AMETRINE_ORE.defaultBlockState(), 4)
+            .build()
+    );
+    public static final WeightedStateProvider ISLAND_BLOCK_PROVIDER = new WeightedStateProvider(
+        new SimpleWeightedRandomList.Builder<BlockState>()
+            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 25)
+            .add(BYGBlocks.BUDDING_AMETRINE_ORE.defaultBlockState(), 1)
+            .add(BYGBlocks.AMETRINE_ORE.defaultBlockState(), 4)
+            .build()
+    );
 
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1",
         BYGFeatures.FLOATING_ISLAND1.configured(
             new FloatingIslandConfig.Builder()
-                .setTopBlock(BYGBlocks.VERMILION_SCULK)
-                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
-                )
+                .setTopBlock(ISLAND_SURFACE_PROVIDER)
+                .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_DEPOSIT)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
                 .build()
         ));
 
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND2 = createConfiguredFeature("floating_island2",
         BYGFeatures.FLOATING_ISLAND2.configured(
             new FloatingIslandConfig.Builder()
-                .setTopBlock(BYGBlocks.VERMILION_SCULK)
-                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
-                )
+                .setTopBlock(ISLAND_SURFACE_PROVIDER)
+                .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_DEPOSIT)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
                 .build()
         ));
 
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND3 = createConfiguredFeature("floating_island3",
         BYGFeatures.FLOATING_ISLAND3.configured(
             new FloatingIslandConfig.Builder()
-                .setTopBlock(BYGBlocks.VERMILION_SCULK)
-                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
-                )
+                .setTopBlock(ISLAND_SURFACE_PROVIDER)
+                .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(11)
                 .setMaxRadius(13)
-                .addFeatures(() -> ISLAND_DEPOSIT)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
                 .build()
         ));
 
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4",
         BYGFeatures.FLOATING_ISLAND4.configured(
             new FloatingIslandConfig.Builder()
-                .setTopBlock(BYGBlocks.VERMILION_SCULK)
-                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
-                )
+                .setTopBlock(ISLAND_SURFACE_PROVIDER)
+                .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(13)
                 .setMaxRadius(17)
-                .addFeatures(() -> ISLAND_DEPOSIT)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
                 .build()
         ));
 
     public static final ConfiguredFeature<?, ?> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5",
         BYGFeatures.FLOATING_ISLAND5.configured(
             new FloatingIslandConfig.Builder()
-                .setTopBlock(BYGBlocks.VERMILION_SCULK)
-                .setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 20))
-                )
+                .setTopBlock(ISLAND_SURFACE_PROVIDER)
+                .setBlock(ISLAND_BLOCK_PROVIDER)
                 .setMinRadius(13)
                 .setMaxRadius(17)
-                .addFeatures(() -> ISLAND_DEPOSIT)
+                .addFeatures(() -> ISLAND_AMETRINE_CLUSTERS)
                 .build()
         ));
 
 
     public static final ConfiguredFeature<?, ?> ISLANDS = createConfiguredFeature("floating_islands", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
-         new WeightedPlacedFeature(FLOATING_ISLAND1.placed(), 0.25F),
-         new WeightedPlacedFeature(FLOATING_ISLAND2.placed(), 0.25F),
-         new WeightedPlacedFeature(FLOATING_ISLAND3.placed(), 0.25F)),
-         FLOATING_ISLAND5.placed())
+        new WeightedPlacedFeature(FLOATING_ISLAND1.placed(), 0.1F),
+        new WeightedPlacedFeature(FLOATING_ISLAND2.placed(), 0.25F),
+        new WeightedPlacedFeature(FLOATING_ISLAND3.placed(), 0.25F)),
+        FLOATING_ISLAND5.placed())
     ));
 }

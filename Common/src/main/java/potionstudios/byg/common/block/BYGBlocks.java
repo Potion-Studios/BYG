@@ -1537,7 +1537,7 @@ public class BYGBlocks {
     }
 
     static Block createBuddingAmetrineOre(String id) {
-        Block createBlock = new BuddingAmetrineBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f));
+        Block createBlock = new BuddingAmetrineBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST).requiresCorrectToolForDrops().sound(SoundType.STONE).randomTicks());
         createBlock(createBlock, id);
         return createBlock;
     }
