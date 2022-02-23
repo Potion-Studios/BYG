@@ -3,13 +3,13 @@ package potionstudios.byg.common.world.feature.gen;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.material.FluidState;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
@@ -61,24 +61,7 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
 
                         if (world.getBlockState(mutable2).canOcclude()) {
                             if (mutable2.getY() <= 30) {
-                                boolean isSolidAllAround = true;
-                                for (Direction direction : Direction.values()) {
-                                    if (direction != Direction.UP) {
-                                        BlockState blockState = world.getBlockState(mutable2.relative(direction));
-                                        if (blockState.getFluidState().getType() == config.fluidState().getType())
-                                            continue;
-
-                                        if (!blockState.canOcclude()) {
-                                            isSolidAllAround = false;
-                                            break;
-                                        }
-                                    }
-                                }
-
-                                if (isSolidAllAround) {
-                                    world.setBlock(mutable2, config.fluidState().createLegacyBlock().getBlock().defaultBlockState(), 2);
-                                    world.scheduleTick(mutable2, config.fluidState().getType(), 0);
-                                }
+                                placeFluid(world, config.fluidState(), mutable2);
                             } else {
                                 BlockState state = config.blockProvider().getState(random, mutable2);
                                 if (state.isAir()) {
@@ -111,6 +94,27 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
 
         }
         return true;
+    }
+
+    public static void placeFluid(WorldGenLevel world, FluidState fluidState, BlockPos.MutableBlockPos mutable2) {
+        boolean isSolidAllAround = true;
+        for (Direction direction : Direction.values()) {
+            if (direction != Direction.UP) {
+                BlockState blockState = world.getBlockState(mutable2.relative(direction));
+                if (blockState.getFluidState().getType() == fluidState.getType())
+                    continue;
+
+                if (!blockState.canOcclude()) {
+                    isSolidAllAround = false;
+                    break;
+                }
+            }
+        }
+
+        if (isSolidAllAround) {
+            world.setBlock(mutable2, fluidState.createLegacyBlock().getBlock().defaultBlockState(), 2);
+            world.scheduleTick(mutable2, fluidState.getType(), 0);
+        }
     }
 
 

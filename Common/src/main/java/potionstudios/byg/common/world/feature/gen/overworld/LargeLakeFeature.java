@@ -175,7 +175,7 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         if (seed != worldSeed || fastNoise == null) {
             fastNoise = new FastNoise((int) worldSeed);
             fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
-            fastNoise.SetFrequency(0.05f);
+            fastNoise.SetFrequency(0.8f);
             seed = worldSeed;
         }
     }
