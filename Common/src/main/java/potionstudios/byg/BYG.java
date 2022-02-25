@@ -28,28 +28,14 @@ public class BYG {
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
     public static final int EXPERIMENTAL_WARNING_VERSION = 3;
-    public static boolean isClient = false;
-    public static Path CONFIG_PATH = null;
-    public static String MOD_LOADER_TAG_TARGET = null;
-    public static WorldConfig worldConfig = null;
-
-    public static ModLoaderContext MODLOADER_DATA = null;
-
-    public static WorldConfig worldConfig(boolean refreshConfig) {
-        if (worldConfig == null || refreshConfig) {
-            worldConfig = new WorldConfig(CONFIG_PATH.resolve("world.toml"));
-        }
-        return worldConfig;
-    }
-
-    public static WorldConfig worldConfig() {
-        return worldConfig(false);
-    }
 
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
     public static boolean ENABLE_NYLIUM_FUNGI = true;
     public static boolean ENABLE_NETHER_MUSHROOMS = true;
+    public static Path CONFIG_PATH = null;
+    public static String MOD_LOADER_TAG_TARGET = null;
+    public static ModLoaderContext MODLOADER_DATA = null;
 
     public static void init(Path path, String modloaderTagTarget) {
         CONFIG_PATH = path;
@@ -80,7 +66,6 @@ public class BYG {
     }
 
     public static void clientLoad() {
-        isClient = true;
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");

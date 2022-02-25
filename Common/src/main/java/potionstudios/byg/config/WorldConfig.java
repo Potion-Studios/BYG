@@ -7,7 +7,11 @@ import potionstudios.byg.BYG;
 import java.nio.file.Path;
 import java.util.Arrays;
 
+import static potionstudios.byg.BYG.CONFIG_PATH;
+
 public class WorldConfig {
+
+    public static WorldConfig INSTANCE = null;
     private final CommentedConfigBuilder configHelper;
 //    public final int overworldBiomeRegionWeight;
 
@@ -59,6 +63,17 @@ public class WorldConfig {
 
 
         this.configHelper.build();
+    }
+
+    public static WorldConfig worldConfig(boolean refreshConfig) {
+        if (INSTANCE == null || refreshConfig) {
+            INSTANCE = new WorldConfig(CONFIG_PATH.resolve("world.toml"));
+        }
+        return INSTANCE;
+    }
+
+    public static WorldConfig worldConfig() {
+        return worldConfig(false);
     }
 
     public static boolean conditionPasses(String conditionString, ResourceKey<Biome> biomeKey, Biome biome) {
