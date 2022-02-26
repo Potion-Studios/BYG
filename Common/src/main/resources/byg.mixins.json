@@ -20,6 +20,7 @@
     "access.IronBarsBlockAccess",
     "access.MenuTypeAccess",
     "access.NyliumBlockAccess",
+    "access.OrePlacementsAccess",
     "access.OverworldBiomeBuilderAccess",
     "access.OverworldBiomesAccess",
     "access.PickaxeItemAccess",

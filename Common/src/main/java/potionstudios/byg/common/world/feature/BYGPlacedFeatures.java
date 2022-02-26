@@ -22,6 +22,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
+import potionstudios.byg.common.world.feature.features.nether.BYGNetherFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
@@ -36,6 +37,7 @@ import java.util.OptionalInt;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
+import static potionstudios.byg.mixin.access.OrePlacementsAccess.invokeCommonOrePlacement;
 
 public class BYGPlacedFeatures {
 
@@ -209,6 +211,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature CRYPTIC_SPIKE = createPlacedFeature("cryptic_spikes", BYGEndFeatures.CRYPTIC_SPIKE.placed(new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(3)).build()));
     public static final PlacedFeature WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGOverworldFeatures.WINDSWEPT_SPIKES.placed(NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome()));
     public static final PlacedFeature CRYPTIC_REDSTONE = createPlacedFeature("cryptic_redstone", BYGEndFeatures.ORE_CRYPTIC_REDSTONE.placed(new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(8)).add(RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-15, -2))).build()));
+//    public static final PlacedFeature BRIMSTONE_VENTS = createPlacedFeature("brimstone_vents", BYGNetherFeatures.BRIMSTONE_VENTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
 
 
     public static final PlacedFeature CRYPTIC_CAVE = createPlacedFeature("cryptic_caves", BYGEndFeatures.CRYPTIC_CAVES.placed(new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(2)).add(RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-15, -7))).build()));
@@ -219,6 +222,13 @@ public class BYGPlacedFeatures {
 
     public static final PlacedFeature ISLANDS = createPlacedFeature("islands", BYGEndFeatures.ISLANDS.placed(CountPlacement.of(1), RarityFilter.onAverageOnceEvery(6), HeightRangePlacement.uniform(VerticalAnchor.absolute(200), VerticalAnchor.absolute(230)), InSquarePlacement.spread(), BiomeFilter.biome()));
 
+    public static final PlacedFeature ORE_GOLD_BRIMSTONE = PlacementUtils.register("ore_gold_brimstone", BYGNetherFeatures.ORE_GOLD_BRIMSTONE.placed(invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10)));
+    public static final PlacedFeature ORE_QUARTZ_BRIMSTONE = PlacementUtils.register("ore_quartz_brimstone", BYGNetherFeatures.ORE_QUARTZ_BRIMSTONE.placed(invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10)));
+    public static final PlacedFeature ORE_ANTHRACITE = PlacementUtils.register("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE.placed(invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10)));
+
+    public static final PlacedFeature BORIC_FIRE = createPlacedFeature("patch_boric_fire", BYGNetherFeatures.BORIC_FIRE_PATCH.placed(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome()));
+
+    public static final PlacedFeature BRIMSTONE_PILLARS = createPlacedFeature("brimstone_pillars", BYGNetherFeatures.BRIMSTONE_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
 
     private static List<PlacementModifier> clearingTreePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(CLEARING_NOISE).add(BiomeFilter.biome()).build();

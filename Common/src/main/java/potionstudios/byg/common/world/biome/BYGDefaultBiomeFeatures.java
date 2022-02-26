@@ -360,21 +360,22 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBrimstoneOres(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_ANTHRACITE);
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BRIMSTONE_NETHER_GOLD);
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.ORE_BRIMSTONE_NETHER_QUARTZ);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_ANTHRACITE);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_QUARTZ_BRIMSTONE);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_GOLD_BRIMSTONE);
     }
 
     public static void addBrimstonePillars(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BRIMSTONE_PILLARS);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.BRIMSTONE_PILLARS);
     }
 
     public static void addBrimstoneVents(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BRIMSTONE_VENTS);
+        // TODO: Redo gen
+//        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.BRIMSTONE_VENTS);
     }
 
     public static void addBoricFire(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.BORIC_FIRE);
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.BORIC_FIRE);
     }
 
     public static void addCrypticFire(BiomeGenerationSettings.Builder gen) {
