@@ -26,6 +26,7 @@
     "access.PickaxeItemAccess",
     "access.PressurePlateBlockAccess",
     "access.ShovelItemAccess",
+    "access.SimpleParticleTypeAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
     "access.StaticTagHelperWrapperAccess",
@@ -76,6 +77,7 @@
     "client.MixinEntityRenderers",
     "client.MixinItemColors",
     "client.MixinLayerDefinitions",
+    "client.MixinParticleEngine",
     "client.MixinScreenManager"
   ],
   "injectors": {

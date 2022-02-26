@@ -9,3 +9,4 @@ Accessible class net/minecraft/tags/StaticTagHelper$Wrapper
 Accessible class net/minecraft/world/level/biome/MultiNoiseBiomeSource$PresetInstance
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$Context
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$SurfaceRule
+Accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
