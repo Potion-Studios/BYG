@@ -15,4 +15,9 @@ public class MixinSurfaceRuleData {
     private static void addBYGEndSurfaceRules(CallbackInfoReturnable<SurfaceRules.RuleSource> cir) {
         cir.setReturnValue(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, cir.getReturnValue()));
     }
+
+    @Inject(method = "nether", at = @At("RETURN"), cancellable = true)
+    private static void addBYGNetherSurfaceRules(CallbackInfoReturnable<SurfaceRules.RuleSource> cir) {
+        cir.setReturnValue(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, cir.getReturnValue()));
+    }
 }

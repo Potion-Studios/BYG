@@ -14,11 +14,13 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
+import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.nio.file.Path;
 
@@ -50,5 +52,6 @@ public class BYGFabric implements ModInitializer {
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
+        Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
     }
 }

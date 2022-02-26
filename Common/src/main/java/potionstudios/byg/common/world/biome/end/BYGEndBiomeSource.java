@@ -1,27 +1,23 @@
-package potionstudios.byg.common.world.biome;
+package potionstudios.byg.common.world.biome.end;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.mixin.access.WeightedListAccess;
-import potionstudios.byg.util.CodecUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.world.level.biome.TheEndBiomeSource.getHeightValue;
-import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 
 public abstract class BYGEndBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
@@ -123,42 +119,8 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
     public static List<Biome> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, LayersBiomeData... layersBiomeDatas) {
         List<Biome> biomes = new ArrayList<>();
         for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
-            ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights).getItems().stream().map(WeightedEntry.Wrapper::getData).map(biomeRegistry::get).forEach(biomes::add);
+            ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems().stream().map(WeightedEntry.Wrapper::getData).map(biomeRegistry::get).forEach(biomes::add);
         }
         return biomes;
-    }
-
-    public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biomeWeights, int biomeSize) {
-        public static final Codec<LayersBiomeData> CODEC = RecordCodecBuilder.create(builder -> {
-            return builder.group(
-                    SimpleWeightedRandomList.wrappedCodec(CodecUtil.BIOME_CODEC).fieldOf("biomeWeights").forGetter(layersBiomeData -> layersBiomeData.biomeWeights),
-                    Codec.INT.fieldOf("biomeSize").forGetter(layersBiomeData -> layersBiomeData.biomeSize)
-            ).apply(builder, LayersBiomeData::new);
-        });
-
-        public static final LayersBiomeData DEFAULT_END_ISLANDS = new LayersBiomeData(
-                SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
-                        .add(Biomes.END_MIDLANDS, 2)
-                        .add(Biomes.END_BARRENS, 2)
-                        .add(Biomes.END_HIGHLANDS, 2)
-                        .add(IVIS_FIELDS, 1)
-                        .add(NIGHTSHADE_FOREST, 3)
-                        .add(ETHEREAL_ISLANDS, 3)
-                        .add(BULBIS_GARDENS, 3)
-                        .add(SHULKREN_FOREST, 3)
-                        .add(CRYPTIC_WASTES, 1)
-                        .add(IMPARIUS_GROVE, 3)
-                        .build(), 3);
-
-        public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(
-                SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
-                        .add(Biomes.SMALL_END_ISLANDS, 2)
-                        .build(), 2);
-
-        public static final LayersBiomeData DEFAULT_SKY = new LayersBiomeData(
-            SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
-                .add(VISCAL_ISLES, 1)
-                .add(Biomes.THE_END, 9)
-                .build(), 2);
     }
 }

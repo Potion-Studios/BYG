@@ -7,7 +7,8 @@ import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeResolver;
 import net.minecraft.world.level.biome.BiomeSource;
-import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import terrablender.worldgen.noise.Area;
 
 import static potionstudios.byg.world.biome.LayerUtil.createLayers;

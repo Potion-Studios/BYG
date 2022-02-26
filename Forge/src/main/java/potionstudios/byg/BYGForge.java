@@ -34,7 +34,8 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
@@ -44,6 +45,7 @@ import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
+import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
 
@@ -133,6 +135,7 @@ public class BYGForge {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
+        Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
     }
 
     private void loadFinish(FMLLoadCompleteEvent event) {

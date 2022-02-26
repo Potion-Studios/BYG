@@ -15,14 +15,16 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import potionstudios.byg.common.world.biome.EndBiomesConfig;
+import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
+import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
+import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 
 @Mixin(DimensionType.class)
 public class MixinDimensionType {
 
     @Inject(method = "defaultDimensions(Lnet/minecraft/core/RegistryAccess;J)Lnet/minecraft/core/MappedRegistry;", at = @At("RETURN"), cancellable = true)
-    private static void useBYGEnd(RegistryAccess registryAccess, long seed, CallbackInfoReturnable<MappedRegistry<LevelStem>> cir) {
+    private static void useBYGEndAndNether(RegistryAccess registryAccess, long seed, CallbackInfoReturnable<MappedRegistry<LevelStem>> cir) {
         MappedRegistry<LevelStem> returnValue = cir.getReturnValue();
         MappedRegistry<LevelStem> newRegistry = new MappedRegistry<>(Registry.LEVEL_STEM_REGISTRY, Lifecycle.experimental());
         Registry<DimensionType> dimensionTypeRegistry = registryAccess.registryOrThrow(Registry.DIMENSION_TYPE_REGISTRY);
@@ -30,16 +32,23 @@ public class MixinDimensionType {
         Registry<Biome> biomeRegistry = registryAccess.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<NormalNoise.NoiseParameters> noiseParameters = registryAccess.registryOrThrow(Registry.NOISE_REGISTRY);
 
-        EndBiomesConfig config = EndBiomesConfig.getConfig(true);
-        if (!config.useBYGEndBiomeSourceInNewWorlds()) {
-            return;
-        }
+        EndBiomesConfig endConfig = EndBiomesConfig.getConfig(true);
+
+
+        NetherBiomesConfig netherConfig = NetherBiomesConfig.getConfig(true);
+
         for (LevelStem levelStem : returnValue) {
             ResourceKey<LevelStem> levelStemResourceKey = returnValue.getResourceKey(levelStem).get();
-            if (levelStemResourceKey == LevelStem.END) {
+            if (levelStemResourceKey == LevelStem.NETHER && netherConfig.useBYGNetherBiomeSourceInNewWorlds()) {
+                newRegistry.register(levelStemResourceKey, new LevelStem(() -> {
+                    return dimensionTypeRegistry.getOrThrow(DimensionType.NETHER_LOCATION);
+                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGForgeNetherBiomeSource(biomeRegistry, seed, netherConfig.upperLayer(), netherConfig.middleLayer(), netherConfig.bottomLayer()), seed, () -> {
+                    return noiseGeneratorSettingsRegistry.getOrThrow(NoiseGeneratorSettings.NETHER);
+                })), Lifecycle.experimental());
+            } else if (levelStemResourceKey == LevelStem.END && endConfig.useBYGEndBiomeSourceInNewWorlds()) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(() -> {
                     return dimensionTypeRegistry.getOrThrow(DimensionType.END_LOCATION);
-                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGForgeEndBiomeSource(biomeRegistry, seed, config.islandLayers(), config.voidLayers(), config.skyLayers()), seed, () -> {
+                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGForgeEndBiomeSource(biomeRegistry, seed, endConfig.islandLayers(), endConfig.voidLayers(), endConfig.skyLayers()), seed, () -> {
                     return noiseGeneratorSettingsRegistry.getOrThrow(NoiseGeneratorSettings.END);
                 })), Lifecycle.experimental());
 

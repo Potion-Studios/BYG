@@ -1,4 +1,4 @@
-package potionstudios.byg.common.world.biome;
+package potionstudios.byg.common.world.biome.end;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.LayersBiomeData;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,23 +16,26 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.Supplier;
 
-public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds, boolean useUpdatingConfig, BYGEndBiomeSource.LayersBiomeData islandLayers, BYGEndBiomeSource.LayersBiomeData voidLayers, BYGEndBiomeSource.LayersBiomeData skyLayers, int skyLayerStartY) {
+public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds,
+                              boolean useUpdatingConfig, LayersBiomeData islandLayers,
+                              LayersBiomeData voidLayers, LayersBiomeData skyLayers,
+                              int skyLayerStartY) {
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json");
 
     public static final Codec<EndBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
-                Codec.BOOL.fieldOf("useBYGEndBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.useBYGEndBiomeSourceInNewWorlds),
-                Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
-                Codec.BOOL.fieldOf("warnBYGEndBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGEndBiomeSourceNotUsedInNewWorlds),
-                BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
-            BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
-            BYGEndBiomeSource.LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers),
+            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.useBYGEndBiomeSourceInNewWorlds),
+            Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
+            Codec.BOOL.fieldOf("warnBYGEndBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGEndBiomeSourceNotUsedInNewWorlds),
+            LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
+            LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
+            LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers),
             Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY)
-            ).apply(builder, EndBiomesConfig::new);
+        ).apply(builder, EndBiomesConfig::new);
     });
     public static EndBiomesConfig INSTANCE = null;
 
-    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_ISLANDS, BYGEndBiomeSource.LayersBiomeData.DEFAULT_END_VOID, BYGEndBiomeSource.LayersBiomeData.DEFAULT_SKY, 180);
+    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, LayersBiomeData.DEFAULT_END_ISLANDS, LayersBiomeData.DEFAULT_END_VOID, LayersBiomeData.DEFAULT_SKY, 180);
 
 
     public static EndBiomesConfig getConfig() {

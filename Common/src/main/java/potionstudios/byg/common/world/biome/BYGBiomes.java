@@ -21,8 +21,8 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static potionstudios.byg.common.world.biome.BYGEndBiomes.*;
 import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
+import static potionstudios.byg.common.world.biome.end.BYGEndBiomes.*;
 
 @SuppressWarnings("deprecation")
 public class BYGBiomes {
@@ -79,23 +79,22 @@ public class BYGBiomes {
 //    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
-//
-//    /************Nether Biomes************/
-//    public static ResourceKey<Biome> BRIMSTONE_CAVERNS = createBiome("brimstone_caverns", NetherBiomes.brimstoneCaverns());
-//    public static ResourceKey<Biome> CRIMSON_GARDENS = createBiome("crimson_gardens", NetherBiomes.crimsonGardens());
-//    public static ResourceKey<Biome> EMBUR_BOG = createBiome("embur_bog", NetherBiomes.emburBog());
-//    public static ResourceKey<Biome> GLOWSTONE_GARDENS = createBiome("glowstone_gardens", NetherBiomes.glowstoneGardens());
-//    public static ResourceKey<Biome> MAGMA_WASTES = createBiome("magma_wastes", NetherBiomes.magmaWastes());
-//    public static ResourceKey<Biome> SUBZERO_HYPOGEAL = createBiome("subzero_hypogeal", NetherBiomes.subzeroHypogeal());
-//    public static ResourceKey<Biome> SYTHIAN_TORRIDS = createBiome("sythian_torrids", NetherBiomes.sythianTorrids());
-//    public static ResourceKey<Biome> WARPED_DESERT = createBiome("warped_desert", NetherBiomes.warpedDesert());
-//    public static ResourceKey<Biome> WAILING_GARTH = createBiome("wailing_garth", NetherBiomes.wailingGarth());
-//    public static ResourceKey<Biome> WITHERING_WOODS = createBiome("withering_woods", NetherBiomes.witheringWoods());
-//    public static ResourceKey<Biome> WEEPING_MIRE = createBiome("weeping_mire", NetherBiomes.weepingMire());
-//    public static ResourceKey<Biome> QUARTZ_DESERT = createBiome("quartz_desert", NetherBiomes.quartzDesert());
-//
-//
-//    /************End Biomes************/
+
+    /************Nether Biomes************/
+    public static ResourceKey<Biome> BRIMSTONE_CAVERNS = createBiome("brimstone_caverns", BYGNetherBiomes.brimstoneCaverns());
+    public static ResourceKey<Biome> CRIMSON_GARDENS = createBiome("crimson_gardens", BYGNetherBiomes.crimsonGardens());
+    public static ResourceKey<Biome> EMBUR_BOG = createBiome("embur_bog", BYGNetherBiomes.emburBog());
+    public static ResourceKey<Biome> GLOWSTONE_GARDENS = createBiome("glowstone_gardens", BYGNetherBiomes.glowstoneGardens());
+    public static ResourceKey<Biome> MAGMA_WASTES = createBiome("magma_wastes", BYGNetherBiomes.magmaWastes());
+    public static ResourceKey<Biome> SUBZERO_HYPOGEAL = createBiome("subzero_hypogeal", BYGNetherBiomes.subzeroHypogeal());
+    public static ResourceKey<Biome> SYTHIAN_TORRIDS = createBiome("sythian_torrids", BYGNetherBiomes.sythianTorrids());
+    public static ResourceKey<Biome> WARPED_DESERT = createBiome("warped_desert", BYGNetherBiomes.warpedDesert());
+    public static ResourceKey<Biome> WAILING_GARTH = createBiome("wailing_garth", BYGNetherBiomes.wailingGarth());
+    public static ResourceKey<Biome> ARISIAN_UNDERGROWTH = createBiome("arisian_undergrowth", BYGNetherBiomes.arisianUndergrowth());
+    public static ResourceKey<Biome> WEEPING_MIRE = createBiome("weeping_mire", BYGNetherBiomes.weepingMire());
+    public static ResourceKey<Biome> QUARTZ_DESERT = createBiome("quartz_desert", BYGNetherBiomes.quartzDesert());
+
+    /************End Biomes************/
     public static ResourceKey<Biome> IVIS_FIELDS = createBiome("ivis_fields", ivisFields());
     public static ResourceKey<Biome> NIGHTSHADE_FOREST = createBiome("nightshade_forest", nightshadeForest());
     public static ResourceKey<Biome> ETHEREAL_ISLANDS = createBiome("ethereal_islands", etherealIslands());

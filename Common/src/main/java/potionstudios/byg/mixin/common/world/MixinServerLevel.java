@@ -23,8 +23,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.BYGEndBiomeSource;
-import potionstudios.byg.common.world.biome.EndBiomesConfig;
+import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
+import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 

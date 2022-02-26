@@ -1,4 +1,4 @@
-package potionstudios.byg.common.world.biome;
+package potionstudios.byg.common.world.biome.end;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.placement.EndPlacements;
@@ -9,6 +9,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import potionstudios.byg.common.sound.BYGSounds;
+import potionstudios.byg.common.world.biome.BYGDefaultBiomeFeatures;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 import potionstudios.byg.mixin.access.VanillaBiomeAccess;
 
