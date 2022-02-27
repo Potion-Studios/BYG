@@ -12,6 +12,7 @@
     "access.BlockStateProviderAccess",
     "access.BlockTagsAccess",
     "access.BoatEntityAccess",
+    "access.DeltaFeatureAccess",
     "access.DimensionStructuresSettingsAccess",
     "access.DirtPathBlockAccess",
     "access.DoorBlockAccess",

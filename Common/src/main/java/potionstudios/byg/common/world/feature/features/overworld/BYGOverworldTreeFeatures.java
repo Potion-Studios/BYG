@@ -2271,6 +2271,13 @@ public class BYGOverworldTreeFeatures {
                 MAHOGANY_TREES.placed())
         ));
 
+    public static final ConfiguredFeature<?, ?> RAINBOW_EUCALYPTUS_TREES = createConfiguredFeature("rainbow_eucalyptus_trees",
+        Feature.RANDOM_SELECTOR.configured(
+            new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(RAINBOW_LARGE_TREE1.placed(), 0.333F)),
+                MAHOGANY_TREES.placed())
+        ));
+
     public static final ConfiguredFeature<?, ?> SKYRIS_TREES = createConfiguredFeature("skyris_trees",
         Feature.RANDOM_SELECTOR.configured(
             new RandomFeatureConfiguration(ImmutableList.of(

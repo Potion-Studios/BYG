@@ -1,9 +1,11 @@
 package potionstudios.byg;
 
 
+import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,6 +14,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
+import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModLoaderContext;
@@ -62,6 +65,18 @@ public class BYG {
         validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
         builderAccess.setValidBlocks(validBlocks);
+        DeltaFeatureAccess.setCANNOT_REPLACE(
+            new ImmutableList.Builder<Block>()
+                .addAll(DeltaFeatureAccess.getCANNOT_REPLACE())
+                .add(Blocks.JUNGLE_LEAVES)
+                .add(Blocks.JUNGLE_LOG)
+                .add(Blocks.OAK_LEAVES)
+                .add(Blocks.OAK_LOG)
+                .add(BYGBlocks.RAINBOW_EUCALYPTUS_LOG)
+                .add(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES)
+                .add(Blocks.VINE)
+                .build()
+        );
     }
 
     public static void clientLoad() {

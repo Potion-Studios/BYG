@@ -556,16 +556,15 @@ public class BYGOverworldBiomes {
         invokeGlobalOverworldGeneration(generationSettings);
         BYGDefaultBiomeFeatures.addCragGen(generationSettings);
 
-
+        BYGDefaultBiomeFeatures.addLilyPads(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BYGDefaultBiomeFeatures.addCragRainbowTrees(generationSettings);
         BiomeDefaultFeatures.addJungleTrees(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
-        BYGDefaultBiomeFeatures.addCragRainbowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGLilyPad(generationSettings);
         BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
