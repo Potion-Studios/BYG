@@ -6,6 +6,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.item.ItemStack;
+import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
@@ -48,6 +49,7 @@ public class BYGFabric implements ModInitializer {
         BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, createLocation(registryObject.id()), registryObject.object())));
         BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, createLocation(registryObject.id()), registryObject.object())));
         BYGStateProviders.bootStrap().forEach(registryObject -> Registry.register(Registry.BLOCKSTATE_PROVIDER_TYPES, createLocation(registryObject.id()), registryObject.object()));
+        BYGParticleTypes.bootStrap().forEach(registryObject -> Registry.register(Registry.PARTICLE_TYPE, createLocation(registryObject.id()), registryObject.object()));
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
