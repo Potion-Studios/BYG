@@ -3,7 +3,6 @@ package potionstudios.byg.common.world.biome;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -553,22 +552,24 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        BYGDefaultBiomeFeatures.addLargeLake(generationSettings);
-        BYGDefaultBiomeFeatures.addCattails(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGLilyPad(generationSettings);
-        BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+
         invokeGlobalOverworldGeneration(generationSettings);
+        BYGDefaultBiomeFeatures.addCragGen(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addJungleTrees(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BYGDefaultBiomeFeatures.addCragRainbowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
-        BiomeDefaultFeatures.addJungleTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addCattails(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGLilyPad(generationSettings);
+        BYGDefaultBiomeFeatures.addMarshGrass(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
+        BYGDefaultBiomeFeatures.addOvergrownVines(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));

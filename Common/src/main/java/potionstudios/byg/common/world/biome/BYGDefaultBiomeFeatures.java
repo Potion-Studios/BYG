@@ -74,9 +74,16 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BEACH_GRASS);
     }
 
-    public static void addLargeLake(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGConfiguredFeatures.WIDE_WATER_LAKE);
+    public static void addCragGen(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRAG_DELTA);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRAG_GEN);
     }
+
+    public static void addOvergrownVines(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.VINES_1);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.VINES_2);
+    }
+
 
     public static void addEndLake(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.END_LAKE);
@@ -370,8 +377,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBrimstoneVents(BiomeGenerationSettings.Builder gen) {
-        // TODO: Redo gen
-//        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.BRIMSTONE_VENTS);
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.BRIMSTONE_VOLCANO);
     }
 
     public static void addBoricFire(BiomeGenerationSettings.Builder gen) {

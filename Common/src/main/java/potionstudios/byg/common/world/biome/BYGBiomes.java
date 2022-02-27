@@ -43,7 +43,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", cherryBlossomForest());
     public static ResourceKey<Biome> CIKA_WOODS = createBiome("cika_woods", cikaWoods());
     public static ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", coniferousForest(false));
-//    public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens());
+    public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens());
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands());
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea());
     public static ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", daciteRidges());

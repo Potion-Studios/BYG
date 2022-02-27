@@ -21,10 +21,12 @@ import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
+import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 
 import java.util.List;
 
@@ -38,6 +40,15 @@ public class BYGOverworldFeatures {
     public static final ConfiguredFeature<?, ?> BLACKSTONE_BOULDER = createConfiguredFeature("blackstone_boulder", Feature.FOREST_ROCK.configured(new BlockStateConfiguration(Blocks.BLACKSTONE.defaultBlockState())));
     public static final ConfiguredFeature<?, ?> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", Feature.FOREST_ROCK.configured(new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState())));
     public static final ConfiguredFeature<?, ?> BLACK_ICE = createConfiguredFeature("black_ice_snow", Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE))));
+    public static final ConfiguredFeature<?, ?> CRAG_GEN = createConfiguredFeature("crag_gen",
+        BYGFeatures.CRAG_FEATURE.configured(new SimpleBlockProviderConfig(
+            new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
+                BetweenNoiseThresholdProvider.createThresholds(0.0125F, -0.5F, 0.5F),
+                SimpleStateProvider.simple(Blocks.TUFF), SimpleStateProvider.simple(Blocks.DEEPSLATE), false)
+        )));
+
+    public static final ConfiguredFeature<?, ?> CRAG_DELTA = createConfiguredFeature("crag_delta", Feature.DELTA_FEATURE.configured(new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(3, 7), UniformInt.of(0, 2))));
+
 
     public static final ConfiguredFeature<?, ?> WIDE_WATER_LAKE = createConfiguredFeature("wide_water_lake",
         BYGFeatures.WIDE_LAKE.configured(new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.WATER.defaultBlockState())))

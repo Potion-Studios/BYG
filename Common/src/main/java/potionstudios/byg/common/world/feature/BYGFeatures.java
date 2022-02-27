@@ -43,23 +43,16 @@ import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushro
 import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushroom4;
 import potionstudios.byg.common.world.feature.gen.nether.trees.lament.*;
 import potionstudios.byg.common.world.feature.gen.nether.trees.withering.*;
-import potionstudios.byg.common.world.feature.gen.overworld.*;
-import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.birch.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.coniferous.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.mahogany.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.mangrove.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.meadow.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.pine.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.skyris.*;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.WailingVine;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.pillars.WailingPillar1;
 import potionstudios.byg.common.world.feature.gen.nether.warpeddesert.WarpedCoralFeature;
+import potionstudios.byg.common.world.feature.gen.overworld.*;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.AngelicaGiant;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.DandelionGiant;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.IrisGiant;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.RoseGiant;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
+import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
@@ -74,6 +67,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTre
 import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree3;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.birch.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree3;
@@ -84,6 +78,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.cherry.CherryT
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree3;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.coniferous.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree3;
@@ -110,9 +105,12 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda.Jaca
 import potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda.JacarandaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree2;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.mahogany.*;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.mangrove.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree3;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.meadow.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree3;
@@ -128,11 +126,13 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree3
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree2;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.pine.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree3;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.skyris.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.giant.SpruceTreeLarge1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium2;
@@ -167,6 +167,7 @@ public class BYGFeatures {
     public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> HUH = createFeature("river_feature", new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> VOLCANO = createFeature("volcano", new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final Feature<SimpleBlockProviderConfig> CRAG_FEATURE = createFeature("crag_feature", new CragFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> ARCH = createFeature("arch", new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> DUNE_TERRAIN = createFeature("dune_terrain", new DuneFeature(NoneFeatureConfiguration.CODEC.stable()));
 

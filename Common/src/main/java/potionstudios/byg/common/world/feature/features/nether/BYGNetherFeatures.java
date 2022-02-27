@@ -23,6 +23,7 @@ public class BYGNetherFeatures {
 
     public static final RuleTest BRIMSTONE = new BlockMatchTest(BYGBlocks.BRIMSTONE);
 
+    public static final ConfiguredFeature<?, ?> BRIMSTONE_VOLCANO = createConfiguredFeature("brimstone_volcano", BYGFeatures.VOLCANO.configured(new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE))));
 
     public static final ConfiguredFeature<?, ?> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", Feature.ORE.configured(new OreConfiguration(BRIMSTONE, BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10)));
     public static final ConfiguredFeature<?, ?> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", Feature.ORE.configured(new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10)));

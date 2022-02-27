@@ -10,6 +10,7 @@ public class BYGPlacementModifierType {
 
     public static final PlacementModifierType<ChunkCoveringPlacement> CHUNK_COVERING_PLACEMENT = register("chunk_covering_placement", ChunkCoveringPlacement.CODEC);
     public static final PlacementModifierType<NearWaterPlacementFilter> NEAR_WATER_FILTER = register("near_water_filter", NearWaterPlacementFilter.CODEC);
+    public static final PlacementModifierType<AboveHeightmapFilter> ABOVE_HEIGHTMAP_FILTER = register("above_heightmap_filter", AboveHeightmapFilter.CODEC);
 
     private static <P extends PlacementModifier> PlacementModifierType<P> register(String id, Codec<P> codec) {
         return Registry.register(Registry.PLACEMENT_MODIFIERS, BYG.createLocation(id), () -> {

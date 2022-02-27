@@ -14,6 +14,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -26,6 +27,7 @@ import potionstudios.byg.common.world.feature.features.nether.BYGNetherFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
+import potionstudios.byg.common.world.placement.AboveHeightmapFilter;
 import potionstudios.byg.common.world.placement.ChunkCoveringPlacement;
 import potionstudios.byg.common.world.placement.NearWaterPlacementFilter;
 import potionstudios.byg.mixin.access.VegetationPlacementsAccess;
@@ -42,6 +44,7 @@ import static potionstudios.byg.mixin.access.OrePlacementsAccess.invokeCommonOre
 public class BYGPlacedFeatures {
 
     public static final NoiseThresholdCountPlacement CLEARING_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
+    public static final NoiseThresholdCountPlacement CRAG_NOISE = NoiseThresholdCountPlacement.of(0, 1, 0);
 
     public static final NoiseThresholdCountPlacement DENSE_NOISE = NoiseThresholdCountPlacement.of(-0.545, 1, 2);
 
@@ -227,6 +230,11 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature ORE_ANTHRACITE = PlacementUtils.register("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE.placed(invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10)));
 
     public static final PlacedFeature BORIC_FIRE = createPlacedFeature("patch_boric_fire", BYGNetherFeatures.BORIC_FIRE_PATCH.placed(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome()));
+    public static final PlacedFeature BRIMSTONE_VOLCANO = createPlacedFeature("brimstone_volcano", BYGNetherFeatures.BRIMSTONE_VOLCANO.placed(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome()));
+    public static final PlacedFeature CRAG_GEN = createPlacedFeature("crag_gen", BYGOverworldFeatures.CRAG_GEN.placed(CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), new AboveHeightmapFilter(Heightmap.Types.OCEAN_FLOOR_WG), CRAG_NOISE));
+    public static final PlacedFeature CRAG_DELTA = createPlacedFeature("crag_delta", BYGOverworldFeatures.CRAG_DELTA.placed(oceanFloorSquaredWithCount(3)));
+    public static final PlacedFeature VINES_1 = createPlacedFeature("vines", VegetationFeatures.VINES.placed(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(100)), BiomeFilter.biome()));
+    public static final PlacedFeature VINES_2 = createPlacedFeature("vines_2", VegetationFeatures.VINES.placed(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(100)), BiomeFilter.biome()));
 
     public static final PlacedFeature BRIMSTONE_PILLARS = createPlacedFeature("brimstone_pillars", BYGNetherFeatures.BRIMSTONE_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
 

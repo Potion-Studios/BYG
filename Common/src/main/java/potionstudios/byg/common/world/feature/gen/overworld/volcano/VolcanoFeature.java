@@ -2,14 +2,13 @@ package potionstudios.byg.common.world.feature.gen.overworld.volcano;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
@@ -32,33 +31,35 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
         setSeed(world.getSeed());
 
 
-        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()).getMaterial() == Material.WATER || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
-            return false;
-
-
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        double baseRadius = 15;
-        double lavaLeakage = 0.7;
-        int volcanoConeSize = 75;
+        double baseRadius = 10;
+        double leakage = 0.5;
+        int volcanoConeSize = 30;
         int volcanoStartHeight = volcanoConeSize - 5;
-        double threshold = 0.5;
+        double threshold = 0.4;
+        int fluidY = -20 + rand.nextInt(9);
 
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
-            for (double y = -volcanoConeSize; y <= -15; y++) {
-                for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
-                    mutable.set(pos).move((int)x, (int)y + volcanoStartHeight, (int)z);
+            for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
+                for (double y = -volcanoConeSize; y <= -15; y++) {
+                    mutable.set(pos).move((int) x, (int) y + volcanoStartHeight, (int) z);
                     float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
-                    if (scaledNoise - lavaLeakage >= threshold) {
-                        if (mutable.getY() <= pos.getY() + (volcanoStartHeight - 19)) {
-                            world.setBlock(mutable, Blocks.LAVA.defaultBlockState(), 2);
-                            world.scheduleTick(mutable, Fluids.LAVA, 0);
+                    if (scaledNoise - leakage >= threshold) {
+                        if (y <= fluidY) {
+                            while (!world.getBlockState(mutable).canOcclude() && mutable.getY() > world.getMinBuildHeight()) {
+                                world.setBlock(mutable, Blocks.LAVA.defaultBlockState(), 2);
+                                world.scheduleTick(mutable, Fluids.LAVA, 0);
+                                mutable.move(Direction.DOWN);
+                            }
                         }
-                    }
-                    else if (scaledNoise >= threshold) {
-                        world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
+                    } else if (scaledNoise >= threshold) {
+                        while (!world.getBlockState(mutable).canOcclude() && mutable.getY() > world.getMinBuildHeight()) {
+                            world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
+                            mutable.move(Direction.DOWN);
+                        }
                     }
                 }
             }
