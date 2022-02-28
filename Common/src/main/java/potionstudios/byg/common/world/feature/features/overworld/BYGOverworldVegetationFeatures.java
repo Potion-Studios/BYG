@@ -1,9 +1,7 @@
 package potionstudios.byg.common.world.feature.features.overworld;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -12,13 +10,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureCo
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
-import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
@@ -160,15 +156,6 @@ public class BYGOverworldVegetationFeatures {
                 new WeightedPlacedFeature(WOOD_BLEWIT.placed(), 0.33F),
                 new WeightedPlacedFeature(WEEPING_MILKCAP.placed(), 0.33F)),
                 GREEN_MUSHROOM.placed())
-        ));
-
-    public static final ConfiguredFeature<?, ?> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike",
-        BYGFeatures.QUARTZ_SPIKES.configured(
-            new QuartzSpikeConfig.Builder()
-                .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(Blocks.QUARTZ_BLOCK.defaultBlockState(), 3)
-                    .add(Blocks.SMOOTH_QUARTZ.defaultBlockState(), 2)
-                )).build()
         ));
 
     public static final ConfiguredFeature<?, ?> JUNGLE_FLOWERS = createConfiguredFeature("jungle_flowers",

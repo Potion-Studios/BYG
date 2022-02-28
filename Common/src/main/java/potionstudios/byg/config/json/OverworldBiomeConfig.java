@@ -21,7 +21,8 @@ public record OverworldBiomeConfig(boolean generateOverworld, List<BYGOverworldB
     public static OverworldBiomeConfig INSTANCE = null;
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
+        return builder.group(
+            Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
             BYGOverworldBiomeBuilder.BiomeProviderData.CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
         ).apply(builder, OverworldBiomeConfig::new);
     });
