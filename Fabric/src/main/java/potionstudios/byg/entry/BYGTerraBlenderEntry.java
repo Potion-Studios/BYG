@@ -25,15 +25,19 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
                 return FabricLoader.getInstance().getConfigDir();
             }
         };
-
-        BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
-            @Override
-            public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-                return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-            }
-        });
-        OverworldBiomeConfig.getConfig(true).values().forEach(biomeProviderData -> {
-            BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
-        });
+        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+        if (config.generateOverworld()) {
+            BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
+                @Override
+                public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
+                    return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+                }
+            });
+            config.values().forEach(biomeProviderData -> {
+                BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
+            });
+        } else {
+            BYG.LOGGER.info("BYG overworld biomes disabled.");
+        }
     }
 }
