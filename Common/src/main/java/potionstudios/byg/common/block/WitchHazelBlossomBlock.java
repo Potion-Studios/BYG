@@ -10,29 +10,34 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SporeBlossomBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 
 import java.util.Random;
 
 public class WitchHazelBlossomBlock extends SporeBlossomBlock {
-    public WitchHazelBlossomBlock(Properties $$0) {
-        super($$0);
+    public WitchHazelBlossomBlock(Properties blockState) {
+        super(blockState);
     }
 
     @Override
-    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, Random random) {
-        int i = blockPos.getX();
-        int j = blockPos.getY();
-        int k = blockPos.getZ();
-        double d = (double)i + random.nextDouble();
-        double e = (double)j + 0.7;
-        double f = (double)k + random.nextDouble();
-        level.addParticle(ParticleTypes.CRIMSON_SPORE, d, e, f, 0.0, 0.0, 0.0);
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        for (int l = 0; l < 14; ++l) {
-            mutableBlockPos.set(i + Mth.nextInt(random, -10, 10), j - random.nextInt(10), k + Mth.nextInt(random, -10, 10));
-            BlockState blockState2 = level.getBlockState(mutableBlockPos);
-            if (blockState2.isCollisionShapeFullBlock(level, mutableBlockPos)) continue;
-            level.addParticle(ParticleTypes.CRIMSON_SPORE, (double)mutableBlockPos.getX() + random.nextDouble(), (double)mutableBlockPos.getY() + random.nextDouble(), (double)mutableBlockPos.getZ() + random.nextDouble(), 0.0, 0.0, 0.0);
+    public void animateTick(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Random random) {
+        int $$4 = blockPos.getX();
+        int $$5 = blockPos.getY();
+        int $$6 = blockPos.getZ();
+        double $$7 = (double)$$4 + random.nextDouble();
+        double $$8 = (double)$$5 + 0.7D;
+        double $$9 = (double)$$6 + random.nextDouble();
+        level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAF, $$7, $$8, $$9, 0.0D, 0.0D, 0.0D);
+        BlockPos.MutableBlockPos level0 = new BlockPos.MutableBlockPos();
+
+        for(int level1 = 0; level1 < 14; ++level1) {
+            level0.set($$4 + Mth.nextInt(random, -10, 10), $$5 - random.nextInt(10), $$6 + Mth.nextInt(random, -10, 10));
+            BlockState level2 = level.getBlockState(level0);
+            if (!level2.isCollisionShapeFullBlock(level, level0)) {
+                level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAF, (double)level0.getX() + random.nextDouble(), (double)level0.getY() + random.nextDouble(), (double)level0.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
+            }
         }
+
     }
 }
