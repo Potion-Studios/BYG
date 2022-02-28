@@ -187,6 +187,7 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGOverworldFeatures.FROST_MAGMA_LAKE.placed(worldSurfaceSquaredWithCount(3)));
     public static final PlacedFeature TINY_LILY_PAD = createPlacedFeature("tiny_lily_pad", BYGOverworldVegetationFeatures.TINY_LILY_PAD.placed(CountPlacement.of(15), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter.biome()));
     public static final PlacedFeature LILY_PAD = createPlacedFeature("lily_pad", VegetationFeatures.PATCH_WATERLILY.placed(CountPlacement.of(15), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_GRASS_CRAG = PlacementUtils.register("patch_grass_crag", VegetationFeatures.PATCH_GRASS_JUNGLE.placed(CountPlacement.of(25), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter.biome()));
 
     public static final PlacedFeature SPARSE_HUGE_MUSHROOMS = createPlacedFeature("sparse_huge_mushrooms", BYGOverworldVegetationFeatures.HUGE_MUSHROOMS.placed(clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 2))));
     public static final PlacedFeature HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGOverworldVegetationFeatures.HUGE_MUSHROOMS.placed(clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2))));

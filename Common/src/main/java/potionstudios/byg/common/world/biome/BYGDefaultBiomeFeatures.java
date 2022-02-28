@@ -659,7 +659,8 @@ public class BYGDefaultBiomeFeatures {
         ////gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGDefaultBiomeFeatures.RAINBOW_TREE1.configure(DecoratedFeatureConfig.DEFAULT).decorate(Decorator.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(5, 0.5F, -4))));
     }
 
-    public static void addCragRainbowTrees(BiomeGenerationSettings.Builder gen) {
+    public static void adddCragVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PATCH_GRASS_CRAG);
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RAINBOW_EUCALYPTUS_TREES);
     }
 

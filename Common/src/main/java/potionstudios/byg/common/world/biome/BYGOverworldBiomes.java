@@ -559,8 +559,9 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addLilyPads(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BYGDefaultBiomeFeatures.addCragRainbowTrees(generationSettings);
+        BYGDefaultBiomeFeatures.adddCragVegetation(generationSettings);
         BiomeDefaultFeatures.addJungleTrees(generationSettings);
+        BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
@@ -1759,7 +1760,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        BYGDefaultBiomeFeatures.addCragRainbowTrees(generationSettings);
+        BYGDefaultBiomeFeatures.adddCragVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         invokeGlobalOverworldGeneration(generationSettings);
 
