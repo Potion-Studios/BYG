@@ -12,6 +12,7 @@
     "access.BlockStateProviderAccess",
     "access.BlockTagsAccess",
     "access.BoatEntityAccess",
+    "access.ChunkAccessAccess",
     "access.DeltaFeatureAccess",
     "access.DimensionStructuresSettingsAccess",
     "access.DirtPathBlockAccess",

@@ -708,9 +708,9 @@ public class BYGOverworldBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PATCH_BEACH_GRASS_NOISE);
         BYGDefaultBiomeFeatures.addBYGDesertVegetation(generationSettings);
 //        BYGDefaultBiomeFeatures.addWindsweptBoulders(generationSettings);
-        BYGDefaultBiomeFeatures.addLargeWindsweptLake(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.WINDSWEPT_SPIKES);
-        BYGDefaultBiomeFeatures.addPalmTree(generationSettings);
+//        BYGDefaultBiomeFeatures.addLargeWindsweptLake(generationSettings);
+//        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.WINDSWEPT_SPIKES);
+//        BYGDefaultBiomeFeatures.addPalmTree(generationSettings);
 
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).biomeCategory(Biome.BiomeCategory.DESERT).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
