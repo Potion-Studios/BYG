@@ -74,6 +74,10 @@ public class BYG {
                 .add(Blocks.OAK_LOG)
                 .add(BYGBlocks.RAINBOW_EUCALYPTUS_LOG)
                 .add(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES)
+                .add(BYGBlocks.EMBUR_GEL_BLOCK)
+                .add(BYGBlocks.EMBUR_GEL_BRANCH)
+                .add(BYGBlocks.EMBUR_GEL_VINES)
+                .add(BYGBlocks.EMBUR_GEL_VINES_PLANT)
                 .add(Blocks.VINE)
                 .build()
         );

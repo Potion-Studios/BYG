@@ -44,7 +44,7 @@ public class BYGNetherBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.WEEPING_VINES);//Weeping Vines
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, TreePlacements.CRIMSON_FUNGI); //Crimson Fungi
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.CRIMSON_FOREST_VEGETATION); //Crimson Forest Vegetation
-//        generationSettings.withFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Features.LARGE_BASALT_COLUMNS); //Basalt Columns Large
+        generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, NetherPlacements.LARGE_BASALT_COLUMNS); //Basalt Columns Large
 
         BYGDefaultBiomeFeatures.addCrimsonGardensVegetation(generationSettings);
 
@@ -64,7 +64,6 @@ public class BYGNetherBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, NetherPlacements.DELTA);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
-//        generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGConfiguredFeatures.RANDOM_EMBUR_MUSHROOM);
         BYGDefaultBiomeFeatures.addEmburBogVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addBlueNetherOres(generationSettings);

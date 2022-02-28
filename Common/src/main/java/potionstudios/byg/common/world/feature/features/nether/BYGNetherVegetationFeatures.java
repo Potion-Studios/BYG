@@ -3,17 +3,63 @@ package potionstudios.byg.common.world.feature.features.nether;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
-import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.config.*;
 
-import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
+import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
 public class BYGNetherVegetationFeatures {
+
+    public static final ConfiguredFeature<?, ?> EMBUR_ROOTS = createPatchConfiguredFeature("embur_roots", BYGBlocks.EMBUR_ROOTS, 15);
+    public static final ConfiguredFeature<?, ?> TALL_EMBUR_ROOTS = createPatchConfiguredFeature("tall_embur_roots", BYGBlocks.TALL_EMBUR_ROOTS, 15);
+    public static final ConfiguredFeature<?, ?> EMBUR_WART = createPatchConfiguredFeature("embur_wart", BYGBlocks.EMBUR_WART, 15);
+    public static final ConfiguredFeature<?, ?> EMBUR_SPROUT = createPatchConfiguredFeature("embur_sprout", BYGBlocks.EMBUR_SPROUTS, 15);
+    public static final ConfiguredFeature<?, ?> SYTHIAN_ROOTS = createPatchConfiguredFeature("sythian_roots", BYGBlocks.SYTHIAN_ROOTS, 15);
+    public static final ConfiguredFeature<?, ?> SYTHIAN_SPROUT = createPatchConfiguredFeature("sythian_sprout", BYGBlocks.SYTHIAN_SPROUT, 15);
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS = createPatchConfiguredFeature("sythian_fungus", BYGBlocks.SYTHIAN_FUNGUS, 15);
+    public static final ConfiguredFeature<?, ?> WARPED_CACTI = createPatchConfiguredFeature("warped_cacti", BYGBlocks.WARPED_CACTUS, 15);
+    public static final ConfiguredFeature<?, ?> WARPED_BUSH = createPatchConfiguredFeature("warped_bush", BYGBlocks.WARPED_BUSH, 15);
+    public static final ConfiguredFeature<?, ?> WARPED_CORAL = createPatchConfiguredFeature("warped_coral", BYGBlocks.WARPED_CORAL, 15);
+    public static final ConfiguredFeature<?, ?> WARPED_CORAL_FAN = createPatchConfiguredFeature("warped_coral_fan", BYGBlocks.WARPED_CORAL_FAN, 15);
+    public static final ConfiguredFeature<?, ?> TALL_CRIMSON_ROOTS = createPatchConfiguredFeature("tall_crimson_roots", BYGBlocks.TALL_CRIMSON_ROOTS, 15);
+    public static final ConfiguredFeature<?, ?> CRIMSON_BERRY_BUSH = createSimpleBlockConfiguredFeature("crimson_berry_bush", BYGBlocks.CRIMSON_BERRY_BUSH);
+    public static final ConfiguredFeature<?, ?> EMBUR_LILY = createPatchConfiguredFeature("embur_lily", BYGBlocks.EMBUR_LILY, 15);
+    public static final ConfiguredFeature<?, ?> SOUL_SHROOM = createPatchConfiguredFeature("soul_shroom", BYGBlocks.SOUL_SHROOM, 15);
+    public static final ConfiguredFeature<?, ?> DEATH_CAP = createPatchConfiguredFeature("death_cap", BYGBlocks.DEATH_CAP, 15);
+    public static final ConfiguredFeature<?, ?> NETHER_BRISTLE = createPatchConfiguredFeature("nether_bristle", BYGBlocks.NETHER_BRISTLE, 15);
+    public static final ConfiguredFeature<?, ?> SCORCHED_BUSH = createPatchConfiguredFeature("scorched_bush", BYGBlocks.SCORCHED_BUSH, 15);
+    public static final ConfiguredFeature<?, ?> SCORCHED_GRASS = createPatchConfiguredFeature("scorched_grass", BYGBlocks.SCORCHED_GRASS, 15);
+    public static final ConfiguredFeature<?, ?> WAILING_GRASS = createPatchConfiguredFeature("wailing_grass", BYGBlocks.WAILING_GRASS, 15);
+    public static final ConfiguredFeature<?, ?> WAILING_VINE = createConfiguredFeature("wailing_vine", BYGFeatures.WAILING_VINES.configured(FeatureConfiguration.NONE));
+    public static final ConfiguredFeature<?, ?> LAMENT_SPROUTS = createPatchConfiguredFeature("lament_sprouts", BYGBlocks.LAMENT_SPROUTS, 15);
+
+    public static final ConfiguredFeature<?, ?> WEEPING_ROOTS = createConfiguredFeature("weeping_roots", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(BYGBlocks.WEEPING_ROOTS_PLANT).setEndBlock(BYGBlocks.WEEPING_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()));
+    public static final ConfiguredFeature<?, ?> WEEPING_VINES = createConfiguredFeature("weeping_vines", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(Blocks.WEEPING_VINES_PLANT).setEndBlock(Blocks.WEEPING_VINES.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build()));
+
+
+    public static final ConfiguredFeature<?, ?> CHAINS = createConfiguredFeature("chains", BYGFeatures.CHAIN.configured(new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(Blocks.POLISHED_BLACKSTONE_BRICKS).setZAxisBlock(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build()));
+    public static final ConfiguredFeature<?, ?> HANGING_SOUL_SHROOM_SPORES = createConfiguredFeature("hanging_soul_shroom_spores", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SOUL_SHROOM_BLOCK).setBlock(BYGBlocks.SOUL_SHROOM_SPORE).setEndBlock(BYGBlocks.SOUL_SHROOM_SPORE_END.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.SOUL_SOIL, Blocks.SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND, BYGBlocks.NYLIUM_SOUL_SAND)).build()));
+    public static final ConfiguredFeature<?, ?> HANGING_SYTHIAN_ROOTS = createConfiguredFeature("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SYTHIAN_WART_BLOCK).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.defaultBlockState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, BYGBlocks.SYTHIAN_WART_BLOCK)).build()));
+    public static final ConfiguredFeature<?, ?> MOSSY_NETHERRACK_PILLARS = createConfiguredFeature("mossy_netherrack_pillars", BYGFeatures.PILLARS.configured(new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.MOSSY_NETHERRACK.defaultBlockState()))));
+    public static final ConfiguredFeature<?, ?> SYTHIAN_FUNGUS_PILLARS = createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS.configured(new SimpleBlockProviderConfig(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SYTHIAN_HYPHAE.defaultBlockState(), 9).add(BYGBlocks.SYTHIAN_HYPHAE.defaultBlockState(), 1)))));
+    public static final ConfiguredFeature<?, ?> HANGING_BONE_FEATURE = createConfiguredFeature("hanging_bone", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND, Blocks.BONE_BLOCK)).build()));
+    public static final ConfiguredFeature<?, ?> LAMENT_VINE_FEATURE = createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE.configured(new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT).setEndBlock(BYGBlocks.LAMENT_VINE.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build()));
+
+
+    public static final ConfiguredFeature<?, ?> LAMENT_VEGETATION = createConfiguredFeature("lament_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SCORCHED_BUSH.placed(), 0.2F),
+        new WeightedPlacedFeature(SCORCHED_GRASS.placed(), 0.2F)),
+        LAMENT_SPROUTS.placed())));
 
     //Nether Mushrooms
     public static final ConfiguredFeature<BYGMushroomConfig, ?> EMBUR_MUSHROOM = createConfiguredFeature("embur_mushroom1",
@@ -307,4 +353,58 @@ public class BYGNetherVegetationFeatures {
                 .setMinHeight(22)
                 .build()
         ));
+
+    public static final ConfiguredFeature<?, ?> FUNGI = createConfiguredFeature("fungi", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(WARPED_FUNGUS1.placed(), 0.15F),
+        new WeightedPlacedFeature(WARPED_FUNGUS2.placed(), 0.15F),
+        new WeightedPlacedFeature(CRIMSON_FUNGUS1.placed(), 0.4F)),
+        CRIMSON_FUNGUS2.placed())));
+
+    public static final ConfiguredFeature<?, ?> CRIMSON_GARDEN_VEGETATION = createConfiguredFeature("crimson_garden_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(EMBUR_ROOTS.placed(), 0.45F),
+        new WeightedPlacedFeature(TALL_CRIMSON_ROOTS.placed(), 0.8F)),
+        CRIMSON_BERRY_BUSH.placed())));
+
+    public static final ConfiguredFeature<?, ?> EMBUR_MUSHROOMS = createConfiguredFeature("embur_mushrooms", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(EMBUR_MUSHROOM4.placed(), 0.25F),
+        new WeightedPlacedFeature(EMBUR_MUSHROOM3.placed(), 0.25F),
+        new WeightedPlacedFeature(EMBUR_MUSHROOM2.placed(), 0.25F)),
+        EMBUR_MUSHROOM.placed())));
+
+    public static final ConfiguredFeature<?, ?> SOUL_SHROOM_TREES = createConfiguredFeature("soul_shroom_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SOUL_SHROOM_TREE3.placed(), 0.35F),
+        new WeightedPlacedFeature(SOUL_SHROOM_TREE2.placed(), 0.35F)),
+        SOUL_SHROOM_TREE1.placed())));
+
+    public static final ConfiguredFeature<?, ?> DEATH_CAP_TREES = createConfiguredFeature("death_cap_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(DEATH_CAP_TREE3.placed(), 0.35F),
+        new WeightedPlacedFeature(DEATH_CAP_TREE2.placed(), 0.35F)),
+        DEATH_CAP_TREE1.placed())));
+
+    public static final ConfiguredFeature<?, ?> EMBUR_BOG_VEGETATION = createConfiguredFeature("embur_bog_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(TALL_EMBUR_ROOTS.placed(), 0.333F),
+        new WeightedPlacedFeature(EMBUR_ROOTS.placed(), 0.333F)),
+        EMBUR_WART.placed())));
+
+    public static final ConfiguredFeature<?, ?> GLOWSTONE_GARDEN_VEGETATION = createConfiguredFeature("glowstone_garden_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SOUL_SHROOM.placed(), 0.33F),
+        new WeightedPlacedFeature(DEATH_CAP.placed(), 0.33F)),
+        NETHER_BRISTLE.placed())));
+
+
+    public static final ConfiguredFeature<?, ?> SCORCHED_PLANTS = createConfiguredFeature("scorched_plants", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SCORCHED_GRASS.placed(), 0.5F)),
+        SCORCHED_BUSH.placed())));
+
+    public static final ConfiguredFeature<?, ?> WITHERING_OAK_TREES = createConfiguredFeature("withering_oak_trees", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(WITHERING_OAK_TREE5.placed(), 0.2F),
+        new WeightedPlacedFeature(WITHERING_OAK_TREE4.placed(), 0.2F),
+        new WeightedPlacedFeature(WITHERING_OAK_TREE3.placed(), 0.2F),
+        new WeightedPlacedFeature(WITHERING_OAK_TREE2.placed(), 0.2F)),
+        WITHERING_OAK_TREE1.placed())));
+
+    public static final ConfiguredFeature<?, ?> WAILING_VEGETATION = createConfiguredFeature("wailing_vegetation", Feature.RANDOM_SELECTOR.configured(new RandomFeatureConfiguration(ImmutableList.of(
+        new WeightedPlacedFeature(SCORCHED_BUSH.placed(), 0.2F),
+        new WeightedPlacedFeature(SCORCHED_GRASS.placed(), 0.2F)),
+        WAILING_GRASS.placed())));
 }

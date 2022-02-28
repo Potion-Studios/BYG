@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.NetherFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
@@ -24,6 +25,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherFeatures;
+import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
@@ -231,6 +233,8 @@ public class BYGPlacedFeatures {
 
     public static final PlacedFeature ORE_GOLD_BRIMSTONE = PlacementUtils.register("ore_gold_brimstone", BYGNetherFeatures.ORE_GOLD_BRIMSTONE.placed(invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10)));
     public static final PlacedFeature ORE_QUARTZ_BRIMSTONE = PlacementUtils.register("ore_quartz_brimstone", BYGNetherFeatures.ORE_QUARTZ_BRIMSTONE.placed(invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10)));
+    public static final PlacedFeature ORE_GOLD_BLUE_NETHERRACK = PlacementUtils.register("ore_gold_blue_netherrack", BYGNetherFeatures.ORE_GOLD_BLUE_NETHERRACK.placed(invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10)));
+    public static final PlacedFeature ORE_QUARTZ_BLUE_NETHERRACK = PlacementUtils.register("ore_quartz_blue_netherrack", BYGNetherFeatures.ORE_QUARTZ_BLUE_NETHERRACK.placed(invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10)));
     public static final PlacedFeature ORE_ANTHRACITE = PlacementUtils.register("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE.placed(invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10)));
 
     public static final PlacedFeature BORIC_FIRE = createPlacedFeature("patch_boric_fire", BYGNetherFeatures.BORIC_FIRE_PATCH.placed(CountOnEveryLayerPlacement.of(8), BiomeFilter.biome()));
@@ -241,6 +245,44 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature VINES_2 = createPlacedFeature("vines_2", VegetationFeatures.VINES.placed(CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(100)), BiomeFilter.biome()));
 
     public static final PlacedFeature BRIMSTONE_PILLARS = createPlacedFeature("brimstone_pillars", BYGNetherFeatures.BRIMSTONE_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+    public static final PlacedFeature MAGMA_PILLARS = createPlacedFeature("magma_pillars", BYGNetherFeatures.MAGMA_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+    public static final PlacedFeature FROST_MAGMA_PILLARS = createPlacedFeature("frost_magma_pillars", BYGNetherFeatures.FROST_MAGMA_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+    public static final PlacedFeature SOUL_SOIL_PILLARS = createPlacedFeature("soul_soil_pillars", BYGNetherFeatures.SOUL_SOIL_PILLARS.placed(CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
+
+    public static final PlacedFeature EMBUR_ROOTS = createPlacedFeature("embur_roots", BYGNetherVegetationFeatures.EMBUR_ROOTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature TALL_EMBUR_ROOTS = createPlacedFeature("tall_embur_roots", BYGNetherVegetationFeatures.TALL_EMBUR_ROOTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature EMBUR_WART = createPlacedFeature("embur_wart", BYGNetherVegetationFeatures.EMBUR_WART.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature EMBUR_SPROUT = createPlacedFeature("embur_sprout", BYGNetherVegetationFeatures.EMBUR_SPROUT.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SYTHIAN_ROOTS = createPlacedFeature("sythian_roots", BYGNetherVegetationFeatures.SYTHIAN_ROOTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SYTHIAN_SPROUT = createPlacedFeature("sythian_sprout", BYGNetherVegetationFeatures.SYTHIAN_SPROUT.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SYTHIAN_FUNGUS = createPlacedFeature("sythian_fungus", BYGNetherVegetationFeatures.SYTHIAN_FUNGUS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature WARPED_CACTI = createPlacedFeature("warped_cacti", BYGNetherVegetationFeatures.WARPED_CACTI.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature WARPED_BUSH = createPlacedFeature("warped_bush", BYGNetherVegetationFeatures.WARPED_BUSH.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature WARPED_CORAL = createPlacedFeature("warped_coral", BYGNetherVegetationFeatures.WARPED_CORAL.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature WARPED_CORAL_FAN = createPlacedFeature("warped_coral_fan", BYGNetherVegetationFeatures.WARPED_CORAL_FAN.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature TALL_CRIMSON_ROOTS = createPlacedFeature("tall_crimson_roots", BYGNetherVegetationFeatures.TALL_CRIMSON_ROOTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature CRIMSON_BERRY_BUSH = createPlacedFeature("crimson_berry_bush", BYGNetherVegetationFeatures.CRIMSON_BERRY_BUSH.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature CHAINS = createPlacedFeature("chains", BYGNetherVegetationFeatures.CHAINS.placed(HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), BiomeFilter.biome()));
+    public static final PlacedFeature CRIMSON_GARDEN_VEGETATION = createPlacedFeature("crimson_garden_vegetation", BYGNetherVegetationFeatures.CRIMSON_GARDEN_VEGETATION.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature EMBUR_BOG_VEGETATION = createPlacedFeature("embur_bog_vegetation", BYGNetherVegetationFeatures.EMBUR_BOG_VEGETATION.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature GLOWSTONE_GARDEN_VEGETATION = createPlacedFeature("glowstone_garden_vegetation", BYGNetherVegetationFeatures.GLOWSTONE_GARDEN_VEGETATION.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature EMBUR_LILY = createPlacedFeature("embur_lily", BYGNetherVegetationFeatures.EMBUR_LILY.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature FUNGI = createPlacedFeature("fungi", BYGNetherVegetationFeatures.FUNGI.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature BLACKSTONE_BOULDERS_NETHER = createPlacedFeature("blackstone_boulders_nether", BYGOverworldFeatures.BLACKSTONE_BOULDER.placed(CountOnEveryLayerPlacement.of(2), BiomeFilter.biome()));
+    public static final PlacedFeature WEEPING_VINES = createPlacedFeature("weeping_vines", BYGNetherVegetationFeatures.WEEPING_VINES.placed(CountPlacement.of(100), HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), BiomeFilter.biome()));
+    public static final PlacedFeature WEEPING_ROOTS = createPlacedFeature("weeping_roots", BYGNetherVegetationFeatures.WEEPING_ROOTS.placed(CountPlacement.of(100), HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), BiomeFilter.biome()));
+    public static final PlacedFeature WAILING_VINES = createPlacedFeature("wailing_vines", BYGNetherVegetationFeatures.WAILING_VINE.placed(CountPlacement.of(100), HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), BiomeFilter.biome()));
+    public static final PlacedFeature LAMENT_VINE_FEATURE = createPlacedFeature("lament_vine_feature", BYGNetherVegetationFeatures.LAMENT_VINE_FEATURE.placed(CountPlacement.of(100), HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), BiomeFilter.biome()));
+    public static final PlacedFeature EMBUR_MUSHROOMS = createPlacedFeature("embur_mushrooms", BYGNetherVegetationFeatures.EMBUR_MUSHROOMS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature LAMENT_VEGETATION = createPlacedFeature("lament_vegetation", BYGNetherVegetationFeatures.LAMENT_VEGETATION.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SPARSE_WITHERING_OAK_TREES = createPlacedFeature("sparse_withering_oak_trees", BYGNetherVegetationFeatures.WITHERING_OAK_TREES.placed(CountOnEveryLayerPlacement.of(4), RarityFilter.onAverageOnceEvery(3), BiomeFilter.biome()));
+    public static final PlacedFeature SOUL_SHROOM_TREES = createPlacedFeature("soul_shroom_trees", BYGNetherVegetationFeatures.SOUL_SHROOM_TREES.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature DEATH_CAP_TREES = createPlacedFeature("death_cap_trees", BYGNetherVegetationFeatures.DEATH_CAP_TREES.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SUBZERO_ASHES = createPlacedFeature("subzero_ashes", BYGNetherFeatures.SUBZERO_ASHES.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature SCORCHED_PLANTS = createPlacedFeature("scorched_plants", BYGNetherVegetationFeatures.SCORCHED_PLANTS.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature WAILING_VEGETATION = createPlacedFeature("wailing_vegetation", BYGNetherVegetationFeatures.WAILING_VEGETATION.placed(CountOnEveryLayerPlacement.of(4), BiomeFilter.biome()));
+    public static final PlacedFeature PATCH_FIRE = createPlacedFeature("patch_fire", NetherFeatures.PATCH_FIRE.placed(CountPlacement.of(UniformInt.of(5, 10)), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome()));
+
 
     private static List<PlacementModifier> clearingTreePlacementBaseOceanFloor(PlacementModifier $$0) {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(CLEARING_NOISE).add(BiomeFilter.biome()).build();
