@@ -13,6 +13,7 @@ public class BYGParticleTypes {
     public static final List<RegistryObject<ParticleType<?>>> PARTICLES = new ArrayList<>();
 
     public static final SimpleParticleType THERIUM_GLINT = createSimpleParticle(SimpleParticleTypeAccess.create(false), "therium_glint");
+    public static final SimpleParticleType WITCH_HAZEL_LEAF = createSimpleParticle(SimpleParticleTypeAccess.create(false), "witch_hazel_leaf");
 
     public static <T extends ParticleType<?>> T createSimpleParticle(T particle, String id) {
         PARTICLES.add(new RegistryObject<>(particle, id));

@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.particles.TheriumGlint;
+import potionstudios.byg.common.particles.WitchHazelLeaf;
 
 @SuppressWarnings("UnresolvedMixinReference")
 @Mixin(ParticleEngine.class)
@@ -23,5 +24,6 @@ public class MixinParticleEngine {
     @Inject(method = ("registerProviders"), at = @At("RETURN"))
     private void registerBYGProviders(CallbackInfo ci) {
         register(BYGParticleTypes.THERIUM_GLINT, TheriumGlint.Provider::new);
+        register(BYGParticleTypes.WITCH_HAZEL_LEAF, WitchHazelLeaf.Provider::new);
     }
 }
