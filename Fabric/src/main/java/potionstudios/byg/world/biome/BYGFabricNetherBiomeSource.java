@@ -58,6 +58,6 @@ public class BYGFabricNetherBiomeSource extends BYGNetherBiomeSource {
 
     @Override
     public BiomeSource withSeed(long l) {
-        return new BYGFabricEndBiomeSource(getBiomeRegistry(), l, getUpperLayerBiomeData(), getMiddleLayerBiomeData(), getBottomLayerBiomeData());
+        return new BYGFabricNetherBiomeSource(getBiomeRegistry(), l, getUpperLayerBiomeData(), getMiddleLayerBiomeData(), getBottomLayerBiomeData());
     }
 }
