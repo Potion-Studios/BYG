@@ -21,7 +21,8 @@ import java.util.List;
 public abstract class BYGNetherBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("nether");
 
-    private final FastNoiseLite layerRoughnessNoise;
+    private final FastNoiseLite lowerLayerRoughnessNoise;
+    private final FastNoiseLite upperLayerRoughnessNoise;
     private final Registry<Biome> biomeRegistry;
     private final LayersBiomeData upperLayerBiomeData;
     private final LayersBiomeData middleLayerBiomeData;
@@ -44,9 +45,14 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
         this.seed = seed;
 
 
-        this.layerRoughnessNoise = new FastNoiseLite((int) seed);
-        this.layerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-        this.layerRoughnessNoise.SetFrequency(0.05F);
+        this.lowerLayerRoughnessNoise = new FastNoiseLite((int) seed);
+        this.lowerLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+        this.lowerLayerRoughnessNoise.SetFrequency(0.005F);
+
+        this.upperLayerRoughnessNoise = new FastNoiseLite((int) seed + 43594389);
+        this.upperLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+        this.upperLayerRoughnessNoise.SetFrequency(0.005F);
+
         this.upperLayerBiomeData = upperLayerBiomeData;
         this.middleLayerBiomeData = middleLayerBiomeData;
         this.bottomLayerBiomeData = bottomLayerBiomeData;
@@ -72,11 +78,9 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     @Override
     public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
-        float noise = Math.abs(this.layerRoughnessNoise.GetNoise(x, z)) * 9;
-
-        if (y < bottomTopY + noise) {
+        if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 9) {
             return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
-        } else if (y > bottomTopY + bottomTopY + noise) {
+        } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 9) {
             return this.upperBiomeResolver.getNoiseBiome(x, y, z, sampler);
         } else {
             return this.middleBiomeResolver.getNoiseBiome(x, y, z, sampler);
