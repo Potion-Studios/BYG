@@ -78,9 +78,9 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     @Override
     public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
-        if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 9) {
+        if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 5) {
             return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
-        } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 9) {
+        } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 5) {
             return this.upperBiomeResolver.getNoiseBiome(x, y, z, sampler);
         } else {
             return this.middleBiomeResolver.getNoiseBiome(x, y, z, sampler);

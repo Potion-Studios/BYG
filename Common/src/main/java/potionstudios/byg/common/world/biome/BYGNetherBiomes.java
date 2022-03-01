@@ -13,6 +13,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 
 public class BYGNetherBiomes {
 
@@ -144,7 +145,7 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
-//        generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, BYGConfiguredFeatures.SUBZERO_CRYSTAL);
+        generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, BYGPlacedFeatures.SUBZERO_CRYSTALS);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
 
         BYGDefaultBiomeFeatures.addSoulFireWarped(generationSettings);

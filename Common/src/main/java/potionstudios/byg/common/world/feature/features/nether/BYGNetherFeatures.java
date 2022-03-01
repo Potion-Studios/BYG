@@ -72,4 +72,6 @@ public class BYGNetherFeatures {
 
     public static final ConfiguredFeature<?, ?> NYLIUM_SOUL_PATCH_FIRE = createConfiguredFeature("nylium_soul_patch_fire", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SOUL_FIRE))), List.of(BYGBlocks.NYLIUM_SOUL_SOIL, BYGBlocks.NYLIUM_SOUL_SAND))));
     public static final ConfiguredFeature<?, ?> MAGMA_PATCH_FIRE = createConfiguredFeature("magma_patch_fire", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FIRE))), List.of(BYGBlocks.MAGMATIC_STONE))));
+
+    public static final ConfiguredFeature<?, ?> SUBZERO_CRYSTAL = createConfiguredFeature("subzero_crystal", BYGFeatures.SUBZERO_CRYSTAL.configured(FeatureConfiguration.NONE));
 }
