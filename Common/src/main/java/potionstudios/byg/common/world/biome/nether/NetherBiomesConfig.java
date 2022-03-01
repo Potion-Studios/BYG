@@ -16,7 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.Supplier;
 
-public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds,
+public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boolean warnBYGNetherBiomeSourceNotUsedInNewWorlds,
                                  boolean useUpdatingConfig, LayersBiomeData upperLayer,
                                  LayersBiomeData middleLayer, LayersBiomeData bottomLayer) {
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json");
@@ -25,7 +25,7 @@ public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boo
         return builder.group(
             Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.useBYGNetherBiomeSourceInNewWorlds),
             Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
-            Codec.BOOL.fieldOf("warnBYGEndBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGEndBiomeSourceNotUsedInNewWorlds),
+            Codec.BOOL.fieldOf("warnBYGNetherBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGNetherBiomeSourceNotUsedInNewWorlds),
             LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.upperLayer),
             LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.middleLayer),
             LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.bottomLayer)

@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.server.level.ServerLevel;
@@ -25,8 +26,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
+import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
+import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.ModLoaderContext;
 
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
@@ -51,7 +55,9 @@ public abstract class MixinServerLevel extends Level {
     @Nonnull
     public abstract MinecraftServer getServer();
 
-    @Shadow @Final private ServerChunkCache chunkSource;
+    @Shadow
+    @Final
+    private ServerChunkCache chunkSource;
 
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
@@ -63,15 +69,35 @@ public abstract class MixinServerLevel extends Level {
                 }
             }
             EndBiomesConfig config = EndBiomesConfig.getConfig();
-            if(config.warnBYGEndBiomeSourceNotUsedInNewWorlds() && config.useBYGEndBiomeSourceInNewWorlds() && dimension() == Level.END) {
-                if (!Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).invokeCodec()).equals(BYGEndBiomeSource.LOCATION)) {
+            ResourceLocation biomeSourceKey = Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).invokeCodec());
+            if (config.warnBYGEndBiomeSourceNotUsedInNewWorlds() && config.useBYGEndBiomeSourceInNewWorlds() && dimension() == Level.END) {
+                if (!biomeSourceKey.equals(BYGEndBiomeSource.LOCATION)) {
                     Path warningMarker = this.worldPath.resolve("END_BIOME_SOURCE_WARNING_MARKER.txt");
                     if (BYGUtil.createMarkerFile(warningMarker, "This file exists as a marker to warn the user that their end is not controlled by BYG. Once this file generates, the warning will no longer show in the chat in this world!")) {
                         String configPath = EndBiomesConfig.CONFIG_PATH.get().toString();
-                        
+
                         Component fileComponent = new TextComponent(configPath).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, configPath)).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
                         Component urlComponent = new TranslatableComponent("byg.clickme").withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/AOCAWOL/BYG/wiki/Nether-&-End-Biomes-FAQ")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
                         serverPlayer.displayClientMessage(new TranslatableComponent("byg.end.not.used", fileComponent, urlComponent).withStyle(ChatFormatting.YELLOW), false);
+                    }
+                }
+            }
+
+            NetherBiomesConfig netherConfig = NetherBiomesConfig.getConfig();
+            if (netherConfig.warnBYGNetherBiomeSourceNotUsedInNewWorlds() && netherConfig.useBYGNetherBiomeSourceInNewWorlds() && dimension() == Level.NETHER) {
+                if (!biomeSourceKey.equals(BYGNetherBiomeSource.LOCATION)) {
+                    Path warningMarker = this.worldPath.resolve("NETHER_BIOME_SOURCE_WARNING_MARKER.txt");
+                    if (BYGUtil.createMarkerFile(warningMarker, "This file exists as a marker to warn the user that their nether is not controlled by BYG. Once this file generates, the warning will no longer show in the chat in this world!")) {
+                        String configPath = NetherBiomesConfig.CONFIG_PATH.get().toString();
+
+                        Path terrablenderConfigPath = ModLoaderContext.getInstance().configPath().resolve("terrablender.toml");
+                        Component fileComponent = new TextComponent(configPath).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, configPath)).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
+                        Component urlComponent = new TranslatableComponent("byg.clickme").withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/AOCAWOL/BYG/wiki/Nether-&-End-Biomes-FAQ")).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
+
+                        Component terrablenderConfig = new TextComponent(terrablenderConfigPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, terrablenderConfigPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
+
+
+                        serverPlayer.displayClientMessage(biomeSourceKey.equals(new ResourceLocation("terrablender", "multi_noise")) ? new TranslatableComponent("byg.nether.not.used.terrablender", fileComponent, terrablenderConfig, urlComponent) : new TranslatableComponent("byg.nether.not.used", fileComponent, urlComponent).withStyle(ChatFormatting.YELLOW), false);
                     }
                 }
             }
