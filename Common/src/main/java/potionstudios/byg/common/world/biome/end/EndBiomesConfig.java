@@ -8,8 +8,8 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.util.BYGUtil;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -66,11 +66,9 @@ public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean w
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 
         try {
-            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(RuntimeException::new).getFirst();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
-        return DEFAULT;
     }
-
 }

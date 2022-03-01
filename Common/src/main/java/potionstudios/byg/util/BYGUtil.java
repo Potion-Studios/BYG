@@ -83,4 +83,8 @@ public class BYGUtil {
         }
         return false;
     }
+
+    public static IOException configFileFailureException(Path path) {
+        return new IOException(String.format("BYG config found at: \"%s\" could not be read. The fastest solution is to rename this failed file and let a new file generate from BYG and replace the fields in the new file with the broken file's fields.", path.toFile()));
+    }
 }

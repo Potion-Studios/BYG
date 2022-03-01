@@ -13,6 +13,7 @@ import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
+import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.util.CommonSetupLoad;
@@ -55,6 +56,7 @@ public class BYG {
             e.printStackTrace();
         }
         EndBiomesConfig.getConfig(true);
+        NetherBiomesConfig.getConfig(true);
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

@@ -8,8 +8,8 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.util.BYGUtil;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boolean warnBYGNetherBiomeSourceNotUsedInNewWorlds,
                                  boolean useUpdatingConfig, LayersBiomeData upperLayer,
-                                 LayersBiomeData middleLayer, LayersBiomeData bottomLayer) {
+                                 LayersBiomeData middleLayer, LayersBiomeData bottomLayer, int layerSize) {
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json");
 
     public static final Codec<NetherBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
@@ -28,12 +28,13 @@ public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boo
             Codec.BOOL.fieldOf("warnBYGNetherBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGNetherBiomeSourceNotUsedInNewWorlds),
             LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.upperLayer),
             LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.middleLayer),
-            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.bottomLayer)
-        ).apply(builder, NetherBiomesConfig::new);
+            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.bottomLayer),
+            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(overworldBiomeConfig -> overworldBiomeConfig.layerSize)
+            ).apply(builder, NetherBiomesConfig::new);
     });
     public static NetherBiomesConfig INSTANCE = null;
 
-    public static final NetherBiomesConfig DEFAULT = new NetherBiomesConfig(true, true, true, LayersBiomeData.DEFAULT_NETHER_UPPER, LayersBiomeData.DEFAULT_NETHER_MIDDLE, LayersBiomeData.DEFAULT_NETHER_LOWER);
+    public static final NetherBiomesConfig DEFAULT = new NetherBiomesConfig(true, true, true, LayersBiomeData.DEFAULT_NETHER_UPPER, LayersBiomeData.DEFAULT_NETHER_MIDDLE, LayersBiomeData.DEFAULT_NETHER_LOWER, 40);
 
 
     public static NetherBiomesConfig getConfig() {
@@ -64,11 +65,10 @@ public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds, boo
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 
         try {
-            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(RuntimeException::new).getFirst();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
-        return DEFAULT;
     }
 
 }

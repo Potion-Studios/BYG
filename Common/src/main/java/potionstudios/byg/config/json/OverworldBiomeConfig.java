@@ -8,6 +8,7 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
+import potionstudios.byg.util.BYGUtil;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -56,11 +57,9 @@ public record OverworldBiomeConfig(boolean generateOverworld, List<BYGOverworldB
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 
         try {
-            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(RuntimeException::new).getFirst();
-        } catch (Exception e) {
-            String error = String.format("An error occurred when parsing \"%s\".\n%s", path.toString(), e.toString());
-            BYG.LOGGER.error(error);
-            throw new IllegalStateException(error);
+            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
     }
 }

@@ -42,7 +42,7 @@ public class MixinDimensionType {
             if (levelStemResourceKey == LevelStem.NETHER && netherConfig.useBYGNetherBiomeSourceInNewWorlds()) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(() -> {
                     return dimensionTypeRegistry.getOrThrow(DimensionType.NETHER_LOCATION);
-                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGFabricNetherBiomeSource(biomeRegistry, seed, netherConfig.upperLayer(), netherConfig.middleLayer(), netherConfig.bottomLayer()), seed, () -> {
+                }, new NoiseBasedChunkGenerator(noiseParameters, new BYGFabricNetherBiomeSource(biomeRegistry, seed, netherConfig.upperLayer(), netherConfig.middleLayer(), netherConfig.bottomLayer(), netherConfig.layerSize()), seed, () -> {
                     return noiseGeneratorSettingsRegistry.getOrThrow(NoiseGeneratorSettings.NETHER);
                 })), Lifecycle.experimental());
             } else if (levelStemResourceKey == LevelStem.END && endConfig.useBYGEndBiomeSourceInNewWorlds()) {

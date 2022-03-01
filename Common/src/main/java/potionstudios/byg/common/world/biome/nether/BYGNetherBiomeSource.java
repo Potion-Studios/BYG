@@ -32,7 +32,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
     private final int bottomTopY;
     private final long seed;
 
-    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData) {
+    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
         super(Util.make(() -> {
             NetherBiomesConfig config = NetherBiomesConfig.getConfig(true);
             LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
@@ -55,11 +55,12 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
         LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
         LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
         LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
+        int usedLayerSize = config.useUpdatingConfig() ? config.layerSize() : layerSize;
 
         this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, usedUpperLayer);
         this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, usedMiddleLayer);
         this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, usedBottomLayer);
-        this.bottomTopY = QuartPos.fromBlock(40);
+        this.bottomTopY = QuartPos.fromBlock(usedLayerSize);
     }
 
     public abstract BiomeResolver getUpperBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData);
@@ -100,6 +101,10 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     public long getSeed() {
         return seed;
+    }
+
+    public int getBottomTopY() {
+        return QuartPos.toBlock(bottomTopY);
     }
 
     @SuppressWarnings("unchecked")

@@ -26,11 +26,13 @@ public class BYGForgeNetherBiomeSource extends BYGNetherBiomeSource {
             return bygForgeNetherBiomeSource.getMiddleLayerBiomeData();
         }), LayersBiomeData.CODEC.fieldOf("lowerLayerBiomeData").stable().forGetter((bygForgeNetherBiomeSource) -> {
             return bygForgeNetherBiomeSource.getBottomLayerBiomeData();
+        }), Codec.INT.fieldOf("layerSize").stable().forGetter((bygForgeNetherBiomeSource) -> {
+            return bygForgeNetherBiomeSource.getBottomTopY();
         })).apply(builder, builder.stable(BYGForgeNetherBiomeSource::new));
     });
     
-    public BYGForgeNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData) {
-        super(biomeRegistry, seed, upperLayerBiomeData, middleLayerBiomeData, bottomLayerBiomeData);
+    public BYGForgeNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
+        super(biomeRegistry, seed, upperLayerBiomeData, middleLayerBiomeData, bottomLayerBiomeData, layerSize);
     }
 
     @Override
@@ -57,6 +59,6 @@ public class BYGForgeNetherBiomeSource extends BYGNetherBiomeSource {
 
     @Override
     public BiomeSource withSeed(long l) {
-        return new BYGForgeNetherBiomeSource(getBiomeRegistry(), l, getUpperLayerBiomeData(), getMiddleLayerBiomeData(), getBottomLayerBiomeData());
+        return new BYGForgeNetherBiomeSource(getBiomeRegistry(), l, getUpperLayerBiomeData(), getMiddleLayerBiomeData(), getBottomLayerBiomeData(), getBottomTopY());
     }
 }
