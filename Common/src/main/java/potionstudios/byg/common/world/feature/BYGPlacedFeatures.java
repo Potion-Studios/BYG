@@ -58,8 +58,8 @@ public class BYGPlacedFeatures {
     public static final PlacedFeature SHRUB = createPlacedFeature("shrub", BYGOverworldVegetationFeatures.SHRUB.placed(worldSurfaceSquaredWithCount(1)));
 
     public static final PlacedFeature FIRECRACKER_BUSH = createPlacedFeature("firecracker_bush", BYGOverworldVegetationFeatures.FIRECRACKER_BUSH.placed(worldSurfaceSquaredWithCount(3)));
-    public static final PlacedFeature BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH.placed(worldSurfaceSquaredWithCount(2)));
-    public static final PlacedFeature BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH.placed(worldSurfaceSquaredWithCount(5)));
+    public static final PlacedFeature BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH.placed(RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+    public static final PlacedFeature BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH.placed(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
     public static final PlacedFeature CATTAIL = createPlacedFeature("cattails", BYGOverworldVegetationFeatures.CATTAIL.placed(oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2))));
     public static final PlacedFeature LEATHER_FLOWERS = createPlacedFeature("leather_flowers", BYGOverworldVegetationFeatures.LEATHER_FLOWERS.placed(worldSurfaceSquaredWithCount(2)));
