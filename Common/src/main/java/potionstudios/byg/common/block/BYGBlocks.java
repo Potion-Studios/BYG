@@ -465,7 +465,7 @@ public class BYGBlocks {
     public static final Block EBONY_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "ebony_leaves");
     public static final Block FIR_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "fir_leaves");
     public static final Block FLOWERING_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "flowering_orchard_leaves");
-    public static final Block FLOWERING_PALO_VERDE_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
+    public static final Block FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MaterialColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
     public static final Block GREEN_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, "green_enchanted_leaves");
     public static final Block HOLLY_BERRY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "holly_berry_leaves");
     public static final Block HOLLY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "holly_leaves");
@@ -1959,6 +1959,12 @@ public class BYGBlocks {
 
     static Block createFirecrackerLeavesBlock(MaterialColor color, String id) {
         Block createBlock = new FirecrackerLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createFloweringPaloVerdeLeaves(MaterialColor color, String id) {
+        Block createBlock = new FloweringPaloVerdeLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false));
         createBlock(createBlock, id);
         return createBlock;
     }

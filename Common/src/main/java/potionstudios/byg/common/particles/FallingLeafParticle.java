@@ -8,8 +8,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 @OnlyIn(Dist.CLIENT)
-public class WitchHazelLeaf extends TextureSheetParticle {
-    protected WitchHazelLeaf(ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+public class FallingLeafParticle extends TextureSheetParticle {
+    protected FallingLeafParticle(ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(world, x, y, z - 0.125D, xSpeed, ySpeed, zSpeed);
         this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
         this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
@@ -55,7 +55,7 @@ public class WitchHazelLeaf extends TextureSheetParticle {
         @Nullable
         @Override
         public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            WitchHazelLeaf leaf = new WitchHazelLeaf(world, x, y, z, 0.0D, -0.800000011920929D, 0.0D);
+            FallingLeafParticle leaf = new FallingLeafParticle(world, x, y, z, 0.0D, -0.800000011920929D, 0.0D);
             leaf.lifetime = Mth.randomBetweenInclusive(world.random, 500, 1000);
             leaf.gravity = 0.01F;
             leaf.setColor(1.0f, 1.0f, 1.0f);
