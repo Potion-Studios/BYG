@@ -33,8 +33,8 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 public class BYGNetherFeatures {
 
 
-    public static final ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = createPatchConfiguredFeature("subzero_ash_block", BYGBlocks.SUBZERO_ASH_BLOCK, 15);
-    public static final ConfiguredFeature<?, ?> SUBZERO_ASH = createPatchConfiguredFeature("subzero_ash", BYGBlocks.SUBZERO_ASH, 15);
+    public static final ConfiguredFeature<?, ?> SUBZERO_ASH_BLOCK = createConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.SUBZERO_ASH_BLOCK))), List.of(BYGBlocks.SUBZERO_ASH_BLOCK))));
+    public static final ConfiguredFeature<?, ?> SUBZERO_ASH = createPatchConfiguredFeature("subzero_ash", BYGBlocks.SUBZERO_ASH, 35);
     public static final ConfiguredFeature<?, ?> QUARTZ_CRYSTAL = createPatchConfiguredFeature("quartz_crystal", BYGBlocks.QUARTZ_CRYSTAL, 15);
 
 

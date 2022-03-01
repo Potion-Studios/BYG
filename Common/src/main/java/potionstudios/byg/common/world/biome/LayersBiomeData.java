@@ -54,13 +54,14 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(SUBZERO_HYPOGEAL, 2)
             .add(WARPED_DESERT, 2)
             .add(MAGMA_WASTES, 2)
+            .add(EMBUR_BOG, 2)
             .add(QUARTZ_DESERT, 2)
             .add(CRIMSON_GARDENS, 2)
             .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
             .add(ARISIAN_UNDERGROWTH, 2)
-            .build(), 2);
+            .build(), 3);
 
     public static final LayersBiomeData DEFAULT_NETHER_UPPER = new LayersBiomeData(
         SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
@@ -79,7 +80,7 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
             .add(ARISIAN_UNDERGROWTH, 2)
-            .build(), 2);
+            .build(), 3);
 
 
     public static final LayersBiomeData DEFAULT_NETHER_LOWER = new LayersBiomeData(
@@ -91,5 +92,5 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(Biomes.WARPED_FOREST, 2)
             .add(WEEPING_MIRE, 2)
             .add(EMBUR_BOG, 2)
-            .build(), 2);
+            .build(), 3);
 }
