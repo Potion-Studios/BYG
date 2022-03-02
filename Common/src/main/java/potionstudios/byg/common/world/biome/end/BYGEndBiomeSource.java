@@ -3,21 +3,18 @@ package potionstudios.byg.common.world.biome.end;
 import net.minecraft.Util;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
-import potionstudios.byg.mixin.access.WeightedListAccess;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.world.level.biome.TheEndBiomeSource.getHeightValue;
+import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
 public abstract class BYGEndBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
@@ -39,7 +36,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
             LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
             LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
             LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
-            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
+            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, EndBiomesConfig.CONFIG_PATH.get(), usedIslandLayer, usedVoidLayer, usedSkyLayer);
             biomesFromBiomeData.add(biomeRegistry.get(Biomes.THE_END));
             return biomesFromBiomeData;
         }));
@@ -113,14 +110,5 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     public long getSeed() {
         return seed;
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List<Biome> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, LayersBiomeData... layersBiomeDatas) {
-        List<Biome> biomes = new ArrayList<>();
-        for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
-            ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems().stream().map(WeightedEntry.Wrapper::getData).map(biomeRegistry::get).forEach(biomes::add);
-        }
-        return biomes;
     }
 }

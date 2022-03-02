@@ -1,6 +1,7 @@
 package potionstudios.byg.util;
 
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -8,6 +9,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.biome.Biome;
+import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.mixin.access.WeightedEntryWrapperAccess;
 import potionstudios.byg.mixin.access.WeightedListAccess;
 
@@ -98,7 +101,7 @@ public class BYGUtil {
     public static <T> SimpleWeightedRandomList<T> combineWeightedRandomListsWithoutDuplicatesFilter(SimpleWeightedRandomList<T>... builders) {
         SimpleWeightedRandomList.Builder<T> combinedBuilder = new SimpleWeightedRandomList.Builder<>();
         for (SimpleWeightedRandomList<T> build : builders) {
-            for (WeightedEntry.Wrapper<T> item : ((WeightedListAccess <WeightedEntry.Wrapper<T>>) build).getItems()) {
+            for (WeightedEntry.Wrapper<T> item : ((WeightedListAccess<WeightedEntry.Wrapper<T>>) build).getItems()) {
                 Set<T> collection = ((WeightedListAccess<WeightedEntry.Wrapper<T>>) combinedBuilder.build()).getItems().stream().map(item1 -> ((WeightedEntryWrapperAccess<T>) item1).getData()).collect(Collectors.toSet());
                 T data = ((WeightedEntryWrapperAccess<T>) item).getData();
 
@@ -108,5 +111,24 @@ public class BYGUtil {
             }
         }
         return combinedBuilder.build();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static List<Biome> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, Path configPath, LayersBiomeData... layersBiomeDatas) {
+        List<Biome> biomes = new ArrayList<>();
+        for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
+            ImmutableList<WeightedEntry.Wrapper<ResourceKey<Biome>>> items = ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems();
+
+            for (WeightedEntry.Wrapper<ResourceKey<Biome>> key : items) {
+                ResourceKey<Biome> resourceKey = key.getData();
+                Biome biome = biomeRegistry.get(resourceKey);
+                if (biome != null) {
+                    biomes.add(biome);
+                } else {
+                    throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the registry, fix the ID or remove the json entry from the config: \"%s\" and relaunch Minecraft...", resourceKey, configPath.toString()));
+                }
+            }
+        }
+        return biomes;
     }
 }

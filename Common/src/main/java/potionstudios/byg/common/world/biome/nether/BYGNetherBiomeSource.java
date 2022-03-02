@@ -3,9 +3,7 @@ package potionstudios.byg.common.world.biome.nether;
 import net.minecraft.Util;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeResolver;
 import net.minecraft.world.level.biome.BiomeSource;
@@ -13,10 +11,10 @@ import net.minecraft.world.level.biome.Climate;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
-import potionstudios.byg.mixin.access.WeightedListAccess;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
 public abstract class BYGNetherBiomeSource extends BiomeSource {
     public static final ResourceLocation LOCATION = BYG.createLocation("nether");
@@ -39,7 +37,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
             LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
             LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
             LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedUpperLayer, usedMiddleLayer, usedBottomLayer);
+            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, NetherBiomesConfig.CONFIG_PATH.get(), usedUpperLayer, usedMiddleLayer, usedBottomLayer);
             biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> biome.getBiomeCategory() == Biome.BiomeCategory.NETHER).toList());
             return biomesFromBiomeData;
         }));
@@ -111,14 +109,5 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     public int getBottomTopY() {
         return QuartPos.toBlock(bottomTopY);
-    }
-
-    @SuppressWarnings("unchecked")
-    public static List<Biome> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, LayersBiomeData... layersBiomeDatas) {
-        List<Biome> biomes = new ArrayList<>();
-        for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
-            ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems().stream().map(WeightedEntry.Wrapper::getData).map(biomeRegistry::get).forEach(biomes::add);
-        }
-        return biomes;
     }
 }
