@@ -22,6 +22,8 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.ConditionSource ABOVE_62 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(62), 0);
     public static final SurfaceRules.ConditionSource ABOVE_63 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(63), 0);
+    public static final SurfaceRules.ConditionSource ABOVE_31 = SurfaceRules.yBlockCheck(VerticalAnchor.absolute(31), 0);
+
     public static final SurfaceRules.ConditionSource WATER_CHECK = SurfaceRules.waterBlockCheck(-1, 0);
 
     public static final SurfaceRules.RuleSource PEAT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState())));
@@ -108,8 +110,8 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource BRIMSTONE_FILL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BRIMSTONE_CAVERNS), SurfaceRules.state(BYGBlocks.BRIMSTONE.defaultBlockState()));
     public static final SurfaceRules.RuleSource QUARTZITE_SAND_FILL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.QUARTZ_DESERT), SurfaceRules.state(BYGBlocks.QUARTZITE_SAND.defaultBlockState()));
-    public static final SurfaceRules.RuleSource EMBUR_BOG = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.EMBUR_BOG), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.EMBUR_NYLIUM.defaultBlockState())), SurfaceRules.state(BYGBlocks.BLUE_NETHERRACK.defaultBlockState())));
-    public static final SurfaceRules.RuleSource CRIMSON_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CRIMSON_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.defaultBlockState())), SurfaceRules.state(Blocks.BLACKSTONE.defaultBlockState())));
+    public static final SurfaceRules.RuleSource EMBUR_BOG = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.EMBUR_BOG), SurfaceRules.sequence(SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.EMBUR_NYLIUM.defaultBlockState()))), SurfaceRules.state(BYGBlocks.BLUE_NETHERRACK.defaultBlockState())));
+    public static final SurfaceRules.RuleSource CRIMSON_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CRIMSON_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.defaultBlockState()))), SurfaceRules.state(Blocks.BLACKSTONE.defaultBlockState())));
     public static final SurfaceRules.RuleSource SYTHIAN_TORRIDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SYTHIAN_TORRIDS), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.SYTHIAN_NYLIUM.defaultBlockState())));
 
     public static final SurfaceRules.RuleSource MAGMA_WASTES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.MAGMA_WASTES),
@@ -149,7 +151,7 @@ public class BYGSurfaceRules {
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.state(Blocks.SOUL_SOIL.defaultBlockState()))
             ), 2)
             .build()),
-        SurfaceRules.state(BYGBlocks.SCORIA_STONE.defaultBlockState())));
+        SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.state(BYGBlocks.SCORIA_STONE.defaultBlockState()))));
 
     public static final SurfaceRules.RuleSource GLOWSTONE_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.GLOWSTONE_GARDENS),
         BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
@@ -187,7 +189,7 @@ public class BYGSurfaceRules {
         )
     );
     public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(BULBIS_PHYCELIUM, NIGHTSHADE_PHYLIUM, IMPARIUS_PHYLIUM, IVIS_PHYLIUM, SHULKREN_PHYLIUM, ETHEREAL_ISLANDS, CRYPTIC_FILL);
-    public static final SurfaceRules.RuleSource NETHER_SURFACE_RULES = SurfaceRules.sequence(BEDROCK_FLOOR, BEDROCK_ROOF, WEEPING_MIRE, QUARTZITE_SAND_FILL, ARISIAN_UNDERGROWTH, WAILING_GARTH, SYTHIAN_TORRIDS, WARPED_DESERT, SUBZERO_HYPOGEAL, GLOWSTONE_GARDENS, CRIMSON_GARDENS, BRIMSTONE_FILL, MAGMA_WASTES, EMBUR_BOG);
+    public static final SurfaceRules.RuleSource NETHER_SURFACE_RULES = SurfaceRules.sequence(BEDROCK_FLOOR, BEDROCK_ROOF, SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.sequence(WEEPING_MIRE, ARISIAN_UNDERGROWTH, SYTHIAN_TORRIDS, WARPED_DESERT, GLOWSTONE_GARDENS, CRIMSON_GARDENS)), WAILING_GARTH, MAGMA_WASTES, EMBUR_BOG, SUBZERO_HYPOGEAL, BRIMSTONE_FILL, QUARTZITE_SAND_FILL);
 
     private static SurfaceRules.RuleSource createNoiseConditions(ResourceKey<NormalNoise.NoiseParameters> parametersResourceKey, List<FloatProvider> ranges, SurfaceRules.RuleSource source) {
 
