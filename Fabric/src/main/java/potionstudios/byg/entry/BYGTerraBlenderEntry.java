@@ -10,9 +10,11 @@ import potionstudios.byg.world.biome.BYGBiomeProvider;
 import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
 import terrablender.api.TerraBlenderApi;
+import terrablender.worldgen.BiomeProviderUtils;
 
 import java.nio.file.Path;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class BYGTerraBlenderEntry implements TerraBlenderApi {
     @Override
@@ -23,6 +25,11 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
             @Override
             public Path configPath() {
                 return FabricLoader.getInstance().getConfigDir();
+            }
+
+            @Override
+            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
+                return BiomeProviderUtils::createNetherRules;
             }
         };
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);

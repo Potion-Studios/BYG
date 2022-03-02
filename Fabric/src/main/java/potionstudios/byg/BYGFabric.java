@@ -6,6 +6,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
@@ -22,8 +23,10 @@ import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
+import terrablender.worldgen.BiomeProviderUtils;
 
 import java.nio.file.Path;
+import java.util.function.Supplier;
 
 import static potionstudios.byg.BYG.createLocation;
 
@@ -35,6 +38,11 @@ public class BYGFabric implements ModInitializer {
             @Override
             public Path configPath() {
                 return FabricLoader.getInstance().getConfigDir();
+            }
+
+            @Override
+            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
+                return BiomeProviderUtils::createNetherRules;
             }
         };
 

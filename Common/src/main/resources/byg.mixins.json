@@ -21,6 +21,8 @@
     "access.HoeItemAccess",
     "access.IronBarsBlockAccess",
     "access.MenuTypeAccess",
+    "access.NoiseBasedChunkGeneratorAccess",
+    "access.NoiseGeneratorSettingsAccess",
     "access.NyliumBlockAccess",
     "access.OrePlacementsAccess",
     "access.OverworldBiomeBuilderAccess",

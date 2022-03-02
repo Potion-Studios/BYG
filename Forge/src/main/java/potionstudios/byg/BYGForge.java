@@ -1,10 +1,8 @@
 package potionstudios.byg;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -18,7 +16,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,7 +34,6 @@ import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.common.particles.TheriumGlint;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -47,7 +43,6 @@ import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
-import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGBiomeProvider;
@@ -55,13 +50,12 @@ import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import terrablender.api.BiomeProvider;
 import terrablender.api.BiomeProviders;
+import terrablender.worldgen.BiomeProviderUtils;
 
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.function.Supplier;
-
-import static org.spongepowered.asm.mixin.injection.At.Shift.BY;
 
 @Mod(BYG.MOD_ID)
 public class BYGForge {
@@ -71,6 +65,11 @@ public class BYGForge {
             @Override
             public Path configPath() {
                 return FMLPaths.CONFIGDIR.get();
+            }
+
+            @Override
+            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
+                return BiomeProviderUtils::createNetherRules;
             }
         };
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
