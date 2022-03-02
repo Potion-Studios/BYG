@@ -35,7 +35,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
         super(Util.make(() -> {
-            EndBiomesConfig config = EndBiomesConfig.getConfig(true);
+            EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
             LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
             LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
             LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;

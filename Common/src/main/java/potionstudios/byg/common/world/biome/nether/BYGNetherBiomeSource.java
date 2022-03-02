@@ -35,11 +35,13 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
         super(Util.make(() -> {
-            NetherBiomesConfig config = NetherBiomesConfig.getConfig(true);
+            NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
             LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
             LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
             LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-            return createBiomesFromBiomeData(biomeRegistry, usedUpperLayer, usedMiddleLayer, usedBottomLayer);
+            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedUpperLayer, usedMiddleLayer, usedBottomLayer);
+            biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> biome.getBiomeCategory() == Biome.BiomeCategory.NETHER).toList());
+            return biomesFromBiomeData;
         }));
         this.biomeRegistry = biomeRegistry;
         this.seed = seed;
