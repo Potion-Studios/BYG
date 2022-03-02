@@ -4,15 +4,14 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+
 import org.jetbrains.annotations.Nullable;
-@OnlyIn(Dist.CLIENT)
+
 public class FallingLeafParticle extends TextureSheetParticle {
     protected FallingLeafParticle(ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(world, x, y, z - 0.125D, xSpeed, ySpeed, zSpeed);
         this.quadSize *= this.random.nextFloat() * 0.6F + 0.6F;
-        this.lifetime = (int)(16.0D / (Math.random() * 0.8D + 0.2D));
+        this.lifetime = (int) (16.0D / (Math.random() * 0.8D + 0.2D));
         this.hasPhysics = false;
         this.friction = 1.0F;
         this.gravity = 0.0F;
@@ -45,13 +44,14 @@ public class FallingLeafParticle extends TextureSheetParticle {
 //        }
 //    }
 
-    public static class Provider implements ParticleProvider<SimpleParticleType>{
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
 
         private final SpriteSet sprite;
 
-        public Provider(SpriteSet sprite){
+        public Provider(SpriteSet sprite) {
             this.sprite = sprite;
         }
+
         @Nullable
         @Override
         public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {

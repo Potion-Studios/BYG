@@ -3,10 +3,8 @@ package potionstudios.byg.common.particles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
-@OnlyIn(Dist.CLIENT)
+
 public class TheriumGlint extends TextureSheetParticle {
 
     protected TheriumGlint(ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
@@ -20,7 +18,7 @@ public class TheriumGlint extends TextureSheetParticle {
         this.xd *= 0.019999999552965164D;
         this.yd *= 0.019999999552965164D;
         this.zd *= 0.019999999552965164D;
-        this.lifetime = (int)(20.0D / (Math.random() * 0.8D + 0.2D));
+        this.lifetime = (int) (20.0D / (Math.random() * 0.8D + 0.2D));
     }
 
     @Override
@@ -49,13 +47,14 @@ public class TheriumGlint extends TextureSheetParticle {
         }
     }
 
-    public static class Provider implements ParticleProvider<SimpleParticleType>{
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
 
         private final SpriteSet sprite;
 
-        public Provider(SpriteSet sprite){
+        public Provider(SpriteSet sprite) {
             this.sprite = sprite;
         }
+
         @Nullable
         @Override
         public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
