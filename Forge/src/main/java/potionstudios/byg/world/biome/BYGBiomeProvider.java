@@ -12,11 +12,11 @@ public class BYGBiomeProvider /*extends BiomeProvider*/ {
 //        this.swapper = swapper;
 //
 //        OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) (Object) overworldBiomeBuilder;
-//        overworldBiomeBuilderAccess.setOCEANS(oceans);
-//        overworldBiomeBuilderAccess.setMIDDLE_BIOMES(middleBiomes);
-//        overworldBiomeBuilderAccess.setMIDDLE_BIOMES_VARIANT(middleBiomesVariant);
+//        overworldBiomeBuilderAccess.byg_setOCEANS(oceans);
+//        overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES(middleBiomes);
+//        overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES_VARIANT(middleBiomesVariant);
 //        overworldBiomeBuilderAccess.setPLATEAU_BIOMES(plateauBiomes);
-//        overworldBiomeBuilderAccess.setPLATEAU_BIOMES_VARIANT(plateauBiomesVariant);
+//        overworldBiomeBuilderAccess.byg_setPLATEAU_BIOMES_VARIANT(plateauBiomesVariant);
 //        overworldBiomeBuilderAccess.setEXTREME_HILLS(extremeHills);
 //        dumpArrays((biomeResourceKey -> {
 //            if (biomeResourceKey != null && biomeResourceKey != Biomes.THE_VOID) {
@@ -30,7 +30,7 @@ public class BYGBiomeProvider /*extends BiomeProvider*/ {
 //
 //    @Override
 //    public void addOverworldBiomes(Registry<Biome> registry, Consumer<Pair<TBClimate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-//        ((OverworldBiomeBuilderAccess) (Object) this.overworldBiomeBuilder).invokeAddBiomes((parameterPointResourceKeyPair -> {
+//        ((OverworldBiomeBuilderAccess) (Object) this.overworldBiomeBuilder).byg_invokeAddBiomes((parameterPointResourceKeyPair -> {
 //            ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
 //            if (this.bygKeys.contains(biomeKey)) {
 //                mapper.accept(new Pair<>(ParameterUtils.convertParameterPoint(parameterPointResourceKeyPair.getFirst(), getUniquenessParameter()), biomeKey));

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface TrapDoorBlockAccess {
 
     @Invoker("<init>")
-    static TrapDoorBlock create(BlockBehaviour.Properties properties) {
+    static TrapDoorBlock byg_create(BlockBehaviour.Properties properties) {
         throw new Error("Mixin did not apply!");
     }
 }

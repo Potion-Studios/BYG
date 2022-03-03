@@ -62,16 +62,16 @@ public class MixinMinecraftServer {
 
         ChunkGenerator generator = levelStem.generator();
         if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) generator).getSettings().value();
-            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, BYG.MODLOADER_DATA.netherRuleSource().get(), ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) generator).byg_getSettings().value();
+            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, BYG.MODLOADER_DATA.netherRuleSource().get(), ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
         }
 
         LevelStem endLevelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.END);
 
         ChunkGenerator endGenerator = endLevelStem.generator();
         if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).getSettings().value();
-            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).byg_getSettings().value();
+            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
         }
 
         BYGUtil.useTagReplacements = true;

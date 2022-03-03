@@ -19,7 +19,7 @@ public class BYGStateProviders {
 
 
     private static <P extends BlockStateProvider> BlockStateProviderType<P> register(String id, Codec<P> codec) {
-        BlockStateProviderType<P> type = BlockStateProviderAccess.create(codec);
+        BlockStateProviderType<P> type = BlockStateProviderAccess.byg_create(codec);
         STATE_PROVIDERS.add(new RegistryObject<>(type, id));
         return type;
     }

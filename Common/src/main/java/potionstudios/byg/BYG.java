@@ -64,7 +64,7 @@ public class BYG {
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
-            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.getReplaceableBlocks()).build());
+            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
         }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
@@ -72,13 +72,13 @@ public class BYG {
     public static void threadSafeCommonLoad() {
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
-        Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.getValidBlocks());
+        Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());
         validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
-        builderAccess.setValidBlocks(validBlocks);
-        DeltaFeatureAccess.setCANNOT_REPLACE(
+        builderAccess.byg_setValidBlocks(validBlocks);
+        DeltaFeatureAccess.byg_setCANNOT_REPLACE(
             new ImmutableList.Builder<Block>()
-                .addAll(DeltaFeatureAccess.getCANNOT_REPLACE())
+                .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
                 .add(Blocks.JUNGLE_LEAVES)
                 .add(Blocks.JUNGLE_LOG)
                 .add(Blocks.OAK_LEAVES)

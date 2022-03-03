@@ -22,7 +22,7 @@ public class BYGBlockEntities {
 
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String key, BlockEntityType.Builder<T> builder) {
-        if (((BlockEntityTypeBuilderAccess) (Object) builder).getValidBlocks().isEmpty()) {
+        if (((BlockEntityTypeBuilderAccess) (Object) builder).byg_getValidBlocks().isEmpty()) {
             BYG.LOGGER.warn("Block entity type {} requires at least one valid block to be defined!", (Object) key);
         }
 

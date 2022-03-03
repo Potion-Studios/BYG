@@ -8,6 +8,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(BiomeSource.class)
 public interface BiomeSourceAccess {
 
-    @Invoker
-    Codec<? extends BiomeSource> invokeCodec();
+    @Invoker("codec")
+    Codec<? extends BiomeSource> byg_invokeCodec();
 }

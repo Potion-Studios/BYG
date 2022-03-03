@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface ClientLevelAccess {
 
 
-    @Invoker
-    void invokeAddEntity(int i, Entity entity);
+    @Invoker("addEntity")
+    void byg_invokeAddEntity(int i, Entity entity);
 }

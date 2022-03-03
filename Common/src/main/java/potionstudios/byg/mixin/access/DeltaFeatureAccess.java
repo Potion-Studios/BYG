@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface DeltaFeatureAccess {
 
 
-    @Accessor
-    static ImmutableList<Block> getCANNOT_REPLACE() {
+    @Accessor("CANNOT_REPLACE")
+    static ImmutableList<Block> byg_getCANNOT_REPLACE() {
         throw new Error("Mixin did not apply!");
     }
 
-    @Accessor @Mutable
-    static void setCANNOT_REPLACE(ImmutableList<Block> blocks) {
+    @Accessor("CANNOT_REPLACE") @Mutable
+    static void byg_setCANNOT_REPLACE(ImmutableList<Block> blocks) {
         throw new Error("Mixin did not apply!");
     }
 }

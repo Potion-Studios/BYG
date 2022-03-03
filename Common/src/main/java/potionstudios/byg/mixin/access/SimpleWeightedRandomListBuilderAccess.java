@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(SimpleWeightedRandomList.Builder.class)
 public interface SimpleWeightedRandomListBuilderAccess<E> {
 
-    @Accessor
-    ImmutableList.Builder<WeightedEntry.Wrapper<E>> getResult();
+    @Accessor("result")
+    ImmutableList.Builder<WeightedEntry.Wrapper<E>> byg_getResult();
 }

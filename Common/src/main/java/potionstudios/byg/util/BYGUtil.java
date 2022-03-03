@@ -101,12 +101,12 @@ public class BYGUtil {
     public static <T> SimpleWeightedRandomList<T> combineWeightedRandomListsWithoutDuplicatesFilter(SimpleWeightedRandomList<T>... builders) {
         SimpleWeightedRandomList.Builder<T> combinedBuilder = new SimpleWeightedRandomList.Builder<>();
         for (SimpleWeightedRandomList<T> build : builders) {
-            for (WeightedEntry.Wrapper<T> item : ((WeightedListAccess<WeightedEntry.Wrapper<T>>) build).getItems()) {
-                Set<T> collection = ((WeightedListAccess<WeightedEntry.Wrapper<T>>) combinedBuilder.build()).getItems().stream().map(item1 -> ((WeightedEntryWrapperAccess<T>) item1).getData()).collect(Collectors.toSet());
-                T data = ((WeightedEntryWrapperAccess<T>) item).getData();
+            for (WeightedEntry.Wrapper<T> item : ((WeightedListAccess<WeightedEntry.Wrapper<T>>) build).byg_getItems()) {
+                Set<T> collection = ((WeightedListAccess<WeightedEntry.Wrapper<T>>) combinedBuilder.build()).byg_getItems().stream().map(item1 -> ((WeightedEntryWrapperAccess<T>) item1).byg_getData()).collect(Collectors.toSet());
+                T data = ((WeightedEntryWrapperAccess<T>) item).byg_getData();
 
                 if (!collection.contains(data)) {
-                    combinedBuilder.add(data, ((WeightedEntryWrapperAccess<T>) item).getWeight().asInt());
+                    combinedBuilder.add(data, ((WeightedEntryWrapperAccess<T>) item).byg_getWeight().asInt());
                 }
             }
         }
@@ -117,7 +117,7 @@ public class BYGUtil {
     public static List<Holder<Biome>> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, Path configPath, LayersBiomeData... layersBiomeDatas) {
         List<Holder<Biome>> biomes = new ArrayList<>();
         for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
-            ImmutableList<WeightedEntry.Wrapper<ResourceKey<Biome>>> items = ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems();
+            ImmutableList<WeightedEntry.Wrapper<ResourceKey<Biome>>> items = ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).byg_getItems();
 
             for (WeightedEntry.Wrapper<ResourceKey<Biome>> key : items) {
                 ResourceKey<Biome> resourceKey = key.getData();

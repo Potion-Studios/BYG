@@ -15,18 +15,18 @@ import java.util.Map;
 public interface AxeItemAccess {
 
     @Invoker("<init>")
-    static AxeItem create(Tier tier, float f, float g, Item.Properties properties) {
+    static AxeItem byg_create(Tier tier, float f, float g, Item.Properties properties) {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("STRIPPABLES")
-    static Map<Block, Block> getStripables() {
+    static Map<Block, Block> byg_getStrippables() {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("STRIPPABLES")
     @Mutable
-    static void setStripables(Map<Block, Block> newMap) {
+    static void byg_setStripables(Map<Block, Block> newMap) {
         throw new Error("Mixin did not apply");
     }
 }

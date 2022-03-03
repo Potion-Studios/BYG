@@ -87,7 +87,7 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
                 ResourceKey<Biome> biomeResourceKey = level.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(level.getBiome(blendingPos).value()).get();
                 boolean outsideBiome = biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES && worldSurfaceHeight < height;
 
-                NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).getNoiseChunk();
+                NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).byg_getNoiseChunk();
                 boolean abovePreliminarySurface =  noiseChunk != null && noiseChunk.preliminarySurfaceLevel(mutableBlockPos.getX(), mutableBlockPos.getZ()) > worldSurfaceHeight;
                 boolean caveCheck = biomeResourceKey == BYGBiomes.WINDSWEPT_DUNES && (worldSurfaceHeight < generator.getSeaLevel() || abovePreliminarySurface);
                 if (caveCheck) {

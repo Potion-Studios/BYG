@@ -11,9 +11,9 @@ import java.util.Map;
 public class BYGFlattenables {
 
     public static void addFlattenables() {
-        Map<Block, BlockState> flattenables = new IdentityHashMap<>(ShovelItemAccess.getFlattenables());
+        Map<Block, BlockState> flattenables = new IdentityHashMap<>(ShovelItemAccess.byg_getFLATTENABLES());
         flattenables.put(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.LUSH_GRASS_PATH.defaultBlockState());
         flattenables.put(BYGBlocks.LUSH_DIRT, BYGBlocks.LUSH_GRASS_PATH.defaultBlockState());
-        ShovelItemAccess.setFlattenables(flattenables);
+        ShovelItemAccess.byg_setFLATTENABLES(flattenables);
     }
 }

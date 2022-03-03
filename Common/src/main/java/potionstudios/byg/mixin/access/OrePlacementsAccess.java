@@ -10,8 +10,8 @@ import java.util.List;
 @Mixin(OrePlacements.class)
 public interface OrePlacementsAccess {
 
-    @Invoker
-    static List<PlacementModifier> invokeCommonOrePlacement(int count, PlacementModifier $$1) {
+    @Invoker("commonOrePlacement")
+    static List<PlacementModifier> byg_invokeCommonOrePlacement(int count, PlacementModifier $$1) {
         throw new Error("Mixin did not apply!");
     }
 }

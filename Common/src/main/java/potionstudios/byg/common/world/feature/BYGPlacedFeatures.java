@@ -36,7 +36,7 @@ import java.util.OptionalInt;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.*;
-import static potionstudios.byg.mixin.access.OrePlacementsAccess.invokeCommonOrePlacement;
+import static potionstudios.byg.mixin.access.OrePlacementsAccess.byg_invokeCommonOrePlacement;
 
 public class BYGPlacedFeatures {
 
@@ -109,7 +109,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> LARGE_PUMPKINS = createPlacedFeature("large_pumpkins", BYGOverworldVegetationFeatures.LARGE_PUMPKINS, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 1)));
     public static final Holder<PlacedFeature> SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGOverworldVegetationFeatures.SWAMP_WATER_VEGETATION, worldSurfaceSquaredWithCount(25));
 
-    public static final Holder<PlacedFeature> MUSHROOMS = createPlacedFeature("mushrooms", BYGOverworldVegetationFeatures.MUSHROOMS, VegetationPlacementsAccess.invokeGetMushroomPlacement(512, null));
+    public static final Holder<PlacedFeature> MUSHROOMS = createPlacedFeature("mushrooms", BYGOverworldVegetationFeatures.MUSHROOMS, VegetationPlacementsAccess.byg_invokeGetMushroomPlacement(512, null));
     public static final Holder<PlacedFeature> ARAUCARIA_TREES = createPlacedFeature("araucaria_trees", BYGOverworldTreeFeatures.ARAUCARIA_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
     public static final Holder<PlacedFeature> ASPEN_SHRUBS = createPlacedFeature("aspen_shrubs", BYGOverworldTreeFeatures.ASPEN_SHRUBS, clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
     public static final Holder<PlacedFeature> ASPEN_TREES = createPlacedFeature("aspen_trees", BYGOverworldTreeFeatures.ASPEN_TREES, clearingTreePlacement(PlacementUtils.countExtra(6, 0.25F, 3)));
@@ -225,11 +225,11 @@ public class BYGPlacedFeatures {
 
     public static final Holder<PlacedFeature> ISLANDS = createPlacedFeature("islands", BYGEndFeatures.ISLANDS, CountPlacement.of(1), RarityFilter.onAverageOnceEvery(6), HeightRangePlacement.uniform(VerticalAnchor.absolute(200), VerticalAnchor.absolute(230)), InSquarePlacement.spread(), BiomeFilter.biome());
 
-    public static final Holder<PlacedFeature> ORE_GOLD_BRIMSTONE = PlacementUtils.register("ore_gold_brimstone", BYGNetherFeatures.ORE_GOLD_BRIMSTONE, invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
-    public static final Holder<PlacedFeature> ORE_QUARTZ_BRIMSTONE = PlacementUtils.register("ore_quartz_brimstone", BYGNetherFeatures.ORE_QUARTZ_BRIMSTONE, invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
-    public static final Holder<PlacedFeature> ORE_GOLD_BLUE_NETHERRACK = PlacementUtils.register("ore_gold_blue_netherrack", BYGNetherFeatures.ORE_GOLD_BLUE_NETHERRACK, invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
-    public static final Holder<PlacedFeature> ORE_QUARTZ_BLUE_NETHERRACK = PlacementUtils.register("ore_quartz_blue_netherrack", BYGNetherFeatures.ORE_QUARTZ_BLUE_NETHERRACK, invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
-    public static final Holder<PlacedFeature> ORE_ANTHRACITE = PlacementUtils.register("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE, invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_GOLD_BRIMSTONE = PlacementUtils.register("ore_gold_brimstone", BYGNetherFeatures.ORE_GOLD_BRIMSTONE, byg_invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_QUARTZ_BRIMSTONE = PlacementUtils.register("ore_quartz_brimstone", BYGNetherFeatures.ORE_QUARTZ_BRIMSTONE, byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_GOLD_BLUE_NETHERRACK = PlacementUtils.register("ore_gold_blue_netherrack", BYGNetherFeatures.ORE_GOLD_BLUE_NETHERRACK, byg_invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_QUARTZ_BLUE_NETHERRACK = PlacementUtils.register("ore_quartz_blue_netherrack", BYGNetherFeatures.ORE_QUARTZ_BLUE_NETHERRACK, byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_ANTHRACITE = PlacementUtils.register("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE, byg_invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10));
 
     public static final Holder<PlacedFeature> BORIC_FIRE = createPlacedFeature("patch_boric_fire", BYGNetherFeatures.BORIC_FIRE_PATCH, CountOnEveryLayerPlacement.of(8), BiomeFilter.biome());
     public static final Holder<PlacedFeature> BRIMSTONE_VOLCANO = createPlacedFeature("brimstone_volcano", BYGNetherFeatures.BRIMSTONE_VOLCANO, CountOnEveryLayerPlacement.of(3), BiomeFilter.biome());

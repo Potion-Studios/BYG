@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface SimpleParticleTypeAccess {
 
     @Invoker("<init>")
-    static SimpleParticleType create(boolean glow) {
+    static SimpleParticleType byg_create(boolean glow) {
         throw new Error("Mixin did not apply!");
     }
 }

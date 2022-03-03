@@ -38,8 +38,8 @@
 //        public InitLayer(SimpleWeightedRandomList<ResourceKey<Biome>> biomes, Registry<Biome> biomeRegistry) {
 //            this.biomes = biomes;
 //            this.biomeRegistry = biomeRegistry;
-//            this.totalWeight = ((WeightedListAccess<?>) this.biomes).getTotalWeight();
-//            this.entries = ((WeightedListAccess<WeightedEntry>) this.biomes).getItems();
+//            this.totalWeight = ((WeightedListAccess<?>) this.biomes).byg_getTotalWeight();
+//            this.entries = ((WeightedListAccess<WeightedEntry>) this.biomes).byg_getItems();
 //        }
 //
 //        @Override
@@ -49,7 +49,7 @@
 //            }
 //            Optional<WeightedEntry> weightedItem = WeightedRandom.getWeightedItem(this.entries, areaContext.nextRandom(this.totalWeight));
 //            WeightedEntry.Wrapper<ResourceKey<Biome>> resourceKeyWrapper = (WeightedEntry.Wrapper<ResourceKey<Biome>>) weightedItem.get();
-//            return biomeRegistry.getId(biomeRegistry.get(resourceKeyWrapper.getData()));
+//            return biomeRegistry.getId(biomeRegistry.get(resourceKeyWrapper.byg_getData()));
 //        }
 //    }
 //}

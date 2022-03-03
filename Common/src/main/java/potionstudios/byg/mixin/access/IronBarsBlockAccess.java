@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface IronBarsBlockAccess {
 
     @Invoker("<init>")
-    static IronBarsBlock create(BlockBehaviour.Properties properties) {
+    static IronBarsBlock byg_create(BlockBehaviour.Properties properties) {
         throw new Error("Mixin did not apply!");
     }
 }

@@ -71,7 +71,7 @@ public abstract class MixinServerLevel extends Level {
                 }
             }
             EndBiomesConfig config = EndBiomesConfig.getConfig();
-            ResourceLocation biomeSourceKey = Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).invokeCodec());
+            ResourceLocation biomeSourceKey = Registry.BIOME_SOURCE.getKey(((BiomeSourceAccess) this.chunkSource.getGenerator().getBiomeSource()).byg_invokeCodec());
             if (config.warnBYGEndBiomeSourceNotUsedInNewWorlds() && config.useBYGEndBiomeSourceInNewWorlds() && dimension() == Level.END) {
                 if (!biomeSourceKey.equals(BYGEndBiomeSource.LOCATION)) {
                     Path warningMarker = this.worldPath.resolve("END_BIOME_SOURCE_WARNING_MARKER.txt");

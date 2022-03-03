@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface MenuTypeAccess {
 
     @Invoker("<init>")
-    static <T extends AbstractContainerMenu> MenuType<T> create(MenuType.MenuSupplier<T> menuSupplier) {
+    static <T extends AbstractContainerMenu> MenuType<T> byg_create(MenuType.MenuSupplier<T> menuSupplier) {
         throw new Error("Mixin did not apply!");
     }
 }

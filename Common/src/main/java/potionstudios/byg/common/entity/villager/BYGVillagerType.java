@@ -20,6 +20,6 @@ public class BYGVillagerType {
     });
 
     public static void setVillagerForBYGBiomes() {
-        VillagerTypeAccess.getVillagerByBiome().putAll(BY_BYG_BIOME);
+        VillagerTypeAccess.byg_getBY_BIOME().putAll(BY_BYG_BIOME);
     }
 }

@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(OverworldBiomes.class)
 public interface OverworldBiomesAccess {
 
-    @Invoker
+    @Invoker("globalOverworldGeneration")
     static void invokeGlobalOverworldGeneration(net.minecraft.world.level.biome.BiomeGenerationSettings.Builder builder) {
         throw new Error("Mixin did not apply!");
     }

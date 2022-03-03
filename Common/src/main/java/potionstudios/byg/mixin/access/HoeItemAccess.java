@@ -19,18 +19,18 @@ import java.util.function.Predicate;
 public interface HoeItemAccess {
 
     @Invoker("<init>")
-    static HoeItem create(Tier tier, int i, float f, Item.Properties properties) {
+    static HoeItem byg_create(Tier tier, int i, float f, Item.Properties properties) {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("TILLABLES")
-    static Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> getTillables() {
+    static Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> byg_getTILLABLES() {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("TILLABLES")
     @Mutable
-    static void setTillables(Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> newMap) {
+    static void byg_setTILLABLES(Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> newMap) {
         throw new Error("Mixin did not apply");
     }
 }

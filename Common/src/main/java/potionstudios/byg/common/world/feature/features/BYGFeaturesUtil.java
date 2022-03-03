@@ -23,7 +23,7 @@ import potionstudios.byg.BYG;
 
 import java.util.List;
 
-import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.invokeGrassPatch;
+import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.byg_invokeGrassPatch;
 
 public class BYGFeaturesUtil {
 
@@ -40,7 +40,7 @@ public class BYGFeaturesUtil {
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createFlowerConfiguredFeature(String id, Block flowerBlock) {
-        return createConfiguredFeature(id, Feature.FLOWER, invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15));
+        return createConfiguredFeature(id, Feature.FLOWER, byg_invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15));
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, Block block, int tries) {

@@ -19,7 +19,7 @@ public class BYGMenuTypes {
 
 
     private static <T extends AbstractContainerMenu> MenuType<T> register(String key, MenuType.MenuSupplier<T> builder) {
-        MenuType<T> containerType = MenuTypeAccess.create(builder);
+        MenuType<T> containerType = MenuTypeAccess.byg_create(builder);
         MENU_TYPES.add(new RegistryObject<>(containerType, key));
         return containerType;
     }

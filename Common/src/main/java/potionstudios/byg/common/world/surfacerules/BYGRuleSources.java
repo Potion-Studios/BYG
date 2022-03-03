@@ -24,7 +24,7 @@ import java.util.Objects;
 import java.util.Random;
 
 import static potionstudios.byg.BYG.createLocation;
-import static potionstudios.byg.mixin.access.SurfaceSystemAccess.invokeMakeBands;
+import static potionstudios.byg.mixin.access.SurfaceSystemAccess.byg_invokeMakeBands;
 
 public class BYGRuleSources {
 
@@ -58,8 +58,8 @@ public class BYGRuleSources {
 
         @Override
         public SurfaceRules.SurfaceRule apply(SurfaceRules.Context context) {
-            SurfaceSystem surfaceSystem = ((SurfaceRuleContextAccess) (Object) context).getSystem();
-            ChunkAccess chunkAccess = ((SurfaceRuleContextAccess) (Object) context).getChunk();
+            SurfaceSystem surfaceSystem = ((SurfaceRuleContextAccess) (Object) context).byg_getSystem();
+            ChunkAccess chunkAccess = ((SurfaceRuleContextAccess) (Object) context).byg_getChunk();
             Random random = ((ChunkRandom) chunkAccess).getRandom(((SeedGetter) surfaceSystem).getLong());
             SurfaceRules.SurfaceRule[][] rules = new SurfaceRules.SurfaceRule[16][16];
 
@@ -126,12 +126,12 @@ public class BYGRuleSources {
 
         @Override
         public SurfaceRules.SurfaceRule apply(SurfaceRules.Context context) {
-            SurfaceSystem system = ((SurfaceRuleContextAccess) (Object) context).getSystem();
+            SurfaceSystem system = ((SurfaceRuleContextAccess) (Object) context).byg_getSystem();
             if (generatedBands == null) {
-                generatedBands = this.generateBands(((SurfaceSystemAccess) system).getRandomFactory().fromHashOf(new ResourceLocation("clay_bands")));
+                generatedBands = this.generateBands(((SurfaceSystemAccess) system).byg_getRandomFactory().fromHashOf(new ResourceLocation("clay_bands")));
             }
 
-            return (x, y, z) -> getBand(x, y, z, generatedBands, ((SurfaceSystemAccess) system).getClayBandsOffsetNoise());
+            return (x, y, z) -> getBand(x, y, z, generatedBands, ((SurfaceSystemAccess) system).byg_getClayBandsOffsetNoise());
         }
 
         private static BlockState getBand(int x, int y, int z, BlockState[] bands, NormalNoise offsetNoise) {
@@ -150,9 +150,9 @@ public class BYGRuleSources {
                 }
             }
 
-            invokeMakeBands(p_189965_, ablockstate, 1, this.bandStates[2]);
-            invokeMakeBands(p_189965_, ablockstate, 2, this.bandStates[3]);
-            invokeMakeBands(p_189965_, ablockstate, 1, this.bandStates[4]);
+            byg_invokeMakeBands(p_189965_, ablockstate, 1, this.bandStates[2]);
+            byg_invokeMakeBands(p_189965_, ablockstate, 2, this.bandStates[3]);
+            byg_invokeMakeBands(p_189965_, ablockstate, 1, this.bandStates[4]);
             int l = p_189965_.nextIntBetweenInclusive(9, 15);
             int i = 0;
 

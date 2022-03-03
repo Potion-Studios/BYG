@@ -9,9 +9,9 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(WeightedRandomList.class)
 public interface WeightedListAccess<E> {
 
-    @Accessor
-    int getTotalWeight();
+    @Accessor("totalWeight")
+    int byg_getTotalWeight();
 
-    @Accessor
-    ImmutableList<E> getItems();
+    @Accessor("items")
+    ImmutableList<E> byg_getItems();
 }
