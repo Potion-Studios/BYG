@@ -32,8 +32,8 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.block.EtherBulbsBlock;
-import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.util.MLBlockTags;
 
@@ -459,7 +459,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     public final void setFinalBlockState(Set<BlockPos> changedBlocks, LevelWriter worldIn, BlockPos pos, BlockState blockState, BoundingBox boundingBox) {
         this.setBlockStateWithoutUpdates(worldIn, pos, blockState);
         boundingBox.encapsulate(new BoundingBox(pos));
-        if (BlockTags.LOGS.contains(blockState.getBlock())) {
+        if (blockState.is(BlockTags.LOGS)) {
             changedBlocks.add(pos.immutable());
         }
     }

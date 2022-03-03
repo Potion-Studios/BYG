@@ -2,17 +2,18 @@ package potionstudios.byg.common.world.structure.village.pool;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.data.worldgen.placement.VillagePlacements;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import potionstudios.byg.BYG;
 
 public class AdobeVillagePools {
-    public static final StructureTemplatePool ADOBE_VILLAGE_JIGSAW = Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/town_centers"),
+    public static final Holder<StructureTemplatePool> ADOBE_VILLAGE_JIGSAW = Pools.register(new StructureTemplatePool(BYG.createLocation("village/adobe/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 30),
                     Pair.of(StructurePoolElement.legacy("byg:village/adobe/town_centers/adobe_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 35),

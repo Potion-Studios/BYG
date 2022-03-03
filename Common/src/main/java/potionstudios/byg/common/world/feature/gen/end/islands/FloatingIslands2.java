@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature.gen.end.islands;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -11,7 +12,6 @@ import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
 
@@ -48,8 +48,8 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
                 }
             }
         }
-        for (Supplier<PlacedFeature> feature : config.getPlacedFeatures()) {
-            feature.get().place(world, generator, rand, pos.above(2));
+        for (Holder<PlacedFeature> feature : config.getPlacedFeatures()) {
+            feature.value().place(world, generator, rand, pos.above(2));
         }
         return true;
     }

@@ -3,6 +3,7 @@ package potionstudios.byg.util;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
@@ -17,10 +18,7 @@ import potionstudios.byg.mixin.access.WeightedListAccess;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
 
@@ -114,16 +112,16 @@ public class BYGUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<Biome> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, Path configPath, LayersBiomeData... layersBiomeDatas) {
-        List<Biome> biomes = new ArrayList<>();
+    public static List<Holder<Biome>> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, Path configPath, LayersBiomeData... layersBiomeDatas) {
+        List<Holder<Biome>> biomes = new ArrayList<>();
         for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
             ImmutableList<WeightedEntry.Wrapper<ResourceKey<Biome>>> items = ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).getItems();
 
             for (WeightedEntry.Wrapper<ResourceKey<Biome>> key : items) {
                 ResourceKey<Biome> resourceKey = key.getData();
-                Biome biome = biomeRegistry.get(resourceKey);
-                if (biome != null) {
-                    biomes.add(biome);
+                Optional<Holder<Biome>> biome = biomeRegistry.getHolder(resourceKey);
+                if (biome.isPresent()) {
+                    biomes.add(biome.get());
                 } else {
                     throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the registry, fix the ID or remove the json entry from the config: \"%s\" and relaunch Minecraft...", resourceKey, configPath.toString()));
                 }

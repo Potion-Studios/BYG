@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.biome.end;
 
 import net.minecraft.Util;
+import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -36,8 +37,8 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
             LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
             LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
             LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
-            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, EndBiomesConfig.CONFIG_PATH.get(), usedIslandLayer, usedVoidLayer, usedSkyLayer);
-            biomesFromBiomeData.add(biomeRegistry.get(Biomes.THE_END));
+            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, EndBiomesConfig.CONFIG_PATH.get(), usedIslandLayer, usedVoidLayer, usedSkyLayer);
+            biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
             return biomesFromBiomeData;
         }));
         this.biomeRegistry = biomeRegistry;
@@ -70,11 +71,11 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
 
     @Override
-    public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
         int chunkX = x >> 2;
         int chunkZ = z >> 2;
         if ((long) chunkX * (long) chunkX + (long) chunkZ * (long) chunkZ <= 4096L) {
-            return this.biomeRegistry.get(Biomes.THE_END);
+            return this.biomeRegistry.getHolderOrThrow(Biomes.THE_END);
         } else {
             if (y > this.skyLayersStartY) {
                 return this.skyBiomeResolver.getNoiseBiome(x, y, z, sampler);

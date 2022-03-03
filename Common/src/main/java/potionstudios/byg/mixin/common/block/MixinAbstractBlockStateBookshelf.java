@@ -1,7 +1,6 @@
 package potionstudios.byg.mixin.common.block;
 
-import net.minecraft.tags.StaticTagHelper;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -11,32 +10,22 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.mixin.access.StaticTagHelperWrapperAccess;
 import potionstudios.byg.util.MLBlockTags;
 
 @Mixin(BlockBehaviour.BlockStateBase.class)
 public abstract class MixinAbstractBlockStateBookshelf {
 
-    @Shadow
-    public abstract boolean is(Tag<Block> tag);
 
-    @SuppressWarnings("unchecked")
+    @Shadow public abstract boolean is(TagKey<Block> $$0);
+
     @Inject(at = @At("HEAD"), method = "is(Lnet/minecraft/world/level/block/Block;)Z", cancellable = true)
     private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
         // We need to make sure we're bounded first before using
         if (block == Blocks.BOOKSHELF) {
-            if (MLBlockTags.BOOKSHELVES instanceof StaticTagHelper.Wrapper<Block> bookShelves) {
-                if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null) {
-                    info.setReturnValue(this.is(bookShelves));
-                }
-            }
+            info.setReturnValue(this.is(MLBlockTags.SANDSTONE));
         }
         if (block == Blocks.FARMLAND) {
-            if (BYGBlockTags.FARMLAND instanceof StaticTagHelper.Wrapper<Block> bookShelves) {
-                if (((StaticTagHelperWrapperAccess<Block>) bookShelves).getTag() != null) {
-                    info.setReturnValue(this.is(bookShelves));
-                }
-            }
+            info.setReturnValue(this.is(BYGBlockTags.FARMLAND));
         }
     }
 }

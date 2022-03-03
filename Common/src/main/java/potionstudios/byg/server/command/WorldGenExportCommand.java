@@ -10,12 +10,11 @@ import com.mojang.serialization.JsonOps;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.core.MappedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.RegistryWriteOps;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.DimensionType;
@@ -51,19 +50,19 @@ public class WorldGenExportCommand {
         try {
             Path exportPath = ModLoaderContext.getInstance().configPath().getParent().resolve("world_gen_export").resolve(builtin ? "builtin" : "world");
             HashCache cache = new HashCache(exportPath, "cache");
-            RegistryAccess registry = builtin ? RegistryAccess.builtin() : source.getLevel().registryAccess();
+            RegistryAccess registry = builtin ? RegistryAccess.builtinCopy() : source.getLevel().registryAccess();
 
-            MappedRegistry<LevelStem> defaultDimensions = DimensionType.defaultDimensions(registry, 0L, false);
+            Registry<LevelStem> defaultDimensions = DimensionType.defaultDimensions(registry, 0L, false);
             ChunkGenerator chunkGenerator = WorldGenSettings.makeDefaultOverworld(registry, 0L, false);
 
-            DynamicOps<JsonElement> ops = RegistryWriteOps.create(JsonOps.INSTANCE, registry);
+            DynamicOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, registry);
 
             for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
                 invokeDumpRegistryCap(cache, exportPath, registry, ops, knownRegistry);
             }
             createPackMCMeta(exportPath, builtin);
 
-            MappedRegistry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
+            Registry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
 
             invokeDumpRegistry(exportPath, cache, ops, Registry.LEVEL_STEM_REGISTRY, worldSettings, LevelStem.CODEC);
 

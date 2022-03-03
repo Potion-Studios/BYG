@@ -2,11 +2,14 @@ package potionstudios.byg;
 
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
@@ -16,6 +19,7 @@ import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
+import potionstudios.byg.mixin.access.WorldCarverAccess;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModLoaderContext;
@@ -57,6 +61,11 @@ public class BYG {
         }
         EndBiomesConfig.getConfig(true);
         NetherBiomesConfig.getConfig(true);
+
+        for (WorldCarver<?> worldCarver : Registry.CARVER) {
+            WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
+            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.getReplaceableBlocks()).build());
+        }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
     }
 

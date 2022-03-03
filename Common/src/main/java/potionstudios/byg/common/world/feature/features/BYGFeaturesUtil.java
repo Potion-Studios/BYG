@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.feature.features;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
+import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.ResourceLocation;
@@ -13,10 +13,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import potionstudios.byg.BYG;
 
 import java.util.List;
@@ -25,40 +27,40 @@ import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.invokeGras
 
 public class BYGFeaturesUtil {
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createConfiguredFeature(String id, CF configuredFeature) {
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, F feature, FC config) {
         ResourceLocation bygID = BYG.createLocation(id);
-        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID))
+        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID)) {
             throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
-
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, bygID, configuredFeature);
-        if (configuredFeature == null) {
-            String s = "";
         }
-        return configuredFeature;
+        return BuiltinRegistries.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, BYG.createLocation(id).toString(), new ConfiguredFeature<>(feature, config));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createFlowerConfiguredFeature(String id, Block flowerBlock) {
-        return (CF) createConfiguredFeature(id, Feature.FLOWER.configured(invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15)));
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(F feature, FC config) {
+        return Holder.direct(new ConfiguredFeature<>(feature, config));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(String id, Block block, int tries) {
-        return (CF) createPatchConfiguredFeature(id, block.defaultBlockState(), tries);
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createFlowerConfiguredFeature(String id, Block flowerBlock) {
+        return createConfiguredFeature(id, Feature.FLOWER, invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(String id, BlockState state, int tries) {
-        return (CF) createConfiguredFeature(id, Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(state))), List.of(), tries)));
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, Block block, int tries) {
+        return  createPatchConfiguredFeature(id, block.defaultBlockState(), tries);
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createPatchConfiguredFeature(Block block, int tries) {
-        return (CF) Feature.RANDOM_PATCH.configured(FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(block))), List.of(), tries));
+    public static Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, BlockState state, int tries) {
+        return createConfiguredFeature(id, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)), List.of(), tries));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createSimpleBlockConfiguredFeature(String id, Block block) {
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(Block block, int tries) {
+        return Holder.direct(new ConfiguredFeature<>(Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(block)), List.of(), tries)));
+    }
+
+    public static Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> createSimpleBlockConfiguredFeature(String id, Block block) {
         return createSimpleBlockConfiguredFeature(id, block.defaultBlockState());
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>, CF extends ConfiguredFeature<FC, F>> CF createSimpleBlockConfiguredFeature(String id, BlockState state) {
-        return (CF) createConfiguredFeature(id, Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(BlockStateProvider.simple(state))));
+    public static Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> createSimpleBlockConfiguredFeature(String id, BlockState state) {
+        return createConfiguredFeature(id, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)));
     }
 
 

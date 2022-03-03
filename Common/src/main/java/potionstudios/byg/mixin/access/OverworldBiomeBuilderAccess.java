@@ -30,9 +30,6 @@ public interface OverworldBiomeBuilderAccess {
     @Accessor @Mutable
     void setPLATEAU_BIOMES_VARIANT(ResourceKey<Biome>[][] plateauBiomesVariant);
 
-    @Accessor @Mutable
-    void setEXTREME_HILLS(ResourceKey<Biome>[][] extremeHills);
-
     @Invoker
     void invokeAddBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper);
 }

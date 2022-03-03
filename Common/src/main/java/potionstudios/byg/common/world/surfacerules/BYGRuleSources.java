@@ -197,6 +197,9 @@ public class BYGRuleSources {
 
     }
 
+    public static void bootStrap() {
+    }
+
     static {
         Registry.register(Registry.RULE, createLocation("state_provider"), WeightedRuleSource.CODEC);
         Registry.register(Registry.RULE, createLocation("bands"), BandsRuleSource.CODEC);

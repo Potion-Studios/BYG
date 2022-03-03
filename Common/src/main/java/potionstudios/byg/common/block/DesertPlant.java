@@ -1,7 +1,7 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -18,9 +18,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DesertPlant extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
-    private final Tag.Named<Block> validGround;
+    private final TagKey<Block> validGround;
 
-    public DesertPlant(Properties builder, Tag.Named<Block> validGround) {
+    public DesertPlant(Properties builder, TagKey<Block> validGround) {
         super(builder);
 
         this.validGround = validGround;

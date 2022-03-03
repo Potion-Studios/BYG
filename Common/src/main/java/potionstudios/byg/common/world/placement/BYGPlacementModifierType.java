@@ -18,4 +18,6 @@ public class BYGPlacementModifierType {
         });
     }
 
+    public static void bootStrap() {
+    }
 }

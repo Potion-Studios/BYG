@@ -21,7 +21,7 @@ public abstract class BYGHugeMushroom {
             return false;
         } else {
             worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), 4);
-            abstractMushroomFeature.config.forcePlacement();
+            abstractMushroomFeature.config().forcePlacement();
             if (abstractMushroomFeature.place(worldIn, chunkGenerator, random, pos)) {
                 return true;
             } else {

@@ -1,25 +1,19 @@
 package potionstudios.byg.common.world.biome;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
-import potionstudios.byg.mixin.access.BiomeGenerationSettingsAccess;
+import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
+import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
 import potionstudios.byg.util.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 import static potionstudios.byg.common.world.biome.end.BYGEndBiomes.*;
@@ -119,82 +113,14 @@ public class BYGBiomes {
     }
 
     public static void bootStrap(Consumer<Collection<RegistryObject<Biome>>> registryStrategy) {
+        BYGPlacementModifierType.bootStrap();
+        BYGRuleSources.bootStrap();
         registryStrategy.accept(BIOMES);
     }
 
     public static Collection<RegistryObject<Biome>> bootStrap() {
+        BYGPlacementModifierType.bootStrap();
+        BYGRuleSources.bootStrap();
         return BIOMES;
-    }
-
-    //used in MixinMinecraftServer
-    public static void addBYGFeaturesToBiomes(Biome biome, ResourceKey<Biome> biomeKey) {
-        ResourceLocation locationKey = biomeKey.location();
-
-        if (biome.getBiomeCategory() != Biome.BiomeCategory.NETHER && biome.getBiomeCategory() != Biome.BiomeCategory.THEEND && biome.getBiomeCategory() != Biome.BiomeCategory.NONE) {
-            if (locationKey.equals(Biomes.SOUL_SAND_VALLEY.location())) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
-            }
-
-            if (biome.getBiomeCategory() == Biome.BiomeCategory.BEACH && biome.getBaseTemperature() > 0.15F) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
-            }
-
-            if (biome.getBiomeCategory() != Biome.BiomeCategory.NETHER && biome.getBiomeCategory() != Biome.BiomeCategory.THEEND && biome.getBiomeCategory() != Biome.BiomeCategory.NONE) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CATTAILS);
-            }
-        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().pendoriteSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().emeralditeSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_EMERALDITE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().rockyStoneSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().ametrineSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().buddingAmetrineSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE_BUDDING);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().scoriaSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().soapStoneSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
-//        }
-    }
-
-    public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-
-        List<Supplier<ConfiguredFeature<?, ?>>> suppliers = biomeFeatures.get(GenerationStep.Decoration.RAW_GENERATION.ordinal());
-
-        List<Supplier<ConfiguredFeature<?, ?>>> suppliersCopy = new ArrayList<>(suppliers);
-        suppliers.clear();
-        suppliers.add(() -> configuredFeature);
-        suppliers.addAll(suppliersCopy);
-    }
-
-    //Use these to add our features to vanilla's biomes.
-    public static void addFeatureToBiome(Biome biome, GenerationStep.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-        while (biomeFeatures.size() <= feature.ordinal()) {
-            biomeFeatures.add(Lists.newArrayList());
-        }
-        biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
-    }
-
-    private static void convertImmutableFeatures(Biome biome) {
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> features = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-        if (features instanceof ImmutableList) {
-            ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setFeatures(features.stream().map(Lists::newArrayList).collect(Collectors.toList()));
-        }
     }
 }

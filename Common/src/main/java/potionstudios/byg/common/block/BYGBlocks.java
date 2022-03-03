@@ -2,7 +2,7 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
@@ -19,9 +19,9 @@ import potionstudios.byg.client.textures.BYGMaterials;
 import potionstudios.byg.common.block.end.*;
 import potionstudios.byg.common.block.end.bulbisgardens.TallBulbisBlock;
 import potionstudios.byg.common.block.end.impariusgrove.FungalImpariusFilamentBlock;
-import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVinePlantBlock;
+import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.nightshade.NightshadeBerryBushBlock;
 import potionstudios.byg.common.block.end.shattereddesert.OddityCactusBlock;
 import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVineBlock;
@@ -1645,24 +1645,24 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createHydrangeaBush(String id, Tag.Named<Block> groundTag) {
+    static Block createHydrangeaBush(String id, TagKey<Block> groundTag) {
         Block createBlock = new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createHydrangeaHedge(String id, Tag.Named<Block> groundTag) {
+    static Block createHydrangeaHedge(String id, TagKey<Block> groundTag) {
         Block createBlock = new HydrangeaHedgeBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.AZALEA).instabreak().noOcclusion(), groundTag);
         return createBlock(createBlock, id);
     }
 
-    static Block createFlower(String id, Tag.Named<Block> groundTag) {
+    static Block createFlower(String id, TagKey<Block> groundTag) {
         Block createBlock = new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createTallFlower(String id, Tag.Named<Block> groundTag) {
+    static Block createTallFlower(String id, TagKey<Block> groundTag) {
         Block createBlock = new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock(createBlock, id);
         return createBlock;
@@ -1820,7 +1820,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createSapling(Tag<Block> groundTag, String id) {
+    static Block createSapling(TagKey<Block> groundTag, String id) {
         BYGSapling createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
         CommonSetupLoad.ENTRIES.add(createBlock);
         createPottedBlock(createBlock, id);
@@ -2023,7 +2023,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createDesertPlant(String id, Tag.Named<Block> groundTag) {
+    static Block createDesertPlant(String id, TagKey<Block> groundTag) {
         Block createBlock = new DesertPlant(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
@@ -2054,5 +2054,9 @@ public class BYGBlocks {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? light : 0;
         };
+    }
+
+    static {
+        BYG.LOGGER.error("AAAAAAAAAAAAAA");
     }
 }

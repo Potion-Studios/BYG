@@ -63,7 +63,8 @@ public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean w
             SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
 
                 for (Biome biome : additional) {
-                    if (biome.getBiomeCategory() == Biome.BiomeCategory.THEEND) {
+                    //TODO: Tags
+                    if (Biome.getBiomeCategory(additional.getHolderOrThrow(additional.getResourceKey(biome).get())) == Biome.BiomeCategory.THEEND) {
                         builder.add(additional.getResourceKey(biome).get(), 2);
                     }
                 }

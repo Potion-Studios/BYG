@@ -69,8 +69,8 @@ public class BYGSurfaceRules {
             NOISE_COARSE_DIRT,
             SurfaceRules.ifTrue(invokeSurfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
             OVERGROWN_DACITE_DACITE_SURFACE,
-            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, true, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
-            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, true, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
         )
     );
 

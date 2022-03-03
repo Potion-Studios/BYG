@@ -22,9 +22,10 @@ versionRange = "[36.0.4,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.byg]]
-modId = "terrablender"
-mandatory = true
-versionRange = "[1.1.0.77,)"
-ordering = "NONE"
-side = "BOTH"
+# TODO: Terrablender
+#[[dependencies.byg]]
+#modId = "terrablender"
+#mandatory = true
+#versionRange = "[1.1.0.77,)"
+#ordering = "NONE"
+#side = "BOTH"

@@ -2,7 +2,7 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -12,9 +12,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.Random;
 
 public class HydrangeaBushBlock extends BYGFlowerBlock implements BonemealableBlock {
-    private final Tag.Named<Block> validGround;
+    private final TagKey<Block> validGround;
 
-    protected HydrangeaBushBlock(Properties properties, Tag.Named<Block> validGround) {
+    protected HydrangeaBushBlock(Properties properties, TagKey<Block> validGround) {
         super(properties, validGround);
         this.validGround = validGround;
     }

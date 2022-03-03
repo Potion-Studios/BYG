@@ -1,6 +1,7 @@
 package potionstudios.byg.mixin.common.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
@@ -23,8 +24,9 @@ public class MixinSlimeEntity {
     @Inject(at = @At("HEAD"), method = "checkSlimeSpawnRules", cancellable = true)
     private static void injectSwampCategory(EntityType<Slime> entity, LevelAccessor world, MobSpawnType reason, BlockPos withSpawnerPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDifficulty() != Difficulty.PEACEFUL) {
-            Biome biome = world.getBiome(withSpawnerPos);
-            if (biome.getBiomeCategory() == Biome.BiomeCategory.SWAMP && biome != BuiltinRegistries.BIOME.getOrThrow(Biomes.SWAMP) && withSpawnerPos.getY() > 50 && withSpawnerPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getMoonBrightness() && world.getMaxLocalRawBrightness(withSpawnerPos) <= randomIn.nextInt(8)) {
+            Biome biome = world.getBiome(withSpawnerPos).value();
+            Registry<Biome> biomeRegistry = world.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+            if (Biome.getBiomeCategory(biomeRegistry.getHolderOrThrow(biomeRegistry.getResourceKey(biome).get())) == Biome.BiomeCategory.SWAMP && biome != BuiltinRegistries.BIOME.getOrThrow(Biomes.SWAMP) && withSpawnerPos.getY() > 50 && withSpawnerPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getMoonBrightness() && world.getMaxLocalRawBrightness(withSpawnerPos) <= randomIn.nextInt(8)) {
                 cir.setReturnValue(Mob.checkMobSpawnRules(entity, world, reason, withSpawnerPos, randomIn));
             }
         }

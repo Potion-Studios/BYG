@@ -3,10 +3,9 @@ package potionstudios.byg.common.block.sapling;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -25,9 +24,9 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
 
     private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<SaplingPatterns.FeatureSpawner>>> patternsToSpawner = new ArrayList<>();
     private final String id;
-    private final Tag<Block> groundTag;
+    private final TagKey<Block> groundTag;
 
-    public BYGSapling(String id, Properties properties, Tag<Block> groundTag) {
+    public BYGSapling(String id, Properties properties, TagKey<Block> groundTag) {
         super(null, properties);
         this.id = id;
         this.groundTag = groundTag;
@@ -126,9 +125,9 @@ public class BYGSapling extends SaplingBlock implements CommonSetupLoad {
                         }
                         if (matchedPattern) {
                             // Set tree
-                            Optional<WritableRegistry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
+                            Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
                             if (configuredFeaturesOptionalRegistry.isPresent()) {
-                                WritableRegistry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
+                                Registry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
                                 Optional<SaplingPatterns.FeatureSpawner> randomValue = treePicker.getRandomValue(rand);
                                 if (randomValue.isPresent()) {
                                     SaplingPatterns.FeatureSpawner featureSpawner = randomValue.get();

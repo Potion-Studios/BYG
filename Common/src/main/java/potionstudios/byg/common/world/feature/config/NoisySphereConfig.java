@@ -2,6 +2,8 @@ package potionstudios.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -15,14 +17,13 @@ import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider,
                                 IntProvider stackHeight, RadiusSettings radiusSettings, double radiusDivisorPerStack,
                                 float noiseFrequency, int fluidStartY, FluidState fluidState, double noise2DChance,
                                 RadiusMatcher radiusMatcher, boolean checkSquareDistance, boolean useScaledNoiseHeight,
                                 boolean pointed, boolean verfiesHeight, IntProvider belowSurfaceDepth,
-                                List<Supplier<PlacedFeature>> spawningFeatures) implements FeatureConfiguration {
+                                HolderSet<PlacedFeature> spawningFeatures) implements FeatureConfiguration {
 
     public static final Codec<NoisySphereConfig> CODEC = RecordCodecBuilder.create(
         codecRecorder -> codecRecorder.group(
@@ -75,7 +76,7 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
         private boolean pointed = false;
         private boolean verifiesHeight = false;
         private IntProvider belowSurfaceDepth = ConstantInt.of(Integer.MAX_VALUE);
-        private List<Supplier<PlacedFeature>> spawningFeatures = new ArrayList<>();
+        private List<Holder<PlacedFeature>> spawningFeatures = new ArrayList<>();
 
         public Builder() {
         }
@@ -155,7 +156,7 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
             return this;
         }
 
-        public Builder withSpawningFeatures(List<Supplier<PlacedFeature>> spawningFeatures) {
+        public Builder withSpawningFeatures(List<Holder<PlacedFeature>> spawningFeatures) {
             this.spawningFeatures = spawningFeatures;
             return this;
         }
@@ -177,12 +178,12 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
             this.belowSurfaceDepth = copy.belowSurfaceDepth;
             this.pointed = copy.pointed;
             this.verifiesHeight = copy.verfiesHeight;
-            this.spawningFeatures = copy.spawningFeatures;
+            this.spawningFeatures = copy.spawningFeatures.stream().toList();
             return this;
         }
 
         public NoisySphereConfig build() {
-            return new NoisySphereConfig(blockProvider, topBlockProvider, stackHeight, radiusSettings, radiusDivisorPerStack, noiseFrequency, fluidStartY, fluidState, noise2DChance, radiusMatcher, checkSquareDistance, useScaledNoiseHeight, pointed, verifiesHeight, belowSurfaceDepth, spawningFeatures);
+            return new NoisySphereConfig(blockProvider, topBlockProvider, stackHeight, radiusSettings, radiusDivisorPerStack, noiseFrequency, fluidStartY, fluidState, noise2DChance, radiusMatcher, checkSquareDistance, useScaledNoiseHeight, pointed, verifiesHeight, belowSurfaceDepth, HolderSet.direct(spawningFeatures));
         }
     }
 }

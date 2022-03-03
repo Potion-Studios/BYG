@@ -144,7 +144,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         blockState = world.getBlockState(blockpos$Mutable.below());
         material = blockState.getMaterial();
         if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
-                BlockTags.PLANKS.contains(blockState.getBlock())) &&
+                blockState.is(BlockTags.PLANKS)) &&
                 blockState.getFluidState().isEmpty() &&
                 blockState.getFluidState() != Fluids.WATER.getSource(false)) {
             return false;
@@ -169,7 +169,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                 blockState = world.getBlockState(blockpos$Mutable.offset(x2, 0, z2));
                 material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || BlockTags.PLANKS.contains(blockState.getBlock())) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getSource(false)) {
+                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || blockState.is(BlockTags.PLANKS)) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getSource(false)) {
                     return false;
                 }
             }

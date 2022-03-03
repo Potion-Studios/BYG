@@ -1,7 +1,7 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -11,9 +11,9 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 public class BYGTallFlowerBlock extends TallFlowerBlock {
-    private final Tag.Named<Block> validGround;
+    private final TagKey<Block> validGround;
 
-    public BYGTallFlowerBlock(Properties properties, Tag.Named<Block> validGround) {
+    public BYGTallFlowerBlock(Properties properties, TagKey<Block> validGround) {
         super(properties);
         this.validGround = validGround;
     }

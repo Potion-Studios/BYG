@@ -35,8 +35,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.18",
-    "terrablender": ">=1.1.0.77"
+    "minecraft": ">=1.18"
   },
   "suggests": {
     "flamingo": "*"

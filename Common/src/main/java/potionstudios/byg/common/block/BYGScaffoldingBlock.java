@@ -63,7 +63,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
         BlockState blockstate = state.setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
         if (blockstate.getValue(DISTANCE) == 7) {
             if (state.getValue(DISTANCE) == 7) {
-                worldIn.addFreshEntity(new FallingBlockEntity(worldIn, (double) pos.getX() + 0.5D, pos.getY(), (double) pos.getZ() + 0.5D, blockstate.setValue(WATERLOGGED, false)));
+                worldIn.addFreshEntity(FallingBlockEntity.fall(worldIn, pos, blockstate.setValue(WATERLOGGED, false)));
             } else {
                 worldIn.destroyBlock(pos, true);
             }

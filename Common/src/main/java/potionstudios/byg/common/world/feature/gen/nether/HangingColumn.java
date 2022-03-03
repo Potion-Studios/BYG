@@ -28,7 +28,7 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
-        if (worldIn.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(worldIn.getBiome(pos)).get() != Biomes.THE_VOID) {
+        if (worldIn.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(worldIn.getBiome(pos).value()).get() != Biomes.THE_VOID) {
             //Code
         }
 

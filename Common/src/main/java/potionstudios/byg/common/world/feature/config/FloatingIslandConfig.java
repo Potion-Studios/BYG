@@ -2,6 +2,8 @@ package potionstudios.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,7 +15,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class FloatingIslandConfig implements FeatureConfiguration {
 
@@ -35,10 +36,10 @@ public class FloatingIslandConfig implements FeatureConfiguration {
     private final BlockStateProvider blockProvider;
     private final int minRadius;
     private final int maxRadius;
-    private final List<Supplier<PlacedFeature>> features;
+    private final HolderSet<PlacedFeature> features;
 
 
-    FloatingIslandConfig(BlockStateProvider topBlockProvider, BlockStateProvider blockProvider, int minRadius, int maxRadius, List<Supplier<PlacedFeature>> features) {
+    FloatingIslandConfig(BlockStateProvider topBlockProvider, BlockStateProvider blockProvider, int minRadius, int maxRadius, HolderSet<PlacedFeature> features) {
         this.topBlockProvider = topBlockProvider;
         this.blockProvider = blockProvider;
         this.minRadius = minRadius;
@@ -70,7 +71,7 @@ public class FloatingIslandConfig implements FeatureConfiguration {
         return Math.abs(returnValue);
     }
 
-    public List<Supplier<PlacedFeature>> getPlacedFeatures() {
+    public HolderSet<PlacedFeature> getPlacedFeatures() {
         return features;
     }
 
@@ -79,7 +80,7 @@ public class FloatingIslandConfig implements FeatureConfiguration {
         private BlockStateProvider blockProvider = SimpleStateProvider.simple(Blocks.STONE.defaultBlockState());
         private int minRadius = 1;
         private int maxRadius = 3;
-        private List<Supplier<PlacedFeature>> features = new ArrayList<>();
+        private List<Holder<PlacedFeature>> features = new ArrayList<>();
 
 
         public Builder setTopBlock(Block block) {
@@ -146,12 +147,7 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             return this;
         }
 
-        public List<Supplier<PlacedFeature>> getFeatures() {
-            return features;
-        }
-
-
-        public Builder addFeatures(Supplier<PlacedFeature>... features) {
+        public Builder addFeatures(Holder<PlacedFeature>... features) {
             this.features.addAll(Arrays.asList(features));
             return this;
         }
@@ -161,12 +157,12 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             this.blockProvider = config.blockProvider;
             this.minRadius = config.minRadius;
             this.maxRadius = config.maxRadius;
-            this.features = config.features;
+            this.features = config.features.stream().toList();
             return this;
         }
 
         public FloatingIslandConfig build() {
-            return new FloatingIslandConfig(this.topBlockProvider, this.blockProvider, this.minRadius, this.maxRadius, features);
+            return new FloatingIslandConfig(this.topBlockProvider, this.blockProvider, this.minRadius, this.maxRadius, HolderSet.direct(features));
         }
     }
 }

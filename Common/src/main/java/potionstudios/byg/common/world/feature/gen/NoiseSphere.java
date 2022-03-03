@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -13,7 +14,6 @@ import potionstudios.byg.common.world.feature.config.RadiusMatcher;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class NoiseSphere extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
@@ -95,8 +95,8 @@ public class NoiseSphere extends Feature<NoisySphereConfig> {
             mutable.setY(mutable.getY() + yRadius);
             zRadius = (int) (zRadius / config.radiusDivisorPerStack());
         }
-        for (Supplier<PlacedFeature> spawningFeature : config.spawningFeatures()) {
-            spawningFeature.get().place(world, chunkGenerator, random, new BlockPos(lowestX, lowestY, lowestZ));
+        for (Holder<PlacedFeature> spawningFeature : config.spawningFeatures()) {
+            spawningFeature.value().place(world, chunkGenerator, random, new BlockPos(lowestX, lowestY, lowestZ));
         }
 
         return true;

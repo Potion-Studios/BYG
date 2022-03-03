@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.WorldGenLevel;
@@ -83,7 +84,7 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
                 blendingPos.set(mutableBlockPos).move(x, 0, z);
                 int worldSurfaceHeight = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, blendingPos.getX(), blendingPos.getZ());
                 blendingPos.setY(worldSurfaceHeight);
-                ResourceKey<Biome> biomeResourceKey = level.getBiomeName(blendingPos).get();
+                ResourceKey<Biome> biomeResourceKey = level.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(level.getBiome(blendingPos).value()).get();
                 boolean outsideBiome = biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES && worldSurfaceHeight < height;
 
                 NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).getNoiseChunk();

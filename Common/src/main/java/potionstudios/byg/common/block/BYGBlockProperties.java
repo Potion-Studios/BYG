@@ -7,8 +7,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import potionstudios.byg.common.block.end.CrypticFireBlock;
-import potionstudios.byg.common.block.nether.BoricFireBlock;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
 import potionstudios.byg.common.block.nether.embur.BlueNetherrackBlock;
 import potionstudios.byg.common.block.nether.embur.EmburPlantBlock;
