@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.RandomSource;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.SurfaceSystem;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.SurfaceRuleContextAccess;
 import potionstudios.byg.mixin.access.SurfaceSystemAccess;
 import potionstudios.byg.util.ChunkRandom;
@@ -203,5 +204,8 @@ public class BYGRuleSources {
     static {
         Registry.register(Registry.RULE, createLocation("state_provider"), WeightedRuleSource.CODEC);
         Registry.register(Registry.RULE, createLocation("bands"), BandsRuleSource.CODEC);
+
+        BYG.LOGGER.info("BYG Rule Sources class loaded.");
+
     }
 }

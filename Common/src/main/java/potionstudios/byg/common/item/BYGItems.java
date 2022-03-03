@@ -19,7 +19,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGItems {
 
@@ -1258,14 +1257,14 @@ public class BYGItems {
         return item;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Item>>> registryStrategy) {
-        registryStrategy.accept(ITEMS);
-    }
-
     public static Collection<RegistryObject<Item>> bootStrap() {
         return ITEMS;
     }
 
     public static void init() {
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Items class loaded.");
     }
 }

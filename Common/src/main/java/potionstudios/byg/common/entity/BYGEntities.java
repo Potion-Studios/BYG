@@ -10,7 +10,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Consumer;
 
 @SuppressWarnings("deprecation")
 public class BYGEntities {
@@ -27,11 +26,12 @@ public class BYGEntities {
         return entityType;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<EntityType<?>>>> registryStrategy) {
-        registryStrategy.accept(ENTITIES);
-    }
 
     public static Collection<RegistryObject<EntityType<?>>> bootStrap() {
         return ENTITIES;
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Entities class loaded.");
     }
 }

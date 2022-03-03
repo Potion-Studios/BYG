@@ -13,7 +13,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 import static potionstudios.byg.common.world.biome.end.BYGEndBiomes.*;
@@ -112,15 +111,13 @@ public class BYGBiomes {
         return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Biome>>> registryStrategy) {
-        BYGPlacementModifierType.bootStrap();
-        BYGRuleSources.bootStrap();
-        registryStrategy.accept(BIOMES);
-    }
-
     public static Collection<RegistryObject<Biome>> bootStrap() {
         BYGPlacementModifierType.bootStrap();
         BYGRuleSources.bootStrap();
         return BIOMES;
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Biomes class loaded.");
     }
 }

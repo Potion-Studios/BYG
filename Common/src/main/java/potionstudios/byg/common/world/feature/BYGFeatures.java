@@ -157,7 +157,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGFeatures {
 
@@ -562,13 +561,13 @@ public class BYGFeatures {
         BYGFeatures.FEATURES.add(new RegistryObject<>(feature, id));
         return feature;
     }
-    
-    public static void bootStrap(Consumer<Collection<RegistryObject<Feature<?>>>> registryStrategy) {
-        registryStrategy.accept(FEATURES);
-    }
 
     public static Collection<RegistryObject<Feature<?>>> bootStrap() {
         return FEATURES;
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Features class loaded.");
     }
 }
 

@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.ToIntFunction;
 
 public class BYGBlocks {
@@ -2038,10 +2037,6 @@ public class BYGBlocks {
         return BLOCKS;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Block>>> registryStrategy) {
-        registryStrategy.accept(BLOCKS);
-    }
-
     private static Boolean neverAllowSpawn(BlockState state, BlockGetter reader, BlockPos pos, EntityType<?> entity) {
         return false;
     }
@@ -2057,6 +2052,6 @@ public class BYGBlocks {
     }
 
     static {
-        BYG.LOGGER.error("AAAAAAAAAAAAAA");
+        BYG.LOGGER.info("BYG Blocks class loaded.");
     }
 }

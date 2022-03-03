@@ -13,7 +13,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGBlockEntities {
 
@@ -33,12 +32,11 @@ public class BYGBlockEntities {
         return blockEntityType;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<BlockEntityType<?>>>> registryStrategy) {
-        registryStrategy.accept(BLOCK_ENTITIES);
-    }
-
     public static Collection<RegistryObject<BlockEntityType<?>>> bootStrap() {
         return BLOCK_ENTITIES;
     }
 
+    static {
+        BYG.LOGGER.info("BYG Block Entities class loaded.");
+    }
 }

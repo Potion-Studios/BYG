@@ -24,10 +24,12 @@ import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.BYG.createLocation;
@@ -49,21 +51,35 @@ public class BYGFabric implements ModInitializer {
         };
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
-        BYGBlocks.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK, createLocation(registryObject.id()), registryObject.object())));
-        BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
-        BYGItems.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ITEM, createLocation(registryObject.id()), registryObject.object())));
-        BYGEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.ENTITY_TYPE, createLocation(registryObject.id()), registryObject.object())));
-        BYGBlockEntities.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.BLOCK_ENTITY_TYPE, createLocation(registryObject.id()), registryObject.object())));
-        BYGSounds.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.SOUND_EVENT, createLocation(registryObject.id()), registryObject.object())));
-        BYGMenuTypes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.MENU, createLocation(registryObject.id()), registryObject.object())));
-        BYGFeatures.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(Registry.FEATURE, createLocation(registryObject.id()), registryObject.object())));
-        BYGBiomes.bootStrap(registryObjects -> registryObjects.forEach(registryObject -> Registry.register(BuiltinRegistries.BIOME, createLocation(registryObject.id()), registryObject.object())));
-        BYGStateProviders.bootStrap().forEach(registryObject -> Registry.register(Registry.BLOCKSTATE_PROVIDER_TYPES, createLocation(registryObject.id()), registryObject.object()));
-        BYGParticleTypes.bootStrap().forEach(registryObject -> Registry.register(Registry.PARTICLE_TYPE, createLocation(registryObject.id()), registryObject.object()));
+        registryBootStrap();
+
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
+
+    }
+
+    private void registryBootStrap() {
+        register(Registry.BLOCK, BYGBlocks.bootStrap());
+        BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
+        register(Registry.ITEM, BYGItems.bootStrap());
+        register(Registry.ENTITY_TYPE, BYGEntities.bootStrap());
+        register(Registry.BLOCK_ENTITY_TYPE, BYGBlockEntities.bootStrap());
+        register(Registry.SOUND_EVENT, BYGSounds.bootStrap());
+        register(Registry.MENU, BYGMenuTypes.bootStrap());
+        register(Registry.FEATURE, BYGFeatures.bootStrap());
+        register(BuiltinRegistries.BIOME, BYGBiomes.bootStrap());
+        register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
+        register(Registry.PARTICLE_TYPE, BYGParticleTypes.bootStrap());
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
+        BYG.LOGGER.info("BYG registries bootstrapped");
+    }
+
+    public static <T> void register(Registry<T> registry, Collection<RegistryObject<T>> objects) {
+        for (RegistryObject<T> object : objects) {
+            Registry.register(registry, createLocation(object.id()), object.object());
+        }
+        BYG.LOGGER.info("BYG registered: " + registry.toString());
     }
 }
