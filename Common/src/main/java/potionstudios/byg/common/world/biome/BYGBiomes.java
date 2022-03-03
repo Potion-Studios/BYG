@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
+import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
 import potionstudios.byg.util.RegistryObject;
 
@@ -112,6 +113,7 @@ public class BYGBiomes {
     }
 
     public static Collection<RegistryObject<Biome>> bootStrap() {
+        BYGStructureSets.bootStrap();
         BYGPlacementModifierType.bootStrap();
         BYGRuleSources.bootStrap();
         return BIOMES;

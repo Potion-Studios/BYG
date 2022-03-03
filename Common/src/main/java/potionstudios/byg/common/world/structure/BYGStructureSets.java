@@ -17,4 +17,11 @@ public class BYGStructureSets {
     private static Holder<StructureSet> register(String id, StructureSet set) {
         return BuiltinRegistries.register(BuiltinRegistries.STRUCTURE_SETS, BYG.createLocation(id), set);
     }
+
+    public static void bootStrap() {
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Structure Sets class loaded.");
+    }
 }

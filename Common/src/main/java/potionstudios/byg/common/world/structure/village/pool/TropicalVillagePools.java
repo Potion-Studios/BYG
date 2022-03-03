@@ -68,7 +68,7 @@ public class TropicalVillagePools {
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(BYG.createLocation("byg:village/tropical/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/tropical_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_MELON), 4),
