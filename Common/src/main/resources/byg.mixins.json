@@ -59,7 +59,6 @@
     "common.block.MixinSugarCaneBlock",
     "common.block.PlantBlockMixin",
     "common.commands.MixinCommands",
-    "common.entity.MixinAnimalEntity",
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
