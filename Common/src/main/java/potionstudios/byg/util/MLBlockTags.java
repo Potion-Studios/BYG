@@ -15,7 +15,7 @@ public class MLBlockTags {
     public static final TagKey<Block> SANDSTONE = createTag("sandstone");
 
     public static TagKey<Block> createTag(String path) {
-        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(BYG.MOD_ID, path));
+        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(BYG.MOD_LOADER_TAG_TARGET, path));
     }
 
     public static void bootStrap() {

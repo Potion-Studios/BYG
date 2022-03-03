@@ -31,6 +31,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.mixin.access.NoiseBasedChunkGeneratorAccess;
 import potionstudios.byg.mixin.access.NoiseGeneratorSettingsAccess;
+import potionstudios.byg.util.BYGUtil;
 
 import java.net.Proxy;
 import java.util.Map;
@@ -72,6 +73,8 @@ public class MixinMinecraftServer {
             Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).getSettings().value();
             ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
         }
+
+        BYGUtil.useTagReplacements = true;
     }
 
 //    @ModifyConstant(method = "prepareLevels", constant = @Constant(intValue = 11, ordinal = 0))

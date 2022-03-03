@@ -24,6 +24,8 @@ import java.util.stream.Collectors;
 
 public class BYGUtil {
 
+    public static boolean useTagReplacements = false;
+
     /*
      * Part of the Cyanide mod.
      * Licensed under MIT. See the project LICENSE.txt for details.

@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.MLBlockTags;
 
 @Mixin(BlockBehaviour.BlockStateBase.class)
@@ -20,12 +21,14 @@ public abstract class MixinAbstractBlockStateBookshelf {
 
     @Inject(at = @At("HEAD"), method = "is(Lnet/minecraft/world/level/block/Block;)Z", cancellable = true)
     private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
-        // We need to make sure we're bounded first before using
-        if (block == Blocks.BOOKSHELF) {
-            info.setReturnValue(this.is(MLBlockTags.SANDSTONE));
-        }
-        if (block == Blocks.FARMLAND) {
-            info.setReturnValue(this.is(BYGBlockTags.FARMLAND));
+        if (BYGUtil.useTagReplacements) {
+            // We need to make sure we're bounded first before using
+            if (block == Blocks.BOOKSHELF) {
+                info.setReturnValue(this.is(MLBlockTags.BOOKSHELVES));
+            }
+            if (block == Blocks.FARMLAND) {
+                info.setReturnValue(this.is(BYGBlockTags.FARMLAND));
+            }
         }
     }
 }
