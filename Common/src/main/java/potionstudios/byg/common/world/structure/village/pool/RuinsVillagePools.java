@@ -60,8 +60,8 @@ public class RuinsVillagePools {
         Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/ruins/ruins_lamp_1"), 10),
-                        Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_BERRY_COMMON), 4),
-                        Pair.of(StructurePoolElement.feature(VegetationPlacements.RED_MUSHROOM_NORMAL), 4),
+//                        Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_BERRY_COMMON), 4),
+//                        Pair.of(StructurePoolElement.feature(VegetationPlacements.RED_MUSHROOM_NORMAL), 4),
                         Pair.of(StructurePoolElement.empty(), 6)), StructureTemplatePool.Projection.RIGID));
 
         Pools.register(new StructureTemplatePool(BYG.createLocation("village/ruins/villagers"),
