@@ -130,7 +130,7 @@ public class BYGOverworldFeatures {
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(Blocks.STONE.defaultBlockState(), 4)
                     .add(Blocks.ANDESITE.defaultBlockState(), 1)
-                    )
+                )
             )
             .withTopBlockProvider(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -223,5 +223,10 @@ public class BYGOverworldFeatures {
     public static final Holder<ConfiguredFeature<DiskConfiguration, ?>> DISK_MUD = createConfiguredFeature("disk_mud",
         Feature.DISK,
         new DiskConfiguration(BYGBlocks.MUD_BLOCK.defaultBlockState(), UniformInt.of(2, 3), 1, List.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))
+    );
+
+    public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> ARCH_FEATURE = createConfiguredFeature("red_rock_arches",
+        BYGFeatures.ARCH,
+        new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.RED_ROCK))
     );
 }
