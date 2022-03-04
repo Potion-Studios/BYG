@@ -122,29 +122,47 @@ public class BYGOverworldFeatures {
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_BOULDER = createConfiguredFeature("large_boulder",
-        BYGFeatures.NOISE_SPHERE,
+        BYGFeatures.BOULDER,
         new NoisySphereConfig.Builder()
-            .withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 3)
-                .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 2))
+            .withRadiusSettings(
+                new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+            ).withBlockProvider(
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(Blocks.STONE.defaultBlockState(), 4)
+                    .add(Blocks.ANDESITE.defaultBlockState(), 1)
+                    )
             )
-            .withStackHeight(ConstantInt.of(1))
-            .withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 30), BiasedToBottomInt.of(16, 30), 0, BiasedToBottomInt.of(16, 30)))
+            .withTopBlockProvider(
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(Blocks.STONE.defaultBlockState(), 4)
+                    .add(Blocks.ANDESITE.defaultBlockState(), 1)
+                )
+            )
             .build()
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder",
-        BYGFeatures.NOISE_SPHERE, new NoisySphereConfig.Builder().copy(LARGE_BOULDER.value().config())
-            .withBlockProvider(
+        BYGFeatures.BOULDER,
+        new NoisySphereConfig.Builder()
+            .withRadiusSettings(
+                new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+            ).withBlockProvider(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(Blocks.GRANITE.defaultBlockState(), 3)
-                    .add(Blocks.POLISHED_GRANITE.defaultBlockState(), 2))
+                    .add(Blocks.GRANITE.defaultBlockState(), 4)
+                    .add(Blocks.POLISHED_GRANITE.defaultBlockState(), 1)
+                )
+            )
+            .withTopBlockProvider(
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(Blocks.GRANITE.defaultBlockState(), 4)
+                    .add(Blocks.POLISHED_GRANITE.defaultBlockState(), 1)
+                )
             )
             .build()
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_WINDSWEPT_BOULDER = createConfiguredFeature("large_windswept_boulders",
-        BYGFeatures.NOISE_SPHERE,
+        BYGFeatures.BOULDER,
         new NoisySphereConfig.Builder()
             .withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 158)

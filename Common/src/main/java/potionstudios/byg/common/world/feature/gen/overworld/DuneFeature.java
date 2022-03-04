@@ -74,7 +74,7 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
             }
         }
 
-        return false;
+        return true;
     }
 
     private double getBlendDensity(WorldGenLevel level, ChunkGenerator generator, ChunkAccess chunk, BlockPos.MutableBlockPos mutableBlockPos, double height, int blendRange, BlockPos.MutableBlockPos blendingPos) {

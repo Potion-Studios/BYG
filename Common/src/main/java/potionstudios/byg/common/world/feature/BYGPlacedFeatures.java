@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -176,8 +177,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> TEMPERATE_RAINFOREST_TREES = createPlacedFeature("temperate_rainforest_trees", BYGOverworldTreeFeatures.TEMPERATE_RAINFOREST_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 1)));
     public static final Holder<PlacedFeature> MEADOW_TREES = createPlacedFeature("meadow_trees", BYGOverworldTreeFeatures.MEADOW_TREES, clearingTreePlacement(PlacementUtils.countExtra(2, 0.25F, 3)));
     public static final Holder<PlacedFeature> MEADOW_TREES_SPARSE = createPlacedFeature("sparse_meadow_trees", BYGOverworldTreeFeatures.MEADOW_TREES, clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 1)));
-    public static final Holder<PlacedFeature> LARGE_BOULDERS = createPlacedFeature("large_boulders", BYGOverworldFeatures.LARGE_BOULDER, oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(8)));
-    public static final Holder<PlacedFeature> LARGE_GRANITE_BOULDERS = createPlacedFeature("large_granite_boulders", BYGOverworldFeatures.LARGE_GRANITE_BOULDER, oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(8)));
+    public static final Holder<PlacedFeature> LARGE_BOULDERS = createPlacedFeature("large_boulders", BYGOverworldFeatures.LARGE_BOULDER, oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT, BlockPos.ZERO.relative(Direction.DOWN)))));
+    public static final Holder<PlacedFeature> LARGE_GRANITE_BOULDERS = createPlacedFeature("large_granite_boulders", BYGOverworldFeatures.LARGE_GRANITE_BOULDER, oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT, BlockPos.ZERO.relative(Direction.DOWN)))));
     public static final Holder<PlacedFeature> LARGE_WINDSWEPT_BOULDERS = createPlacedFeature("large_windswept_boulders", BYGOverworldFeatures.LARGE_WINDSWEPT_BOULDER, oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(20), BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(BYGBlocks.WINDSWEPT_SAND, new BlockPos(0, -1, 0))), RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-4, -3))));
     public static final Holder<PlacedFeature> ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGOverworldVegetationFeatures.ROSE_FIELD_FLOWERS, worldSurfaceSquaredWithCount(20));
     public static final Holder<PlacedFeature> FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGOverworldFeatures.FROST_MAGMA_LAKE, worldSurfaceSquaredWithCount(3));
