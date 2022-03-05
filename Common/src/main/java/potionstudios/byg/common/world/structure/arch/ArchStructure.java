@@ -58,6 +58,8 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
                 return;
             }
         }
+        float percentageDestroyed = 1.0F - config.percentageDestroyed().sample(random);
+        float percentageDestroyed2 = 1.0F - config.percentageDestroyed().sample(random);
 
 
         BlendingFunction blendingFunction = config.blendingFunction().getRandomValue(random).orElseThrow();
@@ -66,12 +68,19 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
             double factor = (double) pointCount / points;
             {
                 BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), center.getX()), blendingFunction.apply(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ()));
+                if (factor > percentageDestroyed) {
+                    startToCenterLerpPos = new BlockPos(startToCenterLerpPos.getX(), Integer.MIN_VALUE, startToCenterLerpPos.getZ());
+                }
+
                 long chunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(startToCenterLerpPos.getX()), SectionPos.blockToSectionCoord(startToCenterLerpPos.getZ()));
                 chunkSortedPositions.computeIfAbsent(chunkKey, (key -> new HashSet<>())).add(startToCenterLerpPos);
             }
-
             {
                 BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), center.getX()), blendingFunction2.apply(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ()));
+                if (factor > percentageDestroyed2) {
+                    centerToEndLerpPos = new BlockPos(centerToEndLerpPos.getX(), Integer.MIN_VALUE, centerToEndLerpPos.getZ());
+                }
+
                 long centerToEndChunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(centerToEndLerpPos.getX()), SectionPos.blockToSectionCoord(centerToEndLerpPos.getZ()));
                 chunkSortedPositions.computeIfAbsent(centerToEndChunkKey, (key -> new HashSet<>())).add(centerToEndLerpPos);
             }

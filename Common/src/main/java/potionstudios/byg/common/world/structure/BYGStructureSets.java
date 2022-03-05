@@ -12,7 +12,7 @@ import java.util.List;
 public class BYGStructureSets {
 
     public static final Holder<StructureSet> VILLAGES = register("villages", new StructureSet(List.of(StructureSet.entry(BYGStructureFeatures.VILLAGE_ADOBE), StructureSet.entry(BYGStructureFeatures.VILLAGE_RUINS), StructureSet.entry(BYGStructureFeatures.VILLAGE_TROPICAL), StructureSet.entry(BYGStructureFeatures.VILLAGE_SKYRIS)), new RandomSpreadStructurePlacement(34, 8, RandomSpreadType.LINEAR, 10387312)));
-    public static final Holder<StructureSet> ARCH = register("arches", new StructureSet(List.of(StructureSet.entry(BYGStructureFeatures.ARCH)), new RandomSpreadStructurePlacement(13, 3, RandomSpreadType.LINEAR, 10387312)));
+    public static final Holder<StructureSet> ARCH = register("arches", new StructureSet(List.of(StructureSet.entry(BYGStructureFeatures.RED_ROCK_ARCH), StructureSet.entry(BYGStructureFeatures.DESTROYED_RED_ROCK_ARCH)), new RandomSpreadStructurePlacement(11, 2, RandomSpreadType.LINEAR, 10387312)));
 
 
     private static Holder<StructureSet> register(String id, StructureSet set) {
