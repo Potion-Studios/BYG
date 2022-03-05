@@ -31,7 +31,7 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<ArchConfiguration> context) {
         WorldgenRandom random = context.random();
-        double angle = random.nextDouble(Math.PI);
+        double angle = random.nextDouble(Math.PI * 2);
         ChunkPos chunkPos = context.chunkPos();
         int blockX = chunkPos.getBlockX(random.nextInt(16));
         int blockZ = chunkPos.getBlockZ(random.nextInt(16));
