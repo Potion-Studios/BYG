@@ -229,4 +229,12 @@ public class BYGOverworldFeatures {
         BYGFeatures.ARCH,
         new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.RED_ROCK))
     );
+
+    public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> RED_ROCK_SPIKE = createConfiguredFeature("red_rock_spike",
+        BYGFeatures.SPIKE,
+        new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+            .add(BYGBlocks.RED_ROCK.defaultBlockState(), 4)
+            .add(Blocks.TERRACOTTA.defaultBlockState(), 1))
+        )
+    );
 }
