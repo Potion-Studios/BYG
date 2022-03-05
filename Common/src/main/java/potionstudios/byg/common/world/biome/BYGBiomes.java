@@ -7,9 +7,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
+import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
 import potionstudios.byg.util.RegistryObject;
+import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -50,11 +52,11 @@ public class BYGBiomes {
     public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga());
     public static ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", coconinoMeadow(false, false));
     public static ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", mojaveDesert());
-//    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
+    //    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
     public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard());
     public static ResourceKey<Biome> PRAIRIE = createBiome("prairie", prairie());
     public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest());
-//    public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley());
+    public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley());
     public static ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", roseFields());
     public static ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", autumnalForest());
     public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false));
@@ -66,11 +68,11 @@ public class BYGBiomes {
     public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false));
     public static ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", coniferousForest(true));
     public static ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", fragmentForest());
-//    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
+    //    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
     public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalRainforest());
     public static ResourceKey<Biome> TWILIGHT_MEADOW = createBiome("twilight_meadow", twilightMeadow());
     public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest());
-//    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
+    //    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 
@@ -94,7 +96,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> ETHEREAL_ISLANDS = createBiome("ethereal_islands", etherealIslands());
     public static ResourceKey<Biome> VISCAL_ISLES = createBiome("viscal_isles", viscalIsles());
     public static ResourceKey<Biome> BULBIS_GARDENS = createBiome("bulbis_gardens", bulbisGardens());
-//    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
+    //    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
     public static ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", shulkrenForest());
     public static ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", crypticWastes());
     public static ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", impariusGrove());
@@ -113,6 +115,8 @@ public class BYGBiomes {
     }
 
     public static Collection<RegistryObject<Biome>> bootStrap() {
+        BlendingFunction.bootStrap();
+        BYGStructurePieceTypes.bootStrap();
         BYGStructureSets.bootStrap();
         BYGPlacementModifierType.bootStrap();
         BYGRuleSources.bootStrap();

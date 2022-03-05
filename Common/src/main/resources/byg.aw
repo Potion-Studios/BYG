@@ -10,3 +10,4 @@ Accessible class net/minecraft/world/level/biome/MultiNoiseBiomeSource$PresetIns
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$Context
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$SurfaceRule
 Accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
+Accessible class net/minecraft/core/Registry$RegistryBootstrap

@@ -74,6 +74,14 @@ public class MixinMinecraftServer {
             ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
         }
 
+        LevelStem overworldStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.OVERWORLD);
+
+        ChunkGenerator overworldGenerator = overworldStem.generator();
+        if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
+            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) overworldGenerator).byg_getSettings().value();
+            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.OVERWORLD_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+        }
+
         BYGUtil.useTagReplacements = true;
     }
 
