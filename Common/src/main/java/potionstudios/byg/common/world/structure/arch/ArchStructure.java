@@ -61,6 +61,7 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
 
 
         BlendingFunction blendingFunction = config.blendingFunction().getRandomValue(random).orElseThrow();
+        BlendingFunction blendingFunction2 = random.nextFloat() < config.matchingBlendingFunctionChance().sample(random) ? blendingFunction : config.blendingFunction().getRandomValue(random).orElseThrow();
         for (int pointCount = points; pointCount >= 1; pointCount--) {
             double factor = (double) pointCount / points;
             {
@@ -70,7 +71,7 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
             }
 
             {
-                BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), center.getX()), blendingFunction.apply(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ()));
+                BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), center.getX()), blendingFunction2.apply(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ()));
                 long centerToEndChunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(centerToEndLerpPos.getX()), SectionPos.blockToSectionCoord(centerToEndLerpPos.getZ()));
                 chunkSortedPositions.computeIfAbsent(centerToEndChunkKey, (key -> new HashSet<>())).add(centerToEndLerpPos);
             }

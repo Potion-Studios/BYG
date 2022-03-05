@@ -4,6 +4,7 @@ import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -44,6 +45,7 @@ public class BYGStructureFeatures {
                 blockProvider
             ).build()
         );
+        builder.withMatchingBlendingFunctionChance(ConstantFloat.of(0.2F));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
     }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, true));
 
