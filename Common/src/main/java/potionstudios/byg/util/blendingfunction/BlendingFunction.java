@@ -23,6 +23,9 @@ public interface BlendingFunction {
         Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_in_out_circ"), EaseInOutCirc.CODEC);
         Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_bounce"), EaseOutBounce.CODEC);
         Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_cubic"), EaseOutCubic.CODEC);
+        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_elastic"), EaseOutElastic.CODEC);
+        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_in_circ"), EaseInCirc.CODEC);
+        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_quint"), EaseOutQuint.CODEC);
     }
 
     record EaseInOutCirc() implements BlendingFunction {
@@ -71,4 +74,48 @@ public interface BlendingFunction {
         }
     }
 
+    record EaseOutElastic() implements BlendingFunction {
+        public static final EaseOutElastic INSTANCE = new EaseOutElastic();
+        public static final Codec<EaseOutElastic> CODEC = Codec.unit(() -> INSTANCE);
+
+        @Override
+        public double apply(double factor) {
+            return BlendingFunctions.easeOutElastic(factor);
+        }
+
+        @Override
+        public Codec<? extends BlendingFunction> codec() {
+            return CODEC;
+        }
+    }
+
+    record EaseInCirc() implements BlendingFunction {
+        public static final EaseInCirc INSTANCE = new EaseInCirc();
+        public static final Codec<EaseInCirc> CODEC = Codec.unit(() -> INSTANCE);
+
+        @Override
+        public double apply(double factor) {
+            return BlendingFunctions.easeInCirc(factor);
+        }
+
+        @Override
+        public Codec<? extends BlendingFunction> codec() {
+            return CODEC;
+        }
+    }
+
+    record EaseOutQuint() implements BlendingFunction {
+        public static final EaseOutQuint INSTANCE = new EaseOutQuint();
+        public static final Codec<EaseOutQuint> CODEC = Codec.unit(() -> INSTANCE);
+
+        @Override
+        public double apply(double factor) {
+            return BlendingFunctions.easeOutQuint(factor);
+        }
+
+        @Override
+        public Codec<? extends BlendingFunction> codec() {
+            return CODEC;
+        }
+    }
 }

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
+import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
@@ -19,15 +20,13 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
+import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 
 import java.util.List;
@@ -61,8 +60,9 @@ public class BYGOverworldFeatures {
         BYGFeatures.WIDE_LAKE, new SimpleBlockProviderConfig(SimpleStateProvider.simple(BYGBlocks.FROST_MAGMA.defaultBlockState()))
     );
 
+    private static final Holder<PlacedFeature> SPIKE_MOSS = BYGPlacedFeaturesUtil.createPlacedFeature("spike_moss_patch", CaveFeatures.MOSS_PATCH);
 
-    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike",
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_SEA_SPIKE = createConfiguredFeature("lush_sea_spike",
         BYGFeatures.POINTY_ROCK,
         new PointyRockConfig.Builder()
             .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -71,10 +71,11 @@ public class BYGOverworldFeatures {
                 .add(Blocks.ANDESITE.defaultBlockState(), 2))
             )
             .setSeed(65)
+            .setPostFeatures(HolderSet.direct(SPIKE_MOSS))
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike",
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_SEA_SPIKE_TALL = createConfiguredFeature("lush_sea_tall_spike",
         BYGFeatures.POINTY_ROCK,
         new PointyRockConfig.Builder()
             .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -83,6 +84,7 @@ public class BYGOverworldFeatures {
                 .add(Blocks.ANDESITE.defaultBlockState(), 2))
             )
             .setSeed(85)
+            .setPostFeatures(HolderSet.direct(SPIKE_MOSS))
             .build()
     );
 
@@ -208,11 +210,11 @@ public class BYGOverworldFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes",
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LUSH_SEA_SPIKES = createConfiguredFeature("lush_sea_spikes",
         Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(createPlacedFeature(DEAD_SEA_SPIKE), 0.75F)),
-            createPlacedFeature(DEAD_SEA_SPIKE_TALL)
+            new WeightedPlacedFeature(createPlacedFeature(LUSH_SEA_SPIKE), 0.75F)),
+            createPlacedFeature(LUSH_SEA_SPIKE_TALL)
         ));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WINDSWEPT_SPIKES = createConfiguredFeature("windswept_spikes",

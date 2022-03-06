@@ -12,12 +12,13 @@ import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 import potionstudios.byg.mixin.access.VanillaBiomeAccess;
 
-import static potionstudios.byg.mixin.access.OverworldBiomesAccess.invokeGlobalOverworldGeneration;
+import static potionstudios.byg.mixin.access.OverworldBiomesAccess.byg_invokeBaseOceanGeneration;
+import static potionstudios.byg.mixin.access.OverworldBiomesAccess.byg_invokeGlobalOverworldGeneration;
 
 public class BYGOverworldBiomes {
 
     public static void addDefaultOverworldGeneration(BiomeGenerationSettings.Builder generationSettings) {
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
     }
@@ -197,7 +198,7 @@ public class BYGOverworldBiomes {
     public static Biome baobabSavanna() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -230,7 +231,7 @@ public class BYGOverworldBiomes {
     public static Biome basaltBarrera() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -256,7 +257,7 @@ public class BYGOverworldBiomes {
     public static Biome bayou() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -296,7 +297,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -343,7 +344,7 @@ public class BYGOverworldBiomes {
     public static Biome borealisGrove() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -380,7 +381,7 @@ public class BYGOverworldBiomes {
     public static Biome canadianShield() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -424,7 +425,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
 
@@ -466,7 +467,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
@@ -504,7 +505,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -554,7 +555,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BYGDefaultBiomeFeatures.addCragGen(generationSettings);
 
         BYGDefaultBiomeFeatures.addLilyPads(generationSettings);
@@ -595,7 +596,7 @@ public class BYGOverworldBiomes {
     public static Biome cypressSwamplands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -629,16 +630,16 @@ public class BYGOverworldBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.SWAMP).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome deadSea() {
+    public static Biome lushSea() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        BiomeGenerationSettings.Builder generationSettings = byg_invokeBaseOceanGeneration();
 
-        BiomeDefaultFeatures.addDefaultOres(generationSettings);
-        BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.WARM_OCEAN_VEGETATION);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_WARM);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEA_PICKLE);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
 
-        BYGDefaultBiomeFeatures.addDeadSeaSpires(generationSettings);
+        BYGDefaultBiomeFeatures.addLushSeaSpires(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
@@ -659,7 +660,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
         //Ruined Portal Mountain
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -700,7 +701,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.DUNE_TERRAIN);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -720,7 +721,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -763,7 +764,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -794,7 +795,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -838,7 +839,7 @@ public class BYGOverworldBiomes {
     public static Biome temperateGrove(boolean flowering) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addPlainGrass(generationSettings);
         BYGDefaultBiomeFeatures.addVanillaSunFlowers(generationSettings);
@@ -879,7 +880,7 @@ public class BYGOverworldBiomes {
     public static Biome guianaShield() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -917,7 +918,7 @@ public class BYGOverworldBiomes {
     public static Biome jacarandaForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
 
@@ -957,7 +958,7 @@ public class BYGOverworldBiomes {
     public static Biome lushTundra() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -988,7 +989,7 @@ public class BYGOverworldBiomes {
     public static Biome whiteMangroveMarshes() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1026,7 +1027,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1062,7 +1063,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowGrass(generationSettings);
@@ -1103,7 +1104,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(generationSettings);
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1136,7 +1137,7 @@ public class BYGOverworldBiomes {
     public static Biome orchard() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1174,7 +1175,7 @@ public class BYGOverworldBiomes {
     public static Biome prairie() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1211,7 +1212,7 @@ public class BYGOverworldBiomes {
     public static Biome rainbowBeach() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1237,7 +1238,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1276,9 +1277,10 @@ public class BYGOverworldBiomes {
     public static Biome redRockValley() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
-
+        BiomeDefaultFeatures.addFossilDecoration(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.RED_ROCK_SPIKES);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
+
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1310,7 +1312,7 @@ public class BYGOverworldBiomes {
     public static Biome redwoodThicket() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
@@ -1350,7 +1352,7 @@ public class BYGOverworldBiomes {
     public static Biome rockyBeach() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1377,7 +1379,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1414,7 +1416,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1456,7 +1458,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1542,7 +1544,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addSavannaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1581,7 +1583,7 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1614,7 +1616,7 @@ public class BYGOverworldBiomes {
     public static Biome skyrisVale() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1651,7 +1653,7 @@ public class BYGOverworldBiomes {
     public static Biome snowyBlackBeach(boolean rocky) {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1682,7 +1684,7 @@ public class BYGOverworldBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.STONE_FOREST_COLUMN);
 
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1723,7 +1725,7 @@ public class BYGOverworldBiomes {
     public static Biome tropicalRainforest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1766,7 +1768,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.adddCragVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1794,7 +1796,7 @@ public class BYGOverworldBiomes {
     public static Biome twilightMeadow() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1834,7 +1836,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addForestGrass(generationSettings);
@@ -1870,7 +1872,7 @@ public class BYGOverworldBiomes {
     public static Biome whiteBeach() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1895,7 +1897,7 @@ public class BYGOverworldBiomes {
     public static Biome temperateRainForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1934,7 +1936,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-        invokeGlobalOverworldGeneration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addFerns(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);

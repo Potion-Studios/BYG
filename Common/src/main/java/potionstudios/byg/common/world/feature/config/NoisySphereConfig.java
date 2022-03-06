@@ -45,6 +45,27 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
             PlacedFeature.LIST_CODEC.fieldOf("edge_features").forGetter(noisySphereConfig -> noisySphereConfig.spawningFeatures)
         ).apply(codecRecorder, NoisySphereConfig::new));
 
+    public static final Codec<NoisySphereConfig> DIRECT_CODEC = RecordCodecBuilder.create(
+        codecRecorder -> codecRecorder.group(
+            BlockStateProvider.CODEC.fieldOf("block_provider").forGetter(config -> config.blockProvider),
+            BlockStateProvider.CODEC.fieldOf("top_block_provider").forGetter(config -> config.topBlockProvider),
+            IntProvider.CODEC.fieldOf("stackHeight").forGetter(config -> config.stackHeight),
+            RadiusSettings.CODEC.fieldOf("radius_settings").forGetter(config -> config.radiusSettings),
+            Codec.DOUBLE.fieldOf("radius_divisor_per_stack").orElse(1.0).forGetter(config -> config.radiusDivisorPerStack),
+            Codec.FLOAT.fieldOf("noise_frequency").orElse(1.0F).forGetter(config -> config.noiseFrequency),
+            Codec.INT.fieldOf("fluid_start_y").orElse(12).forGetter(config -> config.fluidStartY),
+            FluidState.CODEC.fieldOf("fluidState").orElse(Fluids.EMPTY.defaultFluidState()).forGetter(config -> config.fluidState),
+            Codec.DOUBLE.fieldOf("2d_noise_chance").orElse(0.25D).forGetter(config -> config.noise2DChance),
+            RadiusMatcher.CODEC.fieldOf("radius_matcher").orElse(RadiusMatcher.NONE).forGetter(config -> config.radiusMatcher),
+            Codec.BOOL.fieldOf("squared_distance_check").orElse(true).forGetter(config -> config.checkSquareDistance),
+            Codec.BOOL.fieldOf("use_scaled_noise_height").orElse(false).forGetter(config -> config.useScaledNoiseHeight),
+            Codec.BOOL.fieldOf("verifies_height").orElse(true).forGetter(config -> config.verfiesHeight),
+            Codec.BOOL.fieldOf("pointed").orElse(false).forGetter(config -> config.pointed),
+            IntProvider.CODEC.fieldOf("belowSurfaceDepth").forGetter(config -> config.belowSurfaceDepth),
+            PlacedFeature.DIRECT_CODEC.listOf().fieldOf("edge_features").forGetter(noisySphereConfig -> noisySphereConfig.spawningFeatures.stream().map(Holder::value).toList())
+        ).apply(codecRecorder, (BlockStateProvider blockProvider1, BlockStateProvider topBlockProvider1, IntProvider stackHeight1, RadiusSettings radiusSettings1, Double radiusDivisorPerStack1, Float noiseFrequency1, Integer fluidStartY1, FluidState fluidState1, Double noise2DChance1, RadiusMatcher radiusMatcher1, Boolean checkSquareDistance1, Boolean useScaledNoiseHeight1, Boolean pointed1, Boolean verfiesHeight1, IntProvider belowSurfaceDepth1, List<PlacedFeature> spawningFeatures1) -> new NoisySphereConfig(blockProvider1, topBlockProvider1, stackHeight1, radiusSettings1, radiusDivisorPerStack1, noiseFrequency1, fluidStartY1, fluidState1, noise2DChance1, radiusMatcher1, checkSquareDistance1, useScaledNoiseHeight1, pointed1, verfiesHeight1, belowSurfaceDepth1, HolderSet.direct(spawningFeatures1.stream().map(Holder::direct).toList()))));
+
+
 
     public record RadiusSettings(IntProvider xRadius, IntProvider yRadius, int upperHalfAdditional,
                                  IntProvider zRadius) {

@@ -2,11 +2,13 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
 
@@ -45,7 +47,8 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
         int baseX = position.getX();
         int baseZ = position.getZ();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        
+        BlockPos.MutableBlockPos top = new BlockPos.MutableBlockPos();
+
         double effectiveConfiguredHeightMultiplier = config.getHeightMultiplier() * EFFECTIVE_HEIGHT_MULTIPLIER;
         for (int z = 1-RADIUS; z < RADIUS; z++) {
             int worldZ = z + baseZ;
@@ -80,13 +83,21 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
                     // Place them all.
                     for (int y = maximumHeight; y >= terrainHeight; y--) {
                         mutable.setY(y);
+                        if (mutable.getY() > top.getY()) {
+                            top.set(mutable);
+                        }
                         world.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 2);
                     }
                 }
-                
-                
             }
         }
+        if (!top.equals(BlockPos.ZERO)) {
+            for (Holder<PlacedFeature> placedFeatureHolder : config.getPlacedFeatureHolderSet()) {
+                placedFeatureHolder.value().place(world, world.getLevel().getChunkSource().getGenerator(), rand, top);
+            }
+        }
+
+
         return true;
     }
 }

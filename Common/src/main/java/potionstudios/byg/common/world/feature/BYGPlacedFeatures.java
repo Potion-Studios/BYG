@@ -44,6 +44,7 @@ public class BYGPlacedFeatures {
     public static final NoiseThresholdCountPlacement CRAG_NOISE = NoiseThresholdCountPlacement.of(0, 1, 0);
 
     public static final NoiseThresholdCountPlacement DENSE_NOISE = NoiseThresholdCountPlacement.of(-0.545, 1, 2);
+    public static final NoiseThresholdCountPlacement LUSH_SEA_SPIKES_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
 
 
     public static final Holder<PlacedFeature> ALLIUM_FIELD_FLOWERS = createPlacedFeature("allium_field_flowers", BYGOverworldVegetationFeatures.ALLIUM_FIELD_FLOWERS, worldSurfaceSquaredWithCount(20));
@@ -211,7 +212,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> LARGE_WINDSWEPT_LAKE = createPlacedFeature("large_windswept_lake", BYGOverworldFeatures.LARGE_WINDSWEPT_LAKE, Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.addAll(List.of(RarityFilter.onAverageOnceEvery(36), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0)))))))));
     public static final Holder<PlacedFeature> END_LAKE = createPlacedFeature("end_lake", BYGEndFeatures.END_LAKE, Util.make(new ArrayList<>(worldSurfaceSquaredWithCount(1)), list -> list.addAll(List.of(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.DOWN))), BiomeFilter.biome()))));
 
-    public static final Holder<PlacedFeature> DEAD_SEA_SPIKES = createPlacedFeature("dead_sea_spikes", BYGOverworldFeatures.DEAD_SEA_SPIKES, oceanFloorSquaredWithCount(3));
+    public static final Holder<PlacedFeature> LUSH_SEA_SPIKES = createPlacedFeature("lush_sea_spikes", BYGOverworldFeatures.LUSH_SEA_SPIKES, new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(1)).add(LUSH_SEA_SPIKES_NOISE).build());
     public static final Holder<PlacedFeature> CRYPTIC_SPIKE = createPlacedFeature("cryptic_spikes", BYGEndFeatures.CRYPTIC_SPIKE, new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(3)).build());
     public static final Holder<PlacedFeature> RED_ROCK_SPIKES = createPlacedFeature("red_rock_spikes", BYGOverworldFeatures.RED_ROCK_SPIKE, new ImmutableList.Builder<PlacementModifier>().addAll(oceanFloorSquaredWithCount(1)).add(RarityFilter.onAverageOnceEvery(24)).build());
     public static final Holder<PlacedFeature> WINDSWEPT_SPIKES = createPlacedFeature("windswept_spikes", BYGOverworldFeatures.WINDSWEPT_SPIKES, NoiseThresholdCountPlacement.of(0.6, 0, 1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BlockPredicateFilter.forPredicate(BlockPredicate.not(BlockPredicate.anyOf(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))))), BiomeFilter.biome());
