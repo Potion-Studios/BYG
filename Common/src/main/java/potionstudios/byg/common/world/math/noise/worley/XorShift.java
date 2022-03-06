@@ -8,13 +8,11 @@ import java.util.Random;
  * pseudo-random number generator described by George Marsaglia in his paper
  * <i>XorShift RNGs</i> (<a href="http://www.jstatsoft.org/v08/i14/paper"
  * >http://www.jstatsoft.org/v08/i14/paper</a>).
- * <PDynamic>
  * This particular implementation has a period of <code>2 ^ 96 - 1</code> and
  * uses Marsaglia's triple of [13, 19, 3]. For use in cellular noise functions,
  * it has a method for resetting the generator state via
  * for <code>x, y, z</code> voxel
  * coordinates, which will wrap on [0, 1024) for each of <code>x, y, z</code>.
- * <PDynamic>
  * Objects of <code>XorShift.Instance</code> <i>are not</i> threadsafe.
  * Concurrent access should be externally synchronized or use separate
  * instances. <code>XorShift</code> itself is threadsafe.
@@ -76,7 +74,6 @@ public class XorShift {
 
     /**
      * Creates a new random number generator instance.
-     * <PDynamic>
      * Each instance should be used by a single thread only. See the class
      * documentation for information about the generator itself.
      *
@@ -94,7 +91,6 @@ public class XorShift {
     /**
      * Random number generator instance for <code>XorShift</code>. See the class
      * documentation for details.
-     * <PDynamic>
      * A reminder: this is <i>not</i> threadsafe.
      *
      * @author saybur
@@ -132,7 +128,6 @@ public class XorShift {
 
         /**
          * Sets the seed for this number generator to the given values.
-         * <PDynamic>
          * This is for the cellular noise functions and may be ignored by other
          * users, as the constructor will initialize the generator with random
          * starting values.

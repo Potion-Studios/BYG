@@ -442,8 +442,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.WEEPING_ROOTS);
     }
 
-    public static void addLushSeaSpires(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LUSH_SEA_SPIKES);
+    public static void addlushStacksSpires(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LUSH_STACKS_SPIKES);
     }
 
     public static void addHugeNetherMushrooms(BiomeGenerationSettings.Builder gen) {

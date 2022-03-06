@@ -62,27 +62,26 @@ public class BYGOverworldFeatures {
 
     private static final Holder<PlacedFeature> SPIKE_MOSS = BYGPlacedFeaturesUtil.createPlacedFeature("spike_moss_patch", CaveFeatures.MOSS_PATCH);
 
-    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_SEA_SPIKE = createConfiguredFeature("lush_sea_spike",
+    private static final WeightedStateProvider LUSH_SPIKE_PROVIDER = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+        .add(Blocks.STONE.defaultBlockState(), 6)
+        .add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 3)
+        .add(Blocks.ANDESITE.defaultBlockState(), 1)
+        .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 1)
+    );
+
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_STACKS_SPIKE = createConfiguredFeature("lush_stacks_spike",
         BYGFeatures.POINTY_ROCK,
         new PointyRockConfig.Builder()
-            .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5)
-                .add(Blocks.STONE.defaultBlockState(), 3)
-                .add(Blocks.ANDESITE.defaultBlockState(), 2))
-            )
+            .setBlock(LUSH_SPIKE_PROVIDER)
             .setSeed(65)
             .setPostFeatures(HolderSet.direct(SPIKE_MOSS))
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_SEA_SPIKE_TALL = createConfiguredFeature("lush_sea_tall_spike",
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_STACKS_SPIKE_TALL = createConfiguredFeature("lush_stacks_tall_spike",
         BYGFeatures.POINTY_ROCK,
         new PointyRockConfig.Builder()
-            .setBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 5)
-                .add(Blocks.STONE.defaultBlockState(), 3)
-                .add(Blocks.ANDESITE.defaultBlockState(), 2))
-            )
+            .setBlock(LUSH_SPIKE_PROVIDER)
             .setSeed(85)
             .setPostFeatures(HolderSet.direct(SPIKE_MOSS))
             .build()
@@ -210,11 +209,11 @@ public class BYGOverworldFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LUSH_SEA_SPIKES = createConfiguredFeature("lush_sea_spikes",
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LUSH_STACKS_SPIKES = createConfiguredFeature("lush_stacks_spikes",
         Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(createPlacedFeature(LUSH_SEA_SPIKE), 0.75F)),
-            createPlacedFeature(LUSH_SEA_SPIKE_TALL)
+            new WeightedPlacedFeature(createPlacedFeature(LUSH_STACKS_SPIKE), 0.75F)),
+            createPlacedFeature(LUSH_STACKS_SPIKE_TALL)
         ));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WINDSWEPT_SPIKES = createConfiguredFeature("windswept_spikes",

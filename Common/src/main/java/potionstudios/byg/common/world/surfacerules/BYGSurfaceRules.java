@@ -61,7 +61,7 @@ public class BYGSurfaceRules {
             SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), PEAT_SURFACE)
         )
     );
-    public static final SurfaceRules.RuleSource OVERGROWN_STONE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CANADIAN_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.FRAGMENT_FOREST, BYGBiomes.CRAG_GARDENS), OVERGROWN_STONE_STONE_SURFACE);
+    public static final SurfaceRules.RuleSource OVERGROWN_STONE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CANADIAN_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.FRAGMENT_FOREST, BYGBiomes.CRAG_GARDENS, BYGBiomes.LUSH_STACKS), OVERGROWN_STONE_STONE_SURFACE);
 
 
     public static final SurfaceRules.RuleSource RED_ROCK_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.RED_ROCK_VALLEY),
