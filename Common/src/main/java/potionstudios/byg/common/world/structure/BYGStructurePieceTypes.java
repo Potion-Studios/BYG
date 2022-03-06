@@ -8,7 +8,7 @@ import potionstudios.byg.common.world.structure.arch.ArchPiece;
 import java.util.Locale;
 
 public class BYGStructurePieceTypes {
-    public static final StructurePieceType ARCH_PIECE = setPieceId(ArchPiece::new, "ArchPiece");
+    public static final StructurePieceType ARCH_PIECE = setFullContextPieceId(ArchPiece::new, "ArchPiece");
 
 
     private static StructurePieceType setFullContextPieceId(StructurePieceType type, String id) {

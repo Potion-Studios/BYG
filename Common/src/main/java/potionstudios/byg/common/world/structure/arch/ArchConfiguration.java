@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
-public record ArchConfiguration(IntProvider height, IntProvider length,
+public record ArchConfiguration(IntProvider height, IntProvider length, IntProvider width,
                                 SimpleWeightedRandomList<BlendingFunction> blendingFunction,
                                 FloatProvider matchingBlendingFunctionChance,
                                 FloatProvider percentageDestroyed,
@@ -23,8 +23,9 @@ public record ArchConfiguration(IntProvider height, IntProvider length,
     public static final Codec<ArchConfiguration> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(IntProvider.CODEC.fieldOf("height").forGetter(archConfiguration -> archConfiguration.height),
             IntProvider.POSITIVE_CODEC.fieldOf("length").forGetter(archConfiguration -> archConfiguration.length),
+            IntProvider.POSITIVE_CODEC.fieldOf("width").forGetter(archConfiguration -> archConfiguration.width),
             SimpleWeightedRandomList.wrappedCodec(BlendingFunction.CODEC).fieldOf("blending_functions").forGetter(archConfiguration -> archConfiguration.blendingFunction),
-            FloatProvider.CODEC.fieldOf("matching_blending_functionChance").forGetter(archConfiguration -> archConfiguration.matchingBlendingFunctionChance),
+            FloatProvider.CODEC.fieldOf("matching_blending_function_chance").forGetter(archConfiguration -> archConfiguration.matchingBlendingFunctionChance),
             FloatProvider.CODEC.fieldOf("percentage_destroyed").forGetter(archConfiguration -> archConfiguration.percentageDestroyed),
             NoisySphereConfig.CODEC.fieldOf("generation").forGetter(archConfiguration -> archConfiguration.sphereConfig),
             TagKey.codec(Registry.BIOME_REGISTRY).fieldOf("allowed_biomes").orElse(EMPTY).forGetter(archConfiguration -> archConfiguration.biomeEnforcement)
@@ -34,6 +35,7 @@ public record ArchConfiguration(IntProvider height, IntProvider length,
     public static final class Builder {
         private IntProvider height = UniformInt.of(35, 90);
         private IntProvider length = UniformInt.of(50, 250);
+        private IntProvider width = UniformInt.of(1, 10);
         private NoisySphereConfig sphereConfig = new NoisySphereConfig.Builder().build();
         private SimpleWeightedRandomList<BlendingFunction> blendingFunction = SimpleWeightedRandomList.single(BlendingFunction.EaseOutCubic.INSTANCE);
         private FloatProvider matchingBlendingFunctionChance = ConstantFloat.of(0.5F);
@@ -50,6 +52,11 @@ public record ArchConfiguration(IntProvider height, IntProvider length,
 
         public Builder withLength(IntProvider length) {
             this.length = length;
+            return this;
+        }
+
+        public Builder withWidth(IntProvider width) {
+            this.width = width;
             return this;
         }
 
@@ -79,7 +86,7 @@ public record ArchConfiguration(IntProvider height, IntProvider length,
         }
 
         public ArchConfiguration build() {
-            return new ArchConfiguration(this.height, this.length, this.blendingFunction, this.matchingBlendingFunctionChance, this.percentageDestroyed, this.sphereConfig, this.biomeEnforcement);
+            return new ArchConfiguration(this.height, this.length, this.width, this.blendingFunction, this.matchingBlendingFunctionChance, this.percentageDestroyed, this.sphereConfig, this.biomeEnforcement);
         }
     }
 }
