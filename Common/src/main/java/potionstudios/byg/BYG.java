@@ -4,12 +4,13 @@ package potionstudios.byg;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
@@ -27,6 +28,7 @@ import potionstudios.byg.util.ModLoaderContext;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class BYG {
@@ -79,17 +81,20 @@ public class BYG {
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
             new ImmutableList.Builder<Block>()
                 .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                .add(Blocks.JUNGLE_LEAVES)
-                .add(Blocks.JUNGLE_LOG)
-                .add(Blocks.OAK_LEAVES)
-                .add(Blocks.OAK_LOG)
-                .add(BYGBlocks.RAINBOW_EUCALYPTUS_LOG)
-                .add(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES)
                 .add(BYGBlocks.EMBUR_GEL_BLOCK)
                 .add(BYGBlocks.EMBUR_GEL_BRANCH)
                 .add(BYGBlocks.EMBUR_GEL_VINES)
-                .add(BYGBlocks.EMBUR_GEL_VINES_PLANT)
-                .add(Blocks.VINE)
+                .addAll(Util.make(new ArrayList<>(), list -> {
+                    for (Block block : Registry.BLOCK) {
+                        Material material = block.defaultBlockState().getMaterial();
+                        if (material == Material.PLANT || material == Material.BAMBOO ||
+                            material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
+                            material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
+                            material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
+                            list.add(block);
+                        }
+                    }
+                }))
                 .build()
         );
     }
