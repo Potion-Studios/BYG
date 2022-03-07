@@ -105,37 +105,44 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
         }
 
         {
-            int totalThicknessPoints = 20;
             int width = config.width().sample(random);
-            ObjectCollection<Set<BlockPos>> capture = chunkSortedPositions.values();
-            Long2ObjectOpenHashMap<Set<BlockPos>> newSortedPositions = new Long2ObjectOpenHashMap<>(chunkSortedPositions.size() * totalThicknessPoints);
-            double wideXOffset = Math.sin(angle + ninetyDegrees);
-            double wideZOffset = Math.cos(angle + ninetyDegrees);
-            double widthXOffset = wideXOffset * width;
-            double widthZOffset = wideZOffset * width;
+            double totalThicknessPoints = (double) width / 3;
+            Long2ObjectOpenHashMap<Set<BlockPos>> newSortedPositions;
 
-            for (Set<BlockPos> value : capture) {
-                for (BlockPos pos : value) {
-                    BlockPos start = pos.offset(-widthXOffset, 0, -widthZOffset);
-                    BlockPos end = pos.offset(widthXOffset, 0, widthZOffset);
-                    for (int thickness = totalThicknessPoints; thickness >= 1; thickness--) {
-                        double factor = (double) thickness / totalThicknessPoints;
-                        {
-                            BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), pos.getX()), pos.getY(), lerp(factor, start.getZ(), pos.getZ()));
-                            startToCenterLerpPos = new BlockPos(startToCenterLerpPos.getX(), pos.getY(), startToCenterLerpPos.getZ());
-                            long chunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(startToCenterLerpPos.getX()), SectionPos.blockToSectionCoord(startToCenterLerpPos.getZ()));
-                            newSortedPositions.computeIfAbsent(chunkKey, (key -> new HashSet<>())).add(startToCenterLerpPos);
-                        }
-                        {
-                            BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), pos.getX()), pos.getY(), lerp(factor, end.getZ(), pos.getZ()));
-                            centerToEndLerpPos = new BlockPos(centerToEndLerpPos.getX(), pos.getY(), centerToEndLerpPos.getZ());
+            if (totalThicknessPoints > 1) {
+                newSortedPositions = new Long2ObjectOpenHashMap<>(chunkSortedPositions.size() * ((int) totalThicknessPoints));
+
+                ObjectCollection<Set<BlockPos>> capture = chunkSortedPositions.values();
+                double wideXOffset = Math.sin(angle + ninetyDegrees);
+                double wideZOffset = Math.cos(angle + ninetyDegrees);
+                double widthXOffset = wideXOffset * width;
+                double widthZOffset = wideZOffset * width;
+
+                for (Set<BlockPos> value : capture) {
+                    for (BlockPos pos : value) {
+                        BlockPos start = pos.offset(-widthXOffset, 0, -widthZOffset);
+                        BlockPos end = pos.offset(widthXOffset, 0, widthZOffset);
+                        for (int thickness = (int) totalThicknessPoints; thickness >= 1; thickness--) {
+                            double factor = (double) thickness / totalThicknessPoints;
+                            {
+                                BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), pos.getX()), pos.getY(), lerp(factor, start.getZ(), pos.getZ()));
+                                startToCenterLerpPos = new BlockPos(startToCenterLerpPos.getX(), pos.getY(), startToCenterLerpPos.getZ());
+                                long chunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(startToCenterLerpPos.getX()), SectionPos.blockToSectionCoord(startToCenterLerpPos.getZ()));
+                                newSortedPositions.computeIfAbsent(chunkKey, (key -> new HashSet<>())).add(startToCenterLerpPos);
+                            }
+                            {
+                                BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), pos.getX()), pos.getY(), lerp(factor, end.getZ(), pos.getZ()));
+                                centerToEndLerpPos = new BlockPos(centerToEndLerpPos.getX(), pos.getY(), centerToEndLerpPos.getZ());
 
 
-                            long centerToEndChunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(centerToEndLerpPos.getX()), SectionPos.blockToSectionCoord(centerToEndLerpPos.getZ()));
-                            newSortedPositions.computeIfAbsent(centerToEndChunkKey, (key -> new HashSet<>())).add(centerToEndLerpPos);
+                                long centerToEndChunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(centerToEndLerpPos.getX()), SectionPos.blockToSectionCoord(centerToEndLerpPos.getZ()));
+                                newSortedPositions.computeIfAbsent(centerToEndChunkKey, (key -> new HashSet<>())).add(centerToEndLerpPos);
+                            }
                         }
                     }
                 }
+            } else {
+                newSortedPositions = chunkSortedPositions;
             }
 
             newSortedPositions.forEach((offsetChunkPos, set) -> {

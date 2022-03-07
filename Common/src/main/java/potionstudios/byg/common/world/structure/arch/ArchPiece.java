@@ -8,6 +8,7 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -24,6 +25,8 @@ import java.util.Random;
 import java.util.Set;
 
 public class ArchPiece extends StructurePiece {
+
+    public static final boolean DEBUG = false;
 
     private final Set<BlockPos> positions = new HashSet<>();
     private final NoisySphereConfig config;
@@ -69,10 +72,11 @@ public class ArchPiece extends StructurePiece {
                 position = new BlockPos(position.getX(), worldGenLevel.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, position.getX(), position.getZ()) + 1, position.getZ());
             }
 
-            BYGFeatures.BOULDER.fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
-
-
-
+            if (DEBUG) {
+                worldGenLevel.setBlock(position, Blocks.GLOWSTONE.defaultBlockState(), 2);
+            } else {
+                BYGFeatures.BOULDER.fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
+            }
         }
         toPlace.forEach((aLong, state) -> {
             worldGenLevel.setBlock(BlockPos.of(aLong), state, 2);
