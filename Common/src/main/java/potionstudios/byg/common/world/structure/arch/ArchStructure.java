@@ -73,7 +73,7 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
             BlockPos endToCenterLastPos = null;
             for (int pointCount = points; pointCount >= 1; pointCount--) {
                 double factor = (double) pointCount / points;
-                int squareDistance = 6;
+                int squareDistance = 2;
                 {
                     BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), center.getX()), blendingFunction.apply(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ()));
 
@@ -154,7 +154,7 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
 
     }
 
-    private static BoundingBox getWritableArea(ChunkPos chunkPos, LevelHeightAccessor accessor) {
+    public static BoundingBox getWritableArea(ChunkPos chunkPos, LevelHeightAccessor accessor) {
         int i = chunkPos.getMinBlockX();
         int j = chunkPos.getMinBlockZ();
         int k = accessor.getMinBuildHeight() + 1;

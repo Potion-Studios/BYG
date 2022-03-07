@@ -56,7 +56,7 @@ public class BYGStructureFeatures {
         builder.withMatchingBlendingFunctionChance(ConstantFloat.of(0.2F));
         builder.withPercentageDestroyed(ConstantFloat.of(0));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
-    }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, true));
+    }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, false));
 
     public static final Holder<ConfiguredStructureFeature<?, ?>> OVERGROWN_STONE_ARCH = register("overgrown_stone_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -73,8 +73,8 @@ public class BYGStructureFeatures {
             .withTopBlockProvider(
                 blockProvider
             ).withSpawningFeatures(List.of(
-                BYGPlacedFeaturesUtil.createPlacedFeature("arch_moss_patch_ceiling", CaveFeatures.MOSS_PATCH_CEILING, RarityFilter.onAverageOnceEvery(100), RandomOffsetPlacement.vertical(UniformInt.of(-15, -10))),
-                BYGPlacedFeaturesUtil.createPlacedFeature("arch_moss_patch", CaveFeatures.MOSS_PATCH, RarityFilter.onAverageOnceEvery(100), PlacementUtils.HEIGHTMAP)
+                BYGPlacedFeaturesUtil.createPlacedFeature("arch_moss_patch_ceiling", CaveFeatures.MOSS_PATCH_CEILING, RarityFilter.onAverageOnceEvery(350), RandomOffsetPlacement.vertical(UniformInt.of(-15, -10))),
+                BYGPlacedFeaturesUtil.createPlacedFeature("arch_moss_patch", CaveFeatures.MOSS_PATCH, RarityFilter.onAverageOnceEvery(350), PlacementUtils.HEIGHTMAP)
             ))
             .build()
         );
@@ -83,7 +83,7 @@ public class BYGStructureFeatures {
         builder.withLength(UniformInt.of(50, 100));
         builder.withHeight(UniformInt.of(50, 100));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutQuint.INSTANCE, 5).add(BlendingFunction.EaseOutElastic.INSTANCE, 2).add(BlendingFunction.EaseOutBounce.INSTANCE, 5).add(BlendingFunction.EaseOutCubic.INSTANCE, 5).build());
-    }).build(), BYGBiomeTags.HAS_OVERGROWN_STONE_ARCH, true));
+    }).build(), BYGBiomeTags.HAS_OVERGROWN_STONE_ARCH, false));
 
     public static final Holder<ConfiguredStructureFeature<?, ?>> STONE_ARCH = register("stone_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -107,7 +107,7 @@ public class BYGStructureFeatures {
         builder.withLength(UniformInt.of(50, 100));
         builder.withHeight(UniformInt.of(50, 100));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutQuint.INSTANCE, 5).add(BlendingFunction.EaseOutElastic.INSTANCE, 2).add(BlendingFunction.EaseOutBounce.INSTANCE, 5).add(BlendingFunction.EaseOutCubic.INSTANCE, 5).build());
-    }).build(), BYGBiomeTags.HAS_STONE_ARCH, true));
+    }).build(), BYGBiomeTags.HAS_STONE_ARCH, false));
 
     public static final Holder<ConfiguredStructureFeature<?, ?>> DESTROYED_RED_ROCK_ARCH = register("destroyed_red_rock_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
@@ -127,7 +127,7 @@ public class BYGStructureFeatures {
         builder.withMatchingBlendingFunctionChance(ConstantFloat.of(0.2F));
         builder.withPercentageDestroyed(UniformFloat.of(0.45F, 1.0F));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
-    }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, true));
+    }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, false));
 
 
 
