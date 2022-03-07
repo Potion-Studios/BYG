@@ -1,6 +1,6 @@
 package potionstudios.byg.common.world.structure.arch;
 
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.*;
@@ -65,7 +65,7 @@ public class ArchPiece extends StructurePiece {
 
     @Override
     public void postProcess(WorldGenLevel worldGenLevel, StructureFeatureManager structureFeatureManager, ChunkGenerator chunkGenerator, Random random, BoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
-        Long2ObjectOpenHashMap<BlockState> toPlace = new Long2ObjectOpenHashMap<>(1000);
+        Long2ObjectLinkedOpenHashMap<BlockState> toPlace = new Long2ObjectLinkedOpenHashMap<>(1000);
 
         for (BlockPos position : this.positions) {
             if (position.getY() == Integer.MIN_VALUE) {
@@ -87,6 +87,5 @@ public class ArchPiece extends StructurePiece {
                 spawningFeature.value().place(worldGenLevel, chunkGenerator, random, BlockPos.of(aLong));
             }
         }
-
     }
 }

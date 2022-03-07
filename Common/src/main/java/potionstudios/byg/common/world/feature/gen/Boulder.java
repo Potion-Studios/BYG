@@ -1,7 +1,7 @@
 package potionstudios.byg.common.world.feature.gen;
 
 import com.mojang.serialization.Codec;
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.WorldGenLevel;
@@ -48,7 +48,7 @@ public class Boulder extends Feature<NoisySphereConfig> {
         return place;
     }
 
-    public void fillList(Long2ObjectOpenHashMap<BlockState> positions, long seed, Random random, BlockPos origin, NoisySphereConfig config) {
+    public void fillList(Long2ObjectMap<BlockState> positions, long seed, Random random, BlockPos origin, NoisySphereConfig config) {
         place(new Application() {
             @Override
             public void apply(BlockPos pos, BlockState state) {
@@ -82,7 +82,7 @@ public class Boulder extends Feature<NoisySphereConfig> {
         for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
             for (int x = -xRadius; x <= xRadius; x++) {
                 for (int z = -zRadius; z <= zRadius; z++) {
-                    for (int y = -yRadius; y <= yRadius; y++) {
+                    for (int y = yRadius; y >= -yRadius; y--) {
                         mutable2.set(mutable).move(x, y, z);
 
                         if (application.isOccupied(mutable2)) {
