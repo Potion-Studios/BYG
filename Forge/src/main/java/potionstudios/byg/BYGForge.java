@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
@@ -43,7 +44,7 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
-import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
+import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
@@ -110,6 +111,7 @@ public class BYGForge {
         register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
         register(ParticleType.class, eventBus, () -> BYGParticleTypes.bootStrap());
+        register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
     }
 
     @SuppressWarnings("rawtypes")

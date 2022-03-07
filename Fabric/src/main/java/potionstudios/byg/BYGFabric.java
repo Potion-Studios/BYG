@@ -23,6 +23,7 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
+import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
@@ -71,6 +72,7 @@ public class BYGFabric implements ModInitializer {
         register(BuiltinRegistries.BIOME, BYGBiomes.bootStrap());
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
         register(Registry.PARTICLE_TYPE, BYGParticleTypes.bootStrap());
+        register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
         BYG.LOGGER.info("BYG registries bootstrapped");

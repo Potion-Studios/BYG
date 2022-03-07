@@ -4,7 +4,6 @@ package potionstudios.byg;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -124,9 +123,5 @@ public class BYG {
 
     public static ResourceLocation createLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
-    }
-
-    static {
-        SharedConstants.IS_RUNNING_IN_IDE = DEV_ENVIRONMENT;
     }
 }
