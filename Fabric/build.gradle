@@ -47,17 +47,21 @@ dependencies {
 loom {
     accessWidenerPath = project(":Common").file("src/main/resources/byg.aw")
     runs {
+        def args = ["-DbygDev=true"]
+
         client {
             client()
             setConfigName("Fabric Client")
             ideConfigGenerated(true)
             runDir("run")
+            vmArgs(args)
         }
         server {
             server()
             setConfigName("Fabric Server")
             ideConfigGenerated(true)
             runDir("run")
+            vmArgs(args)
         }
     }
 }

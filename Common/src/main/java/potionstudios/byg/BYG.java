@@ -4,6 +4,7 @@ package potionstudios.byg;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -22,12 +23,14 @@ import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.mixin.access.WorldCarverAccess;
 import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.util.LangFileGenerator;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModLoaderContext;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -37,7 +40,7 @@ public class BYG {
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
     public static final int EXPERIMENTAL_WARNING_VERSION = 3;
-
+    public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
     public static boolean ENABLE_NYLIUM_FUNGI = true;
@@ -72,6 +75,9 @@ public class BYG {
     }
 
     public static void threadSafeCommonLoad() {
+        if (DEV_ENVIRONMENT) {
+            LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
+        }
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());
@@ -118,5 +124,9 @@ public class BYG {
 
     public static ResourceLocation createLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
+    }
+
+    static {
+        SharedConstants.IS_RUNNING_IN_IDE = DEV_ENVIRONMENT;
     }
 }
