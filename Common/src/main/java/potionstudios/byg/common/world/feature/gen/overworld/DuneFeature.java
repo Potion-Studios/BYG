@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.WorldGenLevel;
@@ -73,7 +74,7 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
             }
         }
 
-        return false;
+        return true;
     }
 
     private double getBlendDensity(WorldGenLevel level, ChunkGenerator generator, ChunkAccess chunk, BlockPos.MutableBlockPos mutableBlockPos, double height, int blendRange, BlockPos.MutableBlockPos blendingPos) {
@@ -83,10 +84,10 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
                 blendingPos.set(mutableBlockPos).move(x, 0, z);
                 int worldSurfaceHeight = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, blendingPos.getX(), blendingPos.getZ());
                 blendingPos.setY(worldSurfaceHeight);
-                ResourceKey<Biome> biomeResourceKey = level.getBiomeName(blendingPos).get();
+                ResourceKey<Biome> biomeResourceKey = level.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(level.getBiome(blendingPos).value()).get();
                 boolean outsideBiome = biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES && worldSurfaceHeight < height;
 
-                NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).getNoiseChunk();
+                NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).byg_getNoiseChunk();
                 boolean abovePreliminarySurface =  noiseChunk != null && noiseChunk.preliminarySurfaceLevel(mutableBlockPos.getX(), mutableBlockPos.getZ()) > worldSurfaceHeight;
                 boolean caveCheck = biomeResourceKey == BYGBiomes.WINDSWEPT_DUNES && (worldSurfaceHeight < generator.getSeaLevel() || abovePreliminarySurface);
                 if (caveCheck) {

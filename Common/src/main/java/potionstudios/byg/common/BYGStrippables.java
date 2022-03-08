@@ -14,7 +14,7 @@ public class BYGStrippables {
     public static void strippableLogsBYG() {
         BYG.LOGGER.debug("BYG: Adding strippable Blocks...");
 
-        Map<Block, Block> stripables = new IdentityHashMap<>(AxeItemAccess.getStripables());
+        Map<Block, Block> stripables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
 
         stripables.put(BYGBlocks.ASPEN_LOG, BYGBlocks.STRIPPED_ASPEN_LOG);
         stripables.put(BYGBlocks.BAOBAB_LOG, BYGBlocks.STRIPPED_BAOBAB_LOG);
@@ -81,7 +81,7 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE, BYGBlocks.IMPARIUS_HYPHAE);
 
 
-        AxeItemAccess.setStripables(stripables);
+        AxeItemAccess.byg_setStripables(stripables);
         BYG.LOGGER.info("BYG: Added strippable Blocks...");
 
     }

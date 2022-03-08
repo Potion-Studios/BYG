@@ -1,21 +1,21 @@
 package potionstudios.byg.util;
 
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
-import potionstudios.byg.mixin.access.BlockTagsAccess;
 
 public class MLBlockTags {
 
-    public static final Tag.Named<Block> NETHERRACK = createTag("netherrack");
-    public static final Tag.Named<Block> END_STONES = createTag("end_stones");
-    public static final Tag.Named<Block> ORES = createTag("ores");
-    public static final Tag.Named<Block> BOOKSHELVES = createTag("bookshelves");
-    public static final Tag.Named<Block> SANDSTONE = createTag("sandstone");
+    public static final TagKey<Block> NETHERRACK = createTag("netherrack");
+    public static final TagKey<Block> END_STONES = createTag("end_stones");
+    public static final TagKey<Block> ORES = createTag("ores");
+    public static final TagKey<Block> BOOKSHELVES = createTag("bookshelves");
+    public static final TagKey<Block> SANDSTONE = createTag("sandstone");
 
-    public static Tag.Named<Block> createTag(String path) {
-        return BlockTagsAccess.invokeBind(new ResourceLocation(BYG.MOD_LOADER_TAG_TARGET, path).toString());
+    public static TagKey<Block> createTag(String path) {
+        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(BYG.MOD_LOADER_TAG_TARGET, path));
     }
 
     public static void bootStrap() {

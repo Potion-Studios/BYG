@@ -9,10 +9,10 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(SurfaceRules.Context.class)
 public interface SurfaceRuleContextAccess {
 
-    @Accessor
-    SurfaceSystem getSystem();
+    @Accessor("system")
+    SurfaceSystem byg_getSystem();
 
-    @Accessor
-    ChunkAccess getChunk();
+    @Accessor("chunk")
+    ChunkAccess byg_getChunk();
 
 }

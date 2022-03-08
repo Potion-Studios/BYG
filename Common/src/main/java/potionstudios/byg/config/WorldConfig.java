@@ -1,11 +1,6 @@
 package potionstudios.byg.config;
 
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
-import potionstudios.byg.BYG;
-
 import java.nio.file.Path;
-import java.util.Arrays;
 
 import static potionstudios.byg.BYG.CONFIG_PATH;
 
@@ -74,61 +69,5 @@ public class WorldConfig {
 
     public static WorldConfig worldConfig() {
         return worldConfig(false);
-    }
-
-    public static boolean conditionPasses(String conditionString, ResourceKey<Biome> biomeKey, Biome biome) {
-        if (conditionString.isEmpty()) {
-            return false;
-        }
-
-        if (conditionString.equalsIgnoreCase("all")) {
-            return true;
-        }
-
-        String[] conditions = conditionString.trim().split("\\s*,\\s*");
-        String biomeNamespace = biomeKey.location().getNamespace();
-        String biomeLocation = biomeKey.location().toString();
-        for (String condition : conditions) {
-            String[] split = condition.split("(?=[\\$#])");
-            boolean categoryExists = true;
-            for (String result : split) {
-                if (result.startsWith("!")) {
-                    result = result.substring(1);
-                }
-                if (result.startsWith("#")) {
-                    String categoryString = result.substring(1);
-                    categoryExists = Arrays.stream(Biome.BiomeCategory.values()).anyMatch(bc -> bc.toString().equalsIgnoreCase(categoryString));
-                    if (!categoryExists) {
-                        BYG.LOGGER.error("\"" + categoryString + "\" is not a valid biome category!");
-                    }
-                }
-            }
-            if (!categoryExists) {
-                continue;
-            }
-            boolean fail = false;
-            for (String result : split) {
-                if (result.startsWith("!")) {
-                    result = result.substring(1);
-                }
-                if (result.startsWith("#")) {
-                    String categoryString = result.substring(1);
-                    fail = !biome.getBiomeCategory().getName().equalsIgnoreCase(categoryString);
-                } else if (!biomeLocation.equalsIgnoreCase(result) && !result.equalsIgnoreCase(biomeNamespace)) {
-                    fail = true;
-                }
-            }
-            boolean isFlipped = condition.startsWith("!");
-            if (fail) {
-                if (isFlipped) {
-                    return true;
-                }
-            }
-
-            if (!fail && !isFlipped) {
-                return true;
-            }
-        }
-        return false;
     }
 }

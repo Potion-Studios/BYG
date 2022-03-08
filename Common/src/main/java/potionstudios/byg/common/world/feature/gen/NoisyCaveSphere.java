@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -16,7 +17,6 @@ import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
@@ -87,8 +87,8 @@ public class NoisyCaveSphere extends Feature<NoisySphereConfig> {
             }
 
             for (BlockPos blockPos : caveAir) {
-                for (Supplier<PlacedFeature> spawningFeature : config.spawningFeatures()) {
-                    spawningFeature.get().place(world, chunkGenerator, random, blockPos);
+                for (Holder<PlacedFeature> spawningFeature : config.spawningFeatures()) {
+                    spawningFeature.value().place(world, chunkGenerator, random, blockPos);
                 }
             }
 

@@ -1,25 +1,21 @@
 package potionstudios.byg.common.world.biome;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
-import potionstudios.byg.mixin.access.BiomeGenerationSettingsAccess;
+import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
+import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
+import potionstudios.byg.common.world.structure.BYGStructureSets;
+import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
 import potionstudios.byg.util.RegistryObject;
+import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 import static potionstudios.byg.common.world.biome.end.BYGEndBiomes.*;
@@ -45,7 +41,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", coniferousForest(false));
     public static ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", cragGardens());
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands());
-    public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea());
+    public static ResourceKey<Biome> LUSH_STACKS = createBiome("lush_stacks", lushStacks());
     public static ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", daciteRidges());
     public static ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", windsweptDunes());
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods());
@@ -56,11 +52,11 @@ public class BYGBiomes {
     public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga());
     public static ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", coconinoMeadow(false, false));
     public static ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", mojaveDesert());
-//    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
+    //    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
     public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard());
     public static ResourceKey<Biome> PRAIRIE = createBiome("prairie", prairie());
     public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest());
-//    public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley());
+    public static ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", redRockValley());
     public static ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", roseFields());
     public static ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", autumnalForest());
     public static ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", autumnalTaiga(false));
@@ -72,11 +68,11 @@ public class BYGBiomes {
     public static ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", frostedTaiga(true, false));
     public static ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", coniferousForest(true));
     public static ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", fragmentForest());
-//    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
+    //    public static ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
     public static ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", tropicalRainforest());
     public static ResourceKey<Biome> TWILIGHT_MEADOW = createBiome("twilight_meadow", twilightMeadow());
     public static ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", weepingWitchForest());
-//    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
+    //    public static ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", whiteMangroveMarshes()); //TODO: Trees are floating and need to be fixed.
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 
@@ -100,7 +96,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> ETHEREAL_ISLANDS = createBiome("ethereal_islands", etherealIslands());
     public static ResourceKey<Biome> VISCAL_ISLES = createBiome("viscal_isles", viscalIsles());
     public static ResourceKey<Biome> BULBIS_GARDENS = createBiome("bulbis_gardens", bulbisGardens());
-//    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
+    //    public static ResourceKey<Biome> SHATTERED_DESERT = createBiome("shattered_desert", shatteredDesert());
     public static ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", shulkrenForest());
     public static ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", crypticWastes());
     public static ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", impariusGrove());
@@ -118,83 +114,16 @@ public class BYGBiomes {
         return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Biome>>> registryStrategy) {
-        registryStrategy.accept(BIOMES);
-    }
-
     public static Collection<RegistryObject<Biome>> bootStrap() {
+        BlendingFunction.bootStrap();
+        BYGStructurePieceTypes.bootStrap();
+        BYGStructureSets.bootStrap();
+        BYGPlacementModifierType.bootStrap();
+        BYGRuleSources.bootStrap();
         return BIOMES;
     }
 
-    //used in MixinMinecraftServer
-    public static void addBYGFeaturesToBiomes(Biome biome, ResourceKey<Biome> biomeKey) {
-        ResourceLocation locationKey = biomeKey.location();
-
-        if (biome.getBiomeCategory() != Biome.BiomeCategory.NETHER && biome.getBiomeCategory() != Biome.BiomeCategory.THEEND && biome.getBiomeCategory() != Biome.BiomeCategory.NONE) {
-            if (locationKey.equals(Biomes.SOUL_SAND_VALLEY.location())) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.HANGING_SOUL_SHROOM_SPORES);
-            }
-
-            if (biome.getBiomeCategory() == Biome.BiomeCategory.BEACH && biome.getBaseTemperature() > 0.15F) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_PALM_TREE);
-            }
-
-            if (biome.getBiomeCategory() != Biome.BiomeCategory.NETHER && biome.getBiomeCategory() != Biome.BiomeCategory.THEEND && biome.getBiomeCategory() != Biome.BiomeCategory.NONE) {
-//                addFeatureToBiome(biome, GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.CATTAILS);
-            }
-        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().pendoriteSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_PENDORITE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().emeralditeSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_EMERALDITE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().rockyStoneSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_ROCKY_STONE);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().ametrineSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().buddingAmetrineSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_AMETRINE_BUDDING);
-//        }
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().scoriaSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SCORIA_STONE);
-//        }
-//
-//        if (WorldConfig.conditionPasses(BYG.worldConfig().soapStoneSpawns, biomeKey, biome)) {
-////            addFeatureToBiome(biome, GenerationStep.Decoration.UNDERGROUND_ORES, BYGConfiguredFeatures.OreConfigs.ORE_SOAP_STONE);
-//        }
-    }
-
-    public static void addFeatureToBiomeFirst(Biome biome, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-
-        List<Supplier<ConfiguredFeature<?, ?>>> suppliers = biomeFeatures.get(GenerationStep.Decoration.RAW_GENERATION.ordinal());
-
-        List<Supplier<ConfiguredFeature<?, ?>>> suppliersCopy = new ArrayList<>(suppliers);
-        suppliers.clear();
-        suppliers.add(() -> configuredFeature);
-        suppliers.addAll(suppliersCopy);
-    }
-
-    //Use these to add our features to vanilla's biomes.
-    public static void addFeatureToBiome(Biome biome, GenerationStep.Decoration feature, ConfiguredFeature<?, ?> configuredFeature) {
-        convertImmutableFeatures(biome);
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> biomeFeatures = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-        while (biomeFeatures.size() <= feature.ordinal()) {
-            biomeFeatures.add(Lists.newArrayList());
-        }
-        biomeFeatures.get(feature.ordinal()).add(() -> configuredFeature);
-    }
-
-    private static void convertImmutableFeatures(Biome biome) {
-        List<List<Supplier<ConfiguredFeature<?, ?>>>> features = ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).getFeatures();
-        if (features instanceof ImmutableList) {
-            ((BiomeGenerationSettingsAccess) biome.getGenerationSettings()).setFeatures(features.stream().map(Lists::newArrayList).collect(Collectors.toList()));
-        }
+    static {
+        BYG.LOGGER.info("BYG Biomes class loaded.");
     }
 }

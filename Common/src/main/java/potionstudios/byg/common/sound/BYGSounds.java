@@ -8,7 +8,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGSounds {
 
@@ -27,11 +26,11 @@ public class BYGSounds {
         return soundEvent;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<SoundEvent>>> registryStrategy) {
-        registryStrategy.accept(SOUNDS);
-    }
-
     public static Collection<RegistryObject<SoundEvent>> bootStrap() {
         return SOUNDS;
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Sounds class loaded.");
     }
 }

@@ -15,8 +15,8 @@ public class MixinBlocks {
     @SuppressWarnings("deprecation")
     @Inject(method = "register", at = @At("HEAD"), cancellable = true)
     private static void swapEndStone(String string, Block block, CallbackInfoReturnable<Block> cir) {
-        if (string.equals("end_stone")) {
-            cir.setReturnValue(Registry.register(Registry.BLOCK, string, new EndStoneGrowable(block)));
-        }
+//        if (string.equals("end_stone")) {
+//            cir.setReturnValue(Registry.register(Registry.BLOCK, string, new EndStoneGrowable(block)));
+//        }
     }
 }

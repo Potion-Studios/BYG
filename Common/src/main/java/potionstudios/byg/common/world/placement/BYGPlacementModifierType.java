@@ -18,4 +18,10 @@ public class BYGPlacementModifierType {
         });
     }
 
+    public static void bootStrap() {
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Placement Modifier Types class loaded.");
+    }
 }

@@ -1,8 +1,8 @@
 package potionstudios.byg.mixin.common.world.surface;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -34,10 +34,11 @@ public abstract class MixinSurfaceSystem implements SeedGetter {
     }
 
     @Inject(method = "buildSurface", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/SurfaceRules$Context;updateXZ(II)V", shift = At.Shift.BEFORE), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void addBYGErodedBadlandsExtension(BiomeManager biomeManager, Registry<Biome> biomeRegistry, boolean $$2, WorldGenerationContext $$3, ChunkAccess $$4, NoiseChunk $$5, SurfaceRules.RuleSource $$6, CallbackInfo ci, BlockPos.MutableBlockPos $$7, ChunkPos $$8, int $$9, int $$10, BlockColumn blockColumn, SurfaceRules.Context $$12, SurfaceRules.SurfaceRule $$13, BlockPos.MutableBlockPos $$14, int $$15, int $$16, int $$17, int $$18, int $$19, Biome $$20, ResourceKey<Biome> $$21, int oceanFloor) {
-        if ($$21 == BYGBiomes.SHATTERED_GLACIER) {
-            this.erodedBadlandsExtension(blockColumn, $$17, $$18, $$19, $$4);
-        }
+    private void addBYGErodedBadlandsExtension(BiomeManager $$0, Registry<Biome> $$1, boolean $$2, WorldGenerationContext $$3, ChunkAccess $$4, NoiseChunk $$5, SurfaceRules.RuleSource $$6, CallbackInfo ci, BlockPos.MutableBlockPos $$7, ChunkPos $$8, int $$9, int $$10, BlockColumn blockColumn, SurfaceRules.Context $$12, SurfaceRules.SurfaceRule $$13, BlockPos.MutableBlockPos $$14, int $$15, int $$16, int $$17, int $$18, int $$19, Holder<Biome> biome, int $$21) {
+        // TODO: Why is this genning stone?
+//        if (biome.is(BYGBiomes.SHATTERED_GLACIER)) {
+//            this.erodedBadlandsExtension(blockColumn, $$17, $$18, $$19, $$4);
+//        }
     }
 
     @Override

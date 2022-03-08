@@ -17,11 +17,11 @@ import java.util.function.Predicate;
 public class BYGHoeables {
     public static void tillablesBYG() {
         BYG.LOGGER.debug("BYG: Adding tillables...");
-        Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> tillables = new IdentityHashMap<>(HoeItemAccess.getTillables());
+        Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> tillables = new IdentityHashMap<>(HoeItemAccess.byg_getTILLABLES());
         tillables.put(BYGBlocks.LUSH_GRASS_BLOCK, Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(BYGBlocks.LUSH_FARMLAND.defaultBlockState())));
         tillables.put(BYGBlocks.LUSH_DIRT, Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(BYGBlocks.LUSH_FARMLAND.defaultBlockState())));
         tillables.put(BYGBlocks.PEAT, Pair.of(HoeItem::onlyIfAirAbove, HoeItem.changeIntoState(Blocks.FARMLAND.defaultBlockState())));
-        HoeItemAccess.setTillables(tillables);
+        HoeItemAccess.byg_setTILLABLES(tillables);
         BYG.LOGGER.info("BYG: Added tillables!");
     }
 }

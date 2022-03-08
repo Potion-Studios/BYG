@@ -15,24 +15,24 @@ import java.util.function.Consumer;
 @Mixin(OverworldBiomeBuilder.class)
 public interface OverworldBiomeBuilderAccess {
 
-    @Accessor @Mutable
-    void setOCEANS(ResourceKey<Biome>[][] oceans);
+    @Accessor("OCEANS") @Mutable
+    void byg_setOCEANS(ResourceKey<Biome>[][] oceans);
 
-    @Accessor @Mutable
-    void setMIDDLE_BIOMES(ResourceKey<Biome>[][] middleBiomes);
+    @Accessor("MIDDLE_BIOMES") @Mutable
+    void byg_setMIDDLE_BIOMES(ResourceKey<Biome>[][] middleBiomes);
 
-    @Accessor @Mutable
-    void setMIDDLE_BIOMES_VARIANT(ResourceKey<Biome>[][] middleBiomesVariant);
+    @Accessor("MIDDLE_BIOMES_VARIANT") @Mutable
+    void byg_setMIDDLE_BIOMES_VARIANT(ResourceKey<Biome>[][] middleBiomesVariant);
 
-    @Accessor @Mutable
-    void setPLATEAU_BIOMES(ResourceKey<Biome>[][] plateauBiomes);
+    @Accessor("PLATEAU_BIOMES") @Mutable
+    void byg_setPLATEAU_BIOMES(ResourceKey<Biome>[][] plateauBiomes);
 
-    @Accessor @Mutable
-    void setPLATEAU_BIOMES_VARIANT(ResourceKey<Biome>[][] plateauBiomesVariant);
+    @Accessor("PLATEAU_BIOMES_VARIANT") @Mutable
+    void byg_setPLATEAU_BIOMES_VARIANT(ResourceKey<Biome>[][] plateauBiomesVariant);
 
-    @Accessor @Mutable
-    void setEXTREME_HILLS(ResourceKey<Biome>[][] extremeHills);
+    @Accessor("SHATTERED_BIOMES") @Mutable
+    void byg_setSHATTERED_BIOMES(ResourceKey<Biome>[][] shatteredBiomes);
 
-    @Invoker
-    void invokeAddBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper);
+    @Invoker("addBiomes")
+    void byg_invokeAddBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper);
 }

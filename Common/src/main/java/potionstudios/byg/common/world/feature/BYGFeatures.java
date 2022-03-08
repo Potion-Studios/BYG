@@ -6,10 +6,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.config.*;
-import potionstudios.byg.common.world.feature.gen.NoiseSphere;
-import potionstudios.byg.common.world.feature.gen.NoisyCaveSphere;
-import potionstudios.byg.common.world.feature.gen.NoisyCaveSphereWater;
-import potionstudios.byg.common.world.feature.gen.Spike;
+import potionstudios.byg.common.world.feature.gen.*;
 import potionstudios.byg.common.world.feature.gen.end.EndLakeFeature;
 import potionstudios.byg.common.world.feature.gen.end.islands.*;
 import potionstudios.byg.common.world.feature.gen.end.islands.shattered.ShatteredFloatingIslands1;
@@ -157,7 +154,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGFeatures {
 
@@ -174,6 +170,7 @@ public class BYGFeatures {
     public static final Feature<SimpleBlockProviderConfig> PURPUR_PEAK = createFeature("purpur_peak", new PurpurPeak(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<SimpleBlockProviderConfig> SPIKE = createFeature("spike", new SpikeFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE = createFeature("noisy_cave_sphere", new NoisyCaveSphere(NoisySphereConfig.CODEC.stable()));
+    public static final Boulder BOULDER = createFeature("boulder", new Boulder(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISE_SPHERE = createFeature("sphere", new NoiseSphere(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISE_SPIKE = createFeature("noise_spike", new Spike(NoisySphereConfig.CODEC.stable()));
@@ -562,13 +559,13 @@ public class BYGFeatures {
         BYGFeatures.FEATURES.add(new RegistryObject<>(feature, id));
         return feature;
     }
-    
-    public static void bootStrap(Consumer<Collection<RegistryObject<Feature<?>>>> registryStrategy) {
-        registryStrategy.accept(FEATURES);
-    }
 
     public static Collection<RegistryObject<Feature<?>>> bootStrap() {
         return FEATURES;
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Features class loaded.");
     }
 }
 

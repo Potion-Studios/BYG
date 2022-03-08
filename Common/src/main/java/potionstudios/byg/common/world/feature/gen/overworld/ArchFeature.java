@@ -2,10 +2,9 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,9 +18,14 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
+import potionstudios.byg.util.blendingfunction.BlendingFunctions;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Random;
+import java.util.Set;
+
+import static net.minecraft.util.Mth.lerp;
 
 public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
 
@@ -38,37 +42,66 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos center, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
-        int curveLength = 10;
-        boolean zAxis = random.nextInt(2) == 0;
+        double angle = random.nextDouble(Math.PI);
 
-        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos();
-        float curviness = Mth.lerp(random.nextFloat(), 0.05F, 0.4F);
-        for (int z = -curveLength; z <= curveLength; z++) {
-            mutable2.set(mutable.getX() + (!zAxis ? z : 0), 0, mutable.getZ() + (zAxis ? z : 0));
-            int height = getArchHeight(z, curviness);
-            mutable2.move(Direction.UP, height + pos.getY() + 15);
+        ChunkPos chunkPos = new ChunkPos(center);
+        center = chunkPos.getMiddleBlockPosition(center.getY());
 
-            int worldHeight = world.getHeight(Heightmap.Types.WORLD_SURFACE_WG, mutable2.getX(), mutable2.getZ());
-            if(worldHeight - 5 < mutable2.getY()) {
-                FeaturePlaceContext<NoisySphereConfig> featurePlaceContext = new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, mutable2, new NoisySphereConfig.Builder().withBlockProvider(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.TERRACOTTA.defaultBlockState(), 5).add(BYGBlocks.RED_ROCK.defaultBlockState(), 5))).withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(4, 7), UniformInt.of(7, 10), 0, UniformInt.of(4, 7))).build());
-                BYGFeatures.NOISE_SPHERE.place(featurePlaceContext);
-                // Make sure we find a floor and connect it.
-                if (z == -curveLength || z == curveLength) {
-                    while (mutable2.getY() > worldHeight - 5) {
-                        BYGFeatures.NOISE_SPHERE.place(featurePlaceContext);
-                        mutable2.move(Direction.DOWN, 3);
+        int distance = 40 + random.nextInt(6);
+        int archHeight = 25 + random.nextInt(10);
+        center = center.offset(0, archHeight, 0);
+
+        double xOffset = Math.sin(angle) * distance;
+        double zOffset = Math.cos(angle) * distance;
+
+        WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+            .add(BYGBlocks.RED_ROCK.defaultBlockState(), 4)
+            .add(Blocks.TERRACOTTA.defaultBlockState(), 1)
+        );
+        NoisySphereConfig build = new NoisySphereConfig.Builder()
+            .withRadiusSettings(
+                new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 15), UniformInt.of(10, 15), 0, UniformInt.of(10, 15))
+            ).withBlockProvider(
+                blockProvider
+            ).withNoiseFrequency(0.02F)
+            .withTopBlockProvider(
+                blockProvider
+            )
+            .build();
+
+        BlockPos start = center.offset(-xOffset, 0, -zOffset);
+        start = new BlockPos(start.getX(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, start.getX(), start.getZ()) - 5, start.getZ());
+        BlockPos end = center.offset(xOffset, 0, zOffset);
+        end = new BlockPos(end.getX(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, end.getX(), end.getZ()) - 5, end.getZ());
+
+
+        Set<BlockPos> spherePositions = new HashSet<>();
+
+        int points = 1000;
+        for (int pointCount = points; pointCount >= 1; pointCount--) {
+            double factor = (double) pointCount / points;
+            spherePositions.add(new BlockPos(lerp(factor, start.getX(), center.getX()), easeOutCubic(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ())));
+            spherePositions.add(new BlockPos(lerp(factor, end.getX(), center.getX()), easeOutCubic(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ())));
+        }
+
+        for (BlockPos spherePosition : spherePositions) {
+            int size = 1;
+            BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
+            BYGFeatures.BOULDER.place(new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, spherePosition, build));
+
+            for (int x = -size; x <= size; x++) {
+                for (int y = -size; y <= size; y++) {
+                    for (int z = -size; z <= size; z++) {
+                        mutableBlockPos.set(spherePosition).move(x, y, z);
+
                     }
                 }
             }
         }
-        return true;
-    }
 
-    public static int getArchHeight(int z, float curviness) {
-        return (int) ((-z * z) * curviness);
+        return true;
     }
 
 
@@ -78,5 +111,10 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
             fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
             this.seed = seed;
         }
+    }
+
+    public static double easeOutCubic(double factor, double min, double max) {
+        double range = max - min;
+        return min + (range * BlendingFunctions.easeOutCubic(factor));
     }
 }

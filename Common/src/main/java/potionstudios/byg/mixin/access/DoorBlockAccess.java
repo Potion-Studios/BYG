@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface DoorBlockAccess {
 
     @Invoker("<init>")
-    static DoorBlock create(BlockBehaviour.Properties properties) {
+    static DoorBlock byg_create(BlockBehaviour.Properties properties) {
         throw new Error("Mixin did not apply!");
     }
 }

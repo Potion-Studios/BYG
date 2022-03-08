@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.biome.nether;
 
 import net.minecraft.Util;
+import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -37,8 +38,9 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
             LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
             LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
             LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-            List<Biome> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, NetherBiomesConfig.CONFIG_PATH.get(), usedUpperLayer, usedMiddleLayer, usedBottomLayer);
-            biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> biome.getBiomeCategory() == Biome.BiomeCategory.NETHER).toList());
+            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, NetherBiomesConfig.CONFIG_PATH.get(), usedUpperLayer, usedMiddleLayer, usedBottomLayer);
+            //TODO: Use tags
+            biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> Biome.getBiomeCategory(biomeRegistry.getHolderOrThrow(biomeRegistry.getResourceKey(biome).get())) == Biome.BiomeCategory.NETHER).map(biomeRegistry::getResourceKey).map(biomeResourceKey -> biomeRegistry.getHolderOrThrow(biomeResourceKey.get())).toList());
             return biomesFromBiomeData;
         }));
         this.biomeRegistry = biomeRegistry;
@@ -77,7 +79,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
 
     @Override
-    public Biome getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
         if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 5) {
             return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
         } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 5) {

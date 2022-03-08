@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
-import potionstudios.byg.common.particles.TheriumGlint;
 import potionstudios.byg.common.particles.FallingLeafParticle;
+import potionstudios.byg.common.particles.TheriumGlint;
 
 @SuppressWarnings("UnresolvedMixinReference")
 @Mixin(ParticleEngine.class)

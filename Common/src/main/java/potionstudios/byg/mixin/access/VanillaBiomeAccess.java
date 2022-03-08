@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(OverworldBiomes.class)
 public interface VanillaBiomeAccess {
 
-    @Invoker
-    static int invokeCalculateSkyColor(float f) {
+    @Invoker("calculateSkyColor")
+    static int byg_invokeCalculateSkyColor(float f) {
         throw new Error("Mixin did not apply!");
     }
 }

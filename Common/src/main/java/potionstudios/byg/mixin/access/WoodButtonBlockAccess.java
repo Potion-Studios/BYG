@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface WoodButtonBlockAccess {
 
     @Invoker("<init>")
-    static WoodButtonBlock create(BlockBehaviour.Properties properties) {
+    static WoodButtonBlock byg_create(BlockBehaviour.Properties properties) {
         throw new Error("Mixin did not apply!");
     }
 }

@@ -2,12 +2,14 @@ package potionstudios.byg.common.world.feature.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 public class PointyRockConfig implements FeatureConfiguration {
@@ -19,6 +21,8 @@ public class PointyRockConfig implements FeatureConfiguration {
             return config.seed;
         }), Codec.DOUBLE.fieldOf("height_multiplier").orElse(1.0).forGetter((config) -> {
             return config.heightMultiplier;
+        }), PlacedFeature.LIST_CODEC.fieldOf("post_features").forGetter((config) -> {
+            return config.placedFeatureHolderSet;
         })).apply(codecRecorder, PointyRockConfig::new);
     });
 
@@ -26,11 +30,14 @@ public class PointyRockConfig implements FeatureConfiguration {
     private final BlockStateProvider blockProvider;
     private final int seed;
     private final double heightMultiplier;
+    private final HolderSet<PlacedFeature> placedFeatureHolderSet;
 
-    PointyRockConfig(BlockStateProvider blockProvider, int seed, double heightMultiplier) {
+
+    PointyRockConfig(BlockStateProvider blockProvider, int seed, double heightMultiplier, HolderSet<PlacedFeature> placedFeatureHolderSet) {
         this.blockProvider = blockProvider;
         this.seed = seed;
         this.heightMultiplier = heightMultiplier;
+        this.placedFeatureHolderSet = placedFeatureHolderSet;
     }
 
     public BlockStateProvider getBlockProvider() {
@@ -66,10 +73,15 @@ public class PointyRockConfig implements FeatureConfiguration {
             return this.noiseGen;
     }
 
+    public HolderSet<PlacedFeature> getPlacedFeatureHolderSet() {
+        return placedFeatureHolderSet;
+    }
+
     public static class Builder {
         private BlockStateProvider blockProvider = SimpleStateProvider.simple(Blocks.STONE.defaultBlockState());
         private int seed = 65;
         private double heightMultiplier = 1.0;
+        private HolderSet<PlacedFeature> features = HolderSet.direct();
 
         public Builder setBlock(Block block) {
             this.blockProvider = SimpleStateProvider.simple(block.defaultBlockState());
@@ -96,9 +108,13 @@ public class PointyRockConfig implements FeatureConfiguration {
             this.heightMultiplier = heightMultiplier;
             return this;
         }
+        public Builder setPostFeatures(HolderSet<PlacedFeature> features) {
+            this.features = features;
+            return this;
+        }
 
         public PointyRockConfig build() {
-            return new PointyRockConfig(this.blockProvider, this.seed, this.heightMultiplier);
+            return new PointyRockConfig(this.blockProvider, this.seed, this.heightMultiplier, this.features);
         }
     }
 }

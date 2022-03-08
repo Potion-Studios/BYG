@@ -3,6 +3,7 @@ package potionstudios.byg;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -12,9 +13,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
@@ -25,6 +28,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
@@ -40,21 +44,18 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
-import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
+import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
-import potionstudios.byg.world.biome.BYGBiomeProvider;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
-import terrablender.api.BiomeProvider;
-import terrablender.api.BiomeProviders;
-import terrablender.worldgen.BiomeProviderUtils;
+import potionstudios.byg.world.biome.BYGRegion;
+import terrablender.api.Regions;
 
 import java.nio.file.Path;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 @Mod(BYG.MOD_ID)
@@ -69,7 +70,7 @@ public class BYGForge {
 
             @Override
             public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return BiomeProviderUtils::createNetherRules;
+                return () -> SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.AIR.defaultBlockState()));
             }
         };
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
@@ -113,16 +114,19 @@ public class BYGForge {
         register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
         register(ParticleType.class, eventBus, () -> BYGParticleTypes.bootStrap());
+        register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
     }
 
     @SuppressWarnings("rawtypes")
     private <T extends IForgeRegistryEntry<T>> void register(Class clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {
         eventBus.addGenericListener(clazz, (RegistryEvent.Register<T> event) -> {
             Collection<RegistryObject<T>> registryObjects = registryObjectsSupplier.get();
+            IForgeRegistry<T> registry = event.getRegistry();
             for (RegistryObject<T> registryObject : registryObjects) {
                 registryObject.object().setRegistryName(BYG.createLocation(registryObject.id()));
-                event.getRegistry().register(registryObject.object());
+                registry.register(registryObject.object());
             }
+            BYG.LOGGER.info("BYG registered: " + registry.getRegistryName());
         });
     }
 
@@ -132,14 +136,8 @@ public class BYGForge {
         event.enqueueWork(() -> {
             OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
             if (config.generateOverworld()) {
-                BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
-                    @Override
-                    public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-                        return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-                    }
-                });
                 config.values().forEach(biomeProviderData -> {
-                    BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
+                    Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
                 });
             } else {
                 BYG.LOGGER.info("BYG overworld biomes disabled.");

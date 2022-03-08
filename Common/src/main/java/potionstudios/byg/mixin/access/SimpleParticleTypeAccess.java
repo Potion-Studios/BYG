@@ -1,8 +1,6 @@
 package potionstudios.byg.mixin.access;
 
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
@@ -10,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface SimpleParticleTypeAccess {
 
     @Invoker("<init>")
-    static SimpleParticleType create(boolean glow) {
+    static SimpleParticleType byg_create(boolean glow) {
         throw new Error("Mixin did not apply!");
     }
 }

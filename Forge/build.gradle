@@ -28,7 +28,9 @@ minecraft {
     }
 
     runs {
+        def runArgs = ["-DbygDev=true"]
         client {
+            jvmArgs runArgs
             workingDirectory project.file('run')
             args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             ideaModule "${rootProject.name}.${project.name}.main"
@@ -42,6 +44,7 @@ minecraft {
         }
 
         server {
+            jvmArgs runArgs
             workingDirectory project.file('run')
             args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             ideaModule "${rootProject.name}.${project.name}.main"
@@ -55,6 +58,7 @@ minecraft {
         }
 
         data {
+            jvmArgs runArgs
             workingDirectory project.file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"

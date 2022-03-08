@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
 
@@ -134,14 +134,14 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
 //        }
 
         for (BlockPos lakeSurfacePosition : lakeSurfacePositions) {
-            for (Supplier<PlacedFeature> lakeSurfaceFeature : config.lakeSurfaceFeatures()) {
-                lakeSurfaceFeature.get().place(world, chunkGenerator, random, lakeSurfacePosition);
+            for (Holder<PlacedFeature> lakeSurfaceFeature : config.lakeSurfaceFeatures()) {
+                lakeSurfaceFeature.value().place(world, chunkGenerator, random, lakeSurfacePosition);
             }
         }
 
         for (BlockPos lakeEdgePosition : edgePositions) {
-            for (Supplier<PlacedFeature> lakeSurfaceFeature : config.lakeEdgeFeatures()) {
-                lakeSurfaceFeature.get().place(world, chunkGenerator, random, lakeEdgePosition);
+            for (Holder<PlacedFeature> lakeSurfaceFeature : config.lakeEdgeFeatures()) {
+                lakeSurfaceFeature.value().place(world, chunkGenerator, random, lakeEdgePosition);
             }
 
             if (DEBUG) {

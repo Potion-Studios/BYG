@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface BlockStateProviderAccess {
 
     @Invoker("<init>")
-    static <P extends BlockStateProvider> BlockStateProviderType<P> create(Codec<P> codec) {
+    static <P extends BlockStateProvider> BlockStateProviderType<P> byg_create(Codec<P> codec) {
         throw new Error("Mixin did not apply!");
     }
 }

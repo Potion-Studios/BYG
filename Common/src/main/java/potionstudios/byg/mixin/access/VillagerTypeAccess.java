@@ -12,7 +12,7 @@ import java.util.Map;
 public interface VillagerTypeAccess {
 
     @Accessor("BY_BIOME")
-    static Map<ResourceKey<Biome>, VillagerType> getVillagerByBiome() {
+    static Map<ResourceKey<Biome>, VillagerType> byg_getBY_BIOME() {
         throw new Error("Mixin did not apply!");
     }
 }

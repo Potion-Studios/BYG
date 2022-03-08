@@ -134,7 +134,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
                 for (lvt_9_5_ = 0; lvt_9_5_ < 16; ++lvt_9_5_) {
                     for (lvt_10_5_ = 0; lvt_10_5_ < 16; ++lvt_10_5_) {
                         lvt_12_5_ = blockPos.offset(lvt_9_5_, 4, lvt_10_5_);
-                        if (world.getBiome(lvt_12_5_).shouldFreeze(world, lvt_12_5_, false)) {
+                        if (world.getBiome(lvt_12_5_).value().shouldFreeze(world, lvt_12_5_, false)) {
                             world.setBlock(lvt_12_5_, Blocks.ICE.defaultBlockState(), 2);
                         }
                     }

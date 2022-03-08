@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(SurfaceSystem.class)
 public interface SurfaceSystemAccess {
 
-    @Accessor
-    NormalNoise getClayBandsOffsetNoise();
+    @Accessor("clayBandsOffsetNoise")
+    NormalNoise byg_getClayBandsOffsetNoise();
 
-    @Accessor
-    PositionalRandomFactory getRandomFactory();
+    @Accessor("randomFactory")
+    PositionalRandomFactory byg_getRandomFactory();
 
-    @Invoker
-    static void invokeMakeBands(RandomSource randomSource, BlockState[] states, int offset, BlockState state) {
+    @Invoker("makeBands")
+    static void byg_invokeMakeBands(RandomSource randomSource, BlockState[] states, int offset, BlockState state) {
         throw new Error("Mixin did not apply!");
     }
 }

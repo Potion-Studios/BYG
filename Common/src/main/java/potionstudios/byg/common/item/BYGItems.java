@@ -19,7 +19,6 @@ import potionstudios.byg.util.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class BYGItems {
 
@@ -57,12 +56,12 @@ public class BYGItems {
     public static final Item PENDORITE_ORE = createItem(BYGBlocks.PENDORITE_ORE);
     public static final Item RAW_PENDORITE_BLOCK = createItem(BYGBlocks.RAW_PENDORITE_BLOCK);
     public static final Item PENDORITE_BLOCK = createItem(BYGBlocks.PENDORITE_BLOCK);
-    public static final Item PENDORITE_AXE = createItem(AxeItemAccess.create(BYGTier.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_axe");
-    public static final Item PENDORITE_PICK = createItem(PickaxeItemAccess.create(BYGTier.PENDORITE, 2, -2.8F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_pickaxe");
+    public static final Item PENDORITE_AXE = createItem(AxeItemAccess.byg_create(BYGTier.PENDORITE, 6.0F, -3.0F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_axe");
+    public static final Item PENDORITE_PICK = createItem(PickaxeItemAccess.byg_create(BYGTier.PENDORITE, 2, -2.8F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_pickaxe");
     public static final Item PENDORITE_SWORD = createItem(new SwordItem(BYGTier.PENDORITE, 4, -2.4F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_sword");
-    public static final Item PENDORITE_BATTLEAXE = createItem(AxeItemAccess.create(BYGTier.PENDORITE, 7.0F, -3.3F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_battleaxe");
+    public static final Item PENDORITE_BATTLEAXE = createItem(AxeItemAccess.byg_create(BYGTier.PENDORITE, 7.0F, -3.3F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_battleaxe");
     public static final Item PENDORITE_SHOVEL = createItem(new ShovelItem(BYGTier.PENDORITE, 2.0F, -3.0F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_shovel");
-    public static final Item PENDORITE_HOE = createItem(HoeItemAccess.create(BYGTier.PENDORITE, 0, 0.0F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_hoe");
+    public static final Item PENDORITE_HOE = createItem(HoeItemAccess.byg_create(BYGTier.PENDORITE, 0, 0.0F, (new Item.Properties()).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_hoe");
 
     public static final Item PENDORITE_HORSE_ARMOR = createItem(new BYGHorseArmor(11, "pendorite", (new Item.Properties()).stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_horse_armor");
 
@@ -1258,14 +1257,14 @@ public class BYGItems {
         return item;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Item>>> registryStrategy) {
-        registryStrategy.accept(ITEMS);
-    }
-
     public static Collection<RegistryObject<Item>> bootStrap() {
         return ITEMS;
     }
 
     public static void init() {
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Items class loaded.");
     }
 }

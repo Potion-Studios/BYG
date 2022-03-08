@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(WeightedEntry.Wrapper.class)
 public interface WeightedEntryWrapperAccess<T> {
 
-    @Accessor
-    T getData();
+    @Accessor("data")
+    T byg_getData();
 
-    @Accessor
-    Weight getWeight();
+    @Accessor("weight")
+    Weight byg_getWeight();
 }

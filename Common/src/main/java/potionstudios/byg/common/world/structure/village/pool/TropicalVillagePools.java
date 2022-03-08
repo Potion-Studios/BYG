@@ -2,16 +2,17 @@ package potionstudios.byg.common.world.structure.village.pool;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import potionstudios.byg.BYG;
 
 public class TropicalVillagePools {
-    public static final StructureTemplatePool TropicalVillageJigsaw = Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/town_centers"),
+    public static final Holder<StructureTemplatePool> TROPICAL_VILLAGE_POOL = Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/town_centers"),
             new ResourceLocation("empty"),
             ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_1", ProcessorLists.MOSSIFY_10_PERCENT), 90),
                     Pair.of(StructurePoolElement.legacy("byg:village/tropical/town_centers/tropical_meeting_point_2", ProcessorLists.MOSSIFY_10_PERCENT), 10)), StructureTemplatePool.Projection.RIGID));
@@ -67,7 +68,7 @@ public class TropicalVillagePools {
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_01"), 1),
                         Pair.of(StructurePoolElement.legacy("byg:village/tropical/terminators/tropical_terminator_02"), 1)), StructureTemplatePool.Projection.TERRAIN_MATCHING));
 
-        Pools.register(new StructureTemplatePool(BYG.createLocation("byg:village/tropical/decor"),
+        Pools.register(new StructureTemplatePool(BYG.createLocation("village/tropical/decor"),
                 new ResourceLocation("empty"),
                 ImmutableList.of(Pair.of(StructurePoolElement.legacy("byg:village/tropical/tropical_lamp_1"), 10),
                         Pair.of(StructurePoolElement.feature(VegetationPlacements.PATCH_MELON), 4),

@@ -31,7 +31,7 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
 
     @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
-        if (!SpreadableSnowyDirtBlockAccess.invokeCanBeGrass(state, world, pos)) {
+        if (!SpreadableSnowyDirtBlockAccess.byg_invokeCanBeGrass(state, world, pos)) {
             world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
             return;
         }
@@ -40,7 +40,7 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
 
             for (int i = 0; i < 4; ++i) {
                 BlockPos blockpos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                if (world.getBlockState(blockpos).is(this.dirtBlock) && SpreadableSnowyDirtBlockAccess.invokeCanPropagate(blockstate, world, blockpos)) {
+                if (world.getBlockState(blockpos).is(this.dirtBlock) && SpreadableSnowyDirtBlockAccess.byg_invokeCanPropagate(blockstate, world, blockpos)) {
                     world.setBlockAndUpdate(blockpos, blockstate.setValue(SNOWY, world.getBlockState(blockpos.above()).is(Blocks.SNOW)));
                 }
             }
@@ -52,11 +52,11 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
         if (featureConfig != null) {
             place(world, random, pos.above(), this.featureConfig);
         } else {
-            List<ConfiguredFeature<?, ?>> flowerFeatures = world.getBiome(pos).getGenerationSettings().getFlowerFeatures();
+            List<ConfiguredFeature<?, ?>> flowerFeatures = world.getBiome(pos).value().getGenerationSettings().getFlowerFeatures();
             ConfiguredFeature<?, ?> flowerFeature = flowerFeatures.get(random.nextInt(flowerFeatures.size()));
             flowerFeature.place(world, world.getChunkSource().getGenerator(), random, pos);
 
-            VegetationPlacements.PATCH_GRASS_NORMAL.place(world, world.getChunkSource().getGenerator(), random, pos);
+            VegetationPlacements.PATCH_GRASS_NORMAL.value().place(world, world.getChunkSource().getGenerator(), random, pos);
         }
     }
 

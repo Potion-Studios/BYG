@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 @Mixin(ChunkAccess.class)
 public interface ChunkAccessAccess {
 
-    @Accessor
+    @Accessor("noiseChunk")
     @Nullable
-    NoiseChunk getNoiseChunk();
+    NoiseChunk byg_getNoiseChunk();
 }

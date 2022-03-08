@@ -32,6 +32,8 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
 
         int groundLevel = chunkIn.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, x, z);
 
+        BlockPos.MutableBlockPos center = new BlockPos.MutableBlockPos();
+
         if (!chunkIn.getBlockState(mutable.above(groundLevel)).isAir()) {
             if (sampleNoise < 0.43) {
                 int valueToReverse = (int) (Math.abs((int) (sampleNoise * 645D) * 1.8));
@@ -40,8 +42,13 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
                 //Some magic to stop spires going over the world limit. Point should always occur under world limit(<256).
                 topHeight = (int) (redistribute(topHeight, groundLevel) * config.getHeightMultiplier());
 
+
                 if (topHeight > groundLevel) {
                     mutable.move(Direction.UP, topHeight);
+                    if (center.getY() < mutable.getY()) {
+                        center.set(mutable);
+                    }
+
                     for (int yPos = topHeight; yPos >= groundLevel; --yPos) {
                         if (chunkIn.getBlockState(mutable).isAir() && mutable.getY() <= chunkIn.getMaxBuildHeight()) {
                             chunkIn.setBlockState(mutable, config.getBlockProvider().getState(random, mutable), false);

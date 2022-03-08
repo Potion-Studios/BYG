@@ -2,7 +2,7 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
@@ -19,9 +19,9 @@ import potionstudios.byg.client.textures.BYGMaterials;
 import potionstudios.byg.common.block.end.*;
 import potionstudios.byg.common.block.end.bulbisgardens.TallBulbisBlock;
 import potionstudios.byg.common.block.end.impariusgrove.FungalImpariusFilamentBlock;
-import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVinePlantBlock;
+import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.nightshade.NightshadeBerryBushBlock;
 import potionstudios.byg.common.block.end.shattereddesert.OddityCactusBlock;
 import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVineBlock;
@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.ToIntFunction;
 
 public class BYGBlocks {
@@ -1113,7 +1112,7 @@ public class BYGBlocks {
     public static final Block ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MaterialColor.COLOR_MAGENTA, null, "ether_phylium");
     public static final Block VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, null, "vermilion_sculk");
     public static final Block SHULKREN_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, null, "shulkren_phylium");
-    public static final Block LUSH_GRASS_PATH = createBlock(DirtPathBlockAccess.create(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
+    public static final Block LUSH_GRASS_PATH = createBlock(DirtPathBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
     public static final Block BULBIS_PHYCELIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, null, "bulbis_phycelium");
     public static final Block IMPARIUS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_CYAN, null, "imparius_phylium");
 
@@ -1127,7 +1126,7 @@ public class BYGBlocks {
     }
 
     static Block createChiseledFungalImpariusStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f));
+        Block createBlock = StairBlockAccess.byg_create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1169,7 +1168,7 @@ public class BYGBlocks {
     }
 
     static Block createTravertineStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops());
+        Block createBlock = StairBlockAccess.byg_create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, MaterialColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops());
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1187,7 +1186,7 @@ public class BYGBlocks {
     }
 
     static Block createScoriaStoneStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops());
+        Block createBlock = StairBlockAccess.byg_create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops());
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1273,7 +1272,7 @@ public class BYGBlocks {
     }
 
     static Block createTheriumGlassPane(String id) {
-        Block createBlock = IronBarsBlockAccess.create(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).lightLevel((state) -> 12).noOcclusion().strength(0.4f, 8.0f));
+        Block createBlock = IronBarsBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.GLASS, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).lightLevel((state) -> 12).noOcclusion().strength(0.4f, 8.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1285,7 +1284,7 @@ public class BYGBlocks {
     }
 
     static Block createChiseledTheriumStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Blocks.PRISMARINE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.PRISMARINE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
+        Block createBlock = StairBlockAccess.byg_create(Blocks.PRISMARINE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.PRISMARINE).requiresCorrectToolForDrops().sound(SoundType.GLASS).strength(1.5f, 9.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1309,7 +1308,7 @@ public class BYGBlocks {
     }
 
     static Block createShinyChiseledTheriumStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Blocks.PRISMARINE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.PRISMARINE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
+        Block createBlock = StairBlockAccess.byg_create(Blocks.PRISMARINE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.PRISMARINE).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1363,7 +1362,7 @@ public class BYGBlocks {
     }
 
     static Block createSandstoneStairs(MaterialColor color, String id) {
-        Block createBlock = StairBlockAccess.create(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
+        Block createBlock = StairBlockAccess.byg_create(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1393,19 +1392,19 @@ public class BYGBlocks {
     }
 
     static Block createWoodPressurePlate(String id) {
-        Block createBlock = PressurePlateBlockAccess.create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F));
+        Block createBlock = PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createWoodStairs(String id) {
-        Block createBlock = StairBlockAccess.create(Registry.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f));
+        Block createBlock = StairBlockAccess.byg_create(Registry.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f));
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createTrapDoor(String id) {
-        Block createBlock = TrapDoorBlockAccess.create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
+        Block createBlock = TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1417,7 +1416,7 @@ public class BYGBlocks {
     }
 
     static Block createWoodButton(String id) {
-        Block createBlock = WoodButtonBlockAccess.create(BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F));
+        Block createBlock = WoodButtonBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1429,7 +1428,7 @@ public class BYGBlocks {
     }
 
     static Block createDoor(String id) {
-        Block createBlock = DoorBlockAccess.create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
+        Block createBlock = DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion());
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1645,24 +1644,24 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createHydrangeaBush(String id, Tag.Named<Block> groundTag) {
+    static Block createHydrangeaBush(String id, TagKey<Block> groundTag) {
         Block createBlock = new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createHydrangeaHedge(String id, Tag.Named<Block> groundTag) {
+    static Block createHydrangeaHedge(String id, TagKey<Block> groundTag) {
         Block createBlock = new HydrangeaHedgeBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.AZALEA).instabreak().noOcclusion(), groundTag);
         return createBlock(createBlock, id);
     }
 
-    static Block createFlower(String id, Tag.Named<Block> groundTag) {
+    static Block createFlower(String id, TagKey<Block> groundTag) {
         Block createBlock = new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createTallFlower(String id, Tag.Named<Block> groundTag) {
+    static Block createTallFlower(String id, TagKey<Block> groundTag) {
         Block createBlock = new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createBlock(createBlock, id);
         return createBlock;
@@ -1820,7 +1819,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createSapling(Tag<Block> groundTag, String id) {
+    static Block createSapling(TagKey<Block> groundTag, String id) {
         BYGSapling createBlock = new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
         CommonSetupLoad.ENTRIES.add(createBlock);
         createPottedBlock(createBlock, id);
@@ -2023,7 +2022,7 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createDesertPlant(String id, Tag.Named<Block> groundTag) {
+    static Block createDesertPlant(String id, TagKey<Block> groundTag) {
         Block createBlock = new DesertPlant(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
@@ -2038,10 +2037,6 @@ public class BYGBlocks {
         return BLOCKS;
     }
 
-    public static void bootStrap(Consumer<Collection<RegistryObject<Block>>> registryStrategy) {
-        registryStrategy.accept(BLOCKS);
-    }
-
     private static Boolean neverAllowSpawn(BlockState state, BlockGetter reader, BlockPos pos, EntityType<?> entity) {
         return false;
     }
@@ -2054,5 +2049,9 @@ public class BYGBlocks {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? light : 0;
         };
+    }
+
+    static {
+        BYG.LOGGER.info("BYG Blocks class loaded.");
     }
 }

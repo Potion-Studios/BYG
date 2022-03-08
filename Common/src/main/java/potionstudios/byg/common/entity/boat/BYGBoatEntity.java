@@ -180,11 +180,11 @@ public class BYGBoatEntity extends Boat {
 
     @Override
     protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
-        ((BoatEntityAccess) this).setLastYd(this.getDeltaMovement().y);
+        ((BoatEntityAccess) this).byg_setLastYd(this.getDeltaMovement().y);
         if (!this.isPassenger()) {
             if (onGroundIn) {
                 if (this.fallDistance > 3.0F) {
-                    if (((BoatEntityAccess) this).getStatusField() != Boat.Status.ON_LAND) {
+                    if (((BoatEntityAccess) this).byg_getStatusField() != Boat.Status.ON_LAND) {
                         this.fallDistance = 0.0F;
                         return;
                     }

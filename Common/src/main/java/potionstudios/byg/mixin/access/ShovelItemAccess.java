@@ -13,13 +13,13 @@ import java.util.Map;
 public interface ShovelItemAccess {
 
     @Accessor("FLATTENABLES")
-    static Map<Block, BlockState> getFlattenables() {
+    static Map<Block, BlockState> byg_getFLATTENABLES() {
         throw new Error("Mixin did not apply");
     }
 
     @Accessor("FLATTENABLES")
     @Mutable
-    static void setFlattenables(Map<Block, BlockState> newMap) {
+    static void byg_setFLATTENABLES(Map<Block, BlockState> newMap) {
         throw new Error("Mixin did not apply");
     }
 }

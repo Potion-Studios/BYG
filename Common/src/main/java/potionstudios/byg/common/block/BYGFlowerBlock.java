@@ -1,7 +1,7 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -10,9 +10,9 @@ import net.minecraft.world.level.block.FlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BYGFlowerBlock extends FlowerBlock {
-    private final Tag.Named<Block> validGround;
+    private final TagKey<Block> validGround;
 
-    public BYGFlowerBlock(Properties properties, Tag.Named<Block> validGround) {
+    public BYGFlowerBlock(Properties properties, TagKey<Block> validGround) {
         super(MobEffects.SATURATION, 7, properties);
         this.validGround = validGround;
     }

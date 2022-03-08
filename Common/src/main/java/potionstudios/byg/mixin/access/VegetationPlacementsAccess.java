@@ -11,8 +11,8 @@ import java.util.List;
 @Mixin(VegetationPlacements.class)
 public interface VegetationPlacementsAccess {
 
-    @Invoker
-    static List<PlacementModifier> invokeGetMushroomPlacement(int $$0, @Nullable PlacementModifier $$1) {
+    @Invoker("getMushroomPlacement")
+    static List<PlacementModifier> byg_invokeGetMushroomPlacement(int $$0, @Nullable PlacementModifier $$1) {
         throw new Error("Mixin did not apply!");
     }
 }

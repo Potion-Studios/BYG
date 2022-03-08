@@ -88,7 +88,7 @@ public class NetworkUtil {
         entity.setYRot(yaw);
         entity.setDeltaMovement(velocityX, velocityY, velocityZ);
         client.execute(() -> {
-            ((ClientLevelAccess) client.level).invokeAddEntity(id, entity);
+            ((ClientLevelAccess) client.level).byg_invokeAddEntity(id, entity);
         });
     }
 }

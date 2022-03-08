@@ -37,3 +37,7 @@ processResources {
         expand buildProps
     }
 }
+
+tasks.withType(Javadoc) {
+    failOnError false
+}

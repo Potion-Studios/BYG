@@ -60,7 +60,7 @@ public class BYGOverworldBiomeBuilder {
 
     private static final ResourceKey<Biome>[][] OCEANS = new ResourceKey[][]{
             {Biomes.DEEP_FROZEN_OCEAN, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN, Biomes.WARM_OCEAN},
-            {Biomes.FROZEN_OCEAN, Biomes.COLD_OCEAN, Biomes.OCEAN, Biomes.LUKEWARM_OCEAN, BYGBiomes.DEAD_SEA}
+            {Biomes.FROZEN_OCEAN, Biomes.COLD_OCEAN, Biomes.OCEAN, Biomes.LUKEWARM_OCEAN, BYGBiomes.LUSH_STACKS}
     };
     private static final ResourceKey<Biome>[][] MIDDLE_BIOMES = new ResourceKey[][]{
             {BYGBiomes.SHATTERED_GLACIER, Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA, Biomes.TAIGA},
@@ -74,7 +74,7 @@ public class BYGOverworldBiomeBuilder {
             {Biomes.PLAINS, BYGBiomes.WEEPING_WITCH_FOREST, BYGBiomes.ZELKOVA_FOREST, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
             {Biomes.FLOWER_FOREST, Biomes.PLAINS, BYGBiomes.ORCHARD, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST},
             {Biomes.SAVANNA, BYGBiomes.FIRECRACKER_SHRUBLAND, BYGBiomes.FORGOTTEN_FOREST, Biomes.JUNGLE, Biomes.JUNGLE},
-            {Biomes.THE_VOID, Biomes.THE_VOID, BYGBiomes.SIERRA_BADLANDS, Biomes.THE_VOID, Biomes.THE_VOID}
+            {Biomes.DESERT, Biomes.DESERT, BYGBiomes.SIERRA_BADLANDS, Biomes.DESERT, Biomes.DESERT}
     };
 
     private static final ResourceKey<Biome>[][] MIDDLE_BIOMES_3 = new ResourceKey[][]{
@@ -207,7 +207,7 @@ public class BYGOverworldBiomeBuilder {
                     Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("middle_biomes_variant").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.middleBiomesVariant)),
                     Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.plateauBiomes)),
                     Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes_variant").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.plateauBiomesVariant)),
-                    Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("extreme_hills").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.extremeHills)),
+                    Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("shattered_biomes").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.extremeHills)),
                     Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                         if (!resourceLocation.getNamespace().equals("minecraft")) {
                             throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");

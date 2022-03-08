@@ -17,6 +17,6 @@ public class BYGFabricClient implements ClientModInitializer {
         });
 
         BYG.clientLoad();
-        BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> ItemBlockRenderTypeAccess.getTypeByBlock().putAll(blockRenderTypeMap));
+        BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> ItemBlockRenderTypeAccess.byg_getTYPE_BY_BLOCK().putAll(blockRenderTypeMap));
     }
 }
