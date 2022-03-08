@@ -25,10 +25,13 @@ public interface OverworldBiomeBuilderAccess {
     void byg_setMIDDLE_BIOMES_VARIANT(ResourceKey<Biome>[][] middleBiomesVariant);
 
     @Accessor("PLATEAU_BIOMES") @Mutable
-    void byg_setPLATEaAU_BIOMES(ResourceKey<Biome>[][] plateauBiomes);
+    void byg_setPLATEAU_BIOMES(ResourceKey<Biome>[][] plateauBiomes);
 
     @Accessor("PLATEAU_BIOMES_VARIANT") @Mutable
     void byg_setPLATEAU_BIOMES_VARIANT(ResourceKey<Biome>[][] plateauBiomesVariant);
+
+    @Accessor("SHATTERED_BIOMES") @Mutable
+    void byg_setSHATTERED_BIOMES(ResourceKey<Biome>[][] shatteredBiomes);
 
     @Invoker("addBiomes")
     void byg_invokeAddBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper);

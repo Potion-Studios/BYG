@@ -46,10 +46,13 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
+import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
+import potionstudios.byg.world.biome.BYGRegion;
+import terrablender.api.Regions;
 
 import java.nio.file.Path;
 import java.util.Collection;
@@ -130,23 +133,16 @@ public class BYGForge {
     private void commonLoad(FMLCommonSetupEvent event) {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
-        // TODO: terrablender
-//        event.enqueueWork(() -> {
-//            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
-//            if (config.generateOverworld()) {
-//                BiomeProviders.register(new BiomeProvider(BYG.createLocation("surface_data"), 0) {
-//                    @Override
-//                    public Optional<SurfaceRules.RuleSource> getOverworldSurfaceRules() {
-//                        return Optional.of(BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-//                    }
-//                });
-//                config.values().forEach(biomeProviderData -> {
-//                    BiomeProviders.register(new BYGBiomeProvider(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
-//                });
-//            } else {
-//                BYG.LOGGER.info("BYG overworld biomes disabled.");
-//            }
-//        });
+        event.enqueueWork(() -> {
+            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+            if (config.generateOverworld()) {
+                config.values().forEach(biomeProviderData -> {
+                    Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
+                });
+            } else {
+                BYG.LOGGER.info("BYG overworld biomes disabled.");
+            }
+        });
         BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });

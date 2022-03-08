@@ -7,6 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.LevelReader;
@@ -52,6 +53,15 @@ public class BYGUtil {
         }
 
         return resultList.toArray(ResourceKey[][]::new);
+    }
+
+    public static <T> String print2DResourceKeyArray(ResourceKey<T>[][] valueToPrint) {
+        StringBuilder builder = new StringBuilder();
+
+        for (ResourceKey<T>[] value : valueToPrint) {
+            builder.append(Arrays.toString(Arrays.stream(value).map(ResourceKey::location).toArray(ResourceLocation[]::new))).append("\n");
+        }
+        return builder.toString();
     }
 
     public static <T> String dumpRegistry(Registry<T> registry) {
