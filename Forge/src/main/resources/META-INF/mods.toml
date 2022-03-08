@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[33,)"
+loaderVersion = "[40,)"
 license = "Code: LGPLv3 \nAssets: All Rights Reserved"
 issueTrackerURL = "https://github.com/AOCAWOL/BYG/issues"
 [[mods]]
@@ -18,7 +18,14 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[36.0.4,)"
+versionRange = "[40.0.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.byg]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,)"
 ordering = "NONE"
 side = "BOTH"
 
