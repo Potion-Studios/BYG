@@ -264,7 +264,7 @@ public class BYGOverworldBiomeBuilder {
             return plateauBiomesVariant;
         }
 
-        public ResourceKey<Biome>[][] extremeHills() {
+        public ResourceKey<Biome>[][] shatteredBiomes() {
             return extremeHills;
         }
 
@@ -301,7 +301,7 @@ public class BYGOverworldBiomeBuilder {
                     "middleBiomesVariant=" + middleBiomesVariant + ", " +
                     "plateauBiomes=" + plateauBiomes + ", " +
                     "plateauBiomesVariant=" + plateauBiomesVariant + ", " +
-                    "extremeHills=" + extremeHills + ", " +
+                    "shatteredBiomes=" + extremeHills + ", " +
                     "swapper=" + swapper + ']';
         }
 

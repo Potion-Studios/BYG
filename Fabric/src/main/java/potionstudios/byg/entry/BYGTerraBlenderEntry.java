@@ -36,7 +36,7 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
         if (config.generateOverworld()) {
             config.values().forEach(biomeProviderData -> {
-                Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.swapper()));
+                Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.shatteredBiomes(), biomeProviderData.swapper()));
             });
         } else {
             BYG.LOGGER.info("BYG overworld biomes disabled.");

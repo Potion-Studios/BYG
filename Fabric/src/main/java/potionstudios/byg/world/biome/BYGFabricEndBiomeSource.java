@@ -7,10 +7,11 @@ import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeResolver;
 import net.minecraft.world.level.biome.BiomeSource;
-import net.minecraft.world.level.biome.Biomes;
-import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
+import terrablender.worldgen.noise.Area;
+
+import static potionstudios.byg.world.biome.LayerUtil.createLayers;
 
 public class BYGFabricEndBiomeSource extends BYGEndBiomeSource {
 
@@ -34,20 +35,20 @@ public class BYGFabricEndBiomeSource extends BYGEndBiomeSource {
 
     @Override
     public BiomeResolver getIslandBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData) {
-//        Area layers = createLayers(biomeRegistry, seed, islandLayersBiomeData.biomeWeights(), islandLayersBiomeData.biomeSize());
-        return (x, y, z, sampler) -> biomeRegistry.getHolderOrThrow(BYGBiomes.IMPARIUS_GROVE); //TODO: biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+        Area layers = createLayers(biomeRegistry, seed, islandLayersBiomeData.biomeWeights(), islandLayersBiomeData.biomeSize());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
 
     @Override
     public BiomeResolver getVoidBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData voidLayersBiomeData) {
-//        Area layers = createLayers(biomeRegistry, seed, voidLayersBiomeData.biomeWeights(), voidLayersBiomeData.biomeSize());
-        return (x, y, z, sampler) -> biomeRegistry.getHolderOrThrow(Biomes.SMALL_END_ISLANDS); //TODO: biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+        Area layers = createLayers(biomeRegistry, seed, voidLayersBiomeData.biomeWeights(), voidLayersBiomeData.biomeSize());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
 
     @Override
     public BiomeResolver getSkyBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData skyLayersBiomeData) {
-//        Area layers = createLayers(biomeRegistry, seed, skyLayersBiomeData.biomeWeights(), skyLayersBiomeData.biomeSize());
-        return (x, y, z, sampler) -> biomeRegistry.getHolderOrThrow(BYGBiomes.VISCAL_ISLES); //TODO: biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+        Area layers = createLayers(biomeRegistry, seed, skyLayersBiomeData.biomeWeights(), skyLayersBiomeData.biomeSize());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
 
     @Override
