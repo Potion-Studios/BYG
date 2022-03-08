@@ -69,6 +69,12 @@ public class BYGOverworldFeatures {
         .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 1)
     );
 
+    private static final WeightedStateProvider SPIKE_PROVIDER = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+        .add(Blocks.STONE.defaultBlockState(), 6)
+        .add(Blocks.ANDESITE.defaultBlockState(), 1)
+        .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 1)
+    );
+
     public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> LUSH_STACKS_SPIKE = createConfiguredFeature("lush_stacks_spike",
         BYGFeatures.POINTY_ROCK,
         new PointyRockConfig.Builder()
@@ -84,6 +90,22 @@ public class BYGOverworldFeatures {
             .setBlock(LUSH_SPIKE_PROVIDER)
             .setSeed(85)
             .setPostFeatures(HolderSet.direct(SPIKE_MOSS))
+            .build()
+    );
+
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> DEAD_SEA_SPIKE = createConfiguredFeature("dead_sea_spike",
+        BYGFeatures.POINTY_ROCK,
+        new PointyRockConfig.Builder()
+            .setBlock(SPIKE_PROVIDER)
+            .setSeed(65)
+            .build()
+    );
+
+    public static final Holder<ConfiguredFeature<PointyRockConfig, ?>> DEAD_SEA_SPIKE_TALL = createConfiguredFeature("dead_sea_tall_spike",
+        BYGFeatures.POINTY_ROCK,
+        new PointyRockConfig.Builder()
+            .setBlock(SPIKE_PROVIDER)
+            .setSeed(85)
             .build()
     );
 
@@ -214,6 +236,13 @@ public class BYGOverworldFeatures {
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(LUSH_STACKS_SPIKE), 0.75F)),
             createPlacedFeature(LUSH_STACKS_SPIKE_TALL)
+        ));
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes",
+        Feature.RANDOM_SELECTOR,
+        new RandomFeatureConfiguration(ImmutableList.of(
+            new WeightedPlacedFeature(createPlacedFeature(DEAD_SEA_SPIKE), 0.75F)),
+            createPlacedFeature(DEAD_SEA_SPIKE)
         ));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WINDSWEPT_SPIKES = createConfiguredFeature("windswept_spikes",

@@ -10,5 +10,6 @@
   "byg.worldgenexport.failed": "Uh oh, the world generation export could not be created, check your latest.log!",
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
-  "container.hypogeal_imperium_container": "Hypogeal Imperium"
+  "container.hypogeal_imperium_container": "Hypogeal Imperium",
+  "itemGroup.byg.byg": "Oh The Biomes You'll Go"
 }
