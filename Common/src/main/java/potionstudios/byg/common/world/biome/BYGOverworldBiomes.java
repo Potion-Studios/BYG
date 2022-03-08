@@ -1062,7 +1062,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ARCH_FEATURE);
 
         BYGDefaultBiomeFeatures.addSparseMeadowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);

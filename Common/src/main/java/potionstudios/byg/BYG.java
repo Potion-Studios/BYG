@@ -6,9 +6,12 @@ import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
@@ -47,6 +50,7 @@ public class BYG {
     public static Path CONFIG_PATH = null;
     public static String MOD_LOADER_TAG_TARGET = null;
     public static ModLoaderContext MODLOADER_DATA = null;
+    public static final SurfaceRules.RuleSource EMPTY = SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.DIRT.defaultBlockState()));
 
     public static void init(Path path, String modloaderTagTarget) {
         CONFIG_PATH = path;

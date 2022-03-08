@@ -5,10 +5,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -28,6 +25,7 @@ import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Collection;
@@ -47,7 +45,7 @@ public class BYGFabric implements ModInitializer {
 
             @Override
             public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.AIR.defaultBlockState()));
+                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
             }
         };
 
@@ -57,7 +55,6 @@ public class BYGFabric implements ModInitializer {
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
-
     }
 
     private void registryBootStrap() {

@@ -3,7 +3,6 @@ package potionstudios.byg;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
@@ -13,7 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -45,6 +43,7 @@ import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.ModLoaderContext;
@@ -53,6 +52,7 @@ import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import potionstudios.byg.world.biome.BYGRegion;
 import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Collection;
@@ -70,7 +70,7 @@ public class BYGForge {
 
             @Override
             public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.AIR.defaultBlockState()));
+                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
             }
         };
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
@@ -134,6 +134,7 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
             if (config.generateOverworld()) {
                 config.values().forEach(biomeProviderData -> {
