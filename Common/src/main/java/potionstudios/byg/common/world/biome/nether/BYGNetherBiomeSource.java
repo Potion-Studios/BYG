@@ -38,7 +38,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
             LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
             LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
             LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, NetherBiomesConfig.CONFIG_PATH.get(), usedUpperLayer, usedMiddleLayer, usedBottomLayer);
+            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedUpperLayer, usedMiddleLayer, usedBottomLayer);
             //TODO: Use tags
             biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> Biome.getBiomeCategory(biomeRegistry.getHolderOrThrow(biomeRegistry.getResourceKey(biome).get())) == Biome.BiomeCategory.NETHER).map(biomeRegistry::getResourceKey).map(biomeResourceKey -> biomeRegistry.getHolderOrThrow(biomeResourceKey.get())).toList());
             return biomesFromBiomeData;

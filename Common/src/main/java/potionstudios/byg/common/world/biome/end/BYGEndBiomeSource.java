@@ -37,7 +37,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
             LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
             LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
             LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
-            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, EndBiomesConfig.CONFIG_PATH.get(), usedIslandLayer, usedVoidLayer, usedSkyLayer);
+            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
             biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
             return biomesFromBiomeData;
         }));

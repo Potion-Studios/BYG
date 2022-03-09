@@ -10,6 +10,7 @@ import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.mixin.access.WeightedListAccess;
 import terrablender.worldgen.noise.*;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.LongFunction;
@@ -18,9 +19,9 @@ import static terrablender.worldgen.noise.LayeredNoiseUtil.zoom;
 
 public class LayerUtil {
 
-    public static Area createLayers(Registry<Biome> biomeRegistry, long worldSeed, SimpleWeightedRandomList<ResourceKey<Biome>> biomes, int regionSize) {
+    public static Area createLayers(Registry<Biome> biomeRegistry, long worldSeed, SimpleWeightedRandomList<ResourceKey<Biome>> biomes, int regionSize, Path configPath) {
         LongFunction<AreaContext> contextFactory = (seedModifier) -> new AreaContext(25, worldSeed, seedModifier);
-        AreaFactory factory = new InitLayer(biomes, biomeRegistry).run(contextFactory.apply(1L));
+        AreaFactory factory = new InitLayer(biomes, biomeRegistry, configPath).run(contextFactory.apply(1L));
         factory = ZoomLayer.FUZZY.run(contextFactory.apply(2000L), factory);
         factory = zoom(2001L, ZoomLayer.FUZZY, factory, 3, contextFactory);
         factory = zoom(1001L, ZoomLayer.NORMAL, factory, regionSize, contextFactory);
@@ -32,12 +33,14 @@ public class LayerUtil {
 
         private final SimpleWeightedRandomList<ResourceKey<Biome>> biomes;
         private final Registry<Biome> biomeRegistry;
+        private final Path path;
         private final int totalWeight;
         private final List<WeightedEntry> entries;
 
-        public InitLayer(SimpleWeightedRandomList<ResourceKey<Biome>> biomes, Registry<Biome> biomeRegistry) {
+        public InitLayer(SimpleWeightedRandomList<ResourceKey<Biome>> biomes, Registry<Biome> biomeRegistry, Path path) {
             this.biomes = biomes;
             this.biomeRegistry = biomeRegistry;
+            this.path = path;
             this.totalWeight = ((WeightedListAccess<ResourceKey<Biome>>) this.biomes).byg_getTotalWeight();
             this.entries = ((WeightedListAccess<WeightedEntry>) this.biomes).byg_getItems();
         }
@@ -49,7 +52,12 @@ public class LayerUtil {
             }
             Optional<WeightedEntry> weightedItem = WeightedRandom.getWeightedItem(this.entries, areaContext.nextRandom(this.totalWeight));
             WeightedEntry.Wrapper<ResourceKey<Biome>> resourceKeyWrapper = (WeightedEntry.Wrapper<ResourceKey<Biome>>) weightedItem.get();
-            return biomeRegistry.getId(biomeRegistry.get(resourceKeyWrapper.getData()));
+            ResourceKey<Biome> key = resourceKeyWrapper.getData();
+            if (!this.biomeRegistry.containsKey(key)) {
+                throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the registry, fix the ID or remove the json entry from the config: \"%s\" and relaunch Minecraft...", key, this.path));
+            }
+
+            return biomeRegistry.getId(biomeRegistry.get(key));
         }
     }
 }

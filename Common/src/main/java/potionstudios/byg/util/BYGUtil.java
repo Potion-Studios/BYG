@@ -12,6 +12,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.random.WeightedEntry;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.mixin.access.WeightedEntryWrapperAccess;
 import potionstudios.byg.mixin.access.WeightedListAccess;
@@ -124,7 +125,7 @@ public class BYGUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<Holder<Biome>> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, Path configPath, LayersBiomeData... layersBiomeDatas) {
+    public static List<Holder<Biome>> createBiomesFromBiomeData(Registry<Biome> biomeRegistry, LayersBiomeData... layersBiomeDatas) {
         List<Holder<Biome>> biomes = new ArrayList<>();
         for (LayersBiomeData layersBiomeData : layersBiomeDatas) {
             ImmutableList<WeightedEntry.Wrapper<ResourceKey<Biome>>> items = ((WeightedListAccess<WeightedEntry.Wrapper<ResourceKey<Biome>>>) layersBiomeData.biomeWeights()).byg_getItems();
@@ -135,7 +136,7 @@ public class BYGUtil {
                 if (biome.isPresent()) {
                     biomes.add(biome.get());
                 } else {
-                    throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the registry, fix the ID or remove the json entry from the config: \"%s\" and relaunch Minecraft...", resourceKey, configPath.toString()));
+                    BYG.LOGGER.info("\"" + resourceKey.location() + "\" is not a value in the biome registry at this point, ignore this warning if the data pack containing this biome is not yet added during world creation.");
                 }
             }
         }
