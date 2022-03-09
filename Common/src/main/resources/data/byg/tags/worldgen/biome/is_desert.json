@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:windswept_dunes",
+    "byg:mojave_desert",
+    "byg:red_rock_valley",
+    "byg:sierra_badlands"
+  ]
+}

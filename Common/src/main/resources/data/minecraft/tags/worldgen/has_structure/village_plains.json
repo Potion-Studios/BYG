@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "byg:allium_fields",
+    "byg:amaranth_fields",
+    "byg:orchard",
+    "byg:red_oak_forest",
+    "byg:temperate_rainforest"
+  ]
+}

@@ -10,11 +10,13 @@ public class BYGBiomeTags {
     public static final TagKey<Biome> HAS_VILLAGE_SKYRIS = create("has_structure/village_skyris");
     public static final TagKey<Biome> HAS_VILLAGE_RUINS = create("has_structure/village_ruins");
     public static final TagKey<Biome> HAS_VILLAGE_TROPICAL = create("has_structure/village_tropical");
-    public static final TagKey<Biome> HAS_VILLAGE_ADOBE = create("has_structure/village_adobe");
+    public static final TagKey<Biome> HAS_VILLAGE_RED_ROCK = create("has_structure/village_red_rock");
     public static final TagKey<Biome> HAS_RED_ROCK_ARCH = create("has_structure/red_rock_arch");
     public static final TagKey<Biome> HAS_OVERGROWN_STONE_ARCH = create("has_structure/overgrown_stone_arch");
     public static final TagKey<Biome> HAS_STONE_ARCH = create("has_structure/stone_arch");
-
+    public static final TagKey<Biome> IS_OVERWORLD_BIOME = create("is_overworld_biome");
+    public static final TagKey<Biome> IS_DESERT = create("is_desert");
+    public static final TagKey<Biome> IS_SAVANNA = create("is_savanna");
 
     private static TagKey<Biome> create(String id) {
         return TagKey.create(Registry.BIOME_REGISTRY, BYG.createLocation(id));

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "byg:orchard",
+    "byg:temperate_grove",
+    "byg:cherry_blossom_forest",
+    "byg:forgotten_forest",
+    "byg:autumnal_forest",
+    "byg:redwood_thicket",
+    "byg:fragment_forest",
+    "byg:temperate_rainforest",
+    "byg:ebony_woods"
+  ]
+}

@@ -34,7 +34,7 @@ import java.util.List;
 
 public class BYGStructureFeatures {
 
-    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_ADOBE = register("village_adobe", StructureFeature.VILLAGE.configured(new JigsawConfiguration(AdobeVillagePools.ADOBE_VILLAGE_JIGSAW, 6), BYGBiomeTags.HAS_VILLAGE_ADOBE, true));
+    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RED_ROCK = register("village_red_rock", StructureFeature.VILLAGE.configured(new JigsawConfiguration(AdobeVillagePools.ADOBE_VILLAGE_JIGSAW, 6), BYGBiomeTags.HAS_VILLAGE_RED_ROCK, true));
     public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_SKYRIS = register("village_skyris", StructureFeature.VILLAGE.configured(new JigsawConfiguration(SkyrisVillagePools.SKYRIS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_SKYRIS, true));
     public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RUINS = register("village_ruins", StructureFeature.VILLAGE.configured(new JigsawConfiguration(RuinsVillagePools.RUINS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_RUINS, true));
     public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_TROPICAL = register("village_tropical", StructureFeature.VILLAGE.configured(new JigsawConfiguration(TropicalVillagePools.TROPICAL_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_TROPICAL, true));
