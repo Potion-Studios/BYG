@@ -248,7 +248,6 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> FROST_MAGMA_PILLARS = createPlacedFeature("frost_magma_pillars", BYGNetherFeatures.FROST_MAGMA_PILLARS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
     public static final Holder<PlacedFeature> SOUL_SOIL_PILLARS = createPlacedFeature("soul_soil_pillars", BYGNetherFeatures.SOUL_SOIL_PILLARS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
     public static final Holder<PlacedFeature> SYTHIAN_FUNGUS_PILLARS = createPlacedFeature("sythian_fungus_pillars", BYGNetherFeatures.SYTHIAN_FUNGUS_PILLARS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> MOSSY_NETHERRACK_PILLARS = createPlacedFeature("mossy_netherrack_pillars", BYGNetherFeatures.MOSSY_NETHERRACK_PILLARS, CountPlacement.of(10), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> EMBUR_ROOTS = createPlacedFeature("embur_roots", BYGNetherVegetationFeatures.EMBUR_ROOTS, CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
     public static final Holder<PlacedFeature> TALL_EMBUR_ROOTS = createPlacedFeature("tall_embur_roots", BYGNetherVegetationFeatures.TALL_EMBUR_ROOTS, CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());

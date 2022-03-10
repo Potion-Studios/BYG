@@ -987,7 +987,6 @@ public class BYGItems {
     public static final Item NETHER_BRISTLE = createItem(BYGBlocks.NETHER_BRISTLE);
     public static final Item MYCELIUM_NETHERRACK = createItem(BYGBlocks.MYCELIUM_NETHERRACK);
     public static final Item OVERGROWN_NETHERRACK = createItem(BYGBlocks.OVERGROWN_NETHERRACK);
-    public static final Item MOSSY_NETHERRACK = createItem(BYGBlocks.MOSSY_NETHERRACK);
 
     public static final Item PERVADED_NETHERRACK = createItem(BYGBlocks.PERVADED_NETHERRACK);
     public static final Item GLOWSTONE_LANTERN = createItem(BYGBlocks.GLOWSTONE_LANTERN);

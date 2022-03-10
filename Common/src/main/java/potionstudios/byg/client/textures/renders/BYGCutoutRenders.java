@@ -51,7 +51,6 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.BORIC_CAMPFIRE, RenderType.cutoutMipped());
         //Nether
         map.put(BYGBlocks.OVERGROWN_NETHERRACK, RenderType.cutoutMipped());
-        map.put(BYGBlocks.MOSSY_NETHERRACK, RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE, RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE_END, RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM, RenderType.cutoutMipped());
