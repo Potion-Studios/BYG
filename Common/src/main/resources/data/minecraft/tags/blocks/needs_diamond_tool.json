@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "byg:ametrine_cluster",
+    "byg:ametrine_ore",
+    "byg:budding_ametrine_ore",
+    "byg:ametrine_block",
+    "byg:pendorite_ore",
+    "byg:raw_pendorite_block",
+    "byg:pendorite_block"
+  ]
+}

@@ -39,7 +39,7 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
         map.put(CHERRY_BLOSSOM_FOREST, List.of("FOREST", "OVERWORLD"));
         map.put(CIKA_WOODS, List.of("FOREST", "COLD", "CONIFEROUS", "OVERWORLD"));
         map.put(CONIFEROUS_FOREST, List.of("FOREST", "COLD", "CONIFEROUS", "OVERWORLD"));
-//        map.put(CRAG_GARDENS, List.of("JUNGLE", "WET", "PLATEAU", "RARE", "MAGICAL", "OVERWORLD"));
+        map.put(CRAG_GARDENS, List.of("JUNGLE", "WET", "PLATEAU", "RARE", "MAGICAL", "OVERWORLD"));
         map.put(CYPRESS_SWAMPLANDS, List.of("SWAMP", "OVERWORLD"));
         map.put(LUSH_STACKS, List.of("OCEAN", "WASTELAND", "SPOOKY", "OVERWORLD"));
 //        map.put(DECIDUOUS_FOREST, List.of("FOREST", "OVERWORLD"));
@@ -60,7 +60,7 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
         map.put(PRAIRIE, List.of("PLAINS", "DRY", "OVERWORLD"));
 //        map.put(RED_DESERT, List.of("DRY", "HOT", "SANDY", "OVERWORLD"));
         map.put(RED_OAK_FOREST, List.of("FOREST", "OVERWORLD"));
-//        map.put(RED_ROCK_VALLEY, List.of("DRY", "HOT", "MOUNTAIN", "OVERWORLD"));
+        map.put(RED_ROCK_VALLEY, List.of("DRY", "HOT", "MOUNTAIN", "OVERWORLD"));
         map.put(REDWOOD_THICKET, List.of("FOREST", "DENSE", "RARE", "OVERWORLD"));
         map.put(ROSE_FIELDS, List.of("OVERWORLD", "PLAINS", "RARE", "LUSH"));
         map.put(AUTUMNAL_FOREST, List.of("FOREST", "COLD", "OVERWORLD"));

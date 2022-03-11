@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "byg:therium_block",
+    "byg:therium_crystal",
+    "byg:subzero_crystal_block",
+    "byg:budding_subzero_crystal",
+    "byg:subzero_crystal_cluster",
+    "byg:large_subzero_crystal_bud",
+    "byg:medium_subzero_crystal_bud",
+    "byg:small_subzero_crystal_bud"
+  ]
+}
