@@ -12,6 +12,8 @@ public interface ModLoaderContext {
 
     Supplier<SurfaceRules.RuleSource> netherRuleSource();
 
+    boolean isModLoaded(String isLoaded);
+
     static ModLoaderContext getInstance() {
         ModLoaderContext data = BYG.MODLOADER_DATA;
 

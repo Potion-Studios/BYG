@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -28,6 +29,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -62,17 +64,7 @@ import java.util.function.Supplier;
 public class BYGForge {
 
     public BYGForge() {
-        BYG.MODLOADER_DATA = new ModLoaderContext() {
-            @Override
-            public Path configPath() {
-                return FMLPaths.CONFIGDIR.get();
-            }
-
-            @Override
-            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
-            }
-        };
+        BYG.MODLOADER_DATA = getModLoaderData();
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
@@ -158,5 +150,25 @@ public class BYGForge {
     private void clientLoad(FMLClientSetupEvent event) {
         BYG.clientLoad();
         BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+    }
+
+    @NotNull
+    private static ModLoaderContext getModLoaderData() {
+        return new ModLoaderContext() {
+            @Override
+            public Path configPath() {
+                return FMLPaths.CONFIGDIR.get();
+            }
+
+            @Override
+            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
+                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
+            }
+
+            @Override
+            public boolean isModLoaded(String isLoaded) {
+                return ModList.get().isLoaded(isLoaded);
+            }
+        };
     }
 }
