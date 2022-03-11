@@ -48,7 +48,9 @@ public class MixinMinecraftServer {
     @Final
     protected WorldData worldData;
 
-    @Shadow @Final private RegistryAccess.Frozen registryHolder;
+    @Shadow
+    @Final
+    private RegistryAccess.Frozen registryHolder;
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void addBYGFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
@@ -60,35 +62,40 @@ public class MixinMinecraftServer {
     }
 
     @Inject(method = "createLevels", at = @At("RETURN"))
-    private void hackyAddNetherAndEndSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
-        LevelStem levelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.NETHER);
+    private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
+        {
+            LevelStem levelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.NETHER);
 
-        ChunkGenerator generator = levelStem.generator();
-        if(NetherBiomesConfig.getConfig(false).useBYGNetherBiomeSourceInNewWorlds()) {
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) generator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, BYG.MODLOADER_DATA.netherRuleSource().get(), ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+            ChunkGenerator generator = levelStem.generator();
+            if (NetherBiomesConfig.getConfig(false).useBYGNetherBiomeSourceInNewWorlds()) {
+                if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
+                    Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) generator).byg_getSettings().value();
+                    ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, BYG.MODLOADER_DATA.netherRuleSource().get(), ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+                }
             }
         }
 
-        LevelStem endLevelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.END);
+        {
+            LevelStem endLevelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.END);
 
-
-        ChunkGenerator endGenerator = endLevelStem.generator();
-        if(EndBiomesConfig.getConfig(false).useBYGEndBiomeSourceInNewWorlds()) {
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+            ChunkGenerator endGenerator = endLevelStem.generator();
+            if (EndBiomesConfig.getConfig(false).useBYGEndBiomeSourceInNewWorlds()) {
+                if (endGenerator != null && endGenerator instanceof NoiseBasedChunkGenerator) {
+                    Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).byg_getSettings().value();
+                    ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+                }
             }
         }
 
-        LevelStem overworldStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.OVERWORLD);
+        {
+            LevelStem overworldStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.OVERWORLD);
 
-        if(OverworldBiomeConfig.getConfig(false).generateOverworld()) {
-            ChunkGenerator overworldGenerator = overworldStem.generator();
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) overworldGenerator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.OVERWORLD_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+            if (OverworldBiomeConfig.getConfig(false).generateOverworld()) {
+                ChunkGenerator overworldGenerator = overworldStem.generator();
+                if (overworldGenerator != null && overworldGenerator instanceof NoiseBasedChunkGenerator) {
+                    Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) overworldGenerator).byg_getSettings().value();
+                    ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.OVERWORLD_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+                }
             }
         }
 
