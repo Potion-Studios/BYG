@@ -287,7 +287,7 @@ public class BYGBlockProperties {
 
     public static class BYGLeafFoilage extends LeafFoliageBlock {
         public BYGLeafFoilage(String registryName) {
-            super(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.GRASS)
+            super(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.GRASS)
                     .strength(0.0F)
                     .randomTicks()
                     .sound(SoundType.GRASS)
