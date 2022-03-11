@@ -41,7 +41,7 @@ public class BYG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = true;
-    public static final int EXPERIMENTAL_WARNING_VERSION = 4;
+    public static final int EXPERIMENTAL_WARNING_VERSION = 5;
     public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
