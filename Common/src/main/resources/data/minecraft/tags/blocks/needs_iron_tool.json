@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "byg:brimstone_nether_quartz_ore",
+    "byg:brimstone_nether_gold_ore",
+    "byg:blue_nether_gold_ore",
+    "byg:blue_nether_quartz_ore",
+    "byg:anthracite_ore",
+    "byg:pervaded_netherrack",
+    "byg:subzero_crystal_block",
+    "byg:hypogeal_imperium",
+    "byg:subzero_crystal_cluster",
+    "byg:large_subzero_crystal_bud",
+    "byg:medium_subzero_crystal_bud",
+    "byg:small_subzero_crystal_bud",
+    "byg:lignite_ore",
+    "byg:cryptic_redstone_ore"
+  ]
+}

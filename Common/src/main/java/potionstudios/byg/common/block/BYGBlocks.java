@@ -1149,7 +1149,7 @@ public class BYGBlocks {
     }
 
     static Block createBuddingSubzeroCrystal(String id) {
-        Block createBlock = new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noDrops().randomTicks().requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 1.5f));
+        Block createBlock = new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noDrops().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f));
         createBlock(createBlock, id);
         return createBlock;
     }
