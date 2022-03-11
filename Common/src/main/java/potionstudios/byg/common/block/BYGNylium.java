@@ -40,16 +40,8 @@ public class BYGNylium extends NyliumBlock {
 
     @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
-        if (this.worldRegistryKey == Level.NETHER) {
-            if (!NyliumBlockAccess.byg_invokeCanBeNylium(state, world, pos)) {
-                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
-            }
-        }
-
-        if (this.worldRegistryKey == Level.END) {
-            if (world.getBlockState(pos.above()).canOcclude()) {
-                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
-            }
+        if (!NyliumBlockAccess.byg_invokeCanBeNylium(state, world, pos)) {
+            world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
         }
     }
 
