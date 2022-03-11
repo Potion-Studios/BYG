@@ -1097,7 +1097,7 @@ public class BYGBlocks {
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
     public static final Block HYDRANGEA_BUSH = createHydrangeaBush("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
     public static final Block HYDRANGEA_HEDGE = createHydrangeaHedge("hydrangea_hedge", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
-    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_BROWN, null, "podzol_dacite");
+    public static final Block PODZOL_DACITE = createBlock(SnowyDirtBlockAccess.byg_create(BlockBehaviour.Properties.copy(BYGBlocks.DACITE)), "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, null, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, MaterialColor.COLOR_GREEN, null, "overgrown_stone");
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, MaterialColor.COLOR_RED, null, "overgrown_crimson_blackstone");
