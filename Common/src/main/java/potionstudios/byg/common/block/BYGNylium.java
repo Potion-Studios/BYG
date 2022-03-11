@@ -23,17 +23,17 @@ public class BYGNylium extends NyliumBlock {
     private final ResourceKey<Level> worldRegistryKey;
     private final Block dirtBlock;
 
-    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, ResourceKey<Level> worldRegistryKey, Block dirtBlock) {
+    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, ResourceKey<Level> worldRegistryKey, Block dirtBlock, boolean overrides) {
         super(properties);
         this.featureConfig = featureConfig;
         this.worldRegistryKey = worldRegistryKey;
         this.dirtBlock = dirtBlock;
 
-        if (worldRegistryKey == Level.NETHER) {
+        if (worldRegistryKey == Level.NETHER && overrides) {
             BYG_NETHER_SURFACE_BLOCKS.add(this);
         }
 
-        if (worldRegistryKey == Level.END) {
+        if (worldRegistryKey == Level.END && overrides) {
             BYG_END_SURFACE_BLOCKS.add(this);
         }
     }
