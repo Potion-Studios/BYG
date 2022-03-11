@@ -38,6 +38,7 @@ import potionstudios.byg.common.block.nether.wailing.WailingBulbBlossomBlock;
 import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
 import potionstudios.byg.common.block.sapling.BYGSapling;
+import potionstudios.byg.common.entity.BYGEntityTags;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
@@ -560,7 +561,7 @@ public class BYGBlocks {
     public static final Block BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN, "boric_lantern");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
-    public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
+    public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal", BYGEntityTags.NOT_HURT_BY_QUARTZ_CRYSTALS);
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
     public static final Block BLUE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_quartz_ore", UniformInt.of(2, 5));
@@ -1702,8 +1703,8 @@ public class BYGBlocks {
         return createBlock;
     }
 
-    static Block createDullCrystal(String id) {
-        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().requiresCorrectToolForDrops());
+    static Block createDullCrystal(String id, TagKey<EntityType<?>> noInjury) {
+        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().requiresCorrectToolForDrops(), noInjury);
         createBlock(createBlock, id);
         return createBlock;
     }
