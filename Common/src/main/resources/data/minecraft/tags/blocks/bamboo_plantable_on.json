@@ -5,6 +5,10 @@
     "byg:lush_grass_block",
     "byg:lush_dirt",
     "byg:overgrown_stone",
+    "byg:overgrown_dacite",
+    "byg:overgrown_netherrack",
+    "byg:podzol_dacite",
+    "byg:mycelium_netherrack",
     "#c:sand"
   ]
 }
