@@ -1138,7 +1138,7 @@ public class BYGBlocks {
     }
 
     static Block createSubzeroCrystalCluster(int light, int i, int j, String id) {
-        Block createBlock = new CrystalClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light));
+        Block createBlock = new AmethystClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1698,7 +1698,7 @@ public class BYGBlocks {
     }
 
     static Block createAmetrineCluster(String id) {
-        Block createBlock = new CrystalClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
+        Block createBlock = new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
         return createBlock;
     }
