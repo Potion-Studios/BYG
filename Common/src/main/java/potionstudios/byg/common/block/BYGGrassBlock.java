@@ -56,7 +56,7 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
             ConfiguredFeature<?, ?> flowerFeature = flowerFeatures.get(random.nextInt(flowerFeatures.size()));
             flowerFeature.place(world, world.getChunkSource().getGenerator(), random, pos);
 
-            VegetationPlacements.PATCH_GRASS_NORMAL.value().place(world, world.getChunkSource().getGenerator(), random, pos);
+            VegetationPlacements.GRASS_BONEMEAL.value().place(world, world.getChunkSource().getGenerator(), random, pos);
         }
     }
 
