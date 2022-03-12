@@ -7,6 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
@@ -37,17 +38,7 @@ public class BYGFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {
-        BYG.MODLOADER_DATA = new ModLoaderContext() {
-            @Override
-            public Path configPath() {
-                return FabricLoader.getInstance().getConfigDir();
-            }
-
-            @Override
-            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
-            }
-        };
+        BYG.MODLOADER_DATA = getModLoaderData();
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
         registryBootStrap();
@@ -81,4 +72,25 @@ public class BYGFabric implements ModInitializer {
         }
         BYG.LOGGER.info("BYG registered: " + registry.toString());
     }
+
+    @NotNull
+    public static ModLoaderContext getModLoaderData() {
+        return new ModLoaderContext() {
+            @Override
+            public Path configPath() {
+                return FabricLoader.getInstance().getConfigDir();
+            }
+
+            @Override
+            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
+                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
+            }
+
+            @Override
+            public boolean isModLoaded(String isLoaded) {
+                return FabricLoader.getInstance().isModLoaded(isLoaded);
+            }
+        };
+    }
+
 }

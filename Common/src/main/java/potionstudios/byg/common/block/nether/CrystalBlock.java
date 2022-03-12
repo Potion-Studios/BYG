@@ -2,6 +2,7 @@ package potionstudios.byg.common.block.nether;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,10 +20,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CrystalBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+    private final TagKey<EntityType<?>> noInjury;
 
-    public CrystalBlock(Properties builder) {
+    public CrystalBlock(Properties builder, TagKey<EntityType<?>> noInjury) {
         super(builder);
 
+        this.noInjury = noInjury;
     }
 
     public OffsetType getOffsetType() {
@@ -35,7 +38,7 @@ public class CrystalBlock extends Block {
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.GHAST && entityIn.getType() != EntityType.HOGLIN && entityIn.getType() != EntityType.ENDERMAN) {
+        if (entityIn instanceof LivingEntity && !entityIn.getType().is(this.noInjury)) {
             double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
             double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {

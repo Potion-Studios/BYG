@@ -23,33 +23,25 @@ public class BYGNylium extends NyliumBlock {
     private final ResourceKey<Level> worldRegistryKey;
     private final Block dirtBlock;
 
-    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, ResourceKey<Level> worldRegistryKey, Block dirtBlock) {
+    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, ResourceKey<Level> worldRegistryKey, Block dirtBlock, boolean overrides) {
         super(properties);
         this.featureConfig = featureConfig;
         this.worldRegistryKey = worldRegistryKey;
         this.dirtBlock = dirtBlock;
 
-        if (worldRegistryKey == Level.NETHER) {
+        if (worldRegistryKey == Level.NETHER && overrides) {
             BYG_NETHER_SURFACE_BLOCKS.add(this);
         }
 
-        if (worldRegistryKey == Level.END) {
+        if (worldRegistryKey == Level.END && overrides) {
             BYG_END_SURFACE_BLOCKS.add(this);
         }
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
-        if (this.worldRegistryKey == Level.NETHER) {
-            if (!NyliumBlockAccess.byg_invokeCanBeNylium(state, world, pos)) {
-                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
-            }
-        }
-
-        if (this.worldRegistryKey == Level.END) {
-            if (world.getBlockState(pos.above()).canOcclude()) {
-                world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
-            }
+        if (!NyliumBlockAccess.byg_invokeCanBeNylium(state, world, pos)) {
+            world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
         }
     }
 

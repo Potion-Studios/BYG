@@ -14,11 +14,7 @@ import net.minecraft.server.level.progress.ChunkProgressListenerFactory;
 import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.server.players.GameProfileCache;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
-import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.WorldData;
 import org.spongepowered.asm.mixin.Final;
@@ -28,27 +24,23 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
-import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
-import potionstudios.byg.config.json.OverworldBiomeConfig;
-import potionstudios.byg.mixin.access.NoiseBasedChunkGeneratorAccess;
-import potionstudios.byg.mixin.access.NoiseGeneratorSettingsAccess;
 import potionstudios.byg.util.BYGUtil;
 
 import java.net.Proxy;
 import java.util.Map;
 import java.util.Optional;
 
-@Mixin(MinecraftServer.class)
-public class MixinMinecraftServer {
+import static potionstudios.byg.util.AddSurfaceRulesUtil.appendSurfaceRule;
 
+@Mixin(MinecraftServer.class)
+public abstract class MixinMinecraftServer {
 
     @Shadow
     @Final
-    protected WorldData worldData;
+    private RegistryAccess.Frozen registryHolder;
 
-    @Shadow @Final private RegistryAccess.Frozen registryHolder;
+    @Shadow public abstract WorldData getWorldData();
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void addBYGFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
@@ -60,38 +52,12 @@ public class MixinMinecraftServer {
     }
 
     @Inject(method = "createLevels", at = @At("RETURN"))
-    private void hackyAddNetherAndEndSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
-        LevelStem levelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.NETHER);
-
-        ChunkGenerator generator = levelStem.generator();
-        if(NetherBiomesConfig.getConfig(false).useBYGNetherBiomeSourceInNewWorlds()) {
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) generator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.NETHER_SURFACE_RULES, BYG.MODLOADER_DATA.netherRuleSource().get(), ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
-            }
+    private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
+        if(!BYG.MODLOADER_DATA.isModLoaded("terrablender")) { // We add our surface rules through Terrablender's API.
+            appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
         }
-
-        LevelStem endLevelStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.END);
-
-
-        ChunkGenerator endGenerator = endLevelStem.generator();
-        if(EndBiomesConfig.getConfig(false).useBYGEndBiomeSourceInNewWorlds()) {
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) endGenerator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.END_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
-            }
-        }
-
-        LevelStem overworldStem = this.worldData.worldGenSettings().dimensions().get(LevelStem.OVERWORLD);
-
-        if(OverworldBiomeConfig.getConfig(false).generateOverworld()) {
-            ChunkGenerator overworldGenerator = overworldStem.generator();
-            if (generator != null && generator instanceof NoiseBasedChunkGenerator) {
-                Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) overworldGenerator).byg_getSettings().value();
-                ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(BYGSurfaceRules.OVERWORLD_SURFACE_RULES, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
-            }
-        }
-
+        appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
+        appendSurfaceRule(this.getWorldData(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
         BYGUtil.useTagReplacements = true;
     }
 

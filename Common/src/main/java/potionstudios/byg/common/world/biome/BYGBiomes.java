@@ -43,7 +43,6 @@ public class BYGBiomes {
     public static ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", cypressSwamplands());
     public static ResourceKey<Biome> LUSH_STACKS = createBiome("lush_stacks", lushStacks());
     public static ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", deadSea());
-
     public static ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", daciteRidges());
     public static ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", windsweptDunes());
     public static ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", ebonyWoods());
@@ -54,7 +53,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", mapleTaiga());
     public static ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", coconinoMeadow(false, false));
     public static ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", mojaveDesert());
-    //    public static ResourceKey<Biome> LUSH_TUNDRA = createBiome("lush_tundra", lushTundra());
+    public static ResourceKey<Biome> CARDINAL_TUNDRA = createBiome("cardinal_tundra", cardinalTundra());
     public static ResourceKey<Biome> ORCHARD = createBiome("orchard", orchard());
     public static ResourceKey<Biome> PRAIRIE = createBiome("prairie", prairie());
     public static ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", redOakForest());

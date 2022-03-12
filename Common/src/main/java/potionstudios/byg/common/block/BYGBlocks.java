@@ -38,6 +38,7 @@ import potionstudios.byg.common.block.nether.wailing.WailingBulbBlossomBlock;
 import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
 import potionstudios.byg.common.block.sapling.BYGSapling;
+import potionstudios.byg.common.entity.BYGEntityTags;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
@@ -560,7 +561,7 @@ public class BYGBlocks {
     public static final Block BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN, "boric_lantern");
 
     public static final Block HANGING_BONE = new BYGBlockProperties.HangingBones("hanging_bones");
-    public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal");
+    public static final Block QUARTZ_CRYSTAL = createDullCrystal("quartz_crystal", BYGEntityTags.NOT_HURT_BY_QUARTZ_CRYSTALS);
     public static final Block QUARTZITE_SAND = new BYGBlockProperties.BYGQuartziteSand("quartzite_sand");
     public static final Block RAW_QUARTZ_BLOCK = new BYGBlockProperties.BYGStone("raw_quartz_block");
     public static final Block BLUE_NETHER_QUARTZ_ORE = createNetherOre(SoundType.NETHER_ORE, MaterialColor.TERRACOTTA_BLUE, "blue_nether_quartz_ore", UniformInt.of(2, 5));
@@ -1096,14 +1097,14 @@ public class BYGBlocks {
     public static final Block YELLOW_TULIP = createFlower("yellow_tulip", BYGBlockTags.GROUND_YELLOW_TULIP);
     public static final Block HYDRANGEA_BUSH = createHydrangeaBush("hydrangea_bush", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
     public static final Block HYDRANGEA_HEDGE = createHydrangeaHedge("hydrangea_hedge", BYGBlockTags.GROUND_HYDRANGEA_BUSH);
-    public static final Block PODZOL_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_BROWN, null, "podzol_dacite");
+    public static final Block PODZOL_DACITE = createBlock(SnowyDirtBlockAccess.byg_create(BlockBehaviour.Properties.copy(BYGBlocks.DACITE)), "podzol_dacite");
     public static final Block OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, null, "overgrown_dacite");
     public static final Block OVERGROWN_STONE = createStoneSpreadable(Blocks.STONE, MaterialColor.COLOR_GREEN, null, "overgrown_stone");
     public static final Block OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, MaterialColor.COLOR_RED, null, "overgrown_crimson_blackstone");
     public static final Block MYCELIUM_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_GRAY, null, "mycelium_netherrack");
     public static final Block OVERGROWN_NETHERRACK = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_GREEN, null, "overgrown_netherrack");
     public static final Block IVIS_PHYLIUM = createEndStoneSpreadable(Blocks.END_STONE, MaterialColor.COLOR_PURPLE, null, "ivis_phylium");
-    public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MaterialColor.COLOR_ORANGE, null, "embur_nylium");
+    public static final Block EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MaterialColor.COLOR_ORANGE, null, "embur_nylium", false);
     public static final Block SYTHIAN_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_YELLOW, null, "sythian_nylium");
     public static final Block WAILING_NYLIUM = createNetherSpreadable(Blocks.NETHERRACK, MaterialColor.COLOR_PURPLE, null, "wailing_nylium");
     public static final Block LUSH_GRASS_BLOCK = createDirtSpreadable(LUSH_DIRT, MaterialColor.COLOR_GREEN, null, "lush_grass_block");
@@ -1137,7 +1138,7 @@ public class BYGBlocks {
     }
 
     static Block createSubzeroCrystalCluster(int light, int i, int j, String id) {
-        Block createBlock = new CrystalClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light));
+        Block createBlock = new AmethystClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light));
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1697,13 +1698,13 @@ public class BYGBlocks {
     }
 
     static Block createAmetrineCluster(String id) {
-        Block createBlock = new CrystalClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
+        Block createBlock = new AmethystClusterBlock(7, 3, BlockBehaviour.Properties.of(BYGMaterials.AMETRINE).sound(SoundType.GLASS).strength(1.5f).randomTicks().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6));
         createBlock(createBlock, id);
         return createBlock;
     }
 
-    static Block createDullCrystal(String id) {
-        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().requiresCorrectToolForDrops());
+    static Block createDullCrystal(String id, TagKey<EntityType<?>> noInjury) {
+        Block createBlock = new CrystalBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().requiresCorrectToolForDrops(), noInjury);
         createBlock(createBlock, id);
         return createBlock;
     }
@@ -1998,25 +1999,33 @@ public class BYGBlocks {
     }
 
     static Block createEndStoneSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id) {
-        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.END, blockToSpreadToo);
+        return createEndStoneSpreadable(blockToSpreadToo, color, featureConfig, id, true);
+    }
+
+    static Block createEndStoneSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id, boolean overridesEndStone) {
+        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.END, blockToSpreadToo, overridesEndStone);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createEndDirtSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id) {
-        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.END, blockToSpreadToo);
+        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.END, blockToSpreadToo, false);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createNetherSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id) {
-        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.NETHER, blockToSpreadToo);
+        return createNetherSpreadable(blockToSpreadToo, color, featureConfig, id, true);
+    }
+
+    static Block createNetherSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id, boolean overridesNetherrack) {
+        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.NETHER, blockToSpreadToo, overridesNetherrack);
         createBlock(createBlock, id);
         return createBlock;
     }
 
     static Block createNetherStoneSpreadable(Block blockToSpreadToo, MaterialColor color, @Nullable RandomPatchConfiguration featureConfig, String id) {
-        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.NETHER, blockToSpreadToo);
+        Block createBlock = new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), featureConfig, Level.NETHER, blockToSpreadToo, false);
         createBlock(createBlock, id);
         return createBlock;
     }
