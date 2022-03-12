@@ -126,9 +126,9 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(() -> {
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
             if (config.generateOverworld()) {
+                SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
                 config.values().forEach(biomeProviderData -> {
                     Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.shatteredBiomes(), biomeProviderData.swapper()));
                 });
