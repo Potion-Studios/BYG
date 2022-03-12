@@ -44,7 +44,6 @@ public class BYGNetherBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.WEEPING_VINES);//Weeping Vines
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, TreePlacements.CRIMSON_FUNGI); //Crimson Fungi
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.CRIMSON_FOREST_VEGETATION); //Crimson Forest Vegetation
-        generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, NetherPlacements.LARGE_BASALT_COLUMNS); //Basalt Columns Large
 
         BYGDefaultBiomeFeatures.addCrimsonGardensVegetation(generationSettings);
 
