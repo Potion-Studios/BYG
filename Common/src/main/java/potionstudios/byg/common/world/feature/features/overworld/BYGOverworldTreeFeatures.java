@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -36,6 +37,11 @@ public class BYGOverworldTreeFeatures {
             .setMaxHeight(24)
             .setMinHeight(16)
             .build()
+    );
+
+    public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> STRUCTURE_TREE = createConfiguredFeature("structure_tree",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new NoneFeatureConfiguration()
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE1 = createConfiguredFeature("ancient_tree1",
