@@ -76,6 +76,10 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(config.logTarget());
         List<StructureTemplate.StructureBlockInfo> logs = randomBasePalette.blocks(config.logTarget());
         List<StructureTemplate.StructureBlockInfo> logBuilders = randomBasePalette.blocks(Blocks.RED_WOOL);
+        if (logBuilders.isEmpty()) {
+            throw new UnsupportedOperationException(String.format("\"%s\" is missing log builders.", baseLocation));
+        }
+
         List<StructureTemplate.StructureBlockInfo> trunkBuilder = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
 
         int trunkLength = config.height().sample(random);
@@ -107,19 +111,24 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
-            for (int i = 0; i < trunkLength; i++) {
+            for (int i = 0; i <= trunkLength; i++) {
                 level.setBlock(mutable, stateProvider.getState(random, mutable), 2);
                 mutable.move(Direction.UP);
             }
+
+
         }
         {
             List<StructureTemplate.StructureBlockInfo> canopyCenter = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
             if (center.size() > 1) {
                 throw new IllegalArgumentException("There cannot be more than one central position.");
             }
-            BlockPos canopyCenterOffset = canopyCenter.get(0).pos;
-            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkLength + canopyCenterOffset.getY() + 1, -canopyCenterOffset.getZ());
+            StructureTemplate.StructureBlockInfo structureBlockInfo = canopyCenter.get(0);
+            BlockPos canopyCenterOffset = structureBlockInfo.pos;
+            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), canopyTemplate.getSize().getY() + trunkLength, -canopyCenterOffset.getZ());
 
+            BlockPos placingPos = getModifiedPos(placeSettings, structureBlockInfo, new BlockPos(0, 0, 0), origin);
+            level.setBlock(placingPos, stateProvider.getState(random, placingPos), 2);
 
             for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
                 BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
