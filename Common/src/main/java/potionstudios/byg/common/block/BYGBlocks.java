@@ -582,8 +582,8 @@ public class BYGBlocks {
     public static final Block WARPED_CORAL = new BYGBlockProperties.BYGWarpedCoral("warped_coral");
     public static final Block WARPED_CORAL_FAN = new BYGBlockProperties.BYGWarpedCoral("warped_coral_fan");
     public static final Block WARPED_CORAL_WALL_FAN = new BYGBlockProperties.BYGWarpedWallFanCoral("warped_coral_wall_fan");
-    public static final Block NYLIUM_SOUL_SAND = new BYGBlockProperties.BYGNyliumSoulSand("nylium_soul_sand");
-    public static final Block NYLIUM_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("nylium_soul_soil");
+    public static final Block WARPED_SOUL_SAND = new BYGBlockProperties.BYGNyliumSoulSand("warped_soul_sand");
+    public static final Block WARPED_SOUL_SOIL = new BYGBlockProperties.BYGNyliumSoulSoil("warped_soul_soil");
 
     public static final Block SYTHIAN_WART_BLOCK = new BYGBlockProperties.BYGWartBlock("sythian_wart_block");
     public static final Block SYTHIAN_ROOTS = new BYGBlockProperties.SythianPlant("sythian_roots");

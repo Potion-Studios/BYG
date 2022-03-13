@@ -32,7 +32,7 @@ public class BYGWarpedBushBlock extends BushBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         Block block = state.getBlock();
-        return block == BYGBlocks.NYLIUM_SOUL_SAND || block == BYGBlocks.NYLIUM_SOUL_SOIL;
+        return block == BYGBlocks.WARPED_SOUL_SAND || block == BYGBlocks.WARPED_SOUL_SOIL;
     }
 
     @Override

@@ -89,7 +89,7 @@ public class WarpedCactusBlock extends Block {
             }
         }
 
-        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.NYLIUM_SOUL_SOIL || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.NYLIUM_SOUL_SAND || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_CACTUS && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid();
+        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_SOUL_SOIL || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_SOUL_SAND || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_CACTUS && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

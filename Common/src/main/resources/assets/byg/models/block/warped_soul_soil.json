@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "byg:block/warped_soul_soil",
+    "particle": "byg:block/warped_soul_soil"
+  }
+}

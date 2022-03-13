@@ -932,8 +932,8 @@ public class BYGItems {
     public static final Item WARPED_CORAL_BLOCK = createItem(BYGBlocks.WARPED_CORAL_BLOCK);
     public static final Item WARPED_CORAL = createItem(BYGBlocks.WARPED_CORAL);
     public static final Item WARPED_CORAL_FAN = createItem(BYGBlocks.WARPED_CORAL_FAN);
-    public static final Item NYLIUM_SOUL_SAND = createItem(BYGBlocks.NYLIUM_SOUL_SAND);
-    public static final Item NYLIUM_SOUL_SOIL = createItem(BYGBlocks.NYLIUM_SOUL_SOIL);
+    public static final Item WARPED_SOUL_SAND = createItem(BYGBlocks.WARPED_SOUL_SAND);
+    public static final Item WARPED_SOUL_SOIL = createItem(BYGBlocks.WARPED_SOUL_SOIL);
 
     public static final Item FROST_MAGMA = createItem(BYGBlocks.FROST_MAGMA);
     public static final Item SUBZERO_ASH = createItem(BYGBlocks.SUBZERO_ASH);
