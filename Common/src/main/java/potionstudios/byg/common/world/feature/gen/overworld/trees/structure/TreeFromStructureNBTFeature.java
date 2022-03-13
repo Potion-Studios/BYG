@@ -12,13 +12,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.mixin.access.LeavesBlockAccess;
 import potionstudios.byg.mixin.access.StructureTemplateAccess;
 
@@ -27,22 +24,26 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class TreeFromStructureNBTFeature extends Feature<NoneFeatureConfiguration> {
-    public TreeFromStructureNBTFeature(Codec<NoneFeatureConfiguration> $$0) {
+public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTConfig> {
+
+    private static final boolean DEBUG = false;
+
+    public TreeFromStructureNBTFeature(Codec<TreeFromStructureNBTConfig> $$0) {
         super($$0);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> featurePlaceContext) {
+    public boolean place(FeaturePlaceContext<TreeFromStructureNBTConfig> featurePlaceContext) {
+        TreeFromStructureNBTConfig config = featurePlaceContext.config();
 
-        BlockStateProvider stateProvider = BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG);
-        BlockStateProvider leavesProvider = BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES);
+        BlockStateProvider stateProvider = config.logProvider();
+        BlockStateProvider leavesProvider = config.leavesProvider();
 
         WorldGenLevel level = featurePlaceContext.level();
         StructureManager templateManager = level.getLevel().getStructureManager();
-        ResourceLocation baseLocation = BYG.createLocation("features/trees/mangrove_tree3_base");
+        ResourceLocation baseLocation = config.baseLocation();
         Optional<StructureTemplate> baseTemplateOptional = templateManager.get(baseLocation);
-        ResourceLocation canopyLocation = BYG.createLocation("features/trees/mangrove_tree3_canopy");
+        ResourceLocation canopyLocation = config.canopyLocation();
         Optional<StructureTemplate> canopyTemplateOptional = templateManager.get(canopyLocation);
 
         if (baseTemplateOptional.isEmpty()) {
@@ -56,7 +57,9 @@ public class TreeFromStructureNBTFeature extends Feature<NoneFeatureConfiguratio
         List<StructureTemplate.Palette> basePalettes = ((StructureTemplateAccess) baseTemplate).byg_getPalettes();
         List<StructureTemplate.Palette> canopyPalettes = ((StructureTemplateAccess) canopyTemplate).byg_getPalettes();
         BlockPos origin = featurePlaceContext.origin();
-//        level.setBlock(origin, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
+        if (DEBUG) {
+            level.setBlock(origin, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
+        }
         Random random = featurePlaceContext.random();
         StructurePlaceSettings placeSettings = new StructurePlaceSettings().setRotation(Rotation.getRandom(random));
         StructureTemplate.Palette randomBasePalette = placeSettings.getRandomPalette(basePalettes, origin);
@@ -69,13 +72,13 @@ public class TreeFromStructureNBTFeature extends Feature<NoneFeatureConfiguratio
         BlockPos centerOffset = center.get(0).pos;
         centerOffset = new BlockPos(-centerOffset.getX(), 0, -centerOffset.getZ());
 
-        List<StructureTemplate.StructureBlockInfo> leaves = randomCanopyPalette.blocks(BYGBlocks.MANGROVE_LEAVES);
-        List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(BYGBlocks.MANGROVE_LOG);
-        List<StructureTemplate.StructureBlockInfo> logs = randomBasePalette.blocks(BYGBlocks.MANGROVE_LOG);
+        List<StructureTemplate.StructureBlockInfo> leaves = randomCanopyPalette.blocks(config.leavesTarget());
+        List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(config.logTarget());
+        List<StructureTemplate.StructureBlockInfo> logs = randomBasePalette.blocks(config.logTarget());
         List<StructureTemplate.StructureBlockInfo> logBuilders = randomBasePalette.blocks(Blocks.RED_WOOL);
         List<StructureTemplate.StructureBlockInfo> trunkBuilder = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
 
-        int trunkLength = 15;
+        int trunkLength = config.height().sample(random);
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
             BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);

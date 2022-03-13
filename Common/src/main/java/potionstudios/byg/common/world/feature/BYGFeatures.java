@@ -139,6 +139,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.S
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree4;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree2;
@@ -175,7 +176,7 @@ public class BYGFeatures {
     public static final Feature<NoisySphereConfig> NOISY_CAVE_SPHERE_WATER = createFeature("noisy_cave_sphere_water", new NoisyCaveSphereWater(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISE_SPHERE = createFeature("sphere", new NoiseSphere(NoisySphereConfig.CODEC.stable()));
     public static final Feature<NoisySphereConfig> NOISE_SPIKE = createFeature("noise_spike", new Spike(NoisySphereConfig.CODEC.stable()));
-    public static final Feature<NoneFeatureConfiguration> BYG_TREE_FROM_NBT = createFeature("byg_tree_from_nbt", new TreeFromStructureNBTFeature(NoneFeatureConfiguration.CODEC.stable()));
+    public static final Feature<TreeFromStructureNBTConfig> BYG_TREE_FROM_NBT = createFeature("byg_tree_from_nbt", new TreeFromStructureNBTFeature(TreeFromStructureNBTConfig.CODEC.stable()));
 
     /********************************************************************Features*************************************************************************/
     //DeadSea

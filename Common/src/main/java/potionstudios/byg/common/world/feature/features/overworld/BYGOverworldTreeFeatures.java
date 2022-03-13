@@ -4,17 +4,20 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
@@ -39,10 +42,6 @@ public class BYGOverworldTreeFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> STRUCTURE_TREE = createConfiguredFeature("structure_tree",
-        BYGFeatures.BYG_TREE_FROM_NBT,
-        new NoneFeatureConfiguration()
-    );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE1 = createConfiguredFeature("ancient_tree1",
         BYGFeatures.ANCIENT_TREE1,
@@ -912,55 +911,65 @@ public class BYGOverworldTreeFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("mangrove_tree1",
-        BYGFeatures.MANGROVE_TREE1,
-        new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.MANGROVE_LOG)
-            .setLeavesBlock(BYGBlocks.MANGROVE_LEAVES)
-            .setMaxHeight(15)
-            .setMinHeight(10)
-            .setWhitelist(ImmutableList.of(BYGBlocks.MOSSY_STONE))
-            .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("mangrove_tree1",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new TreeFromStructureNBTConfig(
+            BYG.createLocation("features/trees/mangrove_tree1_base"),
+            BYG.createLocation("features/trees/mangrove_tree1_canopy"),
+            UniformInt.of(5, 15),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES),
+            BYGBlocks.MANGROVE_LOG,
+            BYGBlocks.MANGROVE_LEAVES
+        )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
-        BYGFeatures.MANGROVE_TREE2,
-        new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.MANGROVE_LOG)
-            .setLeavesBlock(BYGBlocks.MANGROVE_LEAVES)
-            .setMaxHeight(17)
-            .setMinHeight(11)
-            .setWhitelist(ImmutableList.of(BYGBlocks.MOSSY_STONE))
-            .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new TreeFromStructureNBTConfig(
+            BYG.createLocation("features/trees/mangrove_tree2_base"),
+            BYG.createLocation("features/trees/mangrove_tree2_canopy"),
+            UniformInt.of(5, 15),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES),
+            BYGBlocks.MANGROVE_LOG,
+            BYGBlocks.MANGROVE_LEAVES
+        )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
-        BYGFeatures.MANGROVE_TREE3,
-        new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.MANGROVE_LOG)
-            .setLeavesBlock(BYGBlocks.MANGROVE_LEAVES)
-            .setMaxHeight(16)
-            .setMinHeight(12)
-            .setWhitelist(ImmutableList.of(BYGBlocks.MOSSY_STONE))
-            .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new TreeFromStructureNBTConfig(
+            BYG.createLocation("features/trees/mangrove_tree3_base"),
+            BYG.createLocation("features/trees/mangrove_tree3_canopy"),
+            UniformInt.of(5, 15),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES),
+            BYGBlocks.MANGROVE_LOG,
+            BYGBlocks.MANGROVE_LEAVES
+        )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
-        BYGFeatures.MANGROVE_TREE4,
-        new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.MANGROVE_LOG)
-            .setLeavesBlock(BYGBlocks.MANGROVE_LEAVES)
-            .setMaxHeight(15)
-            .setMinHeight(10)
-            .setWhitelist(ImmutableList.of(BYGBlocks.MOSSY_STONE))
-            .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new TreeFromStructureNBTConfig(
+            BYG.createLocation("features/trees/mangrove_tree4_base"),
+            BYG.createLocation("features/trees/mangrove_tree4_canopy"),
+            UniformInt.of(5, 15),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES),
+            BYGBlocks.MANGROVE_LOG,
+            BYGBlocks.MANGROVE_LEAVES
+        )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
-        BYGFeatures.MANGROVE_TREE5,
-        new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.MANGROVE_LOG)
-            .setLeavesBlock(BYGBlocks.MANGROVE_LEAVES)
-            .setMaxHeight(17)
-            .setMinHeight(11)
-            .setWhitelist(ImmutableList.of(BYGBlocks.MOSSY_STONE))
-            .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
+        BYGFeatures.BYG_TREE_FROM_NBT,
+        new TreeFromStructureNBTConfig(
+            BYG.createLocation("features/trees/mangrove_tree5_base"),
+            BYG.createLocation("features/trees/mangrove_tree5_canopy"),
+            UniformInt.of(5, 15),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG),
+            BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES),
+            BYGBlocks.MANGROVE_LOG,
+            BYGBlocks.MANGROVE_LEAVES
+        )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
