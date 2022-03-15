@@ -192,10 +192,15 @@ public class BYGSurfaceRules {
         SurfaceRules.sequence(
             SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SAND.defaultBlockState())),
-                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SAND.defaultBlockState()))
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SAND.defaultBlockState())),
+                SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SAND.defaultBlockState())),
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SAND.defaultBlockState()))
             )),
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())),
-            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState()))
+            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.state(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState()))
+
         )
     );
     public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(BULBIS_PHYCELIUM, NIGHTSHADE_PHYLIUM, IMPARIUS_PHYLIUM, IVIS_PHYLIUM, SHULKREN_PHYLIUM, ETHEREAL_ISLANDS, CRYPTIC_FILL);
