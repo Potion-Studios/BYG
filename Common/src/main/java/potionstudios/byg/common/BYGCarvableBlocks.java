@@ -2,7 +2,7 @@ package potionstudios.byg.common;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.world.level.block.Block;
-import potionstudios.byg.common.block.BYGBlocks;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.Set;
 
@@ -25,7 +25,8 @@ public class BYGCarvableBlocks {
             BUDDING_AMETRINE_ORE, CRYPTIC_REDSTONE_ORE, CRYPTIC_STONE,
             MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, ETHER_STONE,
             VERMILION_SCULK, IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
-            SHULKREN_PHYLIUM, ETHER_PHYLIUM, NIGHTSHADE_PHYLIUM
+            SHULKREN_PHYLIUM, ETHER_PHYLIUM, NIGHTSHADE_PHYLIUM,
+            Blocks.MAGMA_BLOCK
         );
     }
 }
