@@ -112,6 +112,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createPlantTag("ground_nightshade_sapling");
 
     public static final TagKey<Block> FARMLAND = createTag("farmland");
+    public static final TagKey<Block> SPREADS_TO_END_STONE = createTag("spreads_to_end_stone");
 
 
     private static TagKey<Block> createPlantTag(String location) {

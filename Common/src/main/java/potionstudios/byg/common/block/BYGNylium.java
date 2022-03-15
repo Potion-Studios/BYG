@@ -18,7 +18,6 @@ import java.util.Random;
 public class BYGNylium extends NyliumBlock {
 
     public static final List<Block> BYG_NETHER_SURFACE_BLOCKS = new ArrayList<>();
-    public static final List<Block> BYG_END_SURFACE_BLOCKS = new ArrayList<>();
 
     private final RandomPatchConfiguration featureConfig;
     private final ResourceKey<Level> worldRegistryKey;
@@ -32,10 +31,6 @@ public class BYGNylium extends NyliumBlock {
 
         if (worldRegistryKey == Level.NETHER && overrides) {
             BYG_NETHER_SURFACE_BLOCKS.add(this);
-        }
-
-        if (worldRegistryKey == Level.END && overrides) {
-            BYG_END_SURFACE_BLOCKS.add(this);
         }
     }
 
