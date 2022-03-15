@@ -3,6 +3,7 @@ package potionstudios.byg.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.NyliumBlock;
@@ -46,10 +47,20 @@ public class BYGNylium extends NyliumBlock {
     }
 
     @Override
+    public boolean isBonemealSuccess(Level $$0, Random $$1, BlockPos $$2, BlockState $$3) {
+        return this.featureConfig != null;
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(BlockGetter $$0, BlockPos $$1, BlockState $$2, boolean $$3) {
+        return this.featureConfig != null;
+    }
+
+    @Override
     public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
         BlockState blockstate = world.getBlockState(pos);
         BlockPos blockpos = pos.above();
-        if (blockstate.is(this)) {
+        if (blockstate.is(this) && this.featureConfig != null) {
             BYGGrassBlock.place(world, rand, blockpos, featureConfig);
         }
 

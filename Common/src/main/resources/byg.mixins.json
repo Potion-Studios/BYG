@@ -67,6 +67,7 @@
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
+    "common.item.MixinBoneMealItem",
     "common.lightengine.WorldLightManagerMixin",
     "common.world.MixinChunkAccess",
     "common.world.MixinOreFeatures",
