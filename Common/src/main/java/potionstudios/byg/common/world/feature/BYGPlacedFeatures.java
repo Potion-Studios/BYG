@@ -298,7 +298,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> MINI_MUSHROOMS = createPlacedFeature("mini_mushrooms", BYGNetherVegetationFeatures.MINI_MUSHROOMS, CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
     public static final Holder<PlacedFeature> TWISTY_LAMENT_TREES = createPlacedFeature("twisty_lament_trees", BYGNetherVegetationFeatures.TWISTY_LAMENT_TREES, CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
     public static final Holder<PlacedFeature> WEEPING_LAMENT_TREES = createPlacedFeature("weeping_lament_trees", BYGNetherVegetationFeatures.WEEPING_LAMENT_TREES, CountOnEveryLayerPlacement.of(4), BiomeFilter.biome());
-    public static final Holder<PlacedFeature> WAILING_PILLARS = createPlacedFeature("wailing_pillar", BYGNetherFeatures.WAILING_PILLAR, CountOnEveryLayerPlacement.of(1), BiomeFilter.biome());
+    public static final Holder<PlacedFeature> WAILING_PILLARS = createPlacedFeature("wailing_pillar", BYGNetherFeatures.WAILING_PILLAR, CountOnEveryLayerPlacement.of(1), RarityFilter.onAverageOnceEvery(4), BiomeFilter.biome());
     public static final Holder<PlacedFeature> MAGMA_PATCH_FIRE = createPlacedFeature("magma_patch_fire", BYGNetherFeatures.MAGMA_PATCH_FIRE, CountPlacement.of(UniformInt.of(30, 45)), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome());
     public static final Holder<PlacedFeature> NYLIUM_SOUL_PATCH_FIRE = createPlacedFeature("nylium_soul_patch_fire", BYGNetherFeatures.NYLIUM_SOUL_PATCH_FIRE, CountPlacement.of(UniformInt.of(5, 10)), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome());
 
