@@ -113,6 +113,7 @@ public class BYGBlockTags {
 
     public static final TagKey<Block> FARMLAND = createTag("farmland");
     public static final TagKey<Block> SPREADS_TO_END_STONE = createTag("spreads_to_end_stone");
+    public static final TagKey<Block> SPREADS_TO_NETHERRACK = createTag("spreads_to_netherrack");
 
 
     private static TagKey<Block> createPlantTag(String location) {

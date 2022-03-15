@@ -1,7 +1,6 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -11,27 +10,17 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import potionstudios.byg.mixin.access.NyliumBlockAccess;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class BYGNylium extends NyliumBlock {
 
-    public static final List<Block> BYG_NETHER_SURFACE_BLOCKS = new ArrayList<>();
-
     private final RandomPatchConfiguration featureConfig;
-    private final ResourceKey<Level> worldRegistryKey;
     private final Block dirtBlock;
 
-    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, ResourceKey<Level> worldRegistryKey, Block dirtBlock, boolean overrides) {
+    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, Block dirtBlock) {
         super(properties);
         this.featureConfig = featureConfig;
-        this.worldRegistryKey = worldRegistryKey;
         this.dirtBlock = dirtBlock;
-
-        if (worldRegistryKey == Level.NETHER && overrides) {
-            BYG_NETHER_SURFACE_BLOCKS.add(this);
-        }
     }
 
     @Override
@@ -59,12 +48,10 @@ public class BYGNylium extends NyliumBlock {
             BYGGrassBlock.place(world, rand, blockpos, featureConfig);
         }
 
-        if (this.worldRegistryKey == Level.NETHER) {
-            if (rand.nextInt(8) == 0) {
+        if (rand.nextInt(8) == 0) {
 
-                //TODO: 1.18
-//                TwistingVinesFeature.place(world, rand, blockpos, 3, 1, 2);
-            }
+            //TODO: 1.18
+//          TwistingVinesFeature.place(world, rand, blockpos, 3, 1, 2);
         }
     }
 }
