@@ -35,14 +35,11 @@ public class WorldGenExportCommand {
     public static void worldGenExportCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
         String commandString = "worldGenExport";
 
-        LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString).then(Commands.argument("Generate Built In Registries?", BoolArgumentType.bool()).executes(cs -> {
-            WorldGenExportCommand.generateWorldGenExport(cs.getArgument("Generate Built In Registries?", Boolean.class), cs);
-            return 1;
-        })));
+        LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString).executes(cs -> generateWorldGenExport(false, cs)).then(Commands.argument("Generate Built In Registries?", BoolArgumentType.bool()).executes(cs -> WorldGenExportCommand.generateWorldGenExport(cs.getArgument("Generate Built In Registries?", Boolean.class), cs))));
         dispatcher.register(Commands.literal(commandString).redirect(source));
     }
 
-    public static void generateWorldGenExport(boolean builtin, CommandContext<CommandSourceStack> commandSource) {
+    public static int generateWorldGenExport(boolean builtin, CommandContext<CommandSourceStack> commandSource) {
         CommandSourceStack source = commandSource.getSource();
 
         source.sendSuccess(new TranslatableComponent("byg.worldgenexport.starting").withStyle(ChatFormatting.YELLOW), true);
@@ -69,9 +66,11 @@ public class WorldGenExportCommand {
             Component fileComponent = new TextComponent(exportPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, exportPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
 
             source.sendSuccess(new TranslatableComponent("byg.worldgenexport.success", fileComponent).withStyle(ChatFormatting.GREEN), true);
+            return 1;
         } catch (IOException e) {
             source.sendFailure(new TranslatableComponent("byg.worldgenexport.failed"));
             e.printStackTrace();
+            return 0;
         }
     }
 
