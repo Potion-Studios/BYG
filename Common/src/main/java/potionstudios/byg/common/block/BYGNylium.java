@@ -7,19 +7,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.NyliumBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.mixin.access.NyliumBlockAccess;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class BYGNylium extends NyliumBlock {
 
-    private final RandomPatchConfiguration featureConfig;
+    private final Supplier<ConfiguredFeature<?, ?>> feature;
     private final Block dirtBlock;
 
-    public BYGNylium(Properties properties, RandomPatchConfiguration featureConfig, Block dirtBlock) {
+    public BYGNylium(Properties properties, Supplier<ConfiguredFeature<?, ?>> feature, Block dirtBlock) {
         super(properties);
-        this.featureConfig = featureConfig;
+        this.feature = feature;
         this.dirtBlock = dirtBlock;
     }
 
@@ -32,26 +33,17 @@ public class BYGNylium extends NyliumBlock {
 
     @Override
     public boolean isBonemealSuccess(Level $$0, Random $$1, BlockPos $$2, BlockState $$3) {
-        return this.featureConfig != null;
+        return this.feature.get() != null;
     }
 
     @Override
     public boolean isValidBonemealTarget(BlockGetter $$0, BlockPos $$1, BlockState $$2, boolean $$3) {
-        return this.featureConfig != null;
+        return this.feature.get() != null;
     }
 
     @Override
     public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
-        BlockState blockstate = world.getBlockState(pos);
-        BlockPos blockpos = pos.above();
-        if (blockstate.is(this) && this.featureConfig != null) {
-            BYGGrassBlock.place(world, rand, blockpos, featureConfig);
-        }
-
-        if (rand.nextInt(8) == 0) {
-
-            //TODO: 1.18
-//          TwistingVinesFeature.place(world, rand, blockpos, 3, 1, 2);
-        }
+        ConfiguredFeature<?, ?> configuredFeature = this.feature.get();
+        configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, pos);
     }
 }
