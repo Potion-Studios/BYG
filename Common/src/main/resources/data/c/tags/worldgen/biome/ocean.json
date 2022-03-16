@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#byg:is_ocean",
+    "#byg:is_deep_ocean"
+  ]
+}
