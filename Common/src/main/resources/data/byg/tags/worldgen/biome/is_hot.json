@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#byg:is_desert",
+    "#byg:is_badlands"
+  ]
+}

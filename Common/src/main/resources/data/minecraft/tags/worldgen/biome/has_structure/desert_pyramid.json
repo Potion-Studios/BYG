@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-  "byg:shattered_glacier"
+    "#byg:has_structure/desert_pyramid"
   ]
 }

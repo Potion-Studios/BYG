@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-  "#minecraft:is_jungle"
+    "byg:shattered_glacier"
   ]
 }

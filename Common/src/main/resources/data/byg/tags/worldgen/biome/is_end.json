@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "byg:ivis_fields",
+    "byg:nightshade_forest",
+    "byg:ethereal_islands",
+    "byg:viscal_isles",
+    "byg:bulbis_gardens",
+    "byg:shulkren_forest",
+    "byg:cryptic_wastes",
+    "byg:imparius_grove"
+  ]
+}

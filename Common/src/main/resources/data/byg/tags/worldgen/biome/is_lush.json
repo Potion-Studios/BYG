@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "byg:lush_stacks",
+    "byg:orchard",
+    "byg:frosted_coniferous_forest",
+    "byg:allium_fields",
+    "byg:amaranth_fields",
+    "byg:rose_fields",
+    "byg:temperate_grove",
+    "byg:coconino_meadow",
+    "byg:skyris_vale"
+  ]
+}
