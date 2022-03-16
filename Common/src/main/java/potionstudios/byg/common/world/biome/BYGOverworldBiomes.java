@@ -1746,7 +1746,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
-        BiomeDefaultFeatures.addForestGrass(generationSettings);
+        BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 

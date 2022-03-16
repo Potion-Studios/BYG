@@ -2282,7 +2282,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RAINFOREST_TREES = createConfiguredFeature("rainforest_trees",
         Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(createPlacedFeature(TROPICAL_SHRUB1), 0.1F)),
+            new WeightedPlacedFeature(createPlacedFeature(TROPICAL_SHRUB1), 0.35F)),
             createPlacedFeature(MAHOGANY_TREES))
     );
 
