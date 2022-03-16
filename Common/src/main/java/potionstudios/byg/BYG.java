@@ -21,6 +21,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
+import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.mixin.access.WorldCarverAccess;
@@ -43,6 +44,7 @@ public class BYG {
     public static final boolean WARN_EXPERIMENTAL = false;
     public static final int EXPERIMENTAL_WARNING_VERSION = 5;
     public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
+    public static final boolean GENERATE_DATA = true; // Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
     public static boolean ENABLE_NYLIUM_FUNGI = true;
@@ -78,8 +80,9 @@ public class BYG {
     }
 
     public static void threadSafeCommonLoad() {
-        if (DEV_ENVIRONMENT) {
+        if (GENERATE_DATA) {
             LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
+            BYGDataProviders.generateProviders();
         }
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;

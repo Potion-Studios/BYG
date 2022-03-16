@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "${refmap_target}refmap.json",
   "mixins": [
+    "access.AdventureAdvancementsAccess",
     "access.AxeItemAccess",
     "access.BiomeGenerationSettingsAccess",
     "access.BiomeSourceAccess",
