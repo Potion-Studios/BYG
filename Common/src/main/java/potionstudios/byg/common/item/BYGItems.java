@@ -233,7 +233,7 @@ public class BYGItems {
     public static final Item WINDSWEPT_SANDSTONE_PILLAR = createItem(BYGBlocks.WINDSWEPT_SANDSTONE_PILLAR);
 
     //Aspen Woodtype
-    public static final Item ASPEN_SAPLING = createItem(BYGBlocks.ASPEN_SAPLING);
+    public static final Item ASPEN_SAPLING = createSaplingItem(BYGBlocks.ASPEN_SAPLING);
     public static final Item ASPEN_LEAVES = createItem(BYGBlocks.ASPEN_LEAVES);
     public static final Item ASPEN_LOG = createItem(BYGBlocks.ASPEN_LOG);
     public static final Item ASPEN_WOOD = createItem(BYGBlocks.ASPEN_WOOD);
@@ -254,7 +254,7 @@ public class BYGItems {
 
     //Baobab Woodtype
     public static final Item BAOBAB_FRUIT = createItem(new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
-    public static final Item BAOBAB_SAPLING = createItem(BYGBlocks.BAOBAB_SAPLING);
+    public static final Item BAOBAB_SAPLING = createSaplingItem(BYGBlocks.BAOBAB_SAPLING);
     public static final Item BAOBAB_LEAVES = createItem(BYGBlocks.BAOBAB_LEAVES);
     public static final Item BAOBAB_LOG = createItem(BYGBlocks.BAOBAB_LOG);
     public static final Item BAOBAB_WOOD = createItem(BYGBlocks.BAOBAB_WOOD);
@@ -274,7 +274,7 @@ public class BYGItems {
     public static final Item BAOBAB_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "baobab_boat");
 
     //Blue Enchanted Woodtype
-    public static final Item BLUE_ENCHANTED_SAPLING = createItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);
+    public static final Item BLUE_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);
     public static final Item BLUE_ENCHANTED_LEAVES = createItem(BYGBlocks.BLUE_ENCHANTED_LEAVES);
     public static final Item BLUE_ENCHANTED_LOG = createItem(BYGBlocks.BLUE_ENCHANTED_LOG);
     public static final Item BLUE_ENCHANTED_WOOD = createItem(BYGBlocks.BLUE_ENCHANTED_WOOD);
@@ -318,10 +318,10 @@ public class BYGItems {
 
 
     //Cherry Woodtype
-    public static final Item PINK_CHERRY_SAPLING = createItem(BYGBlocks.PINK_CHERRY_SAPLING);
+    public static final Item PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
     public static final Item PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
     public static final Item PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
-    public static final Item WHITE_CHERRY_SAPLING = createItem(BYGBlocks.WHITE_CHERRY_SAPLING);
+    public static final Item WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
     public static final Item WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
     public static final Item WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
     public static final Item CHERRY_LOG = createItem(BYGBlocks.CHERRY_LOG);
@@ -342,7 +342,7 @@ public class BYGItems {
     public static final Item CHERRY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cherry_boat");
 
     //Cika Woodtype
-    public static final Item CIKA_SAPLING = createItem(BYGBlocks.CIKA_SAPLING);
+    public static final Item CIKA_SAPLING = createSaplingItem(BYGBlocks.CIKA_SAPLING);
     public static final Item CIKA_LEAVES = createItem(BYGBlocks.CIKA_LEAVES);
     public static final Item CIKA_LOG = createItem(BYGBlocks.CIKA_LOG);
     public static final Item CIKA_WOOD = createItem(BYGBlocks.CIKA_WOOD);
@@ -362,7 +362,7 @@ public class BYGItems {
     public static final Item CIKA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cika_boat");
 
     //Cypress Woodtype
-    public static final Item CYPRESS_SAPLING = createItem(BYGBlocks.CYPRESS_SAPLING);
+    public static final Item CYPRESS_SAPLING = createSaplingItem(BYGBlocks.CYPRESS_SAPLING);
     public static final Item CYPRESS_LEAVES = createItem(BYGBlocks.CYPRESS_LEAVES);
     public static final Item CYPRESS_LOG = createItem(BYGBlocks.CYPRESS_LOG);
     public static final Item CYPRESS_WOOD = createItem(BYGBlocks.CYPRESS_WOOD);
@@ -382,7 +382,7 @@ public class BYGItems {
     public static final Item CYPRESS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cypress_boat");
 
     //Ebony Woodtype
-    public static final Item EBONY_SAPLING = createItem(BYGBlocks.EBONY_SAPLING);
+    public static final Item EBONY_SAPLING = createSaplingItem(BYGBlocks.EBONY_SAPLING);
     public static final Item EBONY_LEAVES = createItem(BYGBlocks.EBONY_LEAVES);
     public static final Item EBONY_LOG = createItem(BYGBlocks.EBONY_LOG);
     public static final Item EBONY_WOOD = createItem(BYGBlocks.EBONY_WOOD);
@@ -404,7 +404,7 @@ public class BYGItems {
     //Ether Woodtype
     public static final Item ETHER_BULBS = createItem(new BlockItem(BYGBlocks.ETHER_BULB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
 
-    public static final Item ETHER_SAPLING = createItem(BYGBlocks.ETHER_SAPLING);
+    public static final Item ETHER_SAPLING = createSaplingItem(BYGBlocks.ETHER_SAPLING);
     public static final Item ETHER_LEAVES = createItem(BYGBlocks.ETHER_LEAVES);
     public static final Item ETHER_LOG = createItem(BYGBlocks.ETHER_LOG);
     public static final Item ETHER_WOOD = createItem(BYGBlocks.ETHER_WOOD);
@@ -423,7 +423,7 @@ public class BYGItems {
     public static final Item ETHER_BUTTON = createItem(BYGBlocks.ETHER_BUTTON);
 
     //Fir Woodtype
-    public static final Item FIR_SAPLING = createItem(BYGBlocks.FIR_SAPLING);
+    public static final Item FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
     public static final Item FIR_LEAVES = createItem(BYGBlocks.FIR_LEAVES);
     public static final Item FIR_LOG = createItem(BYGBlocks.FIR_LOG);
     public static final Item FIR_WOOD = createItem(BYGBlocks.FIR_WOOD);
@@ -443,7 +443,7 @@ public class BYGItems {
     public static final Item FIR_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "fir_boat");
 
     //Green Enchanted Woodtype
-    public static final Item GREEN_ENCHANTED_SAPLING = createItem(BYGBlocks.GREEN_ENCHANTED_SAPLING);
+    public static final Item GREEN_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.GREEN_ENCHANTED_SAPLING);
     public static final Item GREEN_ENCHANTED_LEAVES = createItem(BYGBlocks.GREEN_ENCHANTED_LEAVES);
     public static final Item GREEN_ENCHANTED_LOG = createItem(BYGBlocks.GREEN_ENCHANTED_LOG);
     public static final Item GREEN_ENCHANTED_WOOD = createItem(BYGBlocks.GREEN_ENCHANTED_WOOD);
@@ -465,7 +465,7 @@ public class BYGItems {
     //Holly Woodtype
     public static final Item HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
     public static final Item HOLLY_BERRY = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
-    public static final Item HOLLY_SAPLING = createItem(BYGBlocks.HOLLY_SAPLING);
+    public static final Item HOLLY_SAPLING = createSaplingItem(BYGBlocks.HOLLY_SAPLING);
     public static final Item HOLLY_LEAVES = createItem(BYGBlocks.HOLLY_LEAVES);
     public static final Item HOLLY_LOG = createItem(BYGBlocks.HOLLY_LOG);
     public static final Item HOLLY_WOOD = createItem(BYGBlocks.HOLLY_WOOD);
@@ -512,12 +512,12 @@ public class BYGItems {
     //Jacaranda Woodtype
     public static final Item JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
     public static final Item FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
-    public static final Item JACARANDA_SAPLING = createItem(BYGBlocks.JACARANDA_SAPLING);
+    public static final Item JACARANDA_SAPLING = createSaplingItem(BYGBlocks.JACARANDA_SAPLING);
     public static final Item JACARANDA_LEAVES = createItem(BYGBlocks.JACARANDA_LEAVES);
     public static final Item FLOWERING_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_JACARANDA_LEAVES);
     public static final Item INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.INDIGO_JACARANDA_BUSH);
     public static final Item FLOWERING_INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH);
-    public static final Item INDIGO_JACARANDA_SAPLING = createItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
+    public static final Item INDIGO_JACARANDA_SAPLING = createSaplingItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
     public static final Item INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.INDIGO_JACARANDA_LEAVES);
     public static final Item FLOWERING_INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES);
     public static final Item JACARANDA_LOG = createItem(BYGBlocks.JACARANDA_LOG);
@@ -538,7 +538,7 @@ public class BYGItems {
     public static final Item JACARANDA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "jacaranda_boat");
 
     //Lament Woodtype
-    public static final Item LAMENT_SAPLING = createItem(BYGBlocks.LAMENT_SAPLING);
+    public static final Item LAMENT_SAPLING = createSaplingItem(BYGBlocks.LAMENT_SAPLING);
     public static final Item LAMENT_LEAVES = createItem(BYGBlocks.LAMENT_LEAVES);
     public static final Item LAMENT_VINE = createItem(BYGBlocks.LAMENT_VINE);
     public static final Item LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
@@ -559,7 +559,7 @@ public class BYGItems {
     public static final Item LAMENT_BUTTON = createItem(BYGBlocks.LAMENT_BUTTON);
 
     //Mahogany Woodtype
-    public static final Item MAHOGANY_SAPLING = createItem(BYGBlocks.MAHOGANY_SAPLING);
+    public static final Item MAHOGANY_SAPLING = createSaplingItem(BYGBlocks.MAHOGANY_SAPLING);
     public static final Item MAHOGANY_LEAVES = createItem(BYGBlocks.MAHOGANY_LEAVES);
     public static final Item MAHOGANY_LOG = createItem(BYGBlocks.MAHOGANY_LOG);
     public static final Item MAHOGANY_WOOD = createItem(BYGBlocks.MAHOGANY_WOOD);
@@ -579,7 +579,7 @@ public class BYGItems {
     public static final Item MAHOGANY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mahogany_boat");
 
     //Mangrove Woodtype
-    public static final Item MANGROVE_SAPLING = createItem(BYGBlocks.MANGROVE_SAPLING);
+    public static final Item MANGROVE_SAPLING = createSaplingItem(BYGBlocks.MANGROVE_SAPLING);
     public static final Item MANGROVE_LEAVES = createItem(BYGBlocks.MANGROVE_LEAVES);
     public static final Item MANGROVE_LOG = createItem(BYGBlocks.MANGROVE_LOG);
     public static final Item MANGROVE_WOOD = createItem(BYGBlocks.MANGROVE_WOOD);
@@ -599,11 +599,11 @@ public class BYGItems {
     public static final Item MANGROVE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mangrove_boat");
 
     //Maple Woodtype
-    public static final Item MAPLE_SAPLING = createItem(BYGBlocks.MAPLE_SAPLING);
+    public static final Item MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
     public static final Item MAPLE_LEAVES = createItem(BYGBlocks.MAPLE_LEAVES);
-    public static final Item RED_MAPLE_SAPLING = createItem(BYGBlocks.RED_MAPLE_SAPLING);
+    public static final Item RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
     public static final Item RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
-    public static final Item SILVER_MAPLE_SAPLING = createItem(BYGBlocks.SILVER_MAPLE_SAPLING);
+    public static final Item SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
     public static final Item SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
     public static final Item MAPLE_LOG = createItem(BYGBlocks.MAPLE_LOG);
     public static final Item MAPLE_WOOD = createItem(BYGBlocks.MAPLE_WOOD);
@@ -623,7 +623,7 @@ public class BYGItems {
     public static final Item MAPLE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
 
     //Nightshade Woodtype
-    public static final Item NIGHTSHADE_SAPLING = createItem(BYGBlocks.NIGHTSHADE_SAPLING);
+    public static final Item NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
     public static final Item FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
     public static final Item NIGHTSHADE_LEAVES = createItem(BYGBlocks.NIGHTSHADE_LEAVES);
     public static final Item IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
@@ -644,7 +644,7 @@ public class BYGItems {
     public static final Item NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
 
     //Palm Woodtype
-    public static final Item PALM_SAPLING = createItem(BYGBlocks.PALM_SAPLING);
+    public static final Item PALM_SAPLING = createSaplingItem(BYGBlocks.PALM_SAPLING);
     public static final Item PALM_LEAVES = createItem(BYGBlocks.PALM_LEAVES);
     public static final Item PALM_LOG = createItem(BYGBlocks.PALM_LOG);
     public static final Item PALM_WOOD = createItem(BYGBlocks.PALM_WOOD);
@@ -665,7 +665,7 @@ public class BYGItems {
 
     //Palo Verde Woodtype
     public static final Item FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
-    public static final Item PALO_VERDE_SAPLING = createItem(BYGBlocks.PALO_VERDE_SAPLING);
+    public static final Item PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
     public static final Item PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
     public static final Item PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
     public static final Item PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
@@ -673,7 +673,7 @@ public class BYGItems {
     public static final Item STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
 
     //Pine Woodtype
-    public static final Item PINE_SAPLING = createItem(BYGBlocks.PINE_SAPLING);
+    public static final Item PINE_SAPLING = createSaplingItem(BYGBlocks.PINE_SAPLING);
     public static final Item PINE_LEAVES = createItem(BYGBlocks.PINE_LEAVES);
     public static final Item PINE_LOG = createItem(BYGBlocks.PINE_LOG);
     public static final Item PINE_WOOD = createItem(BYGBlocks.PINE_WOOD);
@@ -693,7 +693,7 @@ public class BYGItems {
     public static final Item PINE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "pine_boat");
 
     //Rainbow Eucalyptus Woodtype
-    public static final Item RAINBOW_EUCALYPTUS_SAPLING = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
+    public static final Item RAINBOW_EUCALYPTUS_SAPLING = createSaplingItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
     public static final Item RAINBOW_EUCALYPTUS_LEAVES = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES);
     public static final Item RAINBOW_EUCALYPTUS_LOG = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LOG);
     public static final Item RAINBOW_EUCALYPTUS_WOOD = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_WOOD);
@@ -713,7 +713,7 @@ public class BYGItems {
     public static final Item RAINBOW_EUCALYPTUS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "rainbow_eucalyptus_boat");
 
     //Redwood Woodtype
-    public static final Item REDWOOD_SAPLING = createItem(BYGBlocks.REDWOOD_SAPLING);
+    public static final Item REDWOOD_SAPLING = createSaplingItem(BYGBlocks.REDWOOD_SAPLING);
     public static final Item REDWOOD_LEAVES = createItem(BYGBlocks.REDWOOD_LEAVES);
     public static final Item REDWOOD_LOG = createItem(BYGBlocks.REDWOOD_LOG);
     public static final Item REDWOOD_WOOD = createItem(BYGBlocks.REDWOOD_WOOD);
@@ -736,7 +736,7 @@ public class BYGItems {
     public static final Item SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
     public static final Item GREEN_APPLE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
     public static final Item GREEN_APPLE_PIE = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
-    public static final Item SKYRIS_SAPLING = createItem(BYGBlocks.SKYRIS_SAPLING);
+    public static final Item SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
     public static final Item SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
     public static final Item SKYRIS_LEAVES = createItem(BYGBlocks.SKYRIS_LEAVES);
     public static final Item SKYRIS_LOG = createItem(BYGBlocks.SKYRIS_LOG);
@@ -757,7 +757,7 @@ public class BYGItems {
     public static final Item SKYRIS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
 
     //Willow Woodtype
-    public static final Item WILLOW_SAPLING = createItem(BYGBlocks.WILLOW_SAPLING);
+    public static final Item WILLOW_SAPLING = createSaplingItem(BYGBlocks.WILLOW_SAPLING);
     public static final Item WILLOW_LEAVES = createItem(BYGBlocks.WILLOW_LEAVES);
     public static final Item WILLOW_LOG = createItem(BYGBlocks.WILLOW_LOG);
     public static final Item WILLOW_WOOD = createItem(BYGBlocks.WILLOW_WOOD);
@@ -781,7 +781,7 @@ public class BYGItems {
     public static final Item WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
 
     public static final Item BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
-    public static final Item WITCH_HAZEL_SAPLING = createItem(BYGBlocks.WITCH_HAZEL_SAPLING);
+    public static final Item WITCH_HAZEL_SAPLING = createSaplingItem(BYGBlocks.WITCH_HAZEL_SAPLING);
     public static final Item WITCH_HAZEL_LEAVES = createItem(BYGBlocks.WITCH_HAZEL_LEAVES);
     public static final Item WITCH_HAZEL_LOG = createItem(BYGBlocks.WITCH_HAZEL_LOG);
     public static final Item WITCH_HAZEL_WOOD = createItem(BYGBlocks.WITCH_HAZEL_WOOD);
@@ -801,7 +801,7 @@ public class BYGItems {
     public static final Item WITCH_HAZEL_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "witch_hazel_boat");
 
     //Zelkova Woodtype
-    public static final Item ZELKOVA_SAPLING = createItem(BYGBlocks.ZELKOVA_SAPLING);
+    public static final Item ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.ZELKOVA_SAPLING);
     public static final Item ZELKOVA_LEAVES = createItem(BYGBlocks.ZELKOVA_LEAVES);
     public static final Item ZELKOVA_LOG = createItem(BYGBlocks.ZELKOVA_LOG);
     public static final Item ZELKOVA_WOOD = createItem(BYGBlocks.ZELKOVA_WOOD);
@@ -1228,6 +1228,10 @@ public class BYGItems {
 
     public static BlockItem createItem(Block block) {
        return createItem(new BlockItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+    }
+
+    public static BlockItem createSaplingItem(Block block) {
+        return createItem(new BYGSaplingItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
     public static <T extends Item> T createItem(T item, Block block) {
