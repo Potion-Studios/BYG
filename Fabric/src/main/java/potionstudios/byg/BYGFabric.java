@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import org.jetbrains.annotations.NotNull;
@@ -22,6 +23,8 @@ import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.network.FabricNetworkHandler;
+import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
@@ -46,6 +49,7 @@ public class BYGFabric implements ModInitializer {
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
+        FabricNetworkHandler.init();
     }
 
     private void registryBootStrap() {
@@ -90,7 +94,11 @@ public class BYGFabric implements ModInitializer {
             public boolean isModLoaded(String isLoaded) {
                 return FabricLoader.getInstance().isModLoaded(isLoaded);
             }
+
+            @Override
+            public <P extends BYGS2CPacket> void sendToClient(ServerPlayer player, P packet) {
+                FabricNetworkHandler.sendToPlayer(player, packet);
+            }
         };
     }
-
 }

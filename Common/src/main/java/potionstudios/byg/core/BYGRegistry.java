@@ -13,5 +13,4 @@ public class BYGRegistry {
 
 
     public static final Registry<Codec<? extends BlendingFunction>> BLENDING_FUNCTION = RegistryAccess.byg_invokeRegisterSimple(BLENDING_FUNCTION_RESOURCE_KEY, Lifecycle.stable(), registry -> BlendingFunction.CODEC);
-
 }

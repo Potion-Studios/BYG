@@ -8,9 +8,12 @@ import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.TranslatableComponent;
 import potionstudios.byg.common.block.sapling.BYGSapling;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.util.ModLoaderContext;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 public class ReloadConfigsCommand {
 
@@ -22,7 +25,7 @@ public class ReloadConfigsCommand {
         return Commands.literal(commandString).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(Arrays.stream(Config.values()).map(Config::toString), sb)).executes(cs -> {
             try {
                 Config config = Config.valueOf(cs.getArgument(argName, String.class).toUpperCase());
-                config.run();
+                config.accept(cs.getSource());
                 cs.getSource().sendSuccess(new TranslatableComponent("byg.command.config.success", config.toString()), true);
                 return 1;
             } catch (IllegalArgumentException e) {
@@ -34,18 +37,20 @@ public class ReloadConfigsCommand {
 
 
     public enum Config {
-        SAPLINGS(() -> {
+        SAPLINGS((stack) -> {
             SaplingPatterns.getConfig(true);
             BYGSapling.SERIALIZERS.forEach(CommonSetupLoad::load);
+            ModLoaderContext.getInstance().sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         });
 
-        private final Runnable runnable;
-        Config(Runnable runnable) {
+        private final Consumer<CommandSourceStack> runnable;
+
+        Config(Consumer<CommandSourceStack> runnable) {
             this.runnable = runnable;
         }
 
-        public void run() {
-            this.runnable.run();
+        public void accept(CommandSourceStack stack) {
+            this.runnable.accept(stack);
         }
     }
 }
