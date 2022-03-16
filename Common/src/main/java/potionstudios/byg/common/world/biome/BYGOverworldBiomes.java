@@ -1743,10 +1743,8 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
 
-
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addJungleTrees(generationSettings);
         BiomeDefaultFeatures.addWarmFlowers(generationSettings);
         BiomeDefaultFeatures.addForestGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
