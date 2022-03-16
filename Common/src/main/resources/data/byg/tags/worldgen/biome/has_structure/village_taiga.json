@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:is_taiga"
+    "#byg:is_taiga"
   ]
 }
