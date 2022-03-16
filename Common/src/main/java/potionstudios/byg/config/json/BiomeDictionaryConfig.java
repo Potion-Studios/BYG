@@ -23,6 +23,7 @@ import java.util.Map;
 
 import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 
+@Deprecated
 public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeDictionary) {
     public static final BiomeDictionaryConfig DEFAULT = new BiomeDictionaryConfig(Util.make(new Object2ObjectOpenHashMap<>(), map -> {
         map.put(ALLIUM_FIELDS, List.of("PLAINS", "RARE", "LUSH", "OVERWORLD"));
