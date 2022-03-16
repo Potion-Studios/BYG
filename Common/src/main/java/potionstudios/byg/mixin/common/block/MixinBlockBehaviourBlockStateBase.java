@@ -14,15 +14,15 @@ import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.MLBlockTags;
 
 @Mixin(BlockBehaviour.BlockStateBase.class)
-public abstract class MixinAbstractBlockStateBookshelf {
+public abstract class MixinBlockBehaviourBlockStateBase {
 
 
-    @Shadow public abstract boolean is(TagKey<Block> $$0);
+    @Shadow
+    public abstract boolean is(TagKey<Block> $$0);
 
     @Inject(at = @At("HEAD"), method = "is(Lnet/minecraft/world/level/block/Block;)Z", cancellable = true)
     private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
         if (BYGUtil.useTagReplacements) {
-            // We need to make sure we're bounded first before using
             if (block == Blocks.BOOKSHELF) {
                 info.setReturnValue(this.is(MLBlockTags.BOOKSHELVES));
             }

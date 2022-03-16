@@ -495,8 +495,11 @@ public record SaplingPatterns(boolean logSaplingGrowth, Map<ResourceLocation, Li
         if (INSTANCE == null || serialize) {
             INSTANCE = readConfig();
         }
-
         return INSTANCE;
+    }
+
+    public static void setInstance(SaplingPatterns instance) {
+        SaplingPatterns.INSTANCE = instance;
     }
 
     private static SaplingPatterns readConfig() {

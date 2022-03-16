@@ -25,11 +25,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
+import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.ModLoaderContext;
 
@@ -63,6 +65,7 @@ public abstract class MixinServerLevel extends Level {
 
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
+        ModLoaderContext.getInstance().sendToClient(serverPlayer, new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         if (this.getServer().isSingleplayer()) {
             if (BYG.WARN_EXPERIMENTAL) {
                 final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYG.EXPERIMENTAL_WARNING_VERSION + ".txt");

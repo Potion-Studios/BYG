@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.inventory.MenuType;
@@ -48,6 +49,8 @@ import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
+import potionstudios.byg.network.ForgeNetworkHandler;
+import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
@@ -125,6 +128,7 @@ public class BYGForge {
     private void commonLoad(FMLCommonSetupEvent event) {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
+        event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(() -> {
             OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
             if (config.generateOverworld()) {
@@ -168,6 +172,11 @@ public class BYGForge {
             @Override
             public boolean isModLoaded(String isLoaded) {
                 return ModList.get().isLoaded(isLoaded);
+            }
+
+            @Override
+            public <P extends BYGS2CPacket> void sendToClient(ServerPlayer player, P packet) {
+                ForgeNetworkHandler.sendToPlayer(player, packet);
             }
         };
     }
