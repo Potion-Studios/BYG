@@ -1,5 +1,6 @@
 package potionstudios.byg.data.advancements;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +12,7 @@ import potionstudios.byg.BYG;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -18,6 +20,7 @@ public class BYGAdvancementProvider implements DataProvider {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     private final Path outputFolder;
 
+    private static final List<Consumer<Consumer<Advancement>>> ADVANCEMENTS = ImmutableList.of(new BYGAdventureAdvancements(), new BYGHusbandryAdvancements());
 
     public BYGAdvancementProvider(Path outputFolder) {
         this.outputFolder = outputFolder;
@@ -41,7 +44,9 @@ public class BYGAdvancementProvider implements DataProvider {
 
             }
         };
-        new BYGAdvancements().accept(consumer);
+        for (Consumer<Consumer<Advancement>> advancement : ADVANCEMENTS) {
+            advancement.accept(consumer);
+        }
     }
 
     private static Path createPath(Path path, Advancement advancement) {

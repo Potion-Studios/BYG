@@ -13,5 +13,9 @@
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
   "container.hypogeal_imperium_container": "Hypogeal Imperium",
-  "itemGroup.byg.byg": "Oh The Biomes You'll Go"
+  "itemGroup.byg.byg": "Oh The Biomes You'll Go",
+  "byg.advancements.adventure.explore_biomes.title": "Oh The Biomes You'll Go!",
+  "byg.advancements.adventure.explore_biomes.description": "Discover every biome in Oh The Biomes You'll Go",
+  "byg.advancements.items.green_apple.title": "Granny Smith?",
+  "byg.advancements.items.green_apple.description": "Obtain a Green Apple from the Skyris Highlands"
 }
