@@ -160,6 +160,7 @@ import java.util.List;
 public class BYGFeatures {
 
     public static List<RegistryObject<Feature<?>>> FEATURES = new ArrayList<>();
+    public static final Feature<GlobalBiomeFeature.Config> GLOBAL = createFeature("global", new GlobalBiomeFeature());
 
     public static final Feature<NoneFeatureConfiguration> DUMMY_TREE = createFeature("dummy_tree", new SmallPineTree(NoneFeatureConfiguration.CODEC.stable()));
     public static final Feature<NoneFeatureConfiguration> BEEHIVE = createFeature("beehive", new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));

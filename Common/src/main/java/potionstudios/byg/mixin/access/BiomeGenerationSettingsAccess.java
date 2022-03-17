@@ -12,8 +12,5 @@ import java.util.List;
 public interface BiomeGenerationSettingsAccess {
 
     @Accessor("features")
-    List<HolderSet<PlacedFeature>> byg_getFeatures();
-
-    @Accessor("features")
     void byg_setFeatures(List<HolderSet<PlacedFeature>> features);
 }

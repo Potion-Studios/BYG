@@ -12,6 +12,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
 import potionstudios.byg.common.world.feature.config.*;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
@@ -35,6 +37,18 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.cr
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGOverworldFeatures {
+
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_RAW_GENERATION = createConfiguredFeature("global_" + GenerationStep.Decoration.RAW_GENERATION.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_LAKES = createConfiguredFeature("global_" + GenerationStep.Decoration.LAKES.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_LOCAL_MODIFICATIONS = createConfiguredFeature("global_" + GenerationStep.Decoration.LOCAL_MODIFICATIONS.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_UNDERGROUND_STRUCTURES = createConfiguredFeature("global_" + GenerationStep.Decoration.UNDERGROUND_STRUCTURES.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_SURFACE_STRUCTURES = createConfiguredFeature("global_" + GenerationStep.Decoration.SURFACE_STRUCTURES.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_STRONGHOLDS = createConfiguredFeature("global_" + GenerationStep.Decoration.STRONGHOLDS.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_UNDERGROUND_ORES = createConfiguredFeature("global_" + GenerationStep.Decoration.UNDERGROUND_ORES.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_UNDERGROUND_DECORATION = createConfiguredFeature("global_" + GenerationStep.Decoration.UNDERGROUND_DECORATION.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_FLUID_SPRINGS = createConfiguredFeature("global_" + GenerationStep.Decoration.FLUID_SPRINGS.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_VEGETAL_DECORATION = createConfiguredFeature("global_" + GenerationStep.Decoration.VEGETAL_DECORATION.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
+    public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_TOP_LAYER_MODIFICATION = createConfiguredFeature("global_" + GenerationStep.Decoration.TOP_LAYER_MODIFICATION.name().toLowerCase(), BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct()));
 
     public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> BEEHIVES = createConfiguredFeature("beehives", BYGFeatures.BEEHIVE, new NoneFeatureConfiguration());
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> MOSSY_STONE_BOULDER = createConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.MOSSY_STONE.defaultBlockState()));

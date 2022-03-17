@@ -22,6 +22,7 @@ import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.config.BYGConfig;
+import potionstudios.byg.config.WorldConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
@@ -63,6 +64,16 @@ public class BYG {
 
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
+        handleConfigs();
+
+        for (WorldCarver<?> worldCarver : Registry.CARVER) {
+            WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
+            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
+        }
+        LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+    }
+
+    private static void handleConfigs() {
         CommonSetupLoad.ENTRIES.forEach(CommonSetupLoad::load);
         try {
             Files.createDirectories(CONFIG_PATH);
@@ -73,12 +84,7 @@ public class BYG {
         EndBiomesConfig.getConfig(true);
         NetherBiomesConfig.getConfig(true);
         BYGConfig.getConfig(true);
-
-        for (WorldCarver<?> worldCarver : Registry.CARVER) {
-            WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
-            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
-        }
-        LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+        WorldConfig.worldConfig(true);
     }
 
     public static void threadSafeCommonLoad() {
