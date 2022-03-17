@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -73,5 +74,10 @@ public class BYGFeaturesUtil {
                 BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.UP))))
             .add(BlockPredicate.matchesBlocks(List.of(Blocks.AIR, Blocks.CAVE_AIR)))
             .add(predicates).build()));
+    }
+
+
+    public static String globalGenStagePath(GenerationStep.Decoration stage) {
+        return "global/" + stage.toString().toLowerCase();
     }
 }

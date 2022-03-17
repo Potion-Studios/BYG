@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.world.feature.features.BYGGlobalFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherFeatures;
@@ -37,22 +38,23 @@ import java.util.OptionalInt;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
+import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.globalGenStagePath;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.*;
 import static potionstudios.byg.mixin.access.OrePlacementsAccess.byg_invokeCommonOrePlacement;
 
 public class BYGPlacedFeatures {
 
-    public static final Holder<PlacedFeature> GLOBAL_RAW_GENERATION = createPlacedFeature("global_" + GenerationStep.Decoration.RAW_GENERATION.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_RAW_GENERATION);
-    public static final Holder<PlacedFeature> GLOBAL_LAKES = createPlacedFeature("global_" + GenerationStep.Decoration.LAKES.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_LAKES);
-    public static final Holder<PlacedFeature> GLOBAL_LOCAL_MODIFICATIONS = createPlacedFeature("global_" + GenerationStep.Decoration.LOCAL_MODIFICATIONS.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_LOCAL_MODIFICATIONS);
-    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_STRUCTURES = createPlacedFeature("global_" + GenerationStep.Decoration.UNDERGROUND_STRUCTURES.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_UNDERGROUND_STRUCTURES);
-    public static final Holder<PlacedFeature> GLOBAL_SURFACE_STRUCTURES = createPlacedFeature("global_" + GenerationStep.Decoration.SURFACE_STRUCTURES.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_SURFACE_STRUCTURES);
-    public static final Holder<PlacedFeature> GLOBAL_STRONGHOLDS = createPlacedFeature("global_" + GenerationStep.Decoration.STRONGHOLDS.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_STRONGHOLDS);
-    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_ORES = createPlacedFeature("global_" + GenerationStep.Decoration.UNDERGROUND_ORES.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_UNDERGROUND_ORES);
-    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_DECORATION = createPlacedFeature("global_" + GenerationStep.Decoration.UNDERGROUND_DECORATION.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_UNDERGROUND_DECORATION);
-    public static final Holder<PlacedFeature> GLOBAL_FLUID_SPRINGS = createPlacedFeature("global_" + GenerationStep.Decoration.FLUID_SPRINGS.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_FLUID_SPRINGS);
-    public static final Holder<PlacedFeature> GLOBAL_VEGETAL_DECORATION = createPlacedFeature("global_" + GenerationStep.Decoration.VEGETAL_DECORATION.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_VEGETAL_DECORATION);
-    public static final Holder<PlacedFeature> GLOBAL_TOP_LAYER_MODIFICATION = createPlacedFeature("global_" + GenerationStep.Decoration.TOP_LAYER_MODIFICATION.name().toLowerCase(), BYGOverworldFeatures.GLOBAL_TOP_LAYER_MODIFICATION);
+    public static final Holder<PlacedFeature> GLOBAL_RAW_GENERATION = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.RAW_GENERATION), BYGGlobalFeatures.GLOBAL_RAW_GENERATION);
+    public static final Holder<PlacedFeature> GLOBAL_LAKES = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.LAKES), BYGGlobalFeatures.GLOBAL_LAKES);
+    public static final Holder<PlacedFeature> GLOBAL_LOCAL_MODIFICATIONS = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.LOCAL_MODIFICATIONS), BYGGlobalFeatures.GLOBAL_LOCAL_MODIFICATIONS);
+    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_STRUCTURES = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.UNDERGROUND_STRUCTURES), BYGGlobalFeatures.GLOBAL_UNDERGROUND_STRUCTURES);
+    public static final Holder<PlacedFeature> GLOBAL_SURFACE_STRUCTURES = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.SURFACE_STRUCTURES), BYGGlobalFeatures.GLOBAL_SURFACE_STRUCTURES);
+    public static final Holder<PlacedFeature> GLOBAL_STRONGHOLDS = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.STRONGHOLDS), BYGGlobalFeatures.GLOBAL_STRONGHOLDS);
+    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_ORES = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.UNDERGROUND_ORES), BYGGlobalFeatures.GLOBAL_UNDERGROUND_ORES);
+    public static final Holder<PlacedFeature> GLOBAL_UNDERGROUND_DECORATION = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.UNDERGROUND_DECORATION), BYGGlobalFeatures.GLOBAL_UNDERGROUND_DECORATION);
+    public static final Holder<PlacedFeature> GLOBAL_FLUID_SPRINGS = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.FLUID_SPRINGS), BYGGlobalFeatures.GLOBAL_FLUID_SPRINGS);
+    public static final Holder<PlacedFeature> GLOBAL_VEGETAL_DECORATION = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.VEGETAL_DECORATION), BYGGlobalFeatures.GLOBAL_VEGETAL_DECORATION);
+    public static final Holder<PlacedFeature> GLOBAL_TOP_LAYER_MODIFICATION = createPlacedFeature(globalGenStagePath(GenerationStep.Decoration.TOP_LAYER_MODIFICATION), BYGGlobalFeatures.GLOBAL_TOP_LAYER_MODIFICATION);
 
 
     public static final NoiseThresholdCountPlacement CRAG_NOISE = NoiseThresholdCountPlacement.of(0, 1, 0);
