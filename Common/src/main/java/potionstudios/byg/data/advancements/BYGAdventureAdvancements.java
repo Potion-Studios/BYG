@@ -17,13 +17,15 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class BYGAdventureAdvancements implements Consumer<Consumer<Advancement>> {
+public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancement> {
 
 
     @Override
-    public void accept(Consumer<Advancement> advancementConsumer) {
+    public void accept(Consumer<Advancement> advancementConsumer, Advancement root) {
+
+
         List<ResourceKey<Biome>> biomes = BYGBiomes.BIOMES.stream().map(RegistryObject::id).map(key -> ResourceKey.create(Registry.BIOME_REGISTRY, BYG.createLocation(key))).filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES).collect(Collectors.toList());
-        AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes)
+        AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
             .display(BYGItems.BYG_LOGO, new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
                 new TranslatableComponent("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)
             .rewards(AdvancementRewards.Builder.experience(1000))

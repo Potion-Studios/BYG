@@ -1,4 +1,18 @@
 {
+  "byg.advancements.husbandry.berrily_alive.description": "Obtain Blue Berries",
+  "byg.advancements.husbandry.berrily_alive.title": "Berrily Alive",
+  "byg.advancements.husbandry.forager.description": "Obtain White Puffball Caps",
+  "byg.advancements.husbandry.forager.title": "Forager",
+  "byg.advancements.husbandry.granny_smith.description": "Obtain a Green Apple from the Skyris Highlands",
+  "byg.advancements.husbandry.granny_smith.title": "Granny Smith?",
+  "byg.advancements.husbandry.hot_diggity_not_dog.description": "Cook a Cattail on a campfire, you might wanna back away...",
+  "byg.advancements.husbandry.hot_diggity_not_dog.title": "Hot Diggity Not Dog?",
+  "byg.advancements.husbandry.just_like_grandmas.description": "Craft any of the 4 BYG pies.",
+  "byg.advancements.husbandry.just_like_grandmas.title": "Just Like Grandma's",
+  "byg.advancements.husbandry.root.description": "",
+  "byg.advancements.husbandry.root.title": "Husbandry",
+  "byg.advancements.root.description": "",
+  "byg.advancements.root.title": "Oh the Biomes You'll Go",
   "byg.clickevent.hovertext": "Click to open.",
   "byg.clickme": "Here(Click me!)",
   "byg.command.config.error": "\"%s\" is not a valid config type!",
@@ -13,9 +27,5 @@
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
   "container.hypogeal_imperium_container": "Hypogeal Imperium",
-  "itemGroup.byg.byg": "Oh The Biomes You'll Go",
-  "byg.advancements.adventure.explore_biomes.title": "Oh The Biomes You'll Go!",
-  "byg.advancements.adventure.explore_biomes.description": "Discover every biome in Oh The Biomes You'll Go",
-  "byg.advancements.items.green_apple.title": "Granny Smith?",
-  "byg.advancements.items.green_apple.description": "Obtain a Green Apple from the Skyris Highlands"
+  "itemGroup.byg.byg": "Oh The Biomes You'll Go"
 }
