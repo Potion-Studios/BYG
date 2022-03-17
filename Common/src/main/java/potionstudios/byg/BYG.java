@@ -21,6 +21,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
+import potionstudios.byg.config.BYGConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
@@ -71,6 +72,7 @@ public class BYG {
         }
         EndBiomesConfig.getConfig(true);
         NetherBiomesConfig.getConfig(true);
+        BYGConfig.getConfig(true);
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;

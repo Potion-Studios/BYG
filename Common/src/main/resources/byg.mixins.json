@@ -19,6 +19,7 @@
     "access.FireBlockAccess",
     "access.HoeItemAccess",
     "access.IronBarsBlockAccess",
+    "access.JsonReloadListenerAccess",
     "access.LeavesBlockAccess",
     "access.MenuTypeAccess",
     "access.NoiseBasedChunkGeneratorAccess",
@@ -66,7 +67,6 @@
     "common.block.PlantBlockMixin",
     "common.commands.MixinCommands",
     "common.entity.MixinEatGrassGoal",
-    "common.entity.MixinPiglinTasks",
     "common.entity.MixinSlimeEntity",
     "common.item.MixinBoneMealItem",
     "common.lightengine.WorldLightManagerMixin",
@@ -75,6 +75,7 @@
     "common.world.MixinServerLevel",
     "common.world.MixinSimpleBlockFeature",
     "common.world.feature.MixinBasaltColumnFeature",
+    "common.world.level.storage.loot.MixinLootTableManager",
     "common.world.surface.MixinSurfaceSystem",
     "server.MixinMinecraftServer"
   ],
