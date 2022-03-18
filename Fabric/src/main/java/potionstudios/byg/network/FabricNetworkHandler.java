@@ -10,7 +10,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import potionstudios.byg.BYG;
-import potionstudios.byg.network.packet.DiscoveredBiomes;
+import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class FabricNetworkHandler {
     public static void init() {
         BYG.LOGGER.info("Initializing BYG network...");
         registerMessage("sapling_patterns", SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, SaplingPatternsPacket::handle);
-        registerMessage("discovered_biomes", DiscoveredBiomes.class, DiscoveredBiomes::write, DiscoveredBiomes::read, DiscoveredBiomes::handle);
+        registerMessage("discovered_biomes", DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, DiscoveredBiomesPacket::handle);
         BYG.LOGGER.info("Initialized BYG network!");
     }
 

@@ -1,6 +1,5 @@
 package potionstudios.byg.mixin.common.entity;
 
-import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
@@ -12,10 +11,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.server.level.BYGPlayerTrackedData;
 import potionstudios.byg.util.BYGAdditionalData;
 
+import java.util.HashMap;
+
 @Mixin(Player.class)
 public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Access {
 
-    private BYGPlayerTrackedData bygPlayerTrackedData = new BYGPlayerTrackedData(new ObjectOpenHashSet<>());
+    private BYGPlayerTrackedData bygPlayerTrackedData = new BYGPlayerTrackedData(new HashMap<>());
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
     private void writeBYGData(CompoundTag tag, CallbackInfo ci) {

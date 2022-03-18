@@ -22,6 +22,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.function.BiPredicate;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class BYGUtil {
@@ -141,5 +143,11 @@ public class BYGUtil {
             }
         }
         return biomes;
+    }
+
+    public static <T, C, V> Map<T, V> convertMapValueType(Map<T, C> collectionMap, Supplier<Map<T, V>> mapType, Function<C, V> newValueType) {
+        Map<T, V> result = mapType.get();
+        collectionMap.forEach((key, oldValue) -> result.put(key, newValueType.apply(oldValue)));
+        return result;
     }
 }
