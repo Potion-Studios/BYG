@@ -7,7 +7,7 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import potionstudios.byg.util.CodecUtil;
+import potionstudios.byg.util.codec.CodecUtil;
 
 public record TreeFromStructureNBTConfig(ResourceLocation baseLocation, ResourceLocation canopyLocation,
                                          IntProvider height, BlockStateProvider logProvider,

@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.util.BYGUtil;
-import potionstudios.byg.util.CodecUtil;
+import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.*;
 

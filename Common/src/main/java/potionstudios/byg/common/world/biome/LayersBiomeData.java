@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import potionstudios.byg.util.CodecUtil;
+import potionstudios.byg.util.codec.CodecUtil;
 
 import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 

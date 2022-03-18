@@ -11,7 +11,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
-import potionstudios.byg.util.CodecUtil;
+import potionstudios.byg.util.codec.CodecUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
