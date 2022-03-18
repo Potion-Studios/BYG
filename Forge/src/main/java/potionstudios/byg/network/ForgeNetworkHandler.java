@@ -9,6 +9,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import potionstudios.byg.BYG;
 import potionstudios.byg.network.packet.BYGS2CPacket;
+import potionstudios.byg.network.packet.ConstructBYGPlayerTrackedDataPacket;
 import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 
@@ -28,6 +29,7 @@ public class ForgeNetworkHandler {
         BYG.LOGGER.info("Initializing BYG network...");
         SIMPLE_CHANNEL.registerMessage(0, SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, ForgeNetworkHandler::handle);
         SIMPLE_CHANNEL.registerMessage(1, DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, ForgeNetworkHandler::handle);
+        SIMPLE_CHANNEL.registerMessage(2, ConstructBYGPlayerTrackedDataPacket.class, ConstructBYGPlayerTrackedDataPacket::write, ConstructBYGPlayerTrackedDataPacket::read, ForgeNetworkHandler::handle);
         BYG.LOGGER.info("Initialized BYG network!");
     }
 

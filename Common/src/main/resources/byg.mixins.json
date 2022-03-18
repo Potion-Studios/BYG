@@ -53,6 +53,7 @@
     "access.WorldCarverAccess",
     "access.WorldGenRegistryDumpReportAccess",
     "common.MixinDefaultAttributes",
+    "common.MixinPlayerList",
     "common.MixinWalkNodeProcessor",
     "common.RegistryAccessMixin",
     "common.block.MixinAbstractFireBlock",

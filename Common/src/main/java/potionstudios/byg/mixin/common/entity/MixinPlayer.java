@@ -40,7 +40,13 @@ public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Acce
     }
 
     @Override
-    public BYGPlayerTrackedData getServerPlayerTrackedData() {
+    public BYGPlayerTrackedData getPlayerTrackedData() {
+        return this.bygPlayerTrackedData;
+    }
+
+    @Override
+    public BYGPlayerTrackedData setPlayerTrackedData(BYGPlayerTrackedData newVal) {
+        this.bygPlayerTrackedData = newVal;
         return this.bygPlayerTrackedData;
     }
 }

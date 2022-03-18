@@ -13,6 +13,6 @@ public abstract class MixinServerPlayer implements BYGAdditionalData, BYGPlayerT
 
     @Inject(method = "doTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancements/critereon/LocationTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;)V"))
     private void updateBygServerPlayerTrackedData(CallbackInfo ci) {
-        this.getServerPlayerTrackedData().tickPerSecond((ServerPlayer) (Object) this);
+        this.getPlayerTrackedData().tickPerSecond((ServerPlayer) (Object) this);
     }
 }
