@@ -126,7 +126,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.CATTAIL_SPROUT, RenderType.cutoutMipped());
         map.put(BYGBlocks.CATTAIL, RenderType.cutoutMipped());
         map.put(BYGBlocks.TINY_LILYPADS, RenderType.cutoutMipped());
-        map.put(BYGBlocks.WATER_SILK, RenderType.translucent());
+        map.put(BYGBlocks.WATER_SILK, RenderType.cutoutMipped());
 
         //Doors
         map.put(BYGBlocks.ASPEN_DOOR, RenderType.translucent());
