@@ -67,6 +67,8 @@
     "common.block.PlantBlockMixin",
     "common.commands.MixinCommands",
     "common.entity.MixinEatGrassGoal",
+    "common.entity.MixinPlayer",
+    "common.entity.MixinServerPlayer",
     "common.entity.MixinSlimeEntity",
     "common.item.MixinBoneMealItem",
     "common.lightengine.WorldLightManagerMixin",
