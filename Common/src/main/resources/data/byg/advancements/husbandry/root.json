@@ -1,0 +1,29 @@
+{
+  "parent": "byg:root",
+  "display": {
+    "icon": {
+      "item": "byg:green_apple"
+    },
+    "title": {
+      "translate": "byg.advancements.husbandry.root.title"
+    },
+    "description": {
+      "translate": "byg.advancements.husbandry.root.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "consumed_item": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "consumed_item"
+    ]
+  ]
+}

@@ -1141,7 +1141,7 @@ public class BYGItems {
     public static final Item POISON_IVY = createItem(BYGBlocks.POISON_IVY);
     public static final Item PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final Item PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
-    public static final Item CATTAIL_SPROUT = createItem(BYGBlocks.CATTAIL_SPROUT);
+    public static final Item CATTAIL_SPROUT = createItem(new CattailSproutItem(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
     public static final Item CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final Item CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final Item CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
@@ -1227,7 +1227,7 @@ public class BYGItems {
     public static final Item YELLOW_TULIP = createItem(BYGBlocks.YELLOW_TULIP);
 
     public static BlockItem createItem(Block block) {
-       return createItem(new BlockItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        return createItem(new BlockItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
     public static BlockItem createSaplingItem(Block block) {

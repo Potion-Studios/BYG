@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "byg:byg_logo"
+    },
+    "title": {
+      "translate": "byg.advancements.root.title"
+    },
+    "description": {
+      "translate": "byg.advancements.root.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "byg:textures/block/lush_dirt.png"
+  },
+  "criteria": {
+    "consumed_item": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "consumed_item"
+    ]
+  ]
+}

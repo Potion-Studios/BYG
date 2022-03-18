@@ -1,0 +1,37 @@
+{
+  "parent": "byg:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "byg:white_puffball_cap"
+    },
+    "title": {
+      "translate": "byg.advancements.husbandry.forager.title"
+    },
+    "description": {
+      "translate": "byg.advancements.husbandry.forager.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "white_puffball_cap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:white_puffball_cap"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "white_puffball_cap"
+    ]
+  ]
+}

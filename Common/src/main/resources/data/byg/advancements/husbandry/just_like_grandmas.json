@@ -1,0 +1,76 @@
+{
+  "parent": "byg:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "byg:green_apple_pie"
+    },
+    "title": {
+      "translate": "byg.advancements.husbandry.just_like_grandmas.title"
+    },
+    "description": {
+      "translate": "byg.advancements.husbandry.just_like_grandmas.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "blueberry_pie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:blueberry_pie"
+            ]
+          }
+        ]
+      }
+    },
+    "green_apple_pie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:green_apple_pie"
+            ]
+          }
+        ]
+      }
+    },
+    "crimson_berry_pie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:crimson_berry_pie"
+            ]
+          }
+        ]
+      }
+    },
+    "nightshade_berry_pie": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:nightshade_berry_pie"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "blueberry_pie",
+      "green_apple_pie",
+      "crimson_berry_pie",
+      "nightshade_berry_pie"
+    ]
+  ]
+}

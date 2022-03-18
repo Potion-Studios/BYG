@@ -1195,6 +1195,7 @@
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
   "container.hypogeal_imperium_container": "Hypogeal Imperium",
+  "death.attack.byg.cattail_campfire": "%s got too curious",
   "entity.byg.boat": "Boat",
   "item.byg.allium_flower_bush": "Allium Flower Bush",
   "item.byg.aloe_vera": "Aloe Vera",

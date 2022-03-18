@@ -3,9 +3,9 @@ package potionstudios.byg.data.advancements;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.ConsumeItemTrigger;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.tags.BlockTags;
 import potionstudios.byg.common.item.BYGItems;
 
 import java.util.function.Consumer;
@@ -23,9 +23,9 @@ public class BYGHusbandryAdvancements implements BYGAdvancementConsumer<Advancem
                 new TranslatableComponent("byg.advancements.husbandry.granny_smith.description"), null, FrameType.CHALLENGE, true, true, false)
             .addCriterion("green_apple", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.GREEN_APPLE)).save(advancementConsumer, "byg:husbandry/granny_smith");
 
-//        Advancement.Builder.advancement().parent(husbandryRoot).display(BYGItems.CATTAIL_SPROUT, new TranslatableComponent("byg.advancements.husbandry.hot_diggity_not_dog.title"),
-//                new TranslatableComponent("byg.advancements.husbandry.hot_diggity_not_dog.description"), null, FrameType.CHALLENGE, true, true, false)
-//            .addCriterion("cattail_sprout", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.CATTAIL_SPROUT)).save(advancementConsumer, "byg:husbandry/hot_diggity_not_dog");
+        Advancement.Builder.advancement().parent(husbandryRoot).display(BYGItems.CATTAIL_SPROUT, new TranslatableComponent("byg.advancements.husbandry.hot_diggity_not_dog.title"),
+                new TranslatableComponent("byg.advancements.husbandry.hot_diggity_not_dog.description"), null, FrameType.CHALLENGE, true, true, false)
+            .addCriterion("cattail_sprout", ItemUsedOnBlockTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BlockTags.CAMPFIRES).build()), ItemPredicate.Builder.item().of(BYGItems.CATTAIL_SPROUT))).save(advancementConsumer, "byg:husbandry/hot_diggity_not_dog");
 
         Advancement.Builder.advancement().parent(husbandryRoot).display(BYGItems.WHITE_PUFFBALL_CAP, new TranslatableComponent("byg.advancements.husbandry.forager.title"),
                 new TranslatableComponent("byg.advancements.husbandry.forager.description"), null, FrameType.CHALLENGE, true, true, false)

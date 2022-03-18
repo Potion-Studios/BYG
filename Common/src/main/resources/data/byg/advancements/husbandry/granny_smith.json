@@ -1,0 +1,37 @@
+{
+  "parent": "byg:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "byg:green_apple"
+    },
+    "title": {
+      "translate": "byg.advancements.husbandry.granny_smith.title"
+    },
+    "description": {
+      "translate": "byg.advancements.husbandry.granny_smith.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "green_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:green_apple"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "green_apple"
+    ]
+  ]
+}
