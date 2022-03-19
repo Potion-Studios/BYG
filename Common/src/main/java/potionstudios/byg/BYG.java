@@ -47,7 +47,7 @@ public class BYG {
     public static final boolean WARN_EXPERIMENTAL = false;
     public static final int EXPERIMENTAL_WARNING_VERSION = 5;
     public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
-    public static final boolean GENERATE_DATA = true; // Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
+    public static final boolean GENERATE_DATA = Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
     public static boolean ENABLE_NYLIUM_FUNGI = true;
@@ -90,7 +90,6 @@ public class BYG {
 
     public static void threadSafeCommonLoad() {
         if (GENERATE_DATA) {
-            LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
             BYGDataProviders.generateProviders();
         }
         BYGVillagerType.setVillagerForBYGBiomes();
@@ -123,6 +122,10 @@ public class BYG {
     public static void clientLoad() {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
         BiomepediaClientData.getConfig(true);
+        if (GENERATE_DATA) {
+            LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
+        }
+
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }

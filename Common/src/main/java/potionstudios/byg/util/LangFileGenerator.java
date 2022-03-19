@@ -2,12 +2,12 @@ package potionstudios.byg.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mojang.blaze3d.shaders.Effect;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.locale.Language;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
@@ -31,7 +31,7 @@ public class LangFileGenerator {
         map.put(Biome.class, "biome");
         map.put(Block.class, "block");
         map.put(Item.class, "item");
-        map.put(Effect.class, "effect");
+        map.put(MobEffect.class, "effect");
     });
 
     public static final Map<String, String> MISC_LANG_ENTRIES = Util.make(new TreeMap<>(), map -> {

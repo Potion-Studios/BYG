@@ -1,8 +1,8 @@
 package potionstudios.byg.network.packet;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.level.Level;
 import potionstudios.byg.server.level.BYGPlayerTrackedData;
 
 public record ConstructBYGPlayerTrackedDataPacket(BYGPlayerTrackedData playerTrackedData) implements BYGS2CPacket {
@@ -25,7 +25,7 @@ public record ConstructBYGPlayerTrackedDataPacket(BYGPlayerTrackedData playerTra
     }
 
     @Override
-    public void handle(ClientLevel level) {
+    public void handle(Level level) {
         ((BYGPlayerTrackedData.Access) Minecraft.getInstance().player).setPlayerTrackedData(this.playerTrackedData);
     }
 }

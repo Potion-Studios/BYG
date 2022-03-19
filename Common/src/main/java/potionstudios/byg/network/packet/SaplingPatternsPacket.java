@@ -1,7 +1,7 @@
 package potionstudios.byg.network.packet;
 
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.level.Level;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
 
 public record SaplingPatternsPacket(SaplingPatterns patterns) implements BYGS2CPacket {
@@ -24,7 +24,7 @@ public record SaplingPatternsPacket(SaplingPatterns patterns) implements BYGS2CP
     }
 
     @Override
-    public void handle(ClientLevel level) {
+    public void handle(Level level) {
         SaplingPatterns.setInstance(this.patterns);
     }
 }

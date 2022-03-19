@@ -9,6 +9,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import potionstudios.byg.BYG;
 import potionstudios.byg.network.packet.ConstructBYGPlayerTrackedDataPacket;
 import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
@@ -38,7 +39,7 @@ public class FabricNetworkHandler {
     private static <T> void registerMessage(String id, Class<T> clazz,
                                             BiConsumer<T, FriendlyByteBuf> encode,
                                             Function<FriendlyByteBuf, T> decode,
-                                            BiConsumer<T, ClientLevel> handler) {
+                                            BiConsumer<T, Level> handler) {
         ENCODERS.put(clazz, encode);
         PACKET_IDS.put(clazz, new ResourceLocation(PACKET_LOCATION, id));
 
@@ -72,7 +73,7 @@ public class FabricNetworkHandler {
     public static class ClientProxy {
 
         public static <T> void registerClientReceiver(String id, Function<FriendlyByteBuf, T> decode,
-                                                      BiConsumer<T, ClientLevel> handler) {
+                                                      BiConsumer<T, Level> handler) {
             ClientPlayNetworking.registerGlobalReceiver(new ResourceLocation(PACKET_LOCATION, id), (client, listener, buf, responseSender) -> {
                 buf.retain();
                 client.execute(() -> {

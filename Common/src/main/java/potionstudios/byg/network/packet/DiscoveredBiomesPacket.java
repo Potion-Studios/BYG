@@ -2,9 +2,9 @@ package potionstudios.byg.network.packet;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.server.level.BYGPlayerTrackedData;
 import potionstudios.byg.util.codec.CodecUtil;
@@ -32,7 +32,7 @@ public record DiscoveredBiomesPacket(Map<String, Set<ResourceKey<Biome>>> discov
     }
 
     @Override
-    public void handle(ClientLevel level) {
+    public void handle(Level level) {
         Map<String, Set<ResourceKey<Biome>>> discoveredBiomesByNameSpace = ((BYGPlayerTrackedData.Access) Minecraft.getInstance().player).getPlayerTrackedData().discoveredBiomesByNameSpace();
         discoveredBiomesByNameSpace.clear();
         discoveredBiomesByNameSpace.putAll(discoveredBiomesByNameSpace);
