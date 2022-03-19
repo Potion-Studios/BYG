@@ -47,7 +47,7 @@ dependencies {
 loom {
     accessWidenerPath = project(":Common").file("src/main/resources/byg.aw")
     runs {
-        def args = ["-DbygDev=true"]
+        def args = ["-DbygDev=true", "-DbygGenerateData=true"]
 
         client {
             client()

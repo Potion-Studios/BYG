@@ -28,7 +28,7 @@ minecraft {
     }
 
     runs {
-        def runArgs = ["-DbygDev=true"]
+        def runArgs = ["-DbygDev=true", "-DbygGenerateData=true"]
         client {
             jvmArgs runArgs
             workingDirectory project.file('run')
