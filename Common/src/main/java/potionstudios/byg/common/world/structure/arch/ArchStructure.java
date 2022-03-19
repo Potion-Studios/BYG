@@ -26,6 +26,8 @@ import java.util.Set;
 import static net.minecraft.util.Mth.lerp;
 
 public class ArchStructure extends StructureFeature<ArchConfiguration> {
+    public static final int PIECE_BB_EXPANSION = 5;
+
     public ArchStructure(Codec<ArchConfiguration> $$0) {
         super($$0, PieceGeneratorSupplier.simple(PieceGeneratorSupplier.checkForBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG), ArchStructure::generatePieces));
     }

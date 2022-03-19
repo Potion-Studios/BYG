@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.structure.arch;
 import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.SectionPos;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.level.ChunkPos;
@@ -31,8 +32,8 @@ public class ArchPiece extends StructurePiece {
     private final Set<BlockPos> positions = new HashSet<>();
     private final NoisySphereConfig config;
 
-    public ArchPiece(Set<BlockPos> positions, NoisySphereConfig config, int $$1, BoundingBox $$2) {
-        super(BYGStructurePieceTypes.ARCH_PIECE, $$1, $$2);
+    public ArchPiece(Set<BlockPos> positions, NoisySphereConfig config, int $$1, BoundingBox generatingBB) {
+        super(BYGStructurePieceTypes.ARCH_PIECE, $$1, generatingBB);
         this.config = config;
         this.positions.addAll(positions);
     }
@@ -72,20 +73,45 @@ public class ArchPiece extends StructurePiece {
                 position = new BlockPos(position.getX(), worldGenLevel.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, position.getX(), position.getZ()) + 1, position.getZ());
             }
 
+            if (!boundingBox.isInside(position)) {
+                continue;
+            }
+
             if (DEBUG) {
                 worldGenLevel.setBlock(position, Blocks.GLOWSTONE.defaultBlockState(), 2);
             } else {
                 BYGFeatures.BOULDER.fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
             }
         }
+
+        if (toPlace.isEmpty()) {
+            return;
+        }
+
+        BlockPos.MutableBlockPos min = new BlockPos.MutableBlockPos().set(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        BlockPos.MutableBlockPos max = new BlockPos.MutableBlockPos().set(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
+
         toPlace.forEach((aLong, state) -> {
-            worldGenLevel.setBlock(BlockPos.of(aLong), state, 2);
+            BlockPos pos = BlockPos.of(aLong);
+            min.set(Math.min(min.getX(), pos.getX()), Math.min(min.getY(), pos.getY()), Math.min(min.getZ(), pos.getZ()));
+            max.set(Math.max(max.getX(), pos.getX()), Math.max(max.getY(), pos.getY()), Math.max(max.getZ(), pos.getZ()));
+            worldGenLevel.setBlock(pos, state, 2);
         });
+
+
 
         for (long aLong : toPlace.keySet()) {
             for (Holder<PlacedFeature> spawningFeature : config.spawningFeatures()) {
                 spawningFeature.value().place(worldGenLevel, chunkGenerator, random, BlockPos.of(aLong));
             }
         }
+
+        int minX = min.getX() - ArchStructure.PIECE_BB_EXPANSION;
+        int minY = min.getY() - ArchStructure.PIECE_BB_EXPANSION;
+        int minZ = min.getZ() - ArchStructure.PIECE_BB_EXPANSION;
+        int maxX = max.getX() + ArchStructure.PIECE_BB_EXPANSION;
+        int maxY = max.getY() + ArchStructure.PIECE_BB_EXPANSION;
+        int maxZ = max.getZ() + ArchStructure.PIECE_BB_EXPANSION;
+        this.boundingBox = new BoundingBox(minX, minY, minZ, maxX, maxY, maxZ);
     }
 }
