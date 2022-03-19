@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import potionstudios.byg.client.BiomepediaClientData;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
@@ -121,6 +122,7 @@ public class BYG {
 
     public static void clientLoad() {
         LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
+        BiomepediaClientData.getConfig(true);
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
         LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
