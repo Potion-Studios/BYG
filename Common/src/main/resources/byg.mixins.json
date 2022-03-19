@@ -92,7 +92,8 @@
     "client.MixinItemColors",
     "client.MixinLayerDefinitions",
     "client.MixinParticleEngine",
-    "client.MixinScreenManager"
+    "client.MixinScreenManager",
+    "client.MixinInventoryScreen"
   ],
   "injectors": {
     "defaultRequire": 1

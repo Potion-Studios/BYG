@@ -35,6 +35,6 @@ public record DiscoveredBiomesPacket(Map<String, Set<ResourceKey<Biome>>> discov
     public void handle(Level level) {
         Map<String, Set<ResourceKey<Biome>>> discoveredBiomesByNameSpace = ((BYGPlayerTrackedData.Access) Minecraft.getInstance().player).getPlayerTrackedData().discoveredBiomesByNameSpace();
         discoveredBiomesByNameSpace.clear();
-        discoveredBiomesByNameSpace.putAll(discoveredBiomesByNameSpace);
+        discoveredBiomesByNameSpace.putAll(this.discoveredBiomes);
     }
 }
