@@ -7,63 +7,75 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.biome.OverworldBiomeBuilder;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilder;
+import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
 import potionstudios.byg.mixin.access.OverworldBiomeBuilderAccess;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static potionstudios.byg.util.BYGUtil.print2DResourceKeyArray;
+import static potionstudios.byg.util.BYGRegionUtils.dumpArrays;
+import static potionstudios.byg.util.BYGRegionUtils.filter;
 
 public class BYGRegion extends Region {
     private static int count = 0;
 
-    private final OverworldBiomeBuilder overworldBiomeBuilder = new OverworldBiomeBuilder();
     private final Set<ResourceKey<Biome>> bygKeys = new ObjectOpenHashSet<>();
     private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
-    private final int configIDX;
 
-    public BYGRegion(int overworldWeight, ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes, ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes, ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes, Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+    private final BYGOverworldBiomeBuilder bygOverworldBiomeBuilder;
+
+    public BYGRegion(BYGOverworldBiomeBuilders.BiomeProviderData biomeProviderData) {
+        this(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.extremeHills(), biomeProviderData.beachBiomes(), biomeProviderData.peakBiomes(), biomeProviderData.peakBiomesVariant(), biomeProviderData.swapper());
+    }
+
+    public BYGRegion(int overworldWeight,
+                     ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
+                     ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
+                     ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
+                     ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
+                     ResourceKey<Biome>[][] peakBiomesVariant,
+                     Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         super(BYG.createLocation("region_" + count++), RegionType.OVERWORLD, overworldWeight);
         this.swapper = swapper;
-        this.configIDX = count;
         Predicate<ResourceKey<Biome>> noVoidBiomes = biomeResourceKey -> biomeResourceKey != Biomes.THE_VOID;
-        oceans = filter("oceans", oceans, noVoidBiomes, true);
-        middleBiomes = filter("middle_biomes", middleBiomes, noVoidBiomes, true);
-        middleBiomesVariant = filter("middle_biomes_variant", middleBiomesVariant, noVoidBiomes, false);
-        plateauBiomes = filter("plateau_biomes", plateauBiomes, noVoidBiomes, true);
-        plateauBiomesVariant = filter("plateau_biomes_variant", plateauBiomesVariant, noVoidBiomes, false);
-        shatteredBiomes = filter("shattered_biomes", shatteredBiomes, noVoidBiomes, false);
+        oceans = filter("oceans", this.getName(), count, oceans, noVoidBiomes, true);
+        middleBiomes = filter("middle_biomes", this.getName(), count, middleBiomes, noVoidBiomes, true);
+        middleBiomesVariant = filter("middle_biomes_variant", this.getName(), count, middleBiomesVariant, noVoidBiomes, false);
+        plateauBiomes = filter("plateau_biomes", this.getName(), count, plateauBiomes, noVoidBiomes, true);
+        plateauBiomesVariant = filter("plateau_biomes_variant", this.getName(), count, plateauBiomesVariant, noVoidBiomes, false);
+        shatteredBiomes = filter("shattered_biomes", this.getName(), count, shatteredBiomes, noVoidBiomes, false);
+        beachBiomes = filter("beach_biomes", this.getName(), count, beachBiomes, noVoidBiomes, true);
+        peakBiomes = filter("peak_biomes", this.getName(), count, peakBiomes, noVoidBiomes, true);
+        peakBiomesVariant = filter("peak_biomes_variant", this.getName(), count, peakBiomesVariant, noVoidBiomes, true);
 
-        OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) (Object) overworldBiomeBuilder;
-        overworldBiomeBuilderAccess.byg_setOCEANS(oceans);
-        overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES(middleBiomes);
-        overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES_VARIANT(middleBiomesVariant);
-        overworldBiomeBuilderAccess.byg_setPLATEAU_BIOMES(plateauBiomes);
-        overworldBiomeBuilderAccess.byg_setPLATEAU_BIOMES_VARIANT(plateauBiomesVariant);
-        overworldBiomeBuilderAccess.byg_setSHATTERED_BIOMES(shatteredBiomes);
+        this.bygOverworldBiomeBuilder = new BYGOverworldBiomeBuilder(
+            oceans, middleBiomes, middleBiomesVariant,
+            plateauBiomes, plateauBiomesVariant, shatteredBiomes,
+            beachBiomes, peakBiomes, peakBiomesVariant
+        );
+
         dumpArrays((biomeResourceKey -> {
-            if (biomeResourceKey != null && biomeResourceKey != Biomes.THE_VOID) {
+            if (biomeResourceKey != null) {
                 bygKeys.add(biomeResourceKey);
                 if (swapper.containsValue(biomeResourceKey)) {
                     throw new IllegalArgumentException("Swapper cannot contain elements found in the temperature arrays.");
                 }
             }
-        }), oceans, middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, shatteredBiomes);
+        }), oceans, middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, shatteredBiomes, beachBiomes, peakBiomes);
     }
 
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         MutableInt totalPairs = new MutableInt();
         MutableInt bygMapperAccepted = new MutableInt(0);
-        ((OverworldBiomeBuilderAccess) (Object) this.overworldBiomeBuilder).byg_invokeAddBiomes((parameterPointResourceKeyPair -> {
+        ((OverworldBiomeBuilderAccess) this.bygOverworldBiomeBuilder).byg_invokeAddBiomes((parameterPointResourceKeyPair -> {
             ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
             if (!registry.containsKey(biomeKey)) {
                 throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location().toString()));
@@ -100,26 +112,5 @@ public class BYGRegion extends Region {
         }
 
         BYG.LOGGER.info(bygMapperAccepted.getValue() + " biome parameter points were mapped for BYG region: " + this.getName().toString());
-    }
-
-    @SafeVarargs
-    private static void dumpArrays(Consumer<ResourceKey<Biome>> biomeConsumer, ResourceKey<Biome>[][]... resourceKeys) {
-        for (ResourceKey<Biome>[][] resourceKey : resourceKeys) {
-            for (ResourceKey<Biome>[] keys : resourceKey) {
-                for (ResourceKey<Biome> key : keys) {
-                    biomeConsumer.accept(key);
-                }
-            }
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    public ResourceKey<Biome>[][] filter(String configKey, ResourceKey<Biome>[][] biomeArray, Predicate<ResourceKey<Biome>> filter, boolean throwsException) {
-        return Arrays.stream(biomeArray).map(resourceKeys -> Arrays.stream(resourceKeys).map(key -> !filter.test(key) ? null : key).peek(biomeResourceKey -> {
-            if (biomeResourceKey == null && throwsException) {
-                String error = String.format("\"%s\" is not an allowed entry, specify a valid biome key!\nBYG Region: \"%s\" failed in biome array: \"%s\" in region %s.\nCurrent value:\n%s", Biomes.THE_VOID.location().toString(), this.getName().toString(), configKey, this.configIDX, print2DResourceKeyArray(biomeArray));
-                throw new IllegalArgumentException(error);
-            }
-        }).toList().toArray(ResourceKey[]::new)).toArray(ResourceKey[][]::new);
     }
 }

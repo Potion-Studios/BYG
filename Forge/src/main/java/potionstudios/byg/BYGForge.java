@@ -129,22 +129,22 @@ public class BYGForge {
         BYG.commonLoad();
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
-        event.enqueueWork(() -> {
-            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
-            if (config.generateOverworld()) {
-                SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-                config.values().forEach(biomeProviderData -> {
-                    Regions.register(new BYGRegion(biomeProviderData.overworldWeight(), biomeProviderData.oceans(), biomeProviderData.middleBiomes(), biomeProviderData.middleBiomesVariant(), biomeProviderData.plateauBiomes(), biomeProviderData.plateauBiomesVariant(), biomeProviderData.shatteredBiomes(), biomeProviderData.swapper()));
-                });
-            } else {
-                BYG.LOGGER.info("BYG overworld biomes disabled.");
-            }
-        });
+        event.enqueueWork(this::registerTerraBlender);
         BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
+    }
+
+    private void registerTerraBlender() {
+        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+        if (config.generateOverworld()) {
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+            config.values().forEach(biomeProviderData -> Regions.register(new BYGRegion(biomeProviderData)));
+        } else {
+            BYG.LOGGER.info("BYG overworld biomes disabled.");
+        }
     }
 
     private void loadFinish(FMLLoadCompleteEvent event) {

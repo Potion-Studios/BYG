@@ -7,7 +7,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.BYGOverworldBiomeBuilder;
+import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
 import potionstudios.byg.util.BYGUtil;
 
 import java.io.FileReader;
@@ -16,15 +16,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public record OverworldBiomeConfig(boolean generateOverworld, List<BYGOverworldBiomeBuilder.BiomeProviderData> values) {
-    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BYGOverworldBiomeBuilder.OVERWORLD_DEFAULTS);
+public record OverworldBiomeConfig(boolean generateOverworld,
+                                   List<BYGOverworldBiomeBuilders.BiomeProviderData> values) {
+    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BYGOverworldBiomeBuilders.OVERWORLD_DEFAULTS);
 
     public static OverworldBiomeConfig INSTANCE = null;
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
             Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            BYGOverworldBiomeBuilder.BiomeProviderData.CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            BYGOverworldBiomeBuilders.BiomeProviderData.CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
         ).apply(builder, OverworldBiomeConfig::new);
     });
 
