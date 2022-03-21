@@ -75,7 +75,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
                 SHALLOW-NEUTRAL,
                 SHALLOW-WARM,
                 SHALLOW-HOT
-                ]
+                ],
                 [
                 DEEP-ICY,
                 DEEP-COLD,
@@ -95,7 +95,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
         map.put("providers.peak_biomes", "Appearing on mountainous terrain & BELOW weirdness 0, here is the \"peak_biomes\" layout:\n" + biomeLayout + requiresValidKeys);
         map.put("providers.peak_biomes_variant", "Appearing on mountainous terrain & ABOVE weirdness 0, here is the \"peak_biome_variants\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.ocean_biomes", "Appearing on terrain below sea level, here is the \"ocean_biomes\" layout:\n" + oceanLayout + requiresValidKeys);
+        map.put("providers.oceans", "Appearing on terrain below sea level, here is the \"ocean_biomes\" layout:\n" + oceanLayout + requiresValidKeys);
 
         map.put("providers.plateau_biomes", "Appearing on elevated flat terrain BELOW weirdness 0 or in unfilled(\"NULL(nothing)\") spots in \"plateau_biome_variants\", here is the \"plateau_biomes\" layout:\n" + oceanLayout + requiresValidKeys);
         map.put("providers.plateau_biomes_variant", "Appearing on elevated flat terrain ABOVE weirdness 0, here is the \"plateau_biomes\" layout:\n" + oceanLayout + """
