@@ -10,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.ArrayList;
@@ -18,6 +17,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static potionstudios.byg.util.BYGUtil.convert2DArray;
 import static potionstudios.byg.util.BYGUtil.convert2DResourceKeyArrayTo2DList;
 
 public class BYGOverworldBiomeBuilders {
@@ -240,15 +240,15 @@ public class BYGOverworldBiomeBuilders {
                                     Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         public static final Codec<BiomeProviderData> CODEC = RecordCodecBuilder.create(builder -> {
             return builder.group(Codec.INT.fieldOf("weight").forGetter(biomeProviderData -> biomeProviderData.overworldWeight),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("oceans").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.oceans)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("middle_biomes").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.middleBiomes)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("middle_biomes_variant").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.middleBiomesVariant)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.plateauBiomes)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes_variant").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.plateauBiomesVariant)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("shattered_biomes").forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.extremeHills)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("beach_biomes").orElse(BYGUtil.convert2DArray(BEACH_BIOMES_EMPTY)).forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.beachBiomes)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("peak_biomes").orElse(BYGUtil.convert2DArray(PEAK_BIOMES_EMPTY)).forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.peakBiomes)),
-                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("peak_biome_variants").orElse(BYGUtil.convert2DArray(PEAK_BIOMES_VARIANT_EMPTY)).forGetter(biomeProviderData -> BYGUtil.convert2DArray(biomeProviderData.peakBiomesVariant)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("oceans").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.oceans)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("middle_biomes").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.middleBiomes)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("middle_biomes_variant").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.middleBiomesVariant)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.plateauBiomes)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("plateau_biomes_variant").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.plateauBiomesVariant)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("shattered_biomes").forGetter(biomeProviderData -> convert2DArray(biomeProviderData.extremeHills)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("beach_biomes").orElse(convert2DArray(BEACH_BIOMES_EMPTY)).forGetter(biomeProviderData -> convert2DArray(biomeProviderData.beachBiomes)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("peak_biomes").orElse(convert2DArray(PEAK_BIOMES_EMPTY)).forGetter(biomeProviderData -> convert2DArray(biomeProviderData.peakBiomes)),
+                Codec.list(Codec.list(CodecUtil.BIOME_CODEC)).fieldOf("peak_biomes_variant").orElse(convert2DArray(PEAK_BIOMES_VARIANT_EMPTY)).forGetter(biomeProviderData -> convert2DArray(biomeProviderData.peakBiomesVariant)),
                 Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
                         throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
