@@ -1,6 +1,7 @@
 package potionstudios.byg.config.json;
 
-import blue.endless.jankson.*;
+import blue.endless.jankson.JsonElement;
+import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -8,7 +9,7 @@ import net.minecraft.Util;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
 import potionstudios.byg.util.BYGUtil;
-import potionstudios.byg.util.JanksonJsonOps;
+import potionstudios.byg.util.jankson.JanksonJsonOps;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,12 +17,12 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+
+import static potionstudios.byg.util.jankson.JanksonUtil.*;
 
 public record OverworldBiomeConfig(boolean generateOverworld,
                                    List<BYGOverworldBiomeBuilders.BiomeProviderData> values) {
     public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BYGOverworldBiomeBuilders.OVERWORLD_DEFAULTS);
-    private static final Jankson JANKSON = Jankson.builder().build();
 
     public static OverworldBiomeConfig INSTANCE = null;
 
@@ -200,54 +201,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         }
         try {
             Files.createDirectories(path.getParent());
-            String str = jsonElement.toJson(new JsonGrammar.Builder().withComments(true).bareSpecialNumerics(true).printCommas(true).build());
+            String str = jsonElement.toJson(JSON_GRAMMAR);
             Files.write(path, str.getBytes());
         } catch (IOException e) {
             BYG.LOGGER.error(e.toString());
         }
-    }
-
-    private static JsonObject addCommentsAndAlphabeticallySortRecursively(Map<String, String> comments, JsonObject object, String parentKey, boolean alphabeticallySorted) {
-        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-            String objectKey = entry.getKey();
-            String commentsKey = parentKey + objectKey;
-
-            String comment = null;
-            if (comments.containsKey(commentsKey)) {
-                String commentToAdd = comments.get(commentsKey);
-                object.setComment(objectKey, commentToAdd);
-                comment = commentToAdd;
-            }
-
-            JsonElement value = entry.getValue();
-            if (value instanceof JsonArray array) {
-                JsonArray sortedJsonElements = new JsonArray();
-                for (JsonElement element : array) {
-                    if (element instanceof JsonObject nestedObject) {
-                        sortedJsonElements.add(addCommentsAndAlphabeticallySortRecursively(comments, nestedObject, entry.getKey() + ".", alphabeticallySorted));
-                    }
-                }
-                if (!sortedJsonElements.isEmpty()) {
-                    object.put(objectKey, sortedJsonElements, comment);
-                }
-            }
-
-            if (value instanceof JsonObject nestedObject) {
-                object.put(objectKey, addCommentsAndAlphabeticallySortRecursively(comments, nestedObject, entry.getKey() + ".", alphabeticallySorted), comment);
-            }
-        }
-
-        if (alphabeticallySorted) {
-            JsonObject alphabeticallySortedJsonObject = new JsonObject();
-            TreeMap<String, JsonElement> map = new TreeMap<>(String::compareTo);
-            map.putAll(object);
-            alphabeticallySortedJsonObject.putAll(map);
-            alphabeticallySortedJsonObject.forEach((key, entry) -> {
-                alphabeticallySortedJsonObject.setComment(key, object.getComment(key));
-            });
-
-            return alphabeticallySortedJsonObject;
-        }
-        return object;
     }
 }

@@ -1,4 +1,4 @@
-package potionstudios.byg.util;
+package potionstudios.byg.util.jankson;
 
 import blue.endless.jankson.*;
 import com.google.common.collect.Lists;
@@ -7,7 +7,10 @@ import com.mojang.serialization.*;
 
 import javax.annotation.Nullable;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;

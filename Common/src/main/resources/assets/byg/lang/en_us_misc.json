@@ -27,6 +27,8 @@
   "byg.worldgenexport.failed": "Uh oh, the world generation export could not be created, check your latest.log!",
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
+  "byg.worldgenexport.exists": "World generation export already exists! View it here: %s!",
+  "byg.worldgenexport.singleplayer": "World generation export command must be used in single player!",
   "container.hypogeal_imperium_container": "Hypogeal Imperium",
   "death.attack.byg.cattail_campfire": "%s got too curious",
   "itemGroup.byg.byg": "Oh The Biomes You'll Go"
