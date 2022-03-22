@@ -35,7 +35,7 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    protected ResourceKey<Biome> pickPeakBiome(int temp, int humidity, Climate.Parameter weirdness) {
+    public ResourceKey<Biome> pickPeakBiome(int temp, int humidity, Climate.Parameter weirdness) {
         return weirdness.max() < 0L ? peakBiomes[temp][humidity] : peakBiomesVariant[temp][humidity];
     }
 }

@@ -10,12 +10,31 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
+tasks.build.dependsOn(tasks.findByName("shadowJar"))
+
+configurations {
+    shadow
+    implementation.extendsFrom(shadow)
+}
+
 archivesBaseName = "${mod_name}-forge-${minecraft_version}"
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+    relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
+}
+reobf {
+    shadowJar {
+    }
+}
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
@@ -80,6 +99,7 @@ dependencies {
     compileOnly project(":Common")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
+    shadow("blue.endless:jankson:${jankson_version}")
 }
 
 mixin {
