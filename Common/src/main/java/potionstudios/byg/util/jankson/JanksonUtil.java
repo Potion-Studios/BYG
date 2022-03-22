@@ -1,13 +1,28 @@
 package potionstudios.byg.util.jankson;
 
 import blue.endless.jankson.*;
+import blue.endless.jankson.api.SyntaxError;
+import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.DynamicOps;
+import potionstudios.byg.BYG;
+import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.codec.FromFileOps;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
+import java.util.function.Supplier;
 
 public class JanksonUtil {
     public static final Jankson JANKSON = Jankson.builder().allowBareRootObject().build();
-    public static final JsonGrammar JSON_GRAMMAR = new JsonGrammar.Builder().withComments(true).bareSpecialNumerics(true).printCommas(true).build();
+    public static final Supplier<JsonGrammar.Builder> JSON_GRAMMAR_BUILDER = () -> new JsonGrammar.Builder().withComments(true).bareSpecialNumerics(true).printCommas(true);
+
+    public static final JsonGrammar JSON_GRAMMAR = JSON_GRAMMAR_BUILDER.get().build();
 
 
     public static JsonObject addCommentsAndAlphabeticallySortRecursively(Map<String, String> comments, JsonObject object, String parentKey, boolean alphabeticallySorted) {
@@ -28,6 +43,10 @@ public class JanksonUtil {
                 for (JsonElement element : array) {
                     if (element instanceof JsonObject nestedObject) {
                         sortedJsonElements.add(addCommentsAndAlphabeticallySortRecursively(comments, nestedObject, entry.getKey() + ".", alphabeticallySorted));
+                    } else if (element instanceof JsonArray array1) {
+                        JsonArrayOfArrays arrayOfArrays = new JsonArrayOfArrays();
+                        arrayOfArrays.addAll(array1);
+                        sortedJsonElements.add(arrayOfArrays);
                     }
                 }
                 if (!sortedJsonElements.isEmpty()) {
@@ -52,5 +71,27 @@ public class JanksonUtil {
             return alphabeticallySortedJsonObject;
         }
         return object;
+    }
+
+    public static <T> void createConfig(Path path, Codec<T> codec, String header, Map<String, String> comments, FromFileOps<JsonElement> ops, T from) {
+        JsonElement jsonElement = codec.encodeStart(ops, from).result().orElseThrow();
+
+        if (jsonElement instanceof JsonObject jsonObject) {
+            jsonElement = addCommentsAndAlphabeticallySortRecursively(comments, jsonObject, "", true);
+        }
+        try {
+            Files.createDirectories(path.getParent());
+            String output = header + jsonElement.toJson(JSON_GRAMMAR);
+            Files.write(path, output.getBytes());
+        } catch (IOException e) {
+            BYG.LOGGER.error(e.toString());
+        }
+    }
+
+    public  static <T> T readConfig(Path path, Codec<T> codec, DynamicOps<JsonElement> ops) throws IOException, SyntaxError {
+        JsonObject load = JANKSON.load(path.toFile());
+        DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
+        Optional<Pair<T, JsonElement>> resultOrPartial = decode.resultOrPartial(BYG.LOGGER::error);
+        return resultOrPartial.orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
     }
 }

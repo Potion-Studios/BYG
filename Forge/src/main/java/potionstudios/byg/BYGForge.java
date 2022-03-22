@@ -141,7 +141,7 @@ public class BYGForge {
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
         if (config.generateOverworld()) {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-            config.values().forEach(biomeProviderData -> Regions.register(new BYGRegion(biomeProviderData)));
+            config.values().forEach(biomeProviderData -> Regions.register(new BYGRegion(biomeProviderData.value())));
         } else {
             BYG.LOGGER.info("BYG overworld biomes disabled.");
         }

@@ -208,7 +208,7 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
     @Override
     public DataResult<Stream<Pair<JsonElement, JsonElement>>> getMapValues(final JsonElement input) {
         if (!(input instanceof JsonObject)) {
-            return DataResult.error("Not a JSON object: " + input);
+            return DataResult.error("Not a JSON value: " + input);
         }
         return DataResult.success(((JsonObject) input).entrySet().stream().map(entry -> Pair.of(new JsonPrimitive(entry.getKey()), entry.getValue() instanceof JsonNull ? null : entry.getValue())));
     }
@@ -216,7 +216,7 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
     @Override
     public DataResult<Consumer<BiConsumer<JsonElement, JsonElement>>> getMapEntries(final JsonElement input) {
         if (!(input instanceof JsonObject)) {
-            return DataResult.error("Not a JSON object: " + input);
+            return DataResult.error("Not a JSON value: " + input);
         }
         return DataResult.success(c -> {
             for (final Map.Entry<String, JsonElement> entry : ((JsonObject) input).entrySet()) {
@@ -228,7 +228,7 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
     @Override
     public DataResult<MapLike<JsonElement>> getMap(final JsonElement input) {
         if (!(input instanceof JsonObject)) {
-            return DataResult.error("Not a JSON object: " + input);
+            return DataResult.error("Not a JSON value: " + input);
         }
         final JsonObject object = (JsonObject) input;
         return DataResult.success(new MapLike<>() {

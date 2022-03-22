@@ -125,8 +125,7 @@ public class WorldGenExportCommand {
             Files.walk(result).sorted(Comparator.reverseOrder()).forEach(path -> {
                 try {
                     if (path.getFileName().toString().endsWith(".json")) {
-                        String newTarget = path.toString().replace(result.toString(), "");
-                        newTarget = newTarget.substring(1, newTarget.length());
+                        String newTarget = result.relativize(path).toString();
                         Path newPath = finalExportPath.resolve(newTarget);
                         Files.createDirectories(newPath.getParent());
                         byte[] bytes = Files.readAllBytes(path);
