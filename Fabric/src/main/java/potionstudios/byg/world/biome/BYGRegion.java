@@ -10,7 +10,7 @@ import net.minecraft.world.level.biome.Climate;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilder;
-import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
+import potionstudios.byg.common.world.biome.overworld.BiomeProviderData;
 import potionstudios.byg.mixin.access.OverworldBiomeBuilderAccess;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 
 import static potionstudios.byg.util.BYGRegionUtils.dumpArrays;
 import static potionstudios.byg.util.BYGRegionUtils.filter;
-import static potionstudios.byg.util.BYGUtil.convert2DResourceKeyArrayTo2DList;
+import static potionstudios.byg.util.BYGUtil._2DResourceKeyArrayTo2DList;
 
 public class BYGRegion extends Region {
     private static int count = 0;
@@ -32,17 +32,17 @@ public class BYGRegion extends Region {
 
     private final BYGOverworldBiomeBuilder bygOverworldBiomeBuilder;
 
-    public BYGRegion(BYGOverworldBiomeBuilders.BiomeProviderData biomeProviderData) {
+    public BYGRegion(BiomeProviderData biomeProviderData) {
         this(biomeProviderData.overworldWeight(),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.oceans().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.middleBiomes().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.middleBiomesVariant().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.plateauBiomes().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.plateauBiomesVariant().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.extremeHills().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.beachBiomes().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.peakBiomes().value()),
-            convert2DResourceKeyArrayTo2DList(biomeProviderData.peakBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.oceans().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.middleBiomes().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.middleBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.plateauBiomes().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.plateauBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.extremeHills().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.beachBiomes().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.peakBiomes().value()),
+            _2DResourceKeyArrayTo2DList(biomeProviderData.peakBiomesVariant().value()),
             biomeProviderData.swapper());
     }
 

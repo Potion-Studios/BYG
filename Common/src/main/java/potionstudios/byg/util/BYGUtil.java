@@ -49,7 +49,7 @@ public class BYGUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> ResourceKey<T>[][] convert2DResourceKeyArrayTo2DList(List<List<ResourceKey<T>>> listToConvert) {
+    public static <T> ResourceKey<T>[][] _2DResourceKeyArrayTo2DList(List<List<ResourceKey<T>>> listToConvert) {
         List<ResourceKey<T>[]> resultList = new ArrayList<>(listToConvert.size());
         for (List<ResourceKey<T>> vs : listToConvert) {
             resultList.add(vs.toArray(ResourceKey[]::new));

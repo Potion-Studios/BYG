@@ -2,12 +2,14 @@ package potionstudios.byg.config.json;
 
 import blue.endless.jankson.JsonElement;
 import blue.endless.jankson.api.SyntaxError;
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
+import potionstudios.byg.common.world.biome.overworld.BiomeProviderData;
 import potionstudios.byg.util.codec.FromFileOps;
 import potionstudios.byg.util.codec.Wrapped;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
@@ -23,8 +25,8 @@ import java.util.Map;
 import static potionstudios.byg.util.jankson.JanksonUtil.createConfig;
 
 public record OverworldBiomeConfig(boolean generateOverworld,
-                                   List<Wrapped<BYGOverworldBiomeBuilders.BiomeProviderData>> values) {
-    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BYGOverworldBiomeBuilders.OVERWORLD_DEFAULTS);
+                                   List<Wrapped<BiomeProviderData>> values) {
+    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BiomeProviderData.OVERWORLD_DEFAULTS);
 
     public static OverworldBiomeConfig INSTANCE = null;
 
@@ -156,7 +158,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
             Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            BYGOverworldBiomeBuilders.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            BiomeProviderData.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
         ).apply(builder, OverworldBiomeConfig::new)
     );
 
@@ -184,8 +186,8 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         Path biomePickers = path.getParent().resolve("biome_picker");
 
         try {
-            createDefaultsAndRegister(BYGOverworldBiomeBuilders.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeBuilders.BIOME_LAYOUT, fromFileOps, biomePickers);
-            createDefaultsAndRegister(BYGOverworldBiomeBuilders.BIOME_REGIONS, registry.get("regions"), BYGOverworldBiomeBuilders.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
+            createDefaultsAndRegister(BYGOverworldBiomeBuilders.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeBuilders.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
+            createDefaultsAndRegister(BiomeProviderData.BIOME_REGIONS, registry.get("regions"), BiomeProviderData.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists()) {
                 createConfig(path, CODEC, HEADER, COMMENTS, fromFileOps, from);
             }
@@ -197,11 +199,11 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         }
     }
 
-    private static <T> void createDefaultsAndRegister(Map<String, T> defaults, Map<String, T> registry, Codec<T> codec, FromFileOps<JsonElement> fromFileOps, Path providers) throws IOException {
+    private static <T> void createDefaultsAndRegister(Map<String, Pair<Map<String, String>, T>> defaults, Map<String, T> registry, Codec<T> codec, FromFileOps<JsonElement> fromFileOps, Path providers) throws IOException {
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
             if (!registryPath.toFile().exists()) {
-                createConfig(registryPath, codec, HEADER, new HashMap<>(), fromFileOps, listWrapped);
+                createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", HEADER), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
         });
 
