@@ -81,7 +81,7 @@ public class JanksonUtil {
         }
         try {
             Files.createDirectories(path.getParent());
-            String output = header + jsonElement.toJson(JSON_GRAMMAR);
+            String output = header + "\n" + jsonElement.toJson(JSON_GRAMMAR);
             Files.write(path, output.getBytes());
         } catch (IOException e) {
             BYG.LOGGER.error(e.toString());

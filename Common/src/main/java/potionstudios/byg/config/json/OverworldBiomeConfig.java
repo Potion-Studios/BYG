@@ -30,129 +30,30 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
     public static OverworldBiomeConfig INSTANCE = null;
 
-    public static final String HEADER = """
+    public static final String HEADER_CLOSED = """
         /*
-        This config is responsible for all overworld related settings for BYG.
         This file uses the ".json5" file extension which allows for comments like this in a json file!
         Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
-        
+                
         VSCode: https://code.visualstudio.com/
         JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
                     
         to make editing this file much easier.
-        */
-        """;
+        */""";
+
+    public static final String HEADER_OPEN = """
+        /*
+        This file uses the ".json5" file extension which allows for comments like this in a json file!
+        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+                
+        VSCode: https://code.visualstudio.com/
+        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+                    
+        to make editing this file much easier.""";
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.");
-
-
-        String biomeLayout = """
-            [
-            ARID-ICY,
-            DRY-ICY,
-            NEUTRAL-ICY,
-            WET-ICY,
-            HUMID-ICY
-            ],
-            [
-            ARID-COLD,
-            DRY-COLD,
-            NEUTRAL-COLD,
-            WET-COLD,
-            HUMID-COLD
-            ],
-            [
-            ARID-NEUTRAL,
-            DRY-NEUTRAL,
-            NEUTRAL-NEUTRAL,
-            WET-NEUTRAL,
-            HUMID-NEUTRAL
-            ],
-            [
-            ARID-WARM,
-            DRY-WARM,
-            NEUTRAL-WARM,
-            WET-WARM,
-            HUMID-WARM
-            ],
-            [
-            ARID-HOT,
-            DRY-HOT,
-            NEUTRAL-HOT,
-            WET-HOT,
-            HUMID-HOT
-            ]
-            """;
-
-        String oceanLayout =
-            """
-                [
-                SHALLOW-ICY,
-                SHALLOW-COLD,
-                SHALLOW-NEUTRAL,
-                SHALLOW-WARM,
-                SHALLOW-HOT
-                ],
-                [
-                DEEP-ICY,
-                DEEP-COLD,
-                DEEP-NEUTRAL,
-                DEEP-WARM,
-                DEEP-HOT
-                ]
-                """;
-
-        String requiresValidKeys =
-            """
-                All keys passed in must be valid in the biome registry!
-                "minecraft:the_void" is invalid as it represents a value of "NULL(nothing)" internally.
-                """;
-
         map.put("providers", "A list of weighted providers/regions that contain a unique biome layout.");
-
-        map.put("providers.peak_biomes", "Appearing on mountainous terrain & BELOW weirdness 0, here is the \"peak_biomes\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.peak_biomes_variant", "Appearing on mountainous terrain & ABOVE weirdness 0, here is the \"peak_biome_variants\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.oceans", "Appearing on terrain below sea level, here is the \"ocean_biomes\" layout:\n" + oceanLayout + requiresValidKeys);
-
-        map.put("providers.plateau_biomes", "Appearing on elevated flat terrain BELOW weirdness 0 or in unfilled(\"NULL(nothing)\") spots in \"plateau_biome_variants\", here is the \"plateau_biomes\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.plateau_biomes_variant", "Appearing on elevated flat terrain ABOVE weirdness 0, here is the \"plateau_biomes\" layout:\n" + biomeLayout + """
-            All keys passed in must be valid in the biome registry!
-            "minecraft:the_void" is valid and represents NULL as it represents a value of "NULL(nothing)".
-            In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "plateau_biomes" will be used instead.
-            """);
-        map.put("providers.middle_biomes", "Appearing on terrain BELOW weirdness 0 or in unfilled(\"NULL(nothing)\") spots in \"middle_biomes_variants\", here is the \"middle_biomes\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.middle_biomes_variant", "Appearing on terrain ABOVE weirdness 0, here is the \"middle_biomes_variant\" layout:\n" + biomeLayout +
-            """
-                All keys passed in must be valid in the biome registry!
-                "minecraft:the_void" is valid and represents NULL as it represents a value of "NULL(nothing)".
-                In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "middle_biomes" will be used instead.
-                """);
-
-        map.put("providers.shattered_biomes", "Appearing on shattered terrain here is the \"shattered_biomes\" layout:\n" + biomeLayout +
-            """
-                All keys passed in must be valid in the biome registry!
-                "minecraft:the_void" is valid and represents NULL as it represents a value of "NULL(nothing)".
-                In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "middle_biomes" will be used instead.
-                """);
-
-        map.put("providers.beach_biomes", "Appearing on terrain bordering oceans, here is the \"beach_biomes\" layout:\n" + biomeLayout + requiresValidKeys);
-        map.put("providers.swapper",
-            """
-                Used to swap biomes not found in the temperature/humidity layouts.
-                Biomes found within the biome selectors, may not be used as the swapped "value" and biomes only from Minecraft may be used as the "key".
-                            
-                "key" = "minecraft:biome_registry_path"
-                "value" = "modid:new_biome_registry_path"
-                "key":"value"
-                """);
-        map.put("providers.weight",
-            """
-                The weight of this provider/region against all other providers.
-                Higher numbers do NOT increase the provider's size.
-                Weight "0" disables this provider and all its entries.
-                """
-        );
     });
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
@@ -183,15 +84,15 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         FromFileOps.Access registry = new FromFileOps.Access();
         FromFileOps<JsonElement> fromFileOps = new FromFileOps<>(JanksonJsonOps.INSTANCE, registry);
         Path regions = path.getParent().resolve("regions");
-        Path biomePickers = path.getParent().resolve("biome_picker");
+        Path biomePickers = path.getParent().resolve("biome_selectors");
 
         try {
             createDefaultsAndRegister(BYGOverworldBiomeBuilders.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeBuilders.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
             createDefaultsAndRegister(BiomeProviderData.BIOME_REGIONS, registry.get("regions"), BiomeProviderData.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists()) {
-                createConfig(path, CODEC, HEADER, COMMENTS, fromFileOps, from);
+                createConfig(path, CODEC, HEADER_CLOSED, COMMENTS, fromFileOps, from);
             }
-            OverworldBiomeConfig overworldBiomeConfig = JanksonUtil. readConfig(path, CODEC, fromFileOps);
+            OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
             BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
             return overworldBiomeConfig;
         } catch (IOException | SyntaxError e) {
@@ -203,7 +104,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
             if (!registryPath.toFile().exists()) {
-                createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", HEADER), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
+                createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
         });
 
