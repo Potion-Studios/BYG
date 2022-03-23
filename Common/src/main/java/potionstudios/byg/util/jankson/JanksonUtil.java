@@ -89,16 +89,20 @@ public class JanksonUtil {
     }
 
     public static <T> T readConfig(Path path, Codec<T> codec, DynamicOps<JsonElement> ops) throws IOException, SyntaxError {
-        JsonObject load = JANKSON.load(path.toFile());
-        DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
-        Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
-        if (error.isPresent()) {
-            String errorMsg = String.format("Jankson File reading failed for \"%s\".Error:\n%s\n throwing IOException....", path.toString(), error.get().toString());
-            BYG.LOGGER.error(errorMsg);
-            throw new IOException();
-        }
+        try {
+            JsonObject load = JANKSON.load(path.toFile());
+            DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
+            Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
+            if (error.isPresent()) {
+                String errorMsg = String.format("Jankson File decoding failed for \"%s\".Error:\n%s\n throwing IOException....", path.toString(), error.get().toString());
+                throw new IOException(errorMsg);
+            }
 
-        Optional<Pair<T, JsonElement>> result = decode.resultOrPartial(BYG.LOGGER::error/*We should never get here, due to the error check but just in case, lets log it**/);
-        return result.orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+            Optional<Pair<T, JsonElement>> result = decode.resultOrPartial(BYG.LOGGER::error/*We should never get here, due to the error check but just in case, lets log it**/);
+            return result.orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+        } catch (IOException | SyntaxError errorMsg) {
+            BYG.LOGGER.error(String.format("File reading failed for: \"%s\"", path.toString()));
+            throw errorMsg;
+        }
     }
 }
