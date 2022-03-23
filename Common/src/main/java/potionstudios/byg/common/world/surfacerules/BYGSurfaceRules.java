@@ -76,7 +76,11 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource DACITE_RIDGES_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.DACITE_RIDGES),
         SurfaceRules.sequence(
-            NOISE_COARSE_DIRT,
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.COARSE_DIRT.defaultBlockState())),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
+                )),
             SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
             OVERGROWN_DACITE_DACITE_SURFACE,
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
