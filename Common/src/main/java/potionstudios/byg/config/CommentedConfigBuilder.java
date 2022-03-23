@@ -30,7 +30,7 @@ public class CommentedConfigBuilder {
             try {
                 Files.createDirectories(filePath.getParent());
             } catch (IOException e) {
-
+                e.printStackTrace();
             }
         }
 
@@ -161,7 +161,7 @@ public class CommentedConfigBuilder {
     public static CommentedConfig organizeConfig(CommentedConfig config) {
         CommentedConfig newConfig = CommentedConfig.of(Config.getDefaultMapCreator(false, true), TomlFormat.instance());
 
-        List<Map.Entry<String, Object>> organizedCollection = config.valueMap().entrySet().stream().sorted(Comparator.comparing(Objects::toString)).collect(Collectors.toList());
+        List<Map.Entry<String, Object>> organizedCollection = config.valueMap().entrySet().stream().sorted(Comparator.comparing(Objects::toString)).toList();
         organizedCollection.forEach((stringObjectEntry -> {
             newConfig.add(stringObjectEntry.getKey(), stringObjectEntry.getValue());
         }));

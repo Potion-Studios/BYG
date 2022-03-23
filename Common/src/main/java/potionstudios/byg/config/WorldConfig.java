@@ -11,7 +11,15 @@ public class WorldConfig {
 
     public WorldConfig(Path path) {
         CommentedConfigBuilder builder = new CommentedConfigBuilder(path);
-        this.appendBiomePlacedFeatures = builder.add("Append BYG's placed features to all biomes? By disabling this, you remove BYG placed features not designated to specific biomes.\nTo configure the features that spawn using this, use the \"/worldgen export\" command and edit the files found at:\n\"byg/worldgen/placed_feature/global/<decoration_stage>\"\n\"byg/worldgen/placed_feature/global/placed_feature/<feature>\"\n\"byg/worldgen/configured_feature/global/<decoration_stage>\"\nin the output folder.", "append_biome_placed_features", true);
+        this.appendBiomePlacedFeatures = builder.add(
+            """
+                Append BYG's placed features to all biomes? By disabling this, you remove BYG placed features not designated to specific biomes.
+                To configure the features that spawn using this, use the "/worldgenexport" command and edit the files found at:
+                "byg/worldgen/placed_feature/global/<decoration_stage>"
+                "byg/worldgen/placed_feature/global/placed_feature/<feature>"
+                "byg/worldgen/configured_feature/global/<decoration_stage>"
+                in the output folder.""",
+            "append_biome_placed_features", true);
         builder.build();
     }
 
