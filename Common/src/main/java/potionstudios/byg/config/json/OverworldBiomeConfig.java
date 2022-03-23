@@ -4,12 +4,13 @@ import blue.endless.jankson.JsonElement;
 import blue.endless.jankson.api.SyntaxError;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilders;
-import potionstudios.byg.common.world.biome.overworld.BiomeProviderData;
+import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
+import potionstudios.byg.common.world.biome.overworld.Region;
 import potionstudios.byg.util.codec.FromFileOps;
 import potionstudios.byg.util.codec.Wrapped;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
@@ -18,15 +19,14 @@ import potionstudios.byg.util.jankson.JanksonUtil;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static potionstudios.byg.util.jankson.JanksonUtil.createConfig;
 
 public record OverworldBiomeConfig(boolean generateOverworld,
-                                   List<Wrapped<BiomeProviderData>> values) {
-    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, BiomeProviderData.OVERWORLD_DEFAULTS);
+                                   List<Wrapped<Region>> values) {
+    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, Region.OVERWORLD_DEFAULTS);
 
     public static OverworldBiomeConfig INSTANCE = null;
 
@@ -53,13 +53,33 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.");
-        map.put("providers", "A list of weighted providers/regions that contain a unique biome layout.");
+        map.put("regions", "A list of weighted regions containing a unique biome layout.\nRegions may be inlined or may call a file from \"this_file_parent_directory/regions\"");
     });
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
             Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            BiomeProviderData.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            Region.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+        ).apply(builder, OverworldBiomeConfig::new)
+    );
+
+    public static final Codec<List<Wrapped<Region>>> FROM_OLD_CODEC_LIST = Region.OLD_CODEC.listOf().comapFlatMap(biomeProviderDataList -> {
+        List<Wrapped<Region>> wrapped = new ArrayList<>();
+        for (int i = 0; i < biomeProviderDataList.size(); i++) {
+            Region region = biomeProviderDataList.get(i);
+            String id = "region_" + (i + 1);
+            Wrapped<Region> dataWrapped = new Wrapped<>(Optional.of(id), region);
+            Region.BIOME_REGIONS.put(id, Pair.of(Region.COMMENTS, dataWrapped));
+            wrapped.add(dataWrapped);
+        }
+        return DataResult.success(wrapped);
+    }, wrapped -> wrapped.stream().map(Wrapped::value).collect(Collectors.toList()));
+
+
+    public static final Codec<OverworldBiomeConfig> OLD_CODEC = RecordCodecBuilder.create(builder ->
+        builder.group(
+            Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
+            FROM_OLD_CODEC_LIST.fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
         ).apply(builder, OverworldBiomeConfig::new)
     );
 
@@ -78,8 +98,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
     private static OverworldBiomeConfig readConfig() {
         final Path path = BYG.CONFIG_PATH.resolve("overworld").resolve("byg-overworld-biomes.json5");
-        OverworldBiomeConfig from = readAndDeleteOldOverworldConfig(BYG.CONFIG_PATH.resolve("byg-overworld-biomes.json"), CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
-
+        OverworldBiomeConfig getOldOrDefault = readAndDeleteOldOverworldConfig(BYG.CONFIG_PATH.resolve("overworld-biomes.json"), OLD_CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
+        if (getOldOrDefault != DEFAULT) {
+            BYG.LOGGER.warn("Old overworld config detected, lets try and repair it...");
+        }
 
         FromFileOps.Access registry = new FromFileOps.Access();
         FromFileOps<JsonElement> fromFileOps = new FromFileOps<>(JanksonJsonOps.INSTANCE, registry);
@@ -87,10 +109,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         Path biomePickers = path.getParent().resolve("biome_selectors");
 
         try {
-            createDefaultsAndRegister(BYGOverworldBiomeBuilders.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeBuilders.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
-            createDefaultsAndRegister(BiomeProviderData.BIOME_REGIONS, registry.get("regions"), BiomeProviderData.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
+            createDefaultsAndRegister(BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
+            createDefaultsAndRegister(Region.BIOME_REGIONS, registry.get("regions"), Region.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists()) {
-                createConfig(path, CODEC, HEADER_CLOSED, COMMENTS, fromFileOps, from);
+                createConfig(path, CODEC, HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
             BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
