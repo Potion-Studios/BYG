@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -390,6 +391,66 @@ public class BYGBlocks {
     public static final Block NIGHTSHADE_FENCE = createFence("nightshade_fence");
     public static final Block ETHER_FENCE = createFence("ether_fence");
     public static final Block IMPARIUS_FENCE = createFence("imparius_fence");
+
+    public static final Block ASPEN_SIGN = createSign("aspen_sign", BYGWoodType.ASPEN, ASPEN_PLANKS);
+    public static final Block BAOBAB_SIGN = createSign("baobab_sign", BYGWoodType.BAOBAB, BAOBAB_PLANKS);
+    public static final Block BLUE_ENCHANTED_SIGN = createSign("blue_enchanted_sign", BYGWoodType.BLUE_ENCHANTED, BLUE_ENCHANTED_PLANKS);
+    public static final Block CHERRY_SIGN = createSign("cherry_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
+    public static final Block CIKA_SIGN = createSign("cika_sign", BYGWoodType.CIKA, CIKA_PLANKS);
+    public static final Block CYPRESS_SIGN = createSign("cypress_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
+    public static final Block EBONY_SIGN = createSign("ebony_sign", BYGWoodType.EBONY, EBONY_PLANKS);
+    public static final Block FIR_SIGN = createSign("fir_sign", BYGWoodType.FIR, FIR_PLANKS);
+    public static final Block GREEN_ENCHANTED_SIGN = createSign("green_enchanted_sign", BYGWoodType.GREEN_ENCHANTED, GREEN_ENCHANTED_PLANKS);
+    public static final Block HOLLY_SIGN = createSign("holly_sign", BYGWoodType.HOLLY, HOLLY_PLANKS);
+    public static final Block JACARANDA_SIGN = createSign("jacaranda_sign", BYGWoodType.JACARANDA, JACARANDA_PLANKS);
+    public static final Block MAHOGANY_SIGN = createSign("mahogany_sign", BYGWoodType.MAHOGANY, MAHOGANY_PLANKS);
+    public static final Block MANGROVE_SIGN = createSign("mangrove_sign", BYGWoodType.MANGROVE, MANGROVE_PLANKS);
+    public static final Block MAPLE_SIGN = createSign("maple_sign", BYGWoodType.MAPLE, MAPLE_PLANKS);
+    public static final Block PINE_SIGN = createSign("pine_sign", BYGWoodType.PINE, PINE_PLANKS);
+    public static final Block RAINBOW_EUCALYPTUS_SIGN = createSign("rainbow_eucalyptus_sign", BYGWoodType.RAINBOW_EUCALYPTUS, RAINBOW_EUCALYPTUS_PLANKS);
+    public static final Block REDWOOD_SIGN = createSign("redwood_sign", BYGWoodType.REDWOOD, REDWOOD_PLANKS);
+    public static final Block SKYRIS_SIGN = createSign("skyris_sign", BYGWoodType.SKYRIS, SKYRIS_PLANKS);
+    public static final Block WILLOW_SIGN = createSign("willow_sign", BYGWoodType.WILLOW, WILLOW_PLANKS);
+    public static final Block WITCH_HAZEL_SIGN = createSign("witch_hazel_sign", BYGWoodType.WITCH_HAZEL, WITCH_HAZEL_PLANKS);
+    public static final Block ZELKOVA_SIGN = createSign("zelkova_sign", BYGWoodType.ZELKOVA, ZELKOVA_PLANKS);
+    public static final Block SYTHIAN_SIGN = createSign("sythian_sign", BYGWoodType.SYTHIAN, SYTHIAN_PLANKS);
+    public static final Block EMBUR_SIGN = createSign("embur_sign", BYGWoodType.EMBUR, EMBUR_PLANKS);
+    public static final Block PALM_SIGN = createSign("palm_sign", BYGWoodType.PALM, PALM_PLANKS);
+    public static final Block LAMENT_SIGN = createSign("lament_sign", BYGWoodType.LAMENT, LAMENT_PLANKS);
+    public static final Block BULBIS_SIGN = createSign("bulbis_sign", BYGWoodType.BULBIS, BULBIS_PLANKS);
+    public static final Block NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGWoodType.NIGHTSHADE, NIGHTSHADE_PLANKS);
+    public static final Block ETHER_SIGN = createSign("ether_sign", BYGWoodType.ETHER, ETHER_PLANKS);
+    public static final Block IMPARIUS_SIGN = createSign("imparius_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
+
+    public static final Block ASPEN_WALL_SIGN = createWallSign("aspen_wall_sign", BYGWoodType.ASPEN, ASPEN_PLANKS);
+    public static final Block BAOBAB_WALL_SIGN = createWallSign("baobab_wall_sign", BYGWoodType.BAOBAB, BAOBAB_PLANKS);
+    public static final Block BLUE_ENCHANTED_WALL_SIGN = createWallSign("blue_enchanted_wall_sign", BYGWoodType.BLUE_ENCHANTED, BLUE_ENCHANTED_PLANKS);
+    public static final Block CHERRY_WALL_SIGN = createWallSign("cherry_wall_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
+    public static final Block CIKA_WALL_SIGN = createWallSign("cika_wall_sign", BYGWoodType.CIKA, CIKA_PLANKS);
+    public static final Block CYPRESS_WALL_SIGN = createWallSign("cypress_wall_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
+    public static final Block EBONY_WALL_SIGN = createWallSign("ebony_wall_sign", BYGWoodType.EBONY, EBONY_PLANKS);
+    public static final Block FIR_WALL_SIGN = createWallSign("fir_wall_sign", BYGWoodType.FIR, FIR_PLANKS);
+    public static final Block GREEN_ENCHANTED_WALL_SIGN = createWallSign("green_enchanted_wall_sign", BYGWoodType.GREEN_ENCHANTED, GREEN_ENCHANTED_PLANKS);
+    public static final Block HOLLY_WALL_SIGN = createWallSign("holly_wall_sign", BYGWoodType.HOLLY, HOLLY_PLANKS);
+    public static final Block JACARANDA_WALL_SIGN = createWallSign("jacaranda_wall_sign", BYGWoodType.JACARANDA, JACARANDA_PLANKS);
+    public static final Block MAHOGANY_WALL_SIGN = createWallSign("mahogany_wall_sign", BYGWoodType.MAHOGANY, MAHOGANY_PLANKS);
+    public static final Block MANGROVE_WALL_SIGN = createWallSign("mangrove_wall_sign", BYGWoodType.MANGROVE, MANGROVE_PLANKS);
+    public static final Block MAPLE_WALL_SIGN = createWallSign("maple_wall_sign", BYGWoodType.MAPLE, MAPLE_PLANKS);
+    public static final Block PINE_WALL_SIGN = createWallSign("pine_wall_sign", BYGWoodType.PINE, PINE_PLANKS);
+    public static final Block RAINBOW_EUCALYPTUS_WALL_SIGN = createWallSign("rainbow_eucalyptus_wall_sign", BYGWoodType.RAINBOW_EUCALYPTUS, RAINBOW_EUCALYPTUS_PLANKS);
+    public static final Block REDWOOD_WALL_SIGN = createWallSign("redwood_wall_sign", BYGWoodType.REDWOOD, REDWOOD_PLANKS);
+    public static final Block SKYRIS_WALL_SIGN = createWallSign("skyris_wall_sign", BYGWoodType.SKYRIS, SKYRIS_PLANKS);
+    public static final Block WILLOW_WALL_SIGN = createWallSign("willow_wall_sign", BYGWoodType.WILLOW, WILLOW_PLANKS);
+    public static final Block WITCH_HAZEL_WALL_SIGN = createWallSign("witch_hazel_wall_sign", BYGWoodType.WITCH_HAZEL, WITCH_HAZEL_PLANKS);
+    public static final Block ZELKOVA_WALL_SIGN = createWallSign("zelkova_wall_sign", BYGWoodType.ZELKOVA, ZELKOVA_PLANKS);
+    public static final Block SYTHIAN_WALL_SIGN = createWallSign("sythian_wall_sign", BYGWoodType.SYTHIAN, SYTHIAN_PLANKS);
+    public static final Block EMBUR_WALL_SIGN = createWallSign("embur_wall_sign", BYGWoodType.EMBUR, EMBUR_PLANKS);
+    public static final Block PALM_WALL_SIGN = createWallSign("palm_wall_sign", BYGWoodType.PALM, PALM_PLANKS);
+    public static final Block LAMENT_WALL_SIGN = createWallSign("lament_wall_sign", BYGWoodType.LAMENT, LAMENT_PLANKS);
+    public static final Block BULBIS_WALL_SIGN = createWallSign("bulbis_wall_sign", BYGWoodType.BULBIS, BULBIS_PLANKS);
+    public static final Block NIGHTSHADE_WALL_SIGN = createWallSign("nightshade_wall_sign", BYGWoodType.NIGHTSHADE, NIGHTSHADE_PLANKS);
+    public static final Block ETHER_WALL_SIGN = createWallSign("ether_wall_sign", BYGWoodType.ETHER, ETHER_PLANKS);
+    public static final Block IMPARIUS_WALL_SIGN = createWallSign("imparius_wall_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
 
     public static final Block PEAT = createDirt("peat");
     public static final Block LUSH_DIRT = createDirt("lush_dirt");
@@ -2030,6 +2091,22 @@ public class BYGBlocks {
         Block createBlock = new DesertPlant(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
         createPottedBlock(createBlock, id);
         return createBlock;
+    }
+
+    private static Block createSign(String id, WoodType type, Block color) {
+        return createSign(id, type, color.defaultMaterialColor());
+    }
+
+    private static Block createSign(String id, WoodType type, MaterialColor color) {
+        return BYG.SIGNS ? createBlock(new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color), type), id) : null;
+    }
+
+    private static Block createWallSign(String id, WoodType type, Block color) {
+        return BYG.SIGNS ? createSign(id, type, color.defaultMaterialColor()) : null;
+    }
+
+    private static Block createWallSign(String id, WoodType type, MaterialColor color) {
+        return null; //createBlock(new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color), type), id);
     }
 
     public static Block createBlock(Block block, String id) {

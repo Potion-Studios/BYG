@@ -50,6 +50,7 @@
     "access.WeightedEntryWrapperAccess",
     "access.WeightedListAccess",
     "access.WoodButtonBlockAccess",
+    "access.WoodTypeAccess",
     "access.WorldCarverAccess",
     "access.WorldGenRegistryDumpReportAccess",
     "common.MixinDefaultAttributes",
@@ -89,11 +90,11 @@
     "client.MixinBlockColors",
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
+    "client.MixinInventoryScreen",
     "client.MixinItemColors",
     "client.MixinLayerDefinitions",
     "client.MixinParticleEngine",
-    "client.MixinScreenManager",
-    "client.MixinInventoryScreen"
+    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -250,6 +250,7 @@ public class BYGItems {
     public static final Item ASPEN_TRAPDOOR = createItem(BYGBlocks.ASPEN_TRAPDOOR);
     public static final Item ASPEN_PRESSURE_PLATE = createItem(BYGBlocks.ASPEN_PRESSURE_PLATE);
     public static final Item ASPEN_BUTTON = createItem(BYGBlocks.ASPEN_BUTTON);
+    public static final Item ASPEN_SIGN = createSign("aspen_sign", BYGBlocks.ASPEN_SIGN, BYGBlocks.ASPEN_WALL_SIGN);
     public static final Item ASPEN_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "aspen_boat");
 
     //Baobab Woodtype
@@ -271,6 +272,7 @@ public class BYGItems {
     public static final Item BAOBAB_TRAPDOOR = createItem(BYGBlocks.BAOBAB_TRAPDOOR);
     public static final Item BAOBAB_PRESSURE_PLATE = createItem(BYGBlocks.BAOBAB_PRESSURE_PLATE);
     public static final Item BAOBAB_BUTTON = createItem(BYGBlocks.BAOBAB_BUTTON);
+    public static final Item BAOBAB_SIGN = createSign("baobab_sign", BYGBlocks.BAOBAB_SIGN, BYGBlocks.BAOBAB_WALL_SIGN);
     public static final Item BAOBAB_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "baobab_boat");
 
     //Blue Enchanted Woodtype
@@ -291,6 +293,7 @@ public class BYGItems {
     public static final Item BLUE_ENCHANTED_TRAPDOOR = createItem(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR);
     public static final Item BLUE_ENCHANTED_PRESSURE_PLATE = createItem(BYGBlocks.BLUE_ENCHANTED_PRESSURE_PLATE);
     public static final Item BLUE_ENCHANTED_BUTTON = createItem(BYGBlocks.BLUE_ENCHANTED_BUTTON);
+    public static final Item BLUE_ENCHANTED_SIGN = createSign("blue_enchanted_sign", BYGBlocks.BLUE_ENCHANTED_SIGN, BYGBlocks.BLUE_ENCHANTED_WALL_SIGN);
     public static final Item BLUE_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "blue_enchanted_boat");
 
     //Bulbis Woodtype
@@ -315,6 +318,7 @@ public class BYGItems {
     public static final Item BULBIS_TRAPDOOR = createItem(BYGBlocks.BULBIS_TRAPDOOR);
     public static final Item BULBIS_PRESSURE_PLATE = createItem(BYGBlocks.BULBIS_PRESSURE_PLATE);
     public static final Item BULBIS_BUTTON = createItem(BYGBlocks.BULBIS_BUTTON);
+    public static final Item BULBIS_SIGN = createSign("bulbis_sign", BYGBlocks.BULBIS_SIGN, BYGBlocks.BULBIS_WALL_SIGN);
 
 
     //Cherry Woodtype
@@ -339,6 +343,7 @@ public class BYGItems {
     public static final Item CHERRY_TRAPDOOR = createItem(BYGBlocks.CHERRY_TRAPDOOR);
     public static final Item CHERRY_PRESSURE_PLATE = createItem(BYGBlocks.CHERRY_PRESSURE_PLATE);
     public static final Item CHERRY_BUTTON = createItem(BYGBlocks.CHERRY_BUTTON);
+    public static final Item CHERRY_SIGN = createSign("cherry_sign", BYGBlocks.CHERRY_SIGN, BYGBlocks.CHERRY_WALL_SIGN);
     public static final Item CHERRY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cherry_boat");
 
     //Cika Woodtype
@@ -359,6 +364,7 @@ public class BYGItems {
     public static final Item CIKA_TRAPDOOR = createItem(BYGBlocks.CIKA_TRAPDOOR);
     public static final Item CIKA_PRESSURE_PLATE = createItem(BYGBlocks.CIKA_PRESSURE_PLATE);
     public static final Item CIKA_BUTTON = createItem(BYGBlocks.CIKA_BUTTON);
+    public static final Item CIKA_SIGN = createSign("cika_sign", BYGBlocks.CIKA_SIGN, BYGBlocks.CIKA_WALL_SIGN);
     public static final Item CIKA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cika_boat");
 
     //Cypress Woodtype
@@ -379,6 +385,7 @@ public class BYGItems {
     public static final Item CYPRESS_TRAPDOOR = createItem(BYGBlocks.CYPRESS_TRAPDOOR);
     public static final Item CYPRESS_PRESSURE_PLATE = createItem(BYGBlocks.CYPRESS_PRESSURE_PLATE);
     public static final Item CYPRESS_BUTTON = createItem(BYGBlocks.CYPRESS_BUTTON);
+    public static final Item CYPRESS_SIGN = createSign("cypress_sign", BYGBlocks.CYPRESS_SIGN, BYGBlocks.CYPRESS_WALL_SIGN);
     public static final Item CYPRESS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cypress_boat");
 
     //Ebony Woodtype
@@ -399,6 +406,7 @@ public class BYGItems {
     public static final Item EBONY_TRAPDOOR = createItem(BYGBlocks.EBONY_TRAPDOOR);
     public static final Item EBONY_PRESSURE_PLATE = createItem(BYGBlocks.EBONY_PRESSURE_PLATE);
     public static final Item EBONY_BUTTON = createItem(BYGBlocks.EBONY_BUTTON);
+    public static final Item EBONY_SIGN = createSign("ebony_sign", BYGBlocks.EBONY_SIGN, BYGBlocks.EBONY_WALL_SIGN);
     public static final Item EBONY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "ebony_boat");
 
     //Ether Woodtype
@@ -421,6 +429,7 @@ public class BYGItems {
     public static final Item ETHER_TRAPDOOR = createItem(BYGBlocks.ETHER_TRAPDOOR);
     public static final Item ETHER_PRESSURE_PLATE = createItem(BYGBlocks.ETHER_PRESSURE_PLATE);
     public static final Item ETHER_BUTTON = createItem(BYGBlocks.ETHER_BUTTON);
+    public static final Item ETHER_SIGN = createSign("ether_sign", BYGBlocks.ETHER_SIGN, BYGBlocks.ETHER_WALL_SIGN);
 
     //Fir Woodtype
     public static final Item FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
@@ -440,6 +449,7 @@ public class BYGItems {
     public static final Item FIR_TRAPDOOR = createItem(BYGBlocks.FIR_TRAPDOOR);
     public static final Item FIR_PRESSURE_PLATE = createItem(BYGBlocks.FIR_PRESSURE_PLATE);
     public static final Item FIR_BUTTON = createItem(BYGBlocks.FIR_BUTTON);
+    public static final Item FIR_SIGN = createSign("fir_sign", BYGBlocks.FIR_SIGN, BYGBlocks.FIR_WALL_SIGN);
     public static final Item FIR_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "fir_boat");
 
     //Green Enchanted Woodtype
@@ -460,6 +470,7 @@ public class BYGItems {
     public static final Item GREEN_ENCHANTED_TRAPDOOR = createItem(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR);
     public static final Item GREEN_ENCHANTED_PRESSURE_PLATE = createItem(BYGBlocks.GREEN_ENCHANTED_PRESSURE_PLATE);
     public static final Item GREEN_ENCHANTED_BUTTON = createItem(BYGBlocks.GREEN_ENCHANTED_BUTTON);
+    public static final Item GREEN_ENCHANTED_SIGN = createSign("green_enchanted_sign", BYGBlocks.GREEN_ENCHANTED_SIGN, BYGBlocks.GREEN_ENCHANTED_WALL_SIGN);
     public static final Item GREEN_ENCHANTED_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "green_enchanted_boat");
 
     //Holly Woodtype
@@ -482,6 +493,7 @@ public class BYGItems {
     public static final Item HOLLY_TRAPDOOR = createItem(BYGBlocks.HOLLY_TRAPDOOR);
     public static final Item HOLLY_PRESSURE_PLATE = createItem(BYGBlocks.HOLLY_PRESSURE_PLATE);
     public static final Item HOLLY_BUTTON = createItem(BYGBlocks.HOLLY_BUTTON);
+    public static final Item HOLLY_SIGN = createSign("holly_sign", BYGBlocks.HOLLY_SIGN, BYGBlocks.HOLLY_WALL_SIGN);
     public static final Item HOLLY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "holly_boat");
 
     //Imparius Woodtype
@@ -508,6 +520,7 @@ public class BYGItems {
     public static final Item IMPARIUS_TRAPDOOR = createItem(BYGBlocks.IMPARIUS_TRAPDOOR);
     public static final Item IMPARIUS_PRESSURE_PLATE = createItem(BYGBlocks.IMPARIUS_PRESSURE_PLATE);
     public static final Item IMPARIUS_BUTTON = createItem(BYGBlocks.IMPARIUS_BUTTON);
+    public static final Item IMPARIUS_SIGN = createSign("imparius_sign", BYGBlocks.IMPARIUS_SIGN, BYGBlocks.IMPARIUS_WALL_SIGN);
 
     //Jacaranda Woodtype
     public static final Item JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
@@ -535,6 +548,7 @@ public class BYGItems {
     public static final Item JACARANDA_TRAPDOOR = createItem(BYGBlocks.JACARANDA_TRAPDOOR);
     public static final Item JACARANDA_PRESSURE_PLATE = createItem(BYGBlocks.JACARANDA_PRESSURE_PLATE);
     public static final Item JACARANDA_BUTTON = createItem(BYGBlocks.JACARANDA_BUTTON);
+    public static final Item JACARANDA_SIGN = createSign("jacaranda_sign", BYGBlocks.JACARANDA_SIGN, BYGBlocks.JACARANDA_WALL_SIGN);
     public static final Item JACARANDA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "jacaranda_boat");
 
     //Lament Woodtype
@@ -557,6 +571,7 @@ public class BYGItems {
     public static final Item LAMENT_TRAPDOOR = createItem(BYGBlocks.LAMENT_TRAPDOOR);
     public static final Item LAMENT_PRESSURE_PLATE = createItem(BYGBlocks.LAMENT_PRESSURE_PLATE);
     public static final Item LAMENT_BUTTON = createItem(BYGBlocks.LAMENT_BUTTON);
+    public static final Item LAMENT_SIGN = createSign("lament_sign", BYGBlocks.LAMENT_SIGN, BYGBlocks.LAMENT_WALL_SIGN);
 
     //Mahogany Woodtype
     public static final Item MAHOGANY_SAPLING = createSaplingItem(BYGBlocks.MAHOGANY_SAPLING);
@@ -576,6 +591,7 @@ public class BYGItems {
     public static final Item MAHOGANY_TRAPDOOR = createItem(BYGBlocks.MAHOGANY_TRAPDOOR);
     public static final Item MAHOGANY_PRESSURE_PLATE = createItem(BYGBlocks.MAHOGANY_PRESSURE_PLATE);
     public static final Item MAHOGANY_BUTTON = createItem(BYGBlocks.MAHOGANY_BUTTON);
+    public static final Item MAHOGANY_SIGN = createSign("mahogany_sign", BYGBlocks.MAHOGANY_SIGN, BYGBlocks.MAHOGANY_WALL_SIGN);
     public static final Item MAHOGANY_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mahogany_boat");
 
     //Mangrove Woodtype
@@ -596,6 +612,7 @@ public class BYGItems {
     public static final Item MANGROVE_TRAPDOOR = createItem(BYGBlocks.MANGROVE_TRAPDOOR);
     public static final Item MANGROVE_PRESSURE_PLATE = createItem(BYGBlocks.MANGROVE_PRESSURE_PLATE);
     public static final Item MANGROVE_BUTTON = createItem(BYGBlocks.MANGROVE_BUTTON);
+    public static final Item MANGROVE_SIGN = createSign("mangrove_sign", BYGBlocks.MANGROVE_SIGN, BYGBlocks.MANGROVE_WALL_SIGN);
     public static final Item MANGROVE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mangrove_boat");
 
     //Maple Woodtype
@@ -620,6 +637,7 @@ public class BYGItems {
     public static final Item MAPLE_TRAPDOOR = createItem(BYGBlocks.MAPLE_TRAPDOOR);
     public static final Item MAPLE_PRESSURE_PLATE = createItem(BYGBlocks.MAPLE_PRESSURE_PLATE);
     public static final Item MAPLE_BUTTON = createItem(BYGBlocks.MAPLE_BUTTON);
+    public static final Item MAPLE_SIGN = createSign("maple_sign", BYGBlocks.MAPLE_SIGN, BYGBlocks.MAPLE_WALL_SIGN);
     public static final Item MAPLE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
 
     //Nightshade Woodtype
@@ -642,6 +660,7 @@ public class BYGItems {
     public static final Item NIGHTSHADE_TRAPDOOR = createItem(BYGBlocks.NIGHTSHADE_TRAPDOOR);
     public static final Item NIGHTSHADE_PRESSURE_PLATE = createItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE);
     public static final Item NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
+    public static final Item NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
 
     //Palm Woodtype
     public static final Item PALM_SAPLING = createSaplingItem(BYGBlocks.PALM_SAPLING);
@@ -661,6 +680,7 @@ public class BYGItems {
     public static final Item PALM_TRAPDOOR = createItem(BYGBlocks.PALM_TRAPDOOR);
     public static final Item PALM_PRESSURE_PLATE = createItem(BYGBlocks.PALM_PRESSURE_PLATE);
     public static final Item PALM_BUTTON = createItem(BYGBlocks.PALM_BUTTON);
+    public static final Item PALM_SIGN = createSign("palm_sign", BYGBlocks.PALM_SIGN, BYGBlocks.PALM_WALL_SIGN);
     public static final Item PALM_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PALM, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "palm_boat");
 
     //Palo Verde Woodtype
@@ -690,6 +710,7 @@ public class BYGItems {
     public static final Item PINE_TRAPDOOR = createItem(BYGBlocks.PINE_TRAPDOOR);
     public static final Item PINE_PRESSURE_PLATE = createItem(BYGBlocks.PINE_PRESSURE_PLATE);
     public static final Item PINE_BUTTON = createItem(BYGBlocks.PINE_BUTTON);
+    public static final Item PINE_SIGN = createSign("pine_sign", BYGBlocks.PINE_SIGN, BYGBlocks.PINE_WALL_SIGN);
     public static final Item PINE_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "pine_boat");
 
     //Rainbow Eucalyptus Woodtype
@@ -710,6 +731,7 @@ public class BYGItems {
     public static final Item RAINBOW_EUCALYPTUS_TRAPDOOR = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR);
     public static final Item RAINBOW_EUCALYPTUS_PRESSURE_PLATE = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_PRESSURE_PLATE);
     public static final Item RAINBOW_EUCALYPTUS_BUTTON = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_BUTTON);
+    public static final Item RAINBOW_EUCALYPTUS_SIGN = createSign("rainbow_eucalyptus_sign", BYGBlocks.RAINBOW_EUCALYPTUS_SIGN, BYGBlocks.RAINBOW_EUCALYPTUS_WALL_SIGN);
     public static final Item RAINBOW_EUCALYPTUS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "rainbow_eucalyptus_boat");
 
     //Redwood Woodtype
@@ -730,6 +752,7 @@ public class BYGItems {
     public static final Item REDWOOD_TRAPDOOR = createItem(BYGBlocks.REDWOOD_TRAPDOOR);
     public static final Item REDWOOD_PRESSURE_PLATE = createItem(BYGBlocks.REDWOOD_PRESSURE_PLATE);
     public static final Item REDWOOD_BUTTON = createItem(BYGBlocks.REDWOOD_BUTTON);
+    public static final Item REDWOOD_SIGN = createSign("redwood_sign", BYGBlocks.REDWOOD_SIGN, BYGBlocks.REDWOOD_WALL_SIGN);
     public static final Item REDWOOD_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "redwood_boat");
 
     //Skyris Woodtype
@@ -754,6 +777,7 @@ public class BYGItems {
     public static final Item SKYRIS_TRAPDOOR = createItem(BYGBlocks.SKYRIS_TRAPDOOR);
     public static final Item SKYRIS_PRESSURE_PLATE = createItem(BYGBlocks.SKYRIS_PRESSURE_PLATE);
     public static final Item SKYRIS_BUTTON = createItem(BYGBlocks.SKYRIS_BUTTON);
+    public static final Item SKYRIS_SIGN = createSign("skyris_sign", BYGBlocks.SKYRIS_SIGN, BYGBlocks.SKYRIS_WALL_SIGN);
     public static final Item SKYRIS_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
 
     //Willow Woodtype
@@ -774,6 +798,7 @@ public class BYGItems {
     public static final Item WILLOW_TRAPDOOR = createItem(BYGBlocks.WILLOW_TRAPDOOR);
     public static final Item WILLOW_PRESSURE_PLATE = createItem(BYGBlocks.WILLOW_PRESSURE_PLATE);
     public static final Item WILLOW_BUTTON = createItem(BYGBlocks.WILLOW_BUTTON);
+    public static final Item WILLOW_SIGN = createSign("willow_sign", BYGBlocks.WILLOW_SIGN, BYGBlocks.WILLOW_WALL_SIGN);
     public static final Item WILLOW_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "willow_boat");
 
     //Witch-Hazel Woodtype
@@ -798,6 +823,7 @@ public class BYGItems {
     public static final Item WITCH_HAZEL_TRAPDOOR = createItem(BYGBlocks.WITCH_HAZEL_TRAPDOOR);
     public static final Item WITCH_HAZEL_PRESSURE_PLATE = createItem(BYGBlocks.WITCH_HAZEL_PRESSURE_PLATE);
     public static final Item WITCH_HAZEL_BUTTON = createItem(BYGBlocks.WITCH_HAZEL_BUTTON);
+    public static final Item WITCH_HAZEL_SIGN = createSign("witch_hazel_sign", BYGBlocks.WITCH_HAZEL_SIGN, BYGBlocks.WITCH_HAZEL_WALL_SIGN);
     public static final Item WITCH_HAZEL_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "witch_hazel_boat");
 
     //Zelkova Woodtype
@@ -818,6 +844,7 @@ public class BYGItems {
     public static final Item ZELKOVA_TRAPDOOR = createItem(BYGBlocks.ZELKOVA_TRAPDOOR);
     public static final Item ZELKOVA_PRESSURE_PLATE = createItem(BYGBlocks.ZELKOVA_PRESSURE_PLATE);
     public static final Item ZELKOVA_BUTTON = createItem(BYGBlocks.ZELKOVA_BUTTON);
+    public static final Item ZELKOVA_SIGN = createSign("zelkova_sign", BYGBlocks.ZELKOVA_SIGN, BYGBlocks.ZELKOVA_WALL_SIGN);
     public static final Item ZELKOVA_BOAT = createItem(new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "zelkova_boat");
 
     //Sythian Woodtype
@@ -838,6 +865,7 @@ public class BYGItems {
     public static final Item SYTHIAN_TRAPDOOR = createItem(BYGBlocks.SYTHIAN_TRAPDOOR);
     public static final Item SYTHIAN_PRESSURE_PLATE = createItem(BYGBlocks.SYTHIAN_PRESSURE_PLATE);
     public static final Item SYTHIAN_BUTTON = createItem(BYGBlocks.SYTHIAN_BUTTON);
+    public static final Item SYTHIAN_SIGN = createSign("sythian_sign", BYGBlocks.SYTHIAN_SIGN, BYGBlocks.SYTHIAN_WALL_SIGN);
 
     //Embur Woodtype
     public static final Item EMBUR_GEL_BALL = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
@@ -860,6 +888,7 @@ public class BYGItems {
     public static final Item EMBUR_TRAPDOOR = createItem(BYGBlocks.EMBUR_TRAPDOOR);
     public static final Item EMBUR_PRESSURE_PLATE = createItem(BYGBlocks.EMBUR_PRESSURE_PLATE);
     public static final Item EMBUR_BUTTON = createItem(BYGBlocks.EMBUR_BUTTON);
+    public static final Item EMBUR_SIGN = createSign("embur_sign", BYGBlocks.EMBUR_SIGN, BYGBlocks.EMBUR_WALL_SIGN);
 
     //SaplingItems
     public static final Item WITHERING_OAK_SAPLING = createItem(BYGBlocks.WITHERING_OAK_SAPLING);
@@ -1232,6 +1261,10 @@ public class BYGItems {
 
     public static BlockItem createSaplingItem(Block block) {
         return createItem(new BYGSaplingItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+    }
+
+    public static SignItem createSign(String id, Block signBlock, Block wallSignBlock) {
+        return BYG.SIGNS ? createItem(new SignItem(new Item.Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock, wallSignBlock), id) : null;
     }
 
     public static <T extends Item> T createItem(T item, Block block) {
