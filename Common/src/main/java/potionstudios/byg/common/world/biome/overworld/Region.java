@@ -142,7 +142,13 @@ public record Region(int overworldWeight, Wrapped<List<List<ResourceKey<Biome>>>
                             
                 "key" = "minecraft:biome_registry_path"
                 "value" = "modid:new_biome_registry_path"
-                "key":"value"
+                
+                For example:
+                {
+                "key1":"value1",
+                "key2":"value2",
+                "key3":"value3"
+                }
                 """);
         map.put("weight",
             """
