@@ -36,7 +36,7 @@ public class ReloadConfigsCommand {
     }
 
 
-    public enum Config {
+    private enum Config {
         SAPLINGS((stack) -> {
             SaplingPatterns.getConfig(true);
             BYGSapling.SERIALIZERS.forEach(CommonSetupLoad::load);

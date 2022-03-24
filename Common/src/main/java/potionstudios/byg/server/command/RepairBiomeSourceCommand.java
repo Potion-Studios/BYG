@@ -1,16 +1,15 @@
 package potionstudios.byg.server.command;
 
-import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.serialization.Codec;
-import it.unimi.dsi.fastutil.Function;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,51 +23,53 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
-import potionstudios.byg.mixin.access.BiomeSourceAccess;
-import potionstudios.byg.mixin.access.ChunkGeneratorAccess;
-import potionstudios.byg.mixin.access.CommandSourceStackAccess;
+import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.util.ModLoaderContext;
 
-import java.io.File;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 public class RepairBiomeSourceCommand {
 
+    public static final MutableComponent END_COMPONENT = new TranslatableComponent("byg.commands.repairbiomesource.changed.dimension.end");
+    public static final MutableComponent NETHER_COMPONENT = new TranslatableComponent("byg.commands.repairbiomesource.changed.dimension.nether");
+
     private static int warnings = 0;
 
     public static ArgumentBuilder<CommandSourceStack, ?> register() {
-        String commandString = "repairbiomesource";
-
-        Function<CommandContext<CommandSourceStack>, Boolean> repairNether = cs -> ((CommandContext<CommandSourceStack>) cs).getArgument("Repair Nether?", Boolean.class);
-        Function<CommandContext<CommandSourceStack>, Boolean> repairEnd = cs -> ((CommandContext<CommandSourceStack>) cs).getArgument("Repair End?", Boolean.class);
-
-        return Commands.literal(commandString)
-            .executes(cs -> repairBiomeSource(true, true, cs))
-            .then(Commands.argument("Repair Nether?", BoolArgumentType.bool()).executes(cs -> repairBiomeSource(repairNether.apply(cs), true, cs))
-
-                .then(Commands.argument("Repair End?", BoolArgumentType.bool())
-                    .executes(cs -> repairBiomeSource(repairNether.apply(cs), repairEnd.apply(cs), cs))));
+        return Commands.literal("repairbiomesource")
+            .executes(cs -> repairBiomeSource(BiomeSourceRepair.ALL, cs))
+            .then(Commands.argument("BiomeSourceRepair", StringArgumentType.string())
+                .executes(cs -> repairBiomeSource(cs.getArgument("BiomeSourceRepair", String.class), cs))
+                .suggests((ctx, sb) -> SharedSuggestionProvider.suggest(Arrays.stream(BiomeSourceRepair.values()).map(BiomeSourceRepair::toString), sb))
+            );
     }
 
-    private static int repairBiomeSource(boolean repairNether, boolean repairEnd, CommandContext<CommandSourceStack> stack) {
+    private static int repairBiomeSource(String fromCommand, CommandContext<CommandSourceStack> stack) {
+        try {
+            BiomeSourceRepair biomeSourceRepair = BiomeSourceRepair.valueOf(fromCommand);
+            return repairBiomeSource(biomeSourceRepair, stack);
+        } catch (Exception e) {
+            stack.getSource().sendFailure(new TranslatableComponent("byg.commands.repairbiomesource.invalidinputerror", Arrays.toString(BiomeSourceRepair.values()), fromCommand));
+            return 0;
+        }
+    }
+
+    private static int repairBiomeSource(BiomeSourceRepair biomeSourceRepair, CommandContext<CommandSourceStack> stack) {
         CommandSourceStack source = stack.getSource();
         MinecraftServer server = source.getServer();
         boolean singlePlayer = source.getServer().isSingleplayer() && source.getServer().getPlayerCount() == 1;
-        boolean repairedEnd = false;
-        boolean repairedNether = false;
-        File serverDirectory = server.getServerDirectory();
+        Path worldDirectory = ((LevelStorageSourceLevelStorageAccessAccess) ((MinecraftServerAccess) server).byg_getStorageSource()).byg_getLevelPath();
 
         if (((CommandSourceStackAccess) source).byg_getSource() instanceof MinecraftServer || singlePlayer) {
-            if (!repairEnd && !repairNether) {
-                stack.getSource().sendFailure(new TranslatableComponent("byg.commands.repairbiomesource.none"));
-                return 0;
-            }
-
-            Component exportFileComponent = new TextComponent(serverDirectory.getAbsolutePath()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, serverDirectory.getAbsolutePath())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
+            Component exportFileComponent = new TextComponent(worldDirectory.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, worldDirectory.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
 
             switch (warnings) {
                 case 0 -> {
-                    stack.getSource().sendFailure(new TranslatableComponent("byg.commands.repairbiomesource.warning1", exportFileComponent));
+                    stack.getSource().sendFailure(new TranslatableComponent("byg.commands.repairbiomesource.warning1", exportFileComponent).withStyle(ChatFormatting.YELLOW));
                     warnings++;
                     return 0;
                 }
@@ -83,57 +84,11 @@ public class RepairBiomeSourceCommand {
             PrimaryLevelData worldData = (PrimaryLevelData) server.getWorldData();
             WorldGenSettings worldGenSettings = worldData.worldGenSettings();
 
-            Registry<LevelStem> oldRegistry = worldGenSettings.dimensions();
-            for (LevelStem dimension : oldRegistry) {
-                ResourceKey<LevelStem> levelStemResourceKey = oldRegistry.getResourceKey(dimension).orElseThrow();
-                ModLoaderContext modLoaderContext = ModLoaderContext.getInstance();
-                Registry<Biome> biomeRegistry = server.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-                if (repairNether) {
-                    Supplier<BiomeSource> netherBiomeSource = () -> {
-                        NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
-                        return modLoaderContext.createNetherBiomeSource(biomeRegistry, worldGenSettings.seed(),
-                            config.upperLayer(), config.middleLayer(), config.bottomLayer(), config.layerSize());
-                    };
-                    if (repair(dimension, levelStemResourceKey, LevelStem.NETHER, BYGNetherBiomeSource.LOCATION, netherBiomeSource)) {
-                        repairedNether = true;
-                    }
+            Optional<MutableComponent> mutableComponent = biomeSourceRepair.function.apply(worldGenSettings, server.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
 
-                }
-
-                if (repairEnd) {
-                    Supplier<BiomeSource> endBiomeSource = () -> {
-                        EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
-
-                        return modLoaderContext.createEndBiomeSource(biomeRegistry, worldGenSettings.seed(),
-                            config.islandLayers(), config.voidLayers(), config.skyLayers());
-                    };
-                    if (repair(dimension, levelStemResourceKey, LevelStem.END, BYGEndBiomeSource.LOCATION, endBiomeSource)) {
-                        repairedEnd = true;
-                    }
-                }
-            }
-            if (repairedEnd || repairedNether) {
-                MutableComponent mutableComponent = new TranslatableComponent("byg.commands.repairbiomesource.changed").append("\n");
-
-                if (repairedEnd) {
-                    mutableComponent.append(new TranslatableComponent("byg.commands.repairbiomesource.changed.dimension.end"));
-                }
-                if (repairedEnd && repairedNether) {
-                    mutableComponent.append("\n");
-                }
-
-                if (repairedNether) {
-                    mutableComponent.append(new TranslatableComponent("byg.commands.repairbiomesource.changed.dimension.nether"));
-                }
-
-                if (server.isSingleplayer()) {
-                    for (ServerPlayer player : server.getPlayerList().getPlayers()) {
-                        player.connection.disconnect(mutableComponent);
-                    }
-                } else {
-                    source.sendSuccess(mutableComponent, true);
-                    server.close();
-                }
+            if (mutableComponent.isPresent()) {
+                MutableComponent msg = new TranslatableComponent("byg.commands.repairbiomesource.changed").append("\n").append(mutableComponent.get());
+                close(source, server, msg);
             } else {
                 source.sendSuccess(new TranslatableComponent("byg.commands.repairbiomesource.alreadychanged"), true);
             }
@@ -144,8 +99,61 @@ public class RepairBiomeSourceCommand {
         }
     }
 
-    private static boolean repair(LevelStem dimension, ResourceKey<LevelStem> fromRegistryDimension, ResourceKey<LevelStem> targetDimension, ResourceLocation targetBiomeSourceID, Supplier<BiomeSource> replacement) {
-        if (fromRegistryDimension == targetDimension) {
+    private static void close(CommandSourceStack source, MinecraftServer server, MutableComponent mutableComponent) {
+        if (server.isSingleplayer()) {
+            for (ServerPlayer player : server.getPlayerList().getPlayers()) {
+                player.connection.disconnect(mutableComponent);
+            }
+        } else {
+            source.sendSuccess(mutableComponent, true);
+            server.close();
+        }
+    }
+
+    private enum BiomeSourceRepair {
+        NETHER((worldGenSettings, biomeRegistry) -> {
+            Supplier<BiomeSource> netherBiomeSource = () -> {
+                NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
+                return ModLoaderContext.getInstance().createNetherBiomeSource(biomeRegistry, worldGenSettings.seed(),
+                    config.upperLayer(), config.middleLayer(), config.bottomLayer(), config.layerSize());
+            };
+
+            return repair(worldGenSettings.dimensions().getOrThrow(LevelStem.NETHER), BYGNetherBiomeSource.LOCATION, netherBiomeSource) ? Optional.of(NETHER_COMPONENT) : Optional.empty();
+        }),
+        END((worldGenSettings, biomeRegistry) -> {
+            Supplier<BiomeSource> endBiomeSource = () -> {
+                EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
+
+                return ModLoaderContext.getInstance().createEndBiomeSource(biomeRegistry, worldGenSettings.seed(),
+                    config.islandLayers(), config.voidLayers(), config.skyLayers());
+            };
+
+            return repair(worldGenSettings.dimensions().getOrThrow(LevelStem.END), BYGEndBiomeSource.LOCATION, endBiomeSource) ? Optional.of(END_COMPONENT) : Optional.empty();
+        }),
+        ALL((worldGenSettings, biomeRegistry) -> {
+            MutableComponent component = null;
+
+            Optional<MutableComponent> end = END.function.apply(worldGenSettings, biomeRegistry);
+            if (end.isPresent()) {
+                component = end.get();
+            }
+
+            Optional<MutableComponent> nether = NETHER.function.apply(worldGenSettings, biomeRegistry);
+            if (nether.isPresent()) {
+                MutableComponent netherComponent = nether.get();
+                component = component != null ? component.append("\n").append(netherComponent) : netherComponent;
+            }
+
+            return component == null ? Optional.empty() : Optional.of(component);
+        });
+
+        private final BiFunction<WorldGenSettings, Registry<Biome>, Optional<MutableComponent>> function;
+
+        BiomeSourceRepair(BiFunction<WorldGenSettings, Registry<Biome>, Optional<MutableComponent>> function) {
+            this.function = function;
+        }
+
+        private static boolean repair(LevelStem dimension, ResourceLocation targetBiomeSourceID, Supplier<BiomeSource> replacement) {
             ChunkGenerator generator = dimension.generator();
             Codec<? extends BiomeSource> codec = ((BiomeSourceAccess) generator.getBiomeSource()).byg_invokeCodec();
             if (!Registry.BIOME_SOURCE.getKey(codec).equals(targetBiomeSourceID)) {
@@ -154,7 +162,7 @@ public class RepairBiomeSourceCommand {
                 ((ChunkGeneratorAccess) generator).byg_setRuntimeBiomeSource(replacementBiomeSource);
                 return true;
             }
+            return false;
         }
-        return false;
     }
 }
