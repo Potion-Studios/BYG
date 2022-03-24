@@ -46,101 +46,57 @@ public class BYGBoatEntity extends Boat {
 
     @Override
     public Item getDropItem() {
-        switch (this.getBYGBoatType()) {
-            default:
-                return BYGItems.ASPEN_BOAT;
-            case BAOBAB:
-                return BYGItems.BAOBAB_BOAT;
-            case BLUE_ENCHANTED:
-                return BYGItems.BLUE_ENCHANTED_BOAT;
-            case CHERRY:
-                return BYGItems.CHERRY_BOAT;
-            case CIKA:
-                return BYGItems.CIKA_BOAT;
-            case CYPRESS:
-                return BYGItems.CYPRESS_BOAT;
-            case EBONY:
-                return BYGItems.EBONY_BOAT;
-            case FIR:
-                return BYGItems.FIR_BOAT;
-            case GREEN_ENCHANTED:
-                return BYGItems.GREEN_ENCHANTED_BOAT;
-            case HOLLY:
-                return BYGItems.HOLLY_BOAT;
-            case JACARANDA:
-                return BYGItems.JACARANDA_BOAT;
-            case MAHOGANY:
-                return BYGItems.MAHOGANY_BOAT;
-            case MANGROVE:
-                return BYGItems.MANGROVE_BOAT;
-            case MAPLE:
-                return BYGItems.MAPLE_BOAT;
-            case PINE:
-                return BYGItems.PINE_BOAT;
-            case RAINBOW_EUCALYPTUS:
-                return BYGItems.RAINBOW_EUCALYPTUS_BOAT;
-            case REDWOOD:
-                return BYGItems.REDWOOD_BOAT;
-            case SKYRIS:
-                return BYGItems.SKYRIS_BOAT;
-            case WILLOW:
-                return BYGItems.WILLOW_BOAT;
-            case WITCH_HAZEL:
-                return BYGItems.WITCH_HAZEL_BOAT;
-            case ZELKOVA:
-                return BYGItems.ZELKOVA_BOAT;
-            case PALM:
-                return BYGItems.PALM_BOAT;
-        }
+        return switch (this.getBYGBoatType()) {
+            default -> BYGItems.ASPEN_BOAT;
+            case BAOBAB -> BYGItems.BAOBAB_BOAT;
+            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT;
+            case CHERRY -> BYGItems.CHERRY_BOAT;
+            case CIKA -> BYGItems.CIKA_BOAT;
+            case CYPRESS -> BYGItems.CYPRESS_BOAT;
+            case EBONY -> BYGItems.EBONY_BOAT;
+            case FIR -> BYGItems.FIR_BOAT;
+            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT;
+            case HOLLY -> BYGItems.HOLLY_BOAT;
+            case JACARANDA -> BYGItems.JACARANDA_BOAT;
+            case MAHOGANY -> BYGItems.MAHOGANY_BOAT;
+            case MANGROVE -> BYGItems.MANGROVE_BOAT;
+            case MAPLE -> BYGItems.MAPLE_BOAT;
+            case PINE -> BYGItems.PINE_BOAT;
+            case RAINBOW_EUCALYPTUS -> BYGItems.RAINBOW_EUCALYPTUS_BOAT;
+            case REDWOOD -> BYGItems.REDWOOD_BOAT;
+            case SKYRIS -> BYGItems.SKYRIS_BOAT;
+            case WILLOW -> BYGItems.WILLOW_BOAT;
+            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT;
+            case ZELKOVA -> BYGItems.ZELKOVA_BOAT;
+            case PALM -> BYGItems.PALM_BOAT;
+        };
     }
 
     public Block getPlanks() {
-        switch (this.getBYGBoatType()) {
-            default:
-                return BYGBlocks.ASPEN_PLANKS;
-            case BAOBAB:
-                return BYGBlocks.BAOBAB_PLANKS;
-            case BLUE_ENCHANTED:
-                return BYGBlocks.BLUE_ENCHANTED_PLANKS;
-            case CHERRY:
-                return BYGBlocks.CHERRY_PLANKS;
-            case CIKA:
-                return BYGBlocks.CIKA_PLANKS;
-            case CYPRESS:
-                return BYGBlocks.CYPRESS_PLANKS;
-            case EBONY:
-                return BYGBlocks.EBONY_PLANKS;
-            case FIR:
-                return BYGBlocks.FIR_PLANKS;
-            case GREEN_ENCHANTED:
-                return BYGBlocks.GREEN_ENCHANTED_PLANKS;
-            case HOLLY:
-                return BYGBlocks.HOLLY_PLANKS;
-            case JACARANDA:
-                return BYGBlocks.JACARANDA_PLANKS;
-            case MAHOGANY:
-                return BYGBlocks.MAHOGANY_PLANKS;
-            case MANGROVE:
-                return BYGBlocks.MANGROVE_PLANKS;
-            case MAPLE:
-                return BYGBlocks.MAPLE_PLANKS;
-            case PALM:
-                return BYGBlocks.PALM_PLANKS;
-            case PINE:
-                return BYGBlocks.PINE_PLANKS;
-            case RAINBOW_EUCALYPTUS:
-                return BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS;
-            case REDWOOD:
-                return BYGBlocks.REDWOOD_PLANKS;
-            case SKYRIS:
-                return BYGBlocks.SKYRIS_PLANKS;
-            case WILLOW:
-                return BYGBlocks.WILLOW_PLANKS;
-            case WITCH_HAZEL:
-                return BYGBlocks.WITCH_HAZEL_PLANKS;
-            case ZELKOVA:
-                return BYGBlocks.ZELKOVA_PLANKS;
-        }
+        return switch (this.getBYGBoatType()) {
+            default -> BYGBlocks.ASPEN_PLANKS;
+            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS;
+            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS;
+            case CHERRY -> BYGBlocks.CHERRY_PLANKS;
+            case CIKA -> BYGBlocks.CIKA_PLANKS;
+            case CYPRESS -> BYGBlocks.CYPRESS_PLANKS;
+            case EBONY -> BYGBlocks.EBONY_PLANKS;
+            case FIR -> BYGBlocks.FIR_PLANKS;
+            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS;
+            case HOLLY -> BYGBlocks.HOLLY_PLANKS;
+            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS;
+            case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS;
+            case MANGROVE -> BYGBlocks.MANGROVE_PLANKS;
+            case MAPLE -> BYGBlocks.MAPLE_PLANKS;
+            case PALM -> BYGBlocks.PALM_PLANKS;
+            case PINE -> BYGBlocks.PINE_PLANKS;
+            case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS;
+            case REDWOOD -> BYGBlocks.REDWOOD_PLANKS;
+            case SKYRIS -> BYGBlocks.SKYRIS_PLANKS;
+            case WILLOW -> BYGBlocks.WILLOW_PLANKS;
+            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS;
+            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS;
+        };
     }
 
     public BYGType getBYGBoatType() {
