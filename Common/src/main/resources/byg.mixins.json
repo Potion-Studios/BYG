@@ -13,6 +13,8 @@
     "access.BlockStateProviderAccess",
     "access.BoatEntityAccess",
     "access.ChunkAccessAccess",
+    "access.ChunkGeneratorAccess",
+    "access.CommandSourceStackAccess",
     "access.DeltaFeatureAccess",
     "access.DirtPathBlockAccess",
     "access.DoorBlockAccess",
