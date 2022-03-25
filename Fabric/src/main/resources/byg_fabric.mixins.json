@@ -6,6 +6,8 @@
     "MixinDimensionType"
   ],
   "client": [
+    "client.MixinBlockColors",
+    "client.MixinItemColors"
   ],
   "injectors": {
     "defaultRequire": 1

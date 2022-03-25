@@ -91,11 +91,9 @@
     "access.client.ClientLevelAccess",
     "access.client.ItemBlockRenderTypeAccess",
     "access.client.KeyMappingAccess",
-    "client.MixinBlockColors",
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
     "client.MixinInventoryScreen",
-    "client.MixinItemColors",
     "client.MixinLayerDefinitions",
     "client.MixinParticleEngine",
     "client.MixinScreenManager"
