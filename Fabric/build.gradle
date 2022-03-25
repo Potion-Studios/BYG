@@ -2,6 +2,19 @@ plugins {
     id 'fabric-loom' version '0.10-SNAPSHOT'
     id 'maven-publish'
     id 'idea'
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+tasks.build.dependsOn(tasks.findByName("shadowJar"))
+
+configurations {
+    shadow
+    implementation.extendsFrom(shadow)
+}
+shadowJar {
+    configurations = [project.configurations.shadow]
+    relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
 }
 
 archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
@@ -33,7 +46,7 @@ dependencies {
     implementation project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
-    include implementation("blue.endless:jankson:${jankson_version}")
+    shadow("blue.endless:jankson:${jankson_version}")
     modImplementation("com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}")
 
 
@@ -104,4 +117,8 @@ sourceSets {
             srcDirs project(':Common').sourceSets.main.resources.srcDirs
         }
     }
+}
+
+remapJar {
+    input.set shadowJar.archiveFile
 }
