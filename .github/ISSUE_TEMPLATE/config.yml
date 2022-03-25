@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: FAQ
+    url: https://github.com/AOCAWOL/BYG/wiki/FAQ
+    about: Answers to frequently asked questions, may contain an answer to a crash you're having ;)
+  - name: Potion Studio's Discord
+    url: https://discord.gg/VVDafAszvw
+    about: Join our discord to chat with us, ask questions, or make suggestions in regards to BYG!
+  - name: In the works
+    url: https://trello.com/b/5iKKAS6J/oh-the-biomes-youll-go
+    about: Read about BYG's future updates and planned content!
+

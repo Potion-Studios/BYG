@@ -1,7 +1,7 @@
-name: Bug Report
-description: Report any bugs here! Report crashes using "Crash Report"
-title: "[Bug]: "
-labels: [ "Bug" ]
+name: Crash Report
+description: Did you crash? Report it here!
+title: "[Crash]: "
+labels: [ "Bug", "Bug Major" ]
 body:
   - type: markdown
     attributes:
@@ -55,22 +55,20 @@ body:
       placeholder: ex. 36.0.45
     validations:
       required: true
-  - type: dropdown
-    id: bug-type
-    attributes:
-      label: Bug Severity
-      description: Would you describe the bug as minor or major? Something minor would be a missing loot table. An example of something major would be a mod incompatibility. Just use good judgement when specifying the severity and the impact on gameplay.
-      options:
-        - Major
-        - Minor
-    validations:
-      required: true
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Please give a thorough explanation of the issue(s) you found. Attach/Link relevant images/files in relation to the issue(s)!
+      description: Please give a thorough explanation of what happened. Attach/Link relevant images/files in relation to the issue!
       placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: crash-log
+    attributes:
+      label: crash-log
+      description: Please upload your crash log file directly here or use https://gist.github.com/ and leave the link here.
+      placeholder: Drag and drop crash log file here or link it with https://gist.github.com/!
     validations:
       required: true
   - type: textarea
