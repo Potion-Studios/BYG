@@ -51,9 +51,16 @@ public class ForgeNetworkHandler {
         NetworkEvent.Context context = ctx.get();
         if (context.getDirection().getReceptionSide().isClient()) {
             context.enqueueWork(() -> {
-                packet.handle(Minecraft.getInstance().level);
+                Client.clientHandle(packet);
             });
             context.setPacketHandled(true);
+        }
+    }
+
+
+    private static class Client {
+        private static <T extends BYGS2CPacket> void clientHandle(T packet) {
+            packet.handle(Minecraft.getInstance().level);
         }
     }
 }
