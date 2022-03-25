@@ -40,7 +40,7 @@ public class RepairBiomeSourceCommand {
     private static int warnings = 0;
 
     public static ArgumentBuilder<CommandSourceStack, ?> register() {
-        return Commands.literal("repairbiomesource")
+        return Commands.literal("repairbiomesource").requires(cs -> cs.hasPermission(4))
             .executes(cs -> repairBiomeSource(BiomeSourceRepair.ALL, cs))
             .then(Commands.argument("BiomeSourceRepair", StringArgumentType.string())
                 .executes(cs -> repairBiomeSource(cs.getArgument("BiomeSourceRepair", String.class), cs))
