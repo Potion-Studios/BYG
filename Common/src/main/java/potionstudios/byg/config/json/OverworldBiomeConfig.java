@@ -10,7 +10,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
-import potionstudios.byg.common.world.biome.overworld.Region;
+import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
 import potionstudios.byg.util.codec.FromFileOps;
 import potionstudios.byg.util.codec.Wrapped;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 import static potionstudios.byg.util.jankson.JanksonUtil.createConfig;
 
 public record OverworldBiomeConfig(boolean generateOverworld,
-                                   List<Wrapped<Region>> values) {
-    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, Region.OVERWORLD_DEFAULTS);
+                                   List<Wrapped<OverworldRegion>> values) {
+    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, OverworldRegion.OVERWORLD_DEFAULTS);
 
     public static OverworldBiomeConfig INSTANCE = null;
 
@@ -59,17 +59,17 @@ public record OverworldBiomeConfig(boolean generateOverworld,
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
             Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            Region.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
         ).apply(builder, OverworldBiomeConfig::new)
     );
 
-    public static final Codec<List<Wrapped<Region>>> FROM_OLD_CODEC_LIST = Region.OLD_CODEC.listOf().comapFlatMap(biomeProviderDataList -> {
-        List<Wrapped<Region>> wrapped = new ArrayList<>();
+    public static final Codec<List<Wrapped<OverworldRegion>>> FROM_OLD_CODEC_LIST = OverworldRegion.OLD_CODEC.listOf().comapFlatMap(biomeProviderDataList -> {
+        List<Wrapped<OverworldRegion>> wrapped = new ArrayList<>();
         for (int i = 0; i < biomeProviderDataList.size(); i++) {
-            Region region = biomeProviderDataList.get(i);
+            OverworldRegion overworldRegion = biomeProviderDataList.get(i);
             String id = "region_" + (i + 1);
-            Wrapped<Region> dataWrapped = new Wrapped<>(Optional.of(id), region);
-            Region.BIOME_REGIONS.put(id, Pair.of(Region.COMMENTS, dataWrapped));
+            Wrapped<OverworldRegion> dataWrapped = new Wrapped<>(Optional.of(id), overworldRegion);
+            OverworldRegion.BIOME_REGIONS.put(id, Pair.of(OverworldRegion.COMMENTS, dataWrapped));
             wrapped.add(dataWrapped);
         }
         return DataResult.success(wrapped);
@@ -110,7 +110,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
         try {
             createDefaultsAndRegister(BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
-            createDefaultsAndRegister(Region.BIOME_REGIONS, registry.get("regions"), Region.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
+            createDefaultsAndRegister(OverworldRegion.BIOME_REGIONS, registry.get("regions"), OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists()) {
                 createConfig(path, CODEC, HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
             }

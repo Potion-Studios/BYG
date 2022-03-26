@@ -10,8 +10,9 @@ import net.minecraft.world.level.biome.Climate;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeBuilder;
-import potionstudios.byg.common.world.biome.overworld.Region;
+import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
 import potionstudios.byg.mixin.access.OverworldBiomeBuilderAccess;
+import terrablender.api.Region;
 import terrablender.api.RegionType;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ import static potionstudios.byg.util.BYGRegionUtils.dumpArrays;
 import static potionstudios.byg.util.BYGRegionUtils.filter;
 import static potionstudios.byg.util.BYGUtil._2DResourceKeyArrayTo2DList;
 
-public class BYGRegion extends terrablender.api.Region {
+public class BYGTerraBlenderRegion extends Region {
     private static int count = 0;
 
     private final Set<ResourceKey<Biome>> bygKeys = new ObjectOpenHashSet<>();
@@ -31,27 +32,27 @@ public class BYGRegion extends terrablender.api.Region {
 
     private final BYGOverworldBiomeBuilder bygOverworldBiomeBuilder;
 
-    public BYGRegion(Region region) {
-        this(region.overworldWeight(),
-            _2DResourceKeyArrayTo2DList(region.oceans().value()),
-            _2DResourceKeyArrayTo2DList(region.middleBiomes().value()),
-            _2DResourceKeyArrayTo2DList(region.middleBiomesVariant().value()),
-            _2DResourceKeyArrayTo2DList(region.plateauBiomes().value()),
-            _2DResourceKeyArrayTo2DList(region.plateauBiomesVariant().value()),
-            _2DResourceKeyArrayTo2DList(region.extremeHills().value()),
-            _2DResourceKeyArrayTo2DList(region.beachBiomes().value()),
-            _2DResourceKeyArrayTo2DList(region.peakBiomes().value()),
-            _2DResourceKeyArrayTo2DList(region.peakBiomesVariant().value()),
-            region.swapper());
+    public BYGTerraBlenderRegion(OverworldRegion overworldRegion) {
+        this(overworldRegion.overworldWeight(),
+            _2DResourceKeyArrayTo2DList(overworldRegion.oceans().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.middleBiomes().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.middleBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.plateauBiomes().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.plateauBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.extremeHills().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.beachBiomes().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomes().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomesVariant().value()),
+            overworldRegion.swapper());
     }
 
-    public BYGRegion(int overworldWeight,
-                     ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
-                     ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
-                     ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
-                     ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
-                     ResourceKey<Biome>[][] peakBiomesVariant,
-                     Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+    public BYGTerraBlenderRegion(int overworldWeight,
+                                 ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
+                                 ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
+                                 ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
+                                 ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
+                                 ResourceKey<Biome>[][] peakBiomesVariant,
+                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         super(BYG.createLocation("region_" + count++), RegionType.OVERWORLD, overworldWeight);
         this.swapper = swapper;
         Predicate<ResourceKey<Biome>> noVoidBiomes = biomeResourceKey -> biomeResourceKey != Biomes.THE_VOID;

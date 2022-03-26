@@ -56,7 +56,7 @@ import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
-import potionstudios.byg.world.biome.BYGRegion;
+import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -142,7 +142,7 @@ public class BYGForge {
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
         if (config.generateOverworld()) {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-            config.values().forEach(biomeProviderData -> Regions.register(new BYGRegion(biomeProviderData.value())));
+            config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
         } else {
             BYG.LOGGER.info("BYG overworld biomes disabled.");
         }

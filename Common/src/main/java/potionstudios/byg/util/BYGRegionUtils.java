@@ -27,7 +27,7 @@ public class BYGRegionUtils {
     public static ResourceKey<Biome>[][] filter(String configKey, ResourceLocation regionName, int configIDX, ResourceKey<Biome>[][] biomeArray, Predicate<ResourceKey<Biome>> filter, boolean throwsException) {
         return Arrays.stream(biomeArray).map(resourceKeys -> Arrays.stream(resourceKeys).map(key -> !filter.test(key) ? null : key).peek(biomeResourceKey -> {
             if (biomeResourceKey == null && throwsException) {
-                String error = String.format("\"%s\" is not an allowed entry, specify a valid biome key!\nBYG Region: \"%s\" failed in biome array: \"%s\" in region %s.\nCurrent value:\n%s", Biomes.THE_VOID.location().toString(), regionName.toString(), configKey, configIDX, print2DResourceKeyArray(biomeArray));
+                String error = String.format("\"%s\" is not an allowed entry, specify a valid biome key!\nBYG OverworldRegion: \"%s\" failed in biome array: \"%s\" in region %s.\nCurrent value:\n%s", Biomes.THE_VOID.location().toString(), regionName.toString(), configKey, configIDX, print2DResourceKeyArray(biomeArray));
                 throw new IllegalArgumentException(error);
             }
         }).toList().toArray(ResourceKey[]::new)).toArray(ResourceKey[][]::new);
