@@ -1,6 +1,5 @@
 package potionstudios.byg.common.item;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -15,9 +14,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
+import potionstudios.byg.client.util.BYGClientUtil;
 import potionstudios.byg.common.block.sapling.BYGSapling;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
-import potionstudios.byg.mixin.access.client.KeyMappingAccess;
 
 import java.util.List;
 import java.util.Map;
@@ -41,7 +40,7 @@ public class BYGSaplingItem extends BlockItem {
         if (patterns.containsKey(blockKey)) {
             Minecraft mc = Minecraft.getInstance();
             KeyMapping keyShift = mc.options.keyShift;
-            if (InputConstants.isKeyDown(mc.getWindow().getWindow(), ((KeyMappingAccess) keyShift).byg_getKey().getValue())) {
+            if (BYGClientUtil.isKeyOrMouseButtonDown(mc, keyShift)) {
                 components.add(new TranslatableComponent("byg.saplingpattern.tooltip"));
 
                 List<SaplingPatterns.PatternEntry> patternEntries = patterns.get(blockKey);
@@ -59,6 +58,5 @@ public class BYGSaplingItem extends BlockItem {
                 components.add(new TranslatableComponent("byg.saplingpattern.suggest.hold.shift", keyShift.getTranslatedKeyMessage()).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
             }
         }
-
     }
 }
