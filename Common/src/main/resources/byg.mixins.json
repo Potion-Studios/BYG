@@ -3,6 +3,7 @@
   "package": "potionstudios.byg.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "${refmap_target}refmap.json",
+  "plugin": "potionstudios.byg.mixin.BYGPotionStudiosMixinPlugin",
   "mixins": [
     "access.AdventureAdvancementsAccess",
     "access.AxeItemAccess",
@@ -88,6 +89,7 @@
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.level.storage.loot.MixinLootTableManager",
     "common.world.surface.MixinSurfaceSystem",
+    "dev.MixinMinecraftServer",
     "server.MixinMinecraftServer"
   ],
   "client": [
