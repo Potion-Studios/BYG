@@ -145,9 +145,9 @@ public class BYGUtil {
         return biomes;
     }
 
-    public static <T, C, V> Map<T, V> convertMapValueType(Map<T, C> collectionMap, Supplier<Map<T, V>> mapType, Function<C, V> newValueType) {
-        Map<T, V> result = mapType.get();
-        collectionMap.forEach((key, oldValue) -> result.put(key, newValueType.apply(oldValue)));
+    public static <T, C, V, MAP extends Map<T, V>> MAP convertMapValueType(Map<T, C> from, Supplier<MAP> mapType, Function<C, V> newValueType) {
+        MAP result = mapType.get();
+        from.forEach((key, oldValue) -> result.put(key, newValueType.apply(oldValue)));
         return result;
     }
 }

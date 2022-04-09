@@ -9,6 +9,17 @@ Accessible class net/minecraft/world/level/levelgen/SurfaceRules$Context
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$SurfaceRule
 Accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
 Accessible class net/minecraft/core/Registry$RegistryBootstrap
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$DyedArmorForEmeralds
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$EmeraldForItems
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$EmeraldsForVillagerTypeItem
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$EnchantBookForEmeralds
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$EnchantedItemForEmeralds
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$ItemsAndEmeraldsToItems
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$ItemsForEmeralds
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$SuspiciousStewForEmerald
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$TippedArrowForItemsAndEmeralds
+Accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
+
 Extendable class net/minecraft/world/level/biome/OverworldBiomeBuilder
 
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickBeachBiome (II)Lnet/minecraft/resources/ResourceKey;

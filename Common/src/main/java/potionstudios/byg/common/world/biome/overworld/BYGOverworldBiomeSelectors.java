@@ -11,6 +11,7 @@ import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.codec.FromFileCodec;
 import potionstudios.byg.util.codec.Wrapped;
+import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -270,7 +271,7 @@ public class BYGOverworldBiomeSelectors {
     });
 
     protected static Wrapped<List<List<ResourceKey<Biome>>>> create(String id, String header, ResourceKey<Biome>[][] biomeKeys) {
-        return create(id, biomeKeys, ImmutableMap.of("", OverworldBiomeConfig.HEADER_OPEN + "\n" + header + "*/"));
+        return create(id, biomeKeys, ImmutableMap.of("", JanksonUtil.HEADER_OPEN + "\n" + header + "*/"));
     }
 
     protected static Wrapped<List<List<ResourceKey<Biome>>>> create(String id, ResourceKey<Biome>[][] biomeKeys) {

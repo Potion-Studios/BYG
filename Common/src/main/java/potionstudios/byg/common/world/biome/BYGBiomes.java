@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
@@ -121,6 +122,7 @@ public class BYGBiomes {
         BYGStructureSets.bootStrap();
         BYGPlacementModifierType.bootStrap();
         BYGRuleSources.bootStrap();
+        VillagerTradeRegistry.register();
         return BIOMES;
     }
 

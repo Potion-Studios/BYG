@@ -19,6 +19,28 @@ import java.util.TreeMap;
 import java.util.function.Supplier;
 
 public class JanksonUtil {
+
+    public static final String HEADER_CLOSED = """
+        /*
+        This file uses the ".json5" file extension which allows for comments like this in a json file!
+        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+                
+        VSCode: https://code.visualstudio.com/
+        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+                    
+        to make editing this file much easier.
+        */""";
+
+    public static final String HEADER_OPEN = """
+        /*
+        This file uses the ".json5" file extension which allows for comments like this in a json file!
+        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
+                
+        VSCode: https://code.visualstudio.com/
+        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+                    
+        to make editing this file much easier.""";
+
     public static final Jankson JANKSON = Jankson.builder().allowBareRootObject().build();
     public static final Supplier<JsonGrammar.Builder> JSON_GRAMMAR_BUILDER = () -> new JsonGrammar.Builder().withComments(true).bareSpecialNumerics(true).printCommas(true);
 
@@ -73,7 +95,7 @@ public class JanksonUtil {
         return object;
     }
 
-    public static <T> void createConfig(Path path, Codec<T> codec, String header, Map<String, String> comments, FromFileOps<JsonElement> ops, T from) {
+    public static <T> void createConfig(Path path, Codec<T> codec, String header, Map<String, String> comments, DynamicOps<JsonElement> ops, T from) {
         JsonElement jsonElement = codec.encodeStart(ops, from).result().orElseThrow();
 
         if (jsonElement instanceof JsonObject jsonObject) {

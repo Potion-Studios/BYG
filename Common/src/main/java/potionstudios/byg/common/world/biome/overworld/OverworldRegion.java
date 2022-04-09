@@ -16,6 +16,7 @@ import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.codec.FromFileCodec;
 import potionstudios.byg.util.codec.Wrapped;
+import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.util.*;
 
@@ -119,7 +120,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     private static final int OVERWORLD_WEIGHT = 6;
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
-        map.put("", OverworldBiomeConfig.HEADER_OPEN + """
+        map.put("", JanksonUtil.HEADER_OPEN + """
                 
                 
                 A region is a unique biome layout comprised of numerous biome selectors for a given type of terrain in an MC world.

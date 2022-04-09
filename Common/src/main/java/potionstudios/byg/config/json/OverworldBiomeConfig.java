@@ -30,27 +30,6 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
     public static OverworldBiomeConfig INSTANCE = null;
 
-    public static final String HEADER_CLOSED = """
-        /*
-        This file uses the ".json5" file extension which allows for comments like this in a json file!
-        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
-                
-        VSCode: https://code.visualstudio.com/
-        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
-                    
-        to make editing this file much easier.
-        */""";
-
-    public static final String HEADER_OPEN = """
-        /*
-        This file uses the ".json5" file extension which allows for comments like this in a json file!
-        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
-                
-        VSCode: https://code.visualstudio.com/
-        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
-                    
-        to make editing this file much easier.""";
-
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.");
         map.put("regions", "A list of weighted regions containing a unique biome layout.\nRegions may be inlined or may call a file from \"this_file_parent_directory/regions\"");
@@ -112,7 +91,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
             createDefaultsAndRegister(BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
             createDefaultsAndRegister(OverworldRegion.BIOME_REGIONS, registry.get("regions"), OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists()) {
-                createConfig(path, CODEC, HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
+                createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
             BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
@@ -126,7 +105,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
             if (!registryPath.toFile().exists()) {
-                createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
+                createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", JanksonUtil.HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
         });
 

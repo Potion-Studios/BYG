@@ -2,6 +2,7 @@ package potionstudios.byg;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -15,6 +16,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.entity.npc.VillagerProfessionsConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
@@ -34,6 +36,7 @@ import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.function.Supplier;
 
@@ -52,6 +55,18 @@ public class BYGFabric implements ModInitializer {
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
         FabricNetworkHandler.init();
+
+        registerVillagerTrades();
+    }
+
+    private void registerVillagerTrades() {
+        VillagerProfessionsConfig.getConfig(true).tradesByProfession().forEach((villagerProfession, int2ObjectMap) ->
+            int2ObjectMap.forEach((level, configListing) ->
+                TradeOfferHelper.registerVillagerOffers(villagerProfession, level, itemListings ->
+                    itemListings.addAll(Arrays.asList(configListing))
+                )
+            )
+        );
     }
 
     private void registryBootStrap() {
