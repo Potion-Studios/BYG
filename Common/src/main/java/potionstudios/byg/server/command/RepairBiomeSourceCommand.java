@@ -1,15 +1,19 @@
 package potionstudios.byg.server.command;
 
+import com.google.gson.JsonElement;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.JsonOps;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.*;
+import net.minecraft.resources.RegistryOps;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,8 +30,12 @@ import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.util.ModLoaderContext;
 
-import java.nio.file.Path;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
@@ -88,6 +96,7 @@ public class RepairBiomeSourceCommand {
 
             if (mutableComponent.isPresent()) {
                 MutableComponent msg = new TranslatableComponent("byg.commands.repairbiomesource.changed").append("\n").append(mutableComponent.get());
+                updateDatapacks(biomeSourceRepair, source, worldDirectory.resolve("datapacks"), worldGenSettings);
                 close(source, server, msg);
             } else {
                 source.sendSuccess(new TranslatableComponent("byg.commands.repairbiomesource.alreadychanged"), true);
@@ -96,6 +105,52 @@ public class RepairBiomeSourceCommand {
         } else {
             source.sendSuccess(new TranslatableComponent("byg.commands.repairbiomesource.lowpermissionlevel"), true);
             return 0;
+        }
+    }
+
+    private static void updateDatapacks(BiomeSourceRepair biomeSourceRepair, CommandSourceStack source, Path datapacksPath, WorldGenSettings worldGenSettings) {
+        for (ResourceKey<LevelStem> stemResourceKey : biomeSourceRepair.stemResourceKeys) {
+            Path targetDimensionFile = Paths.get("minecraft").resolve("dimension").resolve(stemResourceKey.location().getPath() + ".json");
+
+            try {
+                Files.walk(datapacksPath).sorted(Comparator.reverseOrder()).forEach(path -> {
+                    Path relativizedPath = datapacksPath.relativize(path);
+                    if (relativizedPath.getFileName().toString().endsWith(".zip")) {
+                        updateDimensionFileInZip(source, worldGenSettings, stemResourceKey, targetDimensionFile, path);
+                    } else if (relativizedPath.toString().endsWith(targetDimensionFile.toString())) {
+                        updateDimensionFile(source, worldGenSettings, stemResourceKey, path);
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void updateDimensionFileInZip(CommandSourceStack source, WorldGenSettings worldGenSettings, ResourceKey<LevelStem> stemResourceKey, Path targetDimensionFile, Path path) {
+        try {
+            FileSystem fileSystem = FileSystems.newFileSystem(path, Map.of("create", "false"));
+            Files.walk(fileSystem.getPath("/")).sorted(Comparator.reverseOrder()).forEach(path1 -> {
+                String replace = targetDimensionFile.toString().replace(File.separator, fileSystem.getSeparator());
+                if (path1.toString().endsWith(replace)) {
+                    updateDimensionFile(source, worldGenSettings, stemResourceKey, path1);
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void updateDimensionFile(CommandSourceStack source, WorldGenSettings worldGenSettings, ResourceKey<LevelStem> stemResourceKey, Path writeTarget) {
+        RegistryOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, source.getLevel().registryAccess());
+        Optional<JsonElement> result = LevelStem.CODEC.encodeStart(ops, worldGenSettings.dimensions().getOrThrow(stemResourceKey)).result();
+        if (result.isPresent()) {
+            try {
+                Files.delete(writeTarget);
+                Files.write(writeTarget, result.get().toString().getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -119,7 +174,7 @@ public class RepairBiomeSourceCommand {
             };
 
             return repair(worldGenSettings.dimensions().getOrThrow(LevelStem.NETHER), BYGNetherBiomeSource.LOCATION, netherBiomeSource) ? Optional.of(NETHER_COMPONENT) : Optional.empty();
-        }),
+        }, LevelStem.NETHER),
         END((worldGenSettings, biomeRegistry) -> {
             Supplier<BiomeSource> endBiomeSource = () -> {
                 EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
@@ -129,7 +184,7 @@ public class RepairBiomeSourceCommand {
             };
 
             return repair(worldGenSettings.dimensions().getOrThrow(LevelStem.END), BYGEndBiomeSource.LOCATION, endBiomeSource) ? Optional.of(END_COMPONENT) : Optional.empty();
-        }),
+        }, LevelStem.END),
         ALL((worldGenSettings, biomeRegistry) -> {
             MutableComponent component = null;
 
@@ -145,12 +200,14 @@ public class RepairBiomeSourceCommand {
             }
 
             return component == null ? Optional.empty() : Optional.of(component);
-        });
+        }, LevelStem.END, LevelStem.NETHER);
 
         private final BiFunction<WorldGenSettings, Registry<Biome>, Optional<MutableComponent>> function;
+        private final ResourceKey<LevelStem>[] stemResourceKeys;
 
-        BiomeSourceRepair(BiFunction<WorldGenSettings, Registry<Biome>, Optional<MutableComponent>> function) {
+        BiomeSourceRepair(BiFunction<WorldGenSettings, Registry<Biome>, Optional<MutableComponent>> function, ResourceKey<LevelStem>... stemResourceKeys) {
             this.function = function;
+            this.stemResourceKeys = stemResourceKeys;
         }
 
         private static boolean repair(LevelStem dimension, ResourceLocation targetBiomeSourceID, Supplier<BiomeSource> replacement) {
