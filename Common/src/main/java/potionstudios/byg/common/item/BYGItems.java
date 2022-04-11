@@ -1170,7 +1170,7 @@ public class BYGItems {
     public static final Item POISON_IVY = createItem(BYGBlocks.POISON_IVY);
     public static final Item PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final Item PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
-    public static final Item CATTAIL_SPROUT = createItem(new CattailSproutItem(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
+    public static final Item CATTAIL_SPROUT = createItem(BYGBlocks.CATTAIL_SPROUT);
     public static final Item CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final Item CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final Item CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
