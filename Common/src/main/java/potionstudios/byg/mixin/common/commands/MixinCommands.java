@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
-import potionstudios.byg.server.command.RepairBiomeSourceCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
 
 @Mixin(Commands.class)
@@ -25,7 +24,6 @@ public class MixinCommands {
         WorldGenExportCommand.worldGenExportCommand(this.dispatcher);
         LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID).requires(commandSource -> commandSource.hasPermission(3));
         bygCommands.then(ReloadConfigsCommand.register());
-        bygCommands.then(RepairBiomeSourceCommand.register());
         dispatcher.register(bygCommands);
     }
 }
