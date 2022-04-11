@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " X ",
-    "XGX",
-    " X "
+    "XXX",
+    "X#X",
+    "XXX"
   ],
   "key": {
+    "#": {
+      "item": "byg:therium_shard"
+    },
     "X": {
       "item": "minecraft:iron_nugget"
-    },
-    "G": {
-      "item": "byg:therium_crystal"
     }
   },
   "result": {

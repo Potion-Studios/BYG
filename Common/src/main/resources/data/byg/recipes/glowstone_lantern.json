@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XXX",
-    "X#X",
-    "XXX"
+    " X ",
+    "XGX",
+    " X "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:glowstone"
-    },
     "X": {
       "item": "minecraft:iron_nugget"
+    },
+    "G": {
+      "item": "minecraft:glowstone"
     }
   },
   "result": {

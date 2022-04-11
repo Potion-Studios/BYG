@@ -32,7 +32,7 @@ public class BYGMushroomPlantBlock extends BushBlock implements BonemealableBloc
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return (isNetherFungi) ? state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || state.is(BlockTags.BASE_STONE_NETHER) || state.is(MLBlockTags.NETHERRACK) || super.mayPlaceOn(state, worldIn, pos) : state.isSolidRender(worldIn, pos);
+        return (isNetherFungi) ? state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos) : state.isSolidRender(worldIn, pos);
     }
 
     @Override

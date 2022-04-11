@@ -764,7 +764,7 @@ public class BYGBlocks {
     public static final Block SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
     public static final Block PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
-    public static final Block GLOWSTONE_LAMP = new BYGBlockProperties.BYGGlowCaneBlock("glowstone_lamp");
+    public static final Block GLOWSTONE_LAMP = createBlock(new Block(BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN)),"glowstone_lamp");
     public static final Block PERVADED_NETHERRACK = new BYGBlockProperties.BYGPervadedNetherrack("pervaded_netherrack");
     public static final Block GLOWSTONE_LANTERN = createLanternBlock(MaterialColor.TERRACOTTA_PURPLE, "glowstone_lantern");
     public static final Block PACKED_BLACK_ICE = new BYGBlockProperties.BYGPackedIceBlock("packed_black_ice");
@@ -1704,7 +1704,7 @@ public class BYGBlocks {
     }
 
     static Block createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        Block createBlock = new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
+        Block createBlock = new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.FUNGUS).strength(0.0f).noCollission().randomTicks(), mushroom, true);
         createPottedBlock(createBlock, id);
         return createBlock;
     }
