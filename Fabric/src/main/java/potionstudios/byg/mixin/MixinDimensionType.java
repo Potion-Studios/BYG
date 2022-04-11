@@ -48,7 +48,7 @@ public class MixinDimensionType {
                         new BYGFabricNetherBiomeSource(biomeRegistry, seed, netherConfig.upperLayer(), netherConfig.middleLayer(), netherConfig.bottomLayer(), netherConfig.layerSize()), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.NETHER)
                     )
                 ), Lifecycle.stable());
-            } else if (levelStemResourceKey == LevelStem.END && endConfig.useBYGEndBiomeSourceInNewWorlds()) {
+            } else if (levelStemResourceKey == LevelStem.END && endConfig.forceBYGEndBiomeSource()) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(dimensionTypeRegistry.getHolderOrThrow(DimensionType.END_LOCATION),
                     new NoiseBasedChunkGenerator(structureSetRegistry, noiseParameters,
                         new BYGFabricEndBiomeSource(biomeRegistry, seed, endConfig.islandLayers(), endConfig.voidLayers(), endConfig.skyLayers()), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.END)

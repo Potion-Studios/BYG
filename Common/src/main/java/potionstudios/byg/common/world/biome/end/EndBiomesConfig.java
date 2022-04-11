@@ -22,28 +22,27 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.function.Supplier;
 
-public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean warnBYGEndBiomeSourceNotUsedInNewWorlds,
-                              boolean useUpdatingConfig, LayersBiomeData islandLayers,
-                              LayersBiomeData voidLayers, LayersBiomeData skyLayers,
-                              int skyLayerStartY, boolean addAllEndBiomeCategoryEntries) {
+public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean useUpdatingConfig,
+                              boolean addAllEndBiomeCategoryEntries, int skyLayerStartY,
+                              LayersBiomeData islandLayers, LayersBiomeData voidLayers, LayersBiomeData skyLayers) {
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json");
+    public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve("end-biomes.json");
 
     public static final Codec<EndBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
-            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.useBYGEndBiomeSourceInNewWorlds),
+            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.forceBYGEndBiomeSource),
             Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
-            Codec.BOOL.fieldOf("warnBYGNetherBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGEndBiomeSourceNotUsedInNewWorlds),
+            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries),
+            Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
             LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
             LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
-            LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers),
-            Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
-            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries)
-
+            LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers)
         ).apply(builder, EndBiomesConfig::new);
     });
+
     public static EndBiomesConfig INSTANCE = null;
 
-    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, LayersBiomeData.DEFAULT_END_ISLANDS, LayersBiomeData.DEFAULT_END_VOID, LayersBiomeData.DEFAULT_SKY, 180, true);
+    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, true, 180, LayersBiomeData.DEFAULT_END_ISLANDS, LayersBiomeData.DEFAULT_END_VOID, LayersBiomeData.DEFAULT_SKY);
 
 
     public static EndBiomesConfig getConfig() {
@@ -71,11 +70,10 @@ public record EndBiomesConfig(boolean useBYGEndBiomeSourceInNewWorlds, boolean w
 
             }).build();
             // Upgrade the config with registry values.
-            EndBiomesConfig registryUpdatedConfig = new EndBiomesConfig(INSTANCE.useBYGEndBiomeSourceInNewWorlds(),
-                INSTANCE.warnBYGEndBiomeSourceNotUsedInNewWorlds(), INSTANCE.useUpdatingConfig(),
+            EndBiomesConfig registryUpdatedConfig = new EndBiomesConfig(INSTANCE.forceBYGEndBiomeSource(), INSTANCE.useUpdatingConfig(), INSTANCE.addAllEndBiomeCategoryEntries(), INSTANCE.skyLayerStartY(),
                 new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.islandLayers().biomeWeights(), registryDefaults), INSTANCE.islandLayers().biomeSize()),
                 new LayersBiomeData(INSTANCE.voidLayers().biomeWeights(), INSTANCE.voidLayers().biomeSize()),
-                new LayersBiomeData(INSTANCE.skyLayers().biomeWeights(), INSTANCE.skyLayers().biomeSize()), INSTANCE.skyLayerStartY(), INSTANCE.addAllEndBiomeCategoryEntries());
+                new LayersBiomeData(INSTANCE.skyLayers().biomeWeights(), INSTANCE.skyLayers().biomeSize()));
 
             createConfig(CONFIG_PATH.get(), registryUpdatedConfig);
             INSTANCE = registryUpdatedConfig;
