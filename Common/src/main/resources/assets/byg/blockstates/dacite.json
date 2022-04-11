@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "byg:block/dacite"
-    }
+    "": [
+      {
+        "model": "byg:block/dacite"
+      },
+      {
+        "model": "byg:block/dacite_mirrored"
+      },
+      {
+        "model": "byg:block/dacite",
+        "y": 180
+      },
+      {
+        "model": "byg:block/dacite_mirrored",
+        "y": 180
+      }
+    ]
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_mirrored_all",
+  "textures": {
+    "all": "byg:block/dacite",
+    "particle": "byg:block/dacite"
+  }
+}

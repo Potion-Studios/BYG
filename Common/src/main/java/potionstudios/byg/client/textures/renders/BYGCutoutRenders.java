@@ -147,7 +147,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.PINE_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.RAINBOW_EUCALYPTUS_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.REDWOOD_DOOR, RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_DOOR, RenderType.cutoutMipped());
+        map.put(BYGBlocks.SKYRIS_DOOR, RenderType.translucent());
         map.put(BYGBlocks.WILLOW_DOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_DOOR, RenderType.translucent());
         map.put(BYGBlocks.ZELKOVA_DOOR, RenderType.translucent());
@@ -178,7 +178,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.PINE_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.REDWOOD_TRAPDOOR, RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_TRAPDOOR, RenderType.cutoutMipped());
+        map.put(BYGBlocks.SKYRIS_TRAPDOOR, RenderType.translucent());
         map.put(BYGBlocks.WILLOW_TRAPDOOR, RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_TRAPDOOR, RenderType.translucent());
         map.put(BYGBlocks.ZELKOVA_TRAPDOOR, RenderType.translucent());
