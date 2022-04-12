@@ -31,12 +31,12 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
     private final int skyLayersStartY;
     private final long seed;
 
-    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
+    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
         super(Util.make(() -> {
             EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
-            LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
-            LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
-            LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
+            LayersBiomeData usedIslandLayer = config.islandLayers();
+            LayersBiomeData usedVoidLayer = config.voidLayers();
+            LayersBiomeData usedSkyLayer = config.skyLayers();
             List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
             biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
             return biomesFromBiomeData;
@@ -48,14 +48,17 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         WorldgenRandom worldgenrandom = new WorldgenRandom(new LegacyRandomSource(seed));
         worldgenrandom.consumeCount(17292);
         this.islandNoise = new SimplexNoise(worldgenrandom);
-        this.islandLayersBiomeData = islandLayersBiomeData;
-        this.voidLayersBiomeData = voidLayersBiomeData;
-        this.skyLayersBiomeData = skyLayersBiomeData;
+
         EndBiomesConfig config = EndBiomesConfig.getConfig(true);
 
-        LayersBiomeData usedIslandLayer = config.useUpdatingConfig() ? config.islandLayers() : islandLayersBiomeData;
-        LayersBiomeData usedVoidLayer = config.useUpdatingConfig() ? config.voidLayers() : voidLayersBiomeData;
-        LayersBiomeData usedSkyLayer = config.useUpdatingConfig() ? config.skyLayers() : skyLayersBiomeData;
+        LayersBiomeData usedIslandLayer = config.islandLayers();
+        LayersBiomeData usedVoidLayer = config.voidLayers();
+        LayersBiomeData usedSkyLayer = config.skyLayers();
+
+        this.islandLayersBiomeData = usedIslandLayer;
+        this.voidLayersBiomeData = usedVoidLayer;
+        this.skyLayersBiomeData = usedSkyLayer;
+
 
         this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, usedIslandLayer);
         this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, usedVoidLayer);

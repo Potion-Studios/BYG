@@ -20,17 +20,11 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
             return bygEndBiomeSource.getBiomeRegistry();
         }), Codec.LONG.fieldOf("seed").stable().forGetter((bygEndBiomeSource) -> {
             return bygEndBiomeSource.getSeed();
-        }), LayersBiomeData.CODEC.fieldOf("islandLayersBiomeData").stable().forGetter((bygEndBiomeSource) -> {
-            return bygEndBiomeSource.getIslandLayersBiomeData();
-        }), LayersBiomeData.CODEC.fieldOf("voidLayersBiomeData").stable().forGetter((bygEndBiomeSource) -> {
-            return bygEndBiomeSource.getVoidLayersBiomeData();
-        }), LayersBiomeData.CODEC.fieldOf("skyLayersBiomeData").stable().forGetter((bygEndBiomeSource) -> {
-            return bygEndBiomeSource.getSkyLayersBiomeData();
         })).apply(builder, builder.stable(BYGForgeEndBiomeSource::new));
     });
 
-    public BYGForgeEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
-        super(biomeRegistry, seed, islandLayersBiomeData, voidLayersBiomeData, skyLayersBiomeData);
+    public BYGForgeEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+        super(biomeRegistry, seed);
     }
 
     @Override
@@ -50,6 +44,7 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
         Area layers = createLayers(biomeRegistry, seed, skyLayersBiomeData.biomeWeights(), skyLayersBiomeData.biomeSize(), EndBiomesConfig.CONFIG_PATH.get());
         return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
+
     @Override
     protected Codec<? extends BiomeSource> codec() {
         return CODEC;
@@ -57,6 +52,6 @@ public class BYGForgeEndBiomeSource extends BYGEndBiomeSource {
 
     @Override
     public BiomeSource withSeed(long l) {
-        return new BYGForgeEndBiomeSource(getBiomeRegistry(), l, getIslandLayersBiomeData(), getVoidLayersBiomeData(), getSkyLayersBiomeData());
+        return new BYGForgeEndBiomeSource(getBiomeRegistry(), l);
     }
 }

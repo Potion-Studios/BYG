@@ -9,7 +9,6 @@ import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -21,7 +20,6 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
@@ -33,12 +31,10 @@ import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
-import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.function.Supplier;
 
 import static potionstudios.byg.BYG.createLocation;
 
@@ -103,11 +99,6 @@ public class BYGFabric implements ModInitializer {
             }
 
             @Override
-            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
-            }
-
-            @Override
             public boolean isModLoaded(String isLoaded) {
                 return FabricLoader.getInstance().isModLoaded(isLoaded);
             }
@@ -118,13 +109,13 @@ public class BYGFabric implements ModInitializer {
             }
 
             @Override
-            public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
-                return new BYGFabricNetherBiomeSource(biomeRegistry, seed, upperLayerBiomeData, middleLayerBiomeData, bottomLayerBiomeData, layerSize);
+            public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+                return new BYGFabricNetherBiomeSource(biomeRegistry, seed);
             }
 
             @Override
-            public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
-                return new BYGFabricEndBiomeSource(biomeRegistry, seed, islandLayersBiomeData, voidLayersBiomeData, skyLayersBiomeData);
+            public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+                return new BYGFabricEndBiomeSource(biomeRegistry, seed);
             }
         };
     }

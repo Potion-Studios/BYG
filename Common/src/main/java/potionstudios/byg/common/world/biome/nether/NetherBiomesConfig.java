@@ -1,7 +1,6 @@
 package potionstudios.byg.common.world.biome.nether;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+import blue.endless.jankson.api.SyntaxError;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
@@ -9,42 +8,55 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.jankson.JanksonJsonOps;
+import potionstudios.byg.util.jankson.JanksonUtil;
 
 import javax.annotation.Nullable;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Supplier;
 
-public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds,
-                                 boolean warnBYGNetherBiomeSourceNotUsedInNewWorlds,
-                                 boolean useUpdatingConfig, LayersBiomeData upperLayer,
-                                 LayersBiomeData middleLayer, LayersBiomeData bottomLayer, int layerSize,
-                                 boolean addAllNetherBiomeCategoryEntries) {
-    public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json");
+public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addAllNetherBiomeTagEntries,
+                                 int layerSize, LayersBiomeData upperLayer,
+                                 LayersBiomeData middleLayer, LayersBiomeData bottomLayer) {
+    public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-nether-biomes.json");
+    public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve("nether-biomes.json5");
+
+    public static final Codec<NetherBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> {
+        return builder.group(
+            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
+            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
+            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
+            LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
+            LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
+            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
+        ).apply(builder, NetherBiomesConfig::new);
+    });
 
     public static final Codec<NetherBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
-            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.useBYGNetherBiomeSourceInNewWorlds),
-            Codec.BOOL.fieldOf("warnBYGNetherBiomeSourceNotUsedInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.warnBYGNetherBiomeSourceNotUsedInNewWorlds),
-            Codec.BOOL.optionalFieldOf("useConfigDataInExistingWorlds", true).forGetter(overworldBiomeConfig -> overworldBiomeConfig.useUpdatingConfig),
-            LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.upperLayer),
-            LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.middleLayer),
-            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.bottomLayer),
-            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(overworldBiomeConfig -> overworldBiomeConfig.layerSize),
-            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllNetherBiomeCategoryEntries)
+            Codec.BOOL.fieldOf("forceBYGNetherBiomeSource").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
+            Codec.BOOL.fieldOf("addAllNetherBiomeTagEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
+            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
+            LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
+            LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
+            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
         ).apply(builder, NetherBiomesConfig::new);
     });
     public static NetherBiomesConfig INSTANCE = null;
 
-    public static final NetherBiomesConfig DEFAULT = new NetherBiomesConfig(true, true, true, LayersBiomeData.DEFAULT_NETHER_UPPER, LayersBiomeData.DEFAULT_NETHER_MIDDLE, LayersBiomeData.DEFAULT_NETHER_LOWER, 40, true);
-
+    public static final NetherBiomesConfig DEFAULT = new NetherBiomesConfig(true, true, 40, LayersBiomeData.DEFAULT_NETHER_UPPER, LayersBiomeData.DEFAULT_NETHER_MIDDLE, LayersBiomeData.DEFAULT_NETHER_LOWER);
 
     public static NetherBiomesConfig getConfig() {
         return getConfig(false, null);
@@ -59,23 +71,16 @@ public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds,
             INSTANCE = readConfig();
         }
 
-        if (additional != null && INSTANCE.addAllNetherBiomeCategoryEntries()) {
+        if (additional != null && INSTANCE.addAllNetherBiomeTagEntries()) {
             SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-
-                for (Biome biome : additional) {
-                    //TODO: Tags
-                    if (Biome.getBiomeCategory(additional.getHolderOrThrow(additional.getResourceKey(biome).get())) == Biome.BiomeCategory.NETHER) {
-                        builder.add(additional.getResourceKey(biome).get(), 2);
-                    }
-                }
-
+                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
             }).build();
             // Upgrade the config with registry values.
-            NetherBiomesConfig registryUpdatedConfig = new NetherBiomesConfig(INSTANCE.useBYGNetherBiomeSourceInNewWorlds(),
-                INSTANCE.warnBYGNetherBiomeSourceNotUsedInNewWorlds(), INSTANCE.useUpdatingConfig(),
+            NetherBiomesConfig registryUpdatedConfig = new NetherBiomesConfig(INSTANCE.forceBYGNetherBiomeSource(),
+                INSTANCE.addAllNetherBiomeTagEntries(), INSTANCE.layerSize(),
                 new LayersBiomeData(INSTANCE.bottomLayer().biomeWeights(), INSTANCE.bottomLayer().biomeSize()),
                 new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.middleLayer().biomeWeights(), registryDefaults), INSTANCE.middleLayer().biomeSize()),
-                new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.upperLayer().biomeWeights(), registryDefaults), INSTANCE.upperLayer().biomeSize()), INSTANCE.layerSize(), INSTANCE.addAllNetherBiomeCategoryEntries());
+                new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.upperLayer().biomeWeights(), registryDefaults), INSTANCE.upperLayer().biomeSize()));
 
             createConfig(CONFIG_PATH.get(), registryUpdatedConfig);
             INSTANCE = registryUpdatedConfig;
@@ -85,29 +90,53 @@ public record NetherBiomesConfig(boolean useBYGNetherBiomeSourceInNewWorlds,
     }
 
     private static NetherBiomesConfig readConfig() {
+        final Path legacyPath = LEGACY_CONFIG_PATH.get();
         final Path path = CONFIG_PATH.get();
 
+        NetherBiomesConfig config = DEFAULT;
+        if (legacyPath.toFile().exists()) {
+            try {
+                config = LEGACY_CODEC.decode(JsonOps.INSTANCE, JsonParser.parseReader(new FileReader(legacyPath.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(legacyPath)).getFirst();
+                Files.delete(legacyPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         if (!path.toFile().exists()) {
-            createConfig(path, DEFAULT);
+            createConfig(path, config);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 
         try {
-            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
-        } catch (IOException e) {
+            return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
+        } catch (IOException | SyntaxError e) {
             throw new IllegalStateException(e);
         }
     }
 
     private static void createConfig(Path path, NetherBiomesConfig configToSerialize) {
-        JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, configToSerialize).result().get();
+        Map<String, String> comments = Util.make(new HashMap<>(), map -> {
+            map.put("forceBYGNetherBiomeSource", "Is BYG's Nether Biome Source used?\nBYG's nether biome source will automatically add all known nether biomes that specify their biomes in the \"minecraft:is_nether\" tag, see \"addAllNetherBiomeTagEntries\" comment.");
+            map.put("addAllNetherBiomeTagEntries", "Does this config automatically fill with all values specified in the \"minecraft:is_nether\" biome tag?");
+            map.put("bottomLayer", "Biomes that appear at the bottom of the nether dimension.\nThis layer appears in the y range of: \"dimension min Y to layer size\".");
+            map.put("middleLayer", "Biomes that appear at the middle of the nether dimension above the bottom layer.\nThis layer appears in the y range of: \"layer size to (layer size + layer size)\".\nie. y40 to y80 if layer size is 40 or y60 to y120 if layer size is 60.");
+            map.put("topLayer", "Biomes that appear at the top of the nether dimension above the middle layer.\nThis layer appears in the y range of: \"layer size + layer size to dimension max Y\".\nie. y80 to dimension max Y if layer size is 40 or y120 to dimension max Y if layer size is 60.");
 
-        try {
-            Files.createDirectories(path.getParent());
-            Files.write(path, new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(jsonElement).getBytes());
-        } catch (IOException e) {
-            BYG.LOGGER.error(e.toString());
-        }
+            String biomeWeights = """
+                Higher weight, means the biome in question is bound to spawn more frequently against all other biomes listed here.
+                Weight of 0 means the biome is disabled.
+                                
+                "data" should be a valid biome ID from vanilla, mods, or datapacks.
+                If the biome in question is not in the biome registry, the game will crash.
+                """;
+            map.put("bottomLayer.biomeWeights", biomeWeights);
+            map.put("middleLayer.biomeWeights", biomeWeights);
+            map.put("topLayer.biomeWeights", biomeWeights);
+        });
+
+        String netherConfigHeader = "If your settings in this file seem to have to no effect on the generation of the nether, it is more than likely that another mod(s) related to the nether has taken control instead, and you should user their config.";
+
+        JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_OPEN + "\n\n" + netherConfigHeader + "\n*/", comments, JanksonJsonOps.INSTANCE, configToSerialize);
     }
-
 }

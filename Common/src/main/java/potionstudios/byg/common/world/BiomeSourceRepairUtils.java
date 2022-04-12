@@ -22,20 +22,18 @@ public class BiomeSourceRepairUtils {
     public static void repairBiomeSources(Registry<Biome> biomeRegistry, WorldGenSettings worldGenSettings) {
         NetherBiomesConfig netherBiomesConfig = NetherBiomesConfig.getConfig(true, biomeRegistry);
 
-        if(netherBiomesConfig.useBYGNetherBiomeSourceInNewWorlds()) {
-            Supplier<BiomeSource> netherBiomeSource = () -> {
-                return ModLoaderContext.getInstance().createNetherBiomeSource(biomeRegistry, worldGenSettings.seed(),
-                    netherBiomesConfig.upperLayer(), netherBiomesConfig.middleLayer(), netherBiomesConfig.bottomLayer(), netherBiomesConfig.layerSize());
-            };
+        if (netherBiomesConfig.forceBYGNetherBiomeSource()) {
+            Supplier<BiomeSource> netherBiomeSource = () ->
+                ModLoaderContext.getInstance().createNetherBiomeSource(biomeRegistry, worldGenSettings.seed());
+
             repair(worldGenSettings.dimensions().getOrThrow(LevelStem.NETHER), BYGNetherBiomeSource.LOCATION, netherBiomeSource);
         }
         EndBiomesConfig endBiomesConfig = EndBiomesConfig.getConfig(true, biomeRegistry);
 
         if (endBiomesConfig.forceBYGEndBiomeSource()) {
-            Supplier<BiomeSource> endBiomeSource = () -> {
-                return ModLoaderContext.getInstance().createEndBiomeSource(biomeRegistry, worldGenSettings.seed(),
-                    endBiomesConfig.islandLayers(), endBiomesConfig.voidLayers(), endBiomesConfig.skyLayers());
-            };
+            Supplier<BiomeSource> endBiomeSource = () ->
+                ModLoaderContext.getInstance().createEndBiomeSource(biomeRegistry, worldGenSettings.seed());
+
             repair(worldGenSettings.dimensions().getOrThrow(LevelStem.END), BYGEndBiomeSource.LOCATION, endBiomeSource);
         }
     }

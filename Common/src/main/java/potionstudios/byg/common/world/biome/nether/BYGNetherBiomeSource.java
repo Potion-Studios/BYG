@@ -13,8 +13,6 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
-import java.util.List;
-
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
 public abstract class BYGNetherBiomeSource extends BiomeSource {
@@ -32,16 +30,10 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
     private final int bottomTopY;
     private final long seed;
 
-    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
+    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
         super(Util.make(() -> {
             NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
-            LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
-            LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
-            LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedUpperLayer, usedMiddleLayer, usedBottomLayer);
-            //TODO: Use tags
-            biomesFromBiomeData.addAll(biomeRegistry.stream().filter(biome -> Biome.getBiomeCategory(biomeRegistry.getHolderOrThrow(biomeRegistry.getResourceKey(biome).get())) == Biome.BiomeCategory.NETHER).map(biomeRegistry::getResourceKey).map(biomeResourceKey -> biomeRegistry.getHolderOrThrow(biomeResourceKey.get())).toList());
-            return biomesFromBiomeData;
+            return createBiomesFromBiomeData(biomeRegistry, config.upperLayer(), config.middleLayer(), config.bottomLayer());
         }));
         this.biomeRegistry = biomeRegistry;
         this.seed = seed;
@@ -54,20 +46,17 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
         this.upperLayerRoughnessNoise = new FastNoiseLite((int) seed + 43594389);
         this.upperLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
         this.upperLayerRoughnessNoise.SetFrequency(0.005F);
-
-        this.upperLayerBiomeData = upperLayerBiomeData;
-        this.middleLayerBiomeData = middleLayerBiomeData;
-        this.bottomLayerBiomeData = bottomLayerBiomeData;
         NetherBiomesConfig config = NetherBiomesConfig.getConfig(true);
 
-        LayersBiomeData usedUpperLayer = config.useUpdatingConfig() ? config.upperLayer() : upperLayerBiomeData;
-        LayersBiomeData usedMiddleLayer = config.useUpdatingConfig() ? config.middleLayer() : middleLayerBiomeData;
-        LayersBiomeData usedBottomLayer = config.useUpdatingConfig() ? config.bottomLayer() : bottomLayerBiomeData;
-        int usedLayerSize = config.useUpdatingConfig() ? config.layerSize() : layerSize;
+        this.upperLayerBiomeData = config.upperLayer();
+        this.middleLayerBiomeData = config.middleLayer();
+        this.bottomLayerBiomeData = config.bottomLayer();
 
-        this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, usedUpperLayer);
-        this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, usedMiddleLayer);
-        this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, usedBottomLayer);
+        int usedLayerSize = config.layerSize();
+
+        this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, upperLayerBiomeData);
+        this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, middleLayerBiomeData);
+        this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, bottomLayerBiomeData);
         this.bottomTopY = QuartPos.fromBlock(usedLayerSize);
     }
 

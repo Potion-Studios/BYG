@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
@@ -41,7 +40,6 @@ import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
@@ -166,11 +164,6 @@ public class BYGForge {
             }
 
             @Override
-            public Supplier<SurfaceRules.RuleSource> netherRuleSource() {
-                return () -> SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, BYG.EMPTY);
-            }
-
-            @Override
             public boolean isModLoaded(String isLoaded) {
                 return ModList.get().isLoaded(isLoaded);
             }
@@ -181,13 +174,13 @@ public class BYGForge {
             }
 
             @Override
-            public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData, LayersBiomeData middleLayerBiomeData, LayersBiomeData bottomLayerBiomeData, int layerSize) {
-                return new BYGForgeNetherBiomeSource(biomeRegistry, seed, upperLayerBiomeData, middleLayerBiomeData, bottomLayerBiomeData, layerSize);
+            public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+                return new BYGForgeNetherBiomeSource(biomeRegistry, seed);
             }
 
             @Override
-            public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData, LayersBiomeData voidLayersBiomeData, LayersBiomeData skyLayersBiomeData) {
-                return new BYGForgeEndBiomeSource(biomeRegistry, seed, islandLayersBiomeData, voidLayersBiomeData, skyLayersBiomeData);
+            public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+                return new BYGForgeEndBiomeSource(biomeRegistry, seed);
             }
         };
     }
