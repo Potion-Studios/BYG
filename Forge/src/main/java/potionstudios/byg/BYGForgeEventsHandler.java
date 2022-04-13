@@ -11,11 +11,11 @@ import potionstudios.byg.common.entity.npc.VillagerTradesConfig;
 
 import java.util.Map;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BYGForgeEventsHandler {
 
     @SubscribeEvent
-    public static void setupFriendsAndFoesTrades(VillagerTradesEvent event) {
+    public static void setupVillagerTrades(VillagerTradesEvent event) {
         Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = VillagerTradesConfig.getConfig(true).tradesByProfession();
         if (tradesByProfession.containsKey(event.getType())) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(event.getType());

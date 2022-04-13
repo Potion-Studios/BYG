@@ -101,10 +101,14 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
         NetherBiomesConfig config = DEFAULT;
         if (legacyPath.toFile().exists()) {
             try {
-                config = LEGACY_CODEC.decode(JsonOps.INSTANCE, JsonParser.parseReader(new FileReader(legacyPath.toFile()))).result().orElseThrow(() -> BYGUtil.configFileFailureException(legacyPath)).getFirst();
+                FileReader reader = new FileReader(legacyPath.toFile());
+                config = LEGACY_CODEC.decode(JsonOps.INSTANCE, JsonParser.parseReader(reader)).result().orElseThrow(() -> BYGUtil.configFileFailureException(legacyPath)).getFirst();
+                reader.close();
                 Files.delete(legacyPath);
             } catch (IOException e) {
+                BYG.LOGGER.error("Could not create new config file for: " + legacyPath.toString());
                 e.printStackTrace();
+                return config;
             }
         }
 
