@@ -7,7 +7,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
-import potionstudios.byg.common.entity.npc.VillagerProfessionsConfig;
+import potionstudios.byg.common.entity.npc.VillagerTradesConfig;
 
 import java.util.Map;
 
@@ -16,7 +16,7 @@ public class BYGForgeEventsHandler {
 
     @SubscribeEvent
     public static void setupFriendsAndFoesTrades(VillagerTradesEvent event) {
-        Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = VillagerProfessionsConfig.getConfig(true).tradesByProfession();
+        Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = VillagerTradesConfig.getConfig(true).tradesByProfession();
         if (tradesByProfession.containsKey(event.getType())) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(event.getType());
             BYGVillagerTrades.appendTradesList(int2ObjectMap,  event.getTrades());

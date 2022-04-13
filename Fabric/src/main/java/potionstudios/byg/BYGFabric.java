@@ -15,7 +15,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
-import potionstudios.byg.common.entity.npc.VillagerProfessionsConfig;
+import potionstudios.byg.common.entity.npc.VillagerTradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
@@ -56,7 +56,7 @@ public class BYGFabric implements ModInitializer {
     }
 
     private void registerVillagerTrades() {
-        VillagerProfessionsConfig.getConfig(true).tradesByProfession().forEach((villagerProfession, int2ObjectMap) ->
+        VillagerTradesConfig.getConfig(true).tradesByProfession().forEach((villagerProfession, int2ObjectMap) ->
             int2ObjectMap.forEach((level, configListing) ->
                 TradeOfferHelper.registerVillagerOffers(villagerProfession, level, itemListings ->
                     itemListings.addAll(Arrays.asList(configListing))

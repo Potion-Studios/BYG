@@ -8,8 +8,6 @@ import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.Items;
-import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
 
@@ -26,10 +24,7 @@ public class BYGVillagerTrades {
 
 
     protected static final Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> TRADES = Util.make(new HashMap<>(), map -> {
-        map.put(VillagerProfession.FARMER, toIntMap(ImmutableMap.of(
-            1, new VillagerTrades.ItemListing[]{new VillagerTrades.EmeraldForItems(BYGItems.CRIMSON_BERRY_PIE, 20, 16, 2)},
-            2, new VillagerTrades.ItemListing[]{new VillagerTrades.EmeraldForItems(Items.WHEAT, 20, 16, 2)}
-        )));
+        map.put(VillagerProfession.FARMER, toIntMap(ImmutableMap.of()));
         map.put(VillagerProfession.FISHERMAN, toIntMap(ImmutableMap.of()));
         map.put(VillagerProfession.SHEPHERD, toIntMap(ImmutableMap.of()));
         map.put(VillagerProfession.FLETCHER, toIntMap(ImmutableMap.of()));

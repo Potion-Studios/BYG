@@ -16,37 +16,38 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public record VillagerProfessionsConfig(Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession) {
+public record VillagerTradesConfig(Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession) {
 
     public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-villager-trades.json5");
 
-    public static VillagerProfessionsConfig INSTANCE = null;
+    public static VillagerTradesConfig INSTANCE = null;
 
 
-    public static final VillagerProfessionsConfig DEFAULT = new VillagerProfessionsConfig(BYGVillagerTrades.TRADES);
+    public static final VillagerTradesConfig DEFAULT = new VillagerTradesConfig(BYGVillagerTrades.TRADES);
 
-    public static final Codec<VillagerProfessionsConfig> CODEC = RecordCodecBuilder.create(builder ->
+    public static final Codec<VillagerTradesConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(BYGVillagerTrades.VILLAGER_TRADES_CODEC.fieldOf("trades_by_profession").forGetter(config -> config.tradesByProfession)
-        ).apply(builder, VillagerProfessionsConfig::new)
+        ).apply(builder, VillagerTradesConfig::new)
     );
 
-    public static VillagerProfessionsConfig getConfig() {
+    public static VillagerTradesConfig getConfig() {
         return getConfig(false);
     }
 
-    public static VillagerProfessionsConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
-        }
+    // TODO: Add Villager Profession Trades.
+    public static VillagerTradesConfig getConfig(boolean serialize) {
+//        if (INSTANCE == null || serialize) {
+//            INSTANCE = readConfig();
+//        }
 
-        return INSTANCE;
+        return DEFAULT;
     }
 
-    public static void setConfigInstance(VillagerProfessionsConfig config) {
+    public static void setConfigInstance(VillagerTradesConfig config) {
         INSTANCE = config;
     }
 
-    private static VillagerProfessionsConfig readConfig() {
+    private static VillagerTradesConfig readConfig() {
         final Path path = CONFIG_PATH.get();
 
         if (!path.toFile().exists()) {
