@@ -1,6 +1,5 @@
 package potionstudios.byg.common.world.biome.end;
 
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
@@ -10,15 +9,15 @@ import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.synth.SimplexNoise;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.function.BiPredicate;
+import java.util.stream.Collectors;
 
 import static net.minecraft.world.level.biome.TheEndBiomeSource.getHeightValue;
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
@@ -28,9 +27,6 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     private final SimplexNoise islandNoise;
     private final Registry<Biome> biomeRegistry;
-    private final LayersBiomeData islandLayersBiomeData;
-    private final LayersBiomeData voidLayersBiomeData;
-    private final LayersBiomeData skyLayersBiomeData;
     private final BiomeResolver islandBiomeResolver;
     private final BiomeResolver voidBiomeResolver;
     private final BiomeResolver skyBiomeResolver;
@@ -38,33 +34,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
     private final long seed;
 
     protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        super(Util.make(() -> {
-            EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
-
-            Set<String> missingBiomes = new TreeSet<>();
-            BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> {
-                boolean biomeRegistryHas = biomeRegistry.containsKey(added);
-
-                if (!biomeRegistryHas) {
-                    missingBiomes.add(added.location().toString());
-                }
-
-                return !existing.contains(added) && biomeRegistryHas;
-            };
-
-            LayersBiomeData usedIslandLayer = config.islandLayers().filter(filter);
-            LayersBiomeData usedVoidLayer = config.voidLayers().filter(filter);
-            LayersBiomeData usedSkyLayer = config.skyLayers().filter(filter);
-
-            String ignored = BYGUtil.dumpCollection(missingBiomes);
-            if (!ignored.isEmpty()) {
-                BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
-            }
-
-            List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
-            biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
-            return biomesFromBiomeData;
-        }));
+        super(getPossibleBiomes(biomeRegistry));
         this.biomeRegistry = biomeRegistry;
         this.seed = seed;
 
@@ -74,15 +44,12 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         this.islandNoise = new SimplexNoise(worldgenrandom);
 
         EndBiomesConfig config = EndBiomesConfig.getConfig();
-        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && biomeRegistry.containsKey(added);
+        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
 
-        this.islandLayersBiomeData = config.islandLayers().filter(filter);
-        this.voidLayersBiomeData = config.voidLayers().filter(filter);
-        this.skyLayersBiomeData = config.skyLayers().filter(filter);
-
-        this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, islandLayersBiomeData);
-        this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, voidLayersBiomeData);
-        this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, skyLayersBiomeData);
+        this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, config.islandLayers().filter(filter));
+        this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, config.voidLayers().filter(filter));
+        this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, config.skyLayers().filter(filter));
         this.skyLayersStartY = QuartPos.fromBlock(config.skyLayerStartY());
     }
 
@@ -116,23 +83,40 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
         }
     }
 
-    public Registry<Biome> getBiomeRegistry() {
+    protected Registry<Biome> getBiomeRegistry() {
         return biomeRegistry;
     }
 
-    public LayersBiomeData getIslandLayersBiomeData() {
-        return islandLayersBiomeData;
-    }
-
-    public LayersBiomeData getVoidLayersBiomeData() {
-        return voidLayersBiomeData;
-    }
-
-    public LayersBiomeData getSkyLayersBiomeData() {
-        return skyLayersBiomeData;
-    }
-
-    public long getSeed() {
+    protected long getSeed() {
         return seed;
+    }
+
+    @NotNull
+    private static List<Holder<Biome>> getPossibleBiomes(Registry<Biome> biomeRegistry) {
+        EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
+
+        Set<String> missingBiomes = new TreeSet<>();
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> {
+            boolean biomeRegistryHas = biomeRegistry.containsKey(added);
+
+            if (!biomeRegistryHas) {
+                missingBiomes.add(added.location().toString());
+            }
+
+            return !existing.contains(added) && biomeRegistryHas;
+        };
+
+        LayersBiomeData usedIslandLayer = config.islandLayers().filter(filter);
+        LayersBiomeData usedVoidLayer = config.voidLayers().filter(filter);
+        LayersBiomeData usedSkyLayer = config.skyLayers().filter(filter);
+
+        String ignored = BYGUtil.dumpCollection(missingBiomes);
+        if (!ignored.isEmpty()) {
+            BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
+        }
+
+        List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
+        biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
+        return biomesFromBiomeData;
     }
 }

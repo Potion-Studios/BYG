@@ -1,12 +1,17 @@
 package potionstudios.byg.util;
 
+import com.mojang.serialization.Codec;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.storage.WorldData;
+import potionstudios.byg.BYG;
+import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.mixin.access.NoiseBasedChunkGeneratorAccess;
 import potionstudios.byg.mixin.access.NoiseGeneratorSettingsAccess;
 
@@ -21,9 +26,12 @@ public class AddSurfaceRulesUtil {
             throw new NullPointerException(String.format("\"%s\" is not a valid level stem key as it doesn't exist in this world's settings. This is more than likely the result of a broken level.dat and most often occurs when moving a world between MC versions.", levelStemKey.location()));
         }
         ChunkGenerator chunkGenerator = levelStem.generator();
-        if (chunkGenerator != null && chunkGenerator instanceof NoiseBasedChunkGenerator) {
+        if (chunkGenerator instanceof NoiseBasedChunkGenerator) {
             Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) chunkGenerator).byg_getSettings().value();
             ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
         }
+
+        Codec<? extends BiomeSource> biomeSourceCodec = ((BiomeSourceAccess) chunkGenerator.getBiomeSource()).byg_invokeCodec();
+        BYG.LOGGER.info(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location().toString(), Registry.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
     }
 }
