@@ -4,6 +4,7 @@ import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeResolver;
@@ -12,6 +13,12 @@ import net.minecraft.world.level.biome.Climate;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
+import potionstudios.byg.util.BYGUtil;
+
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.BiPredicate;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
@@ -33,7 +40,27 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
     protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
         super(Util.make(() -> {
             NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
-            return createBiomesFromBiomeData(biomeRegistry, config.upperLayer(), config.middleLayer(), config.bottomLayer());
+
+            Set<String> missingBiomes = new TreeSet<>();
+            BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> {
+                boolean biomeRegistryHas = biomeRegistry.containsKey(added);
+
+                if (!biomeRegistryHas) {
+                    missingBiomes.add(added.location().toString());
+                }
+
+                return !existing.contains(added) && biomeRegistryHas;
+            };
+
+            LayersBiomeData upperLayer = config.upperLayer().filter(filter);
+            LayersBiomeData middleLayer = config.middleLayer().filter(filter);
+            LayersBiomeData bottomLayer = config.bottomLayer().filter(filter);
+
+            String ignored = BYGUtil.dumpCollection(missingBiomes);
+            if (!ignored.isEmpty()) {
+                BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", NetherBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
+            }
+            return createBiomesFromBiomeData(biomeRegistry, upperLayer, middleLayer, bottomLayer);
         }));
         this.biomeRegistry = biomeRegistry;
         this.seed = seed;
@@ -46,11 +73,12 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
         this.upperLayerRoughnessNoise = new FastNoiseLite((int) seed + 43594389);
         this.upperLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
         this.upperLayerRoughnessNoise.SetFrequency(0.005F);
-        NetherBiomesConfig config = NetherBiomesConfig.getConfig(true);
+        NetherBiomesConfig config = NetherBiomesConfig.getConfig();
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && biomeRegistry.containsKey(added);
 
-        this.upperLayerBiomeData = config.upperLayer();
-        this.middleLayerBiomeData = config.middleLayer();
-        this.bottomLayerBiomeData = config.bottomLayer();
+        this.upperLayerBiomeData = config.upperLayer().filter(filter);
+        this.middleLayerBiomeData = config.middleLayer().filter(filter);
+        this.bottomLayerBiomeData = config.bottomLayer().filter(filter);
 
         int usedLayerSize = config.layerSize();
 

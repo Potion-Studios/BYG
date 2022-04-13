@@ -21,8 +21,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
 public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndBiomeCategoryEntries, int skyLayerStartY,
@@ -72,16 +75,14 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
 
         if (additional != null && INSTANCE.addAllEndBiomeCategoryEntries()) {
             SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-                for (Biome biome : additional) {
-                    //TODO: Tags
-                    if (Biome.getBiomeCategory(additional.getHolderOrThrow(additional.getResourceKey(biome).get())) == Biome.BiomeCategory.THEEND) {
-                        builder.add(additional.getResourceKey(biome).get(), 2);
-                    }
-                }
+                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> Biome.getBiomeCategory(biomeHolder) == Biome.BiomeCategory.THEEND).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
             }).build();
+
+            BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added);
+
             // Upgrade the config with registry values.
             EndBiomesConfig registryUpdatedConfig = new EndBiomesConfig(INSTANCE.forceBYGEndBiomeSource(), INSTANCE.addAllEndBiomeCategoryEntries(), INSTANCE.skyLayerStartY(),
-                new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.islandLayers().biomeWeights(), registryDefaults), INSTANCE.islandLayers().biomeSize()),
+                new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.islandLayers().biomeWeights(), registryDefaults), INSTANCE.islandLayers().biomeSize()),
                 new LayersBiomeData(INSTANCE.voidLayers().biomeWeights(), INSTANCE.voidLayers().biomeSize()),
                 new LayersBiomeData(INSTANCE.skyLayers().biomeWeights(), INSTANCE.skyLayers().biomeSize()));
 
@@ -131,7 +132,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
                 Weight of 0 means the biome is disabled.
                                 
                 "data" should be a valid biome ID from vanilla, mods, or datapacks.
-                If the biome in question is not in the biome registry, the game will crash.
+                If the biome in question is not in the biome registry, the biome is ignored & logged in the "latest.log".
                 """;
             map.put("skyLayer.biomeWeights", biomeWeights);
             map.put("islandLayer.biomeWeights", biomeWeights);

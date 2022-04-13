@@ -111,14 +111,14 @@ public class BYGUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> SimpleWeightedRandomList<T> combineWeightedRandomListsWithoutDuplicatesFilter(SimpleWeightedRandomList<T>... builders) {
+    public static <T> SimpleWeightedRandomList<T> combineWeightedRandomLists(BiPredicate<Collection<T>, T> filter, SimpleWeightedRandomList<T>... builders) {
         SimpleWeightedRandomList.Builder<T> combinedBuilder = new SimpleWeightedRandomList.Builder<>();
         for (SimpleWeightedRandomList<T> build : builders) {
             for (WeightedEntry.Wrapper<T> item : ((WeightedListAccess<WeightedEntry.Wrapper<T>>) build).byg_getItems()) {
                 Set<T> collection = ((WeightedListAccess<WeightedEntry.Wrapper<T>>) combinedBuilder.build()).byg_getItems().stream().map(item1 -> ((WeightedEntryWrapperAccess<T>) item1).byg_getData()).collect(Collectors.toSet());
                 T data = ((WeightedEntryWrapperAccess<T>) item).byg_getData();
 
-                if (!collection.contains(data)) {
+                if (filter.test(collection, data)) {
                     combinedBuilder.add(data, ((WeightedEntryWrapperAccess<T>) item).byg_getWeight().asInt());
                 }
             }
@@ -143,6 +143,22 @@ public class BYGUtil {
             }
         }
         return biomes;
+    }
+
+    public static String dumpCollection(Collection<String> collection) {
+        String[] values = collection.toArray(String[]::new);
+        StringBuilder result = new StringBuilder();
+        int length = values.length;
+        for (int i = 0; i < length; i++) {
+            String value = values[i];
+            result.append(i + 1).append(". \"");
+            if (i < length - 1) {
+                result.append(value).append("\",\n");
+            } else {
+                result.append(value).append("\"");
+            }
+        }
+        return result.toString();
     }
 
     public static <T, C, V, MAP extends Map<T, V>> MAP convertMapValueType(Map<T, C> from, Supplier<MAP> mapType, Function<C, V> newValueType) {

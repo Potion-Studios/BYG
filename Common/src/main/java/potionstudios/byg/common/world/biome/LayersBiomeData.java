@@ -6,7 +6,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
+import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
+
+import java.util.Collection;
+import java.util.function.BiPredicate;
 
 import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 
@@ -17,6 +21,10 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             Codec.INT.fieldOf("biomeSize").forGetter(layersBiomeData -> layersBiomeData.biomeSize)
         ).apply(builder, LayersBiomeData::new);
     });
+
+    public LayersBiomeData filter(BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter) {
+        return new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, biomeWeights), biomeSize);
+    }
 
     public static final LayersBiomeData DEFAULT_END_ISLANDS = new LayersBiomeData(
         SimpleWeightedRandomList.<ResourceKey<Biome>>builder()

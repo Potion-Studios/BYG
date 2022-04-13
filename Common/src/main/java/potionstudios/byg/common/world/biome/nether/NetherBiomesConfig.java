@@ -22,9 +22,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
 public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addAllNetherBiomeTagEntries,
@@ -73,14 +75,17 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
 
         if (additional != null && INSTANCE.addAllNetherBiomeTagEntries()) {
             SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
+                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> Biome.getBiomeCategory(biomeHolder) == Biome.BiomeCategory.NETHER || biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
             }).build();
+
+            BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added);
+
             // Upgrade the config with registry values.
             NetherBiomesConfig registryUpdatedConfig = new NetherBiomesConfig(INSTANCE.forceBYGNetherBiomeSource(),
                 INSTANCE.addAllNetherBiomeTagEntries(), INSTANCE.layerSize(),
                 new LayersBiomeData(INSTANCE.bottomLayer().biomeWeights(), INSTANCE.bottomLayer().biomeSize()),
-                new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.middleLayer().biomeWeights(), registryDefaults), INSTANCE.middleLayer().biomeSize()),
-                new LayersBiomeData(BYGUtil.combineWeightedRandomListsWithoutDuplicatesFilter(INSTANCE.upperLayer().biomeWeights(), registryDefaults), INSTANCE.upperLayer().biomeSize()));
+                new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.middleLayer().biomeWeights(), registryDefaults), INSTANCE.middleLayer().biomeSize()),
+                new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.upperLayer().biomeWeights(), registryDefaults), INSTANCE.upperLayer().biomeSize()));
 
             createConfig(CONFIG_PATH.get(), registryUpdatedConfig);
             INSTANCE = registryUpdatedConfig;
@@ -128,7 +133,7 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
                 Weight of 0 means the biome is disabled.
                                 
                 "data" should be a valid biome ID from vanilla, mods, or datapacks.
-                If the biome in question is not in the biome registry, the game will crash.
+                If the biome in question is not in the biome registry, the biome is ignored & logged in the "latest.log".
                 """;
             map.put("bottomLayer.biomeWeights", biomeWeights);
             map.put("middleLayer.biomeWeights", biomeWeights);
