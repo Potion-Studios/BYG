@@ -33,7 +33,7 @@ public record TradesConfig(boolean enabled,
         builder.group(
             Codec.BOOL.fieldOf("enabled").orElse(true).forGetter(config -> config.enabled),
             Codec.unboundedMap(CodecUtil.VILLAGER_PROFESSION_CODEC, BYGVillagerTrades.createRangeCheckedKeyMap(1, 5)).fieldOf("trades_by_profession").forGetter(config -> config.tradesByProfession),
-            BYGVillagerTrades.createRangeCheckedKeyMap(1, 2).fieldOf("wandering_trader_Trades").forGetter(config -> config.wanderingTraderTrades)
+            BYGVillagerTrades.createRangeCheckedKeyMap(1, 2).fieldOf("wandering_trader_trades").forGetter(config -> config.wanderingTraderTrades)
         ).apply(builder, TradesConfig::new)
     );
 
