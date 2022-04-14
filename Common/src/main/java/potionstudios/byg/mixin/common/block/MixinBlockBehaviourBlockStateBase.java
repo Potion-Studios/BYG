@@ -21,7 +21,7 @@ public abstract class MixinBlockBehaviourBlockStateBase {
     public abstract boolean is(TagKey<Block> $$0);
 
     @Inject(at = @At("HEAD"), method = "is(Lnet/minecraft/world/level/block/Block;)Z", cancellable = true)
-    private void isBookshelf(Block block, CallbackInfoReturnable<Boolean> info) {
+    private void byg_useTagReplacement(Block block, CallbackInfoReturnable<Boolean> info) {
         if (BYGUtil.useTagReplacements) {
             if (block == Blocks.BOOKSHELF) {
                 info.setReturnValue(this.is(MLBlockTags.BOOKSHELVES));
