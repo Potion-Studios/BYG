@@ -17,9 +17,11 @@ public class BYGVillagerTrades {
 
     protected static final Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> TRADES = Util.make(new HashMap<>(), map -> {
         for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION) {
-            Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(villagerProfession, villagerProfession1 -> new Int2ObjectOpenHashMap<>());
-            for (int i = 1; i <= 5; i++) {
-                tradesByLevel.putIfAbsent(i, new VillagerTrades.ItemListing[]{});
+            if (villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE) {
+                Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(villagerProfession, villagerProfession1 -> new Int2ObjectOpenHashMap<>());
+                for (int i = 1; i <= 5; i++) {
+                    tradesByLevel.putIfAbsent(i, new VillagerTrades.ItemListing[]{});
+                }
             }
         }
     });
