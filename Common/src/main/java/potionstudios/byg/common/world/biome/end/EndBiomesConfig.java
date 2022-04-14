@@ -125,7 +125,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
 
     private static void createConfig(Path path, EndBiomesConfig configToSerialize) {
         Map<String, String> comments = Util.make(new HashMap<>(), map -> {
-            map.put("forceBYGNetherBiomeSource", "Is BYG's Nether Biome Source used?\nBYG's nether biome source will automatically add all known end biomes that specify their biome category as \"the_end\", see \"addAllEndBiomeCategoryEntries\" comment.");
+            map.put("forceBYGEndBiomeSource", "Is BYG's End Biome Source used?\nBYG's end biome source will automatically add all known end biomes that specify their biome category as \"the_end\", see \"addAllEndBiomeCategoryEntries\" comment.");
             map.put("addAllEndBiomeCategoryEntries", "Does this config automatically fill with all biomes using the \"the_end\" biome category? Note: Vanilla at the time of writing does not have an end biomes tag.");
             map.put("skyLayer", "Biomes that spawn in the Y range of \"skyLayerStartY to Dimension Max Y.");
             map.put("islandLayer", "Biomes that spawn where the large end islands/surface generate.");
