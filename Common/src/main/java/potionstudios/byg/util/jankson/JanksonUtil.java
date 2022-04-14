@@ -7,8 +7,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import potionstudios.byg.BYG;
-import potionstudios.byg.util.BYGUtil;
-import potionstudios.byg.util.codec.FromFileOps;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,17 +18,6 @@ import java.util.function.Supplier;
 
 public class JanksonUtil {
 
-    public static final String HEADER_CLOSED = """
-        /*
-        This file uses the ".json5" file extension which allows for comments like this in a json file!
-        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
-                
-        VSCode: https://code.visualstudio.com/
-        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
-                    
-        to make editing this file much easier.
-        */""";
-
     public static final String HEADER_OPEN = """
         /*
         This file uses the ".json5" file extension which allows for comments like this in a json file!
@@ -40,6 +27,8 @@ public class JanksonUtil {
         JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
                     
         to make editing this file much easier.""";
+
+    public static final String HEADER_CLOSED = HEADER_OPEN + "\n*/";
 
     public static final Jankson JANKSON = Jankson.builder().allowBareRootObject().build();
     public static final Supplier<JsonGrammar.Builder> JSON_GRAMMAR_BUILDER = () -> new JsonGrammar.Builder().withComments(true).bareSpecialNumerics(true).printCommas(true);
@@ -96,7 +85,13 @@ public class JanksonUtil {
     }
 
     public static <T> void createConfig(Path path, Codec<T> codec, String header, Map<String, String> comments, DynamicOps<JsonElement> ops, T from) {
-        JsonElement jsonElement = codec.encodeStart(ops, from).result().orElseThrow();
+        DataResult<JsonElement> dataResult = codec.encodeStart(ops, from);
+        Optional<DataResult.PartialResult<JsonElement>> error = dataResult.error();
+        if (error.isPresent()) {
+            throw new IllegalArgumentException(String.format("Jankson file creation for \"%s\" failed due to the following error(s):\n%s", path.toString(), error.get().message()));
+        }
+
+        JsonElement jsonElement = dataResult.result().orElseThrow();
 
         if (jsonElement instanceof JsonObject jsonObject) {
             jsonElement = addCommentsAndAlphabeticallySortRecursively(comments, jsonObject, "", true);
@@ -116,12 +111,9 @@ public class JanksonUtil {
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
             if (error.isPresent()) {
-                String errorMsg = String.format("Jankson File decoding failed for \"%s\".Error:\n%s\n throwing IOException....", path.toString(), error.get().toString());
-                throw new IOException(errorMsg);
+                throw new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s", path.toString(), error.get().message()));
             }
-
-            Optional<Pair<T, JsonElement>> result = decode.resultOrPartial(BYG.LOGGER::error/*We should never get here, due to the error check but just in case, lets log it**/);
-            return result.orElseThrow(() -> BYGUtil.configFileFailureException(path)).getFirst();
+            return decode.result().orElseThrow().getFirst();
         } catch (IOException | SyntaxError errorMsg) {
             BYG.LOGGER.error(String.format("File reading failed for: \"%s\"", path.toString()));
             throw errorMsg;

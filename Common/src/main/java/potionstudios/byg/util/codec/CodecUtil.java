@@ -14,6 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Set;
+import java.util.function.Function;
 
 public class CodecUtil {
     public static final Codec<ResourceKey<Biome>> BIOME_CODEC = ResourceLocation.CODEC.comapFlatMap(resourceLocation -> DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation)), ResourceKey::location);
@@ -25,6 +26,11 @@ public class CodecUtil {
     public static final Codec<VillagerProfession> VILLAGER_PROFESSION_CODEC = createLoggedExceptionRegistryCodec(Registry.VILLAGER_PROFESSION);
     public static final CollectionCodec<ResourceKey<Biome>, Set<ResourceKey<Biome>>> BIOME_SET_CODEC = new CollectionCodec<>(BIOME_CODEC, ObjectOpenHashSet::new);
 
+
+    public static Codec<Integer> intKeyRangeCodec(int min, int max) {
+        Function<Integer, DataResult<Integer>> check = Codec.checkRange(min, max);
+        return INTEGER_KEY_CODEC.flatXmap(check, check);
+    }
 
     public static <T> Codec<T> createLoggedExceptionRegistryCodec(Registry<T> registry) {
         return ResourceLocation.CODEC.comapFlatMap(location -> {
