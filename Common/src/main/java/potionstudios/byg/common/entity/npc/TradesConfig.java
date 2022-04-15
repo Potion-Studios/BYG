@@ -72,9 +72,9 @@ public record TradesConfig(boolean enabled,
         HashMap<String, String> comments = Util.make(new HashMap<>(), map -> {
             map.put("enabled", "Whether this file appends villager/wandering trader trades.");
             map.put("trades_by_profession", "Trades for a given villager profession. Trade levels are in the range of 1-5");
-            map.put("wandering_trader_Trades", "Trades for the wandering trader. Trades in \"1\" are \"generic\" trades. Trades appearing in \"2\" are \"rare\" trades.");
-            map.put("wandering_trader_Trades.1", "Trades listed here are \"generic\" and a few(not only from these listed here but from other mods/vanilla also) are picked when a wandering trader spawns.");
-            map.put("wandering_trader_Trades.2", "Trades listed here are \"rare\" and only one(not only from these listed here but from other mods/vanilla also) is picked when a wandering trader spawns.");
+            map.put("wandering_trader_trades", "Trades for the wandering trader. Trades in \"1\" are \"generic\" trades. Trades appearing in \"2\" are \"rare\" trades.");
+            map.put("wandering_trader_trades.1", "Trades listed here are \"generic\" and a few(not only from these listed here but from other mods/vanilla also) are picked when a wandering trader spawns.");
+            map.put("wandering_trader_trades.2", "Trades listed here are \"rare\" and only one(not only from these listed here but from other mods/vanilla also) is picked when a wandering trader spawns.");
         });
         JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, comments, JanksonJsonOps.INSTANCE, DEFAULT);
     }
