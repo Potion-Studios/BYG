@@ -38,6 +38,7 @@ public class BYGItems {
     public static final Item MUD_BRICKS = createItem(BYGBlocks.MUD_BRICKS);
 
     public static final Item CHAIN_PLATING = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "chain_plating");
+    public static final Item FORAGERS_TABLE = createItem(BYGBlocks.FORAGERS_TABLE);
 
     public static final Item AMETRINE_GEMS = createItem(new Item(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "ametrine_gems");
     public static final Item AMETRINE_ORE = createItem(BYGBlocks.AMETRINE_ORE);

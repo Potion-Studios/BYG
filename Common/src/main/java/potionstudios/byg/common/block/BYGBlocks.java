@@ -452,6 +452,9 @@ public class BYGBlocks {
     public static final Block ETHER_WALL_SIGN = createWallSign("ether_wall_sign", BYGWoodType.ETHER, ETHER_PLANKS);
     public static final Block IMPARIUS_WALL_SIGN = createWallSign("imparius_wall_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
 
+    public static final Block FORAGERS_TABLE = createBlock(new Block(BlockBehaviour.Properties.copy(Blocks.FLETCHING_TABLE)), "foragers_table");
+
+
     public static final Block PEAT = createDirt("peat");
     public static final Block LUSH_DIRT = createDirt("lush_dirt");
     public static final Block LUSH_FARMLAND = createLushFarmland("lush_farmland");

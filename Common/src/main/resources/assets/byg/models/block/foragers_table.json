@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "byg:block/foragers_table_top",
+    "down": "minecraft:block/beehive_end",
+    "up": "byg:block/foragers_table_top",
+    "north": "byg:block/foragers_table_front",
+    "east": "byg:block/foragers_table_side",
+    "south": "byg:block/foragers_table_front",
+    "west": "byg:block/foragers_table_side"
+  }
+}

@@ -22,7 +22,7 @@ public class PoisonIvyBlock extends VineBlock {
             if (entityIn instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity) entityIn;
                 if (!livingentity.isInvulnerableTo(DamageSource.MAGIC)) {
-                    livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 900, 1));
+                    livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
                 }
             }
 
