@@ -22,6 +22,8 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_PINK_BUSH = createFlowerConfiguredFeature("pink_allium_bush", BYGBlocks.PINK_ALLIUM_FLOWER_BUSH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_TALL_BUSH = createPatchConfiguredFeature("tall_allium_bush", BYGBlocks.TALL_ALLIUM, 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_TALL_PINK_BUSH = createPatchConfiguredFeature("tall_pink_allium_bush", BYGBlocks.TALL_PINK_ALLIUM, 15);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALOE_VERA = createPatchConfiguredFeature("aloe_vera", BYGBlocks.ALOE_VERA, 6);
+
     public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> DUNE_TERRAIN = createConfiguredFeature("dune_terrain", BYGFeatures.DUNE_TERRAIN, FeatureConfiguration.NONE);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> AMARANTH = createFlowerConfiguredFeature("amaranth", BYGBlocks.AMARANTH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> AMARANTH_MAGENTA = createFlowerConfiguredFeature("magenta_amaranth", BYGBlocks.MAGENTA_AMARANTH);
@@ -61,7 +63,7 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> GOLDEN_SPINED_CACTI = createPatchConfiguredFeature("golden_spined_cacti", BYGBlocks.GOLDEN_SPINED_CACTUS, 5);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PINK_CHERRY_FOLIAGE = createPatchConfiguredFeature("pink_cherry_foliage", BYGBlocks.PINK_CHERRY_FOLIAGE, 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WHITE_CHERRY_FOLIAGE = createPatchConfiguredFeature("white_cherry_foliage", BYGBlocks.WHITE_CHERRY_FOLIAGE, 15);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BLUE_BERRY_BUSH = createPatchConfiguredFeature("blue_berry_bush", BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3), 15);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BLUE_BERRY_BUSH = createPatchConfiguredFeature("blue_berry_bush", BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3), 3);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE = createFlowerConfiguredFeature("rose", BYGBlocks.ROSE);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CROCUS = createFlowerConfiguredFeature("crocus", BYGBlocks.CROCUS);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IRIS = createFlowerConfiguredFeature("iris", BYGBlocks.IRIS);
@@ -138,6 +140,7 @@ public class BYGOverworldVegetationFeatures {
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MINI_CACTI), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(PRICKLY_PEAR_CACTI), 0.3F),
+            new WeightedPlacedFeature(createPlacedFeature(ALOE_VERA), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(FIRECRACKER_BUSH), 0.1F)),
             createPlacedFeature(GOLDEN_SPINED_CACTI))
     );

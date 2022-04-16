@@ -44,10 +44,10 @@ public class SkyrisVillagePools {
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_small_house_5"), 2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_small_house_6"), 1),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_medium_house_1"), 2),
-                    Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_forager_1"), 2),
-                    Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_butcher_shop_1"), 2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_tool_smith_1"), 2),
+                Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_butcher_shop_1"), 2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_fletcher_house_1"), 2),
+                Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_forager_1"),2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_butcher_shop_1"), 2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_armorer_1"), 1),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_fisher_1"), 2),
@@ -59,7 +59,7 @@ public class SkyrisVillagePools {
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_large_farm_1", ProcessorLists.FARM_DESERT), 11),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_animal_pen_1"), 2),
                 Pair.of(StructurePoolElement.legacy("byg:village/skyris/houses/skyris_animal_pen_2"), 2),
-                Pair.of(StructurePoolElement.empty(), 10)), StructureTemplatePool.Projection.RIGID));
+                Pair.of(StructurePoolElement.empty(), 7)), StructureTemplatePool.Projection.RIGID));
 
         Pools.register(new StructureTemplatePool(BYG.createLocation("village/skyris/terminators"),
             new ResourceLocation("empty"),

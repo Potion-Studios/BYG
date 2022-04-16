@@ -78,6 +78,10 @@ public class BYGBiomes {
     public static ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", temperateRainForest());
     public static ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", zelkovaForest());
 
+    /************Beach Biomes*************/
+    public static ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", windsweptBeach());
+
+
     /************Nether Biomes************/
     public static ResourceKey<Biome> BRIMSTONE_CAVERNS = createBiome("brimstone_caverns", BYGNetherBiomes.brimstoneCaverns());
     public static ResourceKey<Biome> CRIMSON_GARDENS = createBiome("crimson_gardens", BYGNetherBiomes.crimsonGardens());
