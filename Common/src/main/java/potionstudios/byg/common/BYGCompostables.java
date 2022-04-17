@@ -200,7 +200,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.CRIMSON_BERRY_PIE);
         compostibleBlocks(0.65f, BYGItems.GREEN_APPLE);
         compostibleBlocks(0.65f, BYGItems.GREEN_APPLE_PIE);
-        compostibleBlocks(0.65f, BYGItems.GREEN_MUSHSHROOM);
+        compostibleBlocks(0.65f, BYGItems.GREEN_MUSHROOM);
         compostibleBlocks(0.65f, BYGItems.WHITE_PUFFBALL_CAP);
         compostibleBlocks(0.65f, BYGItems.WEEPING_MILKCAP);
         compostibleBlocks(0.65f, BYGItems.WOOD_BLEWIT);

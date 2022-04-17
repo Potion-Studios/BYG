@@ -1144,7 +1144,7 @@ public class BYGItems {
     public static final Item PACKED_BLACK_ICE = createItem(BYGBlocks.PACKED_BLACK_ICE);
 
     //Mushrooms
-    public static final Item GREEN_MUSHSHROOM = createItem(BYGBlocks.GREEN_MUSHROOM);
+    public static final Item GREEN_MUSHROOM = createItem(BYGBlocks.GREEN_MUSHROOM);
     public static final Item GREEN_MUSHROOM_BLOCK = createItem(BYGBlocks.GREEN_MUSHROOM_BLOCK);
     public static final Item WEEPING_MILKCAP = createItem(BYGBlocks.WEEPING_MILKCAP);
     public static final Item MILKCAP_MUSHROOM_BLOCK = createItem(BYGBlocks.MILKCAP_MUSHROOM_BLOCK);

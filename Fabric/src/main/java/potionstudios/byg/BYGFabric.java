@@ -15,6 +15,8 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
+import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
@@ -87,6 +89,8 @@ public class BYGFabric implements ModInitializer {
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
         register(Registry.PARTICLE_TYPE, BYGParticleTypes.bootStrap());
         register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());
+        register(Registry.POINT_OF_INTEREST_TYPE, BYGPoiTypes.bootStrap());
+        register(Registry.VILLAGER_PROFESSION, BYGVillagerProfessions.bootStrap());
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
         BYG.LOGGER.info("BYG registries bootstrapped");

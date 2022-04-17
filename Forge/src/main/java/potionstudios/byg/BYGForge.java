@@ -7,6 +7,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -36,6 +38,8 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
+import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
@@ -109,6 +113,8 @@ public class BYGForge {
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
         register(ParticleType.class, eventBus, () -> BYGParticleTypes.bootStrap());
         register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
+        register(PoiType.class, eventBus, () -> BYGPoiTypes.bootStrap());
+        register(VillagerProfession.class, eventBus, () -> BYGVillagerProfessions.bootStrap());
     }
 
     @SuppressWarnings("rawtypes")
