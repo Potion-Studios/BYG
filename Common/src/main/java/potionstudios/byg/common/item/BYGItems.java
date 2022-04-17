@@ -23,6 +23,7 @@ import java.util.List;
 public class BYGItems {
 
     public static final List<RegistryObject<Item>> ITEMS = new ArrayList<>();
+    public static final List<BYGSaplingItem> SAPLINGS = new ArrayList<>();
 
     public static final Item BYG_LOGO = createItem(new Item((new Item.Properties())), "byg_logo");
     //TODO: Geckolib Mojmap 1.18
@@ -1261,7 +1262,9 @@ public class BYGItems {
     }
 
     public static BlockItem createSaplingItem(Block block) {
-        return createItem(new BYGSaplingItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        BYGSaplingItem item = createItem(new BYGSaplingItem(block, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        SAPLINGS.add(item);
+        return item;
     }
 
     public static SignItem createSign(String id, Block signBlock, Block wallSignBlock) {

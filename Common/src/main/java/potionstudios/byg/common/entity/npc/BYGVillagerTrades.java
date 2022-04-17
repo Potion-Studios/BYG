@@ -10,6 +10,7 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.common.item.BYGSaplingItem;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
 
@@ -100,7 +101,13 @@ public class BYGVillagerTrades {
     });
 
     protected static final Int2ObjectMap<VillagerTrades.ItemListing[]> WANDERING_TRADER_TRADES = toIntMap(ImmutableMap.of(
-        1, new VillagerTrades.ItemListing[]{},
+        1, Util.make(new ArrayList<VillagerTrades.ItemListing>(), list -> {
+            for (BYGSaplingItem sapling : BYGItems.SAPLINGS) {
+                list.add(new VillagerTrades.EmeraldForItems(sapling, 5, 2, 2));
+            }
+            list.add(new VillagerTrades.EmeraldForItems(BYGItems.SKYRIS_VINE, 5, 2, 2));
+            list.add(new VillagerTrades.EmeraldForItems(BYGItems.POISON_IVY, 5, 2, 2));
+        }).toArray(VillagerTrades.ItemListing[]::new),
         2, new VillagerTrades.ItemListing[]{}
     ));
 
