@@ -25,7 +25,6 @@ dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.4'
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     compileOnly("org.ow2.asm:asm-tree:9.2")
-    compileOnly("com.electronwill.night-config:toml:${nightconfig_version}")
     compileOnly("blue.endless:jankson:${jankson_version}")
 }
 

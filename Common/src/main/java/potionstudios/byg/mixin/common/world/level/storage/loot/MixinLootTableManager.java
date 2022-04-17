@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
-import potionstudios.byg.config.BYGConfig;
+import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.mixin.access.JsonReloadListenerAccess;
 
 import java.io.*;
@@ -32,7 +32,7 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
 
     @Inject(method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at = @At("HEAD"))
     private void appendTables(Map<ResourceLocation, JsonElement> values, ResourceManager resourceManager, ProfilerFiller profilerFiller, CallbackInfo ci) {
-        if (!BYGConfig.getConfig().appendLootTables) {
+        if (!SettingsConfig.getConfig().appendLootTables()) {
             return;
         }
         String appendTablesDir = "append_loot_tables";

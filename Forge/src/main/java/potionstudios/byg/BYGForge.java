@@ -50,6 +50,7 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
+import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.network.ForgeNetworkHandler;
@@ -144,7 +145,7 @@ public class BYGForge {
 
     private void registerTerraBlender() {
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
-        if (config.generateOverworld()) {
+        if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
         } else {

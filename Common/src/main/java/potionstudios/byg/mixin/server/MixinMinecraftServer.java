@@ -31,7 +31,7 @@ import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.common.world.util.BiomeSourceRepairUtils;
 import potionstudios.byg.common.world.util.JigsawUtil;
-import potionstudios.byg.config.WorldConfig;
+import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.BYGUtil;
 
@@ -52,29 +52,33 @@ public abstract class MixinMinecraftServer {
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
-        if (!WorldConfig.worldConfig(true).appendBiomePlacedFeatures) {
-            return;
-        }
         Registry<Biome> biomeRegistry = this.registryHolder.registryOrThrow(Registry.BIOME_REGISTRY);
-        Registry<PlacedFeature> placedFeatureRegistry = this.registryHolder.registryOrThrow(Registry.PLACED_FEATURE_REGISTRY);
-        for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.entrySet()) {
-            GlobalBiomeFeature.appendGlobalFeatures(biomeEntry.getValue().getGenerationSettings(), placedFeatureRegistry);
+        if (SettingsConfig.getConfig().appendBiomePlacedFeatures()) {
+            Registry<PlacedFeature> placedFeatureRegistry = this.registryHolder.registryOrThrow(Registry.PLACED_FEATURE_REGISTRY);
+            for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.entrySet()) {
+                GlobalBiomeFeature.appendGlobalFeatures(biomeEntry.getValue().getGenerationSettings(), placedFeatureRegistry);
+            }
         }
-        BiomeSourceRepairUtils.repairBiomeSources(biomeRegistry, getWorldData().worldGenSettings());
+        if (SettingsConfig.getConfig().useBYGWorldGen()) {
+            BiomeSourceRepairUtils.repairBiomeSources(biomeRegistry, getWorldData().worldGenSettings());
+        }
 
-        Registry<StructureTemplatePool> templatePoolRegistry = this.registryHolder.registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
-        Registry<StructureProcessorList> processorListRegistry = this.registryHolder.registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
-
-        JigsawUtil.addBYGBuildingsToPool(templatePoolRegistry, processorListRegistry);
+        if (SettingsConfig.getConfig().customVillagers()) {
+            Registry<StructureTemplatePool> templatePoolRegistry = this.registryHolder.registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
+            Registry<StructureProcessorList> processorListRegistry = this.registryHolder.registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
+            JigsawUtil.addBYGBuildingsToPool(templatePoolRegistry, processorListRegistry);
+        }
     }
 
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
-        if (!BYG.MODLOADER_DATA.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
-            appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+        if (SettingsConfig.getConfig().useBYGWorldGen()) {
+            if (!BYG.MODLOADER_DATA.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
+                appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+            }
+            appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
+            appendSurfaceRule(this.getWorldData(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
         }
-        appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
-        appendSurfaceRule(this.getWorldData(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
         BYGUtil.useTagReplacements = true;
     }
 }
