@@ -1,4 +1,4 @@
-package potionstudios.byg.common.world;
+package potionstudios.byg.common.world.util;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Registry;

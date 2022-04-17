@@ -45,6 +45,7 @@
     "access.StairBlockAccess",
     "access.StructureFeatureAccess",
     "access.StructureTemplateAccess",
+    "access.StructureTemplatePoolAccess",
     "access.SurfaceRuleContextAccess",
     "access.SurfaceRuleDataAccess",
     "access.SurfaceSystemAccess",
