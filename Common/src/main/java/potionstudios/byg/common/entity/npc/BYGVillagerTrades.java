@@ -124,7 +124,7 @@ public class BYGVillagerTrades {
             CodecUtil.intKeyRangeCodec(min, max), VillagerTradeRegistry.ITEM_LISTING_CODEC.listOf()).xmap(
             map -> BYGUtil.convertMapValueType(map, Int2ObjectOpenHashMap::new,
                 itemListings -> itemListings.toArray(VillagerTrades.ItemListing[]::new)
-            ), int2ObjectMap -> BYGUtil.convertMapValueType(int2ObjectMap, HashMap::new, Arrays::asList)
+            ), int2ObjectMap -> BYGUtil.convertMapValueType(int2ObjectMap, Int2ObjectOpenHashMap::new, Arrays::asList)
         );
     }
 }
