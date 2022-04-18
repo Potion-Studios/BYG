@@ -66,13 +66,27 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
     private static void createConfig(Path path) {
         HashMap<String, String> comments = Util.make(new HashMap<>(), map -> {
             map.put("add_biome_placed_features", """
-                Add BYG's placed features to all biomes? By disabling this, you remove BYG placed features not designated to specific biomes.
+                Add BYG's placed features to all biomes?
+                                
+                By disabling this, you remove BYG placed features not designated to specific biomes.
                 To configure the features that spawn using this, use the "/worldgenexport" command and edit the files found at:
                 "byg/worldgen/placed_feature/global/<decoration_stage>"
                 "byg/worldgen/placed_feature/global/placed_feature/<feature>"
                 "byg/worldgen/configured_feature/global/<decoration_stage>"
                 in the output folder.""");
-            map.put("add_loot_tables", "Add BYG items automatically to applicable loot tables?");
+            map.put("add_loot_tables", """
+                Add BYG items automatically to applicable loot tables?
+                                
+                For example BYG may add piglin trades to the piglin trade loot table.
+                                
+                To configure these loot tables or add your own, create a datapack with loot tables matching the following path:
+                "data/modid/append_loot_tables/file_path_to_loot_table_you_want_to_append"
+                                
+                Examples:
+                BYG's added Piglin trades: "data/byg/append_loot_tables/minecraft/gameplay/piglin_bartering.json",
+                BYG's added loot to abandoned mineshafts: "data/byg/append_loot_tables/minecraft/chests/abandoned_mineshaft.json"
+                BYG's added loot to Repurposed Structure's Jungle Village Jungle House: "data/byg/append_loot_tables/repurposed_structures/chests/villages/jungle_house.json"
+                """);
             map.put("add_custom_villagers", "Add custom BYG Villagers/Structures to villages?");
             map.put("add_custom_structures", "Add custom BYG Structures?");
             map.put("world_generation", "Use BYG world generation?");
