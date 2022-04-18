@@ -33,7 +33,7 @@ body:
     attributes:
       label: Terrablender
       description: What version of Terrablender are you using? Terrablender is a required mod for BYG in 1.18+, if you're using 1.16, specify N/A.
-      placeholder: ex. 1.1.0.94
+      placeholder: ex. 1.1.0.99
     validations:
       required: true
   - type: dropdown

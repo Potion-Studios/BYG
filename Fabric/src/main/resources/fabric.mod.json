@@ -36,7 +36,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "minecraft": ">=1.18.2",
-    "terrablender": ">=1.1.0.94"
+    "terrablender": ">=1.1.0.99"
   },
   "accessWidener": "byg.aw"
 }
