@@ -42,10 +42,15 @@ public class BYGNetherFeatures {
 
     public static final RuleTest BRIMSTONE = new BlockMatchTest(BYGBlocks.BRIMSTONE);
     public static final RuleTest BLUE_NETHERRACK = new BlockMatchTest(BYGBlocks.BLUE_NETHERRACK);
+    public static final RuleTest SCORIA_STONE = new BlockMatchTest(BYGBlocks.SCORIA_STONE);
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> BRIMSTONE_VOLCANO = createConfiguredFeature("brimstone_volcano", BYGFeatures.VOLCANO, new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE)));
     public static final Holder<ConfiguredFeature<ColumnFeatureConfiguration, ?>> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS, new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
     public static final Holder<ConfiguredFeature<QuartzSpikeConfig, ?>> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES, new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND).build());
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 6));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", Feature.ORE, new OreConfiguration(SCORIA_STONE, BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 6));
+
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10));
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10));
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_QUARTZ_BRIMSTONE = createConfiguredFeature("ore_quartz_brimstone", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE.defaultBlockState(), 10));

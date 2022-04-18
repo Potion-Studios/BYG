@@ -120,8 +120,13 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBlueNetherOres(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_PENDORITE);
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_GOLD_BLUE_NETHERRACK);
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_QUARTZ_BLUE_NETHERRACK);
+    }
+
+    public static void addEmeralditeOre(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_EMERALDITE);
     }
 
     public static void addVanillaSunFlowers(BiomeGenerationSettings.Builder gen) {

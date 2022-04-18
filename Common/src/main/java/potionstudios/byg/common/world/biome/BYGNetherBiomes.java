@@ -209,6 +209,7 @@ public class BYGNetherBiomes {
         vanillaNetherFeatures(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS); //Nether Sprouts
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
+        BYGDefaultBiomeFeatures.addEmeralditeOre(generationSettings);
         BYGDefaultBiomeFeatures.addMiniNetherMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWailingVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addHangingChains(generationSettings);

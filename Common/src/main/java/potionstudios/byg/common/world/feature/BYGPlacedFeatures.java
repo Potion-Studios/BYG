@@ -251,6 +251,10 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> ORE_QUARTZ_BLUE_NETHERRACK = createPlacedFeature("ore_quartz_blue_netherrack", BYGNetherFeatures.ORE_QUARTZ_BLUE_NETHERRACK, byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
     public static final Holder<PlacedFeature> ORE_ANTHRACITE = createPlacedFeature("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE, byg_invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10));
 
+    public static final Holder<PlacedFeature> ORE_PENDORITE = createPlacedFeature("ore_pendorite", BYGNetherFeatures.ORE_PENDORITE, byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
+    public static final Holder<PlacedFeature> ORE_EMERALDITE = createPlacedFeature("ore_emeraldite", BYGNetherFeatures.ORE_EMERALDITE, byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
+
+
     public static final Holder<PlacedFeature> BORIC_FIRE = createPlacedFeature("patch_boric_fire", BYGNetherFeatures.BORIC_FIRE_PATCH, CountOnEveryLayerPlacement.of(8), BiomeFilter.biome());
     public static final Holder<PlacedFeature> BRIMSTONE_VOLCANO = createPlacedFeature("brimstone_volcano", BYGNetherFeatures.BRIMSTONE_VOLCANO, CountOnEveryLayerPlacement.of(3), BiomeFilter.biome());
     public static final Holder<PlacedFeature> CRAG_GEN = createPlacedFeature("crag_gen", BYGOverworldFeatures.CRAG_GEN, CountOnEveryLayerPlacement.of(3), BiomeFilter.biome(), new AboveHeightmapFilter(Heightmap.Types.OCEAN_FLOOR_WG), CRAG_NOISE);
