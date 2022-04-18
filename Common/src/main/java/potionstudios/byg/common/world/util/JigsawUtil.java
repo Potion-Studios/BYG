@@ -61,6 +61,7 @@ public class JigsawUtil {
             @Nullable
             String location = GSONUtil.readFirstField("location", String.class, jsonElement);
             if (nbtPieceRL.equals(location)) {
+                BYG.LOGGER.info(String.format("Not appending structure pool element \"%s\" because it is already specified via data packs for this pool \"%s\".", nbtPieceRL, poolRL.toString()));
                 return;
             }
         }
