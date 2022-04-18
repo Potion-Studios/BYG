@@ -69,6 +69,7 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
                 Add BYG's placed features to all biomes?
                                 
                 By disabling this, you remove BYG placed features not designated to specific biomes.
+                
                 To configure the features that spawn using this, use the "/worldgenexport" command and edit the files found at:
                 "byg/worldgen/placed_feature/global/<decoration_stage>"
                 "byg/worldgen/placed_feature/global/placed_feature/<feature>"
