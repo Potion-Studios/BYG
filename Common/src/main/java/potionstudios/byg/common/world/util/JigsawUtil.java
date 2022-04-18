@@ -18,6 +18,8 @@ import potionstudios.byg.util.GSONUtil;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public class JigsawUtil {
     private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSOR_LIST_KEY = ResourceKey.create(
@@ -25,14 +27,20 @@ public class JigsawUtil {
 
     public static void addBYGBuildingsToPool(Registry<StructureTemplatePool> templatePoolRegistry,
                                              Registry<StructureProcessorList> processorListRegistry) {
-        addBuildingToPool(new ResourceLocation("village/plains/houses"), "byg:minecraft/village/plains/houses/plains_forager_1", 2, templatePoolRegistry, processorListRegistry);
-        addBuildingToPool(new ResourceLocation("village/taiga/houses"), "byg:minecraft/village/plains/houses/taiga_forager_1", 2, templatePoolRegistry, processorListRegistry);
+        addLegacyBuildingToPool(new ResourceLocation("village/plains/houses"), "byg:minecraft/village/plains/houses/plains_forager_1", 2, templatePoolRegistry, processorListRegistry);
+        addLegacyBuildingToPool(new ResourceLocation("village/taiga/houses"), "byg:minecraft/village/plains/houses/taiga_forager_1", 2, templatePoolRegistry, processorListRegistry);
     }
 
 
+    private static void addLegacyBuildingToPool(ResourceLocation poolRL, String nbtPieceRL, int weight,
+                                                Registry<StructureTemplatePool> templatePoolRegistry,
+                                                Registry<StructureProcessorList> processorListRegistry) {
+        addBuildingToPool(poolRL, nbtPieceRL, weight, templatePoolRegistry, processorListRegistry, SinglePoolElement::legacy);
+    }
+
     private static void addBuildingToPool(ResourceLocation poolRL, String nbtPieceRL, int weight,
                                           Registry<StructureTemplatePool> templatePoolRegistry,
-                                          Registry<StructureProcessorList> processorListRegistry) {
+                                          Registry<StructureProcessorList> processorListRegistry, BiFunction<String, Holder<StructureProcessorList>, Function<StructureTemplatePool.Projection, ? extends SinglePoolElement>> construction) {
 
         // Grabs the processor list we want to use along with our piece.
         // This is a requirement as using the ProcessorLists.EMPTY field will cause the game to throw errors.
@@ -57,7 +65,7 @@ public class JigsawUtil {
         }
 
         // Grabs the nbt piece and creates a SinglePoolElement of it that we can add to a structure's pool.
-        SinglePoolElement piece = SinglePoolElement.single(nbtPieceRL, emptyProcessorList).apply(StructureTemplatePool.Projection.RIGID);
+        StructurePoolElement piece = construction.apply(nbtPieceRL, emptyProcessorList).apply(StructureTemplatePool.Projection.RIGID);
 
         // Use AccessTransformer or Accessor Mixin to make StructureTemplatePool's templates field public for us to see.
         // Weight is handled by how many times the entry appears in this list.
