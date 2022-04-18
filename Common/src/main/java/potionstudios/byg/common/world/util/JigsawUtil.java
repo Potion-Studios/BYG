@@ -28,7 +28,7 @@ public class JigsawUtil {
     public static void addBYGBuildingsToPool(Registry<StructureTemplatePool> templatePoolRegistry,
                                              Registry<StructureProcessorList> processorListRegistry) {
         addLegacyBuildingToPool(new ResourceLocation("village/plains/houses"), "byg:minecraft/village/plains/houses/plains_forager_1", 2, templatePoolRegistry, processorListRegistry);
-        addLegacyBuildingToPool(new ResourceLocation("village/taiga/houses"), "byg:minecraft/village/plains/houses/taiga_forager_1", 2, templatePoolRegistry, processorListRegistry);
+        addLegacyBuildingToPool(new ResourceLocation("village/taiga/houses"), "byg:minecraft/village/taiga/houses/taiga_forager_1", 2, templatePoolRegistry, processorListRegistry);
     }
 
 
@@ -40,7 +40,8 @@ public class JigsawUtil {
 
     private static void addBuildingToPool(ResourceLocation poolRL, String nbtPieceRL, int weight,
                                           Registry<StructureTemplatePool> templatePoolRegistry,
-                                          Registry<StructureProcessorList> processorListRegistry, BiFunction<String, Holder<StructureProcessorList>, Function<StructureTemplatePool.Projection, ? extends SinglePoolElement>> construction) {
+                                          Registry<StructureProcessorList> processorListRegistry,
+                                          BiFunction<String, Holder<StructureProcessorList>, Function<StructureTemplatePool.Projection, ? extends SinglePoolElement>> construction) {
 
         // Grabs the processor list we want to use along with our piece.
         // This is a requirement as using the ProcessorLists.EMPTY field will cause the game to throw errors.
@@ -50,7 +51,7 @@ public class JigsawUtil {
         // Grab the pool we want to add to
         StructureTemplatePool pool = templatePoolRegistry.get(poolRL);
         if (pool == null) {
-            BYG.LOGGER.warn(String.format("Ignoring pool %s bc it's not available.", poolRL.toString()));
+            BYG.LOGGER.warn(String.format("Ignoring pool \"%s\" bc it's not available.", poolRL.toString()));
             return;
         }
         List<Pair<StructurePoolElement, Integer>> listOfPieceEntries = new ArrayList<>(((StructureTemplatePoolAccess) pool).byg_getRawTemplates());
