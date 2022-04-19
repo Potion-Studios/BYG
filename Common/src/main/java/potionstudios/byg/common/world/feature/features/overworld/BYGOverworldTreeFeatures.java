@@ -2327,6 +2327,24 @@ public class BYGOverworldTreeFeatures {
             createPlacedFeature(ARAUCARIA_TREE2))
     );
 
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_BIRCH_TREES = createConfiguredFeature("orange_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_ORANGE_TREE1), 0.33F),
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_ORANGE_TREE2), 0.33F),
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_ORANGE_TREE3), 0.33F)),
+                    createPlacedFeature(BIRCH_ORANGE_TREE4))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> YELLOW_BIRCH_TREES = createConfiguredFeature("yellow_birch_trees",
+            Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_TREE1), 0.33F),
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_TREE2), 0.33F),
+                    new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_TREE3), 0.33F)),
+                    createPlacedFeature(BIRCH_YELLOW_TREE4))
+    );
+
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BROWN_ZELKOVA_TREES = createConfiguredFeature("brown_zelkova_trees",
         Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(

@@ -1,25 +1,33 @@
-# MultiLoader Template
+# Oh The Biomes You'll Go
+![image](https://user-images.githubusercontent.com/66983020/163863611-bd761c5f-07ff-474a-b3b9-21116f69e4f9.png "Oh The Biomes You'll Go")
 
-This project provides a Gradle project template that can compile mods for both Forge and Fabric using a common sourceset. This project does not require any third party libraries or dependencies.
+Oh The Biomes You'll Go is an exploration and adventure mod designed to take you on a road trip across Minecraft like no other! Explore over 80 magical, realistic, and breathtaking biomes across the overworld, nether, end dimensions.
 
-## Getting Started
+# Official Downloads
+Forge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go
 
-## IntelliJ IDEA
-This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up Forge and Fabric independently and should be very familiar to anyone who has worked with their MDKs.
+Fabric: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric
 
-1. Clone or download this repository to your computer.
-2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`.
-3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README file and the gradlew executable.
-4. If your default JVM/JDK is not Java 16 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`and changing the value to a valid Java 16 JVM. You will also need to set the Project SDK to Java 16. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
-5. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Common > Tasks > vanilla gradle > decompile`. Run this task to decompile Minecraft.
-6. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Forge > Tasks > forgegradle runs > genIntellijRuns`. Run this task to set up run configurations for Forge.
-7. Open your Run/Debug Configurations. Under the Application category there should now be options to run Forge and Fabric projects. Select one of the client options and try to run it.
-8. Assuming you were able to run the game in step 7 your workspace should now be set up.
+Quilt: Not Available.
 
-### Eclipse
-While it is possible to use this template in Eclipse it is not recommended. During the development of this template multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. While we continue to work with these tools to report and resolve issues support for projects like these are not there yet. For now Eclipse is considered unsupported by this project. The development cycle for build tools is notoriously slow so there are no ETAs available.
+*These are the only **trusted** locations to download "Oh The Biomes You'll Go", we do not upload anywhere else & files found anywhere else should be assumed malicious.*
 
-## Development Guide
-When using this template the majority of your mod is developed in the Common project. The Common project is compiled against the vanilla game and is used to hold code that is shared between the different loader-specific versions of your mod. The Common project has no knwoledge or access to ModLoader specific code, apis, or concepts. Code that requires something from a specific loader must be done through the project that is specific to that loader, such as the Forge or Fabric project.
+# Developing
+This project requires [JDK 17](https://adoptium.net/) & uses the [MultiLoader Template](https://github.com/jaredlll08/MultiLoader-Template) provided by [jaredlll08](https://github.com/jaredlll08).
 
-Loader specific projects such as the Forge and Fabric project are used to load the Common project into the game. These projects also define code that is specific to that loader. Loader specific projects can access all of the code in the Common project. It is important to remember that the Common project can not access code from loader specific projects.
+# Dependencies
+## 1.18
+Terrablender: https://www.curseforge.com/minecraft/mc-mods/terrablender 
+
+
+Terrablender(Fabric): https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric
+
+Fabric API (Fabric): https://www.curseforge.com/minecraft/mc-mods/fabric-api
+## 1.16
+Fabric API (Fabric): https://www.curseforge.com/minecraft/mc-mods/fabric-api
+
+## 1.15
+Mixin Bootstrap(Optional): https://www.curseforge.com/minecraft/mc-mods/mixinbootstrap
+
+## Shipped libraries: 
+Jankson: https://github.com/falkreon/Jankson

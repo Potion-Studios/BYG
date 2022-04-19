@@ -164,6 +164,26 @@ public class BYGOverworldFeatures {
             .build()
     );
 
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_HOWLING_PEAKS_BOULDER = createConfiguredFeature("large_howling_peaks_boulder",
+            BYGFeatures.BOULDER,
+            new NoisySphereConfig.Builder()
+                    .withRadiusSettings(
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+                    ).withBlockProvider(
+                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                                    .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 4)
+                                    .add(Blocks.STONE.defaultBlockState(), 1)
+                            )
+                    )
+                    .withTopBlockProvider(
+                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                                    .add(Blocks.MOSS_BLOCK.defaultBlockState(), 4)
+                                    .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 1)
+                            )
+                    )
+                    .build()
+    );
+
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder",
         BYGFeatures.BOULDER,
         new NoisySphereConfig.Builder()

@@ -350,6 +350,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.MOSSY_STONE_BOULDER);
     }
 
+    public static void addHowlingPeaksBoulder(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_HOWLING_PEAKS_BOULDERS);
+    }
+
     public static void addFrostMagmaLakes(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, BYGPlacedFeatures.FROST_MAGMA_LAKE);
     }
@@ -614,8 +618,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_OAK_TREES);
     }
 
-    public static void addOakForestTrees(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_OAK_TREE);
+    public static void addHowlingTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ORANGE_BIRCH_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.YELLOW_BIRCH_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
     public static void addJacarandaTrees(BiomeGenerationSettings.Builder gen) {
