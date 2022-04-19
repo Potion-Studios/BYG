@@ -145,8 +145,8 @@ public class BYGOverworldBiomeSelectors {
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> PEAK_BIOMES_1 = create("peak_biomes/peak_biomes_1", PEAK_BIOMES_LAYOUT, new ResourceKey[][]{
-            {Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS},
-            {Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS},
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
             {Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, Biomes.JAGGED_PEAKS, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES},
             {Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, BYGBiomes.GUIANA_SHIELD},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
@@ -161,8 +161,8 @@ public class BYGOverworldBiomeSelectors {
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> PEAK_BIOMES_VARIANT_1 = create("peak_biomes_variant/peak_biomes_variant_1", PEAK_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
-            {Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS},
-            {Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS},
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
             {Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, Biomes.FROZEN_PEAKS, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES},
             {Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, Biomes.STONY_PEAKS, BYGBiomes.GUIANA_SHIELD},
             {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
