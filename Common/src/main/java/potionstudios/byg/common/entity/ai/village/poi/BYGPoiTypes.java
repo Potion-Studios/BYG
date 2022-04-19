@@ -16,9 +16,9 @@ public class BYGPoiTypes {
 
     public static final PoiType FORAGER = createPoiType("forager", PoiTypeAccess.byg_invokeCreate("forager", PoiTypeAccess.byg_invokeGetBlockStates(BYGBlocks.FORAGERS_TABLE), 1, 1));
 
-    public static <VP extends PoiType> VP createPoiType(String id, VP poiType) {
+    public static PoiType createPoiType(String id, PoiType poiType) {
         POI_TYPES.add(new RegistryObject<>(poiType, id));
-        return poiType;
+        return PoiTypeAccess.byg_invokeRegisterBlockStates(poiType);
     }
 
 
