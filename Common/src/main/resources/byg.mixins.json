@@ -105,6 +105,7 @@
     "client.MixinEntityRenderers",
     "client.MixinInventoryScreen",
     "client.MixinLayerDefinitions",
+    "client.MixinOptionsScreen",
     "client.MixinParticleEngine",
     "client.MixinScreenManager"
   ],
