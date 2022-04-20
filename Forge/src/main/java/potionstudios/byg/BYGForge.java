@@ -144,12 +144,17 @@ public class BYGForge {
     }
 
     private void registerTerraBlender() {
-        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
-        if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
-            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
-            config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
-        } else {
-            BYG.LOGGER.info("BYG overworld biomes disabled.");
+        try {
+            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+            if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
+                SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+                config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
+            } else {
+                BYG.LOGGER.info("BYG overworld biomes disabled.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         }
     }
 
