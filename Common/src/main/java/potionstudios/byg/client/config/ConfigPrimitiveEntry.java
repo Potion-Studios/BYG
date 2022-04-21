@@ -12,15 +12,19 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.List;
+import java.util.function.Function;
 
-public class ConfigPrimitiveEntry extends ConfigEditEntry {
+public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
 
     private final EditBox editBox;
+    private final Function<String, T> getValue;
     private final Button resetButton;
 
-    public ConfigPrimitiveEntry(String key, Object defaultVal) {
+    public ConfigPrimitiveEntry(String key, T defaultVal, Function<String, T> getValue) {
         super(key, defaultVal);
-        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent(key));
+        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 100, 20, new TextComponent(key));
+        this.editBox.setMaxLength(1000);
+        this.getValue = getValue;
         this.editBox.setValue(defaultVal.toString());
         this.resetButton = new Button(0, 0, 50, 20, new TranslatableComponent("controls.reset"), (button) -> {
             this.editBox.setValue(defaultVal.toString());
@@ -34,14 +38,15 @@ public class ConfigPrimitiveEntry extends ConfigEditEntry {
 
     @Override
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-        this.resetButton.x = this.editBox.getWidth() + pLeft + 150;
-        this.resetButton.y = pTop;
+        super.render(pPoseStack, pIndex, pTop, pLeft, pWidth, pHeight, pMouseX, pMouseY, pIsMouseOver, pPartialTick);
+        this.editBox.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 20);
+        this.editBox.y = ((pTop + pHeight / 2 - 9 / 2));
+        this.editBox.setWidth(pWidth - 20);
+        this.editBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        this.resetButton.x = this.editBox.x + this.editBox.getWidth() + 20;
+        this.resetButton.y = ((pTop + pHeight / 2 - 9 / 2));
         this.resetButton.active = !this.editBox.getValue().equals(this.defaultVal.toString());
         this.resetButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        this.editBox.x = pLeft + 105;
-        this.editBox.y = pTop;
-        this.editBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        super.render(pPoseStack, pIndex, pTop, pLeft, pWidth, pHeight, pMouseX, pMouseY, pIsMouseOver, pPartialTick);
     }
 
     public List<? extends GuiEventListener> children() {
@@ -50,6 +55,11 @@ public class ConfigPrimitiveEntry extends ConfigEditEntry {
 
     public List<? extends NarratableEntry> narratables() {
         return ImmutableList.of(this.resetButton, this.editBox);
+    }
+
+    @Override
+    public T getValue() {
+        return this.getValue.apply(this.editBox.getValue());
     }
 
     @Override

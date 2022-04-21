@@ -13,14 +13,14 @@ import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.List;
 
-public class ConfigCollectionEntry extends ConfigEditEntry {
+public class ConfigCollectionEntry extends ConfigEditEntry<JsonElement> {
 
     private final Button editButton;
 
     public ConfigCollectionEntry(Screen parent, String key, JsonElement val, String parentFilePath) {
         super(key, val);
-        this.editButton = new Button(0, 0, 50, 20, new TranslatableComponent("Edit"), (button) -> {
-            Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, parentFilePath + "#" + key));
+        this.editButton = new Button(0, 0, 100, 20, new TranslatableComponent("Edit"), (button) -> {
+            Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, parentFilePath + "." + key));
             button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
@@ -31,10 +31,11 @@ public class ConfigCollectionEntry extends ConfigEditEntry {
 
     @Override
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-        this.editButton.x = pLeft + 105;
-        this.editButton.y = pTop;
-        this.editButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         super.render(pPoseStack, pIndex, pTop, pLeft, pWidth, pHeight, pMouseX, pMouseY, pIsMouseOver, pPartialTick);
+        this.editButton.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 20);
+        this.editButton.y = ((pTop + pHeight / 2 - 9 / 2));
+        this.editButton.setWidth(pWidth - 20);
+        this.editButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     public List<? extends GuiEventListener> children() {
