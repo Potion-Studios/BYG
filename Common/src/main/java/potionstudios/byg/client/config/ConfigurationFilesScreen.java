@@ -1,7 +1,5 @@
 package potionstudios.byg.client.config;
 
-import blue.endless.jankson.JsonObject;
-import blue.endless.jankson.api.SyntaxError;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -11,7 +9,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import potionstudios.byg.BYG;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -94,12 +91,7 @@ public class ConfigurationFilesScreen extends Screen {
         @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
             if (button == 0) {
-                try {
-                    JsonObject load = JanksonUtil.JANKSON.load(BYG.CONFIG_PATH.getParent().resolve(Path.of(this.path)).toFile());
-                    Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, load, this.path));
-                } catch (IOException | SyntaxError e) {
-                    e.printStackTrace();
-                }
+                Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, ConfigEntriesSerializer.fromFile(BYG.CONFIG_PATH.getParent().resolve(Path.of(this.path))), this.path));
             }
             return super.mouseClicked(mouseX, mouseY, button);
         }

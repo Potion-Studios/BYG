@@ -48,7 +48,7 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
         this.resetButton.y = (pTop + pHeight / 2 - 9 / 2);
         this.resetButton.active = !this.editBox.getValue().equals(this.defaultVal.toString());
         this.resetButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        this.renderToolTip =  this.editBox.isHoveredOrFocused();
+        this.renderToolTip = this.editBox.isMouseOver(pMouseX, pMouseY);
     }
 
     public List<? extends GuiEventListener> children() {

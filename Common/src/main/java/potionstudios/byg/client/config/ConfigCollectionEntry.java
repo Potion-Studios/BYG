@@ -1,6 +1,5 @@
 package potionstudios.byg.client.config;
 
-import blue.endless.jankson.JsonElement;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -13,14 +12,14 @@ import net.minecraft.network.chat.TranslatableComponent;
 
 import java.util.List;
 
-public class ConfigCollectionEntry extends ConfigEditEntry<JsonElement> {
+public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializer<?>> {
 
     private final Button editButton;
 
-    public ConfigCollectionEntry(Screen parent, String key, JsonElement val, String parentFilePath) {
+    public ConfigCollectionEntry(Screen parent, String key, ConfigEntriesSerializer<?> val) {
         super(parent, key, val);
         this.editButton = new Button(0, 0, 100, 20, new TranslatableComponent("Edit"), (button) -> {
-            Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, parentFilePath + "." + key));
+            Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, val.path() + "." + key));
             button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
