@@ -11,6 +11,7 @@ import net.minecraft.network.chat.TextComponent;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.config.ConfigEditEntry;
+import potionstudios.byg.client.config.directory.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.nio.file.Path;
@@ -54,7 +55,7 @@ public class ConfigEditScreen extends Screen {
     private void save() {
         StringBuilder errors = new StringBuilder(this.file.save(this.configFiles.children()));
         if (errors.isEmpty()) {
-            if (this.parent instanceof ConfigurationFilesScreen) {
+            if (this.parent instanceof FileBrowserScreen) {
                 Path resolve = BYG.CONFIG_PATH.getParent().resolve(this.filePath);
                 try {
                     this.file.saveFile(resolve);
