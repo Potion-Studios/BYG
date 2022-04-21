@@ -7,7 +7,6 @@ import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
-import potionstudios.byg.BYG;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,14 +15,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Supplier;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FileBrowserScreen extends Screen {
 
-    public static final Supplier<List<Path>> CONFIG_FILES = () -> {
+    public static final Function<Path, List<Path>> CONFIG_FILES = (configDir) -> {
         try {
-            Path configDir = BYG.CONFIG_PATH.getParent();
             return Files.walk(configDir).filter(path -> !path.toFile().isDirectory()).sorted(Comparator.comparing(Path::toString)).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,11 +30,13 @@ public class FileBrowserScreen extends Screen {
     };
 
     private final Screen parent;
+    private final Path configDir;
     private ConfigMap<?> configFiles;
 
-    public FileBrowserScreen(Screen parent) {
+    public FileBrowserScreen(Screen parent, Path configDir) {
         super(new TextComponent(""));
         this.parent = parent;
+        this.configDir = configDir;
     }
 
     @Override
@@ -47,9 +47,9 @@ public class FileBrowserScreen extends Screen {
     protected void init() {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
         int maxCommentWidth = this.configFiles.getRowWidth();
-        for (Path path : CONFIG_FILES.get()) {
-            String key = path.toString();
-            FileEntry<?> fileEntry = new FileEntry<>(this, key, key);
+        for (Path path : CONFIG_FILES.apply(this.configDir)) {
+            String relativizedPath = this.configDir.getParent().relativize(path).toString();
+            FileEntry<?> fileEntry = new FileEntry<>(this, relativizedPath, path);
             maxCommentWidth = Math.max(maxCommentWidth, fileEntry.getRowLength());
             this.configFiles.addEntry(fileEntry);
         }

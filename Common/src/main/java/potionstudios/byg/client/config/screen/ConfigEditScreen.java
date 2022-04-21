@@ -9,7 +9,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
 import org.jetbrains.annotations.NotNull;
-import potionstudios.byg.BYG;
+import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.client.config.ConfigEditEntry;
 import potionstudios.byg.client.config.directory.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
@@ -21,14 +21,21 @@ public class ConfigEditScreen extends Screen {
 
     private final Screen parent;
     private final ConfigEntriesSerializer<?> file;
-    private final String filePath;
+    private final String shownPath;
+    @Nullable
+    private final Path absolutePath;
     private ConfigMap<?> configFiles;
 
-    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String filePath) {
-        super(new TextComponent(filePath));
+    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath) {
+        this(parent, element, relativizedPath, null);
+    }
+
+    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath) {
+        super(new TextComponent(relativizedPath));
         this.parent = parent;
         this.file = element;
-        this.filePath = filePath;
+        this.shownPath = relativizedPath;
+        this.absolutePath = filePath;
     }
 
     @Override
@@ -55,11 +62,10 @@ public class ConfigEditScreen extends Screen {
     private void save() {
         StringBuilder errors = new StringBuilder(this.file.save(this.configFiles.children()));
         if (errors.isEmpty()) {
-            if (this.parent instanceof FileBrowserScreen) {
-                Path resolve = BYG.CONFIG_PATH.getParent().resolve(this.filePath);
+            if (this.parent instanceof FileBrowserScreen && this.absolutePath != null) {
                 try {
-                    this.file.saveFile(resolve);
-                    this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(resolve.toString())));
+                    this.file.saveFile(this.absolutePath);
+                    this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(this.shownPath)));
                 } catch (Exception e) {
                     errors.append(e.getMessage());
                 }
