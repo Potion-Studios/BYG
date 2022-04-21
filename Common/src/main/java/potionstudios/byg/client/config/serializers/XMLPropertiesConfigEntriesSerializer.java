@@ -1,8 +1,8 @@
 package potionstudios.byg.client.config.serializers;
 
 import net.minecraft.client.gui.screens.Screen;
-import potionstudios.byg.client.config.ConfigEditEntry;
-import potionstudios.byg.client.config.ConfigPrimitiveEntry;
+import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
+import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -7,9 +7,9 @@ import com.electronwill.nightconfig.core.io.WritingMode;
 import com.electronwill.nightconfig.toml.TomlWriter;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TextComponent;
-import potionstudios.byg.client.config.ConfigCollectionEntry;
-import potionstudios.byg.client.config.ConfigEditEntry;
-import potionstudios.byg.client.config.ConfigPrimitiveEntry;
+import potionstudios.byg.client.config.configeditor.ConfigCollectionEntry;
+import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
+import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
 
 import java.io.IOException;
 import java.nio.file.Path;

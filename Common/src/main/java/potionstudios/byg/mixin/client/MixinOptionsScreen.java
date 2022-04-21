@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYG;
-import potionstudios.byg.client.config.directory.FileBrowserScreen;
+import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 
 @Mixin(OptionsScreen.class)
 public abstract class MixinOptionsScreen extends Screen {

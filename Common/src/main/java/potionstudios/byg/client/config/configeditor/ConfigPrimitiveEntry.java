@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.configeditor;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -32,7 +32,7 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, Component comment) {
         super(parent, key, defaultVal, comment);
-        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 100, 20, new TextComponent(key));
+        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent(key));
         this.editBox.setMaxLength(1000);
         this.getValue = getValue;
         this.editBox.setValue(defaultVal.toString());
@@ -49,12 +49,11 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     @Override
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
         super.render(pPoseStack, pIndex, pTop, pLeft, pWidth, pHeight, pMouseX, pMouseY, pIsMouseOver, pPartialTick);
-        this.editBox.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 20);
-        this.editBox.y = (pTop + pHeight / 2 - 9 / 2);
-        this.editBox.setWidth(pWidth - 20);
+        this.editBox.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 10);
+        this.editBox.y = (pTop + pHeight / 2 - 9);
         this.editBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         this.resetButton.x = this.editBox.x + this.editBox.getWidth() + 20;
-        this.resetButton.y = (pTop + pHeight / 2 - 9 / 2);
+        this.resetButton.y = this.editBox.y;
         this.resetButton.active = !this.editBox.getValue().equals(this.defaultVal.toString());
         this.resetButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         this.renderToolTip = this.editBox.isMouseOver(pMouseX, pMouseY);
@@ -76,5 +75,10 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     @Override
     public void tick() {
         this.editBox.tick();
+    }
+
+    @Override
+    public int getRowLength() {
+        return super.getRowLength() + 10 + this.editBox.getWidth() + 20 + this.resetButton.getWidth();
     }
 }

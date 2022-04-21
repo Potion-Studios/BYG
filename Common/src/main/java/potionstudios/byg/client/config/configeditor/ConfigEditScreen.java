@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config.screen;
+package potionstudios.byg.client.config.configeditor;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
@@ -12,8 +12,7 @@ import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import potionstudios.byg.client.config.ConfigEditEntry;
-import potionstudios.byg.client.config.directory.FileBrowserScreen;
+import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.nio.file.Path;
@@ -49,14 +48,18 @@ public class ConfigEditScreen extends Screen {
     @Override
     public void tick() {
         this.configFiles.children().forEach(ConfigEditEntry::tick);
+        this.searchBox.tick();
     }
 
     @Override
     protected void init() {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
+        int maxCommentWidth = this.configFiles.getRowWidth();
         for (ConfigEditEntry<?> entry : this.file.createEntries(this, this.shownPath)) {
             this.configFiles.addEntry(entry);
+            maxCommentWidth = Math.max(maxCommentWidth, entry.getRowLength());
         }
+        this.configFiles.rowWidth = maxCommentWidth;
         int searchWidth = 250;
 
         this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2) , 18, searchWidth, 20, new TextComponent(""));
@@ -79,6 +82,8 @@ public class ConfigEditScreen extends Screen {
                 this.searchCache = s;
             }
         });
+
+
 
         int buttonWidth = 150;
         this.addRenderableWidget(new Button(this.width - (this.width / 2) - (buttonWidth / 2), this.height - 30, buttonWidth, 20, CommonComponents.GUI_DONE, (p_95761_) -> {
@@ -128,6 +133,7 @@ public class ConfigEditScreen extends Screen {
 
     public static class ConfigMap<T> extends ContainerObjectSelectionList<ConfigEditEntry<T>> {
         private final Screen screen;
+        private int rowWidth = super.getRowWidth();
 
         public ConfigMap(Screen screen, int width, int height, int y0, int y1, int itemHeight) {
             super(Minecraft.getInstance(), width, height, y0, y1, itemHeight);
@@ -147,6 +153,11 @@ public class ConfigEditScreen extends Screen {
         @Override
         protected int getScrollbarPosition() {
             return this.width - 10;
+        }
+
+        @Override
+        public int getRowWidth() {
+            return this.rowWidth;
         }
     }
 }

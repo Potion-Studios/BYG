@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config.directory;
+package potionstudios.byg.client.config.filebrowser;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
@@ -43,6 +43,8 @@ public class FileBrowserScreen extends Screen {
 
     @Override
     public void tick() {
+        this.configFiles.children().forEach(KeyCommentToolTipEntry::tick);
+        this.searchBox.tick();
     }
 
     @Override

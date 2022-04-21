@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.configeditor;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -6,6 +6,7 @@ import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import potionstudios.byg.client.config.ScreenPosition;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -86,6 +87,10 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     }
 
     public void tick() {
+    }
+
+    public int getRowLength() {
+        return this.maxKeyWidth;
     }
 
 

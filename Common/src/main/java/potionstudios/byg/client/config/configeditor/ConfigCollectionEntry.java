@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.configeditor;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -11,7 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import potionstudios.byg.client.config.screen.ConfigEditScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
 
     public ConfigCollectionEntry(Screen parent, String key, ConfigEntriesSerializer<?> val, Component comment) {
         super(parent, key, val, comment);
-        this.editButton = new Button(0, 0, 100, 20, new TranslatableComponent("Edit"), (button) -> {
+        this.editButton = new Button(0, 0, 200, 20, new TranslatableComponent("Edit"), (button) -> {
             Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, val.path() + "." + key));
             button.active = false;
         }) {
@@ -39,9 +38,8 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
     @Override
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
         super.render(pPoseStack, pIndex, pTop, pLeft, pWidth, pHeight, pMouseX, pMouseY, pIsMouseOver, pPartialTick);
-        this.editButton.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 20);
-        this.editButton.y = ((pTop + pHeight / 2 - 9 / 2));
-        this.editButton.setWidth(pWidth - 20);
+        this.editButton.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 10);
+        this.editButton.y = (pTop + pHeight / 2 - 9);
         this.editButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         this.renderToolTip = this.editButton.isMouseOver(pMouseX, pMouseY);
     }
@@ -60,5 +58,10 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
             return this.editButton.mouseClicked(mouseX, mouseY, button);
         }
         return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public int getRowLength() {
+        return super.getRowLength() + 10 + this.editButton.getWidth();
     }
 }

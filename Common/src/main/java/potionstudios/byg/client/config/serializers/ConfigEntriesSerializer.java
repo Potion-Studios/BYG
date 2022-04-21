@@ -4,8 +4,8 @@ import blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import net.minecraft.client.gui.screens.Screen;
 import potionstudios.byg.BYG;
-import potionstudios.byg.client.config.ConfigEditEntry;
-import potionstudios.byg.client.config.ConfigPrimitiveEntry;
+import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
+import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
 
 import javax.annotation.Nullable;
 import java.io.IOException;

@@ -1,5 +1,5 @@
 
-package potionstudios.byg.client.config.directory;
+package potionstudios.byg.client.config.filebrowser;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -77,6 +77,9 @@ public abstract class KeyCommentToolTipEntry<T> extends ContainerObjectSelection
             }
             cachedWidth = pWidth;
         }
+    }
+
+    public void tick() {
     }
 
     public int getRowLength() {

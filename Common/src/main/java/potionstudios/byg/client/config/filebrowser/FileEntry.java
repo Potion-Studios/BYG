@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config.directory;
+package potionstudios.byg.client.config.filebrowser;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -9,7 +9,7 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import potionstudios.byg.client.config.screen.ConfigEditScreen;
+import potionstudios.byg.client.config.configeditor.ConfigEditScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 import potionstudios.byg.mixin.access.client.ScreenAccess;
 
