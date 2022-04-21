@@ -18,7 +18,7 @@ public class ConfigCollectionEntry extends ConfigEditEntry<JsonElement> {
     private final Button editButton;
 
     public ConfigCollectionEntry(Screen parent, String key, JsonElement val, String parentFilePath) {
-        super(key, val);
+        super(parent, key, val);
         this.editButton = new Button(0, 0, 100, 20, new TranslatableComponent("Edit"), (button) -> {
             Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, parentFilePath + "." + key));
             button.active = false;

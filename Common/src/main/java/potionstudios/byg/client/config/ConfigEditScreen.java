@@ -19,7 +19,9 @@ import potionstudios.byg.util.jankson.JanksonUtil;
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -56,12 +58,12 @@ public class ConfigEditScreen extends Screen {
 
     @Override
     protected void init() {
-        this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 100);
+        this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
         if (file instanceof JsonObject jsonObject) {
             jsonObject.forEach((key, element) -> {
                 if (element instanceof JsonPrimitive primitive) {
                     Object value = primitive.getValue();
-                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(key, value);
+                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(key, value, this);
                     if (configPrimitiveEntry != null) {
                         configFiles.addEntry(configPrimitiveEntry);
                     }
@@ -75,7 +77,7 @@ public class ConfigEditScreen extends Screen {
             for (int i = 0; i < array.size(); i++) {
                 JsonElement element = array.get(i);
                 if (element instanceof JsonPrimitive primitive) {
-                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(Integer.toString(i + 1), primitive.getValue());
+                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(Integer.toString(i + 1), primitive.getValue(), this);
                     if (configPrimitiveEntry != null) {
                         configFiles.addEntry(configPrimitiveEntry);
                     }
@@ -135,8 +137,10 @@ public class ConfigEditScreen extends Screen {
 
         if (errors.isEmpty()) {
             if (this.parent instanceof ConfigurationFilesScreen) {
+                Path resolve = BYG.CONFIG_PATH.getParent().resolve(this.filePath);
                 try {
-                    Files.write(BYG.CONFIG_PATH.getParent().resolve(this.filePath), this.file.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
+                    Files.write(resolve, this.file.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
+                    this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(resolve.toString())));
                 } catch (IOException e) {
                     errors.append(e.getMessage());
                 }
@@ -151,17 +155,17 @@ public class ConfigEditScreen extends Screen {
     }
 
     @Nullable
-    private static ConfigPrimitiveEntry<?> makePrimitiveEntry(String key, Object value) {
+    private static ConfigPrimitiveEntry<?> makePrimitiveEntry(String key, Object value, Screen parent) {
         if (value instanceof Integer asInt) {
-            return new ConfigPrimitiveEntry<>(key, asInt, Integer::parseInt);
+            return new ConfigPrimitiveEntry<>(parent, key, asInt, Integer::parseInt);
         } else if (value instanceof Long asLong) {
-            return new ConfigPrimitiveEntry<>(key, asLong, Long::parseLong);
+            return new ConfigPrimitiveEntry<>(parent, key, asLong, Long::parseLong);
         } else if (value instanceof String asString) {
-            return new ConfigPrimitiveEntry<>(key, asString, Function.identity());
+            return new ConfigPrimitiveEntry<>(parent, key, asString, Function.identity());
         } else if (value instanceof Double asDouble) {
-            return new ConfigPrimitiveEntry<>(key, asDouble, Double::parseDouble);
+            return new ConfigPrimitiveEntry<>(parent, key, asDouble, Double::parseDouble);
         } else if (value instanceof Boolean asBoolean) {
-            return new ConfigPrimitiveEntry<>(key, asBoolean, Boolean::parseBoolean);
+            return new ConfigPrimitiveEntry<>(parent, key, asBoolean, Boolean::parseBoolean);
         }
         BYG.LOGGER.error(String.format("Could not make entry to edit for key: \"%s\"", key));
 
@@ -175,6 +179,11 @@ public class ConfigEditScreen extends Screen {
         // Translation component
         drawCenteredString(pPoseStack, this.font, new TextComponent(String.format("Editing config file: \"%s\"", this.title.getString())), this.width / 2, 15, 16777215);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        for (ConfigEditEntry<?> child : this.configFiles.children()) {
+            if (child.renderToolTip) {
+                this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
+            }
+        }
     }
 
     public static class ConfigMap<T> extends ContainerObjectSelectionList<ConfigEditEntry<T>> {
