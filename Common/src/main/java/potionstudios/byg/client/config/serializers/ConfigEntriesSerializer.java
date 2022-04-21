@@ -29,7 +29,7 @@ public interface ConfigEntriesSerializer<T> {
         set.add(String.class);
     });
 
-    List<ConfigEditEntry<?>> createEntries(Screen screen);
+    List<ConfigEditEntry<?>> createEntries(Screen screen, String shownPath);
 
     void saveFile(Path configFilePath) throws Exception;
 

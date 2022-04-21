@@ -29,7 +29,7 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
     }
 
     @Override
-    public List<ConfigEditEntry<?>> createEntries(Screen screen) {
+    public List<ConfigEditEntry<?>> createEntries(Screen screen, String shownPath) {
         List<ConfigEditEntry<?>> fileEditEntries = new ArrayList<>();
         if (jsonElement instanceof JsonObject jsonObject) {
             jsonObject.forEach((key, element) -> {
@@ -41,9 +41,9 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                         fileEditEntries.add(configPrimitiveEntry);
                     }
                 } else if (element instanceof JsonArray jsonArray) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, path), new TextComponent(comment)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, shownPath), new TextComponent(comment)));
                 } else if (element instanceof JsonObject jsonObject1) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, path), new TextComponent(comment)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, shownPath), new TextComponent(comment)));
                 }
             });
         } else if (jsonElement instanceof JsonArray array) {
@@ -55,9 +55,9 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                         fileEditEntries.add(configPrimitiveEntry);
                     }
                 } else if (element instanceof JsonObject jsonObject) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new JanksonConfigEntriesSerializer(jsonObject, path)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new JanksonConfigEntriesSerializer(jsonObject, shownPath)));
                 } else if (element instanceof JsonArray jsonArray) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new JanksonConfigEntriesSerializer(jsonArray, path)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new JanksonConfigEntriesSerializer(jsonArray, shownPath)));
                 }
             }
         }

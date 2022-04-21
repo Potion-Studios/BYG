@@ -1,9 +1,11 @@
 package potionstudios.byg.client.config.directory;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
@@ -11,10 +13,7 @@ import net.minecraft.network.chat.TextComponent;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -32,6 +31,9 @@ public class FileBrowserScreen extends Screen {
     private final Screen parent;
     private final Path configDir;
     private ConfigMap<?> configFiles;
+    private String searchCache = "";
+    private EditBox searchBox;
+    private final Set<KeyCommentToolTipEntry<?>> hidden = new ObjectOpenHashSet<>();
 
     public FileBrowserScreen(Screen parent, Path configDir) {
         super(new TextComponent(""));
@@ -46,6 +48,27 @@ public class FileBrowserScreen extends Screen {
     @Override
     protected void init() {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
+        int searchWidth = 250;
+        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2) , (this.height - this.height + 15), searchWidth, 20, new TextComponent(""));
+        this.searchBox.setResponder(s -> {
+            if (!this.searchCache.equals(s)) {
+                List children = this.configFiles.children();
+                ArrayList<? extends KeyCommentToolTipEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
+                for (KeyCommentToolTipEntry<?> child : keyCommentToolTipEntries) {
+                    if (!child.key.toLowerCase().contains(s.toLowerCase())) {
+                        children.remove(child);
+                        hidden.add(child);
+                    }
+                }
+                for (KeyCommentToolTipEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
+                    if (entry.key.toLowerCase().contains(s.toLowerCase())) {
+                        children.add(entry);
+                        this.hidden.remove(entry);
+                    }
+                }
+                this.searchCache = s;
+            }
+        });
         int maxCommentWidth = this.configFiles.getRowWidth();
         for (Path path : CONFIG_FILES.apply(this.configDir)) {
             String relativizedPath = this.configDir.getParent().relativize(path).toString();
@@ -55,9 +78,11 @@ public class FileBrowserScreen extends Screen {
         }
         this.configFiles.rowWidth = maxCommentWidth;
 
-        this.addRenderableWidget(new Button(this.width - (this.width / 2) - 20, this.height - 30, 150, 20, CommonComponents.GUI_DONE, (p_95761_) -> {
+        int buttonWidth = 150;
+        this.addRenderableWidget(new Button(this.width - (this.width / 2) - (buttonWidth / 2), this.height - 30, buttonWidth, 20, CommonComponents.GUI_DONE, (p_95761_) -> {
             this.minecraft.setScreen(this.parent);
         }));
+        this.addRenderableWidget(this.searchBox);
 
         this.addWidget(this.configFiles);
         super.init();

@@ -25,7 +25,7 @@ public class XMLPropertiesConfigEntriesSerializer implements ConfigEntriesSerial
     }
 
     @Override
-    public List<ConfigEditEntry<?>> createEntries(Screen screen) {
+    public List<ConfigEditEntry<?>> createEntries(Screen screen, String shownPath) {
         ArrayList<ConfigEditEntry<?>> entries = new ArrayList<>();
         this.properties.forEach((key, value) -> {
             entries.add(new ConfigPrimitiveEntry<>(screen, key.toString(), value.toString(), Function.identity()));

@@ -27,15 +27,15 @@ public class TomlConfigEntriesSerializer implements ConfigEntriesSerializer<Comm
     }
 
     @Override
-    public List<ConfigEditEntry<?>> createEntries(Screen screen) {
+    public List<ConfigEditEntry<?>> createEntries(Screen screen, String shownPath) {
         List<ConfigEditEntry<?>> entries = new ArrayList<>();
         if (configOrList instanceof CommentedConfig commentedConfig) {
             commentedConfig.valueMap().forEach((key, object) -> {
                 String comment = commentedConfig.getComment(key) == null ? "" : commentedConfig.getComment(key);
                 if (object instanceof CommentedConfig asCommentedConfig) {
-                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(asCommentedConfig, path), new TextComponent(comment)));
+                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(asCommentedConfig, shownPath), new TextComponent(comment)));
                 } else if (object instanceof List<?> list) {
-                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(list, path), new TextComponent(comment)));
+                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(list, shownPath), new TextComponent(comment)));
                 } else {
                     ConfigPrimitiveEntry<?> configPrimitiveEntry = ConfigEntriesSerializer.makePrimitiveEntry(key, object, screen, comment);
                     if (configPrimitiveEntry != null) {
@@ -47,9 +47,9 @@ public class TomlConfigEntriesSerializer implements ConfigEntriesSerializer<Comm
             for (int i = 0; i < array.size(); i++) {
                 Object element = array.get(i);
                 if (element instanceof CommentedConfig commentedConfig) {
-                    entries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new TomlConfigEntriesSerializer(commentedConfig, path)));
+                    entries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new TomlConfigEntriesSerializer(commentedConfig, shownPath)));
                 } else if (element instanceof List<?> list) {
-                    entries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new TomlConfigEntriesSerializer(list, path)));
+                    entries.add(new ConfigCollectionEntry(screen, Integer.toString(i + 1), new TomlConfigEntriesSerializer(list, shownPath)));
                 } else {
                     ConfigPrimitiveEntry<?> configPrimitiveEntry = ConfigEntriesSerializer.makePrimitiveEntry(Integer.toString(i + 1), element, screen);
                     if (configPrimitiveEntry != null) {
