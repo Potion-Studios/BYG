@@ -61,7 +61,7 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
             for (String lines : commentString.split("\n")) {
                 StringBuilder comment = new StringBuilder();
                 for (String word : lines.split("\s")) {
-                    if (word.isBlank()) {
+                    if (word.isBlank() && !lines.isBlank()) {
                         continue;
                     }
                     word = word.trim();
