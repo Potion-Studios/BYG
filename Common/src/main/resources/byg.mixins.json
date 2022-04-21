@@ -101,6 +101,7 @@
     "access.client.ClientLevelAccess",
     "access.client.ItemBlockRenderTypeAccess",
     "access.client.KeyMappingAccess",
+    "access.client.ScreenAccess",
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRenderers",
     "client.MixinInventoryScreen",

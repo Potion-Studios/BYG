@@ -8,6 +8,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -22,7 +23,15 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     private final Button resetButton;
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue) {
-        super(parent, key, defaultVal);
+        this(parent, key, defaultVal, getValue, new TextComponent(""));
+    }
+
+    public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, String comment) {
+        this(parent, key, defaultVal, getValue, new TextComponent(comment));
+    }
+
+    public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, Component comment) {
+        super(parent, key, defaultVal, comment);
         this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 100, 20, new TextComponent(key));
         this.editBox.setMaxLength(1000);
         this.getValue = getValue;

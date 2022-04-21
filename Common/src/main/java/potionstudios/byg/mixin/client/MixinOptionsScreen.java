@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.client.config.ConfigurationFilesScreen;
+import potionstudios.byg.client.config.screen.ConfigurationFilesScreen;
 
 @Mixin(OptionsScreen.class)
 public abstract class MixinOptionsScreen extends Screen {

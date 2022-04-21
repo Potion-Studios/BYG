@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -10,20 +10,20 @@ import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.config.ConfigEditEntry;
+import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
 
 public class ConfigEditScreen extends Screen {
-
 
     private final Screen parent;
     private final ConfigEntriesSerializer<?> file;
     private final String filePath;
     private ConfigMap<?> configFiles;
 
-    protected ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String filePath) {
+    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String filePath) {
         super(new TextComponent(filePath));
         this.parent = parent;
         this.file = element;
@@ -59,7 +59,7 @@ public class ConfigEditScreen extends Screen {
                 try {
                     this.file.saveFile(resolve);
                     this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(resolve.toString())));
-                } catch (IOException e) {
+                } catch (Exception e) {
                     errors.append(e.getMessage());
                 }
             }

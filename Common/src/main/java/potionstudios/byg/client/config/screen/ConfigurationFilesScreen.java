@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -9,6 +9,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
+import potionstudios.byg.mixin.access.client.ScreenAccess;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -91,7 +93,13 @@ public class ConfigurationFilesScreen extends Screen {
         @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
             if (button == 0) {
-                Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, ConfigEntriesSerializer.fromFile(BYG.CONFIG_PATH.getParent().resolve(Path.of(this.path))), this.path));
+                Path resolve = BYG.CONFIG_PATH.getParent().resolve(Path.of(this.path));
+                ConfigEntriesSerializer<?> serializer = ConfigEntriesSerializer.fromFile(resolve);
+                if (serializer != null) {
+                    Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, serializer, this.path));
+                } else {
+                    ((ScreenAccess) this.parent).byg_invokeOpenLink(resolve.toUri());
+                }
             }
             return super.mouseClicked(mouseX, mouseY, button);
         }

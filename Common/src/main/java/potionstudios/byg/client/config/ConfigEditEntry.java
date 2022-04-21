@@ -13,19 +13,23 @@ import java.util.List;
 
 public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.Entry<ConfigEditEntry<T>> {
 
-    protected final Screen parent;
-    protected final String key;
-    protected final T defaultVal;
-    protected final int maxKeyWidth;
-    protected final int maxCommentWidth;
+    public final Screen parent;
+    public final String key;
+    public final T defaultVal;
+    public final int maxKeyWidth;
+    public final int maxCommentWidth;
     private final Component comment;
     protected final ScreenPosition keyScreenPosition = new ScreenPosition();
-    protected final List<Component> toolTip = new ArrayList<>();
+    public final List<Component> toolTip = new ArrayList<>();
     private int cachedWidth = 0;
-    protected boolean renderToolTip;
+    public boolean renderToolTip;
 
     public ConfigEditEntry(Screen parent, String key, T defaultVal) {
-        this(parent, key, defaultVal, new TextComponent("A list of weighted regions containing a unique biome layout. Regions may be inlined or may call a file from \"this_file_parent_directory/regions\""));
+        this(parent, key, defaultVal, new TextComponent(""));
+    }
+
+    public ConfigEditEntry(Screen parent, String key, T defaultVal, String comment) {
+        this(parent, key, defaultVal, new TextComponent(comment));
     }
 
     public ConfigEditEntry(Screen parent, String key, T defaultVal, Component comment) {
@@ -44,24 +48,33 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
         makeAndCacheConfigCommentToolTip(pWidth);
-
         Minecraft.getInstance().font.draw(pPoseStack, this.key, this.keyScreenPosition.x, this.keyScreenPosition.y, 16777215);
     }
 
     private void makeAndCacheConfigCommentToolTip(int pWidth) {
+        String commentString = this.comment.getString();
+        if (commentString.isEmpty()) {
+            return;
+        }
         if (cachedWidth != pWidth) {
             toolTip.clear();
-            StringBuilder comment = new StringBuilder();
-            for (String words : this.comment.getString().split("\s")) {
-                if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
-                    comment.append(words).append(" ");
-                } else {
-                    toolTip.add(new TextComponent(comment.toString()));
-                    comment = new StringBuilder(words).append(" ");
+            for (String lines : commentString.split("\n")) {
+                StringBuilder comment = new StringBuilder();
+                for (String word : lines.split("\s")) {
+                    if (word.isBlank()) {
+                        continue;
+                    }
+                    word = word.trim();
+                    if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
+                        comment.append(word).append(" ");
+                    } else {
+                        toolTip.add(new TextComponent(comment.toString()));
+                        comment = new StringBuilder(word).append(" ");
+                    }
                 }
-            }
-            if (!comment.isEmpty()) {
-                toolTip.add(new TextComponent(comment.toString()));
+                if (!comment.isEmpty()) {
+                    toolTip.add(new TextComponent(comment.toString()));
+                }
             }
             cachedWidth = pWidth;
         }

@@ -1,4 +1,4 @@
-package potionstudios.byg.client.config;
+package potionstudios.byg.client.config.serializers;
 
 import blue.endless.jankson.JsonArray;
 import blue.endless.jankson.JsonElement;
@@ -6,17 +6,17 @@ import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 import blue.endless.jankson.api.SyntaxError;
 import net.minecraft.client.gui.screens.Screen;
-import potionstudios.byg.BYG;
+import net.minecraft.network.chat.TextComponent;
+import potionstudios.byg.client.config.ConfigCollectionEntry;
+import potionstudios.byg.client.config.ConfigEditEntry;
+import potionstudios.byg.client.config.ConfigPrimitiveEntry;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
-import javax.annotation.Nullable;
 import java.io.IOException;
-import java.nio.file.FileSystemException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<JsonElement> {
 
@@ -33,23 +33,24 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
         List<ConfigEditEntry<?>> fileEditEntries = new ArrayList<>();
         if (jsonElement instanceof JsonObject jsonObject) {
             jsonObject.forEach((key, element) -> {
+                String comment = jsonObject.getComment(key) == null ? "" : jsonObject.getComment(key);
                 if (element instanceof JsonPrimitive primitive) {
                     Object value = primitive.getValue();
-                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(key, value, screen);
+                    ConfigPrimitiveEntry<?> configPrimitiveEntry = ConfigEntriesSerializer.makePrimitiveEntry(key, value, screen, comment);
                     if (configPrimitiveEntry != null) {
                         fileEditEntries.add(configPrimitiveEntry);
                     }
                 } else if (element instanceof JsonArray jsonArray) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, path)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, path), new TextComponent(comment)));
                 } else if (element instanceof JsonObject jsonObject1) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, path)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, path), new TextComponent(comment)));
                 }
             });
         } else if (jsonElement instanceof JsonArray array) {
             for (int i = 0; i < array.size(); i++) {
                 JsonElement element = array.get(i);
                 if (element instanceof JsonPrimitive primitive) {
-                    ConfigPrimitiveEntry<?> configPrimitiveEntry = makePrimitiveEntry(Integer.toString(i + 1), primitive.getValue(), screen);
+                    ConfigPrimitiveEntry<?> configPrimitiveEntry = ConfigEntriesSerializer.makePrimitiveEntry(Integer.toString(i + 1), primitive.getValue(), screen);
                     if (configPrimitiveEntry != null) {
                         fileEditEntries.add(configPrimitiveEntry);
                     }
@@ -63,38 +64,24 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
         return fileEditEntries;
     }
 
-    @Nullable
-    private static ConfigPrimitiveEntry<?> makePrimitiveEntry(String key, Object value, Screen parent) {
-        if (value instanceof Integer asInt) {
-            return new ConfigPrimitiveEntry<>(parent, key, asInt, Integer::parseInt);
-        } else if (value instanceof Long asLong) {
-            return new ConfigPrimitiveEntry<>(parent, key, asLong, Long::parseLong);
-        } else if (value instanceof String asString) {
-            return new ConfigPrimitiveEntry<>(parent, key, asString, Function.identity());
-        } else if (value instanceof Double asDouble) {
-            return new ConfigPrimitiveEntry<>(parent, key, asDouble, Double::parseDouble);
-        } else if (value instanceof Boolean asBoolean) {
-            return new ConfigPrimitiveEntry<>(parent, key, asBoolean, Boolean::parseBoolean);
-        }
-        BYG.LOGGER.error(String.format("Could not make entry to edit for key: \"%s\"", key));
 
-        return null;
-    }
+
+
 
     @Override
     public void saveFile(Path configFile) throws IOException {
         try {
             Files.write(configFile, this.jsonElement.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
         } catch (IOException e) {
-           throw e;
+            throw e;
         }
     }
 
     @Override
-    public String save(List<? extends ConfigEditEntry<?>> configFiles) {
+    public String save(List<? extends ConfigEditEntry<?>> fileEditEntries) {
         StringBuilder errors = new StringBuilder();
         if (this.jsonElement instanceof JsonObject asJsonObject) {
-            for (ConfigEditEntry<?> child : configFiles) {
+            for (ConfigEditEntry<?> child : fileEditEntries) {
                 try {
                     Object value = child.getValue();
                     if (value == null) {
@@ -108,7 +95,7 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                 }
             }
         } else if (this.jsonElement instanceof JsonArray asJsonArray) {
-            for (ConfigEditEntry<?> child : configFiles) {
+            for (ConfigEditEntry<?> child : fileEditEntries) {
                 try {
                     Object value = child.getValue();
                     if (value == null) {
@@ -143,7 +130,7 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                 throw e;
             }
         } else {
-            throw new FileSystemException(String.format("\"%s\" does not end with \".json\" or \".json5\" file extension.", path.toString()));
+            throw new IOException(String.format("\"%s\" does not end with \".json\" or \".json5\" file extension.", path.toString()));
         }
 
         return new JanksonConfigEntriesSerializer(jsonElement1, path.toString());
