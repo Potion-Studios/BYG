@@ -79,7 +79,7 @@ public class ConfigEditScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        this.renderDirtBackground(0);
+        this.renderBackground(pPoseStack);
         this.configFiles.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         drawCenteredString(pPoseStack, this.font, this.title, this.width / 2, 5, 16777215);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
@@ -165,6 +165,7 @@ public class ConfigEditScreen extends Screen {
         public ConfigMap(Screen screen, int width, int height, int y0, int y1, int itemHeight) {
             super(Minecraft.getInstance(), width, height, y0, y1, itemHeight);
             this.screen = screen;
+            this.setRenderBackground(false);
         }
 
         @Override
