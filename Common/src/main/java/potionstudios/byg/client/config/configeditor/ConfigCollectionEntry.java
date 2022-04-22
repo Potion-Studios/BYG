@@ -61,7 +61,7 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
     }
 
     @Override
-    public int getRowLength() {
-        return super.getRowLength() + 10 + this.editButton.getWidth();
+    public int getRowWidth() {
+        return super.getRowWidth() + 10 + this.editButton.getWidth() + 70;
     }
 }

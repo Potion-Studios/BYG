@@ -80,7 +80,7 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     }
 
     @Override
-    public int getRowLength() {
-        return super.getRowLength() + 10 + this.editBox.getWidth() + 20 + this.resetButton.getWidth();
+    public int getRowWidth() {
+        return super.getRowWidth() + 10 + this.editBox.getWidth() + 20 + this.resetButton.getWidth();
     }
 }

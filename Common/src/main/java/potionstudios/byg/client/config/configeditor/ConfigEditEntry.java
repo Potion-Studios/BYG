@@ -41,7 +41,7 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     }
 
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-        float x = (float) ((pLeft) - (this.getRowLength())) + pWidth;
+        float x = (float) ((pLeft) - (this.getRowWidth())) + pWidth;
         float y = (float) (pTop + pHeight / 2 - 9 / 2);
 
         this.keyScreenPosition.x = x;
@@ -87,7 +87,7 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     public void tick() {
     }
 
-    public int getRowLength() {
+    public int getRowWidth() {
         return this.maxKeyWidth;
     }
 

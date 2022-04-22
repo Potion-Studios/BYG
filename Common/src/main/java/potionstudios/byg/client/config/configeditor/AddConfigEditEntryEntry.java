@@ -87,7 +87,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
 
     @Override
     public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int pWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-        float x = (float) ((pLeft) - (this.getRowLength())) + pWidth;
+        float x = (float) ((pLeft) - (this.getRowWidth())) + pWidth;
         float y = (float) (pTop + pHeight / 2 - 9 / 2);
 
         this.keyScreenPosition.x = x;
@@ -122,7 +122,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
     }
 
     @Override
-    public int getRowLength() {
+    public int getRowWidth() {
         return Math.max(this.addEntry.getWidth(), this.entryKey.getWidth() + 10 + this.entryValue.getWidth() + 10 + this.makeEntry.getWidth());
     }
 }

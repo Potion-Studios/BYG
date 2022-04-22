@@ -57,7 +57,7 @@ public class ConfigEditScreen extends Screen {
         int maxCommentWidth = this.configFiles.getRowWidth();
         for (ConfigEditEntry<?> entry : this.file.createEntries(this, this.shownPath)) {
             this.configFiles.addEntry(entry);
-            maxCommentWidth = Math.max(maxCommentWidth, entry.getRowLength());
+            maxCommentWidth = Math.max(maxCommentWidth, entry.getRowWidth());
         }
 //        addConfigEntryButton();
 
