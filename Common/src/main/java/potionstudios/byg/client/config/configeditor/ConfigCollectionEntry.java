@@ -27,7 +27,6 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
         super(parent, key, comment);
         this.editButton = new Button(0, 0, 200, 20, new TranslatableComponent("Edit"), (button) -> {
             Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, val.path() + "." + key));
-            button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
                 return new TranslatableComponent("narrator.controls.reset", key);
@@ -50,14 +49,6 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
 
     public List<? extends NarratableEntry> narratables() {
         return ImmutableList.of(this.editButton);
-    }
-
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (button == 0) {
-            return this.editButton.mouseClicked(mouseX, mouseY, button);
-        }
-        return super.mouseClicked(mouseX, mouseY, button);
     }
 
     @Override
