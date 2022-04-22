@@ -107,7 +107,7 @@ public class JanksonUtil {
 
     public static <T> T readConfig(Path path, Codec<T> codec, DynamicOps<JsonElement> ops) throws IOException, SyntaxError {
         try {
-            JsonObject load = JANKSON.load(path.toFile());
+            JsonElement load = JANKSON.loadElement(path.toFile());
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
             if (error.isPresent()) {
