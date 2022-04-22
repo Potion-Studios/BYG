@@ -16,7 +16,6 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
 
     public final Screen parent;
     public final String key;
-    public final T defaultVal;
     public final int maxKeyWidth;
     public final int maxCommentWidth;
     private final Component comment;
@@ -25,18 +24,17 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     private int cachedWidth = 0;
     public boolean renderToolTip;
 
-    public ConfigEditEntry(Screen parent, String key, T defaultVal) {
-        this(parent, key, defaultVal, new TextComponent(""));
+    public ConfigEditEntry(Screen parent, String key) {
+        this(parent, key, new TextComponent(""));
     }
 
-    public ConfigEditEntry(Screen parent, String key, T defaultVal, String comment) {
-        this(parent, key, defaultVal, new TextComponent(comment));
+    public ConfigEditEntry(Screen parent, String key, String comment) {
+        this(parent, key, new TextComponent(comment));
     }
 
-    public ConfigEditEntry(Screen parent, String key, T defaultVal, Component comment) {
+    public ConfigEditEntry(Screen parent, String key, Component comment) {
         this.parent = parent;
         this.key = key;
-        this.defaultVal = defaultVal;
         this.maxKeyWidth = Minecraft.getInstance().font.width(key);
         this.maxCommentWidth = Minecraft.getInstance().font.width(comment);
         this.comment = comment;

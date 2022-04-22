@@ -24,7 +24,7 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
     }
 
     public ConfigCollectionEntry(Screen parent, String key, ConfigEntriesSerializer<?> val, Component comment) {
-        super(parent, key, val, comment);
+        super(parent, key, comment);
         this.editButton = new Button(0, 0, 200, 20, new TranslatableComponent("Edit"), (button) -> {
             Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, val.path() + "." + key));
             button.active = false;

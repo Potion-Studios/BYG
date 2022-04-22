@@ -19,6 +19,7 @@ import java.util.function.Function;
 public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
 
     private final EditBox editBox;
+    private final T defaultVal;
     private final Function<String, T> getValue;
     private final Button resetButton;
 
@@ -31,8 +32,9 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     }
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, Component comment) {
-        super(parent, key, defaultVal, comment);
+        super(parent, key, comment);
         this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent(key));
+        this.defaultVal = defaultVal;
         this.editBox.setMaxLength(1000);
         this.getValue = getValue;
         this.editBox.setValue(defaultVal.toString());

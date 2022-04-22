@@ -10,7 +10,6 @@ import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.TextComponent;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
@@ -20,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.BiFunction;
 
 public class ConfigEditScreen extends Screen {
 
@@ -38,7 +38,7 @@ public class ConfigEditScreen extends Screen {
     }
 
     public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath) {
-        super(new TextComponent(relativizedPath));
+        super(new TextComponent(String.format("Editing config file: \"%s\"", relativizedPath.toString())));
         this.parent = parent;
         this.file = element;
         this.shownPath = relativizedPath;
@@ -59,31 +59,13 @@ public class ConfigEditScreen extends Screen {
             this.configFiles.addEntry(entry);
             maxCommentWidth = Math.max(maxCommentWidth, entry.getRowLength());
         }
+//        addConfigEntryButton();
+
         this.configFiles.rowWidth = maxCommentWidth;
         int searchWidth = 250;
 
-        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2) , 18, searchWidth, 20, new TextComponent(""));
-        this.searchBox.setResponder(s -> {
-            if (!this.searchCache.equals(s)) {
-                List children = this.configFiles.children();
-                ArrayList<? extends ConfigEditEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
-                for (ConfigEditEntry<?> child : keyCommentToolTipEntries) {
-                    if (!child.key.toLowerCase().contains(s.toLowerCase())) {
-                        children.remove(child);
-                        hidden.add(child);
-                    }
-                }
-                for (ConfigEditEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
-                    if (entry.key.toLowerCase().contains(s.toLowerCase())) {
-                        children.add(entry);
-                        this.hidden.remove(entry);
-                    }
-                }
-                this.searchCache = s;
-            }
-        });
-
-
+        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
+        this.searchBox.setResponder(this::searchResponder);
 
         int buttonWidth = 150;
         this.addRenderableWidget(new Button(this.width - (this.width / 2) - (buttonWidth / 2), this.height - 30, buttonWidth, 20, CommonComponents.GUI_DONE, (p_95761_) -> {
@@ -95,7 +77,67 @@ public class ConfigEditScreen extends Screen {
         super.init();
     }
 
-    @NotNull
+    @Override
+    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        this.renderDirtBackground(0);
+        this.configFiles.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        drawCenteredString(pPoseStack, this.font, this.title, this.width / 2, 5, 16777215);
+        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        for (ConfigEditEntry<?> child : this.configFiles.children()) {
+            if (child.renderToolTip) {
+                this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
+            }
+        }
+    }
+
+    @Override
+    public void onClose() {
+        this.minecraft.setScreen(this.parent);
+    }
+
+    private void addConfigEntryButton() {
+        BiFunction<String, String, ConfigEditEntry<?>> makeEntry = (key, value) -> {
+            Object value1;
+            try {
+                if (value.contains(".")) {
+                    value1 = Double.parseDouble(value);
+                } else {
+                    long parseLong = Long.parseLong(value);
+                    if (parseLong <= Integer.MAX_VALUE) {
+                        value1 = (int) parseLong;
+                    } else {
+                        value1 = parseLong;
+                    }
+                }
+            } catch (Exception e) {
+                value1 = value;
+            }
+            return ConfigEntriesSerializer.makePrimitiveEntry(key, value1, this);
+        };
+        AddConfigEditEntryEntry addConfigEditEntryEntry = new AddConfigEditEntryEntry(this, this.configFiles, this.configFiles.children().size(), makeEntry, "");
+        this.configFiles.addEntry(addConfigEditEntryEntry);
+    }
+
+    private void searchResponder(String s) {
+        if (!this.searchCache.equals(s)) {
+            List children = this.configFiles.children();
+            ArrayList<? extends ConfigEditEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
+            for (ConfigEditEntry<?> child : keyCommentToolTipEntries) {
+                if (!child.key.toLowerCase().contains(s.toLowerCase())) {
+                    children.remove(child);
+                    hidden.add(child);
+                }
+            }
+            for (ConfigEditEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
+                if (entry.key.toLowerCase().contains(s.toLowerCase())) {
+                    children.add(entry);
+                    this.hidden.remove(entry);
+                }
+            }
+            this.searchCache = s;
+        }
+    }
+
     private void save() {
         StringBuilder errors = new StringBuilder(this.file.save(this.configFiles.children()));
         if (errors.isEmpty()) {
@@ -113,21 +155,6 @@ public class ConfigEditScreen extends Screen {
             this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Could not save File."), new TextComponent(errors.toString())));
         } else {
             this.minecraft.setScreen(this.parent);
-        }
-    }
-
-
-    @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        this.renderDirtBackground(0);
-        this.configFiles.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        // Translation component
-        drawCenteredString(pPoseStack, this.font, new TextComponent(String.format("Editing config file: \"%s\"", this.title.getString())), this.width / 2, 5, 16777215);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        for (ConfigEditEntry<?> child : this.configFiles.children()) {
-            if (child.renderToolTip) {
-                this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
-            }
         }
     }
 

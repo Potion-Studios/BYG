@@ -5,6 +5,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +24,7 @@ public abstract class MixinOptionsScreen extends Screen {
     @Inject(method = "render", at = @At("RETURN"))
     private void addConfigsButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick, CallbackInfo info) {
         this.addRenderableWidget(new Button(this.width / 2 + 5 + 160, this.height / 6 + 96 - 6, 150, 20, new TranslatableComponent("Configurations"), (p_96268_) -> {
-            this.minecraft.setScreen(new FileBrowserScreen(this, BYG.CONFIG_PATH.getParent()));
+            this.minecraft.setScreen(new FileBrowserScreen(this, BYG.CONFIG_PATH.getParent(), new TextComponent("")));
         }));
     }
 }

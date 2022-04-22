@@ -8,6 +8,7 @@ import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 
 import java.io.IOException;
@@ -35,8 +36,8 @@ public class FileBrowserScreen extends Screen {
     private EditBox searchBox;
     private final Set<KeyCommentToolTipEntry<?>> hidden = new ObjectOpenHashSet<>();
 
-    public FileBrowserScreen(Screen parent, Path configDir) {
-        super(new TextComponent(""));
+    public FileBrowserScreen(Screen parent, Path configDir, Component component) {
+        super(component);
         this.parent = parent;
         this.configDir = configDir;
     }
@@ -51,7 +52,7 @@ public class FileBrowserScreen extends Screen {
     protected void init() {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
         int searchWidth = 250;
-        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2) , (this.height - this.height + 15), searchWidth, 20, new TextComponent(""));
+        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
         this.searchBox.setResponder(s -> {
             if (!this.searchCache.equals(s)) {
                 List children = this.configFiles.children();
@@ -95,12 +96,18 @@ public class FileBrowserScreen extends Screen {
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderDirtBackground(0);
         this.configFiles.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        drawCenteredString(pPoseStack, this.font, this.title, this.width / 2, 5, 16777215);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         for (KeyCommentToolTipEntry<?> child : this.configFiles.children()) {
             if (child.renderToolTip) {
                 this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
             }
         }
+    }
+
+    @Override
+    public void onClose() {
+       this.minecraft.setScreen(this.parent);
     }
 
     public static class ConfigMap<T> extends ContainerObjectSelectionList<KeyCommentToolTipEntry<T>> {
@@ -122,7 +129,6 @@ public class FileBrowserScreen extends Screen {
         public int addEntry(KeyCommentToolTipEntry $$0) {
             return super.addEntry($$0);
         }
-
 
         @Override
         public int getRowWidth() {
