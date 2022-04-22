@@ -46,11 +46,11 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
 
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
-        makeAndCacheConfigCommentToolTip(pWidth);
+        makeAndCacheConfigCommentWrappedToolTip(pWidth);
         Minecraft.getInstance().font.draw(pPoseStack, this.key, this.keyScreenPosition.x, this.keyScreenPosition.y, 16777215);
     }
 
-    private void makeAndCacheConfigCommentToolTip(int pWidth) {
+    private void makeAndCacheConfigCommentWrappedToolTip(int pWidth) {
         String commentString = this.comment.getString();
         if (commentString.isEmpty()) {
             return;
@@ -64,11 +64,40 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
                         continue;
                     }
                     word = word.trim();
-                    if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
-                        comment.append(word).append(" ");
+                    if (Minecraft.getInstance().font.width(word) > pWidth) {
+                        char[] chars = word.toCharArray();
+                        for (char aChar : chars) {
+                            String character = Character.toString(aChar);
+                            if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
+                                comment.append(character);
+                            } else {
+                                toolTip.add(new TextComponent(comment.toString()));
+                                comment = new StringBuilder(character);
+                            }
+                        }
+                        comment.append(" ");
                     } else {
-                        toolTip.add(new TextComponent(comment.toString()));
-                        comment = new StringBuilder(word).append(" ");
+                        if (Minecraft.getInstance().font.width(comment.toString() + word) < pWidth) {
+                            comment.append(word).append(" ");
+                        } else {
+                            toolTip.add(new TextComponent(comment.toString()));
+                            comment = new StringBuilder();
+                            if (Minecraft.getInstance().font.width(word) > pWidth) {
+                                char[] chars = word.toCharArray();
+                                for (char aChar : chars) {
+                                    String character = Character.toString(aChar);
+                                    if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
+                                        comment.append(character);
+                                    } else {
+                                        toolTip.add(new TextComponent(comment.toString()));
+                                        comment = new StringBuilder(character);
+                                    }
+                                }
+                                comment.append(" ");
+                            } else {
+                                comment.append(word).append(" ");
+                            }
+                        }
                     }
                 }
                 if (!comment.isEmpty()) {
