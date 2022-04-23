@@ -54,7 +54,7 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
         this.editBox.x = (int) (this.keyScreenPosition.x + this.maxKeyWidth + 10);
         this.editBox.y = (pTop + pHeight / 2 - 9);
         this.editBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        this.resetButton.x = this.editBox.x + this.editBox.getWidth() + 20;
+        this.resetButton.x = this.editBox.x + this.editBox.getWidth() + 10;
         this.resetButton.y = this.editBox.y;
         this.resetButton.active = !this.editBox.getValue().equals(this.defaultVal.toString());
         this.resetButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
@@ -81,6 +81,6 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
 
     @Override
     public int getRowWidth() {
-        return super.getRowWidth() + 10 + this.editBox.getWidth() + 20 + this.resetButton.getWidth();
+        return super.getRowWidth() + 10 + this.editBox.getWidth() + 10 + this.resetButton.getWidth();
     }
 }

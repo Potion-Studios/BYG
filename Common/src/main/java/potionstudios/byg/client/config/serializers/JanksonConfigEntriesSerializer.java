@@ -103,7 +103,9 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                     }
                     if (PRIMITIVE_TYPES.contains(value.getClass())) {
                         int index = Integer.parseInt(child.key) - 1;
-                        asJsonArray.remove(index);
+                        if (index < asJsonArray.size()) {
+                            asJsonArray.remove(index);
+                        }
                         asJsonArray.add(index, new JsonPrimitive(value));
                     }
                 } catch (Exception e) {
@@ -139,5 +141,15 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
     @Override
     public String path() {
         return this.path;
+    }
+
+    @Override
+    public ConfigEntriesSerializer<JsonElement> makeMap(String shownPath) {
+        return new JanksonConfigEntriesSerializer(new JsonObject(), shownPath);
+    }
+
+    @Override
+    public ConfigEntriesSerializer<JsonElement> makeList(String shownPath) {
+        return new JanksonConfigEntriesSerializer(new JsonArray(), shownPath);
     }
 }

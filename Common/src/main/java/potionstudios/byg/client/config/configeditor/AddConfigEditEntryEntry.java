@@ -24,12 +24,11 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
     private final EditBox entryValue;
     private final Button addEntry;
     private final Button makeEntry;
-    private int index;
 
-    public AddConfigEditEntryEntry(Screen parent, ConfigEditScreen.ConfigMap<?> map, int index, BiFunction<String, String, ConfigEditEntry<?>> toBuild, String key) {
-        super(parent, key);
+    public AddConfigEditEntryEntry(Screen parent, ConfigEditScreen.ConfigMap<?> map, BiFunction<String, String, ConfigEditEntry<?>> toBuild, String key) {
+        super(parent, key, "Type \"list\" to make a list\nType \"map\" to make a map.");
         this.map = map;
-        this.entryKey = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent("Key"));
+        this.entryKey = new EditBox(Minecraft.getInstance().font, 0, 0, 150, 20, new TextComponent("Key"));
         this.entryKey.visible = false;
         this.entryKey.active = false;
 
@@ -38,7 +37,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
         this.entryValue.active = false;
         Mutable<Button> getAddEntry = new MutableObject<>(null);
 
-        this.makeEntry = new Button(0, 0, 100, 20, new TranslatableComponent("Make Entry"), button -> {
+        this.makeEntry = new Button(0, 0, 50, 20, new TranslatableComponent("Make"), button -> {
             this.entryKey.visible = false;
             this.entryKey.active = false;
             this.entryValue.visible = false;
@@ -47,12 +46,14 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
             getAddEntry.getValue().active = true;
 
             List children = map.children();
-            children.remove(index);
-            children.add(index, toBuild.apply(this.entryKey.getValue(), this.entryValue.getValue()));
-            this.index = this.index + 1;
-            children.add(this.index, this);
+            children.remove(this);
+
+
+            children.add(toBuild.apply(this.entryKey.getValue(), this.entryValue.getValue()));
+            children.add(this);
             this.entryKey.setValue("");
             this.entryValue.setValue("");
+            button.visible = false;
         });
         this.makeEntry.visible = false;
         this.makeEntry.active = false;
@@ -93,22 +94,22 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
 
-        this.addEntry.x = this.parent.width - (this.parent.width / 2) - (this.addEntry.getWidth() / 2);
+        this.addEntry.x = (int) this.keyScreenPosition.x + this.entryKey.getWidth() + 10;
         this.addEntry.y = (int) this.keyScreenPosition.y;
         this.addEntry.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
 
 
         this.entryKey.x = (int) this.keyScreenPosition.x;
-        this.entryKey.y = this.addEntry.y;
+        this.entryKey.y = (int) this.keyScreenPosition.y;
         this.entryKey.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-//
-//        this.entryValue.x = this.addEntry.x;
-//        this.entryValue.y = this.addEntry.y;
-//        this.entryValue.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-//
-//        this.makeEntry.x = this.entryValue.x + this.entryValue.getWidth() + 20;
-//        this.makeEntry.y = this.entryValue.y;
-//        this.makeEntry.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        this.entryValue.x = this.entryKey.x + this.entryKey.getWidth() + 10;
+        this.entryValue.y = this.entryKey.y;
+        this.entryValue.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        this.makeEntry.x = this.entryValue.x + this.entryValue.getWidth() + 10;
+        this.makeEntry.y = this.entryValue.y;
+        this.makeEntry.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
@@ -123,6 +124,13 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
 
     @Override
     public int getRowWidth() {
-        return Math.max(this.addEntry.getWidth(), this.entryKey.getWidth() + 10 + this.entryValue.getWidth() + 10 + this.makeEntry.getWidth());
+        return this.entryKey.getWidth() + this.entryValue.getWidth() + this.makeEntry.getWidth() + 10 + 10;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        this.entryKey.tick();
+        this.entryValue.tick();
     }
 }
