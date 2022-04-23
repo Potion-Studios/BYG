@@ -59,26 +59,7 @@ public class FileBrowserScreen extends Screen {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
         int searchWidth = 250;
         this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
-        this.searchBox.setResponder(s -> {
-            if (!this.searchCache.equals(s)) {
-                List children = this.configFiles.children();
-                ArrayList<? extends KeyCommentToolTipEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
-                for (KeyCommentToolTipEntry<?> child : keyCommentToolTipEntries) {
-                    if (!child.key.toLowerCase().contains(s.toLowerCase())) {
-                        children.remove(child);
-                        hidden.add(child);
-                    }
-                }
-                for (KeyCommentToolTipEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
-                    if (entry.key.toLowerCase().contains(s.toLowerCase())) {
-                        children.add(entry);
-                        this.hidden.remove(entry);
-                    }
-                }
-                this.searchCache = s;
-                this.configFiles.setScrollAmount(0);
-            }
-        });
+        this.searchBox.setResponder(this::searchResponder);
         int maxCommentWidth = this.configFiles.getRowWidth();
         for (Path path : CONFIG_FILES.apply(this.configDir)) {
             String relativizedPath = this.configDir.getParent().relativize(path).toString();
@@ -96,6 +77,28 @@ public class FileBrowserScreen extends Screen {
 
         this.addWidget(this.configFiles);
         super.init();
+    }
+
+    private void searchResponder(String s) {
+        if (!this.searchCache.equals(s)) {
+            List children = this.configFiles.children();
+            ArrayList<? extends KeyCommentToolTipEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
+            for (KeyCommentToolTipEntry<?> child : keyCommentToolTipEntries) {
+                if (!child.key.toLowerCase().contains(s.toLowerCase())) {
+                    children.remove(child);
+                    child.renderToolTip = false;
+                    hidden.add(child);
+                }
+            }
+            for (KeyCommentToolTipEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
+                if (entry.key.toLowerCase().contains(s.toLowerCase())) {
+                    children.add(entry);
+                    this.hidden.remove(entry);
+                }
+            }
+            this.searchCache = s;
+            this.configFiles.setScrollAmount(0);
+        }
     }
 
 

@@ -30,7 +30,7 @@ public class ConfigEditScreen extends Screen {
     @Nullable
     private final Path absolutePath;
     private final boolean reloadsOnSave;
-    private ConfigMap<?> configFiles;
+    private ConfigMap<?> configEntries;
     private String searchCache = "";
     private EditBox searchBox;
     private final Set<ConfigEditEntry<?>> hidden = new ObjectOpenHashSet<>();
@@ -50,21 +50,21 @@ public class ConfigEditScreen extends Screen {
 
     @Override
     public void tick() {
-        this.configFiles.children().forEach(ConfigEditEntry::tick);
+        this.configEntries.children().forEach(ConfigEditEntry::tick);
         this.searchBox.tick();
     }
 
     @Override
     protected void init() {
-        this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
-        int maxCommentWidth = this.configFiles.getRowWidth();
+        this.configEntries = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
+        int maxCommentWidth = this.configEntries.getRowWidth();
         for (ConfigEditEntry<?> entry : this.file.createEntries(this, this.shownPath)) {
-            this.configFiles.addEntry(entry);
+            this.configEntries.addEntry(entry);
             maxCommentWidth = Math.max(maxCommentWidth, entry.getRowWidth());
         }
 //        addConfigEntryButton();
 
-        this.configFiles.rowWidth = maxCommentWidth;
+        this.configEntries.rowWidth = maxCommentWidth;
         int searchWidth = 250;
 
         this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
@@ -76,17 +76,17 @@ public class ConfigEditScreen extends Screen {
         }));
         this.addRenderableWidget(this.searchBox);
 
-        this.addWidget(this.configFiles);
+        this.addWidget(this.configEntries);
         super.init();
     }
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
-        this.configFiles.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        this.configEntries.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         drawCenteredString(pPoseStack, this.font, this.title, this.width / 2, 5, 16777215);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        for (ConfigEditEntry<?> child : this.configFiles.children()) {
+        for (ConfigEditEntry<?> child : this.configEntries.children()) {
             if (child.renderToolTip) {
                 this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
             }
@@ -117,17 +117,18 @@ public class ConfigEditScreen extends Screen {
             }
             return ConfigEntriesSerializer.makePrimitiveEntry(key, value1, this);
         };
-        AddConfigEditEntryEntry addConfigEditEntryEntry = new AddConfigEditEntryEntry(this, this.configFiles, this.configFiles.children().size(), makeEntry, "");
-        this.configFiles.addEntry(addConfigEditEntryEntry);
+        AddConfigEditEntryEntry addConfigEditEntryEntry = new AddConfigEditEntryEntry(this, this.configEntries, this.configEntries.children().size(), makeEntry, "");
+        this.configEntries.addEntry(addConfigEditEntryEntry);
     }
 
     private void searchResponder(String s) {
         if (!this.searchCache.equals(s)) {
-            List children = this.configFiles.children();
+            List children = this.configEntries.children();
             ArrayList<? extends ConfigEditEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
             for (ConfigEditEntry<?> child : keyCommentToolTipEntries) {
                 if (!child.key.toLowerCase().contains(s.toLowerCase())) {
                     children.remove(child);
+                    child.renderToolTip = false;
                     hidden.add(child);
                 }
             }
@@ -138,11 +139,12 @@ public class ConfigEditScreen extends Screen {
                 }
             }
             this.searchCache = s;
+            this.configEntries.setScrollAmount(0);
         }
     }
 
     private void save() {
-        StringBuilder errors = new StringBuilder(this.file.save(this.configFiles.children()));
+        StringBuilder errors = new StringBuilder(this.file.save(this.configEntries.children()));
         if (errors.isEmpty()) {
             if (this.parent instanceof FileBrowserScreen && this.absolutePath != null) {
                 try {
