@@ -22,8 +22,8 @@ public abstract class MixinOptionsScreen extends Screen {
 
     @Inject(method = "init", at = @At("RETURN"))
     private void addConfigsButton(CallbackInfo ci) {
-        this.addRenderableWidget(new Button(this.width / 2 - 155, this.height / 6 + 144 - 6, 150, 20, new TranslatableComponent("Configurations..."), (p_96268_) -> {
-            this.minecraft.setScreen(new FileBrowserScreen(this, BYG.CONFIG_PATH, new TextComponent("")));
-        }));
+//        this.addRenderableWidget(new Button(this.width / 2 - 155, this.height / 6 + 144 - 6, 150, 20, new TranslatableComponent("Configurations..."), (p_96268_) -> {
+//            this.minecraft.setScreen(new FileBrowserScreen(this, BYG.CONFIG_PATH, new TextComponent("")));
+//        }));
     }
 }
