@@ -23,26 +23,29 @@ import java.util.function.BiFunction;
 
 public class ConfigEditScreen extends Screen {
 
+
     private final Screen parent;
     private final ConfigEntriesSerializer<?> file;
     private final String shownPath;
     @Nullable
     private final Path absolutePath;
+    private final boolean reloadsOnSave;
     private ConfigMap<?> configFiles;
     private String searchCache = "";
     private EditBox searchBox;
     private final Set<ConfigEditEntry<?>> hidden = new ObjectOpenHashSet<>();
 
     public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath) {
-        this(parent, element, relativizedPath, null);
+        this(parent, element, relativizedPath, null, false);
     }
 
-    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath) {
+    public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath, boolean reloadsOnSave) {
         super(new TextComponent(String.format("Editing config file: \"%s\"", relativizedPath.toString())));
         this.parent = parent;
         this.file = element;
         this.shownPath = relativizedPath;
         this.absolutePath = filePath;
+        this.reloadsOnSave = reloadsOnSave;
     }
 
     @Override
@@ -144,6 +147,8 @@ public class ConfigEditScreen extends Screen {
             if (this.parent instanceof FileBrowserScreen && this.absolutePath != null) {
                 try {
                     this.file.saveFile(this.absolutePath);
+                    FileBrowserScreen.ON_RELOAD.accept(this.absolutePath);
+
                     this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(this.shownPath)));
                 } catch (Exception e) {
                     errors.append(e.getMessage());

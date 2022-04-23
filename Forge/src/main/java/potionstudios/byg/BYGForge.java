@@ -32,6 +32,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -165,6 +166,7 @@ public class BYGForge {
     private void clientLoad(FMLClientSetupEvent event) {
         BYG.clientLoad();
         BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+        BYGForgeClient.client();
     }
 
     @NotNull

@@ -3,27 +3,38 @@ package potionstudios.byg.client.config.filebrowser;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.util.FastColor;
 import potionstudios.byg.client.config.configeditor.ConfigEditScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 import potionstudios.byg.mixin.access.client.ScreenAccess;
+import potionstudios.byg.util.BYGUtil;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
+    private static final TextComponent RELOADS_ON_SAVE = new TextComponent("Reloads on save");
+    private static final TextComponent DOES_NOT_RELOAD_ON_SAVE = new TextComponent("Does not Reload on save");
 
     private final Button openFileButton;
     private final Button editButton;
+    private final Button reloadButton;
+    private final boolean isReloadable;
+    private boolean overrideDefaultToolTip;
 
-    public FileEntry(Screen parent, String relativizedPath, Path absolutePath) {
+    public FileEntry(boolean isReloadable, Screen parent, String relativizedPath, Path absolutePath, Consumer<Path> onReload) {
         super(parent, relativizedPath, relativizedPath);
-        this.openFileButton = new Button(0, 0, 75, 20, new TranslatableComponent("Open"), (button) -> {
+        this.isReloadable = isReloadable;
+        this.openFileButton = new Button(0, 0, 50, 20, new TranslatableComponent("Open"), (button) -> {
             ((ScreenAccess) parent).byg_invokeOpenLink(absolutePath.toUri());
         }) {
             protected MutableComponent createNarrationMessage() {
@@ -33,15 +44,28 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
 
         ConfigEntriesSerializer<?> serializer = ConfigEntriesSerializer.fromFile(absolutePath);
 
-        this.editButton = new Button(0, 0, 75, 20, new TranslatableComponent("Edit"), (button) -> {
+        this.editButton = new Button(0, 0, 50, 20, new TranslatableComponent("Edit"), (button) -> {
             if (serializer != null) {
-                Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, serializer, relativizedPath, absolutePath));
+                Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, serializer, relativizedPath, absolutePath, isReloadable));
             }
         }) {
             protected MutableComponent createNarrationMessage() {
                 return new TranslatableComponent("narrator.controls.reset", relativizedPath);
             }
         };
+        this.reloadButton = new Button(0, 0, 50, 20, new TranslatableComponent("Reload"), (button) -> {
+            if (isReloadable) {
+                onReload.accept(absolutePath);
+            }
+        }) {
+            protected MutableComponent createNarrationMessage() {
+                return new TranslatableComponent("narrator.controls.reset", relativizedPath);
+            }
+        };
+
+        this.reloadButton.active = isReloadable;
+
+
         if (serializer == null) {
             this.editButton.active = false;
         }
@@ -56,23 +80,49 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
         this.openFileButton.x = this.editButton.x + this.editButton.getWidth() + 10;
         this.openFileButton.y = this.editButton.y;
         this.openFileButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        this.reloadButton.x = this.openFileButton.x + this.openFileButton.getWidth() + 10;
+        this.reloadButton.y = this.openFileButton.y;
+        this.reloadButton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
 
-        this.renderToolTip = pIsMouseOver;
+        int minX = pLeft - 15;
+        int maxX = pLeft - 5;
+        int minY = pTop;
+        int maxY = pTop + pHeight;
+        this.overrideDefaultToolTip = BYGUtil.isInside(minX, minY, maxX, maxY, pMouseX, pMouseY);
+        if (this.overrideDefaultToolTip) {
+            if (this.toolTip.get(0) != RELOADS_ON_SAVE) {
+                this.toolTip.clear();
+                this.toolTip.add(this.isReloadable ? RELOADS_ON_SAVE : DOES_NOT_RELOAD_ON_SAVE);
+            }
+            this.renderToolTip = true;
+        } else {
+            this.renderToolTip = pIsMouseOver;
+        }
+        GuiComponent.fill(pPoseStack, minX, minY, maxX, maxY, this.isReloadable ? FastColor.ARGB32.color(255, 0, 255, 0) : FastColor.ARGB32.color(255, 255, 0, 0));
+    }
+
+    @Override
+    public boolean toolTipCacheReload(int pWidth, boolean pIsMouseOver) {
+        if (this.overrideDefaultToolTip) {
+            return false;
+        } else {
+            return super.toolTipCacheReload(pWidth, pIsMouseOver);
+        }
     }
 
     @Override
     public List<? extends NarratableEntry> narratables() {
-        return ImmutableList.of(this.openFileButton, this.editButton);
+        return ImmutableList.of(this.openFileButton, this.editButton, this.reloadButton);
     }
 
     @Override
     public List<? extends GuiEventListener> children() {
-        return ImmutableList.of(this.openFileButton, this.editButton);
+        return ImmutableList.of(this.openFileButton, this.editButton, this.reloadButton);
     }
 
     @Override
     public int getRowLength() {
-        return super.getRowLength() + 20 + this.openFileButton.getWidth() + this.openFileButton.getWidth() + 10;
+        return super.getRowLength() + 20 + this.openFileButton.getWidth() + 10 + this.openFileButton.getWidth() + 10 + this.reloadButton.getWidth();
     }
 
     @Override

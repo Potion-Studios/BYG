@@ -46,37 +46,38 @@ public abstract class KeyCommentToolTipEntry<T> extends ContainerObjectSelection
 
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
-        makeAndCacheConfigCommentToolTip(pWidth);
+        boolean reloadsCache = toolTipCacheReload(pWidth, pIsMouseOver);
+        if (reloadsCache) {
+            makeAndCacheConfigCommentToolTip(pWidth);
+        }
         Minecraft.getInstance().font.draw(pPoseStack, this.key, this.keyScreenPosition.x, this.keyScreenPosition.y, 16777215);
     }
 
+    public boolean toolTipCacheReload(int pWidth, boolean pIsMouseOver) {
+        return pIsMouseOver || this.comment.getString().isBlank() || cachedWidth != pWidth;
+    }
+
     private void makeAndCacheConfigCommentToolTip(int pWidth) {
-        String commentString = this.comment.getString();
-        if (commentString.isEmpty()) {
-            return;
-        }
-        if (cachedWidth != pWidth) {
-            toolTip.clear();
-            for (String lines : commentString.split("\n")) {
-                StringBuilder comment = new StringBuilder();
-                for (String word : lines.split("\s")) {
-                    if (word.isBlank() && !lines.isBlank()) {
-                        continue;
-                    }
-                    word = word.trim();
-                    if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
-                        comment.append(word).append(" ");
-                    } else {
-                        toolTip.add(new TextComponent(comment.toString()));
-                        comment = new StringBuilder(word).append(" ");
-                    }
+        toolTip.clear();
+        for (String lines : this.comment.getString().split("\n")) {
+            StringBuilder comment = new StringBuilder();
+            for (String word : lines.split("\s")) {
+                if (word.isBlank() && !lines.isBlank()) {
+                    continue;
                 }
-                if (!comment.isEmpty()) {
+                word = word.trim();
+                if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
+                    comment.append(word).append(" ");
+                } else {
                     toolTip.add(new TextComponent(comment.toString()));
+                    comment = new StringBuilder(word).append(" ");
                 }
             }
-            cachedWidth = pWidth;
+            if (!comment.isEmpty()) {
+                toolTip.add(new TextComponent(comment.toString()));
+            }
         }
+        cachedWidth = pWidth;
     }
 
     public void tick() {

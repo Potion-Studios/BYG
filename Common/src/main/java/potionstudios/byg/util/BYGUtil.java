@@ -166,4 +166,8 @@ public class BYGUtil {
         from.forEach((key, oldValue) -> result.put(key, newValueType.apply(oldValue)));
         return result;
     }
+
+    public static boolean isInside(int minX, int minY, int maxX, int maxY, int x, int y) {
+        return x >= minX && x <= maxX && y >= minY && y <= maxY;
+    }
 }

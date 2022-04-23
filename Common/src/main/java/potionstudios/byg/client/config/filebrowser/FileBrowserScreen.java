@@ -15,7 +15,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class FileBrowserScreen extends Screen {
@@ -28,6 +30,9 @@ public class FileBrowserScreen extends Screen {
         }
         return new ArrayList<>();
     };
+
+    public static Predicate<Path> RELOADS_ON_SAVE = path -> false;
+    public static Consumer<Path> ON_RELOAD = path -> {};
 
     private final Screen parent;
     private final Path configDir;
@@ -75,7 +80,7 @@ public class FileBrowserScreen extends Screen {
         int maxCommentWidth = this.configFiles.getRowWidth();
         for (Path path : CONFIG_FILES.apply(this.configDir)) {
             String relativizedPath = this.configDir.getParent().relativize(path).toString();
-            FileEntry<?> fileEntry = new FileEntry<>(this, relativizedPath, path);
+            FileEntry<?> fileEntry = new FileEntry<>(RELOADS_ON_SAVE.test(path), this, relativizedPath, path, ON_RELOAD);
             maxCommentWidth = Math.max(maxCommentWidth, fileEntry.getRowLength());
             this.configFiles.addEntry(fileEntry);
         }
