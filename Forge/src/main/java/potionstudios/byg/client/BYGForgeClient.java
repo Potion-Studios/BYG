@@ -2,8 +2,10 @@ package potionstudios.byg.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.toasts.SystemToast;
+import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.fml.config.ConfigTracker;
+import net.minecraftforge.fml.config.IConfigEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLPaths;
 import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
@@ -23,12 +25,32 @@ public class BYGForgeClient {
             Path configDir = FMLPaths.CONFIGDIR.get();
             Path relativized = configDir.relativize(path);
 
-            ConfigTracker.INSTANCE.fileMap().values().stream().filter(modConfig -> FILTER.test(relativized, modConfig)).findAny().ifPresentOrElse(modConfig -> {
-                Minecraft.getInstance().getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent(String.format("Reloaded %s Config File: ", modConfig.getType().toString())), new TextComponent(relativized.toString())));
-            }, () -> {
-                Minecraft.getInstance().getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Config file reloading failed for:"), new TextComponent(relativized.toString())));
+            ToastComponent toasts = Minecraft.getInstance().getToasts();
+            ConfigTracker.INSTANCE.fileMap().values().stream().filter(modConfig -> FILTER.test(relativized, modConfig)).findAny()
+                .ifPresentOrElse(
+                    modConfig -> {
+                        try {
+                            IConfigEvent.reloading(modConfig);
+                            toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
+                                SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
+                                new TextComponent(String.format("Reloaded %s Config File: ", modConfig.getType().toString())),
+                                new TextComponent(relativized.toString()))
+                            );
+                        } catch (Exception e) {
+                            toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
+                                SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
+                                new TextComponent(String.format("Reloaded %s Config File FAILED: ", modConfig.getType().toString())),
+                                new TextComponent(relativized.toString() + ": " + e.getMessage()))
+                            );
+                        }
 
-            });
+                    },
+                    () -> toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
+                        SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
+                        new TextComponent("Config file reloading failed for:"),
+                        new TextComponent(relativized.toString()))
+                    )
+                );
 
         };
         FileBrowserScreen.RELOADS_ON_SAVE = fileAbsolutePath -> {
