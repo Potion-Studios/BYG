@@ -147,8 +147,9 @@ public class ConfigEditScreen extends Screen {
             if (this.parent instanceof FileBrowserScreen && this.absolutePath != null) {
                 try {
                     this.file.saveFile(this.absolutePath);
-                    FileBrowserScreen.ON_RELOAD.accept(this.absolutePath);
-
+                    if (this.reloadsOnSave) {
+                        FileBrowserScreen.ON_RELOAD.accept(this.absolutePath);
+                    }
                     this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(this.shownPath)));
                 } catch (Exception e) {
                     errors.append(e.getMessage());

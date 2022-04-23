@@ -32,7 +32,8 @@ public class FileBrowserScreen extends Screen {
     };
 
     public static Predicate<Path> RELOADS_ON_SAVE = path -> false;
-    public static Consumer<Path> ON_RELOAD = path -> {};
+    public static Consumer<Path> ON_RELOAD = path -> {
+    };
 
     private final Screen parent;
     private final Path configDir;
@@ -75,6 +76,7 @@ public class FileBrowserScreen extends Screen {
                     }
                 }
                 this.searchCache = s;
+                this.configFiles.setScrollAmount(0);
             }
         });
         int maxCommentWidth = this.configFiles.getRowWidth();
@@ -112,7 +114,7 @@ public class FileBrowserScreen extends Screen {
 
     @Override
     public void onClose() {
-       this.minecraft.setScreen(this.parent);
+        this.minecraft.setScreen(this.parent);
     }
 
     public static class ConfigMap<T> extends ContainerObjectSelectionList<KeyCommentToolTipEntry<T>> {

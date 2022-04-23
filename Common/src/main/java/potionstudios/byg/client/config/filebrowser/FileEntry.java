@@ -24,12 +24,14 @@ import java.util.function.Consumer;
 public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
     private static final TextComponent RELOADS_ON_SAVE = new TextComponent("Reloads on save");
     private static final TextComponent DOES_NOT_RELOAD_ON_SAVE = new TextComponent("Does not Reload on save");
+    private static final TextComponent RELOAD = new TextComponent("Reload");
 
     private final Button openFileButton;
     private final Button editButton;
     private final Button reloadButton;
     private final boolean isReloadable;
     private boolean overrideDefaultToolTip;
+    private int lastReload = -1;
 
     public FileEntry(boolean isReloadable, Screen parent, String relativizedPath, Path absolutePath, Consumer<Path> onReload) {
         super(parent, relativizedPath, relativizedPath);
@@ -53,10 +55,13 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
                 return new TranslatableComponent("narrator.controls.reset", relativizedPath);
             }
         };
-        this.reloadButton = new Button(0, 0, 50, 20, new TranslatableComponent("Reload"), (button) -> {
+        TranslatableComponent reload = new TranslatableComponent("Reload");
+        this.reloadButton = new Button(0, 0, 50, 20, reload, (button) -> {
             if (isReloadable) {
                 onReload.accept(absolutePath);
             }
+            this.lastReload = 60;
+            button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
                 return new TranslatableComponent("narrator.controls.reset", relativizedPath);
@@ -128,5 +133,17 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
     @Override
     public boolean mouseClicked(double $$0, double $$1, int $$2) {
         return super.mouseClicked($$0, $$1, $$2);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (lastReload > 0) {
+            this.lastReload--;
+            this.reloadButton.setMessage(new TextComponent(Integer.toString((lastReload / 20) + 1)));
+        } else if (lastReload == 0) {
+            this.reloadButton.setMessage(RELOAD);
+            this.reloadButton.active = true;
+        }
     }
 }
