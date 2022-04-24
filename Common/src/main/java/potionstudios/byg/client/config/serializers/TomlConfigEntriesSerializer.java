@@ -130,6 +130,16 @@ public class TomlConfigEntriesSerializer implements ConfigEntriesSerializer<Comm
     }
 
     @Override
+    public ConfigEntriesSerializer<CommentedConfig> makeMap(String shownPath) {
+        return new TomlConfigEntriesSerializer(CommentedConfig.inMemory(), shownPath);
+    }
+
+    @Override
+    public ConfigEntriesSerializer<CommentedConfig> makeList(String shownPath) {
+        return new TomlConfigEntriesSerializer(new ArrayList<>(), shownPath);
+    }
+
+    @Override
     public String path() {
         return this.path;
     }

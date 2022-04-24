@@ -52,6 +52,16 @@ public class XMLPropertiesConfigEntriesSerializer implements ConfigEntriesSerial
     }
 
     @Override
+    public ConfigEntriesSerializer<Properties> makeMap(String shownPath) {
+        return null;
+    }
+
+    @Override
+    public ConfigEntriesSerializer<Properties> makeList(String shownPath) {
+        return null;
+    }
+
+    @Override
     public String save(List<? extends ConfigEditEntry<?>> entries) {
         StringBuilder errors = new StringBuilder();
         for (ConfigEditEntry<?> entry : entries) {

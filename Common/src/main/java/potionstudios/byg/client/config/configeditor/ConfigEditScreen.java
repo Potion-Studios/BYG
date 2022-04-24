@@ -62,7 +62,7 @@ public class ConfigEditScreen extends Screen {
             this.configEntries.addEntry(entry);
             maxCommentWidth = Math.max(maxCommentWidth, entry.getRowWidth());
         }
-//        addConfigEntryButton();
+        addConfigEntryButton();
 
         this.configEntries.rowWidth = maxCommentWidth;
         int searchWidth = 250;
@@ -100,6 +100,12 @@ public class ConfigEditScreen extends Screen {
 
     private void addConfigEntryButton() {
         BiFunction<String, String, ConfigEditEntry<?>> makeEntry = (key, value) -> {
+            String shownPath = this.file.path() + "." + key;
+            if (value.equalsIgnoreCase("list")) {
+                return new ConfigCollectionEntry(this, key, this.file.makeList(shownPath), new TextComponent(""));
+            } else if (value.equalsIgnoreCase("map")) {
+                return new ConfigCollectionEntry(this, key, this.file.makeMap(shownPath), new TextComponent(""));
+            }
             Object value1;
             try {
                 if (value.contains(".")) {
@@ -117,7 +123,7 @@ public class ConfigEditScreen extends Screen {
             }
             return ConfigEntriesSerializer.makePrimitiveEntry(key, value1, this);
         };
-        AddConfigEditEntryEntry addConfigEditEntryEntry = new AddConfigEditEntryEntry(this, this.configEntries, this.configEntries.children().size(), makeEntry, "");
+        AddConfigEditEntryEntry addConfigEditEntryEntry = new AddConfigEditEntryEntry(this, this.configEntries, makeEntry, "");
         this.configEntries.addEntry(addConfigEditEntryEntry);
     }
 

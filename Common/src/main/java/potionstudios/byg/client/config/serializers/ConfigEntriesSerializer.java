@@ -54,6 +54,11 @@ public interface ConfigEntriesSerializer<T> {
         return null;
     }
 
+    ConfigEntriesSerializer<T> makeMap(String shownPath);
+
+    ConfigEntriesSerializer<T> makeList(String shownPath);
+
+
     @Nullable
     static ConfigPrimitiveEntry<?> makePrimitiveEntry(String key, Object value, Screen parent) {
         return makePrimitiveEntry(key, value, parent, "");
