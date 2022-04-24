@@ -315,6 +315,10 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.YELLOW_TULIP, RenderType.cutoutMipped());
 
         //Other renders
+        map.put(BYGBlocks.BARREL_CACTUS, RenderType.cutoutMipped());
+        map.put(BYGBlocks.FLOWERING_BARREL_CACTUS, RenderType.cutoutMipped());
+        map.put(BYGBlocks.CARVED_BARREL_CACTUS, RenderType.cutoutMipped());
+        map.put(BYGBlocks.WATER_BARREL_CACTUS, RenderType.cutoutMipped());
         map.put(BYGBlocks.AMETRINE_CLUSTER, RenderType.cutoutMipped());
         map.put(BYGBlocks.BORIC_FIRE, RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_FIRE, RenderType.cutoutMipped());

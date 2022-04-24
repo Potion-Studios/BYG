@@ -80,7 +80,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.EMBUR_HYPHAE, BYGBlocks.STRIPPED_EMBUR_HYPHAE);
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE, BYGBlocks.IMPARIUS_HYPHAE);
 
-
         AxeItemAccess.byg_setStripables(stripables);
         BYG.LOGGER.info("BYG: Added strippable Blocks...");
 

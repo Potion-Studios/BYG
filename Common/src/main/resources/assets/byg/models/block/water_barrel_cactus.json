@@ -1,0 +1,190 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "minecraft:block/cactus_bottom",
+		"1": "minecraft:block/cactus_side",
+		"3": "byg:block/cactus_inside_bottom",
+		"4": "byg:block/cactus_inside",
+		"5": "byg:block/cactus_spike_overlay",
+		"6": "minecraft:block/water_still",
+		"particle": "minecraft:block/cactus_bottom"
+	},
+	"elements": [
+		{
+			"name": "Contents",
+			"from": [1, 1, 1],
+			"to": [15, 14, 15],
+			"faces": {
+				"north": {"uv": [0, 0, 14, 13], "texture": "#6", "tintindex": 0},
+				"east": {"uv": [0, 0, 14, 13], "texture": "#6","tintindex": 0},
+				"south": {"uv": [0, 0, 14, 13], "texture": "#6","tintindex": 0},
+				"west": {"uv": [0, 0, 14, 13], "texture": "#6","tintindex": 0},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#6","tintindex": 0},
+				"down": {"uv": [0, 0, 14, 14], "texture": "#6","tintindex": 0}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_Base",
+			"from": [1, 0, 1],
+			"to": [15, 1, 15],
+			"faces": {
+				"north": {"uv": [1, 1, 15, 2], "texture": "#0"},
+				"east": {"uv": [1, 14, 15, 15], "texture": "#0"},
+				"south": {"uv": [1, 1, 2, 15], "texture": "#0"},
+				"west": {"uv": [14, 1, 15, 15], "texture": "#0"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#3"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_SpikeNorthFace",
+			"from": [0, 1, -0.1],
+			"to": [16, 16, -0.1],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#5"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_SpikeSouthFace",
+			"from": [0, 1, 16.1],
+			"to": [16, 16, 16.1],
+			"faces": {
+				"north": {"uv": [16, 0, 0, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#5"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_SpikeWestFace",
+			"from": [-0.1, 1, 0],
+			"to": [-0.1, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [16, 0, 0, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#5"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_SpikeEastFace",
+			"from": [16.1, 1, 0],
+			"to": [16.1, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#5"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_EastFace",
+			"from": [15, 1, 1],
+			"to": [16, 16, 15],
+			"faces": {
+				"north": {"uv": [1, 0, 2, 15], "texture": "#1"},
+				"east": {"uv": [1, 0, 15, 16], "texture": "#1"},
+				"south": {"uv": [14, 0, 15, 16], "texture": "#1"},
+				"west": {"uv": [1, 0, 15, 16], "texture": "#4"},
+				"up": {"uv": [1, 0, 2, 16], "texture": "#1"},
+				"down": {"uv": [14, 0, 15, 16], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_WestFace",
+			"from": [0, 1, 1],
+			"to": [1, 16, 15],
+			"faces": {
+				"north": {"uv": [5, 0, 6, 15], "texture": "#1"},
+				"east": {"uv": [1, 0, 15, 16], "texture": "#4"},
+				"south": {"uv": [1, 0, 2, 15], "texture": "#1"},
+				"west": {"uv": [1, 0, 15, 16], "texture": "#1"},
+				"up": {"uv": [10, 1, 11, 15], "texture": "#1"},
+				"down": {"uv": [14, 2, 15, 16], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_SouthFace",
+			"from": [1, 1, 15],
+			"to": [15, 16, 16],
+			"faces": {
+				"north": {"uv": [1, 0, 15, 16], "texture": "#4"},
+				"east": {"uv": [1, 0, 2, 15], "texture": "#1"},
+				"south": {"uv": [1, 0, 15, 16], "texture": "#1"},
+				"west": {"uv": [10, 0, 11, 15], "texture": "#1"},
+				"up": {"uv": [1, 0, 15, 1], "texture": "#1"},
+				"down": {"uv": [1, 0, 15, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Barrel_Cactus_NorthFace",
+			"from": [1, 1, 0],
+			"to": [15, 16, 1],
+			"faces": {
+				"north": {"uv": [1, 0, 15, 16], "texture": "#1"},
+				"east": {"uv": [1, 0, 2, 16], "texture": "#1"},
+				"south": {"uv": [1, 0, 15, 16], "texture": "#4"},
+				"west": {"uv": [14, 0, 15, 16], "texture": "#1"},
+				"up": {"uv": [1, 0, 15, 1], "texture": "#1"},
+				"down": {"uv": [1, 0, 15, 1], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, -135, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, -135, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		0,
+		1,
+		{
+			"name": "SpikeOverlays",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [2, 3, 4, 5]
+		},
+		{
+			"name": "CactusSides",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [6, 7, 8, 9]
+		}
+	]
+}

@@ -1112,6 +1112,10 @@ public class BYGBlocks {
     public static final Block AMARANTH = new BYGBlockProperties.BYGAmaranth("amaranth");
     public static final Block ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final Block ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
+    public static final Block BARREL_CACTUS = createBarrelCactus("barrel_cactus");
+    public static final Block FLOWERING_BARREL_CACTUS = createBarrelCactus("flowering_barrel_cactus");
+    public static final Block CARVED_BARREL_CACTUS = createCarvedBarrelCactus("carved_barrel_cactus");
+    public static final Block WATER_BARREL_CACTUS = createWaterBarrelCactus("water_barrel_cactus");
     public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
     public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
     public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
@@ -1648,6 +1652,24 @@ public class BYGBlocks {
 
     static Block createNetherOre(SoundType sound, MaterialColor color, String id, UniformInt xpRange) {
         Block createBlock = new OreBlock(BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange);
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createBarrelCactus(String id) {
+        Block createBlock = new AbstractBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createCarvedBarrelCactus(String id) {
+        Block createBlock = new CarvedBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+
+    static Block createWaterBarrelCactus(String id) {
+        Block createBlock = new WaterBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f));
         createBlock(createBlock, id);
         return createBlock;
     }
