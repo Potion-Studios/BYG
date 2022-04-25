@@ -6,6 +6,7 @@
   ],
   "client": [
     "client.MixinBlockColors",
+    "client.MixinEntityRenderers",
     "client.MixinItemColors"
   ],
   "injectors": {

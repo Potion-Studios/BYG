@@ -17,7 +17,7 @@ import java.util.Map;
 public class BYGForgeEventsHandler {
 
     @SubscribeEvent
-    public static void appendBYGVillagerTrades(VillagerTradesEvent event) {
+    public static void byg_appendBYGVillagerTrades(VillagerTradesEvent event) {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
             Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
@@ -29,7 +29,7 @@ public class BYGForgeEventsHandler {
     }
 
     @SubscribeEvent
-    public static void appendBYGWanderingTraderTrades(WandererTradesEvent event) {
+    public static void byg_appendBYGWanderingTraderTrades(WandererTradesEvent event) {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         Int2ObjectMap<VillagerTrades.ItemListing[]> wanderingTraderTrades = tradesConfig.wanderingTraderTrades();
         if (tradesConfig.enabled()) {

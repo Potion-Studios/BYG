@@ -9,10 +9,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.common.entity.BYGEntities;
-import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
+import potionstudios.byg.client.BYGEntityRenderers;
 
-@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(EntityRenderers.class)
 public abstract class MixinEntityRenderers {
 
@@ -23,6 +21,6 @@ public abstract class MixinEntityRenderers {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void registerBYGRenderers(CallbackInfo ci) {
-        register(BYGEntities.BOAT, BYGBoatRenderer::new);
+        BYGEntityRenderers.register(MixinEntityRenderers::register);
     }
 }

@@ -104,7 +104,6 @@
     "access.client.KeyMappingAccess",
     "access.client.ScreenAccess",
     "client.MixinDebugOverlayGui",
-    "client.MixinEntityRenderers",
     "client.MixinInventoryScreen",
     "client.MixinLayerDefinitions",
     "client.MixinOptionsScreen",
