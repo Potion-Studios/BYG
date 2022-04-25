@@ -56,11 +56,8 @@ public class BiomepediaScreen extends Screen {
 
         int buttonWidth = this.imageWidth / 3;
         int buttonHeight = 20;
-        Button blocks = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Blocks"), button -> {
-
-        });
-        Button items = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Items"), button -> {
-
+        Button blocksAndItems = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Blocks & items"), button -> {
+            this.minecraft.setScreen(new ItemViewsScreen(new TextComponent("")));
         });
 
         Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Biomes"), button -> {
@@ -74,7 +71,7 @@ public class BiomepediaScreen extends Screen {
 
         Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Donate"), consumeLink(PATREON_URL));
 
-        List<AbstractWidget> buttons = ImmutableList.of(biomes, blocks, items, ores, issueReports, donate);
+        List<AbstractWidget> buttons = ImmutableList.of(biomes, blocksAndItems, ores, issueReports, donate);
 
         int listRenderedHeight = this.imageHeight + this.bottomPos;
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
