@@ -270,7 +270,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addBayouVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addCattails(generationSettings);
+        BYGDefaultBiomeFeatures.addLushCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
 
@@ -609,7 +609,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addCypressTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addCattails(generationSettings);
+        BYGDefaultBiomeFeatures.addLushCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
@@ -687,6 +687,30 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.EXTREME_HILLS).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+    }
+
+    public static Biome atacamaDesert() {
+        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeDefaultFeatures.addFossilDecoration(generationSettings);
+        byg_invokeGlobalOverworldGeneration(generationSettings);
+
+        BiomeDefaultFeatures.addDefaultOres(generationSettings);
+        BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
+        BiomeDefaultFeatures.addDesertVegetation(generationSettings);
+        BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
+        BiomeDefaultFeatures.addDesertExtraVegetation(generationSettings);
+        BiomeDefaultFeatures.addDesertExtraDecoration(generationSettings);
+
+        BYGDefaultBiomeFeatures.addPaloVerdeTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGAtacamaDesertVegetation(generationSettings);
+        BYGDefaultBiomeFeatures.addCattails(generationSettings);
+        BYGDefaultBiomeFeatures.addShrub(generationSettings);
+        BYGDefaultBiomeFeatures.addAnemones(generationSettings);
+        BYGDefaultBiomeFeatures.addSages(generationSettings);
+        BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
+
+        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).biomeCategory(Biome.BiomeCategory.DESERT).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome windsweptDunes() {
@@ -994,7 +1018,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addMangroveTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addCattails(generationSettings);
+        BYGDefaultBiomeFeatures.addLushCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
 

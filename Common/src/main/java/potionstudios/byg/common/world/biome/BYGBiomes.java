@@ -31,6 +31,7 @@ public class BYGBiomes {
     public static ResourceKey<Biome> AMARANTH_FIELDS = createBiome("amaranth_fields", amaranthFields());
     public static ResourceKey<Biome> ARAUCARIA_SAVANNA = createBiome("araucaria_savanna", araucariaSavanna(false));
     public static ResourceKey<Biome> ASPEN_FOREST = createBiome("aspen_forest", aspenForest());
+    public static ResourceKey<Biome> ATACAMA_DESERT = createBiome("atacama_desert", atacamaDesert());
     public static ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", autumnalValley());
     public static ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", baobabSavanna());
     public static ResourceKey<Biome> BAYOU = createBiome("bayou", bayou());

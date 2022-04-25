@@ -234,6 +234,8 @@ public class BYGItems {
 
     public static final Item WINDSWEPT_SANDSTONE_PILLAR = createItem(BYGBlocks.WINDSWEPT_SANDSTONE_PILLAR);
 
+    public static final Item CRACKED_RED_SAND = createItem(BYGBlocks.CRACKED_RED_SAND);
+
     //Aspen Woodtype
     public static final Item ASPEN_SAPLING = createSaplingItem(BYGBlocks.ASPEN_SAPLING);
     public static final Item ASPEN_LEAVES = createItem(BYGBlocks.ASPEN_LEAVES);
@@ -1167,6 +1169,8 @@ public class BYGItems {
     public static final Item ALOE_VERA_JUICE = createItem(new HoneyBottleItem(new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.0F).build())), "aloe_vera_juice");
     public static final Item ALOE_VERA = createItem(BYGBlocks.ALOE_VERA);
     public static final Item BARREL_CACTUS = createItem(BYGBlocks.BARREL_CACTUS);
+    public static final Item FLOWERING_BARREL_CACTUS = createItem(BYGBlocks.FLOWERING_BARREL_CACTUS);
+    public static final Item CARVED_BARREL_CACTUS = createItem(BYGBlocks.CARVED_BARREL_CACTUS);
     public static final Item GOLDEN_SPINED_CACTUS = createItem(BYGBlocks.GOLDEN_SPINED_CACTUS);
     public static final Item HORSEWEED = createItem(BYGBlocks.HORSEWEED);
     public static final Item MINI_CACTUS = createItem(BYGBlocks.MINI_CACTUS);

@@ -797,6 +797,8 @@ public class BYGBlocks {
     public static final Block PLANT_STEM = createLog("plant_stem");
     public static final Block POLLEN_BLOCK = new BYGBlockProperties.BYGPollen("pollen_block");
 
+    public static final Block CRACKED_RED_SAND = createSand(MaterialColor.COLOR_ORANGE, 11098145, "cracked_red_sand");
+
     public static final Block BLACK_SAND = createSand(MaterialColor.TERRACOTTA_BLACK, 5197647, "black_sand");
     public static final Block BLACK_SANDSTONE = new BYGBlockProperties.BYGStone("black_sandstone");
     public static final Block BLACK_CHISELED_SANDSTONE = new BYGBlockProperties.BYGStone("black_chiseled_sandstone");

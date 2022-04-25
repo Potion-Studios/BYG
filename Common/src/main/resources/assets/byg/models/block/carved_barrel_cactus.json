@@ -24,8 +24,8 @@
 		},
 		{
 			"name": "Barrel_Cactus_SpikeNorthFace",
-			"from": [0, 1, 0],
-			"to": [16, 16, 0],
+			"from": [0, 1, -0.1],
+			"to": [16, 16, -0.1],
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
@@ -37,8 +37,8 @@
 		},
 		{
 			"name": "Barrel_Cactus_SpikeSouthFace",
-			"from": [0, 1, 16],
-			"to": [16, 16, 16],
+			"from": [0, 1, 16.1],
+			"to": [16, 16, 16.1],
 			"faces": {
 				"north": {"uv": [16, 0, 0, 16], "texture": "#5"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},
@@ -50,8 +50,8 @@
 		},
 		{
 			"name": "Barrel_Cactus_SpikeWestFace",
-			"from": [0, 1, 0],
-			"to": [0, 16, 16],
+			"from": [-0.1, 1, 0],
+			"to": [-0.1, 16, 16],
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
 				"east": {"uv": [16, 0, 0, 16], "texture": "#5"},
@@ -63,8 +63,8 @@
 		},
 		{
 			"name": "Barrel_Cactus_SpikeEastFace",
-			"from": [16, 1, 0],
-			"to": [16, 16, 16],
+			"from": [16.1, 1, 0],
+			"to": [16.1, 16, 16],
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#5"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#5"},

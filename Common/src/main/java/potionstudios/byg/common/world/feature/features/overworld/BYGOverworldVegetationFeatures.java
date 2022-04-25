@@ -31,8 +31,10 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> AMARANTH_PURPLE = createFlowerConfiguredFeature("purple_amaranth", BYGBlocks.PURPLE_AMARANTH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> AMARANTH_CYAN = createFlowerConfiguredFeature("cyan_amaranth", BYGBlocks.CYAN_AMARANTH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FIRECRACKER_BUSH = createFlowerConfiguredFeature("firecracker_bush", BYGBlocks.FIRECRACKER_FLOWER_BUSH);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SHRUB = createFlowerConfiguredFeature("shrub", BYGBlocks.SHRUB);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SHRUB = createPatchConfiguredFeature("shrub", BYGBlocks.SHRUB, 4);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> MINI_CACTI = createPatchConfiguredFeature("mini_cacti", BYGBlocks.MINI_CACTUS, 4);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BARREL_CACTI = createPatchConfiguredFeature("barrel_cacti", BYGBlocks.BARREL_CACTUS, 4);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FLOWERING_BARREL_CACTI = createPatchConfiguredFeature("flowering_barrel_cacti", BYGBlocks.FLOWERING_BARREL_CACTUS, 4);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CLOVER_PATCH = createFlowerConfiguredFeature("clover_patch", BYGBlocks.CLOVER_PATCH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FLOWER_PATCH = createFlowerConfiguredFeature("flower_patch", BYGBlocks.FLOWER_PATCH);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CALIFORNIA_POPPY = createFlowerConfiguredFeature("california_poppy", BYGBlocks.CALIFORNIA_POPPY);
@@ -143,6 +145,17 @@ public class BYGOverworldVegetationFeatures {
             new WeightedPlacedFeature(createPlacedFeature(ALOE_VERA), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(FIRECRACKER_BUSH), 0.1F)),
             createPlacedFeature(GOLDEN_SPINED_CACTI))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DESERT_VEGETATION_ATACAMA = createConfiguredFeature("desert_vegetation_atacama",
+            Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(MINI_CACTI), 0.15F),
+                    new WeightedPlacedFeature(createPlacedFeature(PRICKLY_PEAR_CACTI), 0.15F),
+                    new WeightedPlacedFeature(createPlacedFeature(ALOE_VERA), 0.2F),
+                    new WeightedPlacedFeature(createPlacedFeature(FLOWERING_BARREL_CACTI), 0.15F),
+                    new WeightedPlacedFeature(createPlacedFeature(BARREL_CACTI), 0.15F)),
+                    createPlacedFeature(GOLDEN_SPINED_CACTI))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PRAIRIE_GRASS = createConfiguredFeature("prairie_grass",

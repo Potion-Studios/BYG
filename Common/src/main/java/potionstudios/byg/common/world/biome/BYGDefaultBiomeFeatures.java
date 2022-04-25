@@ -52,6 +52,9 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LUSH_DESERT_VEGETATION);
     }
 
+    public static void addBYGAtacamaDesertVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.DESERT_VEGETATION_ATACAMA);
+    }
 
     public static void addFirecracker(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FIRECRACKER_BUSH);
@@ -272,6 +275,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addCattails(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CATTAIL);
+    }
+
+    public static void addLushCattails(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LUSH_CATTAIL);
     }
 
     public static void addReeds(BiomeGenerationSettings.Builder gen) {

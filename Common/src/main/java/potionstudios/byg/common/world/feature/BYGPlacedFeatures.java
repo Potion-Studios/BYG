@@ -74,7 +74,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH, RarityFilter.onAverageOnceEvery(64), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
     public static final Holder<PlacedFeature> BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH, RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
-    public static final Holder<PlacedFeature> CATTAIL = createPlacedFeature("cattails", BYGOverworldVegetationFeatures.CATTAIL, oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2)));
+    public static final Holder<PlacedFeature> CATTAIL = createPlacedFeature("cattails", BYGOverworldVegetationFeatures.CATTAIL, oceanFloorSquaredWithCountAndMaxDepth(10, OptionalInt.of(2)));
+    public static final Holder<PlacedFeature> LUSH_CATTAIL = createPlacedFeature("lush_cattails", BYGOverworldVegetationFeatures.CATTAIL, oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2)));
     public static final Holder<PlacedFeature> LEATHER_FLOWERS = createPlacedFeature("leather_flowers", BYGOverworldVegetationFeatures.LEATHER_FLOWERS, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> LEAF_PILES = createPlacedFeature("leaf_piles", BYGOverworldVegetationFeatures.LEAF_PILE, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> LOLLIPOP_FLOWERS = createPlacedFeature("lollipop_flowers", BYGOverworldVegetationFeatures.LOLLIPOP_FLOWER, worldSurfaceSquaredWithCount(2));
@@ -118,6 +119,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> SAGES = createPlacedFeature("sages", BYGOverworldVegetationFeatures.SAGES, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> HYDRANGEAS = createPlacedFeature("hydrangeas", BYGOverworldVegetationFeatures.HYDRANGEAS, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> DESERT_VEGETATION = createPlacedFeature("desert_vegetation", BYGOverworldVegetationFeatures.DESERT_VEGETATION, worldSurfaceSquaredWithCount(2));
+    public static final Holder<PlacedFeature> DESERT_VEGETATION_ATACAMA = createPlacedFeature("desert_vegetation_atacama", BYGOverworldVegetationFeatures.DESERT_VEGETATION_ATACAMA, worldSurfaceSquaredWithCount(6));
     public static final Holder<PlacedFeature> LUSH_DESERT_VEGETATION = createPlacedFeature("lush_desert_vegetation", BYGOverworldVegetationFeatures.DESERT_VEGETATION, worldSurfaceSquaredWithCount(10));
     public static final Holder<PlacedFeature> PATCH_BEACH_GRASS_NOISE = createPlacedFeature("patch_beach_grass_noise", BYGOverworldVegetationFeatures.BEACH_GRASS, NoiseThresholdCountPlacement.of(-0.45D, 7, 0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
