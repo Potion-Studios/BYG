@@ -10,7 +10,7 @@ public abstract class BookBackgroundWidget extends NestedWidget{
 
 	private static final ResourceLocation BOOK_BACKGROUND = new ResourceLocation("minecraft", "textures/gui/book.png");
 	private static final Quaternion ROT_QUATERNION = Quaternion.fromXYZ(0, 0, (float) Math.toRadians(90));
-	protected static final ResourceLocation BACKGROUND = new ResourceLocation("byg", "textures/gui/biomepedia.png");
+	public static final ResourceLocation BACKGROUND = new ResourceLocation("byg", "textures/gui/biomepedia.png");
 
 
 	public BookBackgroundWidget(int x, int y) {

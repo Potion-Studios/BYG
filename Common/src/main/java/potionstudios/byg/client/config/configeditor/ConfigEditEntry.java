@@ -6,6 +6,8 @@ import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import org.apache.commons.lang3.mutable.MutableInt;
+import potionstudios.byg.client.GuiUtil;
 import potionstudios.byg.client.config.ScreenPosition;
 
 import javax.annotation.Nullable;
@@ -21,7 +23,7 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     private final Component comment;
     protected final ScreenPosition keyScreenPosition = new ScreenPosition();
     public final List<Component> toolTip = new ArrayList<>();
-    private int cachedWidth = 0;
+    private final MutableInt cachedWidth = new MutableInt(0);
     public boolean renderToolTip;
 
     public ConfigEditEntry(Screen parent, String key) {
@@ -46,67 +48,10 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
 
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
-        makeAndCacheConfigCommentWrappedToolTip(pWidth);
+        GuiUtil.makeAndCacheConfigCommentWrappedToolTip(pWidth, this.comment.getString(), this.cachedWidth, this.toolTip);
         Minecraft.getInstance().font.draw(pPoseStack, this.key, this.keyScreenPosition.x, this.keyScreenPosition.y, 16777215);
     }
 
-    private void makeAndCacheConfigCommentWrappedToolTip(int pWidth) {
-        String commentString = this.comment.getString();
-        if (commentString.isEmpty()) {
-            return;
-        }
-        if (cachedWidth != pWidth) {
-            toolTip.clear();
-            for (String lines : commentString.split("\n")) {
-                StringBuilder comment = new StringBuilder();
-                for (String word : lines.split("\s")) {
-                    if (word.isBlank() && !lines.isBlank()) {
-                        continue;
-                    }
-                    word = word.trim();
-                    if (Minecraft.getInstance().font.width(word) > pWidth) {
-                        char[] chars = word.toCharArray();
-                        for (char aChar : chars) {
-                            String character = Character.toString(aChar);
-                            if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
-                                comment.append(character);
-                            } else {
-                                toolTip.add(new TextComponent(comment.toString()));
-                                comment = new StringBuilder(character);
-                            }
-                        }
-                        comment.append(" ");
-                    } else {
-                        if (Minecraft.getInstance().font.width(comment.toString() + word) < pWidth) {
-                            comment.append(word).append(" ");
-                        } else {
-                            toolTip.add(new TextComponent(comment.toString()));
-                            comment = new StringBuilder();
-                            if (Minecraft.getInstance().font.width(word) > pWidth) {
-                                char[] chars = word.toCharArray();
-                                for (char aChar : chars) {
-                                    String character = Character.toString(aChar);
-                                    if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
-                                        comment.append(character);
-                                    } else {
-                                        toolTip.add(new TextComponent(comment.toString()));
-                                        comment = new StringBuilder(character);
-                                    }
-                                }
-                                comment.append(" ");
-                            } else {
-                                comment.append(word).append(" ");
-                            }
-                        }
-                    }
-                }
-                if (!comment.isEmpty()) {
-                    toolTip.add(new TextComponent(comment.toString()));
-                }
-            }
-            cachedWidth = pWidth;
-        }
-    }
 
     @Nullable
     public T getValue() throws Exception {
