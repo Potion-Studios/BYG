@@ -59,7 +59,7 @@ public class WorldGenExportCommand {
         Function<CommandContext<CommandSourceStack>, Boolean> withComments = cs -> ((CommandContext<CommandSourceStack>) cs).getArgument("With comments?", Boolean.class);
         Function<CommandContext<CommandSourceStack>, Boolean> builtin = cs -> ((CommandContext<CommandSourceStack>) cs).getArgument("Generate Built In Registries?", Boolean.class);
 
-        LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString)
+        LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString).requires(stack -> stack.hasPermission(4))
             .executes(cs -> generateWorldGenExport(true, false, cs))
             .then(Commands.argument("With comments?", BoolArgumentType.bool()).executes(cs -> WorldGenExportCommand.generateWorldGenExport(withComments.apply(cs), false, cs))
 
@@ -71,7 +71,7 @@ public class WorldGenExportCommand {
 
     public static int generateWorldGenExport(boolean withComments, boolean builtin, CommandContext<CommandSourceStack> commandSource) {
         CommandSourceStack source = commandSource.getSource();
-        if (!source.getServer().isSingleplayer() && source.getServer().getPlayerCount() > 1) {
+        if (!source.getServer().isSingleplayer() || source.getServer().getPlayerCount() > 1) {
             source.sendFailure(new TranslatableComponent("byg.worldgenexport.singleplayer").withStyle(ChatFormatting.RED));
             return 0;
         }

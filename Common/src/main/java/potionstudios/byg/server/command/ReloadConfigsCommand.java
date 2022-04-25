@@ -22,7 +22,7 @@ public class ReloadConfigsCommand {
 
         String argName = "config";
 
-        return Commands.literal(commandString).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(Arrays.stream(Config.values()).map(Config::toString), sb)).executes(cs -> {
+        return Commands.literal(commandString).requires(stack -> stack.hasPermission(4)).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(Arrays.stream(Config.values()).map(Config::toString), sb)).executes(cs -> {
             try {
                 Config config = Config.valueOf(cs.getArgument(argName, String.class).toUpperCase());
                 config.accept(cs.getSource());
