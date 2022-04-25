@@ -24,7 +24,9 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -33,8 +35,6 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class AbstractBarrelCactusBlock extends Block implements BonemealableBlock {
-    protected static final VoxelShape COLLISION_SHAPE;
-    protected static final VoxelShape OUTLINE_SHAPE;
 
     public AbstractBarrelCactusBlock(Properties $$0) {
         super($$0);
@@ -56,32 +56,25 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
         serverLevel.neighborChanged(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS, blockPos);
     }
 
-    public InteractionResult use(@NotNull BlockState $$0, @NotNull Level $$1, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {
+    public InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {
         ItemStack $$6 = $$3.getItemInHand($$4);
         if ($$6.is(Items.SHEARS)) {
-            if (!$$1.isClientSide) {
-                $$1.playSound(null, $$2, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                $$1.setBlock($$2, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState(), 11);
+            if (!world.isClientSide) {
+                world.playSound(null, $$2, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                world.setBlock($$2, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState(), 11);
                 $$6.hurtAndBreak(1, $$3, ($$1x) -> {
                     $$1x.broadcastBreakEvent($$4);
                 });
-                $$1.gameEvent($$3, GameEvent.SHEAR, $$2);
+                world.gameEvent($$3, GameEvent.SHEAR, $$2);
                 $$3.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
             }
 
-            return InteractionResult.sidedSuccess($$1.isClientSide);
+            return InteractionResult.sidedSuccess(world.isClientSide);
         } else {
-            return super.use($$0, $$1, $$2, $$3, $$4, $$5);
+            return super.use(state, world, $$2, $$3, $$4, $$5);
         }
     }
 
-    public VoxelShape getCollisionShape(BlockState $$0, BlockGetter $$1, BlockPos $$2, CollisionContext $$3) {
-        return COLLISION_SHAPE;
-    }
-
-    public VoxelShape getShape(BlockState $$0, BlockGetter $$1, BlockPos $$2, CollisionContext $$3) {
-        return OUTLINE_SHAPE;
-    }
 
     public boolean canSurvive(BlockState $$0, LevelReader $$1, BlockPos $$2) {
         BlockState $$6 = $$1.getBlockState($$2.below());
@@ -93,7 +86,5 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     }
 
     static {
-        COLLISION_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 15.0D, 15.0D);
-        OUTLINE_SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     }
 }

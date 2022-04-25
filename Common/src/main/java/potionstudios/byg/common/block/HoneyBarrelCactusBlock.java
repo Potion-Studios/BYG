@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
@@ -24,11 +23,12 @@ import org.jetbrains.annotations.NotNull;
 
 import static potionstudios.byg.common.block.CarvedBarrelCactusBlock.makeShape;
 
-public class WaterBarrelCactusBlock extends AbstractBarrelCactusBlock {
+public class HoneyBarrelCactusBlock extends AbstractBarrelCactusBlock {
 
-    public WaterBarrelCactusBlock(Properties $$0) {
+    public HoneyBarrelCactusBlock(Properties $$0) {
         super($$0);
     }
+
 
     @Override
     public VoxelShape getShape(BlockState $$0, BlockGetter $$1, BlockPos $$2, CollisionContext $$3) {
@@ -40,14 +40,13 @@ public class WaterBarrelCactusBlock extends AbstractBarrelCactusBlock {
         return makeShape();
     }
 
-
     @Override
     public @NotNull InteractionResult use(BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
         ItemStack item = player.getItemInHand(handIn);
-        if (item.is(Items.BUCKET)) {
-            player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.WATER_BUCKET.getDefaultInstance()));
+        if (item.is(Items.GLASS_BOTTLE)) {
+            player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.HONEY_BOTTLE.getDefaultInstance()));
             world.setBlockAndUpdate(pos, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState());
-            world.playSound(null, pos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS, 1, 1);
+            world.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1);
             world.neighborChanged(pos, BYGBlocks.CARVED_BARREL_CACTUS, pos);
             world.gameEvent(null, GameEvent.FLUID_PICKUP, pos);
             return InteractionResult.SUCCESS;

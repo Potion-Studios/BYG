@@ -1116,6 +1116,7 @@ public class BYGBlocks {
     public static final Block FLOWERING_BARREL_CACTUS = createBarrelCactus("flowering_barrel_cactus");
     public static final Block CARVED_BARREL_CACTUS = createCarvedBarrelCactus("carved_barrel_cactus");
     public static final Block WATER_BARREL_CACTUS = createWaterBarrelCactus("water_barrel_cactus");
+    public static final Block HONEY_BARREL_CACTUS = createHoneyBarrelCactus("honey_barrel_cactus");
     public static final Block BEGONIA = createFlower("begonia", BYGBlockTags.GROUND_BEGONIA);
     public static final Block BISTORT = createFlower("bistort", BYGBlockTags.GROUND_BISTORT);
     public static final Block BLUE_SAGE = createFlower("blue_sage", BYGBlockTags.GROUND_BLUE_SAGE);
@@ -1670,6 +1671,11 @@ public class BYGBlocks {
 
     static Block createWaterBarrelCactus(String id) {
         Block createBlock = new WaterBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f));
+        createBlock(createBlock, id);
+        return createBlock;
+    }
+    static Block createHoneyBarrelCactus(String id) {
+        Block createBlock = new HoneyBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f));
         createBlock(createBlock, id);
         return createBlock;
     }

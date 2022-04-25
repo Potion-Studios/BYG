@@ -111,11 +111,11 @@ public class JanksonUtil {
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
             if (error.isPresent()) {
-                throw new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s", path.toString(), error.get().message()));
+                throw new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s", path, error.get().message()));
             }
             return decode.result().orElseThrow().getFirst();
         } catch (IOException | SyntaxError errorMsg) {
-            BYG.LOGGER.error(String.format("File reading failed for: \"%s\"", path.toString()));
+            BYG.LOGGER.error(String.format("File reading failed for: \"%s\"", path));
             throw errorMsg;
         }
     }
