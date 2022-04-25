@@ -1,18 +1,28 @@
 package potionstudios.byg.client.gui.biomepedia1;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.util.FastColor;
+import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.client.gui.biomepedia.widgets.BookBackgroundWidget;
+import potionstudios.byg.mixin.access.client.ScreenAccess;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class BiomepediaScreen extends Screen {
+    public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
+    public static final String GITHUB_ISSUES_URL = "https://github.com/AOCAWOL/BYG/issues";
 
     int imageWidth = 288;
     int imageHeight = 208;
@@ -60,12 +70,34 @@ public class BiomepediaScreen extends Screen {
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Ores"), button -> {
         });
 
-        List<AbstractWidget> buttons = ImmutableList.of(biomes, blocks, items, ores);
+        Button issueReports = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Issue Reports"), consumeLink(GITHUB_ISSUES_URL));
+
+        Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Donate"), consumeLink(PATREON_URL));
+
+        List<AbstractWidget> buttons = ImmutableList.of(biomes, blocks, items, ores, issueReports, donate);
 
         int listRenderedHeight = this.imageHeight + this.bottomPos;
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
         this.widgets.setLeftPos(this.leftPos + (this.imageWidth / 4) + buttonWidth);
         this.addWidget(this.widgets);
+    }
+
+    @NotNull
+    private Button.OnPress consumeLink(String url) {
+        return button -> {
+            this.minecraft.setScreen(new ConfirmLinkScreen(confirmed -> {
+                if (confirmed) {
+                    try {
+                        ((ScreenAccess) this).byg_invokeOpenLink(new URI(url));
+                        this.minecraft.setScreen(this);
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    this.minecraft.setScreen(this);
+                }
+            }, url, false));
+        };
     }
 
     @Override
@@ -76,5 +108,20 @@ public class BiomepediaScreen extends Screen {
         this.scrollableText.render(poseStack, mouseX, mouseY, partialTick);
         this.widgets.render(poseStack, mouseX, mouseY, partialTick);
         super.render(poseStack, mouseX, mouseY, partialTick);
+        renderBYGLogo(poseStack);
+    }
+
+    private void renderBYGLogo(PoseStack poseStack) {
+        poseStack.pushPose();
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1, 1, 1, 1);
+        RenderSystem.setShaderTexture(0, BookBackgroundWidget.BACKGROUND);
+        float scale = 3.5F;
+        poseStack.scale(scale, scale, 0);
+
+        // We need to scale the position by the scale of the matrix to match the coordinates.
+        float toolTipMaxWidthScaled = (this.toolTipMaxWidth) / scale;
+        blit(poseStack, Math.round((this.leftPos + (toolTipMaxWidthScaled / 2)) / scale) - 2, (int) (this.bottomPos / scale), 20, 224, 32, 32);
+        poseStack.popPose();
     }
 }

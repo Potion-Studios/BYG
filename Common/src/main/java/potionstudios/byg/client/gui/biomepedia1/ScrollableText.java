@@ -3,12 +3,10 @@ package potionstudios.byg.client.gui.biomepedia1;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.FastColor;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.GuiUtil;
 
@@ -41,7 +39,7 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
-        GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
+//        GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
     }
 
     @Override
