@@ -84,7 +84,4 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     public boolean isPathfindable(BlockState $$0, BlockGetter $$1, BlockPos $$2, PathComputationType $$3) {
         return false;
     }
-
-    static {
-    }
 }
