@@ -16,34 +16,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
-    private final int textMaxWidth;
 
-    public ScrollableText(Component text, int textMaxWidth, int width, int height, int y0, int y1) {
+    public ScrollableText(Component text, int width, int height, int y0, int y1) {
         super(Minecraft.getInstance(), width, height, y0, y1, Minecraft.getInstance().font.lineHeight);
-        this.textMaxWidth = textMaxWidth;
         this.setRenderBackground(false);
         this.setRenderTopAndBottom(false);
         ArrayList<Component> toolTip = new ArrayList<>();
-        GuiUtil.makeAndCacheConfigCommentWrappedToolTip(textMaxWidth, text.getString(), new MutableInt(), toolTip);
+        GuiUtil.makeAndCacheConfigCommentWrappedToolTip(width - 6, text.getString(), new MutableInt(), toolTip);
         for (Component component : toolTip) {
-            this.addEntry(new ScrollableTextEntry(component, textMaxWidth));
+            this.addEntry(new ScrollableTextEntry(component, width));
         }
     }
 
     @Override
     protected int getScrollbarPosition() {
-        return this.getRowLeft() + this.getRowWidth() + 1;
+        return this.x1 - 6;
     }
 
     @Override
     public int getRowWidth() {
-        return textMaxWidth;
+        return this.width;
     }
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
-        GuiComponent.fill(poseStack, this.width / 2 + 1, 0, this.width / 2 - 1, this.height, FastColor.ARGB32.color(255, 0, 255, 0));
+        GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
     }
 
     @Override

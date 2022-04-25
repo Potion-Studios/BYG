@@ -13,7 +13,6 @@ import net.minecraft.util.FastColor;
 import java.util.List;
 
 public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
-    private final int rowWidth;
 
     public WidgetList(List<AbstractWidget> widgets, int width, int height, int y0, int y1, int itemHeight) {
         super(Minecraft.getInstance(), width, height, y0, y1, itemHeight);
@@ -26,18 +25,16 @@ public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
         for (AbstractWidget widget : widgets) {
             this.addEntry(new Entry(widget));
         }
-        this.rowWidth = widgets.get(0).getWidth();
-
     }
 
     @Override
     protected int getScrollbarPosition() {
-        return this.getRowLeft() + this.getRowWidth() + 1;
+        return this.x1 - 6;
     }
 
     @Override
     public int getRowWidth() {
-        return this.rowWidth;
+        return this.width;
     }
 
     @Override
