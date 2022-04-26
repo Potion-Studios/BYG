@@ -170,4 +170,8 @@ public class BYGUtil {
     public static boolean isInside(int minX, int minY, int maxX, int maxY, int x, int y) {
         return x >= minX && x <= maxX && y >= minY && y <= maxY;
     }
+
+    public static boolean isInside(int minX, int minY, int maxX, int maxY, double x, double y) {
+        return x >= minX && x <= maxX && y >= minY && y <= maxY;
+    }
 }

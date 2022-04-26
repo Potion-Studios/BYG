@@ -57,7 +57,7 @@ public class BiomepediaScreen extends Screen {
         int buttonWidth = this.imageWidth / 3;
         int buttonHeight = 20;
         Button blocksAndItems = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Blocks & items"), button -> {
-            this.minecraft.setScreen(new ItemViewsScreen(new TextComponent("")));
+            this.minecraft.setScreen(new ItemsViewScreen(new TextComponent("")));
         });
 
         Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Biomes"), button -> {
