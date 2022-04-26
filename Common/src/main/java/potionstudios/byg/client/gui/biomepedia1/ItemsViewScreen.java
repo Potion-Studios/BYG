@@ -6,8 +6,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.util.FastColor;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import potionstudios.byg.BYG;
@@ -86,7 +86,12 @@ public class ItemsViewScreen extends Screen {
                         if (registryIdx > bygItems.length - 1) {
                             break;
                         }
-                        ItemWidget itemWidget = new ItemWidget(new ItemStack(bygItems[registryIdx]), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> this.minecraft.setScreen(new BiomepediaScreen(new TextComponent(""))));
+                        ItemWidget itemWidget = new ItemWidget(new ItemStack(bygItems[registryIdx]), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
+                            Item item = button.stack.getItem();
+                            if (item instanceof BlockItem blockItem) {
+                                this.minecraft.setScreen(new BlockItemAboutScreen(blockItem));
+                            }
+                        });
                         row[columnIdx] = this.addRenderableWidget(itemWidget);
                         registryIdx++;
                         xOffset += width;
