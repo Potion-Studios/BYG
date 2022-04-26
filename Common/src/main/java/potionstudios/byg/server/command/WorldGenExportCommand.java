@@ -87,64 +87,13 @@ public class WorldGenExportCommand {
         source.sendSuccess(new TranslatableComponent("byg.worldgenexport.starting").withStyle(ChatFormatting.YELLOW), true);
 
         try {
-            HashCache cache = new HashCache(exportPath, "cache");
-            RegistryAccess registry = builtin ? RegistryAccess.builtinCopy() : source.getLevel().registryAccess();
-
-            Registry<LevelStem> defaultDimensions = DimensionType.defaultDimensions(registry, 0L, false);
-            ChunkGenerator chunkGenerator = WorldGenSettings.makeDefaultOverworld(registry, 0L, false);
-
-            DynamicOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, registry);
-
-            for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
-                byg_invokeDumpRegistryCap(cache, exportPath, registry, ops, knownRegistry);
-            }
-
-
-            Registry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
-
-            byg_invokeDumpRegistry(exportPath, cache, ops, Registry.LEVEL_STEM_REGISTRY, worldSettings, LevelStem.CODEC);
+            generateFiles(builtin, source, exportPath);
 
             if (withComments) {
-                Files.walk(exportPath).forEach(path -> {
-                    String fileName = path.getFileName().toString();
-                    boolean skipZero = !path.toString().endsWith(EXCLUDED); // For some odd reason this file is improper json
-                    if (fileName.endsWith(".json") && skipZero) {
-                        try {
-                            JsonObject load = Jankson.builder().build().load(path.toFile());
-                            load = JanksonUtil.addCommentsAndAlphabeticallySortRecursively(COMMENTS, load, "", true);
-                            Files.write(path, load.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
-                        } catch (IOException | SyntaxError e) {
-                            BYG.LOGGER.error(String.format("\"%s\" had errors: ", path.toString()));
-                            e.printStackTrace();
-                        }
-                    }
-                });
+                addComments(exportPath);
             }
 
-            Path result = exportPath.resolve("reports").resolve("worldgen");
-            Files.walk(result).sorted(Comparator.reverseOrder()).forEach(path -> {
-                try {
-                    if (path.getFileName().toString().endsWith(".json")) {
-                        String newTarget = result.relativize(path).toString();
-                        Path newPath = finalExportPath.resolve(newTarget);
-                        Files.createDirectories(newPath.getParent());
-                        byte[] bytes = Files.readAllBytes(path);
-                        Files.write(newPath, bytes);
-                    }
-
-                    Files.delete(path);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-
-            Files.walk(exportPath).sorted(Comparator.reverseOrder()).forEach(path -> {
-                try {
-                    Files.delete(path);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+            setupAndUseDataPackDirectoriesStructure(finalExportPath, exportPath);
 
             createPackMCMeta(finalExportPath.getParent(), builtin);
             source.sendSuccess(new TranslatableComponent("byg.worldgenexport.success", exportFileComponent).withStyle(ChatFormatting.GREEN), true);
@@ -154,6 +103,69 @@ public class WorldGenExportCommand {
             e.printStackTrace();
             return 0;
         }
+    }
+
+    private static void setupAndUseDataPackDirectoriesStructure(Path finalExportPath, Path exportPath) throws IOException {
+        Path result = exportPath.resolve("reports").resolve("worldgen");
+        Files.walk(result).sorted(Comparator.reverseOrder()).forEach(path -> {
+            try {
+                if (path.getFileName().toString().endsWith(".json")) {
+                    String newTarget = result.relativize(path).toString();
+                    Path newPath = finalExportPath.resolve(newTarget);
+                    Files.createDirectories(newPath.getParent());
+                    byte[] bytes = Files.readAllBytes(path);
+                    Files.write(newPath, bytes);
+                }
+
+                Files.delete(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        Files.walk(exportPath).sorted(Comparator.reverseOrder()).forEach(path -> {
+            try {
+                Files.delete(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private static void addComments(Path exportPath) throws IOException {
+        Files.walk(exportPath).forEach(path -> {
+            String fileName = path.getFileName().toString();
+            boolean skipZero = !path.toString().endsWith(EXCLUDED); // For some odd reason this file is improper json
+            if (fileName.endsWith(".json") && skipZero) {
+                try {
+                    JsonObject load = Jankson.builder().build().load(path.toFile());
+                    load = JanksonUtil.addCommentsAndAlphabeticallySortRecursively(COMMENTS, load, "", true);
+                    Files.write(path, load.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
+                } catch (IOException | SyntaxError e) {
+                    BYG.LOGGER.error(String.format("\"%s\" had errors: ", path.toString()));
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private static void generateFiles(boolean builtin, CommandSourceStack source, Path exportPath) throws IOException {
+        HashCache cache = new HashCache(exportPath, "cache");
+        RegistryAccess registry = builtin ? RegistryAccess.builtinCopy() : source.getLevel().registryAccess();
+
+        Registry<LevelStem> defaultDimensions = DimensionType.defaultDimensions(registry, 0L, false);
+        ChunkGenerator chunkGenerator = WorldGenSettings.makeDefaultOverworld(registry, 0L, false);
+
+        DynamicOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, registry);
+
+        for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
+            byg_invokeDumpRegistryCap(cache, exportPath, registry, ops, knownRegistry);
+        }
+
+
+        Registry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
+
+        byg_invokeDumpRegistry(exportPath, cache, ops, Registry.LEVEL_STEM_REGISTRY, worldSettings, LevelStem.CODEC);
     }
 
     private static void createPackMCMeta(Path path, boolean builtIn) throws IOException {
