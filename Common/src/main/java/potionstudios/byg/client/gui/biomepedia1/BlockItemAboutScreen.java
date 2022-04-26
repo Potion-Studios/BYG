@@ -8,6 +8,7 @@ import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.FastColor;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.List;
 
 public class BlockItemAboutScreen extends Screen {
+    private final Screen parent;
     private final Item item;
     int imageWidth = 288;
     int imageHeight = 208;
@@ -35,12 +37,23 @@ public class BlockItemAboutScreen extends Screen {
     private final List<BlockState> possibleStates;
     private final Component description;
 
-    protected BlockItemAboutScreen(BlockItem item) {
+    protected BlockItemAboutScreen(Screen parent, BlockItem item) {
         super(new ItemStack(item).getHoverName());
+        this.parent = parent;
         this.item = item;
         this.possibleStates = item.getBlock().getStateDefinition().getPossibleStates();
         this.currentlyRendered = possibleStates.get(0);
-        this.description = new TranslatableComponent("biomepedia.desc." + item.getDescriptionId(new ItemStack(item)));
+
+        String translationKey = "biomepedia.desc." + item.getDescriptionId(new ItemStack(item));
+        boolean useTranslation = !I18n.get(translationKey).equals(translationKey);
+
+        this.description = new TranslatableComponent(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
+    }
+
+    @Override
+    public void onClose() {
+        super.onClose();
+        this.minecraft.setScreen(this.parent);
     }
 
     @Override
@@ -51,7 +64,7 @@ public class BlockItemAboutScreen extends Screen {
         }
         rotationDegrees += 2.5;
 
-        if (stateSwitchTimer < 25) {
+        if (stateSwitchTimer < 15) {
             this.stateSwitchTimer++;
         } else {
             stateSwitchTimer = 0;
@@ -70,7 +83,7 @@ public class BlockItemAboutScreen extends Screen {
         this.toolTipMaxWidth = (this.imageWidth / 2) - 16;
         this.textStartHeight = this.bottomPos + this.imageHeight / 2;
         int y1 = this.topPos - 4;
-        ScrollableText scrollableText = new ScrollableText(this.description, this.toolTipMaxWidth + 15, this.textStartHeight, this.textStartHeight + 16, y1);
+        ScrollableText scrollableText = new ScrollableText(this.description, this.toolTipMaxWidth + 9, this.textStartHeight, this.textStartHeight + 16, y1);
         scrollableText.setLeftPos(this.leftPos);
         this.addRenderableWidget(scrollableText);
     }
@@ -84,7 +97,7 @@ public class BlockItemAboutScreen extends Screen {
         int scale = 75;
         poseStack.scale(scale, scale, 30);
         float scaledX = (float) this.leftPos / scale + ((float) ((this.imageWidth / 4) + 2) / scale);
-        float scaledZ = (float) this.textStartHeight / scale;
+        float scaledZ = (float) (this.textStartHeight - 5) / scale;
 
         MultiBufferSource.BufferSource bufferSource = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
 

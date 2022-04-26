@@ -89,7 +89,7 @@ public class ItemsViewScreen extends Screen {
                         ItemWidget itemWidget = new ItemWidget(new ItemStack(bygItems[registryIdx]), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
                             Item item = button.stack.getItem();
                             if (item instanceof BlockItem blockItem) {
-                                this.minecraft.setScreen(new BlockItemAboutScreen(blockItem));
+                                this.minecraft.setScreen(new BlockItemAboutScreen(this, blockItem));
                             }
                         });
                         row[columnIdx] = this.addRenderableWidget(itemWidget);
