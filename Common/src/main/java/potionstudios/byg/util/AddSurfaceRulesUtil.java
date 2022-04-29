@@ -11,9 +11,13 @@ import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.storage.WorldData;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.mixin.access.NoiseBasedChunkGeneratorAccess;
 import potionstudios.byg.mixin.access.NoiseGeneratorSettingsAccess;
+
+import java.nio.file.Path;
+import java.util.Map;
 
 public class AddSurfaceRulesUtil {
 
@@ -26,9 +30,22 @@ public class AddSurfaceRulesUtil {
             throw new NullPointerException(String.format("\"%s\" is not a valid level stem key as it doesn't exist in this world's settings. This is more than likely the result of a broken level.dat and most often occurs when moving a world between MC versions.", levelStemKey.location()));
         }
         ChunkGenerator chunkGenerator = levelStem.generator();
-        if (chunkGenerator instanceof NoiseBasedChunkGenerator) {
-            Object noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) chunkGenerator).byg_getSettings().value();
-            ((NoiseGeneratorSettingsAccess) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, ((NoiseGeneratorSettings) noiseGeneratorSettings).surfaceRule()));
+
+        boolean hasBYGBiome = chunkGenerator.getBiomeSource().possibleBiomes().stream().anyMatch(biomeHolder -> biomeHolder.unwrapKey().orElseThrow().location().getNamespace().equals(BYG.MOD_ID));
+        if (hasBYGBiome) {
+            Path path = SurfaceRulesConfig.CONFIG_PATHS.get().get(levelStemKey);
+            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+
+            if (surfaceRulesConfig.containsKey(levelStemKey) && surfaceRulesConfig.get(levelStemKey) != null) {
+                if (chunkGenerator instanceof NoiseBasedChunkGenerator) {
+                    NoiseGeneratorSettings noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) chunkGenerator).byg_getSettings().value();
+                    ((NoiseGeneratorSettingsAccess) (Object) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, noiseGeneratorSettings.surfaceRule()));
+                } else {
+                    BYG.LOGGER.warn(String.format("Ignoring BYG's appended surface rule \"%s\" for dimension: \"%s\" because the chunk generator was not an instance of \"NoiseBasedChunkGenerator\".\nThe chunk generator was an instanceof \"%s\".", path.toString(), levelStemKey.location(), chunkGenerator.getClass().getName()));
+                }
+            } else {
+                throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the Surface Rule config file found at: \"%s\"", levelStemKey.location().toString(), path));
+            }
         }
 
         Codec<? extends BiomeSource> biomeSourceCodec = ((BiomeSourceAccess) chunkGenerator.getBiomeSource()).byg_invokeCodec();
