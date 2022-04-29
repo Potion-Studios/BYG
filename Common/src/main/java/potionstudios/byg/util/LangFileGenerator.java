@@ -35,8 +35,11 @@ public class LangFileGenerator {
     });
 
     public static final Map<String, String> MISC_LANG_ENTRIES = Util.make(new TreeMap<>(), map -> {
+        // TODO: Why is this not found when running forge?
         InputStream resourceAsStream = Language.class.getResourceAsStream("/assets/byg/lang/en_us_misc.json");
-        map.putAll(new Gson().fromJson(new InputStreamReader(resourceAsStream), TreeMap.class));
+        if (resourceAsStream != null) {
+            map.putAll(new Gson().fromJson(new InputStreamReader(resourceAsStream), TreeMap.class));
+        }
     });
 
     public static void createLangFile(Path path) {
