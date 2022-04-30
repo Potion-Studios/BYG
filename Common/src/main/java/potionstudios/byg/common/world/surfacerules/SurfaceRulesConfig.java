@@ -51,7 +51,7 @@ public record SurfaceRulesConfig() {
         Object2ObjectOpenHashMap<ResourceKey<LevelStem>, SurfaceRules.RuleSource> result = new Object2ObjectOpenHashMap<>();
         CONFIG_PATHS.get().forEach((stemResourceKey, path) -> {
             if (!path.toFile().exists()) {
-                JanksonUtil.createConfig(path, SurfaceRules.RuleSource.CODEC, JanksonUtil.HEADER_OPEN + "\n\nA guide for surface rules can be found here: https://github.com/TheForsakenFurby/Surface-Rules-Guide-Minecraft-JE-1.18/blob/main/Guide.md\n*/", new HashMap<>(), JanksonJsonOps.INSTANCE, DEFAULTS.get(stemResourceKey));
+                JanksonUtil.createConfig(path, SurfaceRules.RuleSource.CODEC, JanksonUtil.HEADER_OPEN + "\n\nSurface rules in this file are added after data packs load for this dimension(file name is the dimension).\nA guide for surface rules can be found here: https://github.com/TheForsakenFurby/Surface-Rules-Guide-Minecraft-JE-1.18/blob/main/Guide.md\n*/", new HashMap<>(), JanksonJsonOps.INSTANCE, DEFAULTS.get(stemResourceKey));
             }
             BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 

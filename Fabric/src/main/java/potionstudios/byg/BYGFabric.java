@@ -37,13 +37,25 @@ import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 import static potionstudios.byg.BYG.createLocation;
 
 public class BYGFabric implements ModInitializer {
 
+    private static String firstInitialized = null;
+
     @Override
     public void onInitialize() {
+        initializeBYG("Fabric Mod Initializer");
+    }
+
+    public static void initializeBYG(String initializedFrom) {
+        Objects.requireNonNull(initializedFrom, "BYG must be told where it was initialized from.");
+        if (firstInitialized != null) {
+            BYG.LOGGER.debug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
+            return;
+        }
         BYG.MODLOADER_DATA = getModLoaderData();
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
@@ -55,9 +67,11 @@ public class BYGFabric implements ModInitializer {
         FabricNetworkHandler.init();
 
         registerVillagerTrades();
+        firstInitialized = initializedFrom;
+        BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
     }
 
-    private void registerVillagerTrades() {
+    private static void registerVillagerTrades() {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
             tradesConfig.tradesByProfession().forEach((villagerProfession, int2ObjectMap) ->
@@ -76,7 +90,7 @@ public class BYGFabric implements ModInitializer {
         }
     }
 
-    private void registryBootStrap() {
+    private static void registryBootStrap() {
         register(Registry.BLOCK, BYGBlocks.bootStrap());
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
         register(Registry.ITEM, BYGItems.bootStrap());
