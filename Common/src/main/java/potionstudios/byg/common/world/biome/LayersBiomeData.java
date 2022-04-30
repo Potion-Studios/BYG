@@ -38,6 +38,9 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(SHULKREN_FOREST, 3)
             .add(CRYPTIC_WASTES, 1)
             .add(IMPARIUS_GROVE, 3)
+            .add(Biomes.SMALL_END_ISLANDS, 0)
+            .add(VISCAL_ISLES, 0)
+            .add(Biomes.THE_END, 0)
             .build(), 4);
 
     public static final LayersBiomeData DEFAULT_END_VOID = new LayersBiomeData(
@@ -45,7 +48,7 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(Biomes.SMALL_END_ISLANDS, 2)
             .build(), 3);
 
-    public static final LayersBiomeData DEFAULT_SKY = new LayersBiomeData(
+    public static final LayersBiomeData DEFAULT_END_SKY = new LayersBiomeData(
         SimpleWeightedRandomList.<ResourceKey<Biome>>builder()
             .add(VISCAL_ISLES, 1)
             .add(Biomes.THE_END, 9)

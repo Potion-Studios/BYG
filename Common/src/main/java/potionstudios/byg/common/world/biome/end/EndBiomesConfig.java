@@ -57,7 +57,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
 
     public static EndBiomesConfig INSTANCE = null;
 
-    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, 180, LayersBiomeData.DEFAULT_END_ISLANDS, LayersBiomeData.DEFAULT_END_VOID, LayersBiomeData.DEFAULT_SKY);
+    public static final EndBiomesConfig DEFAULT = new EndBiomesConfig(true, true, 180, LayersBiomeData.DEFAULT_END_ISLANDS, LayersBiomeData.DEFAULT_END_VOID, LayersBiomeData.DEFAULT_END_SKY);
 
 
     public static EndBiomesConfig getConfig() {
