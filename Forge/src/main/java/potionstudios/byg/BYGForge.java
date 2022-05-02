@@ -10,7 +10,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -22,9 +21,11 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -69,6 +70,7 @@ import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -78,7 +80,7 @@ public class BYGForge {
     public BYGForge() {
         BYG.MODLOADER_DATA = getModLoaderData();
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
             public ItemStack makeIcon() {
@@ -100,11 +102,16 @@ public class BYGForge {
                 return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
             }
         });
-        bootStrap(eventBus);
 
-        eventBus.addListener(this::commonLoad);
-        eventBus.addListener(this::loadFinish);
-        eventBus.addListener(this::clientLoad);
+        BYGMenuTypes.loadClass();
+
+        ForgeRegistrationProvider.registerMap.values().forEach(modBus::register);
+
+        bootStrap(modBus);
+
+        modBus.addListener(this::commonLoad);
+        modBus.addListener(this::loadFinish);
+        modBus.addListener(this::clientLoad);
     }
 
     private void bootStrap(IEventBus eventBus) {
@@ -113,7 +120,6 @@ public class BYGForge {
         register(EntityType.class, eventBus, () -> BYGEntities.bootStrap());
         register(BlockEntityType.class, eventBus, () -> BYGBlockEntities.bootStrap());
         register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
-        register(MenuType.class, eventBus, () -> BYGMenuTypes.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
         register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
@@ -176,6 +182,7 @@ public class BYGForge {
         BYG.clientLoad();
         BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
         BYGForgeClient.client();
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> event.enqueueWork(BYGForgeClient::threadSafeClient));
     }
 
     @NotNull

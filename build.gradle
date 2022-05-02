@@ -6,6 +6,11 @@ subprojects {
     java.withSourcesJar()
     java.withJavadocJar()
 
+    dependencies {
+        compileOnly group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
+        annotationProcessor group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
+    }
+
     jar {
         manifest {
             attributes([

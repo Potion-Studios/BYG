@@ -22,7 +22,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
     }
 
     public HypogealImperiumContainer(int windowId, Inventory playerInv, Container inventory, ContainerData fuelTime) {
-        super(BYGMenuTypes.HYPOGEAL_CONTAINER, windowId);
+        super(BYGMenuTypes.HYPOGEAL_CONTAINER.get(), windowId);
         this.fuelTime = fuelTime;
 
         this.addSlot(new CrystalSlot(inventory, 0, 17, 17));

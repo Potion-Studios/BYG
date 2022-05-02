@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.EnvironmentProvider;
 import potionstudios.byg.client.gui.screen.HypogealImperiumScreen;
 import potionstudios.byg.common.container.BYGMenuTypes;
 
@@ -24,6 +25,9 @@ public abstract class MixinScreenManager {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void registerScreen(CallbackInfo ci) {
-        register(BYGMenuTypes.HYPOGEAL_CONTAINER, HypogealImperiumScreen::new);
+        if (EnvironmentProvider.INSTANCE.getEnvironment() == EnvironmentProvider.Environment.FABRIC) {
+            // This can only be done on fabric
+            register(BYGMenuTypes.HYPOGEAL_CONTAINER.get(), HypogealImperiumScreen::new);
+        }
     }
 }

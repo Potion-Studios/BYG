@@ -3,12 +3,15 @@ package potionstudios.byg.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.IConfigEvent;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLPaths;
 import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
+import potionstudios.byg.client.gui.screen.HypogealImperiumScreen;
+import potionstudios.byg.common.container.BYGMenuTypes;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -68,5 +71,9 @@ public class BYGForgeClient {
             }
             return false;
         };
+    }
+
+    public static void threadSafeClient() {
+        MenuScreens.register(BYGMenuTypes.HYPOGEAL_CONTAINER.get(), HypogealImperiumScreen::new);
     }
 }
