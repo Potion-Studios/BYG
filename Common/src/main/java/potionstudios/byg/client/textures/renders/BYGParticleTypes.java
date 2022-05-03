@@ -1,28 +1,30 @@
 package potionstudios.byg.client.textures.renders;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
+import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
-import potionstudios.byg.util.RegistryObject;
+import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.registration.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class BYGParticleTypes {
-    public static final List<RegistryObject<ParticleType<?>>> PARTICLES = new ArrayList<>();
 
-    public static final SimpleParticleType THERIUM_GLINT = createSimpleParticle(SimpleParticleTypeAccess.byg_create(false), "therium_glint");
-    public static final SimpleParticleType WITCH_HAZEL_LEAF = createSimpleParticle(SimpleParticleTypeAccess.byg_create(false), "witch_hazel_leaf");
-    public static final SimpleParticleType CHERRY_BLOSSOM_FALL_WHITE = createSimpleParticle(SimpleParticleTypeAccess.byg_create(false), "cherry_blossom_fall_white");
-    public static final SimpleParticleType CHERRY_BLOSSOM_FALL_PINK = createSimpleParticle(SimpleParticleTypeAccess.byg_create(false), "cherry_blossom_fall_pink");
+    public static final RegistrationProvider<ParticleType<?>> PROVIDER = RegistrationProvider.get(Registry.PARTICLE_TYPE_REGISTRY, BYG.MOD_ID);
 
-    public static <T extends ParticleType<?>> T createSimpleParticle(T particle, String id) {
-        PARTICLES.add(new RegistryObject<>(particle, id));
-        return particle;
+    public static final RegistryObject<SimpleParticleType> THERIUM_GLINT = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(false), "therium_glint");
+    public static final RegistryObject<SimpleParticleType> WITCH_HAZEL_LEAF = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(false), "witch_hazel_leaf");
+    public static final RegistryObject<SimpleParticleType> CHERRY_BLOSSOM_FALL_WHITE = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(false), "cherry_blossom_fall_white");
+    public static final RegistryObject<SimpleParticleType> CHERRY_BLOSSOM_FALL_PINK = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(false), "cherry_blossom_fall_pink");
+
+    public static <T extends ParticleType<?>> RegistryObject<T> createSimpleParticle(Supplier<T> particle, String id) {
+        return PROVIDER.register(id, particle);
     }
 
-    public static Collection<RegistryObject<ParticleType<?>>> bootStrap() {
-        return PARTICLES;
-    }
+    public static void loadClass() {}
 }

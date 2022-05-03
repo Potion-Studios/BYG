@@ -115,7 +115,6 @@ public class BYGForge {
         register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
-        register(ParticleType.class, eventBus, () -> BYGParticleTypes.bootStrap());
         register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
         register(PoiType.class, eventBus, () -> BYGPoiTypes.bootStrap());
         register(VillagerProfession.class, eventBus, () -> BYGVillagerProfessions.bootStrap());

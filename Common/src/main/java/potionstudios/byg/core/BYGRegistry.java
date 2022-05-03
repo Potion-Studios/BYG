@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
@@ -29,5 +30,6 @@ public class BYGRegistry {
         BYGEntities.loadClass();
         BYGBlockEntities.loadClass();
         BYGBiomes.loadClass();
+        BYGParticleTypes.loadClass();
     }
 }

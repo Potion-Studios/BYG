@@ -109,7 +109,6 @@
     "client.MixinInventoryScreen",
     "client.MixinLayerDefinitions",
     "client.MixinOptionsScreen",
-    "client.MixinParticleEngine"
   ],
   "injectors": {
     "defaultRequire": 1

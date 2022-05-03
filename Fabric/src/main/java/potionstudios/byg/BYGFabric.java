@@ -98,7 +98,6 @@ public class BYGFabric implements ModInitializer {
         register(Registry.SOUND_EVENT, BYGSounds.bootStrap());
         register(Registry.FEATURE, BYGFeatures.bootStrap());
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
-        register(Registry.PARTICLE_TYPE, BYGParticleTypes.bootStrap());
         register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());
         register(Registry.POINT_OF_INTEREST_TYPE, BYGPoiTypes.bootStrap());
         register(Registry.VILLAGER_PROFESSION, BYGVillagerProfessions.bootStrap());

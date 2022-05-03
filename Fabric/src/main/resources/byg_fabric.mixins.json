@@ -7,6 +7,7 @@
   "client": [
     "client.MixinBlockColors",
     "client.access.AccessEntityRenderers",
+    "client.access.ParticleEngineAccess",
     "client.MixinItemColors",
     "client.MixinMinecraft"
   ],
