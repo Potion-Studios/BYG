@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.CreativeModeTab;
@@ -40,8 +39,6 @@ import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.blockentity.BYGBlockEntities;
-import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.item.BYGCreativeTab;
@@ -57,9 +54,9 @@ import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
+import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
-import potionstudios.byg.registration.BYGRegistries;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
@@ -77,6 +74,7 @@ import java.util.function.Supplier;
 public class BYGForge {
 
     public BYGForge() {
+        BYG.INITIALIZED = true;
         BYG.MODLOADER_DATA = getModLoaderData();
         BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
         final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -102,8 +100,7 @@ public class BYGForge {
             }
         });
 
-        BYGRegistries.loadClasses();
-        ForgeRegistrationProvider.registerMap.values().forEach(modBus::register);
+        BYGRegistry.loadClasses();
 
         bootStrap(modBus);
 
@@ -117,7 +114,6 @@ public class BYGForge {
         register(Item.class, eventBus, () -> BYGItems.bootStrap());
         register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
-        register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
         register(ParticleType.class, eventBus, () -> BYGParticleTypes.bootStrap());
         register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());

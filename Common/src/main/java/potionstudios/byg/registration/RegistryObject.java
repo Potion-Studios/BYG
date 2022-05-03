@@ -1,35 +1,46 @@
 package potionstudios.byg.registration;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * Represents a lazy wrapper for BYG registry object.
+ * Represents a lazy wrapper for registry object.
  *
  * @param <T> the type of the object
  */
-public interface BygRegistryObject<T> extends Supplier<T> {
+public interface RegistryObject<T> extends Supplier<T> {
 
     /**
      * Gets the {@link ResourceKey} of the registry of the object wrapped.
+     *
      * @return the {@link ResourceKey} of the registry
      */
-    ResourceKey<? extends Registry<T>> getResourceKey();
+    ResourceKey<T> getResourceKey();
 
     /**
-     * Gets the name of the object.
-     * @return the name of the object
+     * Gets the id of the object.
+     *
+     * @return the id of the object
      */
-    ResourceLocation getName();
+    ResourceLocation getId();
 
     /**
      * Gets the object behind this wrapper. Calling this method too early
      * might result in crashes.
+     *
      * @return the object behind this wrapper
      */
     @Override
     T get();
+
+    /**
+     * Gets this object wrapped in a vanilla {@link Holder}.
+     *
+     * @return the holder
+     */
+    Holder<T> asHolder();
 }

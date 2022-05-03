@@ -40,6 +40,6 @@ public class NearWaterPlacementFilter extends PlacementModifier {
 
     @Override
     public PlacementModifierType<?> type() {
-        return BYGPlacementModifierType.NEAR_WATER_FILTER;
+        return BYGPlacementModifierType.NEAR_WATER_FILTER.get();
     }
 }

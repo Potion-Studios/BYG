@@ -33,6 +33,6 @@ public class IsBiomeTagFilter extends PlacementModifier {
 
     @Override
     public PlacementModifierType<?> type() {
-        return BYGPlacementModifierType.IS_BIOME_TAG_FILTER;
+        return BYGPlacementModifierType.IS_BIOME_TAG_FILTER.get();
     }
 }

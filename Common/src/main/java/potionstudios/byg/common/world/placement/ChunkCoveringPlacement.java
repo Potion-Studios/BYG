@@ -32,6 +32,6 @@ public class ChunkCoveringPlacement extends PlacementModifier {
 
     @Override
     public PlacementModifierType<?> type() {
-        return BYGPlacementModifierType.CHUNK_COVERING_PLACEMENT;
+        return BYGPlacementModifierType.CHUNK_COVERING_PLACEMENT.get();
     }
 }

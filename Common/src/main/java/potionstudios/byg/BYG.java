@@ -57,6 +57,7 @@ public class BYG {
     public static String MOD_LOADER_TAG_TARGET = null;
     public static ModLoaderContext MODLOADER_DATA = null;
     public static final SurfaceRules.RuleSource EMPTY = SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.DIRT.defaultBlockState()));
+    public static boolean INITIALIZED;
 
     public static void init(Path path, String modloaderTagTarget) {
         CONFIG_PATH = path;

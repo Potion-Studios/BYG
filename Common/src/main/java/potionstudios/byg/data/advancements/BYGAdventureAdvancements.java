@@ -7,11 +7,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import potionstudios.byg.BYG;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.mixin.access.AdventureAdvancementsAccess;
-import potionstudios.byg.util.RegistryObject;
+import potionstudios.byg.registration.RegistryObject;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -24,7 +23,12 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancem
     public void accept(Consumer<Advancement> advancementConsumer, Advancement root) {
 
 
-        List<ResourceKey<Biome>> biomes = BYGBiomes.BIOMES.stream().map(RegistryObject::id).map(key -> ResourceKey.create(Registry.BIOME_REGISTRY, BYG.createLocation(key))).filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES).collect(Collectors.toList());
+        List<ResourceKey<Biome>> biomes = BYGBiomes.PROVIDER.getEntries()
+                .stream()
+                .map(RegistryObject::getId)
+                .map(key -> ResourceKey.create(Registry.BIOME_REGISTRY, key))
+                .filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES)
+                .collect(Collectors.toList());
         AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
             .display(BYGItems.BYG_LOGO, new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
                 new TranslatableComponent("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)

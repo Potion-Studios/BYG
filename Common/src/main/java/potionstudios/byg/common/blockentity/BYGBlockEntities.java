@@ -5,20 +5,19 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.mixin.access.BlockEntityTypeBuilderAccess;
-import potionstudios.byg.registration.BygRegistrationProvider;
-import potionstudios.byg.registration.BygRegistryObject;
+import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.registration.RegistryObject;
+
+import java.util.function.Supplier;
 
 public class BYGBlockEntities {
 
-    public static final BygRegistryObject<BlockEntityType<HypogealImperiumBlockEntity>> HYPOGEAL = register("hypogeal", BlockEntityType.Builder.of(HypogealImperiumBlockEntity::new, BYGBlocks.HYPOGEAL_IMPERIUM));
+    private static final RegistrationProvider<BlockEntityType<?>> PROVIDER = RegistrationProvider.get(Registry.BLOCK_ENTITY_TYPE_REGISTRY, BYG.MOD_ID);
 
-    @SuppressWarnings("rawtypes")
-    private static <T extends BlockEntity> BygRegistryObject<BlockEntityType<T>> register(String key, BlockEntityType.Builder<T> builder) {
-        if (((BlockEntityTypeBuilderAccess) (Object) builder).byg_getValidBlocks().isEmpty()) {
-            BYG.LOGGER.warn("Block entity type {} requires at least one valid block to be defined!", key);
-        }
-        return BygRegistrationProvider.INSTANCE.registerUnsafeResult(Registry.BLOCK_ENTITY_TYPE_REGISTRY, key, () -> builder.build(null));
+    public static final RegistryObject<BlockEntityType<HypogealImperiumBlockEntity>> HYPOGEAL = register("hypogeal", () -> BlockEntityType.Builder.of(HypogealImperiumBlockEntity::new, BYGBlocks.HYPOGEAL_IMPERIUM));
+
+    private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
+        return PROVIDER.register(key, () -> builder.get().build(null));
     }
 
     public static void loadClass() {}

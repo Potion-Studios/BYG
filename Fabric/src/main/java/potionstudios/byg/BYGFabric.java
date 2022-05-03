@@ -12,8 +12,6 @@ import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.blockentity.BYGBlockEntities;
-import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.entity.npc.TradesConfig;
@@ -26,9 +24,9 @@ import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.FabricNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
-import potionstudios.byg.registration.BYGRegistries;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
@@ -52,16 +50,18 @@ public class BYGFabric implements ModInitializer {
 
     public static void initializeBYG(String initializedFrom) {
         Objects.requireNonNull(initializedFrom, "BYG must be told where it was initialized from.");
-        if (firstInitialized != null) {
+        if (firstInitialized != null || BYG.INITIALIZED) {
             BYG.LOGGER.debug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
             return;
         }
+        firstInitialized = initializedFrom;
+        BYG.INITIALIZED = true;
         BYG.MODLOADER_DATA = getModLoaderData();
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
 
-        BYGRegistries.loadClasses();
         registryBootStrap();
+        BYGRegistry.loadClasses();
 
         BYG.commonLoad();
         BYG.threadSafeCommonLoad();
@@ -69,7 +69,6 @@ public class BYGFabric implements ModInitializer {
         FabricNetworkHandler.init();
 
         registerVillagerTrades();
-        firstInitialized = initializedFrom;
         BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
     }
 
@@ -98,7 +97,6 @@ public class BYGFabric implements ModInitializer {
         register(Registry.ITEM, BYGItems.bootStrap());
         register(Registry.SOUND_EVENT, BYGSounds.bootStrap());
         register(Registry.FEATURE, BYGFeatures.bootStrap());
-        register(BuiltinRegistries.BIOME, BYGBiomes.bootStrap());
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
         register(Registry.PARTICLE_TYPE, BYGParticleTypes.bootStrap());
         register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());

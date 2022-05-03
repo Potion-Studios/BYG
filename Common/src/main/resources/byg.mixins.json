@@ -61,6 +61,7 @@
     "access.WoodTypeAccess",
     "access.WorldCarverAccess",
     "access.WorldGenRegistryDumpReportAccess",
+    "access.ResourceKeyAccess",
     "access.world.entity.npc.villagertrades.EmeraldForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess",
