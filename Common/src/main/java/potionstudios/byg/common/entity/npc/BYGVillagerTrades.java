@@ -13,13 +13,16 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.item.BYGSaplingItem;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
+import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.*;
+import java.util.function.Supplier;
 
 public class BYGVillagerTrades {
 
-    protected static final Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> TRADES = Util.make(new HashMap<>(), map -> {
-        map.put(BYGVillagerProfessions.FORAGER, toIntMap(ImmutableMap.of(
+    protected static final LazySupplier<Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>> TRADES = new LazySupplier(() ->
+            Util.make(new HashMap<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>(), map -> {
+        map.put(BYGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(Items.RED_MUSHROOM, 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(Items.BROWN_MUSHROOM, 10, 12, 2),
@@ -97,7 +100,7 @@ public class BYGVillagerTrades {
                 }
             }
         }
-    });
+    }));
 
     protected static final Int2ObjectMap<VillagerTrades.ItemListing[]> WANDERING_TRADER_TRADES = toIntMap(ImmutableMap.of(
         1, Util.make(new ArrayList<VillagerTrades.ItemListing>(), list -> {

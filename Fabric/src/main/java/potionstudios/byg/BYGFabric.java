@@ -99,8 +99,6 @@ public class BYGFabric implements ModInitializer {
         register(Registry.FEATURE, BYGFeatures.bootStrap());
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
         register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());
-        register(Registry.POINT_OF_INTEREST_TYPE, BYGPoiTypes.bootStrap());
-        register(Registry.VILLAGER_PROFESSION, BYGVillagerProfessions.bootStrap());
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
         BYG.LOGGER.info("BYG registries bootstrapped");

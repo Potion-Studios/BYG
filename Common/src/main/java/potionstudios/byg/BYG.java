@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 import potionstudios.byg.client.BiomepediaClientData;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
@@ -26,6 +27,7 @@ import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
+import potionstudios.byg.mixin.access.PoiTypeAccess;
 import potionstudios.byg.mixin.access.WorldCarverAccess;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.LangFileGenerator;
@@ -74,6 +76,8 @@ public class BYG {
             carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
         }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+
+        PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
     }
 
     private static void handleConfigs() {

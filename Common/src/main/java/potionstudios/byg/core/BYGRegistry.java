@@ -10,6 +10,8 @@ import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
+import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
 import potionstudios.byg.common.world.biome.BYGBiomes;
@@ -31,5 +33,7 @@ public class BYGRegistry {
         BYGBlockEntities.loadClass();
         BYGBiomes.loadClass();
         BYGParticleTypes.loadClass();
+        BYGVillagerProfessions.loadClass();
+        BYGPoiTypes.loadClass();
     }
 }

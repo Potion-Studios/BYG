@@ -11,6 +11,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
+import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -27,7 +28,7 @@ public record TradesConfig(boolean enabled,
     public static TradesConfig INSTANCE = null;
 
 
-    public static final TradesConfig DEFAULT = new TradesConfig(true, BYGVillagerTrades.TRADES, BYGVillagerTrades.WANDERING_TRADER_TRADES);
+    public static final LazySupplier<TradesConfig> DEFAULT = new LazySupplier<>(() -> new TradesConfig(true, BYGVillagerTrades.TRADES.get(), BYGVillagerTrades.WANDERING_TRADER_TRADES));
 
     public static final Codec<TradesConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
@@ -76,6 +77,6 @@ public record TradesConfig(boolean enabled,
             map.put("wandering_trader_trades.1", "Trades listed here are \"generic\" and a few(not only from these listed here but from other mods/vanilla also) are picked when a wandering trader spawns.");
             map.put("wandering_trader_trades.2", "Trades listed here are \"rare\" and only one(not only from these listed here but from other mods/vanilla also) is picked when a wandering trader spawns.");
         });
-        JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, comments, JanksonJsonOps.INSTANCE, DEFAULT);
+        JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, comments, JanksonJsonOps.INSTANCE, DEFAULT.get());
     }
 }
