@@ -72,8 +72,4 @@ public class BYGForgeClient {
             return false;
         };
     }
-
-    public static void threadSafeClient() {
-        MenuScreens.register(BYGMenuTypes.HYPOGEAL_CONTAINER.get(), HypogealImperiumScreen::new);
-    }
 }

@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
-import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
@@ -29,6 +28,7 @@ import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.network.FabricNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
+import potionstudios.byg.registration.BYGRegistries;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
@@ -59,6 +59,8 @@ public class BYGFabric implements ModInitializer {
         BYG.MODLOADER_DATA = getModLoaderData();
 
         BYG.init(FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID), "c");
+
+        BYGRegistries.loadClasses();
         registryBootStrap();
 
         BYG.commonLoad();
@@ -94,8 +96,6 @@ public class BYGFabric implements ModInitializer {
         register(Registry.BLOCK, BYGBlocks.bootStrap());
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
         register(Registry.ITEM, BYGItems.bootStrap());
-        register(Registry.ENTITY_TYPE, BYGEntities.bootStrap());
-        register(Registry.BLOCK_ENTITY_TYPE, BYGBlockEntities.bootStrap());
         register(Registry.SOUND_EVENT, BYGSounds.bootStrap());
         register(Registry.FEATURE, BYGFeatures.bootStrap());
         register(BuiltinRegistries.BIOME, BYGBiomes.bootStrap());

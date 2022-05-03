@@ -119,17 +119,6 @@ public class BYG {
         );
     }
 
-    public static void clientLoad() {
-        LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BiomepediaClientData.getConfig(true);
-        if (GENERATE_DATA) {
-            LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
-        }
-
-//        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
-        LOGGER.info("BYG: \"Client Setup\" Event Complete!");
-    }
-
     public static void threadSafeLoadFinish() {
         LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
         BYGCompostables.compostablesBYG();

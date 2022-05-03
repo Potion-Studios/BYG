@@ -95,13 +95,13 @@ public class HypogealImperiumBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return BYGBlockEntities.HYPOGEAL.create(blockPos, blockState);
+        return BYGBlockEntities.HYPOGEAL.get().create(blockPos, blockState);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, BYGBlockEntities.HYPOGEAL, HypogealImperiumBlockEntity::tick);
+        return createTickerHelper(blockEntityType, BYGBlockEntities.HYPOGEAL.get(), HypogealImperiumBlockEntity::tick);
     }
 }
 

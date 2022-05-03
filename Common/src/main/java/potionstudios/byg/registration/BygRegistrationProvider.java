@@ -31,7 +31,7 @@ public interface BygRegistrationProvider {
     /**
      * Registers an object.
      *
-     * @param key the {@link ResourceKey} of the registry
+     * @param key      the {@link ResourceKey} of the registry
      * @param name     the name of the object
      * @param supplier a supplier of the object to register
      * @param <T>      the type of the object
@@ -40,4 +40,19 @@ public interface BygRegistrationProvider {
      */
     <T> BygRegistryObject<T> register(ResourceKey<? extends Registry<T>> key, String name, Supplier<? extends T> supplier);
 
+    /**
+     * Registers an object. The result will be unsafely cast to the type {@code Z}.
+     *
+     * @param key      the {@link ResourceKey} of the registry
+     * @param name     the name of the object
+     * @param supplier a supplier of the object to register
+     * @param <T>      the type of the object
+     * @param <Z>      the type of the result to cast to
+     * @return wrapper containing the lazy registered object. <strong>Calling {@link Supplier#get() get} too early
+     * on the wrapper might result in crashes!</strong>
+     */
+    @SuppressWarnings("unchecked")
+    default <T, Z> BygRegistryObject<Z> registerUnsafeResult(ResourceKey<? extends Registry<T>> key, String name, Supplier<? extends T> supplier) {
+        return (BygRegistryObject<Z>) register(key, name, supplier);
+    }
 }

@@ -58,7 +58,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     };
 
     public HypogealImperiumBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BYGBlockEntities.HYPOGEAL, blockPos, blockState);
+        super(BYGBlockEntities.HYPOGEAL.get(), blockPos, blockState);
     }
 
     /*********************** Packets Start ***********************/

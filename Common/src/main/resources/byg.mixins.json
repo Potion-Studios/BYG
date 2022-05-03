@@ -103,12 +103,12 @@
     "access.client.ItemBlockRenderTypeAccess",
     "access.client.KeyMappingAccess",
     "access.client.ScreenAccess",
+    "access.client.MenuScreensAccess",
     "client.MixinDebugOverlayGui",
     "client.MixinInventoryScreen",
     "client.MixinLayerDefinitions",
     "client.MixinOptionsScreen",
-    "client.MixinParticleEngine",
-    "client.MixinScreenManager"
+    "client.MixinParticleEngine"
   ],
   "injectors": {
     "defaultRequire": 1

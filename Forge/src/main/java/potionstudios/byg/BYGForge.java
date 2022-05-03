@@ -15,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -36,12 +35,12 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
-import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
@@ -60,6 +59,7 @@ import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
+import potionstudios.byg.registration.BYGRegistries;
 import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
@@ -102,8 +102,7 @@ public class BYGForge {
             }
         });
 
-        BYGMenuTypes.loadClass();
-
+        BYGRegistries.loadClasses();
         ForgeRegistrationProvider.registerMap.values().forEach(modBus::register);
 
         bootStrap(modBus);
@@ -116,8 +115,6 @@ public class BYGForge {
     private void bootStrap(IEventBus eventBus) {
         register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
         register(Item.class, eventBus, () -> BYGItems.bootStrap());
-        register(EntityType.class, eventBus, () -> BYGEntities.bootStrap());
-        register(BlockEntityType.class, eventBus, () -> BYGBlockEntities.bootStrap());
         register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
         register(Biome.class, eventBus, () -> BYGBiomes.bootStrap());
@@ -128,8 +125,7 @@ public class BYGForge {
         register(VillagerProfession.class, eventBus, () -> BYGVillagerProfessions.bootStrap());
     }
 
-    @SuppressWarnings("rawtypes")
-    private <T extends IForgeRegistryEntry<T>> void register(Class clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {
+    private <T extends IForgeRegistryEntry<T>> void register(Class<? super T> clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {
         eventBus.addGenericListener(clazz, (RegistryEvent.Register<T> event) -> {
             Collection<RegistryObject<T>> registryObjects = registryObjectsSupplier.get();
             IForgeRegistry<T> registry = event.getRegistry();
@@ -178,10 +174,12 @@ public class BYGForge {
     }
 
     private void clientLoad(FMLClientSetupEvent event) {
-        BYG.clientLoad();
-        BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
-        BYGForgeClient.client();
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> event.enqueueWork(BYGForgeClient::threadSafeClient));
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+            BYGClient.load();
+            BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+            BYGForgeClient.client();
+            event.enqueueWork(BYGClient::threadSafeLoad);
+        });
     }
 
     @NotNull

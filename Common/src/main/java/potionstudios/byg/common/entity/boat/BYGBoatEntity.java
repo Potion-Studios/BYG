@@ -32,7 +32,7 @@ public class BYGBoatEntity extends Boat {
 
 
     public BYGBoatEntity(Level worldIn, double x, double y, double z) {
-        this(BYGEntities.BOAT, worldIn);
+        this(BYGEntities.BOAT.get(), worldIn);
         this.setPos(x, y, z);
         this.setDeltaMovement(Vec3.ZERO);
         this.xo = x;
