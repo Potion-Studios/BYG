@@ -28,7 +28,7 @@ public record TradesConfig(boolean enabled,
     public static TradesConfig INSTANCE = null;
 
 
-    public static final LazySupplier<TradesConfig> DEFAULT = new LazySupplier<>(() -> new TradesConfig(true, BYGVillagerTrades.TRADES.get(), BYGVillagerTrades.WANDERING_TRADER_TRADES));
+    public static final LazySupplier<TradesConfig> DEFAULT = new LazySupplier<>(() -> new TradesConfig(true, BYGVillagerTrades.TRADES.get(), BYGVillagerTrades.WANDERING_TRADER_TRADES.get()));
 
     public static final Codec<TradesConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(

@@ -22,6 +22,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
@@ -81,7 +82,7 @@ public class BYGForge {
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
             public ItemStack makeIcon() {
-                return new ItemStack(BYGItems.BYG_LOGO);
+                return new ItemStack(BYGItems.BYG_LOGO.get());
             }
 
             @Override
@@ -103,6 +104,7 @@ public class BYGForge {
         BYGRegistry.loadClasses();
 
         bootStrap(modBus);
+        modBus.addGenericListener(Block.class, EventPriority.LOWEST, (final RegistryEvent.Register<Block> event) -> BYGItems.bootStrap());
 
         modBus.addListener(this::commonLoad);
         modBus.addListener(this::loadFinish);
@@ -111,7 +113,6 @@ public class BYGForge {
 
     private void bootStrap(IEventBus eventBus) {
         register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
-        register(Item.class, eventBus, () -> BYGItems.bootStrap());
     }
 
     private <T extends IForgeRegistryEntry<T>> void register(Class<? super T> clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {

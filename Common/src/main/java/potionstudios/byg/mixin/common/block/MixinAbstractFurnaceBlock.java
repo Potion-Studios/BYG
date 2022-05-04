@@ -15,7 +15,6 @@ public class MixinAbstractFurnaceBlock {
 
     @Inject(method = "getFuel", at = @At("RETURN"))
     private static void addBYGFuels(CallbackInfoReturnable<Map<Item, Integer>> cir) {
-        // TODO make this a hook
         cir.getReturnValue().put(BYGItems.LIGNITE_BLOCK.get(), 14000);
         cir.getReturnValue().put(BYGItems.LIGNITE.get(), 1400);
         cir.getReturnValue().put(BYGItems.ANTHRACITE_BLOCK.get(), 20000);

@@ -102,16 +102,17 @@ public class BYGVillagerTrades {
         }
     }));
 
-    protected static final Int2ObjectMap<VillagerTrades.ItemListing[]> WANDERING_TRADER_TRADES = toIntMap(ImmutableMap.of(
-        1, Util.make(new ArrayList<VillagerTrades.ItemListing>(), list -> {
-            for (BYGSaplingItem sapling : BYGItems.SAPLINGS.get()) {
-                list.add(new VillagerTrades.EmeraldForItems(sapling, 5, 2, 2));
-            }
-            list.add(new VillagerTrades.EmeraldForItems(BYGItems.SKYRIS_VINE.get(), 5, 2, 2));
-            list.add(new VillagerTrades.EmeraldForItems(BYGItems.POISON_IVY.get(), 5, 2, 2));
-        }).toArray(VillagerTrades.ItemListing[]::new),
-        2, new VillagerTrades.ItemListing[]{}
-    ));
+    protected static final LazySupplier<Int2ObjectMap<VillagerTrades.ItemListing[]>> WANDERING_TRADER_TRADES = new LazySupplier<>(() ->
+            toIntMap(ImmutableMap.of(
+                    1, Util.make(new ArrayList<VillagerTrades.ItemListing>(), list -> {
+                        for (final var sapling : BYGItems.SAPLINGS) {
+                            list.add(new VillagerTrades.EmeraldForItems(sapling.get(), 5, 2, 2));
+                        }
+                        list.add(new VillagerTrades.EmeraldForItems(BYGItems.SKYRIS_VINE.get(), 5, 2, 2));
+                        list.add(new VillagerTrades.EmeraldForItems(BYGItems.POISON_IVY.get(), 5, 2, 2));
+                    }).toArray(VillagerTrades.ItemListing[]::new),
+                    2, new VillagerTrades.ItemListing[]{}
+            )));
 
     public static void appendTradesList(Int2ObjectMap<VillagerTrades.ItemListing[]> newTrades, Int2ObjectMap<List<VillagerTrades.ItemListing>> originalTrades) {
         newTrades.forEach((level, itemListings) -> originalTrades.computeIfAbsent(level, level1 -> new ArrayList<>()).addAll(Arrays.asList(itemListings)));
