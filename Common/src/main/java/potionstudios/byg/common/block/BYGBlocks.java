@@ -1742,7 +1742,7 @@ public class BYGBlocks {
 
     public static BlockRO<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
         final var b = createBlock(blockForPot, id);
-        createBlock(() -> BYGBlockFactory.INSTANCE.createPottedBlock(blockForPot, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()), "potted_" + id);
+        createBlock(() -> BYGBlockFactory.INSTANCE.createPottedBlock(b, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()), "potted_" + id);
         flowerPotBlocks.add(b);
         return b;
     }
