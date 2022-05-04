@@ -99,7 +99,7 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
     }
 
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        return new ItemStack(BYGItems.CATTAIL_SPROUT);
+        return new ItemStack(BYGItems.CATTAIL_SPROUT.get());
     }
 
     public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {

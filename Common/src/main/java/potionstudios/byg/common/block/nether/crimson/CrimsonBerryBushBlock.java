@@ -36,7 +36,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements Boneme
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.CRIMSON_BERRIES);
+        return new ItemStack(BYGItems.CRIMSON_BERRIES.get());
     }
 
     @Override
@@ -47,7 +47,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements Boneme
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.random.nextInt(2);
-            popResource(worldIn, pos, new ItemStack(BYGItems.CRIMSON_BERRIES, j + (flag ? 1 : 0)));
+            popResource(worldIn, pos, new ItemStack(BYGItems.CRIMSON_BERRIES.get(), j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
             return InteractionResult.SUCCESS;

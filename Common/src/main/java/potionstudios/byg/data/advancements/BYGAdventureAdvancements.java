@@ -30,7 +30,7 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancem
                 .filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES)
                 .collect(Collectors.toList());
         AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
-            .display(BYGItems.BYG_LOGO, new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
+            .display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
                 new TranslatableComponent("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)
             .rewards(AdvancementRewards.Builder.experience(1000))
             .save(advancementConsumer, "byg:adventure/oh_the_biomes_youll_go");

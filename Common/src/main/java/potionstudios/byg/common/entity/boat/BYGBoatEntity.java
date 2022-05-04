@@ -47,28 +47,28 @@ public class BYGBoatEntity extends Boat {
     @Override
     public Item getDropItem() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGItems.ASPEN_BOAT;
-            case BAOBAB -> BYGItems.BAOBAB_BOAT;
-            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT;
-            case CHERRY -> BYGItems.CHERRY_BOAT;
-            case CIKA -> BYGItems.CIKA_BOAT;
-            case CYPRESS -> BYGItems.CYPRESS_BOAT;
-            case EBONY -> BYGItems.EBONY_BOAT;
-            case FIR -> BYGItems.FIR_BOAT;
-            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT;
-            case HOLLY -> BYGItems.HOLLY_BOAT;
-            case JACARANDA -> BYGItems.JACARANDA_BOAT;
-            case MAHOGANY -> BYGItems.MAHOGANY_BOAT;
-            case MANGROVE -> BYGItems.MANGROVE_BOAT;
-            case MAPLE -> BYGItems.MAPLE_BOAT;
-            case PINE -> BYGItems.PINE_BOAT;
-            case RAINBOW_EUCALYPTUS -> BYGItems.RAINBOW_EUCALYPTUS_BOAT;
-            case REDWOOD -> BYGItems.REDWOOD_BOAT;
-            case SKYRIS -> BYGItems.SKYRIS_BOAT;
-            case WILLOW -> BYGItems.WILLOW_BOAT;
-            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT;
-            case ZELKOVA -> BYGItems.ZELKOVA_BOAT;
-            case PALM -> BYGItems.PALM_BOAT;
+            default -> BYGItems.ASPEN_BOAT.get();
+            case BAOBAB -> BYGItems.BAOBAB_BOAT.get();
+            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT.get();
+            case CHERRY -> BYGItems.CHERRY_BOAT.get();
+            case CIKA -> BYGItems.CIKA_BOAT.get();
+            case CYPRESS -> BYGItems.CYPRESS_BOAT.get();
+            case EBONY -> BYGItems.EBONY_BOAT.get();
+            case FIR -> BYGItems.FIR_BOAT.get();
+            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT.get();
+            case HOLLY -> BYGItems.HOLLY_BOAT.get();
+            case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
+            case MAHOGANY -> BYGItems.MAHOGANY_BOAT.get();
+            case MANGROVE -> BYGItems.MANGROVE_BOAT.get();
+            case MAPLE -> BYGItems.MAPLE_BOAT.get();
+            case PINE -> BYGItems.PINE_BOAT.get();
+            case RAINBOW_EUCALYPTUS -> BYGItems.RAINBOW_EUCALYPTUS_BOAT.get();
+            case REDWOOD -> BYGItems.REDWOOD_BOAT.get();
+            case SKYRIS -> BYGItems.SKYRIS_BOAT.get();
+            case WILLOW -> BYGItems.WILLOW_BOAT.get();
+            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT.get();
+            case ZELKOVA -> BYGItems.ZELKOVA_BOAT.get();
+            case PALM -> BYGItems.PALM_BOAT.get();
         };
     }
 

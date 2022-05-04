@@ -8,10 +8,10 @@ import java.util.function.Supplier;
 
 public class BYGTier implements Tier {
    public static final BYGTier AMETRINE = new BYGTier(4, 64, 16.0F, 0.8F, 25, () -> {
-        return Ingredient.of(BYGItems.AMETRINE_GEMS);
+        return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
     });
     public static final BYGTier PENDORITE = new BYGTier(5, 2500, 10.0F, 4.0F, 15, () -> {
-        return Ingredient.of(BYGItems.PENDORITE_SCRAPS);
+        return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
     });
 
     private final int harvestLevel;

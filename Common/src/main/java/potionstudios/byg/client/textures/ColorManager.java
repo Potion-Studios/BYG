@@ -30,12 +30,12 @@ public class ColorManager {
 
         if (itemBlockColourHandler != null) {
             itemColors.register(itemBlockColourHandler,
-                BYGItems.LUSH_GRASS_BLOCK, BYGItems.OVERGROWN_NETHERRACK, BYGItems.MAHOGANY_LEAVES,
-                BYGItems.POISON_IVY, BYGItems.OVERGROWN_STONE,
-                BYGItems.TINY_LILYPADS, BYGItems.NETHER_BRISTLE, BYGItems.OVERGROWN_DACITE, BYGItems.LEAF_PILE,
-                BYGItems.ORCHARD_LEAVES, BYGItems.FLOWERING_ORCHARD_LEAVES, BYGItems.RIPE_ORCHARD_LEAVES,
-                BYGItems.WILLOW_LEAVES, BYGItems.CYPRESS_LEAVES,
-                BYGItems.MAPLE_LEAVES, BYGItems.JOSHUA_LEAVES, BYGItems.RIPE_JOSHUA_LEAVES);
+                BYGItems.LUSH_GRASS_BLOCK.get(), BYGItems.OVERGROWN_NETHERRACK.get(), BYGItems.MAHOGANY_LEAVES.get(),
+                BYGItems.POISON_IVY.get(), BYGItems.OVERGROWN_STONE.get(),
+                BYGItems.TINY_LILYPADS.get(), BYGItems.NETHER_BRISTLE.get(), BYGItems.OVERGROWN_DACITE.get(), BYGItems.LEAF_PILE.get(),
+                BYGItems.ORCHARD_LEAVES.get(), BYGItems.FLOWERING_ORCHARD_LEAVES.get(), BYGItems.RIPE_ORCHARD_LEAVES.get(),
+                BYGItems.WILLOW_LEAVES.get(), BYGItems.CYPRESS_LEAVES.get(),
+                BYGItems.MAPLE_LEAVES.get(), BYGItems.JOSHUA_LEAVES.get(), BYGItems.RIPE_JOSHUA_LEAVES.get());
         }
     }
 }

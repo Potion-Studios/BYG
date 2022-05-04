@@ -51,7 +51,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK);
+        return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK.get());
     }
 
     protected void growBamboo(Level world, BlockPos pos) {

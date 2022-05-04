@@ -44,7 +44,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
             double e = (double) blockPos.getY() + 1.0D;
             double f = (double) blockPos.getZ() + random.nextDouble();
             int j = 1 + level.random.nextInt(2);
-            popResource(level, blockPos, new ItemStack(BYGItems.ALOE_VERA, j));
+            popResource(level, blockPos, new ItemStack(BYGItems.ALOE_VERA.get(), j));
             level.setBlockAndUpdate(blockPos, BYGBlocks.ALOE_VERA.defaultBlockState());
             level.neighborChanged(blockPos, BYGBlocks.ALOE_VERA, blockPos);
             level.neighborChanged(blockPos, Blocks.AIR, blockPos3);
@@ -56,7 +56,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        return new ItemStack(BYGItems.ALOE_VERA);
+        return new ItemStack(BYGItems.ALOE_VERA.get());
     }
 
 

@@ -49,7 +49,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.THERIUM_CRYSTAL);
+        return new ItemStack(BYGItems.THERIUM_CRYSTAL.get());
     }
 
     public boolean isRandomlyTicking(BlockState state) {
@@ -74,7 +74,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (i > 2) {
             int j = 1;
-            popResource(worldIn, pos, new ItemStack(BYGItems.THERIUM_CRYSTAL, j));
+            popResource(worldIn, pos, new ItemStack(BYGItems.THERIUM_CRYSTAL.get(), j));
             worldIn.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.SUCCESS;

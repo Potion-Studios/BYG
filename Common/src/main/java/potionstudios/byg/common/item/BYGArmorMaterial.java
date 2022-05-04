@@ -11,10 +11,10 @@ import java.util.function.Supplier;
 
 public class BYGArmorMaterial implements ArmorMaterial {
     public static final BYGArmorMaterial AMETRINE = new BYGArmorMaterial("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.2F, () -> {
-        return Ingredient.of(BYGItems.AMETRINE_GEMS);
+        return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
     });
     public static final BYGArmorMaterial PENDORITE = new BYGArmorMaterial("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, () -> {
-        return Ingredient.of(BYGItems.PENDORITE_SCRAPS);
+        return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
     });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
