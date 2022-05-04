@@ -14,6 +14,7 @@ import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
+import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.mixin.access.RegistryAccess;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
@@ -35,5 +36,6 @@ public class BYGRegistry {
         BYGParticleTypes.loadClass();
         BYGVillagerProfessions.loadClass();
         BYGPoiTypes.loadClass();
+        BYGSounds.loadClass();
     }
 }

@@ -95,7 +95,6 @@ public class BYGFabric implements ModInitializer {
         register(Registry.BLOCK, BYGBlocks.bootStrap());
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO)));
         register(Registry.ITEM, BYGItems.bootStrap());
-        register(Registry.SOUND_EVENT, BYGSounds.bootStrap());
         register(Registry.FEATURE, BYGFeatures.bootStrap());
         register(Registry.BLOCKSTATE_PROVIDER_TYPES, BYGStateProviders.bootStrap());
         register(Registry.STRUCTURE_FEATURE, BYGStructureFeature.bootStrap());

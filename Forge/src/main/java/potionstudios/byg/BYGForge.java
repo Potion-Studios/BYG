@@ -112,7 +112,6 @@ public class BYGForge {
     private void bootStrap(IEventBus eventBus) {
         register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
         register(Item.class, eventBus, () -> BYGItems.bootStrap());
-        register(SoundEvent.class, eventBus, () -> BYGSounds.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
         register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
         register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
