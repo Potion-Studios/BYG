@@ -150,7 +150,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
                     hypogealImperiumBlockEntity.setCrystal(hypogealImperiumBlockEntity.getCrystal() + 1);
                     hypogealImperiumBlockEntity.getLevel().sendBlockUpdated(hypogealImperiumBlockEntity.worldPosition, hypogealImperiumBlockEntity.getBlockState(), hypogealImperiumBlockEntity.getBlockState(), 13);
                     if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                        hypogealImperiumBlockEntity.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
+                        hypogealImperiumBlockEntity.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.get().getDefaultInstance());
                     }
                     if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
                         resultItem.setCount(resultItem.getCount() + 1);
