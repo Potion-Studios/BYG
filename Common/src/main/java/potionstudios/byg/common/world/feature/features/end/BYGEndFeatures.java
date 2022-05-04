@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
@@ -34,6 +35,7 @@ import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFea
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
@@ -91,8 +93,8 @@ public class BYGEndFeatures {
         createPlacedFeature(TALL_CRYPTIC_VENT))
     );
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> CRYPTIC_CAVES = createConfiguredFeature("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE,
-        new NoisySphereConfig.Builder()
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> CRYPTIC_CAVES = createConfiguredFeatureSup("cryptic_caves", BYGFeatures.NOISY_CAVE_SPHERE,
+        () -> new NoisySphereConfig.Builder()
             .withRadiusSettings(
                 new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
             ).withBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR))
@@ -112,9 +114,9 @@ public class BYGEndFeatures {
         BetweenNoiseThresholdProvider.createThresholds(0.0125F, -1, 1),
         SimpleStateProvider.simple(Blocks.CRYING_OBSIDIAN), SimpleStateProvider.simple(Blocks.OBSIDIAN), false);
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> IVIS_FIELDS_SPIKE = createConfiguredFeature("ivis_fields_spike", BYGFeatures.NOISE_SPIKE,
-        new NoisySphereConfig.Builder()
-            .copy(BYGOverworldFeatures.STONE_FOREST_COLUMN.value().config()).withStackHeight(ConstantInt.of(1))
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> IVIS_FIELDS_SPIKE = createConfiguredFeatureSup("ivis_fields_spike", BYGFeatures.NOISE_SPIKE,
+        () -> new NoisySphereConfig.Builder()
+            .copy(BYGOverworldFeatures.STONE_FOREST_COLUMN_CONFIG).withStackHeight(ConstantInt.of(1))
             .withBlockProvider(BETWEEN_NOISE_THRESHOLD_PROVIDER_IVIS)
             .withTopBlockProvider(BETWEEN_NOISE_THRESHOLD_PROVIDER_IVIS)
             .withBelowSurfaceDepth(ConstantInt.of(1))
@@ -123,9 +125,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> IVIS_FIELDS_COLUMN = createConfiguredFeature("ivis_fields_column", BYGFeatures.NOISE_SPHERE,
-        new NoisySphereConfig.Builder()
-            .copy(BYGOverworldFeatures.STONE_FOREST_COLUMN.value().config())
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> IVIS_FIELDS_COLUMN = createConfiguredFeatureSup("ivis_fields_column", BYGFeatures.NOISE_SPHERE,
+        () -> new NoisySphereConfig.Builder()
+            .copy(BYGOverworldFeatures.STONE_FOREST_COLUMN_CONFIG.get())
             .withBlockProvider(BETWEEN_NOISE_THRESHOLD_PROVIDER_IVIS)
             .withTopBlockProvider(BETWEEN_NOISE_THRESHOLD_PROVIDER_IVIS)
             .build()
@@ -141,9 +143,9 @@ public class BYGEndFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeature("therium_crystal_deposit",
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> THERIUM_CRYSTAL_DEPOSIT = createConfiguredFeatureSup("therium_crystal_deposit",
         BYGFeatures.NOISE_SPIKE,
-        new NoisySphereConfig.Builder()
+        () -> new NoisySphereConfig.Builder()
             .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 8)
                 .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 2))
@@ -163,9 +165,9 @@ public class BYGEndFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> THERIUM_CRYSTAL_DEPOSIT_LARGE = createConfiguredFeature("therium_crystal_deposit_large",
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> THERIUM_CRYSTAL_DEPOSIT_LARGE = createConfiguredFeatureSup("therium_crystal_deposit_large",
         BYGFeatures.NOISE_SPIKE,
-        new NoisySphereConfig.Builder()
+        () -> new NoisySphereConfig.Builder()
             .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 2)
                 .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 8))
@@ -195,10 +197,10 @@ public class BYGEndFeatures {
 
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build());
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeature("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeature("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeatureSup("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeatureSup("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeatureSup("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeatureSup("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
 
     public static final Holder<PlacedFeature> ISLAND_AMETRINE_CLUSTERS = createPlacedFeature(createConfiguredFeature(
         Feature.RANDOM_PATCH,
@@ -232,9 +234,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND1 = createConfiguredFeature("floating_island1",
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND1 = createConfiguredFeatureSup("floating_island1",
         BYGFeatures.FLOATING_ISLAND1,
-        new FloatingIslandConfig.Builder()
+        () -> new FloatingIslandConfig.Builder()
             .setTopBlock(ISLAND_SURFACE_PROVIDER)
             .setBlock(ISLAND_BLOCK_PROVIDER)
             .setMinRadius(11)
@@ -243,9 +245,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND2 = createConfiguredFeature("floating_island2",
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND2 = createConfiguredFeatureSup("floating_island2",
         BYGFeatures.FLOATING_ISLAND2,
-        new FloatingIslandConfig.Builder()
+        () -> new FloatingIslandConfig.Builder()
             .setTopBlock(ISLAND_SURFACE_PROVIDER)
             .setBlock(ISLAND_BLOCK_PROVIDER)
             .setMinRadius(11)
@@ -254,9 +256,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND3 = createConfiguredFeature("floating_island3",
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND3 = createConfiguredFeatureSup("floating_island3",
         BYGFeatures.FLOATING_ISLAND3,
-        new FloatingIslandConfig.Builder()
+        () -> new FloatingIslandConfig.Builder()
             .setTopBlock(ISLAND_SURFACE_PROVIDER)
             .setBlock(ISLAND_BLOCK_PROVIDER)
             .setMinRadius(11)
@@ -265,9 +267,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND4 = createConfiguredFeature("floating_island4",
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND4 = createConfiguredFeatureSup("floating_island4",
         BYGFeatures.FLOATING_ISLAND4,
-        new FloatingIslandConfig.Builder()
+        () -> new FloatingIslandConfig.Builder()
             .setTopBlock(ISLAND_SURFACE_PROVIDER)
             .setBlock(ISLAND_BLOCK_PROVIDER)
             .setMinRadius(13)
@@ -276,9 +278,9 @@ public class BYGEndFeatures {
             .build()
     );
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND5 = createConfiguredFeature("floating_island5",
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> FLOATING_ISLAND5 = createConfiguredFeatureSup("floating_island5",
         BYGFeatures.FLOATING_ISLAND5,
-        new FloatingIslandConfig.Builder()
+        () -> new FloatingIslandConfig.Builder()
             .setTopBlock(ISLAND_SURFACE_PROVIDER)
             .setBlock(ISLAND_BLOCK_PROVIDER)
             .setMinRadius(13)
@@ -294,4 +296,8 @@ public class BYGEndFeatures {
         new WeightedPlacedFeature(createPlacedFeature(FLOATING_ISLAND3), 0.25F)),
         createPlacedFeature(FLOATING_ISLAND5)
     ));
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeatureSup(String id, Supplier<? extends F> feature, Supplier<? extends FC> config) {
+        return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature.get(), config.get())).asHolder();
+    }
 }

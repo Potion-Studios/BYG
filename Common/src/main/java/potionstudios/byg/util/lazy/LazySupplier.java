@@ -12,7 +12,6 @@ public class LazySupplier<T> implements Supplier<T> {
         this.supplier = supplier;
     }
 
-    @Nullable
     @Override
     public final T get()
     {

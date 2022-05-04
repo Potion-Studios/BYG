@@ -25,5 +25,6 @@ public class BYGStructureSets {
     }
 
     public static void bootStrap() {
+        BYGStructureFeatures.loadClass();
     }
 }

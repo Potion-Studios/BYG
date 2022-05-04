@@ -137,4 +137,6 @@ public class BYGStructureFeatures {
     private static <FC extends FeatureConfiguration, F extends StructureFeature<FC>> Holder<ConfiguredStructureFeature<?, ?>> register(String id, Supplier<ConfiguredStructureFeature<FC, F>> configuredStructureFeature) {
         return PROVIDER.<ConfiguredStructureFeature<?, ?>>register(id, configuredStructureFeature).asHolder();
     }
+
+    public static void loadClass() {}
 }

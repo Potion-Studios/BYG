@@ -28,10 +28,12 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
+import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.List;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
+import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeatureSupplierConfig;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGOverworldFeatures {
@@ -235,19 +237,23 @@ public class BYGOverworldFeatures {
             )).build()
     );
 
-    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> STONE_FOREST_COLUMN = createConfiguredFeature("stone_forest_column",
-        BYGFeatures.NOISE_SPHERE,
+    public static final LazySupplier<NoisySphereConfig> STONE_FOREST_COLUMN_CONFIG = new LazySupplier<>(() ->
         new NoisySphereConfig.Builder()
-            .withStackHeight(UniformInt.of(3, 7))
-            .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18)))
-            .withRadiusDivisorPerStack(2)
-            .withNoise2DChance(0.25)
-            .withBlockProvider(SimpleStateProvider.simple(Blocks.STONE.defaultBlockState()))
-            .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE))
-            .withNoiseFrequency(0.09F)
-            .withRadiusMatcher(RadiusMatcher.NONE)
-            .withCheckSquareDistance(false)
-            .build()
+                .withStackHeight(UniformInt.of(3, 7))
+                .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18)))
+                .withRadiusDivisorPerStack(2)
+                .withNoise2DChance(0.25)
+                .withBlockProvider(SimpleStateProvider.simple(Blocks.STONE.defaultBlockState()))
+                .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE))
+                .withNoiseFrequency(0.09F)
+                .withRadiusMatcher(RadiusMatcher.NONE)
+                .withCheckSquareDistance(false)
+                .build()
+    );
+
+    public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> STONE_FOREST_COLUMN = createConfiguredFeatureSupplierConfig("stone_forest_column",
+        BYGFeatures.NOISE_SPHERE,
+        STONE_FOREST_COLUMN_CONFIG
     );
 
 
