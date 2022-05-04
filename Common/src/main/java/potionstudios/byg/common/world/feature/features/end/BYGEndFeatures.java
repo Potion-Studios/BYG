@@ -41,52 +41,52 @@ import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeatures
 public class BYGEndFeatures {
     public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, BlockPos.ZERO.relative(Direction.DOWN));
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", Feature.RANDOM_PATCH,
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))),
                 createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire",
-        Feature.SIMPLE_BLOCK,
+        () -> Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))
     );
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_VENT_PATCH = createConfiguredFeature("cryptic_vent_patch", Feature.RANDOM_PATCH,
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_VENT_PATCH = createConfiguredFeature("cryptic_vent_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> CRYPTIC_VENT = createConfiguredFeature("cryptic_vent",
-        Feature.SIMPLE_BLOCK,
+        () -> Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TALL_CRYPTIC_VENT_PATCH = createConfiguredFeature("tall_cryptic_vent_patch",
-        Feature.RANDOM_PATCH,
+        () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent",
-        Feature.SIMPLE_BLOCK,
+        () -> Feature.SIMPLE_BLOCK,
         new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))
     );
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_CRYPTIC_REDSTONE = createConfiguredFeature("cryptic_redstone",
-        Feature.ORE,
+        () -> Feature.ORE,
         new OreConfiguration(
             List.of(
                 OreConfiguration.target(new BlockMatchTest(BYGBlocks.CRYPTIC_STONE), BYGBlocks.CRYPTIC_REDSTONE_ORE.defaultBlockState())
             ), 8)
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CRYPTIC_VENT_PATCHES = createConfiguredFeature("cryptic_vents_patch", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CRYPTIC_VENT_PATCHES = createConfiguredFeature("cryptic_vents_patch", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(CRYPTIC_VENT_PATCH), 0.50F)),
         createPlacedFeature(TALL_CRYPTIC_VENT_PATCH))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CRYPTIC_VENTS = createConfiguredFeature("cryptic_vents", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CRYPTIC_VENTS = createConfiguredFeature("cryptic_vents", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(CRYPTIC_VENT), 0.50F)),
         createPlacedFeature(TALL_CRYPTIC_VENT))
     );
@@ -288,7 +288,7 @@ public class BYGEndFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ISLANDS = createConfiguredFeature("floating_islands", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ISLANDS = createConfiguredFeature("floating_islands", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(FLOATING_ISLAND1), 0.1F),
         new WeightedPlacedFeature(createPlacedFeature(FLOATING_ISLAND2), 0.25F),
         new WeightedPlacedFeature(createPlacedFeature(FLOATING_ISLAND3), 0.25F)),

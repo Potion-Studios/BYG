@@ -30,14 +30,10 @@ import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.byg_invoke
 
 public class BYGFeaturesUtil {
 
-    private static final RegistrationProvider<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_FEATURE, BYG.MOD_ID);
+    public static final RegistrationProvider<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_FEATURE, BYG.MOD_ID);
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, Supplier<? extends F> feature, FC config) {
         return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature.get(), config)).asHolder();
-    }
-
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, F feature, FC config) {
-        return createConfiguredFeature(id, (Supplier<? extends F>) () -> feature, config);
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(F feature, FC config) {
@@ -45,7 +41,7 @@ public class BYGFeaturesUtil {
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createFlowerConfiguredFeature(String id, Block flowerBlock) {
-        return createConfiguredFeature(id, Feature.FLOWER, byg_invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15));
+        return createConfiguredFeature(id, () -> Feature.FLOWER, byg_invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.defaultBlockState()), 15));
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, Block block, int tries) {
@@ -53,7 +49,7 @@ public class BYGFeaturesUtil {
     }
 
     public static Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, BlockState state, int tries) {
-        return createConfiguredFeature(id, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)), List.of(), tries));
+        return createConfiguredFeature(id, () -> Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)), List.of(), tries));
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(Block block, int tries) {
@@ -65,7 +61,7 @@ public class BYGFeaturesUtil {
     }
 
     public static Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> createSimpleBlockConfiguredFeature(String id, BlockState state) {
-        return createConfiguredFeature(id, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)));
+        return createConfiguredFeature(id, () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(state)));
     }
 
 

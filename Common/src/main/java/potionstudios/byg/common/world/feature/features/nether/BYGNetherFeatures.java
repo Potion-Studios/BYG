@@ -35,7 +35,7 @@ import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeatures
 public class BYGNetherFeatures {
 
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SUBZERO_ASH_BLOCK = createConfiguredFeature("subzero_ash_block", Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.SUBZERO_ASH_BLOCK)), List.of(BYGBlocks.SUBZERO_ASH_BLOCK)));
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SUBZERO_ASH_BLOCK = createConfiguredFeature("subzero_ash_block", () -> Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.SUBZERO_ASH_BLOCK)), List.of(BYGBlocks.SUBZERO_ASH_BLOCK)));
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SUBZERO_ASH = createPatchConfiguredFeature("subzero_ash", BYGBlocks.SUBZERO_ASH, 35);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> QUARTZ_CRYSTAL = createPatchConfiguredFeature("quartz_crystal", BYGBlocks.QUARTZ_CRYSTAL, 15);
 
@@ -48,16 +48,16 @@ public class BYGNetherFeatures {
     public static final Holder<ConfiguredFeature<ColumnFeatureConfiguration, ?>> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS, new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
     public static final Holder<ConfiguredFeature<QuartzSpikeConfig, ?>> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES, new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND).build());
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 6));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", Feature.ORE, new OreConfiguration(SCORIA_STONE, BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 6));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", () -> Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.PENDORITE_ORE.defaultBlockState(), 6));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", () -> Feature.ORE, new OreConfiguration(SCORIA_STONE, BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 6));
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_QUARTZ_BRIMSTONE = createConfiguredFeature("ore_quartz_brimstone", Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE.defaultBlockState(), 10));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_GOLD_BLUE_NETHERRACK = createConfiguredFeature("ore_gold_blue_netherrack", Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10));
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_QUARTZ_BLUE_NETHERRACK = createConfiguredFeature("ore_quartz_blue_netherrack", Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", () -> Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", () -> Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_QUARTZ_BRIMSTONE = createConfiguredFeature("ore_quartz_brimstone", () -> Feature.ORE, new OreConfiguration(BRIMSTONE, BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE.defaultBlockState(), 10));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_GOLD_BLUE_NETHERRACK = createConfiguredFeature("ore_gold_blue_netherrack", () -> Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10));
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_QUARTZ_BLUE_NETHERRACK = createConfiguredFeature("ore_quartz_blue_netherrack", () -> Feature.ORE, new OreConfiguration(BLUE_NETHERRACK, BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10));
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> BRIMSTONE_PILLARS = createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS, new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE)));
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", Feature.RANDOM_PATCH,
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BORIC_FIRE))),
                 createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.BRIMSTONE, BlockPos.ZERO.relative(Direction.DOWN)))))
@@ -69,7 +69,7 @@ public class BYGNetherFeatures {
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_LANTERNS = createConfiguredFeature("hanging_lanterns", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE).setBlock(Blocks.CAVE_AIR.defaultBlockState()).setEndBlock(BYGBlocks.WAILING_BELL_BLOSSOM.defaultBlockState()).setMinLength(1).setMaxLength(4).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build());
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> SYTHIAN_FUNGUS_PILLARS = createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS, new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGBlocks.SYTHIAN_HYPHAE.defaultBlockState(), 9).add(BYGBlocks.SYTHIAN_HYPHAE.defaultBlockState(), 1))));
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_CHAINS = createConfiguredFeature("hanging_chains", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(Blocks.CHAIN.defaultBlockState()).setMinLength(8).setMaxLength(16).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE)).build());
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SUBZERO_ASHES = createConfiguredFeature("subzero_ashes", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SUBZERO_ASHES = createConfiguredFeature("subzero_ashes", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(SUBZERO_ASH), 0.6F)),
         createPlacedFeature(SUBZERO_ASH_BLOCK)));
 

@@ -49,7 +49,7 @@ public class BYGOverworldFeatures {
                 SimpleStateProvider.simple(Blocks.TUFF), SimpleStateProvider.simple(Blocks.DEEPSLATE), false)
         ));
 
-    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), ConstantInt.of(0)));
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", () -> Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), ConstantInt.of(0)));
 
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> WIDE_WATER_LAKE = createConfiguredFeature("wide_water_lake",

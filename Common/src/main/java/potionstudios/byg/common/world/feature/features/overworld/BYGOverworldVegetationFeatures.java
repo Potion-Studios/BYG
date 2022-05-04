@@ -98,7 +98,7 @@ public class BYGOverworldVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> AMARANTH_FIELD_FLOWERS = createConfiguredFeature("amaranth_field_flowers",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(AMARANTH), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(AMARANTH_MAGENTA), 0.2F),
@@ -108,19 +108,19 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad",
-        Feature.RANDOM_PATCH,
+        () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(10, 7, 3,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TINY_LILYPADS))))
         ));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WATER_SILK = createConfiguredFeature("water_silk",
-        Feature.RANDOM_PATCH,
+        () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(10, 7, 3,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WATER_SILK)))
             )));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ALLIUM_FIELD_FLOWERS = createConfiguredFeature("allium_field_flowers",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ALLIUM_TALL_BUSH), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(ALLIUM_TALL_PINK_BUSH), 0.25F),
@@ -130,7 +130,7 @@ public class BYGOverworldVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ROSE_FIELD_FLOWERS = createConfiguredFeature("rose_field_flowers",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ROSE_OSIRIA), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(ROSE), 0.25F)),
@@ -138,7 +138,7 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DESERT_VEGETATION = createConfiguredFeature("desert_vegetation",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MINI_CACTI), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(PRICKLY_PEAR_CACTI), 0.3F),
@@ -148,7 +148,7 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DESERT_VEGETATION_ATACAMA = createConfiguredFeature("desert_vegetation_atacama",
-            Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
             new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(createPlacedFeature(MINI_CACTI), 0.15F),
                     new WeightedPlacedFeature(createPlacedFeature(PRICKLY_PEAR_CACTI), 0.15F),
@@ -159,14 +159,14 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PRAIRIE_GRASS = createConfiguredFeature("prairie_grass",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PRAIRIE_GRASS_PATCH), 0.75F)),
             createPlacedFeature(TALL_PRAIRIE_GRASS_PATCH))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MUSHROOMS = createConfiguredFeature("mushrooms",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(WOOD_BLEWIT), 0.33F),
             new WeightedPlacedFeature(createPlacedFeature(WEEPING_MILKCAP), 0.33F)),
@@ -174,7 +174,7 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> JUNGLE_FLOWERS = createConfiguredFeature("jungle_flowers",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BISTORT), 0.142F),
             new WeightedPlacedFeature(createPlacedFeature(GUZMANIA), 0.142F),
@@ -186,7 +186,7 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> JACARANDA_BUSHES = createConfiguredFeature("jacaranda_bushes",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(FLOWERING_INDIGO_JACARANDA_BUSH), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(FLOWERING_JACARANDA_BUSH), 0.25F),
@@ -195,42 +195,42 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SWAMP_WATER_VEGETATION = createConfiguredFeature("swamp_water_vegetation",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(TINY_LILY_PAD), 0.50F)),
             createPlacedFeature(WATER_SILK))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CHERRY_FOLIAGE = createConfiguredFeature("cherry_foliage",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(WHITE_CHERRY_FOLIAGE), 0.5F)),
             createPlacedFeature(PINK_CHERRY_FOLIAGE))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ANEMONES = createConfiguredFeature("anemones",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ANEMONE_PINK), 0.5F)),
             createPlacedFeature(ANEMONE_WHITE))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SAGES = createConfiguredFeature("sages",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SAGE_PURPLE), 0.5F)),
             createPlacedFeature(SAGE_WHITE))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> HYDRANGEAS = createConfiguredFeature("hydrangeas",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(HYDRANGEA_BUSH), 0.5F)),
             createPlacedFeature(HYDRANGEA_HEDGE))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> TULIPS = createConfiguredFeature("tulips",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(TULIP_MAGENTA), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(TULIP_YELLOW), 0.2F),
@@ -255,14 +255,14 @@ public class BYGOverworldVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LARGE_PUMPKINS = createConfiguredFeature("large_pumpkin",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PUMPKIN1), 0.5F)),
             createPlacedFeature(PUMPKIN2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LEATHER_FLOWERS = createConfiguredFeature("leather_flowers",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(LEATHER_FLOWER_PEACH), 0.5F)),
             createPlacedFeature(LEATHER_FLOWER_VIOLET))
@@ -350,7 +350,7 @@ public class BYGOverworldVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> HUGE_MUSHROOMS = createConfiguredFeature("huge_mushrooms",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(GREEN_MUSHROOM_HUGE), 0.35F),
             new WeightedPlacedFeature(createPlacedFeature(WOOD_BLEWIT_HUGE), 0.35F),
