@@ -1716,8 +1716,9 @@ public class BYGBlocks {
 
     static BlockRO<Block> createSapling(TagKey<Block> groundTag, String id) {
         final Supplier<Block> createBlock = () -> new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
-        CommonSetupLoad.ENTRIES.add(() -> ((CommonSetupLoad) createBlock.get())::load);
-        return createPottedBlock(createBlock, id);
+        final var blockRo = createPottedBlock(createBlock, id);
+        CommonSetupLoad.ENTRIES.add(() -> ((CommonSetupLoad) blockRo.get())::load);
+        return blockRo;
     }
 
     static BlockRO<Block> createShrub(TreeSpawner tree, String id) {
