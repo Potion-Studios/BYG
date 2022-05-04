@@ -21,19 +21,23 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import potionstudios.byg.BYG;
+import potionstudios.byg.registration.RegistrationProvider;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.byg_invokeGrassPatch;
 
 public class BYGFeaturesUtil {
 
+    private static final RegistrationProvider<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_FEATURE, BYG.MOD_ID);
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, Supplier<? extends F> feature, FC config) {
+        return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature.get(), config)).asHolder();
+    }
+
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, F feature, FC config) {
-        ResourceLocation bygID = BYG.createLocation(id);
-        if (BuiltinRegistries.CONFIGURED_FEATURE.keySet().contains(bygID)) {
-            throw new IllegalStateException("Configured Feature ID: \"" + bygID.toString() + "\" already exists in the Configured Features registry!");
-        }
-        return BuiltinRegistries.registerExact(BuiltinRegistries.CONFIGURED_FEATURE, BYG.createLocation(id).toString(), new ConfiguredFeature<>(feature, config));
+        return createConfiguredFeature(id, (Supplier<? extends F>) () -> feature, config);
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(F feature, FC config) {

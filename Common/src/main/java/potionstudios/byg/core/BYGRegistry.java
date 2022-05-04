@@ -16,6 +16,7 @@ import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.mixin.access.RegistryAccess;
@@ -41,5 +42,6 @@ public class BYGRegistry {
         BYGSounds.loadClass();
         BYGStateProviders.loadClass();
         BYGStructureFeature.loadClass();
+        BYGFeatures.loadClass();
     }
 }
