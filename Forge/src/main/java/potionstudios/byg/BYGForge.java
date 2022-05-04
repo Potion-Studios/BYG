@@ -103,28 +103,9 @@ public class BYGForge {
 
         BYGRegistry.loadClasses();
 
-        bootStrap(modBus);
-        modBus.addGenericListener(Block.class, EventPriority.LOWEST, (final RegistryEvent.Register<Block> event) -> BYGItems.bootStrap());
-
         modBus.addListener(this::commonLoad);
         modBus.addListener(this::loadFinish);
         modBus.addListener(this::clientLoad);
-    }
-
-    private void bootStrap(IEventBus eventBus) {
-        register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
-    }
-
-    private <T extends IForgeRegistryEntry<T>> void register(Class<? super T> clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {
-        eventBus.addGenericListener(clazz, (RegistryEvent.Register<T> event) -> {
-            Collection<RegistryObject<T>> registryObjects = registryObjectsSupplier.get();
-            IForgeRegistry<T> registry = event.getRegistry();
-            for (RegistryObject<T> registryObject : registryObjects) {
-                registryObject.object().setRegistryName(BYG.createLocation(registryObject.id()));
-                registry.register(registryObject.object());
-            }
-            BYG.LOGGER.info("BYG registered: " + registry.getRegistryName());
-        });
     }
 
     private void commonLoad(FMLCommonSetupEvent event) {

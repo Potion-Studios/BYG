@@ -10,7 +10,29 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.AmethystClusterBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.DirtPathBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.NetherSproutsBlock;
+import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RedStoneOreBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SlimeBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -20,7 +42,19 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.textures.BYGMaterials;
-import potionstudios.byg.common.block.end.*;
+import potionstudios.byg.common.block.end.CrypticFireBlock;
+import potionstudios.byg.common.block.end.CrypticLanternBlock;
+import potionstudios.byg.common.block.end.EtherPlantBlock;
+import potionstudios.byg.common.block.end.ImpariusPlantBlock;
+import potionstudios.byg.common.block.end.IvisPlantBlock;
+import potionstudios.byg.common.block.end.NightshadePlantBlock;
+import potionstudios.byg.common.block.end.SculkPlantBlock;
+import potionstudios.byg.common.block.end.StoneEndPlantBlock;
+import potionstudios.byg.common.block.end.TallEtherPlantBlock;
+import potionstudios.byg.common.block.end.TallNightshadePlantBlock;
+import potionstudios.byg.common.block.end.TallVentBlock;
+import potionstudios.byg.common.block.end.TheriumCrystalBlock;
+import potionstudios.byg.common.block.end.VentBlock;
 import potionstudios.byg.common.block.end.bulbisgardens.TallBulbisBlock;
 import potionstudios.byg.common.block.end.impariusgrove.FungalImpariusFilamentBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
@@ -50,13 +84,18 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGHu
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
-import potionstudios.byg.mixin.access.*;
+import potionstudios.byg.mixin.access.DirtPathBlockAccess;
+import potionstudios.byg.mixin.access.DoorBlockAccess;
+import potionstudios.byg.mixin.access.IronBarsBlockAccess;
+import potionstudios.byg.mixin.access.PressurePlateBlockAccess;
+import potionstudios.byg.mixin.access.SnowyDirtBlockAccess;
+import potionstudios.byg.mixin.access.StairBlockAccess;
+import potionstudios.byg.mixin.access.TrapDoorBlockAccess;
+import potionstudios.byg.mixin.access.WoodButtonBlockAccess;
 import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.util.CommonSetupLoad;
-import potionstudios.byg.util.RegistryObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
@@ -1676,8 +1715,8 @@ public class BYGBlocks {
     }
 
     static BlockRO<Block> createSapling(TagKey<Block> groundTag, String id) {
-        final Supplier<BYGSapling> createBlock = () -> new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
-        CommonSetupLoad.ENTRIES.add(createBlock);
+        final Supplier<Block> createBlock = () -> new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
+        CommonSetupLoad.ENTRIES.add(() -> ((CommonSetupLoad) createBlock.get())::load);
         return createPottedBlock(createBlock, id);
     }
 
@@ -1701,10 +1740,9 @@ public class BYGBlocks {
         return createBlock(() -> new FloweringJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange), id);
     }
 
-    public static BlockRO<Block> createPottedBlock(Supplier<? extends Block> blockForPot, String id) {
-        final Supplier<Block> createBlock = () -> new FlowerPotBlock(blockForPot.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion());
-        createBlock(createBlock, "potted_" + id);
-        final var b = (BlockRO<Block>) createBlock(blockForPot, id);
+    public static BlockRO<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
+        final var b = createBlock(blockForPot, id);
+        createBlock(() -> new FlowerPotBlock(blockForPot.get(), BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()), "potted_" + id);
         flowerPotBlocks.add(b);
         return b;
     }
@@ -1760,7 +1798,6 @@ public class BYGBlocks {
     static BlockRO<Block> createLeaves(MaterialColor color, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false)), id);
     }
-
 
     static BlockRO<Block> createGlowingLeaves(MaterialColor color, int lightLevel, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel)), id);
@@ -1851,10 +1888,6 @@ public class BYGBlocks {
         };
     }
 
-    public static Collection<RegistryObject<Block>> bootStrap() {
-        return List.of();
-    }
-
     private static Boolean neverAllowSpawn(BlockState state, BlockGetter reader, BlockPos pos, EntityType<?> entity) {
         return false;
     }
@@ -1869,7 +1902,5 @@ public class BYGBlocks {
         };
     }
 
-    static {
-        BYG.LOGGER.info("BYG Blocks class loaded.");
-    }
+    public static void loadClass() {}
 }

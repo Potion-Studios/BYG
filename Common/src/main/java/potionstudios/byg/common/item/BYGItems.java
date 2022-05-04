@@ -1,7 +1,6 @@
 package potionstudios.byg.common.item;
 
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,7 +20,6 @@ import potionstudios.byg.registration.RegistryObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BYGItems {
@@ -1091,7 +1089,7 @@ public class BYGItems {
     public static final RegistryObject<Item> ETHER_BUSH = createItem(BYGBlocks.ETHER_BUSH);
     public static final RegistryObject<Item> THEREAL_BELLFLOWER = createItem(BYGBlocks.THEREAL_BELLFLOWER);
 
-    public static final RegistryObject<Item> NIGHTSHADE_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
+    public static final RegistryObject<Item> NIGHTSHADE_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
     public static final RegistryObject<Item> NIGHTSHADE_BERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F).build())), "nightshade_berry_pie");
     public static final RegistryObject<Item> NIGHTSHADE_PHYLIUM = createItem(BYGBlocks.NIGHTSHADE_PHYLIUM);
     public static final RegistryObject<Item> NIGHTSHADE_SPROUTS = createItem(BYGBlocks.NIGHTSHADE_SPROUTS);
@@ -1158,7 +1156,7 @@ public class BYGItems {
     public static final RegistryObject<Item> MILKCAP_MUSHROOM_BLOCK = createItem(BYGBlocks.MILKCAP_MUSHROOM_BLOCK);
     public static final RegistryObject<Item> WOOD_BLEWIT = createItem(BYGBlocks.WOOD_BLEWIT);
     public static final RegistryObject<Item> BLEWIT_MUSHROOM_BLOCK = createItem(BYGBlocks.BLEWIT_MUSHROOM_BLOCK);
-    public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL, new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
+    public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
     public static final RegistryObject<Item> WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
     public static final RegistryObject<Item> COOKED_WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f).build())), "cooked_white_puffball_cap");
     public static final RegistryObject<Item> WHITE_PUFFBALL_STEW = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
@@ -1168,7 +1166,7 @@ public class BYGItems {
 
     //Plants
     public static final RegistryObject<Item> SHRUB = createItem(BYGBlocks.SHRUB);
-    public static final RegistryObject<Item> BLUE_BERRY = createItem(() -> new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
+    public static final RegistryObject<Item> BLUE_BERRY = createItem(() -> new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
     public static final RegistryObject<Item> BLUEBERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
 
     public static final RegistryObject<Item> ALOE_VERA_JUICE = createItem(() -> new HoneyBottleItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.0F).build())), "aloe_vera_juice");
@@ -1182,15 +1180,15 @@ public class BYGItems {
     public static final RegistryObject<Item> POISON_IVY = createItem(BYGBlocks.POISON_IVY);
     public static final RegistryObject<Item> PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final RegistryObject<Item> PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
-    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT, "byg.cattail_campfire", new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
+    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), "byg.cattail_campfire", new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
     public static final RegistryObject<Item> CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final RegistryObject<Item> CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final RegistryObject<Item> CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
     public static final RegistryObject<Item> CATTAIL_THATCH_SLAB = createItem(BYGBlocks.CATTAIL_THATCH_SLAB);
 
     public static final RegistryObject<Item> TALL_PRAIRIE_GRASS = createItem(BYGBlocks.TALL_PRAIRIE_GRASS);
-    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TINY_LILYPADS);
-    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK, new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WATER_SILK);
+    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TINY_LILYPADS);
+    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WATER_SILK);
     public static final RegistryObject<Item> WINTER_SUCCULENT = createItem(BYGBlocks.WINTER_SUCCULENT);
 
     public static final RegistryObject<Item> BEACH_GRASS = createItem(BYGBlocks.BEACH_GRASS);
@@ -1289,14 +1287,6 @@ public class BYGItems {
         return PROVIDER.register(id, item);
     }
 
-    public static Collection<potionstudios.byg.util.RegistryObject<Item>> bootStrap() {
-        return List.of();
-    }
-
-    public static void init() {
-    }
-
-    static {
-        BYG.LOGGER.info("BYG Items class loaded.");
+    public static void loadClass() {
     }
 }

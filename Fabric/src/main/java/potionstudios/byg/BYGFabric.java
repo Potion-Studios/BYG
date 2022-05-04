@@ -92,9 +92,7 @@ public class BYGFabric implements ModInitializer {
     }
 
     private static void registryBootStrap() {
-        register(Registry.BLOCK, BYGBlocks.bootStrap());
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO.get())));
-        register(Registry.ITEM, BYGItems.bootStrap());
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
         BYG.LOGGER.info("BYG registries bootstrapped");
