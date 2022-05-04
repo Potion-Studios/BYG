@@ -263,7 +263,7 @@ public class BYGItems {
     public static final RegistryObject<Item> ASPEN_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "aspen_boat");
 
     //Baobab Woodtype
-    public static final RegistryObject<Item> BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
+    public static final RegistryObject<Item> BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
     public static final RegistryObject<BYGSaplingItem> BAOBAB_SAPLING = createSaplingItem(BYGBlocks.BAOBAB_SAPLING);
     public static final RegistryObject<Item> BAOBAB_LEAVES = createItem(BYGBlocks.BAOBAB_LEAVES);
     public static final RegistryObject<Item> BAOBAB_LOG = createItem(BYGBlocks.BAOBAB_LOG);
@@ -419,7 +419,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> EBONY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "ebony_boat");
 
     //Ether Woodtype
-    public static final RegistryObject<Item> ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
+    public static final RegistryObject<Item> ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
 
     public static final RegistryObject<BYGSaplingItem> ETHER_SAPLING = createSaplingItem(BYGBlocks.ETHER_SAPLING);
     public static final RegistryObject<Item> ETHER_LEAVES = createItem(BYGBlocks.ETHER_LEAVES);
@@ -962,7 +962,7 @@ public class BYGItems {
     //Nether
     public static final RegistryObject<Item> OVERGROWN_CRIMSON_BLACKSTONE = createItem(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE);
     public static final RegistryObject<Item> TALL_CRIMSON_ROOTS = createItem(BYGBlocks.TALL_CRIMSON_ROOTS);
-    public static final RegistryObject<Item> CRIMSON_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.CRIMSON_BERRY_BUSH, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
+    public static final RegistryObject<Item> CRIMSON_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.CRIMSON_BERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
     public static final RegistryObject<Item> CRIMSON_BERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0), 1.0F).build())), "crimson_berry_pie");
 
     public static final RegistryObject<Item> WARPED_CACTUS = createItem(BYGBlocks.WARPED_CACTUS);

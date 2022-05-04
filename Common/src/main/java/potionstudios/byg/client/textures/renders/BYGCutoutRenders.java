@@ -344,8 +344,8 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.POISON_IVY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SKYRIS_VINE.get(), RenderType.cutoutMipped());
 
-        for (Block potBlock : BYGBlocks.flowerPotBlocks)
-            map.put(potBlock, RenderType.cutoutMipped());
+        for (final var potBlock : BYGBlocks.flowerPotBlocks)
+            map.put(potBlock.get(), RenderType.cutoutMipped());
 
         BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
 

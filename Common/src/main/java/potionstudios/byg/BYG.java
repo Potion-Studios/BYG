@@ -77,7 +77,8 @@ public class BYG {
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
-            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
+            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks().get())
+                    .addAll(carverAccess.byg_getReplaceableBlocks()).build());
         }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
 

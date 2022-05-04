@@ -923,7 +923,7 @@ public class BYGOverworldTreeFeatures {
             UniformInt.of(5, 15),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-            BYGBlocks.MANGROVE_LOG.get(),
+            BYGBlocks.MANGROVE_LOG,
             BYGBlocks.MANGROVE_LEAVES
         )
     );
@@ -935,7 +935,7 @@ public class BYGOverworldTreeFeatures {
             UniformInt.of(5, 15),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-            BYGBlocks.MANGROVE_LOG.get(),
+            BYGBlocks.MANGROVE_LOG,
             BYGBlocks.MANGROVE_LEAVES
         )
     );
@@ -947,7 +947,7 @@ public class BYGOverworldTreeFeatures {
             UniformInt.of(5, 15),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-            BYGBlocks.MANGROVE_LOG.get(),
+            BYGBlocks.MANGROVE_LOG,
             BYGBlocks.MANGROVE_LEAVES
         )
     );
@@ -959,7 +959,7 @@ public class BYGOverworldTreeFeatures {
             UniformInt.of(5, 15),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-            BYGBlocks.MANGROVE_LOG.get(),
+            BYGBlocks.MANGROVE_LOG,
             BYGBlocks.MANGROVE_LEAVES
         )
     );
@@ -971,7 +971,7 @@ public class BYGOverworldTreeFeatures {
             UniformInt.of(5, 15),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
             BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-            BYGBlocks.MANGROVE_LOG.get(),
+            BYGBlocks.MANGROVE_LOG,
             BYGBlocks.MANGROVE_LEAVES
         )
     );

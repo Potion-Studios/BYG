@@ -9,10 +9,19 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import potionstudios.byg.util.codec.CodecUtil;
 
+import java.util.function.Supplier;
+
 public record TreeFromStructureNBTConfig(ResourceLocation baseLocation, ResourceLocation canopyLocation,
                                          IntProvider height, BlockStateProvider logProvider,
                                          BlockStateProvider leavesProvider, Block logTarget,
                                          Block leavesTarget) implements FeatureConfiguration {
+    public TreeFromStructureNBTConfig(ResourceLocation baseLocation, ResourceLocation canopyLocation,
+                                      IntProvider height, BlockStateProvider logProvider,
+                                      BlockStateProvider leavesProvider, Supplier<? extends Block> logTarget,
+                                      Supplier<? extends Block> leavesTarget) {
+        this(baseLocation, canopyLocation, height, logProvider, leavesProvider, logTarget.get(), leavesTarget.get());
+    }
+
     public static final Codec<TreeFromStructureNBTConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group
                 (

@@ -1,18 +1,18 @@
 package potionstudios.byg.common;
 
-import com.google.common.collect.ImmutableSet;
+import static potionstudios.byg.common.block.BYGBlocks.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import potionstudios.byg.util.lazy.LazyCollection;
 
-import java.util.Set;
-
-import static potionstudios.byg.common.block.BYGBlocks.*;
+import java.util.stream.Collectors;
 
 public class BYGCarvableBlocks {
 
     @SuppressWarnings("deprecation")
-    public static Set<Block> addCarverBlocks() {
-        return ImmutableSet.of(
+    public static LazyCollection<Block> addCarverBlocks() {
+        return LazyCollection.of(
+            Collectors.toSet(),
             OVERGROWN_DACITE, PODZOL_DACITE, SOAPSTONE,
             ROCKY_STONE, MOSSY_STONE, OVERGROWN_STONE,
             SCORIA_STONE, LUSH_DIRT, PEAT,
@@ -26,7 +26,7 @@ public class BYGCarvableBlocks {
             MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, ETHER_STONE,
             VERMILION_SCULK, IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
             SHULKREN_PHYLIUM, ETHER_PHYLIUM, NIGHTSHADE_PHYLIUM,
-            Blocks.MAGMA_BLOCK
+            () -> Blocks.MAGMA_BLOCK
         );
     }
 }
