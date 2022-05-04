@@ -20,7 +20,7 @@ public class ShulkrenVinePlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.SHULKREN_VINE;
+        return (GrowingPlantHeadBlock) BYGBlocks.SHULKREN_VINE.get();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

@@ -17,7 +17,7 @@ public class BYGPoiTypes {
 
     private static final RegistrationProvider<PoiType> PROVIDER = RegistrationProvider.get(Registry.POINT_OF_INTEREST_TYPE_REGISTRY, BYG.MOD_ID);
 
-    public static final RegistryObject<PoiType> FORAGER = createPoiType("forager", () -> PoiTypeAccess.byg_invokeCreate("forager", PoiTypeAccess.byg_invokeGetBlockStates(BYGBlocks.FORAGERS_TABLE), 1, 1));
+    public static final RegistryObject<PoiType> FORAGER = createPoiType("forager", () -> PoiTypeAccess.byg_invokeCreate("forager", PoiTypeAccess.byg_invokeGetBlockStates(BYGBlocks.FORAGERS_TABLE.get()), 1, 1));
 
     public static RegistryObject<PoiType> createPoiType(String id, Supplier<PoiType> poiType) {
         return PROVIDER.register(id, poiType);

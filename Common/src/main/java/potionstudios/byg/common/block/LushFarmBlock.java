@@ -14,7 +14,7 @@ import java.util.function.BiPredicate;
 
 public class LushFarmBlock extends FarmBlock {
     public static final int THERIUM_LANTERN_SEARCH_RANGE = 7;
-    public static final BiPredicate<LevelReader, BlockPos> IS_THERIUM_LANTERN = (levelReader, movingPos) -> levelReader.getBlockState(movingPos).is(BYGBlocks.THERIUM_LANTERN);
+    public static final BiPredicate<LevelReader, BlockPos> IS_THERIUM_LANTERN = (levelReader, movingPos) -> levelReader.getBlockState(movingPos).is(BYGBlocks.THERIUM_LANTERN.get());
 
     public LushFarmBlock(Properties properties) {
         super(properties);

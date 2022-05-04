@@ -31,7 +31,7 @@ public class SoulShroomSporeEndBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.SOUL_SHROOM_SPORE;
+        return BYGBlocks.SOUL_SHROOM_SPORE.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

@@ -20,7 +20,7 @@ public class ImpariusVinePlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.IMPARIUS_VINE;
+        return (GrowingPlantHeadBlock) BYGBlocks.IMPARIUS_VINE.get();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

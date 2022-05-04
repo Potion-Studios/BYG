@@ -60,7 +60,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
         Block block1 = worldIn.getBlockState(pos.below()).getBlock();
         int i = state.getValue(AGE);
-        if (i < 3 && block1 == BYGBlocks.THERIUM_BLOCK && random.nextInt(5) == 0) {
+        if (i < 3 && block1 == BYGBlocks.THERIUM_BLOCK.get() && random.nextInt(5) == 0) {
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
         }
 

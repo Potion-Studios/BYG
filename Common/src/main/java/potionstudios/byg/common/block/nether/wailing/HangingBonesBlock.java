@@ -39,7 +39,7 @@ public class HangingBonesBlock extends Block {
             BlockState blockStateUP = ctx.getLevel().getBlockState(ctx.getClickedPos().above());
             if (blockStateUP.getBlock() == Blocks.BONE_BLOCK) {
                 Block blockUP = blockStateUP.getBlock();
-                if (blockUP == BYGBlocks.HANGING_BONE) {
+                if (blockUP == BYGBlocks.HANGING_BONE.get()) {
                     return this.defaultBlockState();
                 } else if (blockUP == this) {
                     return this.defaultBlockState();

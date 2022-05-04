@@ -46,7 +46,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
             int j = 1 + level.random.nextInt(2);
             popResource(level, blockPos, new ItemStack(BYGItems.ALOE_VERA.get(), j));
             level.setBlockAndUpdate(blockPos, BYGBlocks.ALOE_VERA.defaultBlockState());
-            level.neighborChanged(blockPos, BYGBlocks.ALOE_VERA, blockPos);
+            level.neighborChanged(blockPos, BYGBlocks.ALOE_VERA.get(), blockPos);
             level.neighborChanged(blockPos, Blocks.AIR, blockPos3);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
         }

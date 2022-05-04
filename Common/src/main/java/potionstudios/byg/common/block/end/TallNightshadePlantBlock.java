@@ -18,7 +18,7 @@ public class TallNightshadePlantBlock extends DoublePlantBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.NIGHTSHADE_PHYLIUM) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.NIGHTSHADE_PHYLIUM.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 }
 

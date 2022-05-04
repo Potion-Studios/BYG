@@ -30,7 +30,7 @@ public class WailingPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.WAILING_NYLIUM) || state.is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.WAILING_NYLIUM.get()) || state.is(BlockTags.SOUL_FIRE_BASE_BLOCKS) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

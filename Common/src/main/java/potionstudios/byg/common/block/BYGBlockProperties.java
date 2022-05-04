@@ -374,7 +374,7 @@ public class BYGBlockProperties {
                     .strength(0.0F)
                     .noCollission()
                     .noOcclusion()
-                    .dropsLike(BYGBlocks.WARPED_CORAL)
+                    .dropsLike(BYGBlocks.WARPED_CORAL.get())
                     .lightLevel((state) -> 8)
             );
             
@@ -544,7 +544,7 @@ public class BYGBlockProperties {
 
     public static class ThatchStairs extends StairBlock {
         public ThatchStairs() {
-            super(BYGBlocks.CATTAIL_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.CATTAIL_THATCH)
+            super(BYGBlocks.CATTAIL_THATCH.defaultBlockState(), Properties.copy(BYGBlocks.CATTAIL_THATCH.get())
                     .sound(SoundType.GRASS)
                     .strength(0.5f)
             );

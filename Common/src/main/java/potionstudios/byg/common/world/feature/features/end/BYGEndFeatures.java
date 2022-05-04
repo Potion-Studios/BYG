@@ -41,45 +41,45 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGEndFeatures {
-    public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, BlockPos.ZERO.relative(Direction.DOWN));
+    public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), BlockPos.ZERO.relative(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
-            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))),
+            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE.get()))),
                 createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> CRYPTIC_FIRE = createConfiguredFeature("cryptic_fire",
         () -> Feature.SIMPLE_BLOCK,
-        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE))
+        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_FIRE.get()))
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_VENT_PATCH = createConfiguredFeature("cryptic_vent_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
-            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
+            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT.get()))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> CRYPTIC_VENT = createConfiguredFeature("cryptic_vent",
         () -> Feature.SIMPLE_BLOCK,
-        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT))
+        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_VENT.get()))
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TALL_CRYPTIC_VENT_PATCH = createConfiguredFeature("tall_cryptic_vent_patch",
         () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
-            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
+            createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT.get()))), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))
         ));
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> TALL_CRYPTIC_VENT = createConfiguredFeature("tall_cryptic_vent",
         () -> Feature.SIMPLE_BLOCK,
-        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT))
+        new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.TALL_CRYPTIC_VENT.get()))
     );
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_CRYPTIC_REDSTONE = createConfiguredFeature("cryptic_redstone",
         () -> Feature.ORE,
         new OreConfiguration(
             List.of(
-                OreConfiguration.target(new BlockMatchTest(BYGBlocks.CRYPTIC_STONE), BYGBlocks.CRYPTIC_REDSTONE_ORE.defaultBlockState())
+                OreConfiguration.target(new BlockMatchTest(BYGBlocks.CRYPTIC_STONE.get()), BYGBlocks.CRYPTIC_REDSTONE_ORE.defaultBlockState())
             ), 8)
     );
 
@@ -102,9 +102,9 @@ public class BYGEndFeatures {
             .withTopBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR))
             .withSpawningFeatures(
                 List.of(
-                    createPlacedFeature(CRYPTIC_FIRE, List.of(RarityFilter.onAverageOnceEvery(5), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0))))),
-                    createPlacedFeature(CRYPTIC_VENTS, List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0))))),
-                    createPlacedFeature(BYGEndVegetationFeatures.CRYPTIC_BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE, new BlockPos(0, -1, 0)))))
+                    createPlacedFeature(CRYPTIC_FIRE, List.of(RarityFilter.onAverageOnceEvery(5), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0))))),
+                    createPlacedFeature(CRYPTIC_VENTS, List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0))))),
+                    createPlacedFeature(BYGEndVegetationFeatures.CRYPTIC_BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0)))))
                 )
             ).build()
     );
@@ -156,9 +156,9 @@ public class BYGEndFeatures {
             .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(8, 15), BiasedToBottomInt.of(5, 10), 0, BiasedToBottomInt.of(8, 15)))
             .withNoiseFrequency(0.5F).withVerifiesHeight(false).withBelowSurfaceDepth(ConstantInt.of(Integer.MIN_VALUE)).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
             .withSpawningFeatures(List.of(createPlacedFeature(
-                    createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15),
+                    createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK, new BlockPos(0, -1, 0)))))
+                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK.get(), new BlockPos(0, -1, 0)))))
                 )
             )
             .build()
@@ -178,9 +178,9 @@ public class BYGEndFeatures {
             .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(13, 20), BiasedToBottomInt.of(20, 27), 0, BiasedToBottomInt.of(13, 20)))
             .withNoiseFrequency(0.2F).withRadiusMatcher(RadiusMatcher.NONE).withPointed(true)
             .withSpawningFeatures(List.of(createPlacedFeature(
-                    createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL, 15),
+                    createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK, new BlockPos(0, -1, 0)))))
+                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK.get(), new BlockPos(0, -1, 0)))))
                 )
             )
             .build()
@@ -195,18 +195,18 @@ public class BYGEndFeatures {
         )
     );
 
-    public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE)).build());
+    public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE.get()).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.ETHER_STONE.get())).build());
 
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeatureSup("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeatureSup("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeatureSup("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeatureSup("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeatureSup("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeatureSup("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeatureSup("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final Holder<ConfiguredFeature<FloatingIslandConfig, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeatureSup("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
 
     public static final Holder<PlacedFeature> ISLAND_AMETRINE_CLUSTERS = createPlacedFeature(createConfiguredFeature(
         Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(64, 16, 4, createPlacedFeature(createConfiguredFeature(
-                Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.AMETRINE_CLUSTER))),
-            PlacementUtils.HEIGHTMAP, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(BYGBlocks.BUDDING_AMETRINE_ORE, BlockPos.ZERO.relative(Direction.DOWN)))))), PlacementUtils.HEIGHTMAP);
+                Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.AMETRINE_CLUSTER.get()))),
+            PlacementUtils.HEIGHTMAP, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(BYGBlocks.BUDDING_AMETRINE_ORE.get(), BlockPos.ZERO.relative(Direction.DOWN)))))), PlacementUtils.HEIGHTMAP);
 
     public static final Holder<PlacedFeature> ISLAND_SCULK_PLANTS = createPlacedFeature(createConfiguredFeature(Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(64, 16, 4, createPlacedFeature(createConfiguredFeature(

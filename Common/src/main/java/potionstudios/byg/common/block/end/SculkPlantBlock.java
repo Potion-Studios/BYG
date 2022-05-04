@@ -30,7 +30,7 @@ public class SculkPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.VERMILION_SCULK) || state.is(BYGBlocks.ETHER_STONE) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.VERMILION_SCULK.get()) || state.is(BYGBlocks.ETHER_STONE.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

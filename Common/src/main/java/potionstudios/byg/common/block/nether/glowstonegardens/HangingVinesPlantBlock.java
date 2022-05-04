@@ -15,7 +15,7 @@ public class HangingVinesPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.WEEPING_ROOTS;
+        return (GrowingPlantHeadBlock) BYGBlocks.WEEPING_ROOTS.get();
     }
 }
 

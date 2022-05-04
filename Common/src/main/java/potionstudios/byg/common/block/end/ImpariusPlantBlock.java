@@ -30,7 +30,7 @@ public class ImpariusPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.IMPARIUS_PHYLIUM) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.IMPARIUS_PHYLIUM.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

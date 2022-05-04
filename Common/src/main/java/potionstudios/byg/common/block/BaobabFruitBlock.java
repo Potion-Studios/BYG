@@ -64,7 +64,7 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-            return block == BYGBlocks.BAOBAB_LEAVES;
+            return block == BYGBlocks.BAOBAB_LEAVES.get();
     }
 
     @Override

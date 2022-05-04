@@ -25,7 +25,7 @@ public class FungalImpariusFilamentBlock extends Block {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-            return block == BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK;
+            return block == BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get();
     }
 
     @Override

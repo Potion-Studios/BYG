@@ -32,7 +32,7 @@ public class BeeHiveFeature extends Feature<NoneFeatureConfiguration> {
 
     public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
         if (world.isEmptyBlock(pos) && world.isEmptyBlock(pos.below())){
-            if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS) || world.getBlockState(pos.above()).is(BYGBlocks.EMBUR_GEL_BLOCK)) {
+            if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS) || world.getBlockState(pos.above()).is(BYGBlocks.EMBUR_GEL_BLOCK.get())) {
                 Direction direction;
 
                 if (world.isEmptyBlock(pos.north()))

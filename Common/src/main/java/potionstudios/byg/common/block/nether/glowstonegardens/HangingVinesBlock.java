@@ -31,7 +31,7 @@ public class HangingVinesBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.WEEPING_ROOTS_PLANT;
+        return BYGBlocks.WEEPING_ROOTS_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

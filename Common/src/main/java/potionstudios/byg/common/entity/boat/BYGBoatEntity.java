@@ -74,28 +74,28 @@ public class BYGBoatEntity extends Boat {
 
     public Block getPlanks() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGBlocks.ASPEN_PLANKS;
-            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS;
-            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS;
-            case CHERRY -> BYGBlocks.CHERRY_PLANKS;
-            case CIKA -> BYGBlocks.CIKA_PLANKS;
-            case CYPRESS -> BYGBlocks.CYPRESS_PLANKS;
-            case EBONY -> BYGBlocks.EBONY_PLANKS;
-            case FIR -> BYGBlocks.FIR_PLANKS;
-            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS;
-            case HOLLY -> BYGBlocks.HOLLY_PLANKS;
-            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS;
-            case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS;
-            case MANGROVE -> BYGBlocks.MANGROVE_PLANKS;
-            case MAPLE -> BYGBlocks.MAPLE_PLANKS;
-            case PALM -> BYGBlocks.PALM_PLANKS;
-            case PINE -> BYGBlocks.PINE_PLANKS;
-            case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS;
-            case REDWOOD -> BYGBlocks.REDWOOD_PLANKS;
-            case SKYRIS -> BYGBlocks.SKYRIS_PLANKS;
-            case WILLOW -> BYGBlocks.WILLOW_PLANKS;
-            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS;
-            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS;
+            default -> BYGBlocks.ASPEN_PLANKS.get();
+            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS.get();
+            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS.get();
+            case CHERRY -> BYGBlocks.CHERRY_PLANKS.get();
+            case CIKA -> BYGBlocks.CIKA_PLANKS.get();
+            case CYPRESS -> BYGBlocks.CYPRESS_PLANKS.get();
+            case EBONY -> BYGBlocks.EBONY_PLANKS.get();
+            case FIR -> BYGBlocks.FIR_PLANKS.get();
+            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS.get();
+            case HOLLY -> BYGBlocks.HOLLY_PLANKS.get();
+            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
+            case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS.get();
+            case MANGROVE -> BYGBlocks.MANGROVE_PLANKS.get();
+            case MAPLE -> BYGBlocks.MAPLE_PLANKS.get();
+            case PALM -> BYGBlocks.PALM_PLANKS.get();
+            case PINE -> BYGBlocks.PINE_PLANKS.get();
+            case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS.get();
+            case REDWOOD -> BYGBlocks.REDWOOD_PLANKS.get();
+            case SKYRIS -> BYGBlocks.SKYRIS_PLANKS.get();
+            case WILLOW -> BYGBlocks.WILLOW_PLANKS.get();
+            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS.get();
+            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS.get();
         };
     }
 

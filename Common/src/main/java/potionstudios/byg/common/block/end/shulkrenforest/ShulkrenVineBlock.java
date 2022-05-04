@@ -28,7 +28,7 @@ public class ShulkrenVineBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.SHULKREN_VINE_PLANT;
+        return BYGBlocks.SHULKREN_VINE_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

@@ -36,7 +36,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.ETHER_PHYLIUM) || state.is(BYGBlocks.ETHER_SOIL) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.ETHER_PHYLIUM.get()) || state.is(BYGBlocks.ETHER_SOIL.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState blockState) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS ? BYGBlocks.TALL_ETHER_GRASS : BYGBlocks.TALL_ETHER_GRASS);
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS.get() ? BYGBlocks.TALL_ETHER_GRASS.get() : BYGBlocks.TALL_ETHER_GRASS.get());
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, blockState, pos, 2);
         }

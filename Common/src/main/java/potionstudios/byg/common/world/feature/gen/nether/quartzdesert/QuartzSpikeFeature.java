@@ -18,7 +18,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import java.util.Random;
 
 public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
-    private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND);
+    private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND.get());
 
     FastNoise noise = null;
 

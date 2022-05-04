@@ -30,7 +30,7 @@ public class HangingSythanRootsBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT;
+        return BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

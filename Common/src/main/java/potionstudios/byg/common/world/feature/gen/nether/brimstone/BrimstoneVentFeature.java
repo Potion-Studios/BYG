@@ -15,7 +15,7 @@ import potionstudios.byg.common.world.feature.config.BrimstoneVentsConfig;
 import java.util.Random;
 
 public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
-    private static final BlockStatePredicate IS_BRIMSTONE = BlockStatePredicate.forBlock(BYGBlocks.BRIMSTONE);
+    private static final BlockStatePredicate IS_BRIMSTONE = BlockStatePredicate.forBlock(BYGBlocks.BRIMSTONE.get());
     private final BlockState brimstone = BYGBlocks.BRIMSTONE.defaultBlockState();
     private final BlockState lava = Blocks.LAVA.defaultBlockState();
 

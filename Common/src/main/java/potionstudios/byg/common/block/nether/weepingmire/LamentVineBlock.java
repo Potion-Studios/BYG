@@ -32,7 +32,7 @@ public class LamentVineBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.LAMENT_VINE_PLANT;
+        return BYGBlocks.LAMENT_VINE_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

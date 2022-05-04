@@ -28,7 +28,7 @@ public class ImpariusVineBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.IMPARIUS_VINE_PLANT;
+        return BYGBlocks.IMPARIUS_VINE_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

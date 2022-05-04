@@ -30,7 +30,7 @@ public class DesertOddityPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.END_SAND) || state.is(Blocks.END_STONE) || state.is(Blocks.END_STONE_BRICKS) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.END_SAND.get()) || state.is(Blocks.END_STONE) || state.is(Blocks.END_STONE_BRICKS) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

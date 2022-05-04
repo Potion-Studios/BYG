@@ -209,10 +209,10 @@ public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
         return state.getMaterial().isReplaceable()
                 || state.is(MLBlockTags.END_STONES)
                 || state.is(MLBlockTags.ORES) // Handles floating ores
-                || state.is(BYGBlocks.IMPARIUS_BUSH) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.IMPARIUS_MUSHROOM) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.FUNGAL_IMPARIUS) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.END_SAND)
+                || state.is(BYGBlocks.IMPARIUS_BUSH.get()) // Handles other blocks that could be left floating
+                || state.is(BYGBlocks.IMPARIUS_MUSHROOM.get()) // Handles other blocks that could be left floating
+                || state.is(BYGBlocks.FUNGAL_IMPARIUS.get()) // Handles other blocks that could be left floating
+                || state.is(BYGBlocks.END_SAND.get())
                 || state.getMaterial().equals(Material.PLANT)
                 || state.getMaterial().equals(Material.WATER_PLANT)
                 || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);

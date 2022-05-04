@@ -30,7 +30,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
         BlockPos.MutableBlockPos blockpos$mutable = (new BlockPos.MutableBlockPos().set(pos)).move(Direction.DOWN);
         BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
         int i = 7;
-        if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
+        if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING.get()) {
             i = blockstate.getValue(DISTANCE);
         } else if (blockstate.isFaceSturdy(blockReader, blockpos$mutable, Direction.UP)) {
             return 0;
@@ -38,7 +38,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.set(pos).move(direction));
-            if (blockstate1.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING) {
+            if (blockstate1.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING.get()) {
                 i = Math.min(i, blockstate1.getValue(DISTANCE) + 1);
                 if (i == 1) {
                     break;

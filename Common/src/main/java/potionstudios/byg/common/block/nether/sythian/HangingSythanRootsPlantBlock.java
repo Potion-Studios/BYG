@@ -20,7 +20,7 @@ public class HangingSythanRootsPlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.HANGING_SYTHIAN_ROOTS;
+        return (GrowingPlantHeadBlock) BYGBlocks.HANGING_SYTHIAN_ROOTS.get();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

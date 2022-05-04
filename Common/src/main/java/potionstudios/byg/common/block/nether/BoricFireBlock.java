@@ -25,7 +25,7 @@ public class BoricFireBlock extends BaseFireBlock {
     }
 
     public static boolean shouldLightBoricFire(Block block) {
-        return block == BYGBlocks.BRIMSTONE;
+        return block == BYGBlocks.BRIMSTONE.get();
     }
 
     protected boolean canBurn(BlockState state) {

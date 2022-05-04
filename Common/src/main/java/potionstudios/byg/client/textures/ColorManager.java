@@ -15,9 +15,9 @@ public class ColorManager {
 
     public static synchronized void onBlockColorsInit(BlockColors blockColors) {
         //registers the colors for blocks that changes colors based on biome
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageGrassColor(lightReader, pos) : GrassColor.get(0.5D, 1.0D), BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.OVERGROWN_STONE, BYGBlocks.OVERGROWN_NETHERRACK, BYGBlocks.TINY_LILYPADS, BYGBlocks.OVERGROWN_DACITE, BYGBlocks.NETHER_BRISTLE);
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageFoliageColor(lightReader, pos) : FoliageColor.get(0.5D, 1.0D), BYGBlocks.MAHOGANY_LEAVES, BYGBlocks.POISON_IVY, BYGBlocks.LEAF_PILE, BYGBlocks.ORCHARD_LEAVES, BYGBlocks.FLOWERING_ORCHARD_LEAVES, BYGBlocks.RIPE_ORCHARD_LEAVES, BYGBlocks.WILLOW_LEAVES, BYGBlocks.MAPLE_LEAVES, BYGBlocks.JOSHUA_LEAVES, BYGBlocks.RIPE_JOSHUA_LEAVES, BYGBlocks.CYPRESS_LEAVES);
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageWaterColor(lightReader, pos) : -1, BYGBlocks.WATER_BARREL_CACTUS);
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageGrassColor(lightReader, pos) : GrassColor.get(0.5D, 1.0D), BYGBlocks.LUSH_GRASS_BLOCK.get(), BYGBlocks.OVERGROWN_STONE.get(), BYGBlocks.OVERGROWN_NETHERRACK.get(), BYGBlocks.TINY_LILYPADS.get(), BYGBlocks.OVERGROWN_DACITE.get(), BYGBlocks.NETHER_BRISTLE.get());
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageFoliageColor(lightReader, pos) : FoliageColor.get(0.5D, 1.0D), BYGBlocks.MAHOGANY_LEAVES.get(), BYGBlocks.POISON_IVY.get(), BYGBlocks.LEAF_PILE.get(), BYGBlocks.ORCHARD_LEAVES.get(), BYGBlocks.FLOWERING_ORCHARD_LEAVES.get(), BYGBlocks.RIPE_ORCHARD_LEAVES.get(), BYGBlocks.WILLOW_LEAVES.get(), BYGBlocks.MAPLE_LEAVES.get(), BYGBlocks.JOSHUA_LEAVES.get(), BYGBlocks.RIPE_JOSHUA_LEAVES.get(), BYGBlocks.CYPRESS_LEAVES.get());
+        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageWaterColor(lightReader, pos) : -1, BYGBlocks.WATER_BARREL_CACTUS.get());
     }
 
     public static synchronized void onItemColorsInit(BlockColors blockColors, ItemColors itemColors) {

@@ -14,7 +14,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import java.util.Random;
 
 public class SubzeroCrystalFeature extends Feature<NoneFeatureConfiguration> {
-    private static final BlockStatePredicate IS_TRAVERTINE = BlockStatePredicate.forBlock(BYGBlocks.TRAVERTINE);
+    private static final BlockStatePredicate IS_TRAVERTINE = BlockStatePredicate.forBlock(BYGBlocks.TRAVERTINE.get());
 
     public SubzeroCrystalFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);

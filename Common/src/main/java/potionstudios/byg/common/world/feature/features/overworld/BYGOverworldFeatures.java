@@ -43,7 +43,7 @@ public class BYGOverworldFeatures {
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ROCKY_STONE_BOULDER = createConfiguredFeature("rocky_stone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState()));
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> BLACKSTONE_BOULDER = createConfiguredFeature("blackstone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.BLACKSTONE.defaultBlockState()));
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
-    public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE)));
+    public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE.get())));
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> CRAG_GEN = createConfiguredFeature("crag_gen",
         BYGFeatures.CRAG_FEATURE, new SimpleBlockProviderConfig(
             new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
@@ -134,7 +134,7 @@ public class BYGOverworldFeatures {
     );
 
     public static final Holder<ConfiguredFeature<LargeLakeFeatureConfig, ?>> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE,
-        new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND),
+        new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
             HolderSet.direct(
                 createPlacedFeature(BYGOverworldVegetationFeatures.TINY_LILY_PAD, RarityFilter.onAverageOnceEvery(95), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0)))),
                 LargeLakeFeatureConfig.createDripLeavesPlacedFeature(80, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
@@ -222,7 +222,7 @@ public class BYGOverworldFeatures {
             .withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(16, 35), UniformInt.of(20, 25), 0, BiasedToBottomInt.of(16, 35)))
             .withNoiseFrequency(0.2F)
             .withSpawningFeatures(List.of(
-                createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WINDSWEPT_SAND))),
+                createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()))),
                     CountPlacement.of(UniformInt.of(10, 25)),
                     InSquarePlacement.spread(),
                     PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
@@ -230,7 +230,7 @@ public class BYGOverworldFeatures {
                         BlockPredicate.anyOf(
                             BlockPredicate.matchesBlock(Blocks.TUFF, new BlockPos(0, -1, 0)),
                             BlockPredicate.matchesBlock(Blocks.DEEPSLATE_EMERALD_ORE, new BlockPos(0, -1, 0)),
-                            BlockPredicate.matchesBlock(BYGBlocks.ROCKY_STONE, new BlockPos(0, -1, 0))
+                            BlockPredicate.matchesBlock(BYGBlocks.ROCKY_STONE.get(), new BlockPos(0, -1, 0))
                         )
                     )
                 )
@@ -244,7 +244,7 @@ public class BYGOverworldFeatures {
                 .withRadiusDivisorPerStack(2)
                 .withNoise2DChance(0.25)
                 .withBlockProvider(SimpleStateProvider.simple(Blocks.STONE.defaultBlockState()))
-                .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE))
+                .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()))
                 .withNoiseFrequency(0.09F)
                 .withRadiusMatcher(RadiusMatcher.NONE)
                 .withCheckSquareDistance(false)
@@ -283,7 +283,7 @@ public class BYGOverworldFeatures {
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> ARCH_FEATURE = createConfiguredFeature("red_rock_arches",
         BYGFeatures.ARCH,
-        new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.RED_ROCK))
+        new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.RED_ROCK.get()))
     );
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> RED_ROCK_SPIKE = createConfiguredFeature("red_rock_spike",

@@ -31,13 +31,13 @@ public class BuddingSubzeroCrystalBlock extends Block {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (canClusterGrowAtState(blockState)) {
-                block = BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD;
-            } else if (blockState.is(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD;
-            } else if (blockState.is(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD;
-            } else if (blockState.is(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
-                block = BYGBlocks.SUBZERO_CRYSTAL_CLUSTER;
+                block = BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD.get();
+            } else if (blockState.is(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD.get()) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD.get();
+            } else if (blockState.is(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD.get()) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD.get();
+            } else if (blockState.is(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD.get()) && blockState.getValue(AmethystClusterBlock.FACING) == direction) {
+                block = BYGBlocks.SUBZERO_CRYSTAL_CLUSTER.get();
             }
             if (block != null) {
                 BlockState blockState2 = block.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getType() == Fluids.WATER);
