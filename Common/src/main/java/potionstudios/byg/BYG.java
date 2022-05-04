@@ -91,7 +91,7 @@ public class BYG {
     }
 
     private static void handleConfigs() {
-        CommonSetupLoad.ENTRIES.forEach(CommonSetupLoad::load);
+        CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
         try {
             Files.createDirectories(CONFIG_PATH);
             Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
@@ -110,15 +110,15 @@ public class BYG {
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());
-        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
-        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
+        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE.get());
+        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
         builderAccess.byg_setValidBlocks(validBlocks);
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
             new ImmutableList.Builder<Block>()
                 .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                .add(BYGBlocks.EMBUR_GEL_BLOCK)
-                .add(BYGBlocks.EMBUR_GEL_BRANCH)
-                .add(BYGBlocks.EMBUR_GEL_VINES)
+                .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
+                .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
+                .add(BYGBlocks.EMBUR_GEL_VINES.get())
                 .addAll(Util.make(new ArrayList<>(), list -> {
                     for (Block block : Registry.BLOCK) {
                         Material material = block.defaultBlockState().getMaterial();

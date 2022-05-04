@@ -1267,29 +1267,22 @@ public class BYGItems {
     public static final RegistryObject<Item> YELLOW_DAFFODIL = createItem(BYGBlocks.YELLOW_DAFFODIL);
     public static final RegistryObject<Item> YELLOW_TULIP = createItem(BYGBlocks.YELLOW_TULIP);
 
-    public static RegistryObject<Item> createItem(Block block) {
-        return createItem(() -> new BlockItem(block, new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+    public static RegistryObject<Item> createItem(RegistryObject<? extends Block> block) {
+        return createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
-    public static RegistryObject<BYGSaplingItem> createSaplingItem(Block block) {
-        final var item = createItem(() -> new BYGSaplingItem(block, new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+    public static RegistryObject<BYGSaplingItem> createSaplingItem(RegistryObject<? extends Block> block) {
+        final var item = createItem(() -> new BYGSaplingItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
         SAPLINGS.add(item);
         return item;
     }
 
-    public static RegistryObject<SignItem> createSign(String id, Block signBlock, Block wallSignBlock) {
-        return BYG.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock, wallSignBlock), id) : null;
+    public static RegistryObject<SignItem> createSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
+        return BYG.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock.get(), wallSignBlock.get()), id) : null;
     }
 
-    public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, Block block) {
-        ResourceLocation id = null;
-        for (potionstudios.byg.util.RegistryObject<Block> blockRegistryObject : BYGBlocks.BLOCKS) {
-            if (blockRegistryObject.object() == block) {
-                id = BYG.createLocation(blockRegistryObject.id());
-                break;
-            }
-        }
-        return createItem(item, Objects.requireNonNull(id).getPath());
+    public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {
+        return createItem(item, block.getId().getPath());
     }
 
     public static <T extends Item> potionstudios.byg.registration.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
