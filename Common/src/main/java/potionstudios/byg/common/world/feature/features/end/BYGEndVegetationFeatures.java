@@ -39,7 +39,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_BRAMBLE_PATCH = createPatchConfiguredFeature("cryptic_bramble_patch", BYGBlocks.CRYPTIC_BRAMBLE, 32);
 
     public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> CRYPTIC_BRAMBLE = createConfiguredFeature("cryptic_bramble",
-        Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE))
+        () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE))
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BYGBlocks.BULBIS_ODDITY, 32);
@@ -78,7 +78,7 @@ public class BYGEndVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ENDER_LILY = createConfiguredFeature("ender_lily",
-        Feature.RANDOM_PATCH,
+        () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(32, 4, 8,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.ENDER_LILY))
@@ -581,7 +581,7 @@ public class BYGEndVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BULBIS_TREES = createConfiguredFeature("bulbis_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BULBIS_BUSH1), 0.14285f),
             new WeightedPlacedFeature(createPlacedFeature(BULBIS_TREE1), 0.14285f),
@@ -594,7 +594,7 @@ public class BYGEndVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PURPLE_BULBIS_TREES = createConfiguredFeature("purple_bulbis_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PURPLE_BULBIS_BUSH1), 0.14285f),
             new WeightedPlacedFeature(createPlacedFeature(PURPLE_BULBIS_TREE1), 0.14285f),
@@ -608,7 +608,7 @@ public class BYGEndVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NIGHTSHADE_TREES = createConfiguredFeature("nightshade_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(NIGHTSHADE_TREE1), 0.15F),
             new WeightedPlacedFeature(createPlacedFeature(NIGHTSHADE_TREE2), 0.3F),
@@ -617,21 +617,21 @@ public class BYGEndVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SHULKREN_TREES = createConfiguredFeature("shulkren_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SHULKREN_TREE1), 0.5F)),
             createPlacedFeature(SHULKREN_TREE2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NIGHTSHADE_SHRUBS = createConfiguredFeature("nightshade_shrubs",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(NIGHTSHADE_SHRUB1), 0.5F)),
             createPlacedFeature(NIGHTSHADE_SHRUB2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LARGE_IMPARIUS_MUSHROOMS = createConfiguredFeature("large_imparius_mushrooms",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(IMPARIUS_MUSHROOM1), 0.166F),
             new WeightedPlacedFeature(createPlacedFeature(IMPARIUS_MUSHROOM2), 0.166F),
@@ -642,7 +642,7 @@ public class BYGEndVegetationFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> FUNGAL_IMPARIUS = createConfiguredFeature("fungal_imparius",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(FUNGAL_IMPARIUS1), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(FUNGAL_IMPARIUS2), 0.2F),
@@ -652,39 +652,39 @@ public class BYGEndVegetationFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> IVIS_PLANTS = createConfiguredFeature("ivis_plants", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> IVIS_PLANTS = createConfiguredFeature("ivis_plants", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(IVIS_ROOTS), 0.5F)),
         createPlacedFeature(IVIS_SPROUT))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BULBIS_ODDITIES = createConfiguredFeature("bulbis_oddities", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BULBIS_ODDITIES = createConfiguredFeature("bulbis_oddities", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(BULBIS_ODDITY), 0.5F)),
         createPlacedFeature(PURPLE_BULBIS_ODDITY))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BULBIS_ANOMALIES = createConfiguredFeature("bulbis_anomalies", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BULBIS_ANOMALIES = createConfiguredFeature("bulbis_anomalies", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(BULBIS_ANOMALY), 0.5F)),
         createPlacedFeature(PURPLE_BULBIS_ANOMALY))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SHULKREN_PLANTS = createConfiguredFeature("shulkren_plants", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SHULKREN_PLANTS = createConfiguredFeature("shulkren_plants", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(SHULKREN_FUNGUS), 0.5F)),
         createPlacedFeature(SHULKREN_MOSS))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NIGHTSHADE_PLANTS = createConfiguredFeature("nightshade_plants", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NIGHTSHADE_PLANTS = createConfiguredFeature("nightshade_plants", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(NIGHTSHADE_BERRY_BUSH), 0.2F),
         new WeightedPlacedFeature(createPlacedFeature(NIGHTSHADE_ROOTS), 0.4F)),
         createPlacedFeature(NIGHTSHADE_SPROUTS))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_PLANTS = createConfiguredFeature("ether_plants", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_PLANTS = createConfiguredFeature("ether_plants", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(ETHER_BUSH), 0.2F),
         new WeightedPlacedFeature(createPlacedFeature(ETHER_GRASS), 0.4F)),
         createPlacedFeature(TALL_ETHER_GRASS))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_TREES = createConfiguredFeature("ether_trees", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_TREES = createConfiguredFeature("ether_trees", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(ETHER_TREE1), 0.2F),
         new WeightedPlacedFeature(createPlacedFeature(ETHER_TREE2), 0.2F),
         new WeightedPlacedFeature(createPlacedFeature(ETHER_TREE3), 0.2F),
@@ -692,17 +692,17 @@ public class BYGEndVegetationFeatures {
         createPlacedFeature(ETHER_TREE5))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DEAD_ETHER_TREES = createConfiguredFeature("dead_ether_trees", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DEAD_ETHER_TREES = createConfiguredFeature("dead_ether_trees", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(ETHER_TREE_DEAD1), 0.33F),
         new WeightedPlacedFeature(createPlacedFeature(ETHER_TREE_DEAD2), 0.33F)),
         createPlacedFeature(ETHER_TREE_DEAD3))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_BUSHES = createConfiguredFeature("ether_bushes", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_BUSHES = createConfiguredFeature("ether_bushes", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(ETHER_BUSH1), 0.5F)),
         createPlacedFeature(ETHER_BUSH2)));
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> IMPARIUS_PLANTS = createConfiguredFeature("imparius_plants", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> IMPARIUS_PLANTS = createConfiguredFeature("imparius_plants", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(IMPARIUS_BUSH), 0.2F),
         new WeightedPlacedFeature(createPlacedFeature(FUNGAL_IMPARIUS_PATCH), 0.4F)),
         createPlacedFeature(IMPARIUS_MUSHROOM))

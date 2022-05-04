@@ -37,11 +37,11 @@ import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeatures
 public class BYGOverworldFeatures {
 
     public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> BEEHIVES = createConfiguredFeature("beehives", BYGFeatures.BEEHIVE, new NoneFeatureConfiguration());
-    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> MOSSY_STONE_BOULDER = createConfiguredFeature("mossy_stone_boulder", Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.MOSSY_STONE.defaultBlockState()));
-    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ROCKY_STONE_BOULDER = createConfiguredFeature("rocky_stone_boulder", Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState()));
-    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> BLACKSTONE_BOULDER = createConfiguredFeature("blackstone_boulder", Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.BLACKSTONE.defaultBlockState()));
-    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
-    public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE)));
+    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> MOSSY_STONE_BOULDER = createConfiguredFeature("mossy_stone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.MOSSY_STONE.defaultBlockState()));
+    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ROCKY_STONE_BOULDER = createConfiguredFeature("rocky_stone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState()));
+    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> BLACKSTONE_BOULDER = createConfiguredFeature("blackstone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.BLACKSTONE.defaultBlockState()));
+    public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
+    public static final Holder<ConfiguredFeature<SimpleBlockConfiguration, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE)));
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> CRAG_GEN = createConfiguredFeature("crag_gen",
         BYGFeatures.CRAG_FEATURE, new SimpleBlockProviderConfig(
             new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
@@ -252,26 +252,26 @@ public class BYGOverworldFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> LUSH_STACKS_SPIKES = createConfiguredFeature("lush_stacks_spikes",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(LUSH_STACKS_SPIKE), 0.75F)),
             createPlacedFeature(LUSH_STACKS_SPIKE_TALL)
         ));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DEAD_SEA_SPIKES = createConfiguredFeature("dead_sea_spikes",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(DEAD_SEA_SPIKE), 0.75F)),
             createPlacedFeature(DEAD_SEA_SPIKE)
         ));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WINDSWEPT_SPIKES = createConfiguredFeature("windswept_spikes",
-        Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+        () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(WINDSWEPT_SPIKE), 0.75F)),
             createPlacedFeature(WINDSWEPT_SPIKE_TALL)));
 
     public static final Holder<ConfiguredFeature<DiskConfiguration, ?>> DISK_MUD = createConfiguredFeature("disk_mud",
-        Feature.DISK,
+        () -> Feature.DISK,
         new DiskConfiguration(BYGBlocks.MUD_BLOCK.defaultBlockState(), UniformInt.of(2, 3), 1, List.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))
     );
 
@@ -287,4 +287,5 @@ public class BYGOverworldFeatures {
             .add(Blocks.TERRACOTTA.defaultBlockState(), 1))
         )
     );
+
 }

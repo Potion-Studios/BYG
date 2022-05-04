@@ -80,7 +80,7 @@ public class ArchPiece extends StructurePiece {
             if (DEBUG) {
                 worldGenLevel.setBlock(position, Blocks.GLOWSTONE.defaultBlockState(), 2);
             } else {
-                BYGFeatures.BOULDER.fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
+                BYGFeatures.BOULDER.get().fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
             }
         }
 

@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
@@ -17,10 +18,13 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
+import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
+
+import java.util.function.Supplier;
 
 public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",
@@ -2060,13 +2064,13 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> FIRECRACKER_SHRUBS = createConfiguredFeature("firecracker_shrubs",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(FIRECRACKER_SHRUB), 0.20F)),
             createPlacedFeature(FIRECRACKER_SHRUB2)));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BAYOU_TREES = createConfiguredFeature("bayou_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(WILLOW_DEAD_TREE1), 0.1F),
             new WeightedPlacedFeature(createPlacedFeature(WILLOW_TREE1), 0.25F),
@@ -2076,7 +2080,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CANADIAN_SHIELD_TREES = createConfiguredFeature("canadian_shield_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PINE_TREE1), 0.05F),
             new WeightedPlacedFeature(createPlacedFeature(PINE_TREE2), 0.05F),
@@ -2087,7 +2091,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BOREAL_TREES = createConfiguredFeature("boreal_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_BOREAL_TREE1), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(BIRCH_BOREAL_TREE1), 0.3F)),
@@ -2095,7 +2099,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BLACK_FOREST_TREES = createConfiguredFeature("black_forest_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ASPEN_TREE3), 0.05F),
             new WeightedPlacedFeature(createPlacedFeature(ASPEN_TREE2), 0.05F),
@@ -2108,7 +2112,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CIKA_TREES = createConfiguredFeature("cika_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(CIKA_TREE2), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(CIKA_TREE3), 0.1F)),
@@ -2116,7 +2120,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CONIFER_TREES = createConfiguredFeature("conifer_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(CONIFER_TREE1), 0.06F),
             new WeightedPlacedFeature(createPlacedFeature(CONIFER_TREE2), 0.5F),
@@ -2129,7 +2133,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CYPRESS_TREES = createConfiguredFeature("cypress_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(CYPRESS_TREE1), 0.33F),
             new WeightedPlacedFeature(createPlacedFeature(CYPRESS_TREE2), 0.33F)),
@@ -2137,7 +2141,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DECIDUOUS_TREES = createConfiguredFeature("deciduous_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(DECIDUOUS_TREE1), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(DECIDUOUS_TREE2), 0.25F),
@@ -2146,7 +2150,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DACITE_RIDGE_TREES = createConfiguredFeature("dacite_ridge_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_TREE_MEDIUM2), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_TREE_MEDIUM1), 0.25F)),
@@ -2154,7 +2158,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> JACARANDA_TREES = createConfiguredFeature("jacaranda_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(JACARANDA_TREE2), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(INDIGO_JACARANDA_TREE2), 0.3F),
@@ -2163,7 +2167,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAPLE_TREES = createConfiguredFeature("maple_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MAPLE_RED_TREE1), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(MAPLE_RED_TREE2), 0.2F),
@@ -2173,14 +2177,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NORTHERN_FOREST_TREES = createConfiguredFeature("northern_forest_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PINE_TREE1), 0.5F)),
             createPlacedFeature(PINE_TREE2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> REDWOOD_TREES = createConfiguredFeature("redwood_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(REDWOOD_TREE1), 0.55F),
             new WeightedPlacedFeature(createPlacedFeature(REDWOOD_TREE2), 0.1F)),
@@ -2188,7 +2192,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SPRUCE_TREES = createConfiguredFeature("spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_TREE1), 0.111F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_TREE2), 0.111F),
@@ -2202,7 +2206,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_SPRUCE_TREES = createConfiguredFeature("orange_spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_ORANGE_TREE1), 0.111F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_ORANGE_TREE2), 0.111F),
@@ -2216,7 +2220,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> YELLOW_SPRUCE_TREES = createConfiguredFeature("yellow_spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_YELLOW_TREE1), 0.111F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_YELLOW_TREE2), 0.111F),
@@ -2230,7 +2234,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RED_SPRUCE_TREES = createConfiguredFeature("red_spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_RED_TREE1), 0.111F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_RED_TREE2), 0.111F),
@@ -2245,7 +2249,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> AUTUMNAL_SPRUCE_TREES = createConfiguredFeature("autumnal_spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(RED_SPRUCE_TREES), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(ORANGE_SPRUCE_TREES), 0.25F),
@@ -2255,7 +2259,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BLUE_SPRUCE_TREES = createConfiguredFeature("blue_spruce_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_BLUE_TREE1), 0.111F),
             new WeightedPlacedFeature(createPlacedFeature(SPRUCE_BLUE_TREE2), 0.111F),
@@ -2269,7 +2273,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAHOGANY_TREES = createConfiguredFeature("mahogany_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MAHOGANY_TREE1), 0.1F),
             new WeightedPlacedFeature(createPlacedFeature(MAHOGANY_TREE2), 0.2F),
@@ -2280,14 +2284,14 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RAINFOREST_TREES = createConfiguredFeature("rainforest_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(TROPICAL_SHRUB1), 0.35F)),
             createPlacedFeature(MAHOGANY_TREES))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> GUIANA_SHIELD_TREES = createConfiguredFeature("guiana_shield_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(RAINBOW_LARGE_TREE1), 0.1F),
             new WeightedPlacedFeature(createPlacedFeature(RAINBOW_TREE1), 0.1F),
@@ -2296,14 +2300,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RAINBOW_EUCALYPTUS_TREES = createConfiguredFeature("rainbow_eucalyptus_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(RAINBOW_LARGE_TREE1), 0.333F)),
             createPlacedFeature(RAINBOW_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SKYRIS_TREES = createConfiguredFeature("skyris_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SKYRIS_TREE1), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(SKYRIS_TREE2), 0.2F),
@@ -2313,7 +2317,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BAOBAB_TREES = createConfiguredFeature("baobab_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BAOBAB_TREE1), 0.35F),
             new WeightedPlacedFeature(createPlacedFeature(BAOBAB_TREE2), 0.35F)),
@@ -2321,14 +2325,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ARAUCARIA_TREES = createConfiguredFeature("araucaria_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ARAUCARIA_TREE1), 0.5F)),
             createPlacedFeature(ARAUCARIA_TREE2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_BIRCH_TREES = createConfiguredFeature("orange_birch_trees",
-            Feature.RANDOM_SELECTOR,
+            () -> Feature.RANDOM_SELECTOR,
             new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(createPlacedFeature(BIRCH_ORANGE_TREE1), 0.33F),
                     new WeightedPlacedFeature(createPlacedFeature(BIRCH_ORANGE_TREE2), 0.33F),
@@ -2337,7 +2341,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> YELLOW_BIRCH_TREES = createConfiguredFeature("yellow_birch_trees",
-            Feature.RANDOM_SELECTOR,
+            () -> Feature.RANDOM_SELECTOR,
             new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_TREE1), 0.33F),
                     new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_TREE2), 0.33F),
@@ -2346,7 +2350,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BROWN_ZELKOVA_TREES = createConfiguredFeature("brown_zelkova_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ZELKOVA_BROWN_TREE1), 0.33F),
             new WeightedPlacedFeature(createPlacedFeature(ZELKOVA_BROWN_TREE2), 0.33F)),
@@ -2354,14 +2358,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MEADOW_SHRUBS = createConfiguredFeature("meadow_shrubs",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(SHRUB_MEADOW), 0.5F)),
             createPlacedFeature(SHRUB_MEADOW2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MEADOW_TREES = createConfiguredFeature("meadow_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MEADOW_TREE1), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(MEADOW_TREE2), 0.3F)),
@@ -2369,14 +2373,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> TEMPERATE_GROVE_TREES = createConfiguredFeature("temperate_grove_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BIRCH_YELLOW_BOREAL_TREE1), 0.5F)),
             createPlacedFeature(BIRCH_BOREAL_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ENCHANTED_TREES = createConfiguredFeature("enchanted_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ENCHANTED_BLUE_TREE2), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(ENCHANTED_BLUE_TREE3), 0.2F),
@@ -2387,7 +2391,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_TREES = createConfiguredFeature("aspen_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ASPEN_TREE2), 0.50F),
             new WeightedPlacedFeature(createPlacedFeature(ASPEN_TREE3), 0.25F)),
@@ -2395,14 +2399,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_SHRUBS = createConfiguredFeature("aspen_shrubs",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ASPEN_SHRUB1), 0.5F)),
             createPlacedFeature(ASPEN_SHRUB2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ZELKOVA_TREES = createConfiguredFeature("zelkova_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ZELKOVA_TREE1), 0.33F),
             new WeightedPlacedFeature(createPlacedFeature(ZELKOVA_TREE2), 0.33F)),
@@ -2410,26 +2414,26 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PALO_VERDE_TREES = createConfiguredFeature("palo_verde_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PALO_VERDE_TREE1), 0.5F)),
             createPlacedFeature(PALO_VERDE_TREE2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> JOSHUA_TREES = createConfiguredFeature("joshua_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(JOSHUA_TREE1), 0.5F)),
             createPlacedFeature(JOSHUA_TREE2))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PRAIRIE_SHRUBS = createConfiguredFeature("prairie_shrubs", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PRAIRIE_SHRUBS = createConfiguredFeature("prairie_shrubs", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(SHRUB_PRAIRIE1), 0.5F)),
         createPlacedFeature(SHRUB_PRAIRIE2))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> PALM_TREES = createConfiguredFeature("palm_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(PALM_TREE1), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(PALM_TREE2), 0.25F),
@@ -2438,7 +2442,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CHERRY_TREES = createConfiguredFeature("cherry_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(CHERRY_PINK_TREE1), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(CHERRY_PINK_TREE2), 0.25F),
@@ -2448,7 +2452,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> HAZEL_TREES = createConfiguredFeature("hazel_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(HAZEL_TREE1), 0.3F),
             new WeightedPlacedFeature(createPlacedFeature(HAZEL_TREE2), 0.3F),
@@ -2457,7 +2461,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> EBONY_TREES = createConfiguredFeature("ebony_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(EBONY_TREE1), 0.45F),
             new WeightedPlacedFeature(createPlacedFeature(EBONY_TREE2), 0.45F)),
@@ -2465,7 +2469,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> FRAGMENT_FOREST_TREES = createConfiguredFeature("stone_forest_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(TreeFeatures.JUNGLE_BUSH), 0.1F),
             new WeightedPlacedFeature(createPlacedFeature(EBONY_TREES), 0.45F)),
@@ -2473,7 +2477,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> HOLLY_TREES = createConfiguredFeature("holly_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(HOLLY_TREE1), 0.25F),
             new WeightedPlacedFeature(createPlacedFeature(HOLLY_TREE2), 0.25F),
@@ -2482,7 +2486,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MANGROVE_TREES = createConfiguredFeature("mangrove_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(MANGROVE_TREE1), 0.2F),
             new WeightedPlacedFeature(createPlacedFeature(MANGROVE_TREE2), 0.2F),
@@ -2492,7 +2496,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORCHARD_TREES = createConfiguredFeature("orchard_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ORCHARD_TREE1), 0.33F),
             new WeightedPlacedFeature(createPlacedFeature(ORCHARD_TREE2), 0.33F)),
@@ -2500,14 +2504,14 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> TEMPERATE_RAINFOREST_TREES = createConfiguredFeature("temperate_rainforest_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(WOODLANDS_TREE1), 0.5F)),
             createPlacedFeature(WOODLANDS_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> OAK_TREES = createConfiguredFeature("oak_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(OAK_TREE1), 0.16F),
             new WeightedPlacedFeature(createPlacedFeature(OAK_TREE2), 0.16F),
@@ -2518,7 +2522,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_OAK_TREES = createConfiguredFeature("orange_oak_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(ORANGE_OAK_TREE1), 0.16F),
             new WeightedPlacedFeature(createPlacedFeature(ORANGE_OAK_TREE2), 0.16F),
@@ -2529,7 +2533,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BROWN_OAK_TREES = createConfiguredFeature("brown_oak_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(BROWN_OAK_TREE1), 0.16F),
             new WeightedPlacedFeature(createPlacedFeature(BROWN_OAK_TREE2), 0.16F),
@@ -2540,7 +2544,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RED_OAK_TREES = createConfiguredFeature("red_oak_trees",
-        Feature.RANDOM_SELECTOR,
+        () -> Feature.RANDOM_SELECTOR,
         new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(createPlacedFeature(RED_OAK_TREE1), 0.16F),
             new WeightedPlacedFeature(createPlacedFeature(RED_OAK_TREE2), 0.16F),
@@ -2550,10 +2554,18 @@ public class BYGOverworldTreeFeatures {
             createPlacedFeature(RED_OAK_TREE_LARGE3))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> AUTUMNAL_OAK_TREES = createConfiguredFeature("autumnal_oak_trees", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> AUTUMNAL_OAK_TREES = createConfiguredFeature("autumnal_oak_trees", () -> Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
         new WeightedPlacedFeature(createPlacedFeature(RED_OAK_TREES), 0.25F),
         new WeightedPlacedFeature(createPlacedFeature(BROWN_OAK_TREES), 0.25F),
         new WeightedPlacedFeature(createPlacedFeature(ORANGE_OAK_TREES), 0.25F)),
         createPlacedFeature(OAK_TREES))
     );
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeatureStatic(String id, Feature<FC> feature, FC config) {
+        return BYGFeaturesUtil.CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature, config)).asHolder();
+    }
+
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, Supplier<? extends F> feature, FC config) {
+        return BYGFeaturesUtil.createConfiguredFeature(id, feature, config);
+    }
 }
