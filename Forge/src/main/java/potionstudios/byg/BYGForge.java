@@ -113,8 +113,6 @@ public class BYGForge {
         register(Block.class, eventBus, () -> BYGBlocks.bootStrap());
         register(Item.class, eventBus, () -> BYGItems.bootStrap());
         register(Feature.class, eventBus, () -> BYGFeatures.bootStrap());
-        register(BlockStateProviderType.class, eventBus, () -> BYGStateProviders.bootStrap());
-        register(StructureFeature.class, eventBus, () -> BYGStructureFeature.bootStrap());
     }
 
     private <T extends IForgeRegistryEntry<T>> void register(Class<? super T> clazz, IEventBus eventBus, Supplier<Collection<RegistryObject<T>>> registryObjectsSupplier) {

@@ -23,12 +23,16 @@ import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
+import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.mixin.access.PoiTypeAccess;
+import potionstudios.byg.mixin.access.StructureFeatureAccess;
 import potionstudios.byg.mixin.access.WorldCarverAccess;
+import potionstudios.byg.registration.RegistryObject;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.LangFileGenerator;
 import potionstudios.byg.util.MLBlockTags;
@@ -78,6 +82,12 @@ public class BYG {
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
 
         PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
+
+        BYGStructureFeature.PROVIDER.getEntries()
+            .stream()
+            .map(RegistryObject::get)
+            .filter(WithGenerationStep.class::isInstance)
+            .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
     }
 
     private static void handleConfigs() {

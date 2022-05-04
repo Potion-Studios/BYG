@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.structure;
 
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -28,17 +29,21 @@ import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools
 import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
+import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class BYGStructureFeatures {
 
-    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RED_ROCK = register("village_red_rock", StructureFeature.VILLAGE.configured(new JigsawConfiguration(RedRockVillagePools.RED_ROCK_VILLAGE_JIGSAW, 6), BYGBiomeTags.HAS_VILLAGE_RED_ROCK, true));
-    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_SKYRIS = register("village_skyris", StructureFeature.VILLAGE.configured(new JigsawConfiguration(SkyrisVillagePools.SKYRIS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_SKYRIS, true));
-    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RUINS = register("village_ruins", StructureFeature.VILLAGE.configured(new JigsawConfiguration(RuinsVillagePools.RUINS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_RUINS, true));
-    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_TROPICAL = register("village_tropical", StructureFeature.VILLAGE.configured(new JigsawConfiguration(TropicalVillagePools.TROPICAL_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_TROPICAL, true));
-    public static final Holder<ConfiguredStructureFeature<?, ?>> RED_ROCK_ARCH = register("red_rock_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
+    public static final RegistrationProvider<ConfiguredStructureFeature<?, ?>> PROVIDER = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, BYG.MOD_ID);
+
+    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RED_ROCK = register("village_red_rock", () -> StructureFeature.VILLAGE.configured(new JigsawConfiguration(RedRockVillagePools.RED_ROCK_VILLAGE_JIGSAW, 6), BYGBiomeTags.HAS_VILLAGE_RED_ROCK, true));
+    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_SKYRIS = register("village_skyris", () -> StructureFeature.VILLAGE.configured(new JigsawConfiguration(SkyrisVillagePools.SKYRIS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_SKYRIS, true));
+    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_RUINS = register("village_ruins", () -> StructureFeature.VILLAGE.configured(new JigsawConfiguration(RuinsVillagePools.RUINS_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_RUINS, true));
+    public static final Holder<ConfiguredStructureFeature<?, ?>> VILLAGE_TROPICAL = register("village_tropical", () -> StructureFeature.VILLAGE.configured(new JigsawConfiguration(TropicalVillagePools.TROPICAL_VILLAGE_POOL, 6), BYGBiomeTags.HAS_VILLAGE_TROPICAL, true));
+    public static final Holder<ConfiguredStructureFeature<?, ?>> RED_ROCK_ARCH = register("red_rock_arch", () -> BYGStructureFeature.ARCH.get().configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(BYGBlocks.RED_ROCK.defaultBlockState(), 4)
             .add(Blocks.TERRACOTTA.defaultBlockState(), 1)
@@ -58,7 +63,7 @@ public class BYGStructureFeatures {
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
     }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, false));
 
-    public static final Holder<ConfiguredStructureFeature<?, ?>> OVERGROWN_STONE_ARCH = register("overgrown_stone_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
+    public static final Holder<ConfiguredStructureFeature<?, ?>> OVERGROWN_STONE_ARCH = register("overgrown_stone_arch", () -> BYGStructureFeature.ARCH.get().configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(Blocks.STONE.defaultBlockState(), 6)
             .add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 3)
@@ -85,7 +90,7 @@ public class BYGStructureFeatures {
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutQuint.INSTANCE, 5).add(BlendingFunction.EaseOutElastic.INSTANCE, 2).add(BlendingFunction.EaseOutBounce.INSTANCE, 5).add(BlendingFunction.EaseOutCubic.INSTANCE, 5).build());
     }).build(), BYGBiomeTags.HAS_OVERGROWN_STONE_ARCH, false));
 
-    public static final Holder<ConfiguredStructureFeature<?, ?>> STONE_ARCH = register("stone_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
+    public static final Holder<ConfiguredStructureFeature<?, ?>> STONE_ARCH = register("stone_arch", () -> BYGStructureFeature.ARCH.get().configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(Blocks.STONE.defaultBlockState(), 4)
             .add(Blocks.ANDESITE.defaultBlockState(), 1)
@@ -109,7 +114,7 @@ public class BYGStructureFeatures {
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutQuint.INSTANCE, 5).add(BlendingFunction.EaseOutElastic.INSTANCE, 2).add(BlendingFunction.EaseOutBounce.INSTANCE, 5).add(BlendingFunction.EaseOutCubic.INSTANCE, 5).build());
     }).build(), BYGBiomeTags.HAS_STONE_ARCH, false));
 
-    public static final Holder<ConfiguredStructureFeature<?, ?>> DESTROYED_RED_ROCK_ARCH = register("destroyed_red_rock_arch", BYGStructureFeature.ARCH.configured(Util.make(new ArchConfiguration.Builder(), builder -> {
+    public static final Holder<ConfiguredStructureFeature<?, ?>> DESTROYED_RED_ROCK_ARCH = register("destroyed_red_rock_arch", () -> BYGStructureFeature.ARCH.get().configured(Util.make(new ArchConfiguration.Builder(), builder -> {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(BYGBlocks.RED_ROCK.defaultBlockState(), 4)
             .add(Blocks.TERRACOTTA.defaultBlockState(), 1)
@@ -129,9 +134,7 @@ public class BYGStructureFeatures {
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
     }).build(), BYGBiomeTags.HAS_RED_ROCK_ARCH, false));
 
-
-
-    private static <FC extends FeatureConfiguration, F extends StructureFeature<FC>> Holder<ConfiguredStructureFeature<?, ?>> register(String id, ConfiguredStructureFeature<FC, F> configuredStructureFeature) {
-        return BuiltinRegistries.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, BYG.createLocation(id), configuredStructureFeature);
+    private static <FC extends FeatureConfiguration, F extends StructureFeature<FC>> Holder<ConfiguredStructureFeature<?, ?>> register(String id, Supplier<ConfiguredStructureFeature<FC, F>> configuredStructureFeature) {
+        return PROVIDER.<ConfiguredStructureFeature<?, ?>>register(id, configuredStructureFeature).asHolder();
     }
 }
