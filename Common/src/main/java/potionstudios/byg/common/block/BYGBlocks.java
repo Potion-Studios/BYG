@@ -1612,7 +1612,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createTallFlower(String id, TagKey<Block> groundTag) {
-        return createPottedBlock(() -> new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
+        return createBlock(() -> new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
     }
 
     static BlockRegistryObject<Block> createStoneEndPlant(String id) {
