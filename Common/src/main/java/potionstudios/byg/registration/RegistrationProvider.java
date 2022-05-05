@@ -91,13 +91,16 @@ public interface RegistrationProvider<T> {
          */
         Factory INSTANCE = Util.make(() -> {
             final var loader = ServiceLoader.load(Factory.class);
-            final var providers = Lists.newArrayList(loader.iterator());
-            if (providers.isEmpty()) {
+            final var it = loader.iterator();
+            if (!it.hasNext()) {
                 throw new RuntimeException("No BygRegistrationProvider Factory was found on the classpath!");
-            } else if (providers.size() > 1) {
-                throw new RuntimeException("More than one BygRegistrationProvider Factory was found on the classpath!");
+            } else {
+                final Factory factory = it.next();
+                if (it.hasNext()) {
+                    throw new RuntimeException("More than one BygRegistrationProvider Factory was found on the classpath!");
+                }
+                return factory;
             }
-            return providers.get(0);
         });
 
         /**
