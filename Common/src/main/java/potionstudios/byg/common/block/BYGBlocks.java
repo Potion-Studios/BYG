@@ -1591,7 +1591,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createWhitePuffBlock(SoundType sound, MaterialColor color, String id) {
-        return createBlock(() -> new WhitePuffballBlock(BlockBehaviour.Properties.of(Material.PLANT, color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks()), id);
+        return createPottedBlock(() -> new WhitePuffballBlock(BlockBehaviour.Properties.of(Material.PLANT, color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks()), id);
     }
 
     static BlockRegistryObject<Block> createMushroomPlant(BYGHugeMushroom mushroom, String id) {
@@ -1599,7 +1599,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        return createBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.FUNGUS).strength(0.0f).noCollission().randomTicks(), mushroom, true), id);
+        return createPottedBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.FUNGUS).strength(0.0f).noCollission().randomTicks(), mushroom, true), id);
     }
 
     static BlockRegistryObject<Block> createHydrangeaBush(String id, TagKey<Block> groundTag) {
@@ -1722,23 +1722,23 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createShrub(TreeSpawner tree, String id) {
-        return createBlock(() -> new ShrubBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().noCollission(), tree), id);
+        return createPottedBlock(() -> new ShrubBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_GREEN).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion().noCollission(), tree), id);
     }
 
     static BlockRegistryObject<Block> createJacarandaBush(String id) {
-        return createBlock(() -> new JacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion()), id);
+        return createPottedBlock(() -> new JacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion()), id);
     }
 
     static BlockRegistryObject<Block> createFloweringJacarandaBush(int taskRange, TreeSpawner tree, String id) {
-        return createBlock(() -> new FloweringJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange), id);
+        return createPottedBlock(() -> new FloweringJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_PURPLE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange), id);
     }
 
     static BlockRegistryObject<Block> createIndigoJacarandaBush(String id) {
-        return createBlock(() -> new IndigoJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion()), id);
+        return createPottedBlock(() -> new IndigoJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion()), id);
     }
 
     static BlockRegistryObject<Block> createFloweringIndigoJacarandaBush(int taskRange, TreeSpawner tree, String id) {
-        return createBlock(() -> new FloweringJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange), id);
+        return createPottedBlock(() -> new FloweringJacarandaBushBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BLUE).sound(SoundType.SWEET_BERRY_BUSH).noOcclusion(), tree, taskRange), id);
     }
 
     public static BlockRegistryObject<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
