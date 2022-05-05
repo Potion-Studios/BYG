@@ -1595,7 +1595,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        return createBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false), id);
+        return createPottedBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false), id);
     }
 
     static BlockRegistryObject<Block> createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
@@ -1603,7 +1603,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createHydrangeaBush(String id, TagKey<Block> groundTag) {
-        return createBlock(() -> new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
+        return createPottedBlock(() -> new HydrangeaBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
     }
 
     static BlockRegistryObject<Block> createHydrangeaHedge(String id, TagKey<Block> groundTag) {
@@ -1611,11 +1611,11 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createFlower(String id, TagKey<Block> groundTag) {
-        return createBlock(() -> new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
+        return createPottedBlock(() -> new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
     }
 
     static BlockRegistryObject<Block> createTallFlower(String id, TagKey<Block> groundTag) {
-        return createBlock(() -> new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
+        return createPottedBlock(() -> new BYGTallFlowerBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
     }
 
     static BlockRegistryObject<Block> createStoneEndPlant(String id) {
