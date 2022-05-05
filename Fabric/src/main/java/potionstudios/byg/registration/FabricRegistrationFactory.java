@@ -1,4 +1,4 @@
-package potionstudios.byg;
+package potionstudios.byg.registration;
 
 import com.google.auto.service.AutoService;
 import net.minecraft.core.Holder;
@@ -6,8 +6,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import potionstudios.byg.mixin.access.ResourceKeyAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package potionstudios.byg;
+package potionstudios.byg.registration;
 
 import com.google.auto.service.AutoService;
 import net.minecraft.core.Holder;
@@ -8,8 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 import net.minecraftforge.registries.DeferredRegister;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
 
 import java.util.Collections;
 import java.util.HashSet;
