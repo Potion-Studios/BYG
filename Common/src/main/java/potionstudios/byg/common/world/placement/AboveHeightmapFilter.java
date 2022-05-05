@@ -32,6 +32,6 @@ public class AboveHeightmapFilter extends PlacementModifier {
 
     @Override
     public PlacementModifierType<?> type() {
-        return BYGPlacementModifierType.ABOVE_HEIGHTMAP_FILTER;
+        return BYGPlacementModifierType.ABOVE_HEIGHTMAP_FILTER.get();
     }
 }

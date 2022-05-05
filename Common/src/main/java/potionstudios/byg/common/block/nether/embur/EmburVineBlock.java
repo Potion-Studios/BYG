@@ -28,7 +28,7 @@ public class EmburVineBlock extends GrowingPlantHeadBlock {
     }
 
     protected Block getBodyBlock() {
-        return BYGBlocks.EMBUR_GEL_VINES_PLANT;
+        return BYGBlocks.EMBUR_GEL_VINES_PLANT.get();
     }
 
     protected boolean canGrowInto(BlockState state) {

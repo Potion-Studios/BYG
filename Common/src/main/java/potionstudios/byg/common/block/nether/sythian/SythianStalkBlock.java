@@ -32,9 +32,9 @@ public class SythianStalkBlock extends BambooBlock {
             return null;
         } else {
             BlockState blockStateDOWN = ctx.getLevel().getBlockState(ctx.getClickedPos().below());
-            if (blockStateDOWN.getBlock() == BYGBlocks.SYTHIAN_NYLIUM) {
+            if (blockStateDOWN.getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get()) {
                 Block blockDOWN = blockStateDOWN.getBlock();
-                if (blockDOWN == BYGBlocks.SYTHIAN_SAPLING) {
+                if (blockDOWN == BYGBlocks.SYTHIAN_SAPLING.get()) {
                     return this.defaultBlockState().setValue(AGE, 0);
                 } else if (blockDOWN == this) {
                     int getPropertyAge = blockStateDOWN.getValue(AGE) > 0 ? 1 : 0;
@@ -95,7 +95,7 @@ public class SythianStalkBlock extends BambooBlock {
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK;
+        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get() || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK.get();
     }
 
 }

@@ -31,7 +31,7 @@ public class FirecrackerLeavesBlock extends LeavesBlock {
             double e = (double) blockPos.getY() + 1.0D;
             double f = (double) blockPos.getZ() + random.nextDouble();
             level.setBlockAndUpdate(blockPos, BYGBlocks.FIRECRACKER_FLOWER_BUSH.defaultBlockState());
-            level.neighborChanged(blockPos, BYGBlocks.FIRECRACKER_FLOWER_BUSH, blockPos);
+            level.neighborChanged(blockPos, BYGBlocks.FIRECRACKER_FLOWER_BUSH.get(), blockPos);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
 
         }

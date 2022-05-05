@@ -102,7 +102,7 @@ public class HoneyBarrelCactusBlock extends AbstractBarrelCactusBlock {
             player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.HONEY_BOTTLE.getDefaultInstance()));
             world.setBlockAndUpdate(pos, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState());
             world.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1);
-            world.neighborChanged(pos, BYGBlocks.CARVED_BARREL_CACTUS, pos);
+            world.neighborChanged(pos, BYGBlocks.CARVED_BARREL_CACTUS.get(), pos);
             world.gameEvent(null, GameEvent.FLUID_PICKUP, pos);
             return InteractionResult.SUCCESS;
         }

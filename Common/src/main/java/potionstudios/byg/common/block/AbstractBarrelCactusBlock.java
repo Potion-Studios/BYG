@@ -75,7 +75,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     @Override
     public void performBonemeal(ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         serverLevel.setBlockAndUpdate(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS.defaultBlockState());
-        serverLevel.neighborChanged(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS, blockPos);
+        serverLevel.neighborChanged(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS.get(), blockPos);
     }
 
     public InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {

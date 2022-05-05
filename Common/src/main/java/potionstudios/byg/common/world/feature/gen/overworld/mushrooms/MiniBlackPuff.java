@@ -26,7 +26,7 @@ public class MiniBlackPuff extends BYGAbstractMushroomFeature<BYGMushroomConfig>
         BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
-            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), BYGBlocks.WAILING_NYLIUM)) {
+            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), BYGBlocks.WAILING_NYLIUM.get())) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;

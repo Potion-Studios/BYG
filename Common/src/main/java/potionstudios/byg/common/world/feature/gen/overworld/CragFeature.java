@@ -39,7 +39,7 @@ public class CragFeature extends Feature<SimpleBlockProviderConfig> {
         SimpleBlockProviderConfig simpleBlockProviderConfig = new SimpleBlockProviderConfig(
 //            new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
 //                BetweenNoiseThresholdProvider.createThresholds(0.0125F, -0.5F, 0.5F),
-//                SimpleStateProvider.simple(Blocks.STONE), SimpleStateProvider.simple(BYGBlocks.DACITE), false)
+//                SimpleStateProvider.simple(Blocks.STONE), SimpleStateProvider.simple(BYGBlocks.DACITE.get()), false)
             SimpleStateProvider.simple(Blocks.STONE)
         );
 
@@ -47,8 +47,8 @@ public class CragFeature extends Feature<SimpleBlockProviderConfig> {
         SimpleBlockProviderConfig topBlockProviderConfig = new SimpleBlockProviderConfig(
 //            new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
 //                BetweenNoiseThresholdProvider.createThresholds(0.0125F, -0.5F, 0.5F),
-//                SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE), SimpleStateProvider.simple(BYGBlocks.OVERGROWN_DACITE), false)
-            SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE)
+//                SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()), SimpleStateProvider.simple(BYGBlocks.OVERGROWN_DACITE.get()), false)
+            SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get())
 
         );
 

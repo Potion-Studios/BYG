@@ -50,7 +50,7 @@ public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlo
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        return new ItemStack(BYGItems.ALOE_VERA);
+        return new ItemStack(BYGItems.ALOE_VERA.get());
     }
 
     @Override

@@ -27,6 +27,6 @@ public class LeafFoliageBlock extends BushBlock {
     protected boolean mayPlaceOn(@NotNull BlockState state, BlockGetter worldIn, BlockPos blockPos) {
         BlockPos $$3 = blockPos;
         BlockState blockState = worldIn.getBlockState($$3);
-        return (blockState.is(BlockTags.DIRT)) || state.getBlock() == BYGBlocks.ETHER_PHYLIUM;
+        return (blockState.is(BlockTags.DIRT)) || state.getBlock() == BYGBlocks.ETHER_PHYLIUM.get();
     }
 }

@@ -19,14 +19,20 @@ import org.apache.logging.log4j.Logger;
 import potionstudios.byg.client.BiomepediaClientData;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
+import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
+import potionstudios.byg.mixin.access.PoiTypeAccess;
+import potionstudios.byg.mixin.access.StructureFeatureAccess;
 import potionstudios.byg.mixin.access.WorldCarverAccess;
+import potionstudios.byg.registration.RegistryObject;
 import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.LangFileGenerator;
 import potionstudios.byg.util.MLBlockTags;
@@ -57,6 +63,7 @@ public class BYG {
     public static String MOD_LOADER_TAG_TARGET = null;
     public static ModLoaderContext MODLOADER_DATA = null;
     public static final SurfaceRules.RuleSource EMPTY = SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.DIRT.defaultBlockState()));
+    public static boolean INITIALIZED;
 
     public static void init(Path path, String modloaderTagTarget) {
         CONFIG_PATH = path;
@@ -70,13 +77,22 @@ public class BYG {
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
-            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks()).addAll(carverAccess.byg_getReplaceableBlocks()).build());
+            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks().get())
+                    .addAll(carverAccess.byg_getReplaceableBlocks()).build());
         }
         LOGGER.info("BYG: \"Common Setup\" Event Complete!");
+
+        PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
+
+        BYGStructureFeature.PROVIDER.getEntries()
+            .stream()
+            .map(RegistryObject::get)
+            .filter(WithGenerationStep.class::isInstance)
+            .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
     }
 
     private static void handleConfigs() {
-        CommonSetupLoad.ENTRIES.forEach(CommonSetupLoad::load);
+        CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
         try {
             Files.createDirectories(CONFIG_PATH);
             Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
@@ -95,15 +111,15 @@ public class BYG {
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());
-        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE);
-        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE);
+        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE.get());
+        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
         builderAccess.byg_setValidBlocks(validBlocks);
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
             new ImmutableList.Builder<Block>()
                 .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                .add(BYGBlocks.EMBUR_GEL_BLOCK)
-                .add(BYGBlocks.EMBUR_GEL_BRANCH)
-                .add(BYGBlocks.EMBUR_GEL_VINES)
+                .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
+                .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
+                .add(BYGBlocks.EMBUR_GEL_VINES.get())
                 .addAll(Util.make(new ArrayList<>(), list -> {
                     for (Block block : Registry.BLOCK) {
                         Material material = block.defaultBlockState().getMaterial();
@@ -117,17 +133,6 @@ public class BYG {
                 }))
                 .build()
         );
-    }
-
-    public static void clientLoad() {
-        LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BiomepediaClientData.getConfig(true);
-        if (GENERATE_DATA) {
-            LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
-        }
-
-//        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
-        LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }
 
     public static void threadSafeLoadFinish() {

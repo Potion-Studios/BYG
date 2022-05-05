@@ -30,7 +30,7 @@ public class IvisPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.IVIS_PHYLIUM) || state.is(BYGBlocks.BULBIS_PHYCELIUM) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.IVIS_PHYLIUM.get()) || state.is(BYGBlocks.BULBIS_PHYCELIUM.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

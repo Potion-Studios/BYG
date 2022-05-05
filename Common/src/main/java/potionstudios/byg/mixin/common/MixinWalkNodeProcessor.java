@@ -16,7 +16,7 @@ public class MixinWalkNodeProcessor {
 
     @Inject(method = "isBurningBlock", at = @At("HEAD"), cancellable = true)
     private static void byg_isBurningBlock(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (state.getBlock() == BYGBlocks.FROST_MAGMA) {
+        if (state.getBlock() == BYGBlocks.FROST_MAGMA.get()) {
             cir.setReturnValue(true);
         }
     }
@@ -24,7 +24,7 @@ public class MixinWalkNodeProcessor {
     @Inject(method = "getBlockPathTypeRaw", at = @At("RETURN"), cancellable = true)
     private static void avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir) {
         BlockState blockState = blockGetter.getBlockState(blockPos);
-        if (blockState.is(BYGBlocks.QUARTZ_CRYSTAL)) {
+        if (blockState.is(BYGBlocks.QUARTZ_CRYSTAL.get())) {
             cir.setReturnValue(BlockPathTypes.DAMAGE_OTHER);
         }
     }

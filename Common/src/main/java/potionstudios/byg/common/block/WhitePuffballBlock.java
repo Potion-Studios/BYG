@@ -38,7 +38,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
     }
 
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        return new ItemStack(BYGItems.WHITE_PUFFBALL_SPORES);
+        return new ItemStack(BYGItems.WHITE_PUFFBALL_SPORES.get());
     }
 
     public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
@@ -68,8 +68,8 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (i > 2) {
             int j = 1 + level.random.nextInt(2);
-            popResource(level, blockPos, new ItemStack(BYGItems.WHITE_PUFFBALL_SPORES, j + (bl ? 1 : 0)));
-            popResource(level, blockPos, new ItemStack(BYGItems.WHITE_PUFFBALL_CAP, j));
+            popResource(level, blockPos, new ItemStack(BYGItems.WHITE_PUFFBALL_SPORES.get(), j + (bl ? 1 : 0)));
+            popResource(level, blockPos, new ItemStack(BYGItems.WHITE_PUFFBALL_CAP.get(), j));
 
             level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             level.setBlock(blockPos, blockState.setValue(AGE, 0), 2);

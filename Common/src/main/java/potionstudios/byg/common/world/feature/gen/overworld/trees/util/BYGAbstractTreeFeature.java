@@ -123,7 +123,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public void baobabFruit(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
-        if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGBlocks.BAOBAB_LEAVES) {
+        if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGBlocks.BAOBAB_LEAVES.get()) {
             this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
@@ -588,21 +588,21 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.MYCELIUM, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.DIRT_PATH, Blocks.DIRT);
         SPREADABLE_TO_NON_SPREADABLE.put(Blocks.PODZOL, Blocks.DIRT);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE, BYGBlocks.DACITE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.PODZOL_DACITE, BYGBlocks.DACITE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_STONE, Blocks.STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE, Blocks.BLACKSTONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_NETHERRACK, Blocks.NETHERRACK);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SYTHIAN_NYLIUM, Blocks.NETHERRACK);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.EMBUR_NYLIUM, BYGBlocks.BLUE_NETHERRACK);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.IVIS_PHYLIUM, Blocks.END_STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.NIGHTSHADE_PHYLIUM, Blocks.END_STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SHULKREN_PHYLIUM, Blocks.END_STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.VERMILION_SCULK, BYGBlocks.ETHER_STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.ETHER_PHYLIUM, BYGBlocks.ETHER_SOIL);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_BLOCK, BYGBlocks.LUSH_DIRT);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_PATH, BYGBlocks.LUSH_DIRT);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MYCELIUM_NETHERRACK, Blocks.NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE.get(), BYGBlocks.DACITE.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.PODZOL_DACITE.get(), BYGBlocks.DACITE.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_STONE.get(), Blocks.STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.get(), Blocks.BLACKSTONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_NETHERRACK.get(), Blocks.NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SYTHIAN_NYLIUM.get(), Blocks.NETHERRACK);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.EMBUR_NYLIUM.get(), BYGBlocks.BLUE_NETHERRACK.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.IVIS_PHYLIUM.get(), Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.NIGHTSHADE_PHYLIUM.get(), Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SHULKREN_PHYLIUM.get(), Blocks.END_STONE);
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.VERMILION_SCULK.get(), BYGBlocks.ETHER_STONE.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.ETHER_PHYLIUM.get(), BYGBlocks.ETHER_SOIL.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_BLOCK.get(), BYGBlocks.LUSH_DIRT.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_PATH.get(), BYGBlocks.LUSH_DIRT.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MYCELIUM_NETHERRACK.get(), Blocks.NETHERRACK);
     }
 
     public static final class PooledMutable extends MutableBlockPos implements AutoCloseable {

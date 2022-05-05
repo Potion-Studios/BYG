@@ -64,7 +64,7 @@ public class StoneEndPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.CRYPTIC_MAGMA_BLOCK) || state.is(BYGBlocks.CRYPTIC_STONE) || state.is(BYGBlocks.CRYPTIC_REDSTONE_ORE) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlocks.CRYPTIC_MAGMA_BLOCK.get()) || state.is(BYGBlocks.CRYPTIC_STONE.get()) || state.is(BYGBlocks.CRYPTIC_REDSTONE_ORE.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

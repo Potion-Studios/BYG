@@ -11,6 +11,7 @@ import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.EmeraldFor
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess;
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess;
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.SuspiciousStewForEmeraldAccess;
+import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.HashMap;
@@ -68,9 +69,11 @@ public class VillagerTradeRegistry {
         .dispatchStable(itemListing -> ITEM_LISTING_CLASS_BY_CODEC.get(itemListing.getClass()), codec -> codec.fieldOf("config").codec());
 
     public static void register() {
-        Registry.register(BYGRegistry.VILLAGER_TRADES_ITEM_LISTING, BYG.createLocation("emerald_for_items"), EMERALD_FOR_ITEMS_CODEC);
-        Registry.register(BYGRegistry.VILLAGER_TRADES_ITEM_LISTING, BYG.createLocation("items_for_emeralds"), ITEMS_FOR_EMERALDS_CODEC);
-        Registry.register(BYGRegistry.VILLAGER_TRADES_ITEM_LISTING, BYG.createLocation("suspicious_stew_for_emerald"), SUSPICIOUS_STEW_FOR_EMERALD_CODEC);
-        Registry.register(BYGRegistry.VILLAGER_TRADES_ITEM_LISTING, BYG.createLocation("items_and_emeralds_to_items"), ITEMS_AND_EMERALDS_TO_ITEMS_CODEC);
+        final var provider = RegistrationProvider.get(BYGRegistry.VILLAGER_TRADES_ITEM_LISTING_RESOURCE_KEY, BYG.MOD_ID);
+
+        provider.register("emerald_for_items", () -> EMERALD_FOR_ITEMS_CODEC);
+        provider.register("items_for_emeralds", () -> ITEMS_FOR_EMERALDS_CODEC);
+        provider.register("suspicious_stew_for_emerald", () -> SUSPICIOUS_STEW_FOR_EMERALD_CODEC);
+        provider.register("items_and_emeralds_to_items", () -> ITEMS_AND_EMERALDS_TO_ITEMS_CODEC);
     }
 }

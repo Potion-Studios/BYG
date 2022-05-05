@@ -32,7 +32,7 @@ public class BuddingAmetrineBlock extends OreBlock {
             BlockState blockState = world.getBlockState(blockPos);
             Block block = null;
             if (canClusterGrowAtState(blockState)) {
-                block = BYGBlocks.AMETRINE_CLUSTER;
+                block = BYGBlocks.AMETRINE_CLUSTER.get();
             }
             if (block != null) {
                 BlockState blockState2 = block.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(AmethystClusterBlock.WATERLOGGED, blockState.getFluidState().getType() == Fluids.WATER);

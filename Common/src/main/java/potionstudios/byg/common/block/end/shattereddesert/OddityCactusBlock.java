@@ -93,7 +93,7 @@ public class OddityCactusBlock extends Block {
             }
         }
 
-        return worldIn.getBlockState(pos.below()).getBlock() == Blocks.END_STONE || worldIn.getBlockState(pos.below()).getBlock() == Blocks.END_STONE_BRICKS || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.END_SAND || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.ODDITY_CACTUS && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid();
+        return worldIn.getBlockState(pos.below()).getBlock() == Blocks.END_STONE || worldIn.getBlockState(pos.below()).getBlock() == Blocks.END_STONE_BRICKS || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.END_SAND.get() || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.ODDITY_CACTUS.get() && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

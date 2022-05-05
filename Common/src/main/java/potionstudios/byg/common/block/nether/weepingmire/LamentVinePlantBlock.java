@@ -20,7 +20,7 @@ public class LamentVinePlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.LAMENT_VINE;
+        return (GrowingPlantHeadBlock) BYGBlocks.LAMENT_VINE.get();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

@@ -33,13 +33,13 @@ public class ArchPiece extends StructurePiece {
     private final NoisySphereConfig config;
 
     public ArchPiece(Set<BlockPos> positions, NoisySphereConfig config, int $$1, BoundingBox generatingBB) {
-        super(BYGStructurePieceTypes.ARCH_PIECE, $$1, generatingBB);
+        super(BYGStructurePieceTypes.ARCH_PIECE.get(), $$1, generatingBB);
         this.config = config;
         this.positions.addAll(positions);
     }
 
     public ArchPiece(StructurePieceSerializationContext context, CompoundTag tag) {
-        super(BYGStructurePieceTypes.ARCH_PIECE, tag);
+        super(BYGStructurePieceTypes.ARCH_PIECE.get(), tag);
 
         RegistryOps<Tag> tagRegistryOps = RegistryOps.create(NbtOps.INSTANCE, context.registryAccess());
 
@@ -80,7 +80,7 @@ public class ArchPiece extends StructurePiece {
             if (DEBUG) {
                 worldGenLevel.setBlock(position, Blocks.GLOWSTONE.defaultBlockState(), 2);
             } else {
-                BYGFeatures.BOULDER.fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
+                BYGFeatures.BOULDER.get().fillList(toPlace, worldGenLevel.getSeed(), random, position, config);
             }
         }
 

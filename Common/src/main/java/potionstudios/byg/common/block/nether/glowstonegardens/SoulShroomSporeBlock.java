@@ -15,7 +15,7 @@ public class SoulShroomSporeBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.SOUL_SHROOM_SPORE_END;
+        return (GrowingPlantHeadBlock) BYGBlocks.SOUL_SHROOM_SPORE_END.get();
     }
 }
 

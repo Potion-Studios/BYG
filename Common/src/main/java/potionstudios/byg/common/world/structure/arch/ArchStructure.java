@@ -11,6 +11,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.HashSet;
@@ -25,7 +27,7 @@ import java.util.Set;
 
 import static net.minecraft.util.Mth.lerp;
 
-public class ArchStructure extends StructureFeature<ArchConfiguration> {
+public class ArchStructure extends StructureFeature<ArchConfiguration> implements WithGenerationStep {
     public static final int PIECE_BB_EXPANSION = 5;
 
     public ArchStructure(Codec<ArchConfiguration> $$0) {
@@ -166,5 +168,10 @@ public class ArchStructure extends StructureFeature<ArchConfiguration> {
 
     private static boolean matchesBiome(BlockPos pos, ChunkGenerator generator, TagKey<Biome> biomeTagKey) {
         return generator.getNoiseBiome(QuartPos.fromBlock(pos.getX()), QuartPos.fromBlock(pos.getY()), QuartPos.fromBlock(pos.getZ())).is(biomeTagKey);
+    }
+
+    @Override
+    public GenerationStep.Decoration getDecoration() {
+        return GenerationStep.Decoration.RAW_GENERATION;
     }
 }

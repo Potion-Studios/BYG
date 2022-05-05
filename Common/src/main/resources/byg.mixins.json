@@ -61,6 +61,7 @@
     "access.WoodTypeAccess",
     "access.WorldCarverAccess",
     "access.WorldGenRegistryDumpReportAccess",
+    "access.ResourceKeyAccess",
     "access.world.entity.npc.villagertrades.EmeraldForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess",
@@ -103,12 +104,11 @@
     "access.client.ItemBlockRenderTypeAccess",
     "access.client.KeyMappingAccess",
     "access.client.ScreenAccess",
+    "access.client.MenuScreensAccess",
     "client.MixinDebugOverlayGui",
     "client.MixinInventoryScreen",
     "client.MixinLayerDefinitions",
     "client.MixinOptionsScreen",
-    "client.MixinParticleEngine",
-    "client.MixinScreenManager"
   ],
   "injectors": {
     "defaultRequire": 1

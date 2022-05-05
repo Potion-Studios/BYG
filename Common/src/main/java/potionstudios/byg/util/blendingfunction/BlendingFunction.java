@@ -1,14 +1,15 @@
 package potionstudios.byg.util.blendingfunction;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Registry;
 import potionstudios.byg.BYG;
 import potionstudios.byg.core.BYGRegistry;
+import potionstudios.byg.registration.RegistrationProvider;
 
 import java.util.function.Function;
 
 public interface BlendingFunction {
     Codec<BlendingFunction> CODEC = BYGRegistry.BLENDING_FUNCTION.byNameCodec().dispatchStable(BlendingFunction::codec, Function.identity());
+    RegistrationProvider<Codec<? extends BlendingFunction>> PROVIDER = RegistrationProvider.get(BYGRegistry.BLENDING_FUNCTION, BYG.MOD_ID);
 
     Codec<? extends BlendingFunction> codec();
 
@@ -19,13 +20,17 @@ public interface BlendingFunction {
         return min + (range * apply(factor));
     }
 
-    static void bootStrap() {
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_in_out_circ"), EaseInOutCirc.CODEC);
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_bounce"), EaseOutBounce.CODEC);
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_cubic"), EaseOutCubic.CODEC);
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_elastic"), EaseOutElastic.CODEC);
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_in_circ"), EaseInCirc.CODEC);
-        Registry.register(BYGRegistry.BLENDING_FUNCTION, BYG.createLocation("ease_out_quint"), EaseOutQuint.CODEC);
+    static void register() {
+        register("ease_in_out_circ", EaseInOutCirc.CODEC);
+        register("ease_out_bounce", EaseOutBounce.CODEC);
+        register("ease_out_cubic", EaseOutCubic.CODEC);
+        register("ease_out_elastic", EaseOutElastic.CODEC);
+        register("ease_in_circ", EaseInCirc.CODEC);
+        register("ease_out_quint", EaseOutQuint.CODEC);
+    }
+
+    private static void register(String name, Codec<? extends BlendingFunction> function) {
+        PROVIDER.register(name, () -> function);
     }
 
     record EaseInOutCirc() implements BlendingFunction {

@@ -23,7 +23,7 @@ public class BYGWarpedCoralPlantBlock extends BaseCoralPlantTypeBlock {
     }
 
     protected boolean isValidGround(BlockState state) {
-        return state.getBlock() == BYGBlocks.WARPED_SOUL_SAND || state.getBlock() == BYGBlocks.WARPED_SOUL_SOIL;
+        return state.getBlock() == BYGBlocks.WARPED_SOUL_SAND.get() || state.getBlock() == BYGBlocks.WARPED_SOUL_SOIL.get();
     }
 
     @Override

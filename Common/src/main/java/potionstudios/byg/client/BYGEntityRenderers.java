@@ -9,7 +9,7 @@ import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 public class BYGEntityRenderers {
 
     public static <T extends Entity> void register(RegisterStrategy registerStrategy) {
-        registerStrategy.register(BYGEntities.BOAT, BYGBoatRenderer::new);
+        registerStrategy.register(BYGEntities.BOAT.get(), BYGBoatRenderer::new);
     }
 
     @FunctionalInterface

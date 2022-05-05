@@ -20,7 +20,7 @@ public class EmburVinePlantBlock extends GrowingPlantBodyBlock {
     }
 
     protected GrowingPlantHeadBlock getHeadBlock() {
-        return (GrowingPlantHeadBlock) BYGBlocks.EMBUR_GEL_VINES;
+        return (GrowingPlantHeadBlock) BYGBlocks.EMBUR_GEL_VINES.get();
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {

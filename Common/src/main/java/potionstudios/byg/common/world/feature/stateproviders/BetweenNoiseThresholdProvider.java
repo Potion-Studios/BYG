@@ -61,7 +61,7 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
 
     @Override
     protected BlockStateProviderType<?> type() {
-        return BYGStateProviders.BETWEEN_NOISE_THRESHOLD_PROVIDER;
+        return BYGStateProviders.BETWEEN_NOISE_THRESHOLD_PROVIDER.get();
     }
 
     public static List<FloatProvider> createThresholds(float size, float min, float max) {

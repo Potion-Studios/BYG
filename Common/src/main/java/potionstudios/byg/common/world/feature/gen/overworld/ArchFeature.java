@@ -89,7 +89,7 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
         for (BlockPos spherePosition : spherePositions) {
             int size = 1;
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-            BYGFeatures.BOULDER.place(new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, spherePosition, build));
+            BYGFeatures.BOULDER.get().place(new FeaturePlaceContext<>(Optional.empty(), world, chunkGenerator, random, spherePosition, build));
 
             for (int x = -size; x <= size; x++) {
                 for (int y = -size; y <= size; y++) {

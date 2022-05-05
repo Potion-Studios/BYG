@@ -62,7 +62,7 @@ public class CattailPlantBlock extends DoublePlantBlock implements SimpleWaterlo
     }
 
     public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
-        return new ItemStack(BYGItems.CATTAIL_SPROUT);
+        return new ItemStack(BYGItems.CATTAIL_SPROUT.get());
     }
 
     @Override

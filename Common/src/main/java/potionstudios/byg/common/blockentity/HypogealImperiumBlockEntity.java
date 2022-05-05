@@ -58,7 +58,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     };
 
     public HypogealImperiumBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BYGBlockEntities.HYPOGEAL, blockPos, blockState);
+        super(BYGBlockEntities.HYPOGEAL.get(), blockPos, blockState);
     }
 
     /*********************** Packets Start ***********************/
@@ -139,20 +139,20 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
         ItemStack resultItem = hypogealImperiumBlockEntity.getItem(2);
 
         if (hypogealImperiumBlockEntity.getCrystal() < 12) {
-            if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD && hypogealImperiumBlockEntity.getFuel() <= 0) {
+            if (itemFuelItem.getItem() == BYGItems.SUBZERO_CRYSTAL_SHARD.get() && hypogealImperiumBlockEntity.getFuel() <= 0) {
                 hypogealImperiumBlockEntity.setFuel(9);
                 itemFuelItem.shrink(1);
             }
-            if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+            if (itemCatalystItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER.get()) {
                 if (hypogealImperiumBlockEntity.getFuel() > 0) {
                     hypogealImperiumBlockEntity.setFuel(hypogealImperiumBlockEntity.getFuel() - 1);
                     itemCatalystItem.shrink(1);
                     hypogealImperiumBlockEntity.setCrystal(hypogealImperiumBlockEntity.getCrystal() + 1);
                     hypogealImperiumBlockEntity.getLevel().sendBlockUpdated(hypogealImperiumBlockEntity.worldPosition, hypogealImperiumBlockEntity.getBlockState(), hypogealImperiumBlockEntity.getBlockState(), 13);
-                    if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
-                        hypogealImperiumBlockEntity.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.getDefaultInstance());
+                    if (resultItem.getItem() != BYGItems.SUBZERO_CRYSTAL_CLUSTER.get()) {
+                        hypogealImperiumBlockEntity.setItem(2, BYGItems.SUBZERO_CRYSTAL_CLUSTER.get().getDefaultInstance());
                     }
-                    if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER) {
+                    if (resultItem.getItem() == BYGItems.SUBZERO_CRYSTAL_CLUSTER.get()) {
                         resultItem.setCount(resultItem.getCount() + 1);
                     }
                 }

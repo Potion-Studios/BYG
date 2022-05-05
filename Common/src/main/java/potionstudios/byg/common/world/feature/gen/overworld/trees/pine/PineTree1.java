@@ -16,7 +16,7 @@ public class PineTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
 
     public PineTree1(Codec<BYGTreeConfig> configIn) {
         super(configIn);
-        //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.PINE_SAPLING);
+        //setSapling((net.minecraftforge.common.IPlantable) BYGBlocks.PINE_SAPLING.get());
     }
 
     public boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {

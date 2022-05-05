@@ -25,7 +25,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM;
+        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
         if (!stateIn.canSurvive(worldIn, currentPos)) {
             return Blocks.AIR.defaultBlockState();
         } else {
-            if (facing == Direction.UP && facingState.getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK) {
+            if (facing == Direction.UP && facingState.getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK.get()) {
                 worldIn.setBlock(currentPos, BYGBlocks.SYTHIAN_STALK_BLOCK.defaultBlockState(), 2);
             }
 
@@ -51,7 +51,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK);
+        return new ItemStack(BYGItems.SYTHIAN_STALK_BLOCK.get());
     }
 
     protected void growBamboo(Level world, BlockPos pos) {

@@ -17,6 +17,7 @@ import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProvider topBlockProvider,
                                 IntProvider stackHeight, RadiusSettings radiusSettings, double radiusDivisorPerStack,
@@ -160,6 +161,9 @@ public record NoisySphereConfig(BlockStateProvider blockProvider, BlockStateProv
             return this;
         }
 
+        public Builder copy(Supplier<? extends NoisySphereConfig> copy) {
+            return copy(copy.get());
+        }
 
         public Builder copy(NoisySphereConfig copy) {
             this.blockProvider = copy.blockProvider;

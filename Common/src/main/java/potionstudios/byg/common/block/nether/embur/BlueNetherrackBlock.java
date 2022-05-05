@@ -46,7 +46,7 @@ public class BlueNetherrackBlock extends Block implements BonemealableBlock {
 
         for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
             BlockState blockstate = worldIn.getBlockState(blockpos);
-            if (blockstate.is(BYGBlocks.EMBUR_NYLIUM)) {
+            if (blockstate.is(BYGBlocks.EMBUR_NYLIUM.get())) {
                 flag1 = true;
             }
 

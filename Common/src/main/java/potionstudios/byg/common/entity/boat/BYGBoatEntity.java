@@ -32,7 +32,7 @@ public class BYGBoatEntity extends Boat {
 
 
     public BYGBoatEntity(Level worldIn, double x, double y, double z) {
-        this(BYGEntities.BOAT, worldIn);
+        this(BYGEntities.BOAT.get(), worldIn);
         this.setPos(x, y, z);
         this.setDeltaMovement(Vec3.ZERO);
         this.xo = x;
@@ -47,55 +47,55 @@ public class BYGBoatEntity extends Boat {
     @Override
     public Item getDropItem() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGItems.ASPEN_BOAT;
-            case BAOBAB -> BYGItems.BAOBAB_BOAT;
-            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT;
-            case CHERRY -> BYGItems.CHERRY_BOAT;
-            case CIKA -> BYGItems.CIKA_BOAT;
-            case CYPRESS -> BYGItems.CYPRESS_BOAT;
-            case EBONY -> BYGItems.EBONY_BOAT;
-            case FIR -> BYGItems.FIR_BOAT;
-            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT;
-            case HOLLY -> BYGItems.HOLLY_BOAT;
-            case JACARANDA -> BYGItems.JACARANDA_BOAT;
-            case MAHOGANY -> BYGItems.MAHOGANY_BOAT;
-            case MANGROVE -> BYGItems.MANGROVE_BOAT;
-            case MAPLE -> BYGItems.MAPLE_BOAT;
-            case PINE -> BYGItems.PINE_BOAT;
-            case RAINBOW_EUCALYPTUS -> BYGItems.RAINBOW_EUCALYPTUS_BOAT;
-            case REDWOOD -> BYGItems.REDWOOD_BOAT;
-            case SKYRIS -> BYGItems.SKYRIS_BOAT;
-            case WILLOW -> BYGItems.WILLOW_BOAT;
-            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT;
-            case ZELKOVA -> BYGItems.ZELKOVA_BOAT;
-            case PALM -> BYGItems.PALM_BOAT;
+            default -> BYGItems.ASPEN_BOAT.get();
+            case BAOBAB -> BYGItems.BAOBAB_BOAT.get();
+            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT.get();
+            case CHERRY -> BYGItems.CHERRY_BOAT.get();
+            case CIKA -> BYGItems.CIKA_BOAT.get();
+            case CYPRESS -> BYGItems.CYPRESS_BOAT.get();
+            case EBONY -> BYGItems.EBONY_BOAT.get();
+            case FIR -> BYGItems.FIR_BOAT.get();
+            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT.get();
+            case HOLLY -> BYGItems.HOLLY_BOAT.get();
+            case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
+            case MAHOGANY -> BYGItems.MAHOGANY_BOAT.get();
+            case MANGROVE -> BYGItems.MANGROVE_BOAT.get();
+            case MAPLE -> BYGItems.MAPLE_BOAT.get();
+            case PINE -> BYGItems.PINE_BOAT.get();
+            case RAINBOW_EUCALYPTUS -> BYGItems.RAINBOW_EUCALYPTUS_BOAT.get();
+            case REDWOOD -> BYGItems.REDWOOD_BOAT.get();
+            case SKYRIS -> BYGItems.SKYRIS_BOAT.get();
+            case WILLOW -> BYGItems.WILLOW_BOAT.get();
+            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT.get();
+            case ZELKOVA -> BYGItems.ZELKOVA_BOAT.get();
+            case PALM -> BYGItems.PALM_BOAT.get();
         };
     }
 
     public Block getPlanks() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGBlocks.ASPEN_PLANKS;
-            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS;
-            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS;
-            case CHERRY -> BYGBlocks.CHERRY_PLANKS;
-            case CIKA -> BYGBlocks.CIKA_PLANKS;
-            case CYPRESS -> BYGBlocks.CYPRESS_PLANKS;
-            case EBONY -> BYGBlocks.EBONY_PLANKS;
-            case FIR -> BYGBlocks.FIR_PLANKS;
-            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS;
-            case HOLLY -> BYGBlocks.HOLLY_PLANKS;
-            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS;
-            case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS;
-            case MANGROVE -> BYGBlocks.MANGROVE_PLANKS;
-            case MAPLE -> BYGBlocks.MAPLE_PLANKS;
-            case PALM -> BYGBlocks.PALM_PLANKS;
-            case PINE -> BYGBlocks.PINE_PLANKS;
-            case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS;
-            case REDWOOD -> BYGBlocks.REDWOOD_PLANKS;
-            case SKYRIS -> BYGBlocks.SKYRIS_PLANKS;
-            case WILLOW -> BYGBlocks.WILLOW_PLANKS;
-            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS;
-            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS;
+            default -> BYGBlocks.ASPEN_PLANKS.get();
+            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS.get();
+            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS.get();
+            case CHERRY -> BYGBlocks.CHERRY_PLANKS.get();
+            case CIKA -> BYGBlocks.CIKA_PLANKS.get();
+            case CYPRESS -> BYGBlocks.CYPRESS_PLANKS.get();
+            case EBONY -> BYGBlocks.EBONY_PLANKS.get();
+            case FIR -> BYGBlocks.FIR_PLANKS.get();
+            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS.get();
+            case HOLLY -> BYGBlocks.HOLLY_PLANKS.get();
+            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
+            case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS.get();
+            case MANGROVE -> BYGBlocks.MANGROVE_PLANKS.get();
+            case MAPLE -> BYGBlocks.MAPLE_PLANKS.get();
+            case PALM -> BYGBlocks.PALM_PLANKS.get();
+            case PINE -> BYGBlocks.PINE_PLANKS.get();
+            case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS.get();
+            case REDWOOD -> BYGBlocks.REDWOOD_PLANKS.get();
+            case SKYRIS -> BYGBlocks.SKYRIS_PLANKS.get();
+            case WILLOW -> BYGBlocks.WILLOW_PLANKS.get();
+            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS.get();
+            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS.get();
         };
     }
 

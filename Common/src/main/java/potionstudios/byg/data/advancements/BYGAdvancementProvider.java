@@ -48,7 +48,7 @@ public class BYGAdvancementProvider implements DataProvider {
 
             }
         };
-        Advancement root = Advancement.Builder.advancement().display(BYGItems.BYG_LOGO, new TranslatableComponent("byg.advancements.root.title"), new TranslatableComponent("byg.advancements.root.description"), BYG.createLocation("textures/block/lush_dirt.png"), FrameType.TASK, false, false, false).addCriterion("consumed_item", ConsumeItemTrigger.TriggerInstance.usedItem()).save(consumer, "byg:root");
+        Advancement root = Advancement.Builder.advancement().display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.root.title"), new TranslatableComponent("byg.advancements.root.description"), BYG.createLocation("textures/block/lush_dirt.png"), FrameType.TASK, false, false, false).addCriterion("consumed_item", ConsumeItemTrigger.TriggerInstance.usedItem()).save(consumer, "byg:root");
 
         for (BYGAdvancementConsumer<Advancement> advancement : ADVANCEMENTS) {
             advancement.accept(consumer, root);

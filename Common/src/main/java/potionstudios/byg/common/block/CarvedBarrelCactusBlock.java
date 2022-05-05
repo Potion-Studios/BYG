@@ -88,7 +88,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
             player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.BUCKET.getDefaultInstance()));
             world.setBlockAndUpdate(pos, BYGBlocks.WATER_BARREL_CACTUS.defaultBlockState());
             world.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1, 1);
-            world.neighborChanged(pos, BYGBlocks.WATER_BARREL_CACTUS, pos);
+            world.neighborChanged(pos, BYGBlocks.WATER_BARREL_CACTUS.get(), pos);
             world.gameEvent(null, GameEvent.FLUID_PLACE, pos);
             return InteractionResult.SUCCESS;
         }
@@ -96,7 +96,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
             player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.GLASS_BOTTLE.getDefaultInstance()));
             world.setBlockAndUpdate(pos, BYGBlocks.HONEY_BARREL_CACTUS.defaultBlockState());
             world.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1, 1);
-            world.neighborChanged(pos, BYGBlocks.HONEY_BARREL_CACTUS, pos);
+            world.neighborChanged(pos, BYGBlocks.HONEY_BARREL_CACTUS.get(), pos);
             world.gameEvent(null, GameEvent.FLUID_PLACE, pos);
             return InteractionResult.SUCCESS;
         }

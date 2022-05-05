@@ -68,7 +68,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnFeatureConfiguration> 
                         blockpos$mutable.move(Direction.UP);
                         flag = true;
                     } else {
-                        if (!p_236248_1_.getBlockState(blockpos$mutable).is(BYGBlocks.RAW_QUARTZ_BLOCK)) {
+                        if (!p_236248_1_.getBlockState(blockpos$mutable).is(BYGBlocks.RAW_QUARTZ_BLOCK.get())) {
                             break;
                         }
 

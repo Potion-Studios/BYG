@@ -41,7 +41,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.ETHER_BULBS);
+        return new ItemStack(BYGItems.ETHER_BULBS.get());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (i > 2) {
             int j = 1;
-            popResource(worldIn, pos, new ItemStack(BYGItems.ETHER_BULBS, j));
+            popResource(worldIn, pos, new ItemStack(BYGItems.ETHER_BULBS.get(), j));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 2);
             return InteractionResult.SUCCESS;
@@ -66,7 +66,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-            return block == BYGBlocks.ETHER_LEAVES;
+            return block == BYGBlocks.ETHER_LEAVES.get();
     }
 
     @Override

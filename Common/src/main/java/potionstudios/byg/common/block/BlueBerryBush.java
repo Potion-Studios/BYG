@@ -28,7 +28,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBl
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.BLUE_BERRY);
+        return new ItemStack(BYGItems.BLUE_BERRY.get());
     }
 
     @Override
@@ -39,7 +39,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBl
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.random.nextInt(2);
-            popResource(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY, j + (flag ? 1 : 0)));
+            popResource(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY.get(), j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return InteractionResult.SUCCESS;

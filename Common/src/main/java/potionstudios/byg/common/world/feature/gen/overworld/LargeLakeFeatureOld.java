@@ -219,7 +219,7 @@ public class LargeLakeFeatureOld extends Feature<LargeLakeFeatureConfig> {
                 || state.is(Blocks.GRAVEL)
                 || state.is(Blocks.GRASS)
                 || state.is(Blocks.GRASS_BLOCK)
-                || state.is(BYGBlocks.OVERGROWN_STONE)
+                || state.is(BYGBlocks.OVERGROWN_STONE.get())
                 || state.getMaterial().equals(Material.PLANT)
                 || state.getMaterial().equals(Material.WATER_PLANT)
                 || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);

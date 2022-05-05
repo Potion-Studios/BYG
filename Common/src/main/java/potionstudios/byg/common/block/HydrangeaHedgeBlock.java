@@ -55,7 +55,7 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
             double e = (double) blockPos.getY() + 1.0D;
             double f = (double) blockPos.getZ() + random.nextDouble();
             level.setBlockAndUpdate(blockPos, BYGBlocks.HYDRANGEA_BUSH.defaultBlockState());
-            level.neighborChanged(blockPos, BYGBlocks.HYDRANGEA_BUSH, blockPos);
+            level.neighborChanged(blockPos, BYGBlocks.HYDRANGEA_BUSH.get(), blockPos);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);
