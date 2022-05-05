@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.textures.BYGMaterials;
 import potionstudios.byg.common.block.end.*;
 import potionstudios.byg.common.block.end.bulbisgardens.TallBulbisBlock;
@@ -1810,11 +1811,11 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createSignSpecificColor(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        return BYG.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        return BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
     }
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends Block> color) {
-        return BYG.SIGNS ? createSignSpecificColor(id, type, () -> color.get().defaultMaterialColor()) : null;
+        return BYGConstants.SIGNS ? createSignSpecificColor(id, type, () -> color.get().defaultMaterialColor()) : null;
     }
 
     private static Block createWallSign(String id, WoodType type, MaterialColor color) {

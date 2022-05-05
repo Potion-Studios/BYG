@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomes;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
@@ -112,7 +113,7 @@ public class BYGBiomes {
         if (BuiltinRegistries.BIOME.keySet().contains(bygID)) {
             throw new IllegalStateException("Biome ID: \"" + bygID + "\" already exists in the Biome registry!");
         }
-        if (BYG.BIOMES) {
+        if (BYGConstants.BIOMES) {
             PROVIDER.register(id, biome);
         }
 

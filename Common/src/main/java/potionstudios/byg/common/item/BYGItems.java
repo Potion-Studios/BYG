@@ -9,6 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.mixin.access.AxeItemAccess;
@@ -1275,7 +1276,7 @@ public class BYGItems {
     }
 
     public static RegistryObject<SignItem> createSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
-        return BYG.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock.get(), wallSignBlock.get()), id) : null;
+        return BYGConstants.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock.get(), wallSignBlock.get()), id) : null;
     }
 
     public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {

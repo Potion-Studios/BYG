@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
 
 @Mixin(InventoryScreen.class)
@@ -27,7 +27,7 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
 
 	@Inject(method = "init", at = @At("RETURN"))
 	protected void init(CallbackInfo ci) {
-		if (BYG.BIOMEPEDIA) {
+		if (BYGConstants.BIOMEPEDIA) {
 			addRenderableWidget(biomePedia = new ImageButton(
 				this.leftPos + 126, this.height / 2 - 22,
 				20, 18,
@@ -43,7 +43,7 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
 
 	@Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
 	protected void updateGuiSize(CallbackInfo ci){
-		if (BYG.BIOMEPEDIA) {
+		if (BYGConstants.BIOMEPEDIA) {
 			biomePedia.setPosition(this.leftPos + 126, this.height / 2 - 22);
 		}
 	}

@@ -35,17 +35,9 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public class BYG {
+
     public static final String MOD_ID = "byg";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final boolean BIOMES = true;
-    public static final boolean WARN_EXPERIMENTAL = false;
-    public static final int EXPERIMENTAL_WARNING_VERSION = 5;
-    public static final boolean BIOMEPEDIA = false;
-    public static final boolean SIGNS = false;
-    public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
-    public static final boolean GENERATE_DATA = Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
-    public static boolean ENABLE_OVERWORLD_TREES = true;
-    public static boolean ENABLE_CACTI = true;
     public static boolean INITIALIZED;
 
     public static void commonLoad() {
@@ -83,7 +75,7 @@ public class BYG {
     }
 
     public static void threadSafeCommonLoad() {
-        if (GENERATE_DATA) {
+        if (BYGConstants.GENERATE_DATA) {
             BYGDataProviders.generateProviders();
         }
         BYGVillagerType.setVillagerForBYGBiomes();

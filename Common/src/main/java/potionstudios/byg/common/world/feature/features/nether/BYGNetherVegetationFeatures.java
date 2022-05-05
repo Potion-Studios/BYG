@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
@@ -418,7 +418,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WARPED_DESERT_VEGETATION = createConfiguredFeature("warped_desert_vegetation", Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(Util.make(new ArrayList<>(), list -> {
         list.add(new WeightedPlacedFeature(createPlacedFeature(WARPED_BUSH), 0.25F));
         list.add(new WeightedPlacedFeature(createPlacedFeature(WARPED_CORAL), 0.25F));
-        if (BYG.ENABLE_CACTI) {
+        if (BYGConstants.ENABLE_CACTI) {
             list.add(new WeightedPlacedFeature(createPlacedFeature(WARPED_CACTI), 0.25F));
         }
     }), createPlacedFeature(WARPED_CORAL_FAN)));

@@ -28,7 +28,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
-import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.block.EtherBulbsBlock;
@@ -479,7 +479,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
 
-        if (worldIn.getLevel().dimension() == Level.OVERWORLD && !BYG.ENABLE_OVERWORLD_TREES) {
+        if (worldIn.getLevel().dimension() == Level.OVERWORLD && !BYGConstants.ENABLE_OVERWORLD_TREES) {
             return false;
         }
 

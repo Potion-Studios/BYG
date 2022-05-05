@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.BYG;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.BYGUtil;
@@ -60,8 +60,8 @@ public abstract class MixinServerLevel extends Level {
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         if (this.getServer().isSingleplayer()) {
-            if (BYG.WARN_EXPERIMENTAL) {
-                final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYG.EXPERIMENTAL_WARNING_VERSION + ".txt");
+            if (BYGConstants.WARN_EXPERIMENTAL) {
+                final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYGConstants.EXPERIMENTAL_WARNING_VERSION + ".txt");
                 if (BYGUtil.createMarkerFile(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat in this world!")) {
                     serverPlayer.displayClientMessage(new TranslatableComponent("byg.experimental.warning").withStyle(ChatFormatting.YELLOW), false);
                 }
