@@ -17,7 +17,6 @@ import potionstudios.byg.mixin.access.BiomeGenerationSettingsAccess;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GlobalBiomeFeature extends Feature<GlobalBiomeFeature.Config> {
     public GlobalBiomeFeature() {

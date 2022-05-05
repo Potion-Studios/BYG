@@ -9,9 +9,6 @@ import potionstudios.byg.mixin.access.VillagerProfessionAccess;
 import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.registration.RegistryObject;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.function.Supplier;
 
 public class BYGVillagerProfessions {

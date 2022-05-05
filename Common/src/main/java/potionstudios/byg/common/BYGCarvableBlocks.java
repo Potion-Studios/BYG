@@ -1,11 +1,12 @@
 package potionstudios.byg.common;
 
-import static potionstudios.byg.common.block.BYGBlocks.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.util.lazy.LazyCollection;
 
 import java.util.stream.Collectors;
+
+import static potionstudios.byg.common.block.BYGBlocks.*;
 
 public class BYGCarvableBlocks {
 

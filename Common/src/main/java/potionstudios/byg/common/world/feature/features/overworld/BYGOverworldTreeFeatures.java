@@ -21,10 +21,9 @@ import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 
-import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
-import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
-
 import java.util.function.Supplier;
+
+import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",

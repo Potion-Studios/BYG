@@ -1,11 +1,5 @@
 package potionstudios.byg.common.world.biome;
 
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.araucariaSavanna;
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.autumnalTaiga;
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.coconinoMeadow;
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.coniferousForest;
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.frostedTaiga;
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.temperateGrove;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -22,6 +16,8 @@ import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.function.Supplier;
+
+import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 
 public class BYGBiomes {
 

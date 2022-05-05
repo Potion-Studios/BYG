@@ -1,15 +1,10 @@
 package potionstudios.byg.common.sound;
 
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import potionstudios.byg.BYG;
 import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.registration.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class BYGSounds {
     private static final RegistrationProvider<SoundEvent> PROVIDER = RegistrationProvider.get(Registry.SOUND_EVENT_REGISTRY, BYG.MOD_ID);

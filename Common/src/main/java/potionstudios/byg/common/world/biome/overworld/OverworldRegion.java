@@ -12,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.codec.FromFileCodec;
 import potionstudios.byg.util.codec.Wrapped;

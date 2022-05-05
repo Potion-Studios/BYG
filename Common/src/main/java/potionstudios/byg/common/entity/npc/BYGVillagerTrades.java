@@ -10,13 +10,11 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.common.item.BYGSaplingItem;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.*;
-import java.util.function.Supplier;
 
 public class BYGVillagerTrades {
 

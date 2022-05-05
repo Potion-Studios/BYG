@@ -3,7 +3,6 @@ package potionstudios.byg.common.world.structure.arch;
 import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.SectionPos;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.level.ChunkPos;

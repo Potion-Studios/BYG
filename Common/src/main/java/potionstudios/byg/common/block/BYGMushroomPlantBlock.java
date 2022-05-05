@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGHugeMushroom;
-import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 

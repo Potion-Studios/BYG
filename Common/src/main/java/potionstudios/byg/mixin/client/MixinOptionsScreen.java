@@ -1,17 +1,12 @@
 package potionstudios.byg.mixin.client;
 
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.OptionsScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.BYG;
-import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 
 @Mixin(OptionsScreen.class)
 public abstract class MixinOptionsScreen extends Screen {

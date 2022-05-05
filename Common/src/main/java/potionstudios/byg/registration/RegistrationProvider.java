@@ -1,12 +1,10 @@
 package potionstudios.byg.registration;
 
-import com.google.common.collect.Lists;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
 

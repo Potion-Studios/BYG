@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-import static potionstudios.byg.BYG.createLocation;
 import static potionstudios.byg.mixin.access.SurfaceSystemAccess.byg_invokeMakeBands;
 
 public class BYGRuleSources {

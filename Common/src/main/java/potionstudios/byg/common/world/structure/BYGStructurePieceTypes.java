@@ -8,7 +8,6 @@ import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.registration.RegistryObject;
 
 import java.util.Locale;
-import java.util.function.Supplier;
 
 public class BYGStructurePieceTypes {
     public static final RegistrationProvider<StructurePieceType> PROVIDER = RegistrationProvider.get(Registry.STRUCTURE_PIECE_REGISTRY, BYG.MOD_ID);

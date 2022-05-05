@@ -3,7 +3,6 @@ package potionstudios.byg.common.entity.npc;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
-import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
 import potionstudios.byg.core.BYGRegistry;
