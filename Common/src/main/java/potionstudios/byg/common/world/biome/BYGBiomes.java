@@ -19,11 +19,8 @@ import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
 import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.function.Supplier;
 
 public class BYGBiomes {

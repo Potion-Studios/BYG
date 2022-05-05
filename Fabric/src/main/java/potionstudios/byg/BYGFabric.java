@@ -5,36 +5,24 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.NotNull;
-import potionstudios.byg.client.textures.renders.BYGParticleTypes;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
-import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.common.sound.BYGSounds;
-import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
-import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
-import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.FabricNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.util.ModLoaderContext;
-import potionstudios.byg.util.RegistryObject;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Objects;
 
 import static potionstudios.byg.BYG.createLocation;
@@ -96,13 +84,6 @@ public class BYGFabric implements ModInitializer {
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
         BYG.LOGGER.info("BYG registries bootstrapped");
-    }
-
-    public static <T> void register(Registry<T> registry, Collection<RegistryObject<T>> objects) {
-        for (RegistryObject<T> object : objects) {
-            Registry.register(registry, createLocation(object.id()), object.object());
-        }
-        BYG.LOGGER.info("BYG registered: " + registry.toString());
     }
 
     @NotNull

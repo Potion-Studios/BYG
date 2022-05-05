@@ -12,6 +12,15 @@ import java.util.function.Supplier;
 
 /**
  * Utility class for multiloader registration.
+ * <p>
+ * Example usage:
+ * <pre>{@code
+ * public static final RegistrationProvider<Test> PROVIDER = RegistrationProvider.get(Test.REGISTRY, "modid");
+ * public static final RegistryObject<Test> OBJECT = PROVIDER.register("object", () -> new Test());
+ *
+ * // The purpose of this method is to be called in the mod's constructor, in order to assure that the class is loaded, and that objects can be registered.
+ * public static void loadClass(){}
+ * }</pre>
  *
  * @param <T> the type of the objects that this class registers
  */
