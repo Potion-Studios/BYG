@@ -1171,7 +1171,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CYAN_TULIP = createFlower("cyan_tulip", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> DAFFODIL = createFlower("daffodil", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> DELPHINIUM = createTallFlower("delphinium", BYGBlockTags.GROUND_DELPHINIUM);
-    public static final BlockRegistryObject<Block> FAIRY_SLIPPER = createBlock(BYGBlockProperties.BYGFairySlipperFlower::new, "fairy_slipper");
+    public static final BlockRegistryObject<Block> FAIRY_SLIPPER = createPottedBlock(BYGBlockProperties.BYGFairySlipperFlower::new, "fairy_slipper");
     public static final BlockRegistryObject<Block> FIRECRACKER_FLOWER_BUSH = createShrub(TreeSpawners.FIRECRACKER, "firecracker_flower_bush");
     public static final BlockRegistryObject<Block> FOXGLOVE = createTallFlower("foxglove", BYGBlockTags.GROUND_FOXGLOVE);
     public static final BlockRegistryObject<Block> GOLDEN_SPINED_CACTUS = createDesertPlant("golden_spined_cactus", BYGBlockTags.GROUND_GOLDEN_SPINED_CACTUS);
