@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
 public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLootTables, boolean customVillagers,
                              boolean customStructures, boolean useBYGWorldGen) {
 
-    public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve("settings.json5");
+    public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("settings.json5");
 
     private static SettingsConfig INSTANCE = null;
 

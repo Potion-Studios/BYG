@@ -8,6 +8,7 @@ import net.minecraft.Util;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
@@ -23,7 +24,7 @@ public record TradesConfig(boolean enabled,
     Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession,
     Int2ObjectMap<VillagerTrades.ItemListing[]> wanderingTraderTrades) {
 
-    public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve("trades.json5");
+    public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("trades.json5");
 
     public static TradesConfig INSTANCE = null;
 

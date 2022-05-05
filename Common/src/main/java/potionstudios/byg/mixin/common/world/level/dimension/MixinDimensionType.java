@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 
 @Mixin(DimensionType.class)
 public class MixinDimensionType {
@@ -44,13 +44,13 @@ public class MixinDimensionType {
             if (levelStemResourceKey == LevelStem.NETHER && netherConfig.forceBYGNetherBiomeSource()) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(dimensionTypeRegistry.getHolderOrThrow(DimensionType.NETHER_LOCATION),
                     new NoiseBasedChunkGenerator(structureSetRegistry, noiseParameters,
-                        ModLoaderContext.getInstance().createNetherBiomeSource(biomeRegistry, seed), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.NETHER)
+                        ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry, seed), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.NETHER)
                     )
                 ), Lifecycle.stable());
             } else if (levelStemResourceKey == LevelStem.END && endConfig.forceBYGEndBiomeSource()) {
                 newRegistry.register(levelStemResourceKey, new LevelStem(dimensionTypeRegistry.getHolderOrThrow(DimensionType.END_LOCATION),
                     new NoiseBasedChunkGenerator(structureSetRegistry, noiseParameters,
-                        ModLoaderContext.getInstance().createEndBiomeSource(biomeRegistry, seed), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.END)
+                        ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry, seed), seed, noiseGeneratorSettingsRegistry.getHolderOrThrow(NoiseGeneratorSettings.END)
                     )
                 ), Lifecycle.stable());
             } else {

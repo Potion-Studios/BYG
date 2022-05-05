@@ -6,12 +6,9 @@ import com.google.common.collect.ImmutableSet;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
@@ -29,8 +26,7 @@ import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.registration.RegistryObject;
 import potionstudios.byg.util.CommonSetupLoad;
-import potionstudios.byg.util.MLBlockTags;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -50,19 +46,7 @@ public class BYG {
     public static final boolean GENERATE_DATA = Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
-    public static boolean ENABLE_NYLIUM_FUNGI = true;
-    public static boolean ENABLE_NETHER_MUSHROOMS = true;
-    public static Path CONFIG_PATH = null;
-    public static String MOD_LOADER_TAG_TARGET = null;
-    public static ModLoaderContext MODLOADER_DATA = null;
-    public static final SurfaceRules.RuleSource EMPTY = SurfaceRules.ifTrue(SurfaceRules.isBiome(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"))), SurfaceRules.state(Blocks.DIRT.defaultBlockState()));
     public static boolean INITIALIZED;
-
-    public static void init(Path path, String modloaderTagTarget) {
-        CONFIG_PATH = path;
-        MOD_LOADER_TAG_TARGET = modloaderTagTarget;
-        MLBlockTags.bootStrap();
-    }
 
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
@@ -87,8 +71,9 @@ public class BYG {
     private static void handleConfigs() {
         CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
         try {
-            Files.createDirectories(CONFIG_PATH);
-            Files.write(CONFIG_PATH.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
+            Path configPath = ModPlatform.INSTANCE.configPath();
+            Files.createDirectories(configPath);
+            Files.write(configPath.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         }

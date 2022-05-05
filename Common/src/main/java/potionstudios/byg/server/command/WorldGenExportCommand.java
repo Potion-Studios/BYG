@@ -28,7 +28,7 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.storage.PrimaryLevelData;
 import potionstudios.byg.BYG;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
@@ -76,7 +76,7 @@ public class WorldGenExportCommand {
             return 0;
         }
 
-        Path finalExportPath = ModLoaderContext.getInstance().configPath().getParent().resolve("world_gen_export").resolve(builtin ? "builtin" : "world").resolve("data");
+        Path finalExportPath = ModPlatform.INSTANCE.configPath().getParent().resolve("world_gen_export").resolve(builtin ? "builtin" : "world").resolve("data");
         Path exportPath = finalExportPath.resolve("cache");
         Component exportFileComponent = new TextComponent(finalExportPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, finalExportPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
 

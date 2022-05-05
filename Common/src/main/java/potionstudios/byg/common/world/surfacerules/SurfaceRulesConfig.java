@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
@@ -20,7 +21,7 @@ public record SurfaceRulesConfig() {
 
     public static final Supplier<Map<ResourceKey<LevelStem>, Path>> CONFIG_PATHS = () -> {
         Map<ResourceKey<LevelStem>, Path> map = new Object2ObjectOpenHashMap<>();
-        Path surface_rules = BYG.CONFIG_PATH.resolve("surface_rules");
+        Path surface_rules = ModPlatform.INSTANCE.configPath().resolve("surface_rules");
         map.put(LevelStem.OVERWORLD, surface_rules.resolve("overworld_surface_rules.json5"));
         map.put(LevelStem.NETHER, surface_rules.resolve("nether_surface_rules.json5"));
         map.put(LevelStem.END, surface_rules.resolve("end_surface_rules.json5"));

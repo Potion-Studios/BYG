@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.network.packet.ConstructBYGPlayerTrackedDataPacket;
 import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.HashMap;
@@ -27,14 +27,14 @@ public record BYGPlayerTrackedData(Map<String, Set<ResourceKey<Biome>>> discover
     }
 
     public void playerCreate(ServerPlayer player) {
-        ModLoaderContext.getInstance().sendToClient(player, new ConstructBYGPlayerTrackedDataPacket(this));
+        ModPlatform.INSTANCE.sendToClient(player, new ConstructBYGPlayerTrackedDataPacket(this));
     }
 
 
     public void tickPerSecond(ServerPlayer player) {
         ResourceKey<Biome> biomeResourceKey = player.level.getBiome(player.blockPosition()).unwrapKey().orElseThrow();
         if (this.discoveredBiomesByNameSpace.computeIfAbsent(biomeResourceKey.location().getNamespace(), key -> new ObjectOpenHashSet<>()).add(biomeResourceKey)) {
-            ModLoaderContext.getInstance().sendToClient(player, new DiscoveredBiomesPacket(this.discoveredBiomesByNameSpace));
+            ModPlatform.INSTANCE.sendToClient(player, new DiscoveredBiomesPacket(this.discoveredBiomesByNameSpace));
         }
     }
 

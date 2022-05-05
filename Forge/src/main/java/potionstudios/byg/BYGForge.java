@@ -4,23 +4,18 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
-import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
@@ -34,15 +29,12 @@ import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.ForgeNetworkHandler;
-import potionstudios.byg.network.packet.BYGS2CPacket;
-import potionstudios.byg.util.ModLoaderContext;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
-import java.nio.file.Path;
 import java.util.Map;
 
 @Mod(BYG.MOD_ID)
@@ -50,8 +42,6 @@ public class BYGForge {
 
     public BYGForge() {
         BYG.INITIALIZED = true;
-        BYG.MODLOADER_DATA = getModLoaderData();
-        BYG.init(FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID), "forge");
         final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
@@ -125,35 +115,5 @@ public class BYGForge {
             BYGForgeClient.client();
             event.enqueueWork(BYGClient::threadSafeLoad);
         });
-    }
-
-    @NotNull
-    private static ModLoaderContext getModLoaderData() {
-        return new ModLoaderContext() {
-            @Override
-            public Path configPath() {
-                return FMLPaths.CONFIGDIR.get();
-            }
-
-            @Override
-            public boolean isModLoaded(String isLoaded) {
-                return ModList.get().isLoaded(isLoaded);
-            }
-
-            @Override
-            public <P extends BYGS2CPacket> void sendToClient(ServerPlayer player, P packet) {
-                ForgeNetworkHandler.sendToPlayer(player, packet);
-            }
-
-            @Override
-            public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-                return new BYGForgeNetherBiomeSource(biomeRegistry, seed);
-            }
-
-            @Override
-            public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-                return new BYGForgeEndBiomeSource(biomeRegistry, seed);
-            }
-        };
     }
 }

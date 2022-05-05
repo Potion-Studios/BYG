@@ -13,6 +13,7 @@ import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
@@ -30,8 +31,8 @@ import java.util.function.Supplier;
 
 public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndBiomeCategoryEntries, int skyLayerStartY,
                               LayersBiomeData islandLayers, LayersBiomeData voidLayers, LayersBiomeData skyLayers) {
-    public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-end-biomes.json");
-    public static final Supplier<Path> CONFIG_PATH = () -> BYG.CONFIG_PATH.resolve("end-biomes.json5");
+    public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-end-biomes.json");
+    public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("end-biomes.json5");
 
     public static final Codec<EndBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(

@@ -11,6 +11,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.io.FileNotFoundException;
@@ -96,7 +97,7 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
     }
 
     private static BiomeDictionaryConfig readConfig() {
-        final Path path = BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-biome-dictionary.json");
+        final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-biome-dictionary.json");
 
         if (!path.toFile().exists()) {
             JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();

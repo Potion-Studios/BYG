@@ -26,7 +26,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.common.world.util.BiomeSourceRepairUtils;
@@ -34,6 +33,7 @@ import potionstudios.byg.common.world.util.JigsawUtil;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.ModPlatform;
 
 import java.net.Proxy;
 import java.util.Map;
@@ -73,7 +73,7 @@ public abstract class MixinMinecraftServer {
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            if (!BYG.MODLOADER_DATA.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
+            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
                 appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
             appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);

@@ -10,7 +10,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
     public static BiomepediaClientData INSTANCE = null;
 
     private static final Supplier<Path> FILE_PATH = () ->
-        ModLoaderContext.getInstance().configPath().getParent().resolve("client_data").resolve("byg").resolve("biomepedia.dat");
+        ModPlatform.INSTANCE.configPath().getParent().resolve("client_data").resolve("byg").resolve("biomepedia.dat");
 
 
     private static final Codec<BiomepediaClientData> CODEC = RecordCodecBuilder.create(builder ->

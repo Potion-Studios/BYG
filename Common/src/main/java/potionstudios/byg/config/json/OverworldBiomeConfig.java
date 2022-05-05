@@ -11,6 +11,7 @@ import net.minecraft.Util;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
 import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
+import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.FromFileOps;
 import potionstudios.byg.util.codec.Wrapped;
 import potionstudios.byg.util.jankson.JanksonJsonOps;
@@ -76,8 +77,8 @@ public record OverworldBiomeConfig(boolean generateOverworld,
     }
 
     private static OverworldBiomeConfig readConfig() {
-        final Path path = BYG.CONFIG_PATH.resolve("overworld").resolve("byg-overworld-biomes.json5");
-        OverworldBiomeConfig getOldOrDefault = readAndDeleteOldOverworldConfig(BYG.CONFIG_PATH.resolve("overworld-biomes.json"), OLD_CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
+        final Path path = ModPlatform.INSTANCE.configPath().resolve("overworld").resolve("byg-overworld-biomes.json5");
+        OverworldBiomeConfig getOldOrDefault = readAndDeleteOldOverworldConfig(ModPlatform.INSTANCE.configPath().resolve("overworld-biomes.json"), OLD_CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
         if (getOldOrDefault != DEFAULT) {
             BYG.LOGGER.warn("Old overworld config detected, lets try and repair it...");
         }

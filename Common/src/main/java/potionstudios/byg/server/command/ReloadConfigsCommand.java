@@ -10,7 +10,7 @@ import potionstudios.byg.common.block.sapling.BYGSapling;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.CommonSetupLoad;
-import potionstudios.byg.util.ModLoaderContext;
+import potionstudios.byg.util.ModPlatform;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -40,7 +40,7 @@ public class ReloadConfigsCommand {
         SAPLINGS((stack) -> {
             SaplingPatterns.getConfig(true);
             BYGSapling.SERIALIZERS.forEach(CommonSetupLoad::load);
-            ModLoaderContext.getInstance().sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(SaplingPatterns.getConfig()));
+            ModPlatform.INSTANCE.sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         });
 
         private final Consumer<CommandSourceStack> runnable;

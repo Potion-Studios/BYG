@@ -11,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -503,7 +504,7 @@ public record SaplingPatterns(boolean logSaplingGrowth, Map<ResourceLocation, Li
     }
 
     private static SaplingPatterns readConfig() {
-        final Path path = BYG.CONFIG_PATH.resolve(BYG.MOD_ID + "-sapling-patterns.json");
+        final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-sapling-patterns.json");
 
         if (!path.toFile().exists()) {
             JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();
