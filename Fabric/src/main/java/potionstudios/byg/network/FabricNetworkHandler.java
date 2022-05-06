@@ -11,9 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import potionstudios.byg.BYG;
-import potionstudios.byg.network.packet.ConstructBYGPlayerTrackedDataPacket;
-import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
-import potionstudios.byg.network.packet.SaplingPatternsPacket;
+import potionstudios.byg.network.packet.BYGS2CPacket;
 
 import java.util.List;
 import java.util.Map;
@@ -29,11 +27,11 @@ public class FabricNetworkHandler {
     private static final Map<Class<?>, ResourceLocation> PACKET_IDS = new ConcurrentHashMap<>();
 
     public static void init() {
-        BYG.LOGGER.info("Initializing BYG network...");
-        registerMessage("sapling_patterns", SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, SaplingPatternsPacket::handle);
-        registerMessage("discovered_biomes", DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, DiscoveredBiomesPacket::handle);
-        registerMessage("construct_byg_player_tracked_data", ConstructBYGPlayerTrackedDataPacket.class, ConstructBYGPlayerTrackedDataPacket::write, ConstructBYGPlayerTrackedDataPacket::read, ConstructBYGPlayerTrackedDataPacket::handle);
-        BYG.LOGGER.info("Initialized BYG network!");
+        BYGS2CPacket.S2C_PACKETS.forEach(FabricNetworkHandler::register);
+    }
+
+    private static <T extends BYGS2CPacket> void register(String path, BYGS2CPacket.Handler<T> handler) {
+        registerMessage(path, handler.clazz(), handler.write(), handler.read(), handler.handle());
     }
 
     private static <T> void registerMessage(String id, Class<T> clazz,

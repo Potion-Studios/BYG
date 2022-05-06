@@ -3,17 +3,17 @@ package potionstudios.byg.network;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import potionstudios.byg.BYG;
 import potionstudios.byg.network.packet.BYGS2CPacket;
-import potionstudios.byg.network.packet.ConstructBYGPlayerTrackedDataPacket;
-import potionstudios.byg.network.packet.DiscoveredBiomesPacket;
-import potionstudios.byg.network.packet.SaplingPatternsPacket;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ForgeNetworkHandler {
@@ -26,11 +26,14 @@ public class ForgeNetworkHandler {
     );
 
     public static void init() {
-        BYG.LOGGER.info("Initializing BYG network...");
-        SIMPLE_CHANNEL.registerMessage(0, SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, ForgeNetworkHandler::handle);
-        SIMPLE_CHANNEL.registerMessage(1, DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, ForgeNetworkHandler::handle);
-        SIMPLE_CHANNEL.registerMessage(2, ConstructBYGPlayerTrackedDataPacket.class, ConstructBYGPlayerTrackedDataPacket::write, ConstructBYGPlayerTrackedDataPacket::read, ForgeNetworkHandler::handle);
-        BYG.LOGGER.info("Initialized BYG network!");
+        int idx = 0;
+        for (Map.Entry<String, BYGS2CPacket.Handler<?>> entry : BYGS2CPacket.S2C_PACKETS.entrySet()) {
+            registerMessage(idx++, entry.getValue());
+        }
+    }
+
+    public static <T extends BYGS2CPacket> void registerMessage(int idx, BYGS2CPacket.Handler<T> handler) {
+        SIMPLE_CHANNEL.registerMessage(idx, handler.clazz(), handler.write(), handler.read(), (t, contextSupplier) -> handle(t, contextSupplier, handler.handle()));
     }
 
     public static void sendToPlayer(ServerPlayer playerEntity, Object objectToSend) {
@@ -47,20 +50,19 @@ public class ForgeNetworkHandler {
         SIMPLE_CHANNEL.sendToServer(objectToSend);
     }
 
-    public static <T extends BYGS2CPacket> void handle(T packet, Supplier<NetworkEvent.Context> ctx) {
+    public static <T extends BYGS2CPacket> void handle(T packet, Supplier<NetworkEvent.Context> ctx, BiConsumer<T, Level> handle) {
         NetworkEvent.Context context = ctx.get();
         if (context.getDirection().getReceptionSide().isClient()) {
             context.enqueueWork(() -> {
-                Client.clientHandle(packet);
+                Client.clientHandle(packet, handle);
             });
             context.setPacketHandled(true);
         }
     }
 
-
     private static class Client {
-        private static <T extends BYGS2CPacket> void clientHandle(T packet) {
-            packet.handle(Minecraft.getInstance().level);
+        private static <T extends BYGS2CPacket> void clientHandle(T packet, BiConsumer<T, Level> handle) {
+            handle.accept(packet, Minecraft.getInstance().level);
         }
     }
 }
