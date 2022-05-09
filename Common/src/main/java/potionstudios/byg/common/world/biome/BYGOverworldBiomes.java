@@ -1124,6 +1124,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_NORMAL);
+        BiomeDefaultFeatures.addDripstone(generationSettings);
 
         BYGDefaultBiomeFeatures.addDeadSeaSpires(generationSettings);
 
