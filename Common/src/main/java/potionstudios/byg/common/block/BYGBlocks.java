@@ -1506,11 +1506,11 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createBarrelCactus(String id) {
-        return createBlock(() -> new AbstractBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f)), id);
+        return createBlock(() -> new AbstractBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f).noOcclusion()), id);
     }
 
     static BlockRegistryObject<Block> createCarvedBarrelCactus(String id) {
-        return createBlock(() -> new CarvedBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f)), id);
+        return createBlock(() -> new CarvedBarrelCactusBlock(BlockBehaviour.Properties.of(Material.CACTUS, MaterialColor.COLOR_GREEN).sound(SoundType.WOOL).strength(0.4f).noOcclusion()), id);
     }
 
     static BlockRegistryObject<Block> createWaterBarrelCactus(String id) {
