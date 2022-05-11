@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLPaths;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.network.ForgeNetworkHandler;
@@ -20,7 +21,7 @@ public class ForgeModPlatform implements ModPlatform {
 
     @Override
     public Path configPath() {
-        return FMLPaths.CONFIGDIR.get();
+        return FMLPaths.CONFIGDIR.get().resolve(BYG.MOD_ID);
     }
 
     @Override
