@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.biome;
 
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -12,7 +13,7 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomes;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
-import potionstudios.byg.common.world.surfacerules.BYGRuleSources;
+import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
 import potionstudios.byg.registration.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
@@ -80,6 +81,7 @@ public class BYGBiomes {
 
     /************Beach Biomes*************/
     public static ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", BYGOverworldBiomes::windsweptBeach);
+    public static ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", () -> OverworldBiomes.beach(false, false));
 
 
     /************Nether Biomes************/

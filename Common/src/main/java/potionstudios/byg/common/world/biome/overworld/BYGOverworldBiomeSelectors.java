@@ -131,7 +131,7 @@ public class BYGOverworldBiomeSelectors {
             {Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH},
             {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
             {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
-            {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
+            {BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH},
             {BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH}
     });
 

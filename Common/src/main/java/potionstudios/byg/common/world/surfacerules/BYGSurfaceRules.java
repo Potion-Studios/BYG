@@ -1,19 +1,15 @@
 package potionstudios.byg.common.world.surfacerules;
 
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Noises;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-
-import java.util.ArrayList;
-import java.util.List;
+import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
+import potionstudios.byg.common.world.surfacerules.rulesource.BetweenRepeatingNoiseRange;
 
 import static potionstudios.byg.mixin.access.SurfaceRuleDataAccess.byg_invokeSurfaceNoiseAbove;
 
@@ -90,41 +86,41 @@ public class BYGSurfaceRules {
     );
 
     public static final SurfaceRules.RuleSource HOWLING_PEAKS_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.HOWLING_PEAKS),
-            SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
-                            SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState())),
-                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DIRT.defaultBlockState()))
-                            )),
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), PEAT_SURFACE),
-                    PODZOL_DIRT_SURFACE
-            )
+        SurfaceRules.sequence(
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState())),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DIRT.defaultBlockState()))
+                )),
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), PEAT_SURFACE),
+            PODZOL_DIRT_SURFACE
+        )
     );
 
     public static final SurfaceRules.RuleSource ATACAMA_DESERT_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.ATACAMA_DESERT),
-            SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
-                            SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.RED_SAND.defaultBlockState())),
-                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.RED_SANDSTONE.defaultBlockState()))
-                            )),
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), CRACKED_RED_SAND_SURFACE),
-                    CRACKED_RED_SAND_SURFACE
-            )
+        SurfaceRules.sequence(
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.RED_SAND.defaultBlockState())),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.RED_SANDSTONE.defaultBlockState()))
+                )),
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), CRACKED_RED_SAND_SURFACE),
+            CRACKED_RED_SAND_SURFACE
+        )
     );
 
     public static final SurfaceRules.RuleSource SKYRIS_VALE_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SKYRIS_VALE),
-            SurfaceRules.sequence(
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
-                            SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_GRASS_BLOCK.defaultBlockState())),
-                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_DIRT.defaultBlockState()))
-                            )),
-                    SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
-                    OVERGROWN_DACITE_DACITE_SURFACE,
-                    SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
-                    SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
-            )
+        SurfaceRules.sequence(
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
+                SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_GRASS_BLOCK.defaultBlockState())),
+                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_DIRT.defaultBlockState()))
+                )),
+            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95D), OVERGROWN_PODZOL_DACITE_STONE_SURFACE),
+            OVERGROWN_DACITE_DACITE_SURFACE,
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.DACITE.defaultBlockState()))
+        )
     );
 
     public static final SurfaceRules.RuleSource SWAMP_SURFACE_RULES = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BAYOU, BYGBiomes.CYPRESS_SWAMPLANDS),
@@ -150,7 +146,45 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource BLACK_ICE_BANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SHATTERED_GLACIER), SurfaceRules.sequence(BYGRuleSources.bands(BYGBlocks.BLACK_ICE.defaultBlockState(), BYGBlocks.PACKED_BLACK_ICE.defaultBlockState())));
     public static final SurfaceRules.RuleSource SIERRA_BADLANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SIERRA_BADLANDS), SurfaceRules.sequence(NOISE_COARSE_DIRT, SurfaceRules.ifTrue(SurfaceRules.not(byg_invokeSurfaceNoiseAbove(-0.95D)), GRASS_DIRT_DIRT_SURFACE), SurfaceRules.bandlands()));
 
-    public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_STONE, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, SKYRIS_VALE_SURFACE, HOWLING_PEAKS_SURFACE, ATACAMA_DESERT_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER, RED_ROCK_SURFACE));
+    public static final SurfaceRules.RuleSource PURPLE_SAND = SurfaceRules.sequence(
+        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PURPLE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PURPLE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.PURPLE_SANDSTONE.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.PURPLE_SANDSTONE.defaultBlockState()))
+    );
+    public static final SurfaceRules.RuleSource BLUE_SAND = SurfaceRules.sequence(
+        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BLUE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.BLUE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.BLUE_SANDSTONE.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.BLUE_SANDSTONE.defaultBlockState()))
+    );
+    public static final SurfaceRules.RuleSource WHITE_SAND = SurfaceRules.sequence(
+        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WHITE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.WHITE_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.WHITE_SANDSTONE.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.WHITE_SANDSTONE.defaultBlockState()))
+    );
+    public static final SurfaceRules.RuleSource BLACK_SAND = SurfaceRules.sequence(
+        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BLACK_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.BLACK_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.BLACK_SANDSTONE.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.BLACK_SANDSTONE.defaultBlockState()))
+    );
+    public static final SurfaceRules.RuleSource PINK_SAND = SurfaceRules.sequence(
+        SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PINK_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PINK_SAND.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.PINK_SANDSTONE.defaultBlockState())),
+        SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.PINK_SANDSTONE.defaultBlockState()))
+    );
+
+    public static final SurfaceRules.RuleSource RAINBOW_BEACH = SurfaceRules.ifTrue(
+        SurfaceRules.isBiome(BYGBiomes.RAINBOW_BEACH), SurfaceRules.sequence(
+            new BetweenRepeatingNoiseRange(Noises.CALCITE, 0.02F, -2F, 2F, PURPLE_SAND, WHITE_SAND, BLACK_SAND, PINK_SAND),
+            BLUE_SAND
+        )
+    );
+
+    public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_STONE, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, SKYRIS_VALE_SURFACE, HOWLING_PEAKS_SURFACE, ATACAMA_DESERT_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER, RED_ROCK_SURFACE, RAINBOW_BEACH));
     public static final SurfaceRules.RuleSource OVERWORLD_SURFACE_RULES = SurfaceRules.sequence(OVERWORLD_ABOVE_PRELIMINARY_SURFACE);
 
     public static final SurfaceRules.RuleSource BULBIS_PHYCELIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BULBIS_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BULBIS_PHYCELIUM.defaultBlockState())))));
@@ -248,17 +282,4 @@ public class BYGSurfaceRules {
     );
     public static final SurfaceRules.RuleSource END_SURFACE_RULES = SurfaceRules.sequence(BULBIS_PHYCELIUM, NIGHTSHADE_PHYLIUM, IMPARIUS_PHYLIUM, IVIS_PHYLIUM, SHULKREN_PHYLIUM, ETHEREAL_ISLANDS, CRYPTIC_FILL);
     public static final SurfaceRules.RuleSource NETHER_SURFACE_RULES = SurfaceRules.sequence(BEDROCK_FLOOR, BEDROCK_ROOF, SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.sequence(WEEPING_MIRE, ARISIAN_UNDERGROWTH, SYTHIAN_TORRIDS, WARPED_DESERT, GLOWSTONE_GARDENS, CRIMSON_GARDENS)), WAILING_GARTH, MAGMA_WASTES, EMBUR_BOG, SUBZERO_HYPOGEAL, BRIMSTONE_FILL, QUARTZITE_SAND_FILL);
-
-    private static SurfaceRules.RuleSource createNoiseConditions(ResourceKey<NormalNoise.NoiseParameters> parametersResourceKey, List<FloatProvider> ranges, SurfaceRules.RuleSource source) {
-
-//        0.0125F, -1, 1
-        List<SurfaceRules.RuleSource> sources = new ArrayList<>();
-
-        for (FloatProvider range : ranges) {
-            sources.add(SurfaceRules.ifTrue(SurfaceRules.noiseCondition(parametersResourceKey, range.getMinValue(), range.getMaxValue()), source));
-        }
-
-        return SurfaceRules.sequence(sources.toArray(SurfaceRules.RuleSource[]::new));
-    }
-
 }
