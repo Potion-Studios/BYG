@@ -14,6 +14,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+        super.addTags();
         for (TagKey<Block> plantTag : BYGBlockTags.PLANT_TAGS) {
             this.tag(plantTag).addTag(BlockTags.DIRT);
         }
@@ -21,6 +22,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             this.tag(desertPlantTag).addTag(BlockTags.SAND);
         }
         this.tag(BYGBlockTags.GROUND_PALM_SAPLING).addTag(BlockTags.SAND).addTag(BlockTags.DIRT);
+        this.tag(BYGBlockTags.GROUND_FAIRY_SLIPPER).addTag(BlockTags.LOGS);
     }
 
     @Override

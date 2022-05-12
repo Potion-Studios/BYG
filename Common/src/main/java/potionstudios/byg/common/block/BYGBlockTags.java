@@ -14,6 +14,18 @@ public class BYGBlockTags {
     public static final List<TagKey<Block>> PLANT_TAGS = new ArrayList<>();
     public static final List<TagKey<Block>> SAND_PLANT_TAGS = new ArrayList<>();
 
+
+    public static final TagKey<Block> GROUND_BEACH_GRASS = createDesertPlantTag("ground_beach_grass");
+    public static final TagKey<Block> GROUND_TALL_BEACH_GRASS = createDesertPlantTag("ground_tall_beach_grass");
+    public static final TagKey<Block> GROUND_AMARANTH = createPlantTag("ground_amaranth");
+    public static final TagKey<Block> GROUND_CYAN_AMARANTH = createPlantTag("ground_cyan_amaranth");
+    public static final TagKey<Block> GROUND_MAGENTA_AMARANTH = createPlantTag("ground_magenta_amaranth");
+    public static final TagKey<Block> GROUND_ORANGE_AMARANTH = createPlantTag("ground_orange_amaranth");
+    public static final TagKey<Block> GROUND_PURPLE_AMARANTH = createPlantTag("ground_purple_amaranth");
+    public static final TagKey<Block> GROUND_ALLIUM_FLOWER_BUSH = createPlantTag("ground_allium_flower_bush");
+    public static final TagKey<Block> GROUND_FAIRY_SLIPPER = createPlantTag("ground_fairy_slipper");
+    public static final TagKey<Block> GROUND_CLOVER_PATCH = createPlantTag("ground_clover_patch");
+    public static final TagKey<Block> GROUND_FLOWER_PATCH = createPlantTag("ground_flower_patch");
     public static final TagKey<Block> GROUND_PRICKLY_PEAR_CACTUS = createDesertPlantTag("ground_prickly_pear_cactus");
     public static final TagKey<Block> GROUND_MINI_CACTUS = createDesertPlantTag("ground_mini_cactus");
     public static final TagKey<Block> GROUND_GOLDEN_SPINED_CACTUS = createDesertPlantTag("ground_golden_spined_cactus");
@@ -46,6 +58,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_ORSIRIA_ROSE = createPlantTag("ground_osiria_rose");
     public static final TagKey<Block> GROUND_PEACH_LEATHER_FLOWER = createPlantTag("ground_peach_leather_flower");
     public static final TagKey<Block> GROUND_PINK_ALLIUM = createPlantTag("ground_pink_allium");
+    public static final TagKey<Block> GROUND_PINK_ALLIUM_BUSH = createPlantTag("ground_pink_allium_bush");
     public static final TagKey<Block> GROUND_PINK_ANEMONE = createPlantTag("ground_pink_anemone");
     public static final TagKey<Block> GROUND_PINK_DAFFODIL = createPlantTag("ground_pink_daffodil");
     public static final TagKey<Block> GROUND_PROTEA_FLOWER = createPlantTag("ground_protea_flower");

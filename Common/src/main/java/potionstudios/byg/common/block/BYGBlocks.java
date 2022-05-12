@@ -610,10 +610,11 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WATER_SILK = createBlock(BYGBlockProperties.BYGWaterSilk::new, "water_silk");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS = createBlock(BYGBlockProperties.BYGHangingVine::new, "weeping_roots");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGHangingVinePlant::new, "weeping_roots_plant");
-    public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(BYGBlockProperties.BYGBeachGrass::new, "beach_grass");
-    public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(BYGBlockProperties.BYGLeafPile::new, "leaf_pile");
-    public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(BYGBlockProperties.BYGLeafPile::new, "clover_patch");
-    public static final BlockRegistryObject<Block> FLOWER_PATCH = createBlock(BYGBlockProperties.BYGLeafPile::new, "flower_patch");
+    public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(() -> new GrassGrowsIntoDoublePlantBlockBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_BEACH_GRASS, () -> BYGBlocks.TALL_BEACH_GRASS.get()), "beach_grass");
+    public static final BlockRegistryObject<BYGDoublePlantBlock> TALL_BEACH_GRASS = createBlock(() -> new BYGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_TALL_BEACH_GRASS), "tall_beach_grass");
+    public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "leaf_pile");
+    public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_CLOVER_PATCH), "clover_patch");
+    public static final BlockRegistryObject<Block> FLOWER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_FLOWER_PATCH), "flower_patch");
     public static final BlockRegistryObject<Block> BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
     public static final BlockRegistryObject<Block> ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
 
@@ -1112,8 +1113,8 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> TALL_ALLIUM = createTallFlower("tall_allium", BYGBlockTags.GROUND_TALL_ALLIUM);
     public static final BlockRegistryObject<Block> TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium", BYGBlockTags.GROUND_TALL_PINK_ALLIUM);
-    public static final BlockRegistryObject<Block> ALLIUM_FLOWER_BUSH = createBlock(BYGBlockProperties.BYGAllium::new, "allium_flower_bush");
-    public static final BlockRegistryObject<Block> AMARANTH = createBlock(BYGBlockProperties.BYGAmaranth::new, "amaranth");
+    public static final BlockRegistryObject<Block> ALLIUM_FLOWER_BUSH = createFlower("allium_flower_bush", BYGBlockTags.GROUND_ALLIUM_FLOWER_BUSH, false);
+    public static final BlockRegistryObject<Block> AMARANTH = createFlower("amaranth", BYGBlockTags.GROUND_AMARANTH, false);
     public static final BlockRegistryObject<Block> ALPINE_BELLFLOWER = createFlower("alpine_bellflower", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> ANGELICA = createFlower("angelica", BYGBlockTags.GROUND_ANGELICA);
     public static final BlockRegistryObject<Block> BARREL_CACTUS = createBarrelCactus("barrel_cactus");
@@ -1127,12 +1128,12 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CALIFORNIA_POPPY = createFlower("california_poppy", BYGBlockTags.GROUND_CALIFORNIA_POPPY);
     public static final BlockRegistryObject<Block> CROCUS = createFlower("crocus", BYGBlockTags.GROUND_CROCUS);
     public static final BlockRegistryObject<Block> BLACK_ROSE = createFlower("black_rose", BYGBlockTags.GROUND_BLACK_ROSE);
-    public static final BlockRegistryObject<Block> CYAN_AMARANTH = createBlock(BYGBlockProperties.BYGAmaranth::new, "cyan_amaranth");
+    public static final BlockRegistryObject<Block> CYAN_AMARANTH = createFlower("cyan_amaranth", BYGBlockTags.GROUND_CYAN_AMARANTH, false);
     public static final BlockRegistryObject<Block> CYAN_ROSE = createFlower("cyan_rose", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> CYAN_TULIP = createFlower("cyan_tulip", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> DAFFODIL = createFlower("daffodil", BYGBlockTags.GROUND_ALPINE_BELLFLOWER);
     public static final BlockRegistryObject<Block> DELPHINIUM = createTallFlower("delphinium", BYGBlockTags.GROUND_DELPHINIUM);
-    public static final BlockRegistryObject<Block> FAIRY_SLIPPER = createPottedBlock(BYGBlockProperties.BYGFairySlipperFlower::new, "fairy_slipper");
+    public static final BlockRegistryObject<Block> FAIRY_SLIPPER = createBlock(() -> new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion().lightLevel((state) -> 8), BYGBlockTags.GROUND_FAIRY_SLIPPER), "fairy_slipper");
     public static final BlockRegistryObject<Block> FIRECRACKER_FLOWER_BUSH = createShrub(TreeSpawners.FIRECRACKER, "firecracker_flower_bush");
     public static final BlockRegistryObject<Block> FOXGLOVE = createTallFlower("foxglove", BYGBlockTags.GROUND_FOXGLOVE);
     public static final BlockRegistryObject<Block> GOLDEN_SPINED_CACTUS = createDesertPlant("golden_spined_cactus", BYGBlockTags.GROUND_GOLDEN_SPINED_CACTUS);
@@ -1144,19 +1145,19 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> KOVAN_FLOWER = createFlower("kovan_flower", BYGBlockTags.GROUND_KOVAN_FLOWER);
     public static final BlockRegistryObject<Block> LAZARUS_BELLFLOWER = createFlower("lazarus_bellflower", BYGBlockTags.GROUND_LAZARUS_BELLFLOWER);
     public static final BlockRegistryObject<Block> LOLLIPOP_FLOWER = createFlower("lollipop_flower", BYGBlockTags.GROUND_LOLLIPOP_FLOWER);
-    public static final BlockRegistryObject<Block> MAGENTA_AMARANTH = createBlock(BYGBlockProperties.BYGAmaranth::new, "magenta_amaranth");
+    public static final BlockRegistryObject<Block> MAGENTA_AMARANTH = createFlower("magenta_amaranth", BYGBlockTags.GROUND_MAGENTA_AMARANTH, false);
     public static final BlockRegistryObject<Block> MAGENTA_TULIP = createFlower("magenta_tulip", BYGBlockTags.GROUND_MAGENTA_TULIP);
-    public static final BlockRegistryObject<Block> ORANGE_AMARANTH = createBlock(BYGBlockProperties.BYGAmaranth::new, "orange_amaranth");
+    public static final BlockRegistryObject<Block> ORANGE_AMARANTH = createFlower("orange_amaranth", BYGBlockTags.GROUND_ORANGE_AMARANTH, false);
     public static final BlockRegistryObject<Block> ORANGE_DAISY = createFlower("orange_daisy", BYGBlockTags.GROUND_ORANGE_DAISY);
     public static final BlockRegistryObject<Block> ORSIRIA_ROSE = createFlower("osiria_rose", BYGBlockTags.GROUND_ORSIRIA_ROSE);
     public static final BlockRegistryObject<Block> PEACH_LEATHER_FLOWER = createFlower("peach_leather_flower", BYGBlockTags.GROUND_PEACH_LEATHER_FLOWER);
     public static final BlockRegistryObject<Block> PINK_ALLIUM = createFlower("pink_allium", BYGBlockTags.GROUND_PINK_ALLIUM);
-    public static final BlockRegistryObject<Block> PINK_ALLIUM_FLOWER_BUSH = createBlock(BYGBlockProperties.BYGPinkAllium::new, "pink_allium_flower_bush");
+    public static final BlockRegistryObject<Block> PINK_ALLIUM_FLOWER_BUSH = createFlower("pink_allium_flower_bush", BYGBlockTags.GROUND_PINK_ALLIUM_BUSH, false);
     public static final BlockRegistryObject<Block> PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
     public static final BlockRegistryObject<Block> PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
     public static final BlockRegistryObject<Block> PRAIRIE_GRASS = createBlock(BYGBlockProperties.BYGPrairieGrass::new, "prairie_grass");
     public static final BlockRegistryObject<Block> PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
-    public static final BlockRegistryObject<Block> PURPLE_AMARANTH = createBlock(BYGBlockProperties.BYGAmaranth::new, "purple_amaranth");
+    public static final BlockRegistryObject<Block> PURPLE_AMARANTH = createFlower("purple_amaranth", BYGBlockTags.GROUND_PURPLE_AMARANTH, false);
     public static final BlockRegistryObject<Block> PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
     public static final BlockRegistryObject<Block> PURPLE_TULIP = createFlower("purple_tulip", BYGBlockTags.GROUND_PURPLE_TULIP);
     public static final BlockRegistryObject<Block> RICHEA = createFlower("richea", BYGBlockTags.GROUND_RICHEA);
@@ -1393,7 +1394,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createBookshelf(String id) {
-        return createBlock(() -> new BookshelfBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
+        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createDoor(String id) {
@@ -1570,7 +1571,17 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createFlower(String id, TagKey<Block> groundTag) {
-        return createPottedBlock(() -> new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
+        return createFlower(id, groundTag, true);
+    }
+
+    private static BlockRegistryObject<Block> createFlower(String id, TagKey<Block> groundTag, boolean potted) {
+        Supplier<Block> block = () -> new BYGFlowerBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().noOcclusion(), groundTag);
+
+        if (potted) {
+            return createPottedBlock(block, id);
+        } else {
+            return createBlock(block, id);
+        }
     }
 
     private static BlockRegistryObject<Block> createTallFlower(String id, TagKey<Block> groundTag) {

@@ -27,18 +27,6 @@ import potionstudios.byg.common.block.nether.weepingmire.LamentVinePlantBlock;
 @SuppressWarnings("deprecation")
 public class BYGBlockProperties {
 
-    public static class BYGFairySlipperFlower extends BYGFairySlipperBlock {
-        public BYGFairySlipperFlower() {
-            super(
-                    BlockBehaviour.Properties.of(Material.PLANT)
-                            .sound(SoundType.GRASS)
-                            .strength(0.0f)
-                            .noCollission()
-                            .noOcclusion()
-                            .lightLevel((state) -> 8)
-            );
-        }
-    }
 
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant() {
@@ -71,19 +59,6 @@ public class BYGBlockProperties {
                     .noCollission()
                     .noOcclusion()
             );
-        }
-    }
-
-    public static class BYGBeachGrass extends BYGBeachGrassBlock {
-        public BYGBeachGrass() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            
-
         }
     }
 
@@ -133,57 +108,8 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLeafPile extends BYGLeafPileBlock {
-        public BYGLeafPile() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-
     public static class BYGPrairieGrass extends BYGPrairieGrassBlock {
         public BYGPrairieGrass() {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGAmaranth extends AmaranthBlock {
-        public BYGAmaranth() {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGAllium extends TallAlliumBlock {
-        public BYGAllium() {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGPinkAllium extends TallPinkAlliumBlock {
-        public BYGPinkAllium() {
             super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
                     .sound(SoundType.GRASS)
                     .noCollission()

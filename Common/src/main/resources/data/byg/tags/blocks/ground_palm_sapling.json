@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#c:sand",
-    "#c:dirt"
+    "#minecraft:sand",
+    "#minecraft:dirt"
   ]
 }
