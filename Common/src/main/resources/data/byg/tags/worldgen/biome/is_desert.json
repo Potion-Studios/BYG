@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "byg:windswept_dunes",
-    "byg:mojave_desert"
+    "byg:mojave_desert",
+    "byg:windswept_desert"
   ]
 }
