@@ -120,11 +120,11 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("", JanksonUtil.HEADER_OPEN + """
-                
-                
-                A region is a unique biome layout comprised of numerous biome selectors for a given type of terrain in an MC world.
-                Biome selectors may be inlined or may call a file from "this_file_parent_directory/biome_selectors"
-                */""");
+                            
+                            
+            A region is a unique biome layout comprised of numerous biome selectors for a given type of terrain in an MC world.
+            Biome selectors may be inlined or may call a file from "this_file_parent_directory/biome_selectors"
+            */""");
         map.put("peak_biomes", PEAK_BIOMES_LAYOUT);
         map.put("peak_biomes_variant", PEAK_BIOMES_VARIANT_LAYOUT);
         map.put("ocean_biomes", OCEANS_BIOMES_LAYOUT_COMMENT);
@@ -142,7 +142,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                             
                 "key" = "minecraft:biome_registry_path"
                 "value" = "modid:new_biome_registry_path"
-                
+                                
                 For example:
                 {
                 "key1":"value1",
@@ -171,14 +171,14 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
         new OverworldRegion(OVERWORLD_WEIGHT,
             OCEANS_2, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_2,
             PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_2, SHATTERED_BIOMES_VANILLA,
-                BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
             Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
     );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
         new OverworldRegion(OVERWORLD_WEIGHT,
             OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_3,
             PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-                BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
             new IdentityHashMap<>())
     );
     public static final Wrapped<OverworldRegion> REGION_4 = create("region_4",

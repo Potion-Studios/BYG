@@ -112,6 +112,9 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> WINTER_ROSES = createPlacedFeature("winter_roses", BYGOverworldVegetationFeatures.ROSE_WINTER, worldSurfaceSquaredWithCount(6));
     public static final Holder<PlacedFeature> HORSEWEED = createPlacedFeature("horseweed", BYGOverworldVegetationFeatures.HORSEWEED, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> PRAIRIE_GRASS = createPlacedFeature("prairie_grass", BYGOverworldVegetationFeatures.PRAIRIE_GRASS, CountPlacement.of(25), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> BASALT_DELTA = createPlacedFeature("basalt_delta", BYGOverworldFeatures.BASALT_DELTA, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> LARGE_BASALT_COLUMN = createPlacedFeature("large_basalt_column", BYGOverworldFeatures.LARGE_BASALT_COLUMN, CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> SMALL_BASALT_COLUMN = createPlacedFeature("small_basalt_column", BYGOverworldFeatures.SMALL_BASALT_COLUMN, CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> IRIS = createPlacedFeature("iris", BYGOverworldVegetationFeatures.IRIS, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> TULIPS = createPlacedFeature("tulips", BYGOverworldVegetationFeatures.TULIPS, worldSurfaceSquaredWithCount(2));

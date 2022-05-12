@@ -38,6 +38,10 @@ import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeatures
 
 public class BYGOverworldFeatures {
 
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> BASALT_DELTA = createConfiguredFeature("delta", () -> Feature.DELTA_FEATURE, new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), Blocks.WATER.defaultBlockState(), UniformInt.of(3, 4), UniformInt.of(0, 2)));
+    public static final Holder<ConfiguredFeature<ColumnFeatureConfiguration, ?>> SMALL_BASALT_COLUMN = createConfiguredFeature("small_basalt_columns", () -> Feature.BASALT_COLUMNS, new ColumnFeatureConfiguration(UniformInt.of(0, 1), UniformInt.of(1, 1)));
+    public static final Holder<ConfiguredFeature<ColumnFeatureConfiguration, ?>> LARGE_BASALT_COLUMN = createConfiguredFeature("large_basalt_columns", () -> Feature.BASALT_COLUMNS, new ColumnFeatureConfiguration(UniformInt.of(1, 2), UniformInt.of(1, 1)));
+
     public static final Holder<ConfiguredFeature<NoneFeatureConfiguration, ?>> BEEHIVES = createConfiguredFeature("beehives", BYGFeatures.BEEHIVE, new NoneFeatureConfiguration());
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> MOSSY_STONE_BOULDER = createConfiguredFeature("mossy_stone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.MOSSY_STONE.defaultBlockState()));
     public static final Holder<ConfiguredFeature<BlockStateConfiguration, ?>> ROCKY_STONE_BOULDER = createConfiguredFeature("rocky_stone_boulder", () -> Feature.FOREST_ROCK, new BlockStateConfiguration(BYGBlocks.ROCKY_STONE.defaultBlockState()));
@@ -167,23 +171,23 @@ public class BYGOverworldFeatures {
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_HOWLING_PEAKS_BOULDER = createConfiguredFeature("large_howling_peaks_boulder",
-            BYGFeatures.BOULDER,
-            new NoisySphereConfig.Builder()
-                    .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
-                    ).withBlockProvider(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 4)
-                                    .add(Blocks.STONE.defaultBlockState(), 1)
-                            )
-                    )
-                    .withTopBlockProvider(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(Blocks.MOSS_BLOCK.defaultBlockState(), 4)
-                                    .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 1)
-                            )
-                    )
-                    .build()
+        BYGFeatures.BOULDER,
+        new NoisySphereConfig.Builder()
+            .withRadiusSettings(
+                new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+            ).withBlockProvider(
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 4)
+                    .add(Blocks.STONE.defaultBlockState(), 1)
+                )
+            )
+            .withTopBlockProvider(
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                    .add(Blocks.MOSS_BLOCK.defaultBlockState(), 4)
+                    .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 1)
+                )
+            )
+            .build()
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> LARGE_GRANITE_BOULDER = createConfiguredFeature("large_granite_boulder",
@@ -239,16 +243,16 @@ public class BYGOverworldFeatures {
 
     public static final LazySupplier<NoisySphereConfig> STONE_FOREST_COLUMN_CONFIG = new LazySupplier<>(() ->
         new NoisySphereConfig.Builder()
-                .withStackHeight(UniformInt.of(3, 7))
-                .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18)))
-                .withRadiusDivisorPerStack(2)
-                .withNoise2DChance(0.25)
-                .withBlockProvider(SimpleStateProvider.simple(Blocks.STONE.defaultBlockState()))
-                .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()))
-                .withNoiseFrequency(0.09F)
-                .withRadiusMatcher(RadiusMatcher.NONE)
-                .withCheckSquareDistance(false)
-                .build()
+            .withStackHeight(UniformInt.of(3, 7))
+            .withRadiusSettings(new NoisySphereConfig.RadiusSettings(UniformInt.of(8, 20), UniformInt.of(80, 100), 17, UniformInt.of(6, 18)))
+            .withRadiusDivisorPerStack(2)
+            .withNoise2DChance(0.25)
+            .withBlockProvider(SimpleStateProvider.simple(Blocks.STONE.defaultBlockState()))
+            .withTopBlockProvider(SimpleStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()))
+            .withNoiseFrequency(0.09F)
+            .withRadiusMatcher(RadiusMatcher.NONE)
+            .withCheckSquareDistance(false)
+            .build()
     );
 
     public static final Holder<ConfiguredFeature<NoisySphereConfig, ?>> STONE_FOREST_COLUMN = createConfiguredFeatureSupplierConfig("stone_forest_column",

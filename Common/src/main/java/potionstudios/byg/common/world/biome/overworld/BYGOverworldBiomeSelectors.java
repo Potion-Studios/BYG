@@ -130,7 +130,7 @@ public class BYGOverworldBiomeSelectors {
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> BEACH_BIOMES_1 = create("beach_biomes/beach_biomes_1", BEACH_BIOMES_LAYOUT, new ResourceKey[][]{
             {Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH},
             {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
-            {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
+            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA},
             {BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH},
             {BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH}
     });
