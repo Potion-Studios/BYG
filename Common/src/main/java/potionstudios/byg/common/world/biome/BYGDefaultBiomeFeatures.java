@@ -77,7 +77,7 @@ public class BYGDefaultBiomeFeatures {
     }
 
     public static void addBeachGrass(BiomeGenerationSettings.Builder gen) {
-        //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_BEACH_GRASS);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PATCH_BEACH_GRASS);
     }
 
     public static void addCragGen(BiomeGenerationSettings.Builder gen) {

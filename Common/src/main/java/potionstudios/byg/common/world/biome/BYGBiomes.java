@@ -81,7 +81,7 @@ public class BYGBiomes {
 
     /************Beach Biomes*************/
     public static ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", BYGOverworldBiomes::windsweptBeach);
-    public static ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", () -> OverworldBiomes.beach(false, false));
+    public static ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BYGOverworldBiomes::rainbowBeach);
 
 
     /************Nether Biomes************/
