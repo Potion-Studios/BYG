@@ -181,7 +181,8 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
     }
 
     private static boolean canReplace(BlockState state) {
-        return (!state.isAir() && state.getMaterial().isReplaceable())
+        Material material = state.getMaterial();
+        return (!state.isAir() && material.isReplaceable())
                 || state.is(BlockTags.BASE_STONE_OVERWORLD)
                 || state.is(MLBlockTags.END_STONES)
                 || state.is(MLBlockTags.SANDSTONE)
@@ -189,8 +190,9 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
                 || state.is(MLBlockTags.ORES) // Handles floating ores
                 || state.is(BlockTags.DIRT)
                 || state.is(BlockTags.TERRACOTTA)
-                || state.getMaterial().equals(Material.PLANT)
-                || state.getMaterial().equals(Material.WATER_PLANT)
-                || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);
+                || material == Material.PLANT
+                || material == Material.WATER_PLANT
+                || material == Material.REPLACEABLE_WATER_PLANT
+                || material == Material.CACTUS;
     }
 }

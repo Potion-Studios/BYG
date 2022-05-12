@@ -181,7 +181,7 @@ public class BYGOverworldBiomeSelectors {
         {Biomes.PLAINS, Biomes.PLAINS, BYGBiomes.TWILIGHT_MEADOW, BYGBiomes.AUTUMNAL_VALLEY, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
         {Biomes.FLOWER_FOREST, BYGBiomes.PRAIRIE, BYGBiomes.ALLIUM_FIELDS, BYGBiomes.ASPEN_FOREST, Biomes.DARK_FOREST},
         {Biomes.SAVANNA, BYGBiomes.BAOBAB_SAVANNA, BYGBiomes.CHERRY_BLOSSOM_FOREST, BYGBiomes.EBONY_WOODS, BYGBiomes.JACARANDA_FOREST},
-        {BYGBiomes.ATACAMA_DESERT, BYGBiomes.RED_ROCK_VALLEY, BYGBiomes.MOJAVE_DESERT, BYGBiomes.ATACAMA_DESERT, BYGBiomes.TROPICAL_RAINFOREST}
+        {BYGBiomes.ATACAMA_DESERT, BYGBiomes.RED_ROCK_VALLEY, BYGBiomes.MOJAVE_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT}
     });
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_2 = create("middle_biomes/middle_biomes_2", MIDDLE_BIOMES_LAYOUT, new ResourceKey[][]{
         {Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, BYGBiomes.FROSTED_TAIGA, Biomes.TAIGA},
@@ -196,7 +196,7 @@ public class BYGOverworldBiomeSelectors {
         {Biomes.PLAINS, BYGBiomes.WEEPING_WITCH_FOREST, BYGBiomes.WEEPING_WITCH_FOREST, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
         {Biomes.FLOWER_FOREST, BYGBiomes.PRAIRIE, BYGBiomes.TEMPERATE_RAINFOREST, BYGBiomes.ASPEN_FOREST, BYGBiomes.REDWOOD_THICKET},
         {BYGBiomes.BAOBAB_SAVANNA, BYGBiomes.ARAUCARIA_SAVANNA, Biomes.FOREST, BYGBiomes.AMARANTH_FIELDS, BYGBiomes.CRAG_GARDENS},
-        {BYGBiomes.ATACAMA_DESERT, BYGBiomes.ATACAMA_DESERT, BYGBiomes.ATACAMA_DESERT, BYGBiomes.MOJAVE_DESERT, BYGBiomes.RED_ROCK_VALLEY}
+        {BYGBiomes.ATACAMA_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.MOJAVE_DESERT, BYGBiomes.RED_ROCK_VALLEY}
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_VARIANT = create("middle_biomes_variant/middle_biomes_variant_1", MIDDLE_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{

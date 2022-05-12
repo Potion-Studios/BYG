@@ -40,7 +40,8 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_GRANITE_BOULDERS);
     }
 
-    public static void addWindsweptBoulders(BiomeGenerationSettings.Builder gen) {
+    public static void addWindsweptRocks(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.WINDSWEPT_SPIKES);
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.LARGE_WINDSWEPT_BOULDERS);
     }
 
@@ -50,6 +51,11 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addLushBYGDesertVegetation(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LUSH_DESERT_VEGETATION);
+    }
+
+    public static void addWindsweptDesertVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PATCH_BEACH_GRASS_NOISE);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WINDSWEPT_DESERT_VEGETATION);
     }
 
     public static void addBYGAtacamaDesertVegetation(BiomeGenerationSettings.Builder gen) {

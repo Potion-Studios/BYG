@@ -47,6 +47,7 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
 //        map.put(DECIDUOUS_FOREST, List.of("FOREST", "OVERWORLD"));
         map.put(DACITE_RIDGES, List.of("MOUNTAIN", "COLD", "CONIFEROUS", "OVERWORLD"));
         map.put(WINDSWEPT_DUNES, List.of("DRY", "HOT", "SANDY", "OVERWORLD"));
+        map.put(WINDSWEPT_DESERT, List.of("DRY", "HOT", "SANDY", "OVERWORLD"));
         map.put(EBONY_WOODS, List.of("FOREST", "DENSE", "OVERWORLD"));
         map.put(FORGOTTEN_FOREST, List.of("FOREST", "RARE", "MAGICAL", "OVERWORLD"));
 //        map.put(GREAT_LAKES, List.of("FOREST", "WATER", "CONIFEROUS", "OVERWORLD"));

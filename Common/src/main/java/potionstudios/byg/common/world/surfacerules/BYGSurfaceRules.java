@@ -25,7 +25,6 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource PEAT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState())));
     public static final SurfaceRules.RuleSource STONE_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.STONE.defaultBlockState())), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.STONE.defaultBlockState())));
     public static final SurfaceRules.RuleSource GRASS_DIRT_DIRT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DIRT.defaultBlockState())));
-    public static final SurfaceRules.RuleSource WINDSWEPT_SAND_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SurfaceRules.state(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState())), SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WINDSWEPT_SAND.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.WINDSWEPT_SAND.defaultBlockState())));
     public static final SurfaceRules.RuleSource LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_GRASS_BLOCK.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.LUSH_DIRT.defaultBlockState())));
     public static final SurfaceRules.RuleSource SAND_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SurfaceRules.state(Blocks.SANDSTONE.defaultBlockState())), SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.SAND.defaultBlockState()))), SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.SAND.defaultBlockState())));
     public static final SurfaceRules.RuleSource SNOW_BLOCK_SURFACE = SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.SNOW_BLOCK.defaultBlockState()))));
@@ -46,7 +45,15 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.EBONY_WOODS), SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D), COARSE_DIRT_DIRT_SURFACE));
 
-    public static final SurfaceRules.RuleSource WINDSWEPT_SAND_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WINDSWEPT_DUNES, BYGBiomes.WINDSWEPT_BEACH), WINDSWEPT_SAND_SURFACE);
+
+    public static final SurfaceRules.RuleSource WINDSWEPT_SAND = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.WINDSWEPT_SAND.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.WINDSWEPT_SAND.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState()))
+    );
+
+    public static final SurfaceRules.RuleSource WINDSWEPT_SAND_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WINDSWEPT_DUNES, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_DESERT), WINDSWEPT_SAND);
 
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS, BYGBiomes.REDWOOD_THICKET, BYGBiomes.FROSTED_TAIGA),
         SurfaceRules.sequence(
