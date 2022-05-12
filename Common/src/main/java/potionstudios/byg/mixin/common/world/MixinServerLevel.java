@@ -1,5 +1,8 @@
 package potionstudios.byg.mixin.common.world;
 
+import it.unimi.dsi.fastutil.bytes.Byte2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -11,6 +14,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.LevelStorageSource;
@@ -26,6 +30,7 @@ import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.BYGUtil;
+import potionstudios.byg.util.DuneCache;
 import potionstudios.byg.util.ModPlatform;
 
 import javax.annotation.Nonnull;
@@ -35,8 +40,11 @@ import java.util.concurrent.Executor;
 import java.util.function.Supplier;
 
 @Mixin(ServerLevel.class)
-public abstract class MixinServerLevel extends Level {
+public abstract class MixinServerLevel extends Level implements DuneCache {
     private Path worldPath;
+
+    private final Long2ObjectOpenHashMap<Byte2DoubleOpenHashMap> duneDensityCache = new Long2ObjectOpenHashMap<>();
+    private final Long2ObjectOpenHashMap<Byte2ObjectOpenHashMap<ResourceKey<Biome>>> duneBiomeSearchCache = new Long2ObjectOpenHashMap<>();
 
     protected MixinServerLevel(WritableLevelData $$0, ResourceKey<Level> $$1, Holder<DimensionType> $$2, Supplier<ProfilerFiller> $$3, boolean $$4, boolean $$5, long $$6) {
         super($$0, $$1, $$2, $$3, $$4, $$5, $$6);
@@ -67,5 +75,15 @@ public abstract class MixinServerLevel extends Level {
                 }
             }
         }
+    }
+
+    @Override
+    public Long2ObjectOpenHashMap<Byte2DoubleOpenHashMap> getDensityAt() {
+        return duneDensityCache;
+    }
+
+    @Override
+    public Long2ObjectOpenHashMap<Byte2ObjectOpenHashMap<ResourceKey<Biome>>> getBiomeAt() {
+        return duneBiomeSearchCache;
     }
 }
