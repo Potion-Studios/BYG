@@ -925,7 +925,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG.get(),
                     BYGBlocks.MANGROVE_LEAVES.get(),
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
@@ -938,7 +938,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
@@ -951,7 +951,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
@@ -964,7 +964,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
@@ -977,7 +977,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
 

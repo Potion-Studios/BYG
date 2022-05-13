@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -20,6 +19,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.mixin.access.LeavesBlockAccess;
 import potionstudios.byg.mixin.access.StructureTemplateAccess;
 
@@ -63,23 +63,21 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         BlockPos origin = featurePlaceContext.origin();
         if (DEBUG) {
             level.setBlock(origin, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
-        }
-        else {
+        } else {
             BlockState inside = level.getBlockState(origin);
             BlockState below = level.getBlockState(origin.below());
-            if(inside.is(Blocks.WATER))
-            {
-                if(!config.allowUnderwater())
+            if (inside.is(Blocks.WATER)) {
+                if (!config.allowUnderwater())
                     return false;
                 // allow certain more blocks underwater (temp)
-                if(!below.is(BlockTags.DIRT) && !below.is(BlockTags.SAND) &&
+                if (!below.is(BlockTags.DIRT) && !below.is(BlockTags.SAND) &&
                         !below.is(BYGBlocks.MUD_BLOCK.get()) && !below.is(Blocks.CLAY)
                         && !below.is(Blocks.GRAVEL))
                     return false;
             }
-            if(inside.canOcclude())
+            if (inside.canOcclude())
                 return false;
-            if(!below.is(config.growableOn()))
+            if (!below.is(config.growableOn()))
                 return false;
         }
         Random random = featurePlaceContext.random();
@@ -116,15 +114,21 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         }
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
-            int i = 0;
             BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
-            while (!level.getBlockState(mutableBlockPos).canOcclude()) {
-                level.setBlock(mutableBlockPos, logProvider.getState(level.getRandom(), mutableBlockPos), 2);
-                mutableBlockPos.move(Direction.DOWN);
-                // limit number of logs to not stretch down to infinity
-                if(++i > maxTrunkBuildingDepth)
+
+            for (int i = 0; i < maxTrunkBuildingDepth; i++) {
+                BlockState blockState = level.getBlockState(mutableBlockPos);
+                if (!blockState.canOcclude()) {
+                    level.setBlock(mutableBlockPos, logProvider.getState(featurePlaceContext.random(), mutableBlockPos), 2);
+                    mutableBlockPos.move(Direction.DOWN);
+                } else {
+                    Block block = blockState.getBlock();
+                    if (BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.containsKey(block)) {
+                        level.setBlock(mutableBlockPos, BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.get(block).defaultBlockState(), 2);
+                    }
                     break;
+                }
             }
         }
 
