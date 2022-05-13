@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
 import potionstudios.byg.common.world.feature.BYGFeatures;
@@ -24,6 +25,8 @@ import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeatures
 
 public class BYGOverworldVegetationFeatures {
     private static final BlockPredicateFilter SAND_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.SAND, BlockPos.ZERO.below()));
+    private static final BlockPredicateFilter ON_WATER_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, BlockPos.ZERO.below()));
+    private static final BlockPredicateFilter IN_REPLACEABLE_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.replaceable());
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_BUSH = createFlowerConfiguredFeature("allium_bush", BYGBlocks.ALLIUM_FLOWER_BUSH.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_PINK_BUSH = createFlowerConfiguredFeature("pink_allium_bush", BYGBlocks.PINK_ALLIUM_FLOWER_BUSH.get());
@@ -126,14 +129,16 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TINY_LILY_PAD = createConfiguredFeature("tiny_lily_pad",
             () -> Feature.RANDOM_PATCH,
             new RandomPatchConfiguration(10, 7, 3,
-                    createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TINY_LILYPADS.get()))))
-            ));
+                    createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.TINY_LILYPADS.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
+            )
+    );
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WATER_SILK = createConfiguredFeature("water_silk",
             () -> Feature.RANDOM_PATCH,
             new RandomPatchConfiguration(10, 7, 3,
-                    createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WATER_SILK.get())))
-                    )));
+                    createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.WATER_SILK.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
+            )
+    );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ALLIUM_FIELD_FLOWERS = createConfiguredFeature("allium_field_flowers",
             () -> Feature.RANDOM_SELECTOR,
@@ -226,8 +231,8 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SWAMP_WATER_VEGETATION = createConfiguredFeature("swamp_water_vegetation",
             () -> Feature.RANDOM_SELECTOR,
             new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(createPlacedFeature(TINY_LILY_PAD), 0.50F)),
-                    createPlacedFeature(WATER_SILK))
+                    new WeightedPlacedFeature(createPlacedFeature(TINY_LILY_PAD, ON_WATER_FILTER), 0.50F)),
+                    createPlacedFeature(WATER_SILK, ON_WATER_FILTER))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CHERRY_FOLIAGE = createConfiguredFeature("cherry_foliage",
