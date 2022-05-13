@@ -18,6 +18,8 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_BEACH_GRASS = createDesertPlantTag("ground_beach_grass");
     public static final TagKey<Block> GROUND_TALL_BEACH_GRASS = createDesertPlantTag("ground_tall_beach_grass");
     public static final TagKey<Block> GROUND_AMARANTH = createPlantTag("ground_amaranth");
+    public static final TagKey<Block> GROUND_TALL_PRAIRIE_GRASS = createPlantTag("ground_tall_prairie_grass");
+    public static final TagKey<Block> GROUND_PRAIRIE_GRASS = createPlantTag("ground_prairie_grass");
     public static final TagKey<Block> GROUND_CYAN_AMARANTH = createPlantTag("ground_cyan_amaranth");
     public static final TagKey<Block> GROUND_MAGENTA_AMARANTH = createPlantTag("ground_magenta_amaranth");
     public static final TagKey<Block> GROUND_ORANGE_AMARANTH = createPlantTag("ground_orange_amaranth");
@@ -39,7 +41,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_CALIFORNIA_POPPY = createPlantTag("ground_california_poppy");
     public static final TagKey<Block> GROUND_CROCUS = createPlantTag("ground_crocus");
     public static final TagKey<Block> GROUND_BLACK_ROSE = createPlantTag("ground_black_rose");
-    public static final TagKey<Block> GROUND_TALL_PRAIRIE_GRASS = createPlantTag("ground_tall_prairie_grass");
     public static final TagKey<Block> GROUND_TALL_ALLIUM = createPlantTag("ground_tall_allium");
     public static final TagKey<Block> GROUND_TALL_PINK_ALLIUM = createPlantTag("ground_tall_pink_allium");
     public static final TagKey<Block> GROUND_DELPHINIUM = createPlantTag("ground_delphinium");
