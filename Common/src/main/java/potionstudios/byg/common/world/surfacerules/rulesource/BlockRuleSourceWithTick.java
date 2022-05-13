@@ -51,7 +51,7 @@ public record BlockRuleSourceWithTick(BlockState state, int tickDelay,
             // Schedule Fluid Ticks
             FluidState fluidState = blockState.getFluidState();
             if (!fluidState.isEmpty()) {
-                ScheduledTick<Fluid> scheduledFluidTick = new ScheduledTick<>(fluidState.getType(), blockPos, levelAccessor.getLevelData().getGameTime(), levelAccessor.nextSubTickCount());
+                ScheduledTick<Fluid> scheduledFluidTick = new ScheduledTick<>(fluidState.getType(), blockPos, levelAccessor.getLevelData().getGameTime() + this.tickDelay, levelAccessor.nextSubTickCount());
                 chunkAccess.getFluidTicks().schedule(scheduledFluidTick);
             }
             return blockState;
