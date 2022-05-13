@@ -179,7 +179,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_3,
             PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
             BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
-            new IdentityHashMap<>())
+            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
     );
     public static final Wrapped<OverworldRegion> REGION_4 = create("region_4",
         new OverworldRegion(OVERWORLD_WEIGHT,

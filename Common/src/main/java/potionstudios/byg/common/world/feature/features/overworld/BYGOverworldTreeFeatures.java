@@ -5,7 +5,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -920,12 +920,12 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/mangrove_tree1_base"),
                     BYG.createLocation("features/trees/mangrove_tree1_canopy"),
-                    UniformInt.of(5, 15),
+                    BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG.get(),
                     BYGBlocks.MANGROVE_LEAVES.get(),
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
@@ -933,12 +933,12 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/mangrove_tree2_base"),
                     BYG.createLocation("features/trees/mangrove_tree2_canopy"),
-                    UniformInt.of(5, 15),
+                    BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
@@ -946,12 +946,12 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/mangrove_tree3_base"),
                     BYG.createLocation("features/trees/mangrove_tree3_canopy"),
-                    UniformInt.of(5, 15),
+                    BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
@@ -959,12 +959,12 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/mangrove_tree4_base"),
                     BYG.createLocation("features/trees/mangrove_tree4_canopy"),
-                    UniformInt.of(5, 15),
+                    BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
@@ -972,12 +972,12 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/mangrove_tree5_base"),
                     BYG.createLocation("features/trees/mangrove_tree5_canopy"),
-                    UniformInt.of(5, 15),
+                    BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
                     BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
                     BYGBlocks.MANGROVE_LOG,
                     BYGBlocks.MANGROVE_LEAVES,
-                    BlockTags.DIRT, 5, true
+                    BlockTags.DIRT, 15, true
             )
     );
 
@@ -1104,8 +1104,6 @@ public class BYGOverworldTreeFeatures {
             .setLeavesBlock(Blocks.OAK_LEAVES)
             .setMaxHeight(18)
             .setMinHeight(13)
-            .setDiskBlock(Blocks.PODZOL)
-            .setDiskRadius(3)
             .build()
     );
 
@@ -2525,6 +2523,17 @@ public class BYGOverworldTreeFeatures {
             new WeightedPlacedFeature(createPlacedFeature(OAK_TREE_LARGE1), 0.16F),
             new WeightedPlacedFeature(createPlacedFeature(OAK_TREE_LARGE2), 0.16F)),
             createPlacedFeature(OAK_TREE_LARGE3))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> OAK_TREES_SWAMP = createConfiguredFeature("oak_trees_swamp",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(OAK_TREE1), 0.16F),
+                    new WeightedPlacedFeature(createPlacedFeature(OAK_TREE2), 0.16F),
+                    new WeightedPlacedFeature(createPlacedFeature(OAK_TREE3), 0.16F),
+                    new WeightedPlacedFeature(createPlacedFeature(OAK_TREE_LARGE1), 0.16F),
+                    new WeightedPlacedFeature(createPlacedFeature(OAK_TREE_LARGE2), 0.16F)),
+                    createPlacedFeature(OAK_TREE_LARGE3))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_OAK_TREES = createConfiguredFeature("orange_oak_trees",
