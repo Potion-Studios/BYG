@@ -9,11 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class BYGCutoutRenders {
-    public static void renderCutOuts(Consumer<Map<Block, RenderType>> mapConsumer) {
+public class BYGRenderTypes {
+    public static void renderTypes(Consumer<Map<Block, RenderType>> mapConsumer) {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
-        //Plants
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BRANCH.get(), RenderType.cutoutMipped());
@@ -194,6 +193,7 @@ public class BYGCutoutRenders {
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), RenderType.translucent());
         map.put(BYGBlocks.TALL_PRAIRIE_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BEACH_GRASS.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.TALL_BEACH_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.LEAF_PILE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CLOVER_PATCH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWER_PATCH.get(), RenderType.cutoutMipped());

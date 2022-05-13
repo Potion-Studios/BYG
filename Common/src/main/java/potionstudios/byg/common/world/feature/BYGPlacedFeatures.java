@@ -125,8 +125,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> DESERT_VEGETATION_ATACAMA = createPlacedFeature("desert_vegetation_atacama", BYGOverworldVegetationFeatures.DESERT_VEGETATION_ATACAMA, worldSurfaceSquaredWithCount(6));
     public static final Holder<PlacedFeature> LUSH_DESERT_VEGETATION = createPlacedFeature("lush_desert_vegetation", BYGOverworldVegetationFeatures.DESERT_VEGETATION, worldSurfaceSquaredWithCount(10));
     public static final Holder<PlacedFeature> WINDSWEPT_DESERT_VEGETATION = createPlacedFeature("windswept_desert_vegetation", BYGOverworldVegetationFeatures.WINDSWEPT_DESERT_VEGETATION, worldSurfaceSquaredWithCount(8));
-    public static final Holder<PlacedFeature> PATCH_BEACH_GRASS_NOISE = createPlacedFeature("patch_beach_grass_noise", BYGOverworldVegetationFeatures.BEACH_GRASS, NoiseThresholdCountPlacement.of(-0.45D, 7, 0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-    public static final Holder<PlacedFeature> PATCH_BEACH_GRASS = createPlacedFeature("patch_beach_grass", BYGOverworldVegetationFeatures.BEACH_GRASS, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> PATCH_BEACH_GRASS_NOISE = createPlacedFeature("patch_beach_grass_noise", BYGOverworldVegetationFeatures.BEACH_GRASSES, NoiseThresholdCountPlacement.of(-0.45D, 7, 0), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    public static final Holder<PlacedFeature> PATCH_BEACH_GRASS = createPlacedFeature("patch_beach_grass", BYGOverworldVegetationFeatures.BEACH_GRASSES, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> WINTER_SUCCULENT = createPlacedFeature("winter_succulent", BYGOverworldVegetationFeatures.WINTER_SUCCULENT, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGOverworldVegetationFeatures.DAFFODIL_YELLOW, worldSurfaceSquaredWithCount(2));

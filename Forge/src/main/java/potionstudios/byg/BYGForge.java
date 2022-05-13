@@ -18,7 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
-import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
+import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -111,7 +111,7 @@ public class BYGForge {
     private void clientLoad(FMLClientSetupEvent event) {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             BYGClient.load();
-            BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+            BYGRenderTypes.renderTypes(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
             BYGForgeClient.client();
             event.enqueueWork(BYGClient::threadSafeLoad);
         });

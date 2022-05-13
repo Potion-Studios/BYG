@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
-import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
+import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.mixin.access.client.ItemBlockRenderTypeAccess;
 import potionstudios.byg.mixin.client.access.AccessEntityRenderers;
 import potionstudios.byg.network.NetworkUtil;
@@ -22,7 +22,7 @@ public class BYGFabricClient implements ClientModInitializer {
 
         BYGClient.load();
         BYGClient.threadSafeLoad();
-        BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> ItemBlockRenderTypeAccess.byg_getTYPE_BY_BLOCK().putAll(blockRenderTypeMap));
+        BYGRenderTypes.renderTypes(blockRenderTypeMap -> ItemBlockRenderTypeAccess.byg_getTYPE_BY_BLOCK().putAll(blockRenderTypeMap));
 
         BYGEntityRenderers.register(AccessEntityRenderers::byg_register);
 

@@ -23,6 +23,8 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGOverworldVegetationFeatures {
+    private static final BlockPredicateFilter SAND_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.SAND, BlockPos.ZERO.below()));
+
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_BUSH = createFlowerConfiguredFeature("allium_bush", BYGBlocks.ALLIUM_FLOWER_BUSH.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_PINK_BUSH = createFlowerConfiguredFeature("pink_allium_bush", BYGBlocks.PINK_ALLIUM_FLOWER_BUSH.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_TALL_BUSH = createPatchConfiguredFeature("tall_allium_bush", BYGBlocks.TALL_ALLIUM.get(), 15);
@@ -55,6 +57,7 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TORCH_GINGER = createFlowerConfiguredFeature("torch_ginger", BYGBlocks.TORCH_GINGER.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WINTER_SUCCULENT = createPatchConfiguredFeature("winter_succulent", BYGBlocks.WINTER_SUCCULENT.get(), 10);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BEACH_GRASS = createPatchConfiguredFeature("beach_grass_patch", BYGBlocks.BEACH_GRASS.get(), 32);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TALL_BEACH_GRASS_PATCH = createPatchConfiguredFeature("tall_beach_grass_patch", BYGBlocks.TALL_BEACH_GRASS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> LEAF_PILE = createPatchConfiguredFeature("leaf_pile", BYGBlocks.LEAF_PILE.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> RICHEA = createFlowerConfiguredFeature("richea", BYGBlocks.RICHEA.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PRAIRIE_GRASS_PATCH = createPatchConfiguredFeature("prairie_grass_patch", BYGBlocks.PRAIRIE_GRASS.get(), 100);
@@ -100,6 +103,14 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE_OSIRIA = createFlowerConfiguredFeature("osiria_rose", BYGBlocks.ORSIRIA_ROSE.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FAIRY_SLIPPER = createFlowerConfiguredFeature("fairy_slipper", BYGBlocks.FAIRY_SLIPPER.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> HORSEWEED = createPatchConfiguredFeature("horseweed", BYGBlocks.HORSEWEED.get(), 10);
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BEACH_GRASSES = createConfiguredFeature("beach_grasses",
+            () -> Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(TALL_BEACH_GRASS_PATCH, SAND_FILTER), 0.33F)),
+                    createPlacedFeature(BEACH_GRASS, SAND_FILTER)
+            )
+    );
 
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> AMARANTH_FIELD_FLOWERS = createConfiguredFeature("amaranth_field_flowers",
@@ -152,7 +163,6 @@ public class BYGOverworldVegetationFeatures {
                     createPlacedFeature(GOLDEN_SPINED_CACTI))
     );
 
-    private static final BlockPredicateFilter SAND_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.SAND, BlockPos.ZERO.below()));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WINDSWEPT_DESERT_VEGETATION = createConfiguredFeature("windswept_desert_vegetation",
             () -> Feature.RANDOM_SELECTOR,
