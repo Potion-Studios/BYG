@@ -610,7 +610,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WATER_SILK = createBlock(BYGBlockProperties.BYGWaterSilk::new, "water_silk");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS = createBlock(BYGBlockProperties.BYGHangingVine::new, "weeping_roots");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGHangingVinePlant::new, "weeping_roots_plant");
-    public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(() -> new GrassGrowsIntoDoublePlantBlockBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_BEACH_GRASS, () -> BYGBlocks.TALL_BEACH_GRASS.get()), "beach_grass");
+    public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(() -> new BYGBonemealActionBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_BEACH_GRASS, BYGBonemealActionBlock.BonemealAction.growDoublePlant(() -> BYGBlocks.TALL_BEACH_GRASS.get())), "beach_grass");
     public static final BlockRegistryObject<BYGDoublePlantBlock> TALL_BEACH_GRASS = createBlock(() -> new BYGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_TALL_BEACH_GRASS), "tall_beach_grass");
     public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "leaf_pile");
     public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_CLOVER_PATCH), "clover_patch");
@@ -1155,7 +1155,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> PINK_ALLIUM_FLOWER_BUSH = createFlower("pink_allium_flower_bush", BYGBlockTags.GROUND_PINK_ALLIUM_BUSH, false);
     public static final BlockRegistryObject<Block> PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
     public static final BlockRegistryObject<Block> PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
-    public static final BlockRegistryObject<Block> PRAIRIE_GRASS = createBlock(() -> new GrassGrowsIntoDoublePlantBlockBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_PRAIRIE_GRASS, () -> BYGBlocks.TALL_PRAIRIE_GRASS.get()), "prairie_grass");
+    public static final BlockRegistryObject<Block> PRAIRIE_GRASS = createBlock(() -> new BYGBonemealActionBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_PRAIRIE_GRASS, BYGBonemealActionBlock.BonemealAction.growDoublePlant(() -> BYGBlocks.TALL_PRAIRIE_GRASS.get())), "prairie_grass");
     public static final BlockRegistryObject<Block> PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
     public static final BlockRegistryObject<Block> PURPLE_AMARANTH = createFlower("purple_amaranth", BYGBlockTags.GROUND_PURPLE_AMARANTH, false);
     public static final BlockRegistryObject<Block> PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
