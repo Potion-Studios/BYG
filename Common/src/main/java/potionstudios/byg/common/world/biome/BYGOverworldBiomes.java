@@ -1010,12 +1010,12 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
-        BiomeDefaultFeatures.addSwampVegetation(generationSettings);
+        BYGDefaultBiomeFeatures.addWhiteMangroveSwampAdditionalVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
 
-        BYGDefaultBiomeFeatures.addMangroveTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addWhiteMangroveTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addLushCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);

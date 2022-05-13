@@ -25,6 +25,10 @@ public class BYGPlacedFeaturesUtil {
         return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(CLEARING_NOISE).add(BiomeFilter.biome()).build();
     }
 
+    public static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier... $$0) {
+        return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
+    }
+
     public static List<PlacementModifier> clearingTreePlacement(PlacementModifier placementModifier) {
         List<PlacementModifier> placementModifiers = new ArrayList<>(treePlacement(placementModifier));
         placementModifiers.add(CLEARING_NOISE);
