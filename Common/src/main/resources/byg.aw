@@ -19,6 +19,7 @@ Accessible class net/minecraft/world/entity/npc/VillagerTrades$ItemsForEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$SuspiciousStewForEmerald
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TippedArrowForItemsAndEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
+Accessible class net/minecraft/world/level/levelgen/SurfaceRules$StateRule
 
 Extendable class net/minecraft/world/level/biome/OverworldBiomeBuilder
 

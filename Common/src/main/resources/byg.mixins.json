@@ -49,6 +49,7 @@
     "access.StructureTemplatePoolAccess",
     "access.SurfaceRuleContextAccess",
     "access.SurfaceRuleDataAccess",
+    "access.SurfaceRulesStateRuleAccess",
     "access.SurfaceSystemAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",

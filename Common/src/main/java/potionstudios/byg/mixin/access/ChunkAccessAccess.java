@@ -1,5 +1,6 @@
 package potionstudios.byg.mixin.access;
 
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.NoiseChunk;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,4 +14,7 @@ public interface ChunkAccessAccess {
     @Accessor("noiseChunk")
     @Nullable
     NoiseChunk byg_getNoiseChunk();
+
+    @Accessor("levelHeightAccessor")
+    LevelHeightAccessor byg_getLevelHeightAccessor();
 }

@@ -200,6 +200,13 @@ public class BYGSurfaceRules {
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.BASALT.defaultBlockState()))
     );
 
+    public static final SurfaceRules.RuleSource SMOOTH_BASALT = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.SMOOTH_BASALT.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.SMOOTH_BASALT.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(Blocks.SMOOTH_BASALT.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.SMOOTH_BASALT.defaultBlockState()))
+    );
+
     public static final SurfaceRules.RuleSource BLACKSTONE = SurfaceRules.sequence(
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.BLACKSTONE.defaultBlockState())),
             SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.BLACKSTONE.defaultBlockState())),
@@ -207,8 +214,25 @@ public class BYGSurfaceRules {
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.BLACKSTONE.defaultBlockState()))
     );
 
+    public static final SurfaceRules.RuleSource DEEPSLATE = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.DEEPSLATE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.DEEPSLATE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(Blocks.DEEPSLATE.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.DEEPSLATE.defaultBlockState()))
+    );
+
+    public static final SurfaceRules.RuleSource BLACK_SAND_BASALT = SurfaceRules.sequence(
+            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BLACK_SAND.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.BASALT.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.FLOOR), SurfaceRules.state(Blocks.BASALT.defaultBlockState())),
+            SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(Blocks.BASALT.defaultBlockState()))
+    );
+
     public static final SurfaceRules.RuleSource BASALT_BARRERA = SurfaceRules.ifTrue(
-            SurfaceRules.isBiome(BYGBiomes.BASALT_BARRERA), BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder().add(BASALT, 9).add(BLACKSTONE, 1).build())
+            SurfaceRules.isBiome(BYGBiomes.BASALT_BARRERA), SurfaceRules.sequence(
+                    SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.CALCITE, -0.0045D, 0.0045D), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
+                            BYGRuleSources.stateWithTick(Blocks.MAGMA_BLOCK.defaultBlockState()))), BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder().add(BASALT, 9).add(BLACK_SAND_BASALT, 3).add(DEEPSLATE, 5).add(SMOOTH_BASALT, 9).add(BLACKSTONE, 1).build())
+            )
     );
 
     public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_STONE, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, SKYRIS_VALE_SURFACE, HOWLING_PEAKS_SURFACE, ATACAMA_DESERT_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER, RED_ROCK_SURFACE, RAINBOW_BEACH, BASALT_BARRERA));
