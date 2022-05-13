@@ -231,7 +231,7 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource BASALT_BARRERA = SurfaceRules.ifTrue(
             SurfaceRules.isBiome(BYGBiomes.BASALT_BARRERA), SurfaceRules.sequence(
                     SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.CALCITE, -0.0045D, 0.0045D), SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                            BYGRuleSources.stateWithTick(Blocks.MAGMA_BLOCK.defaultBlockState()))), BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder().add(BASALT, 9).add(BLACK_SAND_BASALT, 3).add(DEEPSLATE, 5).add(SMOOTH_BASALT, 9).add(BLACKSTONE, 1).build())
+                            BYGRuleSources.stateWithTick(Blocks.MAGMA_BLOCK.defaultBlockState()))), BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder().add(BASALT, 9).add(BLACK_SAND_BASALT, 3).add(DEEPSLATE, 5).add(SMOOTH_BASALT, 10).build())
             )
     );
 
