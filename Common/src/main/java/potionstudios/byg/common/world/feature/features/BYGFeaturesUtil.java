@@ -23,6 +23,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.registration.RegistrationProvider;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.byg_invokeGrassPatch;
@@ -81,6 +82,6 @@ public class BYGFeaturesUtil {
 
 
     public static String globalGenStagePath(GenerationStep.Decoration stage) {
-        return "global/" + stage.toString().toLowerCase();
+        return "global/" + stage.toString().toLowerCase(Locale.ROOT);
     }
 }

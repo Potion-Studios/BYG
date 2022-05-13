@@ -13,6 +13,7 @@ import potionstudios.byg.util.CommonSetupLoad;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.function.Consumer;
 
 public class ReloadConfigsCommand {
@@ -24,7 +25,7 @@ public class ReloadConfigsCommand {
 
         return Commands.literal(commandString).requires(stack -> stack.hasPermission(4)).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(Arrays.stream(Config.values()).map(Config::toString), sb)).executes(cs -> {
             try {
-                Config config = Config.valueOf(cs.getArgument(argName, String.class).toUpperCase());
+                Config config = Config.valueOf(cs.getArgument(argName, String.class).toUpperCase(Locale.ROOT));
                 config.accept(cs.getSource());
                 cs.getSource().sendSuccess(new TranslatableComponent("byg.command.config.success", config.toString()), true);
                 return 1;

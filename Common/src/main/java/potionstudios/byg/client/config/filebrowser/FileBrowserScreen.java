@@ -84,14 +84,14 @@ public class FileBrowserScreen extends Screen {
             List children = this.configFiles.children();
             ArrayList<? extends KeyCommentToolTipEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
             for (KeyCommentToolTipEntry<?> child : keyCommentToolTipEntries) {
-                if (!child.key.toLowerCase().contains(s.toLowerCase())) {
+                if (!child.key.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))) {
                     children.remove(child);
                     child.renderToolTip = false;
                     hidden.add(child);
                 }
             }
             for (KeyCommentToolTipEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
-                if (entry.key.toLowerCase().contains(s.toLowerCase())) {
+                if (entry.key.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))) {
                     children.add(entry);
                     this.hidden.remove(entry);
                 }

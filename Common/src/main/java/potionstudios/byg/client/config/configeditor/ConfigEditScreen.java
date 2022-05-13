@@ -15,10 +15,7 @@ import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiFunction;
 
 public class ConfigEditScreen extends Screen {
@@ -132,14 +129,14 @@ public class ConfigEditScreen extends Screen {
             List children = this.configEntries.children();
             ArrayList<? extends ConfigEditEntry<?>> keyCommentToolTipEntries = new ArrayList<>(children);
             for (ConfigEditEntry<?> child : keyCommentToolTipEntries) {
-                if (!child.key.toLowerCase().contains(s.toLowerCase())) {
+                if (!child.key.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))) {
                     children.remove(child);
                     child.renderToolTip = false;
                     hidden.add(child);
                 }
             }
             for (ConfigEditEntry<?> entry : new ObjectOpenHashSet<>(this.hidden)) {
-                if (entry.key.toLowerCase().contains(s.toLowerCase())) {
+                if (entry.key.toLowerCase(Locale.ROOT).contains(s.toLowerCase(Locale.ROOT))) {
                     children.add(entry);
                     this.hidden.remove(entry);
                 }
