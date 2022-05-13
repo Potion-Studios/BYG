@@ -108,43 +108,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGPrairieGrass extends BYGPrairieGrassBlock {
-        public BYGPrairieGrass() {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
-                    .sound(SoundType.GRASS)
-                    .noCollission()
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGIceBlock extends IceBlock {
-        public BYGIceBlock() {
-            super(BlockBehaviour.Properties.of(Material.ICE)
-                    .sound(SoundType.GLASS)
-                    .strength(0.2f)
-                    .randomTicks()
-                    .friction(0.98F)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGPackedIceBlock extends Block {
-        public BYGPackedIceBlock() {
-            super(BlockBehaviour.Properties.of(Material.ICE_SOLID)
-                    .sound(SoundType.GLASS)
-                    .strength(0.2f)
-                    .randomTicks()
-                    .friction(0.98F)
-            );
-            
-        }
-    }
-
     public static class BYGFrostMagma extends BYGFrostMagmaBlock {
         public BYGFrostMagma() {
             super(BlockBehaviour.Properties.of(Material.STONE)
@@ -200,19 +163,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.GRAVEL)
                     .strength(0.2f)
                     .speedFactor(0.4F)
-            );
-            
-        }
-    }
-
-    public static class BYGLeafFoilage extends LeafFoliageBlock {
-        public BYGLeafFoilage() {
-            super(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.GRASS)
-                    .strength(0.0F)
-                    .randomTicks()
-                    .sound(SoundType.GRASS)
-                    .noOcclusion()
-                    .noCollission()
             );
             
         }

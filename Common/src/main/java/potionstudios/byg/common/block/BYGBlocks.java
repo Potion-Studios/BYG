@@ -602,7 +602,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> MINI_CACTUS = createDesertPlant("mini_cactus", BYGBlockTags.GROUND_MINI_CACTUS);
     public static final BlockRegistryObject<Block> PRICKLY_PEAR_CACTUS = createDesertPlant("prickly_pear_cactus", BYGBlockTags.GROUND_PRICKLY_PEAR_CACTUS);
     public static final BlockRegistryObject<Block> WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
-    public static final BlockRegistryObject<Block> TALL_PRAIRIE_GRASS = createTallFlower("tall_prairie_grass", BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS);
+    public static final BlockRegistryObject<BYGDoublePlantBlock> TALL_PRAIRIE_GRASS = createBlock(() -> new BYGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS), "tall_prairie_grass");
     public static final BlockRegistryObject<Block> POISON_IVY = createBlock(BYGBlockProperties.BYGPoisonIvy::new, "poison_ivy");
     public static final BlockRegistryObject<Block> SKYRIS_VINE = createBlock(BYGBlockProperties.BYGSkyrisVine::new, "skyris_vine");
     public static final BlockRegistryObject<Block> BLUEBERRY_BUSH = createBlueBerryBush("blueberry_bush");
@@ -685,7 +685,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> IVIS_SPROUT = createIvisBulbisPlant("ivis_sprout");
     public static final BlockRegistryObject<Block> ENDER_LILY = createBlock(BYGBlockProperties.BYGEnderLily::new, "ender_lily");
 
-    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(BYGBlockProperties.BYGLeafFoilage::new, "ether_foliage");
+    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "ether_foliage");
     public static final BlockRegistryObject<Block> TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
     public static final BlockRegistryObject<Block> ETHER_GRASS = createEtherPlant("ether_grass");
     public static final BlockRegistryObject<Block> ETHER_BUSH = createEtherPlant("ether_bush");
@@ -773,8 +773,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> GLOWSTONE_LAMP = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN)), "glowstone_lamp");
     public static final BlockRegistryObject<Block> PERVADED_NETHERRACK = createBlock(BYGBlockProperties.BYGPervadedNetherrack::new, "pervaded_netherrack");
     public static final BlockRegistryObject<Block> GLOWSTONE_LANTERN = createLanternBlock(MaterialColor.TERRACOTTA_PURPLE, "glowstone_lantern");
-    public static final BlockRegistryObject<Block> PACKED_BLACK_ICE = createBlock(BYGBlockProperties.BYGPackedIceBlock::new, "packed_black_ice");
-    public static final BlockRegistryObject<Block> BLACK_ICE = createBlock(BYGBlockProperties.BYGIceBlock::new, "black_ice");
+    public static final BlockRegistryObject<Block> PACKED_BLACK_ICE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)), "packed_black_ice");
+    public static final BlockRegistryObject<Block> BLACK_ICE = createBlock(() -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.ICE)), "black_ice");
     public static final BlockRegistryObject<Block> FROST_MAGMA = createBlock(BYGBlockProperties.BYGFrostMagma::new, "frost_magma");
     public static final BlockRegistryObject<Block> SUBZERO_ASH = createBlock(BYGBlockProperties.BYGSubzeroAsh::new, "subzero_ash");
     public static final BlockRegistryObject<Block> SUBZERO_ASH_BLOCK = createBlock(BYGBlockProperties.BYGSubzeroAshBlock::new, "subzero_ash_block");
@@ -788,8 +788,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> LAMENT_VINE = createBlock(BYGBlockProperties.BYGLamentVine::new, "lament_vine");
     public static final BlockRegistryObject<Block> LAMENT_VINE_PLANT = createBlock(BYGBlockProperties.BYGLamentVinePlant::new, "lament_vine_plant");
 
-    public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(BYGBlockProperties.BYGLeafFoilage::new, "pink_cherry_foliage");
-    public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(BYGBlockProperties.BYGLeafFoilage::new, "white_cherry_foliage");
+    public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "pink_cherry_foliage");
+    public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "white_cherry_foliage");
 
     public static final BlockRegistryObject<Block> WHITE_PETAL = createPetal("white_petal_block");
     public static final BlockRegistryObject<Block> RED_PETAL = createPetal("red_petal_block");
@@ -1155,7 +1155,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> PINK_ALLIUM_FLOWER_BUSH = createFlower("pink_allium_flower_bush", BYGBlockTags.GROUND_PINK_ALLIUM_BUSH, false);
     public static final BlockRegistryObject<Block> PINK_ANEMONE = createFlower("pink_anemone", BYGBlockTags.GROUND_PINK_ANEMONE);
     public static final BlockRegistryObject<Block> PINK_DAFFODIL = createFlower("pink_daffodil", BYGBlockTags.GROUND_PINK_DAFFODIL);
-    public static final BlockRegistryObject<Block> PRAIRIE_GRASS = createBlock(BYGBlockProperties.BYGPrairieGrass::new, "prairie_grass");
+    public static final BlockRegistryObject<Block> PRAIRIE_GRASS = createBlock(() -> new GrassGrowsIntoDoublePlantBlockBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_PRAIRIE_GRASS, () -> BYGBlocks.TALL_PRAIRIE_GRASS.get()), "prairie_grass");
     public static final BlockRegistryObject<Block> PROTEA_FLOWER = createFlower("protea_flower", BYGBlockTags.GROUND_PROTEA_FLOWER);
     public static final BlockRegistryObject<Block> PURPLE_AMARANTH = createFlower("purple_amaranth", BYGBlockTags.GROUND_PURPLE_AMARANTH, false);
     public static final BlockRegistryObject<Block> PURPLE_SAGE = createFlower("purple_sage", BYGBlockTags.GROUND_PURPLE_SAGE);
