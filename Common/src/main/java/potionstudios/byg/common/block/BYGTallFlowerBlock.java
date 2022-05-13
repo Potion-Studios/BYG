@@ -22,11 +22,4 @@ public class BYGTallFlowerBlock extends TallFlowerBlock {
     protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
         return state.is(validGround);
     }
-
-    @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        BlockPos blockpos = pos.below();
-        BlockState blockStateDown = worldIn.getBlockState(blockpos);
-        return state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER ? blockStateDown.is(this) : this.mayPlaceOn(blockStateDown, worldIn, blockpos);
-    }
 }
