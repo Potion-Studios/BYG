@@ -130,15 +130,44 @@ public class BYGSurfaceRules {
             )
     );
 
-    public static final SurfaceRules.RuleSource SWAMP_SURFACE_RULES = SurfaceRules.ifTrue(
-            SurfaceRules.isBiome(BYGBiomes.BAYOU, BYGBiomes.CYPRESS_SWAMPLANDS, BYGBiomes.WHITE_MANGROVE_MARSHES),
-            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
-                    SurfaceRules.ifTrue(Y_IS_62,
-                            SurfaceRules.ifTrue(SurfaceRules.not(Y_IS_63),
-                                    SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D),
-                                            SurfaceRules.state(Blocks.WATER.defaultBlockState())
+    public static final SurfaceRules.RuleSource SEA_LEVEL_WATER_NOISE = SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR,
+            SurfaceRules.ifTrue(Y_IS_62,
+                    SurfaceRules.ifTrue(SurfaceRules.not(Y_IS_63),
+                            SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0.0D),
+                                    SurfaceRules.state(Blocks.WATER.defaultBlockState())
+                            )
+                    )
+            )
+    );
+
+    public static final SurfaceRules.RuleSource BAYOU = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BAYOU), SEA_LEVEL_WATER_NOISE);
+
+    public static final SurfaceRules.RuleSource CYPRESS_MANGROVE = SurfaceRules.ifTrue(
+            SurfaceRules.isBiome(BYGBiomes.CYPRESS_SWAMPLANDS, BYGBiomes.WHITE_MANGROVE_MARSHES),
+            SurfaceRules.sequence(SEA_LEVEL_WATER_NOISE,
+                    SurfaceRules.ifTrue(SurfaceRules.not(WATER_CHECK),
+                            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.sequence(
+                                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75),
+                                                    SurfaceRules.state(Blocks.CLAY.defaultBlockState()
+                                                    )
+                                            ),
+                                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95),
+                                                    SurfaceRules.state(BYGBlocks.MUD_BLOCK.defaultBlockState()
+                                                    )
+                                            ),
+                                            SurfaceRules.state(BYGBlocks.WHITE_SAND.defaultBlockState())
                                     )
                             )
+                    ), SurfaceRules.sequence(
+                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.68), SurfaceRules.sequence(
+                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState())),
+                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))
+                            )),
+                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.77), SurfaceRules.sequence(
+                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState())),
+                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState()))
+                            )),
+                            SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState()))
                     )
             )
     );
@@ -235,7 +264,7 @@ public class BYGSurfaceRules {
             )
     );
 
-    public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(SWAMP_SURFACE_RULES, NOISE_STONE, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, SKYRIS_VALE_SURFACE, HOWLING_PEAKS_SURFACE, ATACAMA_DESERT_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER, RED_ROCK_SURFACE, RAINBOW_BEACH, BASALT_BARRERA));
+    public static final SurfaceRules.RuleSource OVERWORLD_ABOVE_PRELIMINARY_SURFACE = SurfaceRules.ifTrue(SurfaceRules.abovePreliminarySurface(), SurfaceRules.sequence(BAYOU, CYPRESS_MANGROVE, NOISE_STONE, NOISE_PEAT, NOISE_COARSE_DIRT_PODZOL, NOISE_COARSE_DIRT_PEAT, OVERGROWN_STONE, DACITE_RIDGES_SURFACE, SKYRIS_VALE_SURFACE, HOWLING_PEAKS_SURFACE, ATACAMA_DESERT_SURFACE, NOISE_COARSE_DIRT_BIOME_FILTER, MOJAVE_DESERT, LUSH, BLACK_ICE_BANDS, SIERRA_BADLANDS, WINDSWEPT_SAND_BIOME_FILTER, RED_ROCK_SURFACE, RAINBOW_BEACH, BASALT_BARRERA));
     public static final SurfaceRules.RuleSource OVERWORLD_SURFACE_RULES = SurfaceRules.sequence(OVERWORLD_ABOVE_PRELIMINARY_SURFACE);
 
     public static final SurfaceRules.RuleSource BULBIS_PHYCELIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BULBIS_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BULBIS_PHYCELIUM.defaultBlockState())))));

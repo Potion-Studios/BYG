@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.mixin.access.LeavesBlockAccess;
@@ -107,10 +109,10 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
             BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
-            int yDifference = pos.getY() - level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ());
-            if (yDifference > maxTrunkBuildingDepth) {
-                break;   // no more false "failed to place feature"
+            if (!isOnGround(config.maxLogDepth(), level, pos)) {
+                return false; // Exit because all positions are not on ground.
             }
+
         }
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
@@ -134,7 +136,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
         for (StructureTemplate.StructureBlockInfo trunk : logs) {
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
-            level.setBlock(pos, logProvider.getState(random, pos), 2);
+            level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), trunk.state), 2);
         }
 
         int trunkY = 0;
@@ -168,7 +170,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
             for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
                 BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
-                level.setBlock(pos, logProvider.getState(random, pos), 2);
+                level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), canopyLog.state), 2);
             }
 
             List<Runnable> leavesPostApply = new ArrayList<>(leaves.size());
@@ -197,6 +199,37 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             leavesPostApply.forEach(Runnable::run);
         }
         return true;
+    }
+
+    @NotNull
+    private BlockState getTransformedState(BlockState state, BlockState canopyLogState) {
+        for (Property property : state.getProperties()) {
+            if (canopyLogState.hasProperty(property)) {
+                Comparable value = canopyLogState.getValue(property);
+                state = state.setValue(property, value);
+            }
+        }
+        return state;
+    }
+
+    private static boolean isOnGround(int maxLogDepth, WorldGenLevel level, BlockPos pos) {
+        int oceanFloorHeight = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ());
+        if (pos.getY() > oceanFloorHeight) {
+            return pos.getY() - oceanFloorHeight > maxLogDepth;
+        }
+
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
+        int logDepth;
+        for (logDepth = 0; logDepth < maxLogDepth; logDepth++) {
+            mutableBlockPos.move(Direction.DOWN);
+            BlockState blockState = level.getBlockState(mutableBlockPos);
+            // TODO: Use a tag!
+            if (!blockState.getMaterial().isReplaceable()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static BlockPos getModifiedPos(StructurePlaceSettings settings, StructureTemplate.StructureBlockInfo placing, BlockPos partCenter, BlockPos featureOrigin) {
