@@ -2,18 +2,18 @@
   "variants": {
     "": [
       {
-        "model": "byg:block/tiny_lilypads"
+        "model": "byg:block/tiny_lily_pads"
       },
       {
-        "model": "byg:block/tiny_lilypads",
+        "model": "byg:block/tiny_lily_pads",
         "y": 90
       },
       {
-        "model": "byg:block/tiny_lilypads",
+        "model": "byg:block/tiny_lily_pads",
         "y": 180
       },
       {
-        "model": "byg:block/tiny_lilypads",
+        "model": "byg:block/tiny_lily_pads",
         "y": 270
       }
     ]

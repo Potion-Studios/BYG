@@ -62,17 +62,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGLily extends WaterlilyBlock {
-        public BYGLily() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noOcclusion()
-            );
-            
-        }
-    }
-
     public static class BYGEmburLily extends NetherLilyBlock {
         public BYGEmburLily() {
             super(BlockBehaviour.Properties.of(Material.PLANT)
@@ -90,19 +79,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.LILY_PAD)
                     .instabreak()
                     .noOcclusion()
-            );
-            
-        }
-    }
-
-    public static class BYGWaterSilk extends BYGWaterSilkBlock {
-        public BYGWaterSilk() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noOcclusion()
-                    .noCollission()
-
             );
             
         }

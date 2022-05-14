@@ -132,7 +132,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> DAFFODIL_YELLOW = createPlacedFeature("yellow_daffodil", BYGOverworldVegetationFeatures.DAFFODIL_YELLOW, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> JUNGLE_FLOWERS = createPlacedFeature("jungle_flowers", BYGOverworldVegetationFeatures.JUNGLE_FLOWERS, worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> LARGE_PUMPKINS = createPlacedFeature("large_pumpkins", BYGOverworldVegetationFeatures.LARGE_PUMPKINS, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 1)));
-    public static final Holder<PlacedFeature> SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGOverworldVegetationFeatures.SWAMP_WATER_VEGETATION, worldSurfaceSquaredWithCount(25));
+    public static final Holder<PlacedFeature> SWAMP_WATER_VEGETATION = createPlacedFeature("swamp_water_vegetation", BYGOverworldVegetationFeatures.SWAMP_WATER_VEGETATION, worldSurfaceSquaredWithCount(20));
+    public static final Holder<PlacedFeature> WHITE_MANGROVE_SWAMP_WATER_VEGETATION = createPlacedFeature("white_mangrove_swamp_water_vegetation", BYGOverworldVegetationFeatures.WHITE_MANGROVE_SWAMP_WATER_VEGETATION, worldSurfaceSquaredWithCount(15));
 
     public static final Holder<PlacedFeature> MUSHROOMS = createPlacedFeature("mushrooms", BYGOverworldVegetationFeatures.MUSHROOMS, VegetationPlacementsAccess.byg_invokeGetMushroomPlacement(512, null));
     public static final Holder<PlacedFeature> ARAUCARIA_TREES = createPlacedFeature("araucaria_trees", BYGOverworldTreeFeatures.ARAUCARIA_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));

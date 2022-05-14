@@ -170,6 +170,9 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SWAMP_WATER_VEGETATION);
     }
 
+    public static void addWhiteMangroveSwampVegetation(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WHITE_MANGROVE_SWAMP_WATER_VEGETATION);
+    }
 
     public static void addLilyPads(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.TINY_LILY_PAD);

@@ -125,6 +125,8 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.CATTAIL_SPROUT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CATTAIL.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TINY_LILYPADS.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), RenderType.cutoutMipped());
+
         map.put(BYGBlocks.WATER_SILK.get(), RenderType.cutoutMipped());
 
         //Doors

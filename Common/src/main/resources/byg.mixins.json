@@ -57,6 +57,7 @@
     "access.VegetationPlacementsAccess",
     "access.VillagerProfessionAccess",
     "access.VillagerTypeAccess",
+    "access.WaterlilyBlockAccess",
     "access.WeightedEntryWrapperAccess",
     "access.WeightedListAccess",
     "access.WoodButtonBlockAccess",
