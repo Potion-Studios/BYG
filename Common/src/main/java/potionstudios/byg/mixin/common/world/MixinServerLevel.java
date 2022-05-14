@@ -28,7 +28,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
+import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.DuneCache;
 import potionstudios.byg.util.ModPlatform;
@@ -67,7 +69,15 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(SaplingPatterns.getConfig()));
+
         if (this.getServer().isSingleplayer()) {
+            if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
+                if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
+                    serverPlayer.displayClientMessage(new TranslatableComponent("BYG: Configs need updating click either of the highlighted options to update %s or %s", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
+                } else {
+
+                }
+            }
             if (BYGConstants.WARN_EXPERIMENTAL) {
                 final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYGConstants.EXPERIMENTAL_WARNING_VERSION + ".txt");
                 if (BYGUtil.createMarkerFile(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat in this world!")) {

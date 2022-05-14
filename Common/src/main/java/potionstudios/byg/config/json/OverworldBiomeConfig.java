@@ -37,10 +37,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
     });
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
-        builder.group(
-            Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
-        ).apply(builder, OverworldBiomeConfig::new)
+            builder.group(
+                    Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
+                    OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            ).apply(builder, OverworldBiomeConfig::new)
     );
 
     public static final Codec<List<Wrapped<OverworldRegion>>> FROM_OLD_CODEC_LIST = OverworldRegion.OLD_CODEC.listOf().comapFlatMap(biomeProviderDataList -> {
@@ -57,12 +57,16 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
 
     public static final Codec<OverworldBiomeConfig> OLD_CODEC = RecordCodecBuilder.create(builder ->
-        builder.group(
-            Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-            FROM_OLD_CODEC_LIST.fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
-        ).apply(builder, OverworldBiomeConfig::new)
+            builder.group(
+                    Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
+                    FROM_OLD_CODEC_LIST.fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+            ).apply(builder, OverworldBiomeConfig::new)
     );
 
+
+    public static OverworldBiomeConfig getConfig() {
+        return getConfig(false);
+    }
 
     public static OverworldBiomeConfig getConfig(boolean serialize) {
         if (INSTANCE == null || serialize) {

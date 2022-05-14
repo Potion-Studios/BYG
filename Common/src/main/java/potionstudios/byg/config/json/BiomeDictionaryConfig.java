@@ -89,6 +89,10 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
     });
 
 
+    public static BiomeDictionaryConfig getConfig() {
+        return getConfig(false);
+    }
+
     public static BiomeDictionaryConfig getConfig(boolean serialize) {
         if (INSTANCE == null || serialize) {
             INSTANCE = readConfig();

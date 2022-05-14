@@ -20,7 +20,7 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
     public void onTerraBlenderInitialized() {
         BYGFabric.initializeBYG("TerraBlender Initializer");
 
-        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
         if (config.generateOverworld()) {
             config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
         } else {

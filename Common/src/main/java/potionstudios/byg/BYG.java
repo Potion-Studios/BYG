@@ -15,17 +15,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
+import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.structure.WithGenerationStep;
+import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
+import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
+import potionstudios.byg.config.json.BiomeDictionaryConfig;
+import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.registration.RegistryObject;
 import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.util.FileUtils;
 import potionstudios.byg.util.ModPlatform;
 
 import java.io.IOException;
@@ -54,14 +61,21 @@ public class BYG {
         PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
 
         BYGStructureFeature.PROVIDER.getEntries()
-            .stream()
-            .map(RegistryObject::get)
-            .filter(WithGenerationStep.class::isInstance)
-            .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
+                .stream()
+                .map(RegistryObject::get)
+                .filter(WithGenerationStep.class::isInstance)
+                .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
     }
 
     private static void handleConfigs() {
         CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
+        makeREADME();
+        EndBiomesConfig.getConfig(true);
+        NetherBiomesConfig.getConfig(true);
+        SettingsConfig.getConfig(true);
+    }
+
+    private static void makeREADME() {
         try {
             Path configPath = ModPlatform.INSTANCE.configPath();
             Files.createDirectories(configPath);
@@ -69,9 +83,6 @@ public class BYG {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        EndBiomesConfig.getConfig(true);
-        NetherBiomesConfig.getConfig(true);
-        SettingsConfig.getConfig(true);
     }
 
     public static void threadSafeCommonLoad() {
@@ -85,23 +96,23 @@ public class BYG {
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
         builderAccess.byg_setValidBlocks(validBlocks);
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
-            new ImmutableList.Builder<Block>()
-                .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
-                .add(BYGBlocks.EMBUR_GEL_VINES.get())
-                .addAll(Util.make(new ArrayList<>(), list -> {
-                    for (Block block : Registry.BLOCK) {
-                        Material material = block.defaultBlockState().getMaterial();
-                        if (material == Material.PLANT || material == Material.BAMBOO ||
-                            material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
-                            material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
-                            material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
-                            list.add(block);
-                        }
-                    }
-                }))
-                .build()
+                new ImmutableList.Builder<Block>()
+                        .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
+                        .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
+                        .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
+                        .add(BYGBlocks.EMBUR_GEL_VINES.get())
+                        .addAll(Util.make(new ArrayList<>(), list -> {
+                            for (Block block : Registry.BLOCK) {
+                                Material material = block.defaultBlockState().getMaterial();
+                                if (material == Material.PLANT || material == Material.BAMBOO ||
+                                        material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
+                                        material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
+                                        material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
+                                    list.add(block);
+                                }
+                            }
+                        }))
+                        .build()
         );
     }
 
@@ -113,10 +124,28 @@ public class BYG {
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
+        loadAllConfigs(false);
+        FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+    }
+
+    public static void loadAllConfigs(boolean serialize) {
+        EndBiomesConfig.getConfig(serialize);
+        NetherBiomesConfig.getConfig(serialize);
+        OverworldBiomeConfig.getConfig(serialize);
+        BiomeDictionaryConfig.getConfig(serialize);
+        SurfaceRulesConfig.getConfig(serialize);
+        SaplingPatterns.getConfig(serialize);
+        TradesConfig.getConfig(serialize);
+        SettingsConfig.getConfig(serialize);
+        makeREADME();
     }
 
     public static ResourceLocation createLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
+    }
+
+    static {
+        ConfigVersionTracker.getConfig(new ConfigVersionTracker(ModPlatform.INSTANCE.configPath().toFile().exists() ? 0 : BYGConstants.CONFIG_VERSION), false);
     }
 }

@@ -86,7 +86,7 @@ public class BYGForge {
 
     private void registerTerraBlender() {
         try {
-            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
             if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
                 Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
                 if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {
