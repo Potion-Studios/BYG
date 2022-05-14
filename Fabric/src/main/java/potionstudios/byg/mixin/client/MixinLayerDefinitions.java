@@ -21,7 +21,6 @@ public class MixinLayerDefinitions {
 
     @Inject(method = "createRoots", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/BoatModel;createBodyModel()Lnet/minecraft/client/model/geom/builders/LayerDefinition;"), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void createBYGBoatTypeModelRoots(CallbackInfoReturnable<Map<ModelLayerLocation, LayerDefinition>> cir, ImmutableMap.Builder<ModelLayerLocation, LayerDefinition> builder) {
-        final var values = cir.getReturnValue();
-        BYGClient.registerLayerDefinitions((modelLayerLocation, layerDefinitionSupplier) -> values.put(modelLayerLocation, layerDefinitionSupplier.get()));
+        BYGClient.registerLayerDefinitions((modelLayerLocation, layerDefinitionSupplier) -> builder.put(modelLayerLocation, layerDefinitionSupplier.get()));
     }
 }

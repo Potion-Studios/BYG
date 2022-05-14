@@ -122,6 +122,7 @@ dependencies {
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
     library shadow("blue.endless:jankson:${jankson_version}")
 }
+reg.configureJarTask(shadowJar)
 
 mixin {
     add project(":Common").sourceSets.main, "${mod_id}.refmap.json"
