@@ -87,6 +87,9 @@ public class UpdateConfigsCommand {
                         ((ServerKillCountDown) server).setKillCountdown(1200, isSinglePlayerOwner);
                         warnings++;
                     }
+                    default -> {
+                        warnings = 0;
+                    }
                 }
             } else if (argument.equalsIgnoreCase(DISMISS_STRING)) {
                 ConfigVersionTracker.getConfig(configVersionTracker, true);
