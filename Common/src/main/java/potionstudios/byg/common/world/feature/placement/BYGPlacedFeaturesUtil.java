@@ -21,12 +21,16 @@ import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePla
 public class BYGPlacedFeaturesUtil {
     public static final NoiseThresholdCountPlacement CLEARING_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
 
-    public static List<PlacementModifier> clearingTreePlacementBaseOceanFloor(PlacementModifier $$0) {
-        return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(CLEARING_NOISE).add(BiomeFilter.biome()).build();
+    public static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier... $$0) {
+        return treePlacementBaseOceanFloor(OptionalInt.empty(), $$0);
     }
 
-    public static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier... $$0) {
-        return ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_OCEAN_FLOOR).add(BiomeFilter.biome()).build();
+    public static List<PlacementModifier> treePlacementBaseOceanFloor(OptionalInt maxDepth, PlacementModifier... $$0) {
+        ImmutableList.Builder<PlacementModifier> placementModifierBuilder = ImmutableList.<PlacementModifier>builder().add($$0).add(InSquarePlacement.spread()).add(PlacementUtils.HEIGHTMAP_TOP_SOLID).add(BiomeFilter.biome());
+        if (maxDepth.isPresent()) {
+            placementModifierBuilder.add(SurfaceWaterDepthFilter.forMaxDepth(maxDepth.getAsInt()));
+        }
+        return placementModifierBuilder.build();
     }
 
     public static List<PlacementModifier> clearingTreePlacement(PlacementModifier placementModifier) {

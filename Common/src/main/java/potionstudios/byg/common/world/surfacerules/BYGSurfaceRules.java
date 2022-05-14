@@ -163,10 +163,9 @@ public class BYGSurfaceRules {
                                     SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState())),
                                     SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(BYGBlocks.PEAT.defaultBlockState()))
                             )),
-                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.77), SurfaceRules.sequence(
-                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState())),
-                                    SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState()))
-                            )),
+                            SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.77),
+                                    SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.MOSS_BLOCK.defaultBlockState()))
+                            ),
                             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.GRASS_BLOCK.defaultBlockState()))
                     )
             )

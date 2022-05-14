@@ -14,6 +14,7 @@ public class BYGBlockTags {
     public static final List<TagKey<Block>> PLANT_TAGS = new ArrayList<>();
     public static final List<TagKey<Block>> SAND_PLANT_TAGS = new ArrayList<>();
 
+    public static final TagKey<Block> GROUND_MANGROVE_TREE = createDesertPlantTag("ground_mangrove_tree");
 
     public static final TagKey<Block> GROUND_BEACH_GRASS = createDesertPlantTag("ground_beach_grass");
     public static final TagKey<Block> GROUND_TALL_BEACH_GRASS = createDesertPlantTag("ground_tall_beach_grass");

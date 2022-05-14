@@ -10,20 +10,25 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import potionstudios.byg.util.MLBlockTags;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import potionstudios.byg.util.codec.CodecUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 public record TreeFromStructureNBTConfig(ResourceLocation baseLocation, ResourceLocation canopyLocation,
                                          IntProvider height, BlockStateProvider logProvider,
                                          BlockStateProvider leavesProvider, Block logTarget,
-                                         Block leavesTarget, TagKey<Block> growableOn, int maxLogDepth, boolean allowUnderwater) implements FeatureConfiguration {
+                                         Block leavesTarget, TagKey<Block> growableOn,
+                                         int maxLogDepth,
+                                         List<TreeDecorator> treeDecorators) implements FeatureConfiguration {
+
     public TreeFromStructureNBTConfig(ResourceLocation baseLocation, ResourceLocation canopyLocation,
                                       IntProvider height, BlockStateProvider logProvider,
                                       BlockStateProvider leavesProvider, Supplier<? extends Block> logTarget,
-                                      Supplier<? extends Block> leavesTarget, TagKey<Block> growableOn, int maxLogDepth, boolean allowUnderwater) {
-        this(baseLocation, canopyLocation, height, logProvider, leavesProvider, logTarget.get(), leavesTarget.get(), growableOn, maxLogDepth, allowUnderwater);
+                                      Supplier<? extends Block> leavesTarget, TagKey<Block> growableOn, int maxLogDepth, List<TreeDecorator> treeDecorators) {
+        this(baseLocation, canopyLocation, height, logProvider, leavesProvider, logTarget.get(), leavesTarget.get(), growableOn, maxLogDepth, treeDecorators);
     }
 
     public static final Codec<TreeFromStructureNBTConfig> CODEC = RecordCodecBuilder.create(builder ->
@@ -38,8 +43,7 @@ public record TreeFromStructureNBTConfig(ResourceLocation baseLocation, Resource
                                     CodecUtil.BLOCK_CODEC.fieldOf("leaves_target").forGetter(TreeFromStructureNBTConfig::leavesTarget),
                                     TagKey.hashedCodec(Registry.BLOCK_REGISTRY).optionalFieldOf("growable_on", BlockTags.DIRT).forGetter(TreeFromStructureNBTConfig::growableOn),
                                     Codec.INT.optionalFieldOf("max_log_depth", 5).forGetter(TreeFromStructureNBTConfig::maxLogDepth),
-                                    Codec.BOOL.optionalFieldOf("allow_underwater_growth", false).forGetter(TreeFromStructureNBTConfig::allowUnderwater)
-
+                                    TreeDecorator.CODEC.listOf().optionalFieldOf("decorators", new ArrayList<>()).forGetter(TreeFromStructureNBTConfig::treeDecorators)
                             )
                     .apply(builder, TreeFromStructureNBTConfig::new)
     );

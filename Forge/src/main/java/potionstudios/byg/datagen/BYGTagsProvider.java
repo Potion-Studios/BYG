@@ -4,8 +4,10 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -21,25 +23,26 @@ import static potionstudios.byg.common.block.BYGBlocks.*;
 class BYGTagsProvider {
 
     @MethodsReturnNonnullByDefault
-    static final class Blocks extends TagsProvider<Block> {
+    static final class BlocksProvider extends TagsProvider<Block> {
 
-        Blocks(DataGenerator pGenerator, @Nullable ExistingFileHelper existingFileHelper) {
+        BlocksProvider(DataGenerator pGenerator, @Nullable ExistingFileHelper existingFileHelper) {
             super(pGenerator, Registry.BLOCK, BYG.MOD_ID, existingFileHelper);
         }
 
         @Override
         protected void addTags() {
             tag(
-                BYGBlockTags.LUSH,
-                LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
+                    BYGBlockTags.LUSH,
+                    LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
             );
+            tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTag(BlockTags.DIRT).add(MUD_BLOCK.get(), Blocks.CLAY);
 
             final var slabsTag = super.tag(BYGBlockTags.SLABS);
             PROVIDER.getEntries()
-                .stream()
-                .map(RegistryObject::get)
-                .filter(SlabBlock.class::isInstance)
-                .forEach(slabsTag::add);
+                    .stream()
+                    .map(RegistryObject::get)
+                    .filter(SlabBlock.class::isInstance)
+                    .forEach(slabsTag::add);
         }
 
         @SafeVarargs
@@ -50,7 +53,7 @@ class BYGTagsProvider {
 
         @Override
         public String getName() {
-            return "bygblocks";
+            return "BYG Blocks";
         }
     }
 
