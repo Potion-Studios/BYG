@@ -6,10 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -136,7 +133,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
         for (StructureTemplate.StructureBlockInfo trunk : logs) {
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
-            level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), trunk.state), 2);
+            level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), trunk.state, placeSettings.getRotation()), 2);
         }
 
         int trunkY = 0;
@@ -170,7 +167,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
             for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
                 BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
-                level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), canopyLog.state), 2);
+                level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), canopyLog.state, placeSettings.getRotation()), 2);
             }
 
             List<Runnable> leavesPostApply = new ArrayList<>(leaves.size());
@@ -184,10 +181,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
                         BlockState blockState = LeavesBlockAccess.byg_invokeUpdateDistance(state, level, pos);
                         if (blockState.getValue(LeavesBlock.DISTANCE) < LeavesBlock.DECAY_DISTANCE) {
                             level.setBlock(pos, blockState, 2);
-                            // BlockPos below = pos.below();
-                            /*if (level.getBlockState(below).isAir()) {
-                                // Bottom positions here
-                            }*/
+                            level.scheduleTick(pos, blockState.getBlock(), 0);
 
                         } else {
                             level.removeBlock(pos, false);
@@ -202,11 +196,24 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
     }
 
     @NotNull
-    private BlockState getTransformedState(BlockState state, BlockState canopyLogState) {
+    private BlockState getTransformedState(BlockState state, BlockState canopyLogState, Rotation rotation) {
         for (Property property : state.getProperties()) {
             if (canopyLogState.hasProperty(property)) {
                 Comparable value = canopyLogState.getValue(property);
                 state = state.setValue(property, value);
+            }
+        }
+
+        if (state.hasProperty(RotatedPillarBlock.AXIS)) {
+            Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+            if (axis.isHorizontal()) {
+                if (rotation == Rotation.CLOCKWISE_90 || rotation == Rotation.COUNTERCLOCKWISE_90) {
+                    if (axis == Direction.Axis.X) {
+                        state = state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z);
+                    } else if (axis == Direction.Axis.Z) {
+                        state = state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    }
+                }
             }
         }
         return state;
