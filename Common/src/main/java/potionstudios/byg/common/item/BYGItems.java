@@ -15,8 +15,8 @@ import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.mixin.access.HoeItemAccess;
 import potionstudios.byg.mixin.access.PickaxeItemAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1283,7 +1283,7 @@ public class BYGItems {
         return createItem(item, block.getId().getPath());
     }
 
-    public static <T extends Item> potionstudios.byg.registration.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
+    public static <T extends Item> potionstudios.byg.reg.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
         return PROVIDER.register(id, item);
     }
 

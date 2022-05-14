@@ -10,7 +10,7 @@ import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.mixin.access.AdventureAdvancementsAccess;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.List;
 import java.util.function.Consumer;

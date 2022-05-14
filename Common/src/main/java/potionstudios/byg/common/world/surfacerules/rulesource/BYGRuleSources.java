@@ -5,7 +5,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 
 public class BYGRuleSources {
 

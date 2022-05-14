@@ -5,8 +5,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import potionstudios.byg.BYG;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 public class BYGPlacementModifierType {
 

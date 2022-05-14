@@ -13,7 +13,7 @@ import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.function.Supplier;

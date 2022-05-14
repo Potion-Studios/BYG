@@ -36,7 +36,7 @@ import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
@@ -49,7 +49,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Set;
-import java.util.function.BiConsumer;
 
 public class BYG {
 

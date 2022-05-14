@@ -11,8 +11,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.function.Supplier;

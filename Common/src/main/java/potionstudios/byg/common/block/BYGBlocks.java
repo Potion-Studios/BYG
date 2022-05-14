@@ -49,8 +49,8 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMu
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 import potionstudios.byg.mixin.access.*;
-import potionstudios.byg.registration.BlockRegistryObject;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.BlockRegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.CommonSetupLoad;
 
 import java.util.ArrayList;

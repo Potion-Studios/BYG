@@ -5,8 +5,8 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.function.Supplier;
 

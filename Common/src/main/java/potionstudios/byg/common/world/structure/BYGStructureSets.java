@@ -6,7 +6,7 @@ import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import potionstudios.byg.BYG;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 
 import java.util.List;
 import java.util.function.Supplier;
