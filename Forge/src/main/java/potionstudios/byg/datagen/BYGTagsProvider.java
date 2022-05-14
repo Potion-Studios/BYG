@@ -20,6 +20,7 @@ import java.util.function.Supplier;
 
 import static potionstudios.byg.common.block.BYGBlocks.*;
 
+@SuppressWarnings("ALL")
 class BYGTagsProvider {
 
     @MethodsReturnNonnullByDefault
@@ -35,7 +36,7 @@ class BYGTagsProvider {
                     BYGBlockTags.LUSH,
                     LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
             );
-            tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTag(BlockTags.DIRT).add(MUD_BLOCK.get(), Blocks.CLAY);
+            tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTags(BlockTags.DIRT, BlockTags.SAND).add(MUD_BLOCK.get(), Blocks.CLAY);
 
             final var slabsTag = super.tag(BYGBlockTags.SLABS);
             PROVIDER.getEntries()
