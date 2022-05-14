@@ -6,10 +6,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.registration.RegistryObject;
 
 import java.util.Arrays;
 import java.util.function.Supplier;
@@ -31,6 +34,13 @@ class BYGTagsProvider {
                 BYGBlockTags.LUSH,
                 LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
             );
+
+            final var slabsTag = super.tag(BYGBlockTags.SLABS);
+            PROVIDER.getEntries()
+                .stream()
+                .map(RegistryObject::get)
+                .filter(SlabBlock.class::isInstance)
+                .forEach(slabsTag::add);
         }
 
         @SafeVarargs

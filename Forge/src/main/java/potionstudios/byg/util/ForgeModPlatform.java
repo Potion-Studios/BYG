@@ -49,9 +49,4 @@ public class ForgeModPlatform implements ModPlatform {
     public String tagNameSpace() {
         return "forge";
     }
-
-    @Override
-    public boolean isDevEnvironment() {
-        return !FMLLoader.isProduction();
-    }
 }

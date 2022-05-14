@@ -131,8 +131,4 @@ public class BYGBiomes {
         BYGRuleSources.bootStrap();
         VillagerTradeRegistry.register();
     }
-
-    static {
-        BYG.LOGGER.info("BYG Biomes class loaded.");
-    }
 }

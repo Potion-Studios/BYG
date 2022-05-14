@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BYGPotionStudiosMixinPlugin implements IMixinConfigPlugin {
+    private static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
 
     @Override
     public void onLoad(String mixinPackage) {
@@ -22,7 +23,7 @@ public class BYGPotionStudiosMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.contains("potionstudios.byg.mixin.dev")) {
-            return ModPlatform.INSTANCE.isDevEnvironment();
+            return DEV_ENVIRONMENT;
         }
         return true;
     }

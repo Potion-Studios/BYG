@@ -48,8 +48,4 @@ public class FabricModPlatform implements ModPlatform {
         return "c";
     }
 
-    @Override
-    public boolean isDevEnvironment() {
-        return FabricLoader.getInstance().isDevelopmentEnvironment();
-    }
 }
