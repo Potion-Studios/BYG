@@ -16,7 +16,7 @@ import potionstudios.byg.common.block.end.EndStoneGrowable;
 public class MixinBoneMealItem {
 
     @Inject(method = "growCrop", at = @At("HEAD"), cancellable = true)
-    private static void endStoneBoneMeal(ItemStack stack, Level level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private static void byg$endStoneBoneMeal(ItemStack stack, Level level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (level.getBlockState(pos).is(Blocks.END_STONE)) {
             if (level instanceof ServerLevel) {
                 if (EndStoneGrowable.isValidBonemealTarget(level, pos)) {

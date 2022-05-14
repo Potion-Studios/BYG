@@ -6,8 +6,8 @@ import net.minecraft.world.inventory.MenuType;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.HypogealImperiumContainer;
 import potionstudios.byg.mixin.access.MenuTypeAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 public class BYGMenuTypes {
 

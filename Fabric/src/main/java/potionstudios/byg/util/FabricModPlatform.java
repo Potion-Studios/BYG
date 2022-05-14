@@ -47,4 +47,5 @@ public class FabricModPlatform implements ModPlatform {
     public String tagNameSpace() {
         return "c";
     }
+
 }

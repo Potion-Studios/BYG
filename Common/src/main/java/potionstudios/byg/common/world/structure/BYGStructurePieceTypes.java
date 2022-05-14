@@ -4,8 +4,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.structure.arch.ArchPiece;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Locale;
 

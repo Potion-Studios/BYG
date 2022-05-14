@@ -10,7 +10,7 @@ import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.EmeraldFor
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess;
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess;
 import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.SuspiciousStewForEmeraldAccess;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.HashMap;

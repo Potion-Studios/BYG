@@ -19,7 +19,7 @@ import java.util.Random;
 public class MixinSlimeEntity {
 
     @Inject(at = @At("HEAD"), method = "checkSlimeSpawnRules", cancellable = true)
-    private static void injectSwampCategory(EntityType<Slime> entity, LevelAccessor world, MobSpawnType reason, BlockPos withSpawnerPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
+    private static void byg$injectSwampCategory(EntityType<Slime> entity, LevelAccessor world, MobSpawnType reason, BlockPos withSpawnerPos, Random randomIn, CallbackInfoReturnable<Boolean> cir) {
         if (world.getDifficulty() != Difficulty.PEACEFUL) {
             if (Biome.getBiomeCategory(world.getBiome(withSpawnerPos)) == Biome.BiomeCategory.SWAMP && withSpawnerPos.getY() > 50 && withSpawnerPos.getY() < 70 && randomIn.nextFloat() < 0.5F && randomIn.nextFloat() < world.getMoonBrightness() && world.getMaxLocalRawBrightness(withSpawnerPos) <= randomIn.nextInt(8)) {
                 cir.setReturnValue(Mob.checkMobSpawnRules(entity, world, reason, withSpawnerPos, randomIn));

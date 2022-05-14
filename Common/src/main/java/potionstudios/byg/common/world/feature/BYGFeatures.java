@@ -150,8 +150,8 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.Zelkov
 import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.ZelkovaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.ZelkovaTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.function.Supplier;
 

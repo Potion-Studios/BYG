@@ -21,6 +21,8 @@ minecraft {
     }
 }
 
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.4'
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
@@ -30,11 +32,9 @@ dependencies {
 }
 
 processResources {
-
     def buildProps = project.properties.clone()
 
     filesMatching(['pack.mcmeta']) {
-
         expand buildProps
     }
 }

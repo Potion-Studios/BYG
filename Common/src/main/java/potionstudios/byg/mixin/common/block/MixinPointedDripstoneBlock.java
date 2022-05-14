@@ -24,53 +24,36 @@ import java.util.Optional;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
-    @Mixin(PointedDripstoneBlock.class)
-    public class MixinPointedDripstoneBlock {
+@Mixin(PointedDripstoneBlock.class)
+public class MixinPointedDripstoneBlock {
 
-        private static final VoxelShape REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
+    private static final VoxelShape REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
 
-        @Shadow
-        private static boolean canDripThrough(BlockGetter block, BlockPos pos, BlockState state) {
-            if (state.isAir()) {
-                return true;
-            } else if (state.isSolidRender(block, pos)) {
-                return false;
-            } else if (!state.getFluidState().isEmpty()) {
-                return false;
-            } else {
-                VoxelShape shape = state.getCollisionShape(block, pos);
-                return !Shapes.joinIsNotEmpty(REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK, shape, BooleanOp.AND);
-            }
+    @Shadow
+    private static boolean canDripThrough(BlockGetter block, BlockPos pos, BlockState state) {
+        if (state.isAir()) {
+            return true;
+        } else if (state.isSolidRender(block, pos)) {
+            return false;
+        } else if (!state.getFluidState().isEmpty()) {
+            return false;
+        } else {
+            VoxelShape shape = state.getCollisionShape(block, pos);
+            return !Shapes.joinIsNotEmpty(REQUIRED_SPACE_TO_DRIP_THROUGH_NON_SOLID_BLOCK, shape, BooleanOp.AND);
         }
+    }
 
-        @Inject(method = "findFillableCauldronBelowStalactiteTip", at = @At(value = "HEAD"))
-        private static void addBYGCauldron(Level world, BlockPos pos, Fluid fluid, CallbackInfoReturnable<BlockPos> cir) {
-            if (world.getBlockState(pos).is(BYGBlocks.CARVED_BARREL_CACTUS.get())) {
-                Predicate<BlockState> predicate = (block) -> block.getBlock() instanceof CarvedBarrelCactusBlock && ((CarvedBarrelCactusBlock) block.getBlock()).canReceiveStalactiteDrip(fluid);
-                BiPredicate<BlockPos, BlockState> posState = (blockPos, state) -> canDripThrough(world, blockPos, state);
-                cir.setReturnValue(findBlockVertical(world, pos, Direction.DOWN.getAxisDirection(), posState, predicate, 11).orElse(null));
-            } else {
-                cir.getReturnValue();
-            }
+    @Inject(method = "findFillableCauldronBelowStalactiteTip", at = @At(value = "HEAD"), cancellable = true)
+    private static void addBYGCauldron(Level world, BlockPos pos, Fluid fluid, CallbackInfoReturnable<BlockPos> cir) {
+        if (world.getBlockState(pos).is(BYGBlocks.CARVED_BARREL_CACTUS.get())) {
+            Predicate<BlockState> predicate = (block) -> block.getBlock() instanceof CarvedBarrelCactusBlock && ((CarvedBarrelCactusBlock) block.getBlock()).canReceiveStalactiteDrip(fluid);
+            BiPredicate<BlockPos, BlockState> posState = (blockPos, state) -> canDripThrough(world, blockPos, state);
+            cir.setReturnValue(findBlockVertical(world, pos, Direction.DOWN.getAxisDirection(), posState, predicate, 11).orElse(null));
         }
+    }
 
-        @Shadow
-        private static Optional<BlockPos> findBlockVertical(LevelAccessor level, BlockPos pos, Direction.AxisDirection direction, BiPredicate<BlockPos, BlockState> posState, Predicate<BlockState> state, int j) {
-            Direction direction1 = Direction.get(direction, Direction.Axis.Y);
-            BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
-
-            for (int i = 1; i < j; ++i) {
-                blockpos$mutableblockpos.move(direction1);
-                BlockState blockstate = level.getBlockState(blockpos$mutableblockpos);
-                if (state.test(blockstate)) {
-                    return Optional.of(blockpos$mutableblockpos.immutable());
-                }
-
-                if (level.isOutsideBuildHeight(blockpos$mutableblockpos.getY()) || !posState.test(blockpos$mutableblockpos, blockstate)) {
-                    return Optional.empty();
-                }
-            }
-
-            return Optional.empty();
-        }
+    @Shadow
+    private static Optional<BlockPos> findBlockVertical(LevelAccessor level, BlockPos pos, Direction.AxisDirection direction, BiPredicate<BlockPos, BlockState> posState, Predicate<BlockState> state, int j) {
+        throw new UnsupportedOperationException("Mixin did not apply");
+    }
 }

@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
 
 import static net.minecraft.world.level.block.Block.pushEntitiesUp;
@@ -17,8 +18,8 @@ public class MixinFarmBlock {
 
     // Is there a better way to do this?
     @Inject(method = "turnToDirt", at = @At("RETURN"))
-    private static void turnLushToLushDirt(BlockState state, Level level, BlockPos pos, CallbackInfo ci) {
-        if (state.is(BYGBlocks.LUSH_GRASS_BLOCK.get()) || state.is(BYGBlocks.LUSH_GRASS_PATH.get()) || state.is(BYGBlocks.LUSH_FARMLAND.get())) {
+    private static void byg_turnLushToLushDirt(BlockState state, Level level, BlockPos pos, CallbackInfo ci) {
+        if (state.is(BYGBlockTags.LUSH)) {
             level.setBlockAndUpdate(pos, pushEntitiesUp(state, BYGBlocks.LUSH_DIRT.defaultBlockState(), level, pos));
         }
     }
