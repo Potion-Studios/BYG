@@ -47,4 +47,9 @@ public class FabricModPlatform implements ModPlatform {
     public String tagNameSpace() {
         return "c";
     }
+
+    @Override
+    public boolean isDevEnvironment() {
+        return FabricLoader.getInstance().isDevelopmentEnvironment();
+    }
 }

@@ -28,7 +28,6 @@ public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Acce
         this.readBYG(tag);
     }
 
-
     @Override
     public Tag write() {
         return BYGPlayerTrackedData.CODEC.encodeStart(NbtOps.INSTANCE, this.bygPlayerTrackedData).result().orElseThrow();

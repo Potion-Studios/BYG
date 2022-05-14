@@ -1,5 +1,8 @@
 package potionstudios.byg.client;
 
+import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
@@ -8,12 +11,16 @@ import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.gui.screen.HypogealImperiumScreen;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.container.BYGMenuTypes;
+import potionstudios.byg.common.entity.boat.BYGBoatEntity;
+import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 import potionstudios.byg.common.particles.FallingLeafParticle;
 import potionstudios.byg.common.particles.TheriumGlint;
 import potionstudios.byg.mixin.access.client.MenuScreensAccess;
 import potionstudios.byg.util.LangFileGenerator;
 
 import java.nio.file.Paths;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 public class BYGClient {
 
@@ -41,5 +48,11 @@ public class BYGClient {
 
     public interface ParticleStrategy {
         <T extends ParticleOptions> void register(ParticleType<T> particle, ParticleEngine.SpriteParticleRegistration<T> provider);
+    }
+
+    public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
+        for (BYGBoatEntity.BYGType value : BYGBoatEntity.BYGType.values()) {
+            consumer.accept(BYGBoatRenderer.createBoatModelName(value), BoatModel::createBodyModel);
+        }
     }
 }

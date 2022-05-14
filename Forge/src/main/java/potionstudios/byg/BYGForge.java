@@ -82,6 +82,8 @@ public class BYGForge {
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
+
+        BYG.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
     }
 
     private void registerTerraBlender() {

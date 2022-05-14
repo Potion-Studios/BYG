@@ -99,7 +99,7 @@ minecraft {
             jvmArgs runArgs
             workingDirectory project.file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
+            args '--mod', mod_id, '--all', '--output', project(':Common').file('src/generated/resources'), '--existing', project(':Common').file('src/main/resources'), "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             taskName 'Data'
             def output = sourceSets.main.output;
             def commonOutput = project(":Common").sourceSets.main.output;
@@ -107,15 +107,13 @@ minecraft {
 
             mods {
                 modDataRun {
-                    source sourceSets.main
-                    source project(":Common").sourceSets.main
+                    source sourceSets.main as SourceSet
+                    source project(":Common").sourceSets.main as SourceSet
                 }
             }
         }
     }
 }
-
-sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"

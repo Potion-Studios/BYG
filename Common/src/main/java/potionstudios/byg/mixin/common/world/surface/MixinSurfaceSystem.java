@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.BlockColumn;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,13 +23,10 @@ import potionstudios.byg.util.SeedGetter;
 @Mixin(SurfaceSystem.class)
 public abstract class MixinSurfaceSystem implements SeedGetter {
 
-    @Shadow
-    protected abstract void erodedBadlandsExtension(BlockColumn $$0, int $$1, int $$2, int $$3, LevelHeightAccessor $$4);
-
     private long worldSeed;
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void obtainSeed(Registry registry, BlockState state, int $$2, long worldSeed, WorldgenRandom.Algorithm algorithm, CallbackInfo ci) {
+    private void obtainSeed(Registry<NormalNoise.NoiseParameters> registry, BlockState state, int $$2, long worldSeed, WorldgenRandom.Algorithm algorithm, CallbackInfo ci) {
         this.worldSeed = worldSeed;
     }
 
@@ -41,7 +39,7 @@ public abstract class MixinSurfaceSystem implements SeedGetter {
     }
 
     @Override
-    public long getLong() {
+    public long getSeedAsLong() {
         return this.worldSeed;
     }
 }

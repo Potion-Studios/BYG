@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "byg:lush_grass_path",
+    "byg:lush_grass_block",
+    "byg:lush_farmland"
+  ]
+}

@@ -1,6 +1,5 @@
 package potionstudios.byg.mixin.common.entity;
 
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
@@ -23,7 +22,6 @@ import java.util.function.Predicate;
 @Mixin(EatBlockGoal.class)
 public class MixinEatGrassGoal {
 
-
     @Shadow
     @Final
     private Mob mob;
@@ -37,7 +35,7 @@ public class MixinEatGrassGoal {
     private Level level;
 
     @Inject(method = "canUse", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;blockPosition()Lnet/minecraft/core/BlockPos;"), cancellable = true)
-    private void addModdedGrass(CallbackInfoReturnable<Boolean> cir) {
+    private void byg_addModdedGrass(CallbackInfoReturnable<Boolean> cir) {
         BlockPos blockpos = this.mob.blockPosition();
         if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
             cir.setReturnValue(true);
@@ -49,7 +47,7 @@ public class MixinEatGrassGoal {
     }
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/BlockPos;below()Lnet/minecraft/core/BlockPos;"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void addModdedGrassChecks(CallbackInfo ci, BlockPos pos) {
+    private void byg_addModdedGrassChecks(CallbackInfo ci, BlockPos pos) {
         BlockPos blockpos1 = pos.below();
         if (this.level.getBlockState(blockpos1).is(BYGBlocks.LUSH_GRASS_BLOCK.get())) {
             if (this.level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {

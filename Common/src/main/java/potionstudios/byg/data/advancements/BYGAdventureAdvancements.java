@@ -18,11 +18,8 @@ import java.util.stream.Collectors;
 
 public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancement> {
 
-
     @Override
     public void accept(Consumer<Advancement> advancementConsumer, Advancement root) {
-
-
         List<ResourceKey<Biome>> biomes = BYGBiomes.PROVIDER.getEntries()
                 .stream()
                 .map(RegistryObject::getId)

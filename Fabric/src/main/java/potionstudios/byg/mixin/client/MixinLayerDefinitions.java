@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 
@@ -18,11 +19,9 @@ import java.util.Map;
 @Mixin(LayerDefinitions.class)
 public class MixinLayerDefinitions {
 
-
     @Inject(method = "createRoots", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/BoatModel;createBodyModel()Lnet/minecraft/client/model/geom/builders/LayerDefinition;"), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void createBYGBoatTypeModelRoots(CallbackInfoReturnable<Map<ModelLayerLocation, LayerDefinition>> cir, ImmutableMap.Builder<ModelLayerLocation, LayerDefinition> builder) {
-        for (BYGBoatEntity.BYGType value : BYGBoatEntity.BYGType.values()) {
-            builder.put(BYGBoatRenderer.createBoatModelName(value), BoatModel.createBodyModel());
-        }
+        final var values = cir.getReturnValue();
+        BYGClient.registerLayerDefinitions((modelLayerLocation, layerDefinitionSupplier) -> values.put(modelLayerLocation, layerDefinitionSupplier.get()));
     }
 }

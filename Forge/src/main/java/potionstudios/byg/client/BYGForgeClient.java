@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.IConfigEvent;
 import net.minecraftforge.fml.config.ModConfig;
@@ -68,5 +69,7 @@ public class BYGForgeClient {
             }
             return false;
         };
+
+        BYGClient.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition);
     }
 }

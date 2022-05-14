@@ -22,7 +22,7 @@ public class MixinWalkNodeProcessor {
     }
 
     @Inject(method = "getBlockPathTypeRaw", at = @At("RETURN"), cancellable = true)
-    private static void avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir) {
+    private static void byg_avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir) {
         BlockState blockState = blockGetter.getBlockState(blockPos);
         if (blockState.is(BYGBlocks.QUARTZ_CRYSTAL.get())) {
             cir.setReturnValue(BlockPathTypes.DAMAGE_OTHER);

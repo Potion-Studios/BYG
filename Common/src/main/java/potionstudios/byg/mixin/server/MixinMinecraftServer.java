@@ -62,8 +62,8 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     @Shadow
     public abstract PlayerList getPlayerList();
 
-    private long killTime = -1;
-    private boolean killClient = false;
+    private long byg$killTime = -1;
+    private boolean byg$killClient = false;
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
@@ -97,25 +97,26 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
         BYGUtil.useTagReplacements = true;
     }
 
+    @SuppressWarnings("all")
     @Inject(method = "tickServer", at = @At("RETURN"))
     private void displayDisconnectWarning(BooleanSupplier $$0, CallbackInfo ci) {
-        if (killTime > 0) {
-            if (killTime % 100 == 0) {
+        if (byg$killTime > 0) {
+            if (byg$killTime % 100 == 0) {
                 for (ServerPlayer player : getPlayerList().getPlayers()) {
-                    player.displayClientMessage(new TranslatableComponent("Server shutdown in: " + killTime / 20).withStyle(killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
+                    player.displayClientMessage(new TranslatableComponent("Server shutdown in: " + byg$killTime / 20).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
                 }
             }
-            killTime--;
+            byg$killTime--;
 
-            if (killTime == 0) {
-                UpdateConfigsCommand.backupAndKillGameInstance((MinecraftServer) (Object) this, new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), this.killClient);
+            if (byg$killTime == 0) {
+                UpdateConfigsCommand.backupAndKillGameInstance((MinecraftServer) (Object) this, new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), this.byg$killClient);
             }
         }
     }
 
     @Override
     public void setKillCountdown(long killCountdownInTicks, boolean isClient) {
-        this.killTime = killCountdownInTicks;
-        this.killClient = isClient;
+        this.byg$killTime = killCountdownInTicks;
+        this.byg$killClient = isClient;
     }
 }

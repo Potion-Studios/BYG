@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MixinBasaltColumnFeature {
 
     @Inject(at = @At("HEAD"), method = "isAirOrLavaOcean", cancellable = true)
-    private static void injectWater(LevelAccessor world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private static void byg$injectWater(LevelAccessor world, int topY, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (world.dimensionType().hasSkyLight()) {
             cir.cancel();
             BlockState blockstate = world.getBlockState(pos);
@@ -24,7 +24,7 @@ public abstract class MixinBasaltColumnFeature {
     }
 
     @Inject(method = "canPlaceAt", at = @At(value = "TAIL"), cancellable = true)
-    private static void allowWater(LevelAccessor accessor, int y, BlockPos.MutableBlockPos mutableBlockPos, CallbackInfoReturnable<Boolean> cir) {
+    private static void byg$allowWater(LevelAccessor accessor, int y, BlockPos.MutableBlockPos mutableBlockPos, CallbackInfoReturnable<Boolean> cir) {
         if (!cir.getReturnValue()) {
             cir.setReturnValue(accessor.getFluidState(mutableBlockPos).is(FluidTags.WATER));
         }
