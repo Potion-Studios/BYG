@@ -26,9 +26,9 @@ public record ConfigVersionTracker(int configVersion) {
         return getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), false);
     }
 
-    public static ConfigVersionTracker getConfig(ConfigVersionTracker from, boolean serialize) {
+    public static ConfigVersionTracker getConfig(ConfigVersionTracker from, boolean recreate) {
         Path resolve = ModPlatform.INSTANCE.configPath().resolve("config_versions.json5");
-        if (!resolve.toFile().exists() || serialize) {
+        if (!resolve.toFile().exists() || recreate) {
             JanksonUtil.createConfig(resolve, CODEC, JanksonUtil.HEADER_CLOSED, ImmutableMap.of(), JanksonJsonOps.INSTANCE, from);
         }
         try {

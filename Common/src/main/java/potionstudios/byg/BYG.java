@@ -153,6 +153,7 @@ public class BYG {
         SaplingPatterns.getConfig(serialize, recreate);
         TradesConfig.getConfig(serialize, recreate);
         SettingsConfig.getConfig(serialize, recreate);
+        ConfigVersionTracker.getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), recreate);
         makeREADME();
     }
 
