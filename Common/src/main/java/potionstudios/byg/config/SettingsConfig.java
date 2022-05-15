@@ -34,12 +34,12 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
     );
 
     public static SettingsConfig getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static SettingsConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static SettingsConfig getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
@@ -49,10 +49,10 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
         INSTANCE = config;
     }
 
-    private static SettingsConfig readConfig() {
+    private static SettingsConfig readConfig(boolean recreate) {
         final Path path = CONFIG_PATH.get();
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             createConfig(path);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));

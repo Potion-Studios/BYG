@@ -40,12 +40,12 @@ public record TradesConfig(boolean enabled,
     );
 
     public static TradesConfig getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static TradesConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static TradesConfig getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
@@ -55,10 +55,10 @@ public record TradesConfig(boolean enabled,
         INSTANCE = config;
     }
 
-    private static TradesConfig readConfig() {
+    private static TradesConfig readConfig(boolean recreate) {
         final Path path = CONFIG_PATH.get();
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             createConfig(path);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));

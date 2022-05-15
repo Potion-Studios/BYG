@@ -65,12 +65,12 @@ public record OverworldBiomeConfig(boolean generateOverworld,
 
 
     public static OverworldBiomeConfig getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static OverworldBiomeConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static OverworldBiomeConfig getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
@@ -80,7 +80,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         INSTANCE = config;
     }
 
-    private static OverworldBiomeConfig readConfig() {
+    private static OverworldBiomeConfig readConfig(boolean recreate) {
         final Path path = ModPlatform.INSTANCE.configPath().resolve("overworld").resolve("byg-overworld-biomes.json5");
         OverworldBiomeConfig getOldOrDefault = readAndDeleteOldOverworldConfig(ModPlatform.INSTANCE.configPath().resolve("overworld-biomes.json"), OLD_CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
         if (getOldOrDefault != DEFAULT) {
@@ -93,9 +93,9 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         Path biomePickers = path.getParent().resolve("biome_selectors");
 
         try {
-            createDefaultsAndRegister(BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
-            createDefaultsAndRegister(OverworldRegion.BIOME_REGIONS, registry.get("regions"), OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
-            if (!path.toFile().exists()) {
+            createDefaultsAndRegister(recreate, BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
+            createDefaultsAndRegister(recreate, OverworldRegion.BIOME_REGIONS, registry.get("regions"), OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
+            if (!path.toFile().exists() || recreate) {
                 createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
@@ -106,10 +106,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         }
     }
 
-    private static <T> void createDefaultsAndRegister(Map<String, Pair<Map<String, String>, T>> defaults, Map<String, T> registry, Codec<T> codec, FromFileOps<JsonElement> fromFileOps, Path providers) throws IOException {
+    private static <T> void createDefaultsAndRegister(boolean recreate, Map<String, Pair<Map<String, String>, T>> defaults, Map<String, T> registry, Codec<T> codec, FromFileOps<JsonElement> fromFileOps, Path providers) throws IOException {
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
-            if (!registryPath.toFile().exists()) {
+            if (!registryPath.toFile().exists() || recreate) {
                 createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", JanksonUtil.HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
         });

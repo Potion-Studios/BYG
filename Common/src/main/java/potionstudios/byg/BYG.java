@@ -100,9 +100,9 @@ public class BYG {
     private static void handleConfigs() {
         CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
         makeREADME();
-        EndBiomesConfig.getConfig(true);
-        NetherBiomesConfig.getConfig(true);
-        SettingsConfig.getConfig(true);
+        EndBiomesConfig.getConfig();
+        NetherBiomesConfig.getConfig();
+        SettingsConfig.getConfig();
     }
 
     private static void makeREADME() {
@@ -154,20 +154,20 @@ public class BYG {
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
-        loadAllConfigs(false);
+        loadAllConfigs(false, false);
         FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
 
-    public static void loadAllConfigs(boolean serialize) {
-        EndBiomesConfig.getConfig(serialize);
-        NetherBiomesConfig.getConfig(serialize);
-        OverworldBiomeConfig.getConfig(serialize);
-        BiomeDictionaryConfig.getConfig(serialize);
-        SurfaceRulesConfig.getConfig(serialize);
-        SaplingPatterns.getConfig(serialize);
-        TradesConfig.getConfig(serialize);
-        SettingsConfig.getConfig(serialize);
+    public static void loadAllConfigs(boolean serialize, boolean recreate) {
+        EndBiomesConfig.getConfig(serialize, recreate, null);
+        NetherBiomesConfig.getConfig(serialize, recreate, null);
+        OverworldBiomeConfig.getConfig(serialize, recreate);
+        BiomeDictionaryConfig.getConfig(serialize, recreate);
+        SurfaceRulesConfig.getConfig(serialize, recreate);
+        SaplingPatterns.getConfig(serialize, recreate);
+        TradesConfig.getConfig(serialize, recreate);
+        SettingsConfig.getConfig(serialize, recreate);
         makeREADME();
     }
 

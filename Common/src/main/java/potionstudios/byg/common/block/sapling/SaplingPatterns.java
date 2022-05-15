@@ -489,12 +489,12 @@ public record SaplingPatterns(boolean logSaplingGrowth, Map<ResourceLocation, Li
 
 
     public static SaplingPatterns getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static SaplingPatterns getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static SaplingPatterns getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
         return INSTANCE;
     }
@@ -503,10 +503,10 @@ public record SaplingPatterns(boolean logSaplingGrowth, Map<ResourceLocation, Li
         SaplingPatterns.INSTANCE = instance;
     }
 
-    private static SaplingPatterns readConfig() {
+    private static SaplingPatterns readConfig(boolean recreate) {
         final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-sapling-patterns.json");
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();
 
             try {

@@ -105,7 +105,7 @@ public class UpdateConfigsCommand {
         Path backUpPath = FileUtils.backUpDirectory(directory);
         //noinspection ConstantConditions
         FileUtils.deleteDirectory(directory, path -> !path.equals(backUpPath) && !(path.toFile().isDirectory() && path.toFile().listFiles().length > 0));
-        BYG.loadAllConfigs(true);
+        BYG.loadAllConfigs(true, true);
         if (server.isSingleplayer() && isSinglePlayerOwner) {
             KillClient.kill();
         } else {
