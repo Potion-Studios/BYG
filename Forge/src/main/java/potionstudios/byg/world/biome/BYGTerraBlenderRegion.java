@@ -43,6 +43,8 @@ public class BYGTerraBlenderRegion extends Region {
             _2DResourceKeyArrayTo2DList(overworldRegion.beachBiomes().value()),
             _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomes().value()),
             _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomesVariant().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomes().value()),
+            _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomesVariant().value()),
             overworldRegion.swapper());
     }
 
@@ -51,7 +53,7 @@ public class BYGTerraBlenderRegion extends Region {
                                  ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
                                  ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
                                  ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
-                                 ResourceKey<Biome>[][] peakBiomesVariant,
+                                 ResourceKey<Biome>[][] peakBiomesVariant, ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant,
                                  Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         super(BYG.createLocation("region_" + count++), RegionType.OVERWORLD, overworldWeight);
         this.swapper = swapper;
@@ -64,12 +66,14 @@ public class BYGTerraBlenderRegion extends Region {
         shatteredBiomes = filter("shattered_biomes", this.getName(), count, shatteredBiomes, noVoidBiomes, false);
         beachBiomes = filter("beach_biomes", this.getName(), count, beachBiomes, noVoidBiomes, true);
         peakBiomes = filter("peak_biomes", this.getName(), count, peakBiomes, noVoidBiomes, true);
-        peakBiomesVariant = filter("peak_biomes_variant", this.getName(), count, peakBiomesVariant, noVoidBiomes, true);
+        peakBiomesVariant = filter("peak_biomes_variant", this.getName(), count, peakBiomesVariant, noVoidBiomes, false);
+        slopeBiomes = filter("slope_biomes", this.getName(), count, slopeBiomes, noVoidBiomes, true);
+        slopeBiomesVariant = filter("slope_biomes_variant", this.getName(), count, slopeBiomesVariant, noVoidBiomes, false);
 
         this.bygOverworldBiomeBuilder = new BYGOverworldBiomeBuilder(
             oceans, middleBiomes, middleBiomesVariant,
             plateauBiomes, plateauBiomesVariant, shatteredBiomes,
-            beachBiomes, peakBiomes, peakBiomesVariant
+            beachBiomes, peakBiomes, peakBiomesVariant, slopeBiomes, slopeBiomesVariant
         );
 
         dumpArrays((biomeResourceKey -> {

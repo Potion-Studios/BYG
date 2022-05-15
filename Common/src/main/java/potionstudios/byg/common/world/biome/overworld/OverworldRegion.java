@@ -30,44 +30,50 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                               Wrapped<List<List<ResourceKey<Biome>>>> beachBiomes,
                               Wrapped<List<List<ResourceKey<Biome>>>> peakBiomes,
                               Wrapped<List<List<ResourceKey<Biome>>>> peakBiomesVariant,
+                              Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomes,
+                              Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomesVariant,
                               Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
     public static final Codec<OverworldRegion> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(Codec.INT.fieldOf("weight").forGetter(overworldRegion -> overworldRegion.overworldWeight),
-            BIOME_LAYOUT_CODEC.fieldOf("ocean_biomes").forGetter(overworldRegion -> overworldRegion.oceans),
-            BIOME_LAYOUT_CODEC.fieldOf("middle_biomes").forGetter(overworldRegion -> overworldRegion.middleBiomes),
-            BIOME_LAYOUT_CODEC.fieldOf("middle_biomes_variant").forGetter(overworldRegion -> overworldRegion.middleBiomesVariant),
-            BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes").forGetter(overworldRegion -> overworldRegion.plateauBiomes),
-            BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes_variant").forGetter(overworldRegion -> overworldRegion.plateauBiomesVariant),
-            BIOME_LAYOUT_CODEC.fieldOf("shattered_biomes").forGetter(overworldRegion -> overworldRegion.extremeHills),
-            BIOME_LAYOUT_CODEC.fieldOf("beach_biomes").orElse(BEACH_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.beachBiomes),
-            BIOME_LAYOUT_CODEC.fieldOf("peak_biomes").orElse(PEAK_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomes),
-            BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant),
-            Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
-                if (!resourceLocation.getNamespace().equals("minecraft")) {
-                    throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
-                }
-                return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
-            }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
+                BIOME_LAYOUT_CODEC.fieldOf("ocean_biomes").forGetter(overworldRegion -> overworldRegion.oceans),
+                BIOME_LAYOUT_CODEC.fieldOf("middle_biomes").forGetter(overworldRegion -> overworldRegion.middleBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("middle_biomes_variant").forGetter(overworldRegion -> overworldRegion.middleBiomesVariant),
+                BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes").forGetter(overworldRegion -> overworldRegion.plateauBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes_variant").forGetter(overworldRegion -> overworldRegion.plateauBiomesVariant),
+                BIOME_LAYOUT_CODEC.fieldOf("shattered_biomes").forGetter(overworldRegion -> overworldRegion.extremeHills),
+                BIOME_LAYOUT_CODEC.fieldOf("beach_biomes").orElse(BEACH_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.beachBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("peak_biomes").orElse(PEAK_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant),
+                BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant),
+                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
+                    if (!resourceLocation.getNamespace().equals("minecraft")) {
+                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
+                    }
+                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
+                }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::new);
     });
 
     public static final Codec<OverworldRegion> OLD_CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(Codec.INT.fieldOf("weight").forGetter(overworldRegion -> overworldRegion.overworldWeight),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("oceans").forGetter(overworldRegion -> overworldRegion.oceans.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("middle_biomes").forGetter(overworldRegion -> overworldRegion.middleBiomes.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("middle_biomes_variant").forGetter(overworldRegion -> overworldRegion.middleBiomesVariant.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes").forGetter(overworldRegion -> overworldRegion.plateauBiomes.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes_variant").forGetter(overworldRegion -> overworldRegion.plateauBiomesVariant.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("shattered_biomes").forGetter(overworldRegion -> overworldRegion.extremeHills.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("beach_biomes").orElse(BEACH_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.beachBiomes.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes").orElse(PEAK_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomes.value()),
-            OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant.value()),
-            Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
-                if (!resourceLocation.getNamespace().equals("minecraft")) {
-                    throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
-                }
-                return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
-            }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("oceans").forGetter(overworldRegion -> overworldRegion.oceans.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("middle_biomes").forGetter(overworldRegion -> overworldRegion.middleBiomes.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("middle_biomes_variant").forGetter(overworldRegion -> overworldRegion.middleBiomesVariant.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes").forGetter(overworldRegion -> overworldRegion.plateauBiomes.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("plateau_biomes_variant").forGetter(overworldRegion -> overworldRegion.plateauBiomesVariant.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("shattered_biomes").forGetter(overworldRegion -> overworldRegion.extremeHills.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("beach_biomes").orElse(BEACH_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.beachBiomes.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes").orElse(PEAK_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomes.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomes.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
+                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
+                    if (!resourceLocation.getNamespace().equals("minecraft")) {
+                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
+                    }
+                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
+                }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::fromOldCodec);
     });
 
@@ -80,18 +86,22 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                                                 List<List<ResourceKey<Biome>>> beachBiomes,
                                                 List<List<ResourceKey<Biome>>> peakBiomes,
                                                 List<List<ResourceKey<Biome>>> peakBiomesVariant,
+                                                List<List<ResourceKey<Biome>>> slopeBiomes,
+                                                List<List<ResourceKey<Biome>>> slopeBiomesVariant,
                                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         return new OverworldRegion(overworldWeight,
-            checkForMatching(oceans),
-            checkForMatching(middleBiomes),
-            checkForMatching(middleBiomesVariant),
-            checkForMatching(plateauBiomes),
-            checkForMatching(plateauBiomesVariant),
-            checkForMatching(extremeHills),
-            checkForMatching(beachBiomes),
-            checkForMatching(peakBiomes),
-            checkForMatching(peakBiomesVariant),
-            swapper
+                checkForMatching(oceans),
+                checkForMatching(middleBiomes),
+                checkForMatching(middleBiomesVariant),
+                checkForMatching(plateauBiomes),
+                checkForMatching(plateauBiomesVariant),
+                checkForMatching(extremeHills),
+                checkForMatching(beachBiomes),
+                checkForMatching(peakBiomes),
+                checkForMatching(peakBiomesVariant),
+                checkForMatching(slopeBiomes),
+                checkForMatching(slopeBiomesVariant),
+                swapper
         );
     }
 
@@ -164,28 +174,28 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
         new OverworldRegion(OVERWORLD_WEIGHT,
             OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
                 PLATEAU_BIOMES_VANILLA, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA,
-            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, Biomes.SWAMP)))
+            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+            new IdentityHashMap<>())
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
         new OverworldRegion(OVERWORLD_WEIGHT,
             OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
             PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
             Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
     );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
         new OverworldRegion(OVERWORLD_WEIGHT,
             OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
             PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
             Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
     );
     public static final Wrapped<OverworldRegion> REGION_4 = create("region_4",
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
 

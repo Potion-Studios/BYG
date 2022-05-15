@@ -54,27 +54,29 @@ public class BYGOverworldBiomeSelectors {
             In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "middle_biomes" will be used instead.
             """;
 
+    private static String invalidKeysOkay(String fallback) {
+        return String.format("""
+            All keys passed in must be valid in the biome registry!
+            In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "%s" will be used instead.
+            """, fallback);
+    }
+
     public static final String PEAK_BIOMES_LAYOUT = "Appearing on mountainous terrain & BELOW weirdness 0, here is the \"peak_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
-    public static final String PEAK_BIOMES_VARIANT_LAYOUT = "Appearing on mountainous terrain & ABOVE weirdness 0, here is the \"peak_biome_variants\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
+    public static final String SLOPE_BIOMES_LAYOUT = "Appearing on sloped terrain, near mountainous terrain, & BELOW weirdness 0, here is the \"slope_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
+    public static final String SLOPE_BIOMES_VARIANT_LAYOUT = "Appearing on sloped terrain, near mountainous terrain, & ABOVE weirdness 0, here is the \"slope_biome_variants\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("slope_biomes");
+
+    public static final String PEAK_BIOMES_VARIANT_LAYOUT = "Appearing on mountainous terrain & ABOVE weirdness 0, here is the \"peak_biome_variants\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("slope_biomes");
 
     public static final String OCEANS_BIOMES_LAYOUT_COMMENT = "Appearing on terrain below sea level, here is the \"ocean_biomes\" layout:\n" + OCEAN_BIOMES_LAYOUT + REQUIRES_VALID_KEYS;
 
     public static final String PLATEAU_BIOMES_LAYOUT = "Appearing on elevated flat terrain BELOW weirdness 0 or in unfilled(\"NULL(nothing)\") spots in \"plateau_biome_variants\", here is the \"plateau_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
-    public static final String PLATEAU_BIOMES_VARIANT_LAYOUT = "Appearing on elevated flat terrain ABOVE weirdness 0, here is the \"plateau_biomes\" layout:\n" + BIOME_LAYOUT +
-        """
-            All keys passed in must be valid in the biome registry!
-            In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "plateau_biomes" will be used instead.
-            """;
+    public static final String PLATEAU_BIOMES_VARIANT_LAYOUT = "Appearing on elevated flat terrain ABOVE weirdness 0, here is the \"plateau_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("plateau_biomes");
 
     public static final String MIDDLE_BIOMES_LAYOUT = "Appearing on terrain BELOW weirdness 0 or in unfilled(\"NULL(nothing)\") spots in \"middle_biomes_variants\", here is the \"middle_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
-    public static final String MIDDLE_BIOMES_VARIANT_LAYOUT = "Appearing on terrain ABOVE weirdness 0, here is the \"middle_biomes_variant\" layout:\n" + BIOME_LAYOUT +
-        """
-            All keys passed in must be valid in the biome registry!
-            In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity index in "middle_biomes" will be used instead.
-            """;
+    public static final String MIDDLE_BIOMES_VARIANT_LAYOUT = "Appearing on terrain ABOVE weirdness 0, here is the \"middle_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("middle_biomes");
 
     public static final String BEACH_BIOMES_LAYOUT = "Appearing on terrain bordering oceans, here is the \"beach_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
@@ -157,6 +159,22 @@ public class BYGOverworldBiomeSelectors {
             {BYGBiomes.CANADIAN_SHIELD, BYGBiomes.CANADIAN_SHIELD, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES},
             {BYGBiomes.CANADIAN_SHIELD, BYGBiomes.CANADIAN_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.GUIANA_SHIELD},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+    });
+
+    protected static final Wrapped<List<List<ResourceKey<Biome>>>> SLOPE_BIOMES_VANILLA = create("slope_biomes/slope_biomes_vanilla", SLOPE_BIOMES_LAYOUT, new ResourceKey[][]{
+            {Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_PLAINS, Biomes.SNOWY_TAIGA, Biomes.SNOWY_TAIGA},
+            {Biomes.MEADOW, Biomes.MEADOW, Biomes.FOREST, Biomes.TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA},
+            {Biomes.MEADOW, Biomes.MEADOW, Biomes.MEADOW, Biomes.MEADOW, Biomes.DARK_FOREST},
+            {Biomes.SAVANNA_PLATEAU, Biomes.SAVANNA_PLATEAU, BYGBiomes.RED_OAK_FOREST, Biomes.FOREST, Biomes.JUNGLE},
+            {Biomes.SNOWY_SLOPES, Biomes.SNOWY_SLOPES, Biomes.GROVE, Biomes.GROVE, Biomes.GROVE}
+    });
+
+    protected static final Wrapped<List<List<ResourceKey<Biome>>>> SLOPE_BIOMES_VARIANT_VANILLA = create("slope_biomes_variant/slope_biomes_variant_vanilla", SLOPE_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
+            {Biomes.ICE_SPIKES, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.MEADOW, Biomes.MEADOW, Biomes.OLD_GROWTH_PINE_TAIGA},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.SNOWY_SLOPES, Biomes.SNOWY_SLOPES, Biomes.GROVE, Biomes.GROVE, Biomes.GROVE}
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> OCEANS = create("oceans/oceans_1", OCEANS_BIOMES_LAYOUT_COMMENT, new ResourceKey[][]{

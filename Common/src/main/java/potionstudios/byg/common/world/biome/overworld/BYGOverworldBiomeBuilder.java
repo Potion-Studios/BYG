@@ -11,12 +11,15 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     private final ResourceKey<Biome>[][] beachBiomes;
     private final ResourceKey<Biome>[][] peakBiomes;
     private final ResourceKey<Biome>[][] peakBiomesVariant;
+    private final ResourceKey<Biome>[][] slopeBiomes;
+    private final ResourceKey<Biome>[][] slopeBiomesVariant;
 
     public BYGOverworldBiomeBuilder(ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
                                     ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
                                     ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
-                                    ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
-                                    ResourceKey<Biome>[][] peakBiomesVariant) {
+                                    ResourceKey<Biome>[][] beachBiomes,
+                                    ResourceKey<Biome>[][] peakBiomes, ResourceKey<Biome>[][] peakBiomesVariant,
+                                    ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant) {
         OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) this;
         overworldBiomeBuilderAccess.byg_setOCEANS(oceans);
         overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES(middleBiomes);
@@ -27,6 +30,8 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
         this.beachBiomes = beachBiomes;
         this.peakBiomes = peakBiomes;
         this.peakBiomesVariant = peakBiomesVariant;
+        this.slopeBiomes = slopeBiomes;
+        this.slopeBiomesVariant = slopeBiomesVariant;
     }
 
     @Override
@@ -36,6 +41,23 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
 
     @Override
     public ResourceKey<Biome> pickPeakBiome(int temp, int humidity, Climate.Parameter weirdness) {
-        return weirdness.max() < 0L ? peakBiomes[temp][humidity] : peakBiomesVariant[temp][humidity];
+        ResourceKey<Biome> peakBiome = this.peakBiomes[temp][humidity];
+        if (weirdness.max() < 0L) {
+            return peakBiome;
+        } else {
+            ResourceKey<Biome> peakVariant = peakBiomes[temp][humidity];
+            return peakVariant == null ? peakBiome : peakVariant;
+        }
+    }
+
+    @Override
+    protected ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
+        ResourceKey<Biome> slopeBiome = this.slopeBiomes[temp][humidity];
+        if (weirdness.max() < 0L) {
+            return slopeBiome;
+        } else {
+            ResourceKey<Biome> slopeVariant = slopeBiomesVariant[temp][humidity];
+            return slopeVariant == null ? slopeBiome : slopeVariant;
+        }
     }
 }
