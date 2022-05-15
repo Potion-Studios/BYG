@@ -83,6 +83,7 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", BYGOverworldBiomes::windsweptBeach);
     public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BYGOverworldBiomes::rainbowBeach);
     public static final ResourceKey<Biome> BASALT_BARRERA = createBiome("basalt_barrera", BYGOverworldBiomes::basaltBarrera);
+    public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BYGOverworldBiomes::daciteShore);
 
 
     /************Nether Biomes************/
