@@ -45,7 +45,7 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
         if (weirdness.max() < 0L) {
             return peakBiome;
         } else {
-            ResourceKey<Biome> peakVariant = peakBiomes[temp][humidity];
+            ResourceKey<Biome> peakVariant = peakBiomesVariant[temp][humidity];
             return peakVariant == null ? peakBiome : peakVariant;
         }
     }
