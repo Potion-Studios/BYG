@@ -1,17 +1,20 @@
 package potionstudios.byg.client.gui.biomepedia1;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.FastColor;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import potionstudios.byg.BYG;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -24,7 +27,7 @@ public class ItemsViewScreen extends Screen {
     int rightPos;
     int topPos;
     int page;
-    int maxPageCount;
+    int maxPagePairCount;
 
     ItemWidget[][][][] items;
 
@@ -44,21 +47,21 @@ public class ItemsViewScreen extends Screen {
 
         PageButton pageBack = new PageButton(this.leftPos + 5, this.topPos - 10, false, button -> {
             unload(page);
-            this.page = page == 0 ? maxPageCount - 1 : (page - 1) % maxPageCount;
+            this.page = page == 0 ? maxPagePairCount - 1 : (page - 1) % maxPagePairCount;
             load(this.page);
         }, true);
         this.addRenderableWidget(pageBack);
-        pageBack.x = this.leftPos;
-        pageBack.y = this.topPos - pageBack.getHeight() - 10;
+        pageBack.x = this.leftPos + 15;
+        pageBack.y = this.topPos - pageBack.getHeight() - 13;
 
         PageButton pageForward = new PageButton(this.rightPos - 5, this.topPos - 10, true, button -> {
             unload(page);
-            this.page = (page + 1) % maxPageCount;
+            this.page = (page + 1) % maxPagePairCount;
             load(this.page);
         }, true);
         this.addRenderableWidget(pageForward);
-        pageForward.x = this.rightPos - pageBack.getWidth();
-        pageForward.y = this.topPos - pageBack.getHeight() - 10;
+        pageForward.x = this.rightPos - pageBack.getWidth() - 22;
+        pageForward.y = this.topPos - pageBack.getHeight() - 13;
     }
 
     private void createMenu() {
@@ -68,8 +71,8 @@ public class ItemsViewScreen extends Screen {
     private void createMenu(Predicate<Item> filter, int rowLength, int columnLength) {
         Item[] bygItems = Registry.ITEM.stream().filter(filter).toArray(Item[]::new);
 
-        this.maxPageCount = (bygItems.length / (rowLength * columnLength)) / 2 + 1;
-        items = new ItemWidget[maxPageCount][2][columnLength][rowLength];
+        this.maxPagePairCount = (bygItems.length / (rowLength * columnLength)) / 2 + 1;
+        items = new ItemWidget[maxPagePairCount][2][columnLength][rowLength];
         int registryIdx = 0;
         int width = 17;
         int buttonSize = width - 2;
@@ -80,9 +83,9 @@ public class ItemsViewScreen extends Screen {
                 ItemWidget[][] page = pagePair[pageSide];
                 int yOffset = this.bottomPos + offsetFromEdge;
                 for (ItemWidget[] row : page) {
-                    int xOffset = this.leftPos + offsetFromEdge;
+                    int xOffset = this.leftPos + offsetFromEdge + 4;
                     for (int columnIdx = 0; columnIdx < row.length; columnIdx++) {
-                        int startX = (this.imageWidth / 2) * pageSide;
+                        int startX = ((this.imageWidth / 2) - 8) * pageSide;
                         if (registryIdx > bygItems.length - 1) {
                             break;
                         }
@@ -105,12 +108,17 @@ public class ItemsViewScreen extends Screen {
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         this.renderBackground(poseStack);
-        GuiComponent.fill(poseStack, this.leftPos, this.bottomPos, rightPos, topPos, FastColor.ARGB32.color(255, 220, 220, 220));
-        GuiComponent.fill(poseStack, (this.leftPos + (this.imageWidth) / 2) - 2, this.bottomPos, (this.leftPos + (this.imageWidth) / 2) + 2, topPos, FastColor.ARGB32.color(255, 255, 0, 0));
+        RenderSystem.setShaderTexture(0, BiomepediaScreen.BIOMEPEDIA_LOCATION);
+
+        blit(poseStack, this.leftPos, this.bottomPos, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
         super.render(poseStack, mouseX, mouseY, partialTick);
         forEach(items, itemWidget -> {
             if (itemWidget.isMouseOver(mouseX, mouseY)) {
-                this.renderTooltip(poseStack, itemWidget.stack.getHoverName(), mouseX, mouseY);
+                List<Component> tooltipLines = itemWidget.stack.getTooltipLines(Minecraft.getInstance().player, this.minecraft.options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL);
+                if (itemWidget.hasAdditonalInfo) {
+                    tooltipLines.add(1, new TextComponent("Click for more info"));
+                }
+                this.renderTooltip(poseStack, tooltipLines, itemWidget.stack.getTooltipImage(), mouseX, mouseY);
             }
         });
     }

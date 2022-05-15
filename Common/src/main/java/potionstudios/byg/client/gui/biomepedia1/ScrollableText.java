@@ -28,7 +28,7 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
 
     @Override
     protected int getScrollbarPosition() {
-        return this.x1 - 6;
+        return this.x1;
     }
 
     @Override
