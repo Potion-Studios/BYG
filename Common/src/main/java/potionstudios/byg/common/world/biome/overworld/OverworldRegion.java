@@ -162,57 +162,36 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
     public static final Wrapped<OverworldRegion> REGION_1 = create("region_1",
         new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS, MIDDLE_BIOMES, MIDDLE_BIOMES_VARIANT,
-            PLATEAU_BIOMES, PLATEAU_BIOMES_VARIANT, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
-            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
+            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
+                PLATEAU_BIOMES_VANILLA, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA,
+            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, Biomes.SWAMP)))
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
         new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_2, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_2,
-            PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_2, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
+            OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
+            PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
             Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
     );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
         new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_3,
-            PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
+            OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
+            PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
             Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
     );
     public static final Wrapped<OverworldRegion> REGION_4 = create("region_4",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_4, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_1,
-            new IdentityHashMap<>())
+            new OverworldRegion(OVERWORLD_WEIGHT,
+                    OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
+                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
-    public static final Wrapped<OverworldRegion> REGION_5 = create("region_5",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_5, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA,
-            new IdentityHashMap<>())
-    );
-    public static final Wrapped<OverworldRegion> REGION_6 = create("region_6",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_6, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA,
-            new IdentityHashMap<>())
-    );
-    public static final Wrapped<OverworldRegion> REGION_7 = create("region_7",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_7, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA,
-            new IdentityHashMap<>())
-    );
+
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
         ImmutableList.of(
-            REGION_1, REGION_2, REGION_3, REGION_4,
-            REGION_5, REGION_6, REGION_7
+            REGION_1, REGION_2, REGION_3, REGION_4
         );
 
     private static Wrapped<OverworldRegion> create(String id, OverworldRegion overworldRegion) {
