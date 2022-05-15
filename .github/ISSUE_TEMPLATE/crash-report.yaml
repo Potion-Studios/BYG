@@ -24,7 +24,12 @@ body:
     id: mod-version
     attributes:
       label: BYG Versions
-      description: What version of the mod are you using?
+      description: |
+        What version of the mod are you using? Make sure you are using the latest version available!
+        Latest version downloads can be found here: 
+        Forge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go/files
+        Fabric: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files
+        Quilt/Other Mod loaders: N/A
       placeholder: ex. 1.2.1
     validations:
       required: true
