@@ -35,7 +35,7 @@ public abstract class MixinSurfaceSystem implements SeedGetter {
 
     @Inject(method = "buildSurface", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/Holder;is(Lnet/minecraft/resources/ResourceKey;)Z", shift = At.Shift.BEFORE, ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
     private void addBYGErodedBadlandsExtension(BiomeManager $$0, Registry<Biome> $$1, boolean $$2, WorldGenerationContext $$3, ChunkAccess $$4, NoiseChunk $$5, SurfaceRules.RuleSource $$6, CallbackInfo ci, BlockPos.MutableBlockPos $$7, ChunkPos $$8, int $$9, int $$10, BlockColumn blockColumn, SurfaceRules.Context $$12, SurfaceRules.SurfaceRule $$13, BlockPos.MutableBlockPos $$14, int $$15, int $$16, int $$17, int $$18, int $$19, Holder<Biome> biome) {
-        if (biome.is(BYGBiomes.SHATTERED_GLACIER)) {
+        if (biome.is(BYGBiomes.SHATTERED_GLACIER) || biome.is(BYGBiomes.SIERRA_BADLANDS)) {
             this.erodedBadlandsExtension(blockColumn, $$17, $$18, $$19, $$4);
         }
     }
