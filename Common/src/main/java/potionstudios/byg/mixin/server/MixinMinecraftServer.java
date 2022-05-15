@@ -88,7 +88,7 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
+            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig().generateOverworld()) { // We add our surface rules through Terrablender's API.
                 appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
             appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);

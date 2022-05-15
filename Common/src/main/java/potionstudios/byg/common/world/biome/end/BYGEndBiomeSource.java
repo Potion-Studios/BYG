@@ -93,7 +93,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     @NotNull
     private static List<Holder<Biome>> getPossibleBiomes(Registry<Biome> biomeRegistry) {
-        EndBiomesConfig config = EndBiomesConfig.getConfig(true, biomeRegistry);
+        EndBiomesConfig config = EndBiomesConfig.getConfig(true, false, biomeRegistry);
 
         Set<String> missingBiomes = new TreeSet<>();
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> {

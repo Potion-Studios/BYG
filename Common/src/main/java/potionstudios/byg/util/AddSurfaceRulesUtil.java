@@ -34,7 +34,7 @@ public class AddSurfaceRulesUtil {
         boolean hasBYGBiome = chunkGenerator.getBiomeSource().possibleBiomes().stream().anyMatch(biomeHolder -> biomeHolder.unwrapKey().orElseThrow().location().getNamespace().equals(BYG.MOD_ID));
         if (hasBYGBiome) {
             Path path = SurfaceRulesConfig.CONFIG_PATHS.get().get(levelStemKey);
-            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true, false);
 
             if (surfaceRulesConfig.containsKey(levelStemKey) && surfaceRulesConfig.get(levelStemKey) != null) {
                 if (chunkGenerator instanceof NoiseBasedChunkGenerator) {

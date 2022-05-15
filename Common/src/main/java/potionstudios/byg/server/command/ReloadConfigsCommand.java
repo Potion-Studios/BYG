@@ -39,7 +39,7 @@ public class ReloadConfigsCommand {
 
     private enum Config {
         SAPLINGS((stack) -> {
-            SaplingPatterns.getConfig(true);
+            SaplingPatterns.getConfig(true, false);
             BYGSapling.SERIALIZERS.forEach(CommonSetupLoad::load);
             ModPlatform.INSTANCE.sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         });

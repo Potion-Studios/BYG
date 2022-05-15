@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 
 public class BiomeSourceRepairUtils {
     public static void repairBiomeSources(Registry<Biome> biomeRegistry, WorldGenSettings worldGenSettings) {
-        NetherBiomesConfig netherBiomesConfig = NetherBiomesConfig.getConfig(true, biomeRegistry);
+        NetherBiomesConfig netherBiomesConfig = NetherBiomesConfig.getConfig(true, false, biomeRegistry);
 
         if (netherBiomesConfig.forceBYGNetherBiomeSource()) {
             Supplier<BiomeSource> netherBiomeSource = () ->
@@ -28,7 +28,7 @@ public class BiomeSourceRepairUtils {
 
             repair(worldGenSettings.dimensions().getOrThrow(LevelStem.NETHER), BYGNetherBiomeSource.LOCATION, netherBiomeSource);
         }
-        EndBiomesConfig endBiomesConfig = EndBiomesConfig.getConfig(true, biomeRegistry);
+        EndBiomesConfig endBiomesConfig = EndBiomesConfig.getConfig(true, false, biomeRegistry);
 
         if (endBiomesConfig.forceBYGEndBiomeSource()) {
             Supplier<BiomeSource> endBiomeSource = () ->

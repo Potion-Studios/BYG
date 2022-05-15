@@ -11,7 +11,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
@@ -24,7 +23,6 @@ import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
@@ -74,19 +72,6 @@ public class BYG {
                 .map(RegistryObject::get)
                 .filter(WithGenerationStep.class::isInstance)
                 .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
-    }
-
-    public static void loadFuels(final FuelConsumer consumer) {
-        consumer.add(BYGItems.LIGNITE_BLOCK.get(), 14000);
-        consumer.add(BYGItems.LIGNITE.get(), 1400);
-        consumer.add(BYGItems.ANTHRACITE_BLOCK.get(), 20000);
-        consumer.add(BYGItems.ANTHRACITE.get(), 2400);
-        consumer.add(BYGItems.PEAT.get(), 1200);
-    }
-
-    @FunctionalInterface
-    public interface FuelConsumer {
-        void add(Item item, int value);
     }
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {

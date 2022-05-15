@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.ItemStack;
+import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
@@ -49,7 +50,7 @@ public class BYGFabric implements ModInitializer {
         BYG.threadSafeLoadFinish();
         FabricNetworkHandler.init();
 
-        BYG.loadFuels(FuelRegistry.INSTANCE::add);
+        BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> BYG.attachCommands(dispatcher, dedicated ? Commands.CommandSelection.DEDICATED : Commands.CommandSelection.INTEGRATED));
 

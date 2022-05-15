@@ -19,6 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
+import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -77,20 +78,20 @@ public class BYGForge {
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
-        BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
+        BiomeDictionaryConfig.getConfig().biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
 
-        BYG.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
+        BYGFuels.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
     }
 
     private void registerTerraBlender() {
         try {
             OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
             if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
-                Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+                Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig();
                 if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {
                     SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, surfaceRulesConfig.get(LevelStem.OVERWORLD));
                 } else {
