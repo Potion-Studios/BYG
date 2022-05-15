@@ -23,7 +23,7 @@ body:
   - type: input
     id: mod-version
     attributes:
-      label: BYG Versions
+      label: BYG Version
       description: |
         What version of the mod are you using? Make sure you are using the latest version available!
         Latest version downloads can be found here: 
@@ -36,8 +36,14 @@ body:
   - type: input
     id: terrablender-version
     attributes:
-      label: Terrablender
-      description: What version of Terrablender are you using? Terrablender is a required mod for BYG in 1.18+, if you're using 1.16, specify N/A.
+      label: Terrablender Version
+      description: |
+        What version of Terrablender are you using? 
+        Terrablender is a required mod for BYG in 1.18+, if you're using 1.16, specify N/A.
+        Latest version downloads can be found here: 
+        Forge: https://www.curseforge.com/minecraft/mc-mods/terrablender/files
+        Fabric: https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric/files
+        Quilt/Other Mod loaders: N/A
       placeholder: ex. 1.1.0.99
     validations:
       required: true
