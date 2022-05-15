@@ -13,13 +13,16 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     private final ResourceKey<Biome>[][] peakBiomesVariant;
     private final ResourceKey<Biome>[][] slopeBiomes;
     private final ResourceKey<Biome>[][] slopeBiomesVariant;
+    private final ResourceKey<Biome>[][] badlandsBiomes;
+    private final ResourceKey<Biome>[][] badlandsBiomesVariant;
 
     public BYGOverworldBiomeBuilder(ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
                                     ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
                                     ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
                                     ResourceKey<Biome>[][] beachBiomes,
                                     ResourceKey<Biome>[][] peakBiomes, ResourceKey<Biome>[][] peakBiomesVariant,
-                                    ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant) {
+                                    ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant,
+                                    ResourceKey<Biome>[][] badlandsBiomes, ResourceKey<Biome>[][] badlandsBiomesVariant) {
         OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) this;
         overworldBiomeBuilderAccess.byg_setOCEANS(oceans);
         overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES(middleBiomes);
@@ -32,6 +35,8 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
         this.peakBiomesVariant = peakBiomesVariant;
         this.slopeBiomes = slopeBiomes;
         this.slopeBiomesVariant = slopeBiomesVariant;
+        this.badlandsBiomes = badlandsBiomes;
+        this.badlandsBiomesVariant = badlandsBiomesVariant;
     }
 
     @Override
@@ -51,7 +56,7 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    protected ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
+    public ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
         ResourceKey<Biome> slopeBiome = this.slopeBiomes[temp][humidity];
         if (weirdness.max() < 0L) {
             return slopeBiome;
@@ -60,4 +65,17 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
             return slopeVariant == null ? slopeBiome : slopeVariant;
         }
     }
+
+    @Override
+    public ResourceKey<Biome> pickBadlandsBiome(int humidity, Climate.Parameter weirdness) {
+        ResourceKey<Biome> badlandsBiome = this.badlandsBiomes[0][humidity];
+        if (weirdness.max() < 0L) {
+            return badlandsBiome;
+        } else {
+            ResourceKey<Biome> badlandsVariant = badlandsBiomesVariant[0][humidity];
+            return badlandsVariant == null ? badlandsBiome : badlandsVariant;
+        }
+    }
+
+
 }

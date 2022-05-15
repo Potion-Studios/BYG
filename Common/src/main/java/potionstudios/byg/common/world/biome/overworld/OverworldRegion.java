@@ -32,6 +32,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                               Wrapped<List<List<ResourceKey<Biome>>>> peakBiomesVariant,
                               Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomes,
                               Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomesVariant,
+                              Wrapped<List<List<ResourceKey<Biome>>>> badlandsBiomes,
+                              Wrapped<List<List<ResourceKey<Biome>>>> badlandsBiomesVariant,
                               Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
     public static final Codec<OverworldRegion> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(Codec.INT.fieldOf("weight").forGetter(overworldRegion -> overworldRegion.overworldWeight),
@@ -46,6 +48,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant),
                 BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomes),
                 BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant),
+                BIOME_LAYOUT_CODEC.fieldOf("badlands_biomes").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.badlandsBiomes),
+                BIOME_LAYOUT_CODEC.fieldOf("badlands_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.badlandsBiomesVariant),
                 Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
                         throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
@@ -68,6 +72,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant.value()),
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomes.value()),
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("badlands_biomes").orElse(BADLANDS_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
+                OLD_BIOME_LAYOUT_CODEC.fieldOf("badlands_biomes_variant").orElse(BADLANDS_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
                 Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
                         throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
@@ -88,6 +94,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                                                 List<List<ResourceKey<Biome>>> peakBiomesVariant,
                                                 List<List<ResourceKey<Biome>>> slopeBiomes,
                                                 List<List<ResourceKey<Biome>>> slopeBiomesVariant,
+                                                List<List<ResourceKey<Biome>>> badlandsBiomes,
+                                                List<List<ResourceKey<Biome>>> badlandsBiomesVariant,
                                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
         return new OverworldRegion(overworldWeight,
                 checkForMatching(oceans),
@@ -101,6 +109,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 checkForMatching(peakBiomesVariant),
                 checkForMatching(slopeBiomes),
                 checkForMatching(slopeBiomesVariant),
+                checkForMatching(badlandsBiomes),
+                checkForMatching(badlandsBiomesVariant),
                 swapper
         );
     }
@@ -175,6 +185,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BADLANDS_BIOMES_1, BADLANDS_BIOMES_VARIANT_1,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
@@ -182,6 +193,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BADLANDS_BIOMES_1, BADLANDS_BIOMES_VARIANT_1,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
     );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
@@ -189,6 +201,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BADLANDS_BIOMES_1, BADLANDS_BIOMES_VARIANT_1,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
 
