@@ -130,11 +130,11 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("", JanksonUtil.HEADER_OPEN + """
-                            
-                            
-            A region is a unique biome layout comprised of numerous biome selectors for a given type of terrain in an MC world.
-            Biome selectors may be inlined or may call a file from "this_file_parent_directory/biome_selectors"
-            */""");
+                                
+                                
+                A region is a unique biome layout comprised of numerous biome selectors for a given type of terrain in an MC world.
+                Biome selectors may be inlined or may call a file from "this_file_parent_directory/biome_selectors"
+                */""");
         map.put("peak_biomes", PEAK_BIOMES_LAYOUT);
         map.put("peak_biomes_variant", PEAK_BIOMES_VARIANT_LAYOUT);
         map.put("ocean_biomes", OCEANS_BIOMES_LAYOUT_COMMENT);
@@ -146,52 +146,45 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
         map.put("beach_biomes", BEACH_BIOMES_LAYOUT);
         map.put("swapper",
-            """
-                Used to swap biomes not found in the biome selectors.
-                Biomes found within the biome selectors, may not be used as the swapped "value" and biomes only from Minecraft may be used as the "key".
-                            
-                "key" = "minecraft:biome_registry_path"
-                "value" = "modid:new_biome_registry_path"
-                                
-                For example:
-                {
-                "key1":"value1",
-                "key2":"value2",
-                "key3":"value3"
-                }
-                """);
-        map.put("weight",
-            """
-                The weight of this provider/region against all other providers.
-                Higher numbers do NOT increase the provider's size.
-                Weight "0" disables this provider and all its entries.
                 """
+                        Used to swap biomes not found in the biome selectors.
+                        Biomes found within the biome selectors, may not be used as the swapped "value" and biomes only from Minecraft may be used as the "key".
+                                    
+                        "key" = "minecraft:biome_registry_path"
+                        "value" = "modid:new_biome_registry_path"
+                                        
+                        For example:
+                        {
+                        "key1":"value1",
+                        "key2":"value2",
+                        "key3":"value3"
+                        }
+                        """);
+        map.put("weight",
+                """
+                        The weight of this provider/region against all other providers.
+                        Higher numbers do NOT increase the provider's size.
+                        Weight "0" disables this provider and all its entries.
+                        """
         );
     });
 
 
     public static final Wrapped<OverworldRegion> REGION_1 = create("region_1",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS_VANILLA, MIDDLE_BIOMES_VANILLA, MIDDLE_BIOMES_VARIANT_VANILLA,
-                PLATEAU_BIOMES_VANILLA, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_VANILLA, PEAK_BIOMES_VANILLA, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
-            new IdentityHashMap<>())
+            new OverworldRegion(OVERWORLD_WEIGHT,
+                    OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
-            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS)))
+            new OverworldRegion(OVERWORLD_WEIGHT,
+                    OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
     );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
-        new OverworldRegion(OVERWORLD_WEIGHT,
-            OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
-            PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-            BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
-            Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES)))
-    );
-    public static final Wrapped<OverworldRegion> REGION_4 = create("region_4",
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
@@ -200,9 +193,9 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     );
 
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
-        ImmutableList.of(
-            REGION_1, REGION_2, REGION_3, REGION_4
-        );
+            ImmutableList.of(
+                    REGION_1, REGION_2, REGION_3
+            );
 
     private static Wrapped<OverworldRegion> create(String id, OverworldRegion overworldRegion) {
         return create(id, overworldRegion, COMMENTS);
