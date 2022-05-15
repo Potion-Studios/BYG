@@ -10,7 +10,7 @@ import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.mixin.access.AdventureAdvancementsAccess;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -18,11 +18,8 @@ import java.util.stream.Collectors;
 
 public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancement> {
 
-
     @Override
     public void accept(Consumer<Advancement> advancementConsumer, Advancement root) {
-
-
         List<ResourceKey<Biome>> biomes = BYGBiomes.PROVIDER.getEntries()
                 .stream()
                 .map(RegistryObject::getId)

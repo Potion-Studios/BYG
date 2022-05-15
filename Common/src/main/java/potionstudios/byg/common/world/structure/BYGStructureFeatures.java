@@ -28,7 +28,7 @@ import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools
 import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.List;

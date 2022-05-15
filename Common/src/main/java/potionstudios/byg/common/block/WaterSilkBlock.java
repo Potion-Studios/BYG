@@ -9,9 +9,9 @@ import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class BYGWaterSilkBlock extends WaterlilyBlock {
+public class WaterSilkBlock extends WaterlilyBlock {
 
-    protected BYGWaterSilkBlock(Properties builder) {
+    protected WaterSilkBlock(Properties builder) {
         super(builder);
     }
 

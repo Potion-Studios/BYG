@@ -1007,7 +1007,6 @@ public class BYGOverworldBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
 
-
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
         BYGDefaultBiomeFeatures.addWhiteMangroveSwampAdditionalVegetation(generationSettings);
@@ -1016,7 +1015,7 @@ public class BYGOverworldBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
 
         BYGDefaultBiomeFeatures.addWhiteMangroveTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addBYGSwampVegetation(generationSettings);
+        BYGDefaultBiomeFeatures.addWhiteMangroveSwampVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addLushCattails(generationSettings);
         BYGDefaultBiomeFeatures.addLeatherFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMudDisks(generationSettings);
@@ -1035,7 +1034,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.SWAMP).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.SWAMP).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(5878398).waterFogColor(2047788).grassColorOverride(5737549).foliageColorOverride(5737549).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome mapleTaiga() {

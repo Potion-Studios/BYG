@@ -82,11 +82,13 @@ public class BYGForge {
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
+
+        BYG.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
     }
 
     private void registerTerraBlender() {
         try {
-            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
             if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
                 Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
                 if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {

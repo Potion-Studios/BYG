@@ -6,8 +6,8 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.mixin.access.VillagerProfessionAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.function.Supplier;
 

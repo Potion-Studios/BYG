@@ -18,9 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(SimpleBlockFeature.class)
 public class MixinSimpleBlockFeature {
 
-
     @Inject(method = "place", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/WorldGenLevel;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void placeUpperHalf(FeaturePlaceContext<SimpleBlockConfiguration> $$0, CallbackInfoReturnable<Boolean> cir, SimpleBlockConfiguration $$1, WorldGenLevel level, BlockPos pos, BlockState state) {
+    private void byg$placeUpperHalf(FeaturePlaceContext<SimpleBlockConfiguration> $$0, CallbackInfoReturnable<Boolean> cir, SimpleBlockConfiguration $$1, WorldGenLevel level, BlockPos pos, BlockState state) {
         if (state.hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF) && state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
             level.setBlock(pos.relative(Direction.UP), state.getBlock().defaultBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 2);
         }

@@ -3,6 +3,7 @@ package potionstudios.byg.mixin;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
+import potionstudios.byg.util.ModPlatform;
 
 import java.util.List;
 import java.util.Set;

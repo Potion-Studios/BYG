@@ -73,6 +73,7 @@ dependencies {
     runtimeOnly compileOnly('org.joml:joml:1.10.2')
     runtimeOnly compileOnly("org.anarres:jcpp:1.4.14")
 }
+reg.configureJarTask(shadowJar)
 
 loom {
     accessWidenerPath = project(":Common").file("src/main/resources/byg.aw")

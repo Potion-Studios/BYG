@@ -49,8 +49,8 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMu
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 import potionstudios.byg.mixin.access.*;
-import potionstudios.byg.registration.BlockRegistryObject;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.BlockRegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.CommonSetupLoad;
 
 import java.util.ArrayList;
@@ -606,8 +606,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> POISON_IVY = createBlock(BYGBlockProperties.BYGPoisonIvy::new, "poison_ivy");
     public static final BlockRegistryObject<Block> SKYRIS_VINE = createBlock(BYGBlockProperties.BYGSkyrisVine::new, "skyris_vine");
     public static final BlockRegistryObject<Block> BLUEBERRY_BUSH = createBlueBerryBush("blueberry_bush");
-    public static final BlockRegistryObject<Block> TINY_LILYPADS = createBlock(BYGBlockProperties.BYGLily::new, "tiny_lilypads");
-    public static final BlockRegistryObject<Block> WATER_SILK = createBlock(BYGBlockProperties.BYGWaterSilk::new, "water_silk");
+    public static final BlockRegistryObject<Block> TINY_LILYPADS = createWaterLilyBlock(MaterialColor.TERRACOTTA_GREEN,"tiny_lilypads");
+    public static final BlockRegistryObject<Block> FLOWERING_TINY_LILY_PADS = createWaterLilyBlock(MaterialColor.COLOR_PINK,"flowering_tiny_lily_pads");
+    public static final BlockRegistryObject<Block> WATER_SILK = createWaterSilkBlock(MaterialColor.TERRACOTTA_LIGHT_GREEN, "water_silk");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS = createBlock(BYGBlockProperties.BYGHangingVine::new, "weeping_roots");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGHangingVinePlant::new, "weeping_roots_plant");
     public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(() -> new BYGBonemealActionBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_BEACH_GRASS, BYGBonemealActionBlock.BonemealAction.growDoublePlant(() -> BYGBlocks.TALL_BEACH_GRASS.get())), "beach_grass");
@@ -1196,6 +1197,14 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> HYPOGEAL_IMPERIUM = createHypogealBlock("hypogeal_imperium");
 //    public static final BlockRO<Block> BORIC_TORCH = createBlock(new BoricTorchBlock(AbstractBlock.Properties.of(Material.WOOD).instabreak().lightLevel((state) -> 14), BoricFlameParticle.BoricParticleData.BORIC), "boric_torch");
+
+    private static BlockRegistryObject<Block> createWaterLilyBlock(MaterialColor materialColor, String id) {
+        return createBlock(() -> WaterlilyBlockAccess.byg_create(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).color(materialColor)), id);
+    }
+
+    private static BlockRegistryObject<Block> createWaterSilkBlock(MaterialColor materialColor, String id) {
+        return createBlock(() -> new WaterSilkBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).color(materialColor)), id);
+    }
 
     private static BlockRegistryObject<Block> createChiseledFungalImpariusSlab(String id) {
         return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f)), id);

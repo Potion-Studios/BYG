@@ -6,8 +6,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 @SuppressWarnings("deprecation")
 public class BYGEntities {

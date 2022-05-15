@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "byg:block/flowering_tiny_lily_pads"
+      },
+      {
+        "model": "byg:block/flowering_tiny_lily_pads",
+        "y": 90
+      },
+      {
+        "model": "byg:block/flowering_tiny_lily_pads",
+        "y": 180
+      },
+      {
+        "model": "byg:block/flowering_tiny_lily_pads",
+        "y": 270
+      }
+    ]
+  }
+}

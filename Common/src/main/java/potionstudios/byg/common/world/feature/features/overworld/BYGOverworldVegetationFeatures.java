@@ -133,6 +133,13 @@ public class BYGOverworldVegetationFeatures {
             )
     );
 
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FLOWERING_TINY_LILY_PAD = createConfiguredFeature("flowering_tiny_lily_pad",
+            () -> Feature.RANDOM_PATCH,
+            new RandomPatchConfiguration(10, 7, 3,
+                    createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.FLOWERING_TINY_LILY_PADS.get()))), ON_WATER_FILTER, IN_REPLACEABLE_FILTER)
+            )
+    );
+
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WATER_SILK = createConfiguredFeature("water_silk",
             () -> Feature.RANDOM_PATCH,
             new RandomPatchConfiguration(10, 7, 3,
@@ -233,6 +240,13 @@ public class BYGOverworldVegetationFeatures {
             new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(createPlacedFeature(TINY_LILY_PAD, ON_WATER_FILTER), 0.50F)),
                     createPlacedFeature(WATER_SILK, ON_WATER_FILTER))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WHITE_MANGROVE_SWAMP_WATER_VEGETATION = createConfiguredFeature("white_mangrove_swamp_water_vegetation",
+            () -> Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(createPlacedFeature(TINY_LILY_PAD, ON_WATER_FILTER), 0.50F)),
+                    createPlacedFeature(FLOWERING_TINY_LILY_PAD, ON_WATER_FILTER))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CHERRY_FOLIAGE = createConfiguredFeature("cherry_foliage",

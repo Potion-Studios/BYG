@@ -17,8 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(SugarCaneBlock.class)
 public class MixinSugarCaneBlock {
 
-
-
     @Inject(method = "canSurvive", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/world/level/block/Block;)Z", ordinal = 0), cancellable = true)
     private void addBYGBlocks(BlockState state, LevelReader worldIn, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockStateDown = worldIn.getBlockState(pos.below());

@@ -15,8 +15,8 @@ import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.mixin.access.HoeItemAccess;
 import potionstudios.byg.mixin.access.PickaxeItemAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1179,6 +1179,7 @@ public class BYGItems {
     public static final RegistryObject<Item> MINI_CACTUS = createItem(BYGBlocks.MINI_CACTUS);
     public static final RegistryObject<Item> POISON_IVY = createItem(BYGBlocks.POISON_IVY);
     public static final RegistryObject<Item> PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
+    public static final RegistryObject<Item> TALL_PRAIRIE_GRASS = createItem(BYGBlocks.TALL_PRAIRIE_GRASS);
     public static final RegistryObject<Item> PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
     public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), "byg.cattail_campfire", new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
     public static final RegistryObject<Item> CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
@@ -1186,7 +1187,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
     public static final RegistryObject<Item> CATTAIL_THATCH_SLAB = createItem(BYGBlocks.CATTAIL_THATCH_SLAB);
 
-    public static final RegistryObject<Item> TALL_PRAIRIE_GRASS = createItem(BYGBlocks.TALL_PRAIRIE_GRASS);
+    public static final RegistryObject<Item> FLOWERING_TINY_LILY_PADS = createItem(() -> new BYGLilyItem(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.FLOWERING_TINY_LILY_PADS);
     public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TINY_LILYPADS);
     public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WATER_SILK);
     public static final RegistryObject<Item> WINTER_SUCCULENT = createItem(BYGBlocks.WINTER_SUCCULENT);
@@ -1283,7 +1284,7 @@ public class BYGItems {
         return createItem(item, block.getId().getPath());
     }
 
-    public static <T extends Item> potionstudios.byg.registration.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
+    public static <T extends Item> potionstudios.byg.reg.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
         return PROVIDER.register(id, item);
     }
 

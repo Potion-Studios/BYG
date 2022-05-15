@@ -17,11 +17,11 @@ import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
 
 @Mixin(InventoryScreen.class)
-public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen {
+public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
 
 	private ImageButton biomePedia;
 
-	public MixinInventoryScreen(AbstractContainerMenu menu, Inventory inventory, Component narrationTitle) {
+	public MixinInventoryScreen(T menu, Inventory inventory, Component narrationTitle) {
 		super(menu, inventory, narrationTitle);
 	}
 
