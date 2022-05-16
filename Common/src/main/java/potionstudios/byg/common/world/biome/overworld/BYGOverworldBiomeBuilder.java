@@ -51,7 +51,7 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    protected ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
+    public ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
         ResourceKey<Biome> slopeBiome = this.slopeBiomes[temp][humidity];
         if (weirdness.max() < 0L) {
             return slopeBiome;
