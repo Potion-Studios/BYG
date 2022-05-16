@@ -13,29 +13,29 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 
-public record BiomepediaClientConfig(boolean visible, PlayerInventorySettings settings) {
+public record BiomepediaInventoryConfig(boolean visible, PlayerInventorySettings settings) {
 
     public static boolean server_value = true;
 
-    public static final Codec<BiomepediaClientConfig> CODEC = RecordCodecBuilder.create(builder ->
+    public static final Codec<BiomepediaInventoryConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.BOOL.fieldOf("visible").forGetter(BiomepediaClientConfig::visible),
-                    PlayerInventorySettings.CODEC.fieldOf("inventory_settings").forGetter(BiomepediaClientConfig::settings)
-            ).apply(builder, BiomepediaClientConfig::new));
+                    Codec.BOOL.fieldOf("visible").forGetter(BiomepediaInventoryConfig::visible),
+                    PlayerInventorySettings.CODEC.fieldOf("inventory_settings").forGetter(BiomepediaInventoryConfig::settings)
+            ).apply(builder, BiomepediaInventoryConfig::new));
 
-    public static final BiomepediaClientConfig DEFAULT = new BiomepediaClientConfig(true, new PlayerInventorySettings(126, 22));
+    public static final BiomepediaInventoryConfig DEFAULT = new BiomepediaInventoryConfig(true, new PlayerInventorySettings(126, 22));
 
-    public static BiomepediaClientConfig INSTANCE = null;
+    public static BiomepediaInventoryConfig INSTANCE = null;
 
-    public static BiomepediaClientConfig getConfig() {
+    public static BiomepediaInventoryConfig getConfig() {
         return getConfig(false, false);
     }
 
-    public static BiomepediaClientConfig getConfig(boolean serialize) {
+    public static BiomepediaInventoryConfig getConfig(boolean serialize) {
         return getConfig(serialize, false);
     }
 
-    public static BiomepediaClientConfig getConfig(boolean serialize, boolean recreate) {
+    public static BiomepediaInventoryConfig getConfig(boolean serialize, boolean recreate) {
         if (INSTANCE == null || serialize || recreate) {
             INSTANCE = readConfig(recreate);
         }
@@ -43,8 +43,8 @@ public record BiomepediaClientConfig(boolean visible, PlayerInventorySettings se
     }
 
 
-    private static BiomepediaClientConfig readConfig(boolean recreate) {
-        final Path path = ModPlatform.INSTANCE.configPath().resolve("client").resolve("biomepedia_client.json5");
+    private static BiomepediaInventoryConfig readConfig(boolean recreate) {
+        final Path path = ModPlatform.INSTANCE.configPath().resolve("client").resolve("biomepedia_inventory.json5");
 
         if (!path.toFile().exists() || recreate) {
             JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> {

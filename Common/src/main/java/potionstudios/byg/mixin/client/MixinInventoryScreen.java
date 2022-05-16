@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
-import potionstudios.byg.client.BiomepediaClientConfig;
+import potionstudios.byg.client.BiomepediaInventoryConfig;
 import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
 
 @Mixin(InventoryScreen.class)
@@ -29,10 +29,10 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
     @Inject(method = "init", at = @At("RETURN"))
     protected void init(CallbackInfo ci) {
         if (BYGConstants.BIOMEPEDIA) {
-            BiomepediaClientConfig biomepediaClientConfig = BiomepediaClientConfig.getConfig(true);
-            if (biomepediaClientConfig.visible()) {
+            BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig(true);
+            if (biomepediaInventoryConfig.visible()) {
                 ImageButton biomePedia = new ImageButton(
-                        this.leftPos + biomepediaClientConfig.settings().widthOffset(), this.height / 2 - biomepediaClientConfig.settings().heightOffset(),
+                        this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset(),
                         20, 18,
                         0, 220,
                         18,
@@ -42,8 +42,8 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
                         new TextComponent("Lorem Ipsum")
                 );
 
-                biomePedia.visible = BiomepediaClientConfig.server_value;
-                biomePedia.active = BiomepediaClientConfig.server_value;
+                biomePedia.visible = BiomepediaInventoryConfig.server_value;
+                biomePedia.active = BiomepediaInventoryConfig.server_value;
                 addRenderableWidget(this.biomePedia = biomePedia);
             }
         }
@@ -52,8 +52,8 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
     @Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
     protected void updateGuiSize(CallbackInfo ci) {
         if (BYGConstants.BIOMEPEDIA) {
-            BiomepediaClientConfig biomepediaClientConfig = BiomepediaClientConfig.getConfig();
-            biomePedia.setPosition(this.leftPos + biomepediaClientConfig.settings().widthOffset(), this.height / 2 - biomepediaClientConfig.settings().heightOffset());
+            BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
+            biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
         }
     }
 }

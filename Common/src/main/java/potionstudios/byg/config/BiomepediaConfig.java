@@ -17,7 +17,7 @@ public record BiomepediaConfig(boolean biomepediaEnabled) {
 
     public static final Codec<BiomepediaConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.BOOL.fieldOf("enabled").forGetter(BiomepediaConfig::biomepediaEnabled)
+                    Codec.BOOL.fieldOf("inventory_enabled").forGetter(BiomepediaConfig::biomepediaEnabled)
             ).apply(builder, BiomepediaConfig::new));
 
     public static final BiomepediaConfig DEFAULT = new BiomepediaConfig(true);
@@ -45,7 +45,7 @@ public record BiomepediaConfig(boolean biomepediaEnabled) {
 
         if (!path.toFile().exists() || recreate) {
             JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> {
-                map.put("enabled", "Whether the biomepedia button is enabled or not in the player inventory for all users connected to this host.");
+                map.put("inventory_enabled", "Whether the biomepedia button is enabled or not in the player inventory for all users connected to this host.");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));

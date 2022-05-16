@@ -2,7 +2,7 @@ package potionstudios.byg.network.packet;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;
-import potionstudios.byg.client.BiomepediaClientConfig;
+import potionstudios.byg.client.BiomepediaInventoryConfig;
 
 public record BiomepediaActivePacket(boolean active) implements BYGS2CPacket{
 
@@ -25,6 +25,6 @@ public record BiomepediaActivePacket(boolean active) implements BYGS2CPacket{
 
     @Override
     public void handle(Level level) {
-        BiomepediaClientConfig.server_value = this.active;
+        BiomepediaInventoryConfig.server_value = this.active;
     }
 }
