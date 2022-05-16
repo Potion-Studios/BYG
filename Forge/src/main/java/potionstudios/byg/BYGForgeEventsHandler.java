@@ -52,7 +52,10 @@ public class BYGForgeEventsHandler {
 
     @SubscribeEvent
     public static void onBurnTime(final FurnaceFuelBurnTimeEvent event) {
-        event.setBurnTime(BURN_TIMES.getInt(event.getItemStack().getItem()));
+        Item item = event.getItemStack().getItem();
+        if (BURN_TIMES.containsKey(item)) {
+            event.setBurnTime(BURN_TIMES.getInt(item));
+        }
     }
 
     @SubscribeEvent
