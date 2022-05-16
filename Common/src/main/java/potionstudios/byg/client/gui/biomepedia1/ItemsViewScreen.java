@@ -30,9 +30,11 @@ public class ItemsViewScreen extends Screen {
     int maxPagePairCount;
 
     ItemWidget[][][][] items;
+    private Screen parent;
 
-    protected ItemsViewScreen(Component $$0) {
-        super($$0);
+    protected ItemsViewScreen(Screen parent) {
+        super(new TextComponent(""));
+        this.parent = parent;
     }
 
     @Override
@@ -124,6 +126,11 @@ public class ItemsViewScreen extends Screen {
                 this.renderTooltip(poseStack, tooltipLines, itemWidget.stack.getTooltipImage(), mouseX, mouseY);
             }
         });
+    }
+
+    @Override
+    public void onClose() {
+        this.minecraft.setScreen(this.parent);
     }
 
     private static void forEach(ItemWidget[][][][] widgets, Consumer<ItemWidget> widget) {

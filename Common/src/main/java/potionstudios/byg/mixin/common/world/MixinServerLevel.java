@@ -75,7 +75,7 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
         if (this.getServer().isSingleplayer()) {
             if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
                 if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
-                    serverPlayer.displayClientMessage(new TranslatableComponent("BYG: Configs need updating click either of the highlighted options to update %s or %s", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
+                    serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.outdatedconfigs", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
                 }
             }
             if (BYGConstants.WARN_EXPERIMENTAL) {
