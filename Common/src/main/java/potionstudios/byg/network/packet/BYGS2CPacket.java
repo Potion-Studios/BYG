@@ -17,6 +17,7 @@ public interface BYGS2CPacket {
         map.put("sapling_patterns", new Handler<>(SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, SaplingPatternsPacket::handle));
         map.put("discovered_biomes", new Handler<>(DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, DiscoveredBiomesPacket::handle));
         map.put("construct_byg_player_tracked_data", new Handler<>(ConstructBYGPlayerTrackedDataPacket.class, ConstructBYGPlayerTrackedDataPacket::write, ConstructBYGPlayerTrackedDataPacket::read, ConstructBYGPlayerTrackedDataPacket::handle));
+        map.put("biomepedia_active", new Handler<>(BiomepediaActivePacket.class, BiomepediaActivePacket::write, BiomepediaActivePacket::read, BiomepediaActivePacket::handle));
         BYG.LOGGER.info("Initialized BYG network!");
     });
 

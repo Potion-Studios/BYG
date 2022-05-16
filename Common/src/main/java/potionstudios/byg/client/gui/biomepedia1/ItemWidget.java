@@ -11,6 +11,7 @@ public class ItemWidget extends AbstractWidget {
     public final ItemStack stack;
     private final ItemRenderer itemRenderer;
     private final OnClick onClick;
+    public final boolean hasAdditonalInfo;
 
     public ItemWidget(ItemStack stack, ItemRenderer itemRenderer, int pX, int pY, int pWidth, int pHeight, OnClick onClick) {
         super(pX, pY, pWidth, pHeight, new TextComponent(""));
@@ -19,6 +20,7 @@ public class ItemWidget extends AbstractWidget {
         this.onClick = onClick;
         this.visible = false;
         this.active = false;
+        this.hasAdditonalInfo = false; //stack.getItem() instanceof BlockItem;
     }
 
     @Override
@@ -34,12 +36,9 @@ public class ItemWidget extends AbstractWidget {
 
     @Override
     public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-//        super.renderButton(poseStack, mouseX, mouseY, partialTick);
         this.itemRenderer.blitOffset = 100.0F;
         this.itemRenderer.renderAndDecorateItem(this.stack, this.x, this.y);
     }
-
-
 
     public interface OnClick {
 

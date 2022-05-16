@@ -88,7 +88,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     @NotNull
     private static List<Holder<Biome>> getPossibleBiomes(Registry<Biome> biomeRegistry) {
-        NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, biomeRegistry);
+        NetherBiomesConfig config = NetherBiomesConfig.getConfig(true, false, biomeRegistry);
 
         Set<String> missingBiomes = new TreeSet<>();
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> {

@@ -88,7 +88,7 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
+            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig().generateOverworld()) { // We add our surface rules through Terrablender's API.
                 appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
             appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
@@ -103,7 +103,8 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
         if (byg$killTime > 0) {
             if (byg$killTime % 100 == 0) {
                 for (ServerPlayer player : getPlayerList().getPlayers()) {
-                    player.displayClientMessage(new TranslatableComponent("Server shutdown in: " + byg$killTime / 20).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
+                    long killTimeInSeconds = byg$killTime / 20;
+                    player.displayClientMessage(new TranslatableComponent("byg.serverkill.countdown", killTimeInSeconds).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
                 }
             }
             byg$killTime--;

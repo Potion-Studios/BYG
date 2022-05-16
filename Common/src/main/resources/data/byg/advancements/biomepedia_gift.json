@@ -1,19 +1,24 @@
 {
+  "parent": "byg:root",
   "display": {
     "icon": {
-      "item": "byg:byg_logo"
+      "item": "byg:biomepedia"
     },
     "title": {
-      "translate": "byg.advancements.root.title"
+      "translate": "byg.advancements.biomepediagift.title"
     },
     "description": {
-      "translate": "byg.advancements.root.description"
+      "translate": "byg.advancements.biomepediagift.description"
     },
     "frame": "task",
     "show_toast": false,
     "announce_to_chat": false,
-    "hidden": false,
-    "background": "byg:textures/block/lush_dirt.png"
+    "hidden": true
+  },
+  "rewards": {
+    "loot": [
+      "byg:advancement/biomepedia_gift"
+    ]
   },
   "criteria": {
     "tick": {

@@ -62,16 +62,16 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
 
 
     public static EndBiomesConfig getConfig() {
-        return getConfig(false, null);
+        return getConfig(false, false, null);
     }
 
     public static EndBiomesConfig getConfig(boolean serialize) {
-        return getConfig(serialize, null);
+        return getConfig(serialize, false, null);
     }
 
-    public static EndBiomesConfig getConfig(boolean serialize, @Nullable Registry<Biome> additional) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static EndBiomesConfig getConfig(boolean serialize, boolean recreate, @Nullable Registry<Biome> additional) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         if (additional != null && INSTANCE.addAllEndBiomeCategoryEntries()) {
@@ -94,7 +94,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
         return INSTANCE;
     }
 
-    private static EndBiomesConfig readConfig() {
+    private static EndBiomesConfig readConfig(boolean recreate) {
         final Path legacyPath = LEGACY_CONFIG_PATH.get();
         final Path path = CONFIG_PATH.get();
 
@@ -112,7 +112,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
             }
         }
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             createConfig(path, config);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));

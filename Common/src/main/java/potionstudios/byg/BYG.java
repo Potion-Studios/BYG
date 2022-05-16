@@ -11,25 +11,25 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import potionstudios.byg.client.BiomepediaInventoryConfig;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
+import potionstudios.byg.config.BiomepediaConfig;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
@@ -76,19 +76,6 @@ public class BYG {
                 .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
     }
 
-    public static void loadFuels(final FuelConsumer consumer) {
-        consumer.add(BYGItems.LIGNITE_BLOCK.get(), 14000);
-        consumer.add(BYGItems.LIGNITE.get(), 1400);
-        consumer.add(BYGItems.ANTHRACITE_BLOCK.get(), 20000);
-        consumer.add(BYGItems.ANTHRACITE.get(), 2400);
-        consumer.add(BYGItems.PEAT.get(), 1200);
-    }
-
-    @FunctionalInterface
-    public interface FuelConsumer {
-        void add(Item item, int value);
-    }
-
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
         WorldGenExportCommand.worldGenExportCommand(dispatcher);
         LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID).requires(commandSource -> commandSource.hasPermission(3));
@@ -100,9 +87,9 @@ public class BYG {
     private static void handleConfigs() {
         CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
         makeREADME();
-        EndBiomesConfig.getConfig(true);
-        NetherBiomesConfig.getConfig(true);
-        SettingsConfig.getConfig(true);
+        EndBiomesConfig.getConfig();
+        NetherBiomesConfig.getConfig();
+        SettingsConfig.getConfig();
     }
 
     private static void makeREADME() {
@@ -154,20 +141,23 @@ public class BYG {
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
-        loadAllConfigs(false);
+        loadAllConfigs(false, false);
         FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
     }
 
-    public static void loadAllConfigs(boolean serialize) {
-        EndBiomesConfig.getConfig(serialize);
-        NetherBiomesConfig.getConfig(serialize);
-        OverworldBiomeConfig.getConfig(serialize);
-        BiomeDictionaryConfig.getConfig(serialize);
-        SurfaceRulesConfig.getConfig(serialize);
-        SaplingPatterns.getConfig(serialize);
-        TradesConfig.getConfig(serialize);
-        SettingsConfig.getConfig(serialize);
+    public static void loadAllConfigs(boolean serialize, boolean recreate) {
+        EndBiomesConfig.getConfig(serialize, recreate, null);
+        NetherBiomesConfig.getConfig(serialize, recreate, null);
+        OverworldBiomeConfig.getConfig(serialize, recreate);
+        BiomeDictionaryConfig.getConfig(serialize, recreate);
+        SurfaceRulesConfig.getConfig(serialize, recreate);
+        SaplingPatterns.getConfig(serialize, recreate);
+        TradesConfig.getConfig(serialize, recreate);
+        SettingsConfig.getConfig(serialize, recreate);
+        BiomepediaInventoryConfig.getConfig(serialize, recreate);
+        BiomepediaConfig.getConfig(serialize, recreate);
+        ConfigVersionTracker.getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), recreate);
         makeREADME();
     }
 

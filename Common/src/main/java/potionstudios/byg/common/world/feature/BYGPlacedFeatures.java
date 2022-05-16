@@ -166,6 +166,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> NORTHERN_FOREST_TREES = createPlacedFeature("northern_forest_trees", BYGOverworldTreeFeatures.NORTHERN_FOREST_TREES, clearingTreePlacement(PlacementUtils.countExtra(3, 0.25F, 3)));
     public static final Holder<PlacedFeature> ORCHARD_TREES = createPlacedFeature("orchard_trees", BYGOverworldTreeFeatures.ORCHARD_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final Holder<PlacedFeature> HOLLY_TREES = createPlacedFeature("holly_trees", BYGOverworldTreeFeatures.HOLLY_TREES, clearingTreePlacement(PlacementUtils.countExtra(4, 0.25F, 4)));
+    public static final Holder<PlacedFeature> HOLLY_TREES_SPARSE = createPlacedFeature("holly_trees_sparse", BYGOverworldTreeFeatures.HOLLY_TREES, clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 1)));
     public static final Holder<PlacedFeature> HAZEL_TREES = createPlacedFeature("hazel_trees", BYGOverworldTreeFeatures.HAZEL_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
     public static final Holder<PlacedFeature> IMPARIUS_MUSHROOMS = createPlacedFeature("imparis_mushrooms", BYGEndVegetationFeatures.LARGE_IMPARIUS_MUSHROOMS, treePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
     public static final Holder<PlacedFeature> SHULKREN_TREES = createPlacedFeature("shulkren_trees", BYGEndVegetationFeatures.SHULKREN_TREES, treePlacement(PlacementUtils.countExtra(1, 0.2F, 2)));

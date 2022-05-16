@@ -90,21 +90,21 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
 
 
     public static BiomeDictionaryConfig getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static BiomeDictionaryConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static BiomeDictionaryConfig getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
     }
 
-    private static BiomeDictionaryConfig readConfig() {
+    private static BiomeDictionaryConfig readConfig(boolean recreate) {
         final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-biome-dictionary.json");
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();
 
             try {

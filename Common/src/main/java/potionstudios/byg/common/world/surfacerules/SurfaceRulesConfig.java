@@ -37,21 +37,21 @@ public record SurfaceRulesConfig() {
     public static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> INSTANCE = null;
 
     public static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> getConfig() {
-        return getConfig(false);
+        return getConfig(false, false);
     }
 
-    public static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
     }
 
-    private static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> readConfig() {
+    private static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> readConfig(boolean recreate) {
         Object2ObjectOpenHashMap<ResourceKey<LevelStem>, SurfaceRules.RuleSource> result = new Object2ObjectOpenHashMap<>();
         CONFIG_PATHS.get().forEach((stemResourceKey, path) -> {
-            if (!path.toFile().exists()) {
+            if (!path.toFile().exists() || recreate) {
                 JanksonUtil.createConfig(path, SurfaceRules.RuleSource.CODEC, JanksonUtil.HEADER_OPEN + "\n\nSurface rules in this file are added after data packs load for this dimension(file name is the dimension).\nA guide for surface rules can be found here: https://github.com/TheForsakenFurby/Surface-Rules-Guide-Minecraft-JE-1.18/blob/main/Guide.md\n*/", new HashMap<>(), JanksonJsonOps.INSTANCE, DEFAULTS.get(stemResourceKey));
             }
             BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));

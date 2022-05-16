@@ -29,9 +29,9 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
     }
 
     public static void readOverworldSurfaceRules() {
-        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+        OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
         if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
-            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig();
             if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {
                 SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, surfaceRulesConfig.get(LevelStem.OVERWORLD));
             } else {
