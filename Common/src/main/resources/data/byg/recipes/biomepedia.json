@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WW",
+    "W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:book"
+    },
+    "W": {
+      "tag": "byg:biomepedia_crafting_material"
+    }
+  },
+  "result": {
+    "item": "byg:biomepedia",
+    "count": 1
+  }
+}
