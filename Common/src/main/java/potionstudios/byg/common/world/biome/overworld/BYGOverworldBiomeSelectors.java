@@ -169,6 +169,14 @@ public class BYGOverworldBiomeSelectors {
             {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     });
 
+    protected static final Wrapped<List<List<ResourceKey<Biome>>>> SLOPE_BIOMES_1 = create("slope_biomes/slope_biomes_1", SLOPE_BIOMES_LAYOUT, new ResourceKey[][]{
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
+            {BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS, BYGBiomes.HOWLING_PEAKS},
+            {BYGBiomes.CANADIAN_SHIELD, BYGBiomes.CANADIAN_SHIELD, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES, BYGBiomes.DACITE_RIDGES},
+            {BYGBiomes.CANADIAN_SHIELD, BYGBiomes.CANADIAN_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.GUIANA_SHIELD, BYGBiomes.GUIANA_SHIELD},
+            {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+    });
+
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> SLOPE_BIOMES_VARIANT_VANILLA = create("slope_biomes_variant/slope_biomes_variant_vanilla", SLOPE_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
             {Biomes.SNOWY_SLOPES, Biomes.SNOWY_SLOPES, Biomes.GROVE, Biomes.GROVE, Biomes.GROVE},
             {Biomes.SNOWY_SLOPES, Biomes.SNOWY_SLOPES, Biomes.GROVE, Biomes.GROVE, Biomes.GROVE},

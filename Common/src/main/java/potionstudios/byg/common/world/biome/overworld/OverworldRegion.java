@@ -174,7 +174,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS);
                         map.put(Biomes.STONY_SHORE, BYGBiomes.DACITE_SHORE);
@@ -184,7 +184,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
                         map.put(Biomes.STONY_SHORE, BYGBiomes.DACITE_SHORE);
@@ -193,7 +193,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
-                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_VANILLA, SLOPE_BIOMES_VARIANT_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
 
