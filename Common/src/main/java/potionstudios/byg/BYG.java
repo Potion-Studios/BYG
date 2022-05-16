@@ -78,7 +78,7 @@ public class BYG {
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
         WorldGenExportCommand.worldGenExportCommand(dispatcher);
-        LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID).requires(commandSource -> commandSource.hasPermission(3));
+        LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID);
         bygCommands.then(ReloadConfigsCommand.register());
         bygCommands.then(UpdateConfigsCommand.register());
         dispatcher.register(bygCommands);

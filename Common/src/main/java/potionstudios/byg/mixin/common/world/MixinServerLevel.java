@@ -5,6 +5,7 @@ import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -72,12 +73,19 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(SaplingPatterns.getConfig()));
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new BiomepediaActivePacket(BiomepediaConfig.getConfig().biomepediaEnabled()));
-        if (this.getServer().isSingleplayer()) {
-            if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
-                if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
-                    serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.outdatedconfigs", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
+        if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
+            if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
+                serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.outdatedconfigs", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
+            } else {
+                if(getServer().isDedicatedServer()) {
+                    serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.notifyserverowner.dedicated", new TextComponent(UpdateConfigsCommand.UPDATE_COMMAND).withStyle(ChatFormatting.BLUE), new TextComponent(UpdateConfigsCommand.DISMISS_COMMAND).withStyle(ChatFormatting.BLUE)), false);
+                }
+                if(getServer().isSingleplayer()) {
+                    serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.notifyserverowner.singleplayer", new TextComponent(UpdateConfigsCommand.UPDATE_COMMAND).withStyle(ChatFormatting.BLUE), new TextComponent(UpdateConfigsCommand.DISMISS_COMMAND).withStyle(ChatFormatting.BLUE)), false);
                 }
             }
+        }
+        if (this.getServer().isSingleplayer()) {
             if (BYGConstants.WARN_EXPERIMENTAL) {
                 final Path marker = this.worldPath.resolve("EXPERIMENTAL_WARNING_MARKER_" + BYGConstants.EXPERIMENTAL_WARNING_VERSION + ".txt");
                 if (BYGUtil.createMarkerFile(marker, "This file exists as a marker to warn the user of experimental settings. Once this file generates, the experimental warning will no longer show in the chat in this world!")) {
