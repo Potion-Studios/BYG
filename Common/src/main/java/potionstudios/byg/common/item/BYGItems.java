@@ -29,7 +29,9 @@ public class BYGItems {
     public static final List<RegistryObject<BYGSaplingItem>> SAPLINGS = new ArrayList<>();
 
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
-    //TODO: Geckolib Mojmap 1.18
+    public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "biomepedia");
+
+    //TODO: Geckolib Mojmap 1.19
     //    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(new SpawnEggItem(BYGEntities.MAN_O_WAR, new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_spawn_egg");
     public static final RegistryObject<Item> PEAT = createItem(BYGBlocks.PEAT);
     public static final RegistryObject<Item> LUSH_GRASS_BLOCK = createItem(BYGBlocks.LUSH_GRASS_BLOCK);
