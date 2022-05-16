@@ -20,6 +20,7 @@ import potionstudios.byg.util.ModPlatform;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class BiomepediaScreen extends Screen {
     public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
@@ -70,12 +71,12 @@ public class BiomepediaScreen extends Screen {
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Ores"), button -> {
         });
 
-        Button issueReports = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Issue Reports"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(new TextComponent("Have a bug? Report it to us!")));
+        Button issueReports = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Issue Reports"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(new TextComponent("Have a bug? Report it to us!"), this));
 
-        Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Donate"), consumeLink(PATREON_URL), makeButtonToolTip(new TextComponent("Liking BYG? Support the creators!")));
-        Button downloadURL = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Download Latest!"), consumeLink(DOWNLOAD_URL), makeButtonToolTip(new TextComponent("Get the Latest BYG from the official download page!")));
+        Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Donate"), consumeLink(PATREON_URL), makeButtonToolTip(new TextComponent("Liking BYG? Support the creators!"), this));
+        Button downloadURL = new Button(0, this.topPos, buttonWidth, buttonHeight, new TextComponent("Download Latest!"), consumeLink(DOWNLOAD_URL), makeButtonToolTip(new TextComponent("Get the Latest BYG from the official download page!"), this));
 
-        List<AbstractWidget> buttons = ImmutableList.of(biomes, blocksAndItems, ores, downloadURL, issueReports, donate);
+        List<AbstractWidget> buttons = ImmutableList.of(/*biomes,*/ blocksAndItems, /*ores,*/ downloadURL, issueReports, donate);
 
         int listRenderedHeight = this.imageHeight + this.bottomPos;
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
@@ -84,9 +85,16 @@ public class BiomepediaScreen extends Screen {
     }
 
     @NotNull
-    private Button.OnTooltip makeButtonToolTip(Component component) {
+    public static Button.OnTooltip makeButtonToolTip(Component component, Screen screen) {
+        return makeButtonToolTip(component, screen, button -> button.active);
+    }
+
+    @NotNull
+    public static Button.OnTooltip makeButtonToolTip(Component component, Screen screen, Predicate<Button> buttonPredicate) {
         return (button, poseStack, mouseX, mouseZ) -> {
-            renderTooltip(poseStack, component, mouseX, mouseZ);
+            if (buttonPredicate.test(button)) {
+                screen.renderTooltip(poseStack, component, mouseX, mouseZ);
+            }
         };
     }
 

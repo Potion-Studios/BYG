@@ -28,7 +28,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.config.BiomepediaConfig;
 import potionstudios.byg.config.ConfigVersionTracker;
+import potionstudios.byg.network.packet.BiomepediaActivePacket;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.util.BYGUtil;
@@ -69,7 +71,7 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(SaplingPatterns.getConfig()));
-
+        ModPlatform.INSTANCE.sendToClient(serverPlayer, new BiomepediaActivePacket(BiomepediaConfig.getConfig().biomepediaEnabled()));
         if (this.getServer().isSingleplayer()) {
             if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
                 if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {

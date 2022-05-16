@@ -33,7 +33,7 @@ public record TradesConfig(boolean enabled,
 
     public static final Codec<TradesConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
-            Codec.BOOL.fieldOf("enabled").orElse(true).forGetter(config -> config.enabled),
+            Codec.BOOL.fieldOf("visible").orElse(true).forGetter(config -> config.enabled),
             Codec.unboundedMap(CodecUtil.VILLAGER_PROFESSION_CODEC, BYGVillagerTrades.createRangeCheckedKeyMap(1, 5)).fieldOf("trades_by_profession").forGetter(config -> config.tradesByProfession),
             BYGVillagerTrades.createRangeCheckedKeyMap(1, 2).fieldOf("wandering_trader_trades").forGetter(config -> config.wanderingTraderTrades)
         ).apply(builder, TradesConfig::new)
@@ -72,7 +72,7 @@ public record TradesConfig(boolean enabled,
 
     private static void createConfig(Path path) {
         HashMap<String, String> comments = Util.make(new HashMap<>(), map -> {
-            map.put("enabled", "Whether this file appends villager/wandering trader trades.");
+            map.put("visible", "Whether this file appends villager/wandering trader trades.");
             map.put("trades_by_profession", "Trades for a given villager profession. Trade levels are in the range of 1-5");
             map.put("wandering_trader_trades", "Trades for the wandering trader. Trades in \"1\" are \"generic\" trades. Trades appearing in \"2\" are \"rare\" trades.");
             map.put("wandering_trader_trades.1", "Trades listed here are \"generic\" and a few(not only from these listed here but from other mods/vanilla also) are picked when a wandering trader spawns.");

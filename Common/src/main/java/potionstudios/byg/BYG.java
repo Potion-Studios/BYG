@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import potionstudios.byg.client.BiomepediaClientConfig;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.sapling.SaplingPatterns;
@@ -28,6 +29,7 @@ import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
+import potionstudios.byg.config.BiomepediaConfig;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
@@ -153,6 +155,8 @@ public class BYG {
         SaplingPatterns.getConfig(serialize, recreate);
         TradesConfig.getConfig(serialize, recreate);
         SettingsConfig.getConfig(serialize, recreate);
+        BiomepediaClientConfig.getConfig(serialize, recreate);
+        BiomepediaConfig.getConfig(serialize, recreate);
         ConfigVersionTracker.getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), recreate);
         makeREADME();
     }

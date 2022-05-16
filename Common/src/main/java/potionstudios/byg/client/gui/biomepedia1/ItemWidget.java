@@ -5,7 +5,6 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 
 public class ItemWidget extends AbstractWidget {
@@ -21,7 +20,7 @@ public class ItemWidget extends AbstractWidget {
         this.onClick = onClick;
         this.visible = false;
         this.active = false;
-        this.hasAdditonalInfo = stack.getItem() instanceof BlockItem;
+        this.hasAdditonalInfo = false; //stack.getItem() instanceof BlockItem;
     }
 
     @Override
@@ -37,12 +36,9 @@ public class ItemWidget extends AbstractWidget {
 
     @Override
     public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-//        super.renderButton(poseStack, mouseX, mouseY, partialTick);
         this.itemRenderer.blitOffset = 100.0F;
         this.itemRenderer.renderAndDecorateItem(this.stack, this.x, this.y);
     }
-
-
 
     public interface OnClick {
 
