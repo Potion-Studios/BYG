@@ -16,6 +16,7 @@
   "biomepedia.intro.options.issues.hover": "Found a bug or issue? Report it to us!",
   "biomepedia.intro.options.ores": "Ores",
   "biomepedia.intro.options.ores.hover": "Learn more about BYG's ores!",
+  "byg.command.updateconfig.notifyplayersservershutdown": "BYG: The server owner has decided to shutdown the server to update BYG configs, server shuts down in 60 seconds....",
   "byg.advancements.husbandry.berrily_alive.description": "Obtain Blue Berries",
   "byg.advancements.husbandry.berrily_alive.title": "Berrily Alive",
   "byg.advancements.husbandry.forager.description": "Obtain White Puffball Caps",

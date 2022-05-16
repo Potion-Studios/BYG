@@ -46,6 +46,7 @@ public class UpdateConfigsCommand {
 
     public static final TranslatableComponent CONTACT_SERVER_OWNER = new TranslatableComponent("byg.command.updateconfig.contactserverowner");
     public static final MutableComponent PLAYER_WARNING = new TranslatableComponent("byg.command.updateconfig.warnplayers");
+    public static final MutableComponent SERVER_KILL_PLAYER_NOTIFICATION = new TranslatableComponent("byg.command.updateconfig.notifyplayersservershutdown");
     public static final MutableComponent GAME_CLOSE_WARNING = new TranslatableComponent("byg.command.updateconfig.warngameclose");
 
     public static ArgumentBuilder<CommandSourceStack, ?> register() {
@@ -91,7 +92,7 @@ public class UpdateConfigsCommand {
                     }
                     case 2 -> {
                         for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
-                            serverPlayer.displayClientMessage(PLAYER_WARNING.withStyle(ChatFormatting.RED), false);
+                            serverPlayer.displayClientMessage(SERVER_KILL_PLAYER_NOTIFICATION.withStyle(ChatFormatting.RED), false);
                         }
 
                         ((ServerKillCountDown) server).setKillCountdown(COUNTDOWN_LENGTH, isSinglePlayerOwner);
