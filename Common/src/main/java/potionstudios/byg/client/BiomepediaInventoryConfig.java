@@ -13,17 +13,17 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 
-public record BiomepediaInventoryConfig(boolean visible, PlayerInventorySettings settings) {
+public record BiomepediaInventoryConfig(boolean visible, PlayerInventoryPosition settings) {
 
     public static boolean server_value = true;
 
     public static final Codec<BiomepediaInventoryConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
                     Codec.BOOL.fieldOf("visible").forGetter(BiomepediaInventoryConfig::visible),
-                    PlayerInventorySettings.CODEC.fieldOf("inventory_settings").forGetter(BiomepediaInventoryConfig::settings)
+                    PlayerInventoryPosition.CODEC.fieldOf("inventory_position").forGetter(BiomepediaInventoryConfig::settings)
             ).apply(builder, BiomepediaInventoryConfig::new));
 
-    public static final BiomepediaInventoryConfig DEFAULT = new BiomepediaInventoryConfig(true, new PlayerInventorySettings(126, 22));
+    public static final BiomepediaInventoryConfig DEFAULT = new BiomepediaInventoryConfig(true, new PlayerInventoryPosition(126, 22));
 
     public static BiomepediaInventoryConfig INSTANCE = null;
 
@@ -49,7 +49,7 @@ public record BiomepediaInventoryConfig(boolean visible, PlayerInventorySettings
         if (!path.toFile().exists() || recreate) {
             JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> {
                 map.put("visible", "Whether the biomepedia button is visible in the player inventory.\nServers can disable this button from functioning regardless of this value.");
-                map.put("inventory_settings", "Inventory GUI settings for the biomepedia button position.");
+                map.put("inventory_position", "Inventory GUI settings for the biomepedia button position.");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
         BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
@@ -61,11 +61,11 @@ public record BiomepediaInventoryConfig(boolean visible, PlayerInventorySettings
         }
     }
 
-    public record PlayerInventorySettings(int widthOffset, int heightOffset) {
-        public static final Codec<PlayerInventorySettings> CODEC = RecordCodecBuilder.create(builder ->
+    public record PlayerInventoryPosition(int widthOffset, int heightOffset) {
+        public static final Codec<PlayerInventoryPosition> CODEC = RecordCodecBuilder.create(builder ->
                 builder.group(
-                        Codec.INT.fieldOf("width_offset").forGetter(PlayerInventorySettings::widthOffset),
-                        Codec.INT.fieldOf("height_offset").forGetter(PlayerInventorySettings::heightOffset)
-                ).apply(builder, PlayerInventorySettings::new));
+                        Codec.INT.fieldOf("width_offset").forGetter(PlayerInventoryPosition::widthOffset),
+                        Codec.INT.fieldOf("height_offset").forGetter(PlayerInventoryPosition::heightOffset)
+                ).apply(builder, PlayerInventoryPosition::new));
     }
 }
