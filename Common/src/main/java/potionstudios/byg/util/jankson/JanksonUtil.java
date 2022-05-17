@@ -18,15 +18,17 @@ import java.util.function.Supplier;
 
 public class JanksonUtil {
 
+    public static RuntimeException thrown = null;
+
     public static final String HEADER_OPEN = """
-        /*
-        This file uses the ".json5" file extension which allows for comments like this in a json file!
-        Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
-                
-        VSCode: https://code.visualstudio.com/
-        JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+            /*
+            This file uses the ".json5" file extension which allows for comments like this in a json file!
+            Your text editor may show this file with invalid/no syntax, if so, we recommend you download:
                     
-        to make editing this file much easier.""";
+            VSCode: https://code.visualstudio.com/
+            JSON5 plugin(for VSCode): https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+                        
+            to make editing this file much easier.""";
 
     public static final String HEADER_CLOSED = HEADER_OPEN + "\n*/";
 
@@ -111,12 +113,23 @@ public class JanksonUtil {
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
             if (error.isPresent()) {
-                throw new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s", path, error.get().message()));
+                IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s", path, error.get().message(), "=".repeat(100), configStringFromBytes(path), "=".repeat(100)));
+                thrown = illegalArgumentException;
+                throw illegalArgumentException;
             }
             return decode.result().orElseThrow().getFirst();
         } catch (IOException | SyntaxError errorMsg) {
-            BYG.LOGGER.error(String.format("File reading failed for: \"%s\"", path));
-            throw errorMsg;
+            IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s", path, errorMsg, "=".repeat(100), configStringFromBytes(path), "=".repeat(100)));
+            thrown = illegalArgumentException;
+            throw illegalArgumentException;
+        }
+    }
+
+    private static String configStringFromBytes(Path path) {
+        try {
+            return new String(Files.readAllBytes(path));
+        } catch (IOException e) {
+            return String.format("Unable to read file bytes \"%s\" due to error(s):\n%s", path.toString(), e);
         }
     }
 }
