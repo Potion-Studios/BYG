@@ -39,6 +39,7 @@ import potionstudios.byg.util.MLBlockTags;
 
 import java.util.*;
 
+@Deprecated(forRemoval = true)
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {
 
     protected static FastNoise fastNoise;
