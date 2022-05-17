@@ -306,10 +306,10 @@ public class BYGItems {
     public static final RegistryObject<Item> BLUE_ENCHANTED_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "blue_enchanted_boat");
 
     //Bulbis Woodtype
-    public static final RegistryObject<Item> PURPLE_BULBIS_ODDITY = createItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
+    public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
     public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
     public static final RegistryObject<Item> PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
-    public static final RegistryObject<Item> BULBIS_ODDITY = createItem(BYGBlocks.BULBIS_ODDITY);
+    public static final RegistryObject<GrowerItem> BULBIS_ODDITY = createGrowerItem(BYGBlocks.BULBIS_ODDITY);
     public static final RegistryObject<Item> BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
     public static final RegistryObject<Item> BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
     public static final RegistryObject<Item> BULBIS_STEM = createItem(BYGBlocks.BULBIS_STEM);
@@ -509,13 +509,13 @@ public class BYGItems {
     public static final RegistryObject<Item> IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
     public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
     public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BLOCK = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK);
-    public static final RegistryObject<Item> IMPARIUS_MUSHROOM = createItem(BYGBlocks.IMPARIUS_MUSHROOM);
+    public static final RegistryObject<GrowerItem> IMPARIUS_MUSHROOM = createGrowerItem(BYGBlocks.IMPARIUS_MUSHROOM);
     public static final RegistryObject<Item> IMPARIUS_STEM = createItem(BYGBlocks.IMPARIUS_STEM);
     public static final RegistryObject<Item> IMPARIUS_HYPHAE = createItem(BYGBlocks.IMPARIUS_HYPHAE);
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK);
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT);
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS = createItem(BYGBlocks.FUNGAL_IMPARIUS);
+    public static final RegistryObject<GrowerItem> FUNGAL_IMPARIUS = createGrowerItem(BYGBlocks.FUNGAL_IMPARIUS);
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
     public static final RegistryObject<Item> IMPARIUS_PLANKS = createItem(BYGBlocks.IMPARIUS_PLANKS);
@@ -858,7 +858,7 @@ public class BYGItems {
 
     //Sythian Woodtype
     public static final RegistryObject<Item> SYTHIAN_WART_BLOCK = createItem(BYGBlocks.SYTHIAN_WART_BLOCK);
-    public static final RegistryObject<Item> SYTHIAN_FUNGUS = createItem(BYGBlocks.SYTHIAN_FUNGUS);
+    public static final RegistryObject<GrowerItem> SYTHIAN_FUNGUS = createGrowerItem(BYGBlocks.SYTHIAN_FUNGUS);
     public static final RegistryObject<Item> SYTHIAN_STEM = createItem(BYGBlocks.SYTHIAN_STEM);
     public static final RegistryObject<Item> SYTHIAN_HYPHAE = createItem(BYGBlocks.SYTHIAN_HYPHAE);
     public static final RegistryObject<Item> STRIPPED_SYTHIAN_STEM = createItem(BYGBlocks.STRIPPED_SYTHIAN_STEM);
@@ -1014,11 +1014,11 @@ public class BYGItems {
     public static final RegistryObject<Item> SCORCHED_GRASS = createItem(BYGBlocks.SCORCHED_GRASS);
     public static final RegistryObject<Item> ARISIAN_BLOOM_BRANCH = createItem(BYGBlocks.ARISIAN_BLOOM_BRANCH);
 
-    public static final RegistryObject<Item> SOUL_SHROOM = createItem(BYGBlocks.SOUL_SHROOM);
+    public static final RegistryObject<GrowerItem> SOUL_SHROOM = createGrowerItem(BYGBlocks.SOUL_SHROOM);
     public static final RegistryObject<Item> SOUL_SHROOM_SPORE_END = createItem(BYGBlocks.SOUL_SHROOM_SPORE_END);
     public static final RegistryObject<Item> SOUL_SHROOM_STEM = createItem(BYGBlocks.SOUL_SHROOM_STEM);
     public static final RegistryObject<Item> SOUL_SHROOM_BLOCK = createItem(BYGBlocks.SOUL_SHROOM_BLOCK);
-    public static final RegistryObject<Item> DEATH_CAP = createItem(BYGBlocks.DEATH_CAP);
+    public static final RegistryObject<GrowerItem> DEATH_CAP = createGrowerItem(BYGBlocks.DEATH_CAP);
     public static final RegistryObject<Item> DEATH_CAP_MUSHROOM_BLOCK = createItem(BYGBlocks.DEATH_CAP_MUSHROOM_BLOCK);
 
     public static final RegistryObject<Item> WEEPING_ROOTS = createItem(BYGBlocks.WEEPING_ROOTS);
@@ -1126,7 +1126,7 @@ public class BYGItems {
     public static final RegistryObject<Item> VERMILION_SCULK_GROWTH = createItem(BYGBlocks.VERMILION_SCULK_GROWTH);
     public static final RegistryObject<Item> VERMILION_SCULK = createItem(BYGBlocks.VERMILION_SCULK);
 
-    public static final RegistryObject<Item> SHULKREN_FUNGUS = createItem(BYGBlocks.SHULKREN_FUNGUS);
+    public static final RegistryObject<GrowerItem> SHULKREN_FUNGUS = createGrowerItem(BYGBlocks.SHULKREN_FUNGUS);
     public static final RegistryObject<Item> SHULKREN_WART_BLOCK = createItem(BYGBlocks.SHULKREN_WART_BLOCK);
     public static final RegistryObject<Item> SHULKREN_MOSS_BLANKET = createItem(BYGBlocks.SHULKREN_MOSS_BLANKET);
     public static final RegistryObject<Item> SHULKREN_VINE = createItem(BYGBlocks.SHULKREN_VINE);
