@@ -51,6 +51,7 @@
     "access.SurfaceRuleDataAccess",
     "access.SurfaceRulesStateRuleAccess",
     "access.SurfaceSystemAccess",
+    "access.TagBuilderAccess",
     "access.TrapDoorBlockAccess",
     "access.VanillaBiomeAccess",
     "access.VegetationFeaturesAccess",

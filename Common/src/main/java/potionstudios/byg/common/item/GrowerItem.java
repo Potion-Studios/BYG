@@ -15,19 +15,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.client.util.BYGClientUtil;
-import potionstudios.byg.common.block.sapling.BYGSapling;
-import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.common.block.sapling.GrowingPatterns;
+import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
 import java.util.List;
 import java.util.Map;
 
-public class BYGSaplingItem extends BlockItem {
+public class GrowerItem extends BlockItem {
 
+    public GrowerItem(FeatureGrowerFromBlockPattern block, Properties properties) {
+        super((Block) block, properties);
+    }
 
-    public BYGSaplingItem(Block block, Properties properties) {
+    public GrowerItem(Block block, Properties properties) {
         super(block, properties);
-        if (!(block instanceof BYGSapling)) {
-            throw new IllegalArgumentException("Block must be an instance of BYGSapling!");
+        if (!(block instanceof FeatureGrowerFromBlockPattern)) {
+            throw new IllegalArgumentException("Block must be an instance of FeatureGrowerFromBlock!");
         }
     }
 
@@ -35,7 +38,7 @@ public class BYGSaplingItem extends BlockItem {
     public void appendHoverText(ItemStack $$0, @Nullable Level $$1, List<Component> components, TooltipFlag $$3) {
         super.appendHoverText($$0, $$1, components, $$3);
 
-        Map<ResourceLocation, List<SaplingPatterns.PatternEntry>> patterns = SaplingPatterns.getConfig().saplingPatterns();
+        Map<ResourceLocation, List<GrowingPatterns.GrowingPatternEntry>> patterns = GrowingPatterns.getConfig().patternsForBlock();
         ResourceLocation blockKey = Registry.BLOCK.getKey(this.getBlock());
         if (patterns.containsKey(blockKey)) {
             Minecraft mc = Minecraft.getInstance();
@@ -43,10 +46,10 @@ public class BYGSaplingItem extends BlockItem {
             if (BYGClientUtil.isKeyOrMouseButtonDown(mc, keyShift)) {
                 components.add(new TranslatableComponent("byg.saplingpattern.tooltip"));
 
-                List<SaplingPatterns.PatternEntry> patternEntries = patterns.get(blockKey);
+                List<GrowingPatterns.GrowingPatternEntry> patternEntries = patterns.get(blockKey);
                 for (int i = 0; i < patternEntries.size(); i++) {
-                    SaplingPatterns.PatternEntry patternEntry = patternEntries.get(i);
-                    for (String s : patternEntry.pattern()) {
+                    GrowingPatterns.GrowingPatternEntry growingPatternEntry = patternEntries.get(i);
+                    for (String s : growingPatternEntry.pattern()) {
                         Component textComponent = new TextComponent(s.replace(" ", "-"));
                         components.add(textComponent);
                     }

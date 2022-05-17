@@ -9,7 +9,9 @@ import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.Util;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -20,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 import potionstudios.byg.client.BiomepediaInventoryConfig;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
@@ -40,7 +42,7 @@ import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
-import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.FileUtils;
 import potionstudios.byg.util.ModPlatform;
 
@@ -85,7 +87,7 @@ public class BYG {
     }
 
     private static void handleConfigs() {
-        CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
+        FeatureGrowerFromBlockPattern.ENTRIES.forEach(c -> c.get().load());
         makeREADME();
         EndBiomesConfig.getConfig();
         NetherBiomesConfig.getConfig();
@@ -152,7 +154,7 @@ public class BYG {
         OverworldBiomeConfig.getConfig(serialize, recreate);
         BiomeDictionaryConfig.getConfig(serialize, recreate);
         SurfaceRulesConfig.getConfig(serialize, recreate);
-        SaplingPatterns.getConfig(serialize, recreate);
+        GrowingPatterns.getConfig(serialize, recreate);
         TradesConfig.getConfig(serialize, recreate);
         SettingsConfig.getConfig(serialize, recreate);
         BiomepediaInventoryConfig.getConfig(serialize, recreate);
@@ -163,6 +165,14 @@ public class BYG {
 
     public static ResourceLocation createLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
+    }
+
+    public static ResourceLocation createLocation(ResourceKey<?> path) {
+        return path.location();
+    }
+
+    public static ResourceLocation createLocation(Holder<?> holder) {
+        return createLocation(holder.unwrapKey().orElseThrow());
     }
 
     static {

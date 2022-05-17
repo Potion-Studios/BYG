@@ -26,7 +26,7 @@ public class BYGItems {
 
     public static final RegistrationProvider<Item> PROVIDER = RegistrationProvider.get(Registry.ITEM_REGISTRY, BYG.MOD_ID);
 
-    public static final List<RegistryObject<BYGSaplingItem>> SAPLINGS = new ArrayList<>();
+    public static final List<RegistryObject<GrowerItem>> SAPLINGS = new ArrayList<>();
 
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
     public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "biomepedia");
@@ -242,7 +242,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CRACKED_RED_SAND = createItem(BYGBlocks.CRACKED_RED_SAND);
 
     //Aspen Woodtype
-    public static final RegistryObject<BYGSaplingItem> ASPEN_SAPLING = createSaplingItem(BYGBlocks.ASPEN_SAPLING);
+    public static final RegistryObject<GrowerItem> ASPEN_SAPLING = createSaplingItem(BYGBlocks.ASPEN_SAPLING);
     public static final RegistryObject<Item> ASPEN_LEAVES = createItem(BYGBlocks.ASPEN_LEAVES);
     public static final RegistryObject<Item> ASPEN_LOG = createItem(BYGBlocks.ASPEN_LOG);
     public static final RegistryObject<Item> ASPEN_WOOD = createItem(BYGBlocks.ASPEN_WOOD);
@@ -264,7 +264,7 @@ public class BYGItems {
 
     //Baobab Woodtype
     public static final RegistryObject<Item> BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
-    public static final RegistryObject<BYGSaplingItem> BAOBAB_SAPLING = createSaplingItem(BYGBlocks.BAOBAB_SAPLING);
+    public static final RegistryObject<GrowerItem> BAOBAB_SAPLING = createSaplingItem(BYGBlocks.BAOBAB_SAPLING);
     public static final RegistryObject<Item> BAOBAB_LEAVES = createItem(BYGBlocks.BAOBAB_LEAVES);
     public static final RegistryObject<Item> BAOBAB_LOG = createItem(BYGBlocks.BAOBAB_LOG);
     public static final RegistryObject<Item> BAOBAB_WOOD = createItem(BYGBlocks.BAOBAB_WOOD);
@@ -285,7 +285,7 @@ public class BYGItems {
     public static final RegistryObject<Item> BAOBAB_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "baobab_boat");
 
     //Blue Enchanted Woodtype
-    public static final RegistryObject<BYGSaplingItem> BLUE_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);
+    public static final RegistryObject<GrowerItem> BLUE_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);
     public static final RegistryObject<Item> BLUE_ENCHANTED_LEAVES = createItem(BYGBlocks.BLUE_ENCHANTED_LEAVES);
     public static final RegistryObject<Item> BLUE_ENCHANTED_LOG = createItem(BYGBlocks.BLUE_ENCHANTED_LOG);
     public static final RegistryObject<Item> BLUE_ENCHANTED_WOOD = createItem(BYGBlocks.BLUE_ENCHANTED_WOOD);
@@ -331,10 +331,10 @@ public class BYGItems {
 
 
     //Cherry Woodtype
-    public static final RegistryObject<BYGSaplingItem> PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
+    public static final RegistryObject<GrowerItem> PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
     public static final RegistryObject<Item> PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
     public static final RegistryObject<Item> PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
-    public static final RegistryObject<BYGSaplingItem> WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
+    public static final RegistryObject<GrowerItem> WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
     public static final RegistryObject<Item> WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
     public static final RegistryObject<Item> WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
     public static final RegistryObject<Item> CHERRY_LOG = createItem(BYGBlocks.CHERRY_LOG);
@@ -356,7 +356,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CHERRY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cherry_boat");
 
     //Cika Woodtype
-    public static final RegistryObject<BYGSaplingItem> CIKA_SAPLING = createSaplingItem(BYGBlocks.CIKA_SAPLING);
+    public static final RegistryObject<GrowerItem> CIKA_SAPLING = createSaplingItem(BYGBlocks.CIKA_SAPLING);
     public static final RegistryObject<Item> CIKA_LEAVES = createItem(BYGBlocks.CIKA_LEAVES);
     public static final RegistryObject<Item> CIKA_LOG = createItem(BYGBlocks.CIKA_LOG);
     public static final RegistryObject<Item> CIKA_WOOD = createItem(BYGBlocks.CIKA_WOOD);
@@ -377,7 +377,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CIKA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cika_boat");
 
     //Cypress Woodtype
-    public static final RegistryObject<BYGSaplingItem> CYPRESS_SAPLING = createSaplingItem(BYGBlocks.CYPRESS_SAPLING);
+    public static final RegistryObject<GrowerItem> CYPRESS_SAPLING = createSaplingItem(BYGBlocks.CYPRESS_SAPLING);
     public static final RegistryObject<Item> CYPRESS_LEAVES = createItem(BYGBlocks.CYPRESS_LEAVES);
     public static final RegistryObject<Item> CYPRESS_LOG = createItem(BYGBlocks.CYPRESS_LOG);
     public static final RegistryObject<Item> CYPRESS_WOOD = createItem(BYGBlocks.CYPRESS_WOOD);
@@ -398,7 +398,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CYPRESS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cypress_boat");
 
     //Ebony Woodtype
-    public static final RegistryObject<BYGSaplingItem> EBONY_SAPLING = createSaplingItem(BYGBlocks.EBONY_SAPLING);
+    public static final RegistryObject<GrowerItem> EBONY_SAPLING = createSaplingItem(BYGBlocks.EBONY_SAPLING);
     public static final RegistryObject<Item> EBONY_LEAVES = createItem(BYGBlocks.EBONY_LEAVES);
     public static final RegistryObject<Item> EBONY_LOG = createItem(BYGBlocks.EBONY_LOG);
     public static final RegistryObject<Item> EBONY_WOOD = createItem(BYGBlocks.EBONY_WOOD);
@@ -421,7 +421,7 @@ public class BYGItems {
     //Ether Woodtype
     public static final RegistryObject<Item> ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
 
-    public static final RegistryObject<BYGSaplingItem> ETHER_SAPLING = createSaplingItem(BYGBlocks.ETHER_SAPLING);
+    public static final RegistryObject<GrowerItem> ETHER_SAPLING = createSaplingItem(BYGBlocks.ETHER_SAPLING);
     public static final RegistryObject<Item> ETHER_LEAVES = createItem(BYGBlocks.ETHER_LEAVES);
     public static final RegistryObject<Item> ETHER_LOG = createItem(BYGBlocks.ETHER_LOG);
     public static final RegistryObject<Item> ETHER_WOOD = createItem(BYGBlocks.ETHER_WOOD);
@@ -441,7 +441,7 @@ public class BYGItems {
     public static final RegistryObject<SignItem> ETHER_SIGN = createSign("ether_sign", BYGBlocks.ETHER_SIGN, BYGBlocks.ETHER_WALL_SIGN);
 
     //Fir Woodtype
-    public static final RegistryObject<BYGSaplingItem> FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
+    public static final RegistryObject<GrowerItem> FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
     public static final RegistryObject<Item> FIR_LEAVES = createItem(BYGBlocks.FIR_LEAVES);
     public static final RegistryObject<Item> FIR_LOG = createItem(BYGBlocks.FIR_LOG);
     public static final RegistryObject<Item> FIR_WOOD = createItem(BYGBlocks.FIR_WOOD);
@@ -462,7 +462,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> FIR_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "fir_boat");
 
     //Green Enchanted Woodtype
-    public static final RegistryObject<BYGSaplingItem> GREEN_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.GREEN_ENCHANTED_SAPLING);
+    public static final RegistryObject<GrowerItem> GREEN_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.GREEN_ENCHANTED_SAPLING);
     public static final RegistryObject<Item> GREEN_ENCHANTED_LEAVES = createItem(BYGBlocks.GREEN_ENCHANTED_LEAVES);
     public static final RegistryObject<Item> GREEN_ENCHANTED_LOG = createItem(BYGBlocks.GREEN_ENCHANTED_LOG);
     public static final RegistryObject<Item> GREEN_ENCHANTED_WOOD = createItem(BYGBlocks.GREEN_ENCHANTED_WOOD);
@@ -485,7 +485,7 @@ public class BYGItems {
     //Holly Woodtype
     public static final RegistryObject<Item> HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
     public static final RegistryObject<Item> HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
-    public static final RegistryObject<BYGSaplingItem> HOLLY_SAPLING = createSaplingItem(BYGBlocks.HOLLY_SAPLING);
+    public static final RegistryObject<GrowerItem> HOLLY_SAPLING = createSaplingItem(BYGBlocks.HOLLY_SAPLING);
     public static final RegistryObject<Item> HOLLY_LEAVES = createItem(BYGBlocks.HOLLY_LEAVES);
     public static final RegistryObject<Item> HOLLY_LOG = createItem(BYGBlocks.HOLLY_LOG);
     public static final RegistryObject<Item> HOLLY_WOOD = createItem(BYGBlocks.HOLLY_WOOD);
@@ -534,12 +534,12 @@ public class BYGItems {
     //Jacaranda Woodtype
     public static final RegistryObject<Item> JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
     public static final RegistryObject<Item> FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
-    public static final RegistryObject<BYGSaplingItem> JACARANDA_SAPLING = createSaplingItem(BYGBlocks.JACARANDA_SAPLING);
+    public static final RegistryObject<GrowerItem> JACARANDA_SAPLING = createSaplingItem(BYGBlocks.JACARANDA_SAPLING);
     public static final RegistryObject<Item> JACARANDA_LEAVES = createItem(BYGBlocks.JACARANDA_LEAVES);
     public static final RegistryObject<Item> FLOWERING_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_JACARANDA_LEAVES);
     public static final RegistryObject<Item> INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.INDIGO_JACARANDA_BUSH);
     public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH);
-    public static final RegistryObject<BYGSaplingItem> INDIGO_JACARANDA_SAPLING = createSaplingItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
+    public static final RegistryObject<GrowerItem> INDIGO_JACARANDA_SAPLING = createSaplingItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
     public static final RegistryObject<Item> INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.INDIGO_JACARANDA_LEAVES);
     public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES);
     public static final RegistryObject<Item> JACARANDA_LOG = createItem(BYGBlocks.JACARANDA_LOG);
@@ -561,7 +561,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> JACARANDA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "jacaranda_boat");
 
     //Lament Woodtype
-    public static final RegistryObject<BYGSaplingItem> LAMENT_SAPLING = createSaplingItem(BYGBlocks.LAMENT_SAPLING);
+    public static final RegistryObject<GrowerItem> LAMENT_SAPLING = createSaplingItem(BYGBlocks.LAMENT_SAPLING);
     public static final RegistryObject<Item> LAMENT_LEAVES = createItem(BYGBlocks.LAMENT_LEAVES);
     public static final RegistryObject<Item> LAMENT_VINE = createItem(BYGBlocks.LAMENT_VINE);
     public static final RegistryObject<Item> LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
@@ -583,7 +583,7 @@ public class BYGItems {
     public static final RegistryObject<SignItem> LAMENT_SIGN = createSign("lament_sign", BYGBlocks.LAMENT_SIGN, BYGBlocks.LAMENT_WALL_SIGN);
 
     //Mahogany Woodtype
-    public static final RegistryObject<BYGSaplingItem> MAHOGANY_SAPLING = createSaplingItem(BYGBlocks.MAHOGANY_SAPLING);
+    public static final RegistryObject<GrowerItem> MAHOGANY_SAPLING = createSaplingItem(BYGBlocks.MAHOGANY_SAPLING);
     public static final RegistryObject<Item> MAHOGANY_LEAVES = createItem(BYGBlocks.MAHOGANY_LEAVES);
     public static final RegistryObject<Item> MAHOGANY_LOG = createItem(BYGBlocks.MAHOGANY_LOG);
     public static final RegistryObject<Item> MAHOGANY_WOOD = createItem(BYGBlocks.MAHOGANY_WOOD);
@@ -604,7 +604,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> MAHOGANY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mahogany_boat");
 
     //Mangrove Woodtype
-    public static final RegistryObject<BYGSaplingItem> MANGROVE_SAPLING = createSaplingItem(BYGBlocks.MANGROVE_SAPLING);
+    public static final RegistryObject<GrowerItem> MANGROVE_SAPLING = createSaplingItem(BYGBlocks.MANGROVE_SAPLING);
     public static final RegistryObject<Item> MANGROVE_LEAVES = createItem(BYGBlocks.MANGROVE_LEAVES);
     public static final RegistryObject<Item> MANGROVE_LOG = createItem(BYGBlocks.MANGROVE_LOG);
     public static final RegistryObject<Item> MANGROVE_WOOD = createItem(BYGBlocks.MANGROVE_WOOD);
@@ -625,11 +625,11 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> MANGROVE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mangrove_boat");
 
     //Maple Woodtype
-    public static final RegistryObject<BYGSaplingItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
+    public static final RegistryObject<GrowerItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
     public static final RegistryObject<Item> MAPLE_LEAVES = createItem(BYGBlocks.MAPLE_LEAVES);
-    public static final RegistryObject<BYGSaplingItem> RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
+    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
     public static final RegistryObject<Item> RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
-    public static final RegistryObject<BYGSaplingItem> SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
+    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
     public static final RegistryObject<Item> SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
     public static final RegistryObject<Item> MAPLE_LOG = createItem(BYGBlocks.MAPLE_LOG);
     public static final RegistryObject<Item> MAPLE_WOOD = createItem(BYGBlocks.MAPLE_WOOD);
@@ -650,7 +650,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> MAPLE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
 
     //Nightshade Woodtype
-    public static final RegistryObject<BYGSaplingItem> NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
+    public static final RegistryObject<GrowerItem> NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
     public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
     public static final RegistryObject<Item> NIGHTSHADE_LEAVES = createItem(BYGBlocks.NIGHTSHADE_LEAVES);
     public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
@@ -672,7 +672,7 @@ public class BYGItems {
     public static final RegistryObject<SignItem> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
 
     //Palm Woodtype
-    public static final RegistryObject<BYGSaplingItem> PALM_SAPLING = createSaplingItem(BYGBlocks.PALM_SAPLING);
+    public static final RegistryObject<GrowerItem> PALM_SAPLING = createSaplingItem(BYGBlocks.PALM_SAPLING);
     public static final RegistryObject<Item> PALM_LEAVES = createItem(BYGBlocks.PALM_LEAVES);
     public static final RegistryObject<Item> PALM_LOG = createItem(BYGBlocks.PALM_LOG);
     public static final RegistryObject<Item> PALM_WOOD = createItem(BYGBlocks.PALM_WOOD);
@@ -694,7 +694,7 @@ public class BYGItems {
 
     //Palo Verde Woodtype
     public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
-    public static final RegistryObject<BYGSaplingItem> PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
+    public static final RegistryObject<GrowerItem> PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
     public static final RegistryObject<Item> PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
     public static final RegistryObject<Item> PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
     public static final RegistryObject<Item> PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
@@ -702,7 +702,7 @@ public class BYGItems {
     public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
 
     //Pine Woodtype
-    public static final RegistryObject<BYGSaplingItem> PINE_SAPLING = createSaplingItem(BYGBlocks.PINE_SAPLING);
+    public static final RegistryObject<GrowerItem> PINE_SAPLING = createSaplingItem(BYGBlocks.PINE_SAPLING);
     public static final RegistryObject<Item> PINE_LEAVES = createItem(BYGBlocks.PINE_LEAVES);
     public static final RegistryObject<Item> PINE_LOG = createItem(BYGBlocks.PINE_LOG);
     public static final RegistryObject<Item> PINE_WOOD = createItem(BYGBlocks.PINE_WOOD);
@@ -723,7 +723,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> PINE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "pine_boat");
 
     //Rainbow Eucalyptus Woodtype
-    public static final RegistryObject<BYGSaplingItem> RAINBOW_EUCALYPTUS_SAPLING = createSaplingItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
+    public static final RegistryObject<GrowerItem> RAINBOW_EUCALYPTUS_SAPLING = createSaplingItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
     public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_LEAVES = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES);
     public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_LOG = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LOG);
     public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_WOOD = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_WOOD);
@@ -744,7 +744,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> RAINBOW_EUCALYPTUS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "rainbow_eucalyptus_boat");
 
     //Redwood Woodtype
-    public static final RegistryObject<BYGSaplingItem> REDWOOD_SAPLING = createSaplingItem(BYGBlocks.REDWOOD_SAPLING);
+    public static final RegistryObject<GrowerItem> REDWOOD_SAPLING = createSaplingItem(BYGBlocks.REDWOOD_SAPLING);
     public static final RegistryObject<Item> REDWOOD_LEAVES = createItem(BYGBlocks.REDWOOD_LEAVES);
     public static final RegistryObject<Item> REDWOOD_LOG = createItem(BYGBlocks.REDWOOD_LOG);
     public static final RegistryObject<Item> REDWOOD_WOOD = createItem(BYGBlocks.REDWOOD_WOOD);
@@ -768,7 +768,7 @@ public class BYGItems {
     public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
     public static final RegistryObject<Item> GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
     public static final RegistryObject<Item> GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
-    public static final RegistryObject<BYGSaplingItem> SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
+    public static final RegistryObject<GrowerItem> SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
     public static final RegistryObject<Item> SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
     public static final RegistryObject<Item> SKYRIS_LEAVES = createItem(BYGBlocks.SKYRIS_LEAVES);
     public static final RegistryObject<Item> SKYRIS_LOG = createItem(BYGBlocks.SKYRIS_LOG);
@@ -790,7 +790,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> SKYRIS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
 
     //Willow Woodtype
-    public static final RegistryObject<BYGSaplingItem> WILLOW_SAPLING = createSaplingItem(BYGBlocks.WILLOW_SAPLING);
+    public static final RegistryObject<GrowerItem> WILLOW_SAPLING = createSaplingItem(BYGBlocks.WILLOW_SAPLING);
     public static final RegistryObject<Item> WILLOW_LEAVES = createItem(BYGBlocks.WILLOW_LEAVES);
     public static final RegistryObject<Item> WILLOW_LOG = createItem(BYGBlocks.WILLOW_LOG);
     public static final RegistryObject<Item> WILLOW_WOOD = createItem(BYGBlocks.WILLOW_WOOD);
@@ -815,7 +815,7 @@ public class BYGItems {
     public static final RegistryObject<Item> WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
 
     public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
-    public static final RegistryObject<BYGSaplingItem> WITCH_HAZEL_SAPLING = createSaplingItem(BYGBlocks.WITCH_HAZEL_SAPLING);
+    public static final RegistryObject<GrowerItem> WITCH_HAZEL_SAPLING = createSaplingItem(BYGBlocks.WITCH_HAZEL_SAPLING);
     public static final RegistryObject<Item> WITCH_HAZEL_LEAVES = createItem(BYGBlocks.WITCH_HAZEL_LEAVES);
     public static final RegistryObject<Item> WITCH_HAZEL_LOG = createItem(BYGBlocks.WITCH_HAZEL_LOG);
     public static final RegistryObject<Item> WITCH_HAZEL_WOOD = createItem(BYGBlocks.WITCH_HAZEL_WOOD);
@@ -836,7 +836,7 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> WITCH_HAZEL_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "witch_hazel_boat");
 
     //Zelkova Woodtype
-    public static final RegistryObject<BYGSaplingItem> ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.ZELKOVA_SAPLING);
+    public static final RegistryObject<GrowerItem> ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.ZELKOVA_SAPLING);
     public static final RegistryObject<Item> ZELKOVA_LEAVES = createItem(BYGBlocks.ZELKOVA_LEAVES);
     public static final RegistryObject<Item> ZELKOVA_LOG = createItem(BYGBlocks.ZELKOVA_LOG);
     public static final RegistryObject<Item> ZELKOVA_WOOD = createItem(BYGBlocks.ZELKOVA_WOOD);
@@ -881,7 +881,7 @@ public class BYGItems {
     public static final RegistryObject<Item> EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
     public static final RegistryObject<Item> EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
     public static final RegistryObject<Item> EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
-    public static final RegistryObject<Item> EMBUR_WART = createItem(BYGBlocks.EMBUR_WART);
+    public static final RegistryObject<GrowerItem> EMBUR_WART = createGrowerItem(BYGBlocks.EMBUR_WART);
     public static final RegistryObject<Item> EMBUR_PEDU = createItem(BYGBlocks.EMBUR_PEDU);
     public static final RegistryObject<Item> EMBUR_HYPHAE = createItem(BYGBlocks.EMBUR_HYPHAE);
     public static final RegistryObject<Item> STRIPPED_EMBUR_PEDU = createItem(BYGBlocks.STRIPPED_EMBUR_PEDU);
@@ -1152,11 +1152,11 @@ public class BYGItems {
     public static final RegistryObject<Item> PACKED_BLACK_ICE = createItem(BYGBlocks.PACKED_BLACK_ICE);
 
     //Mushrooms
-    public static final RegistryObject<Item> GREEN_MUSHROOM = createItem(BYGBlocks.GREEN_MUSHROOM);
+    public static final RegistryObject<GrowerItem> GREEN_MUSHROOM = createGrowerItem(BYGBlocks.GREEN_MUSHROOM);
     public static final RegistryObject<Item> GREEN_MUSHROOM_BLOCK = createItem(BYGBlocks.GREEN_MUSHROOM_BLOCK);
-    public static final RegistryObject<Item> WEEPING_MILKCAP = createItem(BYGBlocks.WEEPING_MILKCAP);
+    public static final RegistryObject<GrowerItem> WEEPING_MILKCAP = createGrowerItem(BYGBlocks.WEEPING_MILKCAP);
     public static final RegistryObject<Item> MILKCAP_MUSHROOM_BLOCK = createItem(BYGBlocks.MILKCAP_MUSHROOM_BLOCK);
-    public static final RegistryObject<Item> WOOD_BLEWIT = createItem(BYGBlocks.WOOD_BLEWIT);
+    public static final RegistryObject<GrowerItem> WOOD_BLEWIT = createGrowerItem(BYGBlocks.WOOD_BLEWIT);
     public static final RegistryObject<Item> BLEWIT_MUSHROOM_BLOCK = createItem(BYGBlocks.BLEWIT_MUSHROOM_BLOCK);
     public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
     public static final RegistryObject<Item> WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
@@ -1272,9 +1272,19 @@ public class BYGItems {
         return createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
-    public static RegistryObject<BYGSaplingItem> createSaplingItem(RegistryObject<? extends Block> block) {
-        final var item = createItem(() -> new BYGSaplingItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
-        SAPLINGS.add(item);
+    public static RegistryObject<GrowerItem> createSaplingItem(RegistryObject<? extends Block> block) {
+        return createGrowerItem(block, true);
+    }
+
+    public static RegistryObject<GrowerItem> createGrowerItem(RegistryObject<? extends Block> block) {
+        return createGrowerItem(block, false);
+    }
+
+    public static RegistryObject<GrowerItem> createGrowerItem(RegistryObject<? extends Block> block, boolean isSapling) {
+        final var item = createItem(() -> new GrowerItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        if (isSapling) {
+            SAPLINGS.add(item);
+        }
         return item;
     }
 
