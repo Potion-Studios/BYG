@@ -30,6 +30,7 @@ import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.ForgeNetworkHandler;
+import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
@@ -109,6 +110,12 @@ public class BYGForge {
 
     private void loadFinish(FMLLoadCompleteEvent event) {
         event.enqueueWork(BYG::threadSafeLoadFinish);
+
+        // Because Forge's enqueueWork eats exceptions, we need to cache it ourselves and throw it after the fact.
+        // TODO: Remove this ugly workaround once forge fixes this issue.
+        if (JanksonUtil.thrown != null) {
+            throw JanksonUtil.thrown;
+        }
     }
 
     private void clientLoad(FMLClientSetupEvent event) {

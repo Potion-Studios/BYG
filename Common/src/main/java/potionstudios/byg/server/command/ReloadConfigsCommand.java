@@ -6,10 +6,9 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.TranslatableComponent;
-import potionstudios.byg.common.block.sapling.BYGSapling;
-import potionstudios.byg.common.block.sapling.SaplingPatterns;
+import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
-import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.Arrays;
@@ -38,10 +37,10 @@ public class ReloadConfigsCommand {
 
 
     private enum Config {
-        SAPLINGS((stack) -> {
-            SaplingPatterns.getConfig(true, false);
-            BYGSapling.SERIALIZERS.forEach(CommonSetupLoad::load);
-            ModPlatform.INSTANCE.sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(SaplingPatterns.getConfig()));
+        GROWERS((stack) -> {
+            GrowingPatterns.getConfig(true, false);
+            FeatureGrowerFromBlockPattern.ENTRIES.forEach(grower -> grower.get().load());
+            ModPlatform.INSTANCE.sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(GrowingPatterns.getConfig()));
         });
 
         private final Consumer<CommandSourceStack> runnable;

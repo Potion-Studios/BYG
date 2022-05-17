@@ -39,19 +39,16 @@ import potionstudios.byg.common.block.nether.subzerohypogeal.BuddingSubzeroCryst
 import potionstudios.byg.common.block.nether.wailing.WailingBulbBlossomBlock;
 import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
-import potionstudios.byg.common.block.sapling.BYGSapling;
+import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.common.entity.BYGEntityTags;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
-import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGHugeMushroom;
-import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGMushroomToHugeMushroom;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.TreeSpawners;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistrationProvider;
-import potionstudios.byg.util.CommonSetupLoad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -510,7 +507,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, "zelkova_sapling");
     public static final BlockRegistryObject<Block> PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, "palm_sapling");
     public static final BlockRegistryObject<Block> LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, "lament_sapling");
-    public static final BlockRegistryObject<Block> WITHERING_OAK_SAPLING = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.WitheringOak(), "withering_oak_sapling");
+    public static final BlockRegistryObject<Block> WITHERING_OAK_SAPLING = createFungus(BYGBlockTags.GROUND_WITHERING_OAK_SAPLING, "withering_oak_sapling");
     public static final BlockRegistryObject<Block> ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, "ether_sapling");
     public static final BlockRegistryObject<Block> NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, "nightshade_sapling");
 
@@ -675,7 +672,7 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> EMBUR_SPROUTS = createBlock(() -> new NetherSproutsBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, MaterialColor.COLOR_CYAN).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS)), "embur_sprouts");
     public static final BlockRegistryObject<Block> EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGEmburPlant::new, "embur_roots");
-    public static final BlockRegistryObject<Block> EMBUR_WART = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.EmburWart(), "embur_wart");
+    public static final BlockRegistryObject<Block> EMBUR_WART = createFungus(BYGBlockTags.GROUND_EMBUR_WART, "embur_wart");
     public static final BlockRegistryObject<Block> TALL_EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_embur_roots");
 
     public static final BlockRegistryObject<Block> BLUE_NETHERRACK = createNetherStone(MaterialColor.TERRACOTTA_BLUE, "blue_netherrack");
@@ -926,19 +923,19 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "fungal_imparius_hyphae");
 
     public static final BlockRegistryObject<Block> WHITE_PUFFBALL = createWhitePuffBlock(SoundType.FUNGUS, MaterialColor.TERRACOTTA_WHITE, "white_puffball");
-    public static final BlockRegistryObject<Block> WEEPING_MILKCAP = createMushroomPlant(new BYGMushroomToHugeMushroom.WeepingMilkCap(), "weeping_milkcap");
-    public static final BlockRegistryObject<Block> WOOD_BLEWIT = createMushroomPlant(new BYGMushroomToHugeMushroom.WoodBlewit(), "wood_blewit");
-    public static final BlockRegistryObject<Block> GREEN_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.GreenMushroom(), "green_mushroom");
+    public static final BlockRegistryObject<Block> WEEPING_MILKCAP = createMushroom(BYGBlockTags.GROUND_WEEPING_MILK_CAP, "weeping_milkcap");
+    public static final BlockRegistryObject<Block> WOOD_BLEWIT = createMushroom(BYGBlockTags.GROUND_WOOD_BLEWIT, "wood_blewit");
+    public static final BlockRegistryObject<Block> GREEN_MUSHROOM = createMushroom(BYGBlockTags.GROUND_GREEN_MUSHROOM, "green_mushroom");
 
-    public static final BlockRegistryObject<Block> SYTHIAN_FUNGUS = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SythianFungus(), "sythian_fungus");
-    public static final BlockRegistryObject<Block> SOUL_SHROOM = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.SoulShroom(), "soul_shroom");
-    public static final BlockRegistryObject<Block> DEATH_CAP = createNetherMushroomPlant(new BYGMushroomToHugeMushroom.DeathCap(), "death_cap");
+    public static final BlockRegistryObject<Block> SYTHIAN_FUNGUS = createFungus(BYGBlockTags.GROUND_SYTHIAN_FUNGUS, "sythian_fungus");
+    public static final BlockRegistryObject<Block> SOUL_SHROOM = createFungus(BYGBlockTags.GROUND_SOUL_SHROOM, "soul_shroom");
+    public static final BlockRegistryObject<Block> DEATH_CAP = createFungus(BYGBlockTags.GROUND_DEATH_CAP, "death_cap");
 
-    public static final BlockRegistryObject<Block> BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.Bulbis(), "bulbis_oddity");
-    public static final BlockRegistryObject<Block> PURPLE_BULBIS_ODDITY = createMushroomPlant(new BYGMushroomToHugeMushroom.PurpleBulbis(), "purple_bulbis_oddity");
-    public static final BlockRegistryObject<Block> SHULKREN_FUNGUS = createMushroomPlant(new BYGMushroomToHugeMushroom.ShulkrenFungus(), "shulkren_fungus");
-    public static final BlockRegistryObject<Block> IMPARIUS_MUSHROOM = createMushroomPlant(new BYGMushroomToHugeMushroom.ImpariusMushroom(), "imparius_mushroom");
-    public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS = createMushroomPlant(new BYGMushroomToHugeMushroom.FungalImparius(), "fungal_imparius");
+    public static final BlockRegistryObject<Block> BULBIS_ODDITY = createMushroom(BYGBlockTags.GROUND_BULBIS_ODDITY, "bulbis_oddity");
+    public static final BlockRegistryObject<Block> PURPLE_BULBIS_ODDITY = createMushroom(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY, "purple_bulbis_oddity");
+    public static final BlockRegistryObject<Block> SHULKREN_FUNGUS = createMushroom(BYGBlockTags.GROUND_SHULKREN_FUNGUS, "shulkren_fungus");
+    public static final BlockRegistryObject<Block> IMPARIUS_MUSHROOM = createMushroom(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, "imparius_mushroom");
+    public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS = createMushroom(BYGBlockTags.GROUND_FUNGAL_IMPARIUS, "fungal_imparius");
 
     public static final BlockRegistryObject<Block> BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
     public static final BlockRegistryObject<Block> PURPLE_BULBIS_ANOMALY = createTallBulbis("purple_bulbis_anomaly");
@@ -1563,12 +1560,12 @@ public class BYGBlocks {
         return createPottedBlock(() -> new WhitePuffballBlock(BlockBehaviour.Properties.of(Material.PLANT, color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks()), id);
     }
 
-    private static BlockRegistryObject<Block> createMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        return createPottedBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), mushroom, false), id);
+    private static BlockRegistryObject<Block> createMushroom(TagKey<Block> blockTagKey, String id) {
+        return createPottedBlock(() -> new BYGMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM), blockTagKey), id);
     }
 
-    private static BlockRegistryObject<Block> createNetherMushroomPlant(BYGHugeMushroom mushroom, String id) {
-        return createPottedBlock(() -> new BYGMushroomPlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.FUNGUS).strength(0.0f).noCollission().randomTicks(), mushroom, true), id);
+    private static BlockRegistryObject<Block> createFungus(TagKey<Block> blockTagKey, String id) {
+        return createPottedBlock(() -> new BYGFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS), blockTagKey), id);
     }
 
     private static BlockRegistryObject<Block> createHydrangeaBush(String id, TagKey<Block> groundTag) {
@@ -1694,9 +1691,8 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createSapling(TagKey<Block> groundTag, String id) {
-        final Supplier<Block> createBlock = () -> new BYGSapling(id, BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
+        final Supplier<Block> createBlock = () -> new BYGSaplingBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
         final var blockRo = createPottedBlock(createBlock, id);
-        CommonSetupLoad.ENTRIES.add(() -> ((CommonSetupLoad) blockRo.get())::load);
         return blockRo;
     }
 
