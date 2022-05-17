@@ -128,6 +128,10 @@ public interface FeatureGrowerFromBlockPattern {
                                             BYG.LOGGER.info(String.format("Grower \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", Registry.BLOCK.getKey(block).toString(), featureSpawner.toString(), growthPos, spawnOffset));
                                         }
                                         return true;
+                                    } else {
+                                        if (GrowingPatterns.getConfig().logGrowth()) {
+                                            BYG.LOGGER.info(String.format("Grower \"%s\" couldn't grow configured feature \"%s\" at position %s(growth offset: %s).", Registry.BLOCK.getKey(block).toString(), featureSpawner.toString(), growthPos, spawnOffset));
+                                        }
                                     }
                                 } else {
                                     BYG.LOGGER.error(String.format("Grower \"%s\" failed when attempting to spawn configured feature \"%s\" at position %s. \"%s\" is not a valid configured feature ID in this world's datapack configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(block).toString(), featureSpawner, pos, featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));

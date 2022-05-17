@@ -551,9 +551,26 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE1), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE2), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE3), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE4), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE5), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        "  x  ",
+                        " xxx ",
+                        "xxxxx",
+                        " xxx ",
+                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE7), 1)
                         .build())
         ));
@@ -563,10 +580,27 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE1), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE2), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE3), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE4), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE5), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        "xxx",
+                        "xxx",
+                        "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE7), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        "  x  ",
+                        " xxx ",
+                        "xxxxx",
+                        " xxx ",
+                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE7), 1)
                         .build())
         ));
 
@@ -577,8 +611,18 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         .build())
         ));
         map.put(createLocation("imparius_mushroom"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1), 1)
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "x x",
+                        " x "
+                ), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1, BlockPos.ZERO.offset(0, 0, 1)), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        "  x  ",
+                        "x   x",
+                        "  x  "
+                ), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM2), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM3), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM4), 1)
@@ -588,6 +632,16 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         ));
         map.put(createLocation("fungal_imparius"), List.of(
                 new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5), 1)
+                        .build()),
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "x x",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2), 1)
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3), 1)
@@ -670,11 +724,19 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         }
 
         public FeatureSpawner(Holder<?> spawnerID) {
-            this(spawnerID.unwrapKey().orElseThrow());
+            this(spawnerID, BlockPos.ZERO);
+        }
+
+        public FeatureSpawner(Holder<?> spawnerID, BlockPos spawnOffset) {
+            this(spawnerID.unwrapKey().orElseThrow(), spawnOffset);
         }
 
         public FeatureSpawner(ResourceKey<?> spawnerID) {
-            this(spawnerID.location(), BlockPos.ZERO);
+            this(spawnerID, BlockPos.ZERO);
+        }
+
+        public FeatureSpawner(ResourceKey<?> spawnerID, BlockPos spawnOffset) {
+            this(spawnerID.location(), spawnOffset);
         }
 
 
