@@ -23,17 +23,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static potionstudios.byg.BYG.createLocation;
 
 public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<GrowingPatternEntry>> patternsForBlock) {
     public static final int MAX_PATTERN_SIZE = 5;
 
-    public static final GrowingPatterns DEFAULT = new GrowingPatterns(false, Util.make(new HashMap<>(), map -> {
+    public static final GrowingPatterns DEFAULT = new GrowingPatterns(false, Util.make(new TreeMap<>(), map -> {
         map.put(createLocation("araucaria_sapling"), List.of(
                 new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("araucaria_tree1")), 1).add(new FeatureSpawner(createLocation("araucaria_tree2")), 1).build())
         ));
@@ -563,7 +560,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "xxx",
                         "xxx",
                         "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6, new BlockPos(-1, 0, -1)), 1)
                         .build()),
                 new GrowingPatternEntry(List.of(
                         "  x  ",
@@ -592,7 +589,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "xxx",
                         "xxx",
                         "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6, new BlockPos(-1, 0, -1)), 1)
                         .build()),
                 new GrowingPatternEntry(List.of(
                         "  x  ",
