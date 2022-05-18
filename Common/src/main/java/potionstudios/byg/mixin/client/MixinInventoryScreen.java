@@ -52,8 +52,10 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
     @Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
     protected void updateGuiSize(CallbackInfo ci) {
         if (BYGConstants.BIOMEPEDIA) {
-            BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
-            biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
+            if (biomePedia != null) {
+                BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
+                biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
+            }
         }
     }
 }
