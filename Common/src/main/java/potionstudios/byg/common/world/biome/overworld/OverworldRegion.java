@@ -182,7 +182,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
             new OverworldRegion(OVERWORLD_WEIGHT,
-                    OCEANS, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    OCEANS_VANILLA, MIDDLE_BIOMES_2, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_2, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
@@ -191,7 +191,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     })));
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
             new OverworldRegion(OVERWORLD_WEIGHT,
-                    OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
