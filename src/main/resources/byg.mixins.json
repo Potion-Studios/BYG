@@ -47,11 +47,9 @@
     "server.MixinMinecraftServer"
   ],
   "client": [
-    "client.MixinBlockColors",
     "client.MixinClientPlayNetHandler",
     "client.MixinDebugOverlayGui",
     "client.MixinEntityRendererManager",
-    "client.MixinItemColors",
     "client.MixinScreenManager"
   ],
   "injectors": {
