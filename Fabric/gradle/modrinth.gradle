@@ -14,13 +14,13 @@ import com.modrinth.minotaur.TaskModrinthUpload
 String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
 // Make sure it runs after build!
-task publishModrinth (type: TaskModrinthUpload){
+task fabric_publishModrinth (type: TaskModrinthUpload){
     token = "$System.env.MODRINTH_KEY"
     projectId = 'uE1WpIAk'
-    versionName = "Oh_The_Biomes_You'll_Go"
+    versionName = "${archivesBaseName}"
     versionNumber = project.version
-    versionType = "BETA"
-    uploadFile = jar
+    versionType = "${project.release_type}"
+    uploadFile = remapJar
     changelog = changelogText
     addGameVersion("${project.minecraft_version}")
     addLoader('fabric')

@@ -146,33 +146,52 @@ remapJar {
     input.set shadowJar.archiveFile
 }
 
-task checkForRefmap() {
-    if (file("./build/libs/${archivesBaseName}-${project.version}.jar").exists()) {
-        FileTree files = zipTree("./build/libs/${archivesBaseName}-${project.version}.jar")
-        Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
-        assert !fileNames.contains("${mod_id}_fabric.refmap.json") || !fileNames.contains("${mod_id}.refmap.json")
+task fabric_checkForRefmap() {
+    doLast {
+        File file1 = remapJar.archiveFile.get().asFile
+        logger.info("Verifying refmap exists...")
+        if (file1.exists()) {
+            FileTree files = zipTree(file1)
+            Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
+
+            String refmap = "${archivesBaseName}-refmap.json"
+            if (!fileNames.contains(refmap)) {
+                throw new IllegalStateException("Refmap is missing.")
+            }
+        } else {
+            throw new IllegalStateException("File is missing.")
+        }
+        logger.info("Refmap found!")
     }
 }
 
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    apiToken = "$System.env.CURSEFORGEKEY"
+task fabric_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGE_KEY"
     int projectId = 391378
     String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
-    def mainFile = upload(projectId, jar)
+    def mainFile = upload(projectId, remapJar)
     mainFile.changelog = changelogText
     mainFile.changelogType = "markdown"
-    mainFile.releaseType = "beta"
+    mainFile.releaseType = "${project.release_type}"
     mainFile.addRequirement("terrablender-fabric")
+    mainFile.addGameVersion("${project.minecraft_version}")
+    mainFile.addModLoader("fabric")
 }
 
-task fabric_buildAndReleaseCurseforge{}
-tasks.checkForRefmap.mustRunAfter tasks.build
-tasks.publishCurseForge.mustRunAfter tasks.checkForRefmap
-tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishCurseForge)
+task fabric_buildAndReleaseCurseforge {}
+tasks.fabric_checkForRefmap.mustRunAfter tasks.build
+tasks.fabric_publishCurseForge.mustRunAfter tasks.fabric_checkForRefmap
+tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishCurseForge)
 
 apply from: 'gradle/modrinth.gradle'
-task fabric_buildAndReleaseModrinth{}
-tasks.checkForRefmap.mustRunAfter tasks.build
-tasks.publishModrinth.mustRunAfter tasks.checkForRefmap
-tasks.fabric_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishModrinth)
+task fabric_buildAndReleaseModrinth {}
+tasks.fabric_checkForRefmap.mustRunAfter tasks.build
+tasks.fabric_publishModrinth.mustRunAfter tasks.fabric_checkForRefmap
+tasks.fabric_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishModrinth)
+
+task fabric_buildAndReleaseModrinthAndCurseforge {}
+tasks.fabric_checkForRefmap.mustRunAfter tasks.build
+tasks.fabric_publishCurseForge.mustRunAfter tasks.fabric_checkForRefmap
+tasks.fabric_publishModrinth.mustRunAfter tasks.fabric_publishCurseForge
+tasks.fabric_buildAndReleaseModrinthAndCurseforge.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishCurseForge, tasks.fabric_publishModrinth)
