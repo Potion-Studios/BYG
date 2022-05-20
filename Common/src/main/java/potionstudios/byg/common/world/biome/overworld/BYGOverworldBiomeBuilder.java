@@ -13,8 +13,10 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     private final ResourceKey<Biome>[][] peakBiomesVariant;
     private final ResourceKey<Biome>[][] slopeBiomes;
     private final ResourceKey<Biome>[][] slopeBiomesVariant;
-    private final ResourceKey<Biome>[][] badlandsBiomes;
-    private final ResourceKey<Biome>[][] badlandsBiomesVariant;
+    private final ResourceKey<Biome>[][] plateauEdgeBiomes;
+    private final ResourceKey<Biome>[][] plateauEdgeBiomesVariant;
+    private final ResourceKey<Biome>[][] mountainEdgeBiomes;
+    private final ResourceKey<Biome>[][] mountainEdgeBiomesVariant;
 
     public BYGOverworldBiomeBuilder(ResourceKey<Biome>[][] oceans, ResourceKey<Biome>[][] middleBiomes,
                                     ResourceKey<Biome>[][] middleBiomesVariant, ResourceKey<Biome>[][] plateauBiomes,
@@ -22,7 +24,8 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
                                     ResourceKey<Biome>[][] beachBiomes,
                                     ResourceKey<Biome>[][] peakBiomes, ResourceKey<Biome>[][] peakBiomesVariant,
                                     ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant,
-                                    ResourceKey<Biome>[][] badlandsBiomes, ResourceKey<Biome>[][] badlandsBiomesVariant) {
+                                    ResourceKey<Biome>[][] plateauEdgeBiomes, ResourceKey<Biome>[][] plateauEdgeBiomesVariant,
+                                    ResourceKey<Biome>[][] mountainEdgeBiomes, ResourceKey<Biome>[][] mountainEdgeBiomesVariant) {
         OverworldBiomeBuilderAccess overworldBiomeBuilderAccess = (OverworldBiomeBuilderAccess) this;
         overworldBiomeBuilderAccess.byg_setOCEANS(oceans);
         overworldBiomeBuilderAccess.byg_setMIDDLE_BIOMES(middleBiomes);
@@ -35,8 +38,10 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
         this.peakBiomesVariant = peakBiomesVariant;
         this.slopeBiomes = slopeBiomes;
         this.slopeBiomesVariant = slopeBiomesVariant;
-        this.badlandsBiomes = badlandsBiomes;
-        this.badlandsBiomesVariant = badlandsBiomesVariant;
+        this.plateauEdgeBiomes = plateauEdgeBiomes;
+        this.plateauEdgeBiomesVariant = plateauEdgeBiomesVariant;
+        this.mountainEdgeBiomes = mountainEdgeBiomes;
+        this.mountainEdgeBiomesVariant = mountainEdgeBiomesVariant;
     }
 
     @Override
@@ -67,13 +72,28 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    public ResourceKey<Biome> pickBadlandsBiome(int humidity, Climate.Parameter weirdness) {
-        ResourceKey<Biome> badlandsBiome = this.badlandsBiomes[0][humidity];
+    public ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHot(int temp, int humidity, Climate.Parameter weirdness) {
+        ResourceKey<Biome> platEdgeBiome = this.plateauEdgeBiomes[temp][humidity];
+        if(platEdgeBiome == null)
+            platEdgeBiome = pickMiddleBiome(temp, humidity, weirdness);
         if (weirdness.max() < 0L) {
-            return badlandsBiome;
+            return platEdgeBiome;
         } else {
-            ResourceKey<Biome> badlandsVariant = badlandsBiomesVariant[0][humidity];
-            return badlandsVariant == null ? badlandsBiome : badlandsVariant;
+            ResourceKey<Biome> platEdgeVariant = this.plateauEdgeBiomesVariant[temp][humidity];
+            return platEdgeVariant == null ? platEdgeBiome : platEdgeVariant;
+        }
+    }
+
+    @Override
+    public ResourceKey<Biome> pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold(int temp, int humidity, Climate.Parameter weirdness) {
+        ResourceKey<Biome> mountEdgeBiome = this.mountainEdgeBiomes[temp][humidity];
+        if(mountEdgeBiome == null)
+            mountEdgeBiome = pickMiddleBiomeOrBadlandsIfHot(temp, humidity, weirdness);
+        if(weirdness.max() < 0L)
+            return mountEdgeBiome;
+        else {
+            ResourceKey<Biome> mountEdgeVariant = this.mountainEdgeBiomesVariant[temp][humidity];
+            return mountEdgeVariant == null ? mountEdgeBiome : mountEdgeVariant;
         }
     }
 

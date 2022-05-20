@@ -65,13 +65,23 @@ public class BYGOverworldBiomeSelectors {
             """, fallback);
     }
 
+    private static String invalidKeysOkay(String... fallback) {
+        String result = fallback[0];
+        for(int i = 1; i < fallback.length; i++)
+            result += "\", then \"" + fallback[i];
+        return invalidKeysOkay(result);
+    }
+
     public static final String PEAK_BIOMES_LAYOUT = "Appearing on mountainous terrain & BELOW weirdness 0, here is the \"peak_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
     public static final String SLOPE_BIOMES_LAYOUT = "Appearing on sloped terrain, near mountainous terrain, & BELOW weirdness 0, here is the \"slope_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
     public static final String SLOPE_BIOMES_VARIANT_LAYOUT = "Appearing on sloped terrain, near mountainous terrain, & ABOVE weirdness 0, here is the \"slope_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("slope_biomes");
 
-    public static final String BADLANDS_BIOMES_LAYOUT = "Appearing on low badlands terrain & BELOW weirdness 0, here is the \"badlands_biomes\" layout:\n" + BIOME_LAYOUT_HUMIDITY + REQUIRES_VALID_KEYS;
-    public static final String BADLANDS_BIOMES_VARIANT_LAYOUT = "Appearing on low badlands terrain & ABOVE weirdness 0, here is the \"badlands_biomes_variant\" layout:\n" + BIOME_LAYOUT_HUMIDITY + invalidKeysOkay("badlands_biomes");
+    public static final String PLATEAU_EDGE_BIOMES_LAYOUT = "Appearing on terrain near plateaus & BELOW weirdness 0, here is the \"plateau_edge_biomes\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("middle_biomes");
+    public static final String PLATEAU_EDGE_BIOMES_VARIANT_LAYOUT = "Appearing on terrain near plateaus & ABOVE weirdness 0, here is the \"plateau_edge_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("plateau_edge_biomes", "middle_biomes_variant");
+
+    public static final String MOUNTAIN_EDGE_BIOMES_LAYOUT = "Appearing on terrain near mountains & BELOW weirdness 0, here is the \"mountain_edge_biomes\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("plateau_edge_biomes", "middle_biomes");
+    public static final String MOUNTAIN_EDGE_BIOMES_VARIANT_LAYOUT = "Appearing on terrain near mountains & ABOVE weirdness 0, here is the \"mountain_edge_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("mountain_edge_biomes_variant", "plateau_edge_biomes_variant", "middle_biomes_variant");
 
     public static final String PEAK_BIOMES_VARIANT_LAYOUT = "Appearing on mountainous terrain & ABOVE weirdness 0, here is the \"peak_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("slope_biomes");
 
@@ -152,12 +162,36 @@ public class BYGOverworldBiomeSelectors {
             {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     });
 
-    public static final Wrapped<List<List<ResourceKey<Biome>>>> BADLANDS_BIOMES_VANILLA = create("badlands_biomes/badlands_biomes_vanilla", BADLANDS_BIOMES_LAYOUT, new ResourceKey[][]{
+    public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_EDGE_BIOMES_VANILLA = create("plateau_edge_biomes/plateau_edge_biomes_vanilla", PLATEAU_EDGE_BIOMES_LAYOUT, new ResourceKey[][]{
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
             {Biomes.ERODED_BADLANDS, Biomes.ERODED_BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
     });
 
-    public static final Wrapped<List<List<ResourceKey<Biome>>>> BADLANDS_BIOMES_VARIANT_VANILLA = create("badlands_biomes/badlands_biomes_variant_vanilla", BADLANDS_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
+    public static final Wrapped<List<List<ResourceKey<Biome>>>> PLATEAU_EDGE_BIOMES_VARIANT_VANILLA = create("plateau_edge_biomes_variant/plateau_edge_biomes_variant_vanilla", PLATEAU_EDGE_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
             {Biomes.BADLANDS, Biomes.BADLANDS, Biomes.BADLANDS, Biomes.WOODED_BADLANDS, Biomes.WOODED_BADLANDS}
+    });
+
+    public static final Wrapped<List<List<ResourceKey<Biome>>>> MOUNTAIN_EDGE_BIOMES_VANILLA = create("mountain_edge_biomes/mountain_edge_biomes_vanilla", MOUNTAIN_EDGE_BIOMES_LAYOUT, new ResourceKey[][]{
+            {Biomes.SNOWY_SLOPES, Biomes.SNOWY_SLOPES, Biomes.GROVE, Biomes.GROVE, Biomes.GROVE},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
+    });
+
+    public static final Wrapped<List<List<ResourceKey<Biome>>>> MOUNTAIN_EDGE_BIOMES_VARIANT_VANILLA = create("mountain_edge_biomes_variant/mountain_edge_biomes_variant_vanilla", MOUNTAIN_EDGE_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> BEACH_BIOMES_1 = create("beach_biomes/beach_biomes_1", BEACH_BIOMES_LAYOUT, new ResourceKey[][]{
@@ -244,13 +278,6 @@ public class BYGOverworldBiomeSelectors {
             {BYGBiomes.FIRECRACKER_SHRUBLAND, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.RED_ROCK_VALLEY, BYGBiomes.RED_ROCK_VALLEY}
     });
 
-    public static final Wrapped<List<List<ResourceKey<Biome>>>> BADLANDS_BIOMES_1 = create("badlands_biomes/badlands_biomes_1", BADLANDS_BIOMES_LAYOUT, new ResourceKey[][]{
-            {BYGBiomes.FIRECRACKER_SHRUBLAND, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.RED_ROCK_VALLEY, BYGBiomes.RED_ROCK_VALLEY}
-    });
-
-    public static final Wrapped<List<List<ResourceKey<Biome>>>> BADLANDS_BIOMES_VARIANT_1 = create("badlands_biomes_variant/badlands_biomes_variant_1", BADLANDS_BIOMES_VARIANT_LAYOUT, new ResourceKey[][]{
-            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
-    });
     protected static Wrapped<List<List<ResourceKey<Biome>>>> create(String id, String header, ResourceKey<Biome>[][] biomeKeys) {
         return create(id, biomeKeys, ImmutableMap.of("", JanksonUtil.HEADER_OPEN + "\n" + header + "*/"));
     }

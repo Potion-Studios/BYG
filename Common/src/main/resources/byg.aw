@@ -26,4 +26,6 @@ Extendable class net/minecraft/world/level/biome/OverworldBiomeBuilder
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickBeachBiome (II)Lnet/minecraft/resources/ResourceKey;
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickPeakBiome (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickSlopeBiome (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
-Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickBadlandsBiome (ILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
+Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickMiddleBiomeOrBadlandsIfHot (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
+Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickMiddleBiomeOrBadlandsIfHotOrSlopeIfCold (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
+Accessible method net/minecraft/world/level/biome/OverworldBiomeBuilder pickMiddleBiome (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
