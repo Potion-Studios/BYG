@@ -31,17 +31,21 @@ public class UpdateConfigsCommand {
     public static final String UPDATE_STRING = "update";
     public static final String DISMISS_STRING = "dismiss";
 
+    public static final String UPDATE_COMMAND = "/" + BYG.MOD_ID + " " + COMMAND_STRING + " " + UPDATE_STRING;
+    public static final String DISMISS_COMMAND = "/" + BYG.MOD_ID + " " + COMMAND_STRING + " " + DISMISS_STRING;
+    public static final String BACKUP_PATH = "\".../config/byg/backups\"";
+
     public static final Component UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(new TranslatableComponent("byg.command.updateconfig.update")
             .withStyle(ChatFormatting.GREEN)
-            .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/" + BYG.MOD_ID + " " + COMMAND_STRING + " " + UPDATE_STRING))
-                    .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.command.updateconfig.update.hover")
+            .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, UPDATE_COMMAND))
+                    .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.command.updateconfig.update.hover", new TextComponent(BACKUP_PATH).withStyle(ChatFormatting.BLUE))
                             .withStyle(ChatFormatting.RED)))
             )
     );
 
     public static final Component DISMISS_UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(new TranslatableComponent("byg.command.updateconfig.dismiss")
             .withStyle(ChatFormatting.YELLOW)
-            .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/" + BYG.MOD_ID + " " + COMMAND_STRING + " " + DISMISS_STRING)))
+            .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, DISMISS_COMMAND)))
     );
 
     public static final TranslatableComponent CONTACT_SERVER_OWNER = new TranslatableComponent("byg.command.updateconfig.contactserverowner");
@@ -51,9 +55,12 @@ public class UpdateConfigsCommand {
 
     public static ArgumentBuilder<CommandSourceStack, ?> register() {
         String argName = "action";
-        return Commands.literal(COMMAND_STRING).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(new String[]{UPDATE_STRING, DISMISS_STRING}, sb)).requires(stack -> {
-            return stack.hasPermission(4);
-        }).executes(cs -> {
+        return Commands.literal(COMMAND_STRING).requires(stack -> {
+            CommandSource commandSource = ((CommandSourceStackAccess) stack).byg_getSource();
+            boolean isSinglePlayerOwner = (commandSource instanceof Player player) && stack.getServer().isSingleplayerOwner(player.getGameProfile());
+            boolean isServerConsole = commandSource instanceof MinecraftServer;
+            return isSinglePlayerOwner || isServerConsole;
+        }).then(Commands.argument(argName, StringArgumentType.string()).suggests((ctx, sb) -> SharedSuggestionProvider.suggest(new String[]{UPDATE_STRING, DISMISS_STRING}, sb)).executes(cs -> {
             CommandSourceStack stack = cs.getSource();
             MinecraftServer server = stack.getServer();
             CommandSource commandSource = ((CommandSourceStackAccess) cs.getSource()).byg_getSource();
