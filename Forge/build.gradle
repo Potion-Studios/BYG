@@ -1,18 +1,23 @@
+import java.util.stream.Collectors
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url "https://plugins.gradle.org/m2/" }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
         classpath 'org.parchmentmc:librarian:1.+'
+        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
     }
 }
 
 plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle'
@@ -41,6 +46,7 @@ archivesBaseName = "${mod_name}-forge-${minecraft_version}"
 shadowJar {
     configurations = [project.configurations.shadow]
     relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
+    archiveClassifier = ''
 }
 reobf {
     shadowJar {
@@ -145,3 +151,59 @@ processResources {
 }
 
 jar.finalizedBy('reobfJar')
+
+
+jar {
+    archiveClassifier = 'slim'
+}
+
+task forge_checkForRefmap() {
+    doLast {
+        File file1 = shadowJar.archiveFile.get().asFile
+        logger.info("Verifying refmap exists...")
+        if (file1.exists()) {
+            FileTree files = zipTree(file1)
+            Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
+
+            String forgeRefmap = "${mod_id}_forge.refmap.json"
+            String commonRefmap = "${mod_id}.refmap.json"
+            if (!fileNames.contains(forgeRefmap) || !fileNames.contains(commonRefmap)) {
+                throw new IllegalStateException("Refmap is missing.")
+            }
+        } else {
+            throw new IllegalStateException("File is missing.")
+        }
+        logger.info("Refmap found!")
+    }
+}
+
+task forge_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGE_KEY"
+    int projectId = 247560
+    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
+
+    def mainFile = upload(projectId, shadowJar)
+    mainFile.changelog = changelogText
+    mainFile.changelogType = "markdown"
+    mainFile.releaseType = "${project.release_type}"
+    mainFile.addRequirement("terrablender")
+    mainFile.addGameVersion("${project.minecraft_version}")
+    mainFile.addModLoader("forge")
+}
+
+task forge_buildAndReleaseCurseforge {}
+tasks.forge_checkForRefmap.mustRunAfter tasks.build
+tasks.forge_publishCurseForge.mustRunAfter tasks.forge_checkForRefmap
+tasks.forge_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.forge_checkForRefmap, tasks.forge_publishCurseForge)
+
+apply from: 'gradle/modrinth.gradle'
+task forge_buildAndReleaseModrinth {}
+tasks.forge_checkForRefmap.mustRunAfter tasks.build
+tasks.forge_publishModrinth.mustRunAfter tasks.forge_checkForRefmap
+tasks.forge_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.forge_checkForRefmap, tasks.forge_publishModrinth)
+
+task forge_buildAndReleaseModrinthAndCurseforge {}
+tasks.forge_checkForRefmap.mustRunAfter tasks.build
+tasks.forge_publishCurseForge.mustRunAfter tasks.forge_checkForRefmap
+tasks.forge_publishModrinth.mustRunAfter tasks.forge_publishCurseForge
+tasks.forge_buildAndReleaseModrinthAndCurseforge.dependsOn(tasks.build, tasks.forge_checkForRefmap, tasks.forge_publishCurseForge, tasks.forge_publishModrinth)
