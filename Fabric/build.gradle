@@ -1,6 +1,11 @@
+import java.util.stream.Collectors
+
 buildscript {
     repositories {
         maven { url = 'https://maven.parchmentmc.org' }
+    }
+    dependencies {
+        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
     }
 }
 
@@ -10,6 +15,7 @@ plugins {
     id 'idea'
     id 'java'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
 tasks.build.dependsOn(tasks.findByName("shadowJar"))
@@ -139,3 +145,34 @@ sourceSets {
 remapJar {
     input.set shadowJar.archiveFile
 }
+
+task checkForRefmap() {
+    if (file("./build/libs/${archivesBaseName}-${project.version}.jar").exists()) {
+        FileTree files = zipTree("./build/libs/${archivesBaseName}-${project.version}.jar")
+        Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
+        assert !fileNames.contains("${mod_id}_fabric.refmap.json") || !fileNames.contains("${mod_id}.refmap.json")
+    }
+}
+
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGEKEY"
+    int projectId = 391378
+    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
+
+    def mainFile = upload(projectId, jar)
+    mainFile.changelog = changelogText
+    mainFile.changelogType = "markdown"
+    mainFile.releaseType = "beta"
+    mainFile.addRequirement("terrablender-fabric")
+}
+
+task fabric_buildAndReleaseCurseforge{}
+tasks.checkForRefmap.mustRunAfter tasks.build
+tasks.publishCurseForge.mustRunAfter tasks.checkForRefmap
+tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishCurseForge)
+
+apply from: 'gradle/modrinth.gradle'
+task fabric_buildAndReleaseModrinth{}
+tasks.checkForRefmap.mustRunAfter tasks.build
+tasks.publishModrinth.mustRunAfter tasks.checkForRefmap
+tasks.fabric_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishModrinth)

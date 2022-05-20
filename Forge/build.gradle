@@ -1,18 +1,23 @@
+import java.util.stream.Collectors
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url "https://plugins.gradle.org/m2/" }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
         classpath 'org.parchmentmc:librarian:1.+'
+        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
     }
 }
 
 plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 apply plugin: 'java'
 apply plugin: 'net.minecraftforge.gradle'
@@ -145,3 +150,35 @@ processResources {
 }
 
 jar.finalizedBy('reobfJar')
+
+
+task checkForRefmap() {
+    if (file("./build/libs/${archivesBaseName}-${project.version}.jar").exists()) {
+        FileTree files = zipTree("./build/libs/${archivesBaseName}-${project.version}.jar")
+        Set<String> fileNames = files.getFiles().stream().map(file -> file.getName()).collect(Collectors.toSet())
+        assert !fileNames.contains("${mod_id}_forge.refmap.json") || !fileNames.contains("${mod_id}.refmap.json")
+    }
+}
+
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGE_KEY"
+    int projectId = 247560
+    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
+
+    def mainFile = upload(projectId, jar)
+    mainFile.changelog = changelogText
+    mainFile.changelogType = "markdown"
+    mainFile.releaseType = "beta"
+    mainFile.addRequirement("terrablender")
+}
+
+task forge_buildAndReleaseCurseforge{}
+tasks.checkForRefmap.mustRunAfter tasks.build
+tasks.publishCurseForge.mustRunAfter tasks.checkForRefmap
+tasks.forge_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishCurseForge)
+
+apply from: 'gradle/modrinth.gradle'
+task forge_buildAndReleaseModrinth{}
+tasks.checkForRefmap.mustRunAfter tasks.build
+tasks.publishModrinth.mustRunAfter tasks.checkForRefmap
+tasks.forge_buildAndReleaseModrinth.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publishModrinth)
