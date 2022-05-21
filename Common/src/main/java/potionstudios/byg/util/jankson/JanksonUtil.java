@@ -43,8 +43,8 @@ public class JanksonUtil {
             String objectKey = entry.getKey();
             String commentsKey = parentKey + objectKey;
 
-            String comment = null;
-            if (comments.containsKey(commentsKey)) {
+            String comment = object.getComment(entry.getKey());
+            if (comments.containsKey(commentsKey) && comment == null) {
                 String commentToAdd = comments.get(commentsKey);
                 object.setComment(objectKey, commentToAdd);
                 comment = commentToAdd;
