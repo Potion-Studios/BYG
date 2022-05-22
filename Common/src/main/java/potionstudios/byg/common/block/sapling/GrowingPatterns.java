@@ -675,25 +675,25 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
     }
 
     private static GrowingPatterns readConfig(boolean recreate) {
-        return readConfig(recreate, PATH);
-    }
-
-    private static GrowingPatterns readConfig(boolean recreate, Path path) {
 
         GrowingPatterns from = DEFAULT;
         if (OLD_PATH.toFile().exists()) {
             try {
-                from = readConfig(false, OLD_PATH);
+                try {
+                   from = JanksonUtil.readConfig(OLD_PATH, CODEC, JanksonJsonOps.INSTANCE);
+                } catch (SyntaxError | IOException e) {
+                    e.printStackTrace();
+                }
                 Files.delete(OLD_PATH);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        if (!path.toFile().exists() || recreate) {
+        if (!PATH.toFile().exists() || recreate) {
             JanksonUtil.createConfig(PATH, CODEC, JanksonUtil.HEADER_CLOSED, new HashMap<>(), JanksonJsonOps.INSTANCE, from);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+        BYG.LOGGER.info(String.format("\"%s\" was read.", PATH.toString()));
 
         try {
             JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);
