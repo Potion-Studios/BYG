@@ -681,10 +681,10 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
             try {
                 try {
                    from = JanksonUtil.readConfig(OLD_PATH, CODEC, JanksonJsonOps.INSTANCE);
+                    Files.delete(OLD_PATH);
                 } catch (SyntaxError | IOException e) {
                     e.printStackTrace();
                 }
-                Files.delete(OLD_PATH);
             } catch (Exception e) {
                 e.printStackTrace();
             }
