@@ -108,18 +108,21 @@ public class JanksonUtil {
     }
 
     public static <T> T readConfig(Path path, Codec<T> codec, DynamicOps<JsonElement> ops) throws IOException, SyntaxError {
+        JsonElement load = null;
+
         try {
-            JsonElement load = JANKSON.loadElement(path.toFile());
+            load = JANKSON.loadElement(path.toFile());
+
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
             if (error.isPresent()) {
-                IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s", path, error.get().message(), "=".repeat(100), configStringFromBytes(path), "=".repeat(100)));
+                IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s\nAs JSON LOADED ELEMENT:\n%s\n%s", path, error.get().message(), "=".repeat(100), configStringFromBytes(path), "=".repeat(100), load.toJson(JSON_GRAMMAR), "=".repeat(100)));
                 thrown = illegalArgumentException;
                 throw illegalArgumentException;
             }
             return decode.result().orElseThrow().getFirst();
         } catch (Exception errorMsg) {
-            IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s", path, errorMsg, "=".repeat(100), configStringFromBytes(path), "=".repeat(100)));
+            IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s\nAs JSON LOADED ELEMENT:\n%s\n%s", path, errorMsg, "=".repeat(100), configStringFromBytes(path), "=".repeat(100), load == null ? "NOT AVAILABLE BECAUSE JSONELEMENT WAS NULL" : load.toJson(JSON_GRAMMAR), "=".repeat(100)));
             thrown = illegalArgumentException;
             throw illegalArgumentException;
         }
