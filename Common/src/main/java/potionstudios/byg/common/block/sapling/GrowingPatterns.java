@@ -680,7 +680,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         if (OLD_PATH.toFile().exists()) {
             try {
                 try {
-                   from = JanksonUtil.readConfig(OLD_PATH, CODEC, JanksonJsonOps.INSTANCE);
+                    from = JanksonUtil.readConfig(OLD_PATH, CODEC, JanksonJsonOps.INSTANCE);
                     Files.delete(OLD_PATH);
                 } catch (SyntaxError | IOException e) {
                     e.printStackTrace();
