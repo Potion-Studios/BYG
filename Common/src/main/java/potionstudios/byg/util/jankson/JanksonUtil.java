@@ -118,7 +118,7 @@ public class JanksonUtil {
                 throw illegalArgumentException;
             }
             return decode.result().orElseThrow().getFirst();
-        } catch (IOException | SyntaxError errorMsg) {
+        } catch (Exception errorMsg) {
             IllegalArgumentException illegalArgumentException = new IllegalArgumentException(String.format("Jankson file reading for \"%s\" failed due to the following error(s):\n%s\n\nConfig:\n\n%s\n%s\n%s", path, errorMsg, "=".repeat(100), configStringFromBytes(path), "=".repeat(100)));
             thrown = illegalArgumentException;
             throw illegalArgumentException;

@@ -1,6 +1,5 @@
 package potionstudios.byg.common.entity.npc;
 
-import blue.endless.jankson.api.SyntaxError;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -14,7 +13,6 @@ import potionstudios.byg.util.jankson.JanksonJsonOps;
 import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.util.lazy.LazySupplier;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +63,7 @@ public record TradesConfig(boolean enabled,
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (IOException | SyntaxError e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
