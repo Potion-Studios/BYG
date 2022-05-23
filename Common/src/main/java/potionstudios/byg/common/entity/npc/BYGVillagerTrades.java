@@ -29,23 +29,23 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.GREEN_MUSHROOM.get(), 10, 12, 2)
             },
             2, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 2)
+                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 3),
+                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 3)
             },
             3, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 2),
-                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 2),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 3),
+                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 3),
+                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 3),
+                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 3),
             },
             4, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 2),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 2),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3),
             },
             5, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 4),
+                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 4),
+                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 4),
             }
         )));
 

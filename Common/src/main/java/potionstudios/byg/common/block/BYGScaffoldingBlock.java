@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.ScaffoldingBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -22,71 +23,71 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
+    public boolean canBeReplaced(BlockState state, @NotNull BlockPlaceContext useContext) {
         return useContext.getItemInHand().getItem() == this.asItem();
     }
 
-    public static int calculateDISTANCE(BlockGetter blockReader, BlockPos pos) {
-        BlockPos.MutableBlockPos blockpos$mutable = (new BlockPos.MutableBlockPos().set(pos)).move(Direction.DOWN);
-        BlockState blockstate = blockReader.getBlockState(blockpos$mutable);
-        int i = 7;
-        if (blockstate.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING.get()) {
-            i = blockstate.getValue(DISTANCE);
-        } else if (blockstate.isFaceSturdy(blockReader, blockpos$mutable, Direction.UP)) {
+    @Override
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext $$0) {
+        BlockPos $$1 = $$0.getClickedPos();
+        Level $$2 = $$0.getLevel();
+        int $$3 = getBlockDistance($$2, $$1);
+        return (BlockState)((BlockState)((BlockState)this.defaultBlockState().setValue(WATERLOGGED, $$2.getFluidState($$1).getType() == Fluids.WATER)).setValue(DISTANCE, $$3)).setValue(BOTTOM, this.isBottom($$2, $$1, $$3));
+    }
+
+    @Override
+    public void tick(@NotNull BlockState $$0, ServerLevel $$1, BlockPos $$2, Random $$3) {
+        int $$4 = getBlockDistance($$1, $$2);
+        BlockState $$5 = (BlockState)((BlockState)$$0.setValue(DISTANCE, $$4)).setValue(BOTTOM, this.isBottom($$1, $$2, $$4));
+        if ((Integer)$$5.getValue(DISTANCE) == 7) {
+            if ((Integer)$$0.getValue(DISTANCE) == 7) {
+                FallingBlockEntity.fall($$1, $$2, $$5);
+            } else {
+                $$1.destroyBlock($$2, true);
+            }
+        } else if ($$0 != $$5) {
+            $$1.setBlock($$2, $$5, 3);
+        }
+
+    }
+
+    @Override
+    public boolean canSurvive(BlockState $$0, LevelReader $$1, BlockPos $$2) {
+        return getBlockDistance($$1, $$2) < 7;
+    }
+
+    @Override
+    public void onPlace(BlockState $$0, Level $$1, BlockPos $$2, BlockState $$3, boolean $$4) {
+        if (!$$1.isClientSide) {
+            $$1.scheduleTick($$2, this, 1);
+        }
+
+    }
+
+    public boolean isBottom(BlockGetter $$0, BlockPos $$1, int $$2) {
+        return $$2 > 0 && !$$0.getBlockState($$1.below()).is(BYGBlockTags.SCAFFOLDING);
+    }
+
+    public static int getBlockDistance(@NotNull BlockGetter $$0, @NotNull BlockPos $$1) {
+        BlockPos.MutableBlockPos $$2 = $$1.mutable().move(Direction.DOWN);
+        BlockState $$3 = $$0.getBlockState($$2);
+        int $$4 = 7;
+        if ($$3.is(BYGBlockTags.SCAFFOLDING)) {
+            $$4 = $$3.getValue(DISTANCE);
+        } else if ($$3.isFaceSturdy($$0, $$2, Direction.UP)) {
             return 0;
         }
 
-        for (Direction direction : Direction.Plane.HORIZONTAL) {
-            BlockState blockstate1 = blockReader.getBlockState(blockpos$mutable.set(pos).move(direction));
-            if (blockstate1.getBlock() == BYGBlocks.SYTHIAN_SCAFFOLDING.get()) {
-                i = Math.min(i, blockstate1.getValue(DISTANCE) + 1);
-                if (i == 1) {
+        for (Direction $$5 : Direction.Plane.HORIZONTAL) {
+            BlockState $$6 = $$0.getBlockState($$2.setWithOffset($$1, $$5));
+            if ($$6.is(BYGBlockTags.SCAFFOLDING)) {
+                $$4 = Math.min($$4, $$6.getValue(DISTANCE) + 1);
+                if ($$4 == 1) {
                     break;
                 }
             }
         }
 
-        return i;
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockPos blockpos = context.getClickedPos();
-        Level world = context.getLevel();
-        int i = calculateDISTANCE(world, blockpos);
-        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(world.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(world, blockpos, i)));
-    }
-
-    @Override
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
-        int i = calculateDISTANCE(worldIn, pos);
-        BlockState blockstate = state.setValue(DISTANCE, Integer.valueOf(i)).setValue(BOTTOM, Boolean.valueOf(this.shouldBeBOTTOM(worldIn, pos, i)));
-        if (blockstate.getValue(DISTANCE) == 7) {
-            if (state.getValue(DISTANCE) == 7) {
-                worldIn.addFreshEntity(FallingBlockEntity.fall(worldIn, pos, blockstate.setValue(WATERLOGGED, false)));
-            } else {
-                worldIn.destroyBlock(pos, true);
-            }
-        } else if (state != blockstate) {
-            worldIn.setBlock(pos, blockstate, 3);
-        }
-
-    }
-
-    @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        return calculateDISTANCE(worldIn, pos) < 7;
-    }
-
-    private boolean shouldBeBOTTOM(BlockGetter blockReader, BlockPos pos, int DISTANCE) {
-        return DISTANCE > 0 && blockReader.getBlockState(pos.below()).getBlock() != this;
-    }
-
-    @Override
-    public void onPlace(BlockState state, Level worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
-        if (!worldIn.isClientSide) {
-            worldIn.scheduleTick(pos, this, 1);
-        }
-
+        return $$4;
     }
 }
