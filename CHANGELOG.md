@@ -1,3 +1,6 @@
+# 1.4-RC-20
+* Add Travertine + Soapstone world gen.
+
 # 1.4-RC-19 
 * Fix `StackOverflowError` in relation to growing patterns config.
 
