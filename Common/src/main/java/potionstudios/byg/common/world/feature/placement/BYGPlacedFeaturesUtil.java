@@ -79,4 +79,9 @@ public class BYGPlacedFeaturesUtil {
     public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(Holder<ConfiguredFeature<FC, ?>> feature, List<PlacementModifier> placementModifiers) {
         return Holder.direct(new PlacedFeature(Holder.hackyErase(feature), List.copyOf(placementModifiers)));
     }
+
+
+    public static String globalFeaturePath(String path) {
+        return "global/placed_feature/" + path;
+    }
 }
