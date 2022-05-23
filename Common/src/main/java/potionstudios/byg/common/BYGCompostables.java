@@ -21,7 +21,6 @@ public class BYGCompostables {
 
         //Leaves
         compostibleBlocks(0.3f, BYGItems.BLOOMING_WITCH_HAZEL_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_LEAVES.get());
@@ -69,7 +68,6 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.FIRECRACKER_LEAVES.get());
 
         //Saplings
-        compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_SAPLING.get());

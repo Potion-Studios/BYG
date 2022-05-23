@@ -50,7 +50,7 @@ public class BYGBoatEntity extends Boat {
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.boat().get();
             case BAOBAB -> BYGWoodTypes.BAOBAB.boat().get();
-            case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT.get();
+            case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.boat().get();
             case CHERRY -> BYGItems.CHERRY_BOAT.get();
             case CIKA -> BYGItems.CIKA_BOAT.get();
             case CYPRESS -> BYGItems.CYPRESS_BOAT.get();
@@ -77,7 +77,7 @@ public class BYGBoatEntity extends Boat {
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.planks().get();
             case BAOBAB -> BYGWoodTypes.BAOBAB.planks().get();
-            case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS.get();
+            case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.planks().get();
             case CHERRY -> BYGBlocks.CHERRY_PLANKS.get();
             case CIKA -> BYGBlocks.CIKA_PLANKS.get();
             case CYPRESS -> BYGBlocks.CYPRESS_PLANKS.get();

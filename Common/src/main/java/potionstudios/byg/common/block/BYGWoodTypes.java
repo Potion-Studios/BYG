@@ -18,16 +18,21 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 
+import javax.annotation.Nullable;
+
 @MethodsReturnNonnullByDefault
 public enum BYGWoodTypes {
     ASPEN("aspen", BYGBlockTags.GROUND_ASPEN_SAPLING, MaterialColor.TERRACOTTA_YELLOW, BYGBoatEntity.BYGType.ASPEN),
-    BAOBAB("baobab", BYGBlockTags.GROUND_BAOBAB_SAPLING, MaterialColor.TERRACOTTA_GREEN, BYGBoatEntity.BYGType.BAOBAB);
+    BAOBAB("baobab", BYGBlockTags.GROUND_BAOBAB_SAPLING, MaterialColor.TERRACOTTA_GREEN, BYGBoatEntity.BYGType.BAOBAB),
+    BLUE_ENCHANTED("blue_enchanted", BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, MaterialColor.COLOR_BLUE, BYGBoatEntity.BYGType.BLUE_ENCHANTED);
 
     private final String name;
     private final WoodType woodType;
     private final TagKey<Block> saplingGroundTag;
     private final MaterialColor materialColor;
     private final BYGBoatEntity.BYGType boatType;
+    @Nullable
+    private final Integer leavesLightLevel;
     private boolean initialized;
 
     private BlockRegistryObject<Block> sapling;
@@ -60,11 +65,16 @@ public enum BYGWoodTypes {
     private RegistryObject<Item> boat;
 
     BYGWoodTypes(String name, TagKey<Block> saplingGroundTag, MaterialColor materialColor, BYGBoatEntity.BYGType boatType) {
+        this(name, saplingGroundTag, materialColor, boatType, null);
+    }
+
+    BYGWoodTypes(String name, TagKey<Block> saplingGroundTag, MaterialColor materialColor, BYGBoatEntity.BYGType boatType, @Nullable Integer leavesLightLevel) {
         this.name = name;
         this.saplingGroundTag = saplingGroundTag;
         this.materialColor = materialColor;
         this.boatType = boatType;
         this.woodType = BYGConstants.SIGNS ? byg_invokeRegister(byg_create(BYG.createLocation(name).toString().replace(":", "/"))) : null;
+        this.leavesLightLevel = leavesLightLevel;
     }
 
     public void init() {
@@ -72,7 +82,7 @@ public enum BYGWoodTypes {
             return;
         this.sapling = BYGBlocks.createSapling(saplingGroundTag, name + "_sapling");
         BYGItems.createSaplingItem(sapling);
-        this.leaves = BYGBlocks.createLeaves(materialColor, name + "leaves");
+        this.leaves = leavesLightLevel == null ? BYGBlocks.createLeaves(materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(materialColor, leavesLightLevel, name + "_leaves");
         BYGItems.createItem(leaves);
 
         this.log = BYGBlocks.createLog(name + "_log");
@@ -110,7 +120,6 @@ public enum BYGWoodTypes {
         this.button = BYGBlocks.createWoodButton(name + "_button");
         BYGItems.createItem(button);
 
-        // TODO fix type
         this.sign = BYGBlocks.createSign(name + "_sign", woodType, planks);
         this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks);
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);

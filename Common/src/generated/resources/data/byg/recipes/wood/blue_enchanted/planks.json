@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "item": "byg:blue_enchanted_log"
+    }
+  ],
+  "result": {
+    "item": "byg:blue_enchanted_planks",
+    "count": 4
+  }
+}

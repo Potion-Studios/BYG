@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:blue_enchanted_planks"
+    }
+  },
+  "result": {
+    "item": "byg:blue_enchanted_slab",
+    "count": 6
+  }
+}

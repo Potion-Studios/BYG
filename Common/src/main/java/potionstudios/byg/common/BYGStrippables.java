@@ -22,7 +22,6 @@ public class BYGStrippables {
             stripables.put(type.wood().get(), type.strippedWood().get());
         }
 
-        stripables.put(BYGBlocks.BLUE_ENCHANTED_LOG.get(), BYGBlocks.STRIPPED_BLUE_ENCHANTED_LOG.get());
         stripables.put(BYGBlocks.CHERRY_LOG.get(), BYGBlocks.STRIPPED_CHERRY_LOG.get());
         stripables.put(BYGBlocks.CIKA_LOG.get(), BYGBlocks.STRIPPED_CIKA_LOG.get());
         stripables.put(BYGBlocks.CYPRESS_LOG.get(), BYGBlocks.STRIPPED_CYPRESS_LOG.get());
@@ -52,7 +51,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.EMBUR_PEDU.get(), BYGBlocks.STRIPPED_EMBUR_PEDU.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGBlocks.IMPARIUS_STEM.get());
 
-        stripables.put(BYGBlocks.BLUE_ENCHANTED_WOOD.get(), BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD.get());
         stripables.put(BYGBlocks.CHERRY_WOOD.get(), BYGBlocks.STRIPPED_CHERRY_WOOD.get());
         stripables.put(BYGBlocks.CIKA_WOOD.get(), BYGBlocks.STRIPPED_CIKA_WOOD.get());
         stripables.put(BYGBlocks.CYPRESS_WOOD.get(), BYGBlocks.STRIPPED_CYPRESS_WOOD.get());

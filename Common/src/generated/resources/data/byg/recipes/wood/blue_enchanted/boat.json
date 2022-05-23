@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "P P",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:blue_enchanted_planks"
+    }
+  },
+  "result": {
+    "item": "byg:blue_enchanted_boat"
+  }
+}

@@ -752,8 +752,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
             BYGFeatures.ENCHANTED_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BLUE_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BLUE_ENCHANTED_LEAVES.get())
+                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
+                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
                     .setMaxHeight(18)
                     .setMinHeight(13)
                     .build()
@@ -761,8 +761,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE2 = createConfiguredFeature("blue_enchanted_tree2",
             BYGFeatures.ENCHANTED_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BLUE_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BLUE_ENCHANTED_LEAVES.get())
+                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
+                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
                     .setMaxHeight(26)
                     .setMinHeight(19)
                     .build()
@@ -770,8 +770,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE3 = createConfiguredFeature("blue_enchanted_tree3",
             BYGFeatures.ENCHANTED_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BLUE_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BLUE_ENCHANTED_LEAVES.get())
+                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
+                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
                     .setMaxHeight(15)
                     .setMinHeight(9)
                     .build()
@@ -804,8 +804,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_GROVE_TREE1 = createConfiguredFeature("blue_enchanted_grove_tree1",
             BYGFeatures.ENCHANTED_GROVE_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BLUE_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BLUE_ENCHANTED_LEAVES.get())
+                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
+                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
                     .setMaxHeight(15)
                     .setMinHeight(9)
                     .build()

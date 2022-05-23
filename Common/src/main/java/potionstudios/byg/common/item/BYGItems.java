@@ -250,28 +250,9 @@ public class BYGItems {
 
         BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
         BYGWoodTypes.BAOBAB.init();
-    }
 
-    //Blue Enchanted Woodtype
-    public static final RegistryObject<GrowerItem> BLUE_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_LEAVES = createItem(BYGBlocks.BLUE_ENCHANTED_LEAVES);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_LOG = createItem(BYGBlocks.BLUE_ENCHANTED_LOG);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_WOOD = createItem(BYGBlocks.BLUE_ENCHANTED_WOOD);
-    public static final RegistryObject<Item> STRIPPED_BLUE_ENCHANTED_LOG = createItem(BYGBlocks.STRIPPED_BLUE_ENCHANTED_LOG);
-    public static final RegistryObject<Item> STRIPPED_BLUE_ENCHANTED_WOOD = createItem(BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_PLANKS = createItem(BYGBlocks.BLUE_ENCHANTED_PLANKS);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_BOOKSHELF = createItem(BYGBlocks.BLUE_ENCHANTED_BOOKSHELF);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_CRAFTING_TABLE = createItem(BYGBlocks.BLUE_ENCHANTED_CRAFTING_TABLE);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_STAIRS = createItem(BYGBlocks.BLUE_ENCHANTED_STAIRS);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_SLAB = createItem(BYGBlocks.BLUE_ENCHANTED_SLAB);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_FENCE = createItem(BYGBlocks.BLUE_ENCHANTED_FENCE);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_FENCE_GATE = createItem(BYGBlocks.BLUE_ENCHANTED_FENCE_GATE);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_DOOR = createItem(BYGBlocks.BLUE_ENCHANTED_DOOR);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_TRAPDOOR = createItem(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_PRESSURE_PLATE = createItem(BYGBlocks.BLUE_ENCHANTED_PRESSURE_PLATE);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_BUTTON = createItem(BYGBlocks.BLUE_ENCHANTED_BUTTON);
-    public static final RegistryObject<SignItem> BLUE_ENCHANTED_SIGN = createSign("blue_enchanted_sign", BYGBlocks.BLUE_ENCHANTED_SIGN, BYGBlocks.BLUE_ENCHANTED_WALL_SIGN);
-    public static final RegistryObject<Item> BLUE_ENCHANTED_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.BLUE_ENCHANTED, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "blue_enchanted_boat");
+        BYGWoodTypes.BLUE_ENCHANTED.init();
+    }
 
     //Bulbis Woodtype
     public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);

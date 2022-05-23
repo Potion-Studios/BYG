@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
   "ingredients": [
     {
       "item": "byg:baobab_planks"
