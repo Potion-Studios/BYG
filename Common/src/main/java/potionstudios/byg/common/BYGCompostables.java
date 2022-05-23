@@ -16,7 +16,7 @@ public class BYGCompostables {
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             compostibleBlocks(0.3f, type.leaves().get());
-            compostibleBlocks(0.3f, type.sapling().get());
+            compostibleBlocks(0.3f, type.growerItem().get());
         }
 
         //Leaves
@@ -214,7 +214,7 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.DEATH_CAP.get());
         compostibleBlocks(0.65f, BYGItems.SOUL_SHROOM.get());
         compostibleBlocks(0.65f, BYGItems.BAOBAB_FRUIT.get());
-        compostibleBlocks(0.65f, BYGItems.BULBIS_ODDITY.get());
+        compostibleBlocks(0.65f, BYGWoodTypes.BULBIS.growerItem());
         compostibleBlocks(0.65f, BYGItems.PURPLE_BULBIS_ODDITY.get());
 
         //Plants

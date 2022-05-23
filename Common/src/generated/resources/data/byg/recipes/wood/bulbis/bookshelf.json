@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "bookshelf",
   "pattern": [
-    "###",
-    "XXX",
-    "###"
+    "PPP",
+    "BBB",
+    "PPP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:bulbis_planks"
     },
-    "X": {
+    "B": {
       "item": "minecraft:book"
     }
   },

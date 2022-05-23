@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.reg.RegistryObject;
 
 public class BYGMushroomConfig implements FeatureConfiguration {
 
@@ -106,6 +107,10 @@ public class BYGMushroomConfig implements FeatureConfiguration {
         private BlockStateProvider pollenProvider = SimpleStateProvider.simple(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
+
+        public Builder setStemBlock(RegistryObject<? extends Block> block) {
+            return setStemBlock(block.get());
+        }
 
         public Builder setStemBlock(Block block) {
             if (block != null)

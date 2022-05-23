@@ -27,13 +27,15 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .define('P', type.planks().get())
                 .unlockedBy("has_planks", has(type.planks()))
                 .save(consumer, BYG.createLocation("wood/" + type + "/door"));
-            ShapedRecipeBuilder.shaped(type.boat().get())
-                .group("boat")
-                .pattern("P P")
-                .pattern("PPP")
-                .define('P', type.planks().get())
-                .unlockedBy("has_planks", has(type.planks()))
-                .save(consumer, BYG.createLocation("wood/" + type + "/boat"));
+            if (type.boat() != null) {
+                ShapedRecipeBuilder.shaped(type.boat().get())
+                        .group("boat")
+                        .pattern("P P")
+                        .pattern("PPP")
+                        .define('P', type.planks().get())
+                        .unlockedBy("has_planks", has(type.planks()))
+                        .save(consumer, BYG.createLocation("wood/" + type + "/boat"));
+            }
             ShapedRecipeBuilder.shaped(type.bookshelf().get())
                 .group("bookshelf")
                 .pattern("PPP")

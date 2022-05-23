@@ -47,7 +47,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.WITHERING_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG);
         stripables.put(BYGBlocks.ETHER_LOG.get(), BYGBlocks.STRIPPED_ETHER_LOG.get());
         stripables.put(BYGBlocks.NIGHTSHADE_LOG.get(), BYGBlocks.STRIPPED_NIGHTSHADE_LOG.get());
-        stripables.put(BYGBlocks.BULBIS_STEM.get(), BYGBlocks.STRIPPED_BULBIS_LOG.get());
         stripables.put(BYGBlocks.EMBUR_PEDU.get(), BYGBlocks.STRIPPED_EMBUR_PEDU.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGBlocks.IMPARIUS_STEM.get());
 
@@ -76,7 +75,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);
         stripables.put(BYGBlocks.ETHER_WOOD.get(), BYGBlocks.STRIPPED_ETHER_WOOD.get());
         stripables.put(BYGBlocks.NIGHTSHADE_WOOD.get(), BYGBlocks.STRIPPED_NIGHTSHADE_WOOD.get());
-        stripables.put(BYGBlocks.BULBIS_WOOD.get(), BYGBlocks.STRIPPED_BULBIS_WOOD.get());
         stripables.put(BYGBlocks.EMBUR_HYPHAE.get(), BYGBlocks.STRIPPED_EMBUR_HYPHAE.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE.get(), BYGBlocks.IMPARIUS_HYPHAE.get());
 

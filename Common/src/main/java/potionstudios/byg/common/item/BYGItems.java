@@ -245,6 +245,13 @@ public class BYGItems {
     //Baobab Woodtype
     public static final RegistryObject<Item> BAOBAB_FRUIT;
 
+    //Bulbis Woodtype
+    public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
+    public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
+    public static final RegistryObject<Item> PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
+    public static final RegistryObject<Item> BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
+    public static final RegistryObject<Item> BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -252,32 +259,8 @@ public class BYGItems {
         BYGWoodTypes.BAOBAB.init();
 
         BYGWoodTypes.BLUE_ENCHANTED.init();
+        BYGWoodTypes.BULBIS.init();
     }
-
-    //Bulbis Woodtype
-    public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
-    public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
-    public static final RegistryObject<Item> PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
-    public static final RegistryObject<GrowerItem> BULBIS_ODDITY = createGrowerItem(BYGBlocks.BULBIS_ODDITY);
-    public static final RegistryObject<Item> BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
-    public static final RegistryObject<Item> BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
-    public static final RegistryObject<Item> BULBIS_STEM = createItem(BYGBlocks.BULBIS_STEM);
-    public static final RegistryObject<Item> BULBIS_WOOD = createItem(BYGBlocks.BULBIS_WOOD);
-    public static final RegistryObject<Item> STRIPPED_BULBIS_LOG = createItem(BYGBlocks.STRIPPED_BULBIS_LOG);
-    public static final RegistryObject<Item> STRIPPED_BULBIS_WOOD = createItem(BYGBlocks.STRIPPED_BULBIS_WOOD);
-    public static final RegistryObject<Item> BULBIS_PLANKS = createItem(BYGBlocks.BULBIS_PLANKS);
-    public static final RegistryObject<Item> BULBIS_BOOKSHELF = createItem(BYGBlocks.BULBIS_BOOKSHELF);
-    public static final RegistryObject<Item> BULBIS_CRAFTING_TABLE = createItem(BYGBlocks.BULBIS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> BULBIS_STAIRS = createItem(BYGBlocks.BULBIS_STAIRS);
-    public static final RegistryObject<Item> BULBIS_SLAB = createItem(BYGBlocks.BULBIS_SLAB);
-    public static final RegistryObject<Item> BULBIS_FENCE = createItem(BYGBlocks.BULBIS_FENCE);
-    public static final RegistryObject<Item> BULBIS_FENCE_GATE = createItem(BYGBlocks.BULBIS_FENCE_GATE);
-    public static final RegistryObject<Item> BULBIS_DOOR = createItem(BYGBlocks.BULBIS_DOOR);
-    public static final RegistryObject<Item> BULBIS_TRAPDOOR = createItem(BYGBlocks.BULBIS_TRAPDOOR);
-    public static final RegistryObject<Item> BULBIS_PRESSURE_PLATE = createItem(BYGBlocks.BULBIS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> BULBIS_BUTTON = createItem(BYGBlocks.BULBIS_BUTTON);
-    public static final RegistryObject<SignItem> BULBIS_SIGN = createSign("bulbis_sign", BYGBlocks.BULBIS_SIGN, BYGBlocks.BULBIS_WALL_SIGN);
-
 
     //Cherry Woodtype
     public static final RegistryObject<GrowerItem> PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);

@@ -20,11 +20,13 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 
+import static potionstudios.byg.common.block.BYGWoodTypes.BULBIS;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
@@ -42,7 +44,7 @@ public class BYGEndVegetationFeatures {
         () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE.get()))
     );
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BYGBlocks.BULBIS_ODDITY.get(), 32);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BULBIS.growerItem().get(), 32);
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PURPLE_BULBIS_ODDITY = createPatchConfiguredFeature("purple_bulbis_oddity", BYGBlocks.PURPLE_BULBIS_ODDITY.get(), 32);
 
@@ -422,7 +424,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1",
         BYGFeatures.BULBIS_BUSH1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -432,7 +434,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE1 = createConfiguredFeature("bulbis_tree1",
         BYGFeatures.BULBIS_TREE1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -442,7 +444,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE2 = createConfiguredFeature("bulbis_tree2",
         BYGFeatures.BULBIS_TREE2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -452,7 +454,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE3 = createConfiguredFeature("bulbis_tree3",
         BYGFeatures.BULBIS_TREE3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -462,7 +464,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE4 = createConfiguredFeature("bulbis_tree4",
         BYGFeatures.BULBIS_TREE4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -472,7 +474,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE5 = createConfiguredFeature("bulbis_tree5",
         BYGFeatures.BULBIS_TREE5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -482,7 +484,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE6 = createConfiguredFeature("bulbis_tree6",
         BYGFeatures.BULBIS_TREE6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -492,7 +494,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE7 = createConfiguredFeature("bulbis_tree7",
         BYGFeatures.BULBIS_TREE7,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -502,7 +504,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_BUSH1 = createConfiguredFeature("purple_bulbis_bush1",
         BYGFeatures.BULBIS_BUSH1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -512,7 +514,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE1 = createConfiguredFeature("purple_bulbis_tree1",
         BYGFeatures.BULBIS_TREE1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -522,7 +524,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE2 = createConfiguredFeature("purple_bulbis_tree2",
         BYGFeatures.BULBIS_TREE2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -532,7 +534,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE3 = createConfiguredFeature("purple_bulbis_tree3",
         BYGFeatures.BULBIS_TREE3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -542,7 +544,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE4 = createConfiguredFeature("purple_bulbis_tree4",
         BYGFeatures.BULBIS_TREE4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -552,7 +554,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE5 = createConfiguredFeature("purple_bulbis_tree5",
         BYGFeatures.BULBIS_TREE5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -562,7 +564,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE6 = createConfiguredFeature("purple_bulbis_tree6",
         BYGFeatures.BULBIS_TREE6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -572,7 +574,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE7 = createConfiguredFeature("purple_bulbis_tree7",
         BYGFeatures.BULBIS_TREE7,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)

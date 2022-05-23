@@ -16,9 +16,13 @@ public class BYGRenderTypes {
         Map<Block, RenderType> map = new HashMap<>();
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            map.put(type.door().get(), RenderType.translucent());
-            map.put(type.trapdoor().get(), RenderType.translucent());
-            map.put(type.sapling().get(), RenderType.translucent());
+            final var renderType = switch (type) {
+                case ASPEN -> RenderType.translucent();
+                default -> RenderType.cutoutMipped();
+            };
+            map.put(type.door().get(), renderType);
+            map.put(type.trapdoor().get(), renderType);
+            map.put(type.growerItem().get(), renderType);
         }
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
@@ -101,7 +105,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.NIGHTSHADE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_SHELL.get(), RenderType.translucent());
-        map.put(BYGBlocks.BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BULBIS_SHELL.get(), RenderType.translucent());
         map.put(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_ROOTS.get(), RenderType.cutoutMipped());
@@ -159,7 +162,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SYTHIAN_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BULBIS_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
@@ -187,7 +189,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SYTHIAN_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BULBIS_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_TRAPDOOR.get(), RenderType.cutoutMipped());
