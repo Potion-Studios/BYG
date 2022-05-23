@@ -1,10 +1,7 @@
 package potionstudios.byg.common.block.sapling;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import blue.endless.jankson.api.SyntaxError;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -17,9 +14,10 @@ import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatu
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
 import potionstudios.byg.util.ModPlatform;
+import potionstudios.byg.util.codec.CommentedCodec;
+import potionstudios.byg.util.jankson.JanksonJsonOps;
+import potionstudios.byg.util.jankson.JanksonUtil;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -652,10 +650,13 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
 
     public static final Codec<GrowingPatterns> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(
-                Codec.BOOL.optionalFieldOf("logGrowth", false).forGetter(saplingPatterns -> saplingPatterns.logGrowth),
-                Codec.unboundedMap(ResourceLocation.CODEC, GrowingPatternEntry.CODEC.listOf()).fieldOf("sapling_patterns").forGetter(saplingPatterns -> saplingPatterns.patternsForBlock)
+                CommentedCodec.optionalOf(Codec.BOOL, "logGrowth", "Print growable related actions in the latest.log?", false).forGetter(saplingPatterns -> saplingPatterns.logGrowth),
+                CommentedCodec.of(Codec.unboundedMap(ResourceLocation.CODEC, GrowingPatternEntry.CODEC.listOf()), "sapling_patterns", "Sapling patterns for a given block.\nNot all blocks work, only blocks using \"FeatureGrowerFromBlockPattern\"").forGetter(saplingPatterns -> saplingPatterns.patternsForBlock)
         ).apply(builder, GrowingPatterns::new);
     });
+
+    private static final Path PATH = ModPlatform.INSTANCE.configPath().resolve("growing-patterns.json5");
+    private static final Path OLD_PATH = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-sapling-patterns.json");
 
 
     public static GrowingPatterns getConfig() {
@@ -674,33 +675,39 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
     }
 
     private static GrowingPatterns readConfig(boolean recreate) {
-        final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-sapling-patterns.json");
 
-        if (!path.toFile().exists() || recreate) {
-            JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();
-
+        GrowingPatterns from = DEFAULT;
+        if (OLD_PATH.toFile().exists()) {
             try {
-                Files.createDirectories(path.getParent());
-                Files.write(path, new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(jsonElement).getBytes());
-            } catch (IOException e) {
-                BYG.LOGGER.error(e.toString());
+                try {
+                    from = JanksonUtil.readConfig(OLD_PATH, CODEC, JanksonJsonOps.INSTANCE);
+                    Files.delete(OLD_PATH);
+                } catch (SyntaxError | IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+
+        if (!PATH.toFile().exists() || recreate) {
+            JanksonUtil.createConfig(PATH, CODEC, JanksonUtil.HEADER_CLOSED, new HashMap<>(), JanksonJsonOps.INSTANCE, from);
+        }
+        BYG.LOGGER.info(String.format("\"%s\" was read.", PATH.toString()));
 
         try {
-            return CODEC.decode(JsonOps.INSTANCE, new JsonParser().parse(new FileReader(path.toFile()))).result().orElseThrow(RuntimeException::new).getFirst();
-        } catch (FileNotFoundException e) {
+            JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);
+        } catch (SyntaxError | IOException e) {
             e.printStackTrace();
         }
-        return DEFAULT;
+        return from;
     }
 
     public record GrowingPatternEntry(List<String> pattern, SimpleWeightedRandomList<FeatureSpawner> spawners) {
         public static final Codec<GrowingPatternEntry> CODEC = RecordCodecBuilder.create(builder -> {
             return builder.group(
-                    Codec.STRING.listOf().fieldOf("pattern").forGetter(growingPatternEntry -> growingPatternEntry.pattern),
-                    SimpleWeightedRandomList.wrappedCodec(FeatureSpawner.CODEC).fieldOf("spawners").forGetter(overworldBiomeConfig -> overworldBiomeConfig.spawners)
+                    CommentedCodec.of(Codec.STRING.listOf(), "pattern", "Pattern required for this block to spawn a configured feature.\n\"x\" represents a sapling position.\" \" represents air.\nMax size is 5x5.").forGetter(growingPatternEntry -> growingPatternEntry.pattern),
+                    CommentedCodec.of(SimpleWeightedRandomList.wrappedCodec(FeatureSpawner.CODEC), "spawners", "Configured Feature spawner.").forGetter(overworldBiomeConfig -> overworldBiomeConfig.spawners)
             ).apply(builder, GrowingPatternEntry::new);
         });
     }
@@ -708,8 +715,8 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
     public static final class FeatureSpawner {
         public static final Codec<FeatureSpawner> CODEC = RecordCodecBuilder.create(builder -> {
             return builder.group(
-                    ResourceLocation.CODEC.fieldOf("featureID").forGetter(featureSpawner -> featureSpawner.spawnerID),
-                    BlockPos.CODEC.optionalFieldOf("spawnOffset", BlockPos.ZERO).forGetter(featureSpawner -> featureSpawner.spawnOffset)
+                    CommentedCodec.of(ResourceLocation.CODEC, "featureID", "Registry ID of the configured feature.").forGetter(featureSpawner -> featureSpawner.spawnerID),
+                    CommentedCodec.optionalOf(BlockPos.CODEC, "spawnOffset", "Some features don't spawn centered, this lets us offset the feature to center it.", BlockPos.ZERO).forGetter(featureSpawner -> featureSpawner.spawnOffset)
             ).apply(builder, FeatureSpawner::new);
         });
 

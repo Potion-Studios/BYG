@@ -1081,8 +1081,11 @@ public class BYGItems {
     public static final RegistryObject<Item> BULBIS_SPROUTS = createItem(BYGBlocks.BULBIS_SPROUTS);
     public static final RegistryObject<Item> BULBIS_PHYCELIUM = createItem(BYGBlocks.BULBIS_PHYCELIUM);
 
+    @Deprecated(forRemoval = true)
     public static final RegistryObject<Item> LIGNITE_ORE = createItem(BYGBlocks.LIGNITE_ORE);
+    @Deprecated(forRemoval = true)
     public static final RegistryObject<Item> LIGNITE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "lignite");
+    @Deprecated(forRemoval = true)
     public static final RegistryObject<Item> LIGNITE_BLOCK = createItem(BYGBlocks.LIGNITE_BLOCK);
 
     public static final RegistryObject<Item> ETHER_FOLIAGE = createItem(BYGBlocks.ETHER_FOLIAGE);

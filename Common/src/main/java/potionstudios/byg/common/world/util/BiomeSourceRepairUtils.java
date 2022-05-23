@@ -8,6 +8,7 @@ import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -24,17 +25,27 @@ public class BiomeSourceRepairUtils {
 
         if (netherBiomesConfig.forceBYGNetherBiomeSource()) {
             Supplier<BiomeSource> netherBiomeSource = () ->
-                ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry, worldGenSettings.seed());
+                    ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry, worldGenSettings.seed());
 
-            repair(worldGenSettings.dimensions().getOrThrow(LevelStem.NETHER), BYGNetherBiomeSource.LOCATION, netherBiomeSource);
+            LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.NETHER);
+            if (levelStem == null) {
+                BYG.LOGGER.error(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nSkipping biome source repair....", LevelStem.NETHER));
+            } else {
+                repair(levelStem, BYGNetherBiomeSource.LOCATION, netherBiomeSource);
+            }
         }
         EndBiomesConfig endBiomesConfig = EndBiomesConfig.getConfig(true, false, biomeRegistry);
 
         if (endBiomesConfig.forceBYGEndBiomeSource()) {
             Supplier<BiomeSource> endBiomeSource = () ->
-                ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry, worldGenSettings.seed());
+                    ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry, worldGenSettings.seed());
 
-            repair(worldGenSettings.dimensions().getOrThrow(LevelStem.END), BYGEndBiomeSource.LOCATION, endBiomeSource);
+            LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.END);
+            if (levelStem == null) {
+                BYG.LOGGER.error(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nSkipping biome source repair....", LevelStem.END));
+            } else {
+                repair(levelStem, BYGEndBiomeSource.LOCATION, endBiomeSource);
+            }
         }
     }
 

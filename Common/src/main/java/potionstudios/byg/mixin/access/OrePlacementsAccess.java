@@ -14,4 +14,9 @@ public interface OrePlacementsAccess {
     static List<PlacementModifier> byg_invokeCommonOrePlacement(int count, PlacementModifier $$1) {
         throw new Error("Mixin did not apply!");
     }
+
+    @Invoker("rareOrePlacement")
+    static List<PlacementModifier> byg_invokeRareOrePlacement(int count, PlacementModifier $$1) {
+        throw new Error("Mixin did not apply!");
+    }
 }

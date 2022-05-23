@@ -711,7 +711,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "carved_ether_stone_stairs");
     public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_WALL = createStoneWall("carved_ether_stone_wall");
 
+    @Deprecated(forRemoval = true)
     public static final BlockRegistryObject<Block> LIGNITE_BLOCK = createBlock(BYGBlockProperties.AnthraciteOre::new, "lignite_block");
+    @Deprecated(forRemoval = true)
     public static final BlockRegistryObject<Block> LIGNITE_ORE = createBlock(BYGBlockProperties.AnthraciteOre::new, "lignite_ore");
 
     public static final BlockRegistryObject<Block> ODDITY_CACTUS = createOddityCactus("oddity_cactus");

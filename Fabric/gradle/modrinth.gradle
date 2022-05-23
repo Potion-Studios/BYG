@@ -17,7 +17,7 @@ String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").g
 task fabric_publishModrinth (type: TaskModrinthUpload){
     token = "$System.env.MODRINTH_KEY"
     projectId = 'uE1WpIAk'
-    versionName = "${archivesBaseName}"
+    versionName = "${archivesBaseName}-${project.version}"
     versionNumber = project.version
     versionType = "${project.release_type}"
     uploadFile = remapJar
