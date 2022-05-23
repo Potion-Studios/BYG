@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.mixin.access.HoeItemAccess;
@@ -241,48 +242,15 @@ public class BYGItems {
 
     public static final RegistryObject<Item> CRACKED_RED_SAND = createItem(BYGBlocks.CRACKED_RED_SAND);
 
-    //Aspen Woodtype
-    public static final RegistryObject<GrowerItem> ASPEN_SAPLING = createSaplingItem(BYGBlocks.ASPEN_SAPLING);
-    public static final RegistryObject<Item> ASPEN_LEAVES = createItem(BYGBlocks.ASPEN_LEAVES);
-    public static final RegistryObject<Item> ASPEN_LOG = createItem(BYGBlocks.ASPEN_LOG);
-    public static final RegistryObject<Item> ASPEN_WOOD = createItem(BYGBlocks.ASPEN_WOOD);
-    public static final RegistryObject<Item> STRIPPED_ASPEN_LOG = createItem(BYGBlocks.STRIPPED_ASPEN_LOG);
-    public static final RegistryObject<Item> STRIPPED_ASPEN_WOOD = createItem(BYGBlocks.STRIPPED_ASPEN_WOOD);
-    public static final RegistryObject<Item> ASPEN_PLANKS = createItem(BYGBlocks.ASPEN_PLANKS);
-    public static final RegistryObject<Item> ASPEN_BOOKSHELF = createItem(BYGBlocks.ASPEN_BOOKSHELF);
-    public static final RegistryObject<Item> ASPEN_CRAFTING_TABLE = createItem(BYGBlocks.ASPEN_CRAFTING_TABLE);
-    public static final RegistryObject<Item> ASPEN_STAIRS = createItem(BYGBlocks.ASPEN_STAIRS);
-    public static final RegistryObject<Item> ASPEN_SLAB = createItem(BYGBlocks.ASPEN_SLAB);
-    public static final RegistryObject<Item> ASPEN_FENCE = createItem(BYGBlocks.ASPEN_FENCE);
-    public static final RegistryObject<Item> ASPEN_FENCE_GATE = createItem(BYGBlocks.ASPEN_FENCE_GATE);
-    public static final RegistryObject<Item> ASPEN_DOOR = createItem(BYGBlocks.ASPEN_DOOR);
-    public static final RegistryObject<Item> ASPEN_TRAPDOOR = createItem(BYGBlocks.ASPEN_TRAPDOOR);
-    public static final RegistryObject<Item> ASPEN_PRESSURE_PLATE = createItem(BYGBlocks.ASPEN_PRESSURE_PLATE);
-    public static final RegistryObject<Item> ASPEN_BUTTON = createItem(BYGBlocks.ASPEN_BUTTON);
-    public static final RegistryObject<SignItem> ASPEN_SIGN = createSign("aspen_sign", BYGBlocks.ASPEN_SIGN, BYGBlocks.ASPEN_WALL_SIGN);
-    public static final RegistryObject<Item> ASPEN_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.ASPEN, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "aspen_boat");
-
     //Baobab Woodtype
-    public static final RegistryObject<Item> BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
-    public static final RegistryObject<GrowerItem> BAOBAB_SAPLING = createSaplingItem(BYGBlocks.BAOBAB_SAPLING);
-    public static final RegistryObject<Item> BAOBAB_LEAVES = createItem(BYGBlocks.BAOBAB_LEAVES);
-    public static final RegistryObject<Item> BAOBAB_LOG = createItem(BYGBlocks.BAOBAB_LOG);
-    public static final RegistryObject<Item> BAOBAB_WOOD = createItem(BYGBlocks.BAOBAB_WOOD);
-    public static final RegistryObject<Item> STRIPPED_BAOBAB_LOG = createItem(BYGBlocks.STRIPPED_BAOBAB_LOG);
-    public static final RegistryObject<Item> STRIPPED_BAOBAB_WOOD = createItem(BYGBlocks.STRIPPED_BAOBAB_WOOD);
-    public static final RegistryObject<Item> BAOBAB_PLANKS = createItem(BYGBlocks.BAOBAB_PLANKS);
-    public static final RegistryObject<Item> BAOBAB_BOOKSHELF = createItem(BYGBlocks.BAOBAB_BOOKSHELF);
-    public static final RegistryObject<Item> BAOBAB_CRAFTING_TABLE = createItem(BYGBlocks.BAOBAB_CRAFTING_TABLE);
-    public static final RegistryObject<Item> BAOBAB_STAIRS = createItem(BYGBlocks.BAOBAB_STAIRS);
-    public static final RegistryObject<Item> BAOBAB_SLAB = createItem(BYGBlocks.BAOBAB_SLAB);
-    public static final RegistryObject<Item> BAOBAB_FENCE = createItem(BYGBlocks.BAOBAB_FENCE);
-    public static final RegistryObject<Item> BAOBAB_FENCE_GATE = createItem(BYGBlocks.BAOBAB_FENCE_GATE);
-    public static final RegistryObject<Item> BAOBAB_DOOR = createItem(BYGBlocks.BAOBAB_DOOR);
-    public static final RegistryObject<Item> BAOBAB_TRAPDOOR = createItem(BYGBlocks.BAOBAB_TRAPDOOR);
-    public static final RegistryObject<Item> BAOBAB_PRESSURE_PLATE = createItem(BYGBlocks.BAOBAB_PRESSURE_PLATE);
-    public static final RegistryObject<Item> BAOBAB_BUTTON = createItem(BYGBlocks.BAOBAB_BUTTON);
-    public static final RegistryObject<SignItem> BAOBAB_SIGN = createSign("baobab_sign", BYGBlocks.BAOBAB_SIGN, BYGBlocks.BAOBAB_WALL_SIGN);
-    public static final RegistryObject<Item> BAOBAB_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.BAOBAB, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "baobab_boat");
+    public static final RegistryObject<Item> BAOBAB_FRUIT;
+
+    static {
+        BYGWoodTypes.ASPEN.init();
+
+        BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
+        BYGWoodTypes.BAOBAB.init();
+    }
 
     //Blue Enchanted Woodtype
     public static final RegistryObject<GrowerItem> BLUE_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.BLUE_ENCHANTED_SAPLING);

@@ -28,6 +28,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.Tree
 import java.util.function.Supplier;
 
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
+import static potionstudios.byg.common.block.BYGWoodTypes.*;
 
 public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",
@@ -81,24 +82,24 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB1 = createConfiguredFeature("aspen_shrub1",
             BYGFeatures.SHRUB1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.ASPEN_LOG.get())
-                    .setLeavesBlock(BYGBlocks.ASPEN_LEAVES.get())
+                    .setTrunkBlock(ASPEN.log().get())
+                    .setLeavesBlock(ASPEN.leaves().get())
                     .setMinHeight(2)
                     .build()
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB2 = createConfiguredFeature("aspen_shrub2",
             BYGFeatures.SHRUB2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.ASPEN_LOG.get())
-                    .setLeavesBlock(BYGBlocks.ASPEN_LEAVES.get())
+                    .setTrunkBlock(ASPEN.log().get())
+                    .setLeavesBlock(ASPEN.leaves().get())
                     .setMinHeight(1)
                     .build()
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE1 = createConfiguredFeature("aspen_tree1",
             BYGFeatures.ASPEN_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.ASPEN_LOG.get())
-                    .setLeavesBlock(BYGBlocks.ASPEN_LEAVES.get())
+                    .setTrunkBlock(ASPEN.log().get())
+                    .setLeavesBlock(ASPEN.leaves().get())
                     .setMaxHeight(10)
                     .setMinHeight(7)
                     .build()
@@ -106,15 +107,15 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE2 = createConfiguredFeature("aspen_tree2",
             BYGFeatures.ASPEN_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.ASPEN_LOG.get())
-                    .setLeavesBlock(BYGBlocks.ASPEN_LEAVES.get())
+                    .setTrunkBlock(ASPEN.log().get())
+                    .setLeavesBlock(ASPEN.leaves().get())
                     .setMaxHeight(19).setMinHeight(14).build()
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE3 =
             createConfiguredFeature("aspen_tree3", BYGFeatures.ASPEN_TREE3,
                     () -> new BYGTreeConfig.Builder()
-                            .setTrunkBlock(BYGBlocks.ASPEN_LOG.get())
-                            .setLeavesBlock(BYGBlocks.ASPEN_LEAVES.get())
+                            .setTrunkBlock(ASPEN.log().get())
+                            .setLeavesBlock(ASPEN.leaves().get())
                             .setMaxHeight(18)
                             .setMinHeight(11)
                             .build()
@@ -123,8 +124,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
             BYGFeatures.BAOBAB_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BAOBAB_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BAOBAB_LEAVES.get())
+                    .setTrunkBlock(BAOBAB.log().get())
+                    .setLeavesBlock(BAOBAB.leaves().get())
                     .setMaxHeight(28)
                     .setMinHeight(20)
                     .build()
@@ -132,8 +133,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
             BYGFeatures.BAOBAB_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BAOBAB_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BAOBAB_LEAVES.get())
+                    .setTrunkBlock(BAOBAB.log().get())
+                    .setLeavesBlock(BAOBAB.leaves().get())
                     .setMaxHeight(28)
                     .setMinHeight(20)
                     .build()
@@ -141,8 +142,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
             BYGFeatures.BAOBAB_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.BAOBAB_LOG.get())
-                    .setLeavesBlock(BYGBlocks.BAOBAB_LEAVES.get())
+                    .setTrunkBlock(BAOBAB.log().get())
+                    .setLeavesBlock(BAOBAB.leaves().get())
                     .setMaxHeight(28)
                     .setMinHeight(20)
                     .build()

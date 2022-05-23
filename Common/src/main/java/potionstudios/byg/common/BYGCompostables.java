@@ -3,6 +3,7 @@ package potionstudios.byg.common;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.ComposterBlock;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 
 public class BYGCompostables {
@@ -13,9 +14,12 @@ public class BYGCompostables {
     public static void compostablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Compostible Blocks...");
 
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            compostibleBlocks(0.3f, type.leaves().get());
+            compostibleBlocks(0.3f, type.sapling().get());
+        }
+
         //Leaves
-        compostibleBlocks(0.3f, BYGItems.ASPEN_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.BAOBAB_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLOOMING_WITCH_HAZEL_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_LEAVES.get());
@@ -65,8 +69,6 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.FIRECRACKER_LEAVES.get());
 
         //Saplings
-        compostibleBlocks(0.3f, BYGItems.ASPEN_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.BAOBAB_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_SAPLING.get());

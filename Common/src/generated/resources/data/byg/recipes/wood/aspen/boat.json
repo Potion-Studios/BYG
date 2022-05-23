@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:aspen_planks"
+    }
+  },
+  "result": {
+    "item": "byg:aspen_boat"
+  }
+}

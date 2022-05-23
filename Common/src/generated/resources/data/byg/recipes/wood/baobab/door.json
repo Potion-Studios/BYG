@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:baobab_planks"
+    }
+  },
+  "result": {
+    "item": "byg:baobab_door",
+    "count": 3
+  }
+}

@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,12 @@ public class BYGRenderTypes {
     public static void renderTypes(Consumer<Map<Block, RenderType>> mapConsumer) {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
+
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            map.put(type.door().get(), RenderType.translucent());
+            map.put(type.trapdoor().get(), RenderType.translucent());
+            map.put(type.sapling().get(), RenderType.translucent());
+        }
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BRANCH.get(), RenderType.cutoutMipped());
@@ -130,8 +137,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.WATER_SILK.get(), RenderType.cutoutMipped());
 
         //Doors
-        map.put(BYGBlocks.ASPEN_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.BAOBAB_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_ENCHANTED_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CHERRY_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CIKA_DOOR.get(), RenderType.cutoutMipped());
@@ -161,8 +166,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
-        map.put(BYGBlocks.ASPEN_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.BAOBAB_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CHERRY_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CIKA_TRAPDOOR.get(), RenderType.cutoutMipped());
@@ -203,8 +206,6 @@ public class BYGRenderTypes {
 
 
         //Saplings
-        map.put(BYGBlocks.ASPEN_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BAOBAB_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_ENCHANTED_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_BIRCH_SAPLING.get(), RenderType.cutoutMipped());

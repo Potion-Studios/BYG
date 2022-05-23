@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
@@ -47,8 +48,8 @@ public class BYGBoatEntity extends Boat {
     @Override
     public Item getDropItem() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGItems.ASPEN_BOAT.get();
-            case BAOBAB -> BYGItems.BAOBAB_BOAT.get();
+            default -> BYGWoodTypes.ASPEN.boat().get();
+            case BAOBAB -> BYGWoodTypes.BAOBAB.boat().get();
             case BLUE_ENCHANTED -> BYGItems.BLUE_ENCHANTED_BOAT.get();
             case CHERRY -> BYGItems.CHERRY_BOAT.get();
             case CIKA -> BYGItems.CIKA_BOAT.get();
@@ -74,8 +75,8 @@ public class BYGBoatEntity extends Boat {
 
     public Block getPlanks() {
         return switch (this.getBYGBoatType()) {
-            default -> BYGBlocks.ASPEN_PLANKS.get();
-            case BAOBAB -> BYGBlocks.BAOBAB_PLANKS.get();
+            default -> BYGWoodTypes.ASPEN.planks().get();
+            case BAOBAB -> BYGWoodTypes.BAOBAB.planks().get();
             case BLUE_ENCHANTED -> BYGBlocks.BLUE_ENCHANTED_PLANKS.get();
             case CHERRY -> BYGBlocks.CHERRY_PLANKS.get();
             case CIKA -> BYGBlocks.CIKA_PLANKS.get();

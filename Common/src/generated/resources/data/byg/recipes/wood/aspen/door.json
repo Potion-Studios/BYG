@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:aspen_planks"
+    }
+  },
+  "result": {
+    "item": "byg:aspen_door",
+    "count": 3
+  }
+}

@@ -4,6 +4,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 
 import java.util.IdentityHashMap;
@@ -16,8 +17,11 @@ public class BYGStrippables {
 
         Map<Block, Block> stripables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
 
-        stripables.put(BYGBlocks.ASPEN_LOG.get(), BYGBlocks.STRIPPED_ASPEN_LOG.get());
-        stripables.put(BYGBlocks.BAOBAB_LOG.get(), BYGBlocks.STRIPPED_BAOBAB_LOG.get());
+        for (final BYGWoodTypes type : BYGWoodTypes.values()) {
+            stripables.put(type.log().get(), type.strippedLog().get());
+            stripables.put(type.wood().get(), type.strippedWood().get());
+        }
+
         stripables.put(BYGBlocks.BLUE_ENCHANTED_LOG.get(), BYGBlocks.STRIPPED_BLUE_ENCHANTED_LOG.get());
         stripables.put(BYGBlocks.CHERRY_LOG.get(), BYGBlocks.STRIPPED_CHERRY_LOG.get());
         stripables.put(BYGBlocks.CIKA_LOG.get(), BYGBlocks.STRIPPED_CIKA_LOG.get());
@@ -48,8 +52,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.EMBUR_PEDU.get(), BYGBlocks.STRIPPED_EMBUR_PEDU.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGBlocks.IMPARIUS_STEM.get());
 
-        stripables.put(BYGBlocks.ASPEN_WOOD.get(), BYGBlocks.STRIPPED_ASPEN_WOOD.get());
-        stripables.put(BYGBlocks.BAOBAB_WOOD.get(), BYGBlocks.STRIPPED_BAOBAB_WOOD.get());
         stripables.put(BYGBlocks.BLUE_ENCHANTED_WOOD.get(), BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD.get());
         stripables.put(BYGBlocks.CHERRY_WOOD.get(), BYGBlocks.STRIPPED_CHERRY_WOOD.get());
         stripables.put(BYGBlocks.CIKA_WOOD.get(), BYGBlocks.STRIPPED_CIKA_WOOD.get());
