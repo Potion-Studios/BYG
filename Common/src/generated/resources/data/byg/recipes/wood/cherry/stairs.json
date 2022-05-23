@@ -1,19 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
   "pattern": [
-    "###",
-    "XXX",
-    "###"
+    "P  ",
+    "PP ",
+    "PPP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:cherry_planks"
-    },
-    "X": {
-      "item": "minecraft:book"
     }
   },
   "result": {
-    "item": "byg:cherry_bookshelf"
+    "item": "byg:cherry_slab",
+    "count": 4
   }
 }

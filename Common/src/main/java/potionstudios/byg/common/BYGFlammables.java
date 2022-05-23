@@ -31,7 +31,6 @@ public class BYGFlammables {
         }
 
         //Logs
-        flammableBlock(BYGBlocks.CHERRY_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.CIKA_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.EBONY_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.FIR_LOG.get(), 5, 5);
@@ -51,7 +50,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALM_LOG.get(), 5, 5);
 
         //Stripped Logs
-        flammableBlock(BYGBlocks.STRIPPED_CHERRY_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_CIKA_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_CYPRESS_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_EBONY_LOG.get(), 5, 5);
@@ -71,7 +69,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_PALM_LOG.get(), 5, 5);
 
         //Wood
-        flammableBlock(BYGBlocks.CHERRY_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.CIKA_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.EBONY_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.FIR_WOOD.get(), 5, 5);
@@ -91,7 +88,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALM_WOOD.get(), 5, 5);
 
         //Stripped Wood
-        flammableBlock(BYGBlocks.STRIPPED_CHERRY_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_CIKA_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_CYPRESS_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_EBONY_WOOD.get(), 5, 5);
@@ -111,7 +107,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_PALM_WOOD.get(), 5, 5);
 
         //BookShelves
-        flammableBlock(BYGBlocks.CHERRY_BOOKSHELF.get(), 5, 20);
         flammableBlock(BYGBlocks.CIKA_BOOKSHELF.get(), 5, 20);
         flammableBlock(BYGBlocks.CYPRESS_BOOKSHELF.get(), 5, 20);
         flammableBlock(BYGBlocks.EBONY_BOOKSHELF.get(), 5, 20);
@@ -132,7 +127,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALM_BOOKSHELF.get(), 5, 20);
 
         //Slabs
-        flammableBlock(BYGBlocks.CHERRY_SLAB.get(), 5, 20);
         flammableBlock(BYGBlocks.CIKA_SLAB.get(), 5, 20);
         flammableBlock(BYGBlocks.CYPRESS_SLAB.get(), 5, 20);
         flammableBlock(BYGBlocks.EBONY_SLAB.get(), 5, 20);
@@ -153,7 +147,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALM_SLAB.get(), 5, 20);
 
         //Stairs
-        flammableBlock(BYGBlocks.CHERRY_STAIRS.get(), 5, 20);
         flammableBlock(BYGBlocks.CIKA_STAIRS.get(), 5, 20);
         flammableBlock(BYGBlocks.CYPRESS_STAIRS.get(), 5, 20);
         flammableBlock(BYGBlocks.EBONY_STAIRS.get(), 5, 20);
@@ -174,7 +167,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.ZELKOVA_STAIRS.get(), 5, 20);
 
         //Planks
-        flammableBlock(BYGBlocks.CHERRY_PLANKS.get(), 5, 20);
         flammableBlock(BYGBlocks.CIKA_PLANKS.get(), 5, 20);
         flammableBlock(BYGBlocks.CYPRESS_PLANKS.get(), 5, 20);
         flammableBlock(BYGBlocks.EBONY_PLANKS.get(), 5, 20);
@@ -195,7 +187,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALM_PLANKS.get(), 5, 20);
 
         //Fences
-        flammableBlock(BYGBlocks.CHERRY_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.CIKA_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.CYPRESS_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.EBONY_FENCE.get(), 5, 20);

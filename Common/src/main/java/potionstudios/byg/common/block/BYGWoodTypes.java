@@ -1,41 +1,33 @@
 package potionstudios.byg.common.block;
 
-import static potionstudios.byg.mixin.access.WoodTypeAccess.byg_create;
-import static potionstudios.byg.mixin.access.WoodTypeAccess.byg_invokeRegister;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MaterialColor;
-import potionstudios.byg.BYG;
-import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.mixin.access.WoodTypeAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 
-import javax.annotation.Nullable;
-import java.util.Set;
+import java.util.EnumSet;
+import java.util.List;
 
 public enum BYGWoodTypes {
-    ASPEN("aspen", BYGBlockTags.GROUND_ASPEN_SAPLING, MaterialColor.TERRACOTTA_YELLOW, BYGBoatEntity.BYGType.ASPEN),
-    BAOBAB("baobab", BYGBlockTags.GROUND_BAOBAB_SAPLING, MaterialColor.TERRACOTTA_GREEN, BYGBoatEntity.BYGType.BAOBAB),
-    BLUE_ENCHANTED("blue_enchanted", BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, MaterialColor.COLOR_BLUE, BYGBoatEntity.BYGType.BLUE_ENCHANTED),
-    BULBIS("bulbis", BYGBlockTags.GROUND_BULBIS_ODDITY, MaterialColor.COLOR_BLUE, null, null, GrowerItemType.ODDITY, true, Excludable.LEAVES);
+    ASPEN("aspen", new Builder().boatType(BYGBoatEntity.BYGType.ASPEN).materialColor(MaterialColor.TERRACOTTA_YELLOW).growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
+    BAOBAB("baobab", new Builder().boatType(BYGBoatEntity.BYGType.BAOBAB).growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING).materialColor(MaterialColor.TERRACOTTA_GREEN)),
+    BLUE_ENCHANTED("blue_enchanted", new Builder().boatType(BYGBoatEntity.BYGType.BLUE_ENCHANTED).growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING).materialColor(MaterialColor.COLOR_BLUE).leavesLightLevel(15)),
+    BULBIS("bulbis", new Builder().materialColor(MaterialColor.COLOR_BLUE).growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY).growerItem(GrowerItemType.ODDITY).exclude(BlockType.LEAVES).stem()),
+    CHERRY("cherry", new Builder().exclude(BlockType.SAPLING).boatType(BYGBoatEntity.BYGType.CHERRY).exclude(BlockType.LEAVES));
 
     private final String name;
     private final WoodType woodType;
-    private final TagKey<Block> saplingGroundTag;
-    private final MaterialColor materialColor;
-    private final BYGBoatEntity.BYGType boatType;
-    private final GrowerItemType growerItemType;
-    private final Set<Excludable> excludables;
-    private final boolean isStem;
-    @Nullable
-    private final Integer leavesLightLevel;
+    private final Builder builder;
     private boolean initialized;
 
     private BlockRegistryObject<Block> growerItem;
@@ -67,43 +59,35 @@ public enum BYGWoodTypes {
 
     private RegistryObject<Item> boat;
 
-    BYGWoodTypes(String name, TagKey<Block> saplingGroundTag, MaterialColor materialColor, @Nullable BYGBoatEntity.BYGType boatType, Excludable... excludables) {
-        this(name, saplingGroundTag, materialColor, boatType, null, GrowerItemType.SAPLING, false, excludables);
-    }
-
-    BYGWoodTypes(String name, TagKey<Block> saplingGroundTag, MaterialColor materialColor, @Nullable BYGBoatEntity.BYGType boatType, @Nullable Integer leavesLightLevel, GrowerItemType growerItemType, boolean isStem, Excludable... excludables) {
+    BYGWoodTypes(String name, Builder builder) {
         this.name = name;
-        this.saplingGroundTag = saplingGroundTag;
-        this.materialColor = materialColor;
-        this.boatType = boatType;
-        this.woodType = BYGConstants.SIGNS ? byg_invokeRegister(byg_create(BYG.createLocation(name).toString().replace(":", "/"))) : null;
-        this.isStem = isStem;
-        this.growerItemType = growerItemType;
-        this.leavesLightLevel = leavesLightLevel;
-        this.excludables =  Set.of(excludables);
+        this.builder = builder;
+        this.woodType = WoodTypeAccess.byg_create(name);
     }
 
     public void init() {
         if (initialized)
             return;
-        this.growerItem = switch (growerItemType) {
-            case SAPLING -> BYGBlocks.createSapling(saplingGroundTag, name + "_sapling");
-            case ODDITY -> BYGBlocks.createMushroom(saplingGroundTag, name + "_oddity");
-            case FUNGUS -> BYGBlocks.createMushroom(saplingGroundTag, name + "_fungus");
+        this.growerItem = switch (builder.growerItemType) {
+            case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
+            case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
+            case FUNGUS -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_fungus");
         };
-        BYGItems.createGrowerItem(growerItem, growerItemType == GrowerItemType.SAPLING);
-        if (!excludables.contains(Excludable.LEAVES)) {
-            this.leaves = leavesLightLevel == null ? BYGBlocks.createLeaves(materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(materialColor, leavesLightLevel, name + "_leaves");
+        if (!builder.excludes.contains(BlockType.SAPLING)) {
+            BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
+        }
+        if (!builder.excludes.contains(BlockType.LEAVES)) {
+            this.leaves = builder.leavesLightLevel == null ? BYGBlocks.createLeaves(builder.materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(builder.materialColor, builder.leavesLightLevel, name + "_leaves");
             BYGItems.createItem(leaves);
         }
 
-        this.log = isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_stem") : BYGBlocks.createLog(name + "_log");
+        this.log = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_stem") : BYGBlocks.createLog(name + "_log");
         BYGItems.createItem(log);
-        this.wood = isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_wood") : BYGBlocks.createWood(name + "_wood");
+        this.wood = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_wood") : BYGBlocks.createWood(name + "_wood");
         BYGItems.createItem(wood);
-        this.strippedLog = isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_stem") : BYGBlocks.createStrippedLog("stripped_" + name + "_log");
+        this.strippedLog = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_stem") : BYGBlocks.createStrippedLog("stripped_" + name + "_log");
         BYGItems.createItem(strippedLog);
-        this.strippedWood = isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_wood") : BYGBlocks.createWood("stripped_" + name + "_wood");
+        this.strippedWood = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_wood") : BYGBlocks.createWood("stripped_" + name + "_wood");
         BYGItems.createItem(strippedWood);
 
         this.planks = BYGBlocks.createPlanks(name + "_planks");
@@ -136,8 +120,8 @@ public enum BYGWoodTypes {
         this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks);
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
 
-        if (boatType != null) {
-            this.boat = BYGItems.createItem(() -> new BYGBoatItem(boatType, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), name + "_boat");
+        if (builder.boatType != null) {
+            this.boat = BYGItems.createItem(() -> new BYGBoatItem(builder.boatType, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), name + "_boat");
         }
         initialized = true;
     }
@@ -241,7 +225,47 @@ public enum BYGWoodTypes {
         FUNGUS
     }
 
-    public enum Excludable {
-        LEAVES
+    public enum BlockType {
+        LEAVES,
+        SAPLING
+    }
+
+    public static final class Builder {
+        private GrowerItemType growerItemType = GrowerItemType.SAPLING;
+        private final EnumSet<BlockType> excludes = EnumSet.noneOf(BlockType.class);
+        private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
+        private BYGBoatEntity.BYGType boatType;
+        private MaterialColor materialColor;
+        private Integer leavesLightLevel;
+        private boolean isStem;
+
+        public Builder growerItem(GrowerItemType type) {
+            this.growerItemType = type;
+            return this;
+        }
+        public Builder exclude(BlockType... types) {
+            excludes.addAll(List.of(types));
+            return this;
+        }
+        public Builder growerItemGroundTag(TagKey<Block> tag) {
+            this.growerItemGroundTag = tag;
+            return this;
+        }
+        public Builder boatType(BYGBoatEntity.BYGType type) {
+            this.boatType = type;
+            return this;
+        }
+        public Builder materialColor(MaterialColor colour) {
+            this.materialColor = colour;
+            return this;
+        }
+        public Builder leavesLightLevel(Integer leavesLightLevel) {
+            this.leavesLightLevel = leavesLightLevel;
+            return this;
+        }
+        public Builder stem() {
+            this.isStem = true;
+            return this;
+        }
     }
 }

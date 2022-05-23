@@ -5,8 +5,11 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.util.function.Consumer;
@@ -73,11 +76,19 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .define('#', Items.STICK) // TODO this should be a tag
                 .define('W', type.planks())
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence_gate"));
-            ShapelessRecipeBuilder.shapeless(type.planks(), 4)
-                .group("wooden_planks")
-                .unlockedBy("has_logs", has(type.log()))
-                .requires(type.log()) // TODO tag
-                .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
+            if (type == BYGWoodTypes.CHERRY) {
+                ShapelessRecipeBuilder.shapeless(type.planks(), 4)
+                    .group("wooden_planks")
+                    .unlockedBy("has_logs", has(type.log()))
+                    .requires(ItemTags.create(BYG.createLocation("cherry_logs")))
+                    .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
+            } else {
+                ShapelessRecipeBuilder.shapeless(type.planks(), 4)
+                    .group("wooden_planks")
+                    .unlockedBy("has_logs", has(type.log()))
+                    .requires(type.log()) // TODO tag
+                    .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
+            }
             ShapedRecipeBuilder.shaped(type.pressurePlate())
                 .group("wooden_pressure_plate")
                 .pattern("PP")

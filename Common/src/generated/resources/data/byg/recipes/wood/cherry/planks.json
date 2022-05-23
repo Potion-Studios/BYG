@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "planks",
+  "group": "wooden_planks",
   "ingredients": [
     {
       "tag": "byg:cherry_logs"

@@ -22,7 +22,8 @@ public class BYGRenderTypes {
             };
             map.put(type.door().get(), renderType);
             map.put(type.trapdoor().get(), renderType);
-            map.put(type.growerItem().get(), renderType);
+            if (type.growerItem() != null)
+                map.put(type.growerItem().get(), renderType);
         }
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
@@ -140,7 +141,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.WATER_SILK.get(), RenderType.cutoutMipped());
 
         //Doors
-        map.put(BYGBlocks.CHERRY_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CIKA_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CYPRESS_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EBONY_DOOR.get(), RenderType.cutoutMipped());
@@ -167,7 +167,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
-        map.put(BYGBlocks.CHERRY_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CIKA_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CYPRESS_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EBONY_TRAPDOOR.get(), RenderType.cutoutMipped());

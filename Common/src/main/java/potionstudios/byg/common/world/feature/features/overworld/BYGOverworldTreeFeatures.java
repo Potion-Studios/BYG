@@ -357,7 +357,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_PINK_TREE1 = createConfiguredFeature("pink_cherry_tree1",
             BYGFeatures.CHERRY_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CHERRY_LOG.get())
+                    .setTrunkBlock(CHERRY.log())
                     .setLeavesBlock(BYGBlocks.PINK_CHERRY_LEAVES.get())
                     .setMaxHeight(21)
                     .setMinHeight(14)
@@ -366,7 +366,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_PINK_TREE2 = createConfiguredFeature("pink_cherry_tree2",
             BYGFeatures.CHERRY_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CHERRY_LOG.get())
+                    .setTrunkBlock(CHERRY.log())
                     .setLeavesBlock(BYGBlocks.PINK_CHERRY_LEAVES.get())
                     .setMaxHeight(13)
                     .setMinHeight(8)
@@ -375,7 +375,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_WHITE_TREE1 = createConfiguredFeature("white_cherry_tree1",
             BYGFeatures.CHERRY_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CHERRY_LOG.get())
+                    .setTrunkBlock(CHERRY.log())
                     .setLeavesBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get())
                     .setMaxHeight(21)
                     .setMinHeight(14)
@@ -384,7 +384,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_WHITE_TREE2 = createConfiguredFeature("white_cherry_tree2",
             BYGFeatures.CHERRY_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CHERRY_LOG.get())
+                    .setTrunkBlock(CHERRY.log())
                     .setLeavesBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get())
                     .setMaxHeight(13)
                     .setMinHeight(8)

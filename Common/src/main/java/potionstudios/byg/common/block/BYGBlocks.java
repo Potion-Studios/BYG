@@ -62,7 +62,6 @@ public class BYGBlocks {
 
     public static List<BlockRegistryObject<Block>> flowerPotBlocks = new ArrayList<>();
 
-    public static final BlockRegistryObject<Block> CHERRY_PLANKS = createPlanks("cherry_planks");
     public static final BlockRegistryObject<Block> CIKA_PLANKS = createPlanks("cika_planks");
     public static final BlockRegistryObject<Block> CYPRESS_PLANKS = createPlanks("cypress_planks");
     public static final BlockRegistryObject<Block> EBONY_PLANKS = createPlanks("ebony_planks");
@@ -88,7 +87,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_PLANKS = createPlanks("ether_planks");
     public static final BlockRegistryObject<Block> IMPARIUS_PLANKS = createPlanks("imparius_planks");
 
-    public static final BlockRegistryObject<Block> CHERRY_BOOKSHELF = createBookshelf("cherry_bookshelf");
     public static final BlockRegistryObject<Block> CIKA_BOOKSHELF = createBookshelf("cika_bookshelf");
     public static final BlockRegistryObject<Block> CYPRESS_BOOKSHELF = createBookshelf("cypress_bookshelf");
     public static final BlockRegistryObject<Block> EBONY_BOOKSHELF = createBookshelf("ebony_bookshelf");
@@ -114,7 +112,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_BOOKSHELF = createBookshelf("ether_bookshelf");
     public static final BlockRegistryObject<Block> IMPARIUS_BOOKSHELF = createBookshelf("imparius_bookshelf");
 
-    public static final BlockRegistryObject<Block> CHERRY_DOOR = createDoor("cherry_door");
     public static final BlockRegistryObject<Block> CIKA_DOOR = createDoor("cika_door");
     public static final BlockRegistryObject<Block> CYPRESS_DOOR = createDoor("cypress_door");
     public static final BlockRegistryObject<Block> EBONY_DOOR = createDoor("ebony_door");
@@ -140,7 +137,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_DOOR = createDoor("ether_door");
     public static final BlockRegistryObject<Block> IMPARIUS_DOOR = createDoor("imparius_door");
 
-    public static final BlockRegistryObject<Block> CHERRY_PRESSURE_PLATE = createWoodPressurePlate("cherry_pressure_plate");
     public static final BlockRegistryObject<Block> CIKA_PRESSURE_PLATE = createWoodPressurePlate("cika_pressure_plate");
     public static final BlockRegistryObject<Block> CYPRESS_PRESSURE_PLATE = createWoodPressurePlate("cypress_pressure_plate");
     public static final BlockRegistryObject<Block> EBONY_PRESSURE_PLATE = createWoodPressurePlate("ebony_pressure_plate");
@@ -166,7 +162,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_PRESSURE_PLATE = createWoodPressurePlate("ether_pressure_plate");
     public static final BlockRegistryObject<Block> IMPARIUS_PRESSURE_PLATE = createWoodPressurePlate("imparius_pressure_plate");
 
-    public static final BlockRegistryObject<Block> CHERRY_BUTTON = createWoodButton("cherry_button");
     public static final BlockRegistryObject<Block> CIKA_BUTTON = createWoodButton("cika_button");
     public static final BlockRegistryObject<Block> CYPRESS_BUTTON = createWoodButton("cypress_button");
     public static final BlockRegistryObject<Block> EBONY_BUTTON = createWoodButton("ebony_button");
@@ -192,7 +187,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_BUTTON = createWoodButton("ether_button");
     public static final BlockRegistryObject<Block> IMPARIUS_BUTTON = createWoodButton("imparius_button");
 
-    public static final BlockRegistryObject<Block> CHERRY_TRAPDOOR = createTrapDoor("cherry_trapdoor");
     public static final BlockRegistryObject<Block> CIKA_TRAPDOOR = createTrapDoor("cika_trapdoor");
     public static final BlockRegistryObject<Block> CYPRESS_TRAPDOOR = createTrapDoor("cypress_trapdoor");
     public static final BlockRegistryObject<Block> EBONY_TRAPDOOR = createTrapDoor("ebony_trapdoor");
@@ -218,7 +212,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_TRAPDOOR = createTrapDoor("ether_trapdoor");
     public static final BlockRegistryObject<Block> IMPARIUS_TRAPDOOR = createTrapDoor("imparius_trapdoor");
 
-    public static final BlockRegistryObject<Block> CHERRY_CRAFTING_TABLE = createCraftingTable("cherry_crafting_table");
     public static final BlockRegistryObject<Block> CIKA_CRAFTING_TABLE = createCraftingTable("cika_crafting_table");
     public static final BlockRegistryObject<Block> CYPRESS_CRAFTING_TABLE = createCraftingTable("cypress_crafting_table");
     public static final BlockRegistryObject<Block> EBONY_CRAFTING_TABLE = createCraftingTable("ebony_crafting_table");
@@ -244,7 +237,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_CRAFTING_TABLE = createCraftingTable("ether_crafting_table");
     public static final BlockRegistryObject<Block> IMPARIUS_CRAFTING_TABLE = createCraftingTable("imparius_crafting_table");
 
-    public static final BlockRegistryObject<Block> CHERRY_FENCE_GATE = createFenceGate("cherry_fence_gate");
     public static final BlockRegistryObject<Block> CIKA_FENCE_GATE = createFenceGate("cika_fence_gate");
     public static final BlockRegistryObject<Block> CYPRESS_FENCE_GATE = createFenceGate("cypress_fence_gate");
     public static final BlockRegistryObject<Block> EBONY_FENCE_GATE = createFenceGate("ebony_fence_gate");
@@ -270,7 +262,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_FENCE_GATE = createFenceGate("ether_fence_gate");
     public static final BlockRegistryObject<Block> IMPARIUS_FENCE_GATE = createFenceGate("imparius_fence_gate");
 
-    public static final BlockRegistryObject<Block> CHERRY_SLAB = createWoodSlab("cherry_slab");
     public static final BlockRegistryObject<Block> CIKA_SLAB = createWoodSlab("cika_slab");
     public static final BlockRegistryObject<Block> CYPRESS_SLAB = createWoodSlab("cypress_slab");
     public static final BlockRegistryObject<Block> EBONY_SLAB = createWoodSlab("ebony_slab");
@@ -296,7 +287,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_SLAB = createWoodSlab("ether_slab");
     public static final BlockRegistryObject<Block> IMPARIUS_SLAB = createWoodSlab("imparius_slab");
 
-    public static final BlockRegistryObject<Block> CHERRY_STAIRS = createWoodStairs("cherry_stairs");
     public static final BlockRegistryObject<Block> CIKA_STAIRS = createWoodStairs("cika_stairs");
     public static final BlockRegistryObject<Block> CYPRESS_STAIRS = createWoodStairs("cypress_stairs");
     public static final BlockRegistryObject<Block> EBONY_STAIRS = createWoodStairs("ebony_stairs");
@@ -322,7 +312,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_STAIRS = createWoodStairs("ether_stairs");
     public static final BlockRegistryObject<Block> IMPARIUS_STAIRS = createWoodStairs("imparius_stairs");
 
-    public static final BlockRegistryObject<Block> CHERRY_FENCE = createFence("cherry_fence");
     public static final BlockRegistryObject<Block> CIKA_FENCE = createFence("cika_fence");
     public static final BlockRegistryObject<Block> CYPRESS_FENCE = createFence("cypress_fence");
     public static final BlockRegistryObject<Block> EBONY_FENCE = createFence("ebony_fence");
@@ -348,7 +337,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_FENCE = createFence("ether_fence");
     public static final BlockRegistryObject<Block> IMPARIUS_FENCE = createFence("imparius_fence");
 
-    public static final BlockRegistryObject<Block> CHERRY_SIGN = createSign("cherry_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
     public static final BlockRegistryObject<Block> CIKA_SIGN = createSign("cika_sign", BYGWoodType.CIKA, CIKA_PLANKS);
     public static final BlockRegistryObject<Block> CYPRESS_SIGN = createSign("cypress_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
     public static final BlockRegistryObject<Block> EBONY_SIGN = createSign("ebony_sign", BYGWoodType.EBONY, EBONY_PLANKS);
@@ -374,7 +362,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ETHER_SIGN = createSign("ether_sign", BYGWoodType.ETHER, ETHER_PLANKS);
     public static final BlockRegistryObject<Block> IMPARIUS_SIGN = createSign("imparius_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
 
-    public static final BlockRegistryObject<Block> CHERRY_WALL_SIGN = createWallSign("cherry_wall_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
     public static final BlockRegistryObject<Block> CIKA_WALL_SIGN = createWallSign("cika_wall_sign", BYGWoodType.CIKA, CIKA_PLANKS);
     public static final BlockRegistryObject<Block> CYPRESS_WALL_SIGN = createWallSign("cypress_wall_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
     public static final BlockRegistryObject<Block> EBONY_WALL_SIGN = createWallSign("ebony_wall_sign", BYGWoodType.EBONY, EBONY_PLANKS);
@@ -799,7 +786,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WINDSWEPT_SANDSTONE_PILLAR = createSandstonePillar(MaterialColor.TERRACOTTA_PINK, "windswept_sandstone_pillar");
 
 
-    public static final BlockRegistryObject<Block> CHERRY_LOG = createLog("cherry_log");
     public static final BlockRegistryObject<Block> CIKA_LOG = createLog("cika_log");
     public static final BlockRegistryObject<Block> CYPRESS_LOG = createLog("cypress_log");
     public static final BlockRegistryObject<Block> EBONY_LOG = createLog("ebony_log");
@@ -830,7 +816,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "fungal_imparius_stem");
 
 
-    public static final BlockRegistryObject<Block> CHERRY_WOOD = createWood("cherry_wood");
     public static final BlockRegistryObject<Block> CIKA_WOOD = createWood("cika_wood");
     public static final BlockRegistryObject<Block> CYPRESS_WOOD = createWood("cypress_wood");
     public static final BlockRegistryObject<Block> EBONY_WOOD = createWood("ebony_wood");
@@ -985,7 +970,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SOAPSTONE_TILE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "soapstone_tile_stairs");
     public static final BlockRegistryObject<Block> SOAPSTONE_TILE_WALL = createStoneWall("soapstone_tile_wall");
 
-    public static final BlockRegistryObject<Block> STRIPPED_CHERRY_LOG = createStrippedLog("stripped_cherry_log");
     public static final BlockRegistryObject<Block> STRIPPED_CIKA_LOG = createStrippedLog("stripped_cika_log");
     public static final BlockRegistryObject<Block> STRIPPED_CYPRESS_LOG = createStrippedLog("stripped_cypress_log");
     public static final BlockRegistryObject<Block> STRIPPED_EBONY_LOG = createStrippedLog("stripped_ebony_log");
@@ -1011,7 +995,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> STRIPPED_NIGHTSHADE_LOG = createStrippedLog("stripped_nightshade_log");
     public static final BlockRegistryObject<Block> STRIPPED_ETHER_LOG = createStrippedLog("stripped_ether_log");
 
-    public static final BlockRegistryObject<Block> STRIPPED_CHERRY_WOOD = createWood("stripped_cherry_wood");
     public static final BlockRegistryObject<Block> STRIPPED_CIKA_WOOD = createWood("stripped_cika_wood");
     public static final BlockRegistryObject<Block> STRIPPED_CYPRESS_WOOD = createWood("stripped_cypress_wood");
     public static final BlockRegistryObject<Block> STRIPPED_EBONY_WOOD = createWood("stripped_ebony_wood");

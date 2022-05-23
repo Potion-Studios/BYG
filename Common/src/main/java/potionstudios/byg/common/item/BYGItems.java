@@ -246,11 +246,19 @@ public class BYGItems {
     public static final RegistryObject<Item> BAOBAB_FRUIT;
 
     //Bulbis Woodtype
-    public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
-    public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
-    public static final RegistryObject<Item> PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
-    public static final RegistryObject<Item> BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
-    public static final RegistryObject<Item> BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
+    public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY;
+    public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY;
+    public static final RegistryObject<Item> PURPLE_BULBIS_SHELL;
+    public static final RegistryObject<Item> BULBIS_ANOMALY;
+    public static final RegistryObject<Item> BULBIS_SHELL;
+
+    //Cherry Woodtype
+    public static final RegistryObject<GrowerItem> PINK_CHERRY_SAPLING;
+    public static final RegistryObject<Item> PINK_CHERRY_FOLIAGE;
+    public static final RegistryObject<Item> PINK_CHERRY_LEAVES;
+    public static final RegistryObject<GrowerItem> WHITE_CHERRY_SAPLING;
+    public static final RegistryObject<Item> WHITE_CHERRY_FOLIAGE;
+    public static final RegistryObject<Item> WHITE_CHERRY_LEAVES;
 
     static {
         BYGWoodTypes.ASPEN.init();
@@ -259,33 +267,22 @@ public class BYGItems {
         BYGWoodTypes.BAOBAB.init();
 
         BYGWoodTypes.BLUE_ENCHANTED.init();
-        BYGWoodTypes.BULBIS.init();
-    }
 
-    //Cherry Woodtype
-    public static final RegistryObject<GrowerItem> PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
-    public static final RegistryObject<Item> PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
-    public static final RegistryObject<Item> PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
-    public static final RegistryObject<GrowerItem> WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
-    public static final RegistryObject<Item> WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
-    public static final RegistryObject<Item> WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
-    public static final RegistryObject<Item> CHERRY_LOG = createItem(BYGBlocks.CHERRY_LOG);
-    public static final RegistryObject<Item> CHERRY_WOOD = createItem(BYGBlocks.CHERRY_WOOD);
-    public static final RegistryObject<Item> STRIPPED_CHERRY_LOG = createItem(BYGBlocks.STRIPPED_CHERRY_LOG);
-    public static final RegistryObject<Item> STRIPPED_CHERRY_WOOD = createItem(BYGBlocks.STRIPPED_CHERRY_WOOD);
-    public static final RegistryObject<Item> CHERRY_PLANKS = createItem(BYGBlocks.CHERRY_PLANKS);
-    public static final RegistryObject<Item> CHERRY_BOOKSHELF = createItem(BYGBlocks.CHERRY_BOOKSHELF);
-    public static final RegistryObject<Item> CHERRY_CRAFTING_TABLE = createItem(BYGBlocks.CHERRY_CRAFTING_TABLE);
-    public static final RegistryObject<Item> CHERRY_STAIRS = createItem(BYGBlocks.CHERRY_STAIRS);
-    public static final RegistryObject<Item> CHERRY_SLAB = createItem(BYGBlocks.CHERRY_SLAB);
-    public static final RegistryObject<Item> CHERRY_FENCE = createItem(BYGBlocks.CHERRY_FENCE);
-    public static final RegistryObject<Item> CHERRY_FENCE_GATE = createItem(BYGBlocks.CHERRY_FENCE_GATE);
-    public static final RegistryObject<Item> CHERRY_DOOR = createItem(BYGBlocks.CHERRY_DOOR);
-    public static final RegistryObject<Item> CHERRY_TRAPDOOR = createItem(BYGBlocks.CHERRY_TRAPDOOR);
-    public static final RegistryObject<Item> CHERRY_PRESSURE_PLATE = createItem(BYGBlocks.CHERRY_PRESSURE_PLATE);
-    public static final RegistryObject<Item> CHERRY_BUTTON = createItem(BYGBlocks.CHERRY_BUTTON);
-    public static final RegistryObject<SignItem> CHERRY_SIGN = createSign("cherry_sign", BYGBlocks.CHERRY_SIGN, BYGBlocks.CHERRY_WALL_SIGN);
-    public static final RegistryObject<Item> CHERRY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CHERRY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cherry_boat");
+        PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
+        PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
+        PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
+        BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
+        BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
+        BYGWoodTypes.BULBIS.init();
+
+        PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
+        PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
+        PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
+        WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
+        WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
+        WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
+        BYGWoodTypes.CHERRY.init();
+    }
 
     //Cika Woodtype
     public static final RegistryObject<GrowerItem> CIKA_SAPLING = createSaplingItem(BYGBlocks.CIKA_SAPLING);

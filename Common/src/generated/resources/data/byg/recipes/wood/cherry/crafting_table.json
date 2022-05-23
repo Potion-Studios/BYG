@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "boat",
+  "group": "crafting_table",
   "pattern": [
-    "# #",
-    "###"
+    "PP",
+    "PP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:cherry_planks"
     }
   },
   "result": {
-    "item": "byg:cherry_boat"
+    "item": "byg:cherry_crafting_table"
   }
 }
