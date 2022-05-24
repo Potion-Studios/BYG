@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/cika_log",
-    "particle": "byg:block/cika_log"
-  }
-}
