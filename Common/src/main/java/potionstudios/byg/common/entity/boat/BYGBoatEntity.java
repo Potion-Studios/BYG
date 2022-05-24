@@ -52,7 +52,7 @@ public class BYGBoatEntity extends Boat {
             case BAOBAB -> BYGWoodTypes.BAOBAB.boat().get();
             case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.boat().get();
             case CHERRY -> BYGWoodTypes.CHERRY.boat().get();
-            case CIKA -> BYGItems.CIKA_BOAT.get();
+            case CIKA -> BYGWoodTypes.CIKA.boat().get();
             case CYPRESS -> BYGItems.CYPRESS_BOAT.get();
             case EBONY -> BYGItems.EBONY_BOAT.get();
             case FIR -> BYGItems.FIR_BOAT.get();
@@ -79,7 +79,7 @@ public class BYGBoatEntity extends Boat {
             case BAOBAB -> BYGWoodTypes.BAOBAB.planks().get();
             case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.planks().get();
             case CHERRY -> BYGWoodTypes.CHERRY.planks().get();
-            case CIKA -> BYGBlocks.CIKA_PLANKS.get();
+            case CIKA -> BYGWoodTypes.CIKA.planks().get();
             case CYPRESS -> BYGBlocks.CYPRESS_PLANKS.get();
             case EBONY -> BYGBlocks.EBONY_PLANKS.get();
             case FIR -> BYGBlocks.FIR_PLANKS.get();

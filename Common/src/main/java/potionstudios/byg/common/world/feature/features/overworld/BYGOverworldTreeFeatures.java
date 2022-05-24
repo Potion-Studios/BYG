@@ -393,8 +393,8 @@ public class BYGOverworldTreeFeatures {
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE1 = createConfiguredFeature("cika_tree1", BYGFeatures.CIKA_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CIKA_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CIKA_LEAVES.get())
+                    .setTrunkBlock(CIKA.log().get())
+                    .setLeavesBlock(CIKA.leaves().get())
                     .setMaxHeight(21)
                     .setMinHeight(14)
                     .build()
@@ -402,8 +402,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE2 = createConfiguredFeature("cika_tree2",
             BYGFeatures.CIKA_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CIKA_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CIKA_LEAVES.get())
+                    .setTrunkBlock(CIKA.log().get())
+                    .setLeavesBlock(CIKA.leaves().get())
                     .setMaxHeight(21)
                     .setMinHeight(14)
                     .build()
@@ -411,8 +411,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE3 = createConfiguredFeature("cika_tree3",
             BYGFeatures.CIKA_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CIKA_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CIKA_LEAVES.get())
+                    .setTrunkBlock(CIKA.log().get())
+                    .setLeavesBlock(CIKA.leaves().get())
                     .setMaxHeight(21)
                     .setMinHeight(14)
                     .build()

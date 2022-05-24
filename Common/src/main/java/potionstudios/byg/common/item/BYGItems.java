@@ -282,28 +282,9 @@ public class BYGItems {
         WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
         WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
         BYGWoodTypes.CHERRY.init();
-    }
 
-    //Cika Woodtype
-    public static final RegistryObject<GrowerItem> CIKA_SAPLING = createSaplingItem(BYGBlocks.CIKA_SAPLING);
-    public static final RegistryObject<Item> CIKA_LEAVES = createItem(BYGBlocks.CIKA_LEAVES);
-    public static final RegistryObject<Item> CIKA_LOG = createItem(BYGBlocks.CIKA_LOG);
-    public static final RegistryObject<Item> CIKA_WOOD = createItem(BYGBlocks.CIKA_WOOD);
-    public static final RegistryObject<Item> STRIPPED_CIKA_LOG = createItem(BYGBlocks.STRIPPED_CIKA_LOG);
-    public static final RegistryObject<Item> STRIPPED_CIKA_WOOD = createItem(BYGBlocks.STRIPPED_CIKA_WOOD);
-    public static final RegistryObject<Item> CIKA_PLANKS = createItem(BYGBlocks.CIKA_PLANKS);
-    public static final RegistryObject<Item> CIKA_BOOKSHELF = createItem(BYGBlocks.CIKA_BOOKSHELF);
-    public static final RegistryObject<Item> CIKA_CRAFTING_TABLE = createItem(BYGBlocks.CIKA_CRAFTING_TABLE);
-    public static final RegistryObject<Item> CIKA_STAIRS = createItem(BYGBlocks.CIKA_STAIRS);
-    public static final RegistryObject<Item> CIKA_SLAB = createItem(BYGBlocks.CIKA_SLAB);
-    public static final RegistryObject<Item> CIKA_FENCE = createItem(BYGBlocks.CIKA_FENCE);
-    public static final RegistryObject<Item> CIKA_FENCE_GATE = createItem(BYGBlocks.CIKA_FENCE_GATE);
-    public static final RegistryObject<Item> CIKA_DOOR = createItem(BYGBlocks.CIKA_DOOR);
-    public static final RegistryObject<Item> CIKA_TRAPDOOR = createItem(BYGBlocks.CIKA_TRAPDOOR);
-    public static final RegistryObject<Item> CIKA_PRESSURE_PLATE = createItem(BYGBlocks.CIKA_PRESSURE_PLATE);
-    public static final RegistryObject<Item> CIKA_BUTTON = createItem(BYGBlocks.CIKA_BUTTON);
-    public static final RegistryObject<SignItem> CIKA_SIGN = createSign("cika_sign", BYGBlocks.CIKA_SIGN, BYGBlocks.CIKA_WALL_SIGN);
-    public static final RegistryObject<Item> CIKA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CIKA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cika_boat");
+        BYGWoodTypes.CIKA.init();
+    }
 
     //Cypress Woodtype
     public static final RegistryObject<GrowerItem> CYPRESS_SAPLING = createSaplingItem(BYGBlocks.CYPRESS_SAPLING);

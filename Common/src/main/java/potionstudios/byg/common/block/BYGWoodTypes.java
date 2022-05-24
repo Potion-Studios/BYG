@@ -39,9 +39,11 @@ public enum BYGWoodTypes {
             .exclude(BlockType.LEAVES)
             .stem()),
     CHERRY("cherry", new Builder()
-            .exclude(BlockType.SAPLING)
-            .boatType(BYGBoatEntity.BYGType.CHERRY)
-            .exclude(BlockType.LEAVES));
+            .exclude(BlockType.SAPLING, BlockType.LEAVES)
+            .boatType(BYGBoatEntity.BYGType.CHERRY)),
+    CIKA("cika", new Builder()
+            .boatType(BYGBoatEntity.BYGType.CIKA)
+            .materialColor(MaterialColor.TERRACOTTA_ORANGE));
 
     private final String name;
     private final WoodType woodType;

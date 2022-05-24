@@ -6,17 +6,20 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 
+import javax.annotation.Nullable;
+
 public class BYGCompostables {
-    public static void compostibleBlocks(float chance, ItemLike item) {
-        ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
+    public static void compostibleBlocks(float chance, @Nullable ItemLike item) {
+        if (item != null)
+            ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
     }
 
     public static void compostablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Compostible Blocks...");
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            compostibleBlocks(0.3f, type.leaves().get());
-            compostibleBlocks(0.3f, type.growerItem().get());
+            compostibleBlocks(0.3f, type.leaves());
+            compostibleBlocks(0.3f, type.growerItem());
         }
 
         //Leaves
@@ -24,7 +27,6 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.CIKA_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.CYPRESS_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.EBONY_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FIR_LEAVES.get());
@@ -71,7 +73,6 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.CIKA_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.CYPRESS_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.EBONY_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.FIR_SAPLING.get());
