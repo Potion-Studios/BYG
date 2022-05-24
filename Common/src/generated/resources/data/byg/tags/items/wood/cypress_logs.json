@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "byg:cypress_log",
+    "byg:stripped_cypress_log"
+  ]
+}

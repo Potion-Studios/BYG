@@ -3,7 +3,7 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "item": "byg:blue_enchanted_log"
+      "tag": "byg:wood/blue_enchanted_logs"
     }
   ],
   "result": {

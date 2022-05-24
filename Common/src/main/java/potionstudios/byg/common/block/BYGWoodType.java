@@ -10,7 +10,6 @@ import static potionstudios.byg.mixin.access.WoodTypeAccess.byg_invokeRegister;
 // TODO this needs to be merged with BYGWoodTypes
 public class BYGWoodType {
 
-    public static final WoodType EBONY = register("ebony");
     public static final WoodType FIR = register("fir");
     public static final WoodType GREEN_ENCHANTED = register("green_enchanted");
     public static final WoodType HOLLY = register("holly");

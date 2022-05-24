@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "byg:cypress_log"
-            ]
+            "tag": "byg:wood/cypress_logs"
           }
         ]
       }

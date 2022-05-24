@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "group": "wooden_stairs",
   "pattern": [
-    "#  ",
-    "## ",
-    "###"
+    "P  ",
+    "PP ",
+    "PPP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:ebony_planks"
     }
   },
   "result": {
-    "item": "byg:ebony_stairs",
+    "item": "byg:ebony_slab",
     "count": 4
   }
 }

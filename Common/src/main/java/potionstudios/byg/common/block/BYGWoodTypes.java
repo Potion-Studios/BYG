@@ -1,5 +1,6 @@
 package potionstudios.byg.common.block;
 
+import net.minecraft.core.Registry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -7,6 +8,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MaterialColor;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGCreativeTab;
@@ -42,16 +44,24 @@ public enum BYGWoodTypes {
             .exclude(BlockType.SAPLING, BlockType.LEAVES)
             .boatType(BYGBoatEntity.BYGType.CHERRY)),
     CIKA("cika", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_CIKA_SAPLING)
             .boatType(BYGBoatEntity.BYGType.CIKA)
             .materialColor(MaterialColor.TERRACOTTA_ORANGE)),
     CYPRESS("cypress", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_CYPRESS_SAPLING)
             .boatType(BYGBoatEntity.BYGType.CYPRESS)
-            .materialColor(MaterialColor.TERRACOTTA_LIGHT_GREEN));
+            .materialColor(MaterialColor.TERRACOTTA_LIGHT_GREEN)),
+    EBONY("ebony", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_EBONY_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.EBONY)
+            .materialColor(MaterialColor.COLOR_GREEN));
 
     private final String name;
     private final WoodType woodType;
     private final Builder builder;
     private boolean initialized;
+
+    private final TagKey<Item> logTag;
 
     private BlockRegistryObject<Block> growerItem;
     private BlockRegistryObject<Block> leaves;
@@ -86,6 +96,8 @@ public enum BYGWoodTypes {
         this.name = name;
         this.builder = builder;
         this.woodType = WoodTypeAccess.byg_create(name);
+
+        logTag = TagKey.create(Registry.ITEM_REGISTRY, BYG.createLocation("wood/" + name + "_logs"));
     }
 
     public void init() {
@@ -240,7 +252,9 @@ public enum BYGWoodTypes {
         return boat;
     }
 
-    public static void loadClass() {}
+    public TagKey<Item> logTag() {
+        return logTag;
+    }
 
     public enum GrowerItemType {
         SAPLING,

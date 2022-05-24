@@ -141,7 +141,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.WATER_SILK.get(), RenderType.cutoutMipped());
 
         //Doors
-        map.put(BYGBlocks.EBONY_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FIR_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.GREEN_ENCHANTED_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HOLLY_DOOR.get(), RenderType.cutoutMipped());
@@ -165,7 +164,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
-        map.put(BYGBlocks.EBONY_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FIR_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HOLLY_TRAPDOOR.get(), RenderType.cutoutMipped());
@@ -203,7 +201,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.BLUE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_OAK_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EBONY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FIR_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.GREEN_ENCHANTED_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HOLLY_SAPLING.get(), RenderType.cutoutMipped());

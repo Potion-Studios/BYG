@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "byg:cherry_log"
-            ]
+            "tag": "byg:wood/cherry_logs"
           }
         ]
       }

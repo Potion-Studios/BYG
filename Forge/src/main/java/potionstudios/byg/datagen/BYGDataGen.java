@@ -6,6 +6,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import potionstudios.byg.BYG;
 import potionstudios.byg.datagen.providers.BYGAssetsProvider;
 import potionstudios.byg.datagen.providers.BYGBlockTagsProvider;
+import potionstudios.byg.datagen.providers.BYGItemTagsProvider;
 import potionstudios.byg.datagen.providers.BYGRecipeProviders;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BYG.MOD_ID)
@@ -17,7 +18,9 @@ public class BYGDataGen {
         final var existingFileHelper = event.getExistingFileHelper();
 
         if (event.includeServer()) {
-            gen.addProvider(new BYGBlockTagsProvider(gen, existingFileHelper));
+            final var blockTags = new BYGBlockTagsProvider(gen, existingFileHelper);
+            gen.addProvider(blockTags);
+            gen.addProvider(new BYGItemTagsProvider(gen, blockTags, existingFileHelper));
             gen.addProvider(new BYGRecipeProviders(gen));
         }
         if (event.includeClient()) {

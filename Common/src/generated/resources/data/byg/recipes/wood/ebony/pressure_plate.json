@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "group": "wooden_pressure_plate",
   "pattern": [
-    "##"
+    "PP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:ebony_planks"
     }
   },

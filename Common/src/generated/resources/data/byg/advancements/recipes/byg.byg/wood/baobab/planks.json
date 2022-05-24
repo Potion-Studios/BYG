@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "byg:baobab_log"
-            ]
+            "tag": "byg:wood/baobab_logs"
           }
         ]
       }

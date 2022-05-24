@@ -285,28 +285,8 @@ public class BYGItems {
 
         BYGWoodTypes.CIKA.init();
         BYGWoodTypes.CYPRESS.init();
+        BYGWoodTypes.EBONY.init();
     }
-
-    //Ebony Woodtype
-    public static final RegistryObject<GrowerItem> EBONY_SAPLING = createSaplingItem(BYGBlocks.EBONY_SAPLING);
-    public static final RegistryObject<Item> EBONY_LEAVES = createItem(BYGBlocks.EBONY_LEAVES);
-    public static final RegistryObject<Item> EBONY_LOG = createItem(BYGBlocks.EBONY_LOG);
-    public static final RegistryObject<Item> EBONY_WOOD = createItem(BYGBlocks.EBONY_WOOD);
-    public static final RegistryObject<Item> STRIPPED_EBONY_LOG = createItem(BYGBlocks.STRIPPED_EBONY_LOG);
-    public static final RegistryObject<Item> STRIPPED_EBONY_WOOD = createItem(BYGBlocks.STRIPPED_EBONY_WOOD);
-    public static final RegistryObject<Item> EBONY_PLANKS = createItem(BYGBlocks.EBONY_PLANKS);
-    public static final RegistryObject<Item> EBONY_BOOKSHELF = createItem(BYGBlocks.EBONY_BOOKSHELF);
-    public static final RegistryObject<Item> EBONY_CRAFTING_TABLE = createItem(BYGBlocks.EBONY_CRAFTING_TABLE);
-    public static final RegistryObject<Item> EBONY_STAIRS = createItem(BYGBlocks.EBONY_STAIRS);
-    public static final RegistryObject<Item> EBONY_SLAB = createItem(BYGBlocks.EBONY_SLAB);
-    public static final RegistryObject<Item> EBONY_FENCE = createItem(BYGBlocks.EBONY_FENCE);
-    public static final RegistryObject<Item> EBONY_FENCE_GATE = createItem(BYGBlocks.EBONY_FENCE_GATE);
-    public static final RegistryObject<Item> EBONY_DOOR = createItem(BYGBlocks.EBONY_DOOR);
-    public static final RegistryObject<Item> EBONY_TRAPDOOR = createItem(BYGBlocks.EBONY_TRAPDOOR);
-    public static final RegistryObject<Item> EBONY_PRESSURE_PLATE = createItem(BYGBlocks.EBONY_PRESSURE_PLATE);
-    public static final RegistryObject<Item> EBONY_BUTTON = createItem(BYGBlocks.EBONY_BUTTON);
-    public static final RegistryObject<SignItem> EBONY_SIGN = createSign("ebony_sign", BYGBlocks.EBONY_SIGN, BYGBlocks.EBONY_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> EBONY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.EBONY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "ebony_boat");
 
     //Ether Woodtype
     public static final RegistryObject<Item> ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");

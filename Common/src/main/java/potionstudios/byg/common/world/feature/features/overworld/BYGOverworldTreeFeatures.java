@@ -64,8 +64,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE2 = createConfiguredFeature("ancient_tree2",
             BYGFeatures.ANCIENT_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.EBONY_LOG.get()).
-                    setLeavesBlock(BYGBlocks.EBONY_LEAVES.get())
+                    .fromWoodType(EBONY)
                     .setMaxHeight(25)
                     .setMinHeight(15)
                     .build()
@@ -722,8 +721,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_BUSH1 = createConfiguredFeature("ebony_bush1",
             BYGFeatures.EBONY_BUSH1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.EBONY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.EBONY_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.EBONY)
                     .setMaxHeight(28)
                     .setMinHeight(23)
                     .build()
@@ -731,8 +729,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_TREE1 = createConfiguredFeature("ebony_tree1",
             BYGFeatures.EBONY_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.EBONY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.EBONY_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.EBONY)
                     .setMaxHeight(13)
                     .setMinHeight(6)
                     .build()
@@ -740,8 +737,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_TREE2 = createConfiguredFeature("ebony_tree2",
             BYGFeatures.EBONY_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.EBONY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.EBONY_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.EBONY)
                     .setMaxHeight(17)
                     .setMinHeight(11)
                     .build()

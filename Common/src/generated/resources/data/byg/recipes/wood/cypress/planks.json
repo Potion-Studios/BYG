@@ -3,7 +3,7 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "item": "byg:cypress_log"
+      "tag": "byg:wood/cypress_logs"
     }
   ],
   "result": {

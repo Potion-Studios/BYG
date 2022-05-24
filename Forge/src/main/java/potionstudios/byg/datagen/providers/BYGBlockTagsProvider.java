@@ -1,7 +1,19 @@
 package potionstudios.byg.datagen.providers;
 
+import static potionstudios.byg.common.block.BYGBlocks.BULBIS_PHYCELIUM;
+import static potionstudios.byg.common.block.BYGBlocks.ETHER_STONE;
+import static potionstudios.byg.common.block.BYGBlocks.IMPARIUS_PHYLIUM;
+import static potionstudios.byg.common.block.BYGBlocks.IVIS_PHYLIUM;
+import static potionstudios.byg.common.block.BYGBlocks.LUSH_FARMLAND;
+import static potionstudios.byg.common.block.BYGBlocks.LUSH_GRASS_BLOCK;
+import static potionstudios.byg.common.block.BYGBlocks.LUSH_GRASS_PATH;
+import static potionstudios.byg.common.block.BYGBlocks.MUD_BLOCK;
+import static potionstudios.byg.common.block.BYGBlocks.NIGHTSHADE_PHYLIUM;
+import static potionstudios.byg.common.block.BYGBlocks.PROVIDER;
+import static potionstudios.byg.common.block.BYGBlocks.SHULKREN_PHYLIUM;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -15,23 +27,24 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.access.TagBuilderAccess;
 import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
 import potionstudios.byg.reg.RegistryObject;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 
-import static potionstudios.byg.common.block.BYGBlocks.*;
-
 @SuppressWarnings("ALL")
-public class BYGBlockTagsProvider extends TagsProvider<Block> {
-
+public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     public BYGBlockTagsProvider(DataGenerator pGenerator, @Nullable ExistingFileHelper existingFileHelper) {
-        super(pGenerator, Registry.BLOCK, BYG.MOD_ID, existingFileHelper);
+        super(pGenerator, BYG.MOD_ID, existingFileHelper);
     }
 
     // TODO document what gets generated

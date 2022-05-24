@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "wooden_slab",
+  "group": "wooden_trapdoor",
   "pattern": [
-    "###"
+    "PPP",
+    "PPP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:ebony_planks"
     }
   },
   "result": {
-    "item": "byg:ebony_slab",
-    "count": 6
+    "item": "byg:ebony_trapdoor",
+    "count": 2
   }
 }

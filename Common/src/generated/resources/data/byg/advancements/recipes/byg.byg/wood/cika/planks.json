@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "byg:cika_log"
-            ]
+            "tag": "byg:wood/cika_logs"
           }
         ]
       }

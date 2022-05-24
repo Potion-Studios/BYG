@@ -3,7 +3,7 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "item": "byg:aspen_log"
+      "tag": "byg:wood/aspen_logs"
     }
   ],
   "result": {

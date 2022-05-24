@@ -3,7 +3,7 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "item": "byg:cika_log"
+      "tag": "byg:wood/cika_logs"
     }
   ],
   "result": {

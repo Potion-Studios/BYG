@@ -78,8 +78,8 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence_gate"));
             ShapelessRecipeBuilder.shapeless(type.planks(), 4)
                 .group("wooden_planks")
-                .unlockedBy("has_logs", has(type.log()))
-                .requires(type.log()) // TODO tag
+                .unlockedBy("has_logs", has(type.logTag()))
+                .requires(type.logTag())
                 .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
             ShapedRecipeBuilder.shaped(type.pressurePlate())
                 .group("wooden_pressure_plate")

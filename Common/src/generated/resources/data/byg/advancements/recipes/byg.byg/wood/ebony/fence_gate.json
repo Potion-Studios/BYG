@@ -2,16 +2,18 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "byg:wood/bulbis/planks"
+      "byg:wood/ebony/fence_gate"
     ]
   },
   "criteria": {
-    "has_logs": {
+    "has_planks": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "byg:wood/bulbis_logs"
+            "items": [
+              "byg:ebony_planks"
+            ]
           }
         ]
       }
@@ -19,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "byg:wood/bulbis/planks"
+        "recipe": "byg:wood/ebony/fence_gate"
       }
     }
   },
   "requirements": [
     [
-      "has_logs",
+      "has_planks",
       "has_the_recipe"
     ]
   ]
