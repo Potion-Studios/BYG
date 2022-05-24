@@ -68,15 +68,21 @@ public class BiomepediaScreen extends Screen {
 
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.ores"), button -> {
         }, getToolTip(new TranslatableComponent("biomepedia.intro.options.ores.hover"), this));
+
+        Button translations = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.translate"), button -> {
+        }, getToolTip(new TranslatableComponent("biomepedia.intro.options.translate.hover"), this));
+
+
         ores.active = false;
         biomes.active = false;
+        translations.active = false;
 
         Button issues = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.issues"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.issues.hover"), this));
 
         Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.donate"), consumeLink(PATREON_URL), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.donate.hover"), this));
         Button download = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.download"), consumeLink(DOWNLOAD_URL), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.download.hover"), this));
 
-        List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, issues, donate);
+        List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, translations, issues, donate);
 
         int listRenderedHeight = this.imageHeight + this.bottomPos;
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
