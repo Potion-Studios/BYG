@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/mahogany/planks",
+    "up": "byg:block/mahogany/planks",
+    "north": "byg:block/mahogany/bookshelf",
+    "south": "byg:block/mahogany/bookshelf",
+    "east": "byg:block/mahogany/bookshelf",
+    "west": "byg:block/mahogany/bookshelf",
+    "particle": "byg:block/mahogany/planks"
+  }
+}

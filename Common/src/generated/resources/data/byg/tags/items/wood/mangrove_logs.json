@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "byg:mangrove_log",
+    "byg:stripped_mangrove_log",
+    "byg:mangrove_wood",
+    "byg:stripped_mangrove_wood"
+  ]
+}

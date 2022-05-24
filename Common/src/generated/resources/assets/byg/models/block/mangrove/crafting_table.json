@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/mangrove/planks",
+    "up": "byg:block/mangrove/crafting_table_top",
+    "north": "byg:block/mangrove/crafting_table_front",
+    "south": "byg:block/mangrove/crafting_table_side",
+    "east": "byg:block/mangrove/crafting_table_side",
+    "west": "byg:block/mangrove/crafting_table_front",
+    "particle": "byg:block/mangrove/crafting_table_front"
+  }
+}

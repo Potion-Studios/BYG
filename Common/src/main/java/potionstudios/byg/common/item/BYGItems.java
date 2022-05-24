@@ -386,7 +386,7 @@ public class BYGItems {
 
         // TODO Lamient, Jacaranda
         BYGWoodTypes.MAHOGANY.init();
-        BYGWoodTypes.MAGROVE.init();
+        BYGWoodTypes.MANGROVE.init();
     }
 
     //Maple Woodtype

@@ -19,6 +19,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.mixin.dev.ModelProviderAccess;
 
 import java.io.IOException;
 
@@ -37,6 +38,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var typeName = "block/" + type;
             final var typeLoc = "block/" + type + "/";
             final var typeLocItem = "item/" + type + "/";
+            final var topPlanks = models().existingFileHelper.exists(rl(typeLoc + "planks_top"), ModelProviderAccess.getTexture());
             final var log = models().cubeColumn(typeName + "/log", BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
             axisBlock((RotatedPillarBlock) type.log().get(), log, log);
             configureTransform(item.withExistingParent(type.log().getId().getPath(), log.getLocation()));

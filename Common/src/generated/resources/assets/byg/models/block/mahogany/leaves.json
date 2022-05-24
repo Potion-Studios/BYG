@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/mahogany/leaves",
+    "up": "byg:block/mahogany/leaves",
+    "north": "byg:block/mahogany/leaves",
+    "south": "byg:block/mahogany/leaves",
+    "east": "byg:block/mahogany/leaves",
+    "west": "byg:block/mahogany/leaves",
+    "particle": "byg:block/mahogany/leaves"
+  }
+}

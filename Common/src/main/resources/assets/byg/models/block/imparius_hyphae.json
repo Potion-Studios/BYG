@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/imparius_stem_top2",
-    "side": "byg:block/imparius_stem"
-  }
-}

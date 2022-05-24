@@ -907,10 +907,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/mangrove_tree1_base"),
                     BYG.createLocation("features/trees/mangrove_tree1_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-                    BYGBlocks.MANGROVE_LOG.get(),
-                    BYGBlocks.MANGROVE_LEAVES.get(),
+                    BlockStateProvider.simple(MANGROVE.log().get()),
+                    BlockStateProvider.simple(MANGROVE.leaves().get()),
+                    MANGROVE.log(),
+                    MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
             )
     );
@@ -920,10 +920,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/mangrove_tree2_base"),
                     BYG.createLocation("features/trees/mangrove_tree2_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-                    BYGBlocks.MANGROVE_LOG,
-                    BYGBlocks.MANGROVE_LEAVES,
+                    BlockStateProvider.simple(MANGROVE.log().get()),
+                    BlockStateProvider.simple(MANGROVE.leaves().get()),
+                    MANGROVE.log(),
+                    MANGROVE.leaves(),
                     BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
             )
     );
@@ -933,10 +933,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/mangrove_tree3_base"),
                     BYG.createLocation("features/trees/mangrove_tree3_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-                    BYGBlocks.MANGROVE_LOG,
-                    BYGBlocks.MANGROVE_LEAVES,
+                    BlockStateProvider.simple(MANGROVE.log().get()),
+                    BlockStateProvider.simple(MANGROVE.leaves().get()),
+                    MANGROVE.log(),
+                    MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
             )
     );
@@ -946,10 +946,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/mangrove_tree4_base"),
                     BYG.createLocation("features/trees/mangrove_tree4_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-                    BYGBlocks.MANGROVE_LOG,
-                    BYGBlocks.MANGROVE_LEAVES,
+                    BlockStateProvider.simple(MANGROVE.log().get()),
+                    BlockStateProvider.simple(MANGROVE.leaves().get()),
+                    MANGROVE.log(),
+                    MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
             )
     );
@@ -959,10 +959,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/mangrove_tree5_base"),
                     BYG.createLocation("features/trees/mangrove_tree5_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LOG.get()),
-                    BlockStateProvider.simple(BYGBlocks.MANGROVE_LEAVES.get()),
-                    BYGBlocks.MANGROVE_LOG,
-                    BYGBlocks.MANGROVE_LEAVES,
+                    BlockStateProvider.simple(MANGROVE.log().get()),
+                    BlockStateProvider.simple(MANGROVE.leaves().get()),
+                    MANGROVE.log(),
+                    MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
             )
     );
@@ -1887,8 +1887,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> TROPICAL_SHRUB1 = createConfiguredFeature("tropical_shrub1",
             BYGFeatures.SHRUB1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMinHeight(2)
                     .build()
     );
@@ -1896,8 +1896,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE1 = createConfiguredFeature("mahogany_tree1",
             BYGFeatures.MAHOGANY_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMaxHeight(18)
                     .setMinHeight(13)
                     .build()
@@ -1905,8 +1905,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE2 = createConfiguredFeature("mahogany_tree2",
             BYGFeatures.MAHOGANY_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMaxHeight(14)
                     .setMinHeight(8)
                     .build()
@@ -1914,8 +1914,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE3 = createConfiguredFeature("mahogany_tree3",
             BYGFeatures.MAHOGANY_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMaxHeight(18)
                     .setMinHeight(13)
                     .build()
@@ -1923,8 +1923,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE4 = createConfiguredFeature("mahogany_tree4",
             BYGFeatures.MAHOGANY_TREE4,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMaxHeight(24)
                     .setMinHeight(18)
                     .build()
@@ -1932,8 +1932,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE5 = createConfiguredFeature("mahogany_tree5",
             BYGFeatures.MAHOGANY_TREE5,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAHOGANY_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAHOGANY_LEAVES.get())
+                    .setTrunkBlock(MAHOGANY.log().get())
+                    .setLeavesBlock(MAHOGANY.leaves().get())
                     .setMaxHeight(31)
                     .setMinHeight(25)
                     .build()

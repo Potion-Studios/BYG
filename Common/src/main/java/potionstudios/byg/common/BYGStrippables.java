@@ -23,8 +23,6 @@ public class BYGStrippables {
         }
 
         stripables.put(BYGBlocks.JACARANDA_LOG.get(), BYGBlocks.STRIPPED_JACARANDA_LOG.get());
-        stripables.put(BYGBlocks.MAHOGANY_LOG.get(), BYGBlocks.STRIPPED_MAHOGANY_LOG.get());
-        stripables.put(BYGBlocks.MANGROVE_LOG.get(), BYGBlocks.STRIPPED_MANGROVE_LOG.get());
         stripables.put(BYGBlocks.MAPLE_LOG.get(), BYGBlocks.STRIPPED_MAPLE_LOG.get());
         stripables.put(BYGBlocks.PALO_VERDE_LOG.get(), BYGBlocks.STRIPPED_PALO_VERDE_LOG.get());
         stripables.put(BYGBlocks.PINE_LOG.get(), BYGBlocks.STRIPPED_PINE_LOG.get());
@@ -43,8 +41,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGWoodTypes.IMPARIUS.log().get());
 
         stripables.put(BYGBlocks.JACARANDA_WOOD.get(), BYGBlocks.STRIPPED_JACARANDA_WOOD.get());
-        stripables.put(BYGBlocks.MAHOGANY_WOOD.get(), BYGBlocks.STRIPPED_MAHOGANY_WOOD.get());
-        stripables.put(BYGBlocks.MANGROVE_WOOD.get(), BYGBlocks.STRIPPED_MANGROVE_WOOD.get());
         stripables.put(BYGBlocks.MAPLE_WOOD.get(), BYGBlocks.STRIPPED_MAPLE_WOOD.get());
         stripables.put(BYGBlocks.PALO_VERDE_WOOD.get(), BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get());
         stripables.put(BYGBlocks.PINE_WOOD.get(), BYGBlocks.STRIPPED_PINE_WOOD.get());
