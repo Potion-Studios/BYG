@@ -9,7 +9,6 @@ import static potionstudios.byg.mixin.access.WoodTypeAccess.byg_invokeRegister;
 
 public class BYGWoodType {
 
-    public static final WoodType HOLLY = register("holly");
     public static final WoodType JACARANDA = register("jacaranda");
     public static final WoodType MAHOGANY = register("mahogany");
     public static final WoodType MANGROVE = register("mangrove");

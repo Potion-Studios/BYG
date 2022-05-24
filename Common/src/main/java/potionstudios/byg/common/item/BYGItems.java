@@ -271,6 +271,10 @@ public class BYGItems {
     //Ether Woodtype
     public static final RegistryObject<Item> ETHER_BULBS;
 
+    // Holly Woodtype
+    public static final RegistryObject<Item> HOLLY_BERRY_LEAVES;
+    public static final RegistryObject<Item> HOLLY_BERRY;
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -302,30 +306,11 @@ public class BYGItems {
         BYGWoodTypes.ETHER.init();
         BYGWoodTypes.FIR.init();
         BYGWoodTypes.GREEN_ENCHANTED.init();
-    }
 
-    //Holly Woodtype
-    public static final RegistryObject<Item> HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
-    public static final RegistryObject<Item> HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
-    public static final RegistryObject<GrowerItem> HOLLY_SAPLING = createSaplingItem(BYGBlocks.HOLLY_SAPLING);
-    public static final RegistryObject<Item> HOLLY_LEAVES = createItem(BYGBlocks.HOLLY_LEAVES);
-    public static final RegistryObject<Item> HOLLY_LOG = createItem(BYGBlocks.HOLLY_LOG);
-    public static final RegistryObject<Item> HOLLY_WOOD = createItem(BYGBlocks.HOLLY_WOOD);
-    public static final RegistryObject<Item> STRIPPED_HOLLY_LOG = createItem(BYGBlocks.STRIPPED_HOLLY_LOG);
-    public static final RegistryObject<Item> STRIPPED_HOLLY_WOOD = createItem(BYGBlocks.STRIPPED_HOLLY_WOOD);
-    public static final RegistryObject<Item> HOLLY_PLANKS = createItem(BYGBlocks.HOLLY_PLANKS);
-    public static final RegistryObject<Item> HOLLY_BOOKSHELF = createItem(BYGBlocks.HOLLY_BOOKSHELF);
-    public static final RegistryObject<Item> HOLLY_CRAFTING_TABLE = createItem(BYGBlocks.HOLLY_CRAFTING_TABLE);
-    public static final RegistryObject<Item> HOLLY_STAIRS = createItem(BYGBlocks.HOLLY_STAIRS);
-    public static final RegistryObject<Item> HOLLY_SLAB = createItem(BYGBlocks.HOLLY_SLAB);
-    public static final RegistryObject<Item> HOLLY_FENCE = createItem(BYGBlocks.HOLLY_FENCE);
-    public static final RegistryObject<Item> HOLLY_FENCE_GATE = createItem(BYGBlocks.HOLLY_FENCE_GATE);
-    public static final RegistryObject<Item> HOLLY_DOOR = createItem(BYGBlocks.HOLLY_DOOR);
-    public static final RegistryObject<Item> HOLLY_TRAPDOOR = createItem(BYGBlocks.HOLLY_TRAPDOOR);
-    public static final RegistryObject<Item> HOLLY_PRESSURE_PLATE = createItem(BYGBlocks.HOLLY_PRESSURE_PLATE);
-    public static final RegistryObject<Item> HOLLY_BUTTON = createItem(BYGBlocks.HOLLY_BUTTON);
-    public static final RegistryObject<SignItem> HOLLY_SIGN = createSign("holly_sign", BYGBlocks.HOLLY_SIGN, BYGBlocks.HOLLY_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> HOLLY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.HOLLY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "holly_boat");
+        HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
+        HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
+        BYGWoodTypes.HOLLY.init();
+    }
 
     //Imparius Woodtype
     public static final RegistryObject<Item> IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);

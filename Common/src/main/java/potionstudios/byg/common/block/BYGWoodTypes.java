@@ -66,7 +66,11 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING)
             .boatType(BYGBoatEntity.BYGType.GREEN_ENCHANTED)
             .materialColor(MaterialColor.COLOR_GREEN)
-            .leavesLightLevel(15));
+            .leavesLightLevel(15)),
+    HOLLY("holly", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
+            .materialColor(MaterialColor.TERRACOTTA_GREEN)
+            .boatType(BYGBoatEntity.BYGType.HOLLY));
 
     private final String name;
     private final WoodType woodType;
