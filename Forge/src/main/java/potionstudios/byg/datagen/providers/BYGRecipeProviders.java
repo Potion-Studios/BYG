@@ -76,19 +76,11 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .define('#', Items.STICK) // TODO this should be a tag
                 .define('W', type.planks())
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence_gate"));
-            if (type == BYGWoodTypes.CHERRY) {
-                ShapelessRecipeBuilder.shapeless(type.planks(), 4)
-                    .group("wooden_planks")
-                    .unlockedBy("has_logs", has(type.log()))
-                    .requires(ItemTags.create(BYG.createLocation("cherry_logs")))
-                    .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
-            } else {
-                ShapelessRecipeBuilder.shapeless(type.planks(), 4)
-                    .group("wooden_planks")
-                    .unlockedBy("has_logs", has(type.log()))
-                    .requires(type.log()) // TODO tag
-                    .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
-            }
+            ShapelessRecipeBuilder.shapeless(type.planks(), 4)
+                .group("wooden_planks")
+                .unlockedBy("has_logs", has(type.log()))
+                .requires(type.log()) // TODO tag
+                .save(consumer, BYG.createLocation("wood/" + type + "/planks"));
             ShapedRecipeBuilder.shaped(type.pressurePlate())
                 .group("wooden_pressure_plate")
                 .pattern("PP")

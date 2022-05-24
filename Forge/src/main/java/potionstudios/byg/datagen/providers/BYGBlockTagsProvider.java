@@ -10,11 +10,15 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.access.TagBuilderAccess;
+import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
 import potionstudios.byg.reg.RegistryObject;
 
 import java.util.*;
@@ -30,6 +34,7 @@ public class BYGBlockTagsProvider extends TagsProvider<Block> {
         super(pGenerator, Registry.BLOCK, BYG.MOD_ID, existingFileHelper);
     }
 
+    // TODO document what gets generated
     @Override
     protected void addTags() {
         tag(
@@ -69,6 +74,22 @@ public class BYGBlockTagsProvider extends TagsProvider<Block> {
         }
         this.tag(BYGBlockTags.GROUND_PALM_SAPLING).addTag(BlockTags.SAND).addTag(BlockTags.DIRT);
         this.tag(BYGBlockTags.GROUND_FAIRY_SLIPPER).addTag(BlockTags.LOGS);
+
+        final var shovelMaterials = List.of(Material.DIRT, Material.GRASS, Material.SAND, Material.CLAY);
+        final var shovelMinable = tag(BlockTags.MINEABLE_WITH_SHOVEL);
+        PROVIDER.getEntries()
+                .stream()
+                .map(RegistryObject::get)
+                .filter(bl -> shovelMaterials.contains(((BlockBehaviorAccess) bl).getMaterial()))
+                .forEach(shovelMinable::add);
+
+// For now, until we get all wood moved
+//        final var axeMineable = tag(BlockTags.MINEABLE_WITH_AXE);
+//        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+//            add(axeMineable, type.bookshelf(), type.button(), type.craftingTable(), type.door(), type.trapdoor(), type.planks(), type.fence(), type.fenceGate(), type.log(), type.wood(), type.strippedLog(), type.strippedWood(), type.pressurePlate(), type.sign(), type.wallSign(), type
+//                    .slab(), type.stairs());
+//        }
+
         sortTagsAlphabeticallyAndRemoveDuplicateTagEntries();
     }
 
@@ -87,6 +108,13 @@ public class BYGBlockTagsProvider extends TagsProvider<Block> {
     @SuppressWarnings("ALL")
     private void tag(TagKey<Block> tag, Supplier<? extends Block>... blocks) {
         this.tag(tag).add(Arrays.stream(blocks).map(Supplier::get).toArray(Block[]::new));
+    }
+
+    @SafeVarargs
+    private <T> void add(TagAppender<T> tag, Supplier<? extends T>... values) {
+        for (final var sup : values)
+            if (sup != null)
+                tag.add(sup.get());
     }
 
     @Override

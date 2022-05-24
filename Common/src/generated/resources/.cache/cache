@@ -120,7 +120,7 @@ f6ebac66eb0b9b389c5aa8399e7f635f83fd6f37 data/byg/recipes/wood/cherry/bookshelf.
 b4cd0c2f83180f071060cbb47c2bc18b485cd329 data/byg/recipes/wood/cherry/door.json
 e70972b9e4b8503218933cf69caae4f28852558c data/byg/recipes/wood/cherry/fence.json
 1b0d138a0e2653ae3daaf5e3af62893a45514ecb data/byg/recipes/wood/cherry/fence_gate.json
-c2513e2dfb5d80b4e0aafcd98e4f683dc2c7da41 data/byg/recipes/wood/cherry/planks.json
+f9f098edb149f3aa05bc38f8ec9b9c5a621646c7 data/byg/recipes/wood/cherry/planks.json
 7a9a8fd4e78eb7200da14f359424fa885400425e data/byg/recipes/wood/cherry/pressure_plate.json
 34165d5515938d8f03bc640c5c4d6095310ff503 data/byg/recipes/wood/cherry/slab.json
 e29ef5e0d13da4ec0263d43dd31fa8692b68a041 data/byg/recipes/wood/cherry/stairs.json
@@ -250,3 +250,5 @@ df9ee6dda975d83a8e9b841997af32145752343a data/byg/tags/blocks/may_place_on/tall_
 7fecd5818677dd12c77c521f4011e3116c50518b data/byg/tags/blocks/may_place_on/yellow_tulip.json
 7fecd5818677dd12c77c521f4011e3116c50518b data/byg/tags/blocks/may_place_on/zelkova_sapling.json
 7e565f3244f780e0f97c5280141db6fecf948f5e data/byg/tags/blocks/slabs.json
+650ffcc2123f4f0501ae5efebd77bad2f81135da data/minecraft/tags/blocks/mineable/axe.json
+cf6fba1ef612f3e7e93291777e20311ec1d82062 data/minecraft/tags/blocks/mineable/shovel.json

@@ -3,7 +3,7 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "tag": "byg:cherry_logs"
+      "item": "byg:cherry_log"
     }
   ],
   "result": {

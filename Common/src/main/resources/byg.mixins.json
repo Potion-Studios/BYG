@@ -95,6 +95,7 @@
     "common.world.level.dimension.MixinDimensionType",
     "common.world.level.storage.loot.MixinLootTableManager",
     "common.world.surface.MixinSurfaceSystem",
+    "dev.BlockBehaviorAccess",
     "dev.MixinMinecraftServer",
     "server.MixinMinecraftServer"
   ],

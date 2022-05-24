@@ -37,6 +37,7 @@ processResources {
     filesMatching(['pack.mcmeta']) {
         expand buildProps
     }
+    exclude '.cache/cache'
 }
 
 tasks.withType(Javadoc) {

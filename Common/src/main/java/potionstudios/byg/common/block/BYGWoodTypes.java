@@ -19,11 +19,29 @@ import java.util.EnumSet;
 import java.util.List;
 
 public enum BYGWoodTypes {
-    ASPEN("aspen", new Builder().boatType(BYGBoatEntity.BYGType.ASPEN).materialColor(MaterialColor.TERRACOTTA_YELLOW).growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
-    BAOBAB("baobab", new Builder().boatType(BYGBoatEntity.BYGType.BAOBAB).growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING).materialColor(MaterialColor.TERRACOTTA_GREEN)),
-    BLUE_ENCHANTED("blue_enchanted", new Builder().boatType(BYGBoatEntity.BYGType.BLUE_ENCHANTED).growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING).materialColor(MaterialColor.COLOR_BLUE).leavesLightLevel(15)),
-    BULBIS("bulbis", new Builder().materialColor(MaterialColor.COLOR_BLUE).growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY).growerItem(GrowerItemType.ODDITY).exclude(BlockType.LEAVES).stem()),
-    CHERRY("cherry", new Builder().exclude(BlockType.SAPLING).boatType(BYGBoatEntity.BYGType.CHERRY).exclude(BlockType.LEAVES));
+    ASPEN("aspen", new Builder()
+            .boatType(BYGBoatEntity.BYGType.ASPEN)
+            .materialColor(MaterialColor.TERRACOTTA_YELLOW)
+            .growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
+    BAOBAB("baobab", new Builder()
+            .boatType(BYGBoatEntity.BYGType.BAOBAB)
+            .growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING)
+            .materialColor(MaterialColor.TERRACOTTA_GREEN)),
+    BLUE_ENCHANTED("blue_enchanted", new Builder()
+            .boatType(BYGBoatEntity.BYGType.BLUE_ENCHANTED)
+            .growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING)
+            .materialColor(MaterialColor.COLOR_BLUE)
+            .leavesLightLevel(15)),
+    BULBIS("bulbis", new Builder()
+            .materialColor(MaterialColor.COLOR_BLUE)
+            .growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY)
+            .growerItem(GrowerItemType.ODDITY)
+            .exclude(BlockType.LEAVES)
+            .stem()),
+    CHERRY("cherry", new Builder()
+            .exclude(BlockType.SAPLING)
+            .boatType(BYGBoatEntity.BYGType.CHERRY)
+            .exclude(BlockType.LEAVES));
 
     private final String name;
     private final WoodType woodType;
