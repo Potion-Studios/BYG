@@ -38,7 +38,8 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var typeName = "block/" + type;
             final var typeLoc = "block/" + type + "/";
             final var typeLocItem = "item/" + type + "/";
-            final var topPlanks = models().existingFileHelper.exists(rl(typeLoc + "planks_top"), ModelProviderAccess.getTexture());
+            final var topPlanksLoc = rl(typeLoc + "planks_top");
+            final var topPlanks = models().existingFileHelper.exists(topPlanksLoc, ModelProviderAccess.getTexture());
             final var log = models().cubeColumn(typeName + "/log", BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
             axisBlock((RotatedPillarBlock) type.log().get(), log, log);
             configureTransform(item.withExistingParent(type.log().getId().getPath(), log.getLocation()));
@@ -137,8 +138,14 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 simpleBlock(type.leaves().get(), leaves); // TODO leaves should be snowy as well
             }
             final var planksLoc = rl(typeLoc + "planks");
-            final var planks = models().cube(typeName + "/planks", planksLoc, planksLoc, planksLoc, planksLoc, planksLoc, planksLoc)
-                .texture("particle", planksLoc);
+            final var planks = models().cube(typeName + "/planks",
+                topPlanks ? topPlanksLoc : planksLoc,
+                topPlanks ? topPlanksLoc : planksLoc,
+                planksLoc,
+                planksLoc,
+                planksLoc,
+                planksLoc
+            ).texture("particle", topPlanks ? topPlanksLoc : planksLoc);
             configureTransform(item.withExistingParent(type.planks().getId().getPath(), planks.getLocation()));
             simpleBlock(type.planks().get(), planks);
 
@@ -159,8 +166,8 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             configureTransform(item.withExistingParent(type.pressurePlate().getId().getPath(), pressurePlate.getLocation()));
             pressurePlateBlock((PressurePlateBlock) type.pressurePlate().get(), pressurePlate, pressurePlateDown);
 
-            final var slab = models().slab(typeName + "/slab", planksLoc, planksLoc, planksLoc);
-            final var slabTop = models().slabTop(typeName + "/slab_top", planksLoc, planksLoc, planksLoc);
+            final var slab = models().slab(typeName + "/slab", planksLoc, topPlanks ? topPlanksLoc : planksLoc, topPlanks ? topPlanksLoc : planksLoc);
+            final var slabTop = models().slabTop(typeName + "/slab_top", planksLoc, topPlanks ? topPlanksLoc : planksLoc, topPlanks ? topPlanksLoc : planksLoc);
             configureTransform(item.withExistingParent(type.slab().getId().getPath(), slab.getLocation()));
             slabBlock((SlabBlock) type.slab().get(), slab, slabTop, planks);
 

@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ModelProvider.class)
 public interface ModelProviderAccess {
-    @Accessor("TEXTURE")
+    @Accessor(value = "TEXTURE", remap = false)
     static ExistingFileHelper.ResourceType getTexture() {
         throw new Error("Mixin failed!");
     }
