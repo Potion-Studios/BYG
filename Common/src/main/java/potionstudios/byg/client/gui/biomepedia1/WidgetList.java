@@ -27,7 +27,7 @@ public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
 
     @Override
     protected int getScrollbarPosition() {
-        return this.x1 - 6;
+        return this.x1;
     }
 
     @Override
@@ -37,8 +37,16 @@ public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+        int x = this.getRowLeft();
+        int y = this.y0 + 4 - (int)this.getScrollAmount();
         super.render(poseStack, mouseX, mouseY, partialTick);
-//        GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 0, 255));
+        super.renderList(poseStack, x, y, mouseX, mouseY, partialTick);
+    }
+
+
+
+    @Override
+    protected void renderList(PoseStack pPoseStack, int pX, int pY, int pMouseX, int pMouseY, float pPartialTick) {
     }
 
     @Override
@@ -56,7 +64,7 @@ public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
 
         @Override
         public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-            this.widget.x = ((pLeft));
+            this.widget.x = pLeft;
             this.widget.y = pTop;
             this.widget.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         }
