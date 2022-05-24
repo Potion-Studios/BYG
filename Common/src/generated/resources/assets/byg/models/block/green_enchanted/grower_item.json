@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "byg:block/green_enchanted/grower_item"
+  }
+}

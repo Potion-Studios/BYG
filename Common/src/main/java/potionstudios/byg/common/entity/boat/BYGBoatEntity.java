@@ -47,17 +47,11 @@ public class BYGBoatEntity extends Boat {
 
     @Override
     public Item getDropItem() {
+        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
+        if (type != null)
+            return type.boat().get();
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.boat().get();
-            case BAOBAB -> BYGWoodTypes.BAOBAB.boat().get();
-            case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.boat().get();
-            case CHERRY -> BYGWoodTypes.CHERRY.boat().get();
-            case CIKA -> BYGWoodTypes.CIKA.boat().get();
-            case CYPRESS -> BYGWoodTypes.CYPRESS.boat().get();
-            case EBONY -> BYGWoodTypes.EBONY.boat().get();
-            case FIR -> BYGItems.FIR_BOAT.get();
-            case GREEN_ENCHANTED -> BYGItems.GREEN_ENCHANTED_BOAT.get();
-            case HOLLY -> BYGItems.HOLLY_BOAT.get();
             case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
             case MAHOGANY -> BYGItems.MAHOGANY_BOAT.get();
             case MANGROVE -> BYGItems.MANGROVE_BOAT.get();
@@ -74,17 +68,11 @@ public class BYGBoatEntity extends Boat {
     }
 
     public Block getPlanks() {
+        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
+        if (type != null)
+            return type.planks().get();
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.planks().get();
-            case BAOBAB -> BYGWoodTypes.BAOBAB.planks().get();
-            case BLUE_ENCHANTED -> BYGWoodTypes.BLUE_ENCHANTED.planks().get();
-            case CHERRY -> BYGWoodTypes.CHERRY.planks().get();
-            case CIKA -> BYGWoodTypes.CIKA.planks().get();
-            case CYPRESS -> BYGWoodTypes.CYPRESS.planks().get();
-            case EBONY -> BYGWoodTypes.EBONY.planks().get();
-            case FIR -> BYGBlocks.FIR_PLANKS.get();
-            case GREEN_ENCHANTED -> BYGBlocks.GREEN_ENCHANTED_PLANKS.get();
-            case HOLLY -> BYGBlocks.HOLLY_PLANKS.get();
             case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
             case MAHOGANY -> BYGBlocks.MAHOGANY_PLANKS.get();
             case MANGROVE -> BYGBlocks.MANGROVE_PLANKS.get();

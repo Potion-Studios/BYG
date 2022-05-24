@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/fir_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:fir_planks",
+    "count": 4
+  }
+}

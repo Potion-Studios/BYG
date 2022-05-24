@@ -17,8 +17,12 @@ import potionstudios.byg.mixin.access.WoodTypeAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 
+import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public enum BYGWoodTypes {
     ASPEN("aspen", new Builder()
@@ -71,6 +75,12 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
             .materialColor(MaterialColor.TERRACOTTA_GREEN)
             .boatType(BYGBoatEntity.BYGType.HOLLY));
+
+    public static final Map<String, BYGWoodTypes> LOOKUP;
+    static {
+        LOOKUP = Arrays.stream(values())
+                .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
+    }
 
     private final String name;
     private final WoodType woodType;

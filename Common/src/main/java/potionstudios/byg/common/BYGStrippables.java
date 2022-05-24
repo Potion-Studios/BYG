@@ -22,9 +22,6 @@ public class BYGStrippables {
             stripables.put(type.wood().get(), type.strippedWood().get());
         }
 
-        stripables.put(BYGBlocks.FIR_LOG.get(), BYGBlocks.STRIPPED_FIR_LOG.get());
-        stripables.put(BYGBlocks.GREEN_ENCHANTED_LOG.get(), BYGBlocks.STRIPPED_GREEN_ENCHANTED_LOG.get());
-        stripables.put(BYGBlocks.HOLLY_LOG.get(), BYGBlocks.STRIPPED_HOLLY_LOG.get());
         stripables.put(BYGBlocks.JACARANDA_LOG.get(), BYGBlocks.STRIPPED_JACARANDA_LOG.get());
         stripables.put(BYGBlocks.MAHOGANY_LOG.get(), BYGBlocks.STRIPPED_MAHOGANY_LOG.get());
         stripables.put(BYGBlocks.MANGROVE_LOG.get(), BYGBlocks.STRIPPED_MANGROVE_LOG.get());
@@ -41,14 +38,10 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.PALM_LOG.get(), BYGBlocks.STRIPPED_PALM_LOG.get());
         stripables.put(BYGBlocks.LAMENT_LOG.get(), BYGBlocks.STRIPPED_LAMENT_LOG.get());
         stripables.put(BYGBlocks.WITHERING_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG);
-        stripables.put(BYGBlocks.ETHER_LOG.get(), BYGBlocks.STRIPPED_ETHER_LOG.get());
         stripables.put(BYGBlocks.NIGHTSHADE_LOG.get(), BYGBlocks.STRIPPED_NIGHTSHADE_LOG.get());
         stripables.put(BYGBlocks.EMBUR_PEDU.get(), BYGBlocks.STRIPPED_EMBUR_PEDU.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGBlocks.IMPARIUS_STEM.get());
 
-        stripables.put(BYGBlocks.FIR_WOOD.get(), BYGBlocks.STRIPPED_FIR_WOOD.get());
-        stripables.put(BYGBlocks.GREEN_ENCHANTED_WOOD.get(), BYGBlocks.STRIPPED_GREEN_ENCHANTED_WOOD.get());
-        stripables.put(BYGBlocks.HOLLY_WOOD.get(), BYGBlocks.STRIPPED_HOLLY_WOOD.get());
         stripables.put(BYGBlocks.JACARANDA_WOOD.get(), BYGBlocks.STRIPPED_JACARANDA_WOOD.get());
         stripables.put(BYGBlocks.MAHOGANY_WOOD.get(), BYGBlocks.STRIPPED_MAHOGANY_WOOD.get());
         stripables.put(BYGBlocks.MANGROVE_WOOD.get(), BYGBlocks.STRIPPED_MANGROVE_WOOD.get());
@@ -65,7 +58,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.PALM_WOOD.get(), BYGBlocks.STRIPPED_PALM_WOOD.get());
         stripables.put(BYGBlocks.LAMENT_WOOD.get(), BYGBlocks.STRIPPED_LAMENT_WOOD.get());
         stripables.put(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);
-        stripables.put(BYGBlocks.ETHER_WOOD.get(), BYGBlocks.STRIPPED_ETHER_WOOD.get());
         stripables.put(BYGBlocks.NIGHTSHADE_WOOD.get(), BYGBlocks.STRIPPED_NIGHTSHADE_WOOD.get());
         stripables.put(BYGBlocks.EMBUR_HYPHAE.get(), BYGBlocks.STRIPPED_EMBUR_HYPHAE.get());
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE.get(), BYGBlocks.IMPARIUS_HYPHAE.get());

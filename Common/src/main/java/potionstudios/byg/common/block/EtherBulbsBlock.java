@@ -66,7 +66,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-            return block == BYGBlocks.ETHER_LEAVES.get();
+            return block == BYGWoodTypes.ETHER.leaves().get();
     }
 
     @Override

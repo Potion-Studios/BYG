@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/ether_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:ether_planks",
+    "count": 4
+  }
+}

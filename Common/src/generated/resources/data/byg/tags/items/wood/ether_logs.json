@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "byg:ether_log",
+    "byg:stripped_ether_log"
+  ]
+}

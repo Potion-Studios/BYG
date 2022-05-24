@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "crafting_table",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:fir_planks"
+    }
+  },
+  "result": {
+    "item": "byg:fir_crafting_table"
+  }
+}

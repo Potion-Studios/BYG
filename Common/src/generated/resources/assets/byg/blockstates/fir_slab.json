@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/fir/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/fir/slab"
+    },
+    "type=double": {
+      "model": "byg:block/fir/planks"
+    }
+  }
+}

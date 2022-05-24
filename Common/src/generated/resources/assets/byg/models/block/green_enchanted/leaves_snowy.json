@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/green_enchanted/leaves_snowy",
+    "up": "byg:block/green_enchanted/leaves_snowy",
+    "north": "byg:block/green_enchanted/leaves_snowy_side",
+    "south": "byg:block/green_enchanted/leaves_snowy_side",
+    "east": "byg:block/green_enchanted/leaves_snowy_side",
+    "west": "byg:block/green_enchanted/leaves_snowy_side",
+    "particle": "byg:block/green_enchanted/leaves_snowy_side"
+  }
+}

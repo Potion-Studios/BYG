@@ -90,8 +90,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
         BYGFeatures.ETHER_BUSH1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -100,8 +99,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH2 = createConfiguredFeature("ether_bush2",
         BYGFeatures.ETHER_BUSH2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -110,8 +108,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE1 = createConfiguredFeature("ether_tree1",
         BYGFeatures.ETHER_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -120,8 +117,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE2 = createConfiguredFeature("ether_tree2",
         BYGFeatures.ETHER_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -130,8 +126,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE3 = createConfiguredFeature("ether_tree3",
         BYGFeatures.ETHER_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -140,8 +135,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE4 = createConfiguredFeature("ether_tree4",
         BYGFeatures.ETHER_TREE4,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -150,8 +144,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE5 = createConfiguredFeature("ether_tree5",
         BYGFeatures.ETHER_TREE5,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -160,7 +153,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD1 = createConfiguredFeature("ether_tree_dead1",
         BYGFeatures.DEAD_ETHER_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -170,7 +163,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD2 = createConfiguredFeature("ether_tree_dead2",
         BYGFeatures.DEAD_ETHER_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -180,7 +173,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD3 = createConfiguredFeature("ether_tree_dead3",
         BYGFeatures.DEAD_ETHER_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)

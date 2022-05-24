@@ -421,8 +421,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE1 = createConfiguredFeature("conifer_tree1",
             BYGFeatures.CONIFER_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(25)
                     .setMinHeight(19)
                     .build()
@@ -430,8 +429,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE2 = createConfiguredFeature("conifer_tree2",
             BYGFeatures.CONIFER_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(30)
                     .setMinHeight(23)
                     .build()
@@ -439,8 +437,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE3 = createConfiguredFeature("conifer_tree3",
             BYGFeatures.CONIFER_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(35)
                     .setMinHeight(26)
                     .build()
@@ -448,8 +445,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE4 = createConfiguredFeature("conifer_tree4",
             BYGFeatures.CONIFER_TREE4,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(35)
                     .setMinHeight(25)
                     .build()
@@ -457,8 +453,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE5 = createConfiguredFeature("conifer_tree5",
             BYGFeatures.CONIFER_TREE5,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(21)
                     .setMinHeight(14)
                     .build()
@@ -466,8 +461,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE6 = createConfiguredFeature("conifer_tree6",
             BYGFeatures.CONIFER_TREE6,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(17)
                     .setMinHeight(11)
                     .build()
@@ -475,8 +469,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE7 = createConfiguredFeature("conifer_tree7",
             BYGFeatures.CONIFER_TREE7,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(28)
                     .setMinHeight(18)
                     .build()
@@ -484,8 +477,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE8 = createConfiguredFeature("conifer_tree8",
             BYGFeatures.CONIFER_TREE8,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.FIR_LOG.get())
-                    .setLeavesBlock(BYGBlocks.FIR_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.FIR)
                     .setMaxHeight(28)
                     .setMinHeight(16)
                     .build()
@@ -774,24 +766,21 @@ public class BYGOverworldTreeFeatures {
             BYGFeatures.ENCHANTED_TREE1,
             () -> new BYGTreeConfig.Builder()
                     .copy(ENCHANTED_BLUE_TREE1.value().config())
-                    .setTrunkBlock(BYGBlocks.GREEN_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
                     .build()
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_TREE2 = createConfiguredFeature("green_enchanted_tree2",
             BYGFeatures.ENCHANTED_TREE2,
             () -> new BYGTreeConfig.Builder()
                     .copy(ENCHANTED_BLUE_TREE2.value().config())
-                    .setTrunkBlock(BYGBlocks.GREEN_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
                     .build()
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_TREE3 = createConfiguredFeature("green_enchanted_tree3",
             BYGFeatures.ENCHANTED_TREE3,
             () -> new BYGTreeConfig.Builder()
                     .copy(ENCHANTED_BLUE_TREE3.value().config())
-                    .setTrunkBlock(BYGBlocks.GREEN_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
                     .build()
     );
 
@@ -808,18 +797,17 @@ public class BYGOverworldTreeFeatures {
             BYGFeatures.ENCHANTED_GROVE_TREE1,
             () -> new BYGTreeConfig.Builder()
                     .copy(ENCHANTED_BLUE_TREE1.value().config())
-                    .setTrunkBlock(BYGBlocks.GREEN_ENCHANTED_LOG.get())
-                    .setLeavesBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
                     .build()
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
             BYGFeatures.HOLLY_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.HOLLY_LOG.get())
+                    .setTrunkBlock(HOLLY.log())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1)
-                            .add(BYGBlocks.HOLLY_LEAVES.defaultBlockState(), 10)))
+                            .add(HOLLY.leaves().defaultBlockState(), 10)))
                     .setMaxHeight(23)
                     .setMinHeight(17)
                     .build()
