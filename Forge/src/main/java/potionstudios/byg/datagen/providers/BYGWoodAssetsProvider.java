@@ -3,7 +3,16 @@ package potionstudios.byg.datagen.providers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.model.generators.BlockModelProvider;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CrossCollisionBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
@@ -13,29 +22,30 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.io.IOException;
 
-public class BYGAssetsProvider extends BlockModelProvider {
+public class BYGWoodAssetsProvider extends BlockStateProvider {
     private final ItemProvider item;
-    public BYGAssetsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    public BYGWoodAssetsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BYG.MOD_ID, existingFileHelper);
         this.item = new ItemProvider(generator, existingFileHelper);
     }
 
     @Override
-    protected void registerModels() {
+    protected void registerStatesAndModels() {
         final var generatedParent = mcLoc("item/generated");
 
         for (final var type : BYGWoodTypes.values()) {
             final var typeLoc = "block/" + type + "/";
             final var typeLocItem = "item/" + type + "/";
-            final var log = cubeColumn(type.log().getId().getPath(), BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
+            final var log = models().cubeColumn(type + "/log", BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
+            axisBlock((RotatedPillarBlock) type.log().get(), log, log);
             configureTransform(item.withExistingParent(type.log().getId().getPath(), log.getLocation()));
 
             if (type.boat() != null)
                 item.withExistingParent(type.boat().getId().getPath(), generatedParent)
                         .texture("layer0", rl(typeLocItem + "boat"));
 
-            final var bookshelf = cube(
-                type.bookshelf().getId().getPath(),
+            final var bookshelf = models().cube(
+                type + "/bookshelf",
                 rl(typeLoc + "planks"),
                 rl(typeLoc + "planks"),
                 rl(typeLoc + "bookshelf"),
@@ -44,14 +54,16 @@ public class BYGAssetsProvider extends BlockModelProvider {
                 rl(typeLoc + "bookshelf")
             ).texture("particle", typeLoc + "planks");
             configureTransform(item.withExistingParent(type.bookshelf().getId().getPath(), bookshelf.getLocation()));
+            simpleBlock(type.bookshelf().get(), bookshelf);
 
-            final var button = buttonInventory(type.button().getId().getPath() + "_inventory", rl(typeLoc + "planks"));
-            button(type.button().getId().getPath(), rl(typeLoc + "planks"));
-            buttonPressed(type.button().getId().getPath() + "_pressed", rl(typeLoc + "planks"));
+            final var button = models().buttonInventory(type + "/button_inventory", rl(typeLoc + "planks"));
+            models().button(type + "/button", rl(typeLoc + "planks"));
+            final var buttonPressed = models().buttonPressed(type + "/button_pressed", rl(typeLoc + "planks"));
             configureTransform(item.withExistingParent(type.button().getId().getPath(), button.getLocation()));
+            buttonBlock((ButtonBlock) type.button().get(), button, buttonPressed);
 
-            final var craftingTable = cube(
-                type.craftingTable().getId().getPath(),
+            final var craftingTable = models().cube(
+                type + "/crafting_table",
                 rl(typeLoc + "planks"),
                 rl(typeLoc + "crafting_table_top"),
                 rl(typeLoc + "crafting_table_front"),
@@ -60,54 +72,58 @@ public class BYGAssetsProvider extends BlockModelProvider {
                 rl(typeLoc + "crafting_table_front")
             ).texture("particle", typeLoc + "crafting_table_front");
             configureTransform(item.withExistingParent(type.craftingTable().getId().getPath(), craftingTable.getLocation()));
+            simpleBlock(type.craftingTable().get(), craftingTable);
 
-            doorBottomLeft(
-                type.door().getId().getPath() + "_bottom",
+            final var doorBottomLeft = models().doorBottomLeft(
+                type + "/door_bottom",
                 rl(typeLoc + "door_bottom"),
                 rl(typeLoc + "door_top")
             );
-            doorBottomRight(
-                type.door().getId().getPath() + "_bottom_hinge",
+            final var doorBottomRight = models().doorBottomRight(
+                type + "/door_bottom_hinge",
                 rl(typeLoc + "door_bottom"),
                 rl(typeLoc + "door_top")
             );
-            doorTopLeft(
-                type.door().getId().getPath() + "_top",
+            final var doorTopLeft = models().doorTopLeft(
+                type + "/door_top",
                 rl(typeLoc + "door_bottom"),
                 rl(typeLoc + "door_top")
             );
-            doorTopRight(
-                type.door().getId().getPath() + "_top_hinge",
+            final var doorTopRight = models().doorTopRight(
+                type + "/door_top_hinge",
                 rl(typeLoc + "door_bottom"),
                 rl(typeLoc + "door_top")
             );
+            doorBlock((DoorBlock) type.door().get(), doorBottomLeft, doorBottomRight, doorTopLeft, doorBottomRight);
             item.withExistingParent(type.door().getId().getPath(), generatedParent)
                 .texture("layer0", rl(typeLocItem + "door"));
 
-            fenceSide(type.fence().getId().getPath(), rl(typeLoc + "planks"))
+            final var fencePost = models().fencePost(type + "/fence_post", rl(typeLoc + "planks"))
+                    .texture("particle", rl(typeLoc + "planks"));
+            final var fenceSide = models().fenceSide(type + "/fence", rl(typeLoc + "planks"))
                 .texture("particle", rl(typeLoc + "planks"));
-            final var fenceInv = fenceInventory(type.fence().getId().getPath(), rl(typeLoc + "planks"))
+            final var fenceInv = models().fenceInventory(type + "/fence_inv", rl(typeLoc + "planks"))
                 .texture("particle", rl(typeLoc + "planks"));
             configureTransform(item.withExistingParent(type.fence().getId().getPath(), fenceInv.getLocation()));
+            fourWayBlock((CrossCollisionBlock) type.fence().get(), fencePost, fenceSide);
 
-            final var fenceGate = fenceGate(type.fenceGate().getId().getPath(), rl(typeLoc + "planks"));
-            fenceGateOpen(type.fenceGate().getId().getPath() + "_open", rl(typeLoc + "planks"));
-            fenceGateWall(type.fenceGate().getId().getPath() + "_wall", rl(typeLoc + "planks"));
-            fenceGateWallOpen(type.fenceGate().getId().getPath() + "_wall_open", rl(typeLoc + "planks"));
-            fencePost(type + "_fence_post", rl(typeLoc + "planks"))
-                .texture("particle", rl(typeLoc + "planks"));
+            final var fenceGate = models().fenceGate(type + "/fence_gate", rl(typeLoc + "planks"));
+            final var fenceGateOpen = models().fenceGateOpen(type + "/fence_gate_open", rl(typeLoc + "planks"));
+            final var fenceGateWall = models().fenceGateWall(type + "/fence_gate_wall", rl(typeLoc + "planks"));
+            final var fenceGateWallOpen = models().fenceGateWallOpen(type + "/fence_gate_wall_open", rl(typeLoc + "planks"));
             configureTransform(item.withExistingParent(type.fence().getId().getPath(), fenceGate.getLocation()));
+            fenceGateBlock((FenceGateBlock) type.fenceGate().get(), fenceGate, fenceGateOpen, fenceGateWall, fenceGateWallOpen);
 
             if (type.leaves() != null) {
                 final var leavesLoc = rl(typeLoc + "leaves");
-                final var leaves = cube(
-                    type.leaves().getId().getPath(),
+                final var leaves = models().cube(
+                    type + "/leaves",
                     leavesLoc, leavesLoc, leavesLoc,
                     leavesLoc, leavesLoc, leavesLoc
                 ).texture("particle", leavesLoc);
                 configureTransform(item.withExistingParent(type.leaves().getId().getPath(), leaves.getLocation()));
-                cube(
-                    type.leaves().getId().getPath() + "_snowy",
+                models().cube(
+                    type + "/leaves_snowy",
                     rl(typeLoc + "leaves_snowy"),
                     rl(typeLoc + "leaves_snowy"),
                     rl(typeLoc + "leaves_snowy_side"),
@@ -115,52 +131,60 @@ public class BYGAssetsProvider extends BlockModelProvider {
                     rl(typeLoc + "leaves_snowy_side"),
                     rl(typeLoc + "leaves_snowy_side")
                 ).texture("particle", rl(typeLoc + "leaves_snowy_side"));
+                simpleBlock(type.leaves().get(), leaves); // TODO leaves should be snowy as well
             }
             final var planksLoc = rl(typeLoc + "planks");
-            final var planks = cube(type.planks().getId().getPath(), planksLoc, planksLoc, planksLoc, planksLoc, planksLoc, planksLoc)
+            final var planks = models().cube(type + "/planks", planksLoc, planksLoc, planksLoc, planksLoc, planksLoc, planksLoc)
                 .texture("particle", planksLoc);
             configureTransform(item.withExistingParent(type.planks().getId().getPath(), planks.getLocation()));
+            simpleBlock(type.planks().get(), planks);
 
-            final var wood = cubeAll(type.wood().getId().getPath(), rl(typeLoc + "log"))
+            final var wood = models().cubeAll(typeLoc + "/wood", rl(typeLoc + "log"))
                 .texture("particle", rl(typeLoc + "log"));
             configureTransform(item.withExistingParent(type.wood().getId().getPath(), wood.getLocation()));
+            axisBlock((RotatedPillarBlock) type.wood().get(), wood, wood);
 
             if (type.growerItem() != null) {
                 final var textureLoc = rl(typeLoc + "grower_item");
-                cross(type.growerItem().getId().getPath(), textureLoc);
+                final var growerItem = models().cross(type + "/grower_item", textureLoc);
                 item.withExistingParent(type.growerItem().getId().getPath(), generatedParent)
                     .texture("layer0", textureLoc);
+                simpleBlock(type.growerItem().get(), growerItem);
             }
-            final var pressurePlate = pressurePlate(type.pressurePlate().getId().getPath(), rl(typeLoc + "planks"));
-            pressurePlateDown(type.pressurePlate().getId().getPath() + "_down", rl(typeLoc + "planks"));
+            final var pressurePlate = models().pressurePlate(type + "/pressure_plate", rl(typeLoc + "planks"));
+            final var pressurePlateDown = models().pressurePlateDown(type + "/pressure_plate_down", rl(typeLoc + "planks"));
             configureTransform(item.withExistingParent(type.pressurePlate().getId().getPath(), pressurePlate.getLocation()));
+            pressurePlateBlock((PressurePlateBlock) type.pressurePlate().get(), pressurePlate, pressurePlateDown);
 
-            final var slab = slab(type.slab().getId().getPath(), planksLoc, planksLoc, planksLoc);
-            slabTop(type.slab().getId().getPath() + "_top", planksLoc, planksLoc, planksLoc);
+            final var slab = models().slab(type + "/slab", planksLoc, planksLoc, planksLoc);
+            final var slabTop = models().slabTop(type + "/slab_top", planksLoc, planksLoc, planksLoc);
             configureTransform(item.withExistingParent(type.slab().getId().getPath(), slab.getLocation()));
+            slabBlock((SlabBlock) type.slab().get(), slab, slabTop, planks);
 
-            final var stairs = stairs(type.stairs().getId().getPath(), planksLoc, planksLoc, planksLoc);
-            stairsInner(type.stairs().getId().getPath() + "_inner", planksLoc, planksLoc, planksLoc);
-            stairsOuter(type.stairs().getId().getPath() + "_outer", planksLoc, planksLoc, planksLoc);
+            final var stairs = models().stairs(type + "/stairs", planksLoc, planksLoc, planksLoc);
+            final var stairsInner = models().stairsInner(type + "/stairs_inner", planksLoc, planksLoc, planksLoc);
+            final var stairsOuter = models().stairsOuter(type + "/stairs_outer", planksLoc, planksLoc, planksLoc);
             configureTransform(item.withExistingParent(type.stairs().getId().getPath(), stairs.getLocation()));
+            stairsBlock((StairBlock) type.stairs().get(), stairs, stairsInner, stairsOuter);
 
-            final var trapdoorName = type.trapdoor().getId().getPath();
+            final var trapdoorName = type + "/trapdoor";
             final var trapdoorLoc = rl(typeLoc + "trapdoor");
-            final var trapdoor = trapdoorOrientableBottom(trapdoorName + "_bottom", trapdoorLoc);
-            trapdoorOrientableTop(trapdoorName + "_top", trapdoorLoc);
-            trapdoorOrientableOpen(trapdoorName + "_open", trapdoorLoc);
+            final var trapdoor = models().trapdoorOrientableBottom(trapdoorName + "_bottom", trapdoorLoc);
+            final var trapdoorTop = models().trapdoorOrientableTop(trapdoorName + "_top", trapdoorLoc);
+            final var trapdoorOpen = models().trapdoorOrientableOpen(trapdoorName + "_open", trapdoorLoc);
             configureTransform(item.withExistingParent(trapdoorName, trapdoor.getLocation()));
+            trapdoorBlock((TrapDoorBlock) type.trapdoor().get(), trapdoor, trapdoorTop, trapdoorOpen, true);
 
-            if (type.sign() != null) {
-                final var logLocation = rl(typeLoc + "log");
-                final var wallInv = wallInventory(type + "_wall_inventory", logLocation)
-                        .texture("particle", logLocation);
-                item.withExistingParent(type.wallSign().getId().getPath(), wallInv.getLocation());
-                wallSide(type + "_wall", logLocation)
-                        .texture("particle", logLocation);
-                wallPost(type + "_wall_post", logLocation)
-                        .texture("particle", logLocation);
-            }
+// No wood walls for now
+//            final var logLocation = rl(typeLoc + "log");
+//            final var wallInv = models().wallInventory(type + "/wall_inventory", logLocation)
+//                    .texture("particle", logLocation);
+//            item.withExistingParent(type.wall().getId().getPath(), wallInv.getLocation());
+//            final var wall = models().wallSide(type + "/wall", logLocation)
+//                    .texture("particle", logLocation);
+//            final var wallPost = models().wallPost(type + "/wall_post", logLocation)
+//                    .texture("particle", logLocation);
+//            wallBlock(type.wall().get(), wallPost, wall, wall);
         }
     }
 
