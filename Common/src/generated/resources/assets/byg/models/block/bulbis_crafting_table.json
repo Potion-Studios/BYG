@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/bulbis/planks",
+    "up": "byg:block/bulbis/crafting_table_top",
+    "north": "byg:block/bulbis/crafting_table_front",
+    "south": "byg:block/bulbis/crafting_table_side",
+    "east": "byg:block/bulbis/crafting_table_side",
+    "west": "byg:block/bulbis/crafting_table_front",
+    "particle": "byg:block/bulbis/crafting_table_front"
+  }
+}

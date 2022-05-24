@@ -151,15 +151,16 @@ public class BYGAssetsProvider extends BlockModelProvider {
             trapdoorOrientableOpen(trapdoorName + "_open", trapdoorLoc);
             configureTransform(item.withExistingParent(trapdoorName, trapdoor.getLocation()));
 
-            // TODO what are walls?
-            final var logLocation = rl(typeLoc + "log");
-            final var wallInv = wallInventory(type + "_wall_inventory", logLocation)
-                .texture("particle", logLocation);
-            item.withExistingParent(type.wallSign().getId().getPath(), wallInv.getLocation());
-            wallSide(type + "_wall", logLocation)
-                .texture("particle", logLocation);
-            wallPost(type + "_wall_post", logLocation)
-                .texture("particle", logLocation);
+            if (type.sign() != null) {
+                final var logLocation = rl(typeLoc + "log");
+                final var wallInv = wallInventory(type + "_wall_inventory", logLocation)
+                        .texture("particle", logLocation);
+                item.withExistingParent(type.wallSign().getId().getPath(), wallInv.getLocation());
+                wallSide(type + "_wall", logLocation)
+                        .texture("particle", logLocation);
+                wallPost(type + "_wall_post", logLocation)
+                        .texture("particle", logLocation);
+            }
         }
     }
 

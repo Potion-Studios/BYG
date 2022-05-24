@@ -4,9 +4,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "byg_forge.refmap.json",
   "mixins": [
+    "dev.ModelBuilderMixin",
+    "dev.ModelProviderAccess"
   ],
   "client": [
   ],
+  "plugin": "potionstudios.byg.mixin.BYGPotionStudiosMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   },
