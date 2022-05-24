@@ -18,8 +18,10 @@ public class BYGStrippables {
         Map<Block, Block> stripables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
 
         for (final BYGWoodTypes type : BYGWoodTypes.values()) {
-            stripables.put(type.log().get(), type.strippedLog().get());
-            stripables.put(type.wood().get(), type.strippedWood().get());
+            if (type.strippedLog() != null && type.log() != null)
+                stripables.put(type.log().get(), type.strippedLog().get());
+            if (type.wood() != null && type.strippedWood() != null)
+                stripables.put(type.wood().get(), type.strippedWood().get());
         }
 
         stripables.put(BYGBlocks.JACARANDA_LOG.get(), BYGBlocks.STRIPPED_JACARANDA_LOG.get());

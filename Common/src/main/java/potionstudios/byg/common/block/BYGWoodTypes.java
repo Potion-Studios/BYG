@@ -45,6 +45,8 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY)
             .growerItem(GrowerItemType.ODDITY)
             .exclude(BlockType.LEAVES)
+            .registryName(BlockType.WOOD, "%s_wood")
+            .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .stem()),
     CHERRY("cherry", new Builder()
             .exclude(BlockType.SAPLING, BlockType.LEAVES)

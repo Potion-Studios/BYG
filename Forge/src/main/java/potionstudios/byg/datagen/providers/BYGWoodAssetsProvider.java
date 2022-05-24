@@ -43,6 +43,9 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var log = models().cubeColumn(typeName + "/log", BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
             axisBlock((RotatedPillarBlock) type.log().get(), log, log);
             configureTransform(item.withExistingParent(type.log().getId().getPath(), log.getLocation()));
+            final var strippedLog = models().cubeColumn(typeName + "/stripped_log", BYG.createLocation(typeLoc + "stripped_log"), BYG.createLocation(typeLoc + "stripped_log_top"));
+            axisBlock((RotatedPillarBlock) type.strippedLog().get(), strippedLog, strippedLog);
+            configureTransform(item.withExistingParent(type.strippedLog().getId().getPath(), strippedLog.getLocation()));
 
             if (type.boat() != null)
                 item.withExistingParent(type.boat().getId().getPath(), generatedParent)
@@ -153,6 +156,10 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 .texture("particle", rl(typeLoc + "log"));
             configureTransform(item.withExistingParent(type.wood().getId().getPath(), wood.getLocation()));
             axisBlock((RotatedPillarBlock) type.wood().get(), wood, wood);
+            final var strippedWood = models().cubeAll(typeName + "/stripped_wood", rl(typeLoc + "stripped_wood"))
+                .texture("particle", rl(typeLoc + "stripped_wood"));
+            configureTransform(item.withExistingParent(type.strippedWood().getId().getPath(), strippedWood.getLocation()));
+            axisBlock((RotatedPillarBlock) type.strippedWood().get(), strippedWood, strippedLog);
 
             if (type.growerItem() != null) {
                 final var textureLoc = rl(typeLoc + "grower_item");

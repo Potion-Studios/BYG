@@ -49,7 +49,6 @@ d642426ccac836b099d80eb6f7839e11c9d9fa75 assets/byg/blockstates/bulbis_crafting_
 e76b9975b21af881fb254fb3b95a03656e34a48c assets/byg/blockstates/bulbis_door.json
 05ea3dbc2d1cf74164eccace12632d07284bebfd assets/byg/blockstates/bulbis_fence.json
 52f49d50d9a2b1ff65a4ef5579ae87edfe01fa68 assets/byg/blockstates/bulbis_fence_gate.json
-34437c30c0b1bd9773f1be8e10c8d4dfec37f8a8 assets/byg/blockstates/bulbis_hyphae.json
 aa3dce03f95ffb3e493723b4af57796446bd06a5 assets/byg/blockstates/bulbis_oddity.json
 650dfec098bab994309a39150c03ba8bb96103cf assets/byg/blockstates/bulbis_planks.json
 93cd0d54e1ed8a0ed2fb7846904e437aa050cf7b assets/byg/blockstates/bulbis_pressure_plate.json
@@ -57,6 +56,7 @@ aa3dce03f95ffb3e493723b4af57796446bd06a5 assets/byg/blockstates/bulbis_oddity.js
 cd66b534707514f920646728e836d22ba63aba3e assets/byg/blockstates/bulbis_stairs.json
 f8b44875c14d68e47f7509fb5c6810ac7a0fd05c assets/byg/blockstates/bulbis_stem.json
 403946f133711ef34624713f7cb037cc9d4bd29a assets/byg/blockstates/bulbis_trapdoor.json
+34437c30c0b1bd9773f1be8e10c8d4dfec37f8a8 assets/byg/blockstates/bulbis_wood.json
 2d2f9344172d4eec4cf91ae111dc0c6a942ae8f7 assets/byg/blockstates/cherry_bookshelf.json
 9237e75502db78f6682e07002fc8f0257f8039da assets/byg/blockstates/cherry_button.json
 c5c78b48d2a9c2a535b213b11d404295fc417f6e assets/byg/blockstates/cherry_crafting_table.json
@@ -802,13 +802,13 @@ a7b559f9a1a637fbd7503d1e72c8142951fb8156 assets/byg/models/item/bulbis_bookshelf
 490c0fcfd64530bdd65f2a85319c5c6d756e5f6d assets/byg/models/item/bulbis_crafting_table.json
 1f076b5c13d20abd1ab142ac7a57dab99a266e56 assets/byg/models/item/bulbis_door.json
 8e296f3e0760fb418ac31b1438827e74c1132431 assets/byg/models/item/bulbis_fence.json
-1a242864eaf20cbf5e2aab37843a9701cdc1032f assets/byg/models/item/bulbis_hyphae.json
 661801e3a4ca9353697810a3aa4a81d7b07e00e7 assets/byg/models/item/bulbis_oddity.json
 e3c2386fc2317ddcd2c0562c34467002ead1effe assets/byg/models/item/bulbis_planks.json
 4a5cf63bfe1d373d6874bb3f95ab015b944680ab assets/byg/models/item/bulbis_pressure_plate.json
 9b0971f59cac0d7eee33f6fe78b69521d8f36158 assets/byg/models/item/bulbis_slab.json
 55615375d6153b1f7c7fdb777df2603515ddf6d3 assets/byg/models/item/bulbis_stairs.json
 52e3e2ba6a89a7323453178ed0d6be2bc028d05f assets/byg/models/item/bulbis_stem.json
+1a242864eaf20cbf5e2aab37843a9701cdc1032f assets/byg/models/item/bulbis_wood.json
 d4502e108d0629141cc53335771ceceffae3d552 assets/byg/models/item/cherry_boat.json
 aa216009bf5130342dc1c1043b4c6305d8993657 assets/byg/models/item/cherry_bookshelf.json
 d0362947b575dda7555aea3a937ebd68db2b6a6c assets/byg/models/item/cherry_button.json
@@ -1227,7 +1227,7 @@ f759ec6decdecf11942a9631efb9501d64c8b179 data/byg/recipes/wood/bulbis/pressure_p
 f990490be9ee8802570ff167ef2339d689967f82 data/byg/recipes/wood/bulbis/slab.json
 2e40cf96e3d0bc9446669bec2fa9f98a68a10c48 data/byg/recipes/wood/bulbis/stairs.json
 e233da95e2cde16f4cada84a04db6f65340e7b14 data/byg/recipes/wood/bulbis/trapdoor.json
-063cd8ffbe015d85a44841281614c2f72780f91a data/byg/recipes/wood/bulbis/wood.json
+5caa3354b5580a44c9394df5f775439b2e186b14 data/byg/recipes/wood/bulbis/wood.json
 fcc3ecbb4c7fd0ca85a097eb05af19fb9470f82b data/byg/recipes/wood/cherry/boat.json
 f6ebac66eb0b9b389c5aa8399e7f635f83fd6f37 data/byg/recipes/wood/cherry/bookshelf.json
 69a6c51e9be471a4fdf07a0d253b4b3f76026818 data/byg/recipes/wood/cherry/button.json
@@ -1509,7 +1509,7 @@ df9ee6dda975d83a8e9b841997af32145752343a data/byg/tags/blocks/may_place_on/tall_
 05f049ce3b43d0d334eb6919e7757ff009e8f5a5 data/byg/tags/blocks/wood/aspen_logs.json
 fef182ec0f322f5afeaceaaf40201a1f8a8e4490 data/byg/tags/blocks/wood/baobab_logs.json
 5c86e0ca01ddd0f437716b2531dbdd6a4dc7f5ef data/byg/tags/blocks/wood/blue_enchanted_logs.json
-30cb6225f90435624555cb4a10c162e47c6fcc77 data/byg/tags/blocks/wood/bulbis_logs.json
+6ba54ede001aeb5d407035a8d9ed38fd9c6b6b85 data/byg/tags/blocks/wood/bulbis_logs.json
 92bb19e703dea870b6efd348f6216eb791b07f94 data/byg/tags/blocks/wood/cherry_logs.json
 5e914064c19b559bbfe2c5854498c911fc652c1e data/byg/tags/blocks/wood/cika_logs.json
 7783615e9e6ec1e4fa32f307ea427d887937ca54 data/byg/tags/blocks/wood/cypress_logs.json
@@ -1525,7 +1525,7 @@ c15a0295fe2f490bff6f73cfda024db130adc30e data/byg/tags/blocks/wood/green_enchant
 7b35a14085d646c0ddc0788cedff0f9018f03106 data/byg/tags/items/wood/aspen_logs.json
 1d139ace7d528027bc3a740259b1a57f93bdc07c data/byg/tags/items/wood/baobab_logs.json
 a2d128f8fa5da93d3a7a003ad486261a19e7c5ae data/byg/tags/items/wood/blue_enchanted_logs.json
-97609e80bca8a05d3bb6fb19ce5b43d0fd435069 data/byg/tags/items/wood/bulbis_logs.json
+b2b82b3c0b71053cb3f09d7b4bf3fab281489c41 data/byg/tags/items/wood/bulbis_logs.json
 f4980e01bf3950c5b70a5182e932662a5f325afb data/byg/tags/items/wood/cherry_logs.json
 068be598420fe871d6b5781c38676dd17f7a0344 data/byg/tags/items/wood/cika_logs.json
 29435ee175355151440dccbe35ded08bbcd4bc9c data/byg/tags/items/wood/cypress_logs.json
