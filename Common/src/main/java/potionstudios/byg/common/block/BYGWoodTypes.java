@@ -19,9 +19,11 @@ import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public enum BYGWoodTypes {
@@ -74,7 +76,12 @@ public enum BYGWoodTypes {
     HOLLY("holly", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
             .materialColor(MaterialColor.TERRACOTTA_GREEN)
-            .boatType(BYGBoatEntity.BYGType.HOLLY));
+            .boatType(BYGBoatEntity.BYGType.HOLLY)),
+    IMPARIUS("imparius", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
+            .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)
+            .growerItem(GrowerItemType.MUSHROOM)
+            .stem());
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {
@@ -134,6 +141,7 @@ public enum BYGWoodTypes {
             case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
             case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
             case FUNGUS -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_fungus");
+            case MUSHROOM -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_mushroom");
         };
         BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
@@ -142,13 +150,13 @@ public enum BYGWoodTypes {
             BYGItems.createItem(leaves);
         }
 
-        this.log = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_stem") : BYGBlocks.createLog(name + "_log");
+        this.log = ifAllowed(BlockType.LOG, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_stem", BlockType.LOG)) : BYGBlocks.createLog(nameOr("%s_log", BlockType.LOG)));
         BYGItems.createItem(log);
-        this.wood = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, name + "_wood") : BYGBlocks.createWood(name + "_wood");
+        this.wood = ifAllowed(BlockType.WOOD, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_hyphae", BlockType.WOOD)) : BYGBlocks.createWood(nameOr("%s_wood", BlockType.WOOD)));
         BYGItems.createItem(wood);
-        this.strippedLog = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_stem") : BYGBlocks.createStrippedLog("stripped_" + name + "_log");
+        this.strippedLog = ifAllowed(BlockType.STRIPPED_LOG, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_stem", BlockType.STRIPPED_LOG)) : BYGBlocks.createStrippedLog(nameOr("stripped_%s_log", BlockType.STRIPPED_LOG)));
         BYGItems.createItem(strippedLog);
-        this.strippedWood = builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + name + "_wood") : BYGBlocks.createWood("stripped_" + name + "_wood");
+        this.strippedWood = ifAllowed(BlockType.STRIPPED_WOOD, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_hyphae", BlockType.STRIPPED_WOOD)) : BYGBlocks.createWood(nameOr("stripped_%s_wood", BlockType.STRIPPED_WOOD)));
         BYGItems.createItem(strippedWood);
 
         this.planks = BYGBlocks.createPlanks(name + "_planks");
@@ -185,6 +193,14 @@ public enum BYGWoodTypes {
             this.boat = BYGItems.createItem(() -> new BYGBoatItem(builder.boatType, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), name + "_boat");
         }
         initialized = true;
+    }
+
+    private String nameOr(String defaultName, BlockType blockType) {
+        return builder.registryName.computeIfAbsent(blockType, k -> defaultName).formatted(name);
+    }
+
+    private <T> T ifAllowed(BlockType type, Supplier<? extends T> sup) {
+        return builder.excludes.contains(type) ? null : sup.get();
     }
 
     @Override
@@ -285,15 +301,21 @@ public enum BYGWoodTypes {
     public enum GrowerItemType {
         SAPLING,
         ODDITY,
-        FUNGUS
+        FUNGUS,
+        MUSHROOM
     }
 
     public enum BlockType {
         LEAVES,
-        SAPLING
+        SAPLING,
+        WOOD,
+        LOG,
+        STRIPPED_WOOD,
+        STRIPPED_LOG
     }
 
     public static final class Builder {
+        private final Map<BlockType, String> registryName = new HashMap<>();
         private GrowerItemType growerItemType = GrowerItemType.SAPLING;
         private final EnumSet<BlockType> excludes = EnumSet.noneOf(BlockType.class);
         private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
@@ -328,6 +350,10 @@ public enum BYGWoodTypes {
         }
         public Builder stem() {
             this.isStem = true;
+            return this;
+        }
+        public Builder registryName(BlockType blockType, String name) {
+            this.registryName.put(blockType, name);
             return this;
         }
     }

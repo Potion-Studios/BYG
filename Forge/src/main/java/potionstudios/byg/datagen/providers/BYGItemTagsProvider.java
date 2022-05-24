@@ -13,6 +13,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BYGItemTagsProvider extends ItemTagsProvider {
@@ -23,13 +24,13 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags() {
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            tag(type.logTag(), type.log(), type.strippedLog());
+            tag(type.logTag(), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
         }
     }
 
     @SafeVarargs
     @SuppressWarnings("ALL")
     private void tag(TagKey<Item> tag, Supplier<? extends ItemLike>... items) {
-        this.tag(tag).add(Arrays.stream(items).map(Supplier::get).map(ItemLike::asItem).toArray(Item[]::new));
+        this.tag(tag).add(Arrays.stream(items).filter(Objects::nonNull).map(Supplier::get).map(ItemLike::asItem).toArray(Item[]::new));
     }
 }

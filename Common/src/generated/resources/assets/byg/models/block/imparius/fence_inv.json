@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "byg:block/imparius/planks",
+    "particle": "byg:block/imparius/planks"
+  }
+}

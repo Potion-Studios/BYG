@@ -275,6 +275,17 @@ public class BYGItems {
     public static final RegistryObject<Item> HOLLY_BERRY_LEAVES;
     public static final RegistryObject<Item> HOLLY_BERRY;
 
+    //Imparius Woodtype
+    public static final RegistryObject<Item> IMPARIUS_VINE;
+    public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BRANCH;
+    public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BLOCK;
+    public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT_BLOCK;
+    public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT;
+    public static final RegistryObject<Item> FUNGAL_IMPARIUS_BLOCK;
+    public static final RegistryObject<GrowerItem> FUNGAL_IMPARIUS;
+    public static final RegistryObject<Item> FUNGAL_IMPARIUS_STEM;
+    public static final RegistryObject<Item> FUNGAL_IMPARIUS_HYPHAE;
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -310,33 +321,18 @@ public class BYGItems {
         HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
         HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
         BYGWoodTypes.HOLLY.init();
-    }
 
-    //Imparius Woodtype
-    public static final RegistryObject<Item> IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
-    public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
-    public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BLOCK = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK);
-    public static final RegistryObject<GrowerItem> IMPARIUS_MUSHROOM = createGrowerItem(BYGBlocks.IMPARIUS_MUSHROOM);
-    public static final RegistryObject<Item> IMPARIUS_STEM = createItem(BYGBlocks.IMPARIUS_STEM);
-    public static final RegistryObject<Item> IMPARIUS_HYPHAE = createItem(BYGBlocks.IMPARIUS_HYPHAE);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS_FILAMENT = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK);
-    public static final RegistryObject<GrowerItem> FUNGAL_IMPARIUS = createGrowerItem(BYGBlocks.FUNGAL_IMPARIUS);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
-    public static final RegistryObject<Item> FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
-    public static final RegistryObject<Item> IMPARIUS_PLANKS = createItem(BYGBlocks.IMPARIUS_PLANKS);
-    public static final RegistryObject<Item> IMPARIUS_BOOKSHELF = createItem(BYGBlocks.IMPARIUS_BOOKSHELF);
-    public static final RegistryObject<Item> IMPARIUS_CRAFTING_TABLE = createItem(BYGBlocks.IMPARIUS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> IMPARIUS_STAIRS = createItem(BYGBlocks.IMPARIUS_STAIRS);
-    public static final RegistryObject<Item> IMPARIUS_SLAB = createItem(BYGBlocks.IMPARIUS_SLAB);
-    public static final RegistryObject<Item> IMPARIUS_FENCE = createItem(BYGBlocks.IMPARIUS_FENCE);
-    public static final RegistryObject<Item> IMPARIUS_FENCE_GATE = createItem(BYGBlocks.IMPARIUS_FENCE_GATE);
-    public static final RegistryObject<Item> IMPARIUS_DOOR = createItem(BYGBlocks.IMPARIUS_DOOR);
-    public static final RegistryObject<Item> IMPARIUS_TRAPDOOR = createItem(BYGBlocks.IMPARIUS_TRAPDOOR);
-    public static final RegistryObject<Item> IMPARIUS_PRESSURE_PLATE = createItem(BYGBlocks.IMPARIUS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> IMPARIUS_BUTTON = createItem(BYGBlocks.IMPARIUS_BUTTON);
-    public static final RegistryObject<SignItem> IMPARIUS_SIGN = createSign("imparius_sign", BYGBlocks.IMPARIUS_SIGN, BYGBlocks.IMPARIUS_WALL_SIGN);
+        IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
+        IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
+        IMPARIUS_MUSHROOM_BLOCK = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK);
+        FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK);
+        FUNGAL_IMPARIUS_FILAMENT = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT);
+        FUNGAL_IMPARIUS_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK);
+        FUNGAL_IMPARIUS = createGrowerItem(BYGBlocks.FUNGAL_IMPARIUS);
+        FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
+        FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
+        BYGWoodTypes.IMPARIUS.init();
+    }
 
     //Jacaranda Woodtype
     public static final RegistryObject<Item> JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
@@ -1079,7 +1075,7 @@ public class BYGItems {
     public static final RegistryObject<Item> YELLOW_TULIP = createItem(BYGBlocks.YELLOW_TULIP);
 
     public static RegistryObject<Item> createItem(RegistryObject<? extends Block> block) {
-        return createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        return block == null ? null : createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
     public static RegistryObject<GrowerItem> createSaplingItem(RegistryObject<? extends Block> block) {

@@ -124,7 +124,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ENDER_LILY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_BRAMBLE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_MUSHROOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FUNGAL_IMPARIUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_VINE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_VINE_PLANT.get(), RenderType.cutoutMipped());
@@ -156,7 +155,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.EMBUR_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
         map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
@@ -175,7 +173,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.EMBUR_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_TRAPDOOR.get(), RenderType.cutoutMipped());
 
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), RenderType.translucent());

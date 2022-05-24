@@ -27,6 +27,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.common.block.BYGWoodType;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.access.TagBuilderAccess;
 import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
@@ -37,6 +38,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -103,6 +105,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 //                    .slab(), type.stairs());
 //        }
 
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            add(tag(TagKey.create(Registry.BLOCK_REGISTRY, BYG.createLocation("wood/" + type + "_logs"))), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
+        }
+
         sortTagsAlphabeticallyAndRemoveDuplicateTagEntries();
     }
 
@@ -120,7 +126,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
     @SafeVarargs
     @SuppressWarnings("ALL")
     private void tag(TagKey<Block> tag, Supplier<? extends Block>... blocks) {
-        this.tag(tag).add(Arrays.stream(blocks).map(Supplier::get).toArray(Block[]::new));
+        this.tag(tag).add(Arrays.stream(blocks).filter(Objects::nonNull).map(Supplier::get).toArray(Block[]::new));
     }
 
     @SafeVarargs

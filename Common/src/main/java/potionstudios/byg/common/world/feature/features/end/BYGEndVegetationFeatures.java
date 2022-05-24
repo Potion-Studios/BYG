@@ -54,7 +54,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_SPROUTS = createPatchConfiguredFeature("nightshade_sprouts", BYGBlocks.NIGHTSHADE_SPROUTS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_ROOTS = createPatchConfiguredFeature("nightshade_roots", BYGBlocks.NIGHTSHADE_ROOTS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeature("nightshade_berry_bush", BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), 32);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGBlocks.IMPARIUS_MUSHROOM.get(), 32);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGWoodTypes.IMPARIUS.growerItem().get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeature("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_BUSH = createPatchConfiguredFeature("imparius_bush", BYGBlocks.IMPARIUS_BUSH.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SHULKREN_FUNGUS = createPatchConfiguredFeature("shulkren_fungus", BYGBlocks.SHULKREN_FUNGUS.get(), 32);
@@ -307,7 +307,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
         BYGFeatures.IMPARIUS_MUSHROOM1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -317,7 +317,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
         BYGFeatures.IMPARIUS_MUSHROOM2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -327,7 +327,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
         BYGFeatures.IMPARIUS_MUSHROOM3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -337,7 +337,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
         BYGFeatures.IMPARIUS_MUSHROOM4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -347,7 +347,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
         BYGFeatures.IMPARIUS_MUSHROOM5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -357,7 +357,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
         BYGFeatures.IMPARIUS_MUSHROOM6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)

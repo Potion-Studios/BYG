@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "byg:ebony_log",
-    "byg:stripped_ebony_log"
+    "byg:stripped_ebony_log",
+    "byg:ebony_wood",
+    "byg:stripped_ebony_wood"
   ]
 }

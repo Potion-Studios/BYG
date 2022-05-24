@@ -9,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
@@ -43,7 +44,7 @@ public class BYGVillagerTrades {
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 2),
             },
             5, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGWoodTypes.IMPARIUS.growerItem().asItem(), 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 2),
             }

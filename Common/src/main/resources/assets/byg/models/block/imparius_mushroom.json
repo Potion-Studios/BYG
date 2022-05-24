@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/imparius_mushroom",
-    "particle": "byg:block/imparius_mushroom"
-  }
-}

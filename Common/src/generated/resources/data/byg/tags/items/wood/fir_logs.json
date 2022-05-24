@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "byg:fir_log",
-    "byg:stripped_fir_log"
+    "byg:stripped_fir_log",
+    "byg:fir_wood",
+    "byg:stripped_fir_wood"
   ]
 }

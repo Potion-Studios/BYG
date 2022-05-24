@@ -1,8 +1,0 @@
-{
-  "values": [
-    "byg:cypress_log",
-    "byg:stripped_cypress_log",
-    "byg:cypress_wood",
-    "byg:stripped_cypress_wood"
-  ]
-}
