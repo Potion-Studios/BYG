@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "bottom": "byg:block/cherry_planks",
-    "top": "byg:block/cherry_planks",
-    "side": "byg:block/cherry_planks"
-  }
-}
