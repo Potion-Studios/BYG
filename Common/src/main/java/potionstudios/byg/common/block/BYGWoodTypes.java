@@ -89,6 +89,10 @@ public enum BYGWoodTypes {
     MANGROVE("mangrove", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
             .boatType(BYGBoatEntity.BYGType.MANGROVE)
+            .materialColor(MaterialColor.COLOR_GREEN)),
+    PALM("palm", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_PALM_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.PALM)
             .materialColor(MaterialColor.COLOR_GREEN));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;

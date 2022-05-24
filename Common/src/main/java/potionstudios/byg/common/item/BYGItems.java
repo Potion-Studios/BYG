@@ -337,6 +337,53 @@ public class BYGItems {
     public static final RegistryObject<Item> LAMENT_BUTTON = createItem(BYGBlocks.LAMENT_BUTTON);
     public static final RegistryObject<SignItem> LAMENT_SIGN = createSign("lament_sign", BYGBlocks.LAMENT_SIGN, BYGBlocks.LAMENT_WALL_SIGN);
 
+    //Maple Woodtype
+    public static final RegistryObject<GrowerItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
+    public static final RegistryObject<Item> MAPLE_LEAVES = createItem(BYGBlocks.MAPLE_LEAVES);
+    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
+    public static final RegistryObject<Item> RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
+    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
+    public static final RegistryObject<Item> SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
+    public static final RegistryObject<Item> MAPLE_LOG = createItem(BYGBlocks.MAPLE_LOG);
+    public static final RegistryObject<Item> MAPLE_WOOD = createItem(BYGBlocks.MAPLE_WOOD);
+    public static final RegistryObject<Item> STRIPPED_MAPLE_LOG = createItem(BYGBlocks.STRIPPED_MAPLE_LOG);
+    public static final RegistryObject<Item> STRIPPED_MAPLE_WOOD = createItem(BYGBlocks.STRIPPED_MAPLE_WOOD);
+    public static final RegistryObject<Item> MAPLE_PLANKS = createItem(BYGBlocks.MAPLE_PLANKS);
+    public static final RegistryObject<Item> MAPLE_BOOKSHELF = createItem(BYGBlocks.MAPLE_BOOKSHELF);
+    public static final RegistryObject<Item> MAPLE_CRAFTING_TABLE = createItem(BYGBlocks.MAPLE_CRAFTING_TABLE);
+    public static final RegistryObject<Item> MAPLE_STAIRS = createItem(BYGBlocks.MAPLE_STAIRS);
+    public static final RegistryObject<Item> MAPLE_SLAB = createItem(BYGBlocks.MAPLE_SLAB);
+    public static final RegistryObject<Item> MAPLE_FENCE = createItem(BYGBlocks.MAPLE_FENCE);
+    public static final RegistryObject<Item> MAPLE_FENCE_GATE = createItem(BYGBlocks.MAPLE_FENCE_GATE);
+    public static final RegistryObject<Item> MAPLE_DOOR = createItem(BYGBlocks.MAPLE_DOOR);
+    public static final RegistryObject<Item> MAPLE_TRAPDOOR = createItem(BYGBlocks.MAPLE_TRAPDOOR);
+    public static final RegistryObject<Item> MAPLE_PRESSURE_PLATE = createItem(BYGBlocks.MAPLE_PRESSURE_PLATE);
+    public static final RegistryObject<Item> MAPLE_BUTTON = createItem(BYGBlocks.MAPLE_BUTTON);
+    public static final RegistryObject<SignItem> MAPLE_SIGN = createSign("maple_sign", BYGBlocks.MAPLE_SIGN, BYGBlocks.MAPLE_WALL_SIGN);
+    public static final RegistryObject<BYGBoatItem> MAPLE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
+
+    //Nightshade Woodtype
+    public static final RegistryObject<GrowerItem> NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
+    public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
+    public static final RegistryObject<Item> NIGHTSHADE_LEAVES = createItem(BYGBlocks.NIGHTSHADE_LEAVES);
+    public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
+    public static final RegistryObject<Item> NIGHTSHADE_LOG = createItem(BYGBlocks.NIGHTSHADE_LOG);
+    public static final RegistryObject<Item> NIGHTSHADE_WOOD = createItem(BYGBlocks.NIGHTSHADE_WOOD);
+    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_LOG = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_LOG);
+    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_WOOD = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_WOOD);
+    public static final RegistryObject<Item> NIGHTSHADE_PLANKS = createItem(BYGBlocks.NIGHTSHADE_PLANKS);
+    public static final RegistryObject<Item> NIGHTSHADE_BOOKSHELF = createItem(BYGBlocks.NIGHTSHADE_BOOKSHELF);
+    public static final RegistryObject<Item> NIGHTSHADE_CRAFTING_TABLE = createItem(BYGBlocks.NIGHTSHADE_CRAFTING_TABLE);
+    public static final RegistryObject<Item> NIGHTSHADE_STAIRS = createItem(BYGBlocks.NIGHTSHADE_STAIRS);
+    public static final RegistryObject<Item> NIGHTSHADE_SLAB = createItem(BYGBlocks.NIGHTSHADE_SLAB);
+    public static final RegistryObject<Item> NIGHTSHADE_FENCE = createItem(BYGBlocks.NIGHTSHADE_FENCE);
+    public static final RegistryObject<Item> NIGHTSHADE_FENCE_GATE = createItem(BYGBlocks.NIGHTSHADE_FENCE_GATE);
+    public static final RegistryObject<Item> NIGHTSHADE_DOOR = createItem(BYGBlocks.NIGHTSHADE_DOOR);
+    public static final RegistryObject<Item> NIGHTSHADE_TRAPDOOR = createItem(BYGBlocks.NIGHTSHADE_TRAPDOOR);
+    public static final RegistryObject<Item> NIGHTSHADE_PRESSURE_PLATE = createItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE);
+    public static final RegistryObject<Item> NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
+    public static final RegistryObject<SignItem> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -387,75 +434,9 @@ public class BYGItems {
         // TODO Lamient, Jacaranda
         BYGWoodTypes.MAHOGANY.init();
         BYGWoodTypes.MANGROVE.init();
+        // TODO Maple, Nightshade
+        BYGWoodTypes.PALM.init();
     }
-
-    //Maple Woodtype
-    public static final RegistryObject<GrowerItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
-    public static final RegistryObject<Item> MAPLE_LEAVES = createItem(BYGBlocks.MAPLE_LEAVES);
-    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
-    public static final RegistryObject<Item> RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
-    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
-    public static final RegistryObject<Item> SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
-    public static final RegistryObject<Item> MAPLE_LOG = createItem(BYGBlocks.MAPLE_LOG);
-    public static final RegistryObject<Item> MAPLE_WOOD = createItem(BYGBlocks.MAPLE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_MAPLE_LOG = createItem(BYGBlocks.STRIPPED_MAPLE_LOG);
-    public static final RegistryObject<Item> STRIPPED_MAPLE_WOOD = createItem(BYGBlocks.STRIPPED_MAPLE_WOOD);
-    public static final RegistryObject<Item> MAPLE_PLANKS = createItem(BYGBlocks.MAPLE_PLANKS);
-    public static final RegistryObject<Item> MAPLE_BOOKSHELF = createItem(BYGBlocks.MAPLE_BOOKSHELF);
-    public static final RegistryObject<Item> MAPLE_CRAFTING_TABLE = createItem(BYGBlocks.MAPLE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> MAPLE_STAIRS = createItem(BYGBlocks.MAPLE_STAIRS);
-    public static final RegistryObject<Item> MAPLE_SLAB = createItem(BYGBlocks.MAPLE_SLAB);
-    public static final RegistryObject<Item> MAPLE_FENCE = createItem(BYGBlocks.MAPLE_FENCE);
-    public static final RegistryObject<Item> MAPLE_FENCE_GATE = createItem(BYGBlocks.MAPLE_FENCE_GATE);
-    public static final RegistryObject<Item> MAPLE_DOOR = createItem(BYGBlocks.MAPLE_DOOR);
-    public static final RegistryObject<Item> MAPLE_TRAPDOOR = createItem(BYGBlocks.MAPLE_TRAPDOOR);
-    public static final RegistryObject<Item> MAPLE_PRESSURE_PLATE = createItem(BYGBlocks.MAPLE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> MAPLE_BUTTON = createItem(BYGBlocks.MAPLE_BUTTON);
-    public static final RegistryObject<SignItem> MAPLE_SIGN = createSign("maple_sign", BYGBlocks.MAPLE_SIGN, BYGBlocks.MAPLE_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> MAPLE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
-
-    //Nightshade Woodtype
-    public static final RegistryObject<GrowerItem> NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
-    public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
-    public static final RegistryObject<Item> NIGHTSHADE_LEAVES = createItem(BYGBlocks.NIGHTSHADE_LEAVES);
-    public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> NIGHTSHADE_LOG = createItem(BYGBlocks.NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> NIGHTSHADE_WOOD = createItem(BYGBlocks.NIGHTSHADE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_LOG = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_WOOD = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_WOOD);
-    public static final RegistryObject<Item> NIGHTSHADE_PLANKS = createItem(BYGBlocks.NIGHTSHADE_PLANKS);
-    public static final RegistryObject<Item> NIGHTSHADE_BOOKSHELF = createItem(BYGBlocks.NIGHTSHADE_BOOKSHELF);
-    public static final RegistryObject<Item> NIGHTSHADE_CRAFTING_TABLE = createItem(BYGBlocks.NIGHTSHADE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> NIGHTSHADE_STAIRS = createItem(BYGBlocks.NIGHTSHADE_STAIRS);
-    public static final RegistryObject<Item> NIGHTSHADE_SLAB = createItem(BYGBlocks.NIGHTSHADE_SLAB);
-    public static final RegistryObject<Item> NIGHTSHADE_FENCE = createItem(BYGBlocks.NIGHTSHADE_FENCE);
-    public static final RegistryObject<Item> NIGHTSHADE_FENCE_GATE = createItem(BYGBlocks.NIGHTSHADE_FENCE_GATE);
-    public static final RegistryObject<Item> NIGHTSHADE_DOOR = createItem(BYGBlocks.NIGHTSHADE_DOOR);
-    public static final RegistryObject<Item> NIGHTSHADE_TRAPDOOR = createItem(BYGBlocks.NIGHTSHADE_TRAPDOOR);
-    public static final RegistryObject<Item> NIGHTSHADE_PRESSURE_PLATE = createItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
-    public static final RegistryObject<SignItem> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
-
-    //Palm Woodtype
-    public static final RegistryObject<GrowerItem> PALM_SAPLING = createSaplingItem(BYGBlocks.PALM_SAPLING);
-    public static final RegistryObject<Item> PALM_LEAVES = createItem(BYGBlocks.PALM_LEAVES);
-    public static final RegistryObject<Item> PALM_LOG = createItem(BYGBlocks.PALM_LOG);
-    public static final RegistryObject<Item> PALM_WOOD = createItem(BYGBlocks.PALM_WOOD);
-    public static final RegistryObject<Item> STRIPPED_PALM_LOG = createItem(BYGBlocks.STRIPPED_PALM_LOG);
-    public static final RegistryObject<Item> STRIPPED_PALM_WOOD = createItem(BYGBlocks.STRIPPED_PALM_WOOD);
-    public static final RegistryObject<Item> PALM_PLANKS = createItem(BYGBlocks.PALM_PLANKS);
-    public static final RegistryObject<Item> PALM_BOOKSHELF = createItem(BYGBlocks.PALM_BOOKSHELF);
-    public static final RegistryObject<Item> PALM_CRAFTING_TABLE = createItem(BYGBlocks.PALM_CRAFTING_TABLE);
-    public static final RegistryObject<Item> PALM_STAIRS = createItem(BYGBlocks.PALM_STAIRS);
-    public static final RegistryObject<Item> PALM_SLAB = createItem(BYGBlocks.PALM_SLAB);
-    public static final RegistryObject<Item> PALM_FENCE = createItem(BYGBlocks.PALM_FENCE);
-    public static final RegistryObject<Item> PALM_FENCE_GATE = createItem(BYGBlocks.PALM_FENCE_GATE);
-    public static final RegistryObject<Item> PALM_DOOR = createItem(BYGBlocks.PALM_DOOR);
-    public static final RegistryObject<Item> PALM_TRAPDOOR = createItem(BYGBlocks.PALM_TRAPDOOR);
-    public static final RegistryObject<Item> PALM_PRESSURE_PLATE = createItem(BYGBlocks.PALM_PRESSURE_PLATE);
-    public static final RegistryObject<Item> PALM_BUTTON = createItem(BYGBlocks.PALM_BUTTON);
-    public static final RegistryObject<SignItem> PALM_SIGN = createSign("palm_sign", BYGBlocks.PALM_SIGN, BYGBlocks.PALM_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> PALM_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.PALM, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "palm_boat");
 
     //Palo Verde Woodtype
     public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);

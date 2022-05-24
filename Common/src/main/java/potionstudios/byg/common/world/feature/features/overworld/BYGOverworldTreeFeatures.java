@@ -1301,8 +1301,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE1 = createConfiguredFeature("palm_tree1",
             BYGFeatures.PALM_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALM_LOG.get())
-                    .setLeavesBlock(BYGBlocks.PALM_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.PALM)
                     .setMaxHeight(5)
                     .setMinHeight(3)
                     .build()
@@ -1310,8 +1309,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE2 = createConfiguredFeature("palm_tree2",
             BYGFeatures.PALM_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALM_LOG.get())
-                    .setLeavesBlock(BYGBlocks.PALM_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.PALM)
                     .setMaxHeight(5)
                     .setMinHeight(3)
                     .build()
@@ -1319,8 +1317,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE3 = createConfiguredFeature("palm_tree3",
             BYGFeatures.PALM_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALM_LOG.get())
-                    .setLeavesBlock(BYGBlocks.PALM_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.PALM)
                     .setMaxHeight(5)
                     .setMinHeight(3)
                     .build()
@@ -1328,8 +1325,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE4 = createConfiguredFeature("palm_tree4",
             BYGFeatures.PALM_TREE4,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALM_LOG.get())
-                    .setLeavesBlock(BYGBlocks.PALM_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.PALM)
                     .setMaxHeight(5)
                     .setMinHeight(3)
                     .build()

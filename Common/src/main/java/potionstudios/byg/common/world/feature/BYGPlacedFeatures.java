@@ -19,6 +19,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.features.BYGGlobalFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
@@ -183,7 +184,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> BULBIS_TREES = createPlacedFeature("bulbis_trees", BYGEndVegetationFeatures.BULBIS_TREES, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
     public static final Holder<PlacedFeature> PURPLE_BULBIS_TREES = createPlacedFeature("purple_bulbis_trees", BYGEndVegetationFeatures.PURPLE_BULBIS_TREES, treePlacement(PlacementUtils.countExtra(1, 0.1F, 1)));
     public static final Holder<PlacedFeature> SPARSE_PURPLE_BULBIS_TREES = createPlacedFeature("sparse_purple_bulbis_trees", BYGEndVegetationFeatures.PURPLE_BULBIS_TREES, treePlacement(PlacementUtils.countExtra(0, 0.1F, 1)));
-    public static final Holder<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGBlocks.PALM_SAPLING.get())), (list) -> {
+    public static final Holder<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGWoodTypes.PALM.growerItem().get())), (list) -> {
         list.add(new NearWaterPlacementFilter(4));
     }));
     public static final Holder<PlacedFeature> RED_OAK_TREES = createPlacedFeature("red_oak_trees", BYGOverworldTreeFeatures.RED_OAK_TREES, clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));

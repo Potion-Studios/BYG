@@ -61,7 +61,6 @@ public class BYGBoatEntity extends Boat {
             case WILLOW -> BYGItems.WILLOW_BOAT.get();
             case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT.get();
             case ZELKOVA -> BYGItems.ZELKOVA_BOAT.get();
-            case PALM -> BYGItems.PALM_BOAT.get();
         };
     }
 
@@ -73,7 +72,6 @@ public class BYGBoatEntity extends Boat {
             default -> BYGWoodTypes.ASPEN.planks().get();
             case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
             case MAPLE -> BYGBlocks.MAPLE_PLANKS.get();
-            case PALM -> BYGBlocks.PALM_PLANKS.get();
             case PINE -> BYGBlocks.PINE_PLANKS.get();
             case RAINBOW_EUCALYPTUS -> BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS.get();
             case REDWOOD -> BYGBlocks.REDWOOD_PLANKS.get();

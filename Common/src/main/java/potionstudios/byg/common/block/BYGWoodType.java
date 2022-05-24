@@ -20,7 +20,6 @@ public class BYGWoodType {
     public static final WoodType ZELKOVA = register("zelkova");
     public static final WoodType SYTHIAN = register("sythian");
     public static final WoodType EMBUR = register("embur");
-    public static final WoodType PALM = register("palm");
     public static final WoodType LAMENT = register("lament");
     public static final WoodType NIGHTSHADE = register("nightshade");
 
