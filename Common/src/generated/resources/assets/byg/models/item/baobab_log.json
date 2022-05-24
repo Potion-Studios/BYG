@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_log",
+  "parent": "byg:block/baobab/log",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

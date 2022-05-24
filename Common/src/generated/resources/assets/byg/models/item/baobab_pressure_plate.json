@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_pressure_plate",
+  "parent": "byg:block/baobab/pressure_plate",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

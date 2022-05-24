@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_bookshelf",
+  "parent": "byg:block/ebony/bookshelf",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

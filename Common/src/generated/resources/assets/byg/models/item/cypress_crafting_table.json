@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_crafting_table",
+  "parent": "byg:block/cypress/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

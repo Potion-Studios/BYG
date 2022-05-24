@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_log",
+  "parent": "byg:block/blue_enchanted/log",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cika_stairs",
+  "parent": "byg:block/cika/stairs",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

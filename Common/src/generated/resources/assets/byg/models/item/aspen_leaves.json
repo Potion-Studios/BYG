@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_leaves",
+  "parent": "byg:block/aspen/leaves",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

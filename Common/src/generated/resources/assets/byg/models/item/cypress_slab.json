@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_slab",
+  "parent": "byg:block/cypress/slab",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

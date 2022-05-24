@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_bookshelf",
+  "parent": "byg:block/blue_enchanted/bookshelf",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry_planks",
+  "parent": "byg:block/cherry/planks",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

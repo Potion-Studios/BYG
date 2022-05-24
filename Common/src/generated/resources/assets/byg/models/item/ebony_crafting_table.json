@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_crafting_table",
+  "parent": "byg:block/ebony/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

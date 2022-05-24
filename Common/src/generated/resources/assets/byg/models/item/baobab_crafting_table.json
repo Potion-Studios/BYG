@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_crafting_table",
+  "parent": "byg:block/baobab/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

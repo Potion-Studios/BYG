@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_bookshelf",
+  "parent": "byg:block/baobab/bookshelf",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_fence_gate",
+  "parent": "byg:block/cypress/fence_gate",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

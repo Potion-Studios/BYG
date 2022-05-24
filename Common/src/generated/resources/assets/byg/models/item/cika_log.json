@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cika_log",
+  "parent": "byg:block/cika/log",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

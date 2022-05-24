@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_crafting_table",
+  "parent": "byg:block/aspen/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

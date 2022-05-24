@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_leaves",
+  "parent": "byg:block/blue_enchanted/leaves",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

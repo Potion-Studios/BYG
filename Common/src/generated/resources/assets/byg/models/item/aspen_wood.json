@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_wood",
+  "parent": "byg:block/aspen/wood",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

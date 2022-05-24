@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_pressure_plate",
+  "parent": "byg:block/aspen/pressure_plate",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

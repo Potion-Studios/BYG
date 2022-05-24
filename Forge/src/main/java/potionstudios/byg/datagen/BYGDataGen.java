@@ -5,7 +5,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import potionstudios.byg.BYG;
 import potionstudios.byg.datagen.providers.BYGWoodAssetsProvider;
-import potionstudios.byg.datagen.providers.BYGBlockStateProvider;
 import potionstudios.byg.datagen.providers.BYGBlockTagsProvider;
 import potionstudios.byg.datagen.providers.BYGItemTagsProvider;
 import potionstudios.byg.datagen.providers.BYGRecipeProviders;
@@ -26,7 +25,6 @@ public class BYGDataGen {
         }
         if (event.includeClient()) {
             gen.addProvider(new BYGWoodAssetsProvider(gen, existingFileHelper));
-            gen.addProvider(new BYGBlockStateProvider(gen, existingFileHelper));
         }
     }
 

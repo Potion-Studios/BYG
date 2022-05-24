@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_planks",
+  "parent": "byg:block/aspen/planks",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_planks",
+  "parent": "byg:block/cypress/planks",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_log",
+  "parent": "byg:block/aspen/log",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

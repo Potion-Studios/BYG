@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_stairs",
+  "parent": "byg:block/cypress/stairs",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_pressure_plate",
+  "parent": "byg:block/ebony/pressure_plate",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

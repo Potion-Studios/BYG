@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry_crafting_table",
+  "parent": "byg:block/cherry/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

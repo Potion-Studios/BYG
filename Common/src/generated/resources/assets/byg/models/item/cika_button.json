@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cika_button_inventory",
+  "parent": "byg:block/cika/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

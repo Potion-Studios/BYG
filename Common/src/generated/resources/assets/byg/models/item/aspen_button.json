@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen_button_inventory",
+  "parent": "byg:block/aspen/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

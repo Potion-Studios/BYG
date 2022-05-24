@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_crafting_table",
+  "parent": "byg:block/blue_enchanted/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

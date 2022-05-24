@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cika_planks",
+  "parent": "byg:block/cika/planks",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

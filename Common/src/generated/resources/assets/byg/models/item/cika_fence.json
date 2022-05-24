@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cika_fence_gate",
+  "parent": "byg:block/cika/fence_gate",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

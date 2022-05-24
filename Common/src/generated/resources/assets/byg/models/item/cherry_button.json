@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry_button_inventory",
+  "parent": "byg:block/cherry/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

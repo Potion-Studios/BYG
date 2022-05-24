@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_button_inventory",
+  "parent": "byg:block/baobab/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

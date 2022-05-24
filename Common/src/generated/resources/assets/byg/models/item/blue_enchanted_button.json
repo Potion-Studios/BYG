@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_button_inventory",
+  "parent": "byg:block/blue_enchanted/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

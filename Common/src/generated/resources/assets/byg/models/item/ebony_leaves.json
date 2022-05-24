@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_leaves",
+  "parent": "byg:block/ebony/leaves",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

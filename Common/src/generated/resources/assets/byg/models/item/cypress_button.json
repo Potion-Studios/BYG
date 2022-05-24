@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cypress_button_inventory",
+  "parent": "byg:block/cypress/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

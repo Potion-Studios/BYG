@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/bulbis_stairs",
+  "parent": "byg:block/bulbis/stairs",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

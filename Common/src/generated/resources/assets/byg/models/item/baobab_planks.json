@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_planks",
+  "parent": "byg:block/baobab/planks",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

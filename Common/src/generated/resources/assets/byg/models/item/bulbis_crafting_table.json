@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/bulbis_crafting_table",
+  "parent": "byg:block/bulbis/crafting_table",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

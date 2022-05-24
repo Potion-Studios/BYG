@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/bulbis_button_inventory",
+  "parent": "byg:block/bulbis/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_button_inventory",
+  "parent": "byg:block/ebony/button_inventory",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

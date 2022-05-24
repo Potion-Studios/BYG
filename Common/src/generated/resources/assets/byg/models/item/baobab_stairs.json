@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/baobab_stairs",
+  "parent": "byg:block/baobab/stairs",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

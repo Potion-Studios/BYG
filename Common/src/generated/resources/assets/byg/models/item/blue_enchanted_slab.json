@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted_slab",
+  "parent": "byg:block/blue_enchanted/slab",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

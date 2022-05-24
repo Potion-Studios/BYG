@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/ebony_slab",
+  "parent": "byg:block/ebony/slab",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

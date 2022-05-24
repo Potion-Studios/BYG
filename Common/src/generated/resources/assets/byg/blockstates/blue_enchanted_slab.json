@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/blue_enchanted/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/blue_enchanted/slab"
+    },
+    "type=double": {
+      "model": "byg:block/blue_enchanted/planks"
+    }
+  }
+}
