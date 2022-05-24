@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/stripped_bulbis_stem",
-    "side": "byg:block/stripped_bulbis_stem"
-  }
-}

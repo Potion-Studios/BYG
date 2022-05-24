@@ -31,19 +31,19 @@
       "model": "byg:block/cypress/door_bottom"
     },
     "facing=north,half=upper,hinge=right,open=false": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 270
     },
     "facing=south,half=upper,hinge=right,open=false": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 90
     },
     "facing=west,half=upper,hinge=right,open=false": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 180
     },
     "facing=east,half=upper,hinge=right,open=false": {
-      "model": "byg:block/cypress/door_bottom_hinge"
+      "model": "byg:block/cypress/door_top_hinge"
     },
     "facing=north,half=lower,hinge=right,open=false": {
       "model": "byg:block/cypress/door_bottom_hinge",
@@ -61,18 +61,18 @@
       "model": "byg:block/cypress/door_bottom_hinge"
     },
     "facing=north,half=upper,hinge=left,open=true": {
-      "model": "byg:block/cypress/door_bottom_hinge"
+      "model": "byg:block/cypress/door_top_hinge"
     },
     "facing=south,half=upper,hinge=left,open=true": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 180
     },
     "facing=west,half=upper,hinge=left,open=true": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 270
     },
     "facing=east,half=upper,hinge=left,open=true": {
-      "model": "byg:block/cypress/door_bottom_hinge",
+      "model": "byg:block/cypress/door_top_hinge",
       "y": 90
     },
     "facing=north,half=lower,hinge=left,open=true": {
