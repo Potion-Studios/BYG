@@ -54,7 +54,10 @@ public enum BYGWoodTypes {
     EBONY("ebony", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_EBONY_SAPLING)
             .boatType(BYGBoatEntity.BYGType.EBONY)
-            .materialColor(MaterialColor.COLOR_GREEN));
+            .materialColor(MaterialColor.COLOR_GREEN)),
+    ETHER("ether", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
+            .materialColor(MaterialColor.COLOR_CYAN));
 
     private final String name;
     private final WoodType woodType;

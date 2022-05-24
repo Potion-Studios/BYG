@@ -260,6 +260,9 @@ public class BYGItems {
     public static final RegistryObject<Item> WHITE_CHERRY_FOLIAGE;
     public static final RegistryObject<Item> WHITE_CHERRY_LEAVES;
 
+    //Ether Woodtype
+    public static final RegistryObject<Item> ETHER_BULBS;
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -286,29 +289,10 @@ public class BYGItems {
         BYGWoodTypes.CIKA.init();
         BYGWoodTypes.CYPRESS.init();
         BYGWoodTypes.EBONY.init();
+
+        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
+        BYGWoodTypes.ETHER.init();
     }
-
-    //Ether Woodtype
-    public static final RegistryObject<Item> ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
-
-    public static final RegistryObject<GrowerItem> ETHER_SAPLING = createSaplingItem(BYGBlocks.ETHER_SAPLING);
-    public static final RegistryObject<Item> ETHER_LEAVES = createItem(BYGBlocks.ETHER_LEAVES);
-    public static final RegistryObject<Item> ETHER_LOG = createItem(BYGBlocks.ETHER_LOG);
-    public static final RegistryObject<Item> ETHER_WOOD = createItem(BYGBlocks.ETHER_WOOD);
-    public static final RegistryObject<Item> STRIPPED_ETHER_LOG = createItem(BYGBlocks.STRIPPED_ETHER_LOG);
-    public static final RegistryObject<Item> STRIPPED_ETHER_WOOD = createItem(BYGBlocks.STRIPPED_ETHER_WOOD);
-    public static final RegistryObject<Item> ETHER_PLANKS = createItem(BYGBlocks.ETHER_PLANKS);
-    public static final RegistryObject<Item> ETHER_BOOKSHELF = createItem(BYGBlocks.ETHER_BOOKSHELF);
-    public static final RegistryObject<Item> ETHER_CRAFTING_TABLE = createItem(BYGBlocks.ETHER_CRAFTING_TABLE);
-    public static final RegistryObject<Item> ETHER_STAIRS = createItem(BYGBlocks.ETHER_STAIRS);
-    public static final RegistryObject<Item> ETHER_SLAB = createItem(BYGBlocks.ETHER_SLAB);
-    public static final RegistryObject<Item> ETHER_FENCE = createItem(BYGBlocks.ETHER_FENCE);
-    public static final RegistryObject<Item> ETHER_FENCE_GATE = createItem(BYGBlocks.ETHER_FENCE_GATE);
-    public static final RegistryObject<Item> ETHER_DOOR = createItem(BYGBlocks.ETHER_DOOR);
-    public static final RegistryObject<Item> ETHER_TRAPDOOR = createItem(BYGBlocks.ETHER_TRAPDOOR);
-    public static final RegistryObject<Item> ETHER_PRESSURE_PLATE = createItem(BYGBlocks.ETHER_PRESSURE_PLATE);
-    public static final RegistryObject<Item> ETHER_BUTTON = createItem(BYGBlocks.ETHER_BUTTON);
-    public static final RegistryObject<SignItem> ETHER_SIGN = createSign("ether_sign", BYGBlocks.ETHER_SIGN, BYGBlocks.ETHER_WALL_SIGN);
 
     //Fir Woodtype
     public static final RegistryObject<GrowerItem> FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
