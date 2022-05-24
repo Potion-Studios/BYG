@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "planks",
+  "group": "wooden_planks",
   "ingredients": [
     {
-      "tag": "byg:cypress_logs"
+      "item": "byg:cypress_log"
     }
   ],
   "result": {

@@ -284,28 +284,8 @@ public class BYGItems {
         BYGWoodTypes.CHERRY.init();
 
         BYGWoodTypes.CIKA.init();
+        BYGWoodTypes.CYPRESS.init();
     }
-
-    //Cypress Woodtype
-    public static final RegistryObject<GrowerItem> CYPRESS_SAPLING = createSaplingItem(BYGBlocks.CYPRESS_SAPLING);
-    public static final RegistryObject<Item> CYPRESS_LEAVES = createItem(BYGBlocks.CYPRESS_LEAVES);
-    public static final RegistryObject<Item> CYPRESS_LOG = createItem(BYGBlocks.CYPRESS_LOG);
-    public static final RegistryObject<Item> CYPRESS_WOOD = createItem(BYGBlocks.CYPRESS_WOOD);
-    public static final RegistryObject<Item> STRIPPED_CYPRESS_LOG = createItem(BYGBlocks.STRIPPED_CYPRESS_LOG);
-    public static final RegistryObject<Item> STRIPPED_CYPRESS_WOOD = createItem(BYGBlocks.STRIPPED_CYPRESS_WOOD);
-    public static final RegistryObject<Item> CYPRESS_PLANKS = createItem(BYGBlocks.CYPRESS_PLANKS);
-    public static final RegistryObject<Item> CYPRESS_BOOKSHELF = createItem(BYGBlocks.CYPRESS_BOOKSHELF);
-    public static final RegistryObject<Item> CYPRESS_CRAFTING_TABLE = createItem(BYGBlocks.CYPRESS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> CYPRESS_STAIRS = createItem(BYGBlocks.CYPRESS_STAIRS);
-    public static final RegistryObject<Item> CYPRESS_SLAB = createItem(BYGBlocks.CYPRESS_SLAB);
-    public static final RegistryObject<Item> CYPRESS_FENCE = createItem(BYGBlocks.CYPRESS_FENCE);
-    public static final RegistryObject<Item> CYPRESS_FENCE_GATE = createItem(BYGBlocks.CYPRESS_FENCE_GATE);
-    public static final RegistryObject<Item> CYPRESS_DOOR = createItem(BYGBlocks.CYPRESS_DOOR);
-    public static final RegistryObject<Item> CYPRESS_TRAPDOOR = createItem(BYGBlocks.CYPRESS_TRAPDOOR);
-    public static final RegistryObject<Item> CYPRESS_PRESSURE_PLATE = createItem(BYGBlocks.CYPRESS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> CYPRESS_BUTTON = createItem(BYGBlocks.CYPRESS_BUTTON);
-    public static final RegistryObject<SignItem> CYPRESS_SIGN = createSign("cypress_sign", BYGBlocks.CYPRESS_SIGN, BYGBlocks.CYPRESS_WALL_SIGN);
-    public static final RegistryObject<Item> CYPRESS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.CYPRESS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "cypress_boat");
 
     //Ebony Woodtype
     public static final RegistryObject<GrowerItem> EBONY_SAPLING = createSaplingItem(BYGBlocks.EBONY_SAPLING);

@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "wood",
   "pattern": [
-    "##",
-    "##"
+    "LL",
+    "LL"
   ],
   "key": {
-    "#": {
+    "L": {
       "item": "byg:cypress_log"
     }
   },

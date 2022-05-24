@@ -1,16 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "boat",
+  "group": "wooden_trapdoor",
   "pattern": [
-    "# #",
-    "###"
+    "PPP",
+    "PPP"
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:cypress_planks"
     }
   },
   "result": {
-    "item": "byg:cypress_boat"
+    "item": "byg:cypress_trapdoor",
+    "count": 2
   }
 }

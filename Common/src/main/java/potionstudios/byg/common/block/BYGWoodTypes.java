@@ -43,7 +43,10 @@ public enum BYGWoodTypes {
             .boatType(BYGBoatEntity.BYGType.CHERRY)),
     CIKA("cika", new Builder()
             .boatType(BYGBoatEntity.BYGType.CIKA)
-            .materialColor(MaterialColor.TERRACOTTA_ORANGE));
+            .materialColor(MaterialColor.TERRACOTTA_ORANGE)),
+    CYPRESS("cypress", new Builder()
+            .boatType(BYGBoatEntity.BYGType.CYPRESS)
+            .materialColor(MaterialColor.TERRACOTTA_LIGHT_GREEN));
 
     private final String name;
     private final WoodType woodType;

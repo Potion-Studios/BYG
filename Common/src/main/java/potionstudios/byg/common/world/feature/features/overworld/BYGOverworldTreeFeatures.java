@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
@@ -494,8 +495,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE1 = createConfiguredFeature("cypress_tree1",
             BYGFeatures.CYPRESS_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CYPRESS_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CYPRESS_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.CYPRESS)
                     .setMaxHeight(30)
                     .setMinHeight(20)
                     .build()
@@ -503,8 +503,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE2 = createConfiguredFeature("cypress_tree2",
             BYGFeatures.CYPRESS_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CYPRESS_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CYPRESS_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.CYPRESS)
                     .setMaxHeight(30)
                     .setMinHeight(20)
                     .build()
@@ -512,8 +511,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE3 = createConfiguredFeature("cypress_tree3",
             BYGFeatures.CYPRESS_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.CYPRESS_LOG.get())
-                    .setLeavesBlock(BYGBlocks.CYPRESS_LEAVES.get())
+                    .fromWoodType(BYGWoodTypes.CYPRESS)
                     .setMaxHeight(30)
                     .setMinHeight(20)
                     .build()
