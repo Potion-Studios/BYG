@@ -10,7 +10,6 @@ import static potionstudios.byg.mixin.access.WoodTypeAccess.byg_invokeRegister;
 public class BYGWoodType {
 
     public static final WoodType JACARANDA = register("jacaranda");
-    public static final WoodType MANGROVE = register("mangrove");
     public static final WoodType MAPLE = register("maple");
     public static final WoodType PINE = register("pine");
     public static final WoodType RAINBOW_EUCALYPTUS = register("rainbow_eucalyptus");
@@ -24,8 +23,6 @@ public class BYGWoodType {
     public static final WoodType PALM = register("palm");
     public static final WoodType LAMENT = register("lament");
     public static final WoodType NIGHTSHADE = register("nightshade");
-    public static final WoodType ETHER = register("ether");
-    public static final WoodType IMPARIUS = register("imparius");
 
     private static WoodType register(String id) {
         return BYGConstants.SIGNS ? byg_invokeRegister(byg_create(BYG.createLocation(id).toString().replace(":", "/"))) : null;

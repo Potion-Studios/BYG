@@ -386,28 +386,8 @@ public class BYGItems {
 
         // TODO Lamient, Jacaranda
         BYGWoodTypes.MAHOGANY.init();
+        BYGWoodTypes.MAGROVE.init();
     }
-
-    //Mangrove Woodtype
-    public static final RegistryObject<GrowerItem> MANGROVE_SAPLING = createSaplingItem(BYGBlocks.MANGROVE_SAPLING);
-    public static final RegistryObject<Item> MANGROVE_LEAVES = createItem(BYGBlocks.MANGROVE_LEAVES);
-    public static final RegistryObject<Item> MANGROVE_LOG = createItem(BYGBlocks.MANGROVE_LOG);
-    public static final RegistryObject<Item> MANGROVE_WOOD = createItem(BYGBlocks.MANGROVE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_MANGROVE_LOG = createItem(BYGBlocks.STRIPPED_MANGROVE_LOG);
-    public static final RegistryObject<Item> STRIPPED_MANGROVE_WOOD = createItem(BYGBlocks.STRIPPED_MANGROVE_WOOD);
-    public static final RegistryObject<Item> MANGROVE_PLANKS = createItem(BYGBlocks.MANGROVE_PLANKS);
-    public static final RegistryObject<Item> MANGROVE_BOOKSHELF = createItem(BYGBlocks.MANGROVE_BOOKSHELF);
-    public static final RegistryObject<Item> MANGROVE_CRAFTING_TABLE = createItem(BYGBlocks.MANGROVE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> MANGROVE_STAIRS = createItem(BYGBlocks.MANGROVE_STAIRS);
-    public static final RegistryObject<Item> MANGROVE_SLAB = createItem(BYGBlocks.MANGROVE_SLAB);
-    public static final RegistryObject<Item> MANGROVE_FENCE = createItem(BYGBlocks.MANGROVE_FENCE);
-    public static final RegistryObject<Item> MANGROVE_FENCE_GATE = createItem(BYGBlocks.MANGROVE_FENCE_GATE);
-    public static final RegistryObject<Item> MANGROVE_DOOR = createItem(BYGBlocks.MANGROVE_DOOR);
-    public static final RegistryObject<Item> MANGROVE_TRAPDOOR = createItem(BYGBlocks.MANGROVE_TRAPDOOR);
-    public static final RegistryObject<Item> MANGROVE_PRESSURE_PLATE = createItem(BYGBlocks.MANGROVE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> MANGROVE_BUTTON = createItem(BYGBlocks.MANGROVE_BUTTON);
-    public static final RegistryObject<SignItem> MANGROVE_SIGN = createSign("mangrove_sign", BYGBlocks.MANGROVE_SIGN, BYGBlocks.MANGROVE_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> MANGROVE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MANGROVE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mangrove_boat");
 
     //Maple Woodtype
     public static final RegistryObject<GrowerItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
