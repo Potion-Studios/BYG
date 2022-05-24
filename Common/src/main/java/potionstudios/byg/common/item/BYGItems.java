@@ -5,8 +5,16 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BowlFoodItem;
+import net.minecraft.world.item.HoneyBottleItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
@@ -292,49 +300,9 @@ public class BYGItems {
 
         ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
         BYGWoodTypes.ETHER.init();
+        BYGWoodTypes.FIR.init();
+        BYGWoodTypes.GREEN_ENCHANTED.init();
     }
-
-    //Fir Woodtype
-    public static final RegistryObject<GrowerItem> FIR_SAPLING = createSaplingItem(BYGBlocks.FIR_SAPLING);
-    public static final RegistryObject<Item> FIR_LEAVES = createItem(BYGBlocks.FIR_LEAVES);
-    public static final RegistryObject<Item> FIR_LOG = createItem(BYGBlocks.FIR_LOG);
-    public static final RegistryObject<Item> FIR_WOOD = createItem(BYGBlocks.FIR_WOOD);
-    public static final RegistryObject<Item> STRIPPED_FIR_LOG = createItem(BYGBlocks.STRIPPED_FIR_LOG);
-    public static final RegistryObject<Item> STRIPPED_FIR_WOOD = createItem(BYGBlocks.STRIPPED_FIR_WOOD);
-    public static final RegistryObject<Item> FIR_PLANKS = createItem(BYGBlocks.FIR_PLANKS);
-    public static final RegistryObject<Item> FIR_BOOKSHELF = createItem(BYGBlocks.FIR_BOOKSHELF);
-    public static final RegistryObject<Item> FIR_CRAFTING_TABLE = createItem(BYGBlocks.FIR_CRAFTING_TABLE);
-    public static final RegistryObject<Item> FIR_STAIRS = createItem(BYGBlocks.FIR_STAIRS);
-    public static final RegistryObject<Item> FIR_SLAB = createItem(BYGBlocks.FIR_SLAB);
-    public static final RegistryObject<Item> FIR_FENCE = createItem(BYGBlocks.FIR_FENCE);
-    public static final RegistryObject<Item> FIR_FENCE_GATE = createItem(BYGBlocks.FIR_FENCE_GATE);
-    public static final RegistryObject<Item> FIR_DOOR = createItem(BYGBlocks.FIR_DOOR);
-    public static final RegistryObject<Item> FIR_TRAPDOOR = createItem(BYGBlocks.FIR_TRAPDOOR);
-    public static final RegistryObject<Item> FIR_PRESSURE_PLATE = createItem(BYGBlocks.FIR_PRESSURE_PLATE);
-    public static final RegistryObject<Item> FIR_BUTTON = createItem(BYGBlocks.FIR_BUTTON);
-    public static final RegistryObject<SignItem> FIR_SIGN = createSign("fir_sign", BYGBlocks.FIR_SIGN, BYGBlocks.FIR_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> FIR_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.FIR, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "fir_boat");
-
-    //Green Enchanted Woodtype
-    public static final RegistryObject<GrowerItem> GREEN_ENCHANTED_SAPLING = createSaplingItem(BYGBlocks.GREEN_ENCHANTED_SAPLING);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_LEAVES = createItem(BYGBlocks.GREEN_ENCHANTED_LEAVES);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_LOG = createItem(BYGBlocks.GREEN_ENCHANTED_LOG);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_WOOD = createItem(BYGBlocks.GREEN_ENCHANTED_WOOD);
-    public static final RegistryObject<Item> STRIPPED_GREEN_ENCHANTED_LOG = createItem(BYGBlocks.STRIPPED_GREEN_ENCHANTED_LOG);
-    public static final RegistryObject<Item> STRIPPED_GREEN_ENCHANTED_WOOD = createItem(BYGBlocks.STRIPPED_GREEN_ENCHANTED_WOOD);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_PLANKS = createItem(BYGBlocks.GREEN_ENCHANTED_PLANKS);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_BOOKSHELF = createItem(BYGBlocks.GREEN_ENCHANTED_BOOKSHELF);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_CRAFTING_TABLE = createItem(BYGBlocks.GREEN_ENCHANTED_CRAFTING_TABLE);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_STAIRS = createItem(BYGBlocks.GREEN_ENCHANTED_STAIRS);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_SLAB = createItem(BYGBlocks.GREEN_ENCHANTED_SLAB);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_FENCE = createItem(BYGBlocks.GREEN_ENCHANTED_FENCE);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_FENCE_GATE = createItem(BYGBlocks.GREEN_ENCHANTED_FENCE_GATE);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_DOOR = createItem(BYGBlocks.GREEN_ENCHANTED_DOOR);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_TRAPDOOR = createItem(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_PRESSURE_PLATE = createItem(BYGBlocks.GREEN_ENCHANTED_PRESSURE_PLATE);
-    public static final RegistryObject<Item> GREEN_ENCHANTED_BUTTON = createItem(BYGBlocks.GREEN_ENCHANTED_BUTTON);
-    public static final RegistryObject<SignItem> GREEN_ENCHANTED_SIGN = createSign("green_enchanted_sign", BYGBlocks.GREEN_ENCHANTED_SIGN, BYGBlocks.GREEN_ENCHANTED_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> GREEN_ENCHANTED_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.GREEN_ENCHANTED, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "green_enchanted_boat");
 
     //Holly Woodtype
     public static final RegistryObject<Item> HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);

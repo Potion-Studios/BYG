@@ -57,7 +57,16 @@ public enum BYGWoodTypes {
             .materialColor(MaterialColor.COLOR_GREEN)),
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
-            .materialColor(MaterialColor.COLOR_CYAN));
+            .materialColor(MaterialColor.COLOR_CYAN)),
+    FIR("fir", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_FIR_SAPLING)
+            .materialColor(MaterialColor.COLOR_GREEN)
+            .boatType(BYGBoatEntity.BYGType.FIR)),
+    GREEN_ENCHANTED("green_enchanted", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.GREEN_ENCHANTED)
+            .materialColor(MaterialColor.COLOR_GREEN)
+            .leavesLightLevel(15));
 
     private final String name;
     private final WoodType woodType;
