@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "bottom": "byg:block/blue_enchanted_planks",
-    "top": "byg:block/blue_enchanted_planks",
-    "side": "byg:block/blue_enchanted_planks"
-  }
-}
