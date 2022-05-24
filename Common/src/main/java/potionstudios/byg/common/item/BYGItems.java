@@ -286,54 +286,6 @@ public class BYGItems {
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_STEM;
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_HYPHAE;
 
-    static {
-        BYGWoodTypes.ASPEN.init();
-
-        BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
-        BYGWoodTypes.BAOBAB.init();
-
-        BYGWoodTypes.BLUE_ENCHANTED.init();
-
-        PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
-        PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
-        PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
-        BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
-        BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
-        BYGWoodTypes.BULBIS.init();
-
-        PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
-        PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
-        PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
-        WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
-        WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
-        WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
-        BYGWoodTypes.CHERRY.init();
-
-        BYGWoodTypes.CIKA.init();
-        BYGWoodTypes.CYPRESS.init();
-        BYGWoodTypes.EBONY.init();
-
-        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
-        BYGWoodTypes.ETHER.init();
-        BYGWoodTypes.FIR.init();
-        BYGWoodTypes.GREEN_ENCHANTED.init();
-
-        HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
-        HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
-        BYGWoodTypes.HOLLY.init();
-
-        IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
-        IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
-        IMPARIUS_MUSHROOM_BLOCK = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK);
-        FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK);
-        FUNGAL_IMPARIUS_FILAMENT = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT);
-        FUNGAL_IMPARIUS_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK);
-        FUNGAL_IMPARIUS = createGrowerItem(BYGBlocks.FUNGAL_IMPARIUS);
-        FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
-        FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
-        BYGWoodTypes.IMPARIUS.init();
-    }
-
     //Jacaranda Woodtype
     public static final RegistryObject<Item> JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
     public static final RegistryObject<Item> FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
@@ -385,26 +337,56 @@ public class BYGItems {
     public static final RegistryObject<Item> LAMENT_BUTTON = createItem(BYGBlocks.LAMENT_BUTTON);
     public static final RegistryObject<SignItem> LAMENT_SIGN = createSign("lament_sign", BYGBlocks.LAMENT_SIGN, BYGBlocks.LAMENT_WALL_SIGN);
 
-    //Mahogany Woodtype
-    public static final RegistryObject<GrowerItem> MAHOGANY_SAPLING = createSaplingItem(BYGBlocks.MAHOGANY_SAPLING);
-    public static final RegistryObject<Item> MAHOGANY_LEAVES = createItem(BYGBlocks.MAHOGANY_LEAVES);
-    public static final RegistryObject<Item> MAHOGANY_LOG = createItem(BYGBlocks.MAHOGANY_LOG);
-    public static final RegistryObject<Item> MAHOGANY_WOOD = createItem(BYGBlocks.MAHOGANY_WOOD);
-    public static final RegistryObject<Item> STRIPPED_MAHOGANY_LOG = createItem(BYGBlocks.STRIPPED_MAHOGANY_LOG);
-    public static final RegistryObject<Item> STRIPPED_MAHOGANY_WOOD = createItem(BYGBlocks.STRIPPED_MAHOGANY_WOOD);
-    public static final RegistryObject<Item> MAHOGANY_PLANKS = createItem(BYGBlocks.MAHOGANY_PLANKS);
-    public static final RegistryObject<Item> MAHOGANY_BOOKSHELF = createItem(BYGBlocks.MAHOGANY_BOOKSHELF);
-    public static final RegistryObject<Item> MAHOGANY_CRAFTING_TABLE = createItem(BYGBlocks.MAHOGANY_CRAFTING_TABLE);
-    public static final RegistryObject<Item> MAHOGANY_STAIRS = createItem(BYGBlocks.MAHOGANY_STAIRS);
-    public static final RegistryObject<Item> MAHOGANY_SLAB = createItem(BYGBlocks.MAHOGANY_SLAB);
-    public static final RegistryObject<Item> MAHOGANY_FENCE = createItem(BYGBlocks.MAHOGANY_FENCE);
-    public static final RegistryObject<Item> MAHOGANY_FENCE_GATE = createItem(BYGBlocks.MAHOGANY_FENCE_GATE);
-    public static final RegistryObject<Item> MAHOGANY_DOOR = createItem(BYGBlocks.MAHOGANY_DOOR);
-    public static final RegistryObject<Item> MAHOGANY_TRAPDOOR = createItem(BYGBlocks.MAHOGANY_TRAPDOOR);
-    public static final RegistryObject<Item> MAHOGANY_PRESSURE_PLATE = createItem(BYGBlocks.MAHOGANY_PRESSURE_PLATE);
-    public static final RegistryObject<Item> MAHOGANY_BUTTON = createItem(BYGBlocks.MAHOGANY_BUTTON);
-    public static final RegistryObject<SignItem> MAHOGANY_SIGN = createSign("mahogany_sign", BYGBlocks.MAHOGANY_SIGN, BYGBlocks.MAHOGANY_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> MAHOGANY_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAHOGANY, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "mahogany_boat");
+    static {
+        BYGWoodTypes.ASPEN.init();
+
+        BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
+        BYGWoodTypes.BAOBAB.init();
+
+        BYGWoodTypes.BLUE_ENCHANTED.init();
+
+        PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
+        PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
+        PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
+        BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
+        BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
+        BYGWoodTypes.BULBIS.init();
+
+        PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
+        PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
+        PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
+        WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
+        WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
+        WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
+        BYGWoodTypes.CHERRY.init();
+
+        BYGWoodTypes.CIKA.init();
+        BYGWoodTypes.CYPRESS.init();
+        BYGWoodTypes.EBONY.init();
+
+        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
+        BYGWoodTypes.ETHER.init();
+        BYGWoodTypes.FIR.init();
+        BYGWoodTypes.GREEN_ENCHANTED.init();
+
+        HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
+        HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
+        BYGWoodTypes.HOLLY.init();
+
+        IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
+        IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
+        IMPARIUS_MUSHROOM_BLOCK = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK);
+        FUNGAL_IMPARIUS_FILAMENT_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK);
+        FUNGAL_IMPARIUS_FILAMENT = createItem(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT);
+        FUNGAL_IMPARIUS_BLOCK = createItem(BYGBlocks.FUNGAL_IMPARIUS_BLOCK);
+        FUNGAL_IMPARIUS = createGrowerItem(BYGBlocks.FUNGAL_IMPARIUS);
+        FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
+        FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
+        BYGWoodTypes.IMPARIUS.init();
+
+        // TODO Lamient, Jacaranda
+        BYGWoodTypes.MAHOGANY.init();
+    }
 
     //Mangrove Woodtype
     public static final RegistryObject<GrowerItem> MANGROVE_SAPLING = createSaplingItem(BYGBlocks.MANGROVE_SAPLING);

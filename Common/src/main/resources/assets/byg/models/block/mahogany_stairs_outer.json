@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "byg:block/mahogany_planks",
-    "top": "byg:block/mahogany_planks",
-    "side": "byg:block/mahogany_planks"
-  }
-}

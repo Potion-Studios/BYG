@@ -81,7 +81,11 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
             .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)
             .growerItem(GrowerItemType.MUSHROOM)
-            .stem());
+            .stem()),
+    MAHOGANY("mahogany", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.MAHOGANY)
+            .materialColor(MaterialColor.COLOR_GREEN));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {
