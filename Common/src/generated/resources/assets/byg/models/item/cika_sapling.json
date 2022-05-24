@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "byg:item/cika/grower_item"
+    "layer0": "byg:block/cika/grower_item"
   }
 }

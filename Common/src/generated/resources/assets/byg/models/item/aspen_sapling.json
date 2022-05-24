@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "byg:item/aspen/grower_item"
+    "layer0": "byg:block/aspen/grower_item"
   }
 }

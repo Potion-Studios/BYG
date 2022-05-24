@@ -129,7 +129,7 @@ public class BYGAssetsProvider extends BlockModelProvider {
                 final var textureLoc = rl(typeLoc + "grower_item");
                 cross(type.growerItem().getId().getPath(), textureLoc);
                 item.withExistingParent(type.growerItem().getId().getPath(), generatedParent)
-                    .texture("layer0", rl(typeLocItem + "grower_item"));
+                    .texture("layer0", textureLoc);
             }
             final var pressurePlate = pressurePlate(type.pressurePlate().getId().getPath(), rl(typeLoc + "planks"));
             pressurePlateDown(type.pressurePlate().getId().getPath() + "_down", rl(typeLoc + "planks"));

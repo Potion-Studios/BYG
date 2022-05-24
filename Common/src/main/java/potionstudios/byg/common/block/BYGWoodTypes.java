@@ -103,13 +103,13 @@ public enum BYGWoodTypes {
     public void init() {
         if (initialized)
             return;
+        if (!builder.excludes.contains(BlockType.SAPLING)) {
         this.growerItem = switch (builder.growerItemType) {
             case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
             case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
             case FUNGUS -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_fungus");
         };
-        if (!builder.excludes.contains(BlockType.SAPLING)) {
-            BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
+        BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
         if (!builder.excludes.contains(BlockType.LEAVES)) {
             this.leaves = builder.leavesLightLevel == null ? BYGBlocks.createLeaves(builder.materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(builder.materialColor, builder.leavesLightLevel, name + "_leaves");

@@ -139,7 +139,6 @@ d6b7fbdeeab292de432ab893a2edaa2a72b25ec4 assets/byg/models/block/cherry_fence_po
 bc862d2f159afcc5d9e95af32cce793714225d30 assets/byg/models/block/cherry_planks.json
 c17608feb9e81e47233264cace783378563f3af5 assets/byg/models/block/cherry_pressure_plate.json
 f8705b0a248ada71cdae14bcf19a308a7f4eb78a assets/byg/models/block/cherry_pressure_plate_down.json
-4e6b412c1c60feb4512be023424863cd5cde9b59 assets/byg/models/block/cherry_sapling.json
 e83c95d640fdc7c129799ebe6c500b18cbc80891 assets/byg/models/block/cherry_slab.json
 1279c5142bdd412453c830ee17e2b4629d943de2 assets/byg/models/block/cherry_slab_top.json
 fdb9246d01afa0cf05b3d6ae414b4c24a0a068b5 assets/byg/models/block/cherry_stairs.json
@@ -252,7 +251,7 @@ a67931ed3d4f51e3ebbd0113e8ab11fb558bc0d6 assets/byg/models/item/aspen_fence.json
 38d6a194a5f73913a97eca781f77bfb6b4206a74 assets/byg/models/item/aspen_log.json
 003c7d02949ca1e996078ba778608ac111dd24a3 assets/byg/models/item/aspen_planks.json
 a4a903cde601f67eb459cdc5adb5d601c0a5b7c1 assets/byg/models/item/aspen_pressure_plate.json
-3f00e9072f5289e65b6d39326c2e425ed4dc5567 assets/byg/models/item/aspen_sapling.json
+0b5ed255f00030cb3ff1df30d8c51d7b6ea9afb6 assets/byg/models/item/aspen_sapling.json
 b44f9ce5f7763b6e4943b553de26557ad277a095 assets/byg/models/item/aspen_slab.json
 70e9a656e937b82858cdf57ef6add2081916b748 assets/byg/models/item/aspen_stairs.json
 bb89fe9a00e3db29b3100a96affdde9ed207392c assets/byg/models/item/aspen_trapdoor.json
@@ -267,7 +266,7 @@ cae214bd8eb999707ec8299ac478e5a98cc8b9af assets/byg/models/item/baobab_leaves.js
 e62b65c47bfbd1f54c5a3abda2d26b26d8e2c4f3 assets/byg/models/item/baobab_log.json
 811bc3c29eedb0f316f0270f2df050892bf1b9a8 assets/byg/models/item/baobab_planks.json
 18cefa8faa0bde471bc033e0c77e33dc3eb55b69 assets/byg/models/item/baobab_pressure_plate.json
-563eb366526a14858c38aed02361f5f0ca769e30 assets/byg/models/item/baobab_sapling.json
+50ba87085b69541ad42bb85171ae33cce565c83c assets/byg/models/item/baobab_sapling.json
 bc20310e527da1548678c0a59b51fd6d0f1afadc assets/byg/models/item/baobab_slab.json
 03b7abe171962daaf260fc7f680fbf82e821c7af assets/byg/models/item/baobab_stairs.json
 1c07c8fd0364342f923360fac1ca207ac8a28b3d assets/byg/models/item/baobab_trapdoor.json
@@ -282,7 +281,7 @@ d80889f8626eef81e43fb7f0c1e61bb6a943706a assets/byg/models/item/baobab_wood.json
 57b24ffc8534b3809f0918c81e07ace48b7bfa14 assets/byg/models/item/blue_enchanted_log.json
 a265155fa64db093249c67b8fda1ac6532879c85 assets/byg/models/item/blue_enchanted_planks.json
 11dd424bcd0170e575c71a550f4490cff08669a7 assets/byg/models/item/blue_enchanted_pressure_plate.json
-14aab78089dccd4548dabc79ca9e6d6be27c5b7b assets/byg/models/item/blue_enchanted_sapling.json
+df6e5276a0b04b4146d38546530cba58bce7fa75 assets/byg/models/item/blue_enchanted_sapling.json
 6c6b7d4aaaaf41ae5544189b4d6f2f17ea503041 assets/byg/models/item/blue_enchanted_slab.json
 6d133dc48556d0112a21ccd0a1cf0f91512f5ba9 assets/byg/models/item/blue_enchanted_stairs.json
 507919363761d0c195b6f24703dcb31ada9ac4e8 assets/byg/models/item/blue_enchanted_trapdoor.json
@@ -292,7 +291,7 @@ ac614eceb30e702ce249b3435d116266aceb378e assets/byg/models/item/blue_enchanted_w
 5821586e299beeb47c3c76c60f5076de955e7a0e assets/byg/models/item/bulbis_crafting_table.json
 1f076b5c13d20abd1ab142ac7a57dab99a266e56 assets/byg/models/item/bulbis_door.json
 568697f5c9accc89a632cbae00af83d6fe45dcbd assets/byg/models/item/bulbis_fence.json
-3dc9cdb385d74665f9afd7e3e2e0cd2c9d70401d assets/byg/models/item/bulbis_oddity.json
+661801e3a4ca9353697810a3aa4a81d7b07e00e7 assets/byg/models/item/bulbis_oddity.json
 6232ec108f910e2497aa4b78fa9d61c6d5bcc67a assets/byg/models/item/bulbis_planks.json
 e4e1bbe9650f4073ce5b24c67d05c822c376b987 assets/byg/models/item/bulbis_pressure_plate.json
 e85566c0cce6c3accfe4d705236b48580cfc4c05 assets/byg/models/item/bulbis_slab.json
@@ -309,7 +308,6 @@ ed5732472b48092d0667c6cdfe012fe8d054d615 assets/byg/models/item/cherry_button.js
 3c96dae67cf6caa215c5afc73fcbdf2212adf0dc assets/byg/models/item/cherry_log.json
 4afd993824a2270fc517773eead3639dff772b7f assets/byg/models/item/cherry_planks.json
 09ef608b2d7680f4d6c1547a2d5a7003444324e3 assets/byg/models/item/cherry_pressure_plate.json
-de96b84775ce0ff158d7cfb6b7798ac16198ca6c assets/byg/models/item/cherry_sapling.json
 671865c0d273b1784012ee1c3ccf6289106733e8 assets/byg/models/item/cherry_slab.json
 347b47476667ec9ed1230b0e951c785d3d97af59 assets/byg/models/item/cherry_stairs.json
 b98caf270c4062571b7ad23d5e276e2852377a2e assets/byg/models/item/cherry_trapdoor.json
@@ -324,7 +322,7 @@ cbf0fcd278b651ff7468c45ef57a9de7c8358dcb assets/byg/models/item/cika_button.json
 75661b4634aa295b6965b2a78673e13a0f734f47 assets/byg/models/item/cika_log.json
 4d58890cd17246419cfeccad9dd883e8583d0c5a assets/byg/models/item/cika_planks.json
 a526914b982685199270b7bce46b0a91a07be34d assets/byg/models/item/cika_pressure_plate.json
-c4d2311e57813d3612dc5032f9e8517161d1e1a6 assets/byg/models/item/cika_sapling.json
+b1fbf364db542513285aa4a7cd55c1f4eafd96d1 assets/byg/models/item/cika_sapling.json
 eab4ab2b214b7c786d1684e021d4530907c2eaf4 assets/byg/models/item/cika_slab.json
 f45b7d3c6be311dddcc801dc95843cfec9d700aa assets/byg/models/item/cika_stairs.json
 b57967dd5c58dd29d9d7a86b8bab1543fcdb8953 assets/byg/models/item/cika_trapdoor.json
@@ -339,7 +337,7 @@ a87bbfd107f869ea32d2faa73acb148981051696 assets/byg/models/item/cypress_leaves.j
 c3b7cdf031367e432cd957f075f634d8c7878e7c assets/byg/models/item/cypress_log.json
 ba0d97b9bc5fb7c4ad8dc2b5fc9faeefe1b343c7 assets/byg/models/item/cypress_planks.json
 3fb6fbbe4c400f7721d15544866e584265c874e0 assets/byg/models/item/cypress_pressure_plate.json
-0cd68739a2232eed84704875967dfdb72b2cbe61 assets/byg/models/item/cypress_sapling.json
+5b9cec5debe640c2da5fd07465f5b4744a7a0695 assets/byg/models/item/cypress_sapling.json
 a9cd53d5bd6f3549dc341e6f01f28c98af0922a3 assets/byg/models/item/cypress_slab.json
 ddd4da9af60b209d807793d662bad1f784c9ab41 assets/byg/models/item/cypress_stairs.json
 7489fc14b7693662b85372ccf82e40d4a2ad4534 assets/byg/models/item/cypress_trapdoor.json
@@ -354,7 +352,7 @@ c2973d3a2ffb73a1e490d4fd337bf07aa4effade assets/byg/models/item/ebony_fence.json
 ddacb253e1661eeb7eca1130ecb83b19223cd41e assets/byg/models/item/ebony_log.json
 835129b5147191b14343dd09839ab17616f507a8 assets/byg/models/item/ebony_planks.json
 e104745079cff1d9ee2b3d86e7087e38011876cb assets/byg/models/item/ebony_pressure_plate.json
-685fb18ac8ff696b3e9a29222fc59ef24d9f563d assets/byg/models/item/ebony_sapling.json
+077f9c32aabcf49216b03cb5ea184b0535b856f4 assets/byg/models/item/ebony_sapling.json
 b00a7837960eb11b0a5b3c9dde743d3ba3a4cd34 assets/byg/models/item/ebony_slab.json
 bdf7e636f64a72718f82816ef74c75ad2afe77e3 assets/byg/models/item/ebony_stairs.json
 be5c1e32405cb4a4b96d365ea0636838862959f5 assets/byg/models/item/ebony_trapdoor.json
