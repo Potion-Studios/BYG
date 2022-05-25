@@ -447,28 +447,8 @@ public class BYGItems {
         BYGWoodTypes.PALM.init();
         // TODO palo verde
         BYGWoodTypes.PINE.init();
+        BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
     }
-
-    //Rainbow Eucalyptus Woodtype
-    public static final RegistryObject<GrowerItem> RAINBOW_EUCALYPTUS_SAPLING = createSaplingItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_LEAVES = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_LOG = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_LOG);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_WOOD = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_WOOD);
-    public static final RegistryObject<Item> STRIPPED_RAINBOW_EUCALYPTUS_LOG = createItem(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_LOG);
-    public static final RegistryObject<Item> STRIPPED_RAINBOW_EUCALYPTUS_WOOD = createItem(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_WOOD);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_PLANKS = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_BOOKSHELF = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_BOOKSHELF);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_CRAFTING_TABLE = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_STAIRS = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_STAIRS);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_SLAB = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_SLAB);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_FENCE = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_FENCE);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_FENCE_GATE = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_FENCE_GATE);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_DOOR = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_DOOR);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_TRAPDOOR = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_PRESSURE_PLATE = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> RAINBOW_EUCALYPTUS_BUTTON = createItem(BYGBlocks.RAINBOW_EUCALYPTUS_BUTTON);
-    public static final RegistryObject<SignItem> RAINBOW_EUCALYPTUS_SIGN = createSign("rainbow_eucalyptus_sign", BYGBlocks.RAINBOW_EUCALYPTUS_SIGN, BYGBlocks.RAINBOW_EUCALYPTUS_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> RAINBOW_EUCALYPTUS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.RAINBOW_EUCALYPTUS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "rainbow_eucalyptus_boat");
 
     //Redwood Woodtype
     public static final RegistryObject<GrowerItem> REDWOOD_SAPLING = createSaplingItem(BYGBlocks.REDWOOD_SAPLING);

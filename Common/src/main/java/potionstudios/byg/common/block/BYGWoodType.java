@@ -11,7 +11,6 @@ public class BYGWoodType {
 
     public static final WoodType JACARANDA = register("jacaranda");
     public static final WoodType MAPLE = register("maple");
-    public static final WoodType PINE = register("pine");
     public static final WoodType RAINBOW_EUCALYPTUS = register("rainbow_eucalyptus");
     public static final WoodType REDWOOD = register("redwood");
     public static final WoodType SKYRIS = register("skyris");
