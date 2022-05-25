@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/fir/fence_gate",
+  "parent": "byg:block/fir/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/imparius/fence_gate",
+  "parent": "byg:block/imparius/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

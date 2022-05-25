@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/sythian/fence_gate",
+  "parent": "byg:block/sythian/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

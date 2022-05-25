@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/mahogany/fence_gate",
+  "parent": "byg:block/mahogany/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

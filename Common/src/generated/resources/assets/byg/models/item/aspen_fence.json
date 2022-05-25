@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/aspen/fence_gate",
+  "parent": "byg:block/aspen/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

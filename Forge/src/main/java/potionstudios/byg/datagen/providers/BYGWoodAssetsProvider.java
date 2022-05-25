@@ -177,7 +177,8 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 simpleBlock(type.growerItem().get(), growerItem);
 
                 final var pottedBlock = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + type.growerItem().getId().getPath()));
-                final var potted = models().withExistingParent(typeLoc + "potted_grower_item", mcLoc("block/flower_pot_cross"));
+                final var potted = models().withExistingParent(typeLoc + "potted_grower_item", mcLoc("block/flower_pot_cross"))
+                    .texture("plant", growerItem.getLocation());
                 simpleBlock(pottedBlock, potted);
             }
             final var pressurePlate = models().pressurePlate(typeName + "/pressure_plate", rl(typeLoc + "planks"));

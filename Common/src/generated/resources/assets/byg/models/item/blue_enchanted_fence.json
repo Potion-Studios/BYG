@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/blue_enchanted/fence_gate",
+  "parent": "byg:block/blue_enchanted/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

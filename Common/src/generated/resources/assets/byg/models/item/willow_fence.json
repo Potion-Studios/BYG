@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/willow/fence_gate",
+  "parent": "byg:block/willow/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [
