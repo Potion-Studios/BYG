@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/zelkova/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/zelkova/slab"
+    },
+    "type=double": {
+      "model": "byg:block/zelkova/planks"
+    }
+  }
+}

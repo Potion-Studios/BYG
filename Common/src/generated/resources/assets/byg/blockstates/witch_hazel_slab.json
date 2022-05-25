@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/witch_hazel/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/witch_hazel/slab"
+    },
+    "type=double": {
+      "model": "byg:block/witch_hazel/planks"
+    }
+  }
+}

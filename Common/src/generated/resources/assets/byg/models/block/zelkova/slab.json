@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "byg:block/zelkova/planks",
+    "bottom": "byg:block/zelkova/planks",
+    "top": "byg:block/zelkova/planks"
+  }
+}

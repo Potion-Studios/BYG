@@ -55,9 +55,6 @@ public class BYGBoatEntity extends Boat {
             case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
             case MAPLE -> BYGItems.MAPLE_BOAT.get();
             case SKYRIS -> BYGItems.SKYRIS_BOAT.get();
-            case WILLOW -> BYGItems.WILLOW_BOAT.get();
-            case WITCH_HAZEL -> BYGItems.WITCH_HAZEL_BOAT.get();
-            case ZELKOVA -> BYGItems.ZELKOVA_BOAT.get();
         };
     }
 
@@ -70,9 +67,6 @@ public class BYGBoatEntity extends Boat {
             case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
             case MAPLE -> BYGBlocks.MAPLE_PLANKS.get();
             case SKYRIS -> BYGBlocks.SKYRIS_PLANKS.get();
-            case WILLOW -> BYGBlocks.WILLOW_PLANKS.get();
-            case WITCH_HAZEL -> BYGBlocks.WITCH_HAZEL_PLANKS.get();
-            case ZELKOVA -> BYGBlocks.ZELKOVA_PLANKS.get();
         };
     }
 

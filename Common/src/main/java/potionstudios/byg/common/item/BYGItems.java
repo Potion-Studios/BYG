@@ -481,6 +481,7 @@ public class BYGItems {
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
         BYGWoodTypes.REDWOOD.init();
         // TODO skyris
+        BYGWoodTypes.WILLOW.init();
 
         WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
         WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);

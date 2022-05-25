@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "byg:block/zelkova/log",
+    "end": "byg:block/zelkova/log_top"
+  }
+}

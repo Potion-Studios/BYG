@@ -28,9 +28,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.MAPLE_LOG.get(), BYGBlocks.STRIPPED_MAPLE_LOG.get());
         stripables.put(BYGBlocks.PALO_VERDE_LOG.get(), BYGBlocks.STRIPPED_PALO_VERDE_LOG.get());
         stripables.put(BYGBlocks.SKYRIS_LOG.get(), BYGBlocks.STRIPPED_SKYRIS_LOG.get());
-        stripables.put(BYGBlocks.WILLOW_LOG.get(), BYGBlocks.STRIPPED_WILLOW_LOG.get());
-        stripables.put(BYGBlocks.WITCH_HAZEL_LOG.get(), BYGBlocks.STRIPPED_WITCH_HAZEL_LOG.get());
-        stripables.put(BYGBlocks.ZELKOVA_LOG.get(), BYGBlocks.STRIPPED_ZELKOVA_LOG.get());
         stripables.put(BYGBlocks.SYTHIAN_STEM.get(), BYGBlocks.STRIPPED_SYTHIAN_STEM.get());
         stripables.put(BYGBlocks.LAMENT_LOG.get(), BYGBlocks.STRIPPED_LAMENT_LOG.get());
         stripables.put(BYGBlocks.WITHERING_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG);
@@ -42,9 +39,6 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.MAPLE_WOOD.get(), BYGBlocks.STRIPPED_MAPLE_WOOD.get());
         stripables.put(BYGBlocks.PALO_VERDE_WOOD.get(), BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get());
         stripables.put(BYGBlocks.SKYRIS_WOOD.get(), BYGBlocks.STRIPPED_SKYRIS_WOOD.get());
-        stripables.put(BYGBlocks.WILLOW_WOOD.get(), BYGBlocks.STRIPPED_WILLOW_WOOD.get());
-        stripables.put(BYGBlocks.WITCH_HAZEL_WOOD.get(), BYGBlocks.STRIPPED_WITCH_HAZEL_WOOD.get());
-        stripables.put(BYGBlocks.ZELKOVA_WOOD.get(), BYGBlocks.STRIPPED_ZELKOVA_WOOD.get());
         stripables.put(BYGBlocks.SYTHIAN_HYPHAE.get(), BYGBlocks.STRIPPED_SYTHIAN_HYPHAE.get());
         stripables.put(BYGBlocks.LAMENT_WOOD.get(), BYGBlocks.STRIPPED_LAMENT_WOOD.get());
         stripables.put(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);

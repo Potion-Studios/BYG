@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/willow/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/willow/slab"
+    },
+    "type=double": {
+      "model": "byg:block/willow/planks"
+    }
+  }
+}

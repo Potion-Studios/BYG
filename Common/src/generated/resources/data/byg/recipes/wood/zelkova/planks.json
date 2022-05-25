@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/zelkova_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:zelkova_planks",
+    "count": 4
+  }
+}
