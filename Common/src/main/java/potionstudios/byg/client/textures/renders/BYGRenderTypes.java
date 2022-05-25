@@ -141,9 +141,6 @@ public class BYGRenderTypes {
         //Doors
         map.put(BYGBlocks.JACARANDA_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.PINE_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.WILLOW_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_DOOR.get(), RenderType.translucent());
@@ -156,9 +153,6 @@ public class BYGRenderTypes {
         //Trapdoors
         map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.PINE_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.WILLOW_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_TRAPDOOR.get(), RenderType.translucent());
@@ -196,14 +190,11 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORCHARD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SKYRIS_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), RenderType.cutoutMipped());

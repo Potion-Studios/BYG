@@ -138,6 +138,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     public String getName() {
-        return "BYG Blocks";
+        return "BYG Block Tags";
     }
 }

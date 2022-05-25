@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "byg:block/rainbow_eucalyptus/wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "byg:block/rainbow_eucalyptus/wood"
+    },
+    "axis=z": {
+      "model": "byg:block/rainbow_eucalyptus/wood",
+      "x": 90
+    }
+  }
+}

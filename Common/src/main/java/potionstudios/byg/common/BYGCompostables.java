@@ -39,10 +39,7 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.ORANGE_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.PALO_VERDE_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.PINE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.PINK_CHERRY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.RAINBOW_EUCALYPTUS_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.REDWOOD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_LEAVES.get());
         compostibleBlocks(0.6f, BYGItems.RIPE_ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_LEAVES.get());
@@ -75,10 +72,7 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.ORANGE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.ORCHARD_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.PALO_VERDE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.PINE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.PINK_CHERRY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.RAINBOW_EUCALYPTUS_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.REDWOOD_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_OAK_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_SAPLING.get());

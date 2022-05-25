@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/rainbow_eucalyptus_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:rainbow_eucalyptus_planks",
+    "count": 4
+  }
+}

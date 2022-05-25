@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "byg:block/pine/planks",
+    "particle": "byg:block/pine/planks"
+  }
+}
