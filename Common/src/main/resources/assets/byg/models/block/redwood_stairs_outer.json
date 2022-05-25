@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "bottom": "byg:block/redwood_planks",
-    "top": "byg:block/redwood_planks",
-    "side": "byg:block/redwood_planks"
-  }
-}

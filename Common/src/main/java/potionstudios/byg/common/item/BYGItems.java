@@ -448,28 +448,8 @@ public class BYGItems {
         // TODO palo verde
         BYGWoodTypes.PINE.init();
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
+        BYGWoodTypes.REDWOOD.init();
     }
-
-    //Redwood Woodtype
-    public static final RegistryObject<GrowerItem> REDWOOD_SAPLING = createSaplingItem(BYGBlocks.REDWOOD_SAPLING);
-    public static final RegistryObject<Item> REDWOOD_LEAVES = createItem(BYGBlocks.REDWOOD_LEAVES);
-    public static final RegistryObject<Item> REDWOOD_LOG = createItem(BYGBlocks.REDWOOD_LOG);
-    public static final RegistryObject<Item> REDWOOD_WOOD = createItem(BYGBlocks.REDWOOD_WOOD);
-    public static final RegistryObject<Item> STRIPPED_REDWOOD_LOG = createItem(BYGBlocks.STRIPPED_REDWOOD_LOG);
-    public static final RegistryObject<Item> STRIPPED_REDWOOD_WOOD = createItem(BYGBlocks.STRIPPED_REDWOOD_WOOD);
-    public static final RegistryObject<Item> REDWOOD_PLANKS = createItem(BYGBlocks.REDWOOD_PLANKS);
-    public static final RegistryObject<Item> REDWOOD_BOOKSHELF = createItem(BYGBlocks.REDWOOD_BOOKSHELF);
-    public static final RegistryObject<Item> REDWOOD_CRAFTING_TABLE = createItem(BYGBlocks.REDWOOD_CRAFTING_TABLE);
-    public static final RegistryObject<Item> REDWOOD_STAIRS = createItem(BYGBlocks.REDWOOD_STAIRS);
-    public static final RegistryObject<Item> REDWOOD_SLAB = createItem(BYGBlocks.REDWOOD_SLAB);
-    public static final RegistryObject<Item> REDWOOD_FENCE = createItem(BYGBlocks.REDWOOD_FENCE);
-    public static final RegistryObject<Item> REDWOOD_FENCE_GATE = createItem(BYGBlocks.REDWOOD_FENCE_GATE);
-    public static final RegistryObject<Item> REDWOOD_DOOR = createItem(BYGBlocks.REDWOOD_DOOR);
-    public static final RegistryObject<Item> REDWOOD_TRAPDOOR = createItem(BYGBlocks.REDWOOD_TRAPDOOR);
-    public static final RegistryObject<Item> REDWOOD_PRESSURE_PLATE = createItem(BYGBlocks.REDWOOD_PRESSURE_PLATE);
-    public static final RegistryObject<Item> REDWOOD_BUTTON = createItem(BYGBlocks.REDWOOD_BUTTON);
-    public static final RegistryObject<SignItem> REDWOOD_SIGN = createSign("redwood_sign", BYGBlocks.REDWOOD_SIGN, BYGBlocks.REDWOOD_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> REDWOOD_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.REDWOOD, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "redwood_boat");
 
     //Skyris Woodtype
     public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
