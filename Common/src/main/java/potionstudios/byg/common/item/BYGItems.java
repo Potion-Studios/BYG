@@ -489,27 +489,8 @@ public class BYGItems {
         BYGWoodTypes.WITCH_HAZEL.init();
 
         BYGWoodTypes.ZELKOVA.init();
+        BYGWoodTypes.SYTHIAN.init();
     }
-
-    //Sythian Woodtype
-    public static final RegistryObject<Item> SYTHIAN_WART_BLOCK = createItem(BYGBlocks.SYTHIAN_WART_BLOCK);
-    public static final RegistryObject<GrowerItem> SYTHIAN_FUNGUS = createGrowerItem(BYGBlocks.SYTHIAN_FUNGUS);
-    public static final RegistryObject<Item> SYTHIAN_STEM = createItem(BYGBlocks.SYTHIAN_STEM);
-    public static final RegistryObject<Item> SYTHIAN_HYPHAE = createItem(BYGBlocks.SYTHIAN_HYPHAE);
-    public static final RegistryObject<Item> STRIPPED_SYTHIAN_STEM = createItem(BYGBlocks.STRIPPED_SYTHIAN_STEM);
-    public static final RegistryObject<Item> STRIPPED_SYTHIAN_HYPHAE = createItem(BYGBlocks.STRIPPED_SYTHIAN_HYPHAE);
-    public static final RegistryObject<Item> SYTHIAN_PLANKS = createItem(BYGBlocks.SYTHIAN_PLANKS);
-    public static final RegistryObject<Item> SYTHIAN_BOOKSHELF = createItem(BYGBlocks.SYTHIAN_BOOKSHELF);
-    public static final RegistryObject<Item> SYTHIAN_CRAFTING_TABLE = createItem(BYGBlocks.SYTHIAN_CRAFTING_TABLE);
-    public static final RegistryObject<Item> SYTHIAN_STAIRS = createItem(BYGBlocks.SYTHIAN_STAIRS);
-    public static final RegistryObject<Item> SYTHIAN_SLAB = createItem(BYGBlocks.SYTHIAN_SLAB);
-    public static final RegistryObject<Item> SYTHIAN_FENCE = createItem(BYGBlocks.SYTHIAN_FENCE);
-    public static final RegistryObject<Item> SYTHIAN_FENCE_GATE = createItem(BYGBlocks.SYTHIAN_FENCE_GATE);
-    public static final RegistryObject<Item> SYTHIAN_DOOR = createItem(BYGBlocks.SYTHIAN_DOOR);
-    public static final RegistryObject<Item> SYTHIAN_TRAPDOOR = createItem(BYGBlocks.SYTHIAN_TRAPDOOR);
-    public static final RegistryObject<Item> SYTHIAN_PRESSURE_PLATE = createItem(BYGBlocks.SYTHIAN_PRESSURE_PLATE);
-    public static final RegistryObject<Item> SYTHIAN_BUTTON = createItem(BYGBlocks.SYTHIAN_BUTTON);
-    public static final RegistryObject<SignItem> SYTHIAN_SIGN = createSign("sythian_sign", BYGBlocks.SYTHIAN_SIGN, BYGBlocks.SYTHIAN_WALL_SIGN);
 
     //Embur Woodtype
     public static final RegistryObject<Item> EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");

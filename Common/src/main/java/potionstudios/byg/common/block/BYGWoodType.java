@@ -12,7 +12,6 @@ public class BYGWoodType {
     public static final WoodType JACARANDA = register("jacaranda");
     public static final WoodType MAPLE = register("maple");
     public static final WoodType SKYRIS = register("skyris");
-    public static final WoodType SYTHIAN = register("sythian");
     public static final WoodType EMBUR = register("embur");
     public static final WoodType LAMENT = register("lament");
     public static final WoodType NIGHTSHADE = register("nightshade");

@@ -47,7 +47,7 @@ public enum BYGWoodTypes {
             .exclude(BlockType.LEAVES)
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
-            .stem()),
+            .nether()),
     CHERRY("cherry", new Builder()
             .exclude(BlockType.SAPLING, BlockType.LEAVES)
             .boatType(BYGBoatEntity.BYGType.CHERRY)),
@@ -83,7 +83,7 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
             .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)
             .growerItem(GrowerItemType.MUSHROOM)
-            .stem()),
+            .nether()),
     MAHOGANY("mahogany", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
             .boatType(BYGBoatEntity.BYGType.MAHOGANY)
@@ -119,7 +119,11 @@ public enum BYGWoodTypes {
     ZELKOVA("zelkova", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ZELKOVA_SAPLING)
             .boatType(BYGBoatEntity.BYGType.ZELKOVA)
-            .materialColor(MaterialColor.TERRACOTTA_RED));
+            .materialColor(MaterialColor.TERRACOTTA_RED)),
+    SYTHIAN("sythian", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
+            .growerItem(GrowerItemType.FUNGUS)
+            .nether());
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {
@@ -184,17 +188,20 @@ public enum BYGWoodTypes {
         BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
         if (!builder.excludes.contains(BlockType.LEAVES)) {
-            this.leaves = builder.leavesLightLevel == null ? BYGBlocks.createLeaves(builder.materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(builder.materialColor, builder.leavesLightLevel, name + "_leaves");
+            if (builder.isNether)
+                this.leaves = BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, nameOr("%s_wart_block", BlockType.LEAVES));
+            else
+                this.leaves = builder.leavesLightLevel == null ? BYGBlocks.createLeaves(builder.materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(builder.materialColor, builder.leavesLightLevel, name + "_leaves");
             BYGItems.createItem(leaves);
         }
 
-        this.log = ifAllowed(BlockType.LOG, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_stem", BlockType.LOG)) : BYGBlocks.createLog(nameOr("%s_log", BlockType.LOG)));
+        this.log = ifAllowed(BlockType.LOG, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_stem", BlockType.LOG)) : BYGBlocks.createLog(nameOr("%s_log", BlockType.LOG)));
         BYGItems.createItem(log);
-        this.wood = ifAllowed(BlockType.WOOD, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_hyphae", BlockType.WOOD)) : BYGBlocks.createWood(nameOr("%s_wood", BlockType.WOOD)));
+        this.wood = ifAllowed(BlockType.WOOD, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_hyphae", BlockType.WOOD)) : BYGBlocks.createWood(nameOr("%s_wood", BlockType.WOOD)));
         BYGItems.createItem(wood);
-        this.strippedLog = ifAllowed(BlockType.STRIPPED_LOG, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_stem", BlockType.STRIPPED_LOG)) : BYGBlocks.createStrippedLog(nameOr("stripped_%s_log", BlockType.STRIPPED_LOG)));
+        this.strippedLog = ifAllowed(BlockType.STRIPPED_LOG, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_stem", BlockType.STRIPPED_LOG)) : BYGBlocks.createStrippedLog(nameOr("stripped_%s_log", BlockType.STRIPPED_LOG)));
         BYGItems.createItem(strippedLog);
-        this.strippedWood = ifAllowed(BlockType.STRIPPED_WOOD, () -> builder.isStem ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_hyphae", BlockType.STRIPPED_WOOD)) : BYGBlocks.createWood(nameOr("stripped_%s_wood", BlockType.STRIPPED_WOOD)));
+        this.strippedWood = ifAllowed(BlockType.STRIPPED_WOOD, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_hyphae", BlockType.STRIPPED_WOOD)) : BYGBlocks.createWood(nameOr("stripped_%s_wood", BlockType.STRIPPED_WOOD)));
         BYGItems.createItem(strippedWood);
 
         this.planks = BYGBlocks.createPlanks(name + "_planks");
@@ -360,7 +367,7 @@ public enum BYGWoodTypes {
         private BYGBoatEntity.BYGType boatType;
         private MaterialColor materialColor;
         private Integer leavesLightLevel;
-        private boolean isStem;
+        private boolean isNether;
 
         public Builder growerItem(GrowerItemType type) {
             this.growerItemType = type;
@@ -386,8 +393,8 @@ public enum BYGWoodTypes {
             this.leavesLightLevel = leavesLightLevel;
             return this;
         }
-        public Builder stem() {
-            this.isStem = true;
+        public Builder nether() {
+            this.isNether = true;
             return this;
         }
         public Builder registryName(BlockType blockType, String name) {
