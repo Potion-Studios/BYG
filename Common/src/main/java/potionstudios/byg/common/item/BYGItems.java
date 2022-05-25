@@ -418,6 +418,12 @@ public class BYGItems {
     public static final RegistryObject<SignItem> SKYRIS_SIGN = createSign("skyris_sign", BYGBlocks.SKYRIS_SIGN, BYGBlocks.SKYRIS_WALL_SIGN);
     public static final RegistryObject<BYGBoatItem> SKYRIS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
 
+    //Witch-Hazel Woodtype
+    public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM;
+    public static final RegistryObject<Item> WITCH_HAZEL_BRANCH;
+
+    public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES;
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -475,32 +481,12 @@ public class BYGItems {
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
         BYGWoodTypes.REDWOOD.init();
         // TODO skyris
+
+        WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
+        WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
+        BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
+        BYGWoodTypes.WITCH_HAZEL.init();
     }
-
-    //Witch-Hazel Woodtype
-    public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
-    public static final RegistryObject<Item> WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
-
-    public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
-    public static final RegistryObject<GrowerItem> WITCH_HAZEL_SAPLING = createSaplingItem(BYGBlocks.WITCH_HAZEL_SAPLING);
-    public static final RegistryObject<Item> WITCH_HAZEL_LEAVES = createItem(BYGBlocks.WITCH_HAZEL_LEAVES);
-    public static final RegistryObject<Item> WITCH_HAZEL_LOG = createItem(BYGBlocks.WITCH_HAZEL_LOG);
-    public static final RegistryObject<Item> WITCH_HAZEL_WOOD = createItem(BYGBlocks.WITCH_HAZEL_WOOD);
-    public static final RegistryObject<Item> STRIPPED_WITCH_HAZEL_LOG = createItem(BYGBlocks.STRIPPED_WITCH_HAZEL_LOG);
-    public static final RegistryObject<Item> STRIPPED_WITCH_HAZEL_WOOD = createItem(BYGBlocks.STRIPPED_WITCH_HAZEL_WOOD);
-    public static final RegistryObject<Item> WITCH_HAZEL_PLANKS = createItem(BYGBlocks.WITCH_HAZEL_PLANKS);
-    public static final RegistryObject<Item> WITCH_HAZEL_BOOKSHELF = createItem(BYGBlocks.WITCH_HAZEL_BOOKSHELF);
-    public static final RegistryObject<Item> WITCH_HAZEL_CRAFTING_TABLE = createItem(BYGBlocks.WITCH_HAZEL_CRAFTING_TABLE);
-    public static final RegistryObject<Item> WITCH_HAZEL_STAIRS = createItem(BYGBlocks.WITCH_HAZEL_STAIRS);
-    public static final RegistryObject<Item> WITCH_HAZEL_SLAB = createItem(BYGBlocks.WITCH_HAZEL_SLAB);
-    public static final RegistryObject<Item> WITCH_HAZEL_FENCE = createItem(BYGBlocks.WITCH_HAZEL_FENCE);
-    public static final RegistryObject<Item> WITCH_HAZEL_FENCE_GATE = createItem(BYGBlocks.WITCH_HAZEL_FENCE_GATE);
-    public static final RegistryObject<Item> WITCH_HAZEL_DOOR = createItem(BYGBlocks.WITCH_HAZEL_DOOR);
-    public static final RegistryObject<Item> WITCH_HAZEL_TRAPDOOR = createItem(BYGBlocks.WITCH_HAZEL_TRAPDOOR);
-    public static final RegistryObject<Item> WITCH_HAZEL_PRESSURE_PLATE = createItem(BYGBlocks.WITCH_HAZEL_PRESSURE_PLATE);
-    public static final RegistryObject<Item> WITCH_HAZEL_BUTTON = createItem(BYGBlocks.WITCH_HAZEL_BUTTON);
-    public static final RegistryObject<SignItem> WITCH_HAZEL_SIGN = createSign("witch_hazel_sign", BYGBlocks.WITCH_HAZEL_SIGN, BYGBlocks.WITCH_HAZEL_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> WITCH_HAZEL_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.WITCH_HAZEL, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "witch_hazel_boat");
 
     //Zelkova Woodtype
     public static final RegistryObject<GrowerItem> ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.ZELKOVA_SAPLING);
