@@ -95,7 +95,11 @@ public enum BYGWoodTypes {
     PALM("palm", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_PALM_SAPLING)
             .boatType(BYGBoatEntity.BYGType.PALM)
-            .materialColor(MaterialColor.COLOR_GREEN));
+            .materialColor(MaterialColor.COLOR_GREEN)),
+    PINE("pine", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_PINE_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.PINE)
+            .materialColor(MaterialColor.TERRACOTTA_GREEN));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {

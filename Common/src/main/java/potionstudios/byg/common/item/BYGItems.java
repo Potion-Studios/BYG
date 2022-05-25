@@ -384,6 +384,15 @@ public class BYGItems {
     public static final RegistryObject<Item> NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
     public static final RegistryObject<SignItem> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
 
+    //Palo Verde Woodtype
+    public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
+    public static final RegistryObject<GrowerItem> PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
+    public static final RegistryObject<Item> PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
+    public static final RegistryObject<Item> PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
+    public static final RegistryObject<Item> PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
+    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
+    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -436,37 +445,9 @@ public class BYGItems {
         BYGWoodTypes.MANGROVE.init();
         // TODO Maple, Nightshade
         BYGWoodTypes.PALM.init();
+        // TODO palo verde
+        BYGWoodTypes.PINE.init();
     }
-
-    //Palo Verde Woodtype
-    public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
-    public static final RegistryObject<GrowerItem> PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
-    public static final RegistryObject<Item> PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
-    public static final RegistryObject<Item> PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
-    public static final RegistryObject<Item> PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
-    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
-
-    //Pine Woodtype
-    public static final RegistryObject<GrowerItem> PINE_SAPLING = createSaplingItem(BYGBlocks.PINE_SAPLING);
-    public static final RegistryObject<Item> PINE_LEAVES = createItem(BYGBlocks.PINE_LEAVES);
-    public static final RegistryObject<Item> PINE_LOG = createItem(BYGBlocks.PINE_LOG);
-    public static final RegistryObject<Item> PINE_WOOD = createItem(BYGBlocks.PINE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_PINE_LOG = createItem(BYGBlocks.STRIPPED_PINE_LOG);
-    public static final RegistryObject<Item> STRIPPED_PINE_WOOD = createItem(BYGBlocks.STRIPPED_PINE_WOOD);
-    public static final RegistryObject<Item> PINE_PLANKS = createItem(BYGBlocks.PINE_PLANKS);
-    public static final RegistryObject<Item> PINE_BOOKSHELF = createItem(BYGBlocks.PINE_BOOKSHELF);
-    public static final RegistryObject<Item> PINE_CRAFTING_TABLE = createItem(BYGBlocks.PINE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> PINE_STAIRS = createItem(BYGBlocks.PINE_STAIRS);
-    public static final RegistryObject<Item> PINE_SLAB = createItem(BYGBlocks.PINE_SLAB);
-    public static final RegistryObject<Item> PINE_FENCE = createItem(BYGBlocks.PINE_FENCE);
-    public static final RegistryObject<Item> PINE_FENCE_GATE = createItem(BYGBlocks.PINE_FENCE_GATE);
-    public static final RegistryObject<Item> PINE_DOOR = createItem(BYGBlocks.PINE_DOOR);
-    public static final RegistryObject<Item> PINE_TRAPDOOR = createItem(BYGBlocks.PINE_TRAPDOOR);
-    public static final RegistryObject<Item> PINE_PRESSURE_PLATE = createItem(BYGBlocks.PINE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> PINE_BUTTON = createItem(BYGBlocks.PINE_BUTTON);
-    public static final RegistryObject<SignItem> PINE_SIGN = createSign("pine_sign", BYGBlocks.PINE_SIGN, BYGBlocks.PINE_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> PINE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.PINE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "pine_boat");
 
     //Rainbow Eucalyptus Woodtype
     public static final RegistryObject<GrowerItem> RAINBOW_EUCALYPTUS_SAPLING = createSaplingItem(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING);
