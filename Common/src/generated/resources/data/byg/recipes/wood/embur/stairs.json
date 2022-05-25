@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:embur_planks"
+    }
+  },
+  "result": {
+    "item": "byg:embur_slab",
+    "count": 4
+  }
+}

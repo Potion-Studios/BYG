@@ -37,7 +37,7 @@ public class BYGVillagerTrades {
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 2),
                 new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGWoodTypes.SYTHIAN.growerItem().get(), 10, 12, 2),
             },
             4, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 2),

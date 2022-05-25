@@ -163,7 +163,6 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.DEATH_CAP_MUSHROOM_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.SHULKREN_WART_BLOCK.get());
-        compostibleBlocks(0.85f, BYGItems.SYTHIAN_WART_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.PURPLE_SHROOMLIGHT.get());
         compostibleBlocks(0.85f, BYGItems.PURPLE_BULBIS_SHELL.get());
         compostibleBlocks(0.85f, BYGItems.BULBIS_SHELL.get());
@@ -182,12 +181,9 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.BLUE_BERRY.get());
         compostibleBlocks(0.65f, BYGItems.BLUEBERRY_PIE.get());
         compostibleBlocks(0.65f, BYGItems.SHULKREN_FUNGUS.get());
-        compostibleBlocks(0.65f, BYGItems.SYTHIAN_FUNGUS.get());
-        compostibleBlocks(0.65f, BYGItems.EMBUR_WART.get());
         compostibleBlocks(0.65f, BYGItems.DEATH_CAP.get());
         compostibleBlocks(0.65f, BYGItems.SOUL_SHROOM.get());
         compostibleBlocks(0.65f, BYGItems.BAOBAB_FRUIT.get());
-        compostibleBlocks(0.65f, BYGWoodTypes.BULBIS.growerItem());
         compostibleBlocks(0.65f, BYGItems.PURPLE_BULBIS_ODDITY.get());
 
         //Plants

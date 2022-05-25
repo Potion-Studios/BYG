@@ -421,8 +421,13 @@ public class BYGItems {
     //Witch-Hazel Woodtype
     public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM;
     public static final RegistryObject<Item> WITCH_HAZEL_BRANCH;
-
     public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES;
+
+    //Embur Woodtype
+    public static final RegistryObject<Item> EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
+    public static final RegistryObject<Item> EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
+    public static final RegistryObject<Item> EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
+    public static final RegistryObject<Item> EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
 
     static {
         BYGWoodTypes.ASPEN.init();
@@ -490,30 +495,8 @@ public class BYGItems {
 
         BYGWoodTypes.ZELKOVA.init();
         BYGWoodTypes.SYTHIAN.init();
+        BYGWoodTypes.EMBUR.init();
     }
-
-    //Embur Woodtype
-    public static final RegistryObject<Item> EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
-    public static final RegistryObject<Item> EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
-    public static final RegistryObject<Item> EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
-    public static final RegistryObject<Item> EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
-    public static final RegistryObject<GrowerItem> EMBUR_WART = createGrowerItem(BYGBlocks.EMBUR_WART);
-    public static final RegistryObject<Item> EMBUR_PEDU = createItem(BYGBlocks.EMBUR_PEDU);
-    public static final RegistryObject<Item> EMBUR_HYPHAE = createItem(BYGBlocks.EMBUR_HYPHAE);
-    public static final RegistryObject<Item> STRIPPED_EMBUR_PEDU = createItem(BYGBlocks.STRIPPED_EMBUR_PEDU);
-    public static final RegistryObject<Item> STRIPPED_EMBUR_HYPHAE = createItem(BYGBlocks.STRIPPED_EMBUR_HYPHAE);
-    public static final RegistryObject<Item> EMBUR_PLANKS = createItem(BYGBlocks.EMBUR_PLANKS);
-    public static final RegistryObject<Item> EMBUR_BOOKSHELF = createItem(BYGBlocks.EMBUR_BOOKSHELF);
-    public static final RegistryObject<Item> EMBUR_CRAFTING_TABLE = createItem(BYGBlocks.EMBUR_CRAFTING_TABLE);
-    public static final RegistryObject<Item> EMBUR_STAIRS = createItem(BYGBlocks.EMBUR_STAIRS);
-    public static final RegistryObject<Item> EMBUR_SLAB = createItem(BYGBlocks.EMBUR_SLAB);
-    public static final RegistryObject<Item> EMBUR_FENCE = createItem(BYGBlocks.EMBUR_FENCE);
-    public static final RegistryObject<Item> EMBUR_FENCE_GATE = createItem(BYGBlocks.EMBUR_FENCE_GATE);
-    public static final RegistryObject<Item> EMBUR_DOOR = createItem(BYGBlocks.EMBUR_DOOR);
-    public static final RegistryObject<Item> EMBUR_TRAPDOOR = createItem(BYGBlocks.EMBUR_TRAPDOOR);
-    public static final RegistryObject<Item> EMBUR_PRESSURE_PLATE = createItem(BYGBlocks.EMBUR_PRESSURE_PLATE);
-    public static final RegistryObject<Item> EMBUR_BUTTON = createItem(BYGBlocks.EMBUR_BUTTON);
-    public static final RegistryObject<SignItem> EMBUR_SIGN = createSign("embur_sign", BYGBlocks.EMBUR_SIGN, BYGBlocks.EMBUR_WALL_SIGN);
 
     //SaplingItems
     public static final RegistryObject<Item> WITHERING_OAK_SAPLING = createItem(BYGBlocks.WITHERING_OAK_SAPLING);

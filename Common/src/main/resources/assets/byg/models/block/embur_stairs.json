@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "byg:block/embur_planks",
-    "top": "byg:block/embur_planks",
-    "side": "byg:block/embur_planks"
-  }
-}

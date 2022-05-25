@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/sythian/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/sythian/slab"
+    },
+    "type=double": {
+      "model": "byg:block/sythian/planks"
+    }
+  }
+}

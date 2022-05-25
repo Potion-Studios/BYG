@@ -45,7 +45,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.TALL_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_EMBUR_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_WART.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_GEL_BLOCK.get(), RenderType.translucent());
         map.put(BYGBlocks.EMBUR_GEL_VINES.get(), RenderType.translucent());
         map.put(BYGBlocks.EMBUR_GEL_VINES_PLANT.get(), RenderType.translucent());
@@ -86,14 +85,12 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.WARPED_CORAL.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WARPED_CORAL_WALL_FAN.get(), RenderType.cutoutMipped());
 
-        map.put(BYGBlocks.SYTHIAN_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_SPROUT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_STALK_BLOCK.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_NYLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_SYTHIAN_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SYTHIAN_FUNGUS.get(), RenderType.cutoutMipped());
 
         //End
         map.put(BYGBlocks.IVIS_ROOTS.get(), RenderType.cutoutMipped());
@@ -142,8 +139,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.JACARANDA_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SYTHIAN_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_DOOR.get(), RenderType.cutoutMipped());
 
@@ -151,8 +146,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.SKYRIS_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SYTHIAN_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_TRAPDOOR.get(), RenderType.cutoutMipped());
 

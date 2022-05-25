@@ -123,6 +123,13 @@ public enum BYGWoodTypes {
     SYTHIAN("sythian", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
             .growerItem(GrowerItemType.FUNGUS)
+            .nether()),
+    EMBUR("embur", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_EMBUR_WART)
+            .growerItem(GrowerItemType.FUNGUS)
+            .exclude(BlockType.LEAVES)
+            .registryName(BlockType.LOG, "%s_pedu")
+            .registryName(BlockType.STRIPPED_LOG, "stripped_%s_pedu")
             .nether());
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
@@ -182,8 +189,9 @@ public enum BYGWoodTypes {
         this.growerItem = switch (builder.growerItemType) {
             case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
             case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
-            case FUNGUS -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_fungus");
+            case FUNGUS -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_fungus");
             case MUSHROOM -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_mushroom");
+            case WART -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_wart");
         };
         BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
@@ -347,7 +355,8 @@ public enum BYGWoodTypes {
         SAPLING,
         ODDITY,
         FUNGUS,
-        MUSHROOM
+        MUSHROOM,
+        WART
     }
 
     public enum BlockType {

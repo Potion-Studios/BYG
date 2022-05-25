@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
@@ -32,11 +33,11 @@ public class BYGNetherVegetationFeatures {
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> EMBUR_ROOTS = createPatchConfiguredFeature("embur_roots", BYGBlocks.EMBUR_ROOTS.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TALL_EMBUR_ROOTS = createPatchConfiguredFeature("tall_embur_roots", BYGBlocks.TALL_EMBUR_ROOTS.get(), 15);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> EMBUR_WART = createPatchConfiguredFeature("embur_wart", BYGBlocks.EMBUR_WART.get(), 15);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> EMBUR_WART = createPatchConfiguredFeature("embur_wart", BYGWoodTypes.EMBUR.growerItem().get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> EMBUR_SPROUT = createPatchConfiguredFeature("embur_sprout", BYGBlocks.EMBUR_SPROUTS.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SYTHIAN_ROOTS = createPatchConfiguredFeature("sythian_roots", BYGBlocks.SYTHIAN_ROOTS.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SYTHIAN_SPROUT = createPatchConfiguredFeature("sythian_sprout", BYGBlocks.SYTHIAN_SPROUT.get(), 15);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SYTHIAN_FUNGUS = createPatchConfiguredFeature("sythian_fungus", BYGBlocks.SYTHIAN_FUNGUS.get(), 15);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SYTHIAN_FUNGUS = createPatchConfiguredFeature("sythian_fungus", BYGWoodTypes.SYTHIAN.growerItem().get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WARPED_CACTI = createConfiguredFeature("warped_cacti", Feature.RANDOM_PATCH, FeatureUtils.simpleRandomPatchConfiguration(15, createPlacedFeature(BYGFeaturesUtil.createConfiguredFeature(Feature.BLOCK_COLUMN, BlockColumnConfiguration.simple(UniformInt.of(1, 3), BlockStateProvider.simple(BYGBlocks.WARPED_CACTUS.get()))), BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, BlockPredicate.wouldSurvive(BYGBlocks.WARPED_CACTUS.defaultBlockState(), BlockPos.ZERO))))));
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WARPED_BUSH = createPatchConfiguredFeature("warped_bush", BYGBlocks.WARPED_BUSH.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WARPED_CORAL = createPatchConfiguredFeature("warped_coral", BYGBlocks.WARPED_CORAL.get(), 15);
@@ -59,7 +60,7 @@ public class BYGNetherVegetationFeatures {
 
     public static final Holder<ConfiguredFeature<ChainConfig, ?>> CHAINS = createConfiguredFeatureSup("chains", BYGFeatures.CHAIN, new ChainConfig.Builder().setMinLength(6).setMaxLength(10).setXAxisBlock(Blocks.POLISHED_BLACKSTONE_BRICKS).setZAxisBlock(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS).setWhitelist(ImmutableList.of(BYGBlocks.SCORIA_STONE.get())).build());
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_SOUL_SHROOM_SPORES = createConfiguredFeatureSup("hanging_soul_shroom_spores", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SOUL_SHROOM_BLOCK.get()).setBlock(BYGBlocks.SOUL_SHROOM_SPORE.get()).setEndBlock(BYGBlocks.SOUL_SHROOM_SPORE_END.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.SOUL_SOIL, Blocks.SOUL_SAND, BYGBlocks.WARPED_SOUL_SAND.get(), BYGBlocks.WARPED_SOUL_SAND.get())).build());
-    public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_SYTHIAN_ROOTS = createConfiguredFeatureSup("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SYTHIAN_WART_BLOCK.get()).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.defaultBlockState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, BYGBlocks.SYTHIAN_WART_BLOCK.get())).build());
+    public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_SYTHIAN_ROOTS = createConfiguredFeatureSup("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGWoodTypes.SYTHIAN.leaves().get()).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.defaultBlockState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK, BYGWoodTypes.SYTHIAN.leaves().get())).build());
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> HANGING_BONES = createConfiguredFeatureSup("hanging_bones", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE.get()).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(BYGBlocks.QUARTZITE_SAND.get(), Blocks.BONE_BLOCK)).build());
     public static final Holder<ConfiguredFeature<HangingColumnWithBaseConfig, ?>> LAMENT_VINE_FEATURE = createConfiguredFeatureSup("lament_vine", BYGFeatures.HANGING_FEATURE, new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT.get()).setEndBlock(BYGBlocks.LAMENT_VINE.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setWhitelist(ImmutableList.of(Blocks.NETHERRACK)).build());
     public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> SYTHIAN_STALK = createConfiguredFeatureSup("sythian_stalk", BYGFeatures.SYTHIAN_STALK, new ProbabilityFeatureConfiguration(0.9F));
@@ -73,7 +74,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> EMBUR_MUSHROOM = createConfiguredFeatureSup("embur_mushroom1",
         BYGFeatures.EMBUR_MUSHROOM,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.EMBUR_PEDU.get())
+            .setStemBlock(BYGWoodTypes.EMBUR.log().get())
             .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -82,7 +83,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> EMBUR_MUSHROOM2 = createConfiguredFeatureSup("embur_mushroom2",
         BYGFeatures.EMBUR_MUSHROOM2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.EMBUR_PEDU.get())
+            .setStemBlock(BYGWoodTypes.EMBUR.log().get())
             .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -91,7 +92,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> EMBUR_MUSHROOM3 = createConfiguredFeatureSup("embur_mushroom3",
         BYGFeatures.EMBUR_MUSHROOM3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.EMBUR_PEDU.get())
+            .setStemBlock(BYGWoodTypes.EMBUR.log().get())
             .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -100,7 +101,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> EMBUR_MUSHROOM4 = createConfiguredFeatureSup("embur_mushroom4",
         BYGFeatures.EMBUR_MUSHROOM4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.EMBUR_PEDU.get())
+            .setStemBlock(BYGWoodTypes.EMBUR.log().get())
             .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -148,8 +149,8 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SYTHIAN_FUNGUS_TREE1 = createConfiguredFeatureSup("sythian_fungus_tree1",
         BYGFeatures.SYTHIAN_FUNGUS_TREE1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.SYTHIAN_STEM.get())
-            .setMushroomBlock(BYGBlocks.SYTHIAN_WART_BLOCK.get())
+            .setStemBlock(BYGWoodTypes.SYTHIAN.log().get())
+            .setMushroomBlock(BYGWoodTypes.SYTHIAN.leaves().get())
             .setMinHeight(6)
             .setMaxHeight(12)
             .build()
@@ -157,8 +158,8 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SYTHIAN_FUNGUS_TREE2 = createConfiguredFeatureSup("sythian_fungus_tree2",
         BYGFeatures.SYTHIAN_FUNGUS_TREE2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.SYTHIAN_STEM.get())
-            .setMushroomBlock(BYGBlocks.SYTHIAN_WART_BLOCK.get())
+            .setStemBlock(BYGWoodTypes.SYTHIAN.log().get())
+            .setMushroomBlock(BYGWoodTypes.SYTHIAN.leaves().get())
             .setMinHeight(6)
             .setMaxHeight(12)
             .build()
@@ -166,8 +167,8 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SYTHIAN_FUNGUS_TREE3 = createConfiguredFeatureSup("sythian_fungus_tree3",
         BYGFeatures.SYTHIAN_FUNGUS_TREE3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.SYTHIAN_STEM.get())
-            .setMushroomBlock(BYGBlocks.SYTHIAN_WART_BLOCK.get())
+            .setStemBlock(BYGWoodTypes.SYTHIAN.log().get())
+            .setMushroomBlock(BYGWoodTypes.SYTHIAN.leaves().get())
             .setMinHeight(6)
             .setMaxHeight(12)
             .build()
@@ -175,8 +176,8 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SYTHIAN_FUNGUS_TREE4 = createConfiguredFeatureSup("sythian_fungus_tree4",
         BYGFeatures.SYTHIAN_FUNGUS_TREE4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.SYTHIAN_STEM.get())
-            .setMushroomBlock(BYGBlocks.SYTHIAN_WART_BLOCK.get())
+            .setStemBlock(BYGWoodTypes.SYTHIAN.log().get())
+            .setMushroomBlock(BYGWoodTypes.SYTHIAN.leaves().get())
             .setMinHeight(6)
             .setMaxHeight(12)
             .build()

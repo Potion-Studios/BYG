@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.material.FluidState;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -34,13 +35,13 @@ public class SythianStalkBlock extends BambooBlock {
             BlockState blockStateDOWN = ctx.getLevel().getBlockState(ctx.getClickedPos().below());
             if (blockStateDOWN.getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get()) {
                 Block blockDOWN = blockStateDOWN.getBlock();
-                if (blockDOWN == BYGBlocks.SYTHIAN_SAPLING.get()) {
+                if (blockDOWN == BYGWoodTypes.SYTHIAN.growerItem().get()) {
                     return this.defaultBlockState().setValue(AGE, 0);
                 } else if (blockDOWN == this) {
                     int getPropertyAge = blockStateDOWN.getValue(AGE) > 0 ? 1 : 0;
                     return this.defaultBlockState().setValue(AGE, getPropertyAge);
                 } else {
-                    return BYGBlocks.SYTHIAN_SAPLING.defaultBlockState();
+                    return BYGWoodTypes.SYTHIAN.growerItem().defaultBlockState();
                 }
             } else {
                 return null;

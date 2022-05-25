@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wood",
+  "pattern": [
+    "LL",
+    "LL"
+  ],
+  "key": {
+    "L": {
+      "item": "byg:sythian_stem"
+    }
+  },
+  "result": {
+    "item": "byg:sythian_hyphae",
+    "count": 3
+  }
+}
