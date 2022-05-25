@@ -3,14 +3,18 @@ package potionstudios.byg.client.gui.biomepedia1;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.biomepedia.widgets.BookBackgroundWidget;
@@ -19,8 +23,11 @@ import potionstudios.byg.util.ModPlatform;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class BiomepediaScreen extends Screen {
     public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
@@ -64,6 +71,8 @@ public class BiomepediaScreen extends Screen {
                 button -> this.minecraft.setScreen(new ItemsViewScreen(this)), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.blocksanditems.hover"), this));
 
         Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.biomes"), button -> {
+            Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+            this.minecraft.setScreen(new BiomeListScreen(this, biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList())));
         }, getToolTip(new TranslatableComponent("biomepedia.intro.options.biomes.hover"), this));
 
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.ores"), button -> {
@@ -74,7 +83,6 @@ public class BiomepediaScreen extends Screen {
 
 
         ores.active = false;
-        biomes.active = false;
         translations.active = false;
 
         Button issues = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.issues"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.issues.hover"), this));
