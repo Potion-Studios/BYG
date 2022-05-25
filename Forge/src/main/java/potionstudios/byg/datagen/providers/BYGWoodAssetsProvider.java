@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers;
 
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,7 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.dev.ModelProviderAccess;
@@ -120,7 +122,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var fenceGateOpen = models().fenceGateOpen(typeName + "/fence_gate_open", rl(typeLoc + "planks"));
             final var fenceGateWall = models().fenceGateWall(typeName + "/fence_gate_wall", rl(typeLoc + "planks"));
             final var fenceGateWallOpen = models().fenceGateWallOpen(typeName + "/fence_gate_wall_open", rl(typeLoc + "planks"));
-            configureTransform(item.withExistingParent(type.fence().getId().getPath(), fenceGate.getLocation()));
+            configureTransform(item.withExistingParent(type.fenceGate().getId().getPath(), fenceGate.getLocation()));
             fenceGateBlock((FenceGateBlock) type.fenceGate().get(), fenceGate, fenceGateOpen, fenceGateWall, fenceGateWallOpen);
 
             if (type.leaves() != null) {
@@ -173,6 +175,10 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 item.withExistingParent(type.growerItem().getId().getPath(), generatedParent)
                     .texture("layer0", textureLoc);
                 simpleBlock(type.growerItem().get(), growerItem);
+
+                final var pottedBlock = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + type.growerItem().getId().getPath()));
+                final var potted = models().withExistingParent(typeLoc + "potted_grower_item", mcLoc("block/flower_pot_cross"));
+                simpleBlock(pottedBlock, potted);
             }
             final var pressurePlate = models().pressurePlate(typeName + "/pressure_plate", rl(typeLoc + "planks"));
             final var pressurePlateDown = models().pressurePlateDown(typeName + "/pressure_plate_down", rl(typeLoc + "planks"));
@@ -195,7 +201,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var trapdoor = models().trapdoorOrientableBottom(trapdoorName + "_bottom", trapdoorLoc);
             final var trapdoorTop = models().trapdoorOrientableTop(trapdoorName + "_top", trapdoorLoc);
             final var trapdoorOpen = models().trapdoorOrientableOpen(trapdoorName + "_open", trapdoorLoc);
-            configureTransform(item.withExistingParent(trapdoorName, trapdoor.getLocation()));
+            configureTransform(item.withExistingParent(type.trapdoor().getId().getPath(), trapdoor.getLocation()));
             trapdoorBlock((TrapDoorBlock) type.trapdoor().get(), trapdoor, trapdoorTop, trapdoorOpen, true);
 
 // No wood walls for now

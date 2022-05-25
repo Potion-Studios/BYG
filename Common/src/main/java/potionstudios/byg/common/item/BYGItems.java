@@ -494,6 +494,7 @@ public class BYGItems {
         BYGWoodTypes.WITCH_HAZEL.init();
 
         BYGWoodTypes.ZELKOVA.init();
+        createItem(BYGBlocks.SYTHIAN_SAPLING);
         BYGWoodTypes.SYTHIAN.init();
         BYGWoodTypes.EMBUR.init();
     }

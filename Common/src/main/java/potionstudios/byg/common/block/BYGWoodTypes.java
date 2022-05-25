@@ -126,7 +126,7 @@ public enum BYGWoodTypes {
             .nether()),
     EMBUR("embur", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_EMBUR_WART)
-            .growerItem(GrowerItemType.FUNGUS)
+            .growerItem(GrowerItemType.WART)
             .exclude(BlockType.LEAVES)
             .registryName(BlockType.LOG, "%s_pedu")
             .registryName(BlockType.STRIPPED_LOG, "stripped_%s_pedu")

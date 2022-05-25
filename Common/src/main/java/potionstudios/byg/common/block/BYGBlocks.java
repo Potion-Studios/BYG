@@ -309,7 +309,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SYTHIAN_SPROUT = createBlock(BYGBlockProperties.SythianPlant::new, "sythian_sprout");
     public static final BlockRegistryObject<Block> SYTHIAN_STALK_BLOCK = createBlock(BYGBlockProperties.SythianStalk::new, "sythian_stalk_block");
     public static final BlockRegistryObject<Block> SYTHIAN_SCAFFOLDING = createBlock(BYGBlockProperties.BYGScaffolding::new, "sythian_scaffolding");
-
+    public static final BlockRegistryObject<Block> SYTHIAN_SAPLING = createBlock(BYGBlockProperties.SythianSapling::new, "sythian_sapling");
+    
     public static final BlockRegistryObject<Block> HANGING_SYTHIAN_ROOTS = createBlock(BYGBlockProperties.BYGSythianHangingRoots::new, "hanging_sythian_roots");
     public static final BlockRegistryObject<Block> HANGING_SYTHIAN_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGSythianHangingRootsPlant::new, "hanging_sythian_roots_plant");
 
