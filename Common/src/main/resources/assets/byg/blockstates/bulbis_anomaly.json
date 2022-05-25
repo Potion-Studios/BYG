@@ -1,7 +1,7 @@
 {
   "variants": {
     "half=lower": {
-      "model": "byg:block/bulbis_anomaly_bottom"
+      "model": "byg:block/bulbis/anomaly_bottom"
     },
     "half=upper": {
       "model": "byg:block/bulbis/anomaly_top"

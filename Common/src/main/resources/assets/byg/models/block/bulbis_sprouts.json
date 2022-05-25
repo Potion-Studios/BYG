@@ -1,8 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
-        "bulbis_sprouts": "byg:block/bulbis_sprouts",
-        "particle": "byg:block/bulbis_sprouts"
+        "bulbis_sprouts": "byg:block/bulbis/sprouts",
+        "particle": "byg:block/bulbis/sprouts"
     },
     "elements": [
         {

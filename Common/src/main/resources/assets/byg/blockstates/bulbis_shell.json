@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "byg:block/bulbis_shell"
+      "model": "byg:block/bulbis/shell"
     }
   }
 }
