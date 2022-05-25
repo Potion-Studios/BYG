@@ -393,6 +393,31 @@ public class BYGItems {
     public static final RegistryObject<Item> STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
     public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
 
+    //Skyris Woodtype
+    public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
+    public static final RegistryObject<Item> GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
+    public static final RegistryObject<Item> GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
+    public static final RegistryObject<GrowerItem> SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
+    public static final RegistryObject<Item> SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
+    public static final RegistryObject<Item> SKYRIS_LEAVES = createItem(BYGBlocks.SKYRIS_LEAVES);
+    public static final RegistryObject<Item> SKYRIS_LOG = createItem(BYGBlocks.SKYRIS_LOG);
+    public static final RegistryObject<Item> SKYRIS_WOOD = createItem(BYGBlocks.SKYRIS_WOOD);
+    public static final RegistryObject<Item> STRIPPED_SKYRIS_LOG = createItem(BYGBlocks.STRIPPED_SKYRIS_LOG);
+    public static final RegistryObject<Item> STRIPPED_SKYRIS_WOOD = createItem(BYGBlocks.STRIPPED_SKYRIS_WOOD);
+    public static final RegistryObject<Item> SKYRIS_PLANKS = createItem(BYGBlocks.SKYRIS_PLANKS);
+    public static final RegistryObject<Item> SKYRIS_BOOKSHELF = createItem(BYGBlocks.SKYRIS_BOOKSHELF);
+    public static final RegistryObject<Item> SKYRIS_CRAFTING_TABLE = createItem(BYGBlocks.SKYRIS_CRAFTING_TABLE);
+    public static final RegistryObject<Item> SKYRIS_STAIRS = createItem(BYGBlocks.SKYRIS_STAIRS);
+    public static final RegistryObject<Item> SKYRIS_SLAB = createItem(BYGBlocks.SKYRIS_SLAB);
+    public static final RegistryObject<Item> SKYRIS_FENCE = createItem(BYGBlocks.SKYRIS_FENCE);
+    public static final RegistryObject<Item> SKYRIS_FENCE_GATE = createItem(BYGBlocks.SKYRIS_FENCE_GATE);
+    public static final RegistryObject<Item> SKYRIS_DOOR = createItem(BYGBlocks.SKYRIS_DOOR);
+    public static final RegistryObject<Item> SKYRIS_TRAPDOOR = createItem(BYGBlocks.SKYRIS_TRAPDOOR);
+    public static final RegistryObject<Item> SKYRIS_PRESSURE_PLATE = createItem(BYGBlocks.SKYRIS_PRESSURE_PLATE);
+    public static final RegistryObject<Item> SKYRIS_BUTTON = createItem(BYGBlocks.SKYRIS_BUTTON);
+    public static final RegistryObject<SignItem> SKYRIS_SIGN = createSign("skyris_sign", BYGBlocks.SKYRIS_SIGN, BYGBlocks.SKYRIS_WALL_SIGN);
+    public static final RegistryObject<BYGBoatItem> SKYRIS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
+
     static {
         BYGWoodTypes.ASPEN.init();
 
@@ -449,53 +474,8 @@ public class BYGItems {
         BYGWoodTypes.PINE.init();
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
         BYGWoodTypes.REDWOOD.init();
+        // TODO skyris
     }
-
-    //Skyris Woodtype
-    public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
-    public static final RegistryObject<Item> GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
-    public static final RegistryObject<Item> GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
-    public static final RegistryObject<GrowerItem> SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
-    public static final RegistryObject<Item> SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
-    public static final RegistryObject<Item> SKYRIS_LEAVES = createItem(BYGBlocks.SKYRIS_LEAVES);
-    public static final RegistryObject<Item> SKYRIS_LOG = createItem(BYGBlocks.SKYRIS_LOG);
-    public static final RegistryObject<Item> SKYRIS_WOOD = createItem(BYGBlocks.SKYRIS_WOOD);
-    public static final RegistryObject<Item> STRIPPED_SKYRIS_LOG = createItem(BYGBlocks.STRIPPED_SKYRIS_LOG);
-    public static final RegistryObject<Item> STRIPPED_SKYRIS_WOOD = createItem(BYGBlocks.STRIPPED_SKYRIS_WOOD);
-    public static final RegistryObject<Item> SKYRIS_PLANKS = createItem(BYGBlocks.SKYRIS_PLANKS);
-    public static final RegistryObject<Item> SKYRIS_BOOKSHELF = createItem(BYGBlocks.SKYRIS_BOOKSHELF);
-    public static final RegistryObject<Item> SKYRIS_CRAFTING_TABLE = createItem(BYGBlocks.SKYRIS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> SKYRIS_STAIRS = createItem(BYGBlocks.SKYRIS_STAIRS);
-    public static final RegistryObject<Item> SKYRIS_SLAB = createItem(BYGBlocks.SKYRIS_SLAB);
-    public static final RegistryObject<Item> SKYRIS_FENCE = createItem(BYGBlocks.SKYRIS_FENCE);
-    public static final RegistryObject<Item> SKYRIS_FENCE_GATE = createItem(BYGBlocks.SKYRIS_FENCE_GATE);
-    public static final RegistryObject<Item> SKYRIS_DOOR = createItem(BYGBlocks.SKYRIS_DOOR);
-    public static final RegistryObject<Item> SKYRIS_TRAPDOOR = createItem(BYGBlocks.SKYRIS_TRAPDOOR);
-    public static final RegistryObject<Item> SKYRIS_PRESSURE_PLATE = createItem(BYGBlocks.SKYRIS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> SKYRIS_BUTTON = createItem(BYGBlocks.SKYRIS_BUTTON);
-    public static final RegistryObject<SignItem> SKYRIS_SIGN = createSign("skyris_sign", BYGBlocks.SKYRIS_SIGN, BYGBlocks.SKYRIS_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> SKYRIS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
-
-    //Willow Woodtype
-    public static final RegistryObject<GrowerItem> WILLOW_SAPLING = createSaplingItem(BYGBlocks.WILLOW_SAPLING);
-    public static final RegistryObject<Item> WILLOW_LEAVES = createItem(BYGBlocks.WILLOW_LEAVES);
-    public static final RegistryObject<Item> WILLOW_LOG = createItem(BYGBlocks.WILLOW_LOG);
-    public static final RegistryObject<Item> WILLOW_WOOD = createItem(BYGBlocks.WILLOW_WOOD);
-    public static final RegistryObject<Item> STRIPPED_WILLOW_LOG = createItem(BYGBlocks.STRIPPED_WILLOW_LOG);
-    public static final RegistryObject<Item> STRIPPED_WILLOW_WOOD = createItem(BYGBlocks.STRIPPED_WILLOW_WOOD);
-    public static final RegistryObject<Item> WILLOW_PLANKS = createItem(BYGBlocks.WILLOW_PLANKS);
-    public static final RegistryObject<Item> WILLOW_BOOKSHELF = createItem(BYGBlocks.WILLOW_BOOKSHELF);
-    public static final RegistryObject<Item> WILLOW_CRAFTING_TABLE = createItem(BYGBlocks.WILLOW_CRAFTING_TABLE);
-    public static final RegistryObject<Item> WILLOW_STAIRS = createItem(BYGBlocks.WILLOW_STAIRS);
-    public static final RegistryObject<Item> WILLOW_SLAB = createItem(BYGBlocks.WILLOW_SLAB);
-    public static final RegistryObject<Item> WILLOW_FENCE = createItem(BYGBlocks.WILLOW_FENCE);
-    public static final RegistryObject<Item> WILLOW_FENCE_GATE = createItem(BYGBlocks.WILLOW_FENCE_GATE);
-    public static final RegistryObject<Item> WILLOW_DOOR = createItem(BYGBlocks.WILLOW_DOOR);
-    public static final RegistryObject<Item> WILLOW_TRAPDOOR = createItem(BYGBlocks.WILLOW_TRAPDOOR);
-    public static final RegistryObject<Item> WILLOW_PRESSURE_PLATE = createItem(BYGBlocks.WILLOW_PRESSURE_PLATE);
-    public static final RegistryObject<Item> WILLOW_BUTTON = createItem(BYGBlocks.WILLOW_BUTTON);
-    public static final RegistryObject<SignItem> WILLOW_SIGN = createSign("willow_sign", BYGBlocks.WILLOW_SIGN, BYGBlocks.WILLOW_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> WILLOW_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.WILLOW, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "willow_boat");
 
     //Witch-Hazel Woodtype
     public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);

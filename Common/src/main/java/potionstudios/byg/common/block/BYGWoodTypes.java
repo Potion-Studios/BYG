@@ -107,7 +107,11 @@ public enum BYGWoodTypes {
     REDWOOD("redwood", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_REDWOOD_SAPLING)
             .boatType(BYGBoatEntity.BYGType.REDWOOD)
-            .materialColor(MaterialColor.COLOR_GREEN));
+            .materialColor(MaterialColor.COLOR_GREEN)),
+    WILLOW("willow", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_WILLOW_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.WILLOW)
+            .materialColor(MaterialColor.TERRACOTTA_GREEN));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {
