@@ -13,7 +13,6 @@ public class BYGWoodType {
     public static final WoodType MAPLE = register("maple");
     public static final WoodType SKYRIS = register("skyris");
     public static final WoodType LAMENT = register("lament");
-    public static final WoodType NIGHTSHADE = register("nightshade");
 
     private static WoodType register(String id) {
         return BYGConstants.SIGNS ? byg_invokeRegister(byg_create(BYG.createLocation(id).toString().replace(":", "/"))) : null;

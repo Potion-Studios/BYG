@@ -363,26 +363,8 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> MAPLE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
 
     //Nightshade Woodtype
-    public static final RegistryObject<GrowerItem> NIGHTSHADE_SAPLING = createSaplingItem(BYGBlocks.NIGHTSHADE_SAPLING);
-    public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
-    public static final RegistryObject<Item> NIGHTSHADE_LEAVES = createItem(BYGBlocks.NIGHTSHADE_LEAVES);
-    public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> NIGHTSHADE_LOG = createItem(BYGBlocks.NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> NIGHTSHADE_WOOD = createItem(BYGBlocks.NIGHTSHADE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_LOG = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_LOG);
-    public static final RegistryObject<Item> STRIPPED_NIGHTSHADE_WOOD = createItem(BYGBlocks.STRIPPED_NIGHTSHADE_WOOD);
-    public static final RegistryObject<Item> NIGHTSHADE_PLANKS = createItem(BYGBlocks.NIGHTSHADE_PLANKS);
-    public static final RegistryObject<Item> NIGHTSHADE_BOOKSHELF = createItem(BYGBlocks.NIGHTSHADE_BOOKSHELF);
-    public static final RegistryObject<Item> NIGHTSHADE_CRAFTING_TABLE = createItem(BYGBlocks.NIGHTSHADE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> NIGHTSHADE_STAIRS = createItem(BYGBlocks.NIGHTSHADE_STAIRS);
-    public static final RegistryObject<Item> NIGHTSHADE_SLAB = createItem(BYGBlocks.NIGHTSHADE_SLAB);
-    public static final RegistryObject<Item> NIGHTSHADE_FENCE = createItem(BYGBlocks.NIGHTSHADE_FENCE);
-    public static final RegistryObject<Item> NIGHTSHADE_FENCE_GATE = createItem(BYGBlocks.NIGHTSHADE_FENCE_GATE);
-    public static final RegistryObject<Item> NIGHTSHADE_DOOR = createItem(BYGBlocks.NIGHTSHADE_DOOR);
-    public static final RegistryObject<Item> NIGHTSHADE_TRAPDOOR = createItem(BYGBlocks.NIGHTSHADE_TRAPDOOR);
-    public static final RegistryObject<Item> NIGHTSHADE_PRESSURE_PLATE = createItem(BYGBlocks.NIGHTSHADE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> NIGHTSHADE_BUTTON = createItem(BYGBlocks.NIGHTSHADE_BUTTON);
-    public static final RegistryObject<SignItem> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGBlocks.NIGHTSHADE_SIGN, BYGBlocks.NIGHTSHADE_WALL_SIGN);
+    public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES;
+    public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG;
 
     //Palo Verde Woodtype
     public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
@@ -479,7 +461,12 @@ public class BYGItems {
         // TODO Lamient, Jacaranda
         BYGWoodTypes.MAHOGANY.init();
         BYGWoodTypes.MANGROVE.init();
-        // TODO Maple, Nightshade
+        // TODO Maple
+
+        FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
+        IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
+        BYGWoodTypes.NIGHTSHADE.init();
+
         BYGWoodTypes.PALM.init();
         // TODO palo verde
         BYGWoodTypes.PINE.init();

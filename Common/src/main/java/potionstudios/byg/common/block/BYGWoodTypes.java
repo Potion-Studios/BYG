@@ -130,7 +130,10 @@ public enum BYGWoodTypes {
             .exclude(BlockType.LEAVES)
             .registryName(BlockType.LOG, "%s_pedu")
             .registryName(BlockType.STRIPPED_LOG, "stripped_%s_pedu")
-            .nether());
+            .nether()),
+    NIGHTSHADE("nightshade", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING)
+            .materialColor(MaterialColor.COLOR_ORANGE));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {

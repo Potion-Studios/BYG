@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "byg:block/nightshade/planks",
+    "bottom": "byg:block/nightshade/planks",
+    "top": "byg:block/nightshade/planks"
+  }
+}

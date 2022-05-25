@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/nightshade_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:nightshade_planks",
+    "count": 4
+  }
+}
