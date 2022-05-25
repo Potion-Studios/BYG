@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/zelkova_log_top",
-    "side": "byg:block/zelkova_log"
-  }
-}

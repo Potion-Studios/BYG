@@ -115,7 +115,11 @@ public enum BYGWoodTypes {
     WITCH_HAZEL("witch_hazel", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING)
             .boatType(BYGBoatEntity.BYGType.WITCH_HAZEL)
-            .materialColor(MaterialColor.COLOR_ORANGE));
+            .materialColor(MaterialColor.COLOR_ORANGE)),
+    ZELKOVA("zelkova", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_ZELKOVA_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.ZELKOVA)
+            .materialColor(MaterialColor.TERRACOTTA_RED));
 
     public static final Map<String, BYGWoodTypes> LOOKUP;
     static {

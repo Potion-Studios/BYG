@@ -486,28 +486,9 @@ public class BYGItems {
         WITCH_HAZEL_BRANCH = createItem(BYGBlocks.WITCH_HAZEL_BRANCH);
         BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
         BYGWoodTypes.WITCH_HAZEL.init();
-    }
 
-    //Zelkova Woodtype
-    public static final RegistryObject<GrowerItem> ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.ZELKOVA_SAPLING);
-    public static final RegistryObject<Item> ZELKOVA_LEAVES = createItem(BYGBlocks.ZELKOVA_LEAVES);
-    public static final RegistryObject<Item> ZELKOVA_LOG = createItem(BYGBlocks.ZELKOVA_LOG);
-    public static final RegistryObject<Item> ZELKOVA_WOOD = createItem(BYGBlocks.ZELKOVA_WOOD);
-    public static final RegistryObject<Item> STRIPPED_ZELKOVA_LOG = createItem(BYGBlocks.STRIPPED_ZELKOVA_LOG);
-    public static final RegistryObject<Item> STRIPPED_ZELKOVA_WOOD = createItem(BYGBlocks.STRIPPED_ZELKOVA_WOOD);
-    public static final RegistryObject<Item> ZELKOVA_PLANKS = createItem(BYGBlocks.ZELKOVA_PLANKS);
-    public static final RegistryObject<Item> ZELKOVA_BOOKSHELF = createItem(BYGBlocks.ZELKOVA_BOOKSHELF);
-    public static final RegistryObject<Item> ZELKOVA_CRAFTING_TABLE = createItem(BYGBlocks.ZELKOVA_CRAFTING_TABLE);
-    public static final RegistryObject<Item> ZELKOVA_STAIRS = createItem(BYGBlocks.ZELKOVA_STAIRS);
-    public static final RegistryObject<Item> ZELKOVA_SLAB = createItem(BYGBlocks.ZELKOVA_SLAB);
-    public static final RegistryObject<Item> ZELKOVA_FENCE = createItem(BYGBlocks.ZELKOVA_FENCE);
-    public static final RegistryObject<Item> ZELKOVA_FENCE_GATE = createItem(BYGBlocks.ZELKOVA_FENCE_GATE);
-    public static final RegistryObject<Item> ZELKOVA_DOOR = createItem(BYGBlocks.ZELKOVA_DOOR);
-    public static final RegistryObject<Item> ZELKOVA_TRAPDOOR = createItem(BYGBlocks.ZELKOVA_TRAPDOOR);
-    public static final RegistryObject<Item> ZELKOVA_PRESSURE_PLATE = createItem(BYGBlocks.ZELKOVA_PRESSURE_PLATE);
-    public static final RegistryObject<Item> ZELKOVA_BUTTON = createItem(BYGBlocks.ZELKOVA_BUTTON);
-    public static final RegistryObject<SignItem> ZELKOVA_SIGN = createSign("zelkova_sign", BYGBlocks.ZELKOVA_SIGN, BYGBlocks.ZELKOVA_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> ZELKOVA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.ZELKOVA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "zelkova_boat");
+        BYGWoodTypes.ZELKOVA.init();
+    }
 
     //Sythian Woodtype
     public static final RegistryObject<Item> SYTHIAN_WART_BLOCK = createItem(BYGBlocks.SYTHIAN_WART_BLOCK);

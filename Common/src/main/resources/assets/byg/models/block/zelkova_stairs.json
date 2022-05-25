@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "byg:block/zelkova_planks",
-    "top": "byg:block/zelkova_planks",
-    "side": "byg:block/zelkova_planks"
-  }
-}
