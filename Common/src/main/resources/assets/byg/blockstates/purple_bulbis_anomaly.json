@@ -4,7 +4,7 @@
       "model": "byg:block/purple_bulbis_anomaly_bottom"
     },
     "half=upper": {
-      "model": "byg:block/purple_bulbis_anomaly_top"
+      "model": "byg:block/purple_bulbis/anomaly_top"
     }
   }
 }
