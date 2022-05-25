@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/holly_berry_leaves",
+  "parent": "byg:block/holly/berry_leaves",
   "display": {
     "thirdperson": {
       "rotation": [

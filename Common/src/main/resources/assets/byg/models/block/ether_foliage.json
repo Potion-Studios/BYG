@@ -1,7 +1,7 @@
 {
   "parent": "block/carpet",
   "textures": {
-    "particle": "byg:block/ether_leaves",
-    "wool": "byg:block/ether_leaves"
+    "particle": "byg:block/ether/leaves",
+    "wool": "byg:block/ether/leaves"
   }
 }
