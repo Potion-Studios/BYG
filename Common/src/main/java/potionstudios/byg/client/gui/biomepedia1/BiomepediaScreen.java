@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 public class BiomepediaScreen extends Screen {
     public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
     public static final String GITHUB_ISSUES_URL = "https://github.com/AOCAWOL/BYG/issues";
+    public static final String TRANSLATIONS_URL = "https://crowdin.com/project/oh-the-biomes-youll-go";
     public static final ResourceLocation BIOMEPEDIA_LOCATION = BYG.createLocation("textures/gui/biomepedia_book_gui.png");
     public static final String DOWNLOAD_URL = ModPlatform.INSTANCE.curseForgeURL();
 
@@ -78,12 +79,9 @@ public class BiomepediaScreen extends Screen {
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.ores"), button -> {
         }, getToolTip(new TranslatableComponent("biomepedia.intro.options.ores.hover"), this));
 
-        Button translations = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.translate"), button -> {
-        }, getToolTip(new TranslatableComponent("biomepedia.intro.options.translate.hover"), this));
-
+        Button translations = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.translate"), consumeLink(TRANSLATIONS_URL), getToolTip(new TranslatableComponent("biomepedia.intro.options.translate.hover"), this));
 
         ores.active = false;
-        translations.active = false;
 
         Button issues = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.issues"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.issues.hover"), this));
 
