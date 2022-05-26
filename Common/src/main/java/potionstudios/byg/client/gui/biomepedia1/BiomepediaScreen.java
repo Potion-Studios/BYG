@@ -72,8 +72,7 @@ public class BiomepediaScreen extends Screen {
                 button -> this.minecraft.setScreen(new ItemsViewScreen(this)), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.blocksanditems.hover"), this));
 
         Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.biomes"), button -> {
-            Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-            this.minecraft.setScreen(new BiomeListScreen(this, biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList())));
+            this.minecraft.setScreen(new BiomeListScreen(this));
         }, getToolTip(new TranslatableComponent("biomepedia.intro.options.biomes.hover"), this));
 
         Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.ores"), button -> {
