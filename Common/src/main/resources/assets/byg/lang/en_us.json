@@ -92,6 +92,8 @@
   "biomepedia.intro.options.issues.hover": "Found a bug or issue? Report it to us!",
   "biomepedia.intro.options.ores": "Ores",
   "biomepedia.intro.options.ores.hover": "Learn more about BYG's ores!",
+  "biomepedia.intro.options.translate": "Translate",
+  "biomepedia.intro.options.translate.hover": "Know any other languages beyond English? Help us translate!",
   "block.byg.allium_flower_bush": "Allium Flower Bush",
   "block.byg.aloe_vera": "Aloe Vera",
   "block.byg.alpine_bellflower": "Alpine Bellflower",
