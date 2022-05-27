@@ -17,13 +17,13 @@ public class BYGRenderTypes {
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             final var renderType = switch (type) {
-                case ASPEN -> RenderType.translucent();
+                case ASPEN, SKYRIS -> RenderType.translucent();
                 default -> RenderType.cutoutMipped();
             };
             map.put(type.door().get(), renderType);
             map.put(type.trapdoor().get(), renderType);
             if (type.growerItem() != null)
-                map.put(type.growerItem().get(), renderType);
+                map.put(type.growerItem().get(), RenderType.cutoutMipped());
         }
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
@@ -137,13 +137,11 @@ public class BYGRenderTypes {
         //Doors
         map.put(BYGBlocks.JACARANDA_DOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_DOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
         map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MAPLE_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_TRAPDOOR.get(), RenderType.translucent());
         map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
 
         //Grass
@@ -180,7 +178,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SKYRIS_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());

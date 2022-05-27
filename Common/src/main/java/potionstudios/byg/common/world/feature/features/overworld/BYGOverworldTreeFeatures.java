@@ -1467,10 +1467,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
             BYGFeatures.SKYRIS_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.SKYRIS_LOG.get())
+                    .setTrunkBlock(SKYRIS.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(BYGBlocks.SKYRIS_LEAVES.defaultBlockState(), 8))
+                            .add(SKYRIS.leaves().defaultBlockState(), 8))
                     )
                     .setMaxHeight(9)
                     .setMinHeight(6)
@@ -1479,10 +1479,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE2 = createConfiguredFeature("skyris_tree2",
             BYGFeatures.SKYRIS_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.SKYRIS_LOG.get())
+                    .setTrunkBlock(SKYRIS.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(BYGBlocks.SKYRIS_LEAVES.defaultBlockState(), 8))
+                            .add(SKYRIS.leaves().defaultBlockState(), 8))
                     )
                     .setMaxHeight(6)
                     .setMinHeight(3)
@@ -1491,10 +1491,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE3 = createConfiguredFeature("skyris_tree3",
             BYGFeatures.SKYRIS_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.SKYRIS_LOG.get())
+                    .setTrunkBlock(SKYRIS.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(BYGBlocks.SKYRIS_LEAVES.defaultBlockState(), 8))
+                            .add(SKYRIS.leaves().defaultBlockState(), 8))
                     )
                     .setMaxHeight(8)
                     .setMinHeight(6)
@@ -1503,10 +1503,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4",
             BYGFeatures.SKYRIS_TREE4,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.SKYRIS_LOG.get())
+                    .setTrunkBlock(SKYRIS.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(BYGBlocks.SKYRIS_LEAVES.defaultBlockState(), 8))
+                            .add(SKYRIS.leaves().defaultBlockState(), 8))
                     )
                     .setMaxHeight(8)
                     .setMinHeight(6)
@@ -1515,10 +1515,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5",
             BYGFeatures.SKYRIS_TREE5,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.SKYRIS_LOG.get())
+                    .setTrunkBlock(SKYRIS.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(BYGBlocks.SKYRIS_LEAVES.defaultBlockState(), 8))
+                            .add(SKYRIS.leaves().defaultBlockState(), 8))
                     )
                     .setMaxHeight(8)
                     .setMinHeight(6)

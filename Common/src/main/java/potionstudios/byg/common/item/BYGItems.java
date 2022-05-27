@@ -367,38 +367,19 @@ public class BYGItems {
     public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG;
 
     //Palo Verde Woodtype
-    public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
-    public static final RegistryObject<GrowerItem> PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
-    public static final RegistryObject<Item> PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
-    public static final RegistryObject<Item> PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
-    public static final RegistryObject<Item> PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
-    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
+    public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES;
+    public static final RegistryObject<GrowerItem> PALO_VERDE_SAPLING;
+    public static final RegistryObject<Item> PALO_VERDE_LEAVES;
+    public static final RegistryObject<Item> PALO_VERDE_LOG;
+    public static final RegistryObject<Item> PALO_VERDE_WOOD;
+    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_LOG;
+    public static final RegistryObject<Item> STRIPPED_PALO_VERDE_WOOD;
 
     //Skyris Woodtype
-    public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
-    public static final RegistryObject<Item> GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
-    public static final RegistryObject<Item> GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
-    public static final RegistryObject<GrowerItem> SKYRIS_SAPLING = createSaplingItem(BYGBlocks.SKYRIS_SAPLING);
-    public static final RegistryObject<Item> SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
-    public static final RegistryObject<Item> SKYRIS_LEAVES = createItem(BYGBlocks.SKYRIS_LEAVES);
-    public static final RegistryObject<Item> SKYRIS_LOG = createItem(BYGBlocks.SKYRIS_LOG);
-    public static final RegistryObject<Item> SKYRIS_WOOD = createItem(BYGBlocks.SKYRIS_WOOD);
-    public static final RegistryObject<Item> STRIPPED_SKYRIS_LOG = createItem(BYGBlocks.STRIPPED_SKYRIS_LOG);
-    public static final RegistryObject<Item> STRIPPED_SKYRIS_WOOD = createItem(BYGBlocks.STRIPPED_SKYRIS_WOOD);
-    public static final RegistryObject<Item> SKYRIS_PLANKS = createItem(BYGBlocks.SKYRIS_PLANKS);
-    public static final RegistryObject<Item> SKYRIS_BOOKSHELF = createItem(BYGBlocks.SKYRIS_BOOKSHELF);
-    public static final RegistryObject<Item> SKYRIS_CRAFTING_TABLE = createItem(BYGBlocks.SKYRIS_CRAFTING_TABLE);
-    public static final RegistryObject<Item> SKYRIS_STAIRS = createItem(BYGBlocks.SKYRIS_STAIRS);
-    public static final RegistryObject<Item> SKYRIS_SLAB = createItem(BYGBlocks.SKYRIS_SLAB);
-    public static final RegistryObject<Item> SKYRIS_FENCE = createItem(BYGBlocks.SKYRIS_FENCE);
-    public static final RegistryObject<Item> SKYRIS_FENCE_GATE = createItem(BYGBlocks.SKYRIS_FENCE_GATE);
-    public static final RegistryObject<Item> SKYRIS_DOOR = createItem(BYGBlocks.SKYRIS_DOOR);
-    public static final RegistryObject<Item> SKYRIS_TRAPDOOR = createItem(BYGBlocks.SKYRIS_TRAPDOOR);
-    public static final RegistryObject<Item> SKYRIS_PRESSURE_PLATE = createItem(BYGBlocks.SKYRIS_PRESSURE_PLATE);
-    public static final RegistryObject<Item> SKYRIS_BUTTON = createItem(BYGBlocks.SKYRIS_BUTTON);
-    public static final RegistryObject<SignItem> SKYRIS_SIGN = createSign("skyris_sign", BYGBlocks.SKYRIS_SIGN, BYGBlocks.SKYRIS_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> SKYRIS_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.SKYRIS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "skyris_boat");
+    public static final RegistryObject<Item> SKYRIS_LEAVES_GREEN_APPLE;
+    public static final RegistryObject<Item> GREEN_APPLE;
+    public static final RegistryObject<Item> GREEN_APPLE_PIE;
+    public static final RegistryObject<Item> SKYRIS_VINE;
 
     //Witch-Hazel Woodtype
     public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM;
@@ -406,10 +387,10 @@ public class BYGItems {
     public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES;
 
     //Embur Woodtype
-    public static final RegistryObject<Item> EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
-    public static final RegistryObject<Item> EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
-    public static final RegistryObject<Item> EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
-    public static final RegistryObject<Item> EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
+    public static final RegistryObject<Item> EMBUR_GEL_BALL;
+    public static final RegistryObject<Item> EMBUR_GEL_BLOCK;
+    public static final RegistryObject<Item> EMBUR_GEL_BRANCH;
+    public static final RegistryObject<Item> EMBUR_GEL_VINES;
 
     static {
         BYGWoodTypes.ASPEN.init();
@@ -468,11 +449,25 @@ public class BYGItems {
         BYGWoodTypes.NIGHTSHADE.init();
 
         BYGWoodTypes.PALM.init();
-        // TODO palo verde
+
+        FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
+        PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);
+        PALO_VERDE_LEAVES = createItem(BYGBlocks.PALO_VERDE_LEAVES);
+        PALO_VERDE_LOG = createItem(BYGBlocks.PALO_VERDE_LOG);
+        PALO_VERDE_WOOD = createItem(BYGBlocks.PALO_VERDE_WOOD);
+        STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
+        STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
+
         BYGWoodTypes.PINE.init();
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
         BYGWoodTypes.REDWOOD.init();
-        // TODO skyris
+
+        SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
+        GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
+        GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
+        SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
+        BYGWoodTypes.SKYRIS.init();
+
         BYGWoodTypes.WILLOW.init();
 
         WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
@@ -483,7 +478,12 @@ public class BYGItems {
         BYGWoodTypes.ZELKOVA.init();
         createItem(BYGBlocks.SYTHIAN_SAPLING);
         BYGWoodTypes.SYTHIAN.init();
+
         BYGWoodTypes.EMBUR.init();
+        EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
+        EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
+        EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
+        EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
     }
 
     //SaplingItems

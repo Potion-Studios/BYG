@@ -6,11 +6,9 @@ plugins {
 
 archivesBaseName = "${mod_name}-common-${minecraft_version}"
 
-/*
-tasks.register('optimise', com.matyrobbrt.gradle.pngoptimiser.task.OptimisePNGTask) {
-	file(fileTree(dir: sourceSets.main.resources.srcDirs[0], includes: ['**/*.png']))
-}
-*/
+//tasks.register('optimise', com.matyrobbrt.gradle.pngoptimiser.task.OptimisePNGTask) {
+//	file(fileTree(dir: sourceSets.main.resources.srcDirs[0], includes: ['**/*.png']))
+// }
 
 minecraft {
     accessWideners(project.file("src/main/resources/byg.aw"))

@@ -47,7 +47,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_JACARANDA_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_MAPLE_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_SKYRIS_LOG.get(), 5, 5);
 
         //Wood
         flammableBlock(BYGBlocks.JACARANDA_WOOD.get(), 5, 5);
@@ -58,32 +57,26 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.STRIPPED_JACARANDA_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_MAPLE_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_SKYRIS_WOOD.get(), 5, 5);
 
         //BookShelves
         flammableBlock(BYGBlocks.JACARANDA_BOOKSHELF.get(), 5, 20);
         flammableBlock(BYGBlocks.MAPLE_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_BOOKSHELF.get(), 5, 20);
 
         //Slabs
         flammableBlock(BYGBlocks.JACARANDA_SLAB.get(), 5, 20);
         flammableBlock(BYGBlocks.MAPLE_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_SLAB.get(), 5, 20);
 
         //Stairs
         flammableBlock(BYGBlocks.JACARANDA_STAIRS.get(), 5, 20);
         flammableBlock(BYGBlocks.MAPLE_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_STAIRS.get(), 5, 20);
 
         //Planks
         flammableBlock(BYGBlocks.JACARANDA_PLANKS.get(), 5, 20);
         flammableBlock(BYGBlocks.MAPLE_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_PLANKS.get(), 5, 20);
 
         //Fences
         flammableBlock(BYGBlocks.JACARANDA_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.MAPLE_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_FENCE.get(), 5, 20);
 
         //Leaves
         flammableBlock(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), 30, 60);
@@ -106,7 +99,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), 30, 60);
-        flammableBlock(BYGBlocks.SKYRIS_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get(), 30, 60);

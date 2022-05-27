@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "byg:block/skyris/log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "byg:block/skyris/log"
+    },
+    "axis=z": {
+      "model": "byg:block/skyris/log",
+      "x": 90
+    }
+  }
+}

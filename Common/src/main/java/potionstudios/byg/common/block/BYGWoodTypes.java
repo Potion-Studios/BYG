@@ -133,13 +133,14 @@ public enum BYGWoodTypes {
             .nether()),
     NIGHTSHADE("nightshade", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING)
-            .materialColor(MaterialColor.COLOR_ORANGE));
+            .materialColor(MaterialColor.COLOR_ORANGE)),
+    SKYRIS("skyris", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_SKYRIS_SAPLING)
+            .materialColor(MaterialColor.COLOR_PINK)
+            .boatType(BYGBoatEntity.BYGType.SKYRIS));
 
-    public static final Map<String, BYGWoodTypes> LOOKUP;
-    static {
-        LOOKUP = Arrays.stream(values())
-                .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
-    }
+    public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
+            .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));;
 
     private final String name;
     private final WoodType woodType;

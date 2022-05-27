@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/skyris_log_top",
-    "side": "byg:block/skyris_log"
-  }
-}

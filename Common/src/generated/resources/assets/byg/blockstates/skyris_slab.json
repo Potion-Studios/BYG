@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/skyris/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/skyris/slab"
+    },
+    "type=double": {
+      "model": "byg:block/skyris/planks"
+    }
+  }
+}

@@ -44,7 +44,6 @@ public class BYGCompostables {
         compostibleBlocks(0.6f, BYGItems.RIPE_ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_LEAVES.get());
         compostibleBlocks(0.6f, BYGItems.SKYRIS_LEAVES_GREEN_APPLE.get());
-        compostibleBlocks(0.3f, BYGItems.SKYRIS_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.WHITE_CHERRY_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_LEAVES.get());
@@ -73,7 +72,6 @@ public class BYGCompostables {
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_OAK_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.SKYRIS_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.WHITE_CHERRY_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_SAPLING.get());
