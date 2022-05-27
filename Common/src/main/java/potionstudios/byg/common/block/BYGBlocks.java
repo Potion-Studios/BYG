@@ -603,8 +603,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> POISON_IVY = createBlock(BYGBlockProperties.BYGPoisonIvy::new, "poison_ivy");
     public static final BlockRegistryObject<Block> SKYRIS_VINE = createBlock(BYGBlockProperties.BYGSkyrisVine::new, "skyris_vine");
     public static final BlockRegistryObject<Block> BLUEBERRY_BUSH = createBlueBerryBush("blueberry_bush");
-    public static final BlockRegistryObject<Block> TINY_LILYPADS = createWaterLilyBlock(MaterialColor.TERRACOTTA_GREEN,"tiny_lilypads");
-    public static final BlockRegistryObject<Block> FLOWERING_TINY_LILY_PADS = createWaterLilyBlock(MaterialColor.COLOR_PINK,"flowering_tiny_lily_pads");
+    public static final BlockRegistryObject<Block> TINY_LILYPADS = createWaterLilyBlock(MaterialColor.TERRACOTTA_GREEN, "tiny_lilypads");
+    public static final BlockRegistryObject<Block> FLOWERING_TINY_LILY_PADS = createWaterLilyBlock(MaterialColor.COLOR_PINK, "flowering_tiny_lily_pads");
     public static final BlockRegistryObject<Block> WATER_SILK = createWaterSilkBlock(MaterialColor.TERRACOTTA_LIGHT_GREEN, "water_silk");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS = createBlock(BYGBlockProperties.BYGHangingVine::new, "weeping_roots");
     public static final BlockRegistryObject<Block> WEEPING_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGHangingVinePlant::new, "weeping_roots_plant");
@@ -658,7 +658,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SYTHIAN_ROOTS = createBlock(BYGBlockProperties.SythianPlant::new, "sythian_roots");
     public static final BlockRegistryObject<Block> SYTHIAN_SPROUT = createBlock(BYGBlockProperties.SythianPlant::new, "sythian_sprout");
     public static final BlockRegistryObject<Block> SYTHIAN_STALK_BLOCK = createBlock(BYGBlockProperties.SythianStalk::new, "sythian_stalk_block");
-    public static final BlockRegistryObject<Block> SYTHIAN_SCAFFOLDING = createScaffoldingBlock(15,MaterialColor.COLOR_YELLOW, "sythian_scaffolding");
+    public static final BlockRegistryObject<Block> SYTHIAN_SCAFFOLDING = createScaffoldingBlock(15, MaterialColor.COLOR_YELLOW, "sythian_scaffolding");
     public static final BlockRegistryObject<Block> SYTHIAN_SAPLING = createBlock(BYGBlockProperties.SythianSapling::new, "sythian_sapling");
 
     public static final BlockRegistryObject<Block> HANGING_SYTHIAN_ROOTS = createBlock(BYGBlockProperties.BYGSythianHangingRoots::new, "hanging_sythian_roots");
@@ -1205,7 +1205,7 @@ public class BYGBlocks {
         return createBlock(() -> new WaterSilkBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).color(materialColor)), id);
     }
 
-    private static BlockRegistryObject<Block> createScaffoldingBlock(int light,MaterialColor materialColor, String id) {
+    private static BlockRegistryObject<Block> createScaffoldingBlock(int light, MaterialColor materialColor, String id) {
         return createBlock(() -> new BYGScaffoldingBlock(BlockBehaviour.Properties.copy(Blocks.SCAFFOLDING).lightLevel((state) -> light).color(materialColor)), id);
     }
 
@@ -1829,20 +1829,20 @@ public class BYGBlocks {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo), id);
     }
 
-    private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends Block> color) {
-        return createSignSpecificColor(id, type, () -> color.get().defaultMaterialColor());
+    private static BlockRegistryObject<Block> createSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
-    private static BlockRegistryObject<Block> createSignSpecificColor(String id, WoodType type, Supplier<? extends MaterialColor> color) {
+    private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
         return BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
     }
 
-    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends Block> color) {
-        return BYGConstants.SIGNS ? createSignSpecificColor(id, type, () -> color.get().defaultMaterialColor()) : null;
+    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createWallSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
-    private static Block createWallSign(String id, WoodType type, MaterialColor color) {
-        return null; //createBlock(new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color), type), id);
+    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
+        return BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
     }
 
     public static <B extends Block> BlockRegistryObject<B> createBlock(Supplier<? extends B> block, String id) {
