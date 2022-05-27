@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "byg:block/maple/planks",
+    "bottom": "byg:block/maple/planks",
+    "top": "byg:block/maple/planks"
+  }
+}

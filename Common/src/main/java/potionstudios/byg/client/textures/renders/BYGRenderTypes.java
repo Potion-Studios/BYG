@@ -17,7 +17,7 @@ public class BYGRenderTypes {
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             final var renderType = switch (type) {
-                case ASPEN, SKYRIS -> RenderType.translucent();
+                case ASPEN, SKYRIS, MAPLE -> RenderType.translucent();
                 default -> RenderType.cutoutMipped();
             };
             map.put(type.door().get(), renderType);
@@ -136,13 +136,9 @@ public class BYGRenderTypes {
 
         //Doors
         map.put(BYGBlocks.JACARANDA_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
 
         //Trapdoors
         map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
 
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), RenderType.translucent());
@@ -166,7 +162,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.JACARANDA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.INDIGO_JACARANDA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.JOSHUA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
@@ -183,7 +178,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LAMENT_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), RenderType.cutoutMipped());
 
         //Mushrooms

@@ -53,7 +53,6 @@ public class BYGBoatEntity extends Boat {
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.boat().get();
             case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
-            case MAPLE -> BYGItems.MAPLE_BOAT.get();
         };
     }
 
@@ -64,7 +63,6 @@ public class BYGBoatEntity extends Boat {
         return switch (this.getBYGBoatType()) {
             default -> BYGWoodTypes.ASPEN.planks().get();
             case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
-            case MAPLE -> BYGBlocks.MAPLE_PLANKS.get();
         };
     }
 

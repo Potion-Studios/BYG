@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "byg:block/lament/stripped_log",
+    "particle": "byg:block/lament/stripped_log"
+  }
+}

@@ -316,51 +316,14 @@ public class BYGItems {
     public static final RegistryObject<BYGBoatItem> JACARANDA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "jacaranda_boat");
 
     //Lament Woodtype
-    public static final RegistryObject<GrowerItem> LAMENT_SAPLING = createSaplingItem(BYGBlocks.LAMENT_SAPLING);
-    public static final RegistryObject<Item> LAMENT_LEAVES = createItem(BYGBlocks.LAMENT_LEAVES);
-    public static final RegistryObject<Item> LAMENT_VINE = createItem(BYGBlocks.LAMENT_VINE);
-    public static final RegistryObject<Item> LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
-    public static final RegistryObject<Item> LAMENT_LOG = createItem(BYGBlocks.LAMENT_LOG);
-    public static final RegistryObject<Item> LAMENT_WOOD = createItem(BYGBlocks.LAMENT_WOOD);
-    public static final RegistryObject<Item> STRIPPED_LAMENT_LOG = createItem(BYGBlocks.STRIPPED_LAMENT_LOG);
-    public static final RegistryObject<Item> STRIPPED_LAMENT_WOOD = createItem(BYGBlocks.STRIPPED_LAMENT_WOOD);
-    public static final RegistryObject<Item> LAMENT_PLANKS = createItem(BYGBlocks.LAMENT_PLANKS);
-    public static final RegistryObject<Item> LAMENT_BOOKSHELF = createItem(BYGBlocks.LAMENT_BOOKSHELF);
-    public static final RegistryObject<Item> LAMENT_CRAFTING_TABLE = createItem(BYGBlocks.LAMENT_CRAFTING_TABLE);
-    public static final RegistryObject<Item> LAMENT_STAIRS = createItem(BYGBlocks.LAMENT_STAIRS);
-    public static final RegistryObject<Item> LAMENT_SLAB = createItem(BYGBlocks.LAMENT_SLAB);
-    public static final RegistryObject<Item> LAMENT_FENCE = createItem(BYGBlocks.LAMENT_FENCE);
-    public static final RegistryObject<Item> LAMENT_FENCE_GATE = createItem(BYGBlocks.LAMENT_FENCE_GATE);
-    public static final RegistryObject<Item> LAMENT_DOOR = createItem(BYGBlocks.LAMENT_DOOR);
-    public static final RegistryObject<Item> LAMENT_TRAPDOOR = createItem(BYGBlocks.LAMENT_TRAPDOOR);
-    public static final RegistryObject<Item> LAMENT_PRESSURE_PLATE = createItem(BYGBlocks.LAMENT_PRESSURE_PLATE);
-    public static final RegistryObject<Item> LAMENT_BUTTON = createItem(BYGBlocks.LAMENT_BUTTON);
-    public static final RegistryObject<SignItem> LAMENT_SIGN = createSign("lament_sign", BYGBlocks.LAMENT_SIGN, BYGBlocks.LAMENT_WALL_SIGN);
+    public static final RegistryObject<Item> LAMENT_VINE;
+    public static final RegistryObject<Item> LAMENT_SPROUTS;
 
     //Maple Woodtype
-    public static final RegistryObject<GrowerItem> MAPLE_SAPLING = createSaplingItem(BYGBlocks.MAPLE_SAPLING);
-    public static final RegistryObject<Item> MAPLE_LEAVES = createItem(BYGBlocks.MAPLE_LEAVES);
-    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
-    public static final RegistryObject<Item> RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
-    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
-    public static final RegistryObject<Item> SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
-    public static final RegistryObject<Item> MAPLE_LOG = createItem(BYGBlocks.MAPLE_LOG);
-    public static final RegistryObject<Item> MAPLE_WOOD = createItem(BYGBlocks.MAPLE_WOOD);
-    public static final RegistryObject<Item> STRIPPED_MAPLE_LOG = createItem(BYGBlocks.STRIPPED_MAPLE_LOG);
-    public static final RegistryObject<Item> STRIPPED_MAPLE_WOOD = createItem(BYGBlocks.STRIPPED_MAPLE_WOOD);
-    public static final RegistryObject<Item> MAPLE_PLANKS = createItem(BYGBlocks.MAPLE_PLANKS);
-    public static final RegistryObject<Item> MAPLE_BOOKSHELF = createItem(BYGBlocks.MAPLE_BOOKSHELF);
-    public static final RegistryObject<Item> MAPLE_CRAFTING_TABLE = createItem(BYGBlocks.MAPLE_CRAFTING_TABLE);
-    public static final RegistryObject<Item> MAPLE_STAIRS = createItem(BYGBlocks.MAPLE_STAIRS);
-    public static final RegistryObject<Item> MAPLE_SLAB = createItem(BYGBlocks.MAPLE_SLAB);
-    public static final RegistryObject<Item> MAPLE_FENCE = createItem(BYGBlocks.MAPLE_FENCE);
-    public static final RegistryObject<Item> MAPLE_FENCE_GATE = createItem(BYGBlocks.MAPLE_FENCE_GATE);
-    public static final RegistryObject<Item> MAPLE_DOOR = createItem(BYGBlocks.MAPLE_DOOR);
-    public static final RegistryObject<Item> MAPLE_TRAPDOOR = createItem(BYGBlocks.MAPLE_TRAPDOOR);
-    public static final RegistryObject<Item> MAPLE_PRESSURE_PLATE = createItem(BYGBlocks.MAPLE_PRESSURE_PLATE);
-    public static final RegistryObject<Item> MAPLE_BUTTON = createItem(BYGBlocks.MAPLE_BUTTON);
-    public static final RegistryObject<SignItem> MAPLE_SIGN = createSign("maple_sign", BYGBlocks.MAPLE_SIGN, BYGBlocks.MAPLE_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> MAPLE_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.MAPLE, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "maple_boat");
+    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING;
+    public static final RegistryObject<Item> RED_MAPLE_LEAVES;
+    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING;
+    public static final RegistryObject<Item> SILVER_MAPLE_LEAVES;
 
     //Nightshade Woodtype
     public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES;
@@ -439,10 +402,19 @@ public class BYGItems {
         FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
         BYGWoodTypes.IMPARIUS.init();
 
-        // TODO Lamient, Jacaranda
+        LAMENT_VINE = createItem(BYGBlocks.LAMENT_VINE);
+        LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
+        BYGWoodTypes.LAMENT.init();
+
+        // TODO Jacaranda
         BYGWoodTypes.MAHOGANY.init();
         BYGWoodTypes.MANGROVE.init();
-        // TODO Maple
+
+        RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
+        RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
+        SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
+        SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
+        BYGWoodTypes.MAPLE.init();
 
         FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
         IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);

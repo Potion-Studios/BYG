@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/maple/leaves",
+    "up": "byg:block/maple/leaves",
+    "north": "byg:block/maple/leaves",
+    "south": "byg:block/maple/leaves",
+    "east": "byg:block/maple/leaves",
+    "west": "byg:block/maple/leaves",
+    "particle": "byg:block/maple/leaves"
+  }
+}

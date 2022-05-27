@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "byg:lament_planks"
+    }
+  },
+  "result": {
+    "item": "byg:lament_slab",
+    "count": 6
+  }
+}

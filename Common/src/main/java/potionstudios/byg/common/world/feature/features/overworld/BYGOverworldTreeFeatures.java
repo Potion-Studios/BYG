@@ -72,7 +72,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE3 = createConfiguredFeature("ancient_tree3",
             BYGFeatures.ANCIENT_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAPLE_LOG.get())
+                    .setTrunkBlock(MAPLE.log().get())
                     .setLeavesBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get())
                     .setMaxHeight(25)
                     .setMinHeight(15)
@@ -971,7 +971,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
             BYGFeatures.MAPLE_TREE2,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAPLE_LOG.get())
+                    .setTrunkBlock(MAPLE.log().get())
                     .setLeavesBlock(BYGBlocks.RED_MAPLE_LEAVES.get())
                     .setMaxHeight(9)
                     .setMinHeight(4)
@@ -980,7 +980,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE2 = createConfiguredFeature("red_maple_tree2",
             BYGFeatures.MAPLE_TREE3,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAPLE_LOG.get())
+                    .setTrunkBlock(MAPLE.log().get())
                     .setLeavesBlock(BYGBlocks.RED_MAPLE_LEAVES.get())
                     .setMaxHeight(9)
                     .setMinHeight(4)
@@ -1003,8 +1003,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_TREE1 = createConfiguredFeature("maple_tree1",
             BYGFeatures.MAPLE_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.MAPLE_LOG.get())
-                    .setLeavesBlock(BYGBlocks.MAPLE_LEAVES.get())
+                    .fromWoodType(MAPLE)
                     .setMaxHeight(10)
                     .setMinHeight(5)
                     .build()

@@ -243,8 +243,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_TWISTY_TREE1 = createConfiguredFeatureSup("lament_twisty_tree1",
         BYGFeatures.LAMENT_TWISTY_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -252,8 +251,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_TWISTY_TREE2 = createConfiguredFeatureSup("lament_twisty_tree2",
         BYGFeatures.LAMENT_TWISTY_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -261,8 +259,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_TWISTY_TREE3 = createConfiguredFeatureSup("lament_twisty_tree3",
         BYGFeatures.LAMENT_TWISTY_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -270,8 +267,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_WEEPING_TREE1 = createConfiguredFeatureSup("lament_weeping_tree1",
         BYGFeatures.LAMENT_WEEPING_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .setWhitelist(ImmutableList.of(Blocks.LAVA))
@@ -280,8 +276,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_WEEPING_TREE2 = createConfiguredFeatureSup("lament_weeping_tree2",
         BYGFeatures.LAMENT_WEEPING_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .setWhitelist(ImmutableList.of(Blocks.LAVA))
@@ -290,8 +285,7 @@ public class BYGNetherVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> LAMENT_WEEPING_TREE3 = createConfiguredFeatureSup("lament_weeping_tree3",
         BYGFeatures.LAMENT_WEEPING_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.LAMENT_LOG.get())
-            .setLeavesBlock(BYGBlocks.LAMENT_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.LAMENT)
             .setMaxHeight(30)
             .setMinHeight(22)
             .setWhitelist(ImmutableList.of(Blocks.LAVA))

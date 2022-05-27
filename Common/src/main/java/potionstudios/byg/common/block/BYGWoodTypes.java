@@ -137,7 +137,14 @@ public enum BYGWoodTypes {
     SKYRIS("skyris", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SKYRIS_SAPLING)
             .materialColor(MaterialColor.COLOR_PINK)
-            .boatType(BYGBoatEntity.BYGType.SKYRIS));
+            .boatType(BYGBoatEntity.BYGType.SKYRIS)),
+    LAMENT("lament", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_LAMENT_SAPLING)
+            .materialColor(MaterialColor.COLOR_MAGENTA)),
+    MAPLE("maple", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
+            .materialColor(MaterialColor.COLOR_GREEN)
+            .boatType(BYGBoatEntity.BYGType.MAPLE));
 
     public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
             .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));;
