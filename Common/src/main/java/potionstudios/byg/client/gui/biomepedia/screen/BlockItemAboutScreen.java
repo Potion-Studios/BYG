@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
@@ -14,6 +14,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 
 import java.util.List;
 

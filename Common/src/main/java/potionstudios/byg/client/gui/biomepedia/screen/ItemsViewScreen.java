@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.gui.biomepedia.widget.ItemWidget;
 
 import java.util.List;
 import java.util.function.Consumer;

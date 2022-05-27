@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.BiomepediaInventoryConfig;
-import potionstudios.byg.client.gui.biomepedia1.BiomepediaHomeScreen;
+import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 
 @Mixin(InventoryScreen.class)
 public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {

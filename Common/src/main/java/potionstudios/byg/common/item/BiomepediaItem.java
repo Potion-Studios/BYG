@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import potionstudios.byg.client.gui.biomepedia1.BiomepediaHomeScreen;
+import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 
 public class BiomepediaItem extends Item {
     public BiomepediaItem(Properties properties) {

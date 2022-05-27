@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.widget;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractWidget;

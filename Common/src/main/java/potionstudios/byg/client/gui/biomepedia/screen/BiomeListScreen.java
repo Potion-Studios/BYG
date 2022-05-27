@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.gui.biomepedia.widget.BiomeWidget;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -13,6 +13,8 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
+import potionstudios.byg.client.gui.biomepedia.widget.WidgetList;
 import potionstudios.byg.mixin.access.client.ScreenAccess;
 import potionstudios.byg.util.ModPlatform;
 
