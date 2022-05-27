@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:wood/jacaranda_logs"
+    }
+  ],
+  "result": {
+    "item": "byg:jacaranda_planks",
+    "count": 4
+  }
+}

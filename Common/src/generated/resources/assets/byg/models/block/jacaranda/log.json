@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "byg:block/jacaranda/log",
+    "end": "byg:block/jacaranda/log_top"
+  }
+}

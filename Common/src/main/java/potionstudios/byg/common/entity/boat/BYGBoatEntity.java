@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
@@ -46,24 +47,18 @@ public class BYGBoatEntity extends Boat {
     }
 
     @Override
-    public Item getDropItem() {
+    public @NotNull Item getDropItem() {
         final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
         if (type != null)
             return type.boat().get();
-        return switch (this.getBYGBoatType()) {
-            default -> BYGWoodTypes.ASPEN.boat().get();
-            case JACARANDA -> BYGItems.JACARANDA_BOAT.get();
-        };
+        return BYGWoodTypes.ASPEN.boat().get();
     }
 
     public Block getPlanks() {
         final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
         if (type != null)
             return type.planks().get();
-        return switch (this.getBYGBoatType()) {
-            default -> BYGWoodTypes.ASPEN.planks().get();
-            case JACARANDA -> BYGBlocks.JACARANDA_PLANKS.get();
-        };
+        return BYGWoodTypes.ASPEN.planks().get();
     }
 
     public BYGType getBYGBoatType() {

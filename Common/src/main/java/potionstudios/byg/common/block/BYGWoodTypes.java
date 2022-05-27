@@ -144,7 +144,11 @@ public enum BYGWoodTypes {
     MAPLE("maple", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
             .materialColor(MaterialColor.COLOR_GREEN)
-            .boatType(BYGBoatEntity.BYGType.MAPLE));
+            .boatType(BYGBoatEntity.BYGType.MAPLE)),
+    JACARANDA("jacaranda", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_JACARANDA_SAPLING)
+            .boatType(BYGBoatEntity.BYGType.JACARANDA)
+            .materialColor(MaterialColor.TERRACOTTA_PURPLE));
 
     public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
             .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));;

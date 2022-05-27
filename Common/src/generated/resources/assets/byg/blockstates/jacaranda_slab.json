@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "byg:block/jacaranda/slab_top"
+    },
+    "type=bottom": {
+      "model": "byg:block/jacaranda/slab"
+    },
+    "type=double": {
+      "model": "byg:block/jacaranda/planks"
+    }
+  }
+}

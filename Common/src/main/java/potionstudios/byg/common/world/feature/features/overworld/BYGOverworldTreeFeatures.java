@@ -839,10 +839,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JACARANDA_TREE1 = createConfiguredFeature("jacaranda_tree1",
             BYGFeatures.JACARANDA_TREE1,
             () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.JACARANDA_LOG.get())
+                    .setTrunkBlock(JACARANDA.log().get())
                     .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.JACARANDA_LEAVES.defaultBlockState(), 40)
+                            .add(JACARANDA.leaves().defaultBlockState(), 40)
                     ))
                     .setMaxHeight(15)
                     .setMinHeight(9)

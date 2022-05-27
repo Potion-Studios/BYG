@@ -287,33 +287,14 @@ public class BYGItems {
     public static final RegistryObject<Item> FUNGAL_IMPARIUS_HYPHAE;
 
     //Jacaranda Woodtype
-    public static final RegistryObject<Item> JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
-    public static final RegistryObject<Item> FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
-    public static final RegistryObject<GrowerItem> JACARANDA_SAPLING = createSaplingItem(BYGBlocks.JACARANDA_SAPLING);
-    public static final RegistryObject<Item> JACARANDA_LEAVES = createItem(BYGBlocks.JACARANDA_LEAVES);
-    public static final RegistryObject<Item> FLOWERING_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_JACARANDA_LEAVES);
-    public static final RegistryObject<Item> INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.INDIGO_JACARANDA_BUSH);
-    public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH);
-    public static final RegistryObject<GrowerItem> INDIGO_JACARANDA_SAPLING = createSaplingItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
-    public static final RegistryObject<Item> INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.INDIGO_JACARANDA_LEAVES);
-    public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES);
-    public static final RegistryObject<Item> JACARANDA_LOG = createItem(BYGBlocks.JACARANDA_LOG);
-    public static final RegistryObject<Item> JACARANDA_WOOD = createItem(BYGBlocks.JACARANDA_WOOD);
-    public static final RegistryObject<Item> STRIPPED_JACARANDA_LOG = createItem(BYGBlocks.STRIPPED_JACARANDA_LOG);
-    public static final RegistryObject<Item> STRIPPED_JACARANDA_WOOD = createItem(BYGBlocks.STRIPPED_JACARANDA_WOOD);
-    public static final RegistryObject<Item> JACARANDA_PLANKS = createItem(BYGBlocks.JACARANDA_PLANKS);
-    public static final RegistryObject<Item> JACARANDA_BOOKSHELF = createItem(BYGBlocks.JACARANDA_BOOKSHELF);
-    public static final RegistryObject<Item> JACARANDA_CRAFTING_TABLE = createItem(BYGBlocks.JACARANDA_CRAFTING_TABLE);
-    public static final RegistryObject<Item> JACARANDA_STAIRS = createItem(BYGBlocks.JACARANDA_STAIRS);
-    public static final RegistryObject<Item> JACARANDA_SLAB = createItem(BYGBlocks.JACARANDA_SLAB);
-    public static final RegistryObject<Item> JACARANDA_FENCE = createItem(BYGBlocks.JACARANDA_FENCE);
-    public static final RegistryObject<Item> JACARANDA_FENCE_GATE = createItem(BYGBlocks.JACARANDA_FENCE_GATE);
-    public static final RegistryObject<Item> JACARANDA_DOOR = createItem(BYGBlocks.JACARANDA_DOOR);
-    public static final RegistryObject<Item> JACARANDA_TRAPDOOR = createItem(BYGBlocks.JACARANDA_TRAPDOOR);
-    public static final RegistryObject<Item> JACARANDA_PRESSURE_PLATE = createItem(BYGBlocks.JACARANDA_PRESSURE_PLATE);
-    public static final RegistryObject<Item> JACARANDA_BUTTON = createItem(BYGBlocks.JACARANDA_BUTTON);
-    public static final RegistryObject<SignItem> JACARANDA_SIGN = createSign("jacaranda_sign", BYGBlocks.JACARANDA_SIGN, BYGBlocks.JACARANDA_WALL_SIGN);
-    public static final RegistryObject<BYGBoatItem> JACARANDA_BOAT = createItem(() -> new BYGBoatItem(BYGBoatEntity.BYGType.JACARANDA, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), "jacaranda_boat");
+    public static final RegistryObject<Item> JACARANDA_BUSH;
+    public static final RegistryObject<Item> FLOWERING_JACARANDA_BUSH;
+    public static final RegistryObject<Item> FLOWERING_JACARANDA_LEAVES;
+    public static final RegistryObject<Item> INDIGO_JACARANDA_BUSH;
+    public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_BUSH;
+    public static final RegistryObject<GrowerItem> INDIGO_JACARANDA_SAPLING;
+    public static final RegistryObject<Item> INDIGO_JACARANDA_LEAVES;
+    public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_LEAVES;
 
     //Lament Woodtype
     public static final RegistryObject<Item> LAMENT_VINE;
@@ -406,7 +387,16 @@ public class BYGItems {
         LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
         BYGWoodTypes.LAMENT.init();
 
-        // TODO Jacaranda
+        JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
+        FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
+        FLOWERING_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_JACARANDA_LEAVES);
+        INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.INDIGO_JACARANDA_BUSH);
+        FLOWERING_INDIGO_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH);
+        INDIGO_JACARANDA_SAPLING = createSaplingItem(BYGBlocks.INDIGO_JACARANDA_SAPLING);
+        INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.INDIGO_JACARANDA_LEAVES);
+        FLOWERING_INDIGO_JACARANDA_LEAVES = createItem(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES);
+        BYGWoodTypes.JACARANDA.init();
+
         BYGWoodTypes.MAHOGANY.init();
         BYGWoodTypes.MANGROVE.init();
 

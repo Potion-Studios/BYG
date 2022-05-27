@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/jacaranda/planks",
+    "up": "byg:block/jacaranda/planks",
+    "north": "byg:block/jacaranda/bookshelf",
+    "south": "byg:block/jacaranda/bookshelf",
+    "east": "byg:block/jacaranda/bookshelf",
+    "west": "byg:block/jacaranda/bookshelf",
+    "particle": "byg:block/jacaranda/planks"
+  }
+}
