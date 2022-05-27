@@ -1,6 +1,5 @@
 package potionstudios.byg.client.gui.biomepedia1;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
@@ -22,14 +21,9 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class BiomeListScreen extends Screen {
+public class BiomeListScreen extends AbstractBiomepediaScreen {
     private final Screen parent;
-    private int imageWidth = 288;
-    private int imageHeight = 208;
-    private int leftPos;
-    private int bottomPos;
-    private int rightPos;
-    private int topPos;
+
     private int page;
     private ImageButton searchButton;
     private PageButton next;
@@ -56,10 +50,6 @@ public class BiomeListScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        this.leftPos = ((this.width - this.imageWidth) / 2);
-        this.bottomPos = (this.height - this.imageHeight) / 2 - 15;
-        this.rightPos = this.leftPos + this.imageWidth;
-        this.topPos = this.bottomPos + this.imageHeight;
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
 
@@ -90,7 +80,7 @@ public class BiomeListScreen extends Screen {
         next.y = this.topPos - back.getHeight() - 13;
         load(page);
 
-        this.search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.imageHeight - 22, 150, 15, new TextComponent(""));
+        this.search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.IMAGE_HEIGHT - 22, 150, 15, new TextComponent(""));
         search.setResponder(s -> {
             if (s.isBlank()) {
                 search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
@@ -113,7 +103,7 @@ public class BiomeListScreen extends Screen {
         search.active = false;
         search.visible = false;
         this.searchButton = new ImageButton(
-                this.leftPos + 15, (this.bottomPos + this.imageHeight) - 5, 20, 18, 0, 220, 18,
+                this.leftPos + 15, (this.bottomPos + this.IMAGE_HEIGHT) - 5, 20, 18, 0, 220, 18,
                 new ResourceLocation("byg", "textures/gui/biomepedia.png"),
                 256, 256,
                 (button) -> {
@@ -138,7 +128,7 @@ public class BiomeListScreen extends Screen {
         int xOffset = this.leftPos + offsetFromEdge + 4;
         for (BiomeWidget[][] pagePairs : widgets) {
             for (int pageSide = 0; pageSide < pagePairs.length; pageSide++) {
-                int startX = ((this.imageWidth / 2) - 8) * pageSide;
+                int startX = ((IMAGE_WIDTH / 2) - 8) * pageSide;
                 int yOffset = this.bottomPos + offsetFromEdge;
 
                 BiomeWidget[] page = pagePairs[pageSide];
@@ -146,10 +136,11 @@ public class BiomeListScreen extends Screen {
                     if (registryIdx > biomes.size() - 1) {
                         break;
                     }
-                    page[yPos] = new BiomeWidget(biomes.get(registryIdx), xOffset + startX, yOffset, (int) (this.imageWidth / 2.5F), (int) (this.imageHeight / 2.7), button -> {
+                    page[yPos] = new BiomeWidget(biomes.get(registryIdx), xOffset + startX, yOffset, (int) (this.IMAGE_WIDTH / 2.5F), (int) (this.IMAGE_HEIGHT / 2.7), button -> {
+
                     });
                     registryIdx++;
-                    yOffset += (this.imageHeight / 2.7) + 10;
+                    yOffset += (this.IMAGE_HEIGHT / 2.7) + 10;
                 }
             }
         }
@@ -194,11 +185,6 @@ public class BiomeListScreen extends Screen {
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        this.renderBackground(poseStack);
-        RenderSystem.setShaderTexture(0, BiomepediaScreen.BIOMEPEDIA_LOCATION);
-
-        blit(poseStack, this.leftPos, this.bottomPos, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
-
         super.render(poseStack, mouseX, mouseY, partialTick);
         this.forEachWidget(biomeWidget -> biomeWidget.render(poseStack, mouseX, mouseY, partialTick));
     }

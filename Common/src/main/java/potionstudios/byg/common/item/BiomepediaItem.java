@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
+import potionstudios.byg.client.gui.biomepedia1.BiomepediaHomeScreen;
 
 public class BiomepediaItem extends Item {
     public BiomepediaItem(Properties properties) {
@@ -26,7 +26,7 @@ public class BiomepediaItem extends Item {
 
     private static class Client {
         public static void openScreen() {
-            Minecraft.getInstance().setScreen(new BiomepediaScreen(new TextComponent("")));
+            Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(new TextComponent("")));
         }
     }
 }
