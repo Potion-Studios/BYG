@@ -49,7 +49,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         super(pGenerator, BYG.MOD_ID, existingFileHelper);
     }
 
-    // TODO document what gets generated
     @Override
     protected void addTags() {
         tag(
