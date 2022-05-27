@@ -266,9 +266,7 @@ public class BYGBlockProperties {
             super(BlockBehaviour.Properties.of(Material.GRASS)
                     .sound(SoundType.WART_BLOCK)
                     .strength(1.0F)
-
             );
-            
         }
     }
 

@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#byg:mahogany_logs",
-    "#byg:palm_logs"
+    "#byg:wood/mahogany_logs",
+    "#byg:wood/palm_logs"
   ]
 }
 

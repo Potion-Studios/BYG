@@ -16,6 +16,7 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
+import potionstudios.byg.util.MultiTag;
 
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -158,7 +159,7 @@ public enum BYGWoodTypes {
     private final Builder builder;
     private boolean initialized;
 
-    private final TagKey<Item> logTag;
+    private final MultiTag logTag;
 
     private BlockRegistryObject<Block> growerItem;
     private BlockRegistryObject<Block> leaves;
@@ -194,7 +195,7 @@ public enum BYGWoodTypes {
         this.builder = builder;
         this.woodType = WoodTypeAccess.byg_create(name);
 
-        logTag = TagKey.create(Registry.ITEM_REGISTRY, BYG.createLocation("wood/" + name + "_logs"));
+        logTag = MultiTag.create(BYG.createLocation("wood/" + name + "_logs"));
     }
 
     public void init() {
@@ -362,7 +363,7 @@ public enum BYGWoodTypes {
         return boat;
     }
 
-    public TagKey<Item> logTag() {
+    public MultiTag logTag() {
         return logTag;
     }
 

@@ -29,10 +29,17 @@ tasks.build.dependsOn(tasks.findByName("shadowJar"))
 
 configurations {
     shadow
-    implementation.extendsFrom(shadow)
+    implementation.extendsFrom shadow
 
     library
     implementation.extendsFrom library
+
+    dataImplementation.extendsFrom implementation
+    dataCompileOnly.extendsFrom compileOnly
+}
+
+sourceSets {
+    data
 }
 
 minecraft.runs.all {
@@ -109,11 +116,12 @@ minecraft {
             taskName 'Data'
             def output = sourceSets.main.output;
             def commonOutput = project(":Common").sourceSets.main.output;
-            environment("MOD_CLASSES", [output.classesDirs.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
+            environment("MOD_CLASSES", [output.classesDirs.asPath, sourceSets.data.output.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
 
             mods {
                 modDataRun {
                     source sourceSets.main as SourceSet
+                    source sourceSets.data as SourceSet
                     source project(":Common").sourceSets.main as SourceSet
                 }
             }
@@ -127,6 +135,7 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
     library shadow("blue.endless:jankson:${jankson_version}")
+    dataImplementation sourceSets.main.output
 }
 reg.configureJarTask(shadowJar)
 

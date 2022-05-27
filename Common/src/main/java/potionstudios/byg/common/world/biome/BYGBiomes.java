@@ -32,7 +32,7 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> ATACAMA_DESERT = createBiome("atacama_desert", BYGOverworldBiomes::atacamaDesert);
     public static final ResourceKey<Biome> AUTUMNAL_VALLEY = createBiome("autumnal_valley", BYGOverworldBiomes::autumnalValley);
     public static final ResourceKey<Biome> BAOBAB_SAVANNA = createBiome("baobab_savanna", BYGOverworldBiomes::baobabSavanna);
-    public static final ResourceKey<Biome> BAYOU = createBiome("bayou", BYGOverworldBiomes::bayou);
+    public static final ResourceKey<Biome> BAYOU = createBiome("bayou", BYGOverworldBiomes::bayou, BYGBiomeType.SWAMP);
     public static final ResourceKey<Biome> BLACK_FOREST = createBiome("black_forest", BYGOverworldBiomes::blackForest);
     public static final ResourceKey<Biome> BOREALIS_GROVE = createBiome("borealis_grove", BYGOverworldBiomes::borealisGrove);
     public static final ResourceKey<Biome> CANADIAN_SHIELD = createBiome("canadian_shield", BYGOverworldBiomes::canadianShield);
@@ -40,11 +40,11 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> CIKA_WOODS = createBiome("cika_woods", BYGOverworldBiomes::cikaWoods);
     public static final ResourceKey<Biome> CONIFEROUS_FOREST = createBiome("coniferous_forest", () -> coniferousForest(false));
     public static final ResourceKey<Biome> CRAG_GARDENS = createBiome("crag_gardens", BYGOverworldBiomes::cragGardens);
-    public static final ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", BYGOverworldBiomes::cypressSwamplands);
-    public static final ResourceKey<Biome> LUSH_STACKS = createBiome("lush_stacks", BYGOverworldBiomes::lushStacks);
-    public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BYGOverworldBiomes::deadSea);
+    public static final ResourceKey<Biome> CYPRESS_SWAMPLANDS = createBiome("cypress_swamplands", BYGOverworldBiomes::cypressSwamplands, BYGBiomeType.SWAMP);
+    public static final ResourceKey<Biome> LUSH_STACKS = createBiome("lush_stacks", BYGOverworldBiomes::lushStacks, BYGBiomeType.DEEP_OCEAN, BYGBiomeType.OCEAN);
+    public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BYGOverworldBiomes::deadSea, BYGBiomeType.DEEP_OCEAN, BYGBiomeType.OCEAN, BYGBiomeType.WASTELAND, BYGBiomeType.DEAD);
     public static final ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", BYGOverworldBiomes::daciteRidges);
-    public static final ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", () -> BYGOverworldBiomes.windsweptDesert(true));
+    public static final ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", () -> BYGOverworldBiomes.windsweptDesert(true), BYGBiomeType.SANDY, BYGBiomeType.BADLANDS);
     public static final ResourceKey<Biome> WINDSWEPT_DESERT = createBiome("windswept_desert", () -> BYGOverworldBiomes.windsweptDesert(false));
     public static final ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", BYGOverworldBiomes::ebonyWoods);
     public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BYGOverworldBiomes::forgottenForest);
@@ -54,34 +54,34 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", BYGOverworldBiomes::jacarandaForest);
     public static final ResourceKey<Biome> MAPLE_TAIGA = createBiome("maple_taiga", BYGOverworldBiomes::mapleTaiga);
     public static final ResourceKey<Biome> COCONINO_MEADOW = createBiome("coconino_meadow", () -> coconinoMeadow(false, false));
-    public static final ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", BYGOverworldBiomes::mojaveDesert);
+    public static final ResourceKey<Biome> MOJAVE_DESERT = createBiome("mojave_desert", BYGOverworldBiomes::mojaveDesert, BYGBiomeType.SANDY);
     public static final ResourceKey<Biome> CARDINAL_TUNDRA = createBiome("cardinal_tundra", BYGOverworldBiomes::cardinalTundra);
     public static final ResourceKey<Biome> ORCHARD = createBiome("orchard", BYGOverworldBiomes::orchard);
     public static final ResourceKey<Biome> PRAIRIE = createBiome("prairie", BYGOverworldBiomes::prairie);
     public static final ResourceKey<Biome> RED_OAK_FOREST = createBiome("red_oak_forest", BYGOverworldBiomes::redOakForest);
-    public static final ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", BYGOverworldBiomes::redRockValley);
+    public static final ResourceKey<Biome> RED_ROCK_VALLEY = createBiome("red_rock_valley", BYGOverworldBiomes::redRockValley, BYGBiomeType.BADLANDS);
     public static final ResourceKey<Biome> ROSE_FIELDS = createBiome("rose_fields", BYGOverworldBiomes::roseFields);
     public static final ResourceKey<Biome> AUTUMNAL_FOREST = createBiome("autumnal_forest", BYGOverworldBiomes::autumnalForest);
     public static final ResourceKey<Biome> AUTUMNAL_TAIGA = createBiome("autumnal_taiga", () -> autumnalTaiga(false));
-    public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BYGOverworldBiomes::shatteredGlacier);
+    public static final ResourceKey<Biome> SHATTERED_GLACIER = createBiome("shattered_glacier", BYGOverworldBiomes::shatteredGlacier, BYGBiomeType.ICY);
     public static final ResourceKey<Biome> FIRECRACKER_SHRUBLAND = createBiome("firecracker_shrubland", BYGOverworldBiomes::firecrackerShrubland);
-    public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BYGOverworldBiomes::sierraBadlands);
+    public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BYGOverworldBiomes::sierraBadlands, BYGBiomeType.BADLANDS);
     public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", BYGOverworldBiomes::skyrisVale);
     public static final ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", BYGOverworldBiomes::redwoodThicket);
-    public static final ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", () -> frostedTaiga(true, false));
-    public static final ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", () -> coniferousForest(true));
+    public static final ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", () -> frostedTaiga(true, false), BYGBiomeType.SNOWY);
+    public static final ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", () -> coniferousForest(true), BYGBiomeType.SNOWY);
     public static final ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", BYGOverworldBiomes::fragmentForest);
     //    public static final ResourceKey<Biome> TROPICAL_ISLAND = createBiome("tropical_islands", tropicalRainforest());
     public static final ResourceKey<Biome> TROPICAL_RAINFOREST = createBiome("tropical_rainforest", BYGOverworldBiomes::tropicalRainforest);
     public static final ResourceKey<Biome> TWILIGHT_MEADOW = createBiome("twilight_meadow", BYGOverworldBiomes::twilightMeadow);
-    public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BYGOverworldBiomes::weepingWitchForest);
+    public static final ResourceKey<Biome> WEEPING_WITCH_FOREST = createBiome("weeping_witch_forest", BYGOverworldBiomes::weepingWitchForest, BYGBiomeType.SPOOKY);
     public static final ResourceKey<Biome> WHITE_MANGROVE_MARSHES = createBiome("white_mangrove_marshes", BYGOverworldBiomes::whiteMangroveMarshes);
     public static final ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", BYGOverworldBiomes::temperateRainForest);
     public static final ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", BYGOverworldBiomes::zelkovaForest);
 
     /************Beach Biomes*************/
     public static final ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", BYGOverworldBiomes::windsweptBeach);
-    public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BYGOverworldBiomes::rainbowBeach);
+    public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BYGOverworldBiomes::rainbowBeach, BYGBiomeType.BEACH);
     public static final ResourceKey<Biome> BASALT_BARRERA = createBiome("basalt_barrera", BYGOverworldBiomes::basaltBarrera);
     public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BYGOverworldBiomes::daciteShore);
 
@@ -112,13 +112,16 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> IMPARIUS_GROVE = createBiome("imparius_grove", BYGEndBiomes::impariusGrove);
 
 
-    public static <B extends Biome> ResourceKey<Biome> createBiome(String id, Supplier<? extends B> biome) {
+    public static <B extends Biome> ResourceKey<Biome> createBiome(String id, Supplier<? extends B> biome, BYGBiomeType... types) {
         ResourceLocation bygID = BYG.createLocation(id);
         if (BuiltinRegistries.BIOME.keySet().contains(bygID)) {
             throw new IllegalStateException("Biome ID: \"" + bygID + "\" already exists in the Biome registry!");
         }
         if (BYGConstants.BIOMES) {
-            PROVIDER.register(id, biome);
+            final var reg = PROVIDER.<Biome>register(id, biome);
+            for (BYGBiomeType type : types) {
+                type.add(reg);
+            }
         }
 
         return ResourceKey.create(Registry.BIOME_REGISTRY, bygID);
