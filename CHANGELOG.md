@@ -1,3 +1,6 @@
+# 1.4-RC-21
+* Remove Travertine from world gen.
+
 # 1.4-RC-20
 * Add Travertine + Soapstone world gen.
 

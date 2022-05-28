@@ -583,7 +583,7 @@ public class BYGItems {
     public static final RegistryObject<Item> SYTHIAN_ROOTS = createItem(BYGBlocks.SYTHIAN_ROOTS);
     public static final RegistryObject<Item> SYTHIAN_SPROUT = createItem(BYGBlocks.SYTHIAN_SPROUT);
     public static final RegistryObject<Item> SYTHIAN_STALK_BLOCK = createItem(BYGBlocks.SYTHIAN_STALK_BLOCK);
-    public static final RegistryObject<Item> SYTHIAN_SCAFFOLDING = createItem(BYGBlocks.SYTHIAN_SCAFFOLDING);
+    public static final RegistryObject<Item> SYTHIAN_SCAFFOLDING = createScaffoldingBlockItem(BYGBlocks.SYTHIAN_SCAFFOLDING);
     public static final RegistryObject<Item> HANGING_SYTHIAN_ROOTS = createItem(BYGBlocks.HANGING_SYTHIAN_ROOTS);
 
     public static final RegistryObject<Item> EMBUR_NYLIUM = createItem(BYGBlocks.EMBUR_NYLIUM);
@@ -822,6 +822,10 @@ public class BYGItems {
 
     public static RegistryObject<Item> createItem(RegistryObject<? extends Block> block) {
         return block == null ? null : createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+    }
+
+    public static RegistryObject<Item> createScaffoldingBlockItem(RegistryObject<? extends Block> block) {
+        return createItem(() -> new SythianScaffoldingBlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
     public static RegistryObject<GrowerItem> createSaplingItem(RegistryObject<? extends Block> block) {

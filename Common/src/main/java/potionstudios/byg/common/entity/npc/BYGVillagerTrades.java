@@ -30,8 +30,8 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.GREEN_MUSHROOM.get(), 10, 12, 2)
             },
             2, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 2)
+                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 3),
+                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 3)
             },
             3, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 2),
@@ -40,8 +40,8 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGWoodTypes.SYTHIAN.growerItem().get(), 10, 12, 2),
             },
             4, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 2),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 2),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3),
             },
             5, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(BYGWoodTypes.IMPARIUS.growerItem().asItem(), 10, 12, 2),

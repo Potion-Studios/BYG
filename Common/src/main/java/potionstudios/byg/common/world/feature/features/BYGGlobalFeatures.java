@@ -44,8 +44,8 @@ public class BYGGlobalFeatures {
             BYGFeatures.GLOBAL,
             new GlobalBiomeFeature.Config(
                     HolderSet.direct(
-                            BYGGlobalPlacedFeatures.ORE_SOAPSTONE_UPPER, BYGGlobalPlacedFeatures.ORE_SOAPSTONE_LOWER,
-                            BYGGlobalPlacedFeatures.ORE_TRAVERTINE_UPPER, BYGGlobalPlacedFeatures.ORE_TRAVERTINE_LOWER
+                            BYGGlobalPlacedFeatures.ORE_SOAPSTONE_UPPER,
+                            BYGGlobalPlacedFeatures.ORE_SOAPSTONE_LOWER
                     )
             )
     );
