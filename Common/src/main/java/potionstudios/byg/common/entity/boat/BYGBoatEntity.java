@@ -216,7 +216,7 @@ public class BYGBoatEntity extends Boat {
         GREEN_ENCHANTED("green_enchanted"),
         HOLLY("holly"),
         JACARANDA("jacaranda"),
-        MAHOGANY("mahogony"),
+        MAHOGANY("mahogany"),
         MANGROVE("mangrove"),
         MAPLE("maple"),
         PALM("palm"),
