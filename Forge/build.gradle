@@ -53,7 +53,7 @@ archivesBaseName = "${mod_name}-forge-${minecraft_version}"
 shadowJar {
     configurations = [project.configurations.shadow]
     relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
-    archiveClassifier = ''
+    archiveClassifier.set('')
 }
 reobf {
     shadowJar {
@@ -71,7 +71,7 @@ minecraft {
     }
 
     runs {
-        def runArgs = ["-DbygDev=true", "-DbygGenerateData=true"]
+        def runArgs = ["-DbygDev=true"]
         client {
             jvmArgs runArgs
             workingDirectory project.file('run')
@@ -163,7 +163,7 @@ jar.finalizedBy('reobfJar')
 
 
 jar {
-    archiveClassifier = 'slim'
+    archiveClassifier.set('slim')
 }
 
 task forge_checkForRefmap() {

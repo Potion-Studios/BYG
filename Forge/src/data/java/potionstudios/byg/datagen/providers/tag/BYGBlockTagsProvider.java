@@ -19,6 +19,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockProperties;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGMushroomBlock;
+import potionstudios.byg.common.block.BYGScaffoldingBlock;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
@@ -67,11 +68,14 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             .forInstance(BYGMushroomBlock.class, create(createLocation("mushrooms")))
             .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
             .forInstance(CampfireBlock.class, BlockTags.CAMPFIRES)
+            .forInstance(BYGScaffoldingBlock.class, BYGBlockTags.SCAFFOLDING)
             .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
             .add(isMaterial(Material.LEAVES), BlockTags.LEAVES)
             .add(isMaterial(Material.SAND), BlockTags.SAND)
             .add(isMaterial(Material.ICE, Material.ICE_SOLID), BlockTags.ICE)
             .run(super::tag);
+
+        tag(BYGBlockTags.SCAFFOLDING).add(Blocks.SCAFFOLDING);
 
         tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTags(BlockTags.DIRT, BlockTags.SAND).add(MUD_BLOCK.get(), Blocks.CLAY);
 
@@ -111,7 +115,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 PLANT_STEM, WITHERING_OAK_LOG, WITHERING_OAK_WOOD, DEATH_CAP_MUSHROOM_BLOCK, CRYPTIC_CAMPFIRE,
                 PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD,
                 MILKCAP_MUSHROOM_BLOCK, BROWN_MUSHROOM_STEM, FUNGAL_IMPARIUS_HYPHAE, FUNGAL_IMPARIUS_STEM,
-                BLEWIT_MUSHROOM_BLOCK, WHITE_MUSHROOM_STEM
+                BLEWIT_MUSHROOM_BLOCK, WHITE_MUSHROOM_STEM, SYTHIAN_SCAFFOLDING
         );
 
         final var planksTag = tag(BlockTags.PLANKS);
