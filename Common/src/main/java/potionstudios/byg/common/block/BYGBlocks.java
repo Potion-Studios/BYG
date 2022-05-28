@@ -1273,15 +1273,15 @@ public class BYGBlocks {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo), id);
     }
 
-    private static BlockRegistryObject<Block> createSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+    static BlockRegistryObject<Block> createSign(String id, WoodType type, BlockRegistryObject<Block> color) {
         return createSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
-    private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
+    static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
         return BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
     }
 
-    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+    static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
         return createWallSign(id, type, () -> color.get().defaultMaterialColor());
     }
 

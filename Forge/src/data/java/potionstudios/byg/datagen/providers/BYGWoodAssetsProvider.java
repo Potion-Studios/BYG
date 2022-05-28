@@ -19,6 +19,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.dev.ModelProviderAccess;
@@ -249,6 +250,12 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
         item.generateAll(cache);
     }
 
+    @NotNull
+    @Override
+    public String getName() {
+        return "Wood Asset Providers";
+    }
+
     private static final class ItemProvider extends ItemModelProvider {
 
         public ItemProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -264,5 +271,6 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
         public void generateAll(HashCache cache) {
             super.generateAll(cache);
         }
+
     }
 }

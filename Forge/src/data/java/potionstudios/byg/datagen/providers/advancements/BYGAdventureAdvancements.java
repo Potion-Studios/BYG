@@ -1,4 +1,4 @@
-package potionstudios.byg.data.advancements;
+package potionstudios.byg.datagen.providers.advancements;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancement> {
+public class BYGAdventureAdvancements implements BYGAdvancementConsumer {
 
     @Override
     public void accept(Consumer<Advancement> advancementConsumer, Advancement root) {
@@ -25,7 +25,7 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer<Advancem
                 .map(RegistryObject::getId)
                 .map(key -> ResourceKey.create(Registry.BIOME_REGISTRY, key))
                 .filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES)
-                .collect(Collectors.toList());
+                .toList();
         AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
             .display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
                 new TranslatableComponent("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)

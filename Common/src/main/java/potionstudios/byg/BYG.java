@@ -1,6 +1,5 @@
 package potionstudios.byg;
 
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.brigadier.CommandDispatcher;
@@ -36,7 +35,6 @@ import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
-import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
@@ -105,9 +103,6 @@ public class BYG {
     }
 
     public static void threadSafeCommonLoad() {
-        if (BYGConstants.GENERATE_DATA) {
-            BYGDataProviders.generateProviders();
-        }
         BYGVillagerType.setVillagerForBYGBiomes();
         BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
         Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());

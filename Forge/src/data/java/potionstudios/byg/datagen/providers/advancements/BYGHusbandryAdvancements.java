@@ -1,4 +1,4 @@
-package potionstudios.byg.data.advancements;
+package potionstudios.byg.datagen.providers.advancements;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
@@ -10,7 +10,7 @@ import potionstudios.byg.common.item.BYGItems;
 
 import java.util.function.Consumer;
 
-public class BYGHusbandryAdvancements implements BYGAdvancementConsumer<Advancement> {
+public class BYGHusbandryAdvancements implements BYGAdvancementConsumer {
 
 
     @Override

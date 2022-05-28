@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "byg:windswept_dunes",
     "byg:red_rock_valley",
-    "byg:sierra_badlands"
+    "byg:sierra_badlands",
+    "byg:windswept_dunes"
   ]
 }

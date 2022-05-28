@@ -7,8 +7,6 @@ public class BYGConstants {
     public static final int CONFIG_VERSION = 3;
     public static final boolean BIOMEPEDIA = true;
     public static final boolean SIGNS = false;
-    public static final boolean DEV_ENVIRONMENT = Boolean.parseBoolean(System.getProperty("bygDev", "false"));
-    public static final boolean GENERATE_DATA = Boolean.parseBoolean(System.getProperty("bygGenerateData", "false"));
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
 }
