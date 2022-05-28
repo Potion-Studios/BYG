@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "byg:block/ether/grass"
+      "model": "byg:block/ether_grass"
     }
   }
 }

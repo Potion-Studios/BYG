@@ -4,6 +4,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import potionstudios.byg.BYG;
+import potionstudios.byg.datagen.providers.loot.BYGLootTablesProvider;
 import potionstudios.byg.datagen.providers.tag.BYGBiomeTagsProvider;
 import potionstudios.byg.datagen.providers.BYGWoodAssetsProvider;
 import potionstudios.byg.datagen.providers.tag.BYGBlockTagsProvider;
@@ -20,6 +21,7 @@ public class BYGDataGen {
         final var existingFileHelper = event.getExistingFileHelper();
 
         if (event.includeServer()) {
+            gen.addProvider(new BYGLootTablesProvider(gen));
             final var blockTags = new BYGBlockTagsProvider(gen, existingFileHelper);
             gen.addProvider(blockTags);
             gen.addProvider(new BYGItemTagsProvider(gen, blockTags, existingFileHelper));
