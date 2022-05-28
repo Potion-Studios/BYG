@@ -7,6 +7,7 @@ import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.IndirectEntityDamageSource;
@@ -14,12 +15,17 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -27,6 +33,8 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
+
+import java.util.List;
 
 @SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends Boat {
@@ -44,6 +52,15 @@ public class BYGBoatEntity extends Boat {
 
     public BYGBoatEntity(EntityType<? extends Boat> boatEntityType, Level worldType) {
         super(boatEntityType, worldType);
+    }
+
+    public List<ItemStack> getDrops() {
+//        if (level instanceof ServerLevel serverLevel) {
+//            LootContext lootContext = new LootContext.Builder(serverLevel).withParameter(LootContextParams.BLOCK_STATE, state).create(LootContextParamSets.BLOCK);
+//            LootTable lootTable = serverLevel.getServer().getLootTables().get(resourceLocation);
+//            return lootTable.getRandomItems(lootContext);
+//        }
+        return List.of();
     }
 
     @Override
