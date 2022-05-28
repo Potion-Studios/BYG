@@ -9,6 +9,14 @@
     "AOCAWOL",
     "YaBoiChips"
   ],
+  "contributors": [
+    {
+      "name": "TheModdingInquisition",
+      "contact": {
+        "homepage": "https://github.com/TheModdingInquisition"
+      }
+    }
+  ],
   "contact": {
     "homepage": "https://bygmc.weebly.com/",
     "sources": "https://github.com/CorgiTaco/BYG",
