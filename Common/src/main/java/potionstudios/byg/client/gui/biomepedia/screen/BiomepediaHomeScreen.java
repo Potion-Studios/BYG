@@ -1,72 +1,57 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
-import potionstudios.byg.client.gui.biomepedia.widgets.BookBackgroundWidget;
+import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
+import potionstudios.byg.client.gui.biomepedia.widget.WidgetList;
 import potionstudios.byg.mixin.access.client.ScreenAccess;
 import potionstudios.byg.util.ModPlatform;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-public class BiomepediaScreen extends Screen {
+public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
     public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
     public static final String GITHUB_ISSUES_URL = "https://github.com/AOCAWOL/BYG/issues";
     public static final String TRANSLATIONS_URL = "https://crowdin.com/project/oh-the-biomes-youll-go";
     public static final ResourceLocation BIOMEPEDIA_LOCATION = BYG.createLocation("textures/gui/biomepedia_book_gui.png");
     public static final String DOWNLOAD_URL = ModPlatform.INSTANCE.curseForgeURL();
+    public static final ResourceLocation BOOK_TEXTURES = new ResourceLocation("byg", "textures/gui/biomepedia.png");
 
-    int imageWidth = 288;
-    int imageHeight = 208;
-    int leftPos;
-    int bottomPos;
     int toolTipMaxWidth;
-    int rightPos;
-    int topPos;
     int textStartHeight;
     private ScrollableText scrollableText;
     private WidgetList widgets;
 
-    public BiomepediaScreen(Component $$0) {
+    public BiomepediaHomeScreen(Component $$0) {
         super($$0);
     }
 
     protected void init() {
         super.init();
-        this.leftPos = ((this.width - this.imageWidth) / 2);
-        this.bottomPos = (this.height - this.imageHeight) / 2 - 15;
-        this.toolTipMaxWidth = (this.imageWidth / 2) - 25;
+        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 25;
         TranslatableComponent textComponent = new TranslatableComponent("biomepedia.intro");
-        this.rightPos = this.leftPos + this.imageWidth;
-        this.topPos = this.bottomPos + this.imageHeight;
-        this.textStartHeight = (this.bottomPos + this.imageHeight / 2) - 5;
+        this.textStartHeight = (this.bottomPos + IMAGE_HEIGHT / 2) - 5;
 
         int y1 = this.topPos - 12;
         this.scrollableText = new ScrollableText(textComponent, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
         this.scrollableText.setLeftPos(this.leftPos + 13);
         this.addWidget(scrollableText);
 
-        int buttonWidth = (this.imageWidth - 10) / 3;
+        int buttonWidth = (IMAGE_WIDTH - 10) / 3;
         int buttonHeight = 20;
         Button blocksAndItems = new Button(0, this.topPos, buttonWidth, buttonHeight, new TranslatableComponent("biomepedia.intro.options.blocksanditems"),
                 button -> this.minecraft.setScreen(new ItemsViewScreen(this)), makeButtonToolTip(new TranslatableComponent("biomepedia.intro.options.blocksanditems.hover"), this));
@@ -89,9 +74,9 @@ public class BiomepediaScreen extends Screen {
 
         List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, translations, issues, donate);
 
-        int listRenderedHeight = this.imageHeight + this.bottomPos;
+        int listRenderedHeight = IMAGE_HEIGHT + this.bottomPos;
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
-        this.widgets.setLeftPos(this.leftPos + (this.imageWidth / 4) + buttonWidth);
+        this.widgets.setLeftPos(this.leftPos + (IMAGE_WIDTH / 4) + buttonWidth);
         this.addWidget(this.widgets);
     }
 
@@ -140,20 +125,17 @@ public class BiomepediaScreen extends Screen {
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        this.renderBackground(poseStack);
-        RenderSystem.setShaderTexture(0, BIOMEPEDIA_LOCATION);
-        blit(poseStack, this.leftPos, this.bottomPos, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
+        super.render(poseStack, mouseX, mouseY, partialTick);
         renderBYGLogo(poseStack);
         this.scrollableText.render(poseStack, mouseX, mouseY, partialTick);
         this.widgets.render(poseStack, mouseX, mouseY, partialTick);
-        super.render(poseStack, mouseX, mouseY, partialTick);
     }
 
     private void renderBYGLogo(PoseStack poseStack) {
         poseStack.pushPose();
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1, 1, 1, 1);
-        RenderSystem.setShaderTexture(0, BookBackgroundWidget.BACKGROUND);
+        RenderSystem.setShaderTexture(0, BOOK_TEXTURES);
         float scale = 3.35F;
         poseStack.scale(scale, scale, 0);
 

@@ -1,6 +1,5 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.math.Vector3f;
@@ -15,18 +14,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 
 import java.util.List;
 
-public class BlockItemAboutScreen extends Screen {
+public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
     private final Screen parent;
     private final Item item;
-    int imageWidth = 288;
-    int imageHeight = 208;
-    int leftPos;
-    int bottomPos;
-    int rightPos;
-    int topPos;
     int toolTipMaxWidth;
     int textStartHeight;
     int stateSwitchTimer;
@@ -75,12 +69,8 @@ public class BlockItemAboutScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        this.leftPos = ((this.width - this.imageWidth) / 2);
-        this.bottomPos = (this.height - this.imageHeight) / 2 - 15;
-        this.rightPos = this.leftPos + this.imageWidth;
-        this.topPos = this.bottomPos + this.imageHeight;
-        this.toolTipMaxWidth = (this.imageWidth / 2) - 25;
-        this.textStartHeight = (this.bottomPos + this.imageHeight / 2) - 5;
+        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 25;
+        this.textStartHeight = (this.bottomPos + IMAGE_HEIGHT / 2) - 5;
         int y1 = this.topPos - 12;
         ScrollableText scrollableText = new ScrollableText(this.description, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
         scrollableText.setLeftPos(this.leftPos + 13);
@@ -89,14 +79,11 @@ public class BlockItemAboutScreen extends Screen {
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        RenderSystem.setShaderTexture(0, BiomepediaScreen.BIOMEPEDIA_LOCATION);
-
-        blit(poseStack, this.leftPos, this.bottomPos, 0, 0, imageWidth, imageHeight, imageWidth, imageHeight);
         super.render(poseStack, mouseX, mouseY, partialTick);
         poseStack.pushPose();
         int scale = 75;
         poseStack.scale(scale, scale, 30);
-        float scaledX = (float) this.leftPos / scale + ((float) ((this.imageWidth / 4) + 4) / scale);
+        float scaledX = (float) this.leftPos / scale + ((float) ((IMAGE_WIDTH / 4) + 4) / scale);
         float scaledZ = (float) (this.textStartHeight) / scale;
 
         MultiBufferSource.BufferSource bufferSource = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
@@ -107,6 +94,7 @@ public class BlockItemAboutScreen extends Screen {
         Minecraft.getInstance().getBlockRenderer().renderSingleBlock(this.currentlyRendered, poseStack, bufferSource, 15728880, OverlayTexture.NO_OVERLAY);
         bufferSource.endBatch();
         poseStack.popPose();
-        Minecraft.getInstance().font.draw(poseStack, this.getTitle(), this.leftPos + ((this.imageWidth / 4)) - (Minecraft.getInstance().font.width(this.getTitle()) / 2) + 4, this.bottomPos + 13, 0);
+        int startX = this.leftPos + ((IMAGE_WIDTH / 4)) - (Minecraft.getInstance().font.width(this.getTitle()) / 2) + 4;
+        Minecraft.getInstance().font.draw(poseStack, this.getTitle(), startX, this.bottomPos + 13, 0);
     }
 }

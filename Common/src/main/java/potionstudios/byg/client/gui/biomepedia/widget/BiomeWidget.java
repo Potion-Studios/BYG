@@ -1,4 +1,4 @@
-package potionstudios.byg.client.gui.biomepedia1;
+package potionstudios.byg.client.gui.biomepedia.widget;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -17,7 +17,7 @@ import potionstudios.byg.util.BYGUtil;
 import javax.annotation.Nullable;
 
 public class BiomeWidget extends AbstractWidget {
-    private final ItemWidget.OnClick onClick;
+    private final OnClick onClick;
     @Nullable
     private final ResourceLocation previewImageLocation;
     private final Component name;
@@ -25,7 +25,7 @@ public class BiomeWidget extends AbstractWidget {
     private static final int IMAGE_WIDTH = 1280;
     private static final int IMAGE_HEIGHT = 720;
 
-    public BiomeWidget(ResourceKey<Biome> biome, int pX, int pY, int pWidth, int pHeight, ItemWidget.OnClick onClick) {
+    public BiomeWidget(ResourceKey<Biome> biome, int pX, int pY, int pWidth, int pHeight, OnClick onClick) {
         super(pX, pY, pWidth, pHeight, new TextComponent(""));
         this.onClick = onClick;
         ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
@@ -39,6 +39,12 @@ public class BiomeWidget extends AbstractWidget {
 
     @Override
     public void updateNarration(NarrationElementOutput narrationElementOutput) {
+    }
+
+    @Override
+    public void onClick(double $$0, double $$1) {
+        this.onClick.click(this);
+        super.onClick($$0, $$1);
     }
 
     @Override
@@ -71,5 +77,10 @@ public class BiomeWidget extends AbstractWidget {
         vLine(poseStack, this.x + this.width, this.y, this.y + this.height, this.borderColor);
         hLine(poseStack, this.x, this.x + this.width, this.y, this.borderColor);
         hLine(poseStack, this.x, this.x + this.width, this.y + this.height, this.borderColor);
+    }
+
+    public interface OnClick {
+
+        void click(BiomeWidget button);
     }
 }

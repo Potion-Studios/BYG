@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.BiomepediaInventoryConfig;
-import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
+import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 
 @Mixin(InventoryScreen.class)
 public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
@@ -38,7 +38,7 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
                         18,
                         new ResourceLocation("byg", "textures/gui/biomepedia.png"),
                         256, 256,
-                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaScreen(new TextComponent(""))), BiomepediaScreen.makeButtonToolTip(new TextComponent("BYG Biomepedia"), this),
+                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(new TextComponent(""))), BiomepediaHomeScreen.makeButtonToolTip(new TextComponent("BYG Biomepedia"), this),
                         new TextComponent("Lorem Ipsum")
                 );
 
