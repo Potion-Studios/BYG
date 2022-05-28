@@ -188,7 +188,7 @@ public enum BYGWoodTypes {
     private BlockRegistryObject<Block> wallSign;
     private RegistryObject<SignItem> signItem;
 
-    private RegistryObject<Item> boat;
+    private RegistryObject<BYGBoatItem> boat;
 
     BYGWoodTypes(String name, Builder builder) {
         this.name = name;
@@ -359,12 +359,16 @@ public enum BYGWoodTypes {
         return signItem;
     }
 
-    public RegistryObject<Item> boat() {
+    public RegistryObject<BYGBoatItem> boat() {
         return boat;
     }
 
     public MultiTag logTag() {
         return logTag;
+    }
+
+    public BYGBoatEntity.BYGType boatType() {
+        return builder.boatType;
     }
 
     public enum GrowerItemType {

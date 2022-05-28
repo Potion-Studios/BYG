@@ -1,6 +1,7 @@
 package potionstudios.byg.datagen.providers.loot;
 
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -17,13 +18,15 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+@MethodsReturnNonnullByDefault
 public class BYGLootTablesProvider extends LootTableProvider {
     public BYGLootTablesProvider(DataGenerator pGenerator) {
         super(pGenerator);
     }
 
     private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> tables = List.of(
-        Pair.of(BYGBlockLootProvider::new, LootContextParamSets.BLOCK)
+        Pair.of(BYGBlockLootProvider::new, LootContextParamSets.BLOCK),
+        Pair.of(BYGEntityLootProvider::new, LootContextParamSets.ENTITY)
     );
 
     @Override
@@ -33,6 +36,6 @@ public class BYGLootTablesProvider extends LootTableProvider {
 
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, @NotNull ValidationContext validationtracker) {
-        map.forEach((p_218436_2_, p_218436_3_) -> LootTables.validate(validationtracker, p_218436_2_, p_218436_3_));
+        map.forEach((id, table) -> LootTables.validate(validationtracker, id, table));
     }
 }

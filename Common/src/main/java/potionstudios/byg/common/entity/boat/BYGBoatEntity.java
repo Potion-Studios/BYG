@@ -1,12 +1,14 @@
 package potionstudios.byg.common.entity.boat;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -24,22 +26,25 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
-import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.common.loot.BYGLootContextParams;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
 
 import java.util.List;
 
-@SuppressWarnings("EntityConstructor")
 public class BYGBoatEntity extends Boat {
     private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoatEntity.class, EntityDataSerializers.INT);
-
+    private static final LootContextParamSet LOOT_CONTEXT_PARAM_SETS = LootContextParamSet.builder()
+            .required(BYGLootContextParams.BOAT_TYPE)
+            .required(LootContextParams.THIS_ENTITY)
+            .required(LootContextParams.ORIGIN)
+            .required(LootContextParams.DAMAGE_SOURCE)
+            .build();
 
     public BYGBoatEntity(Level worldIn, double x, double y, double z) {
         this(BYGEntities.BOAT.get(), worldIn);
@@ -54,12 +59,28 @@ public class BYGBoatEntity extends Boat {
         super(boatEntityType, worldType);
     }
 
-    public List<ItemStack> getDrops() {
-//        if (level instanceof ServerLevel serverLevel) {
-//            LootContext lootContext = new LootContext.Builder(serverLevel).withParameter(LootContextParams.BLOCK_STATE, state).create(LootContextParamSets.BLOCK);
-//            LootTable lootTable = serverLevel.getServer().getLootTables().get(resourceLocation);
-//            return lootTable.getRandomItems(lootContext);
-//        }
+    public static ResourceLocation getLootLocation(BYGType type, boolean isFall) {
+        final var regName = BYGEntities.BOAT.getId();
+        return isFall ? new ResourceLocation(regName.getNamespace(), "boats/" + type + "_fall") : new ResourceLocation(regName.getNamespace(), "boats/" + type);
+    }
+
+    public List<ItemStack> getDrops(DamageSource damageSource, boolean isFall) {
+        if (level instanceof ServerLevel serverLevel) {
+            LootContext lootContext = new LootContext.Builder(serverLevel)
+                    .withParameter(BYGLootContextParams.BOAT_TYPE, getBYGBoatType())
+                    .withParameter(LootContextParams.THIS_ENTITY, this)
+                    .withParameter(LootContextParams.ORIGIN, position())
+                    .withParameter(LootContextParams.DAMAGE_SOURCE, damageSource)
+                    .create(LOOT_CONTEXT_PARAM_SETS);
+            final var regName = Registry.ENTITY_TYPE.getKey(this.getType());
+            final var defaultLocation = this.getType().getDefaultLootTable();
+            final var any = serverLevel.getServer().getLootTables().get(isFall ? new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_fall") : defaultLocation);
+            if (any != LootTable.EMPTY)
+                return any.getRandomItems(lootContext);
+
+            final var lootTable = serverLevel.getServer().getLootTables().get(getLootLocation(getBYGBoatType(), isFall));
+            return lootTable.getRandomItems(lootContext);
+        }
         return List.of();
     }
 
@@ -112,9 +133,13 @@ public class BYGBoatEntity extends Boat {
         this.setDamage(this.getDamage() * 11.0F);
     }
 
+    @Override
+    public ItemStack getPickResult() {
+        return new ItemStack(getDropItem());
+    }
 
     @Override
-    protected void checkFallDamage(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
+    protected void checkFallDamage(double y, boolean onGroundIn, @NotNull BlockState state, @NotNull BlockPos pos) {
         ((BoatEntityAccess) this).byg_setLastYd(this.getDeltaMovement().y);
         if (!this.isPassenger()) {
             if (onGroundIn) {
@@ -128,15 +153,7 @@ public class BYGBoatEntity extends Boat {
                     if (!this.level.isClientSide && !this.isRemoved()) {
                         this.kill();
                         if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
-                            for (int i = 0; i < 3; ++i) {
-                                this.spawnAtLocation(this.getPlanks());
-                            }
-
-                            for (int j = 0; j < 2; ++j) {
-                                this.spawnAtLocation(Items.STICK);
-                            }
-
-                            this.spawnAtLocation(Blocks.AIR);
+                            getDrops(DamageSource.FALL, true).forEach(this::spawnAtLocation);
                         }
                     }
                 }
@@ -150,7 +167,7 @@ public class BYGBoatEntity extends Boat {
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurt(@NotNull DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
         } else if (!this.level.isClientSide && !this.isRemoved()) {
@@ -164,7 +181,7 @@ public class BYGBoatEntity extends Boat {
                 boolean flag = source.getEntity() instanceof Player && ((Player) source.getEntity()).getAbilities().instabuild;
                 if (flag || this.getDamage() > 40.0F) {
                     if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
-                        this.spawnAtLocation(this.getDropItem());
+                        getDrops(source, false).forEach(this::spawnAtLocation);
                     }
 
                     this.discard();
@@ -178,7 +195,7 @@ public class BYGBoatEntity extends Boat {
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public @NotNull Packet<?> getAddEntityPacket() {
         //TODO: Is this right?
         return new ClientboundAddEntityPacket(this);
     }
@@ -242,6 +259,7 @@ public class BYGBoatEntity extends Boat {
             return this.name;
         }
 
+        @Override
         public String toString() {
             return this.name;
         }

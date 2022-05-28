@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "byg:end_sand",
+    "byg:quartzite_sand",
+    "byg:warped_soul_soil",
+    "byg:cracked_red_sand",
+    "byg:black_sand",
     "byg:warped_soul_sand",
     "byg:white_sand",
-    "byg:blue_sand",
     "byg:windswept_sand",
-    "byg:black_sand",
-    "byg:cracked_red_sand",
-    "byg:quartzite_sand",
-    "byg:purple_sand",
     "byg:pink_sand",
-    "byg:warped_soul_soil"
+    "byg:purple_sand",
+    "byg:blue_sand",
+    "byg:end_sand"
   ]
 }

@@ -7,6 +7,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGBiomeType;
+import potionstudios.byg.datagen.util.DatagenUtils;
 
 public class BYGBiomeTagsProvider extends BiomeTagsProvider {
     public BYGBiomeTagsProvider(DataGenerator gen, @Nullable ExistingFileHelper existingFileHelper) {
@@ -18,5 +19,7 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
         for (final BYGBiomeType type : BYGBiomeType.values()) {
             tag(type.tag()).add(type.getBiomes().toArray(Biome[]::new));
         }
+
+        DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
 }

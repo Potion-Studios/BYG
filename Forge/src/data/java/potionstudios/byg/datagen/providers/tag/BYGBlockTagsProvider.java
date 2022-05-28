@@ -21,6 +21,7 @@ import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGMushroomBlock;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
+import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
 import potionstudios.byg.mixin.access.TagBuilderAccess;
 import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
@@ -146,7 +147,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.OAK_LOGS, WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
 
-        sortTagsAlphabeticallyAndRemoveDuplicateTagEntries();
+        DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
     
     private static Predicate<Block> isMaterial(Material... materials) {
@@ -160,17 +161,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         add(tag(tag), blocks);
         logsThatBurn.addTag(tag);
         logs.addTag(tag);
-    }
-
-    private void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries() {
-        for (Tag.Builder value : this.builders.values()) {
-            List<Tag.BuilderEntry> builderEntries = ((TagBuilderAccess) value).byg_getEntries();
-
-            Set<Tag.BuilderEntry> noDuplicates = new HashSet<>(builderEntries);
-            builderEntries.clear();
-            builderEntries.addAll(noDuplicates);
-            Collections.sort(builderEntries, Comparator.comparing(builderEntry -> builderEntry.entry().toString()));
-        }
     }
 
     @SafeVarargs
