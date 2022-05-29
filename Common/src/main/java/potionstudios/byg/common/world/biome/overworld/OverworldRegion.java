@@ -126,7 +126,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     public static final Map<String, Pair<Map<String, String>, Wrapped<OverworldRegion>>> BIOME_REGIONS = new HashMap<>();
 
 
-    private static final int OVERWORLD_WEIGHT = 6;
+    private static final int OVERWORLD_WEIGHT = 3;
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("", JanksonUtil.HEADER_OPEN + """
@@ -172,7 +172,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
     public static final Wrapped<OverworldRegion> REGION_1 = create("region_1",
             new OverworldRegion(OVERWORLD_WEIGHT,
-                    OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    OCEANS_VANILLA, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
@@ -197,9 +197,17 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
 
+    public static final Wrapped<OverworldRegion> RARE_REGION_1 = create("rare_region_1",
+            new OverworldRegion(1,
+                    OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
+                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
+    );
+
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
             ImmutableList.of(
-                    REGION_1, REGION_2, REGION_3
+                    REGION_1, REGION_2, REGION_3, RARE_REGION_1
             );
 
     private static Wrapped<OverworldRegion> create(String id, OverworldRegion overworldRegion) {
