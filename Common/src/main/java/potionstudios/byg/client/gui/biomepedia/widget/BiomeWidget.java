@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
+import potionstudios.byg.BYG;
 import potionstudios.byg.util.BYGUtil;
 
 import javax.annotation.Nullable;
@@ -30,6 +31,9 @@ public class BiomeWidget extends AbstractWidget {
         this.onClick = onClick;
         ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().hasResource(resourceLocation) ? resourceLocation : null;
+        if (previewImageLocation == null) {
+            BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
+        }
         this.name = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
         this.borderColor = FastColor.ARGB32.color(255, 0, 0, 0);
         this.visible = false;

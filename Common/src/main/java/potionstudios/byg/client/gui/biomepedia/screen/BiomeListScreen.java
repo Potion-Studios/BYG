@@ -15,6 +15,7 @@ import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.biomepedia.widget.BiomeWidget;
+import potionstudios.byg.common.world.biome.BYGBiomes;
 
 import java.util.Comparator;
 import java.util.List;
@@ -52,7 +53,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
     protected void init() {
         super.init();
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-        List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
+        List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID) && biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
 
         createMenu(resourceKeys);
 
