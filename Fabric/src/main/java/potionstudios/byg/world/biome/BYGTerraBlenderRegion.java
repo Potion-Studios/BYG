@@ -107,7 +107,7 @@ public class BYGTerraBlenderRegion extends Region {
 
             if (this.swapper.containsKey(biomeKey)) {
                 if (alreadyMappedOutsideSwapper) {
-                    throw new UnsupportedOperationException("Attempting to assign a biome resource key in both the swapper and byg keys");
+                    throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location().toString(), this.swapper.get(biomeKey).location().toString(), this.getName().toString()));
                 }
                 mapper.accept(new Pair<>(parameterPointResourceKeyPair.getFirst(), this.swapper.get(biomeKey)));
                 bygMapperAccepted.increment();
@@ -123,7 +123,7 @@ public class BYGTerraBlenderRegion extends Region {
         int mapperAcceptValue = bygMapperAccepted.intValue();
         boolean sanityCheck = totalPairsValue != mapperAcceptValue;
         if (sanityCheck) {
-            throw new UnsupportedOperationException(String.format("Not all biome parameter points were accepted for BYG biome region: %s. %s/%s were accepted.", this.getName().toString(), totalPairsValue, mapperAcceptValue));
+            throw new UnsupportedOperationException(String.format("Not all biome parameter points were accepted for BYG Terrablender biome region: %s. %s/%s were accepted.", this.getName().toString(), totalPairsValue, mapperAcceptValue));
         }
 
         BYG.LOGGER.info(bygMapperAccepted.getValue() + " biome parameter points were mapped for BYG region: " + this.getName().toString());
