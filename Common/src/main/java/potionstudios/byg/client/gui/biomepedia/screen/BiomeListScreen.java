@@ -13,10 +13,15 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
+import org.apache.commons.lang3.mutable.Mutable;
+import org.apache.commons.lang3.mutable.MutableBoolean;
+import org.apache.commons.lang3.mutable.MutableObject;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.biomepedia.widget.BiomeWidget;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.mixin.access.client.EditBoxAccess;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +31,14 @@ import java.util.stream.Collectors;
 public class BiomeListScreen extends AbstractBiomepediaScreen {
     private final Screen parent;
 
-    private int page;
+    private int pagePair;
     private ImageButton searchButton;
     private PageButton next;
     private PageButton back;
     private EditBox search;
     private int pagePairsCount;
-
+    private final Mutable<String> lastSearchInput = new MutableObject<>("");
+    private List<ResourceKey<Biome>> lastInput = new ArrayList<>();
 
     private BiomeWidget[][][] widgets;
 
@@ -52,79 +58,127 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
     @Override
     protected void init() {
         super.init();
+        this.clearWidgets();
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID) && biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
 
-        createMenu(resourceKeys);
+        if (this.widgets == null) {
+            createMenu(resourceKeys, false);
+            this.lastInput = resourceKeys;
+        } else {
+            createMenu(this.lastInput, false);
+        }
 
-        this.back = new PageButton(this.leftPos + 5, this.topPos - 10, false, button -> {
+        PageButton back = new PageButton(this.leftPos + 5, this.topPos - 10, false, button -> {
             if (pagePairsCount == 0) {
                 return;
             }
-            unload(page);
-            this.page = page == 0 ? pagePairsCount - 1 : (page - 1) % pagePairsCount;
-            load(this.page);
+            unload(pagePair);
+            this.pagePair = pagePair == 0 ? pagePairsCount - 1 : (pagePair - 1) % pagePairsCount;
+            load(this.pagePair);
         }, true);
-        this.addRenderableWidget(back);
-        back.x = this.leftPos + 15;
-        back.y = this.topPos - back.getHeight() - 13;
 
-        this.next = new PageButton(this.rightPos - 5, this.topPos - 10, true, button -> {
+        if (this.back != null) {
+            back.active = this.back.active;
+            back.visible = this.back.visible;
+        }
+
+        this.back = back;
+        this.addRenderableWidget(this.back);
+        this.back.x = this.leftPos + 15;
+        this.back.y = this.topPos - this.back.getHeight() - 13;
+
+        PageButton next = new PageButton(this.rightPos - 5, this.topPos - 10, true, button -> {
             if (pagePairsCount == 0) {
                 return;
             }
-            unload(page);
-            this.page = (page + 1) % pagePairsCount;
-            load(this.page);
+            unload(pagePair);
+            this.pagePair = (pagePair + 1) % pagePairsCount;
+            load(this.pagePair);
         }, true);
-        this.addRenderableWidget(next);
-        next.x = this.rightPos - back.getWidth() - 22;
-        next.y = this.topPos - back.getHeight() - 13;
-        load(page);
+        if (this.next != null) {
+            next.active = this.next.active;
+            next.visible = this.next.visible;
+        }
 
-        this.search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.IMAGE_HEIGHT - 22, 150, 15, new TextComponent(""));
-        search.setResponder(s -> {
-            if (s.isBlank()) {
-                search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
-                return;
-            }
+        this.next = next;
+        this.addRenderableWidget(this.next);
+        this.next.x = this.rightPos - this.back.getWidth() - 22;
+        this.next.y = this.topPos - this.back.getHeight() - 13;
+        load(pagePair);
 
-            List<ResourceKey<Biome>> searchResult = resourceKeys.stream().filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).filter(biome -> {
-                TranslatableComponent translatedComponent = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
-                return translatedComponent.getString().toLowerCase().contains(s.toLowerCase());
-            }).toList();
+        MutableBoolean snapToFront = new MutableBoolean(false);
+        EditBox search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.IMAGE_HEIGHT - 22, 150, 15, new TextComponent(""));
+        if (this.search != null) {
+            search.active = this.search.active;
+            search.visible = this.search.visible;
+            search.setValue(this.search.getValue());
+            search.setTextColor(((EditBoxAccess) this.search).byg_getTextColor());
+            snapToFront.setValue(true);
+        } else {
+            search.active = false;
+            search.visible = false;
+        }
 
-            if (searchResult.isEmpty()) {
-                search.setTextColor(FastColor.ARGB32.color(255, 255, 0, 0));
-            } else {
-                search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
-            }
+        this.search = search;
 
-            createMenu(searchResult);
-        });
-        search.active = false;
-        search.visible = false;
+
+        this.search.setResponder(s -> updateForSearchValue(resourceKeys, s, snapToFront.booleanValue()));
+
         this.searchButton = new ImageButton(
                 this.leftPos + 15, (this.bottomPos + this.IMAGE_HEIGHT) - 5, 20, 18, 0, 220, 18,
                 new ResourceLocation("byg", "textures/gui/biomepedia.png"),
                 256, 256,
                 (button) -> {
-                    search.visible = !search.visible;
-                    search.active = !search.active;
-                    if (search.visible) {
-                        search.setFocus(true);
+                    this.search.visible = !this.search.visible;
+                    this.search.active = !this.search.active;
+                    if (this.search.visible) {
+                        this.search.setFocus(true);
+                        this.back.visible = false;
+                        this.back.active = false;
+                    } else {
+                        this.back.visible = true;
+                        this.back.active = true;
                     }
                 });
         this.addRenderableWidget(this.searchButton);
-        this.addRenderableWidget(search);
+        this.addRenderableWidget(this.search);
 
     }
 
-    private void createMenu(List<ResourceKey<Biome>> biomes) {
+    private void updateForSearchValue(List<ResourceKey<Biome>> resourceKeys, String s, boolean snapToFront) {
+        if (s.equals(lastSearchInput.getValue())) {
+            return;
+        }
+        lastSearchInput.setValue(s);
+        if (s.isBlank()) {
+            this.search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
+            createMenu(resourceKeys, snapToFront);
+            return;
+        }
+
+        List<ResourceKey<Biome>> searchResult = resourceKeys.stream().filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).filter(biome -> {
+            TranslatableComponent translatedComponent = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
+            return translatedComponent.getString().toLowerCase().contains(s.toLowerCase());
+        }).toList();
+        this.lastInput = searchResult;
+
+        if (searchResult.isEmpty()) {
+            this.search.setTextColor(FastColor.ARGB32.color(255, 255, 0, 0));
+        } else {
+            this.search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
+        }
+
+        createMenu(searchResult, snapToFront);
+    }
+
+    private void createMenu(List<ResourceKey<Biome>> biomes, boolean snapToFront) {
         pagePairsCount = (int) Math.ceil((double) biomes.size() / 4);
         int registryIdx = 0;
         int offsetFromEdge = 14;
-        this.page = 0;
+        if (widgets != null) {
+            forEachWidget(biomeWidget -> this.children().remove(biomeWidget));
+        }
 
         widgets = new BiomeWidget[Math.max(pagePairsCount, 1)][2][2];
         int xOffset = this.leftPos + offsetFromEdge + 4;
@@ -138,14 +192,19 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                     if (registryIdx > biomes.size() - 1) {
                         break;
                     }
-                    page[yPos] = new BiomeWidget(biomes.get(registryIdx), xOffset + startX, yOffset, (int) (this.IMAGE_WIDTH / 2.5F), (int) (this.IMAGE_HEIGHT / 2.7), button -> {
-
-                    });
+                    ResourceKey<Biome> biome = biomes.get(registryIdx);
+                    page[yPos] = this.addWidget(new BiomeWidget(biome, xOffset + startX, yOffset, (int) (IMAGE_WIDTH / 2.5F), (int) (IMAGE_HEIGHT / 2.7), button -> {
+                        this.minecraft.setScreen(new BiomeAboutScreen(biome, this));
+                    }));
                     registryIdx++;
-                    yOffset += (this.IMAGE_HEIGHT / 2.7) + 10;
+                    yOffset += (IMAGE_HEIGHT / 2.7) + 10;
                 }
             }
         }
+        if (this.widgets.length - 1 < this.pagePair || snapToFront) {
+            this.pagePair = 0;
+        }
+
 
         if (back != null && next != null) {
             if (pagePairsCount > 1) {
@@ -163,7 +222,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                 biomeWidget.visible = false;
                 biomeWidget.active = false;
             });
-            load(page);
+            load(pagePair);
         }
     }
 
