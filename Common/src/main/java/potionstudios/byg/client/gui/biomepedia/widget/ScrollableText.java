@@ -17,6 +17,8 @@ import java.util.List;
 
 public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
 
+    public static final boolean DEBUG = false;
+
     public ScrollableText(Component text, int width, int height, int y0, int y1) {
         super(Minecraft.getInstance(), width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
         this.setRenderBackground(false);
@@ -41,7 +43,9 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
-        GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
+        if (DEBUG) {
+            GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
+        }
     }
 
     @Override
