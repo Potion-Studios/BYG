@@ -12,4 +12,7 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.cr
 public class BYGGlobalFeatureFeatures {
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_SOAPSTONE = createConfiguredFeature("ore_soapstone", () -> Feature.ORE, new OreConfiguration(NATURAL_STONE, BYGBlocks.SOAPSTONE.defaultBlockState(), 64));
+
+    public static void loadClass() {
+    }
 }
