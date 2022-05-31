@@ -2024,7 +2024,7 @@ d4f287df28be70f53a4a7c6473355d760e64078f assets/byg/models/item/zelkova_slab.jso
 7efd2d48e7253cf1dedb7e910216b18d518cd35d assets/byg/models/item/zelkova_stairs.json
 c558d204496231acfc2f07b1763894108894a676 assets/byg/models/item/zelkova_trapdoor.json
 5a969090404d7acf76034084b7ff60640528ae20 assets/byg/models/item/zelkova_wood.json
-55535d1514c427537932322ff12e57022a53cdd9 data/byg/advancements/adventure/oh_the_biomes_youll_go.json
+e8ee05951214e5ce2bbe2863a2db30ce32f04a5f data/byg/advancements/adventure/oh_the_biomes_youll_go.json
 088f462dc7e989078f364f070553c33b5475ca5c data/byg/advancements/biomepedia_gift.json
 b4d83bce4f82add22412cca9049ee245aeeb2f18 data/byg/advancements/husbandry/berrily_alive.json
 ca36240397ba18ddf2a2a64aa0ff986f54ac6a9b data/byg/advancements/husbandry/forager.json
@@ -3463,6 +3463,7 @@ c1b152629b71f4990c376eb8188554e333bca423 data/byg/tags/blocks/wood/skyris_logs.j
 a8ca5bf06557161de198d6e729db8c52c5cd97d1 data/byg/tags/blocks/wood/zelkova_logs.json
 b9ab1582ed849d23d78df79d78211ec07ba14d27 data/byg/tags/entity_types/boats.json
 fe99dedb5956e38d78c4b25953f2f2f438851428 data/byg/tags/items/bookshelves.json
+ec01dd781caabcbddbb6e4976f5dbc32ad69d527 data/byg/tags/items/mushrooms.json
 05f049ce3b43d0d334eb6919e7757ff009e8f5a5 data/byg/tags/items/wood/aspen_logs.json
 fef182ec0f322f5afeaceaaf40201a1f8a8e4490 data/byg/tags/items/wood/baobab_logs.json
 5c86e0ca01ddd0f437716b2531dbdd6a4dc7f5ef data/byg/tags/items/wood/blue_enchanted_logs.json
@@ -3493,7 +3494,9 @@ c1b152629b71f4990c376eb8188554e333bca423 data/byg/tags/items/wood/skyris_logs.js
 7fb9f499649301d69d2ea9f85bef7921b6ad7e16 data/byg/tags/items/wood/witch_hazel_logs.json
 a8ca5bf06557161de198d6e729db8c52c5cd97d1 data/byg/tags/items/wood/zelkova_logs.json
 417da7430aeb414baa78ea7c68077f9e964396ef data/byg/tags/worldgen/biome/is_badlands.json
+e267658c8d53318f1183c2fb3a860580be3498dd data/byg/tags/worldgen/biome/is_beach.json
 7bfa2259361126f285ee4e93daebe58603f8353c data/byg/tags/worldgen/biome/is_dead.json
+a58f5d6e58216b07697b39682647820c0f23779c data/byg/tags/worldgen/biome/is_deep_ocean.json
 8ff0c57a1c566702b71a741cc95bf8e79630285d data/byg/tags/worldgen/biome/is_icy.json
 a58f5d6e58216b07697b39682647820c0f23779c data/byg/tags/worldgen/biome/is_ocean.json
 6c5591da8888cfd1a3c6b7f2be4818277dd1154f data/byg/tags/worldgen/biome/is_sandy.json
@@ -3522,7 +3525,7 @@ ddd12d971436979db2961572c64ad54a42dd8ced data/minecraft/tags/blocks/wooden_press
 2b12276f3745f519c6dadd731673b8c555401515 data/minecraft/tags/blocks/wooden_stairs.json
 b699d6ee081dd5163e6c67b27d36a35d115e0ade data/minecraft/tags/blocks/wooden_trapdoors.json
 686c39d8f6ec038f813099bc6ce0a5b8f1ee4739 data/minecraft/tags/items/buttons.json
-7e79f85e43d30a3167c74f6e335268c63b71eab3 data/minecraft/tags/items/leaves.json
+1a425684393db180e3cde0048031ec3959749966 data/minecraft/tags/items/leaves.json
 74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/minecraft/tags/items/logs.json
 74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/minecraft/tags/items/logs_that_burn.json
 d5a8c53b10113cbe8b1574864fd1ddf4722fa544 data/minecraft/tags/items/planks.json
@@ -3538,5 +3541,3 @@ ddd12d971436979db2961572c64ad54a42dd8ced data/minecraft/tags/items/wooden_pressu
 325d2ff26abd2f524c4c24afdb6e00ee9b1edd00 data/minecraft/tags/items/wooden_slabs.json
 2b12276f3745f519c6dadd731673b8c555401515 data/minecraft/tags/items/wooden_stairs.json
 b699d6ee081dd5163e6c67b27d36a35d115e0ade data/minecraft/tags/items/wooden_trapdoors.json
-e267658c8d53318f1183c2fb3a860580be3498dd data/minecraft/tags/worldgen/biome/is_beach.json
-a58f5d6e58216b07697b39682647820c0f23779c data/minecraft/tags/worldgen/biome/is_deep_ocean.json

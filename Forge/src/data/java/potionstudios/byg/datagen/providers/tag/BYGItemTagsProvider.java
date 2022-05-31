@@ -9,18 +9,26 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.datagen.util.DatagenUtils;
+import potionstudios.byg.datagen.util.PredicatedTagProvider;
+import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
 import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class BYGItemTagsProvider extends ItemTagsProvider {
@@ -53,10 +61,22 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(BlockTags.STAIRS, ItemTags.STAIRS);
         copy(BlockTags.SLABS, ItemTags.SLABS);
         copy(BlockTags.BUTTONS, ItemTags.BUTTONS);
-        copy(BlockTags.LEAVES, ItemTags.LEAVES);
         copy(BlockTags.SAND, ItemTags.SAND);
+        copy(BYGBlockTags.MUSHROOMS, bygTag("mushrooms"));
+
+        new PredicatedTagProvider<>(BYGItems.PROVIDER)
+            .add(isBlockMaterial(Material.LEAVES), ItemTags.LEAVES) // Can't copy this one due to slight differences
+            .run(this::tag);
 
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
+    }
+
+    private static TagKey<Item> bygTag(String path) {
+        return create(createLocation(path));
+    }
+
+    private static Predicate<Item> isBlockMaterial(Material material) {
+        return item -> item instanceof BlockItem bi && ((BlockBehaviorAccess) bi.getBlock()).getMaterial() == material;
     }
 
     @SafeVarargs

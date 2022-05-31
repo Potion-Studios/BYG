@@ -65,7 +65,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             .forInstance(StairBlock.class, BlockTags.STAIRS)
             .forInstance(ButtonBlock.class, BlockTags.BUTTONS)
             .forInstance(BYGSaplingBlock.class, BlockTags.SAPLINGS)
-            .forInstance(BYGMushroomBlock.class, create(createLocation("mushrooms")))
+            .forInstance(BYGMushroomBlock.class, BYGBlockTags.MUSHROOMS)
             .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
             .forInstance(CampfireBlock.class, BlockTags.CAMPFIRES)
             .forInstance(BYGScaffoldingBlock.class, BYGBlockTags.SCAFFOLDING)
