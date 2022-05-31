@@ -154,6 +154,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
         if (s.isBlank()) {
             this.search.setTextColor(FastColor.ARGB32.color(255, 255, 255, 255));
             createMenu(resourceKeys, snapToFront);
+            this.lastInput = resourceKeys;
             return;
         }
 
