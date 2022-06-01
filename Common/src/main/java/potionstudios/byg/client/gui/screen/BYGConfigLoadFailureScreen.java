@@ -9,7 +9,6 @@ import net.minecraft.util.FastColor;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.KillClient;
 import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
-import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.mixin.access.client.ScreenAccess;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
@@ -74,17 +73,7 @@ public class BYGConfigLoadFailureScreen extends Screen {
         int buttonHeight = 20;
         int buttonY = errorBoxBottom + 10 + (buttonHeight / 2);
         this.validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, new TextComponent("Validate Configs"), button -> {
-            String loadAllConfigs = BYGConfigHandler.loadAllConfigs(true, false);
-            try {
-                if (!loadAllConfigs.isEmpty()) {
-                    throw new IllegalStateException(loadAllConfigs);
-                } else {
-                    this.runnable.run();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                this.minecraft.setScreen(new BYGConfigLoadFailureScreen(e, this.runnable, VALIDATION_COOLDOWN));
-            }
+            this.runnable.run();
         }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Load configs again, if they work, you will continue to load into your world."), mouseX, mouseZ));
         if (validationCountDown > 0) {
             validateConfigs.active = false;
