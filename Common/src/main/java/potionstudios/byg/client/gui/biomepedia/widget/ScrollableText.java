@@ -20,13 +20,17 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     public static final boolean DEBUG = false;
 
     public ScrollableText(Component text, int width, int height, int y0, int y1) {
+        this(text, width, height, y0, y1, 0, false, false);
+    }
+
+    public ScrollableText(Component text, int width, int height, int y0, int y1, int textColor, boolean renderBackground, boolean renderTopAndBottom) {
         super(Minecraft.getInstance(), width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
-        this.setRenderBackground(false);
-        this.setRenderTopAndBottom(false);
+        this.setRenderBackground(renderBackground);
+        this.setRenderTopAndBottom(renderTopAndBottom);
         ArrayList<Component> toolTip = new ArrayList<>();
         GuiUtil.makeAndCacheConfigCommentWrappedToolTip(width - 6, text.getString(), new MutableInt(), toolTip);
         for (Component component : toolTip) {
-            this.addEntry(new ScrollableTextEntry(component, width));
+            this.addEntry(new ScrollableTextEntry(component, width, textColor));
         }
     }
 
@@ -57,16 +61,18 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
 
         private final Component text;
         private final int textMaxWidth;
+        private int textColor;
 
-        public ScrollableTextEntry(Component text, int textMaxWidth) {
+        public ScrollableTextEntry(Component text, int textMaxWidth, int textColor) {
             this.text = text;
             this.textMaxWidth = textMaxWidth;
+            this.textColor = textColor;
         }
 
         @Override
         public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
             float textHeightOffset = (float) (pTop + pHeight - Minecraft.getInstance().font.lineHeight);
-            Minecraft.getInstance().font.draw(pPoseStack, this.text, (pLeft) + rowWidth - this.textMaxWidth, textHeightOffset, 0);
+            Minecraft.getInstance().font.draw(pPoseStack, this.text, (pLeft) + rowWidth - this.textMaxWidth, textHeightOffset, this.textColor);
         }
 
         @Override

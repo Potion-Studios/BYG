@@ -19,36 +19,23 @@ import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import potionstudios.byg.client.BiomepediaInventoryConfig;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
-import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
-import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.structure.WithGenerationStep;
-import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
-import potionstudios.byg.config.BiomepediaConfig;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
-import potionstudios.byg.config.SettingsConfig;
-import potionstudios.byg.config.json.BiomeDictionaryConfig;
-import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
-import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.FileUtils;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -60,7 +47,6 @@ public class BYG {
 
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
-        handleConfigs();
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
@@ -76,6 +62,13 @@ public class BYG {
                 .map(RegistryObject::get)
                 .filter(WithGenerationStep.class::isInstance)
                 .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
+
+        String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
+        if(!loadAllConfigs.isEmpty()) {
+            throw new IllegalStateException(loadAllConfigs);
+        }
+
+        FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
     }
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
@@ -84,24 +77,6 @@ public class BYG {
         bygCommands.then(ReloadConfigsCommand.register());
         bygCommands.then(UpdateConfigsCommand.register());
         dispatcher.register(bygCommands);
-    }
-
-    private static void handleConfigs() {
-        FeatureGrowerFromBlockPattern.ENTRIES.forEach(c -> c.get().load());
-        makeREADME();
-        EndBiomesConfig.getConfig();
-        NetherBiomesConfig.getConfig();
-        SettingsConfig.getConfig();
-    }
-
-    private static void makeREADME() {
-        try {
-            Path configPath = ModPlatform.INSTANCE.configPath();
-            Files.createDirectories(configPath);
-            Files.write(configPath.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void threadSafeCommonLoad() {
@@ -143,24 +118,7 @@ public class BYG {
         BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
-        loadAllConfigs(false, false);
-        FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
-    }
-
-    public static void loadAllConfigs(boolean serialize, boolean recreate) {
-        EndBiomesConfig.getConfig(serialize, recreate, null);
-        NetherBiomesConfig.getConfig(serialize, recreate, null);
-        OverworldBiomeConfig.getConfig(serialize, recreate);
-        BiomeDictionaryConfig.getConfig(serialize, recreate);
-        SurfaceRulesConfig.getConfig(serialize, recreate);
-        GrowingPatterns.getConfig(serialize, recreate);
-        TradesConfig.getConfig(serialize, recreate);
-        SettingsConfig.getConfig(serialize, recreate);
-        BiomepediaInventoryConfig.getConfig(serialize, recreate);
-        BiomepediaConfig.getConfig(serialize, recreate);
-        ConfigVersionTracker.getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), recreate);
-        makeREADME();
     }
 
     public static ResourceLocation createLocation(String path) {

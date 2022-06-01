@@ -20,6 +20,7 @@ Accessible class net/minecraft/world/entity/npc/VillagerTrades$SuspiciousStewFor
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TippedArrowForItemsAndEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$StateRule
+Accessible class net/minecraft/client/Minecraft$ExperimentalDialogType
 
 Extendable class net/minecraft/world/level/biome/OverworldBiomeBuilder
 
