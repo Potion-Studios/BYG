@@ -46,7 +46,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
             BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
         }
 
-        MutableComponent component = new TextComponent("Dimensions:").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent component = new TranslatableComponent("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
         if (biomeDimensions.containsKey(biome)) {

@@ -5,6 +5,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.FastColor;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.KillClient;
@@ -18,10 +19,16 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 public class BYGConfigLoadFailureScreen extends Screen {
+
+    private static final Component VALIDATE_CONFIGS_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.validate");
+    private static final Component VALIDATE_CONFIGS_HOVER = new TranslatableComponent("byg.screen.configloadfail.validate.hover");
+    private static final Component OPEN_CONFIG_DIR_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.openconfigdir");
+    private static final Component OPEN_CONFIG_DIR_HOVER = new TranslatableComponent("byg.screen.configloadfail.openconfigdir.hover");
+    private static final Component RECREATE_CONFIGS_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs");
+    private static final Component RECREATE_CONFIGS_HOVER = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs.hover");
+
     private final Exception exception;
     private final Runnable runnable;
-    ScrollableText text;
-    private final Component validateConfigsMessage = new TextComponent("Validate Configs");
     private int errorBoxTop;
 
 
@@ -41,25 +48,28 @@ public class BYGConfigLoadFailureScreen extends Screen {
         this.exception.printStackTrace(new PrintWriter(stringWriter));
 
         int errorBoxBottom = errorBoxTop + (this.height / 2);
-        this.text = new ScrollableText(new TextComponent("\n" + stringWriter.toString()), errorBoxLength, errorBoxTop, errorBoxTop, errorBoxBottom, FastColor.ARGB32.color(255, 255, 255, 255), true, true);
-        this.text.setLeftPos(this.width / 2 - (errorBoxLength / 2));
-        this.addRenderableWidget(this.text);
+        ScrollableText text = new ScrollableText(new TextComponent("\n" + stringWriter.toString()), errorBoxLength, errorBoxTop, errorBoxTop, errorBoxBottom, FastColor.ARGB32.color(255, 255, 255, 255), true, true);
+        text.setLeftPos(this.width / 2 - (errorBoxLength / 2));
+        this.addRenderableWidget(text);
 
         int buttonWidth = (int) Math.ceil(errorBoxLength / 3.5);
         int buttonHeight = 20;
         int buttonY = errorBoxBottom + 10 + (buttonHeight / 2);
-        Button validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, this.validateConfigsMessage, button -> {
-            this.runnable.run();
-        }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Load configs again, if they work, you will continue to load into your world."), mouseX, mouseZ));
-        this.addRenderableWidget(new Button(((errorBoxLength / 3) * 2) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, new TextComponent("Config Directory"),
+        Button validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, VALIDATE_CONFIGS_MESSAGE,
+                button -> this.runnable.run(), (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, VALIDATE_CONFIGS_HOVER, mouseX, mouseZ)
+        );
+
+        this.addRenderableWidget(new Button(((errorBoxLength / 3) * 2) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, OPEN_CONFIG_DIR_MESSAGE,
                 button -> ((ScreenAccess) this).byg_invokeOpenLink(ModPlatform.INSTANCE.configPath().toUri()),
-                (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Open config directory"), mouseX, mouseZ)
+                (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, OPEN_CONFIG_DIR_HOVER, mouseX, mouseZ)
         ));
 
-        this.addRenderableWidget(new Button(errorBoxLength - (buttonWidth / 2), buttonY, buttonWidth, buttonHeight, new TextComponent("Recreate configs"), button -> {
+        this.addRenderableWidget(new Button(errorBoxLength - (buttonWidth / 2), buttonY, buttonWidth, buttonHeight, RECREATE_CONFIGS_MESSAGE, button -> {
             UpdateConfigsCommand.backupConfigs(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION));
             KillClient.kill();
-        }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Backup & recreate your configs, then restart minecraft."), mouseX, mouseZ)));
+        },
+                (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, RECREATE_CONFIGS_HOVER, mouseX, mouseZ)
+        ));
 
 
         this.addRenderableWidget(validateConfigs);
