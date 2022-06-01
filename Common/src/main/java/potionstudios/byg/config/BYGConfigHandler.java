@@ -62,13 +62,6 @@ public class BYGConfigHandler {
         return error + (!error.isEmpty() ? "\n" : "");
     }
 
-    private static void handleConfigs() {
-        makeREADME();
-        EndBiomesConfig.getConfig();
-        NetherBiomesConfig.getConfig();
-        SettingsConfig.getConfig();
-    }
-
     private static void makeREADME() {
         try {
             Path configPath = ModPlatform.INSTANCE.configPath();
