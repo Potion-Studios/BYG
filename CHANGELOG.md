@@ -1,3 +1,9 @@
+# 1.4-RC-23
+* Add config loading failure screen that should appear in place of crashing(doesn't work for all configs, but should reduce game exits).
+* Fix a bug where a biome that doesn't generate would crash in the biomepedia dimensions list, add a component that tells the user that the biome in question doesn't spawn anywhere instead.
+* Add translation components for numerous components that were hardcoded to english.
+* Much better and informative error in relation to biomes occurring in both biome selectors and biome swapper for `TerraBlenderRegion`/`OverworldRegion`.
+
 # 1.4-RC-22
 * Fix feature order cycle crash.
 * Biome list in w/ search bar in biomepedia.
