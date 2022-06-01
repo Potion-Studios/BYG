@@ -18,41 +18,17 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 public class BYGConfigLoadFailureScreen extends Screen {
-    private static final int VALIDATION_COOLDOWN = 100;
     private final Exception exception;
     private final Runnable runnable;
     ScrollableText text;
-    private int validationCountDown;
-    private Button validateConfigs;
     private final Component validateConfigsMessage = new TextComponent("Validate Configs");
     private int errorBoxTop;
 
-    public BYGConfigLoadFailureScreen(Exception exception, Runnable runnable) {
-        this(exception, runnable, 0);
-    }
 
-    public BYGConfigLoadFailureScreen(Exception exception, Runnable runnable, int validationCountDown) {
+    public BYGConfigLoadFailureScreen(Exception exception, Runnable runnable) {
         super(new TextComponent("BYG Config loading failed: "));
         this.exception = exception;
         this.runnable = runnable;
-        this.validationCountDown = validationCountDown;
-    }
-
-    @Override
-    public void tick() {
-        if (validationCountDown > 0) {
-            validationCountDown--;
-            if (validateConfigs != null) {
-                if (validationCountDown == 0) {
-                    this.validateConfigs.setMessage(this.validateConfigsMessage);
-                    this.validateConfigs.active = true;
-                } else {
-                    this.validateConfigs.setMessage(new TextComponent(Integer.toString((int) Math.ceil((double) this.validationCountDown / 20))));
-                    this.validateConfigs.active = false;
-                }
-            }
-        }
-        super.tick();
     }
 
     @Override
@@ -72,12 +48,9 @@ public class BYGConfigLoadFailureScreen extends Screen {
         int buttonWidth = (int) Math.ceil(errorBoxLength / 3.5);
         int buttonHeight = 20;
         int buttonY = errorBoxBottom + 10 + (buttonHeight / 2);
-        this.validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, new TextComponent("Validate Configs"), button -> {
+        Button validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, this.validateConfigsMessage, button -> {
             this.runnable.run();
         }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Load configs again, if they work, you will continue to load into your world."), mouseX, mouseZ));
-        if (validationCountDown > 0) {
-            validateConfigs.active = false;
-        }
         this.addRenderableWidget(new Button(((errorBoxLength / 3) * 2) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, new TextComponent("Config Directory"),
                 button -> ((ScreenAccess) this).byg_invokeOpenLink(ModPlatform.INSTANCE.configPath().toUri()),
                 (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TextComponent("Open config directory"), mouseX, mouseZ)
