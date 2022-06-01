@@ -54,7 +54,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
                 component.append("\n").append(new TextComponent(levelResourceKey.location().toString()));
             }
         } else {
-            component.append("\n").append("This biome doesn't spawn in any dimension.");
+            component.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.nodimensions"));
         }
         this.dimensionsText = component;
     }
