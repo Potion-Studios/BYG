@@ -19,6 +19,8 @@ import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 import potionstudios.byg.common.world.LevelBiomeTracker;
 
 import javax.annotation.Nullable;
+import java.util.Collection;
+import java.util.Map;
 
 public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     protected int toolTipMaxWidth;
@@ -45,8 +47,14 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         }
 
         MutableComponent component = new TextComponent("Dimensions:").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
-        for (ResourceKey<Level> levelResourceKey : LevelBiomeTracker.client_instance.biomeDimensions().get(biome)) {
-            component.append("\n").append(new TextComponent(levelResourceKey.location().toString()));
+        Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
+
+        if (biomeDimensions.containsKey(biome)) {
+            for (ResourceKey<Level> levelResourceKey : biomeDimensions.get(biome)) {
+                component.append("\n").append(new TextComponent(levelResourceKey.location().toString()));
+            }
+        } else {
+            component.append("\n").append("This biome doesn't spawn in any dimension.");
         }
         this.dimensionsText = component;
     }
