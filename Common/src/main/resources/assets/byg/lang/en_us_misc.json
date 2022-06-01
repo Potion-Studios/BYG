@@ -64,6 +64,7 @@
   "byg.screen.configloadfail.title": "BYG Config loading failed:",
   "byg.screen.configloadfail.validate": "Validate configs",
   "byg.screen.configloadfail.validate.hover": "Load configs again, if they work, you will continue to load into your world.",
+  "byg.screen.configloadfail.validate.toast": "Validating BYG configs...",
   "byg.serverkill.countdown": "Server shutdown in: %s seconds",
   "byg.worldgenexport.exists": "World generation export already exists! View it here: %s!",
   "byg.worldgenexport.failed": "Uh oh, the world generation export could not be created, check your latest.log!",

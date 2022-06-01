@@ -2,6 +2,7 @@ package potionstudios.byg.client.gui.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -57,7 +58,10 @@ public class BYGConfigLoadFailureScreen extends Screen {
         int buttonHeight = 20;
         int buttonY = errorBoxBottom + 10 + (buttonHeight / 2);
         Button validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, VALIDATE_CONFIGS_MESSAGE,
-                button -> this.runnable.run(), (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, VALIDATE_CONFIGS_HOVER, mouseX, mouseZ)
+                button -> {
+                    this.minecraft.getToasts().addToast(new SystemToast(SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TranslatableComponent("byg.screen.configloadfail.validate.toast"), null));
+                    this.runnable.run();
+                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, VALIDATE_CONFIGS_HOVER, mouseX, mouseZ)
         );
 
         this.addRenderableWidget(new Button(((errorBoxLength / 3) * 2) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, OPEN_CONFIG_DIR_MESSAGE,
