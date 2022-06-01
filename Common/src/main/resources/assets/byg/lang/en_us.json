@@ -1243,6 +1243,7 @@
   "byg.screen.configloadfail.openconfigdir.hover": "Open config directory.",
   "byg.screen.configloadfail.recreateconfigs": "Recreate configs",
   "byg.screen.configloadfail.recreateconfigs.hover": "Backup & recreate your configs, then restart minecraft.",
+  "byg.screen.configloadfail.title": "BYG Config loading failed:",
   "byg.screen.configloadfail.validate": "Validate configs",
   "byg.screen.configloadfail.validate.hover": "Load configs again, if they work, you will continue to load into your world.",
   "byg.serverkill.countdown": "Server shutdown in: %s seconds",

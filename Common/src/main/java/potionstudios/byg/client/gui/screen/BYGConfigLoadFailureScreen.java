@@ -26,6 +26,7 @@ public class BYGConfigLoadFailureScreen extends Screen {
     private static final Component OPEN_CONFIG_DIR_HOVER = new TranslatableComponent("byg.screen.configloadfail.openconfigdir.hover");
     private static final Component RECREATE_CONFIGS_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs");
     private static final Component RECREATE_CONFIGS_HOVER = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs.hover");
+    private static final Component RECREATE_CONFIGS_TITLE = new TranslatableComponent("byg.screen.configloadfail.title");
 
     private final Exception exception;
     private final Runnable runnable;
@@ -33,7 +34,7 @@ public class BYGConfigLoadFailureScreen extends Screen {
 
 
     public BYGConfigLoadFailureScreen(Exception exception, Runnable runnable) {
-        super(new TextComponent("BYG Config loading failed: "));
+        super(RECREATE_CONFIGS_TITLE);
         this.exception = exception;
         this.runnable = runnable;
     }
