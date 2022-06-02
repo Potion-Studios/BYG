@@ -16,6 +16,7 @@ import net.minecraft.world.level.biome.Biome;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 import potionstudios.byg.common.world.LevelBiomeTracker;
+import potionstudios.byg.mixin.access.BiomeAccess;
 
 import java.util.Comparator;
 import java.util.Map;
@@ -25,6 +26,7 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
     private final Screen parent;
     private final Component mobSpawns;
     private final Component biomeTags;
+    private final Component colorSettingsText;
 
     protected int toolTipMaxWidth;
 
@@ -52,8 +54,22 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
                 .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
                 .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
 
+        MutableComponent climateText = new TranslatableComponent("biomepedia.biomeabout.color").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        Biome biome = biomeRegistry.get(biomeKey);
+
+        int grassColor = biome.getSpecialEffects().getGrassColorOverride().orElseGet(() -> ((BiomeAccess) (Object) biome).byg_invokeGetGrassColorFromTexture());
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.grass", Integer.toHexString(grassColor)));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.foliage", Integer.toHexString(biome.getFoliageColor())));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.fog", Integer.toHexString(biome.getFogColor())));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.sky", Integer.toHexString(biome.getFogColor())));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.water", Integer.toHexString(biome.getWaterColor())));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.waterfog", Integer.toHexString(biome.getWaterFogColor())));
+        this.colorSettingsText = climateText;
+
+
         this.biomeTags = biomeTagsText;
     }
+
 
     @Override
     protected void init() {
@@ -72,27 +88,20 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
         this.addRenderableWidget(mobSpawns);
 
         int distanceBetween = 10;
-        int biomeTagsTop = mobSpawnsTextBottom + distanceBetween;
-        int biomeTagsBottom = biomeTagsTop + size;
-        ScrollableText biomeTags = new ScrollableText(this.biomeTags, mobSpawns.getRowWidth(), biomeTagsTop, biomeTagsTop, biomeTagsBottom);
-        biomeTags.setLeftPos(startXLeftPage);
+        int colorSettingsTop = mobSpawnsTextBottom + distanceBetween;
+        int colorSettingsBottom = colorSettingsTop + size;
+        ScrollableText colorSettings = new ScrollableText(this.colorSettingsText, mobSpawns.getRowWidth(), colorSettingsTop, colorSettingsTop, colorSettingsBottom);
+        colorSettings.setLeftPos(startXLeftPage);
+        this.addRenderableWidget(colorSettings);
+
+
+        ScrollableText biomeTags = new ScrollableText(this.biomeTags, mobSpawns.getRowWidth(), colorSettingsTop, mobSpawnsTextTop, mobSpawnsTextBottom);
+        biomeTags.setLeftPos(startXRightPage);
         if (this.minecraft.options.advancedItemTooltips) {
             this.addRenderableWidget(biomeTags);
         }
 
-//        int distanceBetween = 10;
-//        int climateTextTop = mobSpawnsTextBottom + distanceBetween;
-//        int climateTextBottom = climateTextTop + size;
-//        ScrollableText climateInfo = new ScrollableText(this.climateText, mobSpawns.getRowWidth(), climateTextTop, climateTextTop, climateTextBottom);
-//        climateInfo.setLeftPos(startXLeftPage);
-//        this.addRenderableWidget(climateInfo);
-//
-//
-//        int biomeTagsTop = climateTextBottom + distanceBetween;
-//        int biomeTagsBottom = biomeTagsTop + size;
-//        ScrollableText biomeTags = new ScrollableText(this.biomeTags, mobSpawns.getRowWidth(), biomeTagsTop, biomeTagsTop, biomeTagsBottom);
-//        biomeTags.setLeftPos(startXLeftPage);
-//        this.addRenderableWidget(biomeTags);
+
 
     }
 
