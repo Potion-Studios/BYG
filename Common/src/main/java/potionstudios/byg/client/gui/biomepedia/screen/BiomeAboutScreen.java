@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
-import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.biomepedia.widget.BiomeWidget;
 import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
@@ -23,7 +22,6 @@ import potionstudios.byg.common.world.LevelBiomeTracker;
 
 import javax.annotation.Nullable;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Map;
 
 public class BiomeAboutScreen extends AbstractBiomepediaScreen {
@@ -56,9 +54,11 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
         if (biomeDimensions.containsKey(biomeKey)) {
-            String dimensionTranslationKey = "dimension." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath();
-            TranslatableComponent dimensionComponent = new TranslatableComponent(dimensionTranslationKey);
-            for (ResourceKey<Level> levelResourceKey : biomeDimensions.get(biomeKey)) {
+
+            Collection<ResourceKey<Level>> dimensions = biomeDimensions.get(biomeKey);
+            for (ResourceKey<Level> levelResourceKey : dimensions) {
+                String dimensionTranslationKey = "dimension." + levelResourceKey.location().getNamespace() + "." + levelResourceKey.location().getPath();
+                TranslatableComponent dimensionComponent = new TranslatableComponent(dimensionTranslationKey);
                 dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : new TextComponent(levelResourceKey.location().toString()));
             }
         } else {
