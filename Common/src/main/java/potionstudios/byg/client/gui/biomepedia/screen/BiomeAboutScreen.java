@@ -36,8 +36,6 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     private final Screen parent;
     private final Component dimensionsText;
     private final Component climateText;
-    private final Component biomeTags;
-
 
     protected BiomeAboutScreen(ResourceKey<Biome> biomeKey, Screen parent) {
         super(new TranslatableComponent("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
@@ -74,14 +72,6 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.downfall", biome.getDownfall()));
         climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.precipitation", new TranslatableComponent("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())));
         this.climateText = climateText;
-
-        MutableComponent biomeTagsText = new TranslatableComponent("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
-        MutableInt count = new MutableInt(0);
-        biomeRegistry.getHolder(biomeKey).orElseThrow().tags()
-                .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
-                .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
-
-        this.biomeTags = biomeTagsText;
     }
 
     @Override
@@ -98,7 +88,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
         description.setLeftPos(this.startXLeftPage);
         int dimensionTextTop = this.bottomPos + 15;
-        int size = 50;
+        int size = 80;
         int dimensionTextBottom = dimensionTextTop + size;
         ScrollableText dimensions = new ScrollableText(this.dimensionsText, this.toolTipMaxWidth, dimensionTextTop, dimensionTextTop, dimensionTextBottom);
         dimensions.setLeftPos(startXRightPage);
@@ -109,15 +99,11 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ScrollableText climateInfo = new ScrollableText(this.climateText, dimensions.getRowWidth(), climateTextTop, climateTextTop, climateTextBottom);
         climateInfo.setLeftPos(startXRightPage);
 
-        int biomeTagsTop = climateTextBottom + distanceBetween;
-        int biomeTagsBottom = biomeTagsTop + size;
-        ScrollableText biomeTags = new ScrollableText(this.biomeTags, dimensions.getRowWidth(), biomeTagsTop, biomeTagsTop, biomeTagsBottom);
-        biomeTags.setLeftPos(startXRightPage);
+
 
         this.addRenderableWidget(description);
         this.addRenderableWidget(dimensions);
         this.addRenderableWidget(climateInfo);
-        this.addRenderableWidget(biomeTags);
     }
 
     @Override

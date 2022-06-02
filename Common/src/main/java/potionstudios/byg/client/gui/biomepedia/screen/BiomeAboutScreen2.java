@@ -2,15 +2,18 @@ package potionstudios.byg.client.gui.biomepedia.screen;
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
+import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 import potionstudios.byg.common.world.LevelBiomeTracker;
 
@@ -21,6 +24,8 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
     private final ResourceKey<Biome> biomeKey;
     private final Screen parent;
     private final Component mobSpawns;
+    private final Component biomeTags;
+
     protected int toolTipMaxWidth;
 
     protected BiomeAboutScreen2(ResourceKey<Biome> biomeKey, Screen parent) {
@@ -39,13 +44,22 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
             mobSpawnsText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.mobspawns.none"));
         }
         this.mobSpawns = mobSpawnsText;
+
+        MutableComponent biomeTagsText = new TranslatableComponent("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableInt count = new MutableInt(0);
+        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        biomeRegistry.getHolder(biomeKey).orElseThrow().tags()
+                .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
+                .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
+
+        this.biomeTags = biomeTagsText;
     }
 
     @Override
     protected void init() {
         super.init();
         int mobSpawnsTextTop = this.bottomPos + 15;
-        int size = 75;
+        int size = 80;
         int mobSpawnsTextBottom = mobSpawnsTextTop + size;
         this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 22;
 
@@ -57,6 +71,12 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
         mobSpawns.setLeftPos(startXLeftPage);
         this.addRenderableWidget(mobSpawns);
 
+        int distanceBetween = 10;
+        int biomeTagsTop = mobSpawnsTextBottom + distanceBetween;
+        int biomeTagsBottom = biomeTagsTop + size;
+        ScrollableText biomeTags = new ScrollableText(this.biomeTags, mobSpawns.getRowWidth(), biomeTagsTop, biomeTagsTop, biomeTagsBottom);
+        biomeTags.setLeftPos(startXLeftPage);
+        this.addRenderableWidget(biomeTags);
 
 //        int distanceBetween = 10;
 //        int climateTextTop = mobSpawnsTextBottom + distanceBetween;
