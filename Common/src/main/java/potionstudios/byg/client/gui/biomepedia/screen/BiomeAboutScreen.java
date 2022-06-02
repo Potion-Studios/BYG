@@ -91,7 +91,6 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
         description.setLeftPos(this.leftPos + 15);
         this.addRenderableWidget(description);
-        int startXRightPage = (this.leftPos + (IMAGE_WIDTH / 4) + ((IMAGE_WIDTH) / 3)) - 18;
         this.addRenderableWidget(description);
         int dimensionTextTop = this.bottomPos + 15;
         int size = 50;

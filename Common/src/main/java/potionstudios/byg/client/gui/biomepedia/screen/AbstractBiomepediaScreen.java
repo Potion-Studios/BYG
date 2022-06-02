@@ -13,6 +13,7 @@ public class AbstractBiomepediaScreen extends Screen {
     protected int bottomPos;
     protected int rightPos;
     protected int topPos;
+    protected int startXRightPage;
 
     protected AbstractBiomepediaScreen(Component $$0) {
         super($$0);
@@ -25,6 +26,7 @@ public class AbstractBiomepediaScreen extends Screen {
         this.bottomPos = (this.height - IMAGE_HEIGHT) / 2 - 15;
         this.rightPos = this.leftPos + IMAGE_WIDTH;
         this.topPos = this.bottomPos + IMAGE_HEIGHT;
+        this.startXRightPage = (this.leftPos + (IMAGE_WIDTH / 4) + ((IMAGE_WIDTH) / 3)) - 18;
     }
 
 
