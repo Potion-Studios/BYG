@@ -30,7 +30,7 @@ public class BYGContainerObjectSelectionList<E extends ContainerObjectSelectionL
 
     // Fixes an issue in vanilla lists where entries would render below their bounds.
     @Override
-    protected int getRowBottom(int index) {
+    public int getRowBottom(int index) {
         int rowBottom = super.getRowBottom(index);
         if (rowBottom > this.y1) {
             return Integer.MIN_VALUE;
