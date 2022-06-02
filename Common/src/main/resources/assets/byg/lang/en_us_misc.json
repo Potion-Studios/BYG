@@ -1,5 +1,13 @@
 {
   "biome.byg.prairie.desc": "A vibrant and hilly grassland with Prairie Grass & Tall Prairie Grass. California Poppies, large oak trees, and villages can be commonly found here.",
+  "biomepedia.biomeabout.biometags": "Biome tags:",
+  "biomepedia.biomeabout.climate": "Climate Info:",
+  "biomepedia.biomeabout.climate.basetemperature": "Temperature: %s",
+  "biomepedia.biomeabout.climate.downfall": "Downfall: %s",
+  "biomepedia.biomeabout.climate.precipitation": "Precipitation: %s",
+  "biomepedia.biomeabout.climate.precipitation.none": "None",
+  "biomepedia.biomeabout.climate.precipitation.rain": "Rain",
+  "biomepedia.biomeabout.climate.precipitation.snow": "Snow",
   "biomepedia.biomeabout.dimensions": "Dimensions:",
   "biomepedia.biomeabout.nodimensions": "This biome doesn't spawn in any dimension.",
   "biomepedia.desc.block.byg.none": "No description available.",

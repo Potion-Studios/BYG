@@ -44,6 +44,26 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
         return this.width;
     }
 
+    // Fixes an issue in vanilla lists where entries would render above their bounds.
+    @Override
+    protected int getRowTop(int index) {
+        int rowTop = super.getRowTop(index);
+        if (rowTop < this.y0) {
+            return Integer.MAX_VALUE;
+        }
+        return rowTop;
+    }
+
+    // Fixes an issue in vanilla lists where entries would render below their bounds.
+    @Override
+    protected int getRowBottom(int index) {
+        int rowBottom = super.getRowBottom(index);
+        if (rowBottom > this.y1) {
+            return Integer.MIN_VALUE;
+        }
+        return rowBottom;
+    }
+
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
@@ -52,16 +72,11 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
         }
     }
 
-    @Override
-    protected int addEntry(ScrollableTextEntry $$0) {
-        return super.addEntry($$0);
-    }
-
     public static class ScrollableTextEntry extends ContainerObjectSelectionList.Entry<ScrollableTextEntry> {
 
         private final Component text;
         private final int textMaxWidth;
-        private int textColor;
+        private final int textColor;
 
         public ScrollableTextEntry(Component text, int textMaxWidth, int textColor) {
             this.text = text;
