@@ -11,11 +11,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.FastColor;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.GuiUtil;
+import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
+public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
 
     public static final boolean DEBUG = false;
 
@@ -24,7 +25,7 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     }
 
     public ScrollableText(Component text, int width, int height, int y0, int y1, int textColor, boolean renderBackground, boolean renderTopAndBottom) {
-        super(Minecraft.getInstance(), width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
+        super(width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
         this.setRenderBackground(renderBackground);
         this.setRenderTopAndBottom(renderTopAndBottom);
         ArrayList<Component> toolTip = new ArrayList<>();
@@ -32,36 +33,6 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
         for (Component component : toolTip) {
             this.addEntry(new ScrollableTextEntry(component, width, textColor));
         }
-    }
-
-    @Override
-    protected int getScrollbarPosition() {
-        return this.x1 - 5;
-    }
-
-    @Override
-    public int getRowWidth() {
-        return this.width;
-    }
-
-    // Fixes an issue in vanilla lists where entries would render above their bounds.
-    @Override
-    protected int getRowTop(int index) {
-        int rowTop = super.getRowTop(index);
-        if (rowTop < this.y0) {
-            return Integer.MAX_VALUE;
-        }
-        return rowTop;
-    }
-
-    // Fixes an issue in vanilla lists where entries would render below their bounds.
-    @Override
-    protected int getRowBottom(int index) {
-        int rowBottom = super.getRowBottom(index);
-        if (rowBottom > this.y1) {
-            return Integer.MIN_VALUE;
-        }
-        return rowBottom;
     }
 
     @Override

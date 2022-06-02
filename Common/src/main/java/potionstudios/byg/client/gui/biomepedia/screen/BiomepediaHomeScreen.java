@@ -75,7 +75,7 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
         List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, translations, issues, donate);
 
         int listRenderedHeight = IMAGE_HEIGHT + this.bottomPos;
-        this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
+        this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 15, listRenderedHeight - 15, buttonHeight + 4);
         this.widgets.setLeftPos(this.leftPos + (IMAGE_WIDTH / 4) + buttonWidth);
         this.addWidget(this.widgets);
     }

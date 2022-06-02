@@ -74,7 +74,10 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
 
         MutableComponent biomeTagsText = new TranslatableComponent("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         MutableInt count = new MutableInt(0);
-        biomeRegistry.getHolder(biomeKey).orElseThrow().tags().sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString())).forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
+        biomeRegistry.getHolder(biomeKey).orElseThrow().tags()
+                .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
+                .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
+
         this.biomeTags = biomeTagsText;
     }
 
@@ -89,7 +92,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         description.setLeftPos(this.leftPos + 15);
         this.addRenderableWidget(description);
         int startXRightPage = (this.leftPos + (IMAGE_WIDTH / 4) + ((IMAGE_WIDTH) / 3)) - 18;
-
+        this.addRenderableWidget(description);
         int dimensionTextTop = this.bottomPos + 15;
         int size = 50;
         int dimensionTextBottom = dimensionTextTop + size;
