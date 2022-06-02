@@ -1,3 +1,6 @@
+# 1.4-RC-24
+* Add mob spawns, color settings, and biome tags (required advanced tool tips to be enabled (F3+H) to show) to biome about pages.
+
 # 1.4-RC-23
 * Add config loading failure screen that should appear in place of crashing(doesn't work for all configs, but should reduce game exits).
 * Fix a bug where a biome that doesn't generate would crash in the biomepedia dimensions list, add a component that tells the user that the biome in question doesn't spawn anywhere instead.
