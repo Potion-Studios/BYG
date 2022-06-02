@@ -9,7 +9,6 @@ import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
@@ -21,7 +20,6 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.ServerLevelData;
 import net.minecraft.world.level.storage.WritableLevelData;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -41,6 +39,7 @@ import potionstudios.byg.util.DuneCache;
 import potionstudios.byg.util.ModPlatform;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -52,6 +51,8 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
 
     private final Long2ObjectOpenHashMap<Byte2DoubleOpenHashMap> duneDensityCache = new Long2ObjectOpenHashMap<>();
     private final Long2ObjectOpenHashMap<Byte2ObjectOpenHashMap<ResourceKey<Biome>>> duneBiomeSearchCache = new Long2ObjectOpenHashMap<>();
+    @Nullable
+    private LevelBiomeTracker bygLevelBiomeTracker = null;
 
     protected MixinServerLevel(WritableLevelData $$0, ResourceKey<Level> $$1, Holder<DimensionType> $$2, Supplier<ProfilerFiller> $$3, boolean $$4, boolean $$5, long $$6) {
         super($$0, $$1, $$2, $$3, $$4, $$5, $$6);
@@ -67,23 +68,22 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Nonnull
     public abstract MinecraftServer getServer();
 
-    @Shadow
-    @Final
-    private ServerChunkCache chunkSource;
-
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(GrowingPatterns.getConfig()));
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new BiomepediaActivePacket(BiomepediaConfig.getConfig().biomepediaEnabled()));
-        ModPlatform.INSTANCE.sendToClient(serverPlayer, new LevelBiomeTrackerPacket(LevelBiomeTracker.fromServer(this.getServer())));
+        if (this.bygLevelBiomeTracker == null) {
+            this.bygLevelBiomeTracker = LevelBiomeTracker.fromServer(this.getServer());
+        }
+        ModPlatform.INSTANCE.sendToClient(serverPlayer, new LevelBiomeTrackerPacket(this.bygLevelBiomeTracker));
         if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
             if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
                 serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.outdatedconfigs", UpdateConfigsCommand.UPDATE_COMPONENT, UpdateConfigsCommand.DISMISS_UPDATE_COMPONENT), false);
             } else {
-                if(getServer().isDedicatedServer()) {
+                if (getServer().isDedicatedServer()) {
                     serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.notifyserverowner.dedicated", new TextComponent(UpdateConfigsCommand.UPDATE_COMMAND).withStyle(ChatFormatting.BLUE), new TextComponent(UpdateConfigsCommand.DISMISS_COMMAND).withStyle(ChatFormatting.BLUE)), false);
                 }
-                if(getServer().isSingleplayer()) {
+                if (getServer().isSingleplayer()) {
                     serverPlayer.displayClientMessage(new TranslatableComponent("byg.command.updateconfig.notifyserverowner.singleplayer", new TextComponent(UpdateConfigsCommand.UPDATE_COMMAND).withStyle(ChatFormatting.BLUE), new TextComponent(UpdateConfigsCommand.DISMISS_COMMAND).withStyle(ChatFormatting.BLUE)), false);
                 }
             }
