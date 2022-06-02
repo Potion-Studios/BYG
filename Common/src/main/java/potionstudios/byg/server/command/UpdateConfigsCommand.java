@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.KillClient;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.mixin.access.CommandSourceStackAccess;
 import potionstudios.byg.util.FileUtils;
@@ -116,16 +117,20 @@ public class UpdateConfigsCommand {
     }
 
     public static void backupAndKillGameInstance(MinecraftServer server, ConfigVersionTracker configVersionTracker, boolean isSinglePlayerOwner) {
-        Path directory = ModPlatform.INSTANCE.configPath();
-        ConfigVersionTracker.getConfig(configVersionTracker, true);
-        Path backUpPath = FileUtils.backUpDirectory(directory);
-        //noinspection ConstantConditions
-        FileUtils.deleteDirectory(directory, path -> !path.equals(backUpPath) && !(path.toFile().isDirectory() && path.toFile().listFiles().length > 0));
-        BYG.loadAllConfigs(true, true);
+        backupConfigs(configVersionTracker);
         if (server.isSingleplayer() && isSinglePlayerOwner) {
             KillClient.kill();
         } else {
             server.halt(false);
         }
+    }
+
+    public static void backupConfigs(ConfigVersionTracker configVersionTracker) {
+        Path directory = ModPlatform.INSTANCE.configPath();
+        ConfigVersionTracker.getConfig(configVersionTracker, true);
+        Path backUpPath = FileUtils.backUpDirectory(directory);
+        //noinspection ConstantConditions
+        FileUtils.deleteDirectory(directory, path -> !path.equals(backUpPath) && !(path.toFile().isDirectory() && path.toFile().listFiles().length > 0));
+        BYGConfigHandler.loadAllConfigs(true, true);
     }
 }

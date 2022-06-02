@@ -4,7 +4,9 @@ import com.google.auto.service.AutoService;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -47,6 +49,16 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public String curseForgeURL() {
         return "https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go";
+    }
+
+    @Override
+    public boolean isClientEnvironment() {
+        return FMLEnvironment.dist == Dist.CLIENT;
+    }
+
+    @Override
+    public Platform modPlatform() {
+        return Platform.FORGE;
     }
 
     @Override

@@ -8,6 +8,7 @@
     "dev.ModelProviderAccess"
   ],
   "client": [
+    "client.MixinMinecraft"
   ],
   "plugin": "potionstudios.byg.mixin.BYGPotionStudiosMixinPlugin",
   "injectors": {

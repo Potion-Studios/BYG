@@ -101,6 +101,7 @@
   ],
   "client": [
     "access.client.ClientLevelAccess",
+    "access.client.EditBoxAccess",
     "access.client.ItemBlockRenderTypeAccess",
     "access.client.KeyMappingAccess",
     "access.client.MenuScreensAccess",

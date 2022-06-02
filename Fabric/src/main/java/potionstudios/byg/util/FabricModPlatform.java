@@ -1,6 +1,7 @@
 package potionstudios.byg.util;
 
 import com.google.auto.service.AutoService;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
@@ -46,6 +47,16 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public String tagNameSpace() {
         return "c";
+    }
+
+    @Override
+    public boolean isClientEnvironment() {
+        return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
+    }
+
+    @Override
+    public Platform modPlatform() {
+        return Platform.FABRIC;
     }
 
     @Override

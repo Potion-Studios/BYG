@@ -34,10 +34,10 @@ public class MixinDimensionType {
         Registry<Biome> biomeRegistry = registryAccess.registryOrThrow(Registry.BIOME_REGISTRY);
         Registry<NormalNoise.NoiseParameters> noiseParameters = registryAccess.registryOrThrow(Registry.NOISE_REGISTRY);
 
-        EndBiomesConfig endConfig = EndBiomesConfig.getConfig(true);
+        EndBiomesConfig endConfig = EndBiomesConfig.getConfig();
 
 
-        NetherBiomesConfig netherConfig = NetherBiomesConfig.getConfig(true);
+        NetherBiomesConfig netherConfig = NetherBiomesConfig.getConfig();
 
         for (LevelStem levelStem : returnValue) {
             ResourceKey<LevelStem> levelStemResourceKey = returnValue.getResourceKey(levelStem).get();

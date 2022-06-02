@@ -42,9 +42,18 @@ public interface ModPlatform {
 
     String curseForgeURL();
 
+    boolean isClientEnvironment();
+
+    Platform modPlatform();
+
     default <P extends BYGS2CPacket> void sendToAllClients(List<ServerPlayer> players, P packet) {
         for (ServerPlayer player : players) {
             sendToClient(player, packet);
         }
+    }
+
+    enum Platform {
+        FORGE,
+        FABRIC
     }
 }

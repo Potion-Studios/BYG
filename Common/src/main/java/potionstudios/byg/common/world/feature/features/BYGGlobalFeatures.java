@@ -67,4 +67,6 @@ public class BYGGlobalFeatures {
             BYGFeatures.GLOBAL, new GlobalBiomeFeature.Config(HolderSet.direct())
     );
 
+    public static void loadClass() {
+    }
 }

@@ -18,6 +18,8 @@ import potionstudios.byg.util.codec.Wrapped;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors.*;
 
@@ -54,6 +56,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::new);
     });
+
+    public static final Codec<OverworldRegion> VERIFYING_CODEC = CODEC.flatXmap(verifyRegion(), verifyRegion());
 
     public static final Codec<OverworldRegion> OLD_CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(Codec.INT.fieldOf("weight").forGetter(overworldRegion -> overworldRegion.overworldWeight),
@@ -109,6 +113,23 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
         return checkForMatching(val, BIOME_LAYOUTS);
     }
 
+    private static Function<OverworldRegion, DataResult<OverworldRegion>> verifyRegion() {
+        return region1 -> {
+            StringBuilder errors = new StringBuilder();
+
+            region1.forEachBiomeSelector(biomeResourceKey -> {
+                if (region1.swapper().containsKey(biomeResourceKey)) {
+                    errors.append(biomeResourceKey.location()).append(",");
+                }
+            });
+
+            if (!errors.isEmpty()) {
+                return DataResult.error(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors.toString()));
+            }
+            return DataResult.success(region1);
+        };
+    }
+
     public static <T> Wrapped<T> checkForMatching(T val, Map<String, Pair<Map<String, String>, Wrapped<T>>> registry) {
         for (Map.Entry<String, Pair<Map<String, String>, Wrapped<T>>> entry : registry.entrySet()) {
             Wrapped<T> second = entry.getValue().getSecond();
@@ -120,13 +141,13 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     }
 
 
-    public static final FromFileCodec<OverworldRegion> BIOME_PROVIDER_DATA_FROM_FILE_CODEC = FromFileCodec.create(CODEC, "regions");
+    public static final FromFileCodec<OverworldRegion> BIOME_PROVIDER_DATA_FROM_FILE_CODEC = FromFileCodec.create(VERIFYING_CODEC, "regions");
 
 
     public static final Map<String, Pair<Map<String, String>, Wrapped<OverworldRegion>>> BIOME_REGIONS = new HashMap<>();
 
 
-    private static final int OVERWORLD_WEIGHT = 6;
+    private static final int OVERWORLD_WEIGHT = 3;
 
     public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
         map.put("", JanksonUtil.HEADER_OPEN + """
@@ -172,7 +193,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
 
     public static final Wrapped<OverworldRegion> REGION_1 = create("region_1",
             new OverworldRegion(OVERWORLD_WEIGHT,
-                    OCEANS, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    OCEANS_VANILLA, MIDDLE_BIOMES_1, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
@@ -197,9 +218,17 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
     );
 
+    public static final Wrapped<OverworldRegion> RARE_REGION_1 = create("rare_region_1",
+            new OverworldRegion(1,
+                    OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
+                    PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
+                    BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
+                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
+    );
+
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
             ImmutableList.of(
-                    REGION_1, REGION_2, REGION_3
+                    REGION_1, REGION_2, REGION_3, RARE_REGION_1
             );
 
     private static Wrapped<OverworldRegion> create(String id, OverworldRegion overworldRegion) {
@@ -210,5 +239,19 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
         Wrapped<OverworldRegion> result = new Wrapped<>(Optional.of(id), overworldRegion);
         BIOME_REGIONS.put(id, Pair.of(comments, result));
         return result;
+    }
+
+    public Collection<List<List<ResourceKey<Biome>>>> allBiomeSelectors() {
+        return Set.of(this.beachBiomes.value(), this.peakBiomes.value(), this.peakBiomesVariant.value(), this.middleBiomes.value(), this.middleBiomesVariant.value(), this.plateauBiomes.value(), this.plateauBiomesVariant.value(), this.slopeBiomes.value(), this.slopeBiomesVariant.value(), this.oceans.value());
+    }
+
+    public void forEachBiomeSelector(Consumer<ResourceKey<Biome>> biome) {
+        for (List<List<ResourceKey<Biome>>> biomeSelector : allBiomeSelectors()) {
+            for (List<ResourceKey<Biome>> resourceKeys : biomeSelector) {
+                for (ResourceKey<Biome> resourceKey : resourceKeys) {
+                    biome.accept(resourceKey);
+                }
+            }
+        }
     }
 }

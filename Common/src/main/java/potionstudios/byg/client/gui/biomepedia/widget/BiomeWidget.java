@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
+import potionstudios.byg.BYG;
 import potionstudios.byg.util.BYGUtil;
 
 import javax.annotation.Nullable;
@@ -22,14 +23,17 @@ public class BiomeWidget extends AbstractWidget {
     private final ResourceLocation previewImageLocation;
     private final Component name;
     private final int borderColor;
-    private static final int IMAGE_WIDTH = 1280;
-    private static final int IMAGE_HEIGHT = 720;
+    public static final int IMAGE_WIDTH = 1280;
+    public static final int IMAGE_HEIGHT = 720;
 
     public BiomeWidget(ResourceKey<Biome> biome, int pX, int pY, int pWidth, int pHeight, OnClick onClick) {
         super(pX, pY, pWidth, pHeight, new TextComponent(""));
         this.onClick = onClick;
         ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().hasResource(resourceLocation) ? resourceLocation : null;
+        if (previewImageLocation == null) {
+            BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
+        }
         this.name = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
         this.borderColor = FastColor.ARGB32.color(255, 0, 0, 0);
         this.visible = false;
@@ -43,22 +47,18 @@ public class BiomeWidget extends AbstractWidget {
 
     @Override
     public void onClick(double $$0, double $$1) {
-        this.onClick.click(this);
-        super.onClick($$0, $$1);
+        if (this.active) {
+            this.onClick.click(this);
+            super.onClick($$0, $$1);
+        }
     }
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
             if (previewImageLocation != null) {
-                poseStack.pushPose();
-                RenderSystem.setShaderTexture(0, previewImageLocation);
                 float scale = 0.09F;
-                poseStack.scale(scale, scale, 1);
-                int scaledY = (int) (this.y / scale);
-                int scaledX = (int) (this.x / scale);
-                blit(poseStack, scaledX, scaledY, 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_HEIGHT);
-                poseStack.popPose();
+                renderBiomePicture(poseStack, scale, this.x, this.y, this.previewImageLocation);
             }
 
             int textWidth = Minecraft.getInstance().font.width(this.name) / 2;
@@ -70,6 +70,16 @@ public class BiomeWidget extends AbstractWidget {
                 drawWidgetBorder(poseStack);
             }
         }
+    }
+
+    public static void renderBiomePicture(PoseStack poseStack, float scale, int x, int y, ResourceLocation location) {
+        poseStack.pushPose();
+        poseStack.scale(scale, scale, 1);
+        RenderSystem.setShaderTexture(0, location);
+        int scaledX = (int) (x / scale);
+        int scaledY = (int) (y / scale);
+        blit(poseStack, scaledX, scaledY, 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_HEIGHT);
+        poseStack.popPose();
     }
 
     private void drawWidgetBorder(PoseStack poseStack) {

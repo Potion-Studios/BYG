@@ -44,7 +44,7 @@ body:
         Forge: https://www.curseforge.com/minecraft/mc-mods/terrablender/files
         Fabric: https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric/files
         Quilt/Other Mod loaders: N/A
-      placeholder: ex. 1.1.0.101
+      placeholder: ex. 1.1.0.99
     validations:
       required: true
   - type: dropdown

@@ -2,18 +2,18 @@ package potionstudios.byg.client.gui.biomepedia.widget;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
+import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
 import java.util.List;
 
-public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
+public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry> {
 
     public WidgetList(List<AbstractWidget> widgets, int width, int height, int y0, int y1, int itemHeight) {
-        super(Minecraft.getInstance(), width, height, y0, y1, itemHeight);
+        super(width, height, y0, y1, itemHeight);
         this.setRenderBackground(false);
         this.setRenderTopAndBottom(false);
         if (widgets.isEmpty()) {
@@ -26,24 +26,12 @@ public class WidgetList extends ContainerObjectSelectionList<WidgetList.Entry> {
     }
 
     @Override
-    protected int getScrollbarPosition() {
-        return this.x1;
-    }
-
-    @Override
-    public int getRowWidth() {
-        return this.width;
-    }
-
-    @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         int x = this.getRowLeft();
         int y = this.y0 + 4 - (int)this.getScrollAmount();
         super.render(poseStack, mouseX, mouseY, partialTick);
         super.renderList(poseStack, x, y, mouseX, mouseY, partialTick);
     }
-
-
 
     @Override
     protected void renderList(PoseStack pPoseStack, int pX, int pY, int pMouseX, int pMouseY, float pPartialTick) {

@@ -42,14 +42,14 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
 
     protected void init() {
         super.init();
-        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 25;
+        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 20;
         TranslatableComponent textComponent = new TranslatableComponent("biomepedia.intro");
         this.textStartHeight = (this.bottomPos + IMAGE_HEIGHT / 2) - 5;
 
         int y1 = this.topPos - 12;
         this.scrollableText = new ScrollableText(textComponent, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
         this.scrollableText.setLeftPos(this.leftPos + 13);
-        this.addWidget(scrollableText);
+        this.addRenderableWidget(scrollableText);
 
         int buttonWidth = (IMAGE_WIDTH - 10) / 3;
         int buttonHeight = 20;
@@ -75,7 +75,7 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
         List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, translations, issues, donate);
 
         int listRenderedHeight = IMAGE_HEIGHT + this.bottomPos;
-        this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 20, listRenderedHeight - 20, buttonHeight + 4);
+        this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 15, listRenderedHeight - 15, buttonHeight + 4);
         this.widgets.setLeftPos(this.leftPos + (IMAGE_WIDTH / 4) + buttonWidth);
         this.addWidget(this.widgets);
     }
@@ -127,7 +127,6 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
         renderBYGLogo(poseStack);
-        this.scrollableText.render(poseStack, mouseX, mouseY, partialTick);
         this.widgets.render(poseStack, mouseX, mouseY, partialTick);
     }
 
