@@ -76,7 +76,9 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
         int biomeTagsBottom = biomeTagsTop + size;
         ScrollableText biomeTags = new ScrollableText(this.biomeTags, mobSpawns.getRowWidth(), biomeTagsTop, biomeTagsTop, biomeTagsBottom);
         biomeTags.setLeftPos(startXLeftPage);
-        this.addRenderableWidget(biomeTags);
+        if (this.minecraft.options.advancedItemTooltips) {
+            this.addRenderableWidget(biomeTags);
+        }
 
 //        int distanceBetween = 10;
 //        int climateTextTop = mobSpawnsTextBottom + distanceBetween;
