@@ -56,8 +56,10 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
         if (biomeDimensions.containsKey(biomeKey)) {
+            String dimensionTranslationKey = "dimension." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath();
+            TranslatableComponent dimensionComponent = new TranslatableComponent(dimensionTranslationKey);
             for (ResourceKey<Level> levelResourceKey : biomeDimensions.get(biomeKey)) {
-                dimensionsText.append("\n").append(new TextComponent(levelResourceKey.location().toString()));
+                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : new TextComponent(levelResourceKey.location().toString()));
             }
         } else {
             dimensionsText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.dimensions.none"));
