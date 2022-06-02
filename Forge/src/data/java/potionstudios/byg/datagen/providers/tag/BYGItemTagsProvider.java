@@ -45,6 +45,8 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         final var saplingsTag = tag(ItemTags.SAPLINGS);
         BYGItems.SAPLINGS.stream().map(RegistryObject::get).forEach(saplingsTag::add);
 
+        BYGBlockTagsProvider.EXTRA_WOOD_TYPES.forEach(type -> copy(BlockTags.create(type), create(type)));
+
         copy(BlockTags.LOGS, ItemTags.LOGS);
         copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);

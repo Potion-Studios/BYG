@@ -2024,7 +2024,7 @@ d4f287df28be70f53a4a7c6473355d760e64078f assets/byg/models/item/zelkova_slab.jso
 7efd2d48e7253cf1dedb7e910216b18d518cd35d assets/byg/models/item/zelkova_stairs.json
 c558d204496231acfc2f07b1763894108894a676 assets/byg/models/item/zelkova_trapdoor.json
 5a969090404d7acf76034084b7ff60640528ae20 assets/byg/models/item/zelkova_wood.json
-e8ee05951214e5ce2bbe2863a2db30ce32f04a5f data/byg/advancements/adventure/oh_the_biomes_youll_go.json
+e93be2957640b163555fd1a73e71f891b54c132d data/byg/advancements/adventure/oh_the_biomes_youll_go.json
 088f462dc7e989078f364f070553c33b5475ca5c data/byg/advancements/biomepedia_gift.json
 b4d83bce4f82add22412cca9049ee245aeeb2f18 data/byg/advancements/husbandry/berrily_alive.json
 ca36240397ba18ddf2a2a64aa0ff986f54ac6a9b data/byg/advancements/husbandry/forager.json
@@ -3485,6 +3485,7 @@ c0e406923d32b8e6e73616101fdbff57b429bf94 data/byg/tags/items/wood/jacaranda_logs
 a8de7ba71416ab47612c45b4abb93fbe36a6f2cc data/byg/tags/items/wood/maple_logs.json
 88d14584daeb810cb1ecefbc59d3d91cdd8828b4 data/byg/tags/items/wood/nightshade_logs.json
 701606f7f63938e45fa4cf6e04fdec09aad75926 data/byg/tags/items/wood/palm_logs.json
+d7dac2f4c677c1b478b788d4548eca31982cc77a data/byg/tags/items/wood/palo_verde_logs.json
 be2f93f0cbef45e13f337231b89b1c32062f2d35 data/byg/tags/items/wood/pine_logs.json
 a2e6b1b8adc68e83a74a4c21cfbfa5f7d018538b data/byg/tags/items/wood/rainbow_eucalyptus_logs.json
 9f7f6edc8c46df511ab2e3895dae9c2d9eef7f91 data/byg/tags/items/wood/redwood_logs.json
@@ -3492,6 +3493,7 @@ c1b152629b71f4990c376eb8188554e333bca423 data/byg/tags/items/wood/skyris_logs.js
 629a20e6b2715a7a4d10a99c3120f1cf193bdae5 data/byg/tags/items/wood/sythian_logs.json
 7138e47a0b55cf74b18a10aa063636ec8fc831c8 data/byg/tags/items/wood/willow_logs.json
 7fb9f499649301d69d2ea9f85bef7921b6ad7e16 data/byg/tags/items/wood/witch_hazel_logs.json
+3a4b442b0ddecea21abff5d0c7c008162044f778 data/byg/tags/items/wood/withering_oak_logs.json
 a8ca5bf06557161de198d6e729db8c52c5cd97d1 data/byg/tags/items/wood/zelkova_logs.json
 417da7430aeb414baa78ea7c68077f9e964396ef data/byg/tags/worldgen/biome/is_badlands.json
 e267658c8d53318f1183c2fb3a860580be3498dd data/byg/tags/worldgen/biome/is_beach.json
@@ -3508,6 +3510,8 @@ df49524b70b0f38239e968c7288de18975f2dc7f data/byg/tags/worldgen/biome/is_swamp.j
 5f8107eb48f67becbda2b5f7f650f05af5ea63b7 data/minecraft/tags/blocks/campfires.json
 3e73ebf1fc5ce9b4b85ffd829772c20e6c68dfc5 data/minecraft/tags/blocks/ice.json
 7e79f85e43d30a3167c74f6e335268c63b71eab3 data/minecraft/tags/blocks/leaves.json
+337c5359dbf08062360d240e40db3c0544084292 data/minecraft/tags/blocks/logs.json
+cdd19380fc1a24c7d8cf510a5deaade4f8235458 data/minecraft/tags/blocks/logs_that_burn.json
 7366c20405ff779073d36b21bf1257de3e8162cb data/minecraft/tags/blocks/mineable/axe.json
 cf6fba1ef612f3e7e93291777e20311ec1d82062 data/minecraft/tags/blocks/mineable/shovel.json
 3a4b442b0ddecea21abff5d0c7c008162044f778 data/minecraft/tags/blocks/oak_logs.json
@@ -3526,8 +3530,8 @@ ddd12d971436979db2961572c64ad54a42dd8ced data/minecraft/tags/blocks/wooden_press
 b699d6ee081dd5163e6c67b27d36a35d115e0ade data/minecraft/tags/blocks/wooden_trapdoors.json
 686c39d8f6ec038f813099bc6ce0a5b8f1ee4739 data/minecraft/tags/items/buttons.json
 1a425684393db180e3cde0048031ec3959749966 data/minecraft/tags/items/leaves.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/minecraft/tags/items/logs.json
-74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/minecraft/tags/items/logs_that_burn.json
+337c5359dbf08062360d240e40db3c0544084292 data/minecraft/tags/items/logs.json
+cdd19380fc1a24c7d8cf510a5deaade4f8235458 data/minecraft/tags/items/logs_that_burn.json
 d5a8c53b10113cbe8b1574864fd1ddf4722fa544 data/minecraft/tags/items/planks.json
 3ef98eff34d161e2253559796ede6ea8824388ed data/minecraft/tags/items/sand.json
 04231e89508f9dd7e245342879b8df4679ed337f data/minecraft/tags/items/saplings.json

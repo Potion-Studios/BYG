@@ -371,6 +371,10 @@ public enum BYGWoodTypes {
         return builder.boatType;
     }
 
+    public boolean isNether() {
+        return builder.isNether;
+    }
+
     public enum GrowerItemType {
         SAPLING,
         ODDITY,

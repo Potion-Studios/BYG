@@ -4,7 +4,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -24,17 +23,12 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
-import potionstudios.byg.mixin.access.TagBuilderAccess;
 import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
-import potionstudios.byg.reg.RegistryObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -44,8 +38,7 @@ import static net.minecraft.tags.BlockTags.create;
 
 @SuppressWarnings("ALL")
 public class BYGBlockTagsProvider extends BlockTagsProvider {
-    private final TagAppender<Block> logsThatBurn = tag(BlockTags.LOGS_THAT_BURN);
-    private final TagAppender<Block> logs = tag(BlockTags.LOGS);
+    static final List<ResourceLocation> EXTRA_WOOD_TYPES = new ArrayList<>();
 
     public BYGBlockTagsProvider(DataGenerator pGenerator, @Nullable ExistingFileHelper existingFileHelper) {
         super(pGenerator, BYG.MOD_ID, existingFileHelper);
@@ -53,6 +46,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+        final var logs = tag(BlockTags.LOGS);
+        final var logsThatBurn = tag(BlockTags.LOGS_THAT_BURN);
         tag(
                 BYGBlockTags.LUSH,
                 LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
@@ -130,8 +125,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final var woodenTrapdoorsTag = tag(BlockTags.WOODEN_TRAPDOORS);
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             tag(type.logTag().block(), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
-            logsThatBurn.addTag(type.logTag().block());
             logs.addTag(type.logTag().block());
+            if (!type.isNether())
+                logsThatBurn.addTag(type.logTag().block());
+
             planksTag.add(type.planks().get());
             bookselvesTag.add(type.bookshelf().get());
 
@@ -161,10 +158,12 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @SafeVarargs
     private void wood(String name, Supplier<? extends Block>... blocks) {
-        final var tag = create(createLocation("wood/" + name));
-        add(tag(tag), blocks);
-        logsThatBurn.addTag(tag);
-        logs.addTag(tag);
+        final var loc = createLocation("wood/" + name);
+        final var tag = create(loc);
+        tag(tag, blocks);
+        tag(BlockTags.LOGS).addTag(tag);
+        tag(BlockTags.LOGS_THAT_BURN).addTag(tag);
+        EXTRA_WOOD_TYPES.add(loc);
     }
 
     @SafeVarargs
