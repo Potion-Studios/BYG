@@ -84,9 +84,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
             this.minecraft.setScreen(new BiomeAboutScreen2(this.biomeKey, this.parent));
         }, true));
 
-        int y1 = this.topPos - 12;
-        ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
-        description.setLeftPos(this.startXLeftPage);
+
         int dimensionTextTop = this.bottomPos + 15;
         int size = 80;
         int dimensionTextBottom = dimensionTextTop + size;
@@ -99,7 +97,8 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ScrollableText climateInfo = new ScrollableText(this.climateText, dimensions.getRowWidth(), climateTextTop, climateTextTop, climateTextBottom);
         climateInfo.setLeftPos(startXRightPage);
 
-
+        ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, climateTextTop, climateTextTop, climateTextBottom);
+        description.setLeftPos(this.startXLeftPage);
 
         this.addRenderableWidget(description);
         this.addRenderableWidget(dimensions);
