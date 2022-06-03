@@ -900,63 +900,63 @@ public class BYGItems {
     public static final RegistryObject<SignItem> EMBUR_SIGN = createSign("embur_sign", BYGBlocks.EMBUR_SIGN, BYGBlocks.EMBUR_WALL_SIGN);
 
     //SaplingItems
-    public static final RegistryObject<Item> WITHERING_OAK_SAPLING = createItem(BYGBlocks.WITHERING_OAK_SAPLING);
+    public static final RegistryObject<GrowerItem> WITHERING_OAK_SAPLING = createSaplingItem(BYGBlocks.WITHERING_OAK_SAPLING);
     public static final RegistryObject<Item> WITHERING_OAK_LEAVES = createItem(BYGBlocks.WITHERING_OAK_LEAVES);
     public static final RegistryObject<Item> WITHERING_OAK_LOG = createItem(BYGBlocks.WITHERING_OAK_LOG);
     public static final RegistryObject<Item> WITHERING_OAK_WOOD = createItem(BYGBlocks.WITHERING_OAK_WOOD);
 
-    public static final RegistryObject<Item> ARAUCARIA_SAPLING = createItem(BYGBlocks.ARAUCARIA_SAPLING);
+    public static final RegistryObject<GrowerItem> ARAUCARIA_SAPLING = createSaplingItem(BYGBlocks.ARAUCARIA_SAPLING);
     public static final RegistryObject<Item> ARAUCARIA_LEAVES = createItem(BYGBlocks.ARAUCARIA_LEAVES);
 
-    public static final RegistryObject<Item> BLUE_SPRUCE_SAPLING = createItem(BYGBlocks.BLUE_SPRUCE_SAPLING);
+    public static final RegistryObject<GrowerItem> BLUE_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.BLUE_SPRUCE_SAPLING);
     public static final RegistryObject<Item> BLUE_SPRUCE_LEAVES = createItem(BYGBlocks.BLUE_SPRUCE_LEAVES);
 
-    public static final RegistryObject<Item> BROWN_BIRCH_SAPLING = createItem(BYGBlocks.BROWN_BIRCH_SAPLING);
+    public static final RegistryObject<GrowerItem> BROWN_BIRCH_SAPLING = createSaplingItem(BYGBlocks.BROWN_BIRCH_SAPLING);
     public static final RegistryObject<Item> BROWN_BIRCH_LEAVES = createItem(BYGBlocks.BROWN_BIRCH_LEAVES);
 
-    public static final RegistryObject<Item> BROWN_OAK_SAPLING = createItem(BYGBlocks.BROWN_OAK_SAPLING);
+    public static final RegistryObject<GrowerItem> BROWN_OAK_SAPLING = createSaplingItem(BYGBlocks.BROWN_OAK_SAPLING);
     public static final RegistryObject<Item> BROWN_OAK_LEAVES = createItem(BYGBlocks.BROWN_OAK_LEAVES);
 
-    public static final RegistryObject<Item> BROWN_ZELKOVA_SAPLING = createItem(BYGBlocks.BROWN_ZELKOVA_SAPLING);
+    public static final RegistryObject<GrowerItem> BROWN_ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.BROWN_ZELKOVA_SAPLING);
     public static final RegistryObject<Item> BROWN_ZELKOVA_LEAVES = createItem(BYGBlocks.BROWN_ZELKOVA_LEAVES);
 
-    public static final RegistryObject<Item> JOSHUA_SAPLING = createItem(BYGBlocks.JOSHUA_SAPLING);
+    public static final RegistryObject<GrowerItem> JOSHUA_SAPLING = createSaplingItem(BYGBlocks.JOSHUA_SAPLING);
     public static final RegistryObject<Item> JOSHUA_LEAVES = createItem(BYGBlocks.JOSHUA_LEAVES);
     public static final RegistryObject<Item> RIPE_JOSHUA_LEAVES = createItem(BYGBlocks.RIPE_JOSHUA_LEAVES);
     public static final RegistryObject<Item> COOKED_JOSHUA_FRUIT = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.4f).build())), "cooked_joshua_fruit");
     public static final RegistryObject<Item> JOSHUA_FRUIT = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.35f).build())), "joshua_fruit");
 
 
-    public static final RegistryObject<Item> ORANGE_BIRCH_SAPLING = createItem(BYGBlocks.ORANGE_BIRCH_SAPLING);
+    public static final RegistryObject<GrowerItem> ORANGE_BIRCH_SAPLING = createSaplingItem(BYGBlocks.ORANGE_BIRCH_SAPLING);
     public static final RegistryObject<Item> ORANGE_BIRCH_LEAVES = createItem(BYGBlocks.ORANGE_BIRCH_LEAVES);
 
-    public static final RegistryObject<Item> ORANGE_OAK_SAPLING = createItem(BYGBlocks.ORANGE_OAK_SAPLING);
+    public static final RegistryObject<GrowerItem> ORANGE_OAK_SAPLING = createSaplingItem(BYGBlocks.ORANGE_OAK_SAPLING);
     public static final RegistryObject<Item> ORANGE_OAK_LEAVES = createItem(BYGBlocks.ORANGE_OAK_LEAVES);
 
-    public static final RegistryObject<Item> ORANGE_SPRUCE_SAPLING = createItem(BYGBlocks.ORANGE_SPRUCE_SAPLING);
+    public static final RegistryObject<GrowerItem> ORANGE_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.ORANGE_SPRUCE_SAPLING);
     public static final RegistryObject<Item> ORANGE_SPRUCE_LEAVES = createItem(BYGBlocks.ORANGE_SPRUCE_LEAVES);
 
-    public static final RegistryObject<Item> ORCHARD_SAPLING = createItem(BYGBlocks.ORCHARD_SAPLING);
+    public static final RegistryObject<GrowerItem> ORCHARD_SAPLING = createSaplingItem(BYGBlocks.ORCHARD_SAPLING);
     public static final RegistryObject<Item> RIPE_ORCHARD_LEAVES = createItem(BYGBlocks.RIPE_ORCHARD_LEAVES);
     public static final RegistryObject<Item> FLOWERING_ORCHARD_LEAVES = createItem(BYGBlocks.FLOWERING_ORCHARD_LEAVES);
     public static final RegistryObject<Item> ORCHARD_LEAVES = createItem(BYGBlocks.ORCHARD_LEAVES);
 
-    public static final RegistryObject<Item> RED_BIRCH_SAPLING = createItem(BYGBlocks.RED_BIRCH_SAPLING);
+    public static final RegistryObject<GrowerItem> RED_BIRCH_SAPLING = createSaplingItem(BYGBlocks.RED_BIRCH_SAPLING);
     public static final RegistryObject<Item> RED_BIRCH_LEAVES = createItem(BYGBlocks.RED_BIRCH_LEAVES);
 
-    public static final RegistryObject<Item> RED_OAK_SAPLING = createItem(BYGBlocks.RED_OAK_SAPLING);
+    public static final RegistryObject<GrowerItem> RED_OAK_SAPLING = createSaplingItem(BYGBlocks.RED_OAK_SAPLING);
     public static final RegistryObject<Item> RED_OAK_LEAVES = createItem(BYGBlocks.RED_OAK_LEAVES);
 
-    public static final RegistryObject<Item> RED_SPRUCE_SAPLING = createItem(BYGBlocks.RED_SPRUCE_SAPLING);
+    public static final RegistryObject<GrowerItem> RED_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.RED_SPRUCE_SAPLING);
     public static final RegistryObject<Item> RED_SPRUCE_LEAVES = createItem(BYGBlocks.RED_SPRUCE_LEAVES);
 
-    public static final RegistryObject<Item> YELLOW_BIRCH_SAPLING = createItem(BYGBlocks.YELLOW_BIRCH_SAPLING);
+    public static final RegistryObject<GrowerItem> YELLOW_BIRCH_SAPLING = createSaplingItem(BYGBlocks.YELLOW_BIRCH_SAPLING);
     public static final RegistryObject<Item> YELLOW_BIRCH_LEAVES = createItem(BYGBlocks.YELLOW_BIRCH_LEAVES);
 
-    public static final RegistryObject<Item> YELLOW_SPRUCE_SAPLING = createItem(BYGBlocks.YELLOW_SPRUCE_SAPLING);
+    public static final RegistryObject<GrowerItem> YELLOW_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.YELLOW_SPRUCE_SAPLING);
     public static final RegistryObject<Item> YELLOW_SPRUCE_LEAVES = createItem(BYGBlocks.YELLOW_SPRUCE_LEAVES);
 
-    public static final RegistryObject<Item> FIRECRACKER_LEAVES = createItem(BYGBlocks.FIRECRACKER_LEAVES);
+    public static final RegistryObject<GrowerItem> FIRECRACKER_LEAVES = createSaplingItem(BYGBlocks.FIRECRACKER_LEAVES);
     public static final RegistryObject<Item> FIRECRACKER_FLOWER_BUSH = createItem(BYGBlocks.FIRECRACKER_FLOWER_BUSH);
 
     //Nether
