@@ -991,6 +991,10 @@ public class BYGItems {
     public static final RegistryObject<Item> BORIC_CAMPFIRE = createItem(BYGBlocks.BORIC_CAMPFIRE);
     public static final RegistryObject<Item> BORIC_LANTERN = createItem(BYGBlocks.BORIC_LANTERN);
     public static final RegistryObject<Item> YELLOW_NETHER_BRICKS = createItem(BYGBlocks.YELLOW_NETHER_BRICKS);
+    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_SLAB = createItem(BYGBlocks.YELLOW_NETHER_BRICK_SLAB);
+    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_STAIRS = createItem(BYGBlocks.YELLOW_NETHER_BRICK_STAIRS);
+    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_WALL = createItem(BYGBlocks.YELLOW_NETHER_BRICK_WALL);
+
     public static final RegistryObject<Item> YELLOW_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "yellow_nether_brick");
     public static final RegistryObject<Item> MAGMATIC_STONE = createItem(BYGBlocks.MAGMATIC_STONE);
 
@@ -1041,9 +1045,12 @@ public class BYGItems {
     public static final RegistryObject<Item> TALL_EMBUR_ROOTS = createItem(BYGBlocks.TALL_EMBUR_ROOTS);
     public static final RegistryObject<Item> EMBUR_LILY = createItem(BYGBlocks.EMBUR_LILY);
 
-    public static final RegistryObject<Item> BLUE_NETHERRACK_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_nether_brick");
+    public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_nether_brick");
     public static final RegistryObject<Item> BLUE_NETHERRACK = createItem(BYGBlocks.BLUE_NETHERRACK);
-    public static final RegistryObject<Item> BLUE_NETHERRACK_BRICKS = createItem(BYGBlocks.BLUE_NETHERRACK_BRICKS);
+    public static final RegistryObject<Item> BLUE_NETHER_BRICKS = createItem(BYGBlocks.BLUE_NETHER_BRICKS);
+    public static final RegistryObject<Item> BLUE_NETHER_BRICK_SLAB = createItem(BYGBlocks.BLUE_NETHER_BRICK_SLAB);
+    public static final RegistryObject<Item> BLUE_NETHER_BRICK_STAIRS = createItem(BYGBlocks.BLUE_NETHER_BRICK_STAIRS);
+    public static final RegistryObject<Item> BLUE_NETHER_BRICKS_WALL = createItem(BYGBlocks.BLUE_NETHER_BRICK_WALL);
 
 
     //End

@@ -53,6 +53,9 @@
     "byg:windswept_sandstone_slab",
     "byg:cut_windswept_sandstone_slab",
     "byg:chiseled_windswept_sandstone_slab",
-    "byg:smooth_windswept_sandstone_slab"
+    "byg:smooth_windswept_sandstone_slab",
+    "byg:blue_nether_brick_slab",
+    "byg:yellow_nether_brick_slab"
+
   ]
 }
