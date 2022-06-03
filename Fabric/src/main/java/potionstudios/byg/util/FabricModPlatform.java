@@ -1,10 +1,12 @@
 package potionstudios.byg.util;
 
 import com.google.auto.service.AutoService;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.network.FabricNetworkHandler;
@@ -19,7 +21,7 @@ public class FabricModPlatform implements ModPlatform {
 
     @Override
     public Path configPath() {
-        return FabricLoader.getInstance().getConfigDir();
+        return FabricLoader.getInstance().getConfigDir().resolve(BYG.MOD_ID);
     }
 
     @Override
@@ -45,5 +47,20 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public String tagNameSpace() {
         return "c";
+    }
+
+    @Override
+    public boolean isClientEnvironment() {
+        return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
+    }
+
+    @Override
+    public Platform modPlatform() {
+        return Platform.FABRIC;
+    }
+
+    @Override
+    public String curseForgeURL() {
+        return "https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files";
     }
 }

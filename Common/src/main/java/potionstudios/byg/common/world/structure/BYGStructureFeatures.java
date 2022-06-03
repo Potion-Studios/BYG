@@ -28,7 +28,7 @@ import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools
 import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.List;
@@ -66,6 +66,7 @@ public class BYGStructureFeatures {
         WeightedStateProvider blockProvider = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(Blocks.STONE.defaultBlockState(), 6)
             .add(Blocks.MOSSY_COBBLESTONE.defaultBlockState(), 3)
+            .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 3)
             .add(Blocks.ANDESITE.defaultBlockState(), 1)
         );
         builder.withSphereConfig(new NoisySphereConfig.Builder()

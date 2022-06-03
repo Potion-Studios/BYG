@@ -5,8 +5,8 @@ import net.minecraft.world.entity.ai.village.poi.PoiType;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.mixin.access.PoiTypeAccess;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.function.Supplier;
 

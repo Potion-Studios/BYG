@@ -19,6 +19,7 @@ import potionstudios.byg.util.MLBlockTags;
 
 import java.util.Random;
 
+@Deprecated(forRemoval = true)
 public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> extends Feature<T> {
 
     public BYGAbstractMushroomFeature(Codec<T> configCodec) {

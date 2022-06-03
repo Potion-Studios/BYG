@@ -16,7 +16,6 @@ import potionstudios.byg.util.MLBlockTags;
 @Mixin(BlockBehaviour.BlockStateBase.class)
 public abstract class MixinBlockBehaviourBlockStateBase {
 
-
     @Shadow
     public abstract boolean is(TagKey<Block> $$0);
 

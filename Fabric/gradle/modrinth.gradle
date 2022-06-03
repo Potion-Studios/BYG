@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
+    }
+}
+
+apply plugin: "com.modrinth.minotaur"
+
+import com.modrinth.minotaur.TaskModrinthUpload
+
+String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
+
+// Make sure it runs after build!
+task fabric_publishModrinth (type: TaskModrinthUpload){
+    token = "$System.env.MODRINTH_KEY"
+    projectId = 'uE1WpIAk'
+    versionName = "${archivesBaseName}-${project.version}"
+    versionNumber = project.version
+    versionType = "${project.release_type}"
+    uploadFile = remapJar
+    changelog = changelogText
+    addGameVersion("${project.minecraft_version}")
+    addLoader('fabric')
+}

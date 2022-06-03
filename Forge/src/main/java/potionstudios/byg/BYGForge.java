@@ -18,7 +18,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
-import potionstudios.byg.client.textures.renders.BYGCutoutRenders;
+import potionstudios.byg.client.textures.renders.BYGRenderTypes;
+import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -29,6 +30,7 @@ import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.ForgeNetworkHandler;
+import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
@@ -77,18 +79,20 @@ public class BYGForge {
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
-        BiomeDictionaryConfig.getConfig(true).biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
+        BiomeDictionaryConfig.getConfig().biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
             BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
         });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
+
+        BYGFuels.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
     }
 
     private void registerTerraBlender() {
         try {
-            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig(true);
+            OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
             if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
-                Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+                Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig();
                 if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {
                     SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, surfaceRulesConfig.get(LevelStem.OVERWORLD));
                 } else {
@@ -106,12 +110,18 @@ public class BYGForge {
 
     private void loadFinish(FMLLoadCompleteEvent event) {
         event.enqueueWork(BYG::threadSafeLoadFinish);
+
+        // Because Forge's enqueueWork eats exceptions, we need to cache it ourselves and throw it after the fact.
+        // TODO: Remove this ugly workaround once forge fixes this issue.
+        if (JanksonUtil.thrown != null) {
+            throw JanksonUtil.thrown;
+        }
     }
 
     private void clientLoad(FMLClientSetupEvent event) {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             BYGClient.load();
-            BYGCutoutRenders.renderCutOuts(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
+            BYGRenderTypes.renderTypes(blockRenderTypeMap -> blockRenderTypeMap.forEach(ItemBlockRenderTypes::setRenderLayer));
             BYGForgeClient.client();
             event.enqueueWork(BYGClient::threadSafeLoad);
         });

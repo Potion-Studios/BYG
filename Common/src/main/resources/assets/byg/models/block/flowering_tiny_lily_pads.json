@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"1": "byg:block/tiny_lily_pads_flower_overlay",
+		"particle": "byg:block/tiny_lily_pads",
+		"texture": "byg:block/tiny_lily_pads"
+	},
+	"elements": [
+		{
+			"name": "base",
+			"from": [0, 0.25, 0],
+			"to": [16, 0.25, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#texture", "tintindex": 0}
+			}
+		},
+		{
+			"name": "flower_overlay",
+			"from": [0, 0.35, 0],
+			"to": [16, 0.35, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "tiny_lilypads",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

@@ -16,14 +16,14 @@
     "background": "byg:textures/block/lush_dirt.png"
   },
   "criteria": {
-    "consumed_item": {
-      "trigger": "minecraft:consume_item",
+    "tick": {
+      "trigger": "minecraft:tick",
       "conditions": {}
     }
   },
   "requirements": [
     [
-      "consumed_item"
+      "tick"
     ]
   ]
 }

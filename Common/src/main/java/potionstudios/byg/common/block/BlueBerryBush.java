@@ -33,13 +33,13 @@ public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBl
 
     @Override
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        int i = state.getValue(AGE);
-        boolean flag = i == 3;
-        if (!flag && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
+        int age = state.getValue(AGE);
+        boolean isMaxAge = age == 3;
+        if (!isMaxAge && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {
             return InteractionResult.PASS;
-        } else if (i > 1) {
-            int j = 1 + worldIn.random.nextInt(2);
-            popResource(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY.get(), j + (flag ? 1 : 0)));
+        } else if (age > 1) {
+            int numberOfItems = 1 + worldIn.random.nextInt(2);
+            popResource(worldIn, pos, new ItemStack(BYGItems.BLUE_BERRY.get(), numberOfItems + (isMaxAge ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return InteractionResult.SUCCESS;

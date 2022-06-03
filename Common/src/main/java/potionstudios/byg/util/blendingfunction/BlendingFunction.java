@@ -3,7 +3,7 @@ package potionstudios.byg.util.blendingfunction;
 import com.mojang.serialization.Codec;
 import potionstudios.byg.BYG;
 import potionstudios.byg.core.BYGRegistry;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 
 import java.util.function.Function;
 

@@ -14,37 +14,48 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
-import potionstudios.byg.client.gui.biomepedia1.BiomepediaScreen;
+import potionstudios.byg.client.BiomepediaInventoryConfig;
+import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 
 @Mixin(InventoryScreen.class)
-public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen {
+public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
 
-	private ImageButton biomePedia;
+    private ImageButton biomePedia;
 
-	public MixinInventoryScreen(AbstractContainerMenu menu, Inventory inventory, Component narrationTitle) {
-		super(menu, inventory, narrationTitle);
-	}
+    public MixinInventoryScreen(T menu, Inventory inventory, Component narrationTitle) {
+        super(menu, inventory, narrationTitle);
+    }
 
-	@Inject(method = "init", at = @At("RETURN"))
-	protected void init(CallbackInfo ci) {
-		if (BYGConstants.BIOMEPEDIA) {
-			addRenderableWidget(biomePedia = new ImageButton(
-				this.leftPos + 126, this.height / 2 - 22,
-				20, 18,
-				0, 220,
-				18,
-				new ResourceLocation("byg", "textures/gui/biomepedia.png"),
-				256, 256,
-				(btn) -> Minecraft.getInstance().setScreen(new BiomepediaScreen(new TextComponent(""))),
-				new TextComponent("Lorem Ipsum")
-			));
-		}
-	}
+    @Inject(method = "init", at = @At("RETURN"))
+    protected void init(CallbackInfo ci) {
+        if (BYGConstants.BIOMEPEDIA) {
+            BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig(true);
+            if (biomepediaInventoryConfig.visible()) {
+                ImageButton biomePedia = new ImageButton(
+                        this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset(),
+                        20, 18,
+                        0, 220,
+                        18,
+                        new ResourceLocation("byg", "textures/gui/biomepedia.png"),
+                        256, 256,
+                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(new TextComponent(""))), BiomepediaHomeScreen.makeButtonToolTip(new TextComponent("BYG Biomepedia"), this),
+                        new TextComponent("Lorem Ipsum")
+                );
 
-	@Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
-	protected void updateGuiSize(CallbackInfo ci){
-		if (BYGConstants.BIOMEPEDIA) {
-			biomePedia.setPosition(this.leftPos + 126, this.height / 2 - 22);
-		}
-	}
+                biomePedia.visible = BiomepediaInventoryConfig.server_value;
+                biomePedia.active = BiomepediaInventoryConfig.server_value;
+                addRenderableWidget(this.biomePedia = biomePedia);
+            }
+        }
+    }
+
+    @Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
+    protected void updateGuiSize(CallbackInfo ci) {
+        if (BYGConstants.BIOMEPEDIA) {
+            if (biomePedia != null) {
+                BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
+                biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
+            }
+        }
+    }
 }

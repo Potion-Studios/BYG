@@ -27,14 +27,15 @@ public class AddSurfaceRulesUtil {
         }
         LevelStem levelStem = worldData.worldGenSettings().dimensions().get(levelStemKey);
         if (levelStem == null) {
-            throw new NullPointerException(String.format("\"%s\" is not a valid level stem key as it doesn't exist in this world's settings. This is more than likely the result of a broken level.dat and most often occurs when moving a world between MC versions.", levelStemKey.location()));
+            BYG.LOGGER.error(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nNot adding surface rules....", levelStemKey));
+            return;
         }
         ChunkGenerator chunkGenerator = levelStem.generator();
 
         boolean hasBYGBiome = chunkGenerator.getBiomeSource().possibleBiomes().stream().anyMatch(biomeHolder -> biomeHolder.unwrapKey().orElseThrow().location().getNamespace().equals(BYG.MOD_ID));
         if (hasBYGBiome) {
             Path path = SurfaceRulesConfig.CONFIG_PATHS.get().get(levelStemKey);
-            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true);
+            Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> surfaceRulesConfig = SurfaceRulesConfig.getConfig(true, false);
 
             if (surfaceRulesConfig.containsKey(levelStemKey) && surfaceRulesConfig.get(levelStemKey) != null) {
                 if (chunkGenerator instanceof NoiseBasedChunkGenerator) {

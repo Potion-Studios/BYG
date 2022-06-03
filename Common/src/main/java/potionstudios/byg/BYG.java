@@ -3,9 +3,15 @@ package potionstudios.byg;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.Util;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,20 +23,19 @@ import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
-import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.structure.BYGStructureFeature;
 import potionstudios.byg.common.world.structure.WithGenerationStep;
-import potionstudios.byg.config.SettingsConfig;
+import potionstudios.byg.config.BYGConfigHandler;
+import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
-import potionstudios.byg.registration.RegistryObject;
-import potionstudios.byg.util.CommonSetupLoad;
+import potionstudios.byg.reg.RegistryObject;
+import potionstudios.byg.server.command.ReloadConfigsCommand;
+import potionstudios.byg.server.command.UpdateConfigsCommand;
+import potionstudios.byg.server.command.WorldGenExportCommand;
+import potionstudios.byg.util.FileUtils;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -42,7 +47,6 @@ public class BYG {
 
     public static void commonLoad() {
         LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
-        handleConfigs();
 
         for (WorldCarver<?> worldCarver : Registry.CARVER) {
             WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
@@ -54,24 +58,25 @@ public class BYG {
         PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
 
         BYGStructureFeature.PROVIDER.getEntries()
-            .stream()
-            .map(RegistryObject::get)
-            .filter(WithGenerationStep.class::isInstance)
-            .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
+                .stream()
+                .map(RegistryObject::get)
+                .filter(WithGenerationStep.class::isInstance)
+                .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
+
+        String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
+        if(!loadAllConfigs.isEmpty()) {
+            throw new IllegalStateException(loadAllConfigs);
+        }
+
+        FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
     }
 
-    private static void handleConfigs() {
-        CommonSetupLoad.ENTRIES.forEach(c -> c.get().load());
-        try {
-            Path configPath = ModPlatform.INSTANCE.configPath();
-            Files.createDirectories(configPath);
-            Files.write(configPath.resolve("README.txt"), "For information on how BYG configs work, you can find that here: https://github.com/AOCAWOL/BYG/wiki/Configs".getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        EndBiomesConfig.getConfig(true);
-        NetherBiomesConfig.getConfig(true);
-        SettingsConfig.getConfig(true);
+    public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
+        WorldGenExportCommand.worldGenExportCommand(dispatcher);
+        LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID);
+        bygCommands.then(ReloadConfigsCommand.register());
+        bygCommands.then(UpdateConfigsCommand.register());
+        dispatcher.register(bygCommands);
     }
 
     public static void threadSafeCommonLoad() {
@@ -85,23 +90,23 @@ public class BYG {
         validBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
         builderAccess.byg_setValidBlocks(validBlocks);
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
-            new ImmutableList.Builder<Block>()
-                .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
-                .add(BYGBlocks.EMBUR_GEL_VINES.get())
-                .addAll(Util.make(new ArrayList<>(), list -> {
-                    for (Block block : Registry.BLOCK) {
-                        Material material = block.defaultBlockState().getMaterial();
-                        if (material == Material.PLANT || material == Material.BAMBOO ||
-                            material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
-                            material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
-                            material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
-                            list.add(block);
-                        }
-                    }
-                }))
-                .build()
+                new ImmutableList.Builder<Block>()
+                        .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
+                        .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
+                        .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
+                        .add(BYGBlocks.EMBUR_GEL_VINES.get())
+                        .addAll(Util.make(new ArrayList<>(), list -> {
+                            for (Block block : Registry.BLOCK) {
+                                Material material = block.defaultBlockState().getMaterial();
+                                if (material == Material.PLANT || material == Material.BAMBOO ||
+                                        material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
+                                        material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
+                                        material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
+                                    list.add(block);
+                                }
+                            }
+                        }))
+                        .build()
         );
     }
 
@@ -118,5 +123,17 @@ public class BYG {
 
     public static ResourceLocation createLocation(String path) {
         return new ResourceLocation(MOD_ID, path);
+    }
+
+    public static ResourceLocation createLocation(ResourceKey<?> path) {
+        return path.location();
+    }
+
+    public static ResourceLocation createLocation(Holder<?> holder) {
+        return createLocation(holder.unwrapKey().orElseThrow());
+    }
+
+    static {
+        ConfigVersionTracker.getConfig(new ConfigVersionTracker(ModPlatform.INSTANCE.configPath().toFile().exists() ? 0 : BYGConstants.CONFIG_VERSION), false);
     }
 }

@@ -19,8 +19,12 @@ Accessible class net/minecraft/world/entity/npc/VillagerTrades$ItemsForEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$SuspiciousStewForEmerald
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TippedArrowForItemsAndEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
+Accessible class net/minecraft/world/level/levelgen/SurfaceRules$StateRule
+Accessible class net/minecraft/client/Minecraft$ExperimentalDialogType
 
 Extendable class net/minecraft/world/level/biome/OverworldBiomeBuilder
 
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickBeachBiome (II)Lnet/minecraft/resources/ResourceKey;
 Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickPeakBiome (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
+Extendable method net/minecraft/world/level/biome/OverworldBiomeBuilder pickSlopeBiome (IILnet/minecraft/world/level/biome/Climate$Parameter;)Lnet/minecraft/resources/ResourceKey;
+Extendable method net/minecraft/client/gui/components/AbstractSelectionList getRowBottom (I)I

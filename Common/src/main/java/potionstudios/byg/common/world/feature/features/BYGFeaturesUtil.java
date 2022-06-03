@@ -20,9 +20,10 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import potionstudios.byg.BYG;
-import potionstudios.byg.registration.RegistrationProvider;
+import potionstudios.byg.reg.RegistrationProvider;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.mixin.access.VegetationFeaturesAccess.byg_invokeGrassPatch;
@@ -32,7 +33,12 @@ public class BYGFeaturesUtil {
     public static final RegistrationProvider<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_FEATURE, BYG.MOD_ID);
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, Supplier<? extends F> feature, FC config) {
-        return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature.get(), config)).asHolder();
+        return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> {
+            // TODO: let's not do this...
+            BYGGlobalFeatureFeatures.loadClass();
+            BYGGlobalFeatures.loadClass();
+            return new ConfiguredFeature<>(feature.get(), config);
+        }).asHolder();
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeatureSupplierConfig(String id, Supplier<? extends F> feature, Supplier<? extends FC> config) {
@@ -48,7 +54,7 @@ public class BYGFeaturesUtil {
     }
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, Block block, int tries) {
-        return  createPatchConfiguredFeature(id, block.defaultBlockState(), tries);
+        return createPatchConfiguredFeature(id, block.defaultBlockState(), tries);
     }
 
     public static Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeature(String id, BlockState state, int tries) {
@@ -70,17 +76,17 @@ public class BYGFeaturesUtil {
 
     public static BlockPredicateFilter createSolidDownAndAirAllAroundFilter(BlockPredicate... predicates) {
         return BlockPredicateFilter.forPredicate(BlockPredicate.allOf(new ImmutableList.Builder<BlockPredicate>().add(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.DOWN)),
-                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.WEST))),
-                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.EAST))),
-                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.NORTH))),
-                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.SOUTH))),
-                BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.UP))))
-            .add(BlockPredicate.matchesBlocks(List.of(Blocks.AIR, Blocks.CAVE_AIR)))
-            .add(predicates).build()));
+                        BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.WEST))),
+                        BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.EAST))),
+                        BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.NORTH))),
+                        BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.SOUTH))),
+                        BlockPredicate.not(BlockPredicate.solid(BlockPos.ZERO.relative(Direction.UP))))
+                .add(BlockPredicate.matchesBlocks(List.of(Blocks.AIR, Blocks.CAVE_AIR)))
+                .add(predicates).build()));
     }
 
 
     public static String globalGenStagePath(GenerationStep.Decoration stage) {
-        return "global/" + stage.toString().toLowerCase();
+        return "global/" + stage.toString().toLowerCase(Locale.ROOT);
     }
 }

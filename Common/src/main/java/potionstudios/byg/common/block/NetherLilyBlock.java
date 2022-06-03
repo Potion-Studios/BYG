@@ -16,6 +16,6 @@ public class NetherLilyBlock extends WaterlilyBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter reader, BlockPos pos) {
         FluidState fluidState = reader.getFluidState(pos);
-        return fluidState.getType() == Fluids.LAVA || fluidState.getType() == Fluids.WATER;
+        return fluidState.getType() == Fluids.LAVA || super.mayPlaceOn(state, reader, pos);
     }
 }

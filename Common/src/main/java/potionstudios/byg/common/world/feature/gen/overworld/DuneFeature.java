@@ -1,11 +1,15 @@
 package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.mojang.serialization.Codec;
+import it.unimi.dsi.fastutil.bytes.Byte2DoubleOpenHashMap;
+import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,6 +24,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.mixin.access.ChunkAccessAccess;
+import potionstudios.byg.util.DuneCache;
 
 public class DuneFeature extends Feature<NoneFeatureConfiguration> {
     protected static FastNoise fastNoise;
@@ -42,6 +47,15 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
         setSeed(level.getSeed(), (float) FREQUENCY);
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
 
+        ServerLevel serverLevel = level.getLevel();
+
+        DuneCache duneCache = (DuneCache) serverLevel;
+        Long2ObjectOpenHashMap<Byte2ObjectOpenHashMap<ResourceKey<Biome>>> biomeAt = duneCache.getBiomeAt();
+        if (biomeAt.size() > 4096) {
+            biomeAt.clear();
+        }
+        Long2ObjectOpenHashMap<Byte2DoubleOpenHashMap> densityAt = duneCache.getDensityAt();
+
         for (int xMove = 0; xMove < 16; xMove++) {
             for (int zMove = 0; zMove < 16; zMove++) {
                 mutableBlockPos.set(featurePlaceContext.origin()).move(xMove, 0, zMove);
@@ -57,7 +71,7 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
 
                 BlockPos.MutableBlockPos blendingPos = new BlockPos.MutableBlockPos().set(mutableBlockPos);
 
-                double density = getBlendDensity(level, chunkGenerator, chunk, mutableBlockPos, height, 10, blendingPos);
+                double density = getBlendDensity(biomeAt, level, chunkGenerator, chunk, mutableBlockPos, height, 10, blendingPos, 4);
 
                 int oceanFloor = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutableBlockPos.getX(), mutableBlockPos.getZ());
                 int blendedDuneHeight = (int) Mth.clampedLerp(oceanFloor - 3, height, 1.0 - density);
@@ -77,24 +91,25 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
         return true;
     }
 
-    private double getBlendDensity(WorldGenLevel level, ChunkGenerator generator, ChunkAccess chunk, BlockPos.MutableBlockPos mutableBlockPos, double height, int blendRange, BlockPos.MutableBlockPos blendingPos) {
+    private double getBlendDensity(Long2ObjectOpenHashMap<Byte2ObjectOpenHashMap<ResourceKey<Biome>>> biomeAt, WorldGenLevel level, ChunkGenerator generator, ChunkAccess chunk, BlockPos.MutableBlockPos mutableBlockPos, double height, int blendRange, BlockPos.MutableBlockPos blendingPos, int precision) {
         double density = 0;
-        for (int x = -blendRange; x <= blendRange; x++) {
-            for (int z = -blendRange; z <= blendRange; z++) {
+        for (int x = -blendRange; x <= blendRange; x += precision) {
+            for (int z = -blendRange; z <= blendRange; z += precision) {
                 blendingPos.set(mutableBlockPos).move(x, 0, z);
                 int worldSurfaceHeight = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, blendingPos.getX(), blendingPos.getZ());
                 blendingPos.setY(worldSurfaceHeight);
-                ResourceKey<Biome> biomeResourceKey = level.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(level.getBiome(blendingPos).value()).get();
+                Byte2ObjectOpenHashMap<ResourceKey<Biome>> localResourceKey = biomeAt.computeIfAbsent(ChunkPos.asLong(blendingPos), key -> new Byte2ObjectOpenHashMap<>());
+                ResourceKey<Biome> biomeResourceKey = localResourceKey.computeIfAbsent(DuneCache.getLocalPackedCoord(blendingPos), key -> level.getBiome(blendingPos).unwrapKey().orElseThrow());
                 boolean outsideBiome = biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES && worldSurfaceHeight < height;
 
                 NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).byg_getNoiseChunk();
-                boolean abovePreliminarySurface =  noiseChunk != null && noiseChunk.preliminarySurfaceLevel(mutableBlockPos.getX(), mutableBlockPos.getZ()) > worldSurfaceHeight;
+                boolean abovePreliminarySurface = noiseChunk != null && noiseChunk.preliminarySurfaceLevel(mutableBlockPos.getX(), mutableBlockPos.getZ()) > worldSurfaceHeight;
                 boolean caveCheck = biomeResourceKey == BYGBiomes.WINDSWEPT_DUNES && (worldSurfaceHeight < generator.getSeaLevel() || abovePreliminarySurface);
                 if (caveCheck) {
-                    density += 1.0 / (blendRange * blendRange) * 3;
+                    density += (1.0 / precision) / (blendRange * blendRange) * 4;
                 }
                 if (outsideBiome) {
-                    density += 1.0 / (blendRange * blendRange) * 2;
+                    density += (1.0 / precision) / (blendRange * blendRange) * 2;
                 }
             }
         }
@@ -124,4 +139,6 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
             dunePeakNoise2 = new FastNoise((int) seed + 76457567);
         }
     }
+
+
 }

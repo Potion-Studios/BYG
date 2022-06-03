@@ -47,6 +47,7 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
 //        map.put(DECIDUOUS_FOREST, List.of("FOREST", "OVERWORLD"));
         map.put(DACITE_RIDGES, List.of("MOUNTAIN", "COLD", "CONIFEROUS", "OVERWORLD"));
         map.put(WINDSWEPT_DUNES, List.of("DRY", "HOT", "SANDY", "OVERWORLD"));
+        map.put(WINDSWEPT_DESERT, List.of("DRY", "HOT", "SANDY", "OVERWORLD"));
         map.put(EBONY_WOODS, List.of("FOREST", "DENSE", "OVERWORLD"));
         map.put(FORGOTTEN_FOREST, List.of("FOREST", "RARE", "MAGICAL", "OVERWORLD"));
 //        map.put(GREAT_LAKES, List.of("FOREST", "WATER", "CONIFEROUS", "OVERWORLD"));
@@ -88,18 +89,22 @@ public record BiomeDictionaryConfig(Map<ResourceKey<Biome>, List<String>> biomeD
     });
 
 
-    public static BiomeDictionaryConfig getConfig(boolean serialize) {
-        if (INSTANCE == null || serialize) {
-            INSTANCE = readConfig();
+    public static BiomeDictionaryConfig getConfig() {
+        return getConfig(false, false);
+    }
+
+    public static BiomeDictionaryConfig getConfig(boolean serialize, boolean recreate) {
+        if (INSTANCE == null || serialize || recreate) {
+            INSTANCE = readConfig(recreate);
         }
 
         return INSTANCE;
     }
 
-    private static BiomeDictionaryConfig readConfig() {
+    private static BiomeDictionaryConfig readConfig(boolean recreate) {
         final Path path = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-biome-dictionary.json");
 
-        if (!path.toFile().exists()) {
+        if (!path.toFile().exists() || recreate) {
             JsonElement jsonElement = CODEC.encodeStart(JsonOps.INSTANCE, DEFAULT).result().get();
 
             try {

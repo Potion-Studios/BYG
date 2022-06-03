@@ -20,3 +20,6 @@ build
 # other
 eclipse
 run
+/Forge/src/generated/
+/Common/src/generated/
+/Fabric/src/generated/

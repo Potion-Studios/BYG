@@ -5,26 +5,27 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.mixin.access.LeavesBlockAccess;
 import potionstudios.byg.mixin.access.StructureTemplateAccess;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTConfig> {
+    public static final Direction[] DIRECTIONS = Arrays.stream(Direction.values()).filter(direction -> direction != Direction.UP).toArray(Direction[]::new);
+    public static final Direction[] VINE_GEN_DIRECTIONS = Arrays.stream(Direction.values()).filter(direction -> direction != Direction.DOWN).toArray(Direction[]::new);
 
     private static final boolean DEBUG = false;
 
@@ -36,7 +37,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
     public boolean place(FeaturePlaceContext<TreeFromStructureNBTConfig> featurePlaceContext) {
         TreeFromStructureNBTConfig config = featurePlaceContext.config();
 
-        BlockStateProvider stateProvider = config.logProvider();
+        BlockStateProvider logProvider = config.logProvider();
         BlockStateProvider leavesProvider = config.leavesProvider();
 
         WorldGenLevel level = featurePlaceContext.level();
@@ -80,60 +81,81 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             throw new UnsupportedOperationException(String.format("\"%s\" is missing log builders.", baseLocation));
         }
 
-        List<StructureTemplate.StructureBlockInfo> trunkBuilder = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
+        List<BlockPos> leavePositions = new ArrayList<>();
+        List<BlockPos> trunkPositions = new ArrayList<>();
+
+
+        List<StructureTemplate.StructureBlockInfo> trunkAnchor = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
 
         int trunkLength = config.height().sample(random);
+        final int maxTrunkBuildingDepth = config.maxLogDepth();
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
             BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
-            int maxTrunkBuildingDepth = 5;
-            int yDifference = pos.getY() - level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ());
-            if (yDifference > maxTrunkBuildingDepth) {
-                return false;
+            if (!isOnGround(config.maxLogDepth(), level, pos)) {
+                return false; // Exit because all positions are not on ground.
             }
+
         }
 
         for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
             BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
-            while (!level.getBlockState(mutableBlockPos).canOcclude()) {
-                level.setBlock(mutableBlockPos, stateProvider.getState(level.getRandom(), mutableBlockPos), 2);
-                mutableBlockPos.move(Direction.DOWN);
+
+            for (int i = 0; i < maxTrunkBuildingDepth; i++) {
+                BlockState blockState = level.getBlockState(mutableBlockPos);
+                if (!blockState.canOcclude()) {
+                    level.setBlock(mutableBlockPos, logProvider.getState(featurePlaceContext.random(), mutableBlockPos), 2);
+                    mutableBlockPos.move(Direction.DOWN);
+                } else {
+                    Block block = blockState.getBlock();
+                    if (BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.containsKey(block)) {
+                        level.setBlock(mutableBlockPos, BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.get(block).defaultBlockState(), 2);
+                    }
+                    break;
+                }
             }
         }
 
         for (StructureTemplate.StructureBlockInfo trunk : logs) {
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
-            level.setBlock(pos, stateProvider.getState(random, pos), 2);
+            level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), trunk.state, placeSettings.getRotation()), 2);
+            trunkPositions.add(pos);
         }
 
-        for (StructureTemplate.StructureBlockInfo trunk : trunkBuilder) {
+        int trunkY = 0;
+        for (StructureTemplate.StructureBlockInfo trunk : trunkAnchor) {
+            trunkY = trunk.pos.getY();
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
             for (int i = 0; i <= trunkLength; i++) {
-                level.setBlock(mutable, stateProvider.getState(random, mutable), 2);
+                level.setBlock(mutable, logProvider.getState(random, mutable), 2);
                 mutable.move(Direction.UP);
+                trunkPositions.add(mutable.immutable());
             }
-
-
         }
         {
-            List<StructureTemplate.StructureBlockInfo> canopyCenter = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
+            List<StructureTemplate.StructureBlockInfo> canopyAnchor = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
             if (center.size() > 1) {
                 throw new IllegalArgumentException("There cannot be more than one central position.");
             }
-            StructureTemplate.StructureBlockInfo structureBlockInfo = canopyCenter.get(0);
+            if (center.isEmpty()) {
+                throw new IllegalArgumentException("Canopy is missing anchor block (yellow wool).");
+            }
+            StructureTemplate.StructureBlockInfo structureBlockInfo = canopyAnchor.get(0);
             BlockPos canopyCenterOffset = structureBlockInfo.pos;
-            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), canopyTemplate.getSize().getY() + trunkLength, -canopyCenterOffset.getZ());
+            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkY - canopyCenterOffset.getY() + trunkLength, -canopyCenterOffset.getZ());
 
-            BlockPos placingPos = getModifiedPos(placeSettings, structureBlockInfo, new BlockPos(0, 0, 0), origin);
-            level.setBlock(placingPos, stateProvider.getState(random, placingPos), 2);
+            // some stray log
+            /* BlockPos placingPos = getModifiedPos(placeSettings, structureBlockInfo, new BlockPos(0, 0, 0), origin);
+            level.setBlock(placingPos, logProvider.getState(random, placingPos), 2); */
 
             for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
                 BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
-                level.setBlock(pos, stateProvider.getState(random, pos), 2);
+                level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), canopyLog.state, placeSettings.getRotation()), 2);
             }
+
 
             List<Runnable> leavesPostApply = new ArrayList<>(leaves.size());
             for (StructureTemplate.StructureBlockInfo leaf : leaves) {
@@ -145,11 +167,9 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
                     Runnable postProcess = () -> {
                         BlockState blockState = LeavesBlockAccess.byg_invokeUpdateDistance(state, level, pos);
                         if (blockState.getValue(LeavesBlock.DISTANCE) < LeavesBlock.DECAY_DISTANCE) {
+                            leavePositions.add(pos);
                             level.setBlock(pos, blockState, 2);
-                            BlockPos below = pos.below();
-                            if (level.getBlockState(below).isAir()) {
-                                // Bottom positions here
-                            }
+                            level.scheduleTick(pos, blockState.getBlock(), 0);
 
                         } else {
                             level.removeBlock(pos, false);
@@ -159,7 +179,56 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
                 }
             }
             leavesPostApply.forEach(Runnable::run);
+
+            for (TreeDecorator treeDecorator : config.treeDecorators()) {
+                treeDecorator.place(level, (pos, state) -> level.setBlock(pos, state, 2), random, trunkPositions, leavePositions);
+            }
         }
+        return true;
+    }
+
+
+    @NotNull
+    private BlockState getTransformedState(BlockState state, BlockState canopyLogState, Rotation rotation) {
+        for (Property property : state.getProperties()) {
+            if (canopyLogState.hasProperty(property)) {
+                Comparable value = canopyLogState.getValue(property);
+                state = state.setValue(property, value);
+            }
+        }
+
+        if (state.hasProperty(RotatedPillarBlock.AXIS)) {
+            Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+            if (axis.isHorizontal()) {
+                if (rotation == Rotation.CLOCKWISE_90 || rotation == Rotation.COUNTERCLOCKWISE_90) {
+                    if (axis == Direction.Axis.X) {
+                        state = state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.Z);
+                    } else if (axis == Direction.Axis.Z) {
+                        state = state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.X);
+                    }
+                }
+            }
+        }
+        return state;
+    }
+
+    private static boolean isOnGround(int maxLogDepth, WorldGenLevel level, BlockPos pos) {
+        int oceanFloorHeight = level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ());
+        if (pos.getY() > oceanFloorHeight) {
+            return pos.getY() - oceanFloorHeight < maxLogDepth;
+        }
+
+        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
+        int logDepth;
+        for (logDepth = 0; logDepth < maxLogDepth; logDepth++) {
+            mutableBlockPos.move(Direction.DOWN);
+            BlockState blockState = level.getBlockState(mutableBlockPos);
+            // TODO: Use a tag!
+            if (!blockState.getMaterial().isReplaceable()) {
+                return true;
+            }
+        }
+
         return false;
     }
 

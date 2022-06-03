@@ -1,5 +1,18 @@
-subprojects {
+plugins {
+    id 'java'
+    id 'com.matyrobbrt.mc.registrationutils' version '0.2.3'
+}
 
+registrationUtils {
+    group 'potionstudios.byg.reg'
+    projects {
+        Common { type 'common'; project ':Common' }
+        Fabric { type 'fabric'; project ':Fabric' }
+        Forge { type 'forge'; project ':Forge' }
+    }
+}
+
+subprojects {
     apply plugin: 'java'
 
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -21,7 +34,7 @@ subprojects {
                 'Implementation-Version'  : project.jar.archiveVersion,
                 'Implementation-Vendor'   : mod_author,
                 'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Timestampe'              : System.currentTimeMillis(),
+                'Timestamp'              : System.currentTimeMillis(),
                 'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
                 'Build-On-Minecraft'      : minecraft_version
             ])
@@ -29,7 +42,6 @@ subprojects {
     }
 
     repositories {
-
         mavenCentral()
 
         maven {

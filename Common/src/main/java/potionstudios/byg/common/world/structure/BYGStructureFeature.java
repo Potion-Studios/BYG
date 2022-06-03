@@ -5,8 +5,8 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.structure.arch.ArchConfiguration;
 import potionstudios.byg.common.world.structure.arch.ArchStructure;
-import potionstudios.byg.registration.RegistrationProvider;
-import potionstudios.byg.registration.RegistryObject;
+import potionstudios.byg.reg.RegistrationProvider;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.function.Supplier;
 

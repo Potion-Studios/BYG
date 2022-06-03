@@ -15,10 +15,12 @@ import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class BYGVillagerTrades {
 
-    protected static final LazySupplier<Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>> TRADES = new LazySupplier(() ->
+    protected static final Supplier<Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>> TRADES = () ->
             Util.make(new HashMap<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>(), map -> {
         map.put(BYGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{
@@ -27,23 +29,23 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.GREEN_MUSHROOM.get(), 10, 12, 2)
             },
             2, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 2)
+                new VillagerTrades.EmeraldForItems(BYGItems.WOOD_BLEWIT.get(), 8, 12, 3),
+                new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 3)
             },
             3, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 2),
-                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 2),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 3),
+                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 3),
+                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 3),
+                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 3),
             },
             4, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 2),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 2),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3),
             },
             5, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 4),
+                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 4),
+                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 4),
             }
         )));
 
@@ -90,24 +92,24 @@ public class BYGVillagerTrades {
             }
         )));
 
-        for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION) {
+        for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION.stream().filter(villagerProfession -> villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE).toList()) {
             if (villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE) {
                 Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(villagerProfession, villagerProfession1 -> new Int2ObjectOpenHashMap<>());
                 for (int i = 1; i <= 5; i++) {
-                    tradesByLevel.putIfAbsent(i, new VillagerTrades.ItemListing[]{});
+                    tradesByLevel.computeIfAbsent(i, key ->  new VillagerTrades.ItemListing[]{});
                 }
             }
         }
-    }));
+    });
 
     protected static final LazySupplier<Int2ObjectMap<VillagerTrades.ItemListing[]>> WANDERING_TRADER_TRADES = new LazySupplier<>(() ->
             toIntMap(ImmutableMap.of(
                     1, Util.make(new ArrayList<VillagerTrades.ItemListing>(), list -> {
                         for (final var sapling : BYGItems.SAPLINGS) {
-                            list.add(new VillagerTrades.EmeraldForItems(sapling.get(), 5, 2, 2));
+                            list.add(new VillagerTrades.ItemsForEmeralds(sapling.get(), 5, 1, 2));
                         }
-                        list.add(new VillagerTrades.EmeraldForItems(BYGItems.SKYRIS_VINE.get(), 5, 2, 2));
-                        list.add(new VillagerTrades.EmeraldForItems(BYGItems.POISON_IVY.get(), 5, 2, 2));
+                        list.add(new VillagerTrades.ItemsForEmeralds(BYGItems.SKYRIS_VINE.get(), 5, 2, 2));
+                        list.add(new VillagerTrades.ItemsForEmeralds(BYGItems.POISON_IVY.get(), 5, 2, 2));
                     }).toArray(VillagerTrades.ItemListing[]::new),
                     2, new VillagerTrades.ItemListing[]{}
             )));

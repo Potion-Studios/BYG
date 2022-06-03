@@ -30,7 +30,6 @@ public class MixinChunkAccess implements ChunkRandom {
             worldgenrandom.setDecorationSeed(worldSeed, this.chunkPos.x, this.chunkPos.z);
             this.random = worldgenrandom;
         }
-
         return this.random;
     }
 }

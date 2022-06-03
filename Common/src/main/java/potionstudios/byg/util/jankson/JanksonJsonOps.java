@@ -4,13 +4,12 @@ import blue.endless.jankson.*;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.*;
+import potionstudios.byg.util.codec.CommentsTracker;
+import potionstudios.byg.util.codec.CommentsTrackerMapLike;
 
 import javax.annotation.Nullable;
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
@@ -231,7 +230,7 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
             return DataResult.error("Not a JSON object: " + input);
         }
         final JsonObject object = (JsonObject) input;
-        return DataResult.success(new MapLike<>() {
+        return DataResult.success(new CommentsTrackerMapLike<>() {
             @Nullable
             @Override
             public JsonElement get(final JsonElement key) {
@@ -260,6 +259,17 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
             @Override
             public String toString() {
                 return "MapLike[" + object + "]";
+            }
+
+            @Override
+            public void addComment(String key, String comment) {
+                object.setComment(key, comment);
+            }
+
+            @Override
+            @Nullable
+            public String getComment(String key) {
+                return object.getComment(key);
             }
         });
     }
@@ -388,10 +398,12 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
         return new JsonRecordBuilder();
     }
 
-    private class JsonRecordBuilder extends RecordBuilder.AbstractStringBuilder<JsonElement, JsonObject> {
+    private class JsonRecordBuilder extends RecordBuilder.AbstractStringBuilder<JsonElement, JsonObject> implements CommentsTracker {
         protected JsonRecordBuilder() {
             super(JanksonJsonOps.this);
         }
+
+        private final Map<String, String> comments = new HashMap<>();
 
         @Override
         protected JsonObject initBuilder() {
@@ -407,19 +419,39 @@ public record JanksonJsonOps(boolean compressed) implements DynamicOps<JsonEleme
         @Override
         protected DataResult<JsonElement> build(final JsonObject builder, final JsonElement prefix) {
             if (prefix == null || prefix instanceof JsonNull) {
+                this.comments.forEach(builder::setComment);
                 return DataResult.success(builder);
             }
-            if (prefix instanceof JsonObject) {
+            if (prefix instanceof JsonObject prefixObject) {
                 final JsonObject result = new JsonObject();
-                for (final Map.Entry<String, JsonElement> entry : ((JsonObject) prefix).entrySet()) {
-                    result.put(entry.getKey(), entry.getValue());
+                for (final Map.Entry<String, JsonElement> entry : prefixObject.entrySet()) {
+                    String key = entry.getKey();
+                    result.put(key, entry.getValue());
+                    if (comments.containsKey(key)) {
+                        result.setComment(key, comments.get(key));
+                    }
                 }
                 for (final Map.Entry<String, JsonElement> entry : builder.entrySet()) {
-                    result.put(entry.getKey(), entry.getValue());
+                    String key = entry.getKey();
+                    result.put(key, entry.getValue());
+                    if (comments.containsKey(key)) {
+                        result.setComment(key, comments.get(key));
+                    }
                 }
                 return DataResult.success(result);
             }
             return DataResult.error("mergeToMap called with not a map: " + prefix, prefix);
+        }
+
+        @Override
+        public void addComment(String key, String comment) {
+            comments.put(key, comment);
+        }
+
+        @Override
+        @Nullable
+        public String getComment(String key) {
+            return this.builder.result().orElseThrow().getComment(key);
         }
     }
 }

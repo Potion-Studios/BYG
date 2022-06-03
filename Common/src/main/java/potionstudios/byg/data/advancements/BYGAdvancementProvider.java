@@ -5,8 +5,10 @@ import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.FrameType;
-import net.minecraft.advancements.critereon.ConsumeItemTrigger;
+import net.minecraft.advancements.critereon.EntityPredicate;
+import net.minecraft.advancements.critereon.TickTrigger;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -48,7 +50,11 @@ public class BYGAdvancementProvider implements DataProvider {
 
             }
         };
-        Advancement root = Advancement.Builder.advancement().display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.root.title"), new TranslatableComponent("byg.advancements.root.description"), BYG.createLocation("textures/block/lush_dirt.png"), FrameType.TASK, false, false, false).addCriterion("consumed_item", ConsumeItemTrigger.TriggerInstance.usedItem()).save(consumer, "byg:root");
+
+
+
+        Advancement root = Advancement.Builder.advancement().display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.root.title"), new TranslatableComponent("byg.advancements.root.description"), BYG.createLocation("textures/block/lush_dirt.png"), FrameType.TASK, false, false, false).addCriterion("tick", new TickTrigger.TriggerInstance(EntityPredicate.Composite.ANY)).save(consumer, "byg:root");
+        Advancement.Builder.advancement().parent(root).display(BYGItems.BIOMEPEDIA.get(), new TranslatableComponent("byg.advancements.biomepediagift.title"), new TranslatableComponent("byg.advancements.biomepediagift.description"), null, FrameType.TASK, false, false, true).addCriterion("tick", new TickTrigger.TriggerInstance(EntityPredicate.Composite.ANY)).rewards(new AdvancementRewards.Builder().addLootTable(BYG.createLocation("advancement/biomepedia_gift"))).save(consumer, "byg:biomepedia_gift");
 
         for (BYGAdvancementConsumer<Advancement> advancement : ADVANCEMENTS) {
             advancement.accept(consumer, root);

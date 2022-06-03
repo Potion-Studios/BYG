@@ -4,15 +4,19 @@ package potionstudios.byg.mixin.server;
 import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.datafixers.DataFixer;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.WorldStem;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
 import net.minecraft.server.level.progress.ChunkProgressListenerFactory;
 import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.server.players.GameProfileCache;
+import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -26,22 +30,27 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
 import potionstudios.byg.common.world.util.BiomeSourceRepairUtils;
 import potionstudios.byg.common.world.util.JigsawUtil;
+import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
+import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.ModPlatform;
+import potionstudios.byg.util.ServerKillCountDown;
 
 import java.net.Proxy;
 import java.util.Map;
+import java.util.function.BooleanSupplier;
 
 import static potionstudios.byg.util.AddSurfaceRulesUtil.appendSurfaceRule;
 
 @Mixin(MinecraftServer.class)
-public abstract class MixinMinecraftServer {
+public abstract class MixinMinecraftServer implements ServerKillCountDown {
 
     @Shadow
     @Final
@@ -49,6 +58,12 @@ public abstract class MixinMinecraftServer {
 
     @Shadow
     public abstract WorldData getWorldData();
+
+    @Shadow
+    public abstract PlayerList getPlayerList();
+
+    private long byg$killTime = -1;
+    private boolean byg$killClient = false;
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
@@ -73,12 +88,36 @@ public abstract class MixinMinecraftServer {
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig(false).generateOverworld()) { // We add our surface rules through Terrablender's API.
+            if (!ModPlatform.INSTANCE.isModLoaded("terrablender") && OverworldBiomeConfig.getConfig().generateOverworld()) { // We add our surface rules through Terrablender's API.
                 appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
             appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
             appendSurfaceRule(this.getWorldData(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
         }
         BYGUtil.useTagReplacements = true;
+    }
+
+    @SuppressWarnings("all")
+    @Inject(method = "tickServer", at = @At("RETURN"))
+    private void displayDisconnectWarning(BooleanSupplier $$0, CallbackInfo ci) {
+        if (byg$killTime > 0) {
+            if (byg$killTime % 100 == 0) {
+                for (ServerPlayer player : getPlayerList().getPlayers()) {
+                    long killTimeInSeconds = byg$killTime / 20;
+                    player.displayClientMessage(new TranslatableComponent("byg.serverkill.countdown", killTimeInSeconds).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
+                }
+            }
+            byg$killTime--;
+
+            if (byg$killTime == 0) {
+                UpdateConfigsCommand.backupAndKillGameInstance((MinecraftServer) (Object) this, new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), this.byg$killClient);
+            }
+        }
+    }
+
+    @Override
+    public void setKillCountdown(long killCountdownInTicks, boolean isClient) {
+        this.byg$killTime = killCountdownInTicks;
+        this.byg$killClient = isClient;
     }
 }
