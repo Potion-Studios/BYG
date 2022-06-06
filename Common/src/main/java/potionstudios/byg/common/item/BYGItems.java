@@ -956,7 +956,7 @@ public class BYGItems {
     public static final RegistryObject<GrowerItem> YELLOW_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.YELLOW_SPRUCE_SAPLING);
     public static final RegistryObject<Item> YELLOW_SPRUCE_LEAVES = createItem(BYGBlocks.YELLOW_SPRUCE_LEAVES);
 
-    public static final RegistryObject<GrowerItem> FIRECRACKER_LEAVES = createSaplingItem(BYGBlocks.FIRECRACKER_LEAVES);
+    public static final RegistryObject<Item> FIRECRACKER_LEAVES = createItem(BYGBlocks.FIRECRACKER_LEAVES);
     public static final RegistryObject<Item> FIRECRACKER_FLOWER_BUSH = createItem(BYGBlocks.FIRECRACKER_FLOWER_BUSH);
 
     //Nether
