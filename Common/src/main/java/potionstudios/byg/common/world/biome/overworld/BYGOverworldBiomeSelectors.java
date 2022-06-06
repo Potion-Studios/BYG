@@ -37,8 +37,8 @@ public class BYGOverworldBiomeSelectors {
 
     public static final String OCEAN_BIOMES_LAYOUT =
         """
-            [ SHALLOW-ICY, SHALLOW-COLD, SHALLOW-NEUTRAL, SHALLOW-WARM, SHALLOW-HOT ],
             [ DEEP-ICY, DEEP-COLD, DEEP-NEUTRAL, DEEP-WARM, DEEP-HOT ]
+            [ SHALLOW-ICY, SHALLOW-COLD, SHALLOW-NEUTRAL, SHALLOW-WARM, SHALLOW-HOT ],
             
             """;
 
