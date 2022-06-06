@@ -186,8 +186,8 @@ public class BYGOverworldBiomeSelectors {
     });
 
     public static final Wrapped<List<List<ResourceKey<Biome>>>> OCEANS = create("oceans/oceans_1", OCEANS_BIOMES_LAYOUT_COMMENT, new ResourceKey[][]{
-        {BYGBiomes.LUSH_STACKS, BYGBiomes.LUSH_STACKS, BYGBiomes.LUSH_STACKS, BYGBiomes.DEAD_SEA, BYGBiomes.DEAD_SEA},
-        {BYGBiomes.LUSH_STACKS, BYGBiomes.LUSH_STACKS, BYGBiomes.LUSH_STACKS, BYGBiomes.DEAD_SEA, BYGBiomes.DEAD_SEA}
+        {Biomes.DEEP_FROZEN_OCEAN, Biomes.COLD_OCEAN, Biomes.OCEAN, BYGBiomes.LUSH_STACKS, BYGBiomes.DEAD_SEA},
+        {Biomes.FROZEN_OCEAN, Biomes.COLD_OCEAN, Biomes.OCEAN, BYGBiomes.LUSH_STACKS, BYGBiomes.DEAD_SEA}
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> MIDDLE_BIOMES_1 = create("middle_biomes/middle_biomes_1", MIDDLE_BIOMES_LAYOUT, new ResourceKey[][]{
