@@ -26,7 +26,7 @@ public class BYGClient {
 
     public static void load() {
         BYG.LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BiomepediaClientData.getConfig(true);
+//        BiomepediaClientData.getConfig(true);
         if (BYGConstants.GENERATE_DATA) {
             LangFileGenerator.createLangFile(Paths.get("generated/en_us.json"));
         }

@@ -11,11 +11,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.FastColor;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.GuiUtil;
+import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
+public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
 
     public static final boolean DEBUG = false;
 
@@ -24,7 +25,7 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     }
 
     public ScrollableText(Component text, int width, int height, int y0, int y1, int textColor, boolean renderBackground, boolean renderTopAndBottom) {
-        super(Minecraft.getInstance(), width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
+        super(width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
         this.setRenderBackground(renderBackground);
         this.setRenderTopAndBottom(renderTopAndBottom);
         ArrayList<Component> toolTip = new ArrayList<>();
@@ -35,16 +36,6 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
     }
 
     @Override
-    protected int getScrollbarPosition() {
-        return this.x1 - 5;
-    }
-
-    @Override
-    public int getRowWidth() {
-        return this.width;
-    }
-
-    @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
         if (DEBUG) {
@@ -52,16 +43,11 @@ public class ScrollableText extends ContainerObjectSelectionList<ScrollableText.
         }
     }
 
-    @Override
-    protected int addEntry(ScrollableTextEntry $$0) {
-        return super.addEntry($$0);
-    }
-
     public static class ScrollableTextEntry extends ContainerObjectSelectionList.Entry<ScrollableTextEntry> {
 
         private final Component text;
         private final int textMaxWidth;
-        private int textColor;
+        private final int textColor;
 
         public ScrollableTextEntry(Component text, int textMaxWidth, int textColor) {
             this.text = text;

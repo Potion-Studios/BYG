@@ -53,6 +53,8 @@
     "byg:windswept_sandstone_stairs",
     "byg:cut_windswept_sandstone_stairs",
     "byg:chiseled_windswept_sandstone_stairs",
-    "byg:smooth_windswept_sandstone_stairs"
+    "byg:smooth_windswept_sandstone_stairs",
+    "byg:blue_nether_brick_stairs",
+    "byg:yellow_nether_brick_stairs"
   ]
 }

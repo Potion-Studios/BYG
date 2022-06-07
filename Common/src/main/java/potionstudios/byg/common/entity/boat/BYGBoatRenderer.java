@@ -16,7 +16,9 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.ModPlatform;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -27,11 +29,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
     public BYGBoatRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.shadowRadius = 0.8F;
-        this.boatResources = Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> {
-            return type;
-        }, (type) -> {
-            return Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))));
-        }));
+        this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() : Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> type, (type) -> Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))))));
     }
 
     public static ModelLayerLocation createBoatModelName(BYGBoatEntity.BYGType type) {
@@ -47,14 +45,14 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.375D, 0.0D);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
-        float h = (float)boat.getHurtTime() - partialTicks;
+        float h = (float) boat.getHurtTime() - partialTicks;
         float j = boat.getDamage() - partialTicks;
         if (j < 0.0F) {
             j = 0.0F;
         }
 
         if (h > 0.0F) {
-            matrixStackIn.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(h) * h * j / 10.0F * (float)boat.getHurtDir()));
+            matrixStackIn.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(h) * h * j / 10.0F * (float) boat.getHurtDir()));
         }
 
         float k = boat.getBubbleAngle(partialTicks);
@@ -63,8 +61,8 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         }
 
         Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBYGBoatType());
-        ResourceLocation resourceLocation = (ResourceLocation)pair.getFirst();
-        BoatModel boatModel = (BoatModel)pair.getSecond();
+        ResourceLocation resourceLocation = (ResourceLocation) pair.getFirst();
+        BoatModel boatModel = (BoatModel) pair.getSecond();
         matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(90.0F));
         boatModel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);

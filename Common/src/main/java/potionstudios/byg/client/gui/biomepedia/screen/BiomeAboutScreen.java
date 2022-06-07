@@ -4,7 +4,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextComponent;
@@ -28,60 +30,87 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     protected final Component description;
     @Nullable
     protected final ResourceLocation previewImageLocation;
+    private ResourceKey<Biome> biomeKey;
     private final Screen parent;
     private final Component dimensionsText;
+    private final Component climateText;
 
-
-    protected BiomeAboutScreen(ResourceKey<Biome> biome, Screen parent) {
-        super(new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath()));
+    protected BiomeAboutScreen(ResourceKey<Biome> biomeKey, Screen parent) {
+        super(new TranslatableComponent("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
+        this.biomeKey = biomeKey;
         this.parent = parent;
-        String translationKey = String.format("biomepedia.biome.%s.%s.desc", biome.location().getNamespace(), biome.location().getPath());
+        String translationKey = String.format("biomepedia.biome.%s.%s.desc", biomeKey.location().getNamespace(), biomeKey.location().getPath());
         boolean useTranslation = !I18n.get(translationKey).equals(translationKey);
 
         this.description = new TranslatableComponent(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
 
-        ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
+        ResourceLocation resourceLocation = new ResourceLocation(biomeKey.location().getNamespace(), "/textures/biome_previews/" + biomeKey.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().hasResource(resourceLocation) ? resourceLocation : null;
         if (previewImageLocation == null) {
             BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
         }
 
-        MutableComponent component = new TranslatableComponent("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent dimensionsText = new TranslatableComponent("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
-        if (biomeDimensions.containsKey(biome)) {
-            for (ResourceKey<Level> levelResourceKey : biomeDimensions.get(biome)) {
-                component.append("\n").append(new TextComponent(levelResourceKey.location().toString()));
+        if (biomeDimensions.containsKey(biomeKey)) {
+
+            Collection<ResourceKey<Level>> dimensions = biomeDimensions.get(biomeKey);
+            for (ResourceKey<Level> levelResourceKey : dimensions) {
+                String dimensionTranslationKey = "dimension." + levelResourceKey.location().getNamespace() + "." + levelResourceKey.location().getPath();
+                TranslatableComponent dimensionComponent = new TranslatableComponent(dimensionTranslationKey);
+                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : new TextComponent(levelResourceKey.location().toString()));
             }
         } else {
-            component.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.nodimensions"));
+            dimensionsText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.dimensions.none"));
         }
-        this.dimensionsText = component;
+        this.dimensionsText = dimensionsText;
+
+        MutableComponent climateText = new TranslatableComponent("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        Biome biome = biomeRegistry.get(biomeKey);
+
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.downfall", biome.getDownfall()));
+        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.precipitation", new TranslatableComponent("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())));
+        this.climateText = climateText;
     }
 
     @Override
     protected void init() {
         super.init();
-        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 19;
+        this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 22;
         this.textStartHeight = (this.bottomPos + IMAGE_HEIGHT / 2) - 5;
 
-        int y1 = this.topPos - 12;
-        ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, this.textStartHeight, this.textStartHeight + 16, y1);
-        description.setLeftPos(this.leftPos + 15);
-        this.addRenderableWidget(description);
-        int startXRightPage = (this.leftPos + (IMAGE_WIDTH / 4) + ((IMAGE_WIDTH) / 3)) - 18;
+        this.addRenderableWidget(new PageButton(pageButtonForwardX, pageButtonY, true, button -> {
+            this.minecraft.setScreen(new BiomeAboutScreen2(this.biomeKey, this.parent));
+        }, true));
 
-        int dimensionTestStartHeight = this.bottomPos + 15;
-        ScrollableText dimensions = new ScrollableText(this.dimensionsText, this.toolTipMaxWidth, dimensionTestStartHeight, dimensionTestStartHeight, dimensionTestStartHeight + 35);
+
+        int dimensionTextTop = this.bottomPos + 15;
+        int size = 80;
+        int dimensionTextBottom = dimensionTextTop + size;
+        ScrollableText dimensions = new ScrollableText(this.dimensionsText, this.toolTipMaxWidth, dimensionTextTop, dimensionTextTop, dimensionTextBottom);
         dimensions.setLeftPos(startXRightPage);
+
+        int distanceBetween = 10;
+        int climateTextTop = dimensionTextBottom + distanceBetween;
+        int climateTextBottom = climateTextTop + size;
+        ScrollableText climateInfo = new ScrollableText(this.climateText, dimensions.getRowWidth(), climateTextTop, climateTextTop, climateTextBottom);
+        climateInfo.setLeftPos(startXRightPage);
+
+        ScrollableText description = new ScrollableText(this.description, this.toolTipMaxWidth, climateTextTop, climateTextTop, climateTextBottom);
+        description.setLeftPos(this.startXLeftPage);
+
         this.addRenderableWidget(description);
         this.addRenderableWidget(dimensions);
+        this.addRenderableWidget(climateInfo);
     }
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
-        BiomeWidget.renderBiomePicture(poseStack, 0.09F, this.leftPos + 18, this.bottomPos + 25, this.previewImageLocation);
+        BiomeWidget.renderBiomePicture(poseStack, 0.09F, this.startXLeftPage + 3, this.bottomPos + 25, this.previewImageLocation);
 
         int leftPageCenter = this.leftPos + ((IMAGE_WIDTH / 4)) + 4;
         int startX = leftPageCenter - (Minecraft.getInstance().font.width(this.getTitle()) / 2);
