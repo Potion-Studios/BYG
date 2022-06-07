@@ -124,6 +124,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                     .pattern(" S ")
                     .define('P', type.planks())
                     .define('S', BYGItemTags.STICKS)
+                    .unlockedBy("has_planks", has(type.planks()))
                     .save(consumer, BYG.createLocation("wood/" + type + "/sign"));
             }
         }

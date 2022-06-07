@@ -19,131 +19,11 @@
     "experience": 1000
   },
   "criteria": {
-    "byg:twilight_meadow": {
+    "byg:autumnal_valley": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:twilight_meadow"
-        }
-      }
-    },
-    "byg:mojave_desert": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:mojave_desert"
-        }
-      }
-    },
-    "byg:cherry_blossom_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:cherry_blossom_forest"
-        }
-      }
-    },
-    "byg:crag_gardens": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:crag_gardens"
-        }
-      }
-    },
-    "byg:red_oak_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:red_oak_forest"
-        }
-      }
-    },
-    "byg:borealis_grove": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:borealis_grove"
-        }
-      }
-    },
-    "byg:dacite_ridges": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:dacite_ridges"
-        }
-      }
-    },
-    "byg:sythian_torrids": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:sythian_torrids"
-        }
-      }
-    },
-    "byg:magma_wastes": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:magma_wastes"
-        }
-      }
-    },
-    "byg:wailing_garth": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:wailing_garth"
-        }
-      }
-    },
-    "byg:araucaria_savanna": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:araucaria_savanna"
-        }
-      }
-    },
-    "byg:shattered_glacier": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:shattered_glacier"
-        }
-      }
-    },
-    "byg:glowstone_gardens": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:glowstone_gardens"
-        }
-      }
-    },
-    "byg:basalt_barrera": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:basalt_barrera"
-        }
-      }
-    },
-    "byg:white_mangrove_marshes": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:white_mangrove_marshes"
-        }
-      }
-    },
-    "byg:ebony_woods": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:ebony_woods"
+          "biome": "byg:autumnal_valley"
         }
       }
     },
@@ -155,163 +35,11 @@
         }
       }
     },
-    "byg:temperate_grove": {
+    "byg:ebony_woods": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:temperate_grove"
-        }
-      }
-    },
-    "byg:howling_peaks": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:howling_peaks"
-        }
-      }
-    },
-    "byg:prairie": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:prairie"
-        }
-      }
-    },
-    "byg:weeping_witch_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:weeping_witch_forest"
-        }
-      }
-    },
-    "byg:autumnal_valley": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:autumnal_valley"
-        }
-      }
-    },
-    "byg:subzero_hypogeal": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:subzero_hypogeal"
-        }
-      }
-    },
-    "byg:tropical_rainforest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:tropical_rainforest"
-        }
-      }
-    },
-    "byg:imparius_grove": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:imparius_grove"
-        }
-      }
-    },
-    "byg:frosted_coniferous_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:frosted_coniferous_forest"
-        }
-      }
-    },
-    "byg:dacite_shore": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:dacite_shore"
-        }
-      }
-    },
-    "byg:frosted_taiga": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:frosted_taiga"
-        }
-      }
-    },
-    "byg:bulbis_gardens": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:bulbis_gardens"
-        }
-      }
-    },
-    "byg:cryptic_wastes": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:cryptic_wastes"
-        }
-      }
-    },
-    "byg:maple_taiga": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:maple_taiga"
-        }
-      }
-    },
-    "byg:ivis_fields": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:ivis_fields"
-        }
-      }
-    },
-    "byg:cypress_swamplands": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:cypress_swamplands"
-        }
-      }
-    },
-    "byg:cika_woods": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:cika_woods"
-        }
-      }
-    },
-    "byg:forgotten_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:forgotten_forest"
-        }
-      }
-    },
-    "byg:fragment_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:fragment_forest"
-        }
-      }
-    },
-    "byg:autumnal_taiga": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:autumnal_taiga"
+          "biome": "byg:ebony_woods"
         }
       }
     },
@@ -323,115 +51,27 @@
         }
       }
     },
+    "byg:nightshade_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:nightshade_forest"
+        }
+      }
+    },
+    "byg:bulbis_gardens": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:bulbis_gardens"
+        }
+      }
+    },
     "byg:temperate_rainforest": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
           "biome": "byg:temperate_rainforest"
-        }
-      }
-    },
-    "byg:rainbow_beach": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:rainbow_beach"
-        }
-      }
-    },
-    "byg:weeping_mire": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:weeping_mire"
-        }
-      }
-    },
-    "byg:lush_stacks": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:lush_stacks"
-        }
-      }
-    },
-    "byg:guiana_shield": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:guiana_shield"
-        }
-      }
-    },
-    "byg:bayou": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:bayou"
-        }
-      }
-    },
-    "byg:dead_sea": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:dead_sea"
-        }
-      }
-    },
-    "byg:shulkren_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:shulkren_forest"
-        }
-      }
-    },
-    "byg:aspen_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:aspen_forest"
-        }
-      }
-    },
-    "byg:orchard": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:orchard"
-        }
-      }
-    },
-    "byg:cardinal_tundra": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:cardinal_tundra"
-        }
-      }
-    },
-    "byg:red_rock_valley": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:red_rock_valley"
-        }
-      }
-    },
-    "byg:coniferous_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:coniferous_forest"
-        }
-      }
-    },
-    "byg:allium_fields": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:allium_fields"
         }
       }
     },
@@ -443,19 +83,171 @@
         }
       }
     },
-    "byg:windswept_beach": {
+    "byg:zelkova_forest": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:windswept_beach"
+          "biome": "byg:zelkova_forest"
         }
       }
     },
-    "byg:firecracker_shrubland": {
+    "byg:wailing_garth": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:firecracker_shrubland"
+          "biome": "byg:wailing_garth"
+        }
+      }
+    },
+    "byg:black_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:black_forest"
+        }
+      }
+    },
+    "byg:orchard": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:orchard"
+        }
+      }
+    },
+    "byg:weeping_mire": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:weeping_mire"
+        }
+      }
+    },
+    "byg:coconino_meadow": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:coconino_meadow"
+        }
+      }
+    },
+    "byg:lush_stacks": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:lush_stacks"
+        }
+      }
+    },
+    "byg:ivis_fields": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:ivis_fields"
+        }
+      }
+    },
+    "byg:viscal_isles": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:viscal_isles"
+        }
+      }
+    },
+    "byg:twilight_meadow": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:twilight_meadow"
+        }
+      }
+    },
+    "byg:allium_fields": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:allium_fields"
+        }
+      }
+    },
+    "byg:warped_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:warped_desert"
+        }
+      }
+    },
+    "byg:magma_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:magma_wastes"
+        }
+      }
+    },
+    "byg:rose_fields": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:rose_fields"
+        }
+      }
+    },
+    "byg:redwood_thicket": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:redwood_thicket"
+        }
+      }
+    },
+    "byg:atacama_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:atacama_desert"
+        }
+      }
+    },
+    "byg:red_rock_valley": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:red_rock_valley"
+        }
+      }
+    },
+    "byg:cypress_swamplands": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:cypress_swamplands"
+        }
+      }
+    },
+    "byg:araucaria_savanna": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:araucaria_savanna"
+        }
+      }
+    },
+    "byg:bayou": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:bayou"
+        }
+      }
+    },
+    "byg:baobab_savanna": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:baobab_savanna"
         }
       }
     },
@@ -475,91 +267,27 @@
         }
       }
     },
-    "byg:atacama_desert": {
+    "byg:weeping_witch_forest": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:atacama_desert"
+          "biome": "byg:weeping_witch_forest"
         }
       }
     },
-    "byg:baobab_savanna": {
+    "byg:white_mangrove_marshes": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:baobab_savanna"
+          "biome": "byg:white_mangrove_marshes"
         }
       }
     },
-    "byg:windswept_desert": {
+    "byg:subzero_hypogeal": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:windswept_desert"
-        }
-      }
-    },
-    "byg:brimstone_caverns": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:brimstone_caverns"
-        }
-      }
-    },
-    "byg:black_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:black_forest"
-        }
-      }
-    },
-    "byg:nightshade_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:nightshade_forest"
-        }
-      }
-    },
-    "byg:viscal_isles": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:viscal_isles"
-        }
-      }
-    },
-    "byg:rose_fields": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:rose_fields"
-        }
-      }
-    },
-    "byg:zelkova_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:zelkova_forest"
-        }
-      }
-    },
-    "byg:redwood_thicket": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:redwood_thicket"
-        }
-      }
-    },
-    "byg:jacaranda_forest": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "biome": "byg:jacaranda_forest"
+          "biome": "byg:subzero_hypogeal"
         }
       }
     },
@@ -571,27 +299,43 @@
         }
       }
     },
-    "byg:quartz_desert": {
+    "byg:cika_woods": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:quartz_desert"
+          "biome": "byg:cika_woods"
         }
       }
     },
-    "byg:coconino_meadow": {
+    "byg:autumnal_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:coconino_meadow"
+          "biome": "byg:autumnal_taiga"
         }
       }
     },
-    "byg:warped_desert": {
+    "byg:red_oak_forest": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:warped_desert"
+          "biome": "byg:red_oak_forest"
+        }
+      }
+    },
+    "byg:sythian_torrids": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:sythian_torrids"
+        }
+      }
+    },
+    "byg:temperate_grove": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:temperate_grove"
         }
       }
     },
@@ -603,11 +347,115 @@
         }
       }
     },
-    "byg:autumnal_forest": {
+    "byg:basalt_barrera": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "biome": "byg:autumnal_forest"
+          "biome": "byg:basalt_barrera"
+        }
+      }
+    },
+    "byg:forgotten_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:forgotten_forest"
+        }
+      }
+    },
+    "byg:prairie": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:prairie"
+        }
+      }
+    },
+    "byg:crag_gardens": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:crag_gardens"
+        }
+      }
+    },
+    "byg:jacaranda_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:jacaranda_forest"
+        }
+      }
+    },
+    "byg:dead_sea": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:dead_sea"
+        }
+      }
+    },
+    "byg:fragment_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:fragment_forest"
+        }
+      }
+    },
+    "byg:shattered_glacier": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:shattered_glacier"
+        }
+      }
+    },
+    "byg:tropical_rainforest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:tropical_rainforest"
+        }
+      }
+    },
+    "byg:cardinal_tundra": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:cardinal_tundra"
+        }
+      }
+    },
+    "byg:glowstone_gardens": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:glowstone_gardens"
+        }
+      }
+    },
+    "byg:dacite_ridges": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:dacite_ridges"
+        }
+      }
+    },
+    "byg:brimstone_caverns": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:brimstone_caverns"
+        }
+      }
+    },
+    "byg:dacite_shore": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:dacite_shore"
         }
       }
     },
@@ -618,173 +466,247 @@
           "biome": "byg:arisian_undergrowth"
         }
       }
+    },
+    "byg:borealis_grove": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:borealis_grove"
+        }
+      }
+    },
+    "byg:aspen_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:aspen_forest"
+        }
+      }
+    },
+    "byg:cherry_blossom_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:cherry_blossom_forest"
+        }
+      }
+    },
+    "byg:frosted_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:frosted_taiga"
+        }
+      }
+    },
+    "byg:guiana_shield": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:guiana_shield"
+        }
+      }
+    },
+    "byg:autumnal_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:autumnal_forest"
+        }
+      }
+    },
+    "byg:windswept_beach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:windswept_beach"
+        }
+      }
+    },
+    "byg:mojave_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:mojave_desert"
+        }
+      }
+    },
+    "byg:coniferous_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:coniferous_forest"
+        }
+      }
+    },
+    "byg:maple_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:maple_taiga"
+        }
+      }
+    },
+    "byg:firecracker_shrubland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:firecracker_shrubland"
+        }
+      }
+    },
+    "byg:imparius_grove": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:imparius_grove"
+        }
+      }
+    },
+    "byg:shulkren_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:shulkren_forest"
+        }
+      }
+    },
+    "byg:rainbow_beach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:rainbow_beach"
+        }
+      }
+    },
+    "byg:frosted_coniferous_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:frosted_coniferous_forest"
+        }
+      }
+    },
+    "byg:quartz_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:quartz_desert"
+        }
+      }
+    },
+    "byg:windswept_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:windswept_desert"
+        }
+      }
+    },
+    "byg:cryptic_wastes": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:cryptic_wastes"
+        }
+      }
+    },
+    "byg:howling_peaks": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "byg:howling_peaks"
+        }
+      }
     }
   },
   "requirements": [
     [
-      "byg:twilight_meadow"
-    ],
-    [
-      "byg:mojave_desert"
-    ],
-    [
-      "byg:cherry_blossom_forest"
-    ],
-    [
-      "byg:crag_gardens"
-    ],
-    [
-      "byg:red_oak_forest"
-    ],
-    [
-      "byg:borealis_grove"
-    ],
-    [
-      "byg:dacite_ridges"
-    ],
-    [
-      "byg:sythian_torrids"
-    ],
-    [
-      "byg:magma_wastes"
-    ],
-    [
-      "byg:wailing_garth"
-    ],
-    [
-      "byg:araucaria_savanna"
-    ],
-    [
-      "byg:shattered_glacier"
-    ],
-    [
-      "byg:glowstone_gardens"
-    ],
-    [
-      "byg:basalt_barrera"
-    ],
-    [
-      "byg:white_mangrove_marshes"
-    ],
-    [
-      "byg:ebony_woods"
+      "byg:autumnal_valley"
     ],
     [
       "byg:embur_bog"
     ],
     [
-      "byg:temperate_grove"
-    ],
-    [
-      "byg:howling_peaks"
-    ],
-    [
-      "byg:prairie"
-    ],
-    [
-      "byg:weeping_witch_forest"
-    ],
-    [
-      "byg:autumnal_valley"
-    ],
-    [
-      "byg:subzero_hypogeal"
-    ],
-    [
-      "byg:tropical_rainforest"
-    ],
-    [
-      "byg:imparius_grove"
-    ],
-    [
-      "byg:frosted_coniferous_forest"
-    ],
-    [
-      "byg:dacite_shore"
-    ],
-    [
-      "byg:frosted_taiga"
-    ],
-    [
-      "byg:bulbis_gardens"
-    ],
-    [
-      "byg:cryptic_wastes"
-    ],
-    [
-      "byg:maple_taiga"
-    ],
-    [
-      "byg:ivis_fields"
-    ],
-    [
-      "byg:cypress_swamplands"
-    ],
-    [
-      "byg:cika_woods"
-    ],
-    [
-      "byg:forgotten_forest"
-    ],
-    [
-      "byg:fragment_forest"
-    ],
-    [
-      "byg:autumnal_taiga"
+      "byg:ebony_woods"
     ],
     [
       "byg:amaranth_fields"
     ],
     [
+      "byg:nightshade_forest"
+    ],
+    [
+      "byg:bulbis_gardens"
+    ],
+    [
       "byg:temperate_rainforest"
-    ],
-    [
-      "byg:rainbow_beach"
-    ],
-    [
-      "byg:weeping_mire"
-    ],
-    [
-      "byg:lush_stacks"
-    ],
-    [
-      "byg:guiana_shield"
-    ],
-    [
-      "byg:bayou"
-    ],
-    [
-      "byg:dead_sea"
-    ],
-    [
-      "byg:shulkren_forest"
-    ],
-    [
-      "byg:aspen_forest"
-    ],
-    [
-      "byg:orchard"
-    ],
-    [
-      "byg:cardinal_tundra"
-    ],
-    [
-      "byg:red_rock_valley"
-    ],
-    [
-      "byg:coniferous_forest"
-    ],
-    [
-      "byg:allium_fields"
     ],
     [
       "byg:sierra_badlands"
     ],
     [
-      "byg:windswept_beach"
+      "byg:zelkova_forest"
     ],
     [
-      "byg:firecracker_shrubland"
+      "byg:wailing_garth"
+    ],
+    [
+      "byg:black_forest"
+    ],
+    [
+      "byg:orchard"
+    ],
+    [
+      "byg:weeping_mire"
+    ],
+    [
+      "byg:coconino_meadow"
+    ],
+    [
+      "byg:lush_stacks"
+    ],
+    [
+      "byg:ivis_fields"
+    ],
+    [
+      "byg:viscal_isles"
+    ],
+    [
+      "byg:twilight_meadow"
+    ],
+    [
+      "byg:allium_fields"
+    ],
+    [
+      "byg:warped_desert"
+    ],
+    [
+      "byg:magma_wastes"
+    ],
+    [
+      "byg:rose_fields"
+    ],
+    [
+      "byg:redwood_thicket"
+    ],
+    [
+      "byg:atacama_desert"
+    ],
+    [
+      "byg:red_rock_valley"
+    ],
+    [
+      "byg:cypress_swamplands"
+    ],
+    [
+      "byg:araucaria_savanna"
+    ],
+    [
+      "byg:bayou"
+    ],
+    [
+      "byg:baobab_savanna"
     ],
     [
       "byg:ethereal_islands"
@@ -793,58 +715,136 @@
       "byg:skyris_vale"
     ],
     [
-      "byg:atacama_desert"
+      "byg:weeping_witch_forest"
     ],
     [
-      "byg:baobab_savanna"
+      "byg:white_mangrove_marshes"
     ],
     [
-      "byg:windswept_desert"
-    ],
-    [
-      "byg:brimstone_caverns"
-    ],
-    [
-      "byg:black_forest"
-    ],
-    [
-      "byg:nightshade_forest"
-    ],
-    [
-      "byg:viscal_isles"
-    ],
-    [
-      "byg:rose_fields"
-    ],
-    [
-      "byg:zelkova_forest"
-    ],
-    [
-      "byg:redwood_thicket"
-    ],
-    [
-      "byg:jacaranda_forest"
+      "byg:subzero_hypogeal"
     ],
     [
       "byg:crimson_gardens"
     ],
     [
-      "byg:quartz_desert"
+      "byg:cika_woods"
     ],
     [
-      "byg:coconino_meadow"
+      "byg:autumnal_taiga"
     ],
     [
-      "byg:warped_desert"
+      "byg:red_oak_forest"
+    ],
+    [
+      "byg:sythian_torrids"
+    ],
+    [
+      "byg:temperate_grove"
     ],
     [
       "byg:canadian_shield"
     ],
     [
-      "byg:autumnal_forest"
+      "byg:basalt_barrera"
+    ],
+    [
+      "byg:forgotten_forest"
+    ],
+    [
+      "byg:prairie"
+    ],
+    [
+      "byg:crag_gardens"
+    ],
+    [
+      "byg:jacaranda_forest"
+    ],
+    [
+      "byg:dead_sea"
+    ],
+    [
+      "byg:fragment_forest"
+    ],
+    [
+      "byg:shattered_glacier"
+    ],
+    [
+      "byg:tropical_rainforest"
+    ],
+    [
+      "byg:cardinal_tundra"
+    ],
+    [
+      "byg:glowstone_gardens"
+    ],
+    [
+      "byg:dacite_ridges"
+    ],
+    [
+      "byg:brimstone_caverns"
+    ],
+    [
+      "byg:dacite_shore"
     ],
     [
       "byg:arisian_undergrowth"
+    ],
+    [
+      "byg:borealis_grove"
+    ],
+    [
+      "byg:aspen_forest"
+    ],
+    [
+      "byg:cherry_blossom_forest"
+    ],
+    [
+      "byg:frosted_taiga"
+    ],
+    [
+      "byg:guiana_shield"
+    ],
+    [
+      "byg:autumnal_forest"
+    ],
+    [
+      "byg:windswept_beach"
+    ],
+    [
+      "byg:mojave_desert"
+    ],
+    [
+      "byg:coniferous_forest"
+    ],
+    [
+      "byg:maple_taiga"
+    ],
+    [
+      "byg:firecracker_shrubland"
+    ],
+    [
+      "byg:imparius_grove"
+    ],
+    [
+      "byg:shulkren_forest"
+    ],
+    [
+      "byg:rainbow_beach"
+    ],
+    [
+      "byg:frosted_coniferous_forest"
+    ],
+    [
+      "byg:quartz_desert"
+    ],
+    [
+      "byg:windswept_desert"
+    ],
+    [
+      "byg:cryptic_wastes"
+    ],
+    [
+      "byg:howling_peaks"
     ]
   ]
 }

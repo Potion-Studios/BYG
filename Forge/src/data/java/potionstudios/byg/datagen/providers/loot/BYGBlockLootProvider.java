@@ -6,6 +6,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraftforge.registries.ForgeRegistries;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
 import javax.annotation.Nullable;
@@ -38,6 +40,12 @@ class BYGBlockLootProvider extends BlockLoot {
             dropSelf(type.stairs());
             dropSelf(type.trapdoor());
             dropSelf(type.sign());
+
+            if (type.growerItem() != null) {
+                final var growerName = type.growerItem().getId().getPath();
+                final var potted = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + growerName));
+                dropOther(potted, type.growerItem());
+            }
         }
     }
 
