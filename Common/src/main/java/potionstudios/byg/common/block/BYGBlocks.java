@@ -59,7 +59,8 @@ import java.util.function.ToIntFunction;
 public class BYGBlocks {
     public static final RegistrationProvider<Block> PROVIDER = RegistrationProvider.get(Registry.BLOCK_REGISTRY, BYG.MOD_ID);
 
-    public static List<BlockRegistryObject<Block>> flowerPotBlocks = new ArrayList<>();
+    public static final List<BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new ArrayList<>();
+    public static final List<BlockRegistryObject<Block>> SIGN_BLOCKS = new ArrayList<>();
 
     public static final BlockRegistryObject<Block> ASPEN_PLANKS = createPlanks("aspen_planks");
     public static final BlockRegistryObject<Block> BAOBAB_PLANKS = createPlanks("baobab_planks");
@@ -1731,7 +1732,7 @@ public class BYGBlocks {
     public static BlockRegistryObject<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
         final var b = createBlock(blockForPot, id);
         final BlockRegistryObject<Block> potted = createBlock(() -> BYGBlockFactory.INSTANCE.createPottedBlock(b, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()), "potted_" + id);
-        flowerPotBlocks.add(potted);
+        FLOWER_POT_BLOCKS.add(potted);
         return b;
     }
 
@@ -1840,7 +1841,9 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        return BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        SIGN_BLOCKS.add(signBlock);
+        return signBlock;
     }
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
@@ -1848,7 +1851,9 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        return BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        SIGN_BLOCKS.add(signBlock);
+        return signBlock;
     }
 
     public static <B extends Block> BlockRegistryObject<B> createBlock(Supplier<? extends B> block, String id) {
