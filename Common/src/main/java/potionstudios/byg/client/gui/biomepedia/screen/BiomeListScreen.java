@@ -140,7 +140,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                         this.back.visible = true;
                         this.back.active = true;
                     }
-                });
+                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TranslatableComponent("biomepedia.biomelist.search"), mouseX, mouseZ), TextComponent.EMPTY);
         this.addRenderableWidget(this.searchButton);
         this.addRenderableWidget(this.search);
 
