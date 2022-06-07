@@ -4,6 +4,7 @@
 * Fix some saplings not being growable & not displaying their growing pattern tooltip on the item.
 * Add Yellow & Blue Nether brick slabs/stairs
 * Prevent BYG from getting wrongfully blamed for game crashes/errors occurring during other events.
+* Add signs
 
 # 1.4-RC-24
 * Add mob spawns, color settings, and biome tags (required advanced tool tips to be enabled (F3+H) to show) to biome about pages.
