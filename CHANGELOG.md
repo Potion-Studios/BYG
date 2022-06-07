@@ -3,6 +3,7 @@
 * Fix ocean biome selector from spawning lush stacks everywhere, `Lush Stacks` & `Dead Sea` should be much rarer. Changes apply after config update/reset.
 * Fix some saplings not being growable & not displaying their growing pattern tooltip on the item.
 * Add Yellow & Blue Nether brick slabs/stairs
+* Prevent BYG from getting wrongfully blamed for game crashes/errors occurring during other events.
 
 # 1.4-RC-24
 * Add mob spawns, color settings, and biome tags (required advanced tool tips to be enabled (F3+H) to show) to biome about pages.

@@ -60,6 +60,11 @@ public class FabricModPlatform implements ModPlatform {
     }
 
     @Override
+    public boolean hasLoadErrors() {
+        return false;
+    }
+
+    @Override
     public String curseForgeURL() {
         return "https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files";
     }

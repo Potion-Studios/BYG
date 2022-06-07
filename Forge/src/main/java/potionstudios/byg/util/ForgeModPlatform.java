@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import potionstudios.byg.BYG;
@@ -59,6 +60,11 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public Platform modPlatform() {
         return Platform.FORGE;
+    }
+
+    @Override
+    public boolean hasLoadErrors() {
+        return !ModLoader.isLoadingStateValid();
     }
 
     @Override
