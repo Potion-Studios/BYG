@@ -7,6 +7,33 @@
     "south": "byg:block/mahogany/leaves",
     "east": "byg:block/mahogany/leaves",
     "west": "byg:block/mahogany/leaves",
-    "particle": "byg:block/mahogany/leaves"
-  }
+    "particle": "byg:block/mahogany/leaves",
+    "overlay": "byg:block/mahogany/leaves_overlay"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ]
 }

@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
@@ -13,6 +14,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -28,6 +30,7 @@ import java.io.IOException;
 
 public class BYGWoodAssetsProvider extends BlockStateProvider {
     private final ItemProvider item;
+
     public BYGWoodAssetsProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BYG.MOD_ID, existingFileHelper);
         this.item = new ItemProvider(generator, existingFileHelper);
@@ -57,13 +60,13 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                         .texture("layer0", rl(typeLocItem + "boat"));
 
             final var bookshelf = models().cube(
-                typeName + "/bookshelf",
-                rl(typeLoc + "planks"),
-                rl(typeLoc + "planks"),
-                rl(typeLoc + "bookshelf"),
-                rl(typeLoc + "bookshelf"),
-                rl(typeLoc + "bookshelf"),
-                rl(typeLoc + "bookshelf")
+                    typeName + "/bookshelf",
+                    rl(typeLoc + "planks"),
+                    rl(typeLoc + "planks"),
+                    rl(typeLoc + "bookshelf"),
+                    rl(typeLoc + "bookshelf"),
+                    rl(typeLoc + "bookshelf"),
+                    rl(typeLoc + "bookshelf")
             ).texture("particle", typeLoc + "planks");
             configureTransform(item.withExistingParent(type.bookshelf().getId().getPath(), bookshelf.getLocation()));
             simpleBlock(type.bookshelf().get(), bookshelf);
@@ -75,47 +78,47 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             buttonBlock((ButtonBlock) type.button().get(), button, buttonPressed);
 
             final var craftingTable = models().cube(
-                typeName + "/crafting_table",
-                rl(typeLoc + "planks"),
-                rl(typeLoc + "crafting_table_top"),
-                rl(typeLoc + "crafting_table_front"),
-                rl(typeLoc + "crafting_table_side"),
-                rl(typeLoc + "crafting_table_side"),
-                rl(typeLoc + "crafting_table_front")
+                    typeName + "/crafting_table",
+                    rl(typeLoc + "planks"),
+                    rl(typeLoc + "crafting_table_top"),
+                    rl(typeLoc + "crafting_table_front"),
+                    rl(typeLoc + "crafting_table_side"),
+                    rl(typeLoc + "crafting_table_side"),
+                    rl(typeLoc + "crafting_table_front")
             ).texture("particle", typeLoc + "crafting_table_front");
             configureTransform(item.withExistingParent(type.craftingTable().getId().getPath(), craftingTable.getLocation()));
             simpleBlock(type.craftingTable().get(), craftingTable);
 
             final var doorBottomLeft = models().doorBottomLeft(
-                typeName + "/door_bottom",
-                rl(typeLoc + "door_bottom"),
-                rl(typeLoc + "door_top")
+                    typeName + "/door_bottom",
+                    rl(typeLoc + "door_bottom"),
+                    rl(typeLoc + "door_top")
             );
             final var doorBottomRight = models().doorBottomRight(
-                typeName + "/door_bottom_hinge",
-                rl(typeLoc + "door_bottom"),
-                rl(typeLoc + "door_top")
+                    typeName + "/door_bottom_hinge",
+                    rl(typeLoc + "door_bottom"),
+                    rl(typeLoc + "door_top")
             );
             final var doorTopLeft = models().doorTopLeft(
-                typeName + "/door_top",
-                rl(typeLoc + "door_bottom"),
-                rl(typeLoc + "door_top")
+                    typeName + "/door_top",
+                    rl(typeLoc + "door_bottom"),
+                    rl(typeLoc + "door_top")
             );
             final var doorTopRight = models().doorTopRight(
-                typeName + "/door_top_hinge",
-                rl(typeLoc + "door_bottom"),
-                rl(typeLoc + "door_top")
+                    typeName + "/door_top_hinge",
+                    rl(typeLoc + "door_bottom"),
+                    rl(typeLoc + "door_top")
             );
             doorBlock((DoorBlock) type.door().get(), doorBottomLeft, doorBottomRight, doorTopLeft, doorTopRight);
             item.withExistingParent(type.door().getId().getPath(), generatedParent)
-                .texture("layer0", rl(typeLocItem + "door"));
+                    .texture("layer0", rl(typeLocItem + "door"));
 
             final var fencePost = models().fencePost(typeName + "/fence_post", rl(typeLoc + "planks"))
                     .texture("particle", rl(typeLoc + "planks"));
             final var fenceSide = models().fenceSide(typeName + "/fence", rl(typeLoc + "planks"))
-                .texture("particle", rl(typeLoc + "planks"));
+                    .texture("particle", rl(typeLoc + "planks"));
             final var fenceInv = models().fenceInventory(typeName + "/fence_inv", rl(typeLoc + "planks"))
-                .texture("particle", rl(typeLoc + "planks"));
+                    .texture("particle", rl(typeLoc + "planks"));
             configureTransform(item.withExistingParent(type.fence().getId().getPath(), fenceInv.getLocation()));
             fourWayBlock((CrossCollisionBlock) type.fence().get(), fencePost, fenceSide);
 
@@ -127,32 +130,40 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             fenceGateBlock((FenceGateBlock) type.fenceGate().get(), fenceGate, fenceGateOpen, fenceGateWall, fenceGateWallOpen);
 
             if (type.leaves() != null) {
+                // So.. leaves are fun.
                 final var leavesLoc = rl(typeLoc + "leaves");
-                final var leaves = models().cube(
-                    typeName + "/leaves",
-                    leavesLoc, leavesLoc, leavesLoc,
-                    leavesLoc, leavesLoc, leavesLoc
-                ).texture("particle", leavesLoc);
+                final BlockModelBuilder leaves;
+                if (type.leavesHaveOverlay()) {
+                    final var overlaySupposedLoc = rl(typeLoc + "leaves_overlay");
+                    final var overlayLoc = models().existingFileHelper.exists(overlaySupposedLoc, ModelProviderAccess.getTexture()) ? overlaySupposedLoc : leavesLoc;
+                    leaves = leaves(typeName + "/leaves", leavesLoc, overlayLoc);
+                } else {
+                    leaves = models().cube(
+                            typeName + "/leaves",
+                            leavesLoc, leavesLoc, leavesLoc,
+                            leavesLoc, leavesLoc, leavesLoc
+                    ).texture("particle", leavesLoc);
+                }
                 configureTransform(item.withExistingParent(type.leaves().getId().getPath(), leaves.getLocation()));
                 models().cube(
-                    typeName + "/leaves_snowy",
-                    rl(typeLoc + "leaves_snowy"),
-                    rl(typeLoc + "leaves_snowy"),
-                    rl(typeLoc + "leaves_snowy_side"),
-                    rl(typeLoc + "leaves_snowy_side"),
-                    rl(typeLoc + "leaves_snowy_side"),
-                    rl(typeLoc + "leaves_snowy_side")
+                        typeName + "/leaves_snowy",
+                        rl(typeLoc + "leaves_snowy"),
+                        rl(typeLoc + "leaves_snowy"),
+                        rl(typeLoc + "leaves_snowy_side"),
+                        rl(typeLoc + "leaves_snowy_side"),
+                        rl(typeLoc + "leaves_snowy_side"),
+                        rl(typeLoc + "leaves_snowy_side")
                 ).texture("particle", rl(typeLoc + "leaves_snowy_side"));
                 simpleBlock(type.leaves().get(), leaves); // TODO leaves should be snowy as well
             }
             final var planksLoc = rl(typeLoc + "planks");
             final var planks = models().cube(typeName + "/planks",
-                topPlanks ? topPlanksLoc : planksLoc,
-                topPlanks ? topPlanksLoc : planksLoc,
-                planksLoc,
-                planksLoc,
-                planksLoc,
-                planksLoc
+                    topPlanks ? topPlanksLoc : planksLoc,
+                    topPlanks ? topPlanksLoc : planksLoc,
+                    planksLoc,
+                    planksLoc,
+                    planksLoc,
+                    planksLoc
             ).texture("particle", topPlanks ? topPlanksLoc : planksLoc);
             configureTransform(item.withExistingParent(type.planks().getId().getPath(), planks.getLocation()));
             simpleBlock(type.planks().get(), planks);
@@ -174,12 +185,12 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 final var textureLoc = rl(typeLoc + "grower_item");
                 final var growerItem = models().cross(typeName + "/grower_item", textureLoc);
                 item.withExistingParent(type.growerItem().getId().getPath(), generatedParent)
-                    .texture("layer0", textureLoc);
+                        .texture("layer0", textureLoc);
                 simpleBlock(type.growerItem().get(), growerItem);
 
                 final var pottedBlock = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + type.growerItem().getId().getPath()));
                 final var potted = models().withExistingParent(typeLoc + "potted_grower_item", mcLoc("block/flower_pot_cross"))
-                    .texture("plant", growerItem.getLocation());
+                        .texture("plant", growerItem.getLocation());
                 simpleBlock(pottedBlock, potted);
             }
             final var pressurePlate = models().pressurePlate(typeName + "/pressure_plate", rl(typeLoc + "planks"));
@@ -217,6 +228,36 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 //                    .texture("particle", logLocation);
 //            wallBlock(type.wall().get(), wallPost, wall, wall);
         }
+    }
+
+    private BlockModelBuilder leaves(String name, ResourceLocation texture, ResourceLocation overlay) {
+        return models().cube(name,
+                    texture, texture, texture,
+                    texture, texture, texture
+            ).texture("particle", texture).texture("overlay", overlay)
+                .element()
+                .from(0, 0, 0)
+                .to(16, 16, 16)
+                .faces((dir, builder) -> {
+                    builder
+                            .uvs(0, 0, 16, 16)
+                            .texture("#" + dir.getName())
+                            .cullface(dir)
+                            .end();
+                })
+                .end()
+                .element()
+                .from(0, 0, 0)
+                .to(16, 16, 16)
+                .faces((dir, builder) -> {
+                    builder
+                            .uvs(0, 0, 16, 16)
+                            .texture("#" + dir.getName())
+                            .cullface(dir)
+                            .tintindex(1)
+                            .end();
+                })
+                .end();
     }
 
     private static ResourceLocation rl(String path) {

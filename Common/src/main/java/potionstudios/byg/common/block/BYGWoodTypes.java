@@ -88,7 +88,8 @@ public enum BYGWoodTypes {
     MAHOGANY("mahogany", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
             .boatType(BYGBoatEntity.BYGType.MAHOGANY)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .materialColor(MaterialColor.COLOR_GREEN)
+            .leavesHaveOverlay()),
     MANGROVE("mangrove", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
             .boatType(BYGBoatEntity.BYGType.MANGROVE)
@@ -112,7 +113,8 @@ public enum BYGWoodTypes {
     WILLOW("willow", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WILLOW_SAPLING)
             .boatType(BYGBoatEntity.BYGType.WILLOW)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN)),
+            .materialColor(MaterialColor.TERRACOTTA_GREEN)
+            .leavesHaveOverlay()),
     WITCH_HAZEL("witch_hazel", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING)
             .boatType(BYGBoatEntity.BYGType.WITCH_HAZEL)
@@ -375,6 +377,10 @@ public enum BYGWoodTypes {
         return builder.isNether;
     }
 
+    public boolean leavesHaveOverlay() {
+        return builder.leavesHaveOverlay;
+    }
+
     public enum GrowerItemType {
         SAPLING,
         ODDITY,
@@ -401,6 +407,7 @@ public enum BYGWoodTypes {
         private MaterialColor materialColor;
         private Integer leavesLightLevel;
         private boolean isNether;
+        private boolean leavesHaveOverlay;
 
         public Builder growerItem(GrowerItemType type) {
             this.growerItemType = type;
@@ -432,6 +439,10 @@ public enum BYGWoodTypes {
         }
         public Builder registryName(BlockType blockType, String name) {
             this.registryName.put(blockType, name);
+            return this;
+        }
+        public Builder leavesHaveOverlay() {
+            this.leavesHaveOverlay = true;
             return this;
         }
     }

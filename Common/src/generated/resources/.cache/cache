@@ -1078,7 +1078,7 @@ d3e7af8e886b2bbeddba4341cb599090889c901d assets/byg/models/block/mahogany/fence_
 4b738d591c85fc237166262b07a8a0b07250da1f assets/byg/models/block/mahogany/fence_inv.json
 6e79c75c084cd44d3b633d21b98900bd4640c184 assets/byg/models/block/mahogany/fence_post.json
 2a734dbc733ebd65667011c9b3f6acbf1b1289c2 assets/byg/models/block/mahogany/grower_item.json
-1e9d03ea459738cfa51790e0ff11edad58ec5b83 assets/byg/models/block/mahogany/leaves.json
+a8237b007f8735710657378bd07186ef0e7c6f18 assets/byg/models/block/mahogany/leaves.json
 a3481313f634ce373eddbe96090cc1ffff96ae37 assets/byg/models/block/mahogany/leaves_snowy.json
 edfd496ebaa9c5f80edcbc104b1ea54c84cbd411 assets/byg/models/block/mahogany/log.json
 47789678c316d2b0d5654ad13f4dfb0be1c1918a assets/byg/models/block/mahogany/planks.json
@@ -1428,7 +1428,7 @@ ab254ed8b8ee500ea9a643152e9437864274dc08 assets/byg/models/block/willow/fence.js
 10bf9b4a419147e792d4156dcd285111e8935048 assets/byg/models/block/willow/fence_inv.json
 8799c88ebdb1f508f86f62b77a244e01e87a6b46 assets/byg/models/block/willow/fence_post.json
 5e5afb7a3890d8f48d5e23a2c87b1188619506c8 assets/byg/models/block/willow/grower_item.json
-e084f73a142b28074820921a4efeb33fa8d23abd assets/byg/models/block/willow/leaves.json
+165e84056fd00ee7b13c5227326174e28258eb19 assets/byg/models/block/willow/leaves.json
 1301c5e2999f537a044d5111e5e8a7cd7722173b assets/byg/models/block/willow/leaves_snowy.json
 feac0b2ff67fbfc5a7e6db13829acf57fec39f5a assets/byg/models/block/willow/log.json
 9ec37312d1e64d6921417500edc74171330e4253 assets/byg/models/block/willow/planks.json
@@ -2024,7 +2024,7 @@ d4f287df28be70f53a4a7c6473355d760e64078f assets/byg/models/item/zelkova_slab.jso
 7efd2d48e7253cf1dedb7e910216b18d518cd35d assets/byg/models/item/zelkova_stairs.json
 c558d204496231acfc2f07b1763894108894a676 assets/byg/models/item/zelkova_trapdoor.json
 5a969090404d7acf76034084b7ff60640528ae20 assets/byg/models/item/zelkova_wood.json
-ae380d76855bfdb2826967d87ba1d7dac0213f16 data/byg/advancements/adventure/oh_the_biomes_youll_go.json
+c608c1e8f9da0906f1e80cfa8f711c0dea6a5051 data/byg/advancements/adventure/oh_the_biomes_youll_go.json
 088f462dc7e989078f364f070553c33b5475ca5c data/byg/advancements/biomepedia_gift.json
 b4d83bce4f82add22412cca9049ee245aeeb2f18 data/byg/advancements/husbandry/berrily_alive.json
 ca36240397ba18ddf2a2a64aa0ff986f54ac6a9b data/byg/advancements/husbandry/forager.json
