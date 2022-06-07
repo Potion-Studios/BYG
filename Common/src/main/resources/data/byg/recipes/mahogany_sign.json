@@ -1,20 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "sign",
   "pattern": [
-    "###",
-    "###",
-    " X "
+    "PPP",
+    "PPP",
+    " S "
   ],
   "key": {
-    "#": {
+    "P": {
       "item": "byg:mahogany_planks"
     },
-    "X": {
-      "item": "minecraft:stick"
+    "S": {
+      "tag": "byg:sticks"
     }
   },
   "result": {
-    "item": "minecraft:jungle_sign",
+    "item": "byg:mahogany_sign",
     "count": 3
   }
 }
