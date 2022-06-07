@@ -37,6 +37,7 @@ class BYGBlockLootProvider extends BlockLoot {
             add(type.slab(), BlockLoot::createSlabItemTable);
             dropSelf(type.stairs());
             dropSelf(type.trapdoor());
+            dropSelf(type.sign());
         }
     }
 
