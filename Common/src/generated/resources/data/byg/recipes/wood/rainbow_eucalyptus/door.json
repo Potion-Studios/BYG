@@ -1,21 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "sign",
+  "group": "wooden_door",
   "pattern": [
-    "PPP",
-    "PPP",
-    " S "
+    "PP",
+    "PP",
+    "PP"
   ],
   "key": {
     "P": {
       "item": "byg:rainbow_eucalyptus_planks"
-    },
-    "S": {
-      "tag": "byg:sticks"
     }
   },
   "result": {
-    "item": "byg:rainbow_eucalyptus_sign",
+    "item": "byg:rainbow_eucalyptus_door",
     "count": 3
   }
 }
