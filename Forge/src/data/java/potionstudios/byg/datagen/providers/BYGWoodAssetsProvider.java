@@ -13,7 +13,9 @@ import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -215,6 +217,11 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             final var trapdoorOpen = models().trapdoorOrientableOpen(trapdoorName + "_open", trapdoorLoc);
             configureTransform(item.withExistingParent(type.trapdoor().getId().getPath(), trapdoor.getLocation()));
             trapdoorBlock((TrapDoorBlock) type.trapdoor().get(), trapdoor, trapdoorTop, trapdoorOpen, true);
+
+            if (type.sign() != null) {
+                final var model = models().sign(typeName + "/sign", planksLoc);
+                signBlock((StandingSignBlock) type.sign().get(), (WallSignBlock) type.wallSign().get(), model);
+            }
 
 // No wood walls for now
 //            final var logLocation = rl(typeLoc + "log");
