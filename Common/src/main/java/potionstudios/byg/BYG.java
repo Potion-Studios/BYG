@@ -13,6 +13,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.material.Material;
@@ -27,6 +28,7 @@ import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.mixin.access.*;
+import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
@@ -79,11 +81,8 @@ public class BYG {
 
     public static void threadSafeCommonLoad() {
         BYGVillagerType.setVillagerForBYGBiomes();
-        BlockEntityTypeAccess builderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
-        Set<Block> validBlocks = new ObjectOpenHashSet<>(builderAccess.byg_getValidBlocks());
-        validBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE.get());
-        validBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
-        builderAccess.byg_setValidBlocks(validBlocks);
+        appendBlocksToBlockEntities();
+
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
                 new ImmutableList.Builder<Block>()
                         .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
@@ -103,6 +102,26 @@ public class BYG {
                         }))
                         .build()
         );
+    }
+
+    private static void appendBlocksToBlockEntities() {
+        BlockEntityTypeAccess campfireBuilderAccess = (BlockEntityTypeAccess) BlockEntityType.CAMPFIRE;
+        Set<Block> validCampfireBlocks = new ObjectOpenHashSet<>(campfireBuilderAccess.byg_getValidBlocks());
+        validCampfireBlocks.add(BYGBlocks.CRYPTIC_CAMPFIRE.get());
+        validCampfireBlocks.add(BYGBlocks.BORIC_CAMPFIRE.get());
+        campfireBuilderAccess.byg_setValidBlocks(validCampfireBlocks);
+
+        BlockEntityTypeAccess signBuilderAccess = (BlockEntityTypeAccess) BlockEntityType.SIGN;
+        Set<Block> signValidBlocks = new ObjectOpenHashSet<>(signBuilderAccess.byg_getValidBlocks());
+        for (BlockRegistryObject<Block> signBlock : BYGBlocks.SIGN_BLOCKS) {
+            Block block = signBlock.get();
+            if (block instanceof SignBlock) {
+                signValidBlocks.add(block);
+            } else {
+                throw new IllegalArgumentException("Attempting to add block to sign block entity that is not a type of SignBlock");
+            }
+        }
+        signBuilderAccess.byg_setValidBlocks(signValidBlocks);
     }
 
     public static void threadSafeLoadFinish() {

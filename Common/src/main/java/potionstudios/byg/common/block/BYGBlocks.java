@@ -60,7 +60,8 @@ import java.util.function.ToIntFunction;
 public class BYGBlocks {
     public static final RegistrationProvider<Block> PROVIDER = RegistrationProvider.get(Registry.BLOCK_REGISTRY, BYG.MOD_ID);
 
-    public static List<BlockRegistryObject<Block>> flowerPotBlocks = new ArrayList<>();
+    public static final List<BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new ArrayList<>();
+    public static final List<BlockRegistryObject<Block>> SIGN_BLOCKS = new ArrayList<>();
 
     public static final BlockRegistryObject<Block> FORAGERS_TABLE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.FLETCHING_TABLE)), "foragers_table");
 
@@ -188,6 +189,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> TALL_CRIMSON_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_crimson_roots");
     public static final BlockRegistryObject<Block> BRIMSTONE = createNetherStone(MaterialColor.TERRACOTTA_YELLOW, "brimstone");
     public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICKS = createBlock(BYGBlockProperties.BYGNetherrack::new, "yellow_nether_bricks");
+    public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_STAIRS = createBlock(() -> StairBlockAccess.byg_create(YELLOW_NETHER_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_stairs");
+    public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_SLAB = createBlock(() -> new SlabBlock(BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_slab");
+    public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_WALL = createBlock(() -> new WallBlock(BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_wall");
     public static final BlockRegistryObject<Block> BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
     public static final BlockRegistryObject<Block> BORIC_FIRE = createBoricFireBlock(MaterialColor.COLOR_GREEN, "boric_fire");
     public static final BlockRegistryObject<Block> BORIC_LANTERN = createLanternBlock(MaterialColor.COLOR_GREEN, "boric_lantern");
@@ -237,7 +241,10 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> TALL_EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_embur_roots");
 
     public static final BlockRegistryObject<Block> BLUE_NETHERRACK = createNetherStone(MaterialColor.TERRACOTTA_BLUE, "blue_netherrack");
-    public static final BlockRegistryObject<Block> BLUE_NETHERRACK_BRICKS = createBlock(BYGBlockProperties.BYGBlueNetherrackBricks::new, "blue_nether_bricks");
+    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICKS = createBlock(BYGBlockProperties.BYGBlueNetherrackBricks::new, "blue_nether_bricks");
+    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_STAIRS = createBlock(() -> StairBlockAccess.byg_create(BLUE_NETHER_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_stairs");
+    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_SLAB = createBlock(() -> new SlabBlock(BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_slab");
+    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_WALL = createBlock(() -> new WallBlock(BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_wall");
 
     public static final BlockRegistryObject<Block> BULBIS_SPROUTS = createIvisBulbisPlant("bulbis_sprouts");
     public static final BlockRegistryObject<Block> IVIS_ROOTS = createIvisBulbisPlant("ivis_roots");
@@ -1169,7 +1176,7 @@ public class BYGBlocks {
     public static BlockRegistryObject<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
         final var b = createBlock(blockForPot, id);
         final BlockRegistryObject<Block> potted = createBlock(() -> BYGBlockFactory.INSTANCE.createPottedBlock(b, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()), "potted_" + id);
-        flowerPotBlocks.add(potted);
+        FLOWER_POT_BLOCKS.add(potted);
         return b;
     }
 
@@ -1277,8 +1284,10 @@ public class BYGBlocks {
         return createSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
-    static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        return BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+    private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        SIGN_BLOCKS.add(signBlock);
+        return signBlock;
     }
 
     static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
@@ -1286,7 +1295,9 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        return BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+        SIGN_BLOCKS.add(signBlock);
+        return signBlock;
     }
 
     public static <B extends Block> BlockRegistryObject<B> createBlock(Supplier<? extends B> block, String id) {

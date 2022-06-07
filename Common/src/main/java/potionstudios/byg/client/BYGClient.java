@@ -23,8 +23,7 @@ public class BYGClient {
 
     public static void load() {
         BYG.LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
-        BiomepediaClientData.getConfig(true);
-
+//        BiomepediaClientData.getConfig(true);
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
         BYG.LOGGER.info("BYG: \"Client Setup\" Event Complete!");
     }

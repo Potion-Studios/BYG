@@ -138,11 +138,10 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                     final var overlayLoc = models().existingFileHelper.exists(overlaySupposedLoc, ModelProviderAccess.getTexture()) ? overlaySupposedLoc : leavesLoc;
                     leaves = leaves(typeName + "/leaves", leavesLoc, overlayLoc);
                 } else {
-                    leaves = models().cube(
+                    leaves = models().withExistingParent(
                             typeName + "/leaves",
-                            leavesLoc, leavesLoc, leavesLoc,
-                            leavesLoc, leavesLoc, leavesLoc
-                    ).texture("particle", leavesLoc);
+                            new ResourceLocation("block/leaves")
+                    ).texture("all", leavesLoc).texture("particle", leavesLoc);
                 }
                 configureTransform(item.withExistingParent(type.leaves().getId().getPath(), leaves.getLocation()));
                 models().cube(

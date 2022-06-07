@@ -46,6 +46,8 @@ public interface ModPlatform {
 
     Platform modPlatform();
 
+    boolean hasLoadErrors();
+
     default <P extends BYGS2CPacket> void sendToAllClients(List<ServerPlayer> players, P packet) {
         for (ServerPlayer player : players) {
             sendToClient(player, packet);

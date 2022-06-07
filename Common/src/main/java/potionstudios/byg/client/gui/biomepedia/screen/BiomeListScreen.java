@@ -69,7 +69,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
             createMenu(this.lastInput, false);
         }
 
-        PageButton back = new PageButton(this.leftPos + 5, this.topPos - 10, false, button -> {
+        PageButton back = new PageButton(pageBackButtonX, pageButtonY, false, button -> {
             if (pagePairsCount == 0) {
                 return;
             }
@@ -88,7 +88,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
         this.back.x = this.leftPos + 15;
         this.back.y = this.topPos - this.back.getHeight() - 13;
 
-        PageButton next = new PageButton(this.rightPos - 5, this.topPos - 10, true, button -> {
+        PageButton next = new PageButton(pageButtonForwardX, pageButtonY, true, button -> {
             if (pagePairsCount == 0) {
                 return;
             }
@@ -140,7 +140,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                         this.back.visible = true;
                         this.back.active = true;
                     }
-                });
+                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TranslatableComponent("biomepedia.biomelist.search"), mouseX, mouseZ), TextComponent.EMPTY);
         this.addRenderableWidget(this.searchButton);
         this.addRenderableWidget(this.search);
 

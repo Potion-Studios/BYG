@@ -9,46 +9,63 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.random.WeightedRandomList;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import potionstudios.byg.mixin.access.WeightedListAccess;
 import potionstudios.byg.util.codec.CollectionCodec;
 
 import java.util.Collection;
 import java.util.Map;
-import java.util.Objects;
 
 public final class LevelBiomeTracker {
 
     private final Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = new Object2ObjectOpenHashMap<>();
+    private final Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> biomeMobs;
 
-    public LevelBiomeTracker(Map<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> biomesForLevel) {
+    public LevelBiomeTracker(Map<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> biomesForLevel, Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> biomeMobs) {
         this.biomesForLevel = biomesForLevel;
         biomesForLevel.forEach(((level, biomes) -> {
             for (ResourceKey<Biome> biome : biomes) {
                 biomeDimensions.computeIfAbsent(biome, key -> new ObjectOpenHashSet<>()).add(level);
             }
         }));
+        this.biomeMobs = biomeMobs;
     }
 
     public static LevelBiomeTracker client_instance = null;
 
     public static final Codec<LevelBiomeTracker> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.unboundedMap(ResourceKey.codec(Registry.DIMENSION_REGISTRY), new CollectionCodec<>(ResourceKey.codec(Registry.BIOME_REGISTRY), ObjectOpenHashSet::new)).fieldOf("biomes_for_level").forGetter(LevelBiomeTracker::biomesForLevel)
+                    Codec.unboundedMap(ResourceKey.codec(Registry.DIMENSION_REGISTRY), new CollectionCodec<>(ResourceKey.codec(Registry.BIOME_REGISTRY), ObjectOpenHashSet::new)).fieldOf("biomes_for_level").forGetter(levelBiomeTracker -> levelBiomeTracker.biomesForLevel),
+                    Codec.unboundedMap(ResourceKey.codec(Registry.BIOME_REGISTRY), new CollectionCodec<>(ResourceKey.codec(Registry.ENTITY_TYPE_REGISTRY), ObjectOpenHashSet::new)).fieldOf("biome_mobs").forGetter(levelBiomeTracker -> levelBiomeTracker.biomeMobs)
             ).apply(builder, LevelBiomeTracker::new));
     private final Map<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> biomesForLevel;
 
 
     public static LevelBiomeTracker fromServer(MinecraftServer server) {
         Object2ObjectOpenHashMap<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> map = new Object2ObjectOpenHashMap<>();
+        Object2ObjectOpenHashMap<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> entitySpawns = new Object2ObjectOpenHashMap<>();
         for (ServerLevel level : server.getAllLevels()) {
             ObjectOpenHashSet<ResourceKey<Biome>> biomes = map.computeIfAbsent(level.dimension(), key -> new ObjectOpenHashSet<>());
 
             for (Holder<Biome> possibleBiome : level.getChunkSource().getGenerator().getBiomeSource().possibleBiomes()) {
-                biomes.add(possibleBiome.unwrapKey().orElseThrow());
+                ResourceKey<Biome> biomeResourceKey = possibleBiome.unwrapKey().orElseThrow();
+                biomes.add(biomeResourceKey);
+
+                for (MobCategory category : MobCategory.values()) {
+                    WeightedRandomList<MobSpawnSettings.SpawnerData> mobs = possibleBiome.value().getMobSettings().getMobs(category);
+                    ((WeightedListAccess<MobSpawnSettings.SpawnerData>) mobs).byg_getItems().stream().map(spawnerData -> spawnerData.type).map(entityType -> Registry.ENTITY_TYPE.getResourceKey(entityType).orElseThrow()).forEach(entityTypeResourceKey -> {
+                        entitySpawns.computeIfAbsent(biomeResourceKey, key -> new ObjectOpenHashSet<>()).add(entityTypeResourceKey);
+                    });
+
+                }
             }
         }
-        return new LevelBiomeTracker(map);
+        return new LevelBiomeTracker(map, entitySpawns);
     }
 
     public Map<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> biomesForLevel() {
@@ -59,23 +76,11 @@ public final class LevelBiomeTracker {
         return biomeDimensions;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (LevelBiomeTracker) obj;
-        return Objects.equals(this.biomesForLevel, that.biomesForLevel);
+    public Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> getBiomeMobs() {
+        return biomeMobs;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(biomesForLevel);
+    public interface Access {
+        LevelBiomeTracker levelBiomeTracker();
     }
-
-    @Override
-    public String toString() {
-        return "LevelBiomeTracker[" +
-                "biomesForLevel=" + biomesForLevel + ']';
-    }
-
 }

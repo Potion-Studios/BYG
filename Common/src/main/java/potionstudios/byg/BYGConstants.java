@@ -4,9 +4,9 @@ public class BYGConstants {
     public static final boolean BIOMES = true;
     public static final boolean WARN_EXPERIMENTAL = false;
     public static final int EXPERIMENTAL_WARNING_VERSION = 5;
-    public static final int CONFIG_VERSION = 3;
+    public static final int CONFIG_VERSION = 4;
     public static final boolean BIOMEPEDIA = true;
-    public static final boolean SIGNS = false;
+    public static final boolean SIGNS = true;
     public static boolean ENABLE_OVERWORLD_TREES = true;
     public static boolean ENABLE_CACTI = true;
 }
