@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/mangrove/leaves",
-    "up": "byg:block/mangrove/leaves",
-    "north": "byg:block/mangrove/leaves",
-    "south": "byg:block/mangrove/leaves",
-    "east": "byg:block/mangrove/leaves",
-    "west": "byg:block/mangrove/leaves",
+    "all": "byg:block/mangrove/leaves",
     "particle": "byg:block/mangrove/leaves"
   }
 }

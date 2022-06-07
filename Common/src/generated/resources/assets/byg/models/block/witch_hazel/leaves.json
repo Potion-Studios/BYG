@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/witch_hazel/leaves",
-    "up": "byg:block/witch_hazel/leaves",
-    "north": "byg:block/witch_hazel/leaves",
-    "south": "byg:block/witch_hazel/leaves",
-    "east": "byg:block/witch_hazel/leaves",
-    "west": "byg:block/witch_hazel/leaves",
+    "all": "byg:block/witch_hazel/leaves",
     "particle": "byg:block/witch_hazel/leaves"
   }
 }

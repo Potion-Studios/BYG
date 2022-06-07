@@ -221,6 +221,9 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             if (type.sign() != null) {
                 final var model = models().sign(typeName + "/sign", planksLoc);
                 signBlock((StandingSignBlock) type.sign().get(), (WallSignBlock) type.wallSign().get(), model);
+
+                itemModels().withExistingParent(type.sign().getId().getPath(), generatedParent)
+                        .texture("layer0", rl(typeLocItem + "sign"));
             }
 
 // No wood walls for now

@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/blue_enchanted/leaves",
-    "up": "byg:block/blue_enchanted/leaves",
-    "north": "byg:block/blue_enchanted/leaves",
-    "south": "byg:block/blue_enchanted/leaves",
-    "east": "byg:block/blue_enchanted/leaves",
-    "west": "byg:block/blue_enchanted/leaves",
+    "all": "byg:block/blue_enchanted/leaves",
     "particle": "byg:block/blue_enchanted/leaves"
   }
 }

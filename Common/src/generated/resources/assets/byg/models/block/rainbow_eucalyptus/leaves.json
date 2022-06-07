@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/rainbow_eucalyptus/leaves",
-    "up": "byg:block/rainbow_eucalyptus/leaves",
-    "north": "byg:block/rainbow_eucalyptus/leaves",
-    "south": "byg:block/rainbow_eucalyptus/leaves",
-    "east": "byg:block/rainbow_eucalyptus/leaves",
-    "west": "byg:block/rainbow_eucalyptus/leaves",
+    "all": "byg:block/rainbow_eucalyptus/leaves",
     "particle": "byg:block/rainbow_eucalyptus/leaves"
   }
 }

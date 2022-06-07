@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "down": "byg:block/jacaranda/leaves",
-    "up": "byg:block/jacaranda/leaves",
-    "north": "byg:block/jacaranda/leaves",
-    "south": "byg:block/jacaranda/leaves",
-    "east": "byg:block/jacaranda/leaves",
-    "west": "byg:block/jacaranda/leaves",
+    "all": "byg:block/jacaranda/leaves",
     "particle": "byg:block/jacaranda/leaves"
   }
 }
