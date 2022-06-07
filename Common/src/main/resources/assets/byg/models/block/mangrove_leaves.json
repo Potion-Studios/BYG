@@ -1,7 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "byg:block/mangrove_leaves",
-    "particle": "byg:block/mangrove_leaves"
+    "all": "byg:block/mangrove_leaves"
   }
 }
