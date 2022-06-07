@@ -4,7 +4,9 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.ForgeRegistries;
 import potionstudios.byg.BYG;
@@ -44,7 +46,13 @@ class BYGBlockLootProvider extends BlockLoot {
             if (type.growerItem() != null) {
                 final var growerName = type.growerItem().getId().getPath();
                 final var potted = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + growerName));
-                dropOther(potted, type.growerItem());
+                add(potted, LootTable.lootTable()
+                        .withPool(applyExplosionCondition(type.growerItem(), LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(type.growerItem()))))
+                        .withPool(applyExplosionCondition(Items.FLOWER_POT, LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(Items.FLOWER_POT)))));
             }
         }
     }
