@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.item.BYGItemTags;
 
 import java.util.function.Consumer;
 
@@ -64,7 +65,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .group("wooden_fence")
                 .pattern("W#W")
                 .pattern("W#W")
-                .define('#', Items.STICK) // TODO this should be a tag
+                .define('#', BYGItemTags.STICKS)
                 .define('W', type.planks())
                 .unlockedBy("has_planks", has(type.planks()))
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence"));
@@ -73,7 +74,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .pattern("#W#")
                 .pattern("#W#")
                 .unlockedBy("has_planks", has(type.planks()))
-                .define('#', Items.STICK) // TODO this should be a tag
+                .define('#', BYGItemTags.STICKS)
                 .define('W', type.planks())
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence_gate"));
             ShapelessRecipeBuilder.shapeless(type.planks(), 4)
@@ -115,6 +116,16 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .define('L', type.log())
                 .unlockedBy("has_log", has(type.log()))
                 .save(consumer, BYG.createLocation("wood/" + type + "/wood"));
+            if (type.sign() != null) {
+                ShapedRecipeBuilder.shaped(type.sign(), 3)
+                    .group("sign")
+                    .pattern("PPP")
+                    .pattern("PPP")
+                    .pattern(" S ")
+                    .define('P', type.planks())
+                    .define('S', BYGItemTags.STICKS)
+                    .save(consumer, BYG.createLocation("wood/" + type + "/sign"));
+            }
         }
     }
 

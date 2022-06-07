@@ -11,15 +11,18 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.item.BYGItemTags;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
@@ -69,6 +72,10 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         new PredicatedTagProvider<>(BYGItems.PROVIDER)
             .add(isBlockMaterial(Material.LEAVES), ItemTags.LEAVES) // Can't copy this one due to slight differences
             .run(this::tag);
+
+        tag(BYGItemTags.STICKS)
+            .add(Items.STICK)
+            .addOptionalTag(Tags.Items.RODS_WOODEN.location());
 
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
