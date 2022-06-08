@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import potionstudios.byg.client.config.ScreenPosition;
 
 import java.util.ArrayList;
@@ -25,11 +25,11 @@ public abstract class KeyCommentToolTipEntry<T> extends ContainerObjectSelection
     public boolean renderToolTip;
 
     public KeyCommentToolTipEntry(Screen parent, String key) {
-        this(parent, key, new TextComponent(""));
+        this(parent, key, Component.literal(""));
     }
 
     public KeyCommentToolTipEntry(Screen parent, String key, String comment) {
-        this(parent, key, new TextComponent(comment));
+        this(parent, key, Component.literal(comment));
     }
 
     public KeyCommentToolTipEntry(Screen parent, String key, Component comment) {
@@ -69,12 +69,12 @@ public abstract class KeyCommentToolTipEntry<T> extends ContainerObjectSelection
                 if (Minecraft.getInstance().font.width(comment.toString()) < pWidth) {
                     comment.append(word).append(" ");
                 } else {
-                    toolTip.add(new TextComponent(comment.toString()));
+                    toolTip.add(Component.literal(comment.toString()));
                     comment = new StringBuilder(word).append(" ");
                 }
             }
             if (!comment.isEmpty()) {
-                toolTip.add(new TextComponent(comment.toString()));
+                toolTip.add(Component.literal(comment.toString()));
             }
         }
         cachedWidth = pWidth;

@@ -7,6 +7,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -223,7 +224,7 @@ public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
     //colors
 
 
-    public static Colors getRandColor(Random rand) {
+    public static Colors getRandColor(RandomSource rand) {
         int i = rand.nextInt(5);
         if (i <= 0) {
             return Colors.MAGENTA;

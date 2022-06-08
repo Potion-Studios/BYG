@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.main.GameConfig;
 import net.minecraft.server.WorldStem;
+import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,8 +16,6 @@ import potionstudios.byg.client.gui.screen.BYGConfigLoadFailureScreen;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.entry.BYGTerraBlenderEntry;
 
-import java.util.function.Function;
-
 @Mixin(Minecraft.class)
 public abstract class MixinMinecraft {
 
@@ -24,15 +23,15 @@ public abstract class MixinMinecraft {
     public abstract void setScreen(@Nullable Screen guiScreen);
 
     @Shadow
-    protected abstract void doLoadLevel(String levelName, Function<LevelStorageSource.LevelStorageAccess, WorldStem.DataPackConfigSupplier> levelSaveToDatapackFunction, Function<LevelStorageSource.LevelStorageAccess, WorldStem.WorldDataSupplier> function, boolean vanillaOnly, Minecraft.ExperimentalDialogType selectionType);
+    public abstract void doWorldLoad(String string, LevelStorageSource.LevelStorageAccess levelStorageAccess, PackRepository packRepository, WorldStem worldStem);
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void byg_MinecraftInit(GameConfig gameConfig, CallbackInfo ci) {
         BYGTerraBlenderEntry.readOverworldSurfaceRules();
     }
 
-    @Inject(method = "doLoadLevel", at = @At("HEAD"), cancellable = true)
-    private void loadBYGConfigs(String levelName, Function<LevelStorageSource.LevelStorageAccess, WorldStem.DataPackConfigSupplier> levelSaveToDatapackFunction, Function<LevelStorageSource.LevelStorageAccess, WorldStem.WorldDataSupplier> function, boolean vanillaOnly, Minecraft.ExperimentalDialogType selectionType, CallbackInfo ci) {
+    @Inject(method = "doWorldLoad", at = @At("HEAD"), cancellable = true)
+    private void loadBYGConfigs(String string, LevelStorageSource.LevelStorageAccess levelStorageAccess, PackRepository packRepository, WorldStem worldStem, CallbackInfo ci) {
         try {
             String loadAllConfigs = BYGConfigHandler.loadAllConfigs(true, false);
             if (!loadAllConfigs.isEmpty()) {
@@ -40,7 +39,7 @@ public abstract class MixinMinecraft {
             }
         } catch (Exception e) {
             this.setScreen(new BYGConfigLoadFailureScreen(e,
-                    () -> doLoadLevel(levelName, levelSaveToDatapackFunction, function, vanillaOnly, selectionType)
+                    () -> doWorldLoad(string, levelStorageAccess, packRepository, worldStem)
             ));
             ci.cancel();
         }

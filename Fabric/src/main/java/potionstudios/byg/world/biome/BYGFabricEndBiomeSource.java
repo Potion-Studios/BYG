@@ -19,13 +19,11 @@ public class BYGFabricEndBiomeSource extends BYGEndBiomeSource {
     public static final Codec<BYGFabricEndBiomeSource> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter((bygEndBiomeSource) -> {
             return bygEndBiomeSource.getBiomeRegistry();
-        }), Codec.LONG.fieldOf("seed").stable().forGetter((bygEndBiomeSource) -> {
-            return bygEndBiomeSource.getSeed();
         })).apply(builder, builder.stable(BYGFabricEndBiomeSource::new));
     });
 
-    public BYGFabricEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        super(biomeRegistry, seed);
+    public BYGFabricEndBiomeSource(Registry<Biome> biomeRegistry) {
+        super(biomeRegistry);
     }
 
     @Override
@@ -49,10 +47,5 @@ public class BYGFabricEndBiomeSource extends BYGEndBiomeSource {
     @Override
     protected Codec<? extends BiomeSource> codec() {
         return CODEC;
-    }
-
-    @Override
-    public BiomeSource withSeed(long l) {
-        return new BYGFabricEndBiomeSource(getBiomeRegistry(), l);
     }
 }

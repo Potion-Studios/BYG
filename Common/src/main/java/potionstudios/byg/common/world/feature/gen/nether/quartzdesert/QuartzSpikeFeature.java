@@ -15,7 +15,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND.get());
@@ -32,7 +32,7 @@ public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, QuartzSpikeConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, QuartzSpikeConfig config) {
         setSeed(world.getSeed());
 
         if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()) != BYGBlocks.QUARTZITE_SAND.defaultBlockState() || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)

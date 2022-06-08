@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.common.world.feature.config.GiantFlowerConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConfig> {
 
@@ -16,7 +16,7 @@ public class AngelicaGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConf
         super(configIn);
     }
 
-    protected boolean placeFlower(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
+    protected boolean placeFlower(WorldGenLevel worldIn, RandomSource rand, BlockPos pos, boolean isFlower, GiantFlowerConfig config) {
         BlockState STEM = config.getStemProvider().getState(rand, pos);
         BlockState PETAL = config.getPetalProvider().getState(rand, pos);
         BlockState POLLEN = config.getPollenProvider().getState(rand, pos);

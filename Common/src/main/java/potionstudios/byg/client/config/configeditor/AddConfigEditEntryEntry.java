@@ -8,8 +8,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
@@ -28,16 +27,16 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
     public AddConfigEditEntryEntry(Screen parent, ConfigEditScreen.ConfigMap<?> map, BiFunction<String, String, ConfigEditEntry<?>> toBuild, String key) {
         super(parent, key, "Type \"list\" to make a list\nType \"map\" to make a map.");
         this.map = map;
-        this.entryKey = new EditBox(Minecraft.getInstance().font, 0, 0, 150, 20, new TextComponent("Key"));
+        this.entryKey = new EditBox(Minecraft.getInstance().font, 0, 0, 150, 20, Component.literal("Key"));
         this.entryKey.visible = false;
         this.entryKey.active = false;
 
-        this.entryValue = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent("Value"));
+        this.entryValue = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, Component.literal("Value"));
         this.entryValue.visible = false;
         this.entryValue.active = false;
         Mutable<Button> getAddEntry = new MutableObject<>(null);
 
-        this.makeEntry = new Button(0, 0, 50, 20, new TranslatableComponent("Make"), button -> {
+        this.makeEntry = new Button(0, 0, 50, 20, Component.translatable("Make"), button -> {
             this.entryKey.visible = false;
             this.entryKey.active = false;
             this.entryValue.visible = false;
@@ -58,7 +57,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
         this.makeEntry.visible = false;
         this.makeEntry.active = false;
 
-        this.addEntry = new Button(0, 0, 200, 20, new TranslatableComponent("Add Entry"), button -> {
+        this.addEntry = new Button(0, 0, 200, 20, Component.translatable("Add Entry"), button -> {
             button.active = false;
             button.visible = false;
             this.entryKey.visible = true;
@@ -69,7 +68,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
             this.makeEntry.active = !this.entryKey.getValue().isBlank() && !this.entryValue.getValue().isBlank();
         });
         getAddEntry.setValue(this.addEntry);
-        this.entryKey.setResponder(s ->  {
+        this.entryKey.setResponder(s -> {
             if (s.isBlank()) {
                 this.makeEntry.active = false;
             } else {
@@ -77,7 +76,7 @@ public class AddConfigEditEntryEntry extends ConfigEditEntry<ConfigEntriesSerial
             }
         });
 
-        this.entryValue.setResponder(s ->  {
+        this.entryValue.setResponder(s -> {
             if (s.isBlank()) {
                 this.makeEntry.active = false;
             } else {

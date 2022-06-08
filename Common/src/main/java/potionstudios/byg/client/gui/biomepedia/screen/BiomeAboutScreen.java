@@ -9,8 +9,8 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -36,21 +36,21 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     private final Component climateText;
 
     protected BiomeAboutScreen(ResourceKey<Biome> biomeKey, Screen parent) {
-        super(new TranslatableComponent("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
+        super(Component.translatable("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
         this.biomeKey = biomeKey;
         this.parent = parent;
         String translationKey = String.format("biomepedia.biome.%s.%s.desc", biomeKey.location().getNamespace(), biomeKey.location().getPath());
         boolean useTranslation = !I18n.get(translationKey).equals(translationKey);
 
-        this.description = new TranslatableComponent(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
+        this.description = Component.translatable(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
 
         ResourceLocation resourceLocation = new ResourceLocation(biomeKey.location().getNamespace(), "/textures/biome_previews/" + biomeKey.location().getPath() + ".png");
-        this.previewImageLocation = Minecraft.getInstance().getResourceManager().hasResource(resourceLocation) ? resourceLocation : null;
+        this.previewImageLocation = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).isPresent() ? resourceLocation : null;
         if (previewImageLocation == null) {
             BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
         }
 
-        MutableComponent dimensionsText = new TranslatableComponent("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent dimensionsText = Component.translatable("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
         if (biomeDimensions.containsKey(biomeKey)) {
@@ -58,21 +58,21 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
             Collection<ResourceKey<Level>> dimensions = biomeDimensions.get(biomeKey);
             for (ResourceKey<Level> levelResourceKey : dimensions) {
                 String dimensionTranslationKey = "dimension." + levelResourceKey.location().getNamespace() + "." + levelResourceKey.location().getPath();
-                TranslatableComponent dimensionComponent = new TranslatableComponent(dimensionTranslationKey);
-                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : new TextComponent(levelResourceKey.location().toString()));
+                MutableComponent dimensionComponent = Component.translatable(dimensionTranslationKey);
+                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : Component.literal(levelResourceKey.location().toString()));
             }
         } else {
-            dimensionsText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.dimensions.none"));
+            dimensionsText.append("\n").append(Component.translatable("biomepedia.biomeabout.dimensions.none"));
         }
         this.dimensionsText = dimensionsText;
 
-        MutableComponent climateText = new TranslatableComponent("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent climateText = Component.translatable("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         Biome biome = biomeRegistry.get(biomeKey);
 
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.downfall", biome.getDownfall()));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.climate.precipitation", new TranslatableComponent("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.downfall", biome.getDownfall()));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.precipitation", Component.translatable("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())));
         this.climateText = climateText;
     }
 

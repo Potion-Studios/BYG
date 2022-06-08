@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class SythianStalk extends Feature<ProbabilityFeatureConfiguration> {
     private static final BlockState BAMBOO_BASE;
@@ -31,7 +31,7 @@ public class SythianStalk extends Feature<ProbabilityFeatureConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityFeatureConfiguration config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, ProbabilityFeatureConfiguration config) {
         int aNumber = 0;
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(pos);

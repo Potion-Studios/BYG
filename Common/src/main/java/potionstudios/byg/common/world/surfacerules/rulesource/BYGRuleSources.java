@@ -32,9 +32,9 @@ public class BYGRuleSources {
     static {
         final var provider = RegistrationProvider.get(Registry.RULE_REGISTRY, BYG.MOD_ID);
 
-        provider.register("state_provider", () -> WeightedRuleSource.CODEC);
-        provider.register("bands", () -> BandsRuleSource.CODEC);
-        provider.register("between_repeating_noise_range", () -> BetweenRepeatingNoiseRange.CODEC);
-        provider.register("result_state_with_tick", () -> BlockRuleSourceWithTick.CODEC);
+        provider.register("state_provider", WeightedRuleSource.CODEC::codec);
+        provider.register("bands", BandsRuleSource.CODEC::codec);
+        provider.register("between_repeating_noise_range", BetweenRepeatingNoiseRange.CODEC::codec);
+        provider.register("result_state_with_tick", BlockRuleSourceWithTick.CODEC::codec);
     }
 }

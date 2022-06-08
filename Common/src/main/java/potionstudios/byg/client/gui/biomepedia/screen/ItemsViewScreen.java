@@ -6,7 +6,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,7 +27,7 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
     private final Screen parent;
 
     protected ItemsViewScreen(Screen parent) {
-        super(new TextComponent(""));
+        super(Component.literal(""));
         this.parent = parent;
     }
 
@@ -107,7 +107,7 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
             if (itemWidget.isMouseOver(mouseX, mouseY)) {
                 List<Component> tooltipLines = itemWidget.stack.getTooltipLines(Minecraft.getInstance().player, this.minecraft.options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL);
                 if (itemWidget.hasAdditonalInfo) {
-                    tooltipLines.add(1, new TextComponent("Click for more info"));
+                    tooltipLines.add(1, Component.literal("Click for more info"));
                 }
                 this.renderTooltip(poseStack, tooltipLines, itemWidget.stack.getTooltipImage(), mouseX, mouseY);
             }

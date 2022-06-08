@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class SubzeroCrystalFeature extends Feature<NoneFeatureConfiguration> {
     private static final BlockStatePredicate IS_TRAVERTINE = BlockStatePredicate.forBlock(BYGBlocks.TRAVERTINE.get());
@@ -25,7 +25,7 @@ public class SubzeroCrystalFeature extends Feature<NoneFeatureConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, NoneFeatureConfiguration config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource random, BlockPos pos, NoneFeatureConfiguration config) {
 
         int type = random.nextInt(2);
 
@@ -122,7 +122,7 @@ public class SubzeroCrystalFeature extends Feature<NoneFeatureConfiguration> {
     }
 
 
-    public static BlockState getCrystalType(Random rand){
+    public static BlockState getCrystalType(RandomSource rand){
         int i = rand.nextInt(7);
         if (i <= 5){
             return BYGBlocks.SUBZERO_CRYSTAL_BLOCK.defaultBlockState();

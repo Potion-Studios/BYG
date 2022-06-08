@@ -38,13 +38,13 @@ public class ForgeModPlatform implements ModPlatform {
     }
 
     @Override
-    public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        return new BYGForgeNetherBiomeSource(biomeRegistry, seed);
+    public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry) {
+        return new BYGForgeNetherBiomeSource(biomeRegistry);
     }
 
     @Override
-    public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        return new BYGForgeEndBiomeSource(biomeRegistry, seed);
+    public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry) {
+        return new BYGForgeEndBiomeSource(biomeRegistry);
     }
 
     @Override

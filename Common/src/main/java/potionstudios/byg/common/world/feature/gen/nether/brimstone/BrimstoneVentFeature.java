@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BrimstoneVentsConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
     private static final BlockStatePredicate IS_BRIMSTONE = BlockStatePredicate.forBlock(BYGBlocks.BRIMSTONE.get());
@@ -28,7 +28,7 @@ public class BrimstoneVentFeature extends Feature<BrimstoneVentsConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, BrimstoneVentsConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource random, BlockPos pos, BrimstoneVentsConfig config) {
 
         int type = random.nextInt(2);
 

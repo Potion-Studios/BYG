@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FNVector3f;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> {
 
@@ -18,7 +18,7 @@ public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> 
     }
 
     @Override
-    public boolean generate(WorldGenLevel world, Random random, ChunkAccess chunkIn, int x, int z, PointyRockConfig config) {
+    public boolean generate(WorldGenLevel world, RandomSource random, ChunkAccess chunkIn, int x, int z, PointyRockConfig config) {
         config.setUpNoise(world.getSeed());
         int xPos = x & 15;
         int zPos = z & 15;

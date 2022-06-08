@@ -12,7 +12,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
@@ -29,7 +29,7 @@ public class EnchantedGroveTree extends BYGAbstractTreeFeature<BYGTreeConfig> {
         });
     }
 
-    public boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, RandomSource rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(2) + rand.nextInt(2) + 9;
         //Positions

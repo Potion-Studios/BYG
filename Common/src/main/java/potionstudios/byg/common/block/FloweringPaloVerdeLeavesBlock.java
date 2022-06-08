@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class FloweringPaloVerdeLeavesBlock extends LeavesBlock {
     public FloweringPaloVerdeLeavesBlock(Properties properties) {
@@ -15,7 +15,7 @@ public class FloweringPaloVerdeLeavesBlock extends LeavesBlock {
     }
 
     @Override
-    public void animateTick(BlockState $$0, @NotNull Level $$1, @NotNull BlockPos $$2, @NotNull Random $$3) {
+    public void animateTick(BlockState $$0, @NotNull Level $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
         int $$4 = $$2.getX();
         int $$5 = $$2.getY();
         int $$6 = $$2.getZ();

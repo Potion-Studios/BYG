@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class RiverThingy extends Feature<NoneFeatureConfiguration> {
     public RiverThingy(Codec<NoneFeatureConfiguration> config) {
@@ -27,7 +27,7 @@ public class RiverThingy extends Feature<NoneFeatureConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, NoneFeatureConfiguration config) {
         setSeed(worldIn.getSeed());
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         int multiplier = 15;

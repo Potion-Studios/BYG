@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -83,7 +84,7 @@ public interface FeatureGrowerFromBlockPattern {
         }
     }
 
-    static boolean growFeature(Block block, ServerLevel world, BlockPos pos, Random rand, List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner) {
+    static boolean growFeature(Block block, ServerLevel world, BlockPos pos, RandomSource rand, List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner) {
         int range = (GrowingPatterns.MAX_PATTERN_SIZE - 1) / 2;
         BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
         for (Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>> entry : patternsToSpawner) {

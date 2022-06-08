@@ -36,23 +36,23 @@ public class UpdateConfigsCommand {
     public static final String DISMISS_COMMAND = "/" + BYG.MOD_ID + " " + COMMAND_STRING + " " + DISMISS_STRING;
     public static final String BACKUP_PATH = "\".../config/byg/backups\"";
 
-    public static final Component UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(new TranslatableComponent("byg.command.updateconfig.update")
+    public static final Component UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(Component.translatable("byg.command.updateconfig.update")
             .withStyle(ChatFormatting.GREEN)
             .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, UPDATE_COMMAND))
-                    .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.command.updateconfig.update.hover", new TextComponent(BACKUP_PATH).withStyle(ChatFormatting.BLUE))
+                    .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("byg.command.updateconfig.update.hover", Component.literal(BACKUP_PATH).withStyle(ChatFormatting.BLUE))
                             .withStyle(ChatFormatting.RED)))
             )
     );
 
-    public static final Component DISMISS_UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(new TranslatableComponent("byg.command.updateconfig.dismiss")
+    public static final Component DISMISS_UPDATE_COMPONENT = ComponentUtils.wrapInSquareBrackets(Component.translatable("byg.command.updateconfig.dismiss")
             .withStyle(ChatFormatting.YELLOW)
             .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, DISMISS_COMMAND)))
     );
 
-    public static final TranslatableComponent CONTACT_SERVER_OWNER = new TranslatableComponent("byg.command.updateconfig.contactserverowner");
-    public static final MutableComponent PLAYER_WARNING = new TranslatableComponent("byg.command.updateconfig.warnplayers");
-    public static final MutableComponent SERVER_KILL_PLAYER_NOTIFICATION = new TranslatableComponent("byg.command.updateconfig.notifyplayersservershutdown");
-    public static final MutableComponent GAME_CLOSE_WARNING = new TranslatableComponent("byg.command.updateconfig.warngameclose");
+    public static final MutableComponent CONTACT_SERVER_OWNER = Component.translatable("byg.command.updateconfig.contactserverowner");
+    public static final MutableComponent PLAYER_WARNING = Component.translatable("byg.command.updateconfig.warnplayers");
+    public static final MutableComponent SERVER_KILL_PLAYER_NOTIFICATION = Component.translatable("byg.command.updateconfig.notifyplayersservershutdown");
+    public static final MutableComponent GAME_CLOSE_WARNING = Component.translatable("byg.command.updateconfig.warngameclose");
 
     public static ArgumentBuilder<CommandSourceStack, ?> register() {
         String argName = "action";
@@ -68,7 +68,7 @@ public class UpdateConfigsCommand {
 
             ConfigVersionTracker configVersionTracker = new ConfigVersionTracker(BYGConstants.CONFIG_VERSION);
             if (ConfigVersionTracker.getConfig().configVersion() == BYGConstants.CONFIG_VERSION) {
-                stack.sendSuccess(new TranslatableComponent("byg.command.updateconfig.configsuptodate"), true);
+                stack.sendSuccess(Component.translatable("byg.command.updateconfig.configsuptodate"), true);
                 return 1;
             }
 

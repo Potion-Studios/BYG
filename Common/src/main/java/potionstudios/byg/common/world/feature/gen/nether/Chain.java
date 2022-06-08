@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.ChainConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class Chain extends Feature<ChainConfig> {
     public Chain(Codec<ChainConfig> config) {
@@ -24,7 +24,7 @@ public class Chain extends Feature<ChainConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, ChainConfig config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, ChainConfig config) {
         int randChainLength = config.getMinLength() + rand.nextInt(config.getMaxPossibleLength());
 
         BlockPos.MutableBlockPos mainMutable1 = new BlockPos.MutableBlockPos().set(pos);

@@ -20,8 +20,8 @@ import potionstudios.byg.mixin.access.JsonReloadListenerAccess;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
 import java.util.Map;
+import java.util.Optional;
 
 @Mixin(LootTables.class)
 public abstract class MixinLootTableManager extends SimpleJsonResourceReloadListener {
@@ -36,8 +36,8 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
             return;
         }
         String appendTablesDir = "append_loot_tables";
-        Collection<ResourceLocation> resourceLocations = resourceManager.listResources(appendTablesDir, (key) -> key.endsWith(".json"));
-        for (ResourceLocation resourceLocation : resourceLocations) {
+        Map<ResourceLocation, Resource> resourceMap = resourceManager.listResources(appendTablesDir, (key) -> key.toString().endsWith(".json"));
+        for (ResourceLocation resourceLocation : resourceMap.keySet()) {
             ResourceLocation key = new ResourceLocation(resourceLocation.getPath().replace(appendTablesDir + "/", "").replaceFirst("/", ":").replace(".json", ""));
             if (values.containsKey(key)) {
                 values.get(key).getAsJsonObject().getAsJsonArray("pools").addAll(extractPools(resourceManager, resourceLocation));
@@ -46,11 +46,16 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
     }
 
     private JsonArray extractPools(ResourceManager resourceManager, ResourceLocation location) {
-        try (Resource appendedTable = resourceManager.getResource(location)) {
-            InputStream inputstream = appendedTable.getInputStream();
-            Reader reader = new BufferedReader(new InputStreamReader(inputstream, StandardCharsets.UTF_8));
-            JsonElement appendedElement = GsonHelper.fromJson(((JsonReloadListenerAccess) this).byg_getGson(), reader, JsonElement.class);
-            return appendedElement.getAsJsonObject().getAsJsonArray("pools");
+        try {
+            Optional<Resource> optionalResource = resourceManager.getResource(location);
+            if (optionalResource.isPresent()) {
+                Resource appendedTable = optionalResource.get();
+
+                InputStream inputstream = appendedTable.open();
+                Reader reader = new BufferedReader(new InputStreamReader(inputstream, StandardCharsets.UTF_8));
+                JsonElement appendedElement = GsonHelper.fromJson(((JsonReloadListenerAccess) this).byg_getGson(), reader, JsonElement.class);
+                return appendedElement.getAsJsonObject().getAsJsonArray("pools");
+            }
         } catch (IOException e) {
             BYG.LOGGER.error("Could not read appended table:" + location);
             e.printStackTrace();

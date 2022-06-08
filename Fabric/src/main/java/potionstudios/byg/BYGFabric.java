@@ -2,7 +2,7 @@ package potionstudios.byg;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.commands.Commands;
@@ -52,7 +52,7 @@ public class BYGFabric implements ModInitializer {
 
         BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
-        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> BYG.attachCommands(dispatcher, dedicated ? Commands.CommandSelection.DEDICATED : Commands.CommandSelection.INTEGRATED));
+        CommandRegistrationCallback.EVENT.register((dispatcher, commandBuildContext, commandSelection) -> BYG.attachCommands(dispatcher, commandSelection));
 
         registerVillagerTrades();
         BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));

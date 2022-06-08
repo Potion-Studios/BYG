@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class WitchHazelBlossomBlock extends SporeBlossomBlock {
     public WitchHazelBlossomBlock(Properties blockState) {
@@ -16,7 +16,7 @@ public class WitchHazelBlossomBlock extends SporeBlossomBlock {
     }
 
     @Override
-    public void animateTick(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Random random) {
+    public void animateTick(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
         int $$4 = blockPos.getX();
         int $$5 = blockPos.getY();
         int $$6 = blockPos.getZ();

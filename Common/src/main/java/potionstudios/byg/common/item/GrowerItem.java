@@ -5,8 +5,8 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -44,21 +44,21 @@ public class GrowerItem extends BlockItem {
             Minecraft mc = Minecraft.getInstance();
             KeyMapping keyShift = mc.options.keyShift;
             if (BYGClientUtil.isKeyOrMouseButtonDown(mc, keyShift)) {
-                components.add(new TranslatableComponent("byg.saplingpattern.tooltip"));
+                components.add(Component.translatable("byg.saplingpattern.tooltip"));
 
                 List<GrowingPatterns.GrowingPatternEntry> patternEntries = patterns.get(blockKey);
                 for (int i = 0; i < patternEntries.size(); i++) {
                     GrowingPatterns.GrowingPatternEntry growingPatternEntry = patternEntries.get(i);
                     for (String s : growingPatternEntry.pattern()) {
-                        Component textComponent = new TextComponent(s.replace(" ", "-"));
+                        Component textComponent = Component.literal(s.replace(" ", "-"));
                         components.add(textComponent);
                     }
                     if (i < patternEntries.size() - 1) {
-                        components.add(new TextComponent(""));
+                        components.add(Component.literal(""));
                     }
                 }
             } else {
-                components.add(new TranslatableComponent("byg.saplingpattern.suggest.hold.shift", keyShift.getTranslatedKeyMessage()).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
+                components.add(Component.translatable("byg.saplingpattern.suggest.hold.shift", keyShift.getTranslatedKeyMessage()).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
             }
         }
     }

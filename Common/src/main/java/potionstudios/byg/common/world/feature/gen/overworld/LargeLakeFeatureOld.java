@@ -19,7 +19,7 @@ import potionstudios.byg.util.BlockHelper;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModMathHelper;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 //Credits to BetterEnd & Pauelevs
 public class LargeLakeFeatureOld extends Feature<LargeLakeFeatureConfig> {
@@ -37,7 +37,7 @@ public class LargeLakeFeatureOld extends Feature<LargeLakeFeatureConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, Random random,
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator_, RandomSource random,
                          BlockPos blockPos, LargeLakeFeatureConfig config) {
         double radius = ModMathHelper.randRange(config.minRadius(), config.maxRadius(), random);
         double depth = radius * 0.5 * ModMathHelper.randRange(config.minDepth(), config.maxDepth(), random);

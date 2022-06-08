@@ -5,8 +5,8 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.util.FastColor;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.KillClient;
@@ -21,13 +21,13 @@ import java.io.StringWriter;
 
 public class BYGConfigLoadFailureScreen extends Screen {
 
-    private static final Component VALIDATE_CONFIGS_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.validate");
-    private static final Component VALIDATE_CONFIGS_HOVER = new TranslatableComponent("byg.screen.configloadfail.validate.hover");
-    private static final Component OPEN_CONFIG_DIR_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.openconfigdir");
-    private static final Component OPEN_CONFIG_DIR_HOVER = new TranslatableComponent("byg.screen.configloadfail.openconfigdir.hover");
-    private static final Component RECREATE_CONFIGS_MESSAGE = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs");
-    private static final Component RECREATE_CONFIGS_HOVER = new TranslatableComponent("byg.screen.configloadfail.recreateconfigs.hover");
-    private static final Component RECREATE_CONFIGS_TITLE = new TranslatableComponent("byg.screen.configloadfail.title");
+    private static final Component VALIDATE_CONFIGS_MESSAGE = Component.translatable("byg.screen.configloadfail.validate");
+    private static final Component VALIDATE_CONFIGS_HOVER = Component.translatable("byg.screen.configloadfail.validate.hover");
+    private static final Component OPEN_CONFIG_DIR_MESSAGE = Component.translatable("byg.screen.configloadfail.openconfigdir");
+    private static final Component OPEN_CONFIG_DIR_HOVER = Component.translatable("byg.screen.configloadfail.openconfigdir.hover");
+    private static final Component RECREATE_CONFIGS_MESSAGE = Component.translatable("byg.screen.configloadfail.recreateconfigs");
+    private static final Component RECREATE_CONFIGS_HOVER = Component.translatable("byg.screen.configloadfail.recreateconfigs.hover");
+    private static final Component RECREATE_CONFIGS_TITLE = Component.translatable("byg.screen.configloadfail.title");
 
     private final Exception exception;
     private final Runnable runnable;
@@ -50,7 +50,7 @@ public class BYGConfigLoadFailureScreen extends Screen {
         this.exception.printStackTrace(new PrintWriter(stringWriter));
 
         int errorBoxBottom = errorBoxTop + (this.height / 2);
-        ScrollableText text = new ScrollableText(new TextComponent("\n" + stringWriter.toString()), errorBoxLength, errorBoxTop, errorBoxTop, errorBoxBottom, FastColor.ARGB32.color(255, 255, 255, 255), true, true);
+        ScrollableText text = new ScrollableText(Component.literal("\n" + stringWriter.toString()), errorBoxLength, errorBoxTop, errorBoxTop, errorBoxBottom, FastColor.ARGB32.color(255, 255, 255, 255), true, true);
         text.setLeftPos(this.width / 2 - (errorBoxLength / 2));
         this.addRenderableWidget(text);
 
@@ -59,7 +59,7 @@ public class BYGConfigLoadFailureScreen extends Screen {
         int buttonY = errorBoxBottom + 10 + (buttonHeight / 2);
         Button validateConfigs = new Button((errorBoxLength / 3) - buttonWidth / 2, buttonY, buttonWidth, buttonHeight, VALIDATE_CONFIGS_MESSAGE,
                 button -> {
-                    this.minecraft.getToasts().addToast(new SystemToast(SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TranslatableComponent("byg.screen.configloadfail.validate.toast"), null));
+                    this.minecraft.getToasts().addToast(new SystemToast(SystemToast.SystemToastIds.PACK_LOAD_FAILURE, Component.translatable("byg.screen.configloadfail.validate.toast"), null));
                     this.runnable.run();
                 }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, VALIDATE_CONFIGS_HOVER, mouseX, mouseZ)
         );

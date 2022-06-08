@@ -82,7 +82,7 @@ public class BYGEndVegetationFeatures {
         new RandomPatchConfiguration(32, 4, 8,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK,
                 new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.ENDER_LILY.get()))
-            ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, BlockPos.ZERO.relative(Direction.DOWN)))))
+            ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.relative(Direction.DOWN), Fluids.WATER))))
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",

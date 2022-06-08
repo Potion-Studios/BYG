@@ -10,8 +10,8 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 
 import java.util.List;
 import java.util.function.Function;
@@ -24,26 +24,26 @@ public class ConfigPrimitiveEntry<T> extends ConfigEditEntry<T> {
     private final Button resetButton;
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue) {
-        this(parent, key, defaultVal, getValue, new TextComponent(""));
+        this(parent, key, defaultVal, getValue, Component.literal(""));
     }
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, String comment) {
-        this(parent, key, defaultVal, getValue, new TextComponent(comment));
+        this(parent, key, defaultVal, getValue, Component.literal(comment));
     }
 
     public ConfigPrimitiveEntry(Screen parent, String key, T defaultVal, Function<String, T> getValue, Component comment) {
         super(parent, key, comment);
-        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, new TextComponent(key));
+        this.editBox = new EditBox(Minecraft.getInstance().font, 0, 0, 200, 20, Component.literal(key));
         this.defaultVal = defaultVal;
         this.editBox.setMaxLength(1000);
         this.getValue = getValue;
         this.editBox.setValue(defaultVal.toString());
-        this.resetButton = new Button(0, 0, 50, 20, new TranslatableComponent("controls.reset"), (button) -> {
+        this.resetButton = new Button(0, 0, 50, 20, Component.translatable("controls.reset"), (button) -> {
             this.editBox.setValue(defaultVal.toString());
             button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
-                return new TranslatableComponent("narrator.controls.reset", key);
+                return Component.translatable("narrator.controls.reset", key);
             }
         };
     }

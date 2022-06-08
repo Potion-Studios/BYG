@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BloomingAloeVeraBlock extends DoublePlantBlock {
 
@@ -34,7 +34,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
 
     @Override
     public InteractionResult use(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        Random random = level.random;
+        RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
         BlockPos blockPos3 = blockPos.above();
 

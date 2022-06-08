@@ -15,7 +15,7 @@ import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBlockPattern {
 
@@ -39,7 +39,7 @@ public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBloc
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos pos, BlockState state) {
         FeatureGrowerFromBlockPattern.growFeature(this, serverLevel, pos, random, this.patternsToSpawner);
     }
 

@@ -9,7 +9,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
@@ -37,7 +37,7 @@ public class ConfigEditScreen extends Screen {
     }
 
     public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath, boolean reloadsOnSave) {
-        super(new TextComponent(String.format("Editing config file: \"%s\"", relativizedPath.toString())));
+        super(Component.literal(String.format("Editing config file: \"%s\"", relativizedPath.toString())));
         this.parent = parent;
         this.file = element;
         this.shownPath = relativizedPath;
@@ -64,7 +64,7 @@ public class ConfigEditScreen extends Screen {
         this.configEntries.rowWidth = maxCommentWidth;
         int searchWidth = 250;
 
-        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
+        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, Component.literal(""));
         this.searchBox.setResponder(this::searchResponder);
 
         int buttonWidth = 150;
@@ -99,9 +99,9 @@ public class ConfigEditScreen extends Screen {
         BiFunction<String, String, ConfigEditEntry<?>> makeEntry = (key, value) -> {
             String shownPath = this.file.path() + "." + key;
             if (value.equalsIgnoreCase("list")) {
-                return new ConfigCollectionEntry(this, key, this.file.makeList(shownPath), new TextComponent(""));
+                return new ConfigCollectionEntry(this, key, this.file.makeList(shownPath), Component.literal(""));
             } else if (value.equalsIgnoreCase("map")) {
-                return new ConfigCollectionEntry(this, key, this.file.makeMap(shownPath), new TextComponent(""));
+                return new ConfigCollectionEntry(this, key, this.file.makeMap(shownPath), Component.literal(""));
             }
             Object value1;
             try {
@@ -155,7 +155,7 @@ public class ConfigEditScreen extends Screen {
                     if (this.reloadsOnSave) {
                         FileBrowserScreen.ON_RELOAD.accept(this.absolutePath);
                     }
-                    this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Saved Config File:"), new TextComponent(this.shownPath)));
+                    this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, Component.literal("Saved Config File:"), Component.literal(this.shownPath)));
                 } catch (Exception e) {
                     errors.append(e.getMessage());
                 }
@@ -163,7 +163,7 @@ public class ConfigEditScreen extends Screen {
         }
 
         if (!errors.isEmpty()) {
-            this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, new TextComponent("Could not save File."), new TextComponent(errors.toString())));
+            this.minecraft.getToasts().addToast(SystemToast.multiline(Minecraft.getInstance(), SystemToast.SystemToastIds.PACK_LOAD_FAILURE, Component.literal("Could not save File."), Component.literal(errors.toString())));
         } else {
             this.minecraft.setScreen(this.parent);
         }

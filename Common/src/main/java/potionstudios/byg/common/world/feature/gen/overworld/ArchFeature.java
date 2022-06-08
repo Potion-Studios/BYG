@@ -22,7 +22,7 @@ import potionstudios.byg.util.blendingfunction.BlendingFunctions;
 
 import java.util.HashSet;
 import java.util.Optional;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 import static net.minecraft.util.Mth.lerp;
@@ -42,9 +42,9 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos center, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos center, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
-        double angle = random.nextDouble(Math.PI);
+        double angle = random.nextDouble() * Math.PI;
 
         ChunkPos chunkPos = new ChunkPos(center);
         center = chunkPos.getMiddleBlockPosition(center.getY());

@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureCo
 import potionstudios.byg.common.block.BYGBlocks;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class RawQuartzColumnFeature extends Feature<ColumnFeatureConfiguration> {
     private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(Blocks.LAVA, Blocks.BEDROCK, Blocks.MAGMA_BLOCK, Blocks.SOUL_SAND, Blocks.NETHER_BRICKS, Blocks.NETHER_BRICK_FENCE, Blocks.NETHER_BRICK_STAIRS, Blocks.NETHER_WART, Blocks.CHEST, Blocks.SPAWNER);
@@ -31,7 +31,7 @@ public class RawQuartzColumnFeature extends Feature<ColumnFeatureConfiguration> 
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel reader, ChunkGenerator generator, Random rand, BlockPos pos, ColumnFeatureConfiguration config) {
+    public boolean place(WorldGenLevel reader, ChunkGenerator generator, RandomSource rand, BlockPos pos, ColumnFeatureConfiguration config) {
         int i = generator.getSeaLevel();
         if (!canPlaceAt(reader, i, pos.mutable())) {
             return false;

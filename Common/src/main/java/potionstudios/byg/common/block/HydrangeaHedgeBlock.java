@@ -21,6 +21,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import net.minecraft.util.RandomSource;
+
 import java.util.Random;
 
 public class HydrangeaHedgeBlock extends AzaleaBlock {
@@ -46,7 +48,7 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
 
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        Random random = level.random;
+        RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 
         if (player.getItemInHand(interactionHand).is(Items.SHEARS) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {
@@ -68,11 +70,11 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level $$0, Random $$1, BlockPos $$2, BlockState $$3) {
+    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel $$0, Random $$1, BlockPos $$2, BlockState $$3) {
+    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
     }
 }

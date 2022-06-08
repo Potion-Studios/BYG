@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class LargePumpkin2 extends Feature<PumpkinConfig> {
 
@@ -25,7 +25,7 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, PumpkinConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, PumpkinConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
@@ -100,13 +100,13 @@ public class LargePumpkin2 extends Feature<PumpkinConfig> {
         return true;
     }
 
-    private void setPumpkinState(Random rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
+    private void setPumpkinState(RandomSource rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos) || FeatureGenUtil.isPlant(world, pos)) {
             world.setBlock(pos, config.getPumpkinProvider().getState(rand, pos), 2);
         }
     }
 
-    private void setLeavesState(Random rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
+    private void setLeavesState(RandomSource rand, BlockPos pos, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos)) {
             BlockState state = config.getLeavesProvider().getState(rand, pos);
             if (state.hasProperty(BlockStateProperties.PERSISTENT))

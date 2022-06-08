@@ -5,8 +5,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.RegistryOps;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +22,6 @@ import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 public class ArchPiece extends StructurePiece {
@@ -64,7 +64,7 @@ public class ArchPiece extends StructurePiece {
     }
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureFeatureManager structureFeatureManager, ChunkGenerator chunkGenerator, Random random, BoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureFeatureManager, ChunkGenerator chunkGenerator, RandomSource random, BoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
         Long2ObjectLinkedOpenHashMap<BlockState> toPlace = new Long2ObjectLinkedOpenHashMap<>(1000);
 
         for (BlockPos position : this.positions) {
@@ -96,7 +96,6 @@ public class ArchPiece extends StructurePiece {
             max.set(Math.max(max.getX(), pos.getX()), Math.max(max.getY(), pos.getY()), Math.max(max.getZ(), pos.getZ()));
             worldGenLevel.setBlock(pos, state, 2);
         });
-
 
 
         for (long aLong : toPlace.keySet()) {

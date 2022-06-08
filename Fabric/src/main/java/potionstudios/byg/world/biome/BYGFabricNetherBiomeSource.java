@@ -19,13 +19,11 @@ public class BYGFabricNetherBiomeSource extends BYGNetherBiomeSource {
     public static final Codec<BYGFabricNetherBiomeSource> CODEC = RecordCodecBuilder.create((builder) -> {
         return builder.group(RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter((bygEndBiomeSource) -> {
             return bygEndBiomeSource.getBiomeRegistry();
-        }), Codec.LONG.fieldOf("seed").stable().forGetter((bygEndBiomeSource) -> {
-            return bygEndBiomeSource.getSeed();
         })).apply(builder, builder.stable(BYGFabricNetherBiomeSource::new));
     });
 
-    public BYGFabricNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        super(biomeRegistry, seed);
+    public BYGFabricNetherBiomeSource(Registry<Biome> biomeRegistry) {
+        super(biomeRegistry);
     }
 
     @Override
@@ -49,10 +47,5 @@ public class BYGFabricNetherBiomeSource extends BYGNetherBiomeSource {
     @Override
     protected Codec<? extends BiomeSource> codec() {
         return CODEC;
-    }
-
-    @Override
-    public BiomeSource withSeed(long l) {
-        return new BYGFabricNetherBiomeSource(getBiomeRegistry(), l);
     }
 }

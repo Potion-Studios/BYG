@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
 
@@ -27,7 +27,7 @@ public class FloatingIslands1 extends Feature<FloatingIslandConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
     
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, FloatingIslandConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, FloatingIslandConfig config) {
         setSeed(world.getSeed());
 
         double radius = 10; /*rand.nextInt(config.getMaxPossibleRadius()) + config.getMinRadius() - 5;*/

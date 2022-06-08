@@ -19,7 +19,7 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
-import potionstudios.byg.common.world.structure.BYGStructureFeature;
+import potionstudios.byg.common.world.structure.BYGStructureTypes;
 import potionstudios.byg.mixin.access.RegistryAccess;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
@@ -45,7 +45,7 @@ public class BYGRegistry {
         BYGPoiTypes.loadClass();
         BYGSounds.loadClass();
         BYGStateProviders.loadClass();
-        BYGStructureFeature.loadClass();
+        BYGStructureTypes.loadClass();
         BYGFeatures.loadClass();
     }
 }

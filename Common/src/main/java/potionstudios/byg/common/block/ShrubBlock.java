@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class ShrubBlock extends BushBlock implements BonemealableBlock {
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
@@ -39,7 +39,7 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
         return super.canSurvive(state, level, pos) || level.getBlockState(pos.below()).is(BlockTags.SAND);
     }
 
-    public void grow(ServerLevel world, BlockPos pos, BlockState state, Random rand) {
+    public void grow(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand) {
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
@@ -53,12 +53,12 @@ public class ShrubBlock extends BushBlock implements BonemealableBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return (double) worldIn.random.nextFloat() < 0.45D;
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
         this.grow(world, pos, state, rand);
     }
 

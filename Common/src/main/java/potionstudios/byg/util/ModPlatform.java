@@ -30,9 +30,9 @@ public interface ModPlatform {
 
     Path configPath();
 
-    BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed);
+    BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry);
 
-    BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed);
+    BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry);
 
     boolean isModLoaded(String isLoaded);
 

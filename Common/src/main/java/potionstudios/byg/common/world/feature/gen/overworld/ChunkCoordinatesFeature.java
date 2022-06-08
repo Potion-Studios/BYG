@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public abstract class ChunkCoordinatesFeature<FC extends FeatureConfiguration> extends Feature<FC> {
 
@@ -23,7 +23,7 @@ public abstract class ChunkCoordinatesFeature<FC extends FeatureConfiguration> e
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, FC config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, FC config) {
         ChunkPos chunk = world.getChunk(pos).getPos();
         int xStart = chunk.getMinBlockX();
         int zStart = chunk.getMinBlockZ();
@@ -38,5 +38,5 @@ public abstract class ChunkCoordinatesFeature<FC extends FeatureConfiguration> e
     }
 
 
-    public abstract boolean generate(WorldGenLevel world, Random random, ChunkAccess chunkIn, int x, int z, FC config);
+    public abstract boolean generate(WorldGenLevel world, RandomSource random, ChunkAccess chunkIn, int x, int z, FC config);
 }

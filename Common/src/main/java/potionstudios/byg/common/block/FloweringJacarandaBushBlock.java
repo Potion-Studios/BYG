@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class FloweringJacarandaBushBlock extends JacarandaBushBlock implements BonemealableBlock {
     public static final IntegerProperty STAGE = BlockStateProperties.STAGE;
@@ -24,7 +24,7 @@ public class FloweringJacarandaBushBlock extends JacarandaBushBlock implements B
         this.registerDefaultState(this.stateDefinition.any().setValue(STAGE, 0));
     }
 
-    public void grow(ServerLevel world, BlockPos pos, BlockState state, Random rand) {
+    public void grow(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand) {
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
@@ -38,12 +38,12 @@ public class FloweringJacarandaBushBlock extends JacarandaBushBlock implements B
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return (double) worldIn.random.nextFloat() < 0.45D;
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
         this.grow(world, pos, state, rand);
     }
 

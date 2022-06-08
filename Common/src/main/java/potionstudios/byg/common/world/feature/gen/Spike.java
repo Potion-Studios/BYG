@@ -15,7 +15,7 @@ import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.RadiusMatcher;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class Spike extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
@@ -31,7 +31,7 @@ public class Spike extends Feature<NoisySphereConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed(), config.noiseFrequency());
 
         boolean use2D = random.nextDouble() < config.noise2DChance();

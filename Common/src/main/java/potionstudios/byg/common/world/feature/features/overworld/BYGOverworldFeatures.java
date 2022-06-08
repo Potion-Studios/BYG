@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature.features.overworld;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.features.CaveFeatures;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RuleBasedBlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
@@ -141,7 +143,7 @@ public class BYGOverworldFeatures {
     public static final Holder<ConfiguredFeature<LargeLakeFeatureConfig, ?>> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE,
             new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
                     HolderSet.direct(
-                            createPlacedFeature(BYGOverworldVegetationFeatures.TINY_LILY_PAD, RarityFilter.onAverageOnceEvery(95), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0)))),
+                            createPlacedFeature(BYGOverworldVegetationFeatures.TINY_LILY_PAD, RarityFilter.onAverageOnceEvery(95), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(new BlockPos(0, -1, 0), Fluids.WATER))),
                             LargeLakeFeatureConfig.createDripLeavesPlacedFeature(80, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
                     ),
                     HolderSet.direct(
@@ -274,7 +276,7 @@ public class BYGOverworldFeatures {
 
     public static final Holder<ConfiguredFeature<DiskConfiguration, ?>> DISK_MUD = createConfiguredFeature("disk_mud",
             () -> Feature.DISK,
-            new DiskConfiguration(BYGBlocks.MUD_BLOCK.defaultBlockState(), UniformInt.of(2, 3), 1, List.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState()))
+            new DiskConfiguration(new RuleBasedBlockStateProvider(BlockStateProvider.simple(BYGBlocks.MUD_BLOCK.get()), List.of(new RuleBasedBlockStateProvider.Rule(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.AIR), BlockStateProvider.simple(BYGBlocks.MUD_BLOCK.get())))), BlockPredicate.matchesBlocks(Blocks.DIRT, Blocks.CLAY), UniformInt.of(2, 6), 2)
     );
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> ARCH_FEATURE = createConfiguredFeature("red_rock_arches",

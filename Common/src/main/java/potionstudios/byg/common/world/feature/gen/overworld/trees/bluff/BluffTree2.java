@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
@@ -18,7 +18,7 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
     }
 
 
-    public boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
+    public boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, RandomSource rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, BYGTreeConfig config) {
 
         int randTreeHeight = rand.nextInt(config.getMaxPossibleHeight()) + config.getMinHeight();
         //Positions

@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BuddingSubzeroCrystalBlock extends Block {
     private static final Direction[] DIRECTIONS = Direction.values();
@@ -24,7 +24,7 @@ public class BuddingSubzeroCrystalBlock extends Block {
         return PushReaction.DESTROY;
     }
 
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (random.nextInt(5) == 0) {
             Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
             BlockPos blockPos = pos.relative(direction);

@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
     public static FastNoise fastNoise;
@@ -29,7 +29,7 @@ public class NoisyCaveSphereWater extends Feature<NoisySphereConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoisySphereConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos position, NoisySphereConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position);

@@ -14,7 +14,7 @@ import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBlockPattern {
 
@@ -33,7 +33,7 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
     }
 
     @Override
-    public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, Random rand) {
+    public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand) {
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {

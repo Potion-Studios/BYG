@@ -24,8 +24,8 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGOverworldVegetationFeatures {
-    private static final BlockPredicateFilter SAND_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.SAND, BlockPos.ZERO.below()));
-    private static final BlockPredicateFilter ON_WATER_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluid(Fluids.WATER, BlockPos.ZERO.below()));
+    private static final BlockPredicateFilter SAND_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockPos.ZERO.below(), BlockTags.SAND));
+    private static final BlockPredicateFilter ON_WATER_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.below(), Fluids.WATER));
     private static final BlockPredicateFilter IN_REPLACEABLE_FILTER = BlockPredicateFilter.forPredicate(BlockPredicate.replaceable());
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALLIUM_BUSH = createFlowerConfiguredFeature("allium_bush", BYGBlocks.ALLIUM_FLOWER_BUSH.get());

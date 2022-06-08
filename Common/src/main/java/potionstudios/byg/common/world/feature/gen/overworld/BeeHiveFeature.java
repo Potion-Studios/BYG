@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BeeHiveFeature extends Feature<NoneFeatureConfiguration> {
     public BeeHiveFeature(Codec<NoneFeatureConfiguration> codec) {
@@ -30,7 +30,7 @@ public class BeeHiveFeature extends Feature<NoneFeatureConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, NoneFeatureConfiguration config) {
         if (world.isEmptyBlock(pos) && world.isEmptyBlock(pos.below())){
             if (world.getBlockState(pos.above()).is(BlockTags.LEAVES) || world.getBlockState(pos.above()).is(BlockTags.LOGS) || world.getBlockState(pos.above()).is(BYGBlocks.EMBUR_GEL_BLOCK.get())) {
                 Direction direction;

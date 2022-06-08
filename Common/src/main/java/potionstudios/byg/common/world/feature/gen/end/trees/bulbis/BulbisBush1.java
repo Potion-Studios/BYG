@@ -8,7 +8,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BulbisBush1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 
@@ -16,7 +16,7 @@ public class BulbisBush1 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
         super(configIn);
     }
 
-    protected boolean placeMushroom(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
+    protected boolean placeMushroom(WorldGenLevel worldIn, RandomSource rand, BlockPos pos, boolean isMushroom, BYGMushroomConfig config) {
         BlockState STEM = config.getStemProvider().getState(rand, pos);
         BlockState MUSHROOM = config.getMushroomProvider().getState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getState(rand, pos);

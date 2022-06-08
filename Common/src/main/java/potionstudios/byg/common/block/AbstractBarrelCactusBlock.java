@@ -31,7 +31,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class AbstractBarrelCactusBlock extends Block implements BonemealableBlock {
     protected static final VoxelShape COLLISION_SHAPE;
@@ -47,7 +47,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     }
 
     @Override
-    public boolean isBonemealSuccess(@NotNull Level level, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return true;
     }
 
@@ -66,7 +66,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         serverLevel.setBlockAndUpdate(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS.defaultBlockState());
         serverLevel.neighborChanged(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS.get(), blockPos);
     }

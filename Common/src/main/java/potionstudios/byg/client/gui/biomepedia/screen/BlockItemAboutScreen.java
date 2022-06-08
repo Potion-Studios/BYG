@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -40,7 +40,7 @@ public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
         String translationKey = "biomepedia.desc." + item.getDescriptionId(new ItemStack(item));
         boolean useTranslation = !I18n.get(translationKey).equals(translationKey);
 
-        this.description = new TranslatableComponent(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
+        this.description = Component.translatable(useTranslation ? translationKey : "biomepedia.desc.block.byg.none");
     }
 
     @Override

@@ -2,6 +2,7 @@ package potionstudios.byg.util;
 
 import com.mojang.math.Vector3f;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 
 import java.util.Random;
 //Credits to BetterEnd & Pauelevs
@@ -174,17 +175,17 @@ import java.util.Random;
         return d * d;
     }
 
-    public static int randRange(int min, int max, Random random)
+    public static int randRange(int min, int max, RandomSource random)
     {
         return min + random.nextInt(max - min + 1);
     }
 
-    public static double randRange(double min, double max, Random random)
+    public static double randRange(double min, double max, RandomSource random)
     {
         return min + random.nextDouble() * (max - min);
     }
 
-    public static float randRange(float min, float max, Random random)
+    public static float randRange(float min, float max, RandomSource random)
     {
         return min + random.nextFloat() * (max - min);
     }

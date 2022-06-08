@@ -9,13 +9,13 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public abstract class TreeSpawner {
     @Nullable
-    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(Random random);
+    protected abstract ConfiguredFeature<BYGTreeConfig, ?> getTreeFeature(RandomSource random);
 
-    public boolean spawn(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean spawn(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, RandomSource random) {
         ConfiguredFeature<BYGTreeConfig, ?> configuredTreeFeature = this.getTreeFeature(random);
         if (configuredTreeFeature == null) {
             return false;

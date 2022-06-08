@@ -5,7 +5,6 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -38,8 +37,8 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
                         18,
                         new ResourceLocation("byg", "textures/gui/biomepedia.png"),
                         256, 256,
-                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(new TextComponent(""))), BiomepediaHomeScreen.makeButtonToolTip(new TextComponent("BYG Biomepedia"), this),
-                        new TextComponent("Lorem Ipsum")
+                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(Component.literal(""))), BiomepediaHomeScreen.makeButtonToolTip(Component.literal("BYG Biomepedia"), this),
+                        Component.literal("Lorem Ipsum")
                 );
 
                 biomePedia.visible = BiomepediaInventoryConfig.server_value;
@@ -49,7 +48,7 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
         }
     }
 
-    @Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
+    @Inject(method = "method_19891(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
     protected void updateGuiSize(CallbackInfo ci) {
         if (BYGConstants.BIOMEPEDIA) {
             if (biomePedia != null) {

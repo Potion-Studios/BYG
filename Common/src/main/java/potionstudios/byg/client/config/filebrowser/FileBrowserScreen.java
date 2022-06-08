@@ -9,7 +9,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -58,7 +58,7 @@ public class FileBrowserScreen extends Screen {
     protected void init() {
         this.configFiles = new ConfigMap<>(this, width, height, 40, this.height - 37, 25);
         int searchWidth = 250;
-        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, new TextComponent(""));
+        this.searchBox = new EditBox(Minecraft.getInstance().font, this.width / 2 - (searchWidth / 2), 18, searchWidth, 20, Component.literal(""));
         this.searchBox.setResponder(this::searchResponder);
         int maxCommentWidth = this.configFiles.getRowWidth();
         for (Path path : CONFIG_FILES.apply(this.configDir)) {

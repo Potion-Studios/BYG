@@ -6,9 +6,10 @@
   ],
   "client": [
     "client.MixinBlockColors",
+    "client.MixinInventoryScreen",
     "client.MixinItemColors",
-    "client.MixinMinecraft",
     "client.MixinLayerDefinitions",
+    "client.MixinMinecraft",
     "client.access.AccessEntityRenderers"
   ],
   "server": [

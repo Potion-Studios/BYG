@@ -5,7 +5,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -14,10 +13,9 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.mixin.access.TagBuilderAccess;
 import potionstudios.byg.reg.RegistryObject;
 
-import java.util.*;
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.common.block.BYGBlocks.*;
@@ -73,14 +71,14 @@ public class BYGBlockTagsProvider extends TagsProvider<Block> {
     }
 
     private void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries() {
-        for (Tag.Builder value : this.builders.values()) {
-            List<Tag.BuilderEntry> builderEntries = ((TagBuilderAccess) value).byg_getEntries();
-
-            Set<Tag.BuilderEntry> noDuplicates = new HashSet<>(builderEntries);
-            builderEntries.clear();
-            builderEntries.addAll(noDuplicates);
-            Collections.sort(builderEntries, Comparator.comparing(builderEntry -> builderEntry.entry().toString()));
-        }
+//        for (Tag.Builder value : this.builders.values()) {
+//            List<Tag.BuilderEntry> builderEntries = ((TagBuilderAccess) value).byg_getEntries();
+//
+//            Set<Tag.BuilderEntry> noDuplicates = new HashSet<>(builderEntries);
+//            builderEntries.clear();
+//            builderEntries.addAll(noDuplicates);
+//            Collections.sort(builderEntries, Comparator.comparing(builderEntry -> builderEntry.entry().toString()));
+//        }
     }
 
     @SafeVarargs

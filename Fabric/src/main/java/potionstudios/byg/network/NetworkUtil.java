@@ -83,7 +83,7 @@ public class NetworkUtil {
         entity.setId(id);
         entity.setUUID(uuid);
         entity.absMoveTo(x, y, z);
-        entity.setPacketCoordinates(x, y, z);
+        entity.setPos(x, y, z);
         entity.setXRot(pitch);
         entity.setYRot(yaw);
         entity.setDeltaMovement(velocityX, velocityY, velocityZ);

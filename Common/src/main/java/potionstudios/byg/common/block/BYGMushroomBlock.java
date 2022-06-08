@@ -15,7 +15,7 @@ import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BYGMushroomBlock extends MushroomBlock implements FeatureGrowerFromBlockPattern {
 
@@ -34,7 +34,7 @@ public class BYGMushroomBlock extends MushroomBlock implements FeatureGrowerFrom
     }
 
     @Override
-    public boolean growMushroom(ServerLevel serverLevel, BlockPos pos, BlockState state, Random random) {
+    public boolean growMushroom(ServerLevel serverLevel, BlockPos pos, BlockState state, RandomSource random) {
         return FeatureGrowerFromBlockPattern.growFeature(this, serverLevel, pos, random, this.patternsToSpawner);
     }
 

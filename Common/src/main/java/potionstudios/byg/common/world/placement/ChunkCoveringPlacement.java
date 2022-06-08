@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.placement;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -17,7 +18,7 @@ public class ChunkCoveringPlacement extends PlacementModifier {
     public static final Codec<ChunkCoveringPlacement> CODEC = Codec.unit(() -> INSTANCE);
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
+    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
         List<BlockPos> positions = new ArrayList<>();
 
         for (int x = 0; x < 16; x++) {

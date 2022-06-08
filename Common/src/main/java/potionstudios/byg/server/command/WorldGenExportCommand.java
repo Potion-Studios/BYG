@@ -18,6 +18,8 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.RegistryOps;
@@ -28,6 +30,7 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import net.minecraft.world.level.storage.PrimaryLevelData;
 import potionstudios.byg.BYG;
+import potionstudios.byg.mixin.access.HashCacheCacheUpdaterAccess;
 import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
@@ -35,11 +38,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import static potionstudios.byg.mixin.access.WorldGenRegistryDumpReportAccess.byg_invokeDumpRegistry;
 import static potionstudios.byg.mixin.access.WorldGenRegistryDumpReportAccess.byg_invokeDumpRegistryCap;
 
 public class WorldGenExportCommand {
@@ -72,19 +75,19 @@ public class WorldGenExportCommand {
     public static int generateWorldGenExport(boolean withComments, boolean builtin, CommandContext<CommandSourceStack> commandSource) {
         CommandSourceStack source = commandSource.getSource();
         if (!source.getServer().isSingleplayer() || source.getServer().getPlayerCount() > 1) {
-            source.sendFailure(new TranslatableComponent("byg.worldgenexport.singleplayer").withStyle(ChatFormatting.RED));
+            source.sendFailure(Component.translatable("byg.worldgenexport.singleplayer").withStyle(ChatFormatting.RED));
             return 0;
         }
 
         Path finalExportPath = ModPlatform.INSTANCE.configPath().getParent().resolve("world_gen_export").resolve(builtin ? "builtin" : "world").resolve("data");
         Path exportPath = finalExportPath.resolve("cache");
-        Component exportFileComponent = new TextComponent(finalExportPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, finalExportPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableComponent("byg.clickevent.hovertext"))));
+        Component exportFileComponent = Component.literal(finalExportPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, finalExportPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("byg.clickevent.hovertext"))));
 
         if (exportPath.toFile().exists()) {
-            source.sendFailure(new TranslatableComponent("byg.worldgenexport.exists", exportFileComponent).withStyle(ChatFormatting.RED));
+            source.sendFailure(Component.translatable("byg.worldgenexport.exists", exportFileComponent).withStyle(ChatFormatting.RED));
             return 0;
         }
-        source.sendSuccess(new TranslatableComponent("byg.worldgenexport.starting").withStyle(ChatFormatting.YELLOW), true);
+        source.sendSuccess(Component.translatable("byg.worldgenexport.starting").withStyle(ChatFormatting.YELLOW), true);
 
         try {
             generateFiles(builtin, source, exportPath);
@@ -96,10 +99,10 @@ public class WorldGenExportCommand {
             setupAndUseDataPackDirectoriesStructure(finalExportPath, exportPath);
 
             createPackMCMeta(finalExportPath.getParent(), builtin);
-            source.sendSuccess(new TranslatableComponent("byg.worldgenexport.success", exportFileComponent).withStyle(ChatFormatting.GREEN), true);
+            source.sendSuccess(Component.translatable("byg.worldgenexport.success", exportFileComponent).withStyle(ChatFormatting.GREEN), true);
             return 1;
         } catch (IOException e) {
-            source.sendFailure(new TranslatableComponent("byg.worldgenexport.failed"));
+            source.sendFailure(Component.translatable("byg.worldgenexport.failed"));
             e.printStackTrace();
             return 0;
         }
@@ -150,22 +153,15 @@ public class WorldGenExportCommand {
     }
 
     private static void generateFiles(boolean builtin, CommandSourceStack source, Path exportPath) throws IOException {
-        HashCache cache = new HashCache(exportPath, "cache");
+        CachedOutput cache = HashCacheCacheUpdaterAccess.byg_create(SharedConstants.getCurrentVersion().getName(), HashCache.ProviderCache.load(exportPath, exportPath.resolve("reports")));
         RegistryAccess registry = builtin ? RegistryAccess.builtinCopy() : source.getLevel().registryAccess();
-
-        Registry<LevelStem> defaultDimensions = DimensionType.defaultDimensions(registry, 0L, false);
-        ChunkGenerator chunkGenerator = WorldGenSettings.makeDefaultOverworld(registry, 0L, false);
 
         DynamicOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, registry);
 
         for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
-            byg_invokeDumpRegistryCap(cache, exportPath, registry, ops, knownRegistry);
+            byg_invokeDumpRegistryCap(cache, registry, ops, knownRegistry);
         }
 
-
-        Registry<LevelStem> worldSettings = builtin ? WorldGenSettings.withOverworld(registry.ownedRegistryOrThrow(Registry.DIMENSION_TYPE_REGISTRY), defaultDimensions, chunkGenerator) : ((PrimaryLevelData) source.getServer().getLevel(Level.OVERWORLD).getLevelData()).worldGenSettings().dimensions();
-
-        byg_invokeDumpRegistry(exportPath, cache, ops, Registry.LEVEL_STEM_REGISTRY, worldSettings, LevelStem.CODEC);
     }
 
     private static void createPackMCMeta(Path path, boolean builtIn) throws IOException {

@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class TheriumCrystalBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -57,7 +57,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
         Block block1 = worldIn.getBlockState(pos.below()).getBlock();
         int i = state.getValue(AGE);
         if (i < 3 && block1 == BYGBlocks.THERIUM_BLOCK.get() && random.nextInt(5) == 0) {
@@ -98,7 +98,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
     }
 
     
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
         VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
         Vec3 lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
@@ -113,7 +113,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return false;
     }
 
@@ -125,7 +125,7 @@ public class TheriumCrystalBlock extends Block implements BonemealableBlock {
         return state.getValue(AGE) < 3;
     }
 
-    public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         int i = Math.min(3, state.getValue(AGE) + 1);
         worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i)), 2);
     }

@@ -24,14 +24,11 @@ import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
-import potionstudios.byg.common.world.structure.BYGStructureFeature;
-import potionstudios.byg.common.world.structure.WithGenerationStep;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.BlockRegistryObject;
-import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
@@ -48,22 +45,8 @@ public class BYG {
     public static boolean INITIALIZED;
 
     public static void commonLoad() {
-        LOGGER.debug("BYG: \"Common Setup\" Event Starting...");
 
-        for (WorldCarver<?> worldCarver : Registry.CARVER) {
-            WorldCarverAccess carverAccess = (WorldCarverAccess) worldCarver;
-            carverAccess.setReplaceableBlocks(new ImmutableSet.Builder<Block>().addAll(BYGCarvableBlocks.addCarverBlocks().get())
-                    .addAll(carverAccess.byg_getReplaceableBlocks()).build());
-        }
-        LOGGER.info("BYG: \"Common Setup\" Event Complete!");
-
-        PoiTypeAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.get());
-
-        BYGStructureFeature.PROVIDER.getEntries()
-                .stream()
-                .map(RegistryObject::get)
-                .filter(WithGenerationStep.class::isInstance)
-                .forEach(f -> StructureFeatureAccess.byg_getSTEP().put(f, ((WithGenerationStep) f).getDecoration()));
+        PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
 
         String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
         if(!loadAllConfigs.isEmpty()) {

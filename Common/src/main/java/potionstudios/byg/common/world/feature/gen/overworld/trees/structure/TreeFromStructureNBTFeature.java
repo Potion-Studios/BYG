@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,9 +14,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.mixin.access.LeavesBlockAccess;
@@ -41,7 +42,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         BlockStateProvider leavesProvider = config.leavesProvider();
 
         WorldGenLevel level = featurePlaceContext.level();
-        StructureManager templateManager = level.getLevel().getStructureManager();
+        StructureTemplateManager templateManager = level.getLevel().getStructureManager();
         ResourceLocation baseLocation = config.baseLocation();
         Optional<StructureTemplate> baseTemplateOptional = templateManager.get(baseLocation);
         ResourceLocation canopyLocation = config.canopyLocation();
@@ -61,7 +62,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         if (DEBUG) {
             level.setBlock(origin, Blocks.DIAMOND_BLOCK.defaultBlockState(), 2);
         }
-        Random random = featurePlaceContext.random();
+        RandomSource random = featurePlaceContext.random();
         StructurePlaceSettings placeSettings = new StructurePlaceSettings().setRotation(Rotation.getRandom(random));
         StructureTemplate.Palette randomBasePalette = placeSettings.getRandomPalette(basePalettes, origin);
         StructureTemplate.Palette randomCanopyPalette = placeSettings.getRandomPalette(canopyPalettes, origin);
@@ -81,8 +82,8 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             throw new UnsupportedOperationException(String.format("\"%s\" is missing log builders.", baseLocation));
         }
 
-        List<BlockPos> leavePositions = new ArrayList<>();
-        List<BlockPos> trunkPositions = new ArrayList<>();
+        Set<BlockPos> leavePositions = new HashSet<>();
+        Set<BlockPos> trunkPositions = new HashSet<>();
 
 
         List<StructureTemplate.StructureBlockInfo> trunkAnchor = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
@@ -181,7 +182,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             leavesPostApply.forEach(Runnable::run);
 
             for (TreeDecorator treeDecorator : config.treeDecorators()) {
-                treeDecorator.place(level, (pos, state) -> level.setBlock(pos, state, 2), random, trunkPositions, leavePositions);
+                treeDecorator.place(new TreeDecorator.Context(level, (pos, state) -> level.setBlock(pos, state, 2), random, trunkPositions, leavePositions, new HashSet<>()));
             }
         }
         return true;

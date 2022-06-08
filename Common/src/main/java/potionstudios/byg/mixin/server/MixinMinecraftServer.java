@@ -7,9 +7,11 @@ import com.mojang.datafixers.DataFixer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.chat.TranslatableComponent;
+
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.Services;
 import net.minecraft.server.WorldStem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
@@ -66,7 +68,7 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     private boolean byg$killClient = false;
 
     @Inject(at = @At("RETURN"), method = "<init>")
-    private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, MinecraftSessionService $$6, GameProfileRepository $$7, GameProfileCache $$8, ChunkProgressListenerFactory $$9, CallbackInfo ci) {
+    private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, Services $$6, ChunkProgressListenerFactory $$7, CallbackInfo ci) {
         Registry<Biome> biomeRegistry = this.registryHolder.registryOrThrow(Registry.BIOME_REGISTRY);
         if (SettingsConfig.getConfig().appendBiomePlacedFeatures()) {
             Registry<PlacedFeature> placedFeatureRegistry = this.registryHolder.registryOrThrow(Registry.PLACED_FEATURE_REGISTRY);
@@ -104,7 +106,7 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
             if (byg$killTime % 100 == 0) {
                 for (ServerPlayer player : getPlayerList().getPlayers()) {
                     long killTimeInSeconds = byg$killTime / 20;
-                    player.displayClientMessage(new TranslatableComponent("byg.serverkill.countdown", killTimeInSeconds).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
+                    player.displayClientMessage(Component.translatable("byg.serverkill.countdown", killTimeInSeconds).withStyle(byg$killTime < 300 ? ChatFormatting.RED : ChatFormatting.YELLOW), false);
                 }
             }
             byg$killTime--;

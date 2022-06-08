@@ -3,7 +3,7 @@ package potionstudios.byg.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.fml.config.ConfigTracker;
 import net.minecraftforge.fml.config.IConfigEvent;
@@ -34,22 +34,22 @@ public class BYGForgeClient {
                             IConfigEvent.reloading(modConfig);
                             toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
                                 SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                                new TextComponent(String.format("Reloaded %s Config File: ", modConfig.getType().toString())),
-                                new TextComponent(relativized.toString()))
+                                Component.literal(String.format("Reloaded %s Config File: ", modConfig.getType().toString())),
+                                Component.literal(relativized.toString()))
                             );
                         } catch (Exception e) {
                             toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
                                 SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                                new TextComponent(String.format("Reloaded %s Config File FAILED: ", modConfig.getType().toString())),
-                                new TextComponent(relativized.toString() + ": " + e.getMessage()))
+                                Component.literal(String.format("Reloaded %s Config File FAILED: ", modConfig.getType().toString())),
+                                Component.literal(relativized.toString() + ": " + e.getMessage()))
                             );
                         }
 
                     },
                     () -> toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
                         SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                        new TextComponent("Config file reloading failed for:"),
-                        new TextComponent(relativized.toString()))
+                        Component.literal("Config file reloading failed for:"),
+                        Component.literal(relativized.toString()))
                     )
                 );
 
