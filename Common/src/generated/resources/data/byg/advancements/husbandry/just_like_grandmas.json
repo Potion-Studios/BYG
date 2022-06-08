@@ -1,23 +1,7 @@
 {
   "parent": "byg:husbandry/root",
-  "display": {
-    "icon": {
-      "item": "byg:green_apple_pie"
-    },
-    "title": {
-      "translate": "byg.advancements.husbandry.just_like_grandmas.title"
-    },
-    "description": {
-      "translate": "byg.advancements.husbandry.just_like_grandmas.description"
-    },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "blueberry_pie": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,22 +10,10 @@
             ]
           }
         ]
-      }
-    },
-    "green_apple_pie": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "byg:green_apple_pie"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "crimson_berry_pie": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -50,10 +22,22 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "green_apple_pie": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:green_apple_pie"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "nightshade_berry_pie": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -62,7 +46,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "byg.advancements.husbandry.just_like_grandmas.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "byg:green_apple_pie"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "byg.advancements.husbandry.just_like_grandmas.title"
     }
   },
   "requirements": [

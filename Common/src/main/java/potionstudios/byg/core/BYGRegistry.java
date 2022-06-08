@@ -35,6 +35,7 @@ public class BYGRegistry {
     public static void loadClasses() {
         BYGBlocks.loadClass();
         BYGItems.loadClass();
+        BYGFeatures.loadClass();
 
         BYGMenuTypes.loadClass();
         BYGEntities.loadClass();
@@ -46,6 +47,5 @@ public class BYGRegistry {
         BYGSounds.loadClass();
         BYGStateProviders.loadClass();
         BYGStructureTypes.loadClass();
-        BYGFeatures.loadClass();
     }
 }

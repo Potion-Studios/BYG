@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_door",
-  "pattern": [
-    "PP",
-    "PP",
-    "PP"
-  ],
   "key": {
     "P": {
       "item": "byg:jacaranda_planks"
     }
   },
+  "pattern": [
+    "PP",
+    "PP",
+    "PP"
+  ],
   "result": {
-    "item": "byg:jacaranda_door",
-    "count": 3
+    "count": 3,
+    "item": "byg:jacaranda_door"
   }
 }

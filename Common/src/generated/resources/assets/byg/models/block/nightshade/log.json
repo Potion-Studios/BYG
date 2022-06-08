@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/nightshade/log",
-    "end": "byg:block/nightshade/log_top"
+    "end": "byg:block/nightshade/log_top",
+    "side": "byg:block/nightshade/log"
   }
 }

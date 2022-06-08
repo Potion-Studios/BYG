@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/imparius/log",
-    "end": "byg:block/imparius/log_top"
+    "end": "byg:block/imparius/log_top",
+    "side": "byg:block/imparius/log"
   }
 }

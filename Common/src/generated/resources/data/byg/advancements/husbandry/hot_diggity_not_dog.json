@@ -1,35 +1,35 @@
 {
   "parent": "byg:husbandry/root",
-  "display": {
-    "icon": {
-      "item": "byg:cattail_sprout"
-    },
-    "title": {
-      "translate": "byg.advancements.husbandry.hot_diggity_not_dog.title"
-    },
-    "description": {
-      "translate": "byg.advancements.husbandry.hot_diggity_not_dog.description"
-    },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "cattail_sprout": {
-      "trigger": "minecraft:item_used_on_block",
       "conditions": {
-        "location": {
-          "block": {
-            "tag": "minecraft:campfires"
-          }
-        },
         "item": {
           "items": [
             "byg:cattail_sprout"
           ]
+        },
+        "location": {
+          "block": {
+            "tag": "minecraft:campfires"
+          }
         }
-      }
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "byg.advancements.husbandry.hot_diggity_not_dog.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "byg:cattail_sprout"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "byg.advancements.husbandry.hot_diggity_not_dog.title"
     }
   },
   "requirements": [

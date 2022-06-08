@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/imparius/planks",
-    "up": "byg:block/imparius/planks",
-    "north": "byg:block/imparius/planks",
-    "south": "byg:block/imparius/planks",
     "east": "byg:block/imparius/planks",
-    "west": "byg:block/imparius/planks",
-    "particle": "byg:block/imparius/planks"
+    "north": "byg:block/imparius/planks",
+    "particle": "byg:block/imparius/planks",
+    "south": "byg:block/imparius/planks",
+    "up": "byg:block/imparius/planks",
+    "west": "byg:block/imparius/planks"
   }
 }

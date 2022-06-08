@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
-    "texture": "byg:block/rainbow_eucalyptus/planks",
-    "particle": "byg:block/rainbow_eucalyptus/planks"
+    "particle": "byg:block/rainbow_eucalyptus/planks",
+    "texture": "byg:block/rainbow_eucalyptus/planks"
   }
 }

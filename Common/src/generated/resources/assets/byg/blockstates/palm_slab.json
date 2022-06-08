@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/palm/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/palm/slab"
     },
     "type=double": {
       "model": "byg:block/palm/planks"
+    },
+    "type=top": {
+      "model": "byg:block/palm/slab_top"
     }
   }
 }

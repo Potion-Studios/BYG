@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/redwood/planks",
-    "up": "byg:block/redwood/crafting_table_top",
-    "north": "byg:block/redwood/crafting_table_front",
-    "south": "byg:block/redwood/crafting_table_side",
     "east": "byg:block/redwood/crafting_table_side",
-    "west": "byg:block/redwood/crafting_table_front",
-    "particle": "byg:block/redwood/crafting_table_front"
+    "north": "byg:block/redwood/crafting_table_front",
+    "particle": "byg:block/redwood/crafting_table_front",
+    "south": "byg:block/redwood/crafting_table_side",
+    "up": "byg:block/redwood/crafting_table_top",
+    "west": "byg:block/redwood/crafting_table_front"
   }
 }

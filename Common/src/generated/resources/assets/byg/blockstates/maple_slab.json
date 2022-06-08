@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/maple/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/maple/slab"
     },
     "type=double": {
       "model": "byg:block/maple/planks"
+    },
+    "type=top": {
+      "model": "byg:block/maple/slab_top"
     }
   }
 }

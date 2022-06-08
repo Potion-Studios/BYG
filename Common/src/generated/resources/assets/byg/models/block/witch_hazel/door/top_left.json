@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "byg:block/witch_hazel/door_bottom",
+    "top": "byg:block/witch_hazel/door_top"
+  }
+}

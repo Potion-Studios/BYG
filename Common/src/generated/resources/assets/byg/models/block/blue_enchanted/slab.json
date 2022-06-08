@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "side": "byg:block/blue_enchanted/planks",
     "bottom": "byg:block/blue_enchanted/planks_top",
+    "side": "byg:block/blue_enchanted/planks",
     "top": "byg:block/blue_enchanted/planks_top"
   }
 }

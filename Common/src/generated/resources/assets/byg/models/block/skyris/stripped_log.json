@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/skyris/stripped_log",
-    "end": "byg:block/skyris/stripped_log_top"
+    "end": "byg:block/skyris/stripped_log_top",
+    "side": "byg:block/skyris/stripped_log"
   }
 }

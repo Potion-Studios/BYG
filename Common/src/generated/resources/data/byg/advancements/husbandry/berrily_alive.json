@@ -1,23 +1,7 @@
 {
   "parent": "byg:husbandry/root",
-  "display": {
-    "icon": {
-      "item": "byg:blueberries"
-    },
-    "title": {
-      "translate": "byg.advancements.husbandry.berrily_alive.title"
-    },
-    "description": {
-      "translate": "byg.advancements.husbandry.berrily_alive.description"
-    },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "blue_berry": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "byg.advancements.husbandry.berrily_alive.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "byg:blueberries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "byg.advancements.husbandry.berrily_alive.title"
     }
   },
   "requirements": [

@@ -6,42 +6,42 @@
       }
     },
     {
+      "apply": {
+        "model": "byg:block/holly/fence",
+        "uvlock": true
+      },
       "when": {
         "north": "true"
-      },
-      "apply": {
-        "model": "byg:block/holly/fence",
-        "uvlock": true
       }
     },
     {
+      "apply": {
+        "model": "byg:block/holly/fence",
+        "uvlock": true,
+        "y": 180
+      },
       "when": {
         "south": "true"
-      },
-      "apply": {
-        "model": "byg:block/holly/fence",
-        "y": 180,
-        "uvlock": true
       }
     },
     {
+      "apply": {
+        "model": "byg:block/holly/fence",
+        "uvlock": true,
+        "y": 270
+      },
       "when": {
         "west": "true"
-      },
-      "apply": {
-        "model": "byg:block/holly/fence",
-        "y": 270,
-        "uvlock": true
       }
     },
     {
-      "when": {
-        "east": "true"
-      },
       "apply": {
         "model": "byg:block/holly/fence",
-        "y": 90,
-        "uvlock": true
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
       }
     }
   ]

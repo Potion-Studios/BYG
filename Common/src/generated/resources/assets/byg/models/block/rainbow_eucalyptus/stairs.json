@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "byg:block/rainbow_eucalyptus/planks",
     "bottom": "byg:block/rainbow_eucalyptus/planks",
+    "side": "byg:block/rainbow_eucalyptus/planks",
     "top": "byg:block/rainbow_eucalyptus/planks"
   }
 }

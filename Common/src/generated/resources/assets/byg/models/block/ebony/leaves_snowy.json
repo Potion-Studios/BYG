@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/ebony/leaves_snowy",
-    "up": "byg:block/ebony/leaves_snowy",
-    "north": "byg:block/ebony/leaves_snowy_side",
-    "south": "byg:block/ebony/leaves_snowy_side",
     "east": "byg:block/ebony/leaves_snowy_side",
-    "west": "byg:block/ebony/leaves_snowy_side",
-    "particle": "byg:block/ebony/leaves_snowy_side"
+    "north": "byg:block/ebony/leaves_snowy_side",
+    "particle": "byg:block/ebony/leaves_snowy_side",
+    "south": "byg:block/ebony/leaves_snowy_side",
+    "up": "byg:block/ebony/leaves_snowy",
+    "west": "byg:block/ebony/leaves_snowy_side"
   }
 }

@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_trapdoor",
-  "pattern": [
-    "PPP",
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "byg:jacaranda_planks"
     }
   },
+  "pattern": [
+    "PPP",
+    "PPP"
+  ],
   "result": {
-    "item": "byg:jacaranda_trapdoor",
-    "count": 2
+    "count": 2,
+    "item": "byg:jacaranda_trapdoor"
   }
 }

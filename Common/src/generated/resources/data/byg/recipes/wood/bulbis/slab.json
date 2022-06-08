@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_slab",
-  "pattern": [
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "byg:bulbis_planks"
     }
   },
+  "pattern": [
+    "PPP"
+  ],
   "result": {
-    "item": "byg:bulbis_slab",
-    "count": 6
+    "count": 6,
+    "item": "byg:bulbis_slab"
   }
 }

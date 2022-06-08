@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/mangrove/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/mangrove/slab"
     },
     "type=double": {
       "model": "byg:block/mangrove/planks"
+    },
+    "type=top": {
+      "model": "byg:block/mangrove/slab_top"
     }
   }
 }

@@ -2,24 +2,24 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "rolls": 2.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:stick"
         }
-      ]
+      ],
+      "rolls": 2.0
     },
     {
-      "rolls": 3.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "byg:pine_planks"
         }
-      ]
+      ],
+      "rolls": 3.0
     }
   ]
 }

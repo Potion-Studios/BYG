@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
-    "texture": "byg:block/cika/planks",
-    "particle": "byg:block/cika/planks"
+    "particle": "byg:block/cika/planks",
+    "texture": "byg:block/cika/planks"
   }
 }

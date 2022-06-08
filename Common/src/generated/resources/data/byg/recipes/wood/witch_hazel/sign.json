@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "sign",
-  "pattern": [
-    "PPP",
-    "PPP",
-    " S "
-  ],
   "key": {
     "P": {
       "item": "byg:witch_hazel_planks"
@@ -14,8 +9,13 @@
       "tag": "byg:sticks"
     }
   },
+  "pattern": [
+    "PPP",
+    "PPP",
+    " S "
+  ],
   "result": {
-    "item": "byg:witch_hazel_sign",
-    "count": 3
+    "count": 3,
+    "item": "byg:witch_hazel_sign"
   }
 }

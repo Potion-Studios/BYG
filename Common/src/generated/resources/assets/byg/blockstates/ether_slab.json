@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/ether/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/ether/slab"
     },
     "type=double": {
       "model": "byg:block/ether/planks"
+    },
+    "type=top": {
+      "model": "byg:block/ether/slab_top"
     }
   }
 }

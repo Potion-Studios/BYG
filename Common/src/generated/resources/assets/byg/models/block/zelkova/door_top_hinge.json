@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_rh",
-  "textures": {
-    "bottom": "byg:block/zelkova/door_bottom",
-    "top": "byg:block/zelkova/door_top"
-  }
-}

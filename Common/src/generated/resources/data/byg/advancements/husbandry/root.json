@@ -1,24 +1,24 @@
 {
   "parent": "byg:root",
+  "criteria": {
+    "consumed_item": {
+      "conditions": {},
+      "trigger": "minecraft:consume_item"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "byg:green_apple"
-    },
-    "title": {
-      "translate": "byg.advancements.husbandry.root.title"
-    },
+    "announce_to_chat": false,
     "description": {
       "translate": "byg.advancements.husbandry.root.description"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "byg:green_apple"
+    },
     "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
-  },
-  "criteria": {
-    "consumed_item": {
-      "trigger": "minecraft:consume_item",
-      "conditions": {}
+    "title": {
+      "translate": "byg.advancements.husbandry.root.title"
     }
   },
   "requirements": [

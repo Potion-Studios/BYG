@@ -2,14 +2,14 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "byg:fir_boat"
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "byg:block/jacaranda/planks",
-    "particle": "byg:block/jacaranda/planks"
+    "particle": "byg:block/jacaranda/planks",
+    "texture": "byg:block/jacaranda/planks"
   }
 }

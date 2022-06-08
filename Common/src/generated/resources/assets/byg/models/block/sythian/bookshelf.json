@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/sythian/planks",
-    "up": "byg:block/sythian/planks",
-    "north": "byg:block/sythian/bookshelf",
-    "south": "byg:block/sythian/bookshelf",
     "east": "byg:block/sythian/bookshelf",
-    "west": "byg:block/sythian/bookshelf",
-    "particle": "byg:block/sythian/planks"
+    "north": "byg:block/sythian/bookshelf",
+    "particle": "byg:block/sythian/planks",
+    "south": "byg:block/sythian/bookshelf",
+    "up": "byg:block/sythian/planks",
+    "west": "byg:block/sythian/bookshelf"
   }
 }

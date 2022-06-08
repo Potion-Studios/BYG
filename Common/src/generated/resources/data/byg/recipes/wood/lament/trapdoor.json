@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_trapdoor",
-  "pattern": [
-    "PPP",
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "byg:lament_planks"
     }
   },
+  "pattern": [
+    "PPP",
+    "PPP"
+  ],
   "result": {
-    "item": "byg:lament_trapdoor",
-    "count": 2
+    "count": 2,
+    "item": "byg:lament_trapdoor"
   }
 }

@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/baobab/planks",
-    "up": "byg:block/baobab/crafting_table_top",
-    "north": "byg:block/baobab/crafting_table_front",
-    "south": "byg:block/baobab/crafting_table_side",
     "east": "byg:block/baobab/crafting_table_side",
-    "west": "byg:block/baobab/crafting_table_front",
-    "particle": "byg:block/baobab/crafting_table_front"
+    "north": "byg:block/baobab/crafting_table_front",
+    "particle": "byg:block/baobab/crafting_table_front",
+    "south": "byg:block/baobab/crafting_table_side",
+    "up": "byg:block/baobab/crafting_table_top",
+    "west": "byg:block/baobab/crafting_table_front"
   }
 }

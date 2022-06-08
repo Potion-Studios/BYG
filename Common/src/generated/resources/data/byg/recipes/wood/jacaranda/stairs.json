@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_stairs",
-  "pattern": [
-    "P  ",
-    "PP ",
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "byg:jacaranda_planks"
     }
   },
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
   "result": {
-    "item": "byg:jacaranda_slab",
-    "count": 4
+    "count": 4,
+    "item": "byg:jacaranda_slab"
   }
 }

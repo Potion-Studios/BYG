@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "crafting_table",
-  "pattern": [
-    "PP",
-    "PP"
-  ],
   "key": {
     "P": {
       "item": "byg:skyris_planks"
     }
   },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
   "result": {
     "item": "byg:skyris_crafting_table"
   }

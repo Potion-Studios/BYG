@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/embur/log",
-    "end": "byg:block/embur/log_top"
+    "end": "byg:block/embur/log_top",
+    "side": "byg:block/embur/log"
   }
 }

@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/skyris/leaves_snowy",
-    "up": "byg:block/skyris/leaves_snowy",
-    "north": "byg:block/skyris/leaves_snowy_side",
-    "south": "byg:block/skyris/leaves_snowy_side",
     "east": "byg:block/skyris/leaves_snowy_side",
-    "west": "byg:block/skyris/leaves_snowy_side",
-    "particle": "byg:block/skyris/leaves_snowy_side"
+    "north": "byg:block/skyris/leaves_snowy_side",
+    "particle": "byg:block/skyris/leaves_snowy_side",
+    "south": "byg:block/skyris/leaves_snowy_side",
+    "up": "byg:block/skyris/leaves_snowy",
+    "west": "byg:block/skyris/leaves_snowy_side"
   }
 }

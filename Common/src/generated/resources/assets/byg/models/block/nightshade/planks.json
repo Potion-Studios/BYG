@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/nightshade/planks",
-    "up": "byg:block/nightshade/planks",
-    "north": "byg:block/nightshade/planks",
-    "south": "byg:block/nightshade/planks",
     "east": "byg:block/nightshade/planks",
-    "west": "byg:block/nightshade/planks",
-    "particle": "byg:block/nightshade/planks"
+    "north": "byg:block/nightshade/planks",
+    "particle": "byg:block/nightshade/planks",
+    "south": "byg:block/nightshade/planks",
+    "up": "byg:block/nightshade/planks",
+    "west": "byg:block/nightshade/planks"
   }
 }

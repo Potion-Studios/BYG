@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "bookshelf",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "P": {
+      "item": "byg:maple_planks"
+    }
+  },
   "pattern": [
     "PPP",
     "BBB",
     "PPP"
   ],
-  "key": {
-    "P": {
-      "item": "byg:maple_planks"
-    },
-    "B": {
-      "item": "minecraft:book"
-    }
-  },
   "result": {
     "item": "byg:maple_bookshelf"
   }

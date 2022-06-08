@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/blue_enchanted/planks_top",
-    "up": "byg:block/blue_enchanted/planks_top",
-    "north": "byg:block/blue_enchanted/planks",
-    "south": "byg:block/blue_enchanted/planks",
     "east": "byg:block/blue_enchanted/planks",
-    "west": "byg:block/blue_enchanted/planks",
-    "particle": "byg:block/blue_enchanted/planks_top"
+    "north": "byg:block/blue_enchanted/planks",
+    "particle": "byg:block/blue_enchanted/planks_top",
+    "south": "byg:block/blue_enchanted/planks",
+    "up": "byg:block/blue_enchanted/planks_top",
+    "west": "byg:block/blue_enchanted/planks"
   }
 }

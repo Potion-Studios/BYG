@@ -6,6 +6,7 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -17,8 +18,11 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
@@ -92,27 +96,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             configureTransform(item.withExistingParent(type.craftingTable().getId().getPath(), craftingTable.getLocation()));
             simpleBlock(type.craftingTable().get(), craftingTable);
 
-            final var doorBottomLeft = models().doorBottomLeft(
-                    typeName + "/door_bottom",
-                    rl(typeLoc + "door_bottom"),
-                    rl(typeLoc + "door_top")
-            );
-            final var doorBottomRight = models().doorBottomRight(
-                    typeName + "/door_bottom_hinge",
-                    rl(typeLoc + "door_bottom"),
-                    rl(typeLoc + "door_top")
-            );
-            final var doorTopLeft = models().doorTopLeft(
-                    typeName + "/door_top",
-                    rl(typeLoc + "door_bottom"),
-                    rl(typeLoc + "door_top")
-            );
-            final var doorTopRight = models().doorTopRight(
-                    typeName + "/door_top_hinge",
-                    rl(typeLoc + "door_bottom"),
-                    rl(typeLoc + "door_top")
-            );
-            doorBlock((DoorBlock) type.door().get(), doorBottomLeft, doorBottomRight, doorTopLeft, doorTopRight);
+            door(typeName, type.door().get(), rl(typeLoc + "door_bottom"), rl(typeLoc + "door_top"));
             item.withExistingParent(type.door().getId().getPath(), generatedParent)
                     .texture("layer0", rl(typeLocItem + "door"));
 
@@ -238,6 +222,44 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 //                    .texture("particle", logLocation);
 //            wallBlock(type.wall().get(), wallPost, wall, wall);
         }
+    }
+
+    private void door(String typeLocation, Block door, ResourceLocation bottom, ResourceLocation top) {
+        final var bottomLeft = doorModel(typeLocation + "/door/bottom_left", "bottom_left", bottom, top);
+        final var bottomLeftOpen = doorModel(typeLocation + "/door/bottom_left_open", "bottom_left_open", bottom, top);
+        final var bottomRight = doorModel(typeLocation + "/door/bottom_right", "bottom_right", bottom, top);
+        final var bottomRightOpen = doorModel(typeLocation + "/door/bottom_right_open", "bottom_right_open", bottom, top);
+
+        final var topLeft = doorModel(typeLocation + "/door/top_left", "top_left", bottom, top);
+        final var topLeftOpen = doorModel(typeLocation + "/door/top_left_open", "top_left_open", bottom, top);
+        final var topRight = doorModel(typeLocation + "/door/top_right", "top_right", bottom, top);
+        final var topRightOpen = doorModel(typeLocation + "/door/top_right_open", "top_right_open", bottom, top);
+
+        getVariantBuilder(door)
+                .forAllStatesExcept(state -> {
+                    int yRot = ((int) state.getValue(DoorBlock.FACING).toYRot()) + 90;
+                    boolean rh = state.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
+                    boolean open = state.getValue(DoorBlock.OPEN);
+                    boolean right = rh ^ open;
+                    if (open) {
+                        yRot += 90;
+                    }
+                    if (rh && open) {
+                        yRot += 180;
+                    }
+                    yRot %= 360;
+                    final var bottomModel = open ? (right ? bottomRightOpen : bottomLeftOpen) : (right ? bottomRight : bottomLeft);
+                    final var topModel = open ? (right ? topRightOpen : topLeftOpen) : (right ? topRight : topLeft);
+                    return ConfiguredModel.builder().modelFile(state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? bottomModel : topModel)
+                            .rotationY(yRot)
+                            .build();
+                    }, DoorBlock.POWERED);
+    }
+
+    private BlockModelBuilder doorModel(String name, String type, ResourceLocation bottom, ResourceLocation top) {
+        return models().withExistingParent(name, "block/door_" + type)
+                .texture("bottom", bottom)
+                .texture("top", top);
     }
 
     private BlockModelBuilder leaves(String name, ResourceLocation texture, ResourceLocation overlay) {

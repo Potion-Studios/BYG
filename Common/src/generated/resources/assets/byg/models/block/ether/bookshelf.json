@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/ether/planks",
-    "up": "byg:block/ether/planks",
-    "north": "byg:block/ether/bookshelf",
-    "south": "byg:block/ether/bookshelf",
     "east": "byg:block/ether/bookshelf",
-    "west": "byg:block/ether/bookshelf",
-    "particle": "byg:block/ether/planks"
+    "north": "byg:block/ether/bookshelf",
+    "particle": "byg:block/ether/planks",
+    "south": "byg:block/ether/bookshelf",
+    "up": "byg:block/ether/planks",
+    "west": "byg:block/ether/bookshelf"
   }
 }

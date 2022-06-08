@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/pine/planks",
-    "up": "byg:block/pine/planks",
-    "north": "byg:block/pine/planks",
-    "south": "byg:block/pine/planks",
     "east": "byg:block/pine/planks",
-    "west": "byg:block/pine/planks",
-    "particle": "byg:block/pine/planks"
+    "north": "byg:block/pine/planks",
+    "particle": "byg:block/pine/planks",
+    "south": "byg:block/pine/planks",
+    "up": "byg:block/pine/planks",
+    "west": "byg:block/pine/planks"
   }
 }

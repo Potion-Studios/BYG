@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/green_enchanted/log",
-    "end": "byg:block/green_enchanted/log_top"
+    "end": "byg:block/green_enchanted/log_top",
+    "side": "byg:block/green_enchanted/log"
   }
 }

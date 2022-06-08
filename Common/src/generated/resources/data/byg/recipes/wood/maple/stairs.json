@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_stairs",
-  "pattern": [
-    "P  ",
-    "PP ",
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "byg:maple_planks"
     }
   },
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
   "result": {
-    "item": "byg:maple_slab",
-    "count": 4
+    "count": 4,
+    "item": "byg:maple_slab"
   }
 }

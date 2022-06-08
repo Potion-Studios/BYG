@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_fence_gate",
-  "pattern": [
-    "#W#",
-    "#W#"
-  ],
   "key": {
     "#": {
       "tag": "byg:sticks"
@@ -13,6 +9,10 @@
       "item": "byg:green_enchanted_planks"
     }
   },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
   "result": {
     "item": "byg:green_enchanted_fence_gate"
   }

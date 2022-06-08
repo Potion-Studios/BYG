@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "crafting_table",
-  "pattern": [
-    "PP",
-    "PP"
-  ],
   "key": {
     "P": {
       "item": "byg:ebony_planks"
     }
   },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
   "result": {
     "item": "byg:ebony_crafting_table"
   }

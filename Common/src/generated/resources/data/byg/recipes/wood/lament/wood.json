@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wood",
-  "pattern": [
-    "LL",
-    "LL"
-  ],
   "key": {
     "L": {
       "item": "byg:lament_log"
     }
   },
+  "pattern": [
+    "LL",
+    "LL"
+  ],
   "result": {
-    "item": "byg:lament_wood",
-    "count": 3
+    "count": 3,
+    "item": "byg:lament_wood"
   }
 }

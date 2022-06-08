@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "crafting_table",
-  "pattern": [
-    "PP",
-    "PP"
-  ],
   "key": {
     "P": {
       "item": "byg:imparius_planks"
     }
   },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
   "result": {
     "item": "byg:imparius_crafting_table"
   }

@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/witch_hazel/planks",
-    "up": "byg:block/witch_hazel/planks",
-    "north": "byg:block/witch_hazel/bookshelf",
-    "south": "byg:block/witch_hazel/bookshelf",
     "east": "byg:block/witch_hazel/bookshelf",
-    "west": "byg:block/witch_hazel/bookshelf",
-    "particle": "byg:block/witch_hazel/planks"
+    "north": "byg:block/witch_hazel/bookshelf",
+    "particle": "byg:block/witch_hazel/planks",
+    "south": "byg:block/witch_hazel/bookshelf",
+    "up": "byg:block/witch_hazel/planks",
+    "west": "byg:block/witch_hazel/bookshelf"
   }
 }

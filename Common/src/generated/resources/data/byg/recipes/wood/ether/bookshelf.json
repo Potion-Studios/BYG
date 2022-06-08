@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "bookshelf",
+  "key": {
+    "B": {
+      "item": "minecraft:book"
+    },
+    "P": {
+      "item": "byg:ether_planks"
+    }
+  },
   "pattern": [
     "PPP",
     "BBB",
     "PPP"
   ],
-  "key": {
-    "P": {
-      "item": "byg:ether_planks"
-    },
-    "B": {
-      "item": "minecraft:book"
-    }
-  },
   "result": {
     "item": "byg:ether_bookshelf"
   }

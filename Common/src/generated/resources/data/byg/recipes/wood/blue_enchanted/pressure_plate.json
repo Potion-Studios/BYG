@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_pressure_plate",
-  "pattern": [
-    "PP"
-  ],
   "key": {
     "P": {
       "item": "byg:blue_enchanted_planks"
     }
   },
+  "pattern": [
+    "PP"
+  ],
   "result": {
     "item": "byg:blue_enchanted_pressure_plate"
   }

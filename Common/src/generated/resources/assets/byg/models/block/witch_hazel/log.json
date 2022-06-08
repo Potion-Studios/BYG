@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/witch_hazel/log",
-    "end": "byg:block/witch_hazel/log_top"
+    "end": "byg:block/witch_hazel/log_top",
+    "side": "byg:block/witch_hazel/log"
   }
 }

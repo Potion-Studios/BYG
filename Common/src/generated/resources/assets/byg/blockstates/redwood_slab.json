@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/redwood/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/redwood/slab"
     },
     "type=double": {
       "model": "byg:block/redwood/planks"
+    },
+    "type=top": {
+      "model": "byg:block/redwood/slab_top"
     }
   }
 }

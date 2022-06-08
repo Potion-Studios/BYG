@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/cypress/planks",
-    "up": "byg:block/cypress/planks",
-    "north": "byg:block/cypress/planks",
-    "south": "byg:block/cypress/planks",
     "east": "byg:block/cypress/planks",
-    "west": "byg:block/cypress/planks",
-    "particle": "byg:block/cypress/planks"
+    "north": "byg:block/cypress/planks",
+    "particle": "byg:block/cypress/planks",
+    "south": "byg:block/cypress/planks",
+    "up": "byg:block/cypress/planks",
+    "west": "byg:block/cypress/planks"
   }
 }

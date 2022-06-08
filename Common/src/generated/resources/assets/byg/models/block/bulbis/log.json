@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "byg:block/bulbis/log",
-    "end": "byg:block/bulbis/log_top"
+    "end": "byg:block/bulbis/log_top",
+    "side": "byg:block/bulbis/log"
   }
 }

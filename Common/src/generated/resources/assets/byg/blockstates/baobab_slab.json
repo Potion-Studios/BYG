@@ -1,13 +1,13 @@
 {
   "variants": {
-    "type=top": {
-      "model": "byg:block/baobab/slab_top"
-    },
     "type=bottom": {
       "model": "byg:block/baobab/slab"
     },
     "type=double": {
       "model": "byg:block/baobab/planks"
+    },
+    "type=top": {
+      "model": "byg:block/baobab/slab_top"
     }
   }
 }

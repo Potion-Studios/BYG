@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "byg:block/mangrove/planks",
-    "up": "byg:block/mangrove/planks",
-    "north": "byg:block/mangrove/planks",
-    "south": "byg:block/mangrove/planks",
     "east": "byg:block/mangrove/planks",
-    "west": "byg:block/mangrove/planks",
-    "particle": "byg:block/mangrove/planks"
+    "north": "byg:block/mangrove/planks",
+    "particle": "byg:block/mangrove/planks",
+    "south": "byg:block/mangrove/planks",
+    "up": "byg:block/mangrove/planks",
+    "west": "byg:block/mangrove/planks"
   }
 }

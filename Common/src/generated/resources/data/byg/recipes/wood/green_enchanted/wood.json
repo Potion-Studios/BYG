@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wood",
-  "pattern": [
-    "LL",
-    "LL"
-  ],
   "key": {
     "L": {
       "item": "byg:green_enchanted_log"
     }
   },
+  "pattern": [
+    "LL",
+    "LL"
+  ],
   "result": {
-    "item": "byg:green_enchanted_wood",
-    "count": 3
+    "count": 3,
+    "item": "byg:green_enchanted_wood"
   }
 }
