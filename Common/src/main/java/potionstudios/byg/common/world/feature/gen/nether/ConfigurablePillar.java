@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     public ConfigurablePillar(Codec<SimpleBlockProviderConfig> codec) {
@@ -24,7 +24,7 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     }
 
     //A copy paste of Minecraft's Basalt Pillar Feature where the blocks can be chosen in a config rather than hardcoded.
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (world.isEmptyBlock(pos) && !world.isEmptyBlock(pos.above())) {
             BlockPos.MutableBlockPos mutable = pos.mutable();
             BlockPos.MutableBlockPos mutable2 = pos.mutable();
@@ -82,14 +82,14 @@ public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
         }
     }
 
-    private void randChanceBlock(LevelAccessor world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    private void randChanceBlock(LevelAccessor world, RandomSource rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (rand.nextBoolean()) {
             world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
         }
 
     }
 
-    private boolean randChanceBlock2(LevelAccessor world, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    private boolean randChanceBlock2(LevelAccessor world, RandomSource rand, BlockPos pos, SimpleBlockProviderConfig config) {
         if (rand.nextInt(10) != 0) {
             world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
             return true;

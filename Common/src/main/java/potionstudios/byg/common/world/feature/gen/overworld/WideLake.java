@@ -21,7 +21,7 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 
@@ -33,7 +33,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
     protected PerlinSimplexNoise noiseGen;
 
     public void setSeed(long seed) {
-        WorldgenRandom sharedseedrandom = new WorldgenRandom(new XoroshiroRandomSource(seed));
+        RandomSource sharedseedrandom = new WorldgenRandom(new XoroshiroRandomSource(seed));
         if (this.noiseSeed != seed || this.noiseGen == null) {
             this.noiseGen = new PerlinSimplexNoise(sharedseedrandom, ImmutableList.of(0));
         }
@@ -51,7 +51,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkSettings, Random random, BlockPos position, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkSettings, RandomSource random, BlockPos position, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2));
 

@@ -1,10 +1,10 @@
 package potionstudios.byg.common.world.surfacerules.rulesource;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.KeyDispatchDataCodec;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.RandomSource;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.SurfaceSystem;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
@@ -20,10 +20,10 @@ import static potionstudios.byg.mixin.access.SurfaceSystemAccess.byg_invokeMakeB
 
 public final class BandsRuleSource implements SurfaceRules.RuleSource {
 
-    public static final Codec<BandsRuleSource> CODEC = RecordCodecBuilder.create(builder ->
-        builder.group(
-            BlockState.CODEC.listOf().fieldOf("states").forGetter(bandsRuleSource -> Arrays.asList(bandsRuleSource.bandStates))
-        ).apply(builder, BandsRuleSource::new));
+    public static final KeyDispatchDataCodec<BandsRuleSource> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
+            builder.group(
+                    BlockState.CODEC.listOf().fieldOf("states").forGetter(bandsRuleSource -> Arrays.asList(bandsRuleSource.bandStates))
+            ).apply(builder, BandsRuleSource::new)));
 
     private final BlockState[] bandStates;
     @Nullable
@@ -41,7 +41,7 @@ public final class BandsRuleSource implements SurfaceRules.RuleSource {
     }
 
     @Override
-    public Codec<? extends SurfaceRules.RuleSource> codec() {
+    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 
@@ -49,7 +49,7 @@ public final class BandsRuleSource implements SurfaceRules.RuleSource {
     public SurfaceRules.SurfaceRule apply(SurfaceRules.Context context) {
         SurfaceSystem system = ((SurfaceRuleContextAccess) (Object) context).byg_getSystem();
         if (generatedBands == null) {
-            generatedBands = this.generateBands(((SurfaceSystemAccess) system).byg_getRandomFactory().fromHashOf(new ResourceLocation("clay_bands")));
+            generatedBands = this.generateBands(((SurfaceSystemAccess) system).byg_getNoiseRandom().fromHashOf(new ResourceLocation("clay_bands")));
         }
 
         return (x, y, z) -> getBand(x, y, z, generatedBands, ((SurfaceSystemAccess) system).byg_getClayBandsOffsetNoise());
@@ -114,7 +114,7 @@ public final class BandsRuleSource implements SurfaceRules.RuleSource {
     @Override
     public String toString() {
         return "ShatteredGlacierIceBands[" +
-            "bandStates=" + Arrays.toString(bandStates) + ']';
+                "bandStates=" + Arrays.toString(bandStates) + ']';
     }
 
 }

@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class HydrangeaBushBlock extends BYGFlowerBlock implements BonemealableBlock {
     private final TagKey<Block> validGround;
@@ -31,12 +31,12 @@ public class HydrangeaBushBlock extends BYGFlowerBlock implements BonemealableBl
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState) {
         serverLevel.setBlockAndUpdate(blockPos, BYGBlocks.HYDRANGEA_HEDGE.defaultBlockState());
         serverLevel.neighborChanged(blockPos, BYGBlocks.HYDRANGEA_HEDGE.get(), blockPos);
     }

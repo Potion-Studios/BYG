@@ -9,13 +9,13 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public abstract class BYGHugeMushroom {
     @Nullable
-    protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(Random random);
+    protected abstract ConfiguredFeature<BYGMushroomConfig, ?> getHugeMushroomFeature(RandomSource random);
 
-    public boolean withSpawner(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, Random random) {
+    public boolean withSpawner(WorldGenLevel worldIn, ChunkGenerator chunkGenerator, BlockPos pos, BlockState blockUnder, RandomSource random) {
         ConfiguredFeature<BYGMushroomConfig, ?> abstractMushroomFeature = this.getHugeMushroomFeature(random);
         if (abstractMushroomFeature == null) {
             return false;

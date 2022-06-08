@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld.trees.pine;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -11,13 +12,12 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import potionstudios.byg.BYG;
 
 import java.util.Optional;
-import java.util.Random;
 
 public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
 
@@ -30,7 +30,7 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, NoneFeatureConfiguration config) {
         if (pos.getX() == -4 && pos.getZ() == -4) {
             for (int checkX = pos.getX() + -16; checkX <= pos.getX() + 16; checkX++) {
                 for (int checkY = pos.getY(); checkY <= 25; checkY++) {
@@ -41,7 +41,7 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
                 }
             }
 
-            StructureManager templatemanager = world.getLevel().getStructureManager();
+            StructureTemplateManager templatemanager = world.getLevel().getStructureManager();
             Optional<StructureTemplate> structureTemplate = templatemanager.get(BYG.createLocation(":features/trees/withering_oak_tree5"));
 
             if (structureTemplate.isEmpty()) {

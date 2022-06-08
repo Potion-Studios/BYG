@@ -3,18 +3,17 @@ package potionstudios.byg.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 
-import java.util.Random;
-
-public class BuddingAmetrineBlock extends OreBlock {
+public class BuddingAmetrineBlock extends DropExperienceBlock {
     private static final Direction[] DIRECTIONS = Direction.values();
 
     public BuddingAmetrineBlock(Properties builder) {
@@ -25,7 +24,7 @@ public class BuddingAmetrineBlock extends OreBlock {
         return PushReaction.DESTROY;
     }
 
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (random.nextInt(5) == 0) {
             Direction direction = DIRECTIONS[random.nextInt(DIRECTIONS.length)];
             BlockPos blockPos = pos.relative(direction);

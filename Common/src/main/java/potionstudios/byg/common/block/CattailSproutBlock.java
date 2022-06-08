@@ -23,7 +23,7 @@ import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.item.BYGItems;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWaterloggedBlock, BonemealableBlock {
 
@@ -34,7 +34,7 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource random) {
         int i = random.nextInt(5);
         if (i == 4) {
             if (serverLevel.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
@@ -102,7 +102,7 @@ public class CattailSproutBlock extends BambooSaplingBlock implements SimpleWate
         return new ItemStack(BYGItems.CATTAIL_SPROUT.get());
     }
 
-    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState) {
         growCatTail(serverLevel, blockPos);
     }
 

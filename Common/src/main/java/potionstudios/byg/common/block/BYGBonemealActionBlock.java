@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.Supplier;
 
 public class BYGBonemealActionBlock extends TallGrassBlock implements BonemealableBlock {
@@ -30,13 +30,13 @@ public class BYGBonemealActionBlock extends TallGrassBlock implements Bonemealab
     }
 
     @Override
-    public void performBonemeal(ServerLevel level, Random random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         this.bonemealAction.perform(level, random, pos, state);
     }
 
     @FunctionalInterface
     interface BonemealAction {
-        void perform(ServerLevel level, Random random, BlockPos pos, BlockState state);
+        void perform(ServerLevel level, RandomSource random, BlockPos pos, BlockState state);
 
         static BonemealAction growDoublePlant(Supplier<DoublePlantBlock> doublePlantBlockSupplier) {
             return (level, random, pos, state) -> {

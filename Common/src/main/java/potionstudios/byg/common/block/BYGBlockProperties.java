@@ -544,7 +544,7 @@ public class BYGBlockProperties {
 //        return adjacentBlockState.getBlock() == this ? true : super.isSideInvisible(state, adjacentBlockState, side);
 //    }
 
-    public static class BYGPervadedNetherrack extends OreBlock {
+    public static class BYGPervadedNetherrack extends DropExperienceBlock {
         public BYGPervadedNetherrack() {
             super(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(SoundType.NETHER_GOLD_ORE)
@@ -557,7 +557,7 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class AnthraciteOre extends OreBlock {
+    public static class AnthraciteOre extends DropExperienceBlock {
         public AnthraciteOre() {
             super(BlockBehaviour.Properties.of(Material.STONE)
                     .sound(SoundType.NETHER_ORE)

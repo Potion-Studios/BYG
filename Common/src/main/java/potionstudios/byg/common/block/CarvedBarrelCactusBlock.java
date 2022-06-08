@@ -29,7 +29,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 
 public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
@@ -69,7 +69,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(@NotNull Level level, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return false;
     }
 
@@ -105,7 +105,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public void randomTick(BlockState $$0, ServerLevel world, BlockPos $$2, Random $$3) {
+    public void randomTick(BlockState $$0, ServerLevel world, BlockPos $$2, RandomSource $$3) {
         super.randomTick($$0, world, $$2, $$3);
         if (world.getLevel().isRaining()){
             world.setBlockAndUpdate($$2, BYGBlocks.WATER_BARREL_CACTUS.defaultBlockState());
@@ -114,7 +114,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         BlockPos blockpos = PointedDripstoneBlock.findStalactiteTipAboveCauldron(pLevel, pPos);
         if (blockpos != null) {
             Fluid fluid = PointedDripstoneBlock.getCauldronFillFluidType(pLevel, blockpos);

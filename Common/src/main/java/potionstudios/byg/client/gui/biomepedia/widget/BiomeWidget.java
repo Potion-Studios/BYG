@@ -6,8 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
@@ -27,14 +27,14 @@ public class BiomeWidget extends AbstractWidget {
     public static final int IMAGE_HEIGHT = 720;
 
     public BiomeWidget(ResourceKey<Biome> biome, int pX, int pY, int pWidth, int pHeight, OnClick onClick) {
-        super(pX, pY, pWidth, pHeight, new TextComponent(""));
+        super(pX, pY, pWidth, pHeight, Component.literal(""));
         this.onClick = onClick;
         ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
-        this.previewImageLocation = Minecraft.getInstance().getResourceManager().hasResource(resourceLocation) ? resourceLocation : null;
+        this.previewImageLocation = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).isPresent() ? resourceLocation : null;
         if (previewImageLocation == null) {
             BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
         }
-        this.name = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
+        this.name = Component.translatable("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
         this.borderColor = FastColor.ARGB32.color(255, 0, 0, 0);
         this.visible = false;
         this.active = false;

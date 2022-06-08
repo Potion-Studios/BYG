@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.surfacerules.rulesource;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.block.Block;
@@ -18,10 +19,10 @@ import potionstudios.byg.mixin.access.SurfaceRulesStateRuleAccess;
 
 public record BlockRuleSourceWithTick(BlockState state, int tickDelay,
                                       SurfaceRules.StateRule rule) implements SurfaceRules.RuleSource {
-    public static final Codec<BlockRuleSourceWithTick> CODEC = RecordCodecBuilder.create(builder ->
+    public static final KeyDispatchDataCodec<BlockRuleSourceWithTick> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
             builder.group(BlockState.CODEC.fieldOf("result_state").forGetter(BlockRuleSourceWithTick::state),
                     Codec.INT.fieldOf("tick_delay").orElse(0).forGetter(BlockRuleSourceWithTick::tickDelay)
-            ).apply(builder, BlockRuleSourceWithTick::new));
+            ).apply(builder, BlockRuleSourceWithTick::new)));
 
 
     BlockRuleSourceWithTick(BlockState blockState, int tickDelay) {
@@ -29,7 +30,7 @@ public record BlockRuleSourceWithTick(BlockState state, int tickDelay,
     }
 
     @Override
-    public Codec<? extends SurfaceRules.RuleSource> codec() {
+    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 

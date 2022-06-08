@@ -37,7 +37,7 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
 public class BYGEndFeatures {
-    public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), BlockPos.ZERO.relative(Direction.DOWN));
+    public static final BlockPredicate CRYPTIC_STONE_UNDER = BlockPredicate.matchesBlocks(BlockPos.ZERO.relative(Direction.DOWN), BYGBlocks.CRYPTIC_STONE.get());
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CRYPTIC_FIRE_PATCH = createConfiguredFeature("cryptic_fire_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
@@ -98,9 +98,9 @@ public class BYGEndFeatures {
             .withTopBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR))
             .withSpawningFeatures(
                 List.of(
-                    createPlacedFeature(CRYPTIC_FIRE, List.of(RarityFilter.onAverageOnceEvery(5), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0))))),
-                    createPlacedFeature(CRYPTIC_VENTS, List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0))))),
-                    createPlacedFeature(BYGEndVegetationFeatures.CRYPTIC_BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.CRYPTIC_STONE.get(), new BlockPos(0, -1, 0)))))
+                    createPlacedFeature(CRYPTIC_FIRE, List.of(RarityFilter.onAverageOnceEvery(5), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))),
+                    createPlacedFeature(CRYPTIC_VENTS, List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER))),
+                    createPlacedFeature(BYGEndVegetationFeatures.CRYPTIC_BRAMBLE, List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER)))
                 )
             ).build()
     );
@@ -154,7 +154,7 @@ public class BYGEndFeatures {
             .withSpawningFeatures(List.of(createPlacedFeature(
                     createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK.get(), new BlockPos(0, -1, 0)))))
+                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.THERIUM_BLOCK.get()))))
                 )
             )
             .build()
@@ -176,7 +176,7 @@ public class BYGEndFeatures {
             .withSpawningFeatures(List.of(createPlacedFeature(
                     createPatchConfiguredFeature(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlock(BYGBlocks.THERIUM_BLOCK.get(), new BlockPos(0, -1, 0)))))
+                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.THERIUM_BLOCK.get()))))
                 )
             )
             .build()
@@ -202,7 +202,7 @@ public class BYGEndFeatures {
         Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(64, 16, 4, createPlacedFeature(createConfiguredFeature(
                 Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.AMETRINE_CLUSTER.get()))),
-            PlacementUtils.HEIGHTMAP, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlock(BYGBlocks.BUDDING_AMETRINE_ORE.get(), BlockPos.ZERO.relative(Direction.DOWN)))))), PlacementUtils.HEIGHTMAP);
+            PlacementUtils.HEIGHTMAP, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(BlockPos.ZERO.relative(Direction.DOWN), BYGBlocks.BUDDING_AMETRINE_ORE.get()))))), PlacementUtils.HEIGHTMAP);
 
     public static final Holder<PlacedFeature> ISLAND_SCULK_PLANTS = createPlacedFeature(createConfiguredFeature(Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(64, 16, 4, createPlacedFeature(createConfiguredFeature(

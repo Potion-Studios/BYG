@@ -6,12 +6,11 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.synth.SimplexNoise;
+import net.minecraft.world.level.levelgen.DensityFunction;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 
@@ -19,38 +18,34 @@ import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
 
-import static net.minecraft.world.level.biome.TheEndBiomeSource.getHeightValue;
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
-public abstract class BYGEndBiomeSource extends BiomeSource {
+public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
 
-    private final SimplexNoise islandNoise;
     private final Registry<Biome> biomeRegistry;
-    private final BiomeResolver islandBiomeResolver;
-    private final BiomeResolver voidBiomeResolver;
-    private final BiomeResolver skyBiomeResolver;
+    private BiomeResolver islandBiomeResolver;
+    private BiomeResolver voidBiomeResolver;
+    private BiomeResolver skyBiomeResolver;
     private final int skyLayersStartY;
-    private final long seed;
 
-    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry) {
         super(getPossibleBiomes(biomeRegistry));
         this.biomeRegistry = biomeRegistry;
-        this.seed = seed;
 
+        EndBiomesConfig config = EndBiomesConfig.getConfig();
 
-        WorldgenRandom worldgenrandom = new WorldgenRandom(new LegacyRandomSource(seed));
-        worldgenrandom.consumeCount(17292);
-        this.islandNoise = new SimplexNoise(worldgenrandom);
+        this.skyLayersStartY = QuartPos.fromBlock(config.skyLayerStartY());
+    }
 
+    @Override
+    public void lazyLoad(long seed) {
         EndBiomesConfig config = EndBiomesConfig.getConfig();
         Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
-
         this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, config.islandLayers().filter(filter));
         this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, config.voidLayers().filter(filter));
         this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, config.skyLayers().filter(filter));
-        this.skyLayersStartY = QuartPos.fromBlock(config.skyLayerStartY());
     }
 
     public abstract BiomeResolver getIslandBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData);
@@ -62,6 +57,10 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     @Override
     public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+        int quartX = QuartPos.toBlock(x);
+        int quartY = QuartPos.toBlock(y);
+        int quartZ = QuartPos.toBlock(z);
+
         int chunkX = x >> 2;
         int chunkZ = z >> 2;
         if ((long) chunkX * (long) chunkX + (long) chunkZ * (long) chunkZ <= 4096L) {
@@ -71,13 +70,13 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
                 return this.skyBiomeResolver.getNoiseBiome(x, y, z, sampler);
             } else {
 
-                float heightValue = getHeightValue(this.islandNoise, chunkX * 2 + 1, chunkZ * 2 + 1);
-                if (heightValue > 40.0F) {
+                double heightValue = sampler.erosion().compute(new DensityFunction.SinglePointContext(quartX, quartY, quartZ));
+                if (heightValue > 40.0) {
                     return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
-                } else if (heightValue >= 0.0F) {
+                } else if (heightValue >= 0.0) {
                     return this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
                 } else {
-                    return heightValue < -20.0F ? this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
+                    return heightValue < -20.0 ? this.voidBiomeResolver.getNoiseBiome(x, y, z, sampler) : this.islandBiomeResolver.getNoiseBiome(x, y, z, sampler);
                 }
             }
         }
@@ -85,10 +84,6 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
     protected Registry<Biome> getBiomeRegistry() {
         return biomeRegistry;
-    }
-
-    protected long getSeed() {
-        return seed;
     }
 
     @NotNull

@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class VentBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
@@ -44,15 +44,15 @@ public class VentBlock extends Block {
     }
 
     
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
-        Random random = worldIn.getRandom();
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource random) {
+        RandomSource RandomSource = worldIn.getRandom();
         for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
-            if (rand.nextBoolean()) {
+            if (random.nextBoolean()) {
                 worldIn.addParticle(ParticleTypes.SMOKE, (double)pos.getX() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + 0.4D, (double)pos.getZ() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.005D, 0.0D);
             }
         }
         for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
-            if (rand.nextBoolean()) {
+            if (random.nextBoolean()) {
                 worldIn.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, (double)pos.getX() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), (double)pos.getY() + 0.4D, (double)pos.getZ() + 0.25D + random.nextDouble() / 2.0D * (double)(random.nextBoolean() ? 1 : -1), 0.0D, 0.005D, 0.0D);
             }
         }

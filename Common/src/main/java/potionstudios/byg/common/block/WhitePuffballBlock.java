@@ -25,7 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
     public static final IntegerProperty AGE;
@@ -53,7 +53,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         return blockState.getValue(AGE) < 3;
     }
 
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, Random random) {
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource random) {
         int i = blockState.getValue(AGE);
         if (i < 3 && random.nextInt(5) == 0 && serverLevel.getRawBrightness(blockPos.above(), 0) < 13) {
             serverLevel.setBlock(blockPos, blockState.setValue(AGE, i + 1), 2);
@@ -101,11 +101,11 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         return blockState.getValue(AGE) < 3;
     }
 
-    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel serverLevel, Random random, BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState) {
         int i = Math.min(3, blockState.getValue(AGE) + 1);
         serverLevel.setBlock(blockPos, blockState.setValue(AGE, i), 2);
     }

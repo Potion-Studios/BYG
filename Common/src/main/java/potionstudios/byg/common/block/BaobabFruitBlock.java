@@ -26,7 +26,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BaobabFruitBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -73,7 +73,7 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (!state.canSurvive(worldIn, pos)) {
             worldIn.destroyBlock(pos.above(), true);
         }
@@ -83,7 +83,7 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
         return state.getValue(AGE) < 3;
     }
 
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
         int i = state.getValue(AGE);
         if (i < 3 && worldIn.getRawBrightness(pos.above(), 0) >= 9 && random.nextInt(5) == 0) {
             worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
@@ -95,11 +95,11 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
         return state.getValue(AGE) < 3;
     }
 
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         int i = Math.min(3, state.getValue(AGE) + 1);
         worldIn.setBlock(pos, state.setValue(AGE, i), 2);
     }

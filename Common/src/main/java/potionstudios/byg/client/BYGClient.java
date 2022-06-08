@@ -45,7 +45,7 @@ public class BYGClient {
 
     public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
         for (BYGBoatEntity.BYGType value : BYGBoatEntity.BYGType.values()) {
-            consumer.accept(BYGBoatRenderer.createBoatModelName(value), BoatModel::createBodyModel);
+            consumer.accept(BYGBoatRenderer.createBoatModelName(value), () -> BoatModel.createBodyModel(false));
         }
     }
 }

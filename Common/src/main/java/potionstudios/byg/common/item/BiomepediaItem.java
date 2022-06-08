@@ -1,7 +1,7 @@
 package potionstudios.byg.common.item;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +26,7 @@ public class BiomepediaItem extends Item {
 
     private static class Client {
         public static void openScreen() {
-            Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(new TextComponent("")));
+            Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(Component.literal("")));
         }
     }
 }

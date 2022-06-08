@@ -35,13 +35,13 @@ public class FabricModPlatform implements ModPlatform {
     }
 
     @Override
-    public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        return new BYGFabricNetherBiomeSource(biomeRegistry, seed);
+    public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry) {
+        return new BYGFabricNetherBiomeSource(biomeRegistry);
     }
 
     @Override
-    public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry, long seed) {
-        return new BYGFabricEndBiomeSource(biomeRegistry, seed);
+    public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry) {
+        return new BYGFabricEndBiomeSource(biomeRegistry);
     }
 
     @Override

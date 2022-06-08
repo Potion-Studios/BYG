@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
 
@@ -43,7 +43,7 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
 
 
     @Override
-    public BlockState getState(Random random, BlockPos pos) {
+    public BlockState getState(RandomSource random, BlockPos pos) {
         double noiseValue = this.use3D ? getNoiseValue2D(pos, 4) : this.getNoiseValue(pos, this.scale);
 //        BYG.LOGGER.info(noiseValue);
 

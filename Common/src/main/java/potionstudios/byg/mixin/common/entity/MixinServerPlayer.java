@@ -11,7 +11,7 @@ import potionstudios.byg.util.BYGAdditionalData;
 @Mixin(ServerPlayer.class)
 public abstract class MixinServerPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Access {
 
-    @Inject(method = "doTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancements/critereon/LocationTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;)V"))
+    @Inject(method = "doTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancements/critereon/PlayerTrigger;trigger(Lnet/minecraft/server/level/ServerPlayer;)V"))
     private void updateBygServerPlayerTrackedData(CallbackInfo ci) {
         this.getPlayerTrackedData().tickPerSecond((ServerPlayer) (Object) this);
     }

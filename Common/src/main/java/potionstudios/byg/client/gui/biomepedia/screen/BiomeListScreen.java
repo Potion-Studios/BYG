@@ -7,8 +7,9 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
@@ -43,7 +44,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
     private BiomeWidget[][][] widgets;
 
     protected BiomeListScreen(Screen parent) {
-        super(new TranslatableComponent(""));
+        super(Component.translatable(""));
         this.parent = parent;
     }
 
@@ -108,7 +109,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
         load(pagePair);
 
         MutableBoolean snapToFront = new MutableBoolean(false);
-        EditBox search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.IMAGE_HEIGHT - 22, 150, 15, new TextComponent(""));
+        EditBox search = new EditBox(this.minecraft.font, this.leftPos + 15, this.bottomPos + this.IMAGE_HEIGHT - 22, 150, 15, Component.literal(""));
         if (this.search != null) {
             search.active = this.search.active;
             search.visible = this.search.visible;
@@ -140,7 +141,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                         this.back.visible = true;
                         this.back.active = true;
                     }
-                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, new TranslatableComponent("biomepedia.biomelist.search"), mouseX, mouseZ), TextComponent.EMPTY);
+                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, Component.translatable("biomepedia.biomelist.search"), mouseX, mouseZ), Component.empty());
         this.addRenderableWidget(this.searchButton);
         this.addRenderableWidget(this.search);
 
@@ -159,7 +160,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
         }
 
         List<ResourceKey<Biome>> searchResult = resourceKeys.stream().filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).filter(biome -> {
-            TranslatableComponent translatedComponent = new TranslatableComponent("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
+            MutableComponent translatedComponent = Component.translatable("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
             return translatedComponent.getString().toLowerCase().contains(s.toLowerCase());
         }).toList();
         this.lastInput = searchResult;

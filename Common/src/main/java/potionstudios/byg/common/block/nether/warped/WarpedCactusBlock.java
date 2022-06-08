@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class WarpedCactusBlock extends Block {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
@@ -33,7 +33,7 @@ public class WarpedCactusBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
     }
 
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (!worldIn.isLoaded(pos))
             return; // Forge: prevent growing cactus from loading unloaded chunks with block update
         if (!state.canSurvive(worldIn, pos)) {
@@ -42,7 +42,7 @@ public class WarpedCactusBlock extends Block {
 
     }
 
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
         BlockPos blockpos = pos.above();
         if (worldIn.isEmptyBlock(blockpos)) {
             int i;

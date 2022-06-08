@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class JacarandaBushBlock extends BushBlock implements BonemealableBlock {
 
@@ -23,12 +23,12 @@ public class JacarandaBushBlock extends BushBlock implements BonemealableBlock {
     }
 
     @Override
-    public boolean isBonemealSuccess(Level p_180670_1_, Random p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
+    public boolean isBonemealSuccess(Level p_180670_1_, RandomSource p_180670_2_, BlockPos p_180670_3_, BlockState p_180670_4_) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
         JacarandaBushBlock flowering = (JacarandaBushBlock) (this == BYGBlocks.JACARANDA_BUSH.get() ? BYGBlocks.FLOWERING_JACARANDA_BUSH.get() : BYGBlocks.FLOWERING_JACARANDA_BUSH.get());
         if (flowering.defaultBlockState().canSurvive(world, pos)) {
             flowering.placeAt(world, pos, 1);

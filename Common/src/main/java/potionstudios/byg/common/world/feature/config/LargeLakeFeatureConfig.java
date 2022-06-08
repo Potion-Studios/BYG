@@ -18,7 +18,7 @@ import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth, int maxDepth,
                                      BlockStateProvider lakeFloorStateProvider,
@@ -38,11 +38,11 @@ public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth,
         ).apply(builder, LargeLakeFeatureConfig::new);
     });
 
-    public int getRandomRadius(Random random) {
+    public int getRandomRadius(RandomSource random) {
         return random.nextInt(Math.max(1, this.maxRadius - this.minRadius)) + this.minRadius;
     }
 
-    public int getRandomDepth(Random random) {
+    public int getRandomDepth(RandomSource random) {
         return random.nextInt(Math.max(1, this.maxDepth - this.minDepth)) + this.minRadius;
     }
 

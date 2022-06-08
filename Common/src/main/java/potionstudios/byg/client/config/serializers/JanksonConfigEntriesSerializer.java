@@ -6,7 +6,7 @@ import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 import blue.endless.jankson.api.SyntaxError;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import potionstudios.byg.client.config.configeditor.ConfigCollectionEntry;
 import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
 import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
@@ -41,9 +41,9 @@ public class JanksonConfigEntriesSerializer implements ConfigEntriesSerializer<J
                         fileEditEntries.add(configPrimitiveEntry);
                     }
                 } else if (element instanceof JsonArray jsonArray) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, shownPath), new TextComponent(comment)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonArray, shownPath), Component.literal(comment)));
                 } else if (element instanceof JsonObject jsonObject1) {
-                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, shownPath), new TextComponent(comment)));
+                    fileEditEntries.add(new ConfigCollectionEntry(screen, key, new JanksonConfigEntriesSerializer(jsonObject1, shownPath), Component.literal(comment)));
                 }
             });
         } else if (jsonElement instanceof JsonArray array) {

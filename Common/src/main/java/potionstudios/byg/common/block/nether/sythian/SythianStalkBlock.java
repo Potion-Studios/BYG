@@ -16,7 +16,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class SythianStalkBlock extends BambooBlock {
 
@@ -50,7 +50,7 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (!state.canSurvive(worldIn, pos)) {
             worldIn.destroyBlock(pos, true);
         }
@@ -70,7 +70,7 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    protected void growBamboo(BlockState state, Level world, BlockPos pos, Random rand, int i) {
+    protected void growBamboo(BlockState state, Level world, BlockPos pos, RandomSource rand, int i) {
         BlockState stateDOWN = world.getBlockState(pos.below());
         BlockPos posDOWN2 = pos.below(2);
         BlockState blockStateDOWN2 = world.getBlockState(posDOWN2);

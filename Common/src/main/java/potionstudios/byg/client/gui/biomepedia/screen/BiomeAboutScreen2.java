@@ -8,8 +8,8 @@ import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
@@ -31,10 +31,10 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
     protected int toolTipMaxWidth;
 
     protected BiomeAboutScreen2(ResourceKey<Biome> biomeKey, Screen parent) {
-        super(new TranslatableComponent("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
+        super(Component.translatable("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
         this.biomeKey = biomeKey;
         this.parent = parent;
-        MutableComponent mobSpawnsText = new TranslatableComponent("biomepedia.biomeabout.mobspawns").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent mobSpawnsText = Component.translatable("biomepedia.biomeabout.mobspawns").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         LevelBiomeTracker levelBiomeTracker = LevelBiomeTracker.client_instance;
 
         Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> biomeMobs = levelBiomeTracker.getBiomeMobs();
@@ -43,27 +43,27 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
                 mobSpawnsText.append("\n").append(Registry.ENTITY_TYPE.getOrThrow(entityTypeResourceKey).getDescription());
             });
         } else {
-            mobSpawnsText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.mobspawns.none"));
+            mobSpawnsText.append("\n").append(Component.translatable("biomepedia.biomeabout.mobspawns.none"));
         }
         this.mobSpawns = mobSpawnsText;
 
-        MutableComponent biomeTagsText = new TranslatableComponent("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent biomeTagsText = Component.translatable("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         MutableInt count = new MutableInt(0);
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         biomeRegistry.getHolder(biomeKey).orElseThrow().tags()
                 .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
-                .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(new TextComponent(biomeTagKey.location().toString())));
+                .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(Component.literal(biomeTagKey.location().toString())));
 
-        MutableComponent climateText = new TranslatableComponent("biomepedia.biomeabout.color").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent climateText = Component.translatable("biomepedia.biomeabout.color").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
         Biome biome = biomeRegistry.get(biomeKey);
 
         int grassColor = biome.getSpecialEffects().getGrassColorOverride().orElseGet(() -> ((BiomeAccess) (Object) biome).byg_invokeGetGrassColorFromTexture());
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.grass", Integer.toHexString(grassColor)));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.foliage", Integer.toHexString(biome.getFoliageColor())));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.fog", Integer.toHexString(biome.getFogColor())));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.sky", Integer.toHexString(biome.getFogColor())));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.water", Integer.toHexString(biome.getWaterColor())));
-        climateText.append("\n").append(new TranslatableComponent("biomepedia.biomeabout.color.waterfog", Integer.toHexString(biome.getWaterFogColor())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.grass", Integer.toHexString(grassColor)));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.foliage", Integer.toHexString(biome.getFoliageColor())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.fog", Integer.toHexString(biome.getFogColor())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.sky", Integer.toHexString(biome.getFogColor())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.water", Integer.toHexString(biome.getWaterColor())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.color.waterfog", Integer.toHexString(biome.getWaterFogColor())));
         this.colorSettingsText = climateText;
 
 

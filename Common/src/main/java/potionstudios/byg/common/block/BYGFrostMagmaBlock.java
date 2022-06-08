@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 @SuppressWarnings("deprecation")
 public class BYGFrostMagmaBlock extends Block {
@@ -27,7 +27,7 @@ public class BYGFrostMagmaBlock extends Block {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random rand) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
         BlockState blockAbove = world.getBlockState(pos.above());
         if (blockAbove.getBlock() == Blocks.WATER) {
             world.setBlock(pos.above(), Blocks.ICE.defaultBlockState(), 2);

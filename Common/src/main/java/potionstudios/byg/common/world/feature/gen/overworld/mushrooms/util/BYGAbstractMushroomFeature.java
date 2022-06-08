@@ -17,7 +17,7 @@ import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.util.MLBlockTags;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 @Deprecated(forRemoval = true)
 public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> extends Feature<T> {
@@ -220,10 +220,10 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, T config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, T config) {
         return placeMushroom(worldIn, rand, pos, config.isPlacementForced(), config);
     }
 
-    protected abstract boolean placeMushroom(WorldGenLevel worldIn, Random rand, BlockPos pos, boolean isMushroom, T config);
+    protected abstract boolean placeMushroom(WorldGenLevel worldIn, RandomSource rand, BlockPos pos, boolean isMushroom, T config);
 }
 

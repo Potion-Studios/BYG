@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class EmburVineBlock extends GrowingPlantHeadBlock {
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
@@ -21,9 +21,9 @@ public class EmburVineBlock extends GrowingPlantHeadBlock {
 
     /**
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
-     * return a random value at least 1.
+     * return a RandomSource value at least 1.
      */
-    protected int getBlocksToGrowWhenBonemealed(Random rand) {
+    protected int getBlocksToGrowWhenBonemealed(RandomSource rand) {
         return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 

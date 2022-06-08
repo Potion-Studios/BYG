@@ -9,6 +9,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -25,7 +26,7 @@ public class BiomeSourceRepairUtils {
 
         if (netherBiomesConfig.forceBYGNetherBiomeSource()) {
             Supplier<BiomeSource> netherBiomeSource = () ->
-                    ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry, worldGenSettings.seed());
+                    ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry);
 
             LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.NETHER);
             if (levelStem == null) {
@@ -38,13 +39,20 @@ public class BiomeSourceRepairUtils {
 
         if (endBiomesConfig.forceBYGEndBiomeSource()) {
             Supplier<BiomeSource> endBiomeSource = () ->
-                    ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry, worldGenSettings.seed());
+                    ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry);
 
             LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.END);
             if (levelStem == null) {
                 BYG.LOGGER.error(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nSkipping biome source repair....", LevelStem.END));
             } else {
                 repair(levelStem, BYGEndBiomeSource.LOCATION, endBiomeSource);
+            }
+        }
+
+        for (LevelStem dimension : worldGenSettings.dimensions()) {
+            BiomeSource biomeSource = dimension.generator().getBiomeSource();
+            if (biomeSource instanceof LazyLoadSeed lazyLoadSeed) {
+                lazyLoadSeed.lazyLoad(worldGenSettings.seed());
             }
         }
     }
@@ -55,7 +63,6 @@ public class BiomeSourceRepairUtils {
         if (!Registry.BIOME_SOURCE.getKey(codec).equals(targetBiomeSourceID)) {
             BiomeSource replacementBiomeSource = replacement.get();
             ((ChunkGeneratorAccess) generator).byg_setBiomeSource(replacementBiomeSource);
-            ((ChunkGeneratorAccess) generator).byg_setRuntimeBiomeSource(replacementBiomeSource);
             return true;
         }
         return false;

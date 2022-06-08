@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.WhitelistedSimpleBlockProviderConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 import static net.minecraft.core.Direction.UP;
 
@@ -26,7 +26,7 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, WhitelistedSimpleBlockProviderConfig config) {
         int randCoralHeight = rand.nextInt(7) + 16 / 2;
 
         if (!checkArea(worldIn, pos, rand, config)) {
@@ -47,13 +47,13 @@ public class WarpedCoralFeature extends Feature<WhitelistedSimpleBlockProviderCo
         return true;
     }
 
-    private void placeCoral(WorldGenLevel world, BlockPos pos, Random rand, WhitelistedSimpleBlockProviderConfig config) {
+    private void placeCoral(WorldGenLevel world, BlockPos pos, RandomSource rand, WhitelistedSimpleBlockProviderConfig config) {
         if (world.isEmptyBlock(pos))
             world.setBlock(pos, config.getBlockProvider().getState(rand, pos), 2);
     }
 
 
-    private boolean checkArea(LevelAccessor world, BlockPos pos, Random rand, WhitelistedSimpleBlockProviderConfig config) {
+    private boolean checkArea(LevelAccessor world, BlockPos pos, RandomSource rand, WhitelistedSimpleBlockProviderConfig config) {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();

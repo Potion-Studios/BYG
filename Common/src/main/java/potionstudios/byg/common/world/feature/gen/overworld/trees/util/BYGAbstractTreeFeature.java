@@ -10,6 +10,7 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.LevelWriter;
@@ -73,21 +74,21 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         });
     }
 
-    public void placeTrunk(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void placeTrunk(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
-    public void placeBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void placeBranch(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHere(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
-    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getLeavesProvider().getState(random, pos), boundingBox);
@@ -95,7 +96,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     //TODO: Make all our trees use the method above.
-    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, Random random, WorldGenLevel reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
+    public void placeLeaves(BlockPos startPos, BYGTreeConfig config, RandomSource random, WorldGenLevel reader, int x, int y, int z, BoundingBox boundingBox, Set<BlockPos> blockPos) {
         BlockPos pos = new BlockPos(x, y, z);
         pos = getTransformedPos(config, startPos, pos);
 
@@ -118,26 +119,26 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return FeatureGenUtil.transform(blockPos, mirror, rotation).offset(startPos.getX(), 0, startPos.getZ());
     }
 
-    public void etherBulbs(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void etherBulbs(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
     }
 
-    public void baobabFruit(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void baobabFruit(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGWoodTypes.BAOBAB.leaves().get()) {
             this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
 
-    public void placeNetherTrunk(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void placeNetherTrunk(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHereNether(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
         }
     }
 
-    public void placeNetherBranch(BlockPos startPos, BYGTreeConfig config, Random random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
+    public void placeNetherBranch(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (canLogPlaceHereNether(reader, pos)) {
             this.setFinalBlockState(blockSet, reader, pos, config.getTrunkProvider().getState(random, pos), boundingBox);
@@ -398,7 +399,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return false;
     }
 
-    public void buildTrunk(WorldGenLevel reader, BYGTreeConfig config, Random random, BlockPos operatingPos, int downRange) {
+    public void buildTrunk(WorldGenLevel reader, BYGTreeConfig config, RandomSource random, BlockPos operatingPos, int downRange) {
         MutableBlockPos mutable = new MutableBlockPos().set(operatingPos);
 
         for (int moveDown = 0; moveDown < downRange; moveDown++) {
@@ -417,7 +418,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         }
     }
 
-    public void setDisk(WorldGenLevel world, Random random, BlockPos pos, BYGTreeConfig config) {
+    public void setDisk(WorldGenLevel world, RandomSource random, BlockPos pos, BYGTreeConfig config) {
         if (!(world instanceof WorldGenRegion) || config.getDiskRadius() <= 0)
             return;
 
@@ -479,7 +480,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, TFC config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, TFC config) {
 
         if (worldIn.getLevel().dimension() == Level.OVERWORLD && !BYGConstants.ENABLE_OVERWORLD_TREES) {
             return false;
@@ -492,7 +493,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         return placeTree(worldIn, rand, pos, config);
     }
 
-    public boolean placeTree(WorldGenLevel worldIn, Random rand, BlockPos pos, TFC config) {
+    public boolean placeTree(WorldGenLevel worldIn, RandomSource rand, BlockPos pos, TFC config) {
         Set<BlockPos> set = Sets.newHashSet();
         BoundingBox mutableboundingbox = new BoundingBox(pos);
         boolean flag = this.generate(set, worldIn, rand, pos, mutableboundingbox, false, config);
@@ -582,7 +583,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         }
     }
 
-    protected abstract boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, Random rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, TFC config);
+    protected abstract boolean generate(Set<BlockPos> changedBlocks, WorldGenLevel worldIn, RandomSource rand, BlockPos pos, BoundingBox boundsIn, boolean isSapling, TFC config);
 
 
     static {

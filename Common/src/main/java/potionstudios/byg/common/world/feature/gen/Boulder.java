@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class Boulder extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;
@@ -27,7 +27,7 @@ public class Boulder extends Feature<NoisySphereConfig> {
     @Override
     public boolean place(FeaturePlaceContext<NoisySphereConfig> featurePlaceContext) {
         BlockPos origin = featurePlaceContext.origin();
-        Random random = featurePlaceContext.random();
+        RandomSource random = featurePlaceContext.random();
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
         WorldGenLevel level = featurePlaceContext.level();
         boolean place = place(new Application() {
@@ -48,7 +48,7 @@ public class Boulder extends Feature<NoisySphereConfig> {
         return place;
     }
 
-    public void fillList(Long2ObjectMap<BlockState> positions, long seed, Random random, BlockPos origin, NoisySphereConfig config) {
+    public void fillList(Long2ObjectMap<BlockState> positions, long seed, RandomSource random, BlockPos origin, NoisySphereConfig config) {
         place(new Application() {
             @Override
             public void apply(BlockPos pos, BlockState state) {
@@ -63,7 +63,7 @@ public class Boulder extends Feature<NoisySphereConfig> {
     }
 
 
-    public boolean place(Application application, long seed, Random random, BlockPos origin, NoisySphereConfig config) {
+    public boolean place(Application application, long seed, RandomSource random, BlockPos origin, NoisySphereConfig config) {
         setSeed(seed);
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(origin);

@@ -9,8 +9,8 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.util.List;
@@ -20,16 +20,16 @@ public class ConfigCollectionEntry extends ConfigEditEntry<ConfigEntriesSerializ
     private final Button editButton;
 
     public ConfigCollectionEntry(Screen parent, String key, ConfigEntriesSerializer<?> val) {
-        this(parent, key, val, new TextComponent(""));
+        this(parent, key, val, Component.literal(""));
     }
 
     public ConfigCollectionEntry(Screen parent, String key, ConfigEntriesSerializer<?> val, Component comment) {
         super(parent, key, comment);
-        this.editButton = new Button(0, 0, 200, 20, new TranslatableComponent("Edit"), (button) -> {
+        this.editButton = new Button(0, 0, 200, 20, Component.translatable("Edit"), (button) -> {
             Minecraft.getInstance().setScreen(new ConfigEditScreen(parent, val, val.path() + "." + key));
         }) {
             protected MutableComponent createNarrationMessage() {
-                return new TranslatableComponent("narrator.controls.reset", key);
+                return Component.translatable("narrator.controls.reset", key);
             }
         };
     }

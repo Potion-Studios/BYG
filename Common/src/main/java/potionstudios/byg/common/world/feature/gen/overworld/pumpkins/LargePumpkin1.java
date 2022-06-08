@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class LargePumpkin1 extends Feature<PumpkinConfig> {
 
@@ -22,7 +22,7 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random random, BlockPos pos, PumpkinConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource random, BlockPos pos, PumpkinConfig config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
         int posX = pos.getX();
@@ -44,7 +44,7 @@ public class LargePumpkin1 extends Feature<PumpkinConfig> {
         return true;
     }
 
-    private void setPumpkinState(BlockPos pos, Random rand, PumpkinConfig config, WorldGenLevel world) {
+    private void setPumpkinState(BlockPos pos, RandomSource rand, PumpkinConfig config, WorldGenLevel world) {
         if (world.isEmptyBlock(pos) || FeatureGenUtil.isPlant(world, pos)) {
             world.setBlock(pos, config.getPumpkinProvider().getState(rand, pos), 2);
         }

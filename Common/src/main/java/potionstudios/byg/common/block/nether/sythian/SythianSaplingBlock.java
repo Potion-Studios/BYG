@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class SythianSaplingBlock extends BambooSaplingBlock {
     public SythianSaplingBlock(Properties properties) {
@@ -42,7 +42,7 @@ public class SythianSaplingBlock extends BambooSaplingBlock {
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random rand) {
+    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
         if (rand.nextInt(3) == 0 && worldIn.isEmptyBlock(pos.above()) && worldIn.getRawBrightness(pos.above(), 0) <= 12) {
             this.growBamboo(worldIn, pos);
         }

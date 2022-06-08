@@ -15,7 +15,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -51,11 +51,11 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
         return (double)level.random.nextFloat() < 0.45D;
     }
 
-    public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState blockState) {
+    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState blockState) {
         DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS.get() ? BYGBlocks.TALL_ETHER_GRASS.get() : BYGBlocks.TALL_ETHER_GRASS.get());
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, blockState, pos, 2);

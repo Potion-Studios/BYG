@@ -9,8 +9,8 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+
 import net.minecraft.util.FastColor;
 import potionstudios.byg.client.config.configeditor.ConfigEditScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
@@ -22,9 +22,9 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
-    private static final TextComponent RELOADS_ON_SAVE = new TextComponent("Reloads on save");
-    private static final TextComponent DOES_NOT_RELOAD_ON_SAVE = new TextComponent("Does not Reload on save");
-    private static final TextComponent RELOAD = new TextComponent("Reload");
+    private static final MutableComponent RELOADS_ON_SAVE = Component.literal("Reloads on save");
+    private static final MutableComponent DOES_NOT_RELOAD_ON_SAVE = Component.literal("Does not Reload on save");
+    private static final MutableComponent RELOAD = Component.literal("Reload");
 
     private final Button openFileButton;
     private final Button editButton;
@@ -36,26 +36,26 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
     public FileEntry(boolean isReloadable, Screen parent, String relativizedPath, Path absolutePath, Consumer<Path> onReload) {
         super(parent, relativizedPath, relativizedPath);
         this.isReloadable = isReloadable;
-        this.openFileButton = new Button(0, 0, 50, 20, new TranslatableComponent("Open"), (button) -> {
+        this.openFileButton = new Button(0, 0, 50, 20, Component.translatable("Open"), (button) -> {
             ((ScreenAccess) parent).byg_invokeOpenLink(absolutePath.toUri());
         }) {
             protected MutableComponent createNarrationMessage() {
-                return new TranslatableComponent("narrator.controls.reset", relativizedPath);
+                return Component.translatable("narrator.controls.reset", relativizedPath);
             }
         };
 
         ConfigEntriesSerializer<?> serializer = ConfigEntriesSerializer.fromFile(absolutePath);
 
-        this.editButton = new Button(0, 0, 50, 20, new TranslatableComponent("Edit"), (button) -> {
+        this.editButton = new Button(0, 0, 50, 20, Component.translatable("Edit"), (button) -> {
             if (serializer != null) {
                 Minecraft.getInstance().setScreen(new ConfigEditScreen(this.parent, serializer, relativizedPath, absolutePath, isReloadable));
             }
         }) {
             protected MutableComponent createNarrationMessage() {
-                return new TranslatableComponent("narrator.controls.reset", relativizedPath);
+                return Component.translatable("narrator.controls.reset", relativizedPath);
             }
         };
-        TranslatableComponent reload = new TranslatableComponent("Reload");
+        MutableComponent reload = Component.translatable("Reload");
         this.reloadButton = new Button(0, 0, 50, 20, reload, (button) -> {
             if (isReloadable) {
                 onReload.accept(absolutePath);
@@ -64,7 +64,7 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
             button.active = false;
         }) {
             protected MutableComponent createNarrationMessage() {
-                return new TranslatableComponent("narrator.controls.reset", relativizedPath);
+                return Component.translatable("narrator.controls.reset", relativizedPath);
             }
         };
 
@@ -140,7 +140,7 @@ public class FileEntry<T> extends KeyCommentToolTipEntry<T> {
         super.tick();
         if (lastReload > 0) {
             this.lastReload--;
-            this.reloadButton.setMessage(new TextComponent(Integer.toString((lastReload / 20) + 1)));
+            this.reloadButton.setMessage(Component.literal(Integer.toString((lastReload / 20) + 1)));
         } else if (lastReload == 0) {
             this.reloadButton.setMessage(RELOAD);
             this.reloadButton.active = true;

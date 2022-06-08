@@ -6,7 +6,7 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.electronwill.nightconfig.toml.TomlWriter;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import potionstudios.byg.client.config.configeditor.ConfigCollectionEntry;
 import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
 import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
@@ -33,9 +33,9 @@ public class TomlConfigEntriesSerializer implements ConfigEntriesSerializer<Comm
             commentedConfig.valueMap().forEach((key, object) -> {
                 String comment = commentedConfig.getComment(key) == null ? "" : commentedConfig.getComment(key);
                 if (object instanceof CommentedConfig asCommentedConfig) {
-                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(asCommentedConfig, shownPath), new TextComponent(comment)));
+                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(asCommentedConfig, shownPath), Component.literal(comment)));
                 } else if (object instanceof List<?> list) {
-                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(list, shownPath), new TextComponent(comment)));
+                    entries.add(new ConfigCollectionEntry(screen, key, new TomlConfigEntriesSerializer(list, shownPath), Component.literal(comment)));
                 } else {
                     ConfigPrimitiveEntry<?> configPrimitiveEntry = ConfigEntriesSerializer.makePrimitiveEntry(key, object, screen, comment);
                     if (configPrimitiveEntry != null) {

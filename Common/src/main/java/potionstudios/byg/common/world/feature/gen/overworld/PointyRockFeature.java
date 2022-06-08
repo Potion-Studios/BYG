@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class PointyRockFeature extends Feature<PointyRockConfig> {
 
@@ -40,7 +40,7 @@ public class PointyRockFeature extends Feature<PointyRockConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator changedBlock, Random rand, BlockPos position, PointyRockConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator changedBlock, RandomSource rand, BlockPos position, PointyRockConfig config) {
         long seed1 = rand.nextLong();
         long seed2 = rand.nextLong();
 

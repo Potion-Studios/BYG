@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
 public class ItemWidget extends AbstractWidget {
@@ -14,7 +14,7 @@ public class ItemWidget extends AbstractWidget {
     public final boolean hasAdditonalInfo;
 
     public ItemWidget(ItemStack stack, ItemRenderer itemRenderer, int pX, int pY, int pWidth, int pHeight, OnClick onClick) {
-        super(pX, pY, pWidth, pHeight, new TextComponent(""));
+        super(pX, pY, pWidth, pHeight, Component.literal(""));
         this.stack = stack;
         this.itemRenderer = itemRenderer;
         this.onClick = onClick;

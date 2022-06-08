@@ -61,7 +61,7 @@ public class BYGNetherFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", () -> Feature.RANDOM_PATCH,
         new RandomPatchConfiguration(24, 4, 7,
             createPlacedFeature(createConfiguredFeature(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BORIC_FIRE.get()))),
-                createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlock(BYGBlocks.BRIMSTONE.get(), BlockPos.ZERO.relative(Direction.DOWN)))))
+                createSolidDownAndAirAllAroundFilter(BlockPredicate.matchesBlocks(BlockPos.ZERO.relative(Direction.DOWN), BYGBlocks.BRIMSTONE.get()))))
     );
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> SOUL_SOIL_PILLARS = createConfiguredFeature("soul_soil_pillars", BYGFeatures.PILLARS, new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())));

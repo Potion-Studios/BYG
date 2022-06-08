@@ -5,7 +5,8 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.TranslatableComponent;
+
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
@@ -48,7 +49,7 @@ public class SythianScaffoldingBlockItem extends BlockItem {
                     Player player = pContext.getPlayer();
                     int j = level.getMaxBuildHeight();
                     if (player instanceof ServerPlayer && blockpos$mutableblockpos.getY() >= j) {
-                        ((ServerPlayer)player).sendMessage((new TranslatableComponent("build.tooHigh", j - 1)).withStyle(ChatFormatting.RED), ChatType.GAME_INFO, Util.NIL_UUID);
+                        ((ServerPlayer)player).sendSystemMessage((Component.translatable("build.tooHigh", j - 1)).withStyle(ChatFormatting.RED), ChatType.GAME_INFO);
                     }
                     break;
                 }

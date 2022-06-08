@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.MLBlockTags;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -46,7 +46,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
         int i = state.getValue(AGE);
         if (i < 3 && worldIn.getRawBrightness(pos.above(), 0) <= 10 && random.nextInt(5) == 0) {
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
@@ -97,7 +97,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
     }
 
     
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
         VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
         Vec3 lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;

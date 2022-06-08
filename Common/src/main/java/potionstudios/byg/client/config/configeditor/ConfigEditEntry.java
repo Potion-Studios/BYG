@@ -5,7 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import org.apache.commons.lang3.mutable.MutableInt;
 import potionstudios.byg.client.GuiUtil;
 import potionstudios.byg.client.config.ScreenPosition;
@@ -27,11 +27,11 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     public boolean renderToolTip;
 
     public ConfigEditEntry(Screen parent, String key) {
-        this(parent, key, new TextComponent(""));
+        this(parent, key, Component.literal(""));
     }
 
     public ConfigEditEntry(Screen parent, String key, String comment) {
-        this(parent, key, new TextComponent(comment));
+        this(parent, key, Component.literal(comment));
     }
 
     public ConfigEditEntry(Screen parent, String key, Component comment) {

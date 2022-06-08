@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
 
@@ -28,7 +28,7 @@ public class SpikeFeature extends Feature<SimpleBlockProviderConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, SimpleBlockProviderConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();

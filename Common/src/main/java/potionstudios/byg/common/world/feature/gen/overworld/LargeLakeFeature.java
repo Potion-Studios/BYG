@@ -24,7 +24,7 @@ import potionstudios.byg.util.MLBlockTags;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 import java.util.function.Function;
 
 public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
@@ -44,7 +44,7 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, LargeLakeFeatureConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockPos, LargeLakeFeatureConfig config) {
         setSeed(world.getSeed());
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);

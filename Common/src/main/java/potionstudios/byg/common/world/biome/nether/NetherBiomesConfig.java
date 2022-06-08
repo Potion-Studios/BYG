@@ -76,7 +76,7 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
 
         if (additional != null && INSTANCE.addAllNetherBiomeTagEntries()) {
             SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> Biome.getBiomeCategory(biomeHolder) == Biome.BiomeCategory.NETHER || biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
+                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
             }).build();
 
             BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added);

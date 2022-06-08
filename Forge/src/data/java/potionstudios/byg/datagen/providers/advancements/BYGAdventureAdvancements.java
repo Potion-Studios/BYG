@@ -4,7 +4,8 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.TranslatableComponent;
+
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.item.BYGItems;
@@ -27,8 +28,8 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer {
                 .filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES)
                 .toList();
         AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
-            .display(BYGItems.BYG_LOGO.get(), new TranslatableComponent("byg.advancements.adventure.explore_biomes.title"),
-                new TranslatableComponent("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)
+            .display(BYGItems.BYG_LOGO.get(), Component.translatable("byg.advancements.adventure.explore_biomes.title"),
+                Component.translatable("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)
             .rewards(AdvancementRewards.Builder.experience(1000))
             .save(advancementConsumer, "byg:adventure/oh_the_biomes_youll_go");
     }

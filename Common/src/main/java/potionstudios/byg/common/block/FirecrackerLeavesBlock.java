@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
+import net.minecraft.util.RandomSource;
+
 import java.util.Random;
 
 public class FirecrackerLeavesBlock extends LeavesBlock {
@@ -22,7 +24,7 @@ public class FirecrackerLeavesBlock extends LeavesBlock {
     }
 
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        Random random = new Random();
+        RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 
         if (player.getItemInHand(interactionHand).is(Items.SHEARS) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {

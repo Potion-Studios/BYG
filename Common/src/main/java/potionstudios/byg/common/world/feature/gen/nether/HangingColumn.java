@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.HangingColumnConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class HangingColumn extends Feature<HangingColumnConfig> {
     public HangingColumn(Codec<HangingColumnConfig> config) {
@@ -24,7 +24,7 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnConfig config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, HangingColumnConfig config) {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 

@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> {
     private static final Direction[] DIRECTIONS = Direction.values();
@@ -26,7 +26,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator generator, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         if (!world.isEmptyBlock(pos)) {
             return false;
         } else {
@@ -41,7 +41,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         }
     }
 
-    private void generateBase(LevelAccessor world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    private void generateBase(LevelAccessor world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         world.setBlock(pos, config.getBaseBlockProvider().getState(rand, pos), 2);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos();
@@ -70,7 +70,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     }
 
-    private void generateVinesInArea(LevelAccessor world, Random rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    private void generateVinesInArea(LevelAccessor world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (int i = 0; i < 100; ++i) {
@@ -93,7 +93,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     }
 
-    public static void generateLength(LevelAccessor world, BlockPos.MutableBlockPos mutable, int length, Random rand, HangingColumnWithBaseConfig config) {
+    public static void generateLength(LevelAccessor world, BlockPos.MutableBlockPos mutable, int length, RandomSource rand, HangingColumnWithBaseConfig config) {
         for (int i = 0; i <= length; ++i) {
             if (world.isEmptyBlock(mutable)) {
                 if (i == length || !world.isEmptyBlock(mutable.below())) {

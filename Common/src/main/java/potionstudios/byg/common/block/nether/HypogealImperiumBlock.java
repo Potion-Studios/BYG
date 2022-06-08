@@ -25,7 +25,7 @@ import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.blockentity.HypogealImperiumBlockEntity;
 
 import javax.annotation.Nullable;
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class HypogealImperiumBlock extends BaseEntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -75,7 +75,7 @@ public class HypogealImperiumBlock extends BaseEntityBlock {
     }
 
     
-    public void animateTick(BlockState state, Level world, BlockPos pos, Random rand) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource rand) {
         if (state.getValue(LIT)) {
             for(int i = -2; i <= 2; ++i) {
                 for(int j = -2; j <= 2; ++j) {

@@ -2,7 +2,7 @@ package potionstudios.byg.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import org.apache.commons.lang3.mutable.MutableInt;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class GuiUtil {
                             if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
                                 comment.append(character);
                             } else {
-                                toolTip.add(new TextComponent(comment.toString()));
+                                toolTip.add(Component.literal(comment.toString()));
                                 comment = new StringBuilder(character);
                             }
                         }
@@ -38,7 +38,7 @@ public class GuiUtil {
                         if (Minecraft.getInstance().font.width(comment.toString() + word) < pWidth) {
                             comment.append(word).append(" ");
                         } else {
-                            toolTip.add(new TextComponent(comment.toString()));
+                            toolTip.add(Component.literal(comment.toString()));
                             comment = new StringBuilder();
                             if (Minecraft.getInstance().font.width(word) > pWidth) {
                                 char[] chars = word.toCharArray();
@@ -47,7 +47,7 @@ public class GuiUtil {
                                     if (Minecraft.getInstance().font.width(comment.toString() + character) < pWidth) {
                                         comment.append(character);
                                     } else {
-                                        toolTip.add(new TextComponent(comment.toString()));
+                                        toolTip.add(Component.literal(comment.toString()));
                                         comment = new StringBuilder(character);
                                     }
                                 }
@@ -59,7 +59,7 @@ public class GuiUtil {
                     }
                 }
                 if (!comment.isEmpty()) {
-                    toolTip.add(new TextComponent(comment.toString()));
+                    toolTip.add(Component.literal(comment.toString()));
                 }
             }
             cachedWidth.setValue(pWidth);

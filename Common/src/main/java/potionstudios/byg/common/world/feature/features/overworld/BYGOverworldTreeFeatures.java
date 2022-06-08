@@ -911,7 +911,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MANGROVE.leaves().get()),
                     MANGROVE.log(),
                     MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
@@ -924,7 +924,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MANGROVE.leaves().get()),
                     MANGROVE.log(),
                     MANGROVE.leaves(),
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
+                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
@@ -937,7 +937,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MANGROVE.leaves().get()),
                     MANGROVE.log(),
                     MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
@@ -950,7 +950,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MANGROVE.leaves().get()),
                     MANGROVE.log(),
                     MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
@@ -963,7 +963,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MANGROVE.leaves().get()),
                     MANGROVE.log(),
                     MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
 

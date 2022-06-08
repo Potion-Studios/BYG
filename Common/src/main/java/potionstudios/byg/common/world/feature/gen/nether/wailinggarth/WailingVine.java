@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.util.MLBlockTags;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class WailingVine extends Feature<NoneFeatureConfiguration> {
     public WailingVine(Codec<NoneFeatureConfiguration> config) {
@@ -26,7 +26,7 @@ public class WailingVine extends Feature<NoneFeatureConfiguration> {
     }
 
     //place
-    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, Random rand, BlockPos pos, NoneFeatureConfiguration config) {
+    public boolean place(WorldGenLevel worldIn, ChunkGenerator generator, RandomSource rand, BlockPos pos, NoneFeatureConfiguration config) {
         int randLength = rand.nextInt(17) + 3;
         BlockPos blockPos = new BlockPos(pos.getX(), pos.getY(), pos.getZ());
         BlockPos.MutableBlockPos block = new BlockPos.MutableBlockPos().set(blockPos);

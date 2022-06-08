@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.placement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -26,7 +27,7 @@ public class NearWaterPlacementFilter extends PlacementModifier {
 
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
+    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
         for (int xMove = -waterSearchRange; xMove <= waterSearchRange; xMove++) {
             for (int zMove = -waterSearchRange; zMove <= waterSearchRange; zMove++) {
                 if (placementContext.getLevel().getBlockState(blockPos.offset(xMove, -1, zMove)).is(Blocks.WATER)) {

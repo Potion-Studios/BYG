@@ -29,7 +29,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
     public BYGBoatRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.shadowRadius = 0.8F;
-        this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() : Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> type, (type) -> Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type))))));
+        this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() : Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> type, (type) -> Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type)), false))));
     }
 
     public static ModelLayerLocation createBoatModelName(BYGBoatEntity.BYGType type) {

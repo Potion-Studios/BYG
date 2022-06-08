@@ -12,6 +12,7 @@ import net.minecraft.world.level.biome.Climate;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
@@ -22,23 +23,35 @@ import java.util.stream.Collectors;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
-public abstract class BYGNetherBiomeSource extends BiomeSource {
+public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     public static final ResourceLocation LOCATION = BYG.createLocation("nether");
 
-    private final FastNoiseLite lowerLayerRoughnessNoise;
-    private final FastNoiseLite upperLayerRoughnessNoise;
+    private  FastNoiseLite lowerLayerRoughnessNoise;
+    private FastNoiseLite upperLayerRoughnessNoise;
     private final Registry<Biome> biomeRegistry;
-    private final BiomeResolver upperBiomeResolver;
-    private final BiomeResolver middleBiomeResolver;
-    private final BiomeResolver bottomResolver;
+    private BiomeResolver upperBiomeResolver;
+    private BiomeResolver middleBiomeResolver;
+    private BiomeResolver bottomResolver;
     private final int bottomTopY;
-    private final long seed;
 
-    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry, long seed) {
+    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry) {
         super(getPossibleBiomes(biomeRegistry));
         this.biomeRegistry = biomeRegistry;
-        this.seed = seed;
 
+
+        NetherBiomesConfig config = NetherBiomesConfig.getConfig();
+        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
+
+        int usedLayerSize = config.layerSize();
+        this.bottomTopY = QuartPos.fromBlock(usedLayerSize);
+    }
+
+    @Override
+    public void lazyLoad(long seed) {
+        NetherBiomesConfig config = NetherBiomesConfig.getConfig();
+        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
 
         this.lowerLayerRoughnessNoise = new FastNoiseLite((int) seed);
         this.lowerLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
@@ -48,16 +61,9 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
         this.upperLayerRoughnessNoise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
         this.upperLayerRoughnessNoise.SetFrequency(0.005F);
 
-        NetherBiomesConfig config = NetherBiomesConfig.getConfig();
-        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
-        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
-
-        int usedLayerSize = config.layerSize();
-
         this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, config.upperLayer().filter(filter));
         this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, config.middleLayer().filter(filter));
         this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, config.bottomLayer().filter(filter));
-        this.bottomTopY = QuartPos.fromBlock(usedLayerSize);
     }
 
     public abstract BiomeResolver getUpperBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData);
@@ -80,10 +86,6 @@ public abstract class BYGNetherBiomeSource extends BiomeSource {
 
     protected Registry<Biome> getBiomeRegistry() {
         return biomeRegistry;
-    }
-
-    protected long getSeed() {
-        return seed;
     }
 
     @NotNull

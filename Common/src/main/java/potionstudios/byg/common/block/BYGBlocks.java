@@ -681,7 +681,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createBuddingSubzeroCrystal(String id) {
-        return createBlock(() -> new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noDrops().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f)), id);
+        return createBlock(() -> new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noLootTable().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f)), id);
     }
 
     private static BlockRegistryObject<Block> createSubzeroCrystalBlock(String id) {
@@ -749,7 +749,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createTheriumBlock(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).noDrops().lightLevel((state) -> 12).strength(-1.0f, 3.0f)), id);
+        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).noLootTable().lightLevel((state) -> 12).strength(-1.0f, 3.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createTheriumGlass(String id) {
@@ -933,7 +933,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createAmetrineOre(String id) {
-        return createBlock(() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(3, 9)), id);
+        return createBlock(() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PINK).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(3, 9)), id);
     }
 
     private static BlockRegistryObject<Block> createBuddingAmetrineOre(String id) {
@@ -950,7 +950,7 @@ public class BYGBlocks {
 
 
     private static BlockRegistryObject<Block> createPendoriteOre(String id) {
-        return createBlock(() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
+        return createBlock(() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_PURPLE).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createPendoriteBlock(String id) {
@@ -962,11 +962,11 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createEmeralditeOre(String id) {
-        return createBlock(() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(4, 7)), id);
+        return createBlock(() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(4, 7)), id);
     }
 
     private static BlockRegistryObject<Block> createNetherOre(SoundType sound, MaterialColor color, String id, UniformInt xpRange) {
-        return createBlock(() -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange), id);
+        return createBlock(() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().sound(sound).strength(3.0f, 3.0f), xpRange), id);
     }
 
     private static BlockRegistryObject<Block> createBarrelCactus(String id) {

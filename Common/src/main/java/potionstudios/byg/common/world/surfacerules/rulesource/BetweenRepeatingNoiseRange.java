@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
@@ -15,14 +16,14 @@ import java.util.List;
 
 public final class BetweenRepeatingNoiseRange implements SurfaceRules.RuleSource {
 
-    public static final Codec<BetweenRepeatingNoiseRange> CODEC = RecordCodecBuilder.create(builder ->
+    public static final KeyDispatchDataCodec<BetweenRepeatingNoiseRange> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
         builder.group(
             ResourceKey.codec(Registry.NOISE_REGISTRY).fieldOf("noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.noiseParametersResourceKey),
             Codec.FLOAT.fieldOf("size_per_repetition").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.size),
             Codec.FLOAT.fieldOf("repeat_from_noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.min),
             Codec.FLOAT.fieldOf("repeat_to_noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.max),
             SurfaceRules.RuleSource.CODEC.listOf().fieldOf("rule_sources").forGetter(betweenRepeatingNoiseRange -> Arrays.asList(betweenRepeatingNoiseRange.ruleSources))
-        ).apply(builder, BetweenRepeatingNoiseRange::new)
+        ).apply(builder, BetweenRepeatingNoiseRange::new))
     );
 
     private final ResourceKey<NormalNoise.NoiseParameters> noiseParametersResourceKey;
@@ -57,7 +58,7 @@ public final class BetweenRepeatingNoiseRange implements SurfaceRules.RuleSource
     }
 
     @Override
-    public Codec<? extends SurfaceRules.RuleSource> codec() {
+    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 

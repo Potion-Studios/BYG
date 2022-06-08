@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWaterloggedBlock {
 
@@ -36,7 +36,7 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
     }
 
     @Override
-    public void tick(@NotNull BlockState $$0, ServerLevel $$1, BlockPos $$2, Random $$3) {
+    public void tick(@NotNull BlockState $$0, ServerLevel $$1, BlockPos $$2, RandomSource $$3) {
         int $$4 = getBlockDistance($$1, $$2);
         BlockState $$5 = (BlockState)((BlockState)$$0.setValue(DISTANCE, $$4)).setValue(BOTTOM, this.isBottom($$1, $$2, $$4));
         if ((Integer)$$5.getValue(DISTANCE) == 7) {

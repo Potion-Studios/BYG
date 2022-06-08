@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlock {
 
@@ -22,7 +22,7 @@ public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlo
     }
 
     @Override
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, @NotNull Random random) {
+    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, @NotNull RandomSource random) {
         int i = random.nextInt(5);
         if (i == 4) {
             if (serverLevel.getBlockState(blockPos.above()) == Blocks.AIR.defaultBlockState()) {
@@ -54,7 +54,7 @@ public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlo
     }
 
     @Override
-    public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
+    public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         if (serverLevel.getBlockState(blockPos.above()).isAir() && canSurvive(blockState, serverLevel, blockPos)) {
             growAloeVera(serverLevel, blockPos);
         }

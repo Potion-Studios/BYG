@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.placement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
@@ -26,7 +27,7 @@ public class AboveHeightmapFilter extends PlacementModifier {
 
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
+    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
         return blockPos.getY() >= placementContext.getHeight(heightmap, blockPos.getX(), blockPos.getZ()) ? Stream.of(blockPos) : Stream.empty();
     }
 

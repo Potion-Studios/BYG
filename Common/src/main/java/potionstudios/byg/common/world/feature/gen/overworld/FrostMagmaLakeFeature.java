@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfi
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 
-import java.util.Random;
+import net.minecraft.util.RandomSource;
 
 public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
     private static final BlockState AIR;
@@ -32,7 +32,7 @@ public class FrostMagmaLakeFeature extends Feature<BlockStateConfiguration> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator genSettings, Random rand, BlockPos blockPos, BlockStateConfiguration blockStateFeatureConfig) {
+    public boolean place(WorldGenLevel world, ChunkGenerator genSettings, RandomSource rand, BlockPos blockPos, BlockStateConfiguration blockStateFeatureConfig) {
         while (blockPos.getY() > 5 && world.isEmptyBlock(blockPos)) {
             blockPos = blockPos.below();
         }

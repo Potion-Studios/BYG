@@ -12,8 +12,4 @@ public interface ChunkGeneratorAccess {
     @Accessor("biomeSource")
     @Mutable
     void byg_setBiomeSource(BiomeSource biomeSource);
-
-    @Accessor("runtimeBiomeSource")
-    @Mutable
-    void byg_setRuntimeBiomeSource(BiomeSource runtimeBiomeSource);
 }

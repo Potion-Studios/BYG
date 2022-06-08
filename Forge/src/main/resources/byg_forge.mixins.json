@@ -8,6 +8,7 @@
     "dev.ModelProviderAccess"
   ],
   "client": [
+    "client.MixinInventoryScreen",
     "client.MixinMinecraft"
   ],
   "plugin": "potionstudios.byg.mixin.BYGPotionStudiosMixinPlugin",

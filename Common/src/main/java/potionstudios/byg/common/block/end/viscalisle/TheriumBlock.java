@@ -34,7 +34,7 @@ package potionstudios.byg.common.block.end.viscalisle;//package corgiaoc.byg.com
 //import net.minecraftforge.api.distmarker.OnlyIn;
 //
 //import java.util.Optional;
-//import java.util.Random;
+//import net.minecraft.util.RandomSource;
 //
 //public class TheriumBlock extends Block {
 //
