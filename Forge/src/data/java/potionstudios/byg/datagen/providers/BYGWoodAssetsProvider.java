@@ -2,6 +2,7 @@ package potionstudios.byg.datagen.providers;
 
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.HashCache;
 import net.minecraft.resources.ResourceLocation;
@@ -295,7 +296,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
     }
 
     @Override
-    public void run(HashCache cache) throws IOException {
+    public void run(CachedOutput cache) throws IOException {
         super.run(cache);
         item.generateAll(cache);
     }
@@ -318,7 +319,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
         }
 
         @Override
-        public void generateAll(HashCache cache) {
+        public void generateAll(CachedOutput cache) {
             super.generateAll(cache);
         }
 
