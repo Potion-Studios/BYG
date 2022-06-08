@@ -15,7 +15,4 @@ public interface BiomeSourceAccess {
 
     @Invoker("codec")
     Codec<? extends BiomeSource> byg_invokeCodec();
-
-    @Accessor("possibleBiomes")
-    Set<Holder<Biome>> byg_getPossibleBiomes();
 }

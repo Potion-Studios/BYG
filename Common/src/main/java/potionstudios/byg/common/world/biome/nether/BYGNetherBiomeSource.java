@@ -40,7 +40,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
 
 
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
-        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
 
         int usedLayerSize = config.layerSize();
@@ -50,7 +50,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
     @Override
     public void lazyLoad(long seed) {
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
-        Set<ResourceKey<Biome>> possibleBiomes = ((BiomeSourceAccess) this).byg_getPossibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
 
         this.lowerLayerRoughnessNoise = new FastNoiseLite((int) seed);

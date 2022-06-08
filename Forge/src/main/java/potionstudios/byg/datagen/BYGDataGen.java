@@ -13,7 +13,7 @@ public class BYGDataGen {
     static void onDatagen(final GatherDataEvent event) {
         final var gen = event.getGenerator();
         final var existingFileHelper = event.getExistingFileHelper();
-        gen.addProvider(new BYGBlockTagsProvider(gen, existingFileHelper));
+//        gen.addProvider(new BYGBlockTagsProvider(gen, existingFileHelper));
     }
 
 }
