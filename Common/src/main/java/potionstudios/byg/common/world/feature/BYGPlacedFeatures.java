@@ -338,4 +338,5 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> MAGMA_PATCH_FIRE = createPlacedFeature("magma_patch_fire", BYGNetherFeatures.MAGMA_PATCH_FIRE, CountPlacement.of(UniformInt.of(30, 45)), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome());
     public static final Holder<PlacedFeature> NYLIUM_SOUL_PATCH_FIRE = createPlacedFeature("nylium_soul_patch_fire", BYGNetherFeatures.NYLIUM_SOUL_PATCH_FIRE, CountPlacement.of(UniformInt.of(5, 10)), InSquarePlacement.spread(), PlacementUtils.RANGE_4_4, BiomeFilter.biome());
 
+    public static void loadClass() {}
 }

@@ -33,10 +33,10 @@ public class BYGFeaturesUtil {
     public static final RegistrationProvider<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = RegistrationProvider.get(BuiltinRegistries.CONFIGURED_FEATURE, BYG.MOD_ID);
 
     public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<FC, ?>> createConfiguredFeature(String id, Supplier<? extends F> feature, FC config) {
+        BYGGlobalFeatureFeatures.loadClass();
+        BYGGlobalFeatures.loadClass();
         return CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> {
             // TODO: let's not do this...
-            BYGGlobalFeatureFeatures.loadClass();
-            BYGGlobalFeatures.loadClass();
             return new ConfiguredFeature<>(feature.get(), config);
         }).asHolder();
     }
