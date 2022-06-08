@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/blue_enchanted/planks",
+    "east": "byg:block/blue_enchanted/crafting_table_side",
+    "north": "byg:block/blue_enchanted/crafting_table_front",
+    "particle": "byg:block/blue_enchanted/crafting_table_front",
+    "south": "byg:block/blue_enchanted/crafting_table_side",
+    "up": "byg:block/blue_enchanted/crafting_table_top",
+    "west": "byg:block/blue_enchanted/crafting_table_front"
+  }
+}

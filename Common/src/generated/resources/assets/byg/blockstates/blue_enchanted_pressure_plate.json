@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "byg:block/blue_enchanted/pressure_plate"
+    },
+    "powered=true": {
+      "model": "byg:block/blue_enchanted/pressure_plate_down"
+    }
+  }
+}

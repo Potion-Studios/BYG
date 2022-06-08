@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/jacaranda_log_top",
-    "side": "byg:block/jacaranda_log"
-  }
-}

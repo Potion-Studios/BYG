@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
 import potionstudios.byg.util.BlockHelper;
@@ -210,7 +211,7 @@ public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
                 || state.is(MLBlockTags.END_STONES)
                 || state.is(MLBlockTags.ORES) // Handles floating ores
                 || state.is(BYGBlocks.IMPARIUS_BUSH.get()) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.IMPARIUS_MUSHROOM.get()) // Handles other blocks that could be left floating
+                || state.is(BYGWoodTypes.IMPARIUS.growerItem().get()) // Handles other blocks that could be left floating
                 || state.is(BYGBlocks.FUNGAL_IMPARIUS.get()) // Handles other blocks that could be left floating
                 || state.is(BYGBlocks.END_SAND.get())
                 || state.getMaterial().equals(Material.PLANT)

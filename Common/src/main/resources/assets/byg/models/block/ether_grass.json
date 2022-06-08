@@ -1,8 +1,8 @@
 {
   "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
   "textures": {
-    "ether_grass": "byg:block/ether_grass",
-    "particle": "byg:block/ether_grass"
+    "ether_grass": "byg:block/ether/grass",
+    "particle": "byg:block/ether/grass"
   },
   "elements": [
     {

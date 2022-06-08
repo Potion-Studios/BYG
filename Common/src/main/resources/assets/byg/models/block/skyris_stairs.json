@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "byg:block/skyris_planks",
-    "top": "byg:block/skyris_planks",
-    "side": "byg:block/skyris_planks"
-  }
-}

@@ -1,6 +1,5 @@
 package potionstudios.byg;
 
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.brigadier.CommandDispatcher;
@@ -26,7 +25,6 @@ import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
-import potionstudios.byg.data.BYGDataProviders;
 import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
@@ -65,9 +63,6 @@ public class BYG {
     }
 
     public static void threadSafeCommonLoad() {
-        if (BYGConstants.GENERATE_DATA) {
-            BYGDataProviders.generateProviders();
-        }
         BYGVillagerType.setVillagerForBYGBiomes();
         appendBlocksToBlockEntities();
 

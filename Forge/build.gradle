@@ -1,3 +1,5 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 import java.util.stream.Collectors
 
 buildscript {
@@ -29,10 +31,17 @@ tasks.build.dependsOn(tasks.findByName("shadowJar"))
 
 configurations {
     shadow
-    implementation.extendsFrom(shadow)
+    implementation.extendsFrom shadow
 
     library
     implementation.extendsFrom library
+
+    dataImplementation.extendsFrom implementation
+    dataCompileOnly.extendsFrom compileOnly
+}
+
+sourceSets {
+    data
 }
 
 minecraft.runs.all {
@@ -46,7 +55,7 @@ archivesBaseName = "${mod_name}-forge-${minecraft_version}"
 shadowJar {
     configurations = [project.configurations.shadow]
     relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
-    archiveClassifier = ''
+    archiveClassifier.set('')
 }
 reobf {
     shadowJar {
@@ -64,7 +73,7 @@ minecraft {
     }
 
     runs {
-        def runArgs = ["-DbygDev=true", "-DbygGenerateData=true"]
+        def runArgs = ["-DbygDev=true"]
         client {
             jvmArgs runArgs
             workingDirectory project.file('run')
@@ -109,11 +118,12 @@ minecraft {
             taskName 'Data'
             def output = sourceSets.main.output;
             def commonOutput = project(":Common").sourceSets.main.output;
-            environment("MOD_CLASSES", [output.classesDirs.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
+            environment("MOD_CLASSES", [output.classesDirs.asPath, sourceSets.data.output.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
 
             mods {
-                modDataRun {
+                byg {
                     source sourceSets.main as SourceSet
+                    source sourceSets.data as SourceSet
                     source project(":Common").sourceSets.main as SourceSet
                 }
             }
@@ -127,6 +137,8 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
     library shadow("blue.endless:jankson:${jankson_version}")
+
+    dataImplementation sourceSets.main.output
 }
 reg.configureJarTask(shadowJar)
 
@@ -154,7 +166,7 @@ jar.finalizedBy('reobfJar')
 
 
 jar {
-    archiveClassifier = 'slim'
+    archiveClassifier.set('slim')
 }
 
 task forge_checkForRefmap() {
@@ -177,7 +189,7 @@ task forge_checkForRefmap() {
     }
 }
 
-task forge_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+task forge_publishCurseForge(type: TaskPublishCurseForge) {
     apiToken = "$System.env.CURSEFORGE_KEY"
     int projectId = 247560
     String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')

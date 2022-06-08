@@ -27,6 +27,7 @@ import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
@@ -148,7 +149,7 @@ public class BYGOverworldFeatures {
                     ),
                     HolderSet.direct(
                             LargeLakeFeatureConfig.createDripLeavesPlacedFeature(8, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR),
-                            createPlacedFeature(BYGOverworldTreeFeatures.PALM_TREES, RarityFilter.onAverageOnceEvery(30), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(BYGBlocks.PALM_SAPLING.defaultBlockState(), BlockPos.ZERO)))
+                            createPlacedFeature(BYGOverworldTreeFeatures.PALM_TREES, RarityFilter.onAverageOnceEvery(30), PlacementUtils.HEIGHTMAP_TOP_SOLID, BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(BYGWoodTypes.PALM.growerItem().defaultBlockState(), BlockPos.ZERO)))
                     ),
                     List.of())
     );

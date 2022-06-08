@@ -12,6 +12,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.List;
 import java.util.Set;
@@ -119,6 +121,16 @@ public class BYGTreeConfig implements FeatureConfiguration {
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
         private int diskRadius = 0;
+
+        public Builder fromWoodType(BYGWoodTypes type) {
+            this.setTrunkBlock(type.log());
+            setLeavesBlock(type.leaves().get());
+            return this;
+        }
+
+        public Builder setTrunkBlock(RegistryObject<? extends Block> block) {
+            return setTrunkBlock(block.get());
+        }
 
         public Builder setTrunkBlock(Block block) {
             if (block != null)

@@ -9,9 +9,8 @@ import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
 
-@SuppressWarnings("deprecation")
 public class BYGEntities {
-    private static final RegistrationProvider<EntityType<?>> PROVIDER = RegistrationProvider.get(Registry.ENTITY_TYPE_REGISTRY, BYG.MOD_ID);
+    public static final RegistrationProvider<EntityType<?>> PROVIDER = RegistrationProvider.get(Registry.ENTITY_TYPE_REGISTRY, BYG.MOD_ID);
 
     public static final RegistryObject<EntityType<BYGBoatEntity>> BOAT = createEntity("boat", EntityType.Builder.<BYGBoatEntity>of(BYGBoatEntity::new, MobCategory.MISC).sized(1.375F, 0.5625F));
 

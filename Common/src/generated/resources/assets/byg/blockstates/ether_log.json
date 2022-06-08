@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "byg:block/ether/log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "byg:block/ether/log"
+    },
+    "axis=z": {
+      "model": "byg:block/ether/log",
+      "x": 90
+    }
+  }
+}

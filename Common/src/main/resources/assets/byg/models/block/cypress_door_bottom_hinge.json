@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom_rh",
-  "textures": {
-    "bottom": "byg:block/cypress_door_bottom",
-    "top": "byg:block/cypress_door_top"
-  }
-}

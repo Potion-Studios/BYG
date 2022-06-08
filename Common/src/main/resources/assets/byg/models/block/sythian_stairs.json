@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "byg:block/sythian_planks",
-    "top": "byg:block/sythian_planks",
-    "side": "byg:block/sythian_planks"
-  }
-}

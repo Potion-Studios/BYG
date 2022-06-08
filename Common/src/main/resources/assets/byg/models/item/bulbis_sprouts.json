@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/bulbis_sprouts"
+    "layer0": "byg:block/bulbis/sprouts"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "crafting_table",
+  "key": {
+    "P": {
+      "item": "byg:jacaranda_planks"
+    }
+  },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "result": {
+    "item": "byg:jacaranda_crafting_table"
+  }
+}

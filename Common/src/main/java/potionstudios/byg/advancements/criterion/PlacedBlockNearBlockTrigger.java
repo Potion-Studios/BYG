@@ -5,12 +5,12 @@ import net.minecraft.advancements.critereon.AbstractCriterionTriggerInstance;
 import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.SerializationContext;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 
 public class PlacedBlockNearBlockTrigger {
 
     static final ResourceLocation ID = BYG.createLocation("placed_block_near");
-
 
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 
@@ -19,8 +19,8 @@ public class PlacedBlockNearBlockTrigger {
         }
 
         @Override
-        public JsonObject serializeToJson(SerializationContext $$0) {
-            return super.serializeToJson($$0);
+        public @NotNull JsonObject serializeToJson(@NotNull SerializationContext ctx) {
+            return super.serializeToJson(ctx);
         }
     }
 }

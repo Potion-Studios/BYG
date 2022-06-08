@@ -1,0 +1,97 @@
+{
+  "parent": "minecraft:block/cube",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#down"
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#east"
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#north"
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#south"
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#up"
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#west"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#down",
+          "tintindex": 1
+        },
+        "east": {
+          "cullface": "east",
+          "texture": "#east",
+          "tintindex": 1
+        },
+        "north": {
+          "cullface": "north",
+          "texture": "#north",
+          "tintindex": 1
+        },
+        "south": {
+          "cullface": "south",
+          "texture": "#south",
+          "tintindex": 1
+        },
+        "up": {
+          "cullface": "up",
+          "texture": "#up",
+          "tintindex": 1
+        },
+        "west": {
+          "cullface": "west",
+          "texture": "#west",
+          "tintindex": 1
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "down": "byg:block/mahogany/leaves",
+    "east": "byg:block/mahogany/leaves",
+    "north": "byg:block/mahogany/leaves",
+    "overlay": "byg:block/mahogany/leaves_overlay",
+    "particle": "byg:block/mahogany/leaves",
+    "south": "byg:block/mahogany/leaves",
+    "up": "byg:block/mahogany/leaves",
+    "west": "byg:block/mahogany/leaves"
+  }
+}

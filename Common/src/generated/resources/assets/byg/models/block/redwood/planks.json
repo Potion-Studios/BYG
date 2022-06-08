@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/redwood/planks",
+    "east": "byg:block/redwood/planks",
+    "north": "byg:block/redwood/planks",
+    "particle": "byg:block/redwood/planks",
+    "south": "byg:block/redwood/planks",
+    "up": "byg:block/redwood/planks",
+    "west": "byg:block/redwood/planks"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/aspen/planks",
+    "east": "byg:block/aspen/crafting_table_side",
+    "north": "byg:block/aspen/crafting_table_front",
+    "particle": "byg:block/aspen/crafting_table_front",
+    "south": "byg:block/aspen/crafting_table_side",
+    "up": "byg:block/aspen/crafting_table_top",
+    "west": "byg:block/aspen/crafting_table_front"
+  }
+}

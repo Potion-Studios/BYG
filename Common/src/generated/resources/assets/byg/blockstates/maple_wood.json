@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "byg:block/maple/wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "byg:block/maple/wood"
+    },
+    "axis=z": {
+      "model": "byg:block/maple/wood",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "key": {
+    "#": {
+      "tag": "byg:sticks"
+    },
+    "W": {
+      "item": "byg:cypress_planks"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "result": {
+    "item": "byg:cypress_fence_gate"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/skyris/planks",
+    "east": "byg:block/skyris/bookshelf",
+    "north": "byg:block/skyris/bookshelf",
+    "particle": "byg:block/skyris/planks",
+    "south": "byg:block/skyris/bookshelf",
+    "up": "byg:block/skyris/planks",
+    "west": "byg:block/skyris/bookshelf"
+  }
+}

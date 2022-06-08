@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "byg:block/rainbow_eucalyptus/grower_item"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "byg:block/maple/log",
+    "particle": "byg:block/maple/log"
+  }
+}

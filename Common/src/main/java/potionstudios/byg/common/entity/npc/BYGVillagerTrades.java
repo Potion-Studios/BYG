@@ -9,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.codec.CodecUtil;
@@ -33,19 +34,19 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.WHITE_PUFFBALL_CAP.get(), 8, 12, 3)
             },
             3, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 3),
-                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 3),
-                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 3),
-                new VillagerTrades.EmeraldForItems(BYGItems.SYTHIAN_FUNGUS.get(), 10, 12, 3),
+                new VillagerTrades.ItemsForEmeralds(BYGItems.WHITE_PUFFBALL_SPORES.get(), 4, 5, 4, 2),
+                new VillagerTrades.EmeraldForItems(Items.CRIMSON_FUNGUS, 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(Items.WARPED_FUNGUS, 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGWoodTypes.SYTHIAN.growerItem().get(), 10, 12, 2),
             },
             4, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BRANCH.get(), 4, 9, 4, 3),
                 new VillagerTrades.ItemsForEmeralds(BYGItems.WITCH_HAZEL_BLOSSOM.get(), 10, 1, 10, 3),
             },
             5, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.IMPARIUS_MUSHROOM.get(), 10, 12, 4),
-                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 4),
-                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 4),
+                new VillagerTrades.EmeraldForItems(BYGWoodTypes.IMPARIUS.growerItem().asItem(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 2),
             }
         )));
 

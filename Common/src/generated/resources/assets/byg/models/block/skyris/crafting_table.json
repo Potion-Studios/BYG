@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/skyris/planks",
+    "east": "byg:block/skyris/crafting_table_side",
+    "north": "byg:block/skyris/crafting_table_front",
+    "particle": "byg:block/skyris/crafting_table_front",
+    "south": "byg:block/skyris/crafting_table_side",
+    "up": "byg:block/skyris/crafting_table_top",
+    "west": "byg:block/skyris/crafting_table_front"
+  }
+}

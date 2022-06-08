@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/sythian_wart_block",
-    "particle": "byg:block/sythian_wart_block"
-  }
-}

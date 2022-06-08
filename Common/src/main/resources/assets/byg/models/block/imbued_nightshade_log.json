@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_column",
   "textures": {
-    "end": "byg:block/nightshade_log_top",
+    "end": "byg:block/nightshade/log_top",
     "side": "byg:block/imbued_nightshade_log"
   }
 }

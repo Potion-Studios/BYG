@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/imparius/planks",
+    "east": "byg:block/imparius/crafting_table_side",
+    "north": "byg:block/imparius/crafting_table_front",
+    "particle": "byg:block/imparius/crafting_table_front",
+    "south": "byg:block/imparius/crafting_table_side",
+    "up": "byg:block/imparius/crafting_table_top",
+    "west": "byg:block/imparius/crafting_table_front"
+  }
+}

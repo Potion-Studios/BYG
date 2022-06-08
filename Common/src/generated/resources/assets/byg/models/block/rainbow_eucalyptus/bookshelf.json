@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/rainbow_eucalyptus/planks",
+    "east": "byg:block/rainbow_eucalyptus/bookshelf",
+    "north": "byg:block/rainbow_eucalyptus/bookshelf",
+    "particle": "byg:block/rainbow_eucalyptus/planks",
+    "south": "byg:block/rainbow_eucalyptus/bookshelf",
+    "up": "byg:block/rainbow_eucalyptus/planks",
+    "west": "byg:block/rainbow_eucalyptus/bookshelf"
+  }
+}

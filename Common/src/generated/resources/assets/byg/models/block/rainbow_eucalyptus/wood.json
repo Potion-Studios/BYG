@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "byg:block/rainbow_eucalyptus/log",
+    "particle": "byg:block/rainbow_eucalyptus/log"
+  }
+}

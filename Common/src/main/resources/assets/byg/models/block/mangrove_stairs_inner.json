@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "bottom": "byg:block/mangrove_planks",
-    "top": "byg:block/mangrove_planks",
-    "side": "byg:block/mangrove_planks"
-  }
-}

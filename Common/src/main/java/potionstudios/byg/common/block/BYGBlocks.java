@@ -50,6 +50,7 @@ import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistrationProvider;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -61,396 +62,6 @@ public class BYGBlocks {
 
     public static final List<BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new ArrayList<>();
     public static final List<BlockRegistryObject<Block>> SIGN_BLOCKS = new ArrayList<>();
-
-    public static final BlockRegistryObject<Block> ASPEN_PLANKS = createPlanks("aspen_planks");
-    public static final BlockRegistryObject<Block> BAOBAB_PLANKS = createPlanks("baobab_planks");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_PLANKS = createPlanks("blue_enchanted_planks");
-    public static final BlockRegistryObject<Block> CHERRY_PLANKS = createPlanks("cherry_planks");
-    public static final BlockRegistryObject<Block> CIKA_PLANKS = createPlanks("cika_planks");
-    public static final BlockRegistryObject<Block> CYPRESS_PLANKS = createPlanks("cypress_planks");
-    public static final BlockRegistryObject<Block> EBONY_PLANKS = createPlanks("ebony_planks");
-    public static final BlockRegistryObject<Block> FIR_PLANKS = createPlanks("fir_planks");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_PLANKS = createPlanks("green_enchanted_planks");
-    public static final BlockRegistryObject<Block> HOLLY_PLANKS = createPlanks("holly_planks");
-    public static final BlockRegistryObject<Block> JACARANDA_PLANKS = createPlanks("jacaranda_planks");
-    public static final BlockRegistryObject<Block> MAHOGANY_PLANKS = createPlanks("mahogany_planks");
-    public static final BlockRegistryObject<Block> MANGROVE_PLANKS = createPlanks("mangrove_planks");
-    public static final BlockRegistryObject<Block> MAPLE_PLANKS = createPlanks("maple_planks");
-    public static final BlockRegistryObject<Block> PINE_PLANKS = createPlanks("pine_planks");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_PLANKS = createPlanks("rainbow_eucalyptus_planks");
-    public static final BlockRegistryObject<Block> REDWOOD_PLANKS = createPlanks("redwood_planks");
-    public static final BlockRegistryObject<Block> SKYRIS_PLANKS = createPlanks("skyris_planks");
-    public static final BlockRegistryObject<Block> WILLOW_PLANKS = createPlanks("willow_planks");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_PLANKS = createPlanks("witch_hazel_planks");
-    public static final BlockRegistryObject<Block> ZELKOVA_PLANKS = createPlanks("zelkova_planks");
-    public static final BlockRegistryObject<Block> SYTHIAN_PLANKS = createPlanks("sythian_planks");
-    public static final BlockRegistryObject<Block> EMBUR_PLANKS = createPlanks("embur_planks");
-    public static final BlockRegistryObject<Block> PALM_PLANKS = createPlanks("palm_planks");
-    public static final BlockRegistryObject<Block> LAMENT_PLANKS = createPlanks("lament_planks");
-    public static final BlockRegistryObject<Block> BULBIS_PLANKS = createPlanks("bulbis_planks");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_PLANKS = createPlanks("nightshade_planks");
-    public static final BlockRegistryObject<Block> ETHER_PLANKS = createPlanks("ether_planks");
-    public static final BlockRegistryObject<Block> IMPARIUS_PLANKS = createPlanks("imparius_planks");
-
-    public static final BlockRegistryObject<Block> ASPEN_BOOKSHELF = createBookshelf("aspen_bookshelf");
-    public static final BlockRegistryObject<Block> BAOBAB_BOOKSHELF = createBookshelf("baobab_bookshelf");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_BOOKSHELF = createBookshelf("blue_enchanted_bookshelf");
-    public static final BlockRegistryObject<Block> CHERRY_BOOKSHELF = createBookshelf("cherry_bookshelf");
-    public static final BlockRegistryObject<Block> CIKA_BOOKSHELF = createBookshelf("cika_bookshelf");
-    public static final BlockRegistryObject<Block> CYPRESS_BOOKSHELF = createBookshelf("cypress_bookshelf");
-    public static final BlockRegistryObject<Block> EBONY_BOOKSHELF = createBookshelf("ebony_bookshelf");
-    public static final BlockRegistryObject<Block> FIR_BOOKSHELF = createBookshelf("fir_bookshelf");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_BOOKSHELF = createBookshelf("green_enchanted_bookshelf");
-    public static final BlockRegistryObject<Block> HOLLY_BOOKSHELF = createBookshelf("holly_bookshelf");
-    public static final BlockRegistryObject<Block> JACARANDA_BOOKSHELF = createBookshelf("jacaranda_bookshelf");
-    public static final BlockRegistryObject<Block> MAHOGANY_BOOKSHELF = createBookshelf("mahogany_bookshelf");
-    public static final BlockRegistryObject<Block> MANGROVE_BOOKSHELF = createBookshelf("mangrove_bookshelf");
-    public static final BlockRegistryObject<Block> MAPLE_BOOKSHELF = createBookshelf("maple_bookshelf");
-    public static final BlockRegistryObject<Block> PINE_BOOKSHELF = createBookshelf("pine_bookshelf");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_BOOKSHELF = createBookshelf("rainbow_eucalyptus_bookshelf");
-    public static final BlockRegistryObject<Block> REDWOOD_BOOKSHELF = createBookshelf("redwood_bookshelf");
-    public static final BlockRegistryObject<Block> SKYRIS_BOOKSHELF = createBookshelf("skyris_bookshelf");
-    public static final BlockRegistryObject<Block> WILLOW_BOOKSHELF = createBookshelf("willow_bookshelf");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_BOOKSHELF = createBookshelf("witch_hazel_bookshelf");
-    public static final BlockRegistryObject<Block> ZELKOVA_BOOKSHELF = createBookshelf("zelkova_bookshelf");
-    public static final BlockRegistryObject<Block> SYTHIAN_BOOKSHELF = createBookshelf("sythian_bookshelf");
-    public static final BlockRegistryObject<Block> EMBUR_BOOKSHELF = createBookshelf("embur_bookshelf");
-    public static final BlockRegistryObject<Block> PALM_BOOKSHELF = createBookshelf("palm_bookshelf");
-    public static final BlockRegistryObject<Block> LAMENT_BOOKSHELF = createBookshelf("lament_bookshelf");
-    public static final BlockRegistryObject<Block> BULBIS_BOOKSHELF = createBookshelf("bulbis_bookshelf");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_BOOKSHELF = createBookshelf("nightshade_bookshelf");
-    public static final BlockRegistryObject<Block> ETHER_BOOKSHELF = createBookshelf("ether_bookshelf");
-    public static final BlockRegistryObject<Block> IMPARIUS_BOOKSHELF = createBookshelf("imparius_bookshelf");
-
-    public static final BlockRegistryObject<Block> ASPEN_DOOR = createDoor("aspen_door");
-    public static final BlockRegistryObject<Block> BAOBAB_DOOR = createDoor("baobab_door");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_DOOR = createDoor("blue_enchanted_door");
-    public static final BlockRegistryObject<Block> CHERRY_DOOR = createDoor("cherry_door");
-    public static final BlockRegistryObject<Block> CIKA_DOOR = createDoor("cika_door");
-    public static final BlockRegistryObject<Block> CYPRESS_DOOR = createDoor("cypress_door");
-    public static final BlockRegistryObject<Block> EBONY_DOOR = createDoor("ebony_door");
-    public static final BlockRegistryObject<Block> FIR_DOOR = createDoor("fir_door");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_DOOR = createDoor("green_enchanted_door");
-    public static final BlockRegistryObject<Block> HOLLY_DOOR = createDoor("holly_door");
-    public static final BlockRegistryObject<Block> JACARANDA_DOOR = createDoor("jacaranda_door");
-    public static final BlockRegistryObject<Block> MAHOGANY_DOOR = createDoor("mahogany_door");
-    public static final BlockRegistryObject<Block> MANGROVE_DOOR = createDoor("mangrove_door");
-    public static final BlockRegistryObject<Block> MAPLE_DOOR = createDoor("maple_door");
-    public static final BlockRegistryObject<Block> PINE_DOOR = createDoor("pine_door");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_DOOR = createDoor("rainbow_eucalyptus_door");
-    public static final BlockRegistryObject<Block> REDWOOD_DOOR = createDoor("redwood_door");
-    public static final BlockRegistryObject<Block> SKYRIS_DOOR = createDoor("skyris_door");
-    public static final BlockRegistryObject<Block> WILLOW_DOOR = createDoor("willow_door");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_DOOR = createDoor("witch_hazel_door");
-    public static final BlockRegistryObject<Block> ZELKOVA_DOOR = createDoor("zelkova_door");
-    public static final BlockRegistryObject<Block> SYTHIAN_DOOR = createDoor("sythian_door");
-    public static final BlockRegistryObject<Block> EMBUR_DOOR = createDoor("embur_door");
-    public static final BlockRegistryObject<Block> PALM_DOOR = createDoor("palm_door");
-    public static final BlockRegistryObject<Block> LAMENT_DOOR = createDoor("lament_door");
-    public static final BlockRegistryObject<Block> BULBIS_DOOR = createDoor("bulbis_door");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_DOOR = createDoor("nightshade_door");
-    public static final BlockRegistryObject<Block> ETHER_DOOR = createDoor("ether_door");
-    public static final BlockRegistryObject<Block> IMPARIUS_DOOR = createDoor("imparius_door");
-
-    public static final BlockRegistryObject<Block> ASPEN_PRESSURE_PLATE = createWoodPressurePlate("aspen_pressure_plate");
-    public static final BlockRegistryObject<Block> BAOBAB_PRESSURE_PLATE = createWoodPressurePlate("baobab_pressure_plate");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_PRESSURE_PLATE = createWoodPressurePlate("blue_enchanted_pressure_plate");
-    public static final BlockRegistryObject<Block> CHERRY_PRESSURE_PLATE = createWoodPressurePlate("cherry_pressure_plate");
-    public static final BlockRegistryObject<Block> CIKA_PRESSURE_PLATE = createWoodPressurePlate("cika_pressure_plate");
-    public static final BlockRegistryObject<Block> CYPRESS_PRESSURE_PLATE = createWoodPressurePlate("cypress_pressure_plate");
-    public static final BlockRegistryObject<Block> EBONY_PRESSURE_PLATE = createWoodPressurePlate("ebony_pressure_plate");
-    public static final BlockRegistryObject<Block> FIR_PRESSURE_PLATE = createWoodPressurePlate("fir_pressure_plate");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_PRESSURE_PLATE = createWoodPressurePlate("green_enchanted_pressure_plate");
-    public static final BlockRegistryObject<Block> HOLLY_PRESSURE_PLATE = createWoodPressurePlate("holly_pressure_plate");
-    public static final BlockRegistryObject<Block> JACARANDA_PRESSURE_PLATE = createWoodPressurePlate("jacaranda_pressure_plate");
-    public static final BlockRegistryObject<Block> MAHOGANY_PRESSURE_PLATE = createWoodPressurePlate("mahogany_pressure_plate");
-    public static final BlockRegistryObject<Block> MANGROVE_PRESSURE_PLATE = createWoodPressurePlate("mangrove_pressure_plate");
-    public static final BlockRegistryObject<Block> MAPLE_PRESSURE_PLATE = createWoodPressurePlate("maple_pressure_plate");
-    public static final BlockRegistryObject<Block> PINE_PRESSURE_PLATE = createWoodPressurePlate("pine_pressure_plate");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_PRESSURE_PLATE = createWoodPressurePlate("rainbow_eucalyptus_pressure_plate");
-    public static final BlockRegistryObject<Block> REDWOOD_PRESSURE_PLATE = createWoodPressurePlate("redwood_pressure_plate");
-    public static final BlockRegistryObject<Block> SKYRIS_PRESSURE_PLATE = createWoodPressurePlate("skyris_pressure_plate");
-    public static final BlockRegistryObject<Block> WILLOW_PRESSURE_PLATE = createWoodPressurePlate("willow_pressure_plate");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_PRESSURE_PLATE = createWoodPressurePlate("witch_hazel_pressure_plate");
-    public static final BlockRegistryObject<Block> ZELKOVA_PRESSURE_PLATE = createWoodPressurePlate("zelkova_pressure_plate");
-    public static final BlockRegistryObject<Block> SYTHIAN_PRESSURE_PLATE = createWoodPressurePlate("sythian_pressure_plate");
-    public static final BlockRegistryObject<Block> EMBUR_PRESSURE_PLATE = createWoodPressurePlate("embur_pressure_plate");
-    public static final BlockRegistryObject<Block> PALM_PRESSURE_PLATE = createWoodPressurePlate("palm_pressure_plate");
-    public static final BlockRegistryObject<Block> LAMENT_PRESSURE_PLATE = createWoodPressurePlate("lament_pressure_plate");
-    public static final BlockRegistryObject<Block> BULBIS_PRESSURE_PLATE = createWoodPressurePlate("bulbis_pressure_plate");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_PRESSURE_PLATE = createWoodPressurePlate("nightshade_pressure_plate");
-    public static final BlockRegistryObject<Block> ETHER_PRESSURE_PLATE = createWoodPressurePlate("ether_pressure_plate");
-    public static final BlockRegistryObject<Block> IMPARIUS_PRESSURE_PLATE = createWoodPressurePlate("imparius_pressure_plate");
-
-    public static final BlockRegistryObject<Block> ASPEN_BUTTON = createWoodButton("aspen_button");
-    public static final BlockRegistryObject<Block> BAOBAB_BUTTON = createWoodButton("baobab_button");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_BUTTON = createWoodButton("blue_enchanted_button");
-    public static final BlockRegistryObject<Block> CHERRY_BUTTON = createWoodButton("cherry_button");
-    public static final BlockRegistryObject<Block> CIKA_BUTTON = createWoodButton("cika_button");
-    public static final BlockRegistryObject<Block> CYPRESS_BUTTON = createWoodButton("cypress_button");
-    public static final BlockRegistryObject<Block> EBONY_BUTTON = createWoodButton("ebony_button");
-    public static final BlockRegistryObject<Block> FIR_BUTTON = createWoodButton("fir_button");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_BUTTON = createWoodButton("green_enchanted_button");
-    public static final BlockRegistryObject<Block> HOLLY_BUTTON = createWoodButton("holly_button");
-    public static final BlockRegistryObject<Block> JACARANDA_BUTTON = createWoodButton("jacaranda_button");
-    public static final BlockRegistryObject<Block> MAHOGANY_BUTTON = createWoodButton("mahogany_button");
-    public static final BlockRegistryObject<Block> MANGROVE_BUTTON = createWoodButton("mangrove_button");
-    public static final BlockRegistryObject<Block> MAPLE_BUTTON = createWoodButton("maple_button");
-    public static final BlockRegistryObject<Block> PINE_BUTTON = createWoodButton("pine_button");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_BUTTON = createWoodButton("rainbow_eucalyptus_button");
-    public static final BlockRegistryObject<Block> REDWOOD_BUTTON = createWoodButton("redwood_button");
-    public static final BlockRegistryObject<Block> SKYRIS_BUTTON = createWoodButton("skyris_button");
-    public static final BlockRegistryObject<Block> WILLOW_BUTTON = createWoodButton("willow_button");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_BUTTON = createWoodButton("witch_hazel_button");
-    public static final BlockRegistryObject<Block> ZELKOVA_BUTTON = createWoodButton("zelkova_button");
-    public static final BlockRegistryObject<Block> SYTHIAN_BUTTON = createWoodButton("sythian_button");
-    public static final BlockRegistryObject<Block> EMBUR_BUTTON = createWoodButton("embur_button");
-    public static final BlockRegistryObject<Block> PALM_BUTTON = createWoodButton("palm_button");
-    public static final BlockRegistryObject<Block> LAMENT_BUTTON = createWoodButton("lament_button");
-    public static final BlockRegistryObject<Block> BULBIS_BUTTON = createWoodButton("bulbis_button");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_BUTTON = createWoodButton("nightshade_button");
-    public static final BlockRegistryObject<Block> ETHER_BUTTON = createWoodButton("ether_button");
-    public static final BlockRegistryObject<Block> IMPARIUS_BUTTON = createWoodButton("imparius_button");
-
-    public static final BlockRegistryObject<Block> ASPEN_TRAPDOOR = createTrapDoor("aspen_trapdoor");
-    public static final BlockRegistryObject<Block> BAOBAB_TRAPDOOR = createTrapDoor("baobab_trapdoor");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_TRAPDOOR = createTrapDoor("blue_enchanted_trapdoor");
-    public static final BlockRegistryObject<Block> CHERRY_TRAPDOOR = createTrapDoor("cherry_trapdoor");
-    public static final BlockRegistryObject<Block> CIKA_TRAPDOOR = createTrapDoor("cika_trapdoor");
-    public static final BlockRegistryObject<Block> CYPRESS_TRAPDOOR = createTrapDoor("cypress_trapdoor");
-    public static final BlockRegistryObject<Block> EBONY_TRAPDOOR = createTrapDoor("ebony_trapdoor");
-    public static final BlockRegistryObject<Block> FIR_TRAPDOOR = createTrapDoor("fir_trapdoor");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_TRAPDOOR = createTrapDoor("green_enchanted_trapdoor");
-    public static final BlockRegistryObject<Block> HOLLY_TRAPDOOR = createTrapDoor("holly_trapdoor");
-    public static final BlockRegistryObject<Block> JACARANDA_TRAPDOOR = createTrapDoor("jacaranda_trapdoor");
-    public static final BlockRegistryObject<Block> MAHOGANY_TRAPDOOR = createTrapDoor("mahogany_trapdoor");
-    public static final BlockRegistryObject<Block> MANGROVE_TRAPDOOR = createTrapDoor("mangrove_trapdoor");
-    public static final BlockRegistryObject<Block> MAPLE_TRAPDOOR = createTrapDoor("maple_trapdoor");
-    public static final BlockRegistryObject<Block> PINE_TRAPDOOR = createTrapDoor("pine_trapdoor");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_TRAPDOOR = createTrapDoor("rainbow_eucalyptus_trapdoor");
-    public static final BlockRegistryObject<Block> REDWOOD_TRAPDOOR = createTrapDoor("redwood_trapdoor");
-    public static final BlockRegistryObject<Block> SKYRIS_TRAPDOOR = createTrapDoor("skyris_trapdoor");
-    public static final BlockRegistryObject<Block> WILLOW_TRAPDOOR = createTrapDoor("willow_trapdoor");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_TRAPDOOR = createTrapDoor("witch_hazel_trapdoor");
-    public static final BlockRegistryObject<Block> ZELKOVA_TRAPDOOR = createTrapDoor("zelkova_trapdoor");
-    public static final BlockRegistryObject<Block> SYTHIAN_TRAPDOOR = createTrapDoor("sythian_trapdoor");
-    public static final BlockRegistryObject<Block> EMBUR_TRAPDOOR = createTrapDoor("embur_trapdoor");
-    public static final BlockRegistryObject<Block> PALM_TRAPDOOR = createTrapDoor("palm_trapdoor");
-    public static final BlockRegistryObject<Block> LAMENT_TRAPDOOR = createTrapDoor("lament_trapdoor");
-    public static final BlockRegistryObject<Block> BULBIS_TRAPDOOR = createTrapDoor("bulbis_trapdoor");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_TRAPDOOR = createTrapDoor("nightshade_trapdoor");
-    public static final BlockRegistryObject<Block> ETHER_TRAPDOOR = createTrapDoor("ether_trapdoor");
-    public static final BlockRegistryObject<Block> IMPARIUS_TRAPDOOR = createTrapDoor("imparius_trapdoor");
-
-    public static final BlockRegistryObject<Block> ASPEN_CRAFTING_TABLE = createCraftingTable("aspen_crafting_table");
-    public static final BlockRegistryObject<Block> BAOBAB_CRAFTING_TABLE = createCraftingTable("baobab_crafting_table");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_CRAFTING_TABLE = createCraftingTable("blue_enchanted_crafting_table");
-    public static final BlockRegistryObject<Block> CHERRY_CRAFTING_TABLE = createCraftingTable("cherry_crafting_table");
-    public static final BlockRegistryObject<Block> CIKA_CRAFTING_TABLE = createCraftingTable("cika_crafting_table");
-    public static final BlockRegistryObject<Block> CYPRESS_CRAFTING_TABLE = createCraftingTable("cypress_crafting_table");
-    public static final BlockRegistryObject<Block> EBONY_CRAFTING_TABLE = createCraftingTable("ebony_crafting_table");
-    public static final BlockRegistryObject<Block> FIR_CRAFTING_TABLE = createCraftingTable("fir_crafting_table");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_CRAFTING_TABLE = createCraftingTable("green_enchanted_crafting_table");
-    public static final BlockRegistryObject<Block> HOLLY_CRAFTING_TABLE = createCraftingTable("holly_crafting_table");
-    public static final BlockRegistryObject<Block> JACARANDA_CRAFTING_TABLE = createCraftingTable("jacaranda_crafting_table");
-    public static final BlockRegistryObject<Block> MAHOGANY_CRAFTING_TABLE = createCraftingTable("mahogany_crafting_table");
-    public static final BlockRegistryObject<Block> MANGROVE_CRAFTING_TABLE = createCraftingTable("mangrove_crafting_table");
-    public static final BlockRegistryObject<Block> MAPLE_CRAFTING_TABLE = createCraftingTable("maple_crafting_table");
-    public static final BlockRegistryObject<Block> PINE_CRAFTING_TABLE = createCraftingTable("pine_crafting_table");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_CRAFTING_TABLE = createCraftingTable("rainbow_eucalyptus_crafting_table");
-    public static final BlockRegistryObject<Block> REDWOOD_CRAFTING_TABLE = createCraftingTable("redwood_crafting_table");
-    public static final BlockRegistryObject<Block> SKYRIS_CRAFTING_TABLE = createCraftingTable("skyris_crafting_table");
-    public static final BlockRegistryObject<Block> WILLOW_CRAFTING_TABLE = createCraftingTable("willow_crafting_table");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_CRAFTING_TABLE = createCraftingTable("witch_hazel_crafting_table");
-    public static final BlockRegistryObject<Block> ZELKOVA_CRAFTING_TABLE = createCraftingTable("zelkova_crafting_table");
-    public static final BlockRegistryObject<Block> SYTHIAN_CRAFTING_TABLE = createCraftingTable("sythian_crafting_table");
-    public static final BlockRegistryObject<Block> EMBUR_CRAFTING_TABLE = createCraftingTable("embur_crafting_table");
-    public static final BlockRegistryObject<Block> PALM_CRAFTING_TABLE = createCraftingTable("palm_crafting_table");
-    public static final BlockRegistryObject<Block> LAMENT_CRAFTING_TABLE = createCraftingTable("lament_crafting_table");
-    public static final BlockRegistryObject<Block> BULBIS_CRAFTING_TABLE = createCraftingTable("bulbis_crafting_table");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_CRAFTING_TABLE = createCraftingTable("nightshade_crafting_table");
-    public static final BlockRegistryObject<Block> ETHER_CRAFTING_TABLE = createCraftingTable("ether_crafting_table");
-    public static final BlockRegistryObject<Block> IMPARIUS_CRAFTING_TABLE = createCraftingTable("imparius_crafting_table");
-
-    public static final BlockRegistryObject<Block> ASPEN_FENCE_GATE = createFenceGate("aspen_fence_gate");
-    public static final BlockRegistryObject<Block> BAOBAB_FENCE_GATE = createFenceGate("baobab_fence_gate");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_FENCE_GATE = createFenceGate("blue_enchanted_fence_gate");
-    public static final BlockRegistryObject<Block> CHERRY_FENCE_GATE = createFenceGate("cherry_fence_gate");
-    public static final BlockRegistryObject<Block> CIKA_FENCE_GATE = createFenceGate("cika_fence_gate");
-    public static final BlockRegistryObject<Block> CYPRESS_FENCE_GATE = createFenceGate("cypress_fence_gate");
-    public static final BlockRegistryObject<Block> EBONY_FENCE_GATE = createFenceGate("ebony_fence_gate");
-    public static final BlockRegistryObject<Block> FIR_FENCE_GATE = createFenceGate("fir_fence_gate");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_FENCE_GATE = createFenceGate("green_enchanted_fence_gate");
-    public static final BlockRegistryObject<Block> HOLLY_FENCE_GATE = createFenceGate("holly_fence_gate");
-    public static final BlockRegistryObject<Block> JACARANDA_FENCE_GATE = createFenceGate("jacaranda_fence_gate");
-    public static final BlockRegistryObject<Block> MAHOGANY_FENCE_GATE = createFenceGate("mahogany_fence_gate");
-    public static final BlockRegistryObject<Block> MANGROVE_FENCE_GATE = createFenceGate("mangrove_fence_gate");
-    public static final BlockRegistryObject<Block> MAPLE_FENCE_GATE = createFenceGate("maple_fence_gate");
-    public static final BlockRegistryObject<Block> PINE_FENCE_GATE = createFenceGate("pine_fence_gate");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_FENCE_GATE = createFenceGate("rainbow_eucalyptus_fence_gate");
-    public static final BlockRegistryObject<Block> REDWOOD_FENCE_GATE = createFenceGate("redwood_fence_gate");
-    public static final BlockRegistryObject<Block> SKYRIS_FENCE_GATE = createFenceGate("skyris_fence_gate");
-    public static final BlockRegistryObject<Block> WILLOW_FENCE_GATE = createFenceGate("willow_fence_gate");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_FENCE_GATE = createFenceGate("witch_hazel_fence_gate");
-    public static final BlockRegistryObject<Block> ZELKOVA_FENCE_GATE = createFenceGate("zelkova_fence_gate");
-    public static final BlockRegistryObject<Block> SYTHIAN_FENCE_GATE = createFenceGate("sythian_fence_gate");
-    public static final BlockRegistryObject<Block> EMBUR_FENCE_GATE = createFenceGate("embur_fence_gate");
-    public static final BlockRegistryObject<Block> PALM_FENCE_GATE = createFenceGate("palm_fence_gate");
-    public static final BlockRegistryObject<Block> LAMENT_FENCE_GATE = createFenceGate("lament_fence_gate");
-    public static final BlockRegistryObject<Block> BULBIS_FENCE_GATE = createFenceGate("bulbis_fence_gate");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_FENCE_GATE = createFenceGate("nightshade_fence_gate");
-    public static final BlockRegistryObject<Block> ETHER_FENCE_GATE = createFenceGate("ether_fence_gate");
-    public static final BlockRegistryObject<Block> IMPARIUS_FENCE_GATE = createFenceGate("imparius_fence_gate");
-
-    public static final BlockRegistryObject<Block> ASPEN_SLAB = createWoodSlab("aspen_slab");
-    public static final BlockRegistryObject<Block> BAOBAB_SLAB = createWoodSlab("baobab_slab");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_SLAB = createWoodSlab("blue_enchanted_slab");
-    public static final BlockRegistryObject<Block> CHERRY_SLAB = createWoodSlab("cherry_slab");
-    public static final BlockRegistryObject<Block> CIKA_SLAB = createWoodSlab("cika_slab");
-    public static final BlockRegistryObject<Block> CYPRESS_SLAB = createWoodSlab("cypress_slab");
-    public static final BlockRegistryObject<Block> EBONY_SLAB = createWoodSlab("ebony_slab");
-    public static final BlockRegistryObject<Block> FIR_SLAB = createWoodSlab("fir_slab");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_SLAB = createWoodSlab("green_enchanted_slab");
-    public static final BlockRegistryObject<Block> HOLLY_SLAB = createWoodSlab("holly_slab");
-    public static final BlockRegistryObject<Block> JACARANDA_SLAB = createWoodSlab("jacaranda_slab");
-    public static final BlockRegistryObject<Block> MAHOGANY_SLAB = createWoodSlab("mahogany_slab");
-    public static final BlockRegistryObject<Block> MANGROVE_SLAB = createWoodSlab("mangrove_slab");
-    public static final BlockRegistryObject<Block> MAPLE_SLAB = createWoodSlab("maple_slab");
-    public static final BlockRegistryObject<Block> PINE_SLAB = createWoodSlab("pine_slab");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_SLAB = createWoodSlab("rainbow_eucalyptus_slab");
-    public static final BlockRegistryObject<Block> REDWOOD_SLAB = createWoodSlab("redwood_slab");
-    public static final BlockRegistryObject<Block> SKYRIS_SLAB = createWoodSlab("skyris_slab");
-    public static final BlockRegistryObject<Block> WILLOW_SLAB = createWoodSlab("willow_slab");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_SLAB = createWoodSlab("witch_hazel_slab");
-    public static final BlockRegistryObject<Block> ZELKOVA_SLAB = createWoodSlab("zelkova_slab");
-    public static final BlockRegistryObject<Block> SYTHIAN_SLAB = createWoodSlab("sythian_slab");
-    public static final BlockRegistryObject<Block> EMBUR_SLAB = createWoodSlab("embur_slab");
-    public static final BlockRegistryObject<Block> PALM_SLAB = createWoodSlab("palm_slab");
-    public static final BlockRegistryObject<Block> LAMENT_SLAB = createWoodSlab("lament_slab");
-    public static final BlockRegistryObject<Block> BULBIS_SLAB = createWoodSlab("bulbis_slab");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_SLAB = createWoodSlab("nightshade_slab");
-    public static final BlockRegistryObject<Block> ETHER_SLAB = createWoodSlab("ether_slab");
-    public static final BlockRegistryObject<Block> IMPARIUS_SLAB = createWoodSlab("imparius_slab");
-
-    public static final BlockRegistryObject<Block> ASPEN_STAIRS = createWoodStairs("aspen_stairs");
-    public static final BlockRegistryObject<Block> BAOBAB_STAIRS = createWoodStairs("baobab_stairs");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_STAIRS = createWoodStairs("blue_enchanted_stairs");
-    public static final BlockRegistryObject<Block> CHERRY_STAIRS = createWoodStairs("cherry_stairs");
-    public static final BlockRegistryObject<Block> CIKA_STAIRS = createWoodStairs("cika_stairs");
-    public static final BlockRegistryObject<Block> CYPRESS_STAIRS = createWoodStairs("cypress_stairs");
-    public static final BlockRegistryObject<Block> EBONY_STAIRS = createWoodStairs("ebony_stairs");
-    public static final BlockRegistryObject<Block> FIR_STAIRS = createWoodStairs("fir_stairs");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_STAIRS = createWoodStairs("green_enchanted_stairs");
-    public static final BlockRegistryObject<Block> HOLLY_STAIRS = createWoodStairs("holly_stairs");
-    public static final BlockRegistryObject<Block> JACARANDA_STAIRS = createWoodStairs("jacaranda_stairs");
-    public static final BlockRegistryObject<Block> MAHOGANY_STAIRS = createWoodStairs("mahogany_stairs");
-    public static final BlockRegistryObject<Block> MANGROVE_STAIRS = createWoodStairs("mangrove_stairs");
-    public static final BlockRegistryObject<Block> MAPLE_STAIRS = createWoodStairs("maple_stairs");
-    public static final BlockRegistryObject<Block> PINE_STAIRS = createWoodStairs("pine_stairs");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_STAIRS = createWoodStairs("rainbow_eucalyptus_stairs");
-    public static final BlockRegistryObject<Block> REDWOOD_STAIRS = createWoodStairs("redwood_stairs");
-    public static final BlockRegistryObject<Block> SKYRIS_STAIRS = createWoodStairs("skyris_stairs");
-    public static final BlockRegistryObject<Block> WILLOW_STAIRS = createWoodStairs("willow_stairs");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_STAIRS = createWoodStairs("witch_hazel_stairs");
-    public static final BlockRegistryObject<Block> ZELKOVA_STAIRS = createWoodStairs("zelkova_stairs");
-    public static final BlockRegistryObject<Block> SYTHIAN_STAIRS = createWoodStairs("sythian_stairs");
-    public static final BlockRegistryObject<Block> EMBUR_STAIRS = createWoodStairs("embur_stairs");
-    public static final BlockRegistryObject<Block> PALM_STAIRS = createWoodStairs("palm_stairs");
-    public static final BlockRegistryObject<Block> LAMENT_STAIRS = createWoodStairs("lament_stairs");
-    public static final BlockRegistryObject<Block> BULBIS_STAIRS = createWoodStairs("bulbis_stairs");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_STAIRS = createWoodStairs("nightshade_stairs");
-    public static final BlockRegistryObject<Block> ETHER_STAIRS = createWoodStairs("ether_stairs");
-    public static final BlockRegistryObject<Block> IMPARIUS_STAIRS = createWoodStairs("imparius_stairs");
-
-    public static final BlockRegistryObject<Block> ASPEN_FENCE = createFence("aspen_fence");
-    public static final BlockRegistryObject<Block> BAOBAB_FENCE = createFence("baobab_fence");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_FENCE = createFence("blue_enchanted_fence");
-    public static final BlockRegistryObject<Block> CHERRY_FENCE = createFence("cherry_fence");
-    public static final BlockRegistryObject<Block> CIKA_FENCE = createFence("cika_fence");
-    public static final BlockRegistryObject<Block> CYPRESS_FENCE = createFence("cypress_fence");
-    public static final BlockRegistryObject<Block> EBONY_FENCE = createFence("ebony_fence");
-    public static final BlockRegistryObject<Block> FIR_FENCE = createFence("fir_fence");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_FENCE = createFence("green_enchanted_fence");
-    public static final BlockRegistryObject<Block> HOLLY_FENCE = createFence("holly_fence");
-    public static final BlockRegistryObject<Block> JACARANDA_FENCE = createFence("jacaranda_fence");
-    public static final BlockRegistryObject<Block> MAHOGANY_FENCE = createFence("mahogany_fence");
-    public static final BlockRegistryObject<Block> MANGROVE_FENCE = createFence("mangrove_fence");
-    public static final BlockRegistryObject<Block> MAPLE_FENCE = createFence("maple_fence");
-    public static final BlockRegistryObject<Block> PINE_FENCE = createFence("pine_fence");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_FENCE = createFence("rainbow_eucalyptus_fence");
-    public static final BlockRegistryObject<Block> REDWOOD_FENCE = createFence("redwood_fence");
-    public static final BlockRegistryObject<Block> SKYRIS_FENCE = createFence("skyris_fence");
-    public static final BlockRegistryObject<Block> WILLOW_FENCE = createFence("willow_fence");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_FENCE = createFence("witch_hazel_fence");
-    public static final BlockRegistryObject<Block> ZELKOVA_FENCE = createFence("zelkova_fence");
-    public static final BlockRegistryObject<Block> SYTHIAN_FENCE = createFence("sythian_fence");
-    public static final BlockRegistryObject<Block> EMBUR_FENCE = createFence("embur_fence");
-    public static final BlockRegistryObject<Block> PALM_FENCE = createFence("palm_fence");
-    public static final BlockRegistryObject<Block> LAMENT_FENCE = createFence("lament_fence");
-    public static final BlockRegistryObject<Block> BULBIS_FENCE = createFence("bulbis_fence");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_FENCE = createFence("nightshade_fence");
-    public static final BlockRegistryObject<Block> ETHER_FENCE = createFence("ether_fence");
-    public static final BlockRegistryObject<Block> IMPARIUS_FENCE = createFence("imparius_fence");
-
-    public static final BlockRegistryObject<Block> ASPEN_SIGN = createSign("aspen_sign", BYGWoodType.ASPEN, ASPEN_PLANKS);
-    public static final BlockRegistryObject<Block> BAOBAB_SIGN = createSign("baobab_sign", BYGWoodType.BAOBAB, BAOBAB_PLANKS);
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_SIGN = createSign("blue_enchanted_sign", BYGWoodType.BLUE_ENCHANTED, BLUE_ENCHANTED_PLANKS);
-    public static final BlockRegistryObject<Block> CHERRY_SIGN = createSign("cherry_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
-    public static final BlockRegistryObject<Block> CIKA_SIGN = createSign("cika_sign", BYGWoodType.CIKA, CIKA_PLANKS);
-    public static final BlockRegistryObject<Block> CYPRESS_SIGN = createSign("cypress_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
-    public static final BlockRegistryObject<Block> EBONY_SIGN = createSign("ebony_sign", BYGWoodType.EBONY, EBONY_PLANKS);
-    public static final BlockRegistryObject<Block> FIR_SIGN = createSign("fir_sign", BYGWoodType.FIR, FIR_PLANKS);
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_SIGN = createSign("green_enchanted_sign", BYGWoodType.GREEN_ENCHANTED, GREEN_ENCHANTED_PLANKS);
-    public static final BlockRegistryObject<Block> HOLLY_SIGN = createSign("holly_sign", BYGWoodType.HOLLY, HOLLY_PLANKS);
-    public static final BlockRegistryObject<Block> JACARANDA_SIGN = createSign("jacaranda_sign", BYGWoodType.JACARANDA, JACARANDA_PLANKS);
-    public static final BlockRegistryObject<Block> MAHOGANY_SIGN = createSign("mahogany_sign", BYGWoodType.MAHOGANY, MAHOGANY_PLANKS);
-    public static final BlockRegistryObject<Block> MANGROVE_SIGN = createSign("mangrove_sign", BYGWoodType.MANGROVE, MANGROVE_PLANKS);
-    public static final BlockRegistryObject<Block> MAPLE_SIGN = createSign("maple_sign", BYGWoodType.MAPLE, MAPLE_PLANKS);
-    public static final BlockRegistryObject<Block> PINE_SIGN = createSign("pine_sign", BYGWoodType.PINE, PINE_PLANKS);
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_SIGN = createSign("rainbow_eucalyptus_sign", BYGWoodType.RAINBOW_EUCALYPTUS, RAINBOW_EUCALYPTUS_PLANKS);
-    public static final BlockRegistryObject<Block> REDWOOD_SIGN = createSign("redwood_sign", BYGWoodType.REDWOOD, REDWOOD_PLANKS);
-    public static final BlockRegistryObject<Block> SKYRIS_SIGN = createSign("skyris_sign", BYGWoodType.SKYRIS, SKYRIS_PLANKS);
-    public static final BlockRegistryObject<Block> WILLOW_SIGN = createSign("willow_sign", BYGWoodType.WILLOW, WILLOW_PLANKS);
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_SIGN = createSign("witch_hazel_sign", BYGWoodType.WITCH_HAZEL, WITCH_HAZEL_PLANKS);
-    public static final BlockRegistryObject<Block> ZELKOVA_SIGN = createSign("zelkova_sign", BYGWoodType.ZELKOVA, ZELKOVA_PLANKS);
-    public static final BlockRegistryObject<Block> SYTHIAN_SIGN = createSign("sythian_sign", BYGWoodType.SYTHIAN, SYTHIAN_PLANKS);
-    public static final BlockRegistryObject<Block> EMBUR_SIGN = createSign("embur_sign", BYGWoodType.EMBUR, EMBUR_PLANKS);
-    public static final BlockRegistryObject<Block> PALM_SIGN = createSign("palm_sign", BYGWoodType.PALM, PALM_PLANKS);
-    public static final BlockRegistryObject<Block> LAMENT_SIGN = createSign("lament_sign", BYGWoodType.LAMENT, LAMENT_PLANKS);
-    public static final BlockRegistryObject<Block> BULBIS_SIGN = createSign("bulbis_sign", BYGWoodType.BULBIS, BULBIS_PLANKS);
-    public static final BlockRegistryObject<Block> NIGHTSHADE_SIGN = createSign("nightshade_sign", BYGWoodType.NIGHTSHADE, NIGHTSHADE_PLANKS);
-    public static final BlockRegistryObject<Block> ETHER_SIGN = createSign("ether_sign", BYGWoodType.ETHER, ETHER_PLANKS);
-    public static final BlockRegistryObject<Block> IMPARIUS_SIGN = createSign("imparius_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
-
-    public static final BlockRegistryObject<Block> ASPEN_WALL_SIGN = createWallSign("aspen_wall_sign", BYGWoodType.ASPEN, ASPEN_PLANKS);
-    public static final BlockRegistryObject<Block> BAOBAB_WALL_SIGN = createWallSign("baobab_wall_sign", BYGWoodType.BAOBAB, BAOBAB_PLANKS);
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_WALL_SIGN = createWallSign("blue_enchanted_wall_sign", BYGWoodType.BLUE_ENCHANTED, BLUE_ENCHANTED_PLANKS);
-    public static final BlockRegistryObject<Block> CHERRY_WALL_SIGN = createWallSign("cherry_wall_sign", BYGWoodType.CHERRY, CHERRY_PLANKS);
-    public static final BlockRegistryObject<Block> CIKA_WALL_SIGN = createWallSign("cika_wall_sign", BYGWoodType.CIKA, CIKA_PLANKS);
-    public static final BlockRegistryObject<Block> CYPRESS_WALL_SIGN = createWallSign("cypress_wall_sign", BYGWoodType.CYPRESS, CYPRESS_PLANKS);
-    public static final BlockRegistryObject<Block> EBONY_WALL_SIGN = createWallSign("ebony_wall_sign", BYGWoodType.EBONY, EBONY_PLANKS);
-    public static final BlockRegistryObject<Block> FIR_WALL_SIGN = createWallSign("fir_wall_sign", BYGWoodType.FIR, FIR_PLANKS);
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_WALL_SIGN = createWallSign("green_enchanted_wall_sign", BYGWoodType.GREEN_ENCHANTED, GREEN_ENCHANTED_PLANKS);
-    public static final BlockRegistryObject<Block> HOLLY_WALL_SIGN = createWallSign("holly_wall_sign", BYGWoodType.HOLLY, HOLLY_PLANKS);
-    public static final BlockRegistryObject<Block> JACARANDA_WALL_SIGN = createWallSign("jacaranda_wall_sign", BYGWoodType.JACARANDA, JACARANDA_PLANKS);
-    public static final BlockRegistryObject<Block> MAHOGANY_WALL_SIGN = createWallSign("mahogany_wall_sign", BYGWoodType.MAHOGANY, MAHOGANY_PLANKS);
-    public static final BlockRegistryObject<Block> MANGROVE_WALL_SIGN = createWallSign("mangrove_wall_sign", BYGWoodType.MANGROVE, MANGROVE_PLANKS);
-    public static final BlockRegistryObject<Block> MAPLE_WALL_SIGN = createWallSign("maple_wall_sign", BYGWoodType.MAPLE, MAPLE_PLANKS);
-    public static final BlockRegistryObject<Block> PINE_WALL_SIGN = createWallSign("pine_wall_sign", BYGWoodType.PINE, PINE_PLANKS);
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_WALL_SIGN = createWallSign("rainbow_eucalyptus_wall_sign", BYGWoodType.RAINBOW_EUCALYPTUS, RAINBOW_EUCALYPTUS_PLANKS);
-    public static final BlockRegistryObject<Block> REDWOOD_WALL_SIGN = createWallSign("redwood_wall_sign", BYGWoodType.REDWOOD, REDWOOD_PLANKS);
-    public static final BlockRegistryObject<Block> SKYRIS_WALL_SIGN = createWallSign("skyris_wall_sign", BYGWoodType.SKYRIS, SKYRIS_PLANKS);
-    public static final BlockRegistryObject<Block> WILLOW_WALL_SIGN = createWallSign("willow_wall_sign", BYGWoodType.WILLOW, WILLOW_PLANKS);
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_WALL_SIGN = createWallSign("witch_hazel_wall_sign", BYGWoodType.WITCH_HAZEL, WITCH_HAZEL_PLANKS);
-    public static final BlockRegistryObject<Block> ZELKOVA_WALL_SIGN = createWallSign("zelkova_wall_sign", BYGWoodType.ZELKOVA, ZELKOVA_PLANKS);
-    public static final BlockRegistryObject<Block> SYTHIAN_WALL_SIGN = createWallSign("sythian_wall_sign", BYGWoodType.SYTHIAN, SYTHIAN_PLANKS);
-    public static final BlockRegistryObject<Block> EMBUR_WALL_SIGN = createWallSign("embur_wall_sign", BYGWoodType.EMBUR, EMBUR_PLANKS);
-    public static final BlockRegistryObject<Block> PALM_WALL_SIGN = createWallSign("palm_wall_sign", BYGWoodType.PALM, PALM_PLANKS);
-    public static final BlockRegistryObject<Block> LAMENT_WALL_SIGN = createWallSign("lament_wall_sign", BYGWoodType.LAMENT, LAMENT_PLANKS);
-    public static final BlockRegistryObject<Block> BULBIS_WALL_SIGN = createWallSign("bulbis_wall_sign", BYGWoodType.BULBIS, BULBIS_PLANKS);
-    public static final BlockRegistryObject<Block> NIGHTSHADE_WALL_SIGN = createWallSign("nightshade_wall_sign", BYGWoodType.NIGHTSHADE, NIGHTSHADE_PLANKS);
-    public static final BlockRegistryObject<Block> ETHER_WALL_SIGN = createWallSign("ether_wall_sign", BYGWoodType.ETHER, ETHER_PLANKS);
-    public static final BlockRegistryObject<Block> IMPARIUS_WALL_SIGN = createWallSign("imparius_wall_sign", BYGWoodType.IMPARIUS, IMPARIUS_PLANKS);
 
     public static final BlockRegistryObject<Block> FORAGERS_TABLE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.FLETCHING_TABLE)), "foragers_table");
 
@@ -464,53 +75,29 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> MUD_BRICKS = createDirt("mud_bricks");
 
     public static final BlockRegistryObject<Block> ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, "araucaria_sapling");
-    public static final BlockRegistryObject<Block> ASPEN_SAPLING = createSapling(BYGBlockTags.GROUND_ASPEN_SAPLING, "aspen_sapling");
-    public static final BlockRegistryObject<Block> BAOBAB_SAPLING = createSapling(BYGBlockTags.GROUND_BAOBAB_SAPLING, "baobab_sapling");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, "blue_enchanted_sapling");
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, "blue_spruce_sapling");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, "brown_birch_sapling");
     public static final BlockRegistryObject<Block> BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, "brown_oak_sapling");
     public static final BlockRegistryObject<Block> BROWN_ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_ZELKOVA_SAPLING, "brown_zelkova_sapling");
-    public static final BlockRegistryObject<Block> CIKA_SAPLING = createSapling(BYGBlockTags.GROUND_CIKA_SAPLING, "cika_sapling");
-    public static final BlockRegistryObject<Block> CYPRESS_SAPLING = createSapling(BYGBlockTags.GROUND_CYPRESS_SAPLING, "cypress_sapling");
-    public static final BlockRegistryObject<Block> EBONY_SAPLING = createSapling(BYGBlockTags.GROUND_EBONY_SAPLING, "ebony_sapling");
-    public static final BlockRegistryObject<Block> FIR_SAPLING = createSapling(BYGBlockTags.GROUND_FIR_SAPLING, "fir_sapling");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_SAPLING = createSapling(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, "green_enchanted_sapling");
-    public static final BlockRegistryObject<Block> HOLLY_SAPLING = createSapling(BYGBlockTags.GROUND_HOLLY_SAPLING, "holly_sapling");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, TreeSpawners.JACARANDA, "flowering_jacaranda_bush");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, TreeSpawners.INDIGO_JACARANDA, "flowering_indigo_jacaranda_bush");
-    public static final BlockRegistryObject<Block> JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_JACARANDA_SAPLING, "jacaranda_sapling");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, "indigo_jacaranda_sapling");
     public static final BlockRegistryObject<Block> JOSHUA_SAPLING = createSapling(BYGBlockTags.GROUND_JOSHUA_SAPLING, "joshua_sapling");
-    public static final BlockRegistryObject<Block> MAHOGANY_SAPLING = createSapling(BYGBlockTags.GROUND_MAHOGANY_SAPLING, "mahogany_sapling");
-    public static final BlockRegistryObject<Block> MANGROVE_SAPLING = createSapling(BYGBlockTags.GROUND_MANGROVE_SAPLING, "mangrove_sapling");
-    public static final BlockRegistryObject<Block> MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_MAPLE_SAPLING, "maple_sapling");
     public static final BlockRegistryObject<Block> ORANGE_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_BIRCH_SAPLING, "orange_birch_sapling");
     public static final BlockRegistryObject<Block> ORANGE_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, "orange_oak_sapling");
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, "orange_spruce_sapling");
     public static final BlockRegistryObject<Block> ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, "orchard_sapling");
     public static final BlockRegistryObject<Block> PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, "palo_verde_sapling");
-    public static final BlockRegistryObject<Block> PINE_SAPLING = createSapling(BYGBlockTags.GROUND_PINE_SAPLING, "pine_sapling");
     public static final BlockRegistryObject<Block> PINK_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, "pink_cherry_sapling");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_SAPLING = createSapling(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, "rainbow_eucalyptus_sapling");
     public static final BlockRegistryObject<Block> RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, "red_birch_sapling");
     public static final BlockRegistryObject<Block> RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, "red_maple_sapling");
     public static final BlockRegistryObject<Block> RED_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_RED_OAK_SAPLING, "red_oak_sapling");
     public static final BlockRegistryObject<Block> RED_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_SPRUCE_SAPLING, "red_spruce_sapling");
-    public static final BlockRegistryObject<Block> REDWOOD_SAPLING = createSapling(BYGBlockTags.GROUND_REDWOOD_SAPLING, "redwood_sapling");
     public static final BlockRegistryObject<Block> SILVER_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, "silver_maple_sapling");
-    public static final BlockRegistryObject<Block> SKYRIS_SAPLING = createSapling(BYGBlockTags.GROUND_SKYRIS_SAPLING, "skyris_sapling");
     public static final BlockRegistryObject<Block> WHITE_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, "white_cherry_sapling");
-    public static final BlockRegistryObject<Block> WILLOW_SAPLING = createSapling(BYGBlockTags.GROUND_WILLOW_SAPLING, "willow_sapling");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_SAPLING = createSapling(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, "witch_hazel_sapling");
     public static final BlockRegistryObject<Block> YELLOW_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, "yellow_birch_sapling");
     public static final BlockRegistryObject<Block> YELLOW_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_YELLOW_SPRUCE_SAPLING, "yellow_spruce_sapling");
-    public static final BlockRegistryObject<Block> ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_ZELKOVA_SAPLING, "zelkova_sapling");
-    public static final BlockRegistryObject<Block> PALM_SAPLING = createSapling(BYGBlockTags.GROUND_PALM_SAPLING, "palm_sapling");
-    public static final BlockRegistryObject<Block> LAMENT_SAPLING = createSapling(BYGBlockTags.GROUND_LAMENT_SAPLING, "lament_sapling");
     public static final BlockRegistryObject<Block> WITHERING_OAK_SAPLING = createFungus(BYGBlockTags.GROUND_WITHERING_OAK_SAPLING, "withering_oak_sapling");
-    public static final BlockRegistryObject<Block> ETHER_SAPLING = createSapling(BYGBlockTags.GROUND_ETHER_SAPLING, "ether_sapling");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_SAPLING = createSapling(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, "nightshade_sapling");
 
     public static final BlockRegistryObject<Block> JACARANDA_BUSH = createJacarandaBush("jacaranda_bush");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_BUSH = createIndigoJacarandaBush("indigo_jacaranda_bush");
@@ -520,61 +107,37 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WITCH_HAZEL_BLOSSOM = createWitchHazelBlossomBlock(MaterialColor.COLOR_YELLOW, "witch_hazel_blossom");
 
     public static final BlockRegistryObject<Block> ARAUCARIA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "araucaria_leaves");
-    public static final BlockRegistryObject<Block> ASPEN_LEAVES = createLeaves(MaterialColor.TERRACOTTA_YELLOW, "aspen_leaves");
-    public static final BlockRegistryObject<Block> BAOBAB_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "baobab_leaves");
-    public static final BlockRegistryObject<Block> BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "blooming_witch_hazel_leaves");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_BLUE, 15, "blue_enchanted_leaves");
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_BLUE, "blue_spruce_leaves");
+    public static final BlockRegistryObject<Block> BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "blooming_witch_hazel_leaves");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_birch_leaves");
     public static final BlockRegistryObject<Block> BROWN_OAK_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_oak_leaves");
     public static final BlockRegistryObject<Block> BROWN_ZELKOVA_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_zelkova_leaves");
-    public static final BlockRegistryObject<Block> CIKA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_ORANGE, "cika_leaves");
-    public static final BlockRegistryObject<Block> CYPRESS_LEAVES = createLeaves(MaterialColor.TERRACOTTA_LIGHT_GREEN, "cypress_leaves");
-    public static final BlockRegistryObject<Block> EBONY_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "ebony_leaves");
-    public static final BlockRegistryObject<Block> FIR_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "fir_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "flowering_orchard_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MaterialColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_LEAVES = createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, "green_enchanted_leaves");
     public static final BlockRegistryObject<Block> HOLLY_BERRY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "holly_berry_leaves");
-    public static final BlockRegistryObject<Block> HOLLY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "holly_leaves");
-    public static final BlockRegistryObject<Block> JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_PURPLE, "jacaranda_leaves");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_BLUE, "indigo_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_PURPLE, "flowering_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_BLUE, "flowering_indigo_jacaranda_leaves");
     public static final BlockRegistryObject<Block> JOSHUA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "joshua_leaves");
     public static final BlockRegistryObject<Block> RIPE_JOSHUA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "ripe_joshua_leaves");
-    public static final BlockRegistryObject<Block> MAHOGANY_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "mahogany_leaves");
-    public static final BlockRegistryObject<Block> MANGROVE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "mangrove_leaves");
-    public static final BlockRegistryObject<Block> MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "maple_leaves");
     public static final BlockRegistryObject<Block> ORANGE_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "orange_birch_leaves");
     public static final BlockRegistryObject<Block> ORANGE_OAK_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "orange_oak_leaves");
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "orange_spruce_leaves");
     public static final BlockRegistryObject<Block> ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "orchard_leaves");
     public static final BlockRegistryObject<Block> PALO_VERDE_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "palo_verde_leaves");
-    public static final BlockRegistryObject<Block> PINE_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "pine_leaves");
     public static final BlockRegistryObject<Block> PINK_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_PINK, "pink_cherry_leaves");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "rainbow_eucalyptus_leaves");
     public static final BlockRegistryObject<Block> RED_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_birch_leaves");
     public static final BlockRegistryObject<Block> RED_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_maple_leaves");
     public static final BlockRegistryObject<Block> RED_OAK_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_oak_leaves");
     public static final BlockRegistryObject<Block> RED_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_spruce_leaves");
-    public static final BlockRegistryObject<Block> REDWOOD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "redwood_leaves");
     public static final BlockRegistryObject<Block> RIPE_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "ripe_orchard_leaves");
     public static final BlockRegistryObject<Block> SILVER_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY, "silver_maple_leaves");
     public static final BlockRegistryObject<Block> SKYRIS_LEAVES_GREEN_APPLE = createLeaves(MaterialColor.COLOR_PINK, "green_apple_skyris_leaves");
-    public static final BlockRegistryObject<Block> SKYRIS_LEAVES = createLeaves(MaterialColor.COLOR_PINK, "skyris_leaves");
     public static final BlockRegistryObject<Block> WHITE_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY, "white_cherry_leaves");
-    public static final BlockRegistryObject<Block> WILLOW_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "willow_leaves");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "witch_hazel_leaves");
     public static final BlockRegistryObject<Block> YELLOW_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW, "yellow_birch_leaves");
     public static final BlockRegistryObject<Block> YELLOW_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_YELLOW, "yellow_spruce_leaves");
-    public static final BlockRegistryObject<Block> ZELKOVA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_RED, "zelkova_leaves");
-    public static final BlockRegistryObject<Block> PALM_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "palm_leaves");
-    public static final BlockRegistryObject<Block> LAMENT_LEAVES = createLeaves(MaterialColor.COLOR_MAGENTA, "lament_leaves");
     public static final BlockRegistryObject<Block> WITHERING_OAK_LEAVES = createLeaves(MaterialColor.COLOR_GRAY, "withering_oak_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_NIGHTSHADE_LEAVES = createGlowingLeaves(MaterialColor.COLOR_ORANGE, 15, "flowering_nightshade_leaves");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_LEAVES = createLeaves(MaterialColor.COLOR_ORANGE, "nightshade_leaves");
-    public static final BlockRegistryObject<Block> ETHER_LEAVES = createLeaves(MaterialColor.COLOR_CYAN, "ether_leaves");
     public static final BlockRegistryObject<Block> FIRECRACKER_LEAVES = createFirecrackerLeavesBlock(MaterialColor.COLOR_GREEN, "firecracker_leaves");
 
     public static final BlockRegistryObject<Block> GREEN_MUSHROOM_BLOCK = createBlock(BYGBlockProperties.BlockHugeMushroom::new, "green_mushroom_block");
@@ -658,13 +221,12 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WARPED_SOUL_SAND = createBlock(BYGBlockProperties.BYGNyliumSoulSand::new, "warped_soul_sand");
     public static final BlockRegistryObject<Block> WARPED_SOUL_SOIL = createBlock(BYGBlockProperties.BYGNyliumSoulSoil::new, "warped_soul_soil");
 
-    public static final BlockRegistryObject<Block> SYTHIAN_WART_BLOCK = createBlock(BYGBlockProperties.BYGWartBlock::new, "sythian_wart_block");
     public static final BlockRegistryObject<Block> SYTHIAN_ROOTS = createBlock(BYGBlockProperties.SythianPlant::new, "sythian_roots");
     public static final BlockRegistryObject<Block> SYTHIAN_SPROUT = createBlock(BYGBlockProperties.SythianPlant::new, "sythian_sprout");
     public static final BlockRegistryObject<Block> SYTHIAN_STALK_BLOCK = createBlock(BYGBlockProperties.SythianStalk::new, "sythian_stalk_block");
     public static final BlockRegistryObject<Block> SYTHIAN_SCAFFOLDING = createScaffoldingBlock(15, MaterialColor.COLOR_YELLOW, "sythian_scaffolding");
     public static final BlockRegistryObject<Block> SYTHIAN_SAPLING = createBlock(BYGBlockProperties.SythianSapling::new, "sythian_sapling");
-
+    
     public static final BlockRegistryObject<Block> HANGING_SYTHIAN_ROOTS = createBlock(BYGBlockProperties.BYGSythianHangingRoots::new, "hanging_sythian_roots");
     public static final BlockRegistryObject<Block> HANGING_SYTHIAN_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGSythianHangingRootsPlant::new, "hanging_sythian_roots_plant");
 
@@ -676,7 +238,6 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> EMBUR_SPROUTS = createBlock(() -> new NetherSproutsBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, MaterialColor.COLOR_CYAN).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS)), "embur_sprouts");
     public static final BlockRegistryObject<Block> EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGEmburPlant::new, "embur_roots");
-    public static final BlockRegistryObject<Block> EMBUR_WART = createFungus(BYGBlockTags.GROUND_EMBUR_WART, "embur_wart");
     public static final BlockRegistryObject<Block> TALL_EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_embur_roots");
 
     public static final BlockRegistryObject<Block> BLUE_NETHERRACK = createNetherStone(MaterialColor.TERRACOTTA_BLUE, "blue_netherrack");
@@ -863,72 +424,14 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WINDSWEPT_SANDSTONE_PILLAR = createSandstonePillar(MaterialColor.TERRACOTTA_PINK, "windswept_sandstone_pillar");
 
 
-    public static final BlockRegistryObject<Block> ASPEN_LOG = createLog("aspen_log");
-    public static final BlockRegistryObject<Block> BAOBAB_LOG = createLog("baobab_log");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_LOG = createLog("blue_enchanted_log");
-    public static final BlockRegistryObject<Block> CHERRY_LOG = createLog("cherry_log");
-    public static final BlockRegistryObject<Block> CIKA_LOG = createLog("cika_log");
-    public static final BlockRegistryObject<Block> CYPRESS_LOG = createLog("cypress_log");
-    public static final BlockRegistryObject<Block> EBONY_LOG = createLog("ebony_log");
-    public static final BlockRegistryObject<Block> FIR_LOG = createLog("fir_log");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_LOG = createLog("green_enchanted_log");
-    public static final BlockRegistryObject<Block> HOLLY_LOG = createLog("holly_log");
-    public static final BlockRegistryObject<Block> JACARANDA_LOG = createLog("jacaranda_log");
-    public static final BlockRegistryObject<Block> MAHOGANY_LOG = createLog("mahogany_log");
-    public static final BlockRegistryObject<Block> MANGROVE_LOG = createLog("mangrove_log");
-    public static final BlockRegistryObject<Block> MAPLE_LOG = createLog("maple_log");
     public static final BlockRegistryObject<Block> PALO_VERDE_LOG = createLog("palo_verde_log");
-    public static final BlockRegistryObject<Block> PINE_LOG = createLog("pine_log");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_LOG = createLog("rainbow_eucalyptus_log");
-    public static final BlockRegistryObject<Block> REDWOOD_LOG = createLog("redwood_log");
-    public static final BlockRegistryObject<Block> SKYRIS_LOG = createLog("skyris_log");
-    public static final BlockRegistryObject<Block> WILLOW_LOG = createLog("willow_log");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_LOG = createLog("witch_hazel_log");
-    public static final BlockRegistryObject<Block> ZELKOVA_LOG = createLog("zelkova_log");
-    public static final BlockRegistryObject<Block> SYTHIAN_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "sythian_stem");
-    public static final BlockRegistryObject<Block> EMBUR_PEDU = createBlock(BYGBlockProperties.BYGNetherLog::new, "embur_pedu");
-    public static final BlockRegistryObject<Block> PALM_LOG = createLog("palm_log");
-    public static final BlockRegistryObject<Block> LAMENT_LOG = createBlock(BYGBlockProperties.BYGNetherLog::new, "lament_log");
     public static final BlockRegistryObject<Block> WITHERING_OAK_LOG = createLog("withering_oak_log");
-    public static final BlockRegistryObject<Block> BULBIS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "bulbis_stem");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_LOG = createLog("nightshade_log");
     public static final BlockRegistryObject<Block> IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
-    public static final BlockRegistryObject<Block> ETHER_LOG = createLog("ether_log");
-    public static final BlockRegistryObject<Block> IMPARIUS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "imparius_stem");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "fungal_imparius_stem");
 
 
-    public static final BlockRegistryObject<Block> ASPEN_WOOD = createWood("aspen_wood");
-    public static final BlockRegistryObject<Block> BAOBAB_WOOD = createWood("baobab_wood");
-    public static final BlockRegistryObject<Block> BLUE_ENCHANTED_WOOD = createWood("blue_enchanted_wood");
-    public static final BlockRegistryObject<Block> CHERRY_WOOD = createWood("cherry_wood");
-    public static final BlockRegistryObject<Block> CIKA_WOOD = createWood("cika_wood");
-    public static final BlockRegistryObject<Block> CYPRESS_WOOD = createWood("cypress_wood");
-    public static final BlockRegistryObject<Block> EBONY_WOOD = createWood("ebony_wood");
-    public static final BlockRegistryObject<Block> FIR_WOOD = createWood("fir_wood");
-    public static final BlockRegistryObject<Block> GREEN_ENCHANTED_WOOD = createWood("green_enchanted_wood");
-    public static final BlockRegistryObject<Block> HOLLY_WOOD = createWood("holly_wood");
-    public static final BlockRegistryObject<Block> JACARANDA_WOOD = createWood("jacaranda_wood");
-    public static final BlockRegistryObject<Block> MAHOGANY_WOOD = createWood("mahogany_wood");
-    public static final BlockRegistryObject<Block> MANGROVE_WOOD = createWood("mangrove_wood");
-    public static final BlockRegistryObject<Block> MAPLE_WOOD = createWood("maple_wood");
     public static final BlockRegistryObject<Block> PALO_VERDE_WOOD = createWood("palo_verde_wood");
-    public static final BlockRegistryObject<Block> PINE_WOOD = createWood("pine_wood");
-    public static final BlockRegistryObject<Block> RAINBOW_EUCALYPTUS_WOOD = createWood("rainbow_eucalyptus_wood");
-    public static final BlockRegistryObject<Block> REDWOOD_WOOD = createWood("redwood_wood");
-    public static final BlockRegistryObject<Block> SKYRIS_WOOD = createWood("skyris_wood");
-    public static final BlockRegistryObject<Block> WILLOW_WOOD = createWood("willow_wood");
-    public static final BlockRegistryObject<Block> WITCH_HAZEL_WOOD = createWood("witch_hazel_wood");
-    public static final BlockRegistryObject<Block> ZELKOVA_WOOD = createWood("zelkova_wood");
-    public static final BlockRegistryObject<Block> SYTHIAN_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "sythian_hyphae");
-    public static final BlockRegistryObject<Block> EMBUR_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "embur_hyphae");
-    public static final BlockRegistryObject<Block> PALM_WOOD = createWood("palm_wood");
-    public static final BlockRegistryObject<Block> LAMENT_WOOD = createBlock(BYGBlockProperties.BYGNetherWood::new, "lament_wood");
     public static final BlockRegistryObject<Block> WITHERING_OAK_WOOD = createWood("withering_oak_wood");
-    public static final BlockRegistryObject<Block> BULBIS_WOOD = createBlock(BYGBlockProperties.BYGNetherWood::new, "bulbis_wood");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_WOOD = createWood("nightshade_wood");
-    public static final BlockRegistryObject<Block> ETHER_WOOD = createWood("ether_wood");
-    public static final BlockRegistryObject<Block> IMPARIUS_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "imparius_hyphae");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "fungal_imparius_hyphae");
 
     public static final BlockRegistryObject<Block> WHITE_PUFFBALL = createWhitePuffBlock(SoundType.FUNGUS, MaterialColor.TERRACOTTA_WHITE, "white_puffball");
@@ -936,14 +439,11 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WOOD_BLEWIT = createMushroom(BYGBlockTags.GROUND_WOOD_BLEWIT, "wood_blewit");
     public static final BlockRegistryObject<Block> GREEN_MUSHROOM = createMushroom(BYGBlockTags.GROUND_GREEN_MUSHROOM, "green_mushroom");
 
-    public static final BlockRegistryObject<Block> SYTHIAN_FUNGUS = createFungus(BYGBlockTags.GROUND_SYTHIAN_FUNGUS, "sythian_fungus");
     public static final BlockRegistryObject<Block> SOUL_SHROOM = createFungus(BYGBlockTags.GROUND_SOUL_SHROOM, "soul_shroom");
     public static final BlockRegistryObject<Block> DEATH_CAP = createFungus(BYGBlockTags.GROUND_DEATH_CAP, "death_cap");
 
-    public static final BlockRegistryObject<Block> BULBIS_ODDITY = createMushroom(BYGBlockTags.GROUND_BULBIS_ODDITY, "bulbis_oddity");
     public static final BlockRegistryObject<Block> PURPLE_BULBIS_ODDITY = createMushroom(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY, "purple_bulbis_oddity");
     public static final BlockRegistryObject<Block> SHULKREN_FUNGUS = createMushroom(BYGBlockTags.GROUND_SHULKREN_FUNGUS, "shulkren_fungus");
-    public static final BlockRegistryObject<Block> IMPARIUS_MUSHROOM = createMushroom(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, "imparius_mushroom");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS = createMushroom(BYGBlockTags.GROUND_FUNGAL_IMPARIUS, "fungal_imparius");
 
     public static final BlockRegistryObject<Block> BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
@@ -1058,65 +558,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SOAPSTONE_TILE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "soapstone_tile_stairs");
     public static final BlockRegistryObject<Block> SOAPSTONE_TILE_WALL = createStoneWall("soapstone_tile_wall");
 
-    public static final BlockRegistryObject<Block> STRIPPED_ASPEN_LOG = createStrippedLog("stripped_aspen_log");
-    public static final BlockRegistryObject<Block> STRIPPED_BAOBAB_LOG = createStrippedLog("stripped_baobab_log");
-    public static final BlockRegistryObject<Block> STRIPPED_BLUE_ENCHANTED_LOG = createStrippedLog("stripped_blue_enchanted_log");
-    public static final BlockRegistryObject<Block> STRIPPED_CHERRY_LOG = createStrippedLog("stripped_cherry_log");
-    public static final BlockRegistryObject<Block> STRIPPED_CIKA_LOG = createStrippedLog("stripped_cika_log");
-    public static final BlockRegistryObject<Block> STRIPPED_CYPRESS_LOG = createStrippedLog("stripped_cypress_log");
-    public static final BlockRegistryObject<Block> STRIPPED_EBONY_LOG = createStrippedLog("stripped_ebony_log");
-    public static final BlockRegistryObject<Block> STRIPPED_FIR_LOG = createStrippedLog("stripped_fir_log");
-    public static final BlockRegistryObject<Block> STRIPPED_GREEN_ENCHANTED_LOG = createStrippedLog("stripped_green_enchanted_log");
-    public static final BlockRegistryObject<Block> STRIPPED_HOLLY_LOG = createStrippedLog("stripped_holly_log");
-    public static final BlockRegistryObject<Block> STRIPPED_JACARANDA_LOG = createStrippedLog("stripped_jacaranda_log");
-    public static final BlockRegistryObject<Block> STRIPPED_MAHOGANY_LOG = createStrippedLog("stripped_mahogany_log");
-    public static final BlockRegistryObject<Block> STRIPPED_MANGROVE_LOG = createStrippedLog("stripped_mangrove_log");
-    public static final BlockRegistryObject<Block> STRIPPED_MAPLE_LOG = createStrippedLog("stripped_maple_log");
     public static final BlockRegistryObject<Block> STRIPPED_PALO_VERDE_LOG = createStrippedLog("stripped_palo_verde_log");
-    public static final BlockRegistryObject<Block> STRIPPED_PINE_LOG = createStrippedLog("stripped_pine_log");
-    public static final BlockRegistryObject<Block> STRIPPED_RAINBOW_EUCALYPTUS_LOG = createStrippedLog("stripped_rainbow_eucalyptus_log");
-    public static final BlockRegistryObject<Block> STRIPPED_SKYRIS_LOG = createStrippedLog("stripped_skyris_log");
-    public static final BlockRegistryObject<Block> STRIPPED_WILLOW_LOG = createStrippedLog("stripped_willow_log");
-    public static final BlockRegistryObject<Block> STRIPPED_REDWOOD_LOG = createStrippedLog("stripped_redwood_log");
-    public static final BlockRegistryObject<Block> STRIPPED_WITCH_HAZEL_LOG = createStrippedLog("stripped_witch_hazel_log");
-    public static final BlockRegistryObject<Block> STRIPPED_ZELKOVA_LOG = createStrippedLog("stripped_zelkova_log");
-    public static final BlockRegistryObject<Block> STRIPPED_SYTHIAN_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_sythian_stem");
-    public static final BlockRegistryObject<Block> STRIPPED_EMBUR_PEDU = createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_embur_pedu");
-    public static final BlockRegistryObject<Block> STRIPPED_PALM_LOG = createStrippedLog("stripped_palm_log");
-    public static final BlockRegistryObject<Block> STRIPPED_LAMENT_LOG = createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_lament_log");
-    public static final BlockRegistryObject<Block> STRIPPED_BULBIS_LOG = createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_bulbis_stem");
-    public static final BlockRegistryObject<Block> STRIPPED_NIGHTSHADE_LOG = createStrippedLog("stripped_nightshade_log");
-    public static final BlockRegistryObject<Block> STRIPPED_ETHER_LOG = createStrippedLog("stripped_ether_log");
 
-    public static final BlockRegistryObject<Block> STRIPPED_ASPEN_WOOD = createWood("stripped_aspen_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_BAOBAB_WOOD = createWood("stripped_baobab_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_BLUE_ENCHANTED_WOOD = createWood("stripped_blue_enchanted_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_CHERRY_WOOD = createWood("stripped_cherry_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_CIKA_WOOD = createWood("stripped_cika_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_CYPRESS_WOOD = createWood("stripped_cypress_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_EBONY_WOOD = createWood("stripped_ebony_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_FIR_WOOD = createWood("stripped_fir_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_GREEN_ENCHANTED_WOOD = createWood("stripped_green_enchanted_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_HOLLY_WOOD = createWood("stripped_holly_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_JACARANDA_WOOD = createWood("stripped_jacaranda_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_MAHOGANY_WOOD = createWood("stripped_mahogany_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_MANGROVE_WOOD = createWood("stripped_mangrove_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_MAPLE_WOOD = createWood("stripped_maple_wood");
     public static final BlockRegistryObject<Block> STRIPPED_PALO_VERDE_WOOD = createWood("stripped_palo_verde_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_PINE_WOOD = createWood("stripped_pine_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_RAINBOW_EUCALYPTUS_WOOD = createWood("stripped_rainbow_eucalyptus_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_SKYRIS_WOOD = createWood("stripped_skyris_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_WILLOW_WOOD = createWood("stripped_willow_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_REDWOOD_WOOD = createWood("stripped_redwood_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_WITCH_HAZEL_WOOD = createWood("stripped_witch_hazel_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_ZELKOVA_WOOD = createWood("stripped_zelkova_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_SYTHIAN_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "stripped_sythian_hyphae");
-    public static final BlockRegistryObject<Block> STRIPPED_EMBUR_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "stripped_embur_hyphae");
-    public static final BlockRegistryObject<Block> STRIPPED_PALM_WOOD = createWood("stripped_palm_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_LAMENT_WOOD = createBlock(BYGBlockProperties.BYGNetherWood::new, "stripped_lament_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_BULBIS_WOOD = createBlock(BYGBlockProperties.BYGNetherWood::new, "stripped_bulbis_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_NIGHTSHADE_WOOD = createWood("stripped_nightshade_wood");
-    public static final BlockRegistryObject<Block> STRIPPED_ETHER_WOOD = createWood("stripped_ether_wood");
 
     public static final BlockRegistryObject<Block> TALL_ALLIUM = createTallFlower("tall_allium", BYGBlockTags.GROUND_TALL_ALLIUM);
     public static final BlockRegistryObject<Block> TALL_PINK_ALLIUM = createTallFlower("tall_pink_allium", BYGBlockTags.GROUND_TALL_PINK_ALLIUM);
@@ -1348,11 +792,11 @@ public class BYGBlocks {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createFence(String id) {
+    static BlockRegistryObject<Block> createFence(String id) {
         return createBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createFenceGate(String id) {
+    static BlockRegistryObject<Block> createFenceGate(String id) {
         return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
@@ -1380,7 +824,7 @@ public class BYGBlocks {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE)), id);
     }
 
-    private static BlockRegistryObject<Block> createWoodSlab(String id) {
+    static BlockRegistryObject<Block> createWoodSlab(String id) {
         return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
@@ -1392,47 +836,47 @@ public class BYGBlocks {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
-    private static BlockRegistryObject<Block> createWoodPressurePlate(String id) {
+    static BlockRegistryObject<Block> createWoodPressurePlate(String id) {
         return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F)), id);
     }
 
-    private static BlockRegistryObject<Block> createWoodStairs(String id) {
+    static BlockRegistryObject<Block> createWoodStairs(String id) {
         return createBlock(() -> StairBlockAccess.byg_create(Registry.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createTrapDoor(String id) {
+    static BlockRegistryObject<Block> createTrapDoor(String id) {
         return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()), id);
     }
 
-    private static BlockRegistryObject<Block> createCraftingTable(String id) {
+    static BlockRegistryObject<Block> createCraftingTable(String id) {
         return createBlock(() -> new BYGCraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)), id);
     }
 
-    private static BlockRegistryObject<Block> createWoodButton(String id) {
+    static BlockRegistryObject<Block> createWoodButton(String id) {
         return createBlock(() -> WoodButtonBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F)), id);
     }
 
-    private static BlockRegistryObject<Block> createBookshelf(String id) {
+    static BlockRegistryObject<Block> createBookshelf(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createDoor(String id) {
+    static BlockRegistryObject<Block> createDoor(String id) {
         return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()), id);
     }
 
-    private static BlockRegistryObject<Block> createPlanks(String id) {
+    static BlockRegistryObject<Block> createPlanks(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createWood(String id) {
+    static BlockRegistryObject<Block> createWood(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createStrippedLog(String id) {
+    static BlockRegistryObject<Block> createStrippedLog(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD).sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createLog(String id) {
+    static BlockRegistryObject<Block> createLog(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
@@ -1573,11 +1017,11 @@ public class BYGBlocks {
         return createPottedBlock(() -> new WhitePuffballBlock(BlockBehaviour.Properties.of(Material.PLANT, color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks()), id);
     }
 
-    private static BlockRegistryObject<Block> createMushroom(TagKey<Block> blockTagKey, String id) {
+    static BlockRegistryObject<Block> createMushroom(TagKey<Block> blockTagKey, String id) {
         return createPottedBlock(() -> new BYGMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM), blockTagKey), id);
     }
 
-    private static BlockRegistryObject<Block> createFungus(TagKey<Block> blockTagKey, String id) {
+    static BlockRegistryObject<Block> createFungus(TagKey<Block> blockTagKey, String id) {
         return createPottedBlock(() -> new BYGFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS), blockTagKey), id);
     }
 
@@ -1703,7 +1147,7 @@ public class BYGBlocks {
         return createBlock(() -> new NightshadeBerryBushBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.SWEET_BERRY_BUSH).lightLevel((state) -> lightLevel).randomTicks().instabreak().noCollission()), id);
     }
 
-    private static BlockRegistryObject<Block> createSapling(TagKey<Block> groundTag, String id) {
+    static BlockRegistryObject<Block> createSapling(TagKey<Block> groundTag, String id) {
         final Supplier<Block> createBlock = () -> new BYGSaplingBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
         final var blockRo = createPottedBlock(createBlock, id);
         return blockRo;
@@ -1784,11 +1228,11 @@ public class BYGBlocks {
         return createBlock(() -> new ShulkrenVinePlantBlock(BlockBehaviour.Properties.of(Material.LEAVES).instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission()), id);
     }
 
-    private static BlockRegistryObject<Block> createLeaves(MaterialColor color, String id) {
+    static BlockRegistryObject<Block> createLeaves(MaterialColor color, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false)), id);
     }
 
-    private static BlockRegistryObject<Block> createGlowingLeaves(MaterialColor color, int lightLevel, String id) {
+    static BlockRegistryObject<Block> createGlowingLeaves(MaterialColor color, int lightLevel, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel)), id);
     }
 
@@ -1836,7 +1280,7 @@ public class BYGBlocks {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo), id);
     }
 
-    private static BlockRegistryObject<Block> createSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+    static BlockRegistryObject<Block> createSign(String id, WoodType type, BlockRegistryObject<Block> color) {
         return createSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
@@ -1846,7 +1290,7 @@ public class BYGBlocks {
         return signBlock;
     }
 
-    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+    static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
         return createWallSign(id, type, () -> color.get().defaultMaterialColor());
     }
 

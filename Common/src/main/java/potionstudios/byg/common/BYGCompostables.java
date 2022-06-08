@@ -3,112 +3,77 @@ package potionstudios.byg.common;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.ComposterBlock;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 
+import javax.annotation.Nullable;
+
 public class BYGCompostables {
-    public static void compostibleBlocks(float chance, ItemLike item) {
-        ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
+    public static void compostibleBlocks(float chance, @Nullable ItemLike item) {
+        if (item != null)
+            ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
     }
 
     public static void compostablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Compostible Blocks...");
 
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            compostibleBlocks(0.3f, type.leaves());
+            compostibleBlocks(0.3f, type.growerItem());
+        }
+
         //Leaves
-        compostibleBlocks(0.3f, BYGItems.ASPEN_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.BAOBAB_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLOOMING_WITCH_HAZEL_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.CIKA_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.CYPRESS_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.EBONY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.FIR_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_PALO_VERDE_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.GREEN_ENCHANTED_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.HOLLY_BERRY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.HOLLY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.JACARANDA_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_INDIGO_JACARANDA_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_JACARANDA_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.MAHOGANY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.MANGROVE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_OAK_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.PALO_VERDE_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.PINE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.PINK_CHERRY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.RAINBOW_EUCALYPTUS_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.REDWOOD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_LEAVES.get());
         compostibleBlocks(0.6f, BYGItems.RIPE_ORCHARD_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_LEAVES.get());
         compostibleBlocks(0.6f, BYGItems.SKYRIS_LEAVES_GREEN_APPLE.get());
-        compostibleBlocks(0.3f, BYGItems.SKYRIS_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.WHITE_CHERRY_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.WILLOW_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.WITCH_HAZEL_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.RED_SPRUCE_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.PALM_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_ZELKOVA_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.ETHER_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.NIGHTSHADE_LEAVES.get());
-        compostibleBlocks(0.3f, BYGItems.LAMENT_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.WITHERING_OAK_LEAVES.get());
         compostibleBlocks(0.3f, BYGItems.FIRECRACKER_LEAVES.get());
 
         //Saplings
-        compostibleBlocks(0.3f, BYGItems.ASPEN_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.BAOBAB_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.BLUE_ENCHANTED_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BLUE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_OAK_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.CIKA_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.CYPRESS_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.EBONY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.FIR_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.GREEN_ENCHANTED_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.HOLLY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.JACARANDA_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.JACARANDA_BUSH.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_JACARANDA_BUSH.get());
         compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.INDIGO_JACARANDA_BUSH.get());
         compostibleBlocks(0.3f, BYGItems.FLOWERING_INDIGO_JACARANDA_BUSH.get());
-        compostibleBlocks(0.3f, BYGItems.MAHOGANY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.MANGROVE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_OAK_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.ORANGE_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.ORCHARD_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.PALO_VERDE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.PINE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.PINK_CHERRY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.RAINBOW_EUCALYPTUS_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.REDWOOD_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_MAPLE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_OAK_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.SILVER_MAPLE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.SKYRIS_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.WHITE_CHERRY_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.WILLOW_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.WITCH_HAZEL_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_BIRCH_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.YELLOW_SPRUCE_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.RED_SPRUCE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.PALM_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.BROWN_ZELKOVA_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.ETHER_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.NIGHTSHADE_SAPLING.get());
-        compostibleBlocks(0.3f, BYGItems.LAMENT_SAPLING.get());
         compostibleBlocks(0.3f, BYGItems.WITHERING_OAK_SAPLING.get());
 
         //Flowers
@@ -190,7 +155,6 @@ public class BYGCompostables {
         compostibleBlocks(0.85f, BYGItems.SOUL_SHROOM_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.DEATH_CAP_MUSHROOM_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.SHULKREN_WART_BLOCK.get());
-        compostibleBlocks(0.85f, BYGItems.SYTHIAN_WART_BLOCK.get());
         compostibleBlocks(0.85f, BYGItems.PURPLE_SHROOMLIGHT.get());
         compostibleBlocks(0.85f, BYGItems.PURPLE_BULBIS_SHELL.get());
         compostibleBlocks(0.85f, BYGItems.BULBIS_SHELL.get());
@@ -209,12 +173,9 @@ public class BYGCompostables {
         compostibleBlocks(0.65f, BYGItems.BLUE_BERRY.get());
         compostibleBlocks(0.65f, BYGItems.BLUEBERRY_PIE.get());
         compostibleBlocks(0.65f, BYGItems.SHULKREN_FUNGUS.get());
-        compostibleBlocks(0.65f, BYGItems.SYTHIAN_FUNGUS.get());
-        compostibleBlocks(0.65f, BYGItems.EMBUR_WART.get());
         compostibleBlocks(0.65f, BYGItems.DEATH_CAP.get());
         compostibleBlocks(0.65f, BYGItems.SOUL_SHROOM.get());
         compostibleBlocks(0.65f, BYGItems.BAOBAB_FRUIT.get());
-        compostibleBlocks(0.65f, BYGItems.BULBIS_ODDITY.get());
         compostibleBlocks(0.65f, BYGItems.PURPLE_BULBIS_ODDITY.get());
 
         //Plants

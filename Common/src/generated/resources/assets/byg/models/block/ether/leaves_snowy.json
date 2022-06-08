@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/ether/leaves_snowy",
+    "east": "byg:block/ether/leaves_snowy_side",
+    "north": "byg:block/ether/leaves_snowy_side",
+    "particle": "byg:block/ether/leaves_snowy_side",
+    "south": "byg:block/ether/leaves_snowy_side",
+    "up": "byg:block/ether/leaves_snowy",
+    "west": "byg:block/ether/leaves_snowy_side"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "byg:block/redwood/stripped_log_top",
+    "side": "byg:block/redwood/stripped_log"
+  }
+}

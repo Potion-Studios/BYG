@@ -56,7 +56,6 @@
     "access.VanillaBiomeAccess",
     "access.VegetationFeaturesAccess",
     "access.VegetationPlacementsAccess",
-    "access.VillagerProfessionAccess",
     "access.VillagerTypeAccess",
     "access.WaterlilyBlockAccess",
     "access.WeightedEntryWrapperAccess",
@@ -92,6 +91,7 @@
     "common.world.feature.MixinBasaltColumnFeature",
     "common.world.level.storage.loot.MixinLootTableManager",
     "common.world.surface.MixinSurfaceSystem",
+    "dev.BlockBehaviorAccess",
     "dev.MixinMinecraftServer",
     "server.MixinMinecraftServer"
   ],

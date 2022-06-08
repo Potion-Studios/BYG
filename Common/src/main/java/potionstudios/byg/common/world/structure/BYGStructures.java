@@ -5,10 +5,13 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.UniformFloat;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import potionstudios.byg.BYG;
@@ -32,10 +36,12 @@ import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools
 import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
+import potionstudios.byg.mixin.access.StructuresAccess;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.mixin.access.StructuresAccess.byg_invokeStructure;
@@ -142,6 +148,14 @@ public class BYGStructures {
 
     private static Holder<Structure> register(String id, Supplier<Structure> structureSupplier) {
         return PROVIDER.register(id, structureSupplier).asHolder();
+    }
+
+    private static Structure.StructureSettings structure(TagKey<Biome> tag, TerrainAdjustment adj) {
+        return StructuresAccess.structure(tag, Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, adj);
+    }
+
+    private static Structure.StructureSettings structure(TagKey<Biome> tag, GenerationStep.Decoration decoration, TerrainAdjustment adj) {
+        return StructuresAccess.structure(tag, Map.of(), decoration, adj);
     }
 
     public static void loadClass() {

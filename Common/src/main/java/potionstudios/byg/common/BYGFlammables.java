@@ -5,272 +5,74 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.mixin.access.FireBlockAccess;
+import potionstudios.byg.reg.RegistryObject;
+
+import javax.annotation.Nullable;
 
 public class BYGFlammables {
-    public static void flammableBlock(Block block, int flameOdds, int burnOdds) {
-        FireBlock fire = (FireBlock) Blocks.FIRE;
-        ((FireBlockAccess) fire).byg_setFlammable(block, flameOdds, burnOdds);
+    public static void flammableBlock(@Nullable Block block, int flameOdds, int burnOdds) {
+        if (block != null) {
+            FireBlock fire = (FireBlock) Blocks.FIRE;
+            ((FireBlockAccess) fire).byg_setFlammable(block, flameOdds, burnOdds);
+        }
+    }
+    public static void flammableBlock(@Nullable RegistryObject<? extends Block> block, int flameOdds, int burnOdds) {
+        flammableBlock(block == null ? null : block.get(), flameOdds, burnOdds);
     }
 
     public static void flammablesBYG() {
         BYG.LOGGER.debug("BYG: Adding Flammables...");
+
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            flammableBlock(type.log(), 5, 5);
+            flammableBlock(type.strippedLog(), 5, 5);
+            flammableBlock(type.wood(), 5, 5);
+            flammableBlock(type.strippedWood(), 5, 5);
+            flammableBlock(type.bookshelf(), 5, 20);
+            flammableBlock(type.slab(), 5, 20);
+            flammableBlock(type.stairs(), 5, 20);
+            flammableBlock(type.planks(), 5, 20);
+            flammableBlock(type.fence(), 5, 20);
+            flammableBlock(type.leaves(), 30, 60);
+        }
+
         //Logs
-        flammableBlock(BYGBlocks.ASPEN_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.BAOBAB_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.CHERRY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.CIKA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.EBONY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.FIR_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.HOLLY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.JACARANDA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.MAHOGANY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.MANGROVE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.MAPLE_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.PALO_VERDE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.PINE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.REDWOOD_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.WILLOW_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.ZELKOVA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.PALM_LOG.get(), 5, 5);
 
         //Stripped Logs
-        flammableBlock(BYGBlocks.STRIPPED_ASPEN_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_BAOBAB_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_BLUE_ENCHANTED_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CHERRY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CIKA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CYPRESS_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_EBONY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_FIR_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_GREEN_ENCHANTED_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_HOLLY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_JACARANDA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MAHOGANY_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MANGROVE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MAPLE_LOG.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_SKYRIS_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_WILLOW_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_WITCH_HAZEL_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_ZELKOVA_LOG.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_PALM_LOG.get(), 5, 5);
 
         //Wood
-        flammableBlock(BYGBlocks.ASPEN_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.BAOBAB_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.CHERRY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.CIKA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.EBONY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.FIR_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.HOLLY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.JACARANDA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.MAHOGANY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.MANGROVE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.MAPLE_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.PALO_VERDE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.PINE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.REDWOOD_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.WILLOW_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.ZELKOVA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.PALM_WOOD.get(), 5, 5);
 
         //Stripped Wood
-        flammableBlock(BYGBlocks.STRIPPED_ASPEN_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_BAOBAB_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_BLUE_ENCHANTED_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CHERRY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CIKA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_CYPRESS_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_EBONY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_FIR_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_GREEN_ENCHANTED_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_HOLLY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_JACARANDA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MAHOGANY_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MANGROVE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_MAPLE_WOOD.get(), 5, 5);
         flammableBlock(BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_RAINBOW_EUCALYPTUS_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_SKYRIS_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_WILLOW_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_WITCH_HAZEL_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_ZELKOVA_WOOD.get(), 5, 5);
-        flammableBlock(BYGBlocks.STRIPPED_PALM_WOOD.get(), 5, 5);
-
-        //BookShelves
-        flammableBlock(BYGBlocks.ASPEN_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.BAOBAB_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.CHERRY_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.CIKA_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.CYPRESS_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.EBONY_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.FIR_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.HOLLY_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.JACARANDA_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAHOGANY_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.MANGROVE_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAPLE_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.PINE_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.REDWOOD_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.WILLOW_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_BOOKSHELF.get(), 5, 20);
-        flammableBlock(BYGBlocks.PALM_BOOKSHELF.get(), 5, 20);
-
-        //Slabs
-        flammableBlock(BYGBlocks.ASPEN_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.BAOBAB_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.CHERRY_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.CIKA_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.CYPRESS_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.EBONY_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.FIR_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.HOLLY_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.JACARANDA_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAHOGANY_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.MANGROVE_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAPLE_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.PINE_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.REDWOOD_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.WILLOW_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_SLAB.get(), 5, 20);
-        flammableBlock(BYGBlocks.PALM_SLAB.get(), 5, 20);
-
-        //Stairs
-        flammableBlock(BYGBlocks.ASPEN_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.BAOBAB_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CHERRY_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CIKA_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CYPRESS_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.EBONY_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.FIR_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.HOLLY_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.JACARANDA_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAHOGANY_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MANGROVE_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAPLE_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.PINE_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.REDWOOD_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.WILLOW_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_STAIRS.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_STAIRS.get(), 5, 20);
-
-        //Planks
-        flammableBlock(BYGBlocks.ASPEN_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.BAOBAB_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CHERRY_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CIKA_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.CYPRESS_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.EBONY_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.FIR_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.HOLLY_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.JACARANDA_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAHOGANY_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MANGROVE_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAPLE_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.PINE_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.REDWOOD_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.WILLOW_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_PLANKS.get(), 5, 20);
-        flammableBlock(BYGBlocks.PALM_PLANKS.get(), 5, 20);
-
-        //Fences
-        flammableBlock(BYGBlocks.ASPEN_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.BAOBAB_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.CHERRY_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.CIKA_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.CYPRESS_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.EBONY_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.FIR_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.HOLLY_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.JACARANDA_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAHOGANY_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.MANGROVE_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.MAPLE_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.PINE_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.REDWOOD_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.SKYRIS_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.WILLOW_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_FENCE.get(), 5, 20);
-        flammableBlock(BYGBlocks.ZELKOVA_FENCE.get(), 5, 20);
 
         //Leaves
-        flammableBlock(BYGBlocks.ASPEN_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.BAOBAB_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.BLUE_ENCHANTED_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.BROWN_OAK_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.CIKA_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.CYPRESS_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.EBONY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.FIR_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.FLOWERING_ORCHARD_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.GREEN_ENCHANTED_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.HOLLY_BERRY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.HOLLY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.JACARANDA_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.MAHOGANY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.MANGROVE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.ORANGE_BIRCH_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.ORANGE_OAK_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.ORCHARD_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.PALO_VERDE_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.PINE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.PINK_CHERRY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.REDWOOD_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_OAK_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RIPE_ORCHARD_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), 30, 60);
-        flammableBlock(BYGBlocks.SKYRIS_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.WILLOW_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.WITCH_HAZEL_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.PALM_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.FIRECRACKER_LEAVES.get(), 60, 30);
-        flammableBlock(BYGBlocks.ZELKOVA_LEAVES.get(), 60, 30);
         flammableBlock(BYGBlocks.RED_BIRCH_LEAVES.get(), 60, 30);
         flammableBlock(BYGBlocks.RED_SPRUCE_LEAVES.get(), 60, 30);
 

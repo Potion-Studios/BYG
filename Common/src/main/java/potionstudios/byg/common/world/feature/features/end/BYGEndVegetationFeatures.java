@@ -20,11 +20,13 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 
+import static potionstudios.byg.common.block.BYGWoodTypes.BULBIS;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.createPlacedFeature;
 
@@ -42,7 +44,7 @@ public class BYGEndVegetationFeatures {
         () -> Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.CRYPTIC_BRAMBLE.get()))
     );
 
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BYGBlocks.BULBIS_ODDITY.get(), 32);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BULBIS_ODDITY = createPatchConfiguredFeature("bulbis_oddity", BULBIS.growerItem().get(), 32);
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PURPLE_BULBIS_ODDITY = createPatchConfiguredFeature("purple_bulbis_oddity", BYGBlocks.PURPLE_BULBIS_ODDITY.get(), 32);
 
@@ -52,7 +54,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_SPROUTS = createPatchConfiguredFeature("nightshade_sprouts", BYGBlocks.NIGHTSHADE_SPROUTS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_ROOTS = createPatchConfiguredFeature("nightshade_roots", BYGBlocks.NIGHTSHADE_ROOTS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeature("nightshade_berry_bush", BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), 32);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGBlocks.IMPARIUS_MUSHROOM.get(), 32);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeature("imparius_mushroom", BYGWoodTypes.IMPARIUS.growerItem().get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeature("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IMPARIUS_BUSH = createPatchConfiguredFeature("imparius_bush", BYGBlocks.IMPARIUS_BUSH.get(), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SHULKREN_FUNGUS = createPatchConfiguredFeature("shulkren_fungus", BYGBlocks.SHULKREN_FUNGUS.get(), 32);
@@ -88,8 +90,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
         BYGFeatures.ETHER_BUSH1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -98,8 +99,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH2 = createConfiguredFeature("ether_bush2",
         BYGFeatures.ETHER_BUSH2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -108,8 +108,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE1 = createConfiguredFeature("ether_tree1",
         BYGFeatures.ETHER_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -118,8 +117,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE2 = createConfiguredFeature("ether_tree2",
         BYGFeatures.ETHER_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -128,8 +126,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE3 = createConfiguredFeature("ether_tree3",
         BYGFeatures.ETHER_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -138,8 +135,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE4 = createConfiguredFeature("ether_tree4",
         BYGFeatures.ETHER_TREE4,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -148,8 +144,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE5 = createConfiguredFeature("ether_tree5",
         BYGFeatures.ETHER_TREE5,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_LOG.get())
-            .setLeavesBlock(BYGBlocks.ETHER_LEAVES.get())
+            .fromWoodType(BYGWoodTypes.ETHER)
             .setMaxHeight(30)
             .setMinHeight(22)
             .build()
@@ -158,7 +153,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD1 = createConfiguredFeature("ether_tree_dead1",
         BYGFeatures.DEAD_ETHER_TREE1,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -168,7 +163,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD2 = createConfiguredFeature("ether_tree_dead2",
         BYGFeatures.DEAD_ETHER_TREE2,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -178,7 +173,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD3 = createConfiguredFeature("ether_tree_dead3",
         BYGFeatures.DEAD_ETHER_TREE3,
         new BYGTreeConfig.Builder()
-            .setTrunkBlock(BYGBlocks.ETHER_WOOD.get())
+            .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
             .setLeavesBlock(Blocks.AIR)
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -189,12 +184,12 @@ public class BYGEndVegetationFeatures {
         BYGFeatures.NIGHTSHADE_BUSH1,
         new BYGTreeConfig.Builder()
             .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                 .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -205,12 +200,12 @@ public class BYGEndVegetationFeatures {
         BYGFeatures.NIGHTSHADE_BUSH2,
         new BYGTreeConfig.Builder()
             .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                 .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -222,13 +217,13 @@ public class BYGEndVegetationFeatures {
         new BYGTreeConfig.Builder()
             .setTrunkBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                    .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -240,13 +235,13 @@ public class BYGEndVegetationFeatures {
         new BYGTreeConfig.Builder()
             .setTrunkBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                    .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(22)
@@ -258,13 +253,13 @@ public class BYGEndVegetationFeatures {
         new BYGTreeConfig.Builder()
             .setTrunkBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                    .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(33)
@@ -276,13 +271,13 @@ public class BYGEndVegetationFeatures {
         new BYGTreeConfig.Builder()
             .setTrunkBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                    .add(BYGBlocks.NIGHTSHADE_LOG.defaultBlockState(), 9)
+                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
                     .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
             )
             .setLeavesBlock(
                 new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                     .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                    .add(BYGBlocks.NIGHTSHADE_LEAVES.defaultBlockState(), 8))
+                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
             )
             .setMaxHeight(30)
             .setMinHeight(44)
@@ -312,7 +307,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
         BYGFeatures.IMPARIUS_MUSHROOM1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -322,7 +317,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
         BYGFeatures.IMPARIUS_MUSHROOM2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -332,7 +327,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
         BYGFeatures.IMPARIUS_MUSHROOM3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -342,7 +337,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
         BYGFeatures.IMPARIUS_MUSHROOM4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -352,7 +347,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
         BYGFeatures.IMPARIUS_MUSHROOM5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -362,7 +357,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
         BYGFeatures.IMPARIUS_MUSHROOM6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.IMPARIUS_STEM.get())
+            .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
             .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -422,7 +417,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1",
         BYGFeatures.BULBIS_BUSH1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -432,7 +427,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE1 = createConfiguredFeature("bulbis_tree1",
         BYGFeatures.BULBIS_TREE1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -442,7 +437,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE2 = createConfiguredFeature("bulbis_tree2",
         BYGFeatures.BULBIS_TREE2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -452,7 +447,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE3 = createConfiguredFeature("bulbis_tree3",
         BYGFeatures.BULBIS_TREE3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -462,7 +457,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE4 = createConfiguredFeature("bulbis_tree4",
         BYGFeatures.BULBIS_TREE4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -472,7 +467,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE5 = createConfiguredFeature("bulbis_tree5",
         BYGFeatures.BULBIS_TREE5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -482,7 +477,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE6 = createConfiguredFeature("bulbis_tree6",
         BYGFeatures.BULBIS_TREE6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -492,7 +487,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE7 = createConfiguredFeature("bulbis_tree7",
         BYGFeatures.BULBIS_TREE7,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -502,7 +497,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_BUSH1 = createConfiguredFeature("purple_bulbis_bush1",
         BYGFeatures.BULBIS_BUSH1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -512,7 +507,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE1 = createConfiguredFeature("purple_bulbis_tree1",
         BYGFeatures.BULBIS_TREE1,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -522,7 +517,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE2 = createConfiguredFeature("purple_bulbis_tree2",
         BYGFeatures.BULBIS_TREE2,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -532,7 +527,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE3 = createConfiguredFeature("purple_bulbis_tree3",
         BYGFeatures.BULBIS_TREE3,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -542,7 +537,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE4 = createConfiguredFeature("purple_bulbis_tree4",
         BYGFeatures.BULBIS_TREE4,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -552,7 +547,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE5 = createConfiguredFeature("purple_bulbis_tree5",
         BYGFeatures.BULBIS_TREE5,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -562,7 +557,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE6 = createConfiguredFeature("purple_bulbis_tree6",
         BYGFeatures.BULBIS_TREE6,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)
@@ -572,7 +567,7 @@ public class BYGEndVegetationFeatures {
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE7 = createConfiguredFeature("purple_bulbis_tree7",
         BYGFeatures.BULBIS_TREE7,
         new BYGMushroomConfig.Builder()
-            .setStemBlock(BYGBlocks.BULBIS_WOOD.get())
+            .setStemBlock(BULBIS.wood())
             .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
             .setMinHeight(6)
             .setMaxHeight(12)

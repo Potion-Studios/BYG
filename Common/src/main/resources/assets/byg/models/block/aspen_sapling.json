@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/aspen_sapling",
-    "particle": "byg:block/aspen_sapling"
-  }
-}

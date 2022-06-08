@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/sythian/leaves",
+    "particle": "byg:block/sythian/leaves"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/cika/planks",
+    "east": "byg:block/cika/bookshelf",
+    "north": "byg:block/cika/bookshelf",
+    "particle": "byg:block/cika/planks",
+    "south": "byg:block/cika/bookshelf",
+    "up": "byg:block/cika/planks",
+    "west": "byg:block/cika/bookshelf"
+  }
+}

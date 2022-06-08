@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/redwood/leaves",
+    "particle": "byg:block/redwood/leaves"
+  }
+}

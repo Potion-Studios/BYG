@@ -18,6 +18,8 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
 import potionstudios.byg.mixin.access.RegistryAccess;
@@ -35,6 +37,7 @@ public class BYGRegistry {
     public static void loadClasses() {
         BYGBlocks.loadClass();
         BYGItems.loadClass();
+        BYGFeatures.loadClass();
 
         BYGMenuTypes.loadClass();
         BYGEntities.loadClass();
@@ -46,6 +49,7 @@ public class BYGRegistry {
         BYGSounds.loadClass();
         BYGStateProviders.loadClass();
         BYGStructureTypes.loadClass();
-        BYGFeatures.loadClass();
+        BYGOverworldTreeFeatures.loadClass();
+        BYGPlacedFeatures.loadClass();
     }
 }

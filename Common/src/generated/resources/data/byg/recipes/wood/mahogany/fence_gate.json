@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "key": {
+    "#": {
+      "tag": "byg:sticks"
+    },
+    "W": {
+      "item": "byg:mahogany_planks"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
+  "result": {
+    "item": "byg:mahogany_fence_gate"
+  }
+}

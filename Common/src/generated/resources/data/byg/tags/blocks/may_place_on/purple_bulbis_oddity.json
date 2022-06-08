@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#byg:end_stone",
+    {
+      "id": "#c:end_stones",
+      "required": false
+    },
+    {
+      "id": "#forge:end_stones",
+      "required": false
+    },
+    "minecraft:end_stone"
+  ]
+}

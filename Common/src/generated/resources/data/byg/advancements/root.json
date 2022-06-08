@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "tick": {
+      "conditions": {},
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "byg:textures/block/lush_dirt.png",
+    "description": {
+      "translate": "byg.advancements.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "byg:byg_logo"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "byg.advancements.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ]
+}

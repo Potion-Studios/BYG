@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/mangrove_sapling",
-    "particle": "byg:block/mangrove_sapling"
-  }
-}

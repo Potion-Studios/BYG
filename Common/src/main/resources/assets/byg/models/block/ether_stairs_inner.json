@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "byg:block/ether_planks",
-    "top": "byg:block/ether_planks",
-    "side": "byg:block/ether_planks"
-  }
-}

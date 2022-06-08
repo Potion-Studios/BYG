@@ -1,7 +1,0 @@
-{
-  "parent": "block/fence_inventory",
-  "textures": {
-    "texture": "byg:block/skyris_planks",
-    "particle": "byg:block/skyris_planks"
-  }
-}

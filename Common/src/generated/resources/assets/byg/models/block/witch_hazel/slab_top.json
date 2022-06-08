@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "byg:block/witch_hazel/planks",
+    "side": "byg:block/witch_hazel/planks",
+    "top": "byg:block/witch_hazel/planks"
+  }
+}

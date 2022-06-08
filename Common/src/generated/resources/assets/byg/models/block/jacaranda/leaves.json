@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/jacaranda/leaves",
+    "particle": "byg:block/jacaranda/leaves"
+  }
+}

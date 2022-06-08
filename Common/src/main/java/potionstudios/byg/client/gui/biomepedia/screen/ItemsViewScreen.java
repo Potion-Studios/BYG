@@ -12,11 +12,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.client.gui.biomepedia.widget.ItemWidget;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class ItemsViewScreen extends AbstractBiomepediaScreen {
 
@@ -57,12 +60,10 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
     }
 
     private void createMenu() {
-        createMenu(key -> Registry.ITEM.getKey(key).getNamespace().equals(BYG.MOD_ID), 7, 10);
+        createMenu(BYGItems.PROVIDER.getEntries().<Supplier<? extends Item>>toArray(Supplier[]::new), 7, 10);
     }
 
-    private void createMenu(Predicate<Item> filter, int rowLength, int columnLength) {
-        Item[] bygItems = Registry.ITEM.stream().filter(filter).toArray(Item[]::new);
-
+    private void createMenu(Supplier<? extends Item>[] bygItems, int rowLength, int columnLength) {
         this.maxPagePairCount = (bygItems.length / (rowLength * columnLength)) / 2 + 1;
         items = new ItemWidget[maxPagePairCount][2][columnLength][rowLength];
         int registryIdx = 0;
@@ -81,7 +82,7 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
                         if (registryIdx > bygItems.length - 1) {
                             break;
                         }
-                        ItemWidget itemWidget = new ItemWidget(new ItemStack(bygItems[registryIdx]), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
+                        ItemWidget itemWidget = new ItemWidget(bygItems[registryIdx].get().getDefaultInstance(), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
                             Item item = button.stack.getItem();
                             if (button.hasAdditonalInfo) {
                                 if (item instanceof BlockItem blockItem) {

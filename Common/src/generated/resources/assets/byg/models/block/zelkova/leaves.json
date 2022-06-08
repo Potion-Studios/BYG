@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/zelkova/leaves",
+    "particle": "byg:block/zelkova/leaves"
+  }
+}

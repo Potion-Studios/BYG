@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "bottom": "byg:block/witch_hazel_planks",
-    "top": "byg:block/witch_hazel_planks",
-    "side": "byg:block/witch_hazel_planks"
-  }
-}

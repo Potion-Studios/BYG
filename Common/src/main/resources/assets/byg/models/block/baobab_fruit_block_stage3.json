@@ -1,6 +1,6 @@
 {
   "parent": "block/cross",
   "textures": {
-    "cross": "byg:block/baobab_fruit_stage3"
+    "cross": "byg:block/baobab/fruit_stage3"
   }
 }

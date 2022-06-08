@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,17 @@ public class BYGRenderTypes {
     public static void renderTypes(Consumer<Map<Block, RenderType>> mapConsumer) {
         BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
+
+        for (BYGWoodTypes type : BYGWoodTypes.values()) {
+            final var renderType = switch (type) {
+                case ASPEN, SKYRIS, MAPLE -> RenderType.translucent();
+                default -> RenderType.cutoutMipped();
+            };
+            map.put(type.door().get(), renderType);
+            map.put(type.trapdoor().get(), renderType);
+            if (type.growerItem() != null)
+                map.put(type.growerItem().get(), RenderType.cutoutMipped());
+        }
 
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BRANCH.get(), RenderType.cutoutMipped());
@@ -33,7 +45,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.TALL_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_EMBUR_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_WART.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.EMBUR_GEL_BLOCK.get(), RenderType.translucent());
         map.put(BYGBlocks.EMBUR_GEL_VINES.get(), RenderType.translucent());
         map.put(BYGBlocks.EMBUR_GEL_VINES_PLANT.get(), RenderType.translucent());
@@ -74,14 +85,12 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.WARPED_CORAL.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WARPED_CORAL_WALL_FAN.get(), RenderType.cutoutMipped());
 
-        map.put(BYGBlocks.SYTHIAN_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_SPROUT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_STALK_BLOCK.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_NYLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_SYTHIAN_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SYTHIAN_FUNGUS.get(), RenderType.cutoutMipped());
 
         //End
         map.put(BYGBlocks.IVIS_ROOTS.get(), RenderType.cutoutMipped());
@@ -90,11 +99,8 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ETHER_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THEREAL_BELLFLOWER.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NIGHTSHADE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_SHELL.get(), RenderType.translucent());
-        map.put(BYGBlocks.BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BULBIS_SHELL.get(), RenderType.translucent());
         map.put(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NIGHTSHADE_ROOTS.get(), RenderType.cutoutMipped());
@@ -114,7 +120,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ENDER_LILY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_BRAMBLE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_MUSHROOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FUNGAL_IMPARIUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_VINE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IMPARIUS_VINE_PLANT.get(), RenderType.cutoutMipped());
@@ -129,68 +134,6 @@ public class BYGRenderTypes {
 
         map.put(BYGBlocks.WATER_SILK.get(), RenderType.cutoutMipped());
 
-        //Doors
-        map.put(BYGBlocks.ASPEN_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.BAOBAB_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BLUE_ENCHANTED_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CHERRY_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CIKA_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CYPRESS_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EBONY_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FIR_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.GREEN_ENCHANTED_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.HOLLY_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.JACARANDA_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAHOGANY_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MANGROVE_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.PALM_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINE_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.WILLOW_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WITCH_HAZEL_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.ZELKOVA_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SYTHIAN_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_DOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.LAMENT_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BULBIS_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NIGHTSHADE_DOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_DOOR.get(), RenderType.cutoutMipped());
-
-        //Trapdoors
-        map.put(BYGBlocks.ASPEN_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.BAOBAB_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BLUE_ENCHANTED_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CHERRY_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CIKA_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CYPRESS_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EBONY_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FIR_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.GREEN_ENCHANTED_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.HOLLY_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.JACARANDA_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAHOGANY_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MANGROVE_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.PALM_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINE_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SKYRIS_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.WILLOW_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WITCH_HAZEL_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.ZELKOVA_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.SYTHIAN_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_TRAPDOOR.get(), RenderType.translucent());
-        map.put(BYGBlocks.LAMENT_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BULBIS_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NIGHTSHADE_TRAPDOOR.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.IMPARIUS_TRAPDOOR.get(), RenderType.cutoutMipped());
-
         //Grass
         map.put(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.get(), RenderType.translucent());
         map.put(BYGBlocks.TALL_PRAIRIE_GRASS.get(), RenderType.cutoutMipped());
@@ -203,53 +146,31 @@ public class BYGRenderTypes {
 
 
         //Saplings
-        map.put(BYGBlocks.ASPEN_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BAOBAB_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BLUE_ENCHANTED_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_OAK_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CYPRESS_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CIKA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EBONY_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FIR_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.GREEN_ENCHANTED_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.HOLLY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.JACARANDA_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.INDIGO_JACARANDA_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWERING_JACARANDA_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.JACARANDA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.INDIGO_JACARANDA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.JOSHUA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAHOGANY_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MANGROVE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORCHARD_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PALM_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RAINBOW_EUCALYPTUS_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.REDWOOD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SKYRIS_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WILLOW_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WITCH_HAZEL_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LAMENT_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), RenderType.cutoutMipped());
 
         //Mushrooms

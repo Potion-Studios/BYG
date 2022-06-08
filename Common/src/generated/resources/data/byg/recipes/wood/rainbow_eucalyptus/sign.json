@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "sign",
+  "key": {
+    "P": {
+      "item": "byg:rainbow_eucalyptus_planks"
+    },
+    "S": {
+      "tag": "byg:sticks"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "PPP",
+    " S "
+  ],
+  "result": {
+    "count": 3,
+    "item": "byg:rainbow_eucalyptus_sign"
+  }
+}

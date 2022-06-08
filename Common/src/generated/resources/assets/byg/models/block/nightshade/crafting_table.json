@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/nightshade/planks",
+    "east": "byg:block/nightshade/crafting_table_side",
+    "north": "byg:block/nightshade/crafting_table_front",
+    "particle": "byg:block/nightshade/crafting_table_front",
+    "south": "byg:block/nightshade/crafting_table_side",
+    "up": "byg:block/nightshade/crafting_table_top",
+    "west": "byg:block/nightshade/crafting_table_front"
+  }
+}

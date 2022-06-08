@@ -1,7 +1,0 @@
-{
-  "parent": "block/wall_inventory",
-  "textures": {
-    "wall": "byg:block/cika_log_side",
-    "particle": "byg:block/cika_log_side"
-  }
-}

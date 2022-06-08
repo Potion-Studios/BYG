@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/witch_hazel/leaves",
+    "particle": "byg:block/witch_hazel/leaves"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "byg:block/holly/door_bottom",
+    "top": "byg:block/holly/door_top"
+  }
+}
