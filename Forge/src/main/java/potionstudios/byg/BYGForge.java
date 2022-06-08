@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -79,9 +78,10 @@ public class BYGForge {
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
-        BiomeDictionaryConfig.getConfig().biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
-            BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
-        });
+        // TODO biome dict is :crab:
+//        BiomeDictionaryConfig.getConfig().biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
+//            BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
+//        });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
 

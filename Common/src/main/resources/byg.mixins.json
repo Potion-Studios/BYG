@@ -56,7 +56,6 @@
     "access.VanillaBiomeAccess",
     "access.VegetationFeaturesAccess",
     "access.VegetationPlacementsAccess",
-    "access.VillagerProfessionAccess",
     "access.VillagerTypeAccess",
     "access.WaterlilyBlockAccess",
     "access.WeightedEntryWrapperAccess",

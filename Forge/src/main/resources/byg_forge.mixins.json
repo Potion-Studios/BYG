@@ -5,7 +5,8 @@
   "refmap": "byg_forge.refmap.json",
   "mixins": [
     "dev.ModelBuilderMixin",
-    "dev.ModelProviderAccess"
+    "dev.ModelProviderAccess",
+    "dev.TagBuilderAccess"
   ],
   "client": [
     "client.MixinInventoryScreen",

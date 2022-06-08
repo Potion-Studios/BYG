@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'com.matyrobbrt.mc.registrationutils' version '0.2.6'
+    id 'com.matyrobbrt.mc.registrationutils' version '1.19-1.0.0'
 }
 
 registrationUtils {
