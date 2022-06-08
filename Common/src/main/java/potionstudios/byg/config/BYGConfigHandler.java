@@ -7,7 +7,6 @@ import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
-import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.ModPlatform;
@@ -27,9 +26,6 @@ public class BYGConfigHandler {
         errors.append(tryCatchErrors(() -> EndBiomesConfig.getConfig(serialize, recreate, null)));
         errors.append(tryCatchErrors(() -> NetherBiomesConfig.getConfig(serialize, recreate, null)));
         errors.append(tryCatchErrors(() -> OverworldBiomeConfig.getConfig(serialize, recreate)));
-        if (ModPlatform.INSTANCE.modPlatform() == ModPlatform.Platform.FORGE) {
-            errors.append(tryCatchErrors(() -> BiomeDictionaryConfig.getConfig(serialize, recreate)));
-        }
         errors.append(tryCatchErrors(() -> SurfaceRulesConfig.getConfig(serialize, recreate)));
         errors.append(tryCatchErrors(() -> {
             GrowingPatterns.getConfig(serialize, recreate);

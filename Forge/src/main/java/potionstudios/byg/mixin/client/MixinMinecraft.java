@@ -14,16 +14,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.client.gui.screen.BYGConfigLoadFailureScreen;
 import potionstudios.byg.config.BYGConfigHandler;
 
+import java.util.function.Function;
+
 @Mixin(Minecraft.class)
 public abstract class MixinMinecraft {
+
 
     @Shadow
     public abstract void setScreen(@Nullable Screen $$0);
 
-    @Shadow
-    public abstract void doWorldLoad(String p_231381_, LevelStorageSource.LevelStorageAccess p_231382_, PackRepository p_231383_, WorldStem p_231384_);
 
-    @Inject(method = "doWorldLoad", at = @At("HEAD"), cancellable = true, remap = false)
+    @Shadow public abstract void doWorldLoad(String string, LevelStorageSource.LevelStorageAccess levelStorageAccess, PackRepository packRepository, WorldStem worldStem);
+
+    @Inject(method = "doWorldLoad", at = @At("HEAD"), cancellable = true)
     private void loadBYGConfigs(String p_231381_, LevelStorageSource.LevelStorageAccess p_231382_, PackRepository p_231383_, WorldStem p_231384_, CallbackInfo ci) {
         try {
             String loadAllConfigs = BYGConfigHandler.loadAllConfigs(true, false);

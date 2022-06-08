@@ -17,7 +17,17 @@ import java.util.Map;
 public interface StructuresAccess {
 
     @Invoker("structure")
-    static Structure.StructureSettings structure(TagKey<Biome> tag, Map<MobCategory, StructureSpawnOverride> override, GenerationStep.Decoration step, TerrainAdjustment adjustment) {
+    static Structure.StructureSettings byg_invokeStructure(TagKey<Biome> p_236546_, Map<MobCategory, StructureSpawnOverride> p_236547_, GenerationStep.Decoration p_236548_, TerrainAdjustment p_236549_) {
+        throw new Error("Mixin did not apply!");
+    }
+
+    @Invoker("structure")
+    static Structure.StructureSettings byg_invokeStructure(TagKey<Biome> p_236539_, GenerationStep.Decoration p_236540_, TerrainAdjustment p_236541_) {
+        throw new Error("Mixin did not apply!");
+    }
+
+    @Invoker("structure")
+    static Structure.StructureSettings byg_invokeStructure(TagKey<Biome> p_236543_, TerrainAdjustment p_236544_) {
         throw new Error("Mixin did not apply!");
     }
 }

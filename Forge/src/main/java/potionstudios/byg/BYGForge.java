@@ -25,7 +25,6 @@ import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.config.SettingsConfig;
-import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.ForgeNetworkHandler;
@@ -78,10 +77,6 @@ public class BYGForge {
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
-        // TODO biome dict is :crab:
-//        BiomeDictionaryConfig.getConfig().biomeDictionary().forEach((biomeResourceKey, dictionary) -> {
-//            BiomeDictionary.addTypes(biomeResourceKey, dictionary.stream().map(BiomeDictionary.Type::getType).toArray(BiomeDictionary.Type[]::new));
-//        });
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
 
