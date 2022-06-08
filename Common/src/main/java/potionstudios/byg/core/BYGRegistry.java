@@ -19,7 +19,17 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
+import potionstudios.byg.common.world.feature.features.BYGGlobalFeatureFeatures;
+import potionstudios.byg.common.world.feature.features.BYGGlobalFeatures;
+import potionstudios.byg.common.world.feature.features.BYGStructurePlacedFeatures;
+import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
+import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
+import potionstudios.byg.common.world.feature.features.nether.BYGNetherFeatures;
+import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
+import potionstudios.byg.common.world.feature.placement.BYGVillagePlacements;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
 import potionstudios.byg.mixin.access.RegistryAccess;
@@ -38,7 +48,6 @@ public class BYGRegistry {
         BYGBlocks.loadClass();
         BYGItems.loadClass();
         BYGFeatures.loadClass();
-
         BYGMenuTypes.loadClass();
         BYGEntities.loadClass();
         BYGBlockEntities.loadClass();
@@ -50,6 +59,16 @@ public class BYGRegistry {
         BYGStateProviders.loadClass();
         BYGStructureTypes.loadClass();
         BYGOverworldTreeFeatures.loadClass();
+        BYGOverworldVegetationFeatures.loadClass();
+        BYGOverworldFeatures.loadClass();
+        BYGGlobalFeatureFeatures.loadClass();
+        BYGGlobalFeatures.loadClass();
+        BYGEndVegetationFeatures.loadClass();
+        BYGEndFeatures.loadClass();
+        BYGNetherVegetationFeatures.loadClass();
+        BYGNetherFeatures.loadClass();
         BYGPlacedFeatures.loadClass();
+        BYGStructurePlacedFeatures.loadClass();
+        BYGVillagePlacements.loadClass();
     }
 }

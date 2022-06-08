@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -14,8 +15,6 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.RadiusMatcher;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-
-import net.minecraft.util.RandomSource;
 
 public class Spike extends Feature<NoisySphereConfig> {
     protected static FastNoise fastNoise;

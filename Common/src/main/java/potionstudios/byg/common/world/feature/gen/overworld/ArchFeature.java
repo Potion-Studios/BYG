@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.ChunkPos;
@@ -22,7 +23,6 @@ import potionstudios.byg.util.blendingfunction.BlendingFunctions;
 
 import java.util.HashSet;
 import java.util.Optional;
-import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 import static net.minecraft.util.Mth.lerp;

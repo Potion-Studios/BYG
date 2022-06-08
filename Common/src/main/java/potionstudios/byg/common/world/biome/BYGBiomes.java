@@ -24,8 +24,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.function.Supplier;
 
-import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 import static potionstudios.byg.common.world.biome.BYGBiomeTags.*;
+import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 
 public class BYGBiomes {
 

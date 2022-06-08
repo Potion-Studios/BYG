@@ -27,7 +27,6 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
 

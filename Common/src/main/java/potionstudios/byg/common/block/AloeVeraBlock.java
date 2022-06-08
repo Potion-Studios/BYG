@@ -3,6 +3,7 @@ package potionstudios.byg.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -12,8 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
-
-import net.minecraft.util.RandomSource;
 
 public class AloeVeraBlock extends CattailSproutBlock implements BonemealableBlock {
 

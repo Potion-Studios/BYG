@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.feature.gen.end.islands.shattered;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -10,8 +11,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-
-import net.minecraft.util.RandomSource;
 
 public class ShatteredFloatingIslands4 extends Feature<FloatingIslandConfig> {
 

@@ -3,6 +3,7 @@ package potionstudios.byg.common.block.nether.sythian;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -16,7 +17,6 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
 import javax.annotation.Nullable;
-import net.minecraft.util.RandomSource;
 
 public class SythianStalkBlock extends BambooBlock {
 

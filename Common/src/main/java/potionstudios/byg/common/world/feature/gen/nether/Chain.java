@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.nether;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -11,8 +12,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.ChainConfig;
-
-import net.minecraft.util.RandomSource;
 
 public class Chain extends Feature<ChainConfig> {
     public Chain(Codec<ChainConfig> config) {

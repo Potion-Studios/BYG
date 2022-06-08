@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.minecraft.commands.Commands;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.ItemStack;
 import potionstudios.byg.common.BYGFuels;

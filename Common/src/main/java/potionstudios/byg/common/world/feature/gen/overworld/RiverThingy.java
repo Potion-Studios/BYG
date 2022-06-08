@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -10,8 +11,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-
-import net.minecraft.util.RandomSource;
 
 public class RiverThingy extends Feature<NoneFeatureConfiguration> {
     public RiverThingy(Codec<NoneFeatureConfiguration> config) {

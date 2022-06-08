@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.end.purpurpeaks;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -11,8 +12,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
-
-import net.minecraft.util.RandomSource;
 
 public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
 

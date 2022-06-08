@@ -3,14 +3,13 @@ package potionstudios.byg.common.world.feature.gen.end.trees.impariusgrove;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
-
-import net.minecraft.util.RandomSource;
 
 public class ImpariusMushroom6 extends BYGAbstractMushroomFeature<BYGMushroomConfig> {
 

@@ -14,8 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.client.gui.screen.BYGConfigLoadFailureScreen;
 import potionstudios.byg.config.BYGConfigHandler;
 
-import java.util.function.Function;
-
 @Mixin(Minecraft.class)
 public abstract class MixinMinecraft {
 

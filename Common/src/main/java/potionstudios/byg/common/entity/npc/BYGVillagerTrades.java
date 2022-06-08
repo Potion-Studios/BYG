@@ -17,7 +17,6 @@ import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.*;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class BYGVillagerTrades {
 

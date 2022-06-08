@@ -50,7 +50,6 @@ import potionstudios.byg.mixin.access.*;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistrationProvider;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;

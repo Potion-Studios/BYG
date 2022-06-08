@@ -4,7 +4,6 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.core.Registry;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -15,7 +14,6 @@ import potionstudios.byg.reg.RegistryObject;
 
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 public class BYGAdventureAdvancements implements BYGAdvancementConsumer {
 

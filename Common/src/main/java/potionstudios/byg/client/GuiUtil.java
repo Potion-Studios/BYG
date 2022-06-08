@@ -2,7 +2,6 @@ package potionstudios.byg.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Component;
 import org.apache.commons.lang3.mutable.MutableInt;
 
 import java.util.List;

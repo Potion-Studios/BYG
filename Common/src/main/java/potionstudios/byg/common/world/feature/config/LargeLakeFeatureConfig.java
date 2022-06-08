@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.features.CaveFeatures;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -18,7 +19,6 @@ import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.util.RandomSource;
 
 public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth, int maxDepth,
                                      BlockStateProvider lakeFloorStateProvider,
@@ -51,6 +51,6 @@ public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth,
         placementModifiers.add(RarityFilter.onAverageOnceEvery(rarity));
         placementModifiers.addAll(List.of(modifiers));
         placementModifiers.addAll(List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.wouldSurvive(Blocks.BIG_DRIPLEAF.defaultBlockState(), BlockPos.ZERO), BlockPredicate.wouldSurvive(Blocks.SMALL_DRIPLEAF.defaultBlockState(), BlockPos.ZERO), BlockPredicate.wouldSurvive(Blocks.SMALL_DRIPLEAF.defaultBlockState(), BlockPos.ZERO)))));
-        return BYGPlacedFeaturesUtil.createPlacedFeature(CaveFeatures.DRIPLEAF, placementModifiers);
+        return BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CaveFeatures.DRIPLEAF, placementModifiers);
     }
 }

@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.nether.quartzdesert;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
@@ -14,8 +15,6 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-
-import net.minecraft.util.RandomSource;
 
 public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     private static final BlockStatePredicate IS_QUARTZ_SAND = BlockStatePredicate.forBlock(BYGBlocks.QUARTZITE_SAND.get());

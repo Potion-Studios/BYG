@@ -9,8 +9,6 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Component;
-
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.util.List;

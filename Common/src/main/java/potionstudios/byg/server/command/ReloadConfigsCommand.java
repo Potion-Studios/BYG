@@ -5,7 +5,6 @@ import com.mojang.brigadier.builder.ArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
-
 import net.minecraft.network.chat.Component;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;

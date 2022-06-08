@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
-
-import net.minecraft.util.RandomSource;
 
 public class CragFeature extends Feature<SimpleBlockProviderConfig> {
 

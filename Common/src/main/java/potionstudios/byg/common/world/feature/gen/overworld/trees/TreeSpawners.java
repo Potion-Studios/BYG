@@ -1,11 +1,11 @@
 package potionstudios.byg.common.world.feature.gen.overworld.trees;
 
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.TreeSpawner;
 
 import javax.annotation.Nullable;
-import net.minecraft.util.RandomSource;
 
 public class TreeSpawners {
 

@@ -2,13 +2,12 @@ package potionstudios.byg.common.world.feature.gen.overworld.giantflowers;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.common.world.feature.config.GiantFlowerConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
-
-import net.minecraft.util.RandomSource;
 
 public class IrisGiant extends BYGAbstractGiantFlowerFeature<GiantFlowerConfig> {
 

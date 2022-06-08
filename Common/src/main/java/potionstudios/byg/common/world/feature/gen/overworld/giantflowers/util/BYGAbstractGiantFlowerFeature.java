@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld.giantflowers.util;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.WorldGenLevel;
@@ -15,8 +16,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.GiantFlowerConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
-
-import net.minecraft.util.RandomSource;
 
 public abstract class BYGAbstractGiantFlowerFeature<T extends GiantFlowerConfig> extends Feature<T> {
 

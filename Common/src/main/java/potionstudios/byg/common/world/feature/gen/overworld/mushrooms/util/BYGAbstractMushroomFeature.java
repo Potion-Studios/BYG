@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.WorldGenLevel;
@@ -16,8 +17,6 @@ import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.util.MLBlockTags;
-
-import net.minecraft.util.RandomSource;
 
 @Deprecated(forRemoval = true)
 public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> extends Feature<T> {

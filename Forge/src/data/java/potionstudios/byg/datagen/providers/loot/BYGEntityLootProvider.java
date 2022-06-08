@@ -15,8 +15,8 @@ import potionstudios.byg.common.entity.boat.BYGBoatEntity;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import static net.minecraft.world.level.storage.loot.entries.LootItem.*;
-import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.*;
+import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableItem;
+import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;
 
 public class BYGEntityLootProvider extends EntityLoot {
 

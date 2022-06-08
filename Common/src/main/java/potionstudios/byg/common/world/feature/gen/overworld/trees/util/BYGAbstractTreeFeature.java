@@ -39,7 +39,10 @@ import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.util.MLBlockTags;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Deprecated(forRemoval = true)
 public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends Feature<TFC> {

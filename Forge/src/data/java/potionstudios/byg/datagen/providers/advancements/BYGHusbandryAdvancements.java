@@ -4,7 +4,6 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.*;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.BlockTags;
 import potionstudios.byg.common.item.BYGItems;

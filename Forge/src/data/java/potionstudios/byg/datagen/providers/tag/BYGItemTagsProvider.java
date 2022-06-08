@@ -1,8 +1,5 @@
 package potionstudios.byg.datagen.providers.tag;
 
-import static net.minecraft.tags.ItemTags.create;
-import static potionstudios.byg.BYG.createLocation;
-
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -13,14 +10,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItemTags;
 import potionstudios.byg.common.item.BYGItems;
@@ -33,6 +28,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+
+import static net.minecraft.tags.ItemTags.create;
+import static potionstudios.byg.BYG.createLocation;
 
 public class BYGItemTagsProvider extends ItemTagsProvider {
     public BYGItemTagsProvider(DataGenerator p_126530_, BlockTagsProvider p_126531_, @Nullable ExistingFileHelper existingFileHelper) {

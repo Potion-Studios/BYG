@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -11,8 +12,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
-
-import net.minecraft.util.RandomSource;
 
 public class PointyRockFeature extends Feature<PointyRockConfig> {
 

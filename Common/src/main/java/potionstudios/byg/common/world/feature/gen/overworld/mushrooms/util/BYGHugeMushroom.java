@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -9,7 +10,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 
 import javax.annotation.Nullable;
-import net.minecraft.util.RandomSource;
 
 public abstract class BYGHugeMushroom {
     @Nullable

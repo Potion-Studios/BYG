@@ -4,15 +4,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import potionstudios.byg.BYG;
+import potionstudios.byg.datagen.providers.BYGRecipeProviders;
+import potionstudios.byg.datagen.providers.BYGWoodAssetsProvider;
 import potionstudios.byg.datagen.providers.advancements.BYGAdvancementProvider;
 import potionstudios.byg.datagen.providers.lang.EnUsLanguageProvider;
 import potionstudios.byg.datagen.providers.loot.BYGLootTablesProvider;
 import potionstudios.byg.datagen.providers.tag.BYGBiomeTagsProvider;
-import potionstudios.byg.datagen.providers.BYGWoodAssetsProvider;
 import potionstudios.byg.datagen.providers.tag.BYGBlockTagsProvider;
 import potionstudios.byg.datagen.providers.tag.BYGEntityTagsProvider;
 import potionstudios.byg.datagen.providers.tag.BYGItemTagsProvider;
-import potionstudios.byg.datagen.providers.BYGRecipeProviders;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BYG.MOD_ID)
 public class BYGDataGen {

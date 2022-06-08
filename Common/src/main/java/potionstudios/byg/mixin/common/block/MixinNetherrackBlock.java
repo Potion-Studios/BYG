@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import potionstudios.byg.common.block.BYGBlockTags;
 
 import java.util.Iterator;
-import java.util.Random;
 
 @Mixin(NetherrackBlock.class)
 public class MixinNetherrackBlock {

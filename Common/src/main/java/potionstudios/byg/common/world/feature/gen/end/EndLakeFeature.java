@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.feature.gen.end;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,8 +18,6 @@ import potionstudios.byg.common.world.math.OpenSimplexNoiseEnd;
 import potionstudios.byg.util.BlockHelper;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModMathHelper;
-
-import net.minecraft.util.RandomSource;
 
 //Credits to BetterEnd & Pauelevs
 public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {

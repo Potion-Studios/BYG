@@ -4,22 +4,24 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.*;
 import potionstudios.byg.BYG;
+import potionstudios.byg.reg.RegistrationProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
+import java.util.function.Supplier;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePlacement;
 
 public class BYGPlacedFeaturesUtil {
     public static final NoiseThresholdCountPlacement CLEARING_NOISE = NoiseThresholdCountPlacement.of(0.545, 1, 0);
+    public static final RegistrationProvider<PlacedFeature> PLACED_FEATURES = RegistrationProvider.get(BuiltinRegistries.PLACED_FEATURE, BYG.MOD_ID);
 
     public static List<PlacementModifier> treePlacementBaseOceanFloor(PlacementModifier... $$0) {
         return treePlacementBaseOceanFloor(OptionalInt.empty(), $$0);
@@ -60,23 +62,20 @@ public class BYGPlacedFeaturesUtil {
     }
 
 
-    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(String id, Holder<ConfiguredFeature<FC, ?>> feature, PlacementModifier... placementModifiers) {
-        return createPlacedFeature(id, feature, List.of(placementModifiers));
+    @SafeVarargs
+    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(String id, Holder<ConfiguredFeature<FC, ?>> feature, Supplier<PlacementModifier>... placementModifiers) {
+        return createPlacedFeature(id, feature, () -> Arrays.stream(placementModifiers).map(Supplier::get).toList());
     }
 
-    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(String id, Holder<ConfiguredFeature<FC, ?>> feature, List<PlacementModifier> placementModifiers) {
-        ResourceLocation bygID = BYG.createLocation(id);
-        if (BuiltinRegistries.PLACED_FEATURE.keySet().contains(bygID))
-            throw new IllegalStateException("Placed Feature ID: \"" + bygID.toString() + "\" already exists in the Placed Features registry!");
-
-        return BuiltinRegistries.register(BuiltinRegistries.PLACED_FEATURE, bygID, new PlacedFeature(Holder.hackyErase(feature), List.copyOf(placementModifiers)));
+    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(String id, Holder<ConfiguredFeature<FC, ?>> feature, Supplier<List<PlacementModifier>> placementModifiers) {
+        return PLACED_FEATURES.register(id, () -> new PlacedFeature(Holder.hackyErase(feature), placementModifiers.get())).asHolder();
     }
 
-    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(Holder<ConfiguredFeature<FC, ?>> feature, PlacementModifier... placementModifiers) {
-        return createPlacedFeature(feature, List.of(placementModifiers));
+    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeatureDirect(Holder<ConfiguredFeature<FC, ?>> feature, PlacementModifier... placementModifiers) {
+        return createPlacedFeatureDirect(feature, List.of(placementModifiers));
     }
 
-    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeature(Holder<ConfiguredFeature<FC, ?>> feature, List<PlacementModifier> placementModifiers) {
+    public static <FC extends FeatureConfiguration> Holder<PlacedFeature> createPlacedFeatureDirect(Holder<ConfiguredFeature<FC, ?>> feature, List<PlacementModifier> placementModifiers) {
         return Holder.direct(new PlacedFeature(Holder.hackyErase(feature), List.copyOf(placementModifiers)));
     }
 

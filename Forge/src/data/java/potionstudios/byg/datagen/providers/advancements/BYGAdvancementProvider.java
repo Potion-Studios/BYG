@@ -1,6 +1,5 @@
 package potionstudios.byg.datagen.providers.advancements;
 
-import static potionstudios.byg.BYG.createLocation;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -18,6 +17,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
+import static potionstudios.byg.BYG.createLocation;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

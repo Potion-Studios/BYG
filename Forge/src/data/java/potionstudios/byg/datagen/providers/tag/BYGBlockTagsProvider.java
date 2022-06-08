@@ -5,21 +5,12 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CampfireBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlockProperties;
-import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.common.block.BYGMushroomBlock;
-import potionstudios.byg.common.block.BYGScaffoldingBlock;
-import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
@@ -32,9 +23,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static potionstudios.byg.common.block.BYGBlocks.*;
-import static potionstudios.byg.BYG.createLocation;
 import static net.minecraft.tags.BlockTags.create;
+import static potionstudios.byg.BYG.createLocation;
+import static potionstudios.byg.common.block.BYGBlocks.*;
 
 @SuppressWarnings("ALL")
 public class BYGBlockTagsProvider extends BlockTagsProvider {

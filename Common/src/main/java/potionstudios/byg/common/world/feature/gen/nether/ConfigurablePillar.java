@@ -4,14 +4,13 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
-
-import net.minecraft.util.RandomSource;
 
 public class ConfigurablePillar extends Feature<SimpleBlockProviderConfig> {
     public ConfigurablePillar(Codec<SimpleBlockProviderConfig> codec) {

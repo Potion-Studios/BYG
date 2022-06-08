@@ -2,14 +2,13 @@ package potionstudios.byg.common.world.feature.gen.overworld.pumpkins;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
-
-import net.minecraft.util.RandomSource;
 
 public class LargePumpkin1 extends Feature<PumpkinConfig> {
 

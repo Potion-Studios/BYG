@@ -14,7 +14,6 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
-import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 
 import java.util.*;

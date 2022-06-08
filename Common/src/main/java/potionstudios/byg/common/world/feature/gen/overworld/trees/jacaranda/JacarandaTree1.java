@@ -3,12 +3,12 @@ package potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 
-import net.minecraft.util.RandomSource;
 import java.util.Set;
 
 public class JacarandaTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {

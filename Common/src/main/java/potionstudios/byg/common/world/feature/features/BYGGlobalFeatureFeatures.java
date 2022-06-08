@@ -7,10 +7,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import potionstudios.byg.common.block.BYGBlocks;
 
+import java.util.function.Supplier;
+
 import static net.minecraft.data.worldgen.features.OreFeatures.NATURAL_STONE;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.CONFIGURED_FEATURES;
-
-import java.util.function.Supplier;
 
 public class BYGGlobalFeatureFeatures {
 

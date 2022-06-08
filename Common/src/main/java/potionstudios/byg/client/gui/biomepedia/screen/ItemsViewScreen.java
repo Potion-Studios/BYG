@@ -4,21 +4,15 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
-import net.minecraft.core.Registry;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import potionstudios.byg.BYG;
-import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.client.gui.biomepedia.widget.ItemWidget;
+import potionstudios.byg.common.item.BYGItems;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class ItemsViewScreen extends AbstractBiomepediaScreen {

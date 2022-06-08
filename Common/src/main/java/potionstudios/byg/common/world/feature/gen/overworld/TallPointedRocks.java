@@ -3,13 +3,12 @@ package potionstudios.byg.common.world.feature.gen.overworld;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
 import potionstudios.byg.common.world.feature.config.PointyRockConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FNVector3f;
-
-import net.minecraft.util.RandomSource;
 
 public class TallPointedRocks extends ChunkCoordinatesFeature<PointyRockConfig> {
 

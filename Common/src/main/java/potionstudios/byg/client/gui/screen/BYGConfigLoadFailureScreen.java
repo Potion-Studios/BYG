@@ -5,8 +5,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Component;
-
 import net.minecraft.util.FastColor;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.KillClient;

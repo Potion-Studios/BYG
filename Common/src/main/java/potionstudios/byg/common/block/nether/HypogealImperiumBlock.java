@@ -2,6 +2,7 @@ package potionstudios.byg.common.block.nether;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,7 +26,6 @@ import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.blockentity.HypogealImperiumBlockEntity;
 
 import javax.annotation.Nullable;
-import net.minecraft.util.RandomSource;
 
 public class HypogealImperiumBlock extends BaseEntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;

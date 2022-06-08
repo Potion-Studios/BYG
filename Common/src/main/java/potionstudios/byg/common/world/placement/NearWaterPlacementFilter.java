@@ -9,7 +9,6 @@ import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 
-import java.util.Random;
 import java.util.stream.Stream;
 
 public class NearWaterPlacementFilter extends PlacementModifier {
