@@ -13,12 +13,17 @@ import java.util.function.Supplier;
 
 public class BYGStructureTypes {
 
-    public static final RegistrationProvider PROVIDER = RegistrationProvider.get(Registry.STRUCTURE_TYPES, BYG.MOD_ID);
+    public static final RegistrationProvider<StructureType<?>> PROVIDER = RegistrationProvider.get(Registry.STRUCTURE_TYPES, BYG.MOD_ID);
 
     public static final RegistryObject<StructureType<ArchStructure>> ARCH = register("arch", () -> ArchStructure.CODEC);
 
     private static <S extends Structure> RegistryObject<StructureType<S>> register(String id, Supplier<? extends Codec<S>> codec) {
-        return PROVIDER.register(id, codec);
+        return PROVIDER.register(id, () -> new StructureType<S>() {
+            @Override
+            public Codec<S> codec() {
+                return codec.get();
+            }
+        });
     }
 
     public static void loadClass() {
