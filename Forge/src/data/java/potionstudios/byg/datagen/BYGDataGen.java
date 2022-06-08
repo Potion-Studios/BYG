@@ -22,21 +22,20 @@ public class BYGDataGen {
         final var gen = event.getGenerator();
         final var existingFileHelper = event.getExistingFileHelper();
 
-        if (event.includeServer()) {
-            gen.addProvider(new BYGLootTablesProvider(gen));
-            final var blockTags = new BYGBlockTagsProvider(gen, existingFileHelper);
-            gen.addProvider(blockTags);
-            gen.addProvider(new BYGItemTagsProvider(gen, blockTags, existingFileHelper));
-            gen.addProvider(new BYGEntityTagsProvider(gen, existingFileHelper));
-            gen.addProvider(new BYGBiomeTagsProvider(gen, existingFileHelper));
-            gen.addProvider(new BYGRecipeProviders(gen));
+        // Server:
+        gen.addProvider(event.includeServer(), new BYGLootTablesProvider(gen));
+        final var blockTags = new BYGBlockTagsProvider(gen, existingFileHelper);
+        gen.addProvider(event.includeServer(), blockTags);
+        gen.addProvider(event.includeServer(), new BYGItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGEntityTagsProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGBiomeTagsProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGRecipeProviders(gen));
 
-            gen.addProvider(new BYGAdvancementProvider(gen, existingFileHelper));
-        }
-        if (event.includeClient()) {
-            gen.addProvider(new BYGWoodAssetsProvider(gen, existingFileHelper));
-            gen.addProvider(new EnUsLanguageProvider(gen));
-        }
+        gen.addProvider(event.includeServer(), new BYGAdvancementProvider(gen, existingFileHelper));
+
+        // Client:
+        gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
     }
 
 }

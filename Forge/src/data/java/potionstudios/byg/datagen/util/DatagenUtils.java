@@ -1,7 +1,8 @@
 package potionstudios.byg.datagen.util;
 
-import net.minecraft.tags.Tag;
-import potionstudios.byg.mixin.access.TagBuilderAccess;
+import net.minecraft.tags.TagBuilder;
+import net.minecraft.tags.TagEntry;
+import potionstudios.byg.mixin.dev.TagBuilderAccess;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -11,14 +12,14 @@ import java.util.Set;
 
 public class DatagenUtils {
 
-    public static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, Tag.Builder> tags) {
-        for (Tag.Builder value : tags.values()) {
-            List<Tag.BuilderEntry> builderEntries = ((TagBuilderAccess) value).byg_getEntries();
+    public static void sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(Map<?, TagBuilder> tags) {
+        for (TagBuilder value : tags.values()) {
+            List<TagEntry> builderEntries = ((TagBuilderAccess) value).getEntries();
 
-            Set<Tag.BuilderEntry> noDuplicates = new HashSet<>(builderEntries);
+            Set<TagEntry> noDuplicates = new HashSet<>(builderEntries);
             builderEntries.clear();
             builderEntries.addAll(noDuplicates);
-            builderEntries.sort(Comparator.comparing(builderEntry -> builderEntry.entry().toString()));
+            builderEntries.sort(Comparator.comparing(TagEntry::toString));
         }
     }
 
