@@ -2,6 +2,7 @@ package potionstudios.byg.util;
 
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -47,6 +48,13 @@ public interface ModPlatform {
     Platform modPlatform();
 
     boolean hasLoadErrors();
+
+    void addTagsUpdatedListener(TagsUpdatedEvent event);
+
+    @FunctionalInterface
+    interface TagsUpdatedEvent {
+        void onTagsUpdated(RegistryAccess access);
+    }
 
     default <P extends BYGS2CPacket> void sendToAllClients(List<ServerPlayer> players, P packet) {
         for (ServerPlayer player : players) {

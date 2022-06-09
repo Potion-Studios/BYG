@@ -1,0 +1,17 @@
+{
+  "values": [
+    {
+      "id": "#byg:scaffolding",
+      "required": false
+    },
+    {
+      "id": "#c:scaffoldings",
+      "required": false
+    },
+    {
+      "id": "#forge:scaffoldings",
+      "required": false
+    },
+    "minecraft:scaffolding"
+  ]
+}

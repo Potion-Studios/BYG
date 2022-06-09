@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#byg:sticks",
+      "required": false
+    },
+    {
+      "id": "#c:wooden_rods",
+      "required": false
+    },
+    {
+      "id": "#forge:rods/wooden",
+      "required": false
+    }
+  ]
+}

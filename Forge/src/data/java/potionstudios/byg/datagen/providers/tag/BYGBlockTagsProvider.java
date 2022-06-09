@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers.tag;
 
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
@@ -26,6 +28,7 @@ import java.util.function.Supplier;
 import static net.minecraft.tags.BlockTags.create;
 import static potionstudios.byg.BYG.createLocation;
 import static potionstudios.byg.common.block.BYGBlocks.*;
+import static potionstudios.byg.common.BYGTags.*;
 
 @SuppressWarnings("ALL")
 public class BYGBlockTagsProvider extends BlockTagsProvider {
@@ -37,8 +40,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        final var logs = tag(BlockTags.LOGS);
-        final var logsThatBurn = tag(BlockTags.LOGS_THAT_BURN);
+        final var logs = tag(BYGTags.LOGS.byg(BYGTags.RegistryType.BLOCKS));
+        final var logsThatBurn = tag(BYGTags.LOGS_THAT_BURN.byg(BYGTags.RegistryType.BLOCKS));
         tag(
                 BYGBlockTags.LUSH,
                 LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
@@ -47,21 +50,22 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final Material[] shovelMaterials = { Material.DIRT, Material.GRASS, Material.SAND, Material.CLAY };
 
         new PredicatedTagProvider<>(PROVIDER)
-            .forInstance(SlabBlock.class, BYGBlockTags.SLABS)
-            .forInstance(StairBlock.class, BlockTags.STAIRS)
-            .forInstance(ButtonBlock.class, BlockTags.BUTTONS)
-            .forInstance(BYGSaplingBlock.class, BlockTags.SAPLINGS)
+            .forInstance(SlabBlock.class, bygTag(SLABS))
+            .forInstance(StairBlock.class, bygTag(STAIRS))
+            .forInstance(ButtonBlock.class, bygTag(BUTTONS))
+            .forInstance(BYGSaplingBlock.class, bygTag(SAPLINGS))
             .forInstance(BYGMushroomBlock.class, BYGBlockTags.MUSHROOMS)
             .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
-            .forInstance(CampfireBlock.class, BlockTags.CAMPFIRES)
-            .forInstance(BYGScaffoldingBlock.class, BYGBlockTags.SCAFFOLDING)
+            .forInstance(CampfireBlock.class, bygTag(CAMPFIRES))
+            .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
+            .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
             .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
-            .add(isMaterial(Material.LEAVES), BlockTags.LEAVES)
-            .add(isMaterial(Material.SAND), BlockTags.SAND)
-            .add(isMaterial(Material.ICE, Material.ICE_SOLID), BlockTags.ICE)
+            .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
+            .add(isMaterial(Material.SAND), bygTag(SAND))
+            .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
             .run(super::tag);
 
-        tag(BYGBlockTags.SCAFFOLDING).add(Blocks.SCAFFOLDING);
+        tag(SCAFFOLDING.all(RegistryType.BLOCKS)).add(Blocks.SCAFFOLDING);
 
         tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTags(BlockTags.DIRT, BlockTags.SAND).add(Blocks.CLAY);
 
@@ -105,11 +109,12 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         );
 
         final var planksTag = tag(BlockTags.PLANKS);
-        final var bookselvesTag = tag(create(createLocation("bookshelves")));
+        final var bookselvesTag = tag(bygTag(BOOKSHELVES));
         final var trapdoorsTag = tag(BlockTags.TRAPDOORS);
         final var woodenButtonsTag = tag(BlockTags.WOODEN_BUTTONS);
         final var woodenDoorsTag = tag(BlockTags.WOODEN_DOORS);
         final var woodenFencesTag = tag(BlockTags.WOODEN_FENCES);
+        final var woodenFencesGatesTag = tag(BYGBlockTags.WOODEN_FENCE_GATES);
         final var woodenPressurePlatesTag = tag(BlockTags.WOODEN_PRESSURE_PLATES);
         final var woodenSlabsTag = tag(BlockTags.WOODEN_SLABS);
         final var woodenStairsTag = tag(BlockTags.WOODEN_STAIRS);
@@ -128,20 +133,30 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             woodenButtonsTag.add(type.button().get());
             woodenDoorsTag.add(type.door().get());
             woodenFencesTag.add(type.fence().get());
+            woodenFencesGatesTag.add(type.fenceGate().get());
             woodenPressurePlatesTag.add(type.pressurePlate().get());
             woodenSlabsTag.add(type.slab().get());
             woodenStairsTag.add(type.stairs().get());
             woodenTrapdoorsTag.add(type.trapdoor().get());
         }
+        tag(BlockTags.FENCE_GATES).addTag(BYGBlockTags.WOODEN_FENCE_GATES);
 
         wood("withering_oak_logs", WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
         wood("palo_verde_logs", PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD);
 
         tag(BlockTags.OAK_LOGS, WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
 
+        for (BYGTags tag : BYGTags.values()) {
+            DatagenUtils.addBYGTag(this::tag, tag, Registry.BLOCK_REGISTRY);
+        }
+
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
-    
+
+    private static TagKey<Block> bygTag(BYGTags tags) {
+        return tags.byg(BYGTags.RegistryType.BLOCKS);
+    }
+
     private static Predicate<Block> isMaterial(Material... materials) {
         final var materialsList = List.of(materials);
         return bl -> materialsList.contains(((BlockBehaviorAccess) bl).getMaterial());

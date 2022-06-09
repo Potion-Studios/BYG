@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#byg:bookshelves",
+      "required": false
+    },
+    {
+      "id": "#c:bookshelves",
+      "required": false
+    },
+    {
+      "id": "#forge:bookshelves",
+      "required": false
+    }
+  ]
+}

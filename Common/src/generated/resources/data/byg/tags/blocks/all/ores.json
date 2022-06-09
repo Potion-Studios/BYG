@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#byg:ores",
+      "required": false
+    },
+    {
+      "id": "#c:ores",
+      "required": false
+    },
+    {
+      "id": "#forge:ores",
+      "required": false
+    }
+  ]
+}

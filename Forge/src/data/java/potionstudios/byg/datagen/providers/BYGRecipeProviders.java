@@ -9,8 +9,8 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.item.BYGItemTags;
 
 import java.util.function.Consumer;
 
@@ -21,6 +21,8 @@ public class BYGRecipeProviders extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+        final var sticksTag = BYGTags.STICKS.all(BYGTags.RegistryType.ITEMS);
+        
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             ShapedRecipeBuilder.shaped(type.door().get(), 3)
                 .group("wooden_door")
@@ -71,7 +73,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .group("wooden_fence")
                 .pattern("W#W")
                 .pattern("W#W")
-                .define('#', BYGItemTags.STICKS)
+                .define('#', sticksTag)
                 .define('W', type.planks())
                 .unlockedBy("has_planks", has(type.planks()))
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence"));
@@ -80,7 +82,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .pattern("#W#")
                 .pattern("#W#")
                 .unlockedBy("has_planks", has(type.planks()))
-                .define('#', BYGItemTags.STICKS)
+                .define('#', sticksTag)
                 .define('W', type.planks())
                 .save(consumer, BYG.createLocation("wood/" + type + "/fence_gate"));
             ShapelessRecipeBuilder.shapeless(type.planks(), 4)
@@ -129,7 +131,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                     .pattern("PPP")
                     .pattern(" S ")
                     .define('P', type.planks())
-                    .define('S', BYGItemTags.STICKS)
+                    .define('S', sticksTag)
                     .unlockedBy("has_planks", has(type.planks()))
                     .save(consumer, BYG.createLocation("wood/" + type + "/sign"));
             }

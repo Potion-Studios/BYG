@@ -43,7 +43,9 @@ processResources {
     filesMatching(['pack.mcmeta']) {
         expand buildProps
     }
-    exclude '.cache/cache'
+    exclude '.cache/**'
+
+    exclude("data/forge/tags/**")
 }
 
 tasks.withType(Javadoc) {

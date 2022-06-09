@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#byg:boats",
+      "required": false
+    },
+    {
+      "id": "#c:boats",
+      "required": false
+    },
+    {
+      "id": "#forge:boats",
+      "required": false
+    }
+  ]
+}

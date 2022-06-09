@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#c:sand",
+      "required": false
+    },
+    {
+      "id": "#forge:sand",
+      "required": false
+    },
+    {
+      "id": "#minecraft:sand",
+      "required": false
+    }
+  ]
+}
