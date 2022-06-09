@@ -6,11 +6,11 @@
   ],
   "key": {
     "#": {
-      "item": "byg:stripped_mangrove_log"
+      "item": "byg:stripped_white_mangrove_log"
     }
   },
   "result": {
-    "item": "byg:stripped_mangrove_wood",
+    "item": "byg:stripped_white_mangrove_wood",
     "count": 3
   }
 }

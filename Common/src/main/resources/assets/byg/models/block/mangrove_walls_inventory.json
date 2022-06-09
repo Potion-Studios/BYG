@@ -1,7 +1,0 @@
-{
-  "parent": "block/wall_inventory",
-  "textures": {
-    "wall": "byg:block/mangrove_log_side",
-    "particle": "byg:block/mangrove_log_side"
-  }
-}

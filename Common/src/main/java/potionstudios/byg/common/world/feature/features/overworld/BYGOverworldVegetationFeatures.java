@@ -249,7 +249,7 @@ public class BYGOverworldVegetationFeatures {
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WATER_SILK, ON_WATER_FILTER))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WHITE_MANGROVE_SWAMP_WATER_VEGETATION = createConfiguredFeature("white_mangrove_swamp_water_vegetation",
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WHITE_MANGROVE_SWAMP_WATER_VEGETATION = createConfiguredFeature("white_white_mangrove_swamp_water_vegetation",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(TINY_LILY_PAD, ON_WATER_FILTER), 0.50F)),

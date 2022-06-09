@@ -102,7 +102,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda.Jaca
 import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.mahogany.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.mangrove.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree3;
@@ -141,6 +140,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.S
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.white_mangrove.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree4;
@@ -453,11 +453,11 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> JOSHUA_TREE2 = createFeature("joshua_tree2", () -> new JoshuaTree2(BYGTreeConfig.CODEC.stable()));
 
     //Mangrove
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE1 = createFeature("mangrove_tree1", () -> new MangroveTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE2 = createFeature("mangrove_tree2", () -> new MangroveTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE3 = createFeature("mangrove_tree3", () -> new MangroveTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE4 = createFeature("mangrove_tree4", () -> new MangroveTree4(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE5 = createFeature("mangrove_tree5", () -> new MangroveTree5(BYGTreeConfig.CODEC.stable()));
+    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE1 = createFeature("white_mangrove_tree1", () -> new MangroveTree1(BYGTreeConfig.CODEC.stable()));
+    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE2 = createFeature("white_mangrove_tree2", () -> new MangroveTree2(BYGTreeConfig.CODEC.stable()));
+    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE3 = createFeature("white_mangrove_tree3", () -> new MangroveTree3(BYGTreeConfig.CODEC.stable()));
+    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE4 = createFeature("white_mangrove_tree4", () -> new MangroveTree4(BYGTreeConfig.CODEC.stable()));
+    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE5 = createFeature("white_mangrove_tree5", () -> new MangroveTree5(BYGTreeConfig.CODEC.stable()));
 
     //Maple
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE1 = createFeature("maple_tree1", () -> new MapleTree1(BYGTreeConfig.CODEC.stable()));

@@ -39,10 +39,6 @@ public class BYGItems {
     public static final RegistryObject<Item> LUSH_DIRT = createItem(BYGBlocks.LUSH_DIRT);
     public static final RegistryObject<Item> LUSH_FARMLAND = createItem(BYGBlocks.LUSH_FARMLAND);
 
-    public static final RegistryObject<Item> MUD_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "mud_ball");
-    public static final RegistryObject<Item> MUD_BLOCK = createItem(BYGBlocks.MUD_BLOCK);
-    public static final RegistryObject<Item> MUD_BRICKS = createItem(BYGBlocks.MUD_BRICKS);
-
     public static final RegistryObject<Item> CHAIN_PLATING = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "chain_plating");
     public static final RegistryObject<Item> FORAGERS_TABLE = createItem(BYGBlocks.FORAGERS_TABLE);
 
@@ -389,7 +385,7 @@ public class BYGItems {
         BYGWoodTypes.JACARANDA.init();
 
         BYGWoodTypes.MAHOGANY.init();
-        BYGWoodTypes.MANGROVE.init();
+        BYGWoodTypes.WHITE_MANGROVE.init();
 
         RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
         RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
@@ -627,13 +623,6 @@ public class BYGItems {
 
     public static final RegistryObject<Item> BULBIS_SPROUTS = createItem(BYGBlocks.BULBIS_SPROUTS);
     public static final RegistryObject<Item> BULBIS_PHYCELIUM = createItem(BYGBlocks.BULBIS_PHYCELIUM);
-
-    @Deprecated(forRemoval = true)
-    public static final RegistryObject<Item> LIGNITE_ORE = createItem(BYGBlocks.LIGNITE_ORE);
-    @Deprecated(forRemoval = true)
-    public static final RegistryObject<Item> LIGNITE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "lignite");
-    @Deprecated(forRemoval = true)
-    public static final RegistryObject<Item> LIGNITE_BLOCK = createItem(BYGBlocks.LIGNITE_BLOCK);
 
     public static final RegistryObject<Item> ETHER_FOLIAGE = createItem(BYGBlocks.ETHER_FOLIAGE);
     public static final RegistryObject<Item> TALL_ETHER_GRASS = createItem(BYGBlocks.TALL_ETHER_GRASS);

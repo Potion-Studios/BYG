@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "byg:block/mangrove/stripped_log_top",
-    "side": "byg:block/mangrove/stripped_log"
-  }
-}

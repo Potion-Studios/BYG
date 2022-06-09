@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "byg:block/white_mangrove/stripped_log",
+    "particle": "byg:block/white_mangrove/stripped_log"
+  }
+}

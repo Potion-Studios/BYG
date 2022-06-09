@@ -70,8 +70,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> LUSH_FARMLAND = createLushFarmland("lush_farmland");
 
     public static final BlockRegistryObject<Block> ETHER_SOIL = createDirt("ether_soil");
-    public static final BlockRegistryObject<Block> MUD_BLOCK = createBlock(BYGBlockProperties.BYGMud::new, "mud_block");
-    public static final BlockRegistryObject<Block> MUD_BRICKS = createDirt("mud_bricks");
 
     public static final BlockRegistryObject<Block> ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, "araucaria_sapling");
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, "blue_spruce_sapling");
@@ -277,11 +275,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_SLAB = createStoneSlab("carved_ether_stone_slab");
     public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "carved_ether_stone_stairs");
     public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_WALL = createStoneWall("carved_ether_stone_wall");
-
-    @Deprecated(forRemoval = true)
-    public static final BlockRegistryObject<Block> LIGNITE_BLOCK = createBlock(BYGBlockProperties.AnthraciteOre::new, "lignite_block");
-    @Deprecated(forRemoval = true)
-    public static final BlockRegistryObject<Block> LIGNITE_ORE = createBlock(BYGBlockProperties.AnthraciteOre::new, "lignite_ore");
 
     public static final BlockRegistryObject<Block> ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final BlockRegistryObject<Block> ODDITY_BUSH = createOddityDesertPlant("oddity_bush");

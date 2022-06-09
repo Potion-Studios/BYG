@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/white_mangrove/leaves",
+    "particle": "byg:block/white_mangrove/leaves"
+  }
+}

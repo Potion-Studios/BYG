@@ -1,12 +1,15 @@
 package potionstudios.byg.common.world.feature.features.overworld;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.MangrovePropaguleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -14,7 +17,9 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import potionstudios.byg.BYG;
@@ -27,6 +32,7 @@ import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 import static potionstudios.byg.common.block.BYGWoodTypes.*;
@@ -901,68 +907,71 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("mangrove_tree1",
+    // TODO: BYG Propagule
+    public static final Supplier<AttachedToLeavesDecorator> PROPAGULE_DECORATOR = () -> new AttachedToLeavesDecorator(0.14F, 1, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(Blocks.MANGROVE_PROPAGULE.defaultBlockState().setValue(MangrovePropaguleBlock.HANGING, Boolean.TRUE)), MangrovePropaguleBlock.AGE, UniformInt.of(0, 4)), 2, List.of(Direction.DOWN));
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("white_mangrove_tree1",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/mangrove_tree1_base"),
-                    BYG.createLocation("features/trees/mangrove_tree1_canopy"),
+                    BYG.createLocation("features/trees/white_mangrove_tree1_base"),
+                    BYG.createLocation("features/trees/white_mangrove_tree1_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(MANGROVE.log().get()),
-                    BlockStateProvider.simple(MANGROVE.leaves().get()),
-                    MANGROVE.log(),
-                    MANGROVE.leaves(),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
+                    WHITE_MANGROVE.log(),
+                    WHITE_MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("mangrove_tree2",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/mangrove_tree2_base"),
-                    BYG.createLocation("features/trees/mangrove_tree2_canopy"),
+                    BYG.createLocation("features/trees/white_mangrove_tree2_base"),
+                    BYG.createLocation("features/trees/white_mangrove_tree2_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(MANGROVE.log().get()),
-                    BlockStateProvider.simple(MANGROVE.leaves().get()),
-                    MANGROVE.log(),
-                    MANGROVE.leaves(),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
+                    WHITE_MANGROVE.log(),
+                    WHITE_MANGROVE.leaves(),
                     BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("mangrove_tree3",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/mangrove_tree3_base"),
-                    BYG.createLocation("features/trees/mangrove_tree3_canopy"),
+                    BYG.createLocation("features/trees/white_mangrove_tree3_base"),
+                    BYG.createLocation("features/trees/white_mangrove_tree3_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(MANGROVE.log().get()),
-                    BlockStateProvider.simple(MANGROVE.leaves().get()),
-                    MANGROVE.log(),
-                    MANGROVE.leaves(),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
+                    WHITE_MANGROVE.log(),
+                    WHITE_MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("mangrove_tree4",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/mangrove_tree4_base"),
-                    BYG.createLocation("features/trees/mangrove_tree4_canopy"),
+                    BYG.createLocation("features/trees/white_mangrove_tree4_base"),
+                    BYG.createLocation("features/trees/white_mangrove_tree4_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(MANGROVE.log().get()),
-                    BlockStateProvider.simple(MANGROVE.leaves().get()),
-                    MANGROVE.log(),
-                    MANGROVE.leaves(),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
+                    WHITE_MANGROVE.log(),
+                    WHITE_MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("mangrove_tree5",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/mangrove_tree5_base"),
-                    BYG.createLocation("features/trees/mangrove_tree5_canopy"),
+                    BYG.createLocation("features/trees/white_mangrove_tree5_base"),
+                    BYG.createLocation("features/trees/white_mangrove_tree5_canopy"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(MANGROVE.log().get()),
-                    BlockStateProvider.simple(MANGROVE.leaves().get()),
-                    MANGROVE.log(),
-                    MANGROVE.leaves(),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
+                    WHITE_MANGROVE.log(),
+                    WHITE_MANGROVE.leaves(),
                     BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
@@ -2453,7 +2462,7 @@ public class BYGOverworldTreeFeatures {
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(HOLLY_TREE4))
     );
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MANGROVE_TREES = createConfiguredFeature("mangrove_trees",
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MANGROVE_TREES = createConfiguredFeature("white_mangrove_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE1), 0.2F),

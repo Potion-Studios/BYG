@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "byg:block/white_mangrove/pressure_plate"
+    },
+    "powered=true": {
+      "model": "byg:block/white_mangrove/pressure_plate_down"
+    }
+  }
+}

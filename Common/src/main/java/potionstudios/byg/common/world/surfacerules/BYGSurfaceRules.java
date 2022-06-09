@@ -160,7 +160,7 @@ public class BYGSurfaceRules {
                                                     )
                                             ),
                                             SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(-0.95),
-                                                    SurfaceRules.state(BYGBlocks.MUD_BLOCK.defaultBlockState()
+                                                    SurfaceRules.state(Blocks.MUD.defaultBlockState()
                                                     )
                                             ),
                                             SurfaceRules.state(BYGBlocks.WHITE_SAND.defaultBlockState())

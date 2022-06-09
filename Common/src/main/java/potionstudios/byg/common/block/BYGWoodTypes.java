@@ -85,7 +85,7 @@ public enum BYGWoodTypes {
             .boatType(BYGBoat.BYGType.MAHOGANY)
             .materialColor(MaterialColor.COLOR_GREEN)
             .leavesHaveOverlay()),
-    MANGROVE("mangrove", new Builder()
+    WHITE_MANGROVE("white_mangrove", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
             .boatType(BYGBoat.BYGType.MANGROVE)
             .materialColor(MaterialColor.COLOR_GREEN)),

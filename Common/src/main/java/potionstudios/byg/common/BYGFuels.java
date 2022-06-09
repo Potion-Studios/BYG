@@ -6,8 +6,6 @@ import potionstudios.byg.common.item.BYGItems;
 public class BYGFuels {
 
     public static void loadFuels(final FuelConsumer consumer) {
-        consumer.add(BYGItems.LIGNITE_BLOCK.get(), 14000);
-        consumer.add(BYGItems.LIGNITE.get(), 1400);
         consumer.add(BYGItems.ANTHRACITE_BLOCK.get(), 20000);
         consumer.add(BYGItems.ANTHRACITE.get(), 2400);
         consumer.add(BYGItems.PEAT.get(), 1200);
