@@ -5,6 +5,7 @@
 * Breaking changes:
     * Rename all mangrove blocks/items/world gen from `mangrove` -> `white_mangrove`.
     * Remove all mud blocks.
+    * Remove all lignite blocks.
     * Remove Plant Stem & Petal blocks.
     * Remove Windswept Dunes & Windswept Beach.
     * Remove Holly Berries

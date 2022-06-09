@@ -20,7 +20,6 @@ Accessible class net/minecraft/world/entity/npc/VillagerTrades$SuspiciousStewFor
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TippedArrowForItemsAndEmeralds
 Accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
 Accessible class net/minecraft/world/level/levelgen/SurfaceRules$StateRule
-Accessible class net/minecraft/client/Minecraft$ExperimentalDialogType
 Accessible class net/minecraft/data/HashCache$CacheUpdater
 Accessible class net/minecraft/data/HashCache$ProviderCache
 
