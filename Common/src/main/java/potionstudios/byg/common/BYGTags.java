@@ -34,10 +34,11 @@ public enum BYGTags {
     CAMPFIRES("campfires", "campfires", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
     BUTTONS("buttons", "buttons", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
     SCAFFOLDING("scaffolding", null, "scaffoldings", "scaffoldings", RegistryType.BLOCKS, RegistryType.ITEMS),
-    SAND("sand", "sand", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    SAND("sand", "sand", "sand", "sand", RegistryType.BLOCKS, RegistryType.ITEMS),
     ICE("ice", "ice", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
 
     ORES("ores", null, "ores", "ores", RegistryType.ITEMS, RegistryType.BLOCKS),
+    BOOKSHELVES("bookshelves", null, "bookshelves", "bookshelves", RegistryType.ITEMS, RegistryType.BLOCKS),
     STICKS("sticks", null, "rods/wooden", "wooden_rods", RegistryType.ITEMS),
 
     BOATS("boats", null, "boats", "boats", RegistryType.ENTITY_TYPES);

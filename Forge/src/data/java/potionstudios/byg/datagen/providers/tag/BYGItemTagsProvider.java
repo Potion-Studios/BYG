@@ -52,8 +52,8 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
 
         copy(BYGTags.LOGS);
         copy(BYGTags.LOGS_THAT_BURN);
+        copy(BOOKSHELVES);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
-        copy(BlockTags.create(createLocation("bookshelves")), create(createLocation("bookshelves")));
         copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
         copy(BlockTags.WOODEN_BUTTONS, ItemTags.WOODEN_BUTTONS);
         copy(BlockTags.WOODEN_DOORS, ItemTags.WOODEN_DOORS);

@@ -109,7 +109,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         );
 
         final var planksTag = tag(BlockTags.PLANKS);
-        final var bookselvesTag = tag(create(createLocation("bookshelves")));
+        final var bookselvesTag = tag(bygTag(BOOKSHELVES));
         final var trapdoorsTag = tag(BlockTags.TRAPDOORS);
         final var woodenButtonsTag = tag(BlockTags.WOODEN_BUTTONS);
         final var woodenDoorsTag = tag(BlockTags.WOODEN_DOORS);

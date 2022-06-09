@@ -1,15 +1,15 @@
 {
   "values": [
     {
-      "id": "#c:sand",
+      "id": "#byg:bookshelves",
       "required": false
     },
     {
-      "id": "#forge:sand",
+      "id": "#c:bookshelves",
       "required": false
     },
     {
-      "id": "#minecraft:sand",
+      "id": "#forge:bookshelves",
       "required": false
     }
   ]
