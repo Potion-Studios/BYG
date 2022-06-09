@@ -197,6 +197,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     PLATEAU_BIOMES_1, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
+                        map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
                         map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS);
                         map.put(Biomes.STONY_SHORE, BYGBiomes.DACITE_SHORE);
                     }))
@@ -215,7 +216,10 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
-                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
+                    Util.make(new IdentityHashMap<>(), map -> {
+                        map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
+                        map.put(Biomes.SWAMP, BYGBiomes.BAYOU);
+                    } ))
     );
 
     public static final Wrapped<OverworldRegion> RARE_REGION_1 = create("rare_region_1",
@@ -223,7 +227,10 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     OCEANS, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
                     PLATEAU_BIOMES_3, PLATEAU_BIOMES_VARIANT_VANILLA, SHATTERED_BIOMES_VANILLA,
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
-                    Util.make(new IdentityHashMap<>(), map -> map.put(Biomes.SWAMP, BYGBiomes.BAYOU)))
+                    Util.make(new IdentityHashMap<>(), map -> {
+                        map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS);
+                        map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.BAYOU);
+                    }))
     );
 
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
