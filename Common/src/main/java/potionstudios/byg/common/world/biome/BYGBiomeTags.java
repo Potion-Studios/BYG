@@ -93,23 +93,23 @@ public class BYGBiomeTags {
 
 
     // Climate
-    public static final TagKey<Biome> CLIMATE_HOT_OVERWORLD = create("climate/overworld/hot");
-    public static final TagKey<Biome> CLIMATE_TEMPERATE_OVERWORLD = create("climate/overworld/temperate");
-    public static final TagKey<Biome> CLIMATE_COLD_OVERWORLD = create("climate/overworld/cold");
-    public static final TagKey<Biome> CLIMATE_WET_OVERWORLD = create("climate/overworld/wet");
-    public static final TagKey<Biome> CLIMATE_DRY_OVERWORLD = create("climate/overworld/dry");
+    public static final TagKey<Biome> CLIMATE_HOT_OVERWORLD = create("overworld/climate/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_OVERWORLD = create("overworld/climate/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_OVERWORLD = create("overworld/climate/cold");
+    public static final TagKey<Biome> CLIMATE_WET_OVERWORLD = create("overworld/climate/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_OVERWORLD = create("overworld/climate/dry");
 
-    public static final TagKey<Biome> CLIMATE_HOT_NETHER = create("climate/nether/hot");
-    public static final TagKey<Biome> CLIMATE_TEMPERATE_NETHER = create("climate/nether/temperate");
-    public static final TagKey<Biome> CLIMATE_COLD_NETHER = create("climate/nether/cold");
-    public static final TagKey<Biome> CLIMATE_WET_NETHER = create("climate/nether/wet");
-    public static final TagKey<Biome> CLIMATE_DRY_NETHER = create("climate/nether/dry");
+    public static final TagKey<Biome> CLIMATE_HOT_NETHER = create("nether/climate/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_NETHER = create("nether/climate/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_NETHER = create("nether/climate/cold");
+    public static final TagKey<Biome> CLIMATE_WET_NETHER = create("nether/climate/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_NETHER = create("nether/climate/dry");
 
-    public static final TagKey<Biome> CLIMATE_HOT_END = create("climate/end/hot");
-    public static final TagKey<Biome> CLIMATE_TEMPERATE_END = create("climate/end/temperate");
-    public static final TagKey<Biome> CLIMATE_COLD_END = create("climate/end/cold");
-    public static final TagKey<Biome> CLIMATE_WET_END = create("climate/end/wet");
-    public static final TagKey<Biome> CLIMATE_DRY_END = create("climate/end/dry");
+    public static final TagKey<Biome> CLIMATE_HOT_END = create("end/climate/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_END = create("end/climate/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_END = create("end/climate/cold");
+    public static final TagKey<Biome> CLIMATE_WET_END = create("end/climate/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_END = create("end/climate/dry");
 
     // Vegetation
     public static final TagKey<Biome> IS_VEGETATION_SPARSE_OVERWORLD = create("vegetation/is_sparse/overworld");
