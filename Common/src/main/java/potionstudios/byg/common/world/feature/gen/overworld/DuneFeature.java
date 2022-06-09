@@ -100,11 +100,11 @@ public class DuneFeature extends Feature<NoneFeatureConfiguration> {
                 blendingPos.setY(worldSurfaceHeight);
                 Byte2ObjectOpenHashMap<ResourceKey<Biome>> localResourceKey = biomeAt.computeIfAbsent(ChunkPos.asLong(blendingPos), key -> new Byte2ObjectOpenHashMap<>());
                 ResourceKey<Biome> biomeResourceKey = localResourceKey.computeIfAbsent(DuneCache.getLocalPackedCoord(blendingPos), key -> level.getBiome(blendingPos).unwrapKey().orElseThrow());
-                boolean outsideBiome = biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES && worldSurfaceHeight < height;
+                boolean outsideBiome = worldSurfaceHeight < height;
 
                 NoiseChunk noiseChunk = ((ChunkAccessAccess) chunk).byg_getNoiseChunk();
                 boolean abovePreliminarySurface = noiseChunk != null && noiseChunk.preliminarySurfaceLevel(mutableBlockPos.getX(), mutableBlockPos.getZ()) > worldSurfaceHeight;
-                boolean caveCheck = biomeResourceKey == BYGBiomes.WINDSWEPT_DUNES && (worldSurfaceHeight < generator.getSeaLevel() || abovePreliminarySurface);
+                boolean caveCheck = (worldSurfaceHeight < generator.getSeaLevel() || abovePreliminarySurface);
                 if (caveCheck) {
                     density += (1.0 / precision) / (blendRange * blendRange) * 4;
                 }

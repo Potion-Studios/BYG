@@ -150,7 +150,7 @@ public class BYGOverworldBiomeSelectors {
             {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
             {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA},
             {BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH},
-            {BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_BEACH}
+            {BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT}
     });
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> PEAK_BIOMES_1 = create("peak_biomes/peak_biomes_1", PEAK_BIOMES_LAYOUT, new ResourceKey[][]{

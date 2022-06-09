@@ -53,7 +53,7 @@ public class BYGSurfaceRules {
             SurfaceRules.ifTrue(SurfaceRules.stoneDepthCheck(10, false, CaveSurface.CEILING), SurfaceRules.state(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState()))
     );
 
-    public static final SurfaceRules.RuleSource WINDSWEPT_SAND_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WINDSWEPT_DUNES, BYGBiomes.WINDSWEPT_BEACH, BYGBiomes.WINDSWEPT_DESERT), WINDSWEPT_SAND);
+    public static final SurfaceRules.RuleSource WINDSWEPT_SAND_BIOME_FILTER = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT), WINDSWEPT_SAND);
 
     public static final SurfaceRules.RuleSource NOISE_COARSE_DIRT_PODZOL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.CIKA_WOODS, BYGBiomes.REDWOOD_THICKET, BYGBiomes.FROSTED_TAIGA),
             SurfaceRules.sequence(

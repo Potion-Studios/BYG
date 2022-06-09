@@ -23,7 +23,6 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer {
                 .stream()
                 .map(RegistryObject::getId)
                 .map(key -> ResourceKey.create(Registry.BIOME_REGISTRY, key))
-                .filter(biomeResourceKey -> biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES)
                 .toList();
         AdventureAdvancementsAccess.byg_invokeAddBiomes(Advancement.Builder.advancement(), biomes).parent(root)
             .display(BYGItems.BYG_LOGO.get(), Component.translatable("byg.advancements.adventure.explore_biomes.title"),

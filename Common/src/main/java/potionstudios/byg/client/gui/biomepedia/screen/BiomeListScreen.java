@@ -60,7 +60,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
         super.init();
         this.clearWidgets();
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-        List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID) && biomeResourceKey != BYGBiomes.WINDSWEPT_DUNES).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
+        List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
 
         if (this.widgets == null) {
             createMenu(resourceKeys, false);

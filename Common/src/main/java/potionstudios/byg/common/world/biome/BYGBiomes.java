@@ -53,7 +53,6 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> LUSH_STACKS = createBiome("lush_stacks", BYGOverworldBiomes::lushStacks, IS_DEEP_OCEAN, IS_OCEAN, BiomeTags.IS_OVERWORLD);
     public static final ResourceKey<Biome> DEAD_SEA = createBiome("dead_sea", BYGOverworldBiomes::deadSea, IS_DEEP_OCEAN, IS_OCEAN, IS_WASTELAND, IS_DEAD, BiomeTags.IS_OVERWORLD);
     public static final ResourceKey<Biome> DACITE_RIDGES = createBiome("dacite_ridges", BYGOverworldBiomes::daciteRidges, BiomeTags.IS_OVERWORLD);
-    public static final ResourceKey<Biome> WINDSWEPT_DUNES = createBiome("windswept_dunes", () -> BYGOverworldBiomes.windsweptDesert(true), IS_SANDY, IS_BADLANDS, BiomeTags.IS_OVERWORLD);
     public static final ResourceKey<Biome> WINDSWEPT_DESERT = createBiome("windswept_desert", () -> BYGOverworldBiomes.windsweptDesert(false), BiomeTags.IS_OVERWORLD);
     public static final ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", BYGOverworldBiomes::ebonyWoods, BiomeTags.IS_OVERWORLD);
     public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BYGOverworldBiomes::forgottenForest, BiomeTags.IS_OVERWORLD);
@@ -89,7 +88,6 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> ZELKOVA_FOREST = createBiome("zelkova_forest", BYGOverworldBiomes::zelkovaForest, BiomeTags.IS_OVERWORLD);
 
     /************Beach Biomes*************/
-    public static final ResourceKey<Biome> WINDSWEPT_BEACH = createBiome("windswept_beach", BYGOverworldBiomes::windsweptBeach);
     public static final ResourceKey<Biome> RAINBOW_BEACH = createBiome("rainbow_beach", BYGOverworldBiomes::rainbowBeach, IS_BEACH);
     public static final ResourceKey<Biome> BASALT_BARRERA = createBiome("basalt_barrera", BYGOverworldBiomes::basaltBarrera);
     public static final ResourceKey<Biome> DACITE_SHORE = createBiome("dacite_shore", BYGOverworldBiomes::daciteShore);
