@@ -92,6 +92,33 @@ public class BYGBiomeTags {
     public static final TagKey<Biome> ALLOWS_SURFACE_SLIME_SPAWNS = create("allows_surface_slime_spawns");
 
 
+    // Climate
+    public static final TagKey<Biome> CLIMATE_HOT_OVERWORLD = create("climate/overworld/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_OVERWORLD = create("climate/overworld/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_OVERWORLD = create("climate/overworld/cold");
+    public static final TagKey<Biome> CLIMATE_WET_OVERWORLD = create("climate/overworld/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_OVERWORLD = create("climate/overworld/dry");
+
+    public static final TagKey<Biome> CLIMATE_HOT_NETHER = create("climate/nether/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_NETHER = create("climate/nether/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_NETHER = create("climate/nether/cold");
+    public static final TagKey<Biome> CLIMATE_WET_NETHER = create("climate/nether/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_NETHER = create("climate/nether/dry");
+
+    public static final TagKey<Biome> CLIMATE_HOT_END = create("climate/end/hot");
+    public static final TagKey<Biome> CLIMATE_TEMPERATE_END = create("climate/end/temperate");
+    public static final TagKey<Biome> CLIMATE_COLD_END = create("climate/end/cold");
+    public static final TagKey<Biome> CLIMATE_WET_END = create("climate/end/wet");
+    public static final TagKey<Biome> CLIMATE_DRY_END = create("climate/end/dry");
+
+    // Vegetation
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_OVERWORLD = create("vegetation/is_sparse/overworld");
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_NETHER = create("vegetation/is_sparse/nether");
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_END = create("vegetation/is_sparse/end");
+
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_OVERWORLD = create("vegetation/is_dense/overworld");
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_NETHER = create("vegetation/is_dense/nether");
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_END = create("vegetation/is_dense/end");
 
 
     public static final TagKey<Biome> IS_ICY = create("is_icy");
@@ -103,7 +130,6 @@ public class BYGBiomeTags {
 
 
     public static final TagKey<Biome> IS_SPOOKY = create("is_spooky");
-
 
 
     private static TagKey<Biome> create(String id) {
@@ -177,6 +203,33 @@ public class BYGBiomeTags {
         map.put(POLAR_BEARS_SPAWN_ON_ALTERNATE_BLOCKS, Set.of(BiomeTags.POLAR_BEARS_SPAWN_ON_ALTERNATE_BLOCKS));
         map.put(MORE_FREQUENT_DROWNED_SPAWNS, Set.of(BiomeTags.MORE_FREQUENT_DROWNED_SPAWNS));
         map.put(ALLOWS_SURFACE_SLIME_SPAWNS, Set.of(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS));
+        
+        map.put(CLIMATE_HOT_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_HOT_OVERWORLD, ModLoaderBiomeTags.Fabric.CLIMATE_HOT));
+        map.put(CLIMATE_TEMPERATE_OVERWORLD, Set.of(ModLoaderBiomeTags.Fabric.CLIMATE_TEMPERATE));
+        map.put(CLIMATE_COLD_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_COLD_OVERWORLD, ModLoaderBiomeTags.Fabric.CLIMATE_COLD));
+        map.put(CLIMATE_WET_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_WET_OVERWORLD, ModLoaderBiomeTags.Fabric.CLIMATE_WET));
+        map.put(CLIMATE_DRY_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_DRY_OVERWORLD, ModLoaderBiomeTags.Fabric.CLIMATE_DRY));
+
+        map.put(CLIMATE_HOT_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_HOT_NETHER));
+        map.put(CLIMATE_TEMPERATE_NETHER, Set.of());
+        map.put(CLIMATE_COLD_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_COLD_NETHER));
+        map.put(CLIMATE_WET_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_WET_NETHER));
+        map.put(CLIMATE_DRY_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_DRY_NETHER));
+
+        map.put(CLIMATE_HOT_END, Set.of(ModLoaderBiomeTags.Forge.IS_HOT_END));
+        map.put(CLIMATE_TEMPERATE_END, Set.of());
+        map.put(CLIMATE_COLD_END, Set.of(ModLoaderBiomeTags.Forge.IS_COLD_END));
+        map.put(CLIMATE_WET_END, Set.of(ModLoaderBiomeTags.Forge.IS_WET_END));
+        map.put(CLIMATE_DRY_END, Set.of(ModLoaderBiomeTags.Forge.IS_DRY_END));
+
+        map.put(IS_VEGETATION_SPARSE_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_SPARSE_OVERWORLD, ModLoaderBiomeTags.Fabric.VEGETATION_SPARSE));
+        map.put(IS_VEGETATION_SPARSE_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_SPARSE_NETHER));
+        map.put(IS_VEGETATION_SPARSE_END, Set.of(ModLoaderBiomeTags.Forge.IS_SPARSE_END));
+
+        map.put(IS_VEGETATION_DENSE_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_OVERWORLD, ModLoaderBiomeTags.Fabric.VEGETATION_SPARSE));
+        map.put(IS_VEGETATION_DENSE_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_NETHER));
+        map.put(IS_VEGETATION_DENSE_END, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_END));
+
         return map;
     });
 }
