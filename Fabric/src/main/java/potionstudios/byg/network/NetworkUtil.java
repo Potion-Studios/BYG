@@ -12,7 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.entity.boat.BYGBoatEntity;
+import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.mixin.access.client.ClientLevelAccess;
 
 import java.util.UUID;
@@ -40,8 +40,8 @@ public class NetworkUtil {
             Entity ownerEntity = ((Projectile) e).getOwner();
             owner = ownerEntity != null ? ownerEntity.getId() : 0;
         }
-        if (e instanceof BYGBoatEntity) { // because the datatracker doesnt seem to be sending the data at the right time?
-            owner = ((BYGBoatEntity) e).getBYGBoatType().ordinal();
+        if (e instanceof BYGBoat) { // because the datatracker doesnt seem to be sending the data at the right time?
+            owner = ((BYGBoat) e).getBYGBoatType().ordinal();
         }
         buf.writeInt(owner);
         Vec3 velocity = e.getDeltaMovement();
@@ -77,8 +77,8 @@ public class NetworkUtil {
 
         if (entity instanceof Projectile) {
             ((Projectile) entity).setOwner(client.level.getEntity(entityData));
-        } else if (entity instanceof BYGBoatEntity) {
-            ((BYGBoatEntity) entity).setBYGBoatType(BYGBoatEntity.BYGType.byId(entityData));
+        } else if (entity instanceof BYGBoat) {
+            ((BYGBoat) entity).setBYGBoatType(BYGBoat.BYGType.byId(entityData));
         }
         entity.setId(id);
         entity.setUUID(uuid);

@@ -34,9 +34,10 @@ import potionstudios.byg.common.loot.BYGLootContextParams;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
 
 import java.util.List;
+import java.util.function.Supplier;
 
-public class BYGBoatEntity extends Boat {
-    private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoatEntity.class, EntityDataSerializers.INT);
+public class BYGBoat extends Boat {
+    private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoat.class, EntityDataSerializers.INT);
     private static final LootContextParamSet LOOT_CONTEXT_PARAM_SETS = LootContextParamSet.builder()
             .required(BYGLootContextParams.BOAT_TYPE)
             .required(LootContextParams.THIS_ENTITY)
@@ -44,7 +45,7 @@ public class BYGBoatEntity extends Boat {
             .required(LootContextParams.DAMAGE_SOURCE)
             .build();
 
-    public BYGBoatEntity(Level worldIn, double x, double y, double z) {
+    public BYGBoat(Level worldIn, double x, double y, double z) {
         this(BYGEntities.BOAT.get(), worldIn);
         this.setPos(x, y, z);
         this.setDeltaMovement(Vec3.ZERO);
@@ -53,7 +54,7 @@ public class BYGBoatEntity extends Boat {
         this.zo = z;
     }
 
-    public BYGBoatEntity(EntityType<? extends Boat> boatEntityType, Level worldType) {
+    public BYGBoat(EntityType<? extends Boat> boatEntityType, Level worldType) {
         super(boatEntityType, worldType);
     }
 
@@ -199,34 +200,40 @@ public class BYGBoatEntity extends Boat {
     }
 
     public enum BYGType {
-        ASPEN("aspen"),
-        BAOBAB("baobab"),
-        BLUE_ENCHANTED("blue_enchanted"),
-        CHERRY("cherry"),
-        CIKA("cika"),
-        CYPRESS("cypress"),
-        EBONY("ebony"),
-        FIR("fir"),
-        GREEN_ENCHANTED("green_enchanted"),
-        HOLLY("holly"),
-        JACARANDA("jacaranda"),
-        MAHOGANY("mahogony"),
-        MANGROVE("mangrove"),
-        MAPLE("maple"),
-        PALM("palm"),
-        PINE("pine"),
-        RAINBOW_EUCALYPTUS("rainbow_eucalyptus"),
-        REDWOOD("redwood"),
-        SKYRIS("skyris"),
-        WILLOW("willow"),
-        WITCH_HAZEL("witch_hazel"),
-        ZELKOVA("zelkova");
+        ASPEN("aspen", () -> BYGWoodTypes.ASPEN.chestBoat().get()),
+        BAOBAB("baobab", () -> BYGWoodTypes.BAOBAB.chestBoat().get()),
+        BLUE_ENCHANTED("blue_enchanted", () -> BYGWoodTypes.BLUE_ENCHANTED.chestBoat().get()),
+        CHERRY("cherry", () -> BYGWoodTypes.CHERRY.chestBoat().get()),
+        CIKA("cika", () -> BYGWoodTypes.CIKA.chestBoat().get()),
+        CYPRESS("cypress", () -> BYGWoodTypes.CYPRESS.chestBoat().get()),
+        EBONY("ebony", () -> BYGWoodTypes.EBONY.chestBoat().get()),
+        FIR("fir", () -> BYGWoodTypes.FIR.chestBoat().get()),
+        GREEN_ENCHANTED("green_enchanted", () -> BYGWoodTypes.GREEN_ENCHANTED.chestBoat().get()),
+        HOLLY("holly", () -> BYGWoodTypes.HOLLY.chestBoat().get()),
+        JACARANDA("jacaranda", () -> BYGWoodTypes.JACARANDA.chestBoat().get()),
+        MAHOGANY("mahogony", () -> BYGWoodTypes.MAHOGANY.chestBoat().get()),
+        MANGROVE("mangrove", () -> BYGWoodTypes.MANGROVE.chestBoat().get()),
+        MAPLE("maple", () -> BYGWoodTypes.MAPLE.chestBoat().get()),
+        PALM("palm", () -> BYGWoodTypes.PALM.chestBoat().get()),
+        PINE("pine", () -> BYGWoodTypes.PINE.chestBoat().get()),
+        RAINBOW_EUCALYPTUS("rainbow_eucalyptus", () -> BYGWoodTypes.RAINBOW_EUCALYPTUS.chestBoat().get()),
+        REDWOOD("redwood", () -> BYGWoodTypes.REDWOOD.chestBoat().get()),
+        SKYRIS("skyris", () -> BYGWoodTypes.SKYRIS.chestBoat().get()),
+        WILLOW("willow", () -> BYGWoodTypes.WILLOW.chestBoat().get()),
+        WITCH_HAZEL("witch_hazel", () -> BYGWoodTypes.WITCH_HAZEL.chestBoat().get()),
+        ZELKOVA("zelkova", () -> BYGWoodTypes.ZELKOVA.chestBoat().get());
 
 
         private final String name;
+        private final Supplier<Item> chestBoatItem;
 
-        BYGType(String string) {
+        BYGType(String string, Supplier<Item> chestBoatItem) {
             this.name = string;
+            this.chestBoatItem = chestBoatItem;
+        }
+
+        public Supplier<Item> chestBoatItem() {
+            return chestBoatItem;
         }
 
         /**

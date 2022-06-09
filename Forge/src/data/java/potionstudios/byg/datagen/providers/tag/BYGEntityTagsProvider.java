@@ -19,6 +19,7 @@ public class BYGEntityTagsProvider extends EntityTypeTagsProvider {
     protected void addTags() {
         final var boatTag = TagKey.create(Registry.ENTITY_TYPE_REGISTRY, BYG.createLocation("boats"));
         tag(boatTag).add(BYGEntities.BOAT.get());
+        tag(boatTag).add(BYGEntities.CHEST_BOAT.get());
 
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }

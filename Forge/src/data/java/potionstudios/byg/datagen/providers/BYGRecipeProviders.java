@@ -5,7 +5,9 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItemTags;
@@ -36,6 +38,13 @@ public class BYGRecipeProviders extends RecipeProvider {
                         .define('P', type.planks().get())
                         .unlockedBy("has_planks", has(type.planks()))
                         .save(consumer, BYG.createLocation("wood/" + type + "/boat"));
+
+                ShapelessRecipeBuilder.shapeless(type.chestBoat().get())
+                        .requires(Blocks.CHEST)
+                        .requires(type.boat().get())
+                        .group("chest_boat")
+                        .unlockedBy("has_boat", has(ItemTags.BOATS))
+                        .save(consumer, BYG.createLocation("wood/" + type + "/chest_boat"));
             }
             ShapedRecipeBuilder.shaped(type.bookshelf().get())
                 .group("bookshelf")

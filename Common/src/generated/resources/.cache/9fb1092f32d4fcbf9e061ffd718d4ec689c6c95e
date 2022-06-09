@@ -1,7 +1,8 @@
-// 1.19	2022-06-08T20:08:31.2004208	Recipes
+// 1.19	2022-06-08T17:57:52.1646378	Recipes
 040b7c1b600131476663831b3614628b2e16af6e data/byg/advancements/recipes/byg.byg/wood/aspen/boat.json
 e5085099800fbd56da4c8693ad329f0169af037b data/byg/advancements/recipes/byg.byg/wood/aspen/bookshelf.json
 8396df911bffe2542072c233d2d132fb49c809f0 data/byg/advancements/recipes/byg.byg/wood/aspen/button.json
+391adcb8ac47ec129796d6fe108c79260b00141b data/byg/advancements/recipes/byg.byg/wood/aspen/chest_boat.json
 4c3b1fad994749c496f504a1cb869684589adbe5 data/byg/advancements/recipes/byg.byg/wood/aspen/crafting_table.json
 f10c0bffa29d07d6186143642dafebda42b3293f data/byg/advancements/recipes/byg.byg/wood/aspen/door.json
 fe6d13420558aa65fe9ac1a49a7d3c15547e95b9 data/byg/advancements/recipes/byg.byg/wood/aspen/fence.json
@@ -16,6 +17,7 @@ f98f056046ca6be5b29110963d29e07d63895526 data/byg/advancements/recipes/byg.byg/w
 8f9815ccde9e71ac2d4f33756e30112b298fd818 data/byg/advancements/recipes/byg.byg/wood/baobab/boat.json
 9cbf4acae1528078df84dd9a5318115b2a1648a5 data/byg/advancements/recipes/byg.byg/wood/baobab/bookshelf.json
 750fa5259c9600a4e48f29f472c8e3c1bf410ee3 data/byg/advancements/recipes/byg.byg/wood/baobab/button.json
+327eef7b2e4ebb73ba2ab9aec89946d75e95fd4f data/byg/advancements/recipes/byg.byg/wood/baobab/chest_boat.json
 33bd44a01e723db2659f3aa143aa397b045dedee data/byg/advancements/recipes/byg.byg/wood/baobab/crafting_table.json
 b7ae3da3169da13eef3126fe6d85048f8389e15d data/byg/advancements/recipes/byg.byg/wood/baobab/door.json
 e39789c161f363a0be84c330c3808bb505e6728e data/byg/advancements/recipes/byg.byg/wood/baobab/fence.json
@@ -30,6 +32,7 @@ d3d72812481a9be8ad7c13e88ffa704559f0bac5 data/byg/advancements/recipes/byg.byg/w
 8013be0c2fa7ca2b59894a2b4ef1f141fbbf3be6 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/boat.json
 7c9f6a7fd9549ae87418c42346698fc1534fe2d3 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/bookshelf.json
 d04d44cb562e48c03a187cc33d69da56768a0f41 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/button.json
+4877ec6360d0750f20911256eb88023052e1e100 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/chest_boat.json
 6e50c357464b54e4cc36425d6e7d76638ae95743 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/crafting_table.json
 31dbc2d1d85cbb071ae8cdd024421890dee21d02 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/door.json
 f0695fee1fd94c4dd5ad0ae444ca2c99df71a0fd data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/fence.json
@@ -57,6 +60,7 @@ dea056103aa5687e35d08dc7a7381ebff608a78d data/byg/advancements/recipes/byg.byg/w
 6d4826a3db1f5eb9fb9d866b6edafc8b0fac5c9d data/byg/advancements/recipes/byg.byg/wood/cherry/boat.json
 026f61607e87f8f6785a06dd85d5a54d5007d4c7 data/byg/advancements/recipes/byg.byg/wood/cherry/bookshelf.json
 4cc6b89acf76953fc25fad0bc095f855a995d753 data/byg/advancements/recipes/byg.byg/wood/cherry/button.json
+f8815415fd485178a1ae3b91e50b72ac4954111d data/byg/advancements/recipes/byg.byg/wood/cherry/chest_boat.json
 97700693e44f848e3d5d2dcc9cd041bba92a25d7 data/byg/advancements/recipes/byg.byg/wood/cherry/crafting_table.json
 f8a33d51ea7a583c10eef47a9cd2f3c5b27a91aa data/byg/advancements/recipes/byg.byg/wood/cherry/door.json
 3cd0942870dd967073a125c3beb42358642d51fd data/byg/advancements/recipes/byg.byg/wood/cherry/fence.json
@@ -71,6 +75,7 @@ ab7fcc005b126d0b84a4fb3b31a6ee44db3ff497 data/byg/advancements/recipes/byg.byg/w
 5a9782edf4b4f95135936eaa9fb7f02d306b64d5 data/byg/advancements/recipes/byg.byg/wood/cika/boat.json
 5667cee000bf59cf90eaab04006f9d84b3bec62d data/byg/advancements/recipes/byg.byg/wood/cika/bookshelf.json
 5568e00850120c8d0a2888202e14544f1cab445e data/byg/advancements/recipes/byg.byg/wood/cika/button.json
+234567635d321f133e576a7e69e7d504aae219e2 data/byg/advancements/recipes/byg.byg/wood/cika/chest_boat.json
 74f7cfedb413f5db932417c47b820a9763cd18f2 data/byg/advancements/recipes/byg.byg/wood/cika/crafting_table.json
 50c23302d2f27fb9cfb4ee1e760c5b3ac76e9128 data/byg/advancements/recipes/byg.byg/wood/cika/door.json
 daac4d4ed1bc14e8e8e48534c6e096bcf8af609a data/byg/advancements/recipes/byg.byg/wood/cika/fence.json
@@ -85,6 +90,7 @@ b72f2cf78e9b813bbbec855c7b1e28f0cf15a6a2 data/byg/advancements/recipes/byg.byg/w
 5d3191e4b264de8837100a79a398b6e232168ae9 data/byg/advancements/recipes/byg.byg/wood/cypress/boat.json
 c60a17a65eb3ce6968b2de4dd39bf484a5ddf04f data/byg/advancements/recipes/byg.byg/wood/cypress/bookshelf.json
 7c9a2b8bc49f3d23b6d475bd954dab7076364994 data/byg/advancements/recipes/byg.byg/wood/cypress/button.json
+e94f1f5e3ef283ceac537331854d443de467a81c data/byg/advancements/recipes/byg.byg/wood/cypress/chest_boat.json
 d1309066d46aa18f9d352d5e277122076cfed133 data/byg/advancements/recipes/byg.byg/wood/cypress/crafting_table.json
 a477b8ffd67525b3cc75d63fc5d28b0f7de65f49 data/byg/advancements/recipes/byg.byg/wood/cypress/door.json
 28d07fd368244cb22ccd42619f902769652561fc data/byg/advancements/recipes/byg.byg/wood/cypress/fence.json
@@ -99,6 +105,7 @@ fe6ba52695f44b6e94ede724ba8ca250401bf127 data/byg/advancements/recipes/byg.byg/w
 7b5ae38bccd6482afde0578d6a7f71f80b3c1230 data/byg/advancements/recipes/byg.byg/wood/ebony/boat.json
 ac3ef9995efd0b15e01ea6988b5a265590586458 data/byg/advancements/recipes/byg.byg/wood/ebony/bookshelf.json
 9fad94bca4bfa4e934a7ad5e434404ee4f0a2a2d data/byg/advancements/recipes/byg.byg/wood/ebony/button.json
+d735d08f08788b66d2c3cd980d04a93b3eabda78 data/byg/advancements/recipes/byg.byg/wood/ebony/chest_boat.json
 e23c452f7267197a7c8d3a03645566504fb1dc05 data/byg/advancements/recipes/byg.byg/wood/ebony/crafting_table.json
 75aba7dcb0f093c3fb01bc498a3d9f7757a00d9c data/byg/advancements/recipes/byg.byg/wood/ebony/door.json
 c93bb5e76243038ea6641379edde02b1580b59e7 data/byg/advancements/recipes/byg.byg/wood/ebony/fence.json
@@ -139,6 +146,7 @@ cbd6b027662cde635ad6dd3f58c5e735f520c4f5 data/byg/advancements/recipes/byg.byg/w
 755fdc8200d99993a9965c6fd989894ff93403a0 data/byg/advancements/recipes/byg.byg/wood/fir/boat.json
 696b72c4859a16c5c4bf4640329fd0cb8cda38b0 data/byg/advancements/recipes/byg.byg/wood/fir/bookshelf.json
 19b58567aaf9f46d24c6b86544371a174f9cc0dc data/byg/advancements/recipes/byg.byg/wood/fir/button.json
+3170cfb5b789dfba9c4fadb6a791d632570a551a data/byg/advancements/recipes/byg.byg/wood/fir/chest_boat.json
 406b0c440cba44ee6b648fa180d5445c4cf83516 data/byg/advancements/recipes/byg.byg/wood/fir/crafting_table.json
 a47a42a4bcfa1100ceb40a747d9e84447e031ed8 data/byg/advancements/recipes/byg.byg/wood/fir/door.json
 ce0ae8da3cd63b476ebbb106f2eecbc4a370fa8b data/byg/advancements/recipes/byg.byg/wood/fir/fence.json
@@ -153,6 +161,7 @@ a42e1d38c21f077dd7cbe46baf6f57519456e435 data/byg/advancements/recipes/byg.byg/w
 85eca1527b4ea9e3a8afe4d9ea0f16628a6d3658 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/boat.json
 d0e8a1ebe738d9fa85069b256dfec9dda5c1ee62 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/bookshelf.json
 43eaab8299d3f1ec11ee8a5979fcf538aa5858e4 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/button.json
+647cd87523b10e828205c0fc7c03ab463bfefb66 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/chest_boat.json
 d14966cf24a6cda3bae9ead286a7d9b41471b2b7 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/crafting_table.json
 5369d0378b8f806e3e43f0712e0ac977cd0bc7fc data/byg/advancements/recipes/byg.byg/wood/green_enchanted/door.json
 f6f30c29837842fe9e4a3c00c6e5b8d21c9fa52b data/byg/advancements/recipes/byg.byg/wood/green_enchanted/fence.json
@@ -167,6 +176,7 @@ a4a45cc8a2ff25fb5ba5c8a920d5360979ecc1c5 data/byg/advancements/recipes/byg.byg/w
 b68b60e69b1fb721b0b2bed85689d96ae9d1c919 data/byg/advancements/recipes/byg.byg/wood/holly/boat.json
 89c56b903d6721882710615762a3c223eff863ae data/byg/advancements/recipes/byg.byg/wood/holly/bookshelf.json
 b2f0b639da745bfa82d6454f6f2820b29cec0138 data/byg/advancements/recipes/byg.byg/wood/holly/button.json
+53c0e3b0bc5ce12739a7b6ea469b7f05ccfa97ea data/byg/advancements/recipes/byg.byg/wood/holly/chest_boat.json
 11257144fb8ee99d63614e3f2711d904fa805547 data/byg/advancements/recipes/byg.byg/wood/holly/crafting_table.json
 25724db66f8da3d7b382dad8a51475f4e0f2e47f data/byg/advancements/recipes/byg.byg/wood/holly/door.json
 a87d2077ecc021001d488bc334e91923fdc939d4 data/byg/advancements/recipes/byg.byg/wood/holly/fence.json
@@ -194,6 +204,7 @@ fe2bdada382f0fe6a5e6fb0b1f04be5689d8cb8a data/byg/advancements/recipes/byg.byg/w
 619dcb2ab877ad74c3f4757219435329f33a04ed data/byg/advancements/recipes/byg.byg/wood/jacaranda/boat.json
 b9ef475bc1efbecfbee821714d1248aa67dd5708 data/byg/advancements/recipes/byg.byg/wood/jacaranda/bookshelf.json
 9f56a533ca5f04fac18e17ad59d9aff3f5750b67 data/byg/advancements/recipes/byg.byg/wood/jacaranda/button.json
+d0adaf23c96f24432b0877d16b3aebed82d6ce66 data/byg/advancements/recipes/byg.byg/wood/jacaranda/chest_boat.json
 c4939611fe88218b68bc9a067abe55fd00f2a00c data/byg/advancements/recipes/byg.byg/wood/jacaranda/crafting_table.json
 0c127883073a7da290dada7cde808e49c53b4a64 data/byg/advancements/recipes/byg.byg/wood/jacaranda/door.json
 225573f31111c06b82e295fb028d812ef6f9582c data/byg/advancements/recipes/byg.byg/wood/jacaranda/fence.json
@@ -221,6 +232,7 @@ b2c99758028dc74b53a3fd2f2316c10155b39bfc data/byg/advancements/recipes/byg.byg/w
 a85b0baf9d95a8aef1c847f70659abcbd06f91c7 data/byg/advancements/recipes/byg.byg/wood/mahogany/boat.json
 9c116e34b962b9e7bbdde95b726abf7d808f8f8e data/byg/advancements/recipes/byg.byg/wood/mahogany/bookshelf.json
 4eb1101aa377151ca25a48c6899023dd6a462b9e data/byg/advancements/recipes/byg.byg/wood/mahogany/button.json
+a115fb1150d3cd5ccd88b3dcaf7b21cf067db1e9 data/byg/advancements/recipes/byg.byg/wood/mahogany/chest_boat.json
 ec9b14026bfc1dd9c24d69577e7bf62f9995d60a data/byg/advancements/recipes/byg.byg/wood/mahogany/crafting_table.json
 fb90769e5bf098dace60aa0c71bc45f8b2127e30 data/byg/advancements/recipes/byg.byg/wood/mahogany/door.json
 1ce4bb5caf8f10ce75e7c125634afff0d08c2245 data/byg/advancements/recipes/byg.byg/wood/mahogany/fence.json
@@ -235,6 +247,7 @@ df622e0c0ec116138db9b631563b6e6b05e1e068 data/byg/advancements/recipes/byg.byg/w
 bf11a127e1015f6ede92d90c10f705dac7ab6183 data/byg/advancements/recipes/byg.byg/wood/mangrove/boat.json
 a8582a190c303a47253b2c7e0ebfee4179789c24 data/byg/advancements/recipes/byg.byg/wood/mangrove/bookshelf.json
 aaac36b93d24006cff095496d0b42fe83e75f81e data/byg/advancements/recipes/byg.byg/wood/mangrove/button.json
+5a532c0826018e768e0da6a39689222696993f50 data/byg/advancements/recipes/byg.byg/wood/mangrove/chest_boat.json
 336da6760a73746b7f24b396de75ab170abbc504 data/byg/advancements/recipes/byg.byg/wood/mangrove/crafting_table.json
 2dd944b5fd8512608532ceb4df2d6ed83b66ee44 data/byg/advancements/recipes/byg.byg/wood/mangrove/door.json
 185b6e8089af6a2bfe96744bbdc0d79d4705f1a8 data/byg/advancements/recipes/byg.byg/wood/mangrove/fence.json
@@ -249,6 +262,7 @@ bbc51a6861ddf3d1864b5d727a86487ed37eaef2 data/byg/advancements/recipes/byg.byg/w
 349f6733be517992df272d783812607825fcdc1a data/byg/advancements/recipes/byg.byg/wood/maple/boat.json
 85e2317e28e5dda06eaa7fd1b438ac1ebbb8689e data/byg/advancements/recipes/byg.byg/wood/maple/bookshelf.json
 9c9bd643abff0d68dddeba93ea2acea1931a3c2a data/byg/advancements/recipes/byg.byg/wood/maple/button.json
+e46650c6376e0df11128723c359112fd21921a5b data/byg/advancements/recipes/byg.byg/wood/maple/chest_boat.json
 0f6812af925e1594f83e66f0500cf16d6582b66d data/byg/advancements/recipes/byg.byg/wood/maple/crafting_table.json
 253fa1f933ff2a1ec045318daae005f48b0e1891 data/byg/advancements/recipes/byg.byg/wood/maple/door.json
 5a9b718dc1fdb5f7821f1a60355f3bbbfa18cc9f data/byg/advancements/recipes/byg.byg/wood/maple/fence.json
@@ -276,6 +290,7 @@ cafb5553e0f5c82b7ccf03d2d2bbcd29eed99847 data/byg/advancements/recipes/byg.byg/w
 b3487fb3e5b147ed4bbe578929b3901f894de49a data/byg/advancements/recipes/byg.byg/wood/palm/boat.json
 d979e8875b60482de798549d50f16fb3c070c6b1 data/byg/advancements/recipes/byg.byg/wood/palm/bookshelf.json
 79977cea1c1de1a1454d99a01c582cdc535a8b13 data/byg/advancements/recipes/byg.byg/wood/palm/button.json
+08d16376a0a772425fa2bc9724314e7654bd6540 data/byg/advancements/recipes/byg.byg/wood/palm/chest_boat.json
 17072cbeda1057a24fb3bbcc0708f2a2dfd3b56d data/byg/advancements/recipes/byg.byg/wood/palm/crafting_table.json
 e4e120e1a2938857ba83d1e1f88cbebf04d64257 data/byg/advancements/recipes/byg.byg/wood/palm/door.json
 d6debd1163ad4b39137f98de0ebdf33b13ece7bb data/byg/advancements/recipes/byg.byg/wood/palm/fence.json
@@ -290,6 +305,7 @@ a6d0af74db7553c0c70b7fe9c538528d91a41a34 data/byg/advancements/recipes/byg.byg/w
 2dc871a851088a99fcb741c672ddfee7978824f8 data/byg/advancements/recipes/byg.byg/wood/pine/boat.json
 8a09e79dfec0565db31ec5f0f0e9e7c0d9e698a9 data/byg/advancements/recipes/byg.byg/wood/pine/bookshelf.json
 2f3d8e46d1b7a204636cdb7498deba686b97a705 data/byg/advancements/recipes/byg.byg/wood/pine/button.json
+d91277a2bb5fc2eec1e955bc34a66243c987d7d5 data/byg/advancements/recipes/byg.byg/wood/pine/chest_boat.json
 b6e584ad073d11a499574c0b0b25706ebe74baf5 data/byg/advancements/recipes/byg.byg/wood/pine/crafting_table.json
 b1435c6b3ab6585bb1251861ca15eb606824c0a3 data/byg/advancements/recipes/byg.byg/wood/pine/door.json
 2b93aec7874df4f3aac90669810b07edd9a2d93c data/byg/advancements/recipes/byg.byg/wood/pine/fence.json
@@ -304,6 +320,7 @@ c227da77408018678aead45eaee814867852eedd data/byg/advancements/recipes/byg.byg/w
 441661cf9391ba81f1e1ddb353cdea04e4c07628 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/boat.json
 e03691dcf6b16d1fa849d018a609efedb2dc96d7 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/bookshelf.json
 306db42b4a78c4abd8d3e14b3018b154c103393a data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/button.json
+65632bdcc4041494e2b62cc5d7ed71b4e4cecd61 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/chest_boat.json
 5bbad0ebc0ec7e437e2d3337b4c2fa0bed4795e9 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/crafting_table.json
 038230696422d9481c25a5ddaf0fd71b7509d794 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/door.json
 3ff6397ab8329ae52c8c36ded024103cd71d4a6a data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/fence.json
@@ -318,6 +335,7 @@ f5ff443440af2d9a397a879c48c960c580a31060 data/byg/advancements/recipes/byg.byg/w
 983b3ce4e2a44ccdbd528ed6c49d01b238790731 data/byg/advancements/recipes/byg.byg/wood/redwood/boat.json
 abfdfbe907eeeea59ffd0d0af9d763533ee1f5bc data/byg/advancements/recipes/byg.byg/wood/redwood/bookshelf.json
 1295dcc1a5e8c7871d70e0d193c836acd2d653b4 data/byg/advancements/recipes/byg.byg/wood/redwood/button.json
+24028ff1b1058d57bcde4187a2ff566e7b0a973c data/byg/advancements/recipes/byg.byg/wood/redwood/chest_boat.json
 9cbfef58d64d85a100df18e299d7048dfb66f572 data/byg/advancements/recipes/byg.byg/wood/redwood/crafting_table.json
 97ad2357280ba4938888978c3cd09f8e02f9f05c data/byg/advancements/recipes/byg.byg/wood/redwood/door.json
 47f19d77af8d7aad11e5cf19ffec1b2483f6d3a0 data/byg/advancements/recipes/byg.byg/wood/redwood/fence.json
@@ -332,6 +350,7 @@ e1bd8a1a409d59f80452fbb8591033e88d90647e data/byg/advancements/recipes/byg.byg/w
 10a5ad8e4f86173cf65091afc6053063691d2483 data/byg/advancements/recipes/byg.byg/wood/skyris/boat.json
 4005609577e289833df05af9d945e9379f7397ea data/byg/advancements/recipes/byg.byg/wood/skyris/bookshelf.json
 2df24be5f9e2e4f8e76bb2b938732b412fa9a937 data/byg/advancements/recipes/byg.byg/wood/skyris/button.json
+33f2b83f260e79fdd4a93af9aec8d432a7793b80 data/byg/advancements/recipes/byg.byg/wood/skyris/chest_boat.json
 a5d7eb2c7ec73bba8c023e3011f057a913afdc8d data/byg/advancements/recipes/byg.byg/wood/skyris/crafting_table.json
 b8384532aaa8944a941a0e059d8c0a5f1130f833 data/byg/advancements/recipes/byg.byg/wood/skyris/door.json
 11be1ece318f6cb5f49dcbe2bf3aced78cae7bc0 data/byg/advancements/recipes/byg.byg/wood/skyris/fence.json
@@ -359,6 +378,7 @@ d18369be60a80cd041abba3b1d4a465b24572196 data/byg/advancements/recipes/byg.byg/w
 3e9c3940c3e91080f81bbe66f192e25d8e520d4a data/byg/advancements/recipes/byg.byg/wood/willow/boat.json
 512675ce25429e1b3acd987a5db1937e6e17b4a4 data/byg/advancements/recipes/byg.byg/wood/willow/bookshelf.json
 b2973b22006ba8ee8e801b9ef2efdbf41a71275e data/byg/advancements/recipes/byg.byg/wood/willow/button.json
+f4d61d6a719322677e244703c89a93e3ccb16ff9 data/byg/advancements/recipes/byg.byg/wood/willow/chest_boat.json
 81a6eb0c91516b6501fac092081c9d13d97378e2 data/byg/advancements/recipes/byg.byg/wood/willow/crafting_table.json
 4f9e1560c555738806ad9e1017aeb06a418feff8 data/byg/advancements/recipes/byg.byg/wood/willow/door.json
 a01cf97215442adb0dbc9e748d145c92a89fcd54 data/byg/advancements/recipes/byg.byg/wood/willow/fence.json
@@ -373,6 +393,7 @@ eefdd68159d9173dba476a4f193e920ef671da42 data/byg/advancements/recipes/byg.byg/w
 3f0e150fbee7335648a35f6ffa9f6260109484ec data/byg/advancements/recipes/byg.byg/wood/witch_hazel/boat.json
 32b26523f9eaba4c35123dc7b237d6b548900402 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/bookshelf.json
 f1722c40754c917ff220eee63fd1f1631cd3f115 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/button.json
+2ac884f390a0d1e4d741a6d68ac96c4d39aa2186 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/chest_boat.json
 716eececae6ef11fe3080a9f82921f638725529e data/byg/advancements/recipes/byg.byg/wood/witch_hazel/crafting_table.json
 6d43a610bfb7e3021d4728c7b5bce7972087aa54 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/door.json
 bbcb8e0f2d746781af42dc80de2cb7b30e4150e7 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/fence.json
@@ -387,6 +408,7 @@ ce9f44dc0fae9b1f4fd1dbe500953200bb028d51 data/byg/advancements/recipes/byg.byg/w
 d5aebd3153ca9bf552fef99f85c4d78e82b08613 data/byg/advancements/recipes/byg.byg/wood/zelkova/boat.json
 c58d59879cd5e7a5a9a10856ef432fdf2730bcdc data/byg/advancements/recipes/byg.byg/wood/zelkova/bookshelf.json
 c56dc19fb18ace83113c5cf26158ce2e3ddf6d57 data/byg/advancements/recipes/byg.byg/wood/zelkova/button.json
+45692c0ea8d0c4f9eb0d1c0e567edc55a83c57d9 data/byg/advancements/recipes/byg.byg/wood/zelkova/chest_boat.json
 5063e429e797f54ff5efeb7808845b588a2bd6ac data/byg/advancements/recipes/byg.byg/wood/zelkova/crafting_table.json
 1d37360726454e1eab42855cb18c085dc78772c4 data/byg/advancements/recipes/byg.byg/wood/zelkova/door.json
 da774e1bf33da51be947379da7a883508f0e2afd data/byg/advancements/recipes/byg.byg/wood/zelkova/fence.json
@@ -401,6 +423,7 @@ bbeefafac74edb0d46cb37be017b9eb4517f38bb data/byg/advancements/recipes/byg.byg/w
 832d1c7fb7f2e6ea9bee2fc6572ff682a46b6634 data/byg/recipes/wood/aspen/boat.json
 de55cdeff38b2adb2943a845acb0b65c37ecfd31 data/byg/recipes/wood/aspen/bookshelf.json
 5291ebc52c9c5b52cbbb6e124e394dd82d44df88 data/byg/recipes/wood/aspen/button.json
+96b331ab9d9f5dcb71ab0be8954409a7daefee99 data/byg/recipes/wood/aspen/chest_boat.json
 37ca5f1f1fee5784e036e2fa313ab23a86350e4b data/byg/recipes/wood/aspen/crafting_table.json
 d56051fc76112a7a25ff230642b63f5c15dfcac4 data/byg/recipes/wood/aspen/door.json
 d66b22caa9665c327bd04a9f2e34a2dbbd4a31bd data/byg/recipes/wood/aspen/fence.json
@@ -415,6 +438,7 @@ d44da8c1fc1d25478e2fe0bb9e06c48e7e0e1b8e data/byg/recipes/wood/aspen/stairs.json
 102a394f10d218bdeeeeda28bd307d4232090d17 data/byg/recipes/wood/baobab/boat.json
 180aad345acba86e30793f2e24f33c2931357ce3 data/byg/recipes/wood/baobab/bookshelf.json
 ff30d27d475f1394887611be1a733b750304d017 data/byg/recipes/wood/baobab/button.json
+41b376df25c077b0e16624d41c099956e478b010 data/byg/recipes/wood/baobab/chest_boat.json
 9f7214ccc0d304dae2bed65365089bfb3aa60a41 data/byg/recipes/wood/baobab/crafting_table.json
 191c8072e9ee8909f65322eeb3774d82a36579e6 data/byg/recipes/wood/baobab/door.json
 a8fef354e1bcad40abb64b6516f948072f270951 data/byg/recipes/wood/baobab/fence.json
@@ -429,6 +453,7 @@ dd73efc98689e3de0f5c72db59a8fd6f098c75f3 data/byg/recipes/wood/baobab/trapdoor.j
 257c890c34de1dd23bbd1416a8a062bc847f7e3b data/byg/recipes/wood/blue_enchanted/boat.json
 1e82f92266425519a0a2ea12c0b7e73c4b30d259 data/byg/recipes/wood/blue_enchanted/bookshelf.json
 b3f3966ee895c3d28709e6a4924f9c557270057c data/byg/recipes/wood/blue_enchanted/button.json
+1766fc07feb670fb3f607799499d3c476f12bf5e data/byg/recipes/wood/blue_enchanted/chest_boat.json
 3563617b6735c15fbaa0ea0aa62b08da35d69853 data/byg/recipes/wood/blue_enchanted/crafting_table.json
 cbad7e748b694652329563dc355baaa3d755b8f1 data/byg/recipes/wood/blue_enchanted/door.json
 f54dfbca09fdc8f9c7e9e95a4eb34a6e67b92014 data/byg/recipes/wood/blue_enchanted/fence.json
@@ -456,6 +481,7 @@ de3391461aed36a2c7cbcc52187b800ca37a8200 data/byg/recipes/wood/bulbis/wood.json
 a6b4549650cf796b25dc34d028caad54e9844732 data/byg/recipes/wood/cherry/boat.json
 b1c1cb13a523e224bfea78dc2d26ba7c8de400cf data/byg/recipes/wood/cherry/bookshelf.json
 58694f40b725d11fe959d7cb13ae38a066be7749 data/byg/recipes/wood/cherry/button.json
+d4df0a042a504bbcfe349b754b8e213840803253 data/byg/recipes/wood/cherry/chest_boat.json
 83b0e2465c3797a07b4011ec362de42818e21451 data/byg/recipes/wood/cherry/crafting_table.json
 bb3ef8770215c98b2b06e3237bf5f8846f893a0e data/byg/recipes/wood/cherry/door.json
 1df3220726736f57028385ce0364870e5571bc14 data/byg/recipes/wood/cherry/fence.json
@@ -470,6 +496,7 @@ db9608c0e655f26bde4352d02476bbd95bafe91a data/byg/recipes/wood/cherry/wood.json
 2194d30a24dc8fc031043e0c83a143970c9ddf54 data/byg/recipes/wood/cika/boat.json
 5ace53e63af8d4efd6c081a659ec4c4f875f83fd data/byg/recipes/wood/cika/bookshelf.json
 82fcd2fa1aaa532b54fa5d3c257b43308a960f63 data/byg/recipes/wood/cika/button.json
+146ed3eaceea93360549f068325b4f8f9d9bc096 data/byg/recipes/wood/cika/chest_boat.json
 218362fc04060cadde7252512d3375a8f90dc6b6 data/byg/recipes/wood/cika/crafting_table.json
 be961fd157b29ca334c4583c7f820af814bae482 data/byg/recipes/wood/cika/door.json
 084c648747a2ca03ea51b740c6a574db81a6de93 data/byg/recipes/wood/cika/fence.json
@@ -484,6 +511,7 @@ c9f0e4d51ed17a635cdba91258cf7b79ba2127b3 data/byg/recipes/wood/cika/sign.json
 e4bb0834349e5052187562e5cb848f099214a318 data/byg/recipes/wood/cypress/boat.json
 a6e2d45672f0b676a378d7750eb8f6659da13f87 data/byg/recipes/wood/cypress/bookshelf.json
 36cf9f1b9689d88c8007dd37522f526bf5fed421 data/byg/recipes/wood/cypress/button.json
+5397fabe65e1320c51a44aab5d57037e909e5e00 data/byg/recipes/wood/cypress/chest_boat.json
 fe788220d92dd124a6fe52e4354ec23450c395dc data/byg/recipes/wood/cypress/crafting_table.json
 66787ee4ad678ea7df61b3ed3087314e1631f5ce data/byg/recipes/wood/cypress/door.json
 60ee53ddf07d36ba3e636d7612d7770ee008bab9 data/byg/recipes/wood/cypress/fence.json
@@ -498,6 +526,7 @@ cc0128f3470feff3ff956595b4f6a74ad3281d3e data/byg/recipes/wood/cypress/wood.json
 1fec7a83be427319d1bdf0fac32769d243258910 data/byg/recipes/wood/ebony/boat.json
 49dafe29ab304558a46a9b3b1eb8a88ab6c8c7be data/byg/recipes/wood/ebony/bookshelf.json
 c4446e66da68a8c3f80c56966a1676d47df55f55 data/byg/recipes/wood/ebony/button.json
+5f17b8e94e9a1b834f86fad68259ce8594ea2022 data/byg/recipes/wood/ebony/chest_boat.json
 66f695e01405771f1183e3b42b2cdd08aafa0d33 data/byg/recipes/wood/ebony/crafting_table.json
 ebb3932344aa81c3e6abc28b5afec0886db5ad1a data/byg/recipes/wood/ebony/door.json
 90af85f449cd9ee16a33cca8b2d02249f504709c data/byg/recipes/wood/ebony/fence.json
@@ -538,6 +567,7 @@ cb75cb85a8f337d24a232055d34ba8e051f270d5 data/byg/recipes/wood/ether/sign.json
 10dd4c3b3ff923d03301087ee9d8e01ec6fa2494 data/byg/recipes/wood/fir/boat.json
 37849257b22f413402f1a1d9deaaa10e48a59dbe data/byg/recipes/wood/fir/bookshelf.json
 1bda4a121d8f1111710aabb4d2862adafa11fc48 data/byg/recipes/wood/fir/button.json
+2a1e1ab162956297868f6ae31ff4d80c00790131 data/byg/recipes/wood/fir/chest_boat.json
 18a066a282c75e24816f48011a15e481f43094be data/byg/recipes/wood/fir/crafting_table.json
 7cae957344c3ca77fc6527018d33312de4f9b2bb data/byg/recipes/wood/fir/door.json
 2c359e578eaa04a82bde65f28bcd7124119b7aaf data/byg/recipes/wood/fir/fence.json
@@ -552,6 +582,7 @@ aa12f91f3ac41f6209556e04e6301169b3eb692b data/byg/recipes/wood/fir/sign.json
 239ebce206dd81501bb05865ba5a8e562a4b6f32 data/byg/recipes/wood/green_enchanted/boat.json
 e638953e0092972d26bf88bef7107244a84a5ccc data/byg/recipes/wood/green_enchanted/bookshelf.json
 dfc32e887de610c027cd0438c125146376e54aef data/byg/recipes/wood/green_enchanted/button.json
+1edb657fc16f5922fbb3ebfd9865073a3b9a3163 data/byg/recipes/wood/green_enchanted/chest_boat.json
 685717b92ccc3e96ca9959d979eb73c5d8592434 data/byg/recipes/wood/green_enchanted/crafting_table.json
 3df7912b5bd262d3b34d65c3d1a91eb6c079e889 data/byg/recipes/wood/green_enchanted/door.json
 d7a42a585c26514a6cbe031ec0dd87afc987e2f3 data/byg/recipes/wood/green_enchanted/fence.json
@@ -566,6 +597,7 @@ b2bd4f6636441c0dd51d538e7bcb108019e67c55 data/byg/recipes/wood/green_enchanted/s
 edbc418a58548ba901da6d9b3f401261863baf8c data/byg/recipes/wood/holly/boat.json
 45750c1fcef96afb9e2d6c612ba168f219bb2be9 data/byg/recipes/wood/holly/bookshelf.json
 75113a2f04e64b004c78c692e5b26fa1afb5cf4a data/byg/recipes/wood/holly/button.json
+c42631b927a6d50174e7eb648228ffa2e4bbdd18 data/byg/recipes/wood/holly/chest_boat.json
 8c169e709d0e9a024acf2de364f53ec78be028ee data/byg/recipes/wood/holly/crafting_table.json
 ab18b8dfba27a474487aa28c0ca96c5ee7ab490b data/byg/recipes/wood/holly/door.json
 ae7612f8695d8053d9a1b1fa1c055819064757dc data/byg/recipes/wood/holly/fence.json
@@ -593,6 +625,7 @@ baa89b63c2d1ca4fcfcae67aee7e672bcb97a705 data/byg/recipes/wood/imparius/sign.jso
 344c8fa2d6aa8f10b9bfde594d80c355995fc0f4 data/byg/recipes/wood/jacaranda/boat.json
 d04d259feb58b1b30a8339f6006f94e961b7e9ce data/byg/recipes/wood/jacaranda/bookshelf.json
 61a9ab58a4addd9bad8be05c1f11d77961cf7004 data/byg/recipes/wood/jacaranda/button.json
+26c9c0cb6aa88e96143d7b6992380ad90556cf9b data/byg/recipes/wood/jacaranda/chest_boat.json
 c92a75a81248f06f420ffbc6b68d14e6b4d06978 data/byg/recipes/wood/jacaranda/crafting_table.json
 c142443be85502a1f98b9a44cdbf482f5bf16432 data/byg/recipes/wood/jacaranda/door.json
 93a1020dbc1f0debf2bd38a7f9b288c4d3bf8c66 data/byg/recipes/wood/jacaranda/fence.json
@@ -620,6 +653,7 @@ e4f222ee49a7b52c90136b78443c6eee08f7b779 data/byg/recipes/wood/lament/trapdoor.j
 3583129bc4a509961a1062f640645fda4318c039 data/byg/recipes/wood/mahogany/boat.json
 c8fe7d730ddd567dbf9d71fbc786556e100d349a data/byg/recipes/wood/mahogany/bookshelf.json
 431af4ee6543b0c988206a5ca6748752b21272e6 data/byg/recipes/wood/mahogany/button.json
+ee1484f26dbcba37640ab2423d1ad05612636f5b data/byg/recipes/wood/mahogany/chest_boat.json
 8b8fb3693bcfde6834a679f01b550285e9f487b3 data/byg/recipes/wood/mahogany/crafting_table.json
 820cd3dc57a14ac50964ef26b2ceb3717b2a509c data/byg/recipes/wood/mahogany/door.json
 9daa94009851ecf2cecf95feefe9a5d8f54fc8b1 data/byg/recipes/wood/mahogany/fence.json
@@ -634,6 +668,7 @@ cba00bd01caa60a199b6707e936db57dedf46585 data/byg/recipes/wood/mahogany/trapdoor
 e83004ed45763079488fd5910eb44dded03d60ea data/byg/recipes/wood/mangrove/boat.json
 ee65e91fe8333b931497cdb11e24937db8000908 data/byg/recipes/wood/mangrove/bookshelf.json
 6998c44557f1df682b2ecb86f5ef0b27090beb11 data/byg/recipes/wood/mangrove/button.json
+8d5b7201eea17362bc5025cfab2e6a0c45e79f07 data/byg/recipes/wood/mangrove/chest_boat.json
 55d9c98bcfd2fca7f62bd8f8f89f3bad67167e82 data/byg/recipes/wood/mangrove/crafting_table.json
 986ee9845f38e73066bda81e6ee90cde0607a897 data/byg/recipes/wood/mangrove/door.json
 eeadba00813c23bb57a473851437129c0cd1cd6d data/byg/recipes/wood/mangrove/fence.json
@@ -648,6 +683,7 @@ eac4c35d2e21eba38d380b42fa780e2e2d15930b data/byg/recipes/wood/mangrove/stairs.j
 29e5c4876bd778668aa3c61842bf232a2bd6fd94 data/byg/recipes/wood/maple/boat.json
 b0fcb7f8b5a378d0fa9584083fffac79f747fb8f data/byg/recipes/wood/maple/bookshelf.json
 688f6e95fbaf379c491f96365170d6abca5ae963 data/byg/recipes/wood/maple/button.json
+2d7b9538aa06d6d9ab6690b876ef3bf2d8e6dc37 data/byg/recipes/wood/maple/chest_boat.json
 76eaed71608a03309ac1cbbf96f161fb29a76689 data/byg/recipes/wood/maple/crafting_table.json
 fd9554c221c5988b7801b4fa00350e9e84074445 data/byg/recipes/wood/maple/door.json
 1e97e412ec092ad718672eaf8f3409a88d72dd83 data/byg/recipes/wood/maple/fence.json
@@ -675,6 +711,7 @@ d29191ce031a30a6fa53e3c06fe68d20f97d255e data/byg/recipes/wood/nightshade/trapdo
 83fbee3abf003fafb3e263101d4c89070127778e data/byg/recipes/wood/palm/boat.json
 038c7b9a4427a73dfc49628e0bbd0bf6b41bcf40 data/byg/recipes/wood/palm/bookshelf.json
 f05e0c4c2dd3901053810b2467ed218b8e67eaff data/byg/recipes/wood/palm/button.json
+58138121fd88b5f1e59fde45299d08eca809437c data/byg/recipes/wood/palm/chest_boat.json
 09945888ea40280481811b3c15cedd920bea187a data/byg/recipes/wood/palm/crafting_table.json
 998cfeb04de0574031afe140fab79acc8b726e26 data/byg/recipes/wood/palm/door.json
 7c3737ec3f9f5744905587a4fcd4fcdfaa958062 data/byg/recipes/wood/palm/fence.json
@@ -689,6 +726,7 @@ bcc047b050fb9e9ffe84f5d0a70c2e70e79d6ae0 data/byg/recipes/wood/palm/wood.json
 5319e7f356a2855e01ff263f1775d15443f25ec5 data/byg/recipes/wood/pine/boat.json
 e4e96213fc51f43cf0d04950a45c4d9395389dcc data/byg/recipes/wood/pine/bookshelf.json
 ae995b9db2c3c709e5d44f53d39e7acc2e15ba1d data/byg/recipes/wood/pine/button.json
+37341744688371505ef3f6b6481815319d54e734 data/byg/recipes/wood/pine/chest_boat.json
 9cdbc3425f9d3756fa4f48c1d29bc47623047a4c data/byg/recipes/wood/pine/crafting_table.json
 bd6b48115046355f986bf514afac1df73c351db9 data/byg/recipes/wood/pine/door.json
 da6b90fa8e2df1136763d0a7984e130b970e6946 data/byg/recipes/wood/pine/fence.json
@@ -703,6 +741,7 @@ e018edce893a1348b37e229e45d3879fbc2ae33f data/byg/recipes/wood/pine/wood.json
 d9f3cc53b2ca42495d9679a931c184a84e5355c6 data/byg/recipes/wood/rainbow_eucalyptus/boat.json
 9cfccc058c769a08ef46423f6d4594c851ebca23 data/byg/recipes/wood/rainbow_eucalyptus/bookshelf.json
 9ac8adc16e31885a344b33275e878deb1c5cb380 data/byg/recipes/wood/rainbow_eucalyptus/button.json
+9c59042303d3e0bcc62e738354726e25eb4bce78 data/byg/recipes/wood/rainbow_eucalyptus/chest_boat.json
 0ea2c8fece4004cb1fc221962e0e8b926209ffd2 data/byg/recipes/wood/rainbow_eucalyptus/crafting_table.json
 f38590ec4bd70c336432783602cd225fa201e65e data/byg/recipes/wood/rainbow_eucalyptus/door.json
 4efae0262b56286d6536c13a42578559c1176d00 data/byg/recipes/wood/rainbow_eucalyptus/fence.json
@@ -717,6 +756,7 @@ e6cb4309e98047ddd1ff5db7349394aa062dd8a1 data/byg/recipes/wood/rainbow_eucalyptu
 08e82c95f75bb3c7118310a62a7b08eb7a8e097e data/byg/recipes/wood/redwood/boat.json
 a3a04ba8f8c19fcf44ca6cdfd74eb7944e7077cc data/byg/recipes/wood/redwood/bookshelf.json
 01129f26f7ad391c7f605b6064e8a2fdb2b72ebc data/byg/recipes/wood/redwood/button.json
+c53172515caf3ba97a70d905d28bde005edb5091 data/byg/recipes/wood/redwood/chest_boat.json
 7ccb4556709ee719906faa88a800f1dcf337797a data/byg/recipes/wood/redwood/crafting_table.json
 2e888faeecb9f2cb2f4edd013d2148a11c02d359 data/byg/recipes/wood/redwood/door.json
 ac00741fca343645191d74c2947d8a7eba8f503e data/byg/recipes/wood/redwood/fence.json
@@ -731,6 +771,7 @@ ba062e4b917f7a61e1f29a993b31cbf5d403ce23 data/byg/recipes/wood/redwood/wood.json
 ec7cc69e334fe00e1d470efd9138851831c10ad3 data/byg/recipes/wood/skyris/boat.json
 f57d62fd7b387c1ed6a254eab2da1b238a8477a6 data/byg/recipes/wood/skyris/bookshelf.json
 ce0ae2f35eca46e2003170232499a4234bf3c551 data/byg/recipes/wood/skyris/button.json
+625bcb1c013ca22fd62342e221a3c6fb136e33f3 data/byg/recipes/wood/skyris/chest_boat.json
 641ba363927ad1c04c6479cccce87521e823bbc0 data/byg/recipes/wood/skyris/crafting_table.json
 79d6e5d5d8bc9c2b0247f9e12d59595e6ace64f3 data/byg/recipes/wood/skyris/door.json
 a844ff1225b4ebec426f5590c1423b7911a164e5 data/byg/recipes/wood/skyris/fence.json
@@ -758,6 +799,7 @@ beaf453c94627af60bc67c0cc4426c8883051f30 data/byg/recipes/wood/sythian/trapdoor.
 1394ec8ac6f993f1c4a7ee6b48079bebe7fdfd31 data/byg/recipes/wood/willow/boat.json
 0ff359bf0e17415b705431edb4372a08167d7738 data/byg/recipes/wood/willow/bookshelf.json
 cc89e9786097bca4658fcdb87e6a6018433a1888 data/byg/recipes/wood/willow/button.json
+f017c6427d0043c505070f560cac2288b5bbdcb2 data/byg/recipes/wood/willow/chest_boat.json
 083f59cf8e2879f13c98eff571e880af0dc2650a data/byg/recipes/wood/willow/crafting_table.json
 7349ee63baab1456b9f1a8f300827b3df946f754 data/byg/recipes/wood/willow/door.json
 a5eb17c738522fd2b0e6bc0d4eb40295821f371d data/byg/recipes/wood/willow/fence.json
@@ -772,6 +814,7 @@ ea0803f163d6f95b9df29ff1fdc31bdbb1ba90db data/byg/recipes/wood/willow/wood.json
 53ff21ce7db7b40d47ed099cf4eefecf769453f1 data/byg/recipes/wood/witch_hazel/boat.json
 4c77051db305360bda4904e1e778d0df90fffd25 data/byg/recipes/wood/witch_hazel/bookshelf.json
 abd27c4de2ac1c124e215d5a0a4b5e7e3cb4b996 data/byg/recipes/wood/witch_hazel/button.json
+a4bfc9bc85fa18ce0a5b632fa5f5136aa5cb6c8e data/byg/recipes/wood/witch_hazel/chest_boat.json
 b6d464e989f403cbf306d66eb7b617c3dd1d9561 data/byg/recipes/wood/witch_hazel/crafting_table.json
 df8e6409f48d7d01d089db85cdcff02aed4991d4 data/byg/recipes/wood/witch_hazel/door.json
 f7f1c4a2837771c4bb2d5e04fff79c96b564dd1f data/byg/recipes/wood/witch_hazel/fence.json
@@ -786,6 +829,7 @@ a15887a8967fcf348f7597acb132178a826deb2d data/byg/recipes/wood/witch_hazel/wood.
 720ab15856f60bbf33faf83142cb93195bec9524 data/byg/recipes/wood/zelkova/boat.json
 208279313aefae7e090dc5f33119c7f32f6dc024 data/byg/recipes/wood/zelkova/bookshelf.json
 5c5c27712699087ffd6085d48071e948b4729345 data/byg/recipes/wood/zelkova/button.json
+5acb93b87c800700dbf1524dbc701387037adcf7 data/byg/recipes/wood/zelkova/chest_boat.json
 d3606368c70f8f191199c0b55a896fb7c0008777 data/byg/recipes/wood/zelkova/crafting_table.json
 03c9851f9851b79f693917524b9779fa5ed10ef6 data/byg/recipes/wood/zelkova/door.json
 ca73a5c3c358fe90ba751a803a8e5bb4b221858e data/byg/recipes/wood/zelkova/fence.json
