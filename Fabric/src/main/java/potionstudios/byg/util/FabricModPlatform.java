@@ -2,9 +2,13 @@ package potionstudios.byg.util;
 
 import com.google.auto.service.AutoService;
 import net.fabricmc.api.EnvType;
+import net.fabricmc.fabric.api.event.Event;
+import net.fabricmc.fabric.api.event.EventFactory;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -15,9 +19,15 @@ import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.nio.file.Path;
+import java.util.List;
 
 @AutoService(ModPlatform.class)
 public class FabricModPlatform implements ModPlatform {
+    public static final Event<TagsUpdatedEvent> TAGS_UPDATED_EVENT = EventFactory.createArrayBacked(TagsUpdatedEvent.class, callbacks -> world -> {
+        for (final var sub : callbacks) {
+            sub.onTagsUpdated(world);
+        }
+    });
 
     @Override
     public Path configPath() {
@@ -67,5 +77,10 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public String curseForgeURL() {
         return "https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files";
+    }
+
+    @Override
+    public void addTagsUpdatedListener(TagsUpdatedEvent event) {
+        TAGS_UPDATED_EVENT.register(event);
     }
 }

@@ -18,7 +18,7 @@ public class BYGEntityTagsProvider extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags() {
-        final var boatTag = TagKey.create(Registry.ENTITY_TYPE_REGISTRY, BYG.createLocation("boats"));
+        final var boatTag = BYGTags.BOATS.byg(BYGTags.RegistryType.ENTITY_TYPES);
         tag(boatTag).add(BYGEntities.BOAT.get());
         tag(boatTag).add(BYGEntities.CHEST_BOAT.get());
 

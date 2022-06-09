@@ -5,6 +5,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TagsUpdatedEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -70,5 +72,10 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public String tagNameSpace() {
         return "forge";
+    }
+
+    @Override
+    public void addTagsUpdatedListener(TagsUpdatedEvent onTagsUpdated) {
+        MinecraftForge.EVENT_BUS.addListener((final net.minecraftforge.event.TagsUpdatedEvent event) -> onTagsUpdated.onTagsUpdated(event.getTagManager()));
     }
 }

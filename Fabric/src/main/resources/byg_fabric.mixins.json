@@ -10,7 +10,8 @@
     "client.MixinItemColors",
     "client.MixinLayerDefinitions",
     "client.MixinMinecraft",
-    "client.access.AccessEntityRenderers"
+    "client.access.AccessEntityRenderers",
+    "dev.ReloadableServerResourcesMixin"
   ],
   "server": [
     "server.MixinDedicatedServer"

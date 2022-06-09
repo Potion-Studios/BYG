@@ -33,6 +33,7 @@ import java.util.function.Supplier;
 
 import static net.minecraft.tags.ItemTags.create;
 import static potionstudios.byg.BYG.createLocation;
+import static potionstudios.byg.common.BYGTags.*;
 
 public class BYGItemTagsProvider extends ItemTagsProvider {
     public BYGItemTagsProvider(DataGenerator p_126530_, BlockTagsProvider p_126531_, @Nullable ExistingFileHelper existingFileHelper) {
@@ -45,7 +46,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
             tag(type.logTag().item(), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
         }
 
-        final var saplingsTag = tag(ItemTags.SAPLINGS);
+        final var saplingsTag = tag(SAPLINGS.byg(RegistryType.ITEMS));
         BYGItems.SAPLINGS.stream().map(RegistryObject::get).forEach(saplingsTag::add);
 
         BYGBlockTagsProvider.EXTRA_WOOD_TYPES.forEach(type -> copy(BlockTags.create(type), create(type)));
@@ -63,19 +64,21 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);
         copy(BlockTags.WOODEN_TRAPDOORS, ItemTags.WOODEN_TRAPDOORS);
 
-        copy(BlockTags.STAIRS, ItemTags.STAIRS);
-        copy(BlockTags.SLABS, ItemTags.SLABS);
-        copy(BlockTags.BUTTONS, ItemTags.BUTTONS);
-        copy(BlockTags.SAND, ItemTags.SAND);
+        copy(STAIRS);
+        copy(SLABS);
+        copy(BUTTONS);
+        copy(SAND);
+        copy(SCAFFOLDING);
+        copy(CAMPFIRES);
+        copy(ICE);
+
         copy(BYGBlockTags.MUSHROOMS, bygTag("mushrooms"));
 
         new PredicatedTagProvider<>(BYGItems.PROVIDER)
-            .add(isBlockMaterial(Material.LEAVES), ItemTags.LEAVES) // Can't copy this one due to slight differences
+            .add(isBlockMaterial(Material.LEAVES), LEAVES.byg(RegistryType.ITEMS)) // Can't copy this one due to slight differences
             .run(this::tag);
 
-        tag(BYGItemTags.STICKS)
-            .add(Items.STICK)
-            .addOptionalTag(Tags.Items.RODS_WOODEN.location());
+        tag(STAIRS.byg(RegistryType.ITEMS)).add(Items.STICK);
 
         for (BYGTags tag : BYGTags.values()) {
             DatagenUtils.addBYGTag(this::tag, tag, Registry.ITEM_REGISTRY);

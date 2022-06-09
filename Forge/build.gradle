@@ -160,6 +160,9 @@ processResources {
     filesMatching("${mod_id}.mixins.json") {
         expand "refmap_target": "${mod_id}."
     }
+    exclude '.cache/**'
+
+    exclude("data/c/tags/**")
 }
 
 jar.finalizedBy('reobfJar')

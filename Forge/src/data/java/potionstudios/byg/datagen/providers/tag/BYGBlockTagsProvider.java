@@ -28,6 +28,7 @@ import java.util.function.Supplier;
 import static net.minecraft.tags.BlockTags.create;
 import static potionstudios.byg.BYG.createLocation;
 import static potionstudios.byg.common.block.BYGBlocks.*;
+import static potionstudios.byg.common.BYGTags.*;
 
 @SuppressWarnings("ALL")
 public class BYGBlockTagsProvider extends BlockTagsProvider {
@@ -49,21 +50,21 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final Material[] shovelMaterials = { Material.DIRT, Material.GRASS, Material.SAND, Material.CLAY };
 
         new PredicatedTagProvider<>(PROVIDER)
-            .forInstance(SlabBlock.class, BYGBlockTags.SLABS)
-            .forInstance(StairBlock.class, BlockTags.STAIRS)
-            .forInstance(ButtonBlock.class, BlockTags.BUTTONS)
-            .forInstance(BYGSaplingBlock.class, BlockTags.SAPLINGS)
+            .forInstance(SlabBlock.class, bygTag(SLABS))
+            .forInstance(StairBlock.class, bygTag(STAIRS))
+            .forInstance(ButtonBlock.class, bygTag(BUTTONS))
+            .forInstance(BYGSaplingBlock.class, bygTag(SAPLINGS))
             .forInstance(BYGMushroomBlock.class, BYGBlockTags.MUSHROOMS)
             .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
-            .forInstance(CampfireBlock.class, BlockTags.CAMPFIRES)
-            .forInstance(BYGScaffoldingBlock.class, BYGBlockTags.SCAFFOLDING)
+            .forInstance(CampfireBlock.class, bygTag(CAMPFIRES))
+            .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
             .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
-            .add(isMaterial(Material.LEAVES), BlockTags.LEAVES)
-            .add(isMaterial(Material.SAND), BlockTags.SAND)
-            .add(isMaterial(Material.ICE, Material.ICE_SOLID), BlockTags.ICE)
+            .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
+            .add(isMaterial(Material.SAND), bygTag(SAND))
+            .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
             .run(super::tag);
 
-        tag(BYGBlockTags.SCAFFOLDING).add(Blocks.SCAFFOLDING);
+        tag(SCAFFOLDING.all(RegistryType.BLOCKS)).add(Blocks.SCAFFOLDING);
 
         tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTags(BlockTags.DIRT, BlockTags.SAND).add(Blocks.CLAY);
 
@@ -146,6 +147,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         }
 
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
+    }
+
+    private static TagKey<Block> bygTag(BYGTags tags) {
+        return tags.byg(BYGTags.RegistryType.BLOCKS);
     }
 
     private static Predicate<Block> isMaterial(Material... materials) {

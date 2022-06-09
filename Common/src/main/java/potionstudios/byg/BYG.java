@@ -52,6 +52,20 @@ public class BYG {
         }
 
         FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
+
+        if (Boolean.getBoolean("bygDev")) {
+            ModPlatform.INSTANCE.addTagsUpdatedListener(access -> {
+                for (final var tag : BYGTags.values()) {
+                    for (final var allowed : tag.acceptedTypes) {
+                        final var bygTag = tag.byg(allowed);
+                        final var holder = allowed.getTag(bygTag);
+                        if (holder.isEmpty() || holder.get().stream().findFirst().isEmpty()) {
+                            LOGGER.warn("Tag {} of type {} is empty!", bygTag.location(), allowed.registry.location());
+                        }
+                    }
+                }
+            });
+        }
     }
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {

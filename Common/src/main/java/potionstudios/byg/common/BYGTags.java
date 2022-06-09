@@ -1,5 +1,7 @@
 package potionstudios.byg.common;
 
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -17,12 +19,27 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @SuppressWarnings("all")
 @ParametersAreNonnullByDefault
 public enum BYGTags {
     LOGS("logs", "logs", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
-    LOGS_THAT_BURN("logs_that_burn", "logs_that_burn", null, null, RegistryType.BLOCKS, RegistryType.ITEMS);
+    LOGS_THAT_BURN("logs_that_burn", "logs_that_burn", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    LEAVES("leaves", "leaves", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+
+    SLABS("slabs", "slabs", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    STAIRS("stairs", "stairs", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    SAPLINGS("saplings", "saplings", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    CAMPFIRES("campfires", "campfires", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    BUTTONS("buttons", "buttons", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    SCAFFOLDING("scaffolding", null, "scaffoldings", "scaffoldings", RegistryType.BLOCKS, RegistryType.ITEMS),
+    SAND("sand", "sand", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    ICE("ice", "ice", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+
+    STICKS("sticks", null, "rods/wooden", "sticks", RegistryType.ITEMS),
+
+    BOATS("boats", null, "boats", "boats", RegistryType.ENTITY_TYPES);
 
     @Nonnull
     private final MultiTag byg;
@@ -79,6 +96,15 @@ public enum BYGTags {
         private RegistryType(ResourceKey<? extends Registry<T>> registry) {
             this.registry = registry;
             REGISTRY.put(registry, this);
+        }
+
+        public Optional<HolderSet.Named<T>> getTag(TagKey<?> key) {
+            final var registry = (Registry<T>) get(Registry.REGISTRY, this.registry);
+            return registry.getTag((TagKey<T>) key);
+        }
+
+        private static <T> T get(Registry<T> registry, ResourceKey<?> key) {
+            return registry.get((ResourceKey<T>) key);
         }
     }
 }
