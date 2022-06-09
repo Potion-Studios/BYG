@@ -1,10 +1,29 @@
+
+# 2.0.0.0 - BREAKING CHANGES
+* Port to 1.19..
+* Add chest boats.
+* Breaking changes:
+    * Rename all mangrove blocks/items/world gen from `mangrove` -> `white_mangrove`.
+    * Remove all mud blocks.
+    * Remove Plant Stem & Petal blocks.
+    * Remove Windswept Dunes & Windswept Beach.
+    * Remove Holly Berries
+    * Fix a spelling error related to mahogany boats, `mahagony` -> `mahagany`.
+* Misc Changes worth mentioning:
+  * Refactor world gen features to use suppliers.
+  * Add data gen for resources & compress texture size [#758 by Matyrobbrt](https://github.com/AOCAWOL/BYG/pull/783)
+
+
+# End 1.18, start 1.19
+***
+
 # 1.4
 * Release
 * Fix ocean biome selector from spawning lush stacks everywhere, `Lush Stacks` & `Dead Sea` should be much rarer. Changes apply after config update/reset.
 * Fix some saplings not being growable & not displaying their growing pattern tooltip on the item.
-* Add Yellow & Blue Nether brick slabs/stairs
+* Add Yellow & Blue Nether brick slabs/stairs.
 * Prevent BYG from getting wrongfully blamed for game crashes/errors occurring during other events.
-* Add signs
+* Add signs.
 
 # 1.4-RC-24
 * Add mob spawns, color settings, and biome tags (required advanced tool tips to be enabled (F3+H) to show) to biome about pages.
