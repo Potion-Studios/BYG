@@ -1,9 +1,5 @@
 {
   "values": [
-    {
-      "id": "#forge:rods/wooden",
-      "required": false
-    },
     "minecraft:stick"
   ]
 }

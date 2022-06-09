@@ -19,7 +19,6 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.item.BYGItemTags;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
@@ -78,7 +77,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
             .add(isBlockMaterial(Material.LEAVES), LEAVES.byg(RegistryType.ITEMS)) // Can't copy this one due to slight differences
             .run(this::tag);
 
-        tag(STAIRS.byg(RegistryType.ITEMS)).add(Items.STICK);
+        tag(STICKS.byg(RegistryType.ITEMS)).add(Items.STICK);
 
         for (BYGTags tag : BYGTags.values()) {
             DatagenUtils.addBYGTag(this::tag, tag, Registry.ITEM_REGISTRY);

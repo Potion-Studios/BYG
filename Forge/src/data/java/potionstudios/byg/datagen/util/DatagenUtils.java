@@ -30,13 +30,24 @@ public class DatagenUtils {
     public static <T> void addBYGTag(Function<TagKey<T>, TagsProvider.TagAppender<T>> function, BYGTags tag, ResourceKey<? extends Registry<T>> registryKey) {
         final var registry = (BYGTags.RegistryType<T>) BYGTags.RegistryType.REGISTRY.get(registryKey);
         if (tag.acceptedTypes.contains(registry)) {
-            maybeAddTags(function, tag.forge(registry), tag.byg(registry));
-            maybeAddTags(function, tag.fabric(registry), tag.byg(registry));
-            maybeAddTags(function, tag.minecraft(registry), tag.byg(registry));
+            maybeAddTag(function, false, tag.forge(registry), tag.byg(registry));
+            maybeAddTag(function, false, tag.fabric(registry), tag.byg(registry));
+            maybeAddTag(function, false, tag.minecraft(registry), tag.byg(registry));
             final var mcTag = tag.minecraft(registry);
             // So, there's an MC tag, which means it's guaranteed to have the BYG tag:
             final var allMainTag = Objects.requireNonNullElseGet(mcTag, () -> tag.byg(registry));
-            maybeAddTags(function, tag.all(registry), allMainTag, tag.fabric(registry));
+            maybeAddTags(function, tag.all(registry), allMainTag, tag.fabric(registry), tag.forge(registry));
+        }
+    }
+
+    public static <T> void maybeAddTag(Function<TagKey<T>, TagsProvider.TagAppender<T>> function, boolean optional, @Nullable TagKey<T> primary, @Nullable TagKey<T> toAdd) {
+        if (primary != null) {
+            final var tag = function.apply(primary);
+            if (toAdd != null)
+                if (optional)
+                    tag.addOptionalTag(toAdd.location());
+                else
+                    tag.addTag(toAdd);
         }
     }
 

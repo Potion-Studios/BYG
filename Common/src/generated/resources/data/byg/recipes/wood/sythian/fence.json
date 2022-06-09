@@ -3,7 +3,7 @@
   "group": "wooden_fence",
   "key": {
     "#": {
-      "tag": "byg:sticks"
+      "tag": "byg:all/sticks"
     },
     "W": {
       "item": "byg:sythian_planks"

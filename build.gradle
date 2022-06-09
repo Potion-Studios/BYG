@@ -1,3 +1,6 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
 plugins {
     id 'java'
     id 'com.matyrobbrt.mc.registrationutils' version '1.19-1.0.0'
@@ -20,23 +23,23 @@ subprojects {
     java.withJavadocJar()
 
     dependencies {
-        compileOnly group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
-        annotationProcessor group:'com.google.auto.service', name:'auto-service', version:'1.0.1'
+        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.0.1'
+        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.0.1'
     }
 
     jar {
         manifest {
             attributes([
-                'Specification-Title'     : mod_name,
-                'Specification-Vendor'    : mod_author,
-                'Specification-Version'   : project.jar.archiveVersion,
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_author,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Timestamp'              : System.currentTimeMillis(),
-                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-                'Build-On-Minecraft'      : minecraft_version
+                    'Specification-Title'     : mod_name,
+                    'Specification-Vendor'    : mod_author,
+                    'Specification-Version'   : project.jar.archiveVersion,
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_author,
+                    'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    'Timestamp'               : System.currentTimeMillis(),
+                    'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                    'Build-On-Minecraft'      : minecraft_version
             ])
         }
     }
@@ -56,4 +59,24 @@ subprojects {
         it.options.encoding = 'UTF-8'
         it.options.release = 17
     }
+
+    if (project.name != 'Common')
+        jar {
+            doLast {
+                // Minifies all .json files when building the mod.
+                // Source files are not minified, only the jar copies.
+                def jsonMinifyStart = System.currentTimeMillis()
+                def jsonMinified = 0
+                def jsonBytesSaved = 0
+
+                fileTree(dir: processResources.outputs.files.asPath, include: '**/*.json').each {
+                    jsonMinified++
+                    def oldLength = it.length()
+                    it.text = JsonOutput.toJson(new JsonSlurper().parse(it))
+                    jsonBytesSaved += oldLength - it.length()
+                }
+
+                println('Minified ' + jsonMinified + ' json files. Saved ' + jsonBytesSaved + ' bytes. Took ' + (System.currentTimeMillis() - jsonMinifyStart) + 'ms.')
+            }
+        }
 }

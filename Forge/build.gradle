@@ -162,7 +162,8 @@ processResources {
     }
     exclude '.cache/**'
 
-    exclude("data/c/tags/**")
+    exclude('data/c/tags/**')
+    exclude('data/fabric/tags/**')
 }
 
 jar.finalizedBy('reobfJar')

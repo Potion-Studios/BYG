@@ -1,10 +1,6 @@
 {
   "values": [
     {
-      "id": "#byg:logs_that_burn",
-      "required": false
-    },
-    {
       "id": "#minecraft:logs_that_burn",
       "required": false
     }
