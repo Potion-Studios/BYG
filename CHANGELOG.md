@@ -1,3 +1,5 @@
+# 2.0.0.1
+* Tag related changes & additions.
 
 # 2.0.0.0 - BREAKING CHANGES
 * Port to 1.19..
