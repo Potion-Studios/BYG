@@ -211,7 +211,7 @@ public class BYGBoat extends Boat {
         GREEN_ENCHANTED("green_enchanted", () -> BYGWoodTypes.GREEN_ENCHANTED.chestBoat().get()),
         HOLLY("holly", () -> BYGWoodTypes.HOLLY.chestBoat().get()),
         JACARANDA("jacaranda", () -> BYGWoodTypes.JACARANDA.chestBoat().get()),
-        MAHOGANY("mahogony", () -> BYGWoodTypes.MAHOGANY.chestBoat().get()),
+        MAHOGANY("mahogany", () -> BYGWoodTypes.MAHOGANY.chestBoat().get()),
         MANGROVE("white_mangrove", () -> BYGWoodTypes.WHITE_MANGROVE.chestBoat().get()),
         MAPLE("maple", () -> BYGWoodTypes.MAPLE.chestBoat().get()),
         PALM("palm", () -> BYGWoodTypes.PALM.chestBoat().get()),
