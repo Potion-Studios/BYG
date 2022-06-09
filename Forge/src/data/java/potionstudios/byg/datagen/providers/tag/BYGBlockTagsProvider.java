@@ -58,6 +58,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
             .forInstance(CampfireBlock.class, bygTag(CAMPFIRES))
             .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
+            .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
             .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
             .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
             .add(isMaterial(Material.SAND), bygTag(SAND))
@@ -113,6 +114,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final var woodenButtonsTag = tag(BlockTags.WOODEN_BUTTONS);
         final var woodenDoorsTag = tag(BlockTags.WOODEN_DOORS);
         final var woodenFencesTag = tag(BlockTags.WOODEN_FENCES);
+        final var woodenFencesGatesTag = tag(BYGBlockTags.WOODEN_FENCE_GATES);
         final var woodenPressurePlatesTag = tag(BlockTags.WOODEN_PRESSURE_PLATES);
         final var woodenSlabsTag = tag(BlockTags.WOODEN_SLABS);
         final var woodenStairsTag = tag(BlockTags.WOODEN_STAIRS);
@@ -131,11 +133,13 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             woodenButtonsTag.add(type.button().get());
             woodenDoorsTag.add(type.door().get());
             woodenFencesTag.add(type.fence().get());
+            woodenFencesGatesTag.add(type.fenceGate().get());
             woodenPressurePlatesTag.add(type.pressurePlate().get());
             woodenSlabsTag.add(type.slab().get());
             woodenStairsTag.add(type.stairs().get());
             woodenTrapdoorsTag.add(type.trapdoor().get());
         }
+        tag(BlockTags.FENCE_GATES).addTag(BYGBlockTags.WOODEN_FENCE_GATES);
 
         wood("withering_oak_logs", WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
         wood("palo_verde_logs", PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD);

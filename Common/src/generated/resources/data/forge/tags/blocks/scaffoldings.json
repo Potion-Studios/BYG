@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:scaffolding",
-      "required": false
-    }
+    "#byg:scaffolding"
   ]
 }

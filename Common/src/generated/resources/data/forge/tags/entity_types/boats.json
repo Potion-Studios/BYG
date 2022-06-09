@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:boats",
-      "required": false
-    }
+    "#byg:boats"
   ]
 }

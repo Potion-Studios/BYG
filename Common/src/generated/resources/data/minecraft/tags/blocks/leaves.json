@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:leaves",
-      "required": false
-    }
+    "#byg:leaves"
   ]
 }

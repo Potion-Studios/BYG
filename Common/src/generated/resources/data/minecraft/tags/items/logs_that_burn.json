@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:logs_that_burn",
-      "required": false
-    }
+    "#byg:logs_that_burn"
   ]
 }

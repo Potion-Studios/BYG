@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:buttons",
-      "required": false
-    }
+    "#byg:buttons"
   ]
 }

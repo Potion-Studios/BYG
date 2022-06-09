@@ -148,6 +148,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> SPREADS_TO_NETHERRACK = createTag("spreads_to_netherrack");
     public static final TagKey<Block> SCAFFOLDING = BYGTags.SCAFFOLDING.all(BYGTags.RegistryType.BLOCKS);
     public static final TagKey<Block> MUSHROOMS = createTag("mushrooms");
+    public static final TagKey<Block> WOODEN_FENCE_GATES = createTag("fence_gates/wooden");
 
     public static final TagKey<Block> LUSH = createTag("lush");
     public static final TagKey<Block> SLABS = createTag("slabs");

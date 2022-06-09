@@ -7,6 +7,7 @@ import potionstudios.byg.reg.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -21,6 +22,10 @@ public class PredicatedTagProvider<T> {
     public PredicatedTagProvider<T> forInstance(Class<?> clazz, TagKey<T> tag) {
         this.predicates.add(new Info<>(clazz::isInstance, tag));
         return this;
+    }
+
+    public PredicatedTagProvider<T> checkRegistryName(Predicate<String> namePredicate, TagKey<T> tag) {
+        return add(obj -> namePredicate.test(Objects.requireNonNull(provider.getRegistry().getKey(obj)).getPath()), tag);
     }
 
     public PredicatedTagProvider<T> add(Predicate<? super T> predicate, TagKey<T> tag) {

@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:ice",
-      "required": false
-    }
+    "#byg:ice"
   ]
 }

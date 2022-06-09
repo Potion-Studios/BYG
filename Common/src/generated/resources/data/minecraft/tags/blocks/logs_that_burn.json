@@ -1,9 +1,6 @@
 {
   "values": [
-    {
-      "id": "#byg:logs_that_burn",
-      "required": false
-    },
+    "#byg:logs_that_burn",
     "#byg:wood/palo_verde_logs",
     "#byg:wood/withering_oak_logs"
   ]

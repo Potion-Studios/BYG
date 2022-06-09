@@ -62,6 +62,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(BlockTags.WOODEN_SLABS, ItemTags.WOODEN_SLABS);
         copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);
         copy(BlockTags.WOODEN_TRAPDOORS, ItemTags.WOODEN_TRAPDOORS);
+        copy(BYGBlockTags.WOODEN_FENCE_GATES, create(BYGBlockTags.WOODEN_FENCE_GATES.location()));
 
         copy(STAIRS);
         copy(SLABS);
@@ -70,6 +71,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(SCAFFOLDING);
         copy(CAMPFIRES);
         copy(ICE);
+        copy(ORES);
 
         copy(BYGBlockTags.MUSHROOMS, bygTag("mushrooms"));
 

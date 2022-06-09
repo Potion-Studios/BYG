@@ -37,6 +37,7 @@ public enum BYGTags {
     SAND("sand", "sand", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
     ICE("ice", "ice", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
 
+    ORES("ores", null, "ores", "ores", RegistryType.ITEMS, RegistryType.BLOCKS),
     STICKS("sticks", null, "rods/wooden", "wooden_rods", RegistryType.ITEMS),
 
     BOATS("boats", null, "boats", "boats", RegistryType.ENTITY_TYPES);

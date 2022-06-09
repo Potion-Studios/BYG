@@ -7,6 +7,10 @@
     {
       "id": "#c:wooden_rods",
       "required": false
+    },
+    {
+      "id": "#forge:rods/wooden",
+      "required": false
     }
   ]
 }

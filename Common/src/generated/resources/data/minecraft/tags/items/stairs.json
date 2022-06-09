@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "#byg:stairs",
-      "required": false
-    }
+    "#byg:stairs"
   ]
 }

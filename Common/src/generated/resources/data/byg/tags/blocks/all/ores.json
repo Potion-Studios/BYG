@@ -1,15 +1,15 @@
 {
   "values": [
     {
-      "id": "#byg:boats",
+      "id": "#byg:ores",
       "required": false
     },
     {
-      "id": "#c:boats",
+      "id": "#c:ores",
       "required": false
     },
     {
-      "id": "#forge:boats",
+      "id": "#forge:ores",
       "required": false
     }
   ]
