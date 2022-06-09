@@ -43,9 +43,18 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 configureTransform(item.withExistingParent(type.strippedLog().getId().getPath(), strippedLog.getLocation()));
             }
 
-            if (type.boat() != null)
+            if (type.boat() != null) {
                 item.withExistingParent(type.boat().getId().getPath(), generatedParent)
                         .texture("layer0", rl(typeLocItem + "boat"));
+            }
+
+            if (type.chestBoat() != null) {
+                item.withExistingParent(type.chestBoat().getId().getPath(), generatedParent)
+                        .texture("layer0", rl(typeLocItem + "boat"))
+                        .texture("layer1", "byg:item/chest_boat_overlay"
+                        );
+            }
+
 
             final var bookshelf = models().cube(
                     typeName + "/bookshelf",
@@ -234,7 +243,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                     return ConfiguredModel.builder().modelFile(state.getValue(DoorBlock.HALF) == DoubleBlockHalf.LOWER ? bottomModel : topModel)
                             .rotationY(yRot)
                             .build();
-                    }, DoorBlock.POWERED);
+                }, DoorBlock.POWERED);
     }
 
     private BlockModelBuilder doorModel(String name, String type, ResourceLocation bottom, ResourceLocation top) {
@@ -245,9 +254,9 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 
     private BlockModelBuilder leaves(String name, ResourceLocation texture, ResourceLocation overlay) {
         return models().cube(name,
-                    texture, texture, texture,
-                    texture, texture, texture
-            ).texture("particle", texture).texture("overlay", overlay)
+                        texture, texture, texture,
+                        texture, texture, texture
+                ).texture("particle", texture).texture("overlay", overlay)
                 .element()
                 .from(0, 0, 0)
                 .to(16, 16, 16)

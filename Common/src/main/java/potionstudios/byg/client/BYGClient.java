@@ -10,7 +10,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.screen.HypogealImperiumScreen;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.container.BYGMenuTypes;
-import potionstudios.byg.common.entity.boat.BYGBoatEntity;
+import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 import potionstudios.byg.common.particles.FallingLeafParticle;
 import potionstudios.byg.common.particles.TheriumGlint;
@@ -44,8 +44,9 @@ public class BYGClient {
     }
 
     public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
-        for (BYGBoatEntity.BYGType value : BYGBoatEntity.BYGType.values()) {
+        for (BYGBoat.BYGType value : BYGBoat.BYGType.values()) {
             consumer.accept(BYGBoatRenderer.createBoatModelName(value), () -> BoatModel.createBodyModel(false));
+            consumer.accept(BYGBoatRenderer.createChestBoatModelName(value), () -> BoatModel.createBodyModel(true));
         }
     }
 }

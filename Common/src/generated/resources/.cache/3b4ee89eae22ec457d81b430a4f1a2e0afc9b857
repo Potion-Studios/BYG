@@ -1,4 +1,4 @@
-// 1.19	2022-06-08T20:08:31.2414632	Wood Asset Providers
+// 1.19	2022-06-08T17:57:52.1686414	Wood Asset Providers
 5124909204021a9feaed8d326567a42de602790d assets/byg/blockstates/aspen_bookshelf.json
 4a966dece1ebed3e04986b51629a880ba21d8459 assets/byg/blockstates/aspen_button.json
 e622b2d66c4c8d8a942586c19e8fe60d03a212fa assets/byg/blockstates/aspen_crafting_table.json
@@ -1722,6 +1722,7 @@ a9aefb0fbe9c22fd59819a4ff957169f4c8c597e assets/byg/models/block/zelkova/stairs_
 c59c855c3483e035418477735162f5f4d4103938 assets/byg/models/item/aspen_boat.json
 e96931125953adc2b0ad974bf8a12f83a9b9bb22 assets/byg/models/item/aspen_bookshelf.json
 12632c54b037c77111f016aeed7b652fce7d73d1 assets/byg/models/item/aspen_button.json
+d34060933d5d981a16c92c5096a163fe83097afa assets/byg/models/item/aspen_chest_boat.json
 e725a1e20779c70ce2a4f1dc18fc1d1bed5acfc6 assets/byg/models/item/aspen_crafting_table.json
 0b3ec950f14d389b261a059cedb1f30e026b1391 assets/byg/models/item/aspen_door.json
 d326011ab1ea5a4684d82c620119d165eaf1d83d assets/byg/models/item/aspen_fence.json
@@ -1739,6 +1740,7 @@ d7508bf61e805a13c7bcb0a9ad44a49df13a38ca assets/byg/models/item/aspen_slab.json
 28c81ae4ccc02932558d23ebf6387a2da91ca949 assets/byg/models/item/baobab_boat.json
 b0f851bd7aea65fb888a86ec392cc885c7084c2d assets/byg/models/item/baobab_bookshelf.json
 c525d38320a839e38ccbfffd63605290b9a84e39 assets/byg/models/item/baobab_button.json
+494bec6ecf50527a89cdca41f5f3957d182b032b assets/byg/models/item/baobab_chest_boat.json
 74c4b8669c2beb1c6b513b61b368c602427a38c9 assets/byg/models/item/baobab_crafting_table.json
 7df3cecd4164bc80073e2621edb6e4b3931f8952 assets/byg/models/item/baobab_door.json
 ef9d9874ce07c1acb41c63d2e6359b1707c959fe assets/byg/models/item/baobab_fence.json
@@ -1756,6 +1758,7 @@ f677bfb55ac1d959fda1d4265b27d5a60f4846fc assets/byg/models/item/baobab_wood.json
 9cb2a1e703a5fc6f58121c27bd830057980bb64c assets/byg/models/item/blue_enchanted_boat.json
 27d44c7d76f36dd12da6727e2f5da82787e78834 assets/byg/models/item/blue_enchanted_bookshelf.json
 9631471e7d7d783f7a166372161741e69197f2a5 assets/byg/models/item/blue_enchanted_button.json
+c0e8e56ab89961576927540a6096b76a4a342622 assets/byg/models/item/blue_enchanted_chest_boat.json
 376e1d1ca1eae0282e94afff58aa000e515b238d assets/byg/models/item/blue_enchanted_crafting_table.json
 0529ad13e4e368eafeb40a7a4e1e7a84b7c90e07 assets/byg/models/item/blue_enchanted_door.json
 5b95ee500f2fd4d0fbc8628bff240da4a4f5c272 assets/byg/models/item/blue_enchanted_fence.json
@@ -1788,6 +1791,7 @@ f3eb0d95e6ef540f149441e2f2a5ff4df358b4b3 assets/byg/models/item/bulbis_wood.json
 0338b9d21df15265386e2e74b1b05a3fb772b18d assets/byg/models/item/cherry_boat.json
 b8bd9752e1a8dfc7c2ea221ce18e3bbb9ab179da assets/byg/models/item/cherry_bookshelf.json
 5440442dd6330f31e015d4c51da29540249e1e3f assets/byg/models/item/cherry_button.json
+9480bdbc028f1085303f9a3d9bf1537ed0cae5f4 assets/byg/models/item/cherry_chest_boat.json
 ab320be074dcc65bd316de9430d7720a63ceaeed assets/byg/models/item/cherry_crafting_table.json
 b11953ee072f2acd58041a97e611e8a535a0ef28 assets/byg/models/item/cherry_door.json
 d3ef396329e3ad4caee9add9bba84991eaf957e8 assets/byg/models/item/cherry_fence.json
@@ -1803,6 +1807,7 @@ fa6e7c95d9624c1f105b033e7f7864332b99dec2 assets/byg/models/item/cherry_wood.json
 bf2612a476098b8cb45a8b535446f76708eb217a assets/byg/models/item/cika_boat.json
 8b2b47ef3312fcaa97a1c89ae5ea20f53f2f968c assets/byg/models/item/cika_bookshelf.json
 762b8f8c3b1467aee1a3138819dd9774398fb2cb assets/byg/models/item/cika_button.json
+b40b941c2afc25cf8712d9706c3b798a700fbc21 assets/byg/models/item/cika_chest_boat.json
 bf697df28c12215daf182b96ffd3d1fee8ceee70 assets/byg/models/item/cika_crafting_table.json
 d9e9d097456b81df9a10ff57aef1705771b9bcfe assets/byg/models/item/cika_door.json
 967fa383ec44f9d9c163a3118ad0467c9010580b assets/byg/models/item/cika_fence.json
@@ -1820,6 +1825,7 @@ c0db6f399cd3411ef003a94ff670b11d6aec6d33 assets/byg/models/item/cika_slab.json
 44b0be5c987b832571a4643020525d80a448c4bb assets/byg/models/item/cypress_boat.json
 52497b715b4e823e7676a51ec7018cb0fbe9ec64 assets/byg/models/item/cypress_bookshelf.json
 0fa40a7795607c2147297bed8dea901b88789583 assets/byg/models/item/cypress_button.json
+0acfb2555b29debceea236f5ccfb20a6debad7ae assets/byg/models/item/cypress_chest_boat.json
 0d98b6d0c1f47c4f97c529127dfb2eef3853bd18 assets/byg/models/item/cypress_crafting_table.json
 b98b28521d55c50ec61eb4aa87c983ef6120e131 assets/byg/models/item/cypress_door.json
 6ea5b4298750d5fef7183291d5e94e50cbea7ee0 assets/byg/models/item/cypress_fence.json
@@ -1837,6 +1843,7 @@ b3c4533a5523f0ffe7e27042109f3acd98002a65 assets/byg/models/item/cypress_wood.jso
 974844f5a6b29496c7a1bdee35ffb5b8073cac89 assets/byg/models/item/ebony_boat.json
 46a5e1737d14b5a31508f62029aac921af3b4d03 assets/byg/models/item/ebony_bookshelf.json
 9c4e38d9e89f48da6e1afa5828e5fb84d813ae2b assets/byg/models/item/ebony_button.json
+2b1bf8db6e890f16e6e6985d44ec6833a119f231 assets/byg/models/item/ebony_chest_boat.json
 31a04ee1fcbb30e75468a2959a0106c843863f0a assets/byg/models/item/ebony_crafting_table.json
 565544fff962143e7d8a976428f3f4cae9c9ebca assets/byg/models/item/ebony_door.json
 cddf60768c51ec39484fc40754fa2e977ac34a84 assets/byg/models/item/ebony_fence.json
@@ -1885,6 +1892,7 @@ cfd0999a94dff43a792ed425f9ab6d962581675c assets/byg/models/item/ether_slab.json
 c0dbe843fc787a50daf111270babccca32b96c3a assets/byg/models/item/fir_boat.json
 90452ac07c2feae36813e221b2317e5b359acc12 assets/byg/models/item/fir_bookshelf.json
 ac68a6fa2c9bb84889b68fa83dfcf056bae2fd3c assets/byg/models/item/fir_button.json
+82f2c84f4ef401097a5c47e92bd3714630029dee assets/byg/models/item/fir_chest_boat.json
 fb660fe4e054e003521e8f811d647f7686965d8f assets/byg/models/item/fir_crafting_table.json
 90d25fead7584a5d35b4abfbc63632bb1036bd59 assets/byg/models/item/fir_door.json
 5b21948fb1eb86764d2aeea49fd8c6a4ed6ada41 assets/byg/models/item/fir_fence.json
@@ -1902,6 +1910,7 @@ fadeeb359142c1a0c2d4f714723037eef01053e3 assets/byg/models/item/fir_trapdoor.jso
 7ed912a4af3b35a08730e1eda1b575a2c77126a6 assets/byg/models/item/green_enchanted_boat.json
 5c80362ae021370d99a4d985d086d9e857a03bc9 assets/byg/models/item/green_enchanted_bookshelf.json
 f284ffd2847b5679072e77d2987765198bfc955d assets/byg/models/item/green_enchanted_button.json
+534eca2e46c8422f088ca868936417328102b6d3 assets/byg/models/item/green_enchanted_chest_boat.json
 f382dcd68c2bced77ba3f0888462cd7e5be09721 assets/byg/models/item/green_enchanted_crafting_table.json
 e9f0ed81090b1d1b4b44c951d17e72cf187d7439 assets/byg/models/item/green_enchanted_door.json
 19d9109b5c2bf6977047845e53751bc119726d69 assets/byg/models/item/green_enchanted_fence.json
@@ -1919,6 +1928,7 @@ af6120ee7831e3f6ed2d2a0a9760fb8d4fc63101 assets/byg/models/item/green_enchanted_
 4aa4537983faba3b4db1f939357491e775ccfa40 assets/byg/models/item/holly_boat.json
 e948b4c7475abf5fc4ad9486aae50350275dc472 assets/byg/models/item/holly_bookshelf.json
 56ff4198f5485ea5d499b6f84889998962bd7afb assets/byg/models/item/holly_button.json
+72f93a69b24b4cf1d2cca87fea5a77d237c01e8a assets/byg/models/item/holly_chest_boat.json
 db995fe63cbea6defddf2b4d9d125980e425d040 assets/byg/models/item/holly_crafting_table.json
 13e053cd9a407fcea4ee4dcd06f8c85125e642c3 assets/byg/models/item/holly_door.json
 68936592803d64714911ea6c65633d8e8f15062d assets/byg/models/item/holly_fence.json
@@ -1951,6 +1961,7 @@ b84c8d20bcfb2dedc7149b882382d6f54de56913 assets/byg/models/item/imparius_stem.js
 2a44efa885eba1ec5c039058abc66c68e4911c4a assets/byg/models/item/jacaranda_boat.json
 dc5b5592fb47a5dd254a6d152b20c10054e7fdf5 assets/byg/models/item/jacaranda_bookshelf.json
 72942e66de0482d87c1a226854cd13326eb4d6a5 assets/byg/models/item/jacaranda_button.json
+bec26d4bf969f05c7c087a407e63175a7f007b9b assets/byg/models/item/jacaranda_chest_boat.json
 43eed355e8ca27b83039654df90cabe6968387ed assets/byg/models/item/jacaranda_crafting_table.json
 ef149ebcc09592b1ce58c20cefdc754f17bb2698 assets/byg/models/item/jacaranda_door.json
 0144a4bb49bdfd0aa1f5a4fd966300bd1d531142 assets/byg/models/item/jacaranda_fence.json
@@ -1984,6 +1995,7 @@ ce373731da50a9d7a791104ae44fd3b81bc3c11f assets/byg/models/item/lament_slab.json
 09c6cf1c129de3b40eb58f77ec9affd20e267b70 assets/byg/models/item/mahogany_boat.json
 6338b549836a53bab83fd4fc8e59cdc56b9fd101 assets/byg/models/item/mahogany_bookshelf.json
 be1f79d93759a4e262183a7d958d83d90cd1c109 assets/byg/models/item/mahogany_button.json
+c4a56c4ffe641ce0347c26ee005aafe9767c405d assets/byg/models/item/mahogany_chest_boat.json
 a53a80fb32ca407f4f85bd89f8fab6ff5c2aaf3c assets/byg/models/item/mahogany_crafting_table.json
 b8883a6a36b847605e3e8eac25bd902babced351 assets/byg/models/item/mahogany_door.json
 a4b907be101dd9bd9036aef66b63fb7a54e7690a assets/byg/models/item/mahogany_fence.json
@@ -2001,6 +2013,7 @@ dd10152e7b1566ef8084113c1a9b041d37a6dd75 assets/byg/models/item/mahogany_wood.js
 fd2e8c2340e6d84db8424a535413bf19262cdc98 assets/byg/models/item/mangrove_boat.json
 d9312a1377a77bb3c0133b5e01e8eb6c584f3409 assets/byg/models/item/mangrove_bookshelf.json
 3ab37caaac157fc2a90182df0a56dd267ef4ff6a assets/byg/models/item/mangrove_button.json
+0373b8acdcf334a8805247b644cb9e172285392e assets/byg/models/item/mangrove_chest_boat.json
 28149dd2d738933c5f5468b08cab4b5d796b109b assets/byg/models/item/mangrove_crafting_table.json
 40b3e02048e01f40a4b49aee7fc632a52e5795be assets/byg/models/item/mangrove_door.json
 08bfabb7a23457e0f2c59a6769021023ff53f28a assets/byg/models/item/mangrove_fence.json
@@ -2018,6 +2031,7 @@ cef69c743e35d4ec391600825c4af912e60016ef assets/byg/models/item/mangrove_wood.js
 57abcb91bb7d937e20a5891912248b9c5e360ada assets/byg/models/item/maple_boat.json
 ca96631b5f2bed644559a4330bb791443b2883d9 assets/byg/models/item/maple_bookshelf.json
 cf66c45ef7d5a075e712b07b1bc26b1721c1aeba assets/byg/models/item/maple_button.json
+917a500be17ac8662aee6d6d4ea054dedcd97eeb assets/byg/models/item/maple_chest_boat.json
 37ef2f72155a25bf5d4be9f37854778d6cebe340 assets/byg/models/item/maple_crafting_table.json
 eb493fc1ce5851b6e306e0f3ff3433f6c7f8d5e0 assets/byg/models/item/maple_door.json
 862a2570775ccb9fa69bfabd6e0ab70b36e81842 assets/byg/models/item/maple_fence.json
@@ -2051,6 +2065,7 @@ aaad11ecf4e340cd5ccb092d546b8c0d78fe993e assets/byg/models/item/nightshade_wood.
 d20cdf591bcc3c49286ff6910087387dd3d4a1b9 assets/byg/models/item/palm_boat.json
 12b0740d842c335e507993477446afc23b96fdff assets/byg/models/item/palm_bookshelf.json
 958e44ed66429eee9b8d093a6e3a9a2253419b94 assets/byg/models/item/palm_button.json
+f464d676754216fe4b09838c4625dcd4bdcc3496 assets/byg/models/item/palm_chest_boat.json
 f0f84245726e29019cf11f0e2d157da0aaa0ed4c assets/byg/models/item/palm_crafting_table.json
 2b6efb3710b042d096a96cf17a572033cfed4c64 assets/byg/models/item/palm_door.json
 c138928d6c4bef95cf0eacd0cddb0c459b676892 assets/byg/models/item/palm_fence.json
@@ -2068,6 +2083,7 @@ bbd66394a78d109eef20cd38a41a1d366667cd57 assets/byg/models/item/palm_trapdoor.js
 74dafb7f323044436cfefa9e8dac00b5fe27325b assets/byg/models/item/pine_boat.json
 8f18ecb9b21158f7e0a3511a136b582c6633c393 assets/byg/models/item/pine_bookshelf.json
 3b66bebdaedfdc0e881848cd6dfb56ee6ffb4067 assets/byg/models/item/pine_button.json
+8f3cada939cb8dea76f1b0e8c3129d4037b063a5 assets/byg/models/item/pine_chest_boat.json
 a6df8d168be4c6dd49db62ff67230240b096f12f assets/byg/models/item/pine_crafting_table.json
 947a01cb3dfbf814d9fc89044ea6a90c22fa67b4 assets/byg/models/item/pine_door.json
 9eac6960ed44715e11f15ebf7082f52455f62b0a assets/byg/models/item/pine_fence.json
@@ -2085,6 +2101,7 @@ af4ac987cdf1c54baca931075a32a84d62db5e10 assets/byg/models/item/pine_stairs.json
 99e7dcace0f1979953145af964301f0af7316086 assets/byg/models/item/rainbow_eucalyptus_boat.json
 41fd451a0a9210ebf2c11089516c339d23427e2e assets/byg/models/item/rainbow_eucalyptus_bookshelf.json
 5f2b59c634a9d560e1c43e5604526d2ef0868371 assets/byg/models/item/rainbow_eucalyptus_button.json
+c6e5b6c1849cb2b7f793360cabba6592ab555ade assets/byg/models/item/rainbow_eucalyptus_chest_boat.json
 f8b6fa18d96d5c9d256da77436f4bf99538a004b assets/byg/models/item/rainbow_eucalyptus_crafting_table.json
 5087342ebf0c2319a4e3745c5824aa383c11f601 assets/byg/models/item/rainbow_eucalyptus_door.json
 e077b5f9a48f9cb2b7ec9981856a62851646bea4 assets/byg/models/item/rainbow_eucalyptus_fence.json
@@ -2102,6 +2119,7 @@ e88891129ad82836327e40ae4eeecbea20d0f6a5 assets/byg/models/item/rainbow_eucalypt
 2f014b903d733e9465fe0a74310c75bf73aa86a3 assets/byg/models/item/redwood_boat.json
 c0c659075e65538d82680ec96754afe8b5327bde assets/byg/models/item/redwood_bookshelf.json
 a0dbd5c75d8967473fb2821f923f53104055dddb assets/byg/models/item/redwood_button.json
+7c8fc048fc743f31f33c551862e423ce73833193 assets/byg/models/item/redwood_chest_boat.json
 1680c0cc02b84f8a2b5851f47053149a4c3ef852 assets/byg/models/item/redwood_crafting_table.json
 a38c55bfa3ae6b3417e31f6a287b9072f2728b06 assets/byg/models/item/redwood_door.json
 8a4164ef26ee6daa8e2714b102b3c9be8e5d59bd assets/byg/models/item/redwood_fence.json
@@ -2119,6 +2137,7 @@ f8346eaeb6571fe15314e97267f29509a3b1a131 assets/byg/models/item/redwood_sign.jso
 c6dbd5d2ad5e2e5e7aabd0fa1669599e974159e8 assets/byg/models/item/skyris_boat.json
 d10d816e7094a0690e657daae288df6944a673be assets/byg/models/item/skyris_bookshelf.json
 f78f1f30587ebfcc9521503679842f2319bc53a5 assets/byg/models/item/skyris_button.json
+5c71abc8c741bf7de25967798bd57179532de08e assets/byg/models/item/skyris_chest_boat.json
 4e75ea8753a180a9eed27d426ec956b96717c694 assets/byg/models/item/skyris_crafting_table.json
 1603ea35504304739553973633b13ec66233e716 assets/byg/models/item/skyris_door.json
 7feb9b36241fd7cd1c945dc833233936d55dc611 assets/byg/models/item/skyris_fence.json
@@ -2208,6 +2227,7 @@ c229aa7d516530c1e17955ecaea332b2d0790536 assets/byg/models/item/sythian_fungus.j
 b95d8eebd2228f28e9198e652cf35ec522043c82 assets/byg/models/item/willow_boat.json
 18c7564d9c5d0a0bfecc06d64e650822d3356169 assets/byg/models/item/willow_bookshelf.json
 2fb6e478275df521b77fe089a33e647784be32d2 assets/byg/models/item/willow_button.json
+22da3531a4645d9b5804efedc774cf09e689c710 assets/byg/models/item/willow_chest_boat.json
 c77156bc17712648f16b71cd465975a23d714ce1 assets/byg/models/item/willow_crafting_table.json
 8bb6252683869506664328c93f786711c7eb10ea assets/byg/models/item/willow_door.json
 4bb1a68a14ba088980f0589e119dcbebeb87a229 assets/byg/models/item/willow_fence.json
@@ -2225,6 +2245,7 @@ d81ae7698ac931a1d1a4ce1ea30d636c3d600de9 assets/byg/models/item/willow_slab.json
 fd0b52b6b143f978c10edaab4df44a6da0a4d1df assets/byg/models/item/witch_hazel_boat.json
 c2fcd7fc8321daddc9953f6a1367d69a36881c1c assets/byg/models/item/witch_hazel_bookshelf.json
 db5f5767a0c8af4ff1704f3aab4b99b3dc18b501 assets/byg/models/item/witch_hazel_button.json
+2641e09c1a310d03adb49af149c3910aa868634e assets/byg/models/item/witch_hazel_chest_boat.json
 00fb726c0691eb2785fae178a73cdcb3ab229a8b assets/byg/models/item/witch_hazel_crafting_table.json
 045783afdf970b1ef2b20c62ef2518d72bf0ae3d assets/byg/models/item/witch_hazel_door.json
 8ecdf98165fc5362a84ef1a91b003bd5ad72edc1 assets/byg/models/item/witch_hazel_fence.json
@@ -2242,6 +2263,7 @@ dc2ef4b093873a827543e08128fc219ad4be294b assets/byg/models/item/witch_hazel_trap
 f3fcce082644a23b11b38a2d99ecd3269d6a15c7 assets/byg/models/item/zelkova_boat.json
 e10ecab657133223a630b84a7bdd089b279acba3 assets/byg/models/item/zelkova_bookshelf.json
 db35c848debfb6138e73ac3560141e18834820c7 assets/byg/models/item/zelkova_button.json
+9ac7a24777fbd40ab1546664345df0cc51d4422d assets/byg/models/item/zelkova_chest_boat.json
 fcda0a2d9159d3e1ba651308e7a7df6aaaf66ad5 assets/byg/models/item/zelkova_crafting_table.json
 9793d791b77a2bb5ea92e37be962f67ba3fa9cb0 assets/byg/models/item/zelkova_door.json
 df3aa6fd0eacf38e5332ff390b9e76d574a577c9 assets/byg/models/item/zelkova_fence.json

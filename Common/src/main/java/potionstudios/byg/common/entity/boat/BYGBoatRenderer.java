@@ -22,26 +22,40 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
+public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
 
-    private final Map<BYGBoatEntity.BYGType, Pair<ResourceLocation, BoatModel>> boatResources;
+    private final Map<BYGBoat.BYGType, Pair<ResourceLocation, BoatModel>> boatResources;
 
-    public BYGBoatRenderer(EntityRendererProvider.Context context) {
+    public BYGBoatRenderer(EntityRendererProvider.Context context, boolean hasChest) {
         super(context);
         this.shadowRadius = 0.8F;
-        this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() : Stream.of(BYGBoatEntity.BYGType.values()).collect(ImmutableMap.toImmutableMap((type) -> type, (type) -> Pair.of(BYG.createLocation("textures/entity/boat/" + type.getName() + ".png"), new BoatModel(context.bakeLayer(createBoatModelName(type)), false))));
+        this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() :
+                Stream.of(BYGBoat.BYGType.values()).collect(ImmutableMap.toImmutableMap((bygType) -> {
+                    return bygType;
+                }, (bygType) -> {
+                    return Pair.of(BYG.createLocation(getTextureLocation(bygType, hasChest)), this.createBoatModel(context, bygType, hasChest));
+                }));
     }
 
-    public static ModelLayerLocation createBoatModelName(BYGBoatEntity.BYGType type) {
-        return createLocation("boat/" + type.getName(), "main");
+    private BoatModel createBoatModel(EntityRendererProvider.Context context, BYGBoat.BYGType bygType, boolean hasChest) {
+        ModelLayerLocation modellayerlocation = hasChest ? createChestBoatModelName(bygType) : createBoatModelName(bygType);
+        return new BoatModel(context.bakeLayer(modellayerlocation), hasChest);
     }
 
-    private static ModelLayerLocation createLocation(String string, String string2) {
-        return new ModelLayerLocation(BYG.createLocation(string), string2);
+    public static ModelLayerLocation createChestBoatModelName(BYGBoat.BYGType type) {
+        return new ModelLayerLocation(BYG.createLocation("chest_boat/" + type.getName()), "main");
+    }
+
+    public static ModelLayerLocation createBoatModelName(BYGBoat.BYGType type) {
+        return new ModelLayerLocation(BYG.createLocation("boat/" + type.getName()), "main");
+    }
+
+    private static String getTextureLocation(BYGBoat.BYGType bygType, boolean hasChest) {
+        return hasChest ? "textures/entity/chest_boat/" + bygType.getName() + ".png" : "textures/entity/boat/" + bygType.getName() + ".png";
     }
 
     @Override
-    public void render(BYGBoatEntity boat, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource multiBufferSource, int packedLightIn) {
+    public void render(BYGBoat boat, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource multiBufferSource, int packedLightIn) {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.375D, 0.0D);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(180.0F - entityYaw));
@@ -81,7 +95,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
     /**
      * Returns the location of an entity's texture.
      */
-    public ResourceLocation getTextureLocation(BYGBoatEntity boat) {
+    public ResourceLocation getTextureLocation(BYGBoat boat) {
         return this.boatResources.get(boat.getBoatType()).getFirst();
     }
 }
