@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "byg",
-  "version": "1.4",
+  "version": "${version}",
   "name": "Oh The Biomes You'll Go",
   "description": "An Adventure and Exploration mod with over 80 new biomes!\nTranslator Credits: Dimiral(Russian), Godzmoline(Simplified Chinese)",
   "authors": [
