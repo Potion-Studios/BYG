@@ -9,6 +9,7 @@
     "byg:autumnal_taiga",
     "byg:autumnal_valley",
     "byg:baobab_savanna",
+    "byg:basalt_barrera",
     "byg:bayou",
     "byg:black_forest",
     "byg:borealis_grove",
@@ -21,6 +22,7 @@
     "byg:crag_gardens",
     "byg:cypress_swamplands",
     "byg:dacite_ridges",
+    "byg:dacite_shore",
     "byg:dead_sea",
     "byg:ebony_woods",
     "byg:firecracker_shrubland",
@@ -36,6 +38,7 @@
     "byg:mojave_desert",
     "byg:orchard",
     "byg:prairie",
+    "byg:rainbow_beach",
     "byg:red_oak_forest",
     "byg:red_rock_valley",
     "byg:redwood_thicket",
@@ -50,7 +53,6 @@
     "byg:weeping_witch_forest",
     "byg:white_mangrove_marshes",
     "byg:windswept_desert",
-
     "byg:zelkova_forest"
   ]
 }

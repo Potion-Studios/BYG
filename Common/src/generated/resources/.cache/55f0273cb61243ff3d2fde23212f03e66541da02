@@ -1,13 +1,16 @@
-// 1.19	2022-06-08T19:07:34.6167931	Tags for minecraft:worldgen/biome
-6cc6bbeed1e76b86e19778599833ffc6947f37b7 data/byg/tags/worldgen/biome/is_badlands.json
+// 1.19	2022-06-08T22:54:24.3077348	Tags for minecraft:worldgen/biome
+be8618cf55ecb0de41960f6126ed7e8fee8e0abc data/byg/tags/worldgen/biome/is_badlands.json
 b24ef34a109b7a0130d45bc1cae8985c1d23ed3d data/byg/tags/worldgen/biome/is_beach.json
 3fdfa324e33d2a75deb00dc8f60158378d8be46a data/byg/tags/worldgen/biome/is_dead.json
 d45f84365bbb29a3e48930be3be0f2d188393c76 data/byg/tags/worldgen/biome/is_deep_ocean.json
 0be07ca2db98cd997cdfdfb2910a3bf76c2b6f4a data/byg/tags/worldgen/biome/is_icy.json
 d45f84365bbb29a3e48930be3be0f2d188393c76 data/byg/tags/worldgen/biome/is_ocean.json
-0a7b9bb6207b9074a416b486d350789068c02a96 data/byg/tags/worldgen/biome/is_sandy.json
+bb656e848a2b224261fd649a8a18eb58d4979676 data/byg/tags/worldgen/biome/is_sandy.json
 5cdb77eeb9e031625f4ff14e94ede71165c429f2 data/byg/tags/worldgen/biome/is_snowy.json
 3408dd4a796176c66f0b327461e22898513f6323 data/byg/tags/worldgen/biome/is_spooky.json
 5f87c31275c554460ff6db9d9b724876355c32fd data/byg/tags/worldgen/biome/is_swamp.json
 3fdfa324e33d2a75deb00dc8f60158378d8be46a data/byg/tags/worldgen/biome/is_wasteland.json
-edc6362f495ed3c55e2ed1a1d1bb5b3d590f6ee1 data/minecraft/tags/worldgen/biome/is_overworld.json
+01ac5e72b6d93412a5de19cab2db2c2710ff96b8 data/minecraft/tags/worldgen/biome/allows_surface_slime_spawns.json
+6786d9482733235e639b4837f53effa820685faf data/minecraft/tags/worldgen/biome/is_end.json
+833b4eb8f7a1ed17bc599f88f6e3a8424d137add data/minecraft/tags/worldgen/biome/is_nether.json
+ef84bf93e9f0914b867424c2d4d4291048622fe1 data/minecraft/tags/worldgen/biome/is_overworld.json

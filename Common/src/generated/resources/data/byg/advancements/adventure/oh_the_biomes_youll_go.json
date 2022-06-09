@@ -1153,22 +1153,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:windswept_beach": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:windswept_beach"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:windswept_desert": {
       "conditions": {
         "player": [
@@ -1219,79 +1203,154 @@
   },
   "requirements": [
     [
-      "byg:cherry_blossom_forest"
+      "byg:temperate_grove"
     ],
     [
-      "byg:araucaria_savanna"
+      "byg:sythian_torrids"
     ],
     [
-      "byg:dacite_shore"
-    ],
-    [
-      "byg:zelkova_forest"
-    ],
-    [
-      "byg:arisian_undergrowth"
-    ],
-    [
-      "byg:amaranth_fields"
-    ],
-    [
-      "byg:warped_desert"
-    ],
-    [
-      "byg:borealis_grove"
-    ],
-    [
-      "byg:white_mangrove_marshes"
-    ],
-    [
-      "byg:weeping_mire"
-    ],
-    [
-      "byg:dead_sea"
-    ],
-    [
-      "byg:shulkren_forest"
-    ],
-    [
-      "byg:lush_stacks"
-    ],
-    [
-      "byg:bayou"
-    ],
-    [
-      "byg:magma_wastes"
-    ],
-    [
-      "byg:wailing_garth"
-    ],
-    [
-      "byg:subzero_hypogeal"
-    ],
-    [
-      "byg:jacaranda_forest"
+      "byg:imparius_grove"
     ],
     [
       "byg:ivis_fields"
     ],
     [
-      "byg:ethereal_islands"
+      "byg:quartz_desert"
     ],
     [
-      "byg:redwood_thicket"
+      "byg:wailing_garth"
+    ],
+    [
+      "byg:maple_taiga"
+    ],
+    [
+      "byg:autumnal_taiga"
+    ],
+    [
+      "byg:warped_desert"
+    ],
+    [
+      "byg:cryptic_wastes"
+    ],
+    [
+      "byg:allium_fields"
+    ],
+    [
+      "byg:canadian_shield"
+    ],
+    [
+      "byg:ebony_woods"
+    ],
+    [
+      "byg:basalt_barrera"
+    ],
+    [
+      "byg:jacaranda_forest"
+    ],
+    [
+      "byg:cardinal_tundra"
+    ],
+    [
+      "byg:skyris_vale"
+    ],
+    [
+      "byg:araucaria_savanna"
+    ],
+    [
+      "byg:autumnal_valley"
+    ],
+    [
+      "byg:bulbis_gardens"
+    ],
+    [
+      "byg:windswept_desert"
+    ],
+    [
+      "byg:firecracker_shrubland"
+    ],
+    [
+      "byg:coconino_meadow"
+    ],
+    [
+      "byg:glowstone_gardens"
+    ],
+    [
+      "byg:cherry_blossom_forest"
+    ],
+    [
+      "byg:coniferous_forest"
     ],
     [
       "byg:frosted_coniferous_forest"
     ],
     [
-      "byg:temperate_grove"
+      "byg:white_mangrove_marshes"
     ],
     [
-      "byg:windswept_beach"
+      "byg:shulkren_forest"
     ],
     [
-      "byg:crimson_gardens"
+      "byg:black_forest"
+    ],
+    [
+      "byg:orchard"
+    ],
+    [
+      "byg:shattered_glacier"
+    ],
+    [
+      "byg:borealis_grove"
+    ],
+    [
+      "byg:mojave_desert"
+    ],
+    [
+      "byg:redwood_thicket"
+    ],
+    [
+      "byg:lush_stacks"
+    ],
+    [
+      "byg:dead_sea"
+    ],
+    [
+      "byg:ethereal_islands"
+    ],
+    [
+      "byg:cypress_swamplands"
+    ],
+    [
+      "byg:forgotten_forest"
+    ],
+    [
+      "byg:guiana_shield"
+    ],
+    [
+      "byg:howling_peaks"
+    ],
+    [
+      "byg:bayou"
+    ],
+    [
+      "byg:aspen_forest"
+    ],
+    [
+      "byg:zelkova_forest"
+    ],
+    [
+      "byg:subzero_hypogeal"
+    ],
+    [
+      "byg:arisian_undergrowth"
+    ],
+    [
+      "byg:tropical_rainforest"
+    ],
+    [
+      "byg:weeping_witch_forest"
+    ],
+    [
+      "byg:magma_wastes"
     ],
     [
       "byg:rainbow_beach"
@@ -1300,100 +1359,7 @@
       "byg:red_oak_forest"
     ],
     [
-      "byg:sierra_badlands"
-    ],
-    [
-      "byg:cardinal_tundra"
-    ],
-    [
-      "byg:prairie"
-    ],
-    [
-      "byg:allium_fields"
-    ],
-    [
-      "byg:windswept_desert"
-    ],
-    [
-      "byg:imparius_grove"
-    ],
-    [
-      "byg:skyris_vale"
-    ],
-    [
-      "byg:cypress_swamplands"
-    ],
-    [
-      "byg:firecracker_shrubland"
-    ],
-    [
-      "byg:basalt_barrera"
-    ],
-    [
-      "byg:maple_taiga"
-    ],
-    [
-      "byg:red_rock_valley"
-    ],
-    [
-      "byg:bulbis_gardens"
-    ],
-    [
-      "byg:rose_fields"
-    ],
-    [
-      "byg:sythian_torrids"
-    ],
-    [
-      "byg:howling_peaks"
-    ],
-    [
-      "byg:aspen_forest"
-    ],
-    [
-      "byg:shattered_glacier"
-    ],
-    [
-      "byg:embur_bog"
-    ],
-    [
-      "byg:coniferous_forest"
-    ],
-    [
-      "byg:twilight_meadow"
-    ],
-    [
-      "byg:orchard"
-    ],
-    [
-      "byg:guiana_shield"
-    ],
-    [
-      "byg:coconino_meadow"
-    ],
-    [
-      "byg:black_forest"
-    ],
-    [
-      "byg:ebony_woods"
-    ],
-    [
-      "byg:crag_gardens"
-    ],
-    [
-      "byg:nightshade_forest"
-    ],
-    [
-      "byg:autumnal_taiga"
-    ],
-    [
-      "byg:brimstone_caverns"
-    ],
-    [
-      "byg:autumnal_valley"
-    ],
-    [
-      "byg:frosted_taiga"
+      "byg:amaranth_fields"
     ],
     [
       "byg:atacama_desert"
@@ -1402,46 +1368,61 @@
       "byg:fragment_forest"
     ],
     [
-      "byg:glowstone_gardens"
-    ],
-    [
-      "byg:cryptic_wastes"
-    ],
-    [
-      "byg:mojave_desert"
-    ],
-    [
-      "byg:viscal_isles"
-    ],
-    [
       "byg:baobab_savanna"
+    ],
+    [
+      "byg:brimstone_caverns"
+    ],
+    [
+      "byg:rose_fields"
+    ],
+    [
+      "byg:nightshade_forest"
+    ],
+    [
+      "byg:crimson_gardens"
+    ],
+    [
+      "byg:twilight_meadow"
+    ],
+    [
+      "byg:weeping_mire"
     ],
     [
       "byg:cika_woods"
     ],
     [
-      "byg:tropical_rainforest"
+      "byg:dacite_shore"
     ],
     [
-      "byg:canadian_shield"
+      "byg:sierra_badlands"
     ],
     [
-      "byg:forgotten_forest"
+      "byg:embur_bog"
     ],
     [
-      "byg:quartz_desert"
+      "byg:viscal_isles"
     ],
     [
-      "byg:temperate_rainforest"
-    ],
-    [
-      "byg:dacite_ridges"
+      "byg:frosted_taiga"
     ],
     [
       "byg:autumnal_forest"
     ],
     [
-      "byg:weeping_witch_forest"
+      "byg:prairie"
+    ],
+    [
+      "byg:temperate_rainforest"
+    ],
+    [
+      "byg:crag_gardens"
+    ],
+    [
+      "byg:dacite_ridges"
+    ],
+    [
+      "byg:red_rock_valley"
     ]
   ],
   "rewards": {

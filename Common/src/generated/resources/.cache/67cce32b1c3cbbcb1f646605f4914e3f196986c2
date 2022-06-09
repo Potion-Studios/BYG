@@ -1,4 +1,4 @@
-// 1.19	2022-06-08T19:07:34.6147914	LootTables
+// 1.19	2022-06-08T22:54:24.3077348	LootTables
 4f0aa76b3b0d3b72b62ae9ff41b93182a24e80c0 data/byg/loot_tables/blocks/aspen_bookshelf.json
 20ca431b632c73966682eb62fb114d56509ba246 data/byg/loot_tables/blocks/aspen_button.json
 64328fd566cd8f2ec659468e124758f165405efa data/byg/loot_tables/blocks/aspen_crafting_table.json
@@ -564,8 +564,8 @@ bcd5978a79411f58cfdc04b1846a7737828f7bae data/byg/loot_tables/boats/holly.json
 20d8d4e8e9d9a23c841070f7b6d74261b0c01290 data/byg/loot_tables/boats/holly_fall.json
 078e624b27cd20a96d3d3ebd324e171e73742c15 data/byg/loot_tables/boats/jacaranda.json
 f151db40079ca49b38b196409e6bab7e6ce75e90 data/byg/loot_tables/boats/jacaranda_fall.json
-3d1631963146efaadf0b73f2fe2c6e647b63cdc5 data/byg/loot_tables/boats/mahogony.json
-afd175c8da008caa33345a96bbf1f52988066e51 data/byg/loot_tables/boats/mahogony_fall.json
+3d1631963146efaadf0b73f2fe2c6e647b63cdc5 data/byg/loot_tables/boats/mahogany.json
+afd175c8da008caa33345a96bbf1f52988066e51 data/byg/loot_tables/boats/mahogany_fall.json
 ee49fd07efe84f9d4f1511027e99899578c7b701 data/byg/loot_tables/boats/maple.json
 47cf013ffed9a170c82620d042095c4e0f633337 data/byg/loot_tables/boats/maple_fall.json
 fc9c47fd053a5675dd851366847b69f910d98e3a data/byg/loot_tables/boats/palm.json
