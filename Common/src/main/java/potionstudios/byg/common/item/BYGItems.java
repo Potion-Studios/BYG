@@ -260,7 +260,6 @@ public class BYGItems {
 
     // Holly Woodtype
     public static final RegistryObject<Item> HOLLY_BERRY_LEAVES;
-    public static final RegistryObject<Item> HOLLY_BERRY;
 
     //Imparius Woodtype
     public static final RegistryObject<Item> IMPARIUS_VINE;
@@ -356,7 +355,6 @@ public class BYGItems {
         BYGWoodTypes.GREEN_ENCHANTED.init();
 
         HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
-        HOLLY_BERRY = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).effect(new MobEffectInstance(MobEffects.POISON, 200, 0), 1.0F).build())), "holly_berries");
         BYGWoodTypes.HOLLY.init();
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
