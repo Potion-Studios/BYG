@@ -351,12 +351,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "pink_cherry_foliage");
     public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "white_cherry_foliage");
 
-    public static final BlockRegistryObject<Block> WHITE_PETAL = createPetal("white_petal_block");
-    public static final BlockRegistryObject<Block> RED_PETAL = createPetal("red_petal_block");
-    public static final BlockRegistryObject<Block> PURPLE_PETAL = createPetal("purple_petal_block");
-    public static final BlockRegistryObject<Block> BLUE_PETAL = createPetal("blue_petal_block");
-    public static final BlockRegistryObject<Block> LIGHT_BLUE_PETAL = createPetal("light_blue_petal_block");
-    public static final BlockRegistryObject<Block> YELLOW_PETAL = createPetal("yellow_petal_block");
     public static final BlockRegistryObject<Block> POLLEN_BLOCK = createBlock(BYGBlockProperties.BYGPollen::new, "pollen_block");
 
     public static final BlockRegistryObject<Block> CRACKED_RED_SAND = createSand(MaterialColor.COLOR_ORANGE, 11098145, "cracked_red_sand");
