@@ -357,7 +357,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> BLUE_PETAL = createPetal("blue_petal_block");
     public static final BlockRegistryObject<Block> LIGHT_BLUE_PETAL = createPetal("light_blue_petal_block");
     public static final BlockRegistryObject<Block> YELLOW_PETAL = createPetal("yellow_petal_block");
-    public static final BlockRegistryObject<Block> PLANT_STEM = createLog("plant_stem");
     public static final BlockRegistryObject<Block> POLLEN_BLOCK = createBlock(BYGBlockProperties.BYGPollen::new, "pollen_block");
 
     public static final BlockRegistryObject<Block> CRACKED_RED_SAND = createSand(MaterialColor.COLOR_ORANGE, 11098145, "cracked_red_sand");

@@ -745,7 +745,6 @@ public class BYGItems {
     public static final RegistryObject<Item> PURPLE_PETAL = createItem(BYGBlocks.PURPLE_PETAL);
     public static final RegistryObject<Item> RED_PETAL = createItem(BYGBlocks.RED_PETAL);
     public static final RegistryObject<Item> YELLOW_PETAL = createItem(BYGBlocks.YELLOW_PETAL);
-    public static final RegistryObject<Item> PLANT_STEM = createItem(BYGBlocks.PLANT_STEM);
     public static final RegistryObject<Item> POLLEN_BLOCK = createItem(BYGBlocks.POLLEN_BLOCK);
     public static final RegistryObject<Item> POLLEN_DUST = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "pollen_dust");
 
