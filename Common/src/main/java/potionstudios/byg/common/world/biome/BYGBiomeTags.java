@@ -24,6 +24,9 @@ public class BYGBiomeTags {
 
     public static final TagKey<Biome> HAS_PALM_TREES = create("has_feature/palm_trees");
 
+    public static final TagKey<Biome> IS_DESERT = create("is_desert");
+    public static final TagKey<Biome> IS_PLAIN = create("is_plain");
+
 
     // Vanilla
     public static final TagKey<Biome> IS_DEEP_OCEAN = create("is_deep_ocean");
@@ -130,6 +133,7 @@ public class BYGBiomeTags {
 
 
     public static final TagKey<Biome> IS_SPOOKY = create("is_spooky");
+    public static final TagKey<Biome> IS_MAGICAL = create("is_magical");
 
 
     private static TagKey<Biome> create(String id) {
@@ -139,6 +143,8 @@ public class BYGBiomeTags {
     // Biome tag and what tags from vanilla or a mod loader to append to.
     public static final Supplier<Map<TagKey<Biome>, Set<TagKey<Biome>>>> BYG_BIOME_TAGS_TO_TAGS = Suppliers.memoize(() -> {
         Map<TagKey<Biome>, Set<TagKey<Biome>>> map = new Object2ObjectOpenHashMap<>();
+        map.put(IS_DESERT, Set.of(ModLoaderBiomeTags.Fabric.DESERT));
+        map.put(IS_PLAIN, Set.of(ModLoaderBiomeTags.Forge.IS_PLAINS, ModLoaderBiomeTags.Fabric.PLAINS));
         map.put(IS_OCEAN, Set.of(BiomeTags.IS_OCEAN, ModLoaderBiomeTags.Fabric.OCEAN));
         map.put(IS_DEEP_OCEAN, Set.of(BiomeTags.IS_DEEP_OCEAN, ModLoaderBiomeTags.Fabric.DEEP_OCEAN));
         map.put(IS_BEACH, Set.of(BiomeTags.IS_BEACH, ModLoaderBiomeTags.Fabric.BEACH, ModLoaderBiomeTags.Forge.IS_BEACH));
@@ -229,6 +235,13 @@ public class BYGBiomeTags {
         map.put(IS_VEGETATION_DENSE_OVERWORLD, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_OVERWORLD, ModLoaderBiomeTags.Fabric.VEGETATION_SPARSE));
         map.put(IS_VEGETATION_DENSE_NETHER, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_NETHER));
         map.put(IS_VEGETATION_DENSE_END, Set.of(ModLoaderBiomeTags.Forge.IS_DENSE_END));
+
+        map.put(IS_SNOWY, Set.of(ModLoaderBiomeTags.Forge.IS_SNOWY, ModLoaderBiomeTags.Fabric.SNOWY));
+        map.put(IS_ICY, Set.of(ModLoaderBiomeTags.Fabric.ICY));
+        map.put(IS_SPOOKY, Set.of(ModLoaderBiomeTags.Forge.IS_SPOOKY));
+        map.put(IS_WASTELAND, Set.of(ModLoaderBiomeTags.Forge.IS_WASTELAND, ModLoaderBiomeTags.Fabric.WASTELAND));
+        map.put(IS_DEAD, Set.of(ModLoaderBiomeTags.Forge.IS_DEAD, ModLoaderBiomeTags.Fabric.DEAD));
+        map.put(IS_MAGICAL, Set.of(ModLoaderBiomeTags.Forge.IS_MAGICAL));
 
         return map;
     });

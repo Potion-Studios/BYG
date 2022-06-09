@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers.tag;
 
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.tags.TagKey;
@@ -23,8 +24,10 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
                 .forEach((tag, ros) -> {
                     this.tag(tag).add(ros.stream().map(RegistryObject::get).toArray(Biome[]::new));
                     BYGBiomeTags.BYG_BIOME_TAGS_TO_TAGS.get().forEach((bygBiomeTag, delegates) -> {
-                        for (TagKey<Biome> tagKey : delegates) {
-                            this.tag(tagKey).addTag(bygBiomeTag);
+                        if (BuiltinRegistries.BIOME.getTag(bygBiomeTag).isPresent()) {
+                            for (TagKey<Biome> tagKey : delegates) {
+                                this.tag(tagKey).addTag(bygBiomeTag);
+                            }
                         }
                     });
                 });
