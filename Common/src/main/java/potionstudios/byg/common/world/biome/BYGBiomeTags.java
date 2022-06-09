@@ -112,13 +112,13 @@ public class BYGBiomeTags {
     public static final TagKey<Biome> CLIMATE_DRY_END = create("end/climate/dry");
 
     // Vegetation
-    public static final TagKey<Biome> IS_VEGETATION_SPARSE_OVERWORLD = create("vegetation/is_sparse/overworld");
-    public static final TagKey<Biome> IS_VEGETATION_SPARSE_NETHER = create("vegetation/is_sparse/nether");
-    public static final TagKey<Biome> IS_VEGETATION_SPARSE_END = create("vegetation/is_sparse/end");
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_OVERWORLD = create("overworld/vegetation/is_sparse");
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_NETHER = create("nether/vegetation/is_sparse");
+    public static final TagKey<Biome> IS_VEGETATION_SPARSE_END = create("end/vegetation/is_sparse");
 
-    public static final TagKey<Biome> IS_VEGETATION_DENSE_OVERWORLD = create("vegetation/is_dense/overworld");
-    public static final TagKey<Biome> IS_VEGETATION_DENSE_NETHER = create("vegetation/is_dense/nether");
-    public static final TagKey<Biome> IS_VEGETATION_DENSE_END = create("vegetation/is_dense/end");
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_OVERWORLD = create("overworld/vegetation/is_dense");
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_NETHER = create("nether/vegetation/is_dense");
+    public static final TagKey<Biome> IS_VEGETATION_DENSE_END = create("end/vegetation/is_dense");
 
 
     public static final TagKey<Biome> IS_ICY = create("is_icy");
