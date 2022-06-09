@@ -3,6 +3,10 @@
     {
       "id": "#byg:logs",
       "required": false
+    },
+    {
+      "id": "#minecraft:logs",
+      "required": false
     }
   ]
 }

@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers.tag;
 
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -15,6 +16,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItemTags;
@@ -48,8 +50,8 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
 
         BYGBlockTagsProvider.EXTRA_WOOD_TYPES.forEach(type -> copy(BlockTags.create(type), create(type)));
 
-        copy(BlockTags.LOGS, ItemTags.LOGS);
-        copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
+        copy(BYGTags.LOGS);
+        copy(BYGTags.LOGS_THAT_BURN);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
         copy(BlockTags.create(createLocation("bookshelves")), create(createLocation("bookshelves")));
         copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
@@ -75,7 +77,15 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
             .add(Items.STICK)
             .addOptionalTag(Tags.Items.RODS_WOODEN.location());
 
+        for (BYGTags tag : BYGTags.values()) {
+            DatagenUtils.addBYGTag(this::tag, tag, Registry.ITEM_REGISTRY);
+        }
+
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
+    }
+
+    private void copy(BYGTags tag) {
+        copy(tag.byg(BYGTags.RegistryType.BLOCKS), tag.byg(BYGTags.RegistryType.ITEMS));
     }
 
     private static TagKey<Item> bygTag(String path) {

@@ -1,0 +1,84 @@
+package potionstudios.byg.common;
+
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.Nullable;
+import potionstudios.byg.BYG;
+import potionstudios.byg.util.MultiTag;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@SuppressWarnings("all")
+@ParametersAreNonnullByDefault
+public enum BYGTags {
+    LOGS("logs", "logs", null, null, RegistryType.BLOCKS, RegistryType.ITEMS),
+    LOGS_THAT_BURN("logs_that_burn", "logs_that_burn", null, null, RegistryType.BLOCKS, RegistryType.ITEMS);
+
+    @Nonnull
+    private final MultiTag byg;
+    @Nonnull
+    private final MultiTag all;
+    @Nullable
+    private final MultiTag forge;
+    @Nullable
+    private final MultiTag fabric;
+    @Nullable
+    private final MultiTag minecraft;
+    public final Collection<RegistryType<?>> acceptedTypes;
+
+    BYGTags(String byg, @Nullable String vanilla, @Nullable String forge, @Nullable String fabric, RegistryType<?>... acceptedTypes) {
+        this.byg = MultiTag.create(BYG.createLocation(byg));
+        this.all = MultiTag.create(BYG.createLocation("all/" + byg));
+        this.forge = forge != null ? MultiTag.create(new ResourceLocation("forge", forge)) : null;
+        this.fabric = fabric != null ? MultiTag.create(new ResourceLocation("c", fabric)) : null;
+        this.minecraft = vanilla != null ? MultiTag.create(new ResourceLocation(vanilla)) : null;
+        this.acceptedTypes = acceptedTypes.length == 0 ? RegistryType.REGISTRY.values() : List.of(acceptedTypes);
+    }
+
+    @Nullable
+    public <T> TagKey<T> forge(RegistryType<T> registry) {
+        return forge == null ? null : forge.get(registry.registry);
+    }
+    @Nullable
+    public <T> TagKey<T> fabric(RegistryType<T> registry) {
+        return fabric == null ? null : fabric.get(registry.registry);
+    }
+    @Nullable
+    public <T> TagKey<T> minecraft(RegistryType<T> registry) {
+        return minecraft == null ? null : minecraft.get(registry.registry);
+    }
+    @Nonnull
+    public <T> TagKey<T> byg(RegistryType<T> registry) {
+        return byg.get(registry.registry);
+    }
+    @Nonnull
+    public <T> TagKey<T> all(RegistryType<T> registry) {
+        return all.get(registry.registry);
+    }
+
+    @SuppressWarnings("ClassCanBeRecord")
+    public static final class RegistryType<T> {
+        public static final Map<ResourceKey<?>, RegistryType<?>> REGISTRY = new HashMap<>();
+
+        public static final RegistryType<Block> BLOCKS = new RegistryType<>(Registry.BLOCK_REGISTRY);
+        public static final RegistryType<Item> ITEMS = new RegistryType<>(Registry.ITEM_REGISTRY);
+        public static final RegistryType<EntityType<?>> ENTITY_TYPES = new RegistryType<>(Registry.ENTITY_TYPE_REGISTRY);
+
+        public final ResourceKey<? extends Registry<T>> registry;
+
+        private RegistryType(ResourceKey<? extends Registry<T>> registry) {
+            this.registry = registry;
+            REGISTRY.put(registry, this);
+        }
+    }
+}

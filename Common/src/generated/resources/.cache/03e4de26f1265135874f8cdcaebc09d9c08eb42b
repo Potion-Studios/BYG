@@ -1,5 +1,9 @@
-// 1.19	2022-06-08T22:54:24.3207457	Tags for minecraft:item
+// 1.19	2022-06-09T11:30:32.9204002	Tags for minecraft:item
+10dc44875aebd35db4ff5a2adc6c547ed9d41650 data/byg/tags/items/all/logs.json
+91814fb4a15214220ddaacbfec9a4485a28c5d3f data/byg/tags/items/all/logs_that_burn.json
 9f07b59461d16a426afaf1988ffc51448dcbb176 data/byg/tags/items/bookshelves.json
+86e0acf28a8ef80d44ca111792958ad7614cfbd1 data/byg/tags/items/logs.json
+485620c7ba45e1930d3323dc40d092a4e794a776 data/byg/tags/items/logs_that_burn.json
 ef89ece741f37ca4edef1a32af40e5bd5fef30ed data/byg/tags/items/mushrooms.json
 f9741f495c31cbca5e778b6b8fef1011d144397c data/byg/tags/items/sticks.json
 7703e5d02c2746bdbbbc0ed84ca702ba0ffbf08f data/byg/tags/items/wood/aspen_logs.json
@@ -35,8 +39,8 @@ d9bee530cb743b4401ddc0ae6e746db1446cb58c data/byg/tags/items/wood/witch_hazel_lo
 c45f5216a4bfbe4957d094bbbe5e0c7200697677 data/byg/tags/items/wood/zelkova_logs.json
 8715dc18ace435555ea4a6ffa4d89ea17484a112 data/minecraft/tags/items/buttons.json
 fdca7777c5b714b00a9b31851dc6139466edbdeb data/minecraft/tags/items/leaves.json
-6b542e93aee3abaa0121e4c171d93566dae5beea data/minecraft/tags/items/logs.json
-5ae93a3250712ba5676e2b437340549a101e55e0 data/minecraft/tags/items/logs_that_burn.json
+98a5685c4b6a6ec2a0d649d012fbb7314617bf59 data/minecraft/tags/items/logs.json
+7283065ccfab84993c4540ee5e5cb2aac64bec52 data/minecraft/tags/items/logs_that_burn.json
 20cc8683af7c6d66b8eb624d590d6576d70c1f00 data/minecraft/tags/items/planks.json
 694444607939e5deac55f0e05c9a2fcf754c7418 data/minecraft/tags/items/sand.json
 337668a81e2ee42c4d700a087990c9c372bcc4aa data/minecraft/tags/items/saplings.json

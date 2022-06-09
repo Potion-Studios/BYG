@@ -1,6 +1,10 @@
-// 1.19	2022-06-08T22:54:24.3067331	BYG Block Tags
+// 1.19	2022-06-09T11:30:32.9112218	BYG Block Tags
+10dc44875aebd35db4ff5a2adc6c547ed9d41650 data/byg/tags/blocks/all/logs.json
+91814fb4a15214220ddaacbfec9a4485a28c5d3f data/byg/tags/blocks/all/logs_that_burn.json
 9f07b59461d16a426afaf1988ffc51448dcbb176 data/byg/tags/blocks/bookshelves.json
 fb625d0f7d1039b071247f74b3fe90ebaa9b2f55 data/byg/tags/blocks/end_stone.json
+86e0acf28a8ef80d44ca111792958ad7614cfbd1 data/byg/tags/blocks/logs.json
+485620c7ba45e1930d3323dc40d092a4e794a776 data/byg/tags/blocks/logs_that_burn.json
 291cb53edd79525d3a0e1007725504fb91c0c6ce data/byg/tags/blocks/lush.json
 69c396cb051bbe9a130e6979b67065e5041b179d data/byg/tags/blocks/may_place_on/allium_flower_bush.json
 69c396cb051bbe9a130e6979b67065e5041b179d data/byg/tags/blocks/may_place_on/alpine_bellflower.json
@@ -161,8 +165,8 @@ c45f5216a4bfbe4957d094bbbe5e0c7200697677 data/byg/tags/blocks/wood/zelkova_logs.
 62978bd2ab4e2dff704fe9d5dd21ce5134f21eb5 data/minecraft/tags/blocks/campfires.json
 e3c17f50270f84c73d4addfdb43108029521063b data/minecraft/tags/blocks/ice.json
 298cec2934256ab97faa569a20d1055a4e68844a data/minecraft/tags/blocks/leaves.json
-6b542e93aee3abaa0121e4c171d93566dae5beea data/minecraft/tags/blocks/logs.json
-5ae93a3250712ba5676e2b437340549a101e55e0 data/minecraft/tags/blocks/logs_that_burn.json
+010db0a69dd40847fecb154ad6e5050d4b6bb9d6 data/minecraft/tags/blocks/logs.json
+152ffbc9ee71a7d3de4ec919b80d8e056735244e data/minecraft/tags/blocks/logs_that_burn.json
 535588074f55464c9939d34cb434933bd5285646 data/minecraft/tags/blocks/mineable/axe.json
 4479225a6ee7640ff8223511337c7b5f3e0058c4 data/minecraft/tags/blocks/mineable/shovel.json
 905fafa6eeb610de1832dd4816b99b1f102dc7d4 data/minecraft/tags/blocks/oak_logs.json

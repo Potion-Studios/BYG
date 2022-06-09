@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.datagen.util.DatagenUtils;
 
@@ -20,6 +21,10 @@ public class BYGEntityTagsProvider extends EntityTypeTagsProvider {
         final var boatTag = TagKey.create(Registry.ENTITY_TYPE_REGISTRY, BYG.createLocation("boats"));
         tag(boatTag).add(BYGEntities.BOAT.get());
         tag(boatTag).add(BYGEntities.CHEST_BOAT.get());
+
+        for (BYGTags tag : BYGTags.values()) {
+            DatagenUtils.addBYGTag(this::tag, tag, Registry.ENTITY_TYPE_REGISTRY);
+        }
 
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }

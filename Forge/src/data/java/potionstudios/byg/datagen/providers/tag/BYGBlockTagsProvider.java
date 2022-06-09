@@ -1,5 +1,6 @@
 package potionstudios.byg.datagen.providers.tag;
 
+import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
@@ -37,8 +39,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        final var logs = tag(BlockTags.LOGS);
-        final var logsThatBurn = tag(BlockTags.LOGS_THAT_BURN);
+        final var logs = tag(BYGTags.LOGS.byg(BYGTags.RegistryType.BLOCKS));
+        final var logsThatBurn = tag(BYGTags.LOGS_THAT_BURN.byg(BYGTags.RegistryType.BLOCKS));
         tag(
                 BYGBlockTags.LUSH,
                 LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
@@ -139,9 +141,13 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.OAK_LOGS, WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
 
+        for (BYGTags tag : BYGTags.values()) {
+            DatagenUtils.addBYGTag(this::tag, tag, Registry.BLOCK_REGISTRY);
+        }
+
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
-    
+
     private static Predicate<Block> isMaterial(Material... materials) {
         final var materialsList = List.of(materials);
         return bl -> materialsList.contains(((BlockBehaviorAccess) bl).getMaterial());
