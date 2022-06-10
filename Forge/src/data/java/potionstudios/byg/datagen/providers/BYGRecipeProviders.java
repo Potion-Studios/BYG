@@ -102,7 +102,7 @@ public class BYGRecipeProviders extends RecipeProvider {
                 .define('P', type.planks())
                 .unlockedBy("has_planks", has(type.planks()))
                 .save(consumer, BYG.createLocation("wood/" + type + "/slab"));
-            ShapedRecipeBuilder.shaped(type.slab(), 4)
+            ShapedRecipeBuilder.shaped(type.stairs(), 4)
                 .group("wooden_stairs")
                 .pattern("P  ")
                 .pattern("PP ")
