@@ -1,3 +1,7 @@
+# 2.0.0.2
+* Fire events dependent of registry objects(ie blocks & villager professions) after fabric mod initialization/registry freezing.
+* Fix crashing signs.
+
 # 2.0.0.1
 * Tag related changes & additions.
 
