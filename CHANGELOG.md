@@ -1,3 +1,7 @@
+# 2.0.0.3
+* Fix stair recipes [#808](https://github.com/AOCAWOL/BYG/issues/808)
+* Tag stuff
+
 # 2.0.0.2
 * Fire events dependent of registry objects(ie blocks & villager professions) after fabric mod initialization/registry freezing.
 * Fix crashing signs.
