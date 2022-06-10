@@ -27,6 +27,7 @@ import static potionstudios.byg.BYG.createLocation;
 public class BYGFabric implements ModInitializer {
 
     private static String firstInitialized = null;
+    private static boolean afterRegistriesFreezeLoaded = false;
 
     @Override
     public void onInitialize() {
@@ -45,17 +46,28 @@ public class BYGFabric implements ModInitializer {
         registryBootStrap();
         BYGRegistry.loadClasses();
 
-        BYG.commonLoad();
-        BYG.threadSafeCommonLoad();
-        BYG.threadSafeLoadFinish();
-        FabricNetworkHandler.init();
-
         BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> BYG.attachCommands(dispatcher, dedicated ? Commands.CommandSelection.DEDICATED : Commands.CommandSelection.INTEGRATED));
+        FabricNetworkHandler.init();
 
-        registerVillagerTrades();
         BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
+    }
+
+    public static void afterRegistriesFreeze() {
+        if (afterRegistriesFreezeLoaded) {
+            Throwable throwable = new Throwable();
+            BYG.LOGGER.warn("Attempted to fire BYG after registries froze a 2nd time...", throwable);
+        }
+        BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event firing...");
+
+
+        BYG.commonLoad();
+        BYG.threadSafeCommonLoad();
+        BYG.threadSafeLoadFinish();
+        registerVillagerTrades();
+        afterRegistriesFreezeLoaded = true;
+        BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
     }
 
     private static void registerVillagerTrades() {

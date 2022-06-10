@@ -3,12 +3,13 @@
   "package": "potionstudios.byg.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MixinRegistry"
   ],
   "client": [
     "client.MixinBlockColors",
     "client.MixinItemColors",
-    "client.MixinMinecraft",
     "client.MixinLayerDefinitions",
+    "client.MixinMinecraft",
     "client.access.AccessEntityRenderers"
   ],
   "server": [
