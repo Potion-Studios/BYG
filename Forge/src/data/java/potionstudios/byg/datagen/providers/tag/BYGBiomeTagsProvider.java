@@ -23,13 +23,13 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
         BYGBiomes.BIOMES_BY_TAG.asMap()
                 .forEach((tag, ros) -> {
                     this.tag(tag).add(ros.stream().map(RegistryObject::get).toArray(Biome[]::new));
-                    BYGBiomeTags.BYG_BIOME_TAGS_TO_TAGS.get().forEach((bygBiomeTag, delegates) -> {
-                        if (BuiltinRegistries.BIOME.getTag(bygBiomeTag).isPresent()) {
-                            for (TagKey<Biome> tagKey : delegates) {
-                                this.tag(tagKey).addTag(bygBiomeTag);
-                            }
-                        }
-                    });
+//                    BYGBiomeTags.BYG_BIOME_TAGS_TO_TAGS.get().forEach((bygBiomeTag, delegates) -> {
+//                        if (BuiltinRegistries.BIOME.getTag(bygBiomeTag).isPresent()) {
+//                            for (TagKey<Biome> tagKey : delegates) {
+//                                this.tag(tagKey).addTag(bygBiomeTag);
+//                            }
+//                        }
+//                    });
                 });
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
     }
