@@ -1,3 +1,7 @@
+# 1.4.1
+* Fire events dependent of registry objects(ie blocks & villager professions)
+* Try and fix missing BYG sign models.
+
 # 1.4
 * Release
 * Fix ocean biome selector from spawning lush stacks everywhere, `Lush Stacks` & `Dead Sea` should be much rarer. Changes apply after config update/reset.
