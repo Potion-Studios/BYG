@@ -8,6 +8,7 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodType;
 import potionstudios.byg.common.blockentity.BYGBlockEntities;
 import potionstudios.byg.common.container.BYGMenuTypes;
 import potionstudios.byg.common.entity.BYGEntities;
@@ -33,6 +34,7 @@ public class BYGRegistry {
     public static final Registry<Codec<? extends VillagerTrades.ItemListing>> VILLAGER_TRADES_ITEM_LISTING = RegistryAccess.byg_invokeRegisterSimple(VILLAGER_TRADES_ITEM_LISTING_RESOURCE_KEY, Lifecycle.stable(), registry -> VillagerTradeRegistry.ITEM_LISTING_CODEC);
 
     public static void loadClasses() {
+        BYGWoodType.loadClass();
         BYGBlocks.loadClass();
         BYGItems.loadClass();
 

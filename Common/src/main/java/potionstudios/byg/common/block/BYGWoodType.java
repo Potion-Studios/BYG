@@ -42,4 +42,7 @@ public class BYGWoodType {
     private static WoodType register(String id) {
         return BYGConstants.SIGNS ? byg_invokeRegister(byg_create(BYG.createLocation(id).toString().replace(":", "/"))) : null;
     }
+
+    public static void loadClass() {
+    }
 }
