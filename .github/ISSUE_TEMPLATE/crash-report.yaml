@@ -16,6 +16,7 @@ body:
       label: Minecraft Version
       description: What Minecraft version are you using? If your version isn't listed here, we don't support it.
       options:
+        - 1.19
         - 1.18.2
         - 1.16.5
     validations:
@@ -88,5 +89,16 @@ body:
       label: latest.log
       description: Please upload your latest.log file directly here or use https://gist.github.com/ and leave the link here.
       placeholder: Drag and drop latest.log file here or link it with https://gist.github.com/!
+    validations:
+      required: true
+  - type: dropdown
+    id: isolate-mod
+    attributes:
+      label: isolate mod
+      description: |
+        Did you try a seperate instance with BYG only and its required dependencies and manage to recreate the issue?? **If not please do so now!**
+      options:
+        - I tried BYG alone
+        - I did not try BYG alone
     validations:
       required: true
