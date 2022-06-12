@@ -8,8 +8,10 @@ body:
       value: |
         **Prior to filling out this bug report please try the following:**
         -Reset your configs! Configurations typically change between mod updates and are typically the most common causes of crashes. To reset your configs, move your existing configs to a seperate directory that isn't your MC installation directory, run the game, and update the values from your old config in the newly generated config!
-
+        
         -Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
+        
+        -**TITLE THIS ISSUE PROPERLY**
   - type: dropdown
     id: minecraft-version
     attributes:
@@ -94,7 +96,7 @@ body:
   - type: dropdown
     id: isolate-mod
     attributes:
-      label: isolate mod
+      label: Did you isolate BYG?
       description: |
         Did you try a seperate instance with BYG only and its required dependencies and manage to recreate the issue?? **If not please do so now!**
       options:
