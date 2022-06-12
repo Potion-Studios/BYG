@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.biome.overworld;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -34,7 +35,14 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                               Wrapped<List<List<ResourceKey<Biome>>>> peakBiomesVariant,
                               Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomes,
                               Wrapped<List<List<ResourceKey<Biome>>>> slopeBiomesVariant,
-                              Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+                              Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper,
+                              Map<ResourceKey<Biome>, Wrapped<List<List<ResourceKey<Biome>>>>> splitter) {
+    private static final Function<ResourceLocation, DataResult<ResourceKey<Biome>>> VANILLA_RESOURCE_LOCATION_CHECK = resourceLocation -> {
+        if (!resourceLocation.getNamespace().equals("minecraft")) {
+            throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
+        }
+        return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
+    };
     public static final Codec<OverworldRegion> CODEC = RecordCodecBuilder.create(builder -> {
         return builder.group(Codec.INT.fieldOf("weight").forGetter(overworldRegion -> overworldRegion.overworldWeight),
                 BIOME_LAYOUT_CODEC.fieldOf("ocean_biomes").forGetter(overworldRegion -> overworldRegion.oceans),
@@ -48,12 +56,10 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant),
                 BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomes),
                 BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant),
-                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
-                    if (!resourceLocation.getNamespace().equals("minecraft")) {
-                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
-                    }
-                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
-                }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
+                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(VANILLA_RESOURCE_LOCATION_CHECK,
+                        ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper),
+                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(VANILLA_RESOURCE_LOCATION_CHECK,
+                        ResourceKey::location), BIOME_LAYOUT_CODEC).fieldOf("splitter").orElse(ImmutableMap.of()).forGetter(overworldRegion -> overworldRegion.splitter)
         ).apply(builder, OverworldRegion::new);
     });
 
@@ -72,12 +78,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("peak_biomes_variant").orElse(PEAK_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.peakBiomesVariant.value()),
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes").orElse(SLOPE_BIOMES_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomes.value()),
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
-                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
-                    if (!resourceLocation.getNamespace().equals("minecraft")) {
-                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
-                    }
-                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
-                }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
+                Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(VANILLA_RESOURCE_LOCATION_CHECK,
+                        ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::fromOldCodec);
     });
 
@@ -105,7 +107,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 checkForMatching(peakBiomesVariant),
                 checkForMatching(slopeBiomes),
                 checkForMatching(slopeBiomesVariant),
-                swapper
+                swapper, ImmutableMap.of()
         );
     }
 
@@ -114,19 +116,33 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
     }
 
     private static Function<OverworldRegion, DataResult<OverworldRegion>> verifyRegion() {
-        return region1 -> {
-            StringBuilder errors = new StringBuilder();
+        return region -> {
+            StringBuilder swapperErrors = new StringBuilder();
+            StringBuilder splitterErrors = new StringBuilder();
 
-            region1.forEachBiomeSelector(biomeResourceKey -> {
-                if (region1.swapper().containsKey(biomeResourceKey)) {
-                    errors.append(biomeResourceKey.location()).append(",");
-                }
+            region.forEachBiomeSelector(biomeResourceKey -> {
+                if (region.swapper().containsKey(biomeResourceKey))
+                    swapperErrors.append(biomeResourceKey.location()).append(",");
+                if (region.splitter.containsKey(biomeResourceKey))
+                    splitterErrors.append(biomeResourceKey.location()).append(",");
             });
 
-            if (!errors.isEmpty()) {
-                return DataResult.error(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors.toString()));
+            if (!swapperErrors.isEmpty())
+                return DataResult.error(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", swapperErrors.toString()));
+            if (!splitterErrors.isEmpty())
+                return DataResult.error(String.format("Attempting to assign a biome resource key in both the splitter and biome selectors!\n%s", splitterErrors.toString()));
+            // rebuild error list for splitter keys
+            swapperErrors.delete(0, swapperErrors.length());
+            for(ResourceKey<Biome> biomeKey : region.splitter.keySet()) {
+                if (region.swapper.containsKey(biomeKey))
+                    swapperErrors.append(biomeKey.location()).append(",");
             }
-            return DataResult.success(region1);
+
+            if (!swapperErrors.isEmpty()) {
+                return DataResult.error(String.format("Attempting to assign a biome as a key in both the swapper and the splitter! \n%s", swapperErrors.toString()));
+            }
+
+            return DataResult.success(region);
         };
     }
 
@@ -181,6 +197,18 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                         "key3":"value3"
                         }
                         """);
+        map.put("splitter",
+                """
+                        Used to split biomes not found in the biome selectors to temperature/humidity arrays.
+                        
+                        "key" = "minecraft:biome_registry_path"
+                        "value" = "splitter/temperature_array_path"
+                        
+                        For example:
+                        {
+                        "minecraft:stony_shore": "splitters/stony_shores_1"
+                        }"
+                        """);
         map.put("weight",
                 """
                         The weight of this provider/region against all other providers.
@@ -199,7 +227,9 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
                         map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS);
-                        map.put(Biomes.STONY_SHORE, BYGBiomes.DACITE_SHORE);
+                    }),
+                    Util.make(new IdentityHashMap<>(), map -> {
+                        map.put(Biomes.STONY_SHORE, STONY_SHORES_1);
                     }))
     );
     public static final Wrapped<OverworldRegion> REGION_2 = create("region_2",
@@ -209,8 +239,11 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     BEACH_BIOMES_1, PEAK_BIOMES_1, PEAK_BIOMES_VARIANT_VANILLA, SLOPE_BIOMES_1, SLOPE_BIOMES_VARIANT_VANILLA,
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
-                        map.put(Biomes.STONY_SHORE, BYGBiomes.DACITE_SHORE);
-                    })));
+                    }),
+                    Util.make(new IdentityHashMap<>(), map -> {
+                        map.put(Biomes.STONY_SHORE, STONY_SHORES_1);
+                    }))
+    );
     public static final Wrapped<OverworldRegion> REGION_3 = create("region_3",
             new OverworldRegion(OVERWORLD_WEIGHT,
                     OCEANS_VANILLA, MIDDLE_BIOMES_3, MIDDLE_BIOMES_VARIANT_VANILLA,
@@ -219,7 +252,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.WHITE_MANGROVE_MARSHES);
                         map.put(Biomes.SWAMP, BYGBiomes.BAYOU);
-                    } ))
+                    }),
+                    ImmutableMap.of())
     );
 
     public static final Wrapped<OverworldRegion> RARE_REGION_1 = create("rare_region_1",
@@ -230,7 +264,8 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     Util.make(new IdentityHashMap<>(), map -> {
                         map.put(Biomes.SWAMP, BYGBiomes.CYPRESS_SWAMPLANDS);
                         map.put(Biomes.MANGROVE_SWAMP, BYGBiomes.BAYOU);
-                    }))
+                    }),
+                    ImmutableMap.of())
     );
 
     public static final List<Wrapped<OverworldRegion>> OVERWORLD_DEFAULTS =
@@ -259,6 +294,11 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     biome.accept(resourceKey);
                 }
             }
+        }
+        for (Wrapped<List<List<ResourceKey<Biome>>>> splitterResults : this.splitter.values()) {
+            for(List<ResourceKey<Biome>> humidityArray : splitterResults.value())
+                for(ResourceKey<Biome> biomeResourceKey : humidityArray)
+                    biome.accept(biomeResourceKey);
         }
     }
 }

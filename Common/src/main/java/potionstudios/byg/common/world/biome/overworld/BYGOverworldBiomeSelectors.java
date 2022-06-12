@@ -61,6 +61,13 @@ public class BYGOverworldBiomeSelectors {
             """, fallback);
     }
 
+    private static String invalidKeysOkay2(String fallback) {
+        return String.format("""
+            All keys passed in must be valid in the biome registry!
+            In slots containing "minecraft:the_void", biomes at the equivalent temperature/humidity fall back to "%s" instead.
+            """, fallback);
+    }
+
     public static final String PEAK_BIOMES_LAYOUT = "Appearing on mountainous terrain & BELOW weirdness 0, here is the \"peak_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
 
     public static final String SLOPE_BIOMES_LAYOUT = "Appearing on sloped terrain, near mountainous terrain, & BELOW weirdness 0, here is the \"slope_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
@@ -79,6 +86,11 @@ public class BYGOverworldBiomeSelectors {
     public static final String MIDDLE_BIOMES_VARIANT_LAYOUT = "Appearing on terrain ABOVE weirdness 0, here is the \"middle_biomes_variant\" layout:\n" + BIOME_LAYOUT + invalidKeysOkay("middle_biomes");
 
     public static final String BEACH_BIOMES_LAYOUT = "Appearing on terrain bordering oceans, here is the \"beach_biomes\" layout:\n" + BIOME_LAYOUT + REQUIRES_VALID_KEYS;
+
+    public static String splitterLayout(String biome, String name) {
+        return String.format("Appearing instead of \"%s\", here is the \"%s\" layout: " + BIOME_LAYOUT + invalidKeysOkay2(biome),
+                biome, name);
+    }
 
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> OCEANS_VANILLA = create("oceans/oceans_vanilla", OCEANS_BIOMES_LAYOUT_COMMENT, new ResourceKey[][]{
         {Biomes.DEEP_FROZEN_OCEAN, Biomes.DEEP_COLD_OCEAN, Biomes.DEEP_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN, Biomes.WARM_OCEAN},
@@ -148,8 +160,8 @@ public class BYGOverworldBiomeSelectors {
     protected static final Wrapped<List<List<ResourceKey<Biome>>>> BEACH_BIOMES_1 = create("beach_biomes/beach_biomes_1", BEACH_BIOMES_LAYOUT, new ResourceKey[][]{
             {Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH, Biomes.SNOWY_BEACH},
             {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
-            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA},
-            {BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH},
+            {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, Biomes.BEACH},
+            {Biomes.BEACH, Biomes.BEACH, Biomes.BEACH, BYGBiomes.RAINBOW_BEACH, BYGBiomes.RAINBOW_BEACH},
             {BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT, BYGBiomes.WINDSWEPT_DESERT}
     });
 
@@ -235,6 +247,14 @@ public class BYGOverworldBiomeSelectors {
             {BYGBiomes.GROVE, BYGBiomes.ORCHARD, BYGBiomes.ASPEN_FOREST, BYGBiomes.ALLIUM_FIELDS, BYGBiomes.DACITE_RIDGES},
             {BYGBiomes.BAOBAB_SAVANNA, BYGBiomes.ARAUCARIA_SAVANNA, BYGBiomes.EBONY_WOODS, BYGBiomes.AMARANTH_FIELDS, BYGBiomes.GUIANA_SHIELD},
             {BYGBiomes.FIRECRACKER_SHRUBLAND, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.SIERRA_BADLANDS, BYGBiomes.RED_ROCK_VALLEY, BYGBiomes.RED_ROCK_VALLEY}
+    });
+
+    protected static final Wrapped<List<List<ResourceKey<Biome>>>> STONY_SHORES_1 = create("splitters/stony_shores_1", splitterLayout("minecraft:stony_shore", "stony_shores"), new ResourceKey[][]{
+            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE},
+            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE},
+            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE, BYGBiomes.DACITE_SHORE},
+            {BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA, BYGBiomes.BASALT_BARRERA},
+            {Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID, Biomes.THE_VOID}
     });
 
     protected static Wrapped<List<List<ResourceKey<Biome>>>> create(String id, String header, ResourceKey<Biome>[][] biomeKeys) {

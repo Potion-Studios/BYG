@@ -16,6 +16,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.mixin.access.WeightedEntryWrapperAccess;
 import potionstudios.byg.mixin.access.WeightedListAccess;
+import potionstudios.byg.util.codec.Wrapped;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -56,6 +57,15 @@ public class BYGUtil {
         }
 
         return resultList.toArray(ResourceKey[][]::new);
+    }
+
+    public static <T> Map<ResourceKey<T>, ResourceKey<T>[][]> mapOfWrappedListToMapOf2DArray(
+            Map<ResourceKey<T>, Wrapped<List<List<ResourceKey<T>>>>> mapToConvert) {
+        Map<ResourceKey<T>, ResourceKey<T>[][]> resultMap = new IdentityHashMap<>();
+        for(Map.Entry<ResourceKey<T>, Wrapped<List<List<ResourceKey<T>>>>> entry : mapToConvert.entrySet()) {
+            resultMap.put(entry.getKey(), _2DResourceKeyArrayTo2DList(entry.getValue().value()));
+        }
+        return resultMap;
     }
 
     public static <T> String print2DResourceKeyArray(ResourceKey<T>[][] valueToPrint) {

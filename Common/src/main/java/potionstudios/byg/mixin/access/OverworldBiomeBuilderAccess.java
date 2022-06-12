@@ -35,4 +35,13 @@ public interface OverworldBiomeBuilderAccess {
 
     @Invoker("addBiomes")
     void byg_invokeAddBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper);
+
+    @Accessor
+    Climate.Parameter[] getTemperatures();
+
+    @Accessor
+    Climate.Parameter[] getHumidities();
+
+    @Accessor("FULL_RANGE")
+    Climate.Parameter getFullRange();
 }

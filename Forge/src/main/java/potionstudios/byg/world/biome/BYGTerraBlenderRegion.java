@@ -23,12 +23,14 @@ import java.util.function.Predicate;
 import static potionstudios.byg.util.BYGRegionUtils.dumpArrays;
 import static potionstudios.byg.util.BYGRegionUtils.filter;
 import static potionstudios.byg.util.BYGUtil._2DResourceKeyArrayTo2DList;
+import static potionstudios.byg.util.BYGUtil.mapOfWrappedListToMapOf2DArray;
 
 public class BYGTerraBlenderRegion extends Region {
     private static int count = 0;
 
     private final Set<ResourceKey<Biome>> bygKeys = new ObjectOpenHashSet<>();
     private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
+    private final Map<ResourceKey<Biome>, ResourceKey<Biome>[][]> splitter;
 
     private final BYGOverworldBiomeBuilder bygOverworldBiomeBuilder;
 
@@ -45,7 +47,8 @@ public class BYGTerraBlenderRegion extends Region {
                 _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomesVariant().value()),
                 _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomes().value()),
                 _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomesVariant().value()),
-                overworldRegion.swapper());
+                overworldRegion.swapper(),
+                mapOfWrappedListToMapOf2DArray(overworldRegion.splitter()));
     }
 
     public BYGTerraBlenderRegion(int overworldWeight,
@@ -54,9 +57,11 @@ public class BYGTerraBlenderRegion extends Region {
                                  ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
                                  ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
                                  ResourceKey<Biome>[][] peakBiomesVariant, ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant,
-                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper,
+                                 Map<ResourceKey<Biome>, ResourceKey<Biome>[][]> splitter) {
         super(BYG.createLocation("region_" + count++), RegionType.OVERWORLD, overworldWeight);
         this.swapper = swapper;
+        this.splitter = splitter;
         Predicate<ResourceKey<Biome>> noVoidBiomes = biomeResourceKey -> biomeResourceKey != Biomes.THE_VOID;
         oceans = filter("oceans", this.getName(), count, oceans, noVoidBiomes, true);
         middleBiomes = filter("middle_biomes", this.getName(), count, middleBiomes, noVoidBiomes, true);
@@ -77,19 +82,36 @@ public class BYGTerraBlenderRegion extends Region {
         );
 
         dumpArrays((biomeResourceKey -> {
-            if (biomeResourceKey != null) {
+                    if (biomeResourceKey != null) {
+                        bygKeys.add(biomeResourceKey);
+                        if (swapper.containsKey(biomeResourceKey)) {
+                            throw new IllegalArgumentException("Swapper cannot swap elements found in the temperature arrays.");
+                        }
+                        if (splitter.containsKey(biomeResourceKey)) {
+                            throw new IllegalArgumentException("Splitter cannot split elements found in the temperature arrays.");
+                        }
+                    }
+                }), oceans, middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, shatteredBiomes, beachBiomes,
+                peakBiomes, peakBiomesVariant, slopeBiomes, slopeBiomesVariant);
+        for(ResourceKey<Biome>[][] array : splitter.values())
+        {
+            dumpArrays(biomeResourceKey -> {
                 bygKeys.add(biomeResourceKey);
-                if (swapper.containsValue(biomeResourceKey)) {
-                    throw new IllegalArgumentException("Swapper cannot contain elements found in the temperature arrays.");
+                if(swapper.containsKey(biomeResourceKey)) {
+                    throw new IllegalArgumentException("Swapper cannot swap elements found in splitters.");
                 }
-            }
-        }), oceans, middleBiomes, middleBiomesVariant, plateauBiomes, plateauBiomesVariant, shatteredBiomes, beachBiomes, peakBiomes);
+                if(splitter.containsKey(biomeResourceKey)) {
+                    throw new IllegalArgumentException("Splitter cannot split biomes from its own temperature arrays.");
+                }
+            });
+        }
     }
 
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         MutableInt totalPairs = new MutableInt();
         MutableInt bygMapperAccepted = new MutableInt(0);
+        OverworldBiomeBuilderAccess access = (OverworldBiomeBuilderAccess) this.bygOverworldBiomeBuilder;
         ((OverworldBiomeBuilderAccess) this.bygOverworldBiomeBuilder).byg_invokeAddBiomes((parameterPointResourceKeyPair -> {
             ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
             if (!registry.containsKey(biomeKey)) {
@@ -98,16 +120,51 @@ public class BYGTerraBlenderRegion extends Region {
             totalPairs.increment();
             boolean mapped = false;
             boolean alreadyMappedOutsideSwapper = false;
+            boolean alreadyMappedInSplitter = false;
             if (this.bygKeys.contains(biomeKey)) {
                 mapper.accept(new Pair<>(parameterPointResourceKeyPair.getFirst(), biomeKey));
                 bygMapperAccepted.increment();
                 alreadyMappedOutsideSwapper = true;
                 mapped = true;
             }
-
+            if (this.splitter.containsKey(biomeKey)) {
+                if (alreadyMappedOutsideSwapper) {
+                    throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the splitter and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location().toString(), this.swapper.get(biomeKey).location().toString(), this.getName().toString()));
+                }
+                ResourceKey<Biome>[][] array = splitter.get(biomeKey);
+                Climate.ParameterPoint sourceParam = parameterPointResourceKeyPair.getFirst();
+                if(!sourceParam.temperature().equals(access.getFullRange()) &&
+                        !sourceParam.humidity().equals(access.getFullRange())) {
+                    throw new IllegalArgumentException(String.format("Biome \"%s\" doesn't cover the full temperature/humidity range and therefore cannot be put in the splitter.\n" +
+                            "Temperature range: %s, Humidity range: %s", biomeKey.location().toString(), sourceParam.temperature().toString(), sourceParam.humidity().toString()));
+                }
+                for(int i = 0; i < array.length; i++) {
+                    for (int j = 0; j < array[i].length; j++)
+                    {
+                        ResourceKey<Biome> resultKey = array[i][j];
+                        if(resultKey.equals(Biomes.THE_VOID))
+                            resultKey = biomeKey;
+                        mapper.accept(new Pair<>(new Climate.ParameterPoint(
+                                access.getTemperatures()[i],
+                                access.getHumidities()[j],
+                                sourceParam.continentalness(),
+                                sourceParam.erosion(),
+                                sourceParam.depth(),
+                                sourceParam.weirdness(),
+                                sourceParam.offset()
+                        ), resultKey));
+                    }
+                }
+                bygMapperAccepted.increment();
+                alreadyMappedInSplitter = true;
+                mapped = true;
+            }
             if (this.swapper.containsKey(biomeKey)) {
                 if (alreadyMappedOutsideSwapper) {
                     throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location().toString(), this.swapper.get(biomeKey).location().toString(), this.getName().toString()));
+                }
+                if (alreadyMappedInSplitter) {
+                    throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and the splitter. We're crashing your game to let you know that \"%s\" was put in the splitter. In region \"%s\".", biomeKey.location().toString(), this.getName().toString()));
                 }
                 mapper.accept(new Pair<>(parameterPointResourceKeyPair.getFirst(), this.swapper.get(biomeKey)));
                 bygMapperAccepted.increment();
