@@ -16,7 +16,7 @@ Quilt: Not Available.
 This project requires [JDK 17](https://adoptium.net/) & uses the [MultiLoader Template](https://github.com/jaredlll08/MultiLoader-Template) provided by [jaredlll08](https://github.com/jaredlll08).
 
 # Dependencies
-## 1.18
+## 1.18 & 1.19
 Terrablender: https://www.curseforge.com/minecraft/mc-mods/terrablender 
 
 
