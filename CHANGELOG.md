@@ -1,3 +1,6 @@
+# 2.0.0.4
+* Fix Eroded Badlands extensions in Shattered Glacier + Sierra Badland biomes.
+
 # 2.0.0.3
 * Fix stair recipes [#808](https://github.com/AOCAWOL/BYG/issues/808)
 * Tag stuff
