@@ -3,6 +3,8 @@ package potionstudios.byg.server.command;
 import blue.endless.jankson.Jankson;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.api.SyntaxError;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.BoolArgumentType;
@@ -16,16 +18,15 @@ import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.RegistryOps;
+import net.minecraft.resources.ResourceKey;
 import potionstudios.byg.BYG;
-import potionstudios.byg.mixin.access.HashCacheCacheUpdaterAccess;
 import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.jankson.JanksonUtil;
 
@@ -36,8 +37,7 @@ import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-
-import static potionstudios.byg.mixin.access.WorldGenRegistryDumpReportAccess.byg_invokeDumpRegistryCap;
+import java.util.Optional;
 
 public class WorldGenExportCommand {
 
@@ -57,11 +57,11 @@ public class WorldGenExportCommand {
         Function<CommandContext<CommandSourceStack>, Boolean> builtin = cs -> ((CommandContext<CommandSourceStack>) cs).getArgument("Generate Built In Registries?", Boolean.class);
 
         LiteralCommandNode<CommandSourceStack> source = dispatcher.register(Commands.literal(commandString).requires(stack -> stack.hasPermission(4))
-            .executes(cs -> generateWorldGenExport(true, false, cs))
-            .then(Commands.argument("With comments?", BoolArgumentType.bool()).executes(cs -> WorldGenExportCommand.generateWorldGenExport(withComments.apply(cs), false, cs))
+                .executes(cs -> generateWorldGenExport(true, false, cs))
+                .then(Commands.argument("With comments?", BoolArgumentType.bool()).executes(cs -> WorldGenExportCommand.generateWorldGenExport(withComments.apply(cs), false, cs))
 
-                .then(Commands.argument("Generate Built In Registries?", BoolArgumentType.bool())
-                    .executes(cs -> WorldGenExportCommand.generateWorldGenExport(withComments.apply(cs), builtin.apply(cs), cs)))));
+                        .then(Commands.argument("Generate Built In Registries?", BoolArgumentType.bool())
+                                .executes(cs -> WorldGenExportCommand.generateWorldGenExport(withComments.apply(cs), builtin.apply(cs), cs)))));
 
         dispatcher.register(Commands.literal(commandString).redirect(source));
     }
@@ -73,7 +73,8 @@ public class WorldGenExportCommand {
             return 0;
         }
 
-        Path finalExportPath = ModPlatform.INSTANCE.configPath().getParent().resolve("world_gen_export").resolve(builtin ? "builtin" : "world").resolve("data");
+
+        Path finalExportPath = ModPlatform.INSTANCE.configPath().resolve("world_gen_export").resolve(builtin ? "builtin" : "world").resolve("data");
         Path exportPath = finalExportPath.resolve("cache");
         Component exportFileComponent = Component.literal(finalExportPath.toString()).withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.AQUA)).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, finalExportPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("byg.clickevent.hovertext"))));
 
@@ -147,24 +148,48 @@ public class WorldGenExportCommand {
     }
 
     private static void generateFiles(boolean builtin, CommandSourceStack source, Path exportPath) throws IOException {
-        CachedOutput cache = HashCacheCacheUpdaterAccess.byg_create(SharedConstants.getCurrentVersion().getName(), HashCache.ProviderCache.load(exportPath, exportPath.resolve("reports")));
+        Path reports = exportPath.resolve("reports").resolve("worldgen");
+        Files.createDirectories(reports);
         RegistryAccess registry = builtin ? RegistryAccess.builtinCopy() : source.getLevel().registryAccess();
 
         DynamicOps<JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, registry);
 
         for (RegistryAccess.RegistryData<?> knownRegistry : RegistryAccess.knownRegistries()) {
-            byg_invokeDumpRegistryCap(cache, registry, ops, knownRegistry);
+            dumpRegistryCap(reports, registry, ops, knownRegistry);
         }
 
     }
 
+
+    private static <T> void dumpRegistryCap(Path root, RegistryAccess $$1, DynamicOps<JsonElement> $$2, RegistryAccess.RegistryData<T> $$3) {
+        ResourceKey<? extends Registry<T>> resourceKey = $$3.key();
+        Registry<T> registry = $$1.ownedRegistryOrThrow(resourceKey);
+
+        for (Map.Entry<ResourceKey<T>, T> resourceKeyTEntry : registry.entrySet()) {
+            ResourceKey<T> resourceKeyTEntryKey = resourceKeyTEntry.getKey();
+            Path path = root.resolve(resourceKeyTEntryKey.location().getNamespace()).resolve(resourceKey.location().getPath()).resolve(resourceKeyTEntryKey.location().getPath() + ".json");
+            try {
+                Optional<JsonElement> jsonElement = $$3.codec().encodeStart($$2, resourceKeyTEntry.getValue()).resultOrPartial(($$1x) -> {
+                });
+                if (jsonElement.isPresent()) {
+                    Gson gsonBuilder = new GsonBuilder().setPrettyPrinting().create();
+                    Files.createDirectories(path.getParent());
+                    Files.write(path, gsonBuilder.toJson(jsonElement.get()).getBytes());
+                }
+            } catch (IOException var6) {
+            }
+        }
+
+    }
+
+
     private static void createPackMCMeta(Path path, boolean builtIn) throws IOException {
         String fileString = "{\n" +
-            "\t\"pack\":{\n" +
-            "\t\t\"pack_format\": " + SharedConstants.DATA_PACK_FORMAT + ",\n" +
-            "\t\t\"description\": \"" + " Generated world gen datapack from " + (builtIn ? "built in registries" : "current world registries") + ".\"\n" +
-            "\t}\n" +
-            "}\n";
+                "\t\"pack\":{\n" +
+                "\t\t\"pack_format\": " + SharedConstants.DATA_PACK_FORMAT + ",\n" +
+                "\t\t\"description\": \"" + " Generated world gen datapack from " + (builtIn ? "built in registries" : "current world registries") + ".\"\n" +
+                "\t}\n" +
+                "}\n";
 
         Files.write(path.resolve("pack.mcmeta"), fileString.getBytes());
     }

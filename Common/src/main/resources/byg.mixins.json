@@ -62,7 +62,6 @@
     "access.WeightedListAccess",
     "access.WoodButtonBlockAccess",
     "access.WoodTypeAccess",
-    "access.WorldGenRegistryDumpReportAccess",
     "access.world.entity.npc.villagertrades.EmeraldForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess",
     "access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess",
