@@ -1,3 +1,6 @@
+# 2.0.0.5
+* Fix `/worldgenexport` command, should also resolve an incompatibility with `Memory Leak Fix` [#816](https://github.com/AOCAWOL/BYG/issues/816).
+
 # 2.0.0.4
 * Fix Eroded Badlands extensions in Shattered Glacier + Sierra Badland biomes.
 
