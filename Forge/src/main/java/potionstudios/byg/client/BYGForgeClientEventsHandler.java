@@ -2,9 +2,9 @@ package potionstudios.byg.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.ParticleFactoryRegisterEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import potionstudios.byg.client.textures.ColorManager;
@@ -13,12 +13,12 @@ import potionstudios.byg.client.textures.ColorManager;
 public class BYGForgeClientEventsHandler {
 
     @SubscribeEvent
-    public static void byg_onColorHandlerEvent$Block(ColorHandlerEvent.Block event) {
+    public static void byg_onColorHandlerEvent$Block(RegisterColorHandlersEvent.Block event) {
         ColorManager.onBlockColorsInit(event.getBlockColors());
     }
 
     @SubscribeEvent
-    public static void byg_onColorHandlerEvent$Item(ColorHandlerEvent.Item event) {
+    public static void byg_onColorHandlerEvent$Item(RegisterColorHandlersEvent.Item event) {
         ColorManager.onItemColorsInit(event.getBlockColors(), event.getItemColors());
     }
 
@@ -28,7 +28,7 @@ public class BYGForgeClientEventsHandler {
     }
 
     @SubscribeEvent
-    public static void byg_registerParticleFactories(ParticleFactoryRegisterEvent event) {
+    public static void byg_registerParticleFactories(RegisterParticleProvidersEvent event) {
         BYGClient.registerParticles(Minecraft.getInstance().particleEngine::register);
     }
 }

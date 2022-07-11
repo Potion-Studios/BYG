@@ -26,6 +26,6 @@ public record LevelBiomeTrackerPacket(LevelBiomeTracker biomeTracker) implements
 
     @Override
     public void handle(Level level) {
-        LevelBiomeTracker.client_instance = this.biomeTracker;
+        LevelBiomeTracker.client_instance = this    .biomeTracker;
     }
 }

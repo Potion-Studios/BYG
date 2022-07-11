@@ -18,14 +18,14 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[40.0.0,)"
+versionRange = "[41.0.64,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18.2,)"
+versionRange = "[1.19,)"
 ordering = "NONE"
 side = "BOTH"
 
