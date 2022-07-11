@@ -1,3 +1,6 @@
+# 1.4.2
+* Remove signs.
+
 # 1.4.1
 * Fire events dependent of registry objects(ie blocks & villager professions)
 * Try and fix missing BYG sign models.
