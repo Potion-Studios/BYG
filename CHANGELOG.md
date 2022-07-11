@@ -1,3 +1,7 @@
+## 2.0.0.6
+* Remove signs.
+* Fix BYG on Forge versions above `41.0.64`.
+
 # 2.0.0.5
 * Fix `/worldgenexport` command, should also resolve an incompatibility with `Memory Leak Fix` [#816](https://github.com/AOCAWOL/BYG/issues/816).
 
