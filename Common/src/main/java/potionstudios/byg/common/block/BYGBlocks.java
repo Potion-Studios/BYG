@@ -1271,7 +1271,9 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
         BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new StandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
-        SIGN_BLOCKS.add(signBlock);
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
         return signBlock;
     }
 
@@ -1281,7 +1283,9 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
         BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
-        SIGN_BLOCKS.add(signBlock);
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
         return signBlock;
     }
 
