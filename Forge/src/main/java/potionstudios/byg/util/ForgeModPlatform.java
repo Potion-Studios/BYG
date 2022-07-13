@@ -76,6 +76,6 @@ public class ForgeModPlatform implements ModPlatform {
 
     @Override
     public void addTagsUpdatedListener(TagsUpdatedEvent onTagsUpdated) {
-        MinecraftForge.EVENT_BUS.addListener((final net.minecraftforge.event.TagsUpdatedEvent event) -> onTagsUpdated.onTagsUpdated(event.getTagManager()));
+        MinecraftForge.EVENT_BUS.addListener((final net.minecraftforge.event.TagsUpdatedEvent event) -> onTagsUpdated.onTagsUpdated(event.getRegistryAccess()));
     }
 }
