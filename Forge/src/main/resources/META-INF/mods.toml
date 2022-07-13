@@ -18,7 +18,7 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[41.0.64,)"
+versionRange = "[41.0.94,)"
 ordering = "NONE"
 side = "BOTH"
 

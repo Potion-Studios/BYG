@@ -60,6 +60,6 @@ public class BYGForgeEventsHandler {
 
     @SubscribeEvent
     public static void registerCommands(final RegisterCommandsEvent event) {
-        BYG.attachCommands(event.getDispatcher(), event.getEnvironment());
+        BYG.attachCommands(event.getDispatcher(), event.getCommandSelection());
     }
 }
