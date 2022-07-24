@@ -3,7 +3,6 @@
   "values": [
     "byg:cryptic_redstone_ore",
     "byg:blue_nether_quartz_ore",
-    "byg:brimstone_nether_quartz_ore",
-    "byg:lignite_ore"
+    "byg:brimstone_nether_quartz_ore"
   ]
 }
