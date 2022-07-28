@@ -1,16 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SC"
-  ],
-  "key": {
-    "S": {
-      "item": "byg:dacite"
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:calcite"
     },
-    "C": {
-      "item": "minecraft:cobblestone"
+    {
+      "tag": "minecraft:stone_crafting_materials"
     }
-  },
+  ],
   "result": {
     "item": "byg:travertine",
     "count": 2
