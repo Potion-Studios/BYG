@@ -27,6 +27,8 @@ public class BYGStrippables {
         stripables.put(BYGBlocks.PALO_VERDE_LOG.get(), BYGBlocks.STRIPPED_PALO_VERDE_LOG.get());
         stripables.put(BYGBlocks.WITHERING_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG);
         stripables.put(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGWoodTypes.IMPARIUS.log().get());
+        stripables.put(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.get(), BYGWoodTypes.GREEN_ENCHANTED.log().get());
+        stripables.put(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.get(), BYGWoodTypes.BLUE_ENCHANTED.log().get());
 
         stripables.put(BYGBlocks.PALO_VERDE_WOOD.get(), BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get());
         stripables.put(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);

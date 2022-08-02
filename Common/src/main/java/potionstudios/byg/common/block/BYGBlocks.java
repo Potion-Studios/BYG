@@ -413,6 +413,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WITHERING_OAK_LOG = createLog("withering_oak_log");
     public static final BlockRegistryObject<Block> IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "fungal_imparius_stem");
+    public static final BlockRegistryObject<Block> IMBUED_BLUE_ENCHANTED_LOG = createLog("imbued_blue_enchanted_log");
+    public static final BlockRegistryObject<Block> IMBUED_GREEN_ENCHANTED_LOG = createLog("imbued_green_enchanted_log");
 
 
     public static final BlockRegistryObject<Block> PALO_VERDE_WOOD = createWood("palo_verde_wood");

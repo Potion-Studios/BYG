@@ -240,6 +240,12 @@ public class BYGItems {
     //Baobab Woodtype
     public static final RegistryObject<Item> BAOBAB_FRUIT;
 
+    //Blue Enchanted Woodtype
+    public static final RegistryObject<Item> IMBUED_BLUE_ENCHANTED_LOG;
+
+    //Green Enchanted Woodtype
+    public static final RegistryObject<Item> IMBUED_GREEN_ENCHANTED_LOG;
+
     //Bulbis Woodtype
     public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY;
     public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY;
@@ -328,6 +334,7 @@ public class BYGItems {
         BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
         BYGWoodTypes.BAOBAB.init();
 
+        IMBUED_BLUE_ENCHANTED_LOG = createItem(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG);
         BYGWoodTypes.BLUE_ENCHANTED.init();
 
         PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
@@ -352,6 +359,8 @@ public class BYGItems {
         ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
         BYGWoodTypes.ETHER.init();
         BYGWoodTypes.FIR.init();
+
+        IMBUED_GREEN_ENCHANTED_LOG = createItem(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG);
         BYGWoodTypes.GREEN_ENCHANTED.init();
 
         HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
