@@ -811,7 +811,7 @@ public class BYGItems {
     }
 
     public static RegistryObject<Item> createScaffoldingBlockItem(RegistryObject<? extends Block> block) {
-        return createItem(() -> new SythianScaffoldingBlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        return createItem(() -> new ScaffoldingBlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
     }
 
     public static RegistryObject<GrowerItem> createSaplingItem(RegistryObject<? extends Block> block) {

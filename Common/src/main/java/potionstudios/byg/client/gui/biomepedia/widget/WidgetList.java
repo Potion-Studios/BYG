@@ -27,14 +27,12 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
 
     @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        int x = this.getRowLeft();
-        int y = this.y0 + 4 - (int)this.getScrollAmount();
         super.render(poseStack, mouseX, mouseY, partialTick);
-        super.renderList(poseStack, x, y, mouseX, mouseY, partialTick);
+        super.renderList(poseStack, mouseX, mouseY, partialTick);
     }
 
     @Override
-    protected void renderList(PoseStack pPoseStack, int pX, int pY, int pMouseX, int pMouseY, float pPartialTick) {
+    protected void renderList(PoseStack $$0, int $$1, int $$2, float $$3) {
     }
 
     @Override
