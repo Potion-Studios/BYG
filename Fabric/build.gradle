@@ -1,3 +1,5 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 import java.util.stream.Collectors
 
 buildscript {
@@ -165,7 +167,7 @@ task fabric_checkForRefmap() {
     }
 }
 
-task fabric_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+task fabric_publishCurseForge(type: TaskPublishCurseForge) {
     apiToken = "$System.env.CURSEFORGE_KEY"
     int projectId = 391378
     String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
