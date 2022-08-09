@@ -1,3 +1,6 @@
+## 2.0.0.7
+* Update to 1.19.2.
+
 ## 2.0.0.6
 * Remove signs.
 * Fix BYG on Forge versions above `41.0.64`.

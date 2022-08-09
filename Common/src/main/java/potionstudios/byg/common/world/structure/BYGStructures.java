@@ -3,6 +3,7 @@ package potionstudios.byg.common.world.structure;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantFloat;
@@ -30,6 +31,7 @@ import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools
 import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
 import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
+import potionstudios.byg.common.world.structure.volcano.VolcanoStructure;
 import potionstudios.byg.mixin.access.StructuresAccess;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.blendingfunction.BlendingFunction;
@@ -135,6 +137,8 @@ public class BYGStructures {
         builder.withPercentageDestroyed(UniformFloat.of(0.45F, 1.0F));
         builder.withBlendingFunctionType(SimpleWeightedRandomList.<BlendingFunction>builder().add(BlendingFunction.EaseOutCubic.INSTANCE, 16).add(BlendingFunction.EaseInOutCirc.INSTANCE, 8).add(BlendingFunction.EaseOutBounce.INSTANCE, 1).build());
     }).build()));
+
+    public static final Holder<Structure> VOLCANO = register("volcano", () -> new VolcanoStructure(structure(BiomeTags.IS_OCEAN, GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE)));
 
     private static Holder<Structure> register(String id, Supplier<Structure> structureSupplier) {
         return PROVIDER.register(id, structureSupplier).asHolder();
