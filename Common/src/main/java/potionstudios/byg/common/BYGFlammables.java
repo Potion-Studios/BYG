@@ -26,16 +26,18 @@ public class BYGFlammables {
         BYG.LOGGER.debug("BYG: Adding Flammables...");
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            flammableBlock(type.log(), 5, 5);
-            flammableBlock(type.strippedLog(), 5, 5);
-            flammableBlock(type.wood(), 5, 5);
-            flammableBlock(type.strippedWood(), 5, 5);
-            flammableBlock(type.bookshelf(), 5, 20);
-            flammableBlock(type.slab(), 5, 20);
-            flammableBlock(type.stairs(), 5, 20);
-            flammableBlock(type.planks(), 5, 20);
-            flammableBlock(type.fence(), 5, 20);
-            flammableBlock(type.leaves(), 30, 60);
+            if (!type.isNether()) {
+                flammableBlock(type.log(), 5, 5);
+                flammableBlock(type.strippedLog(), 5, 5);
+                flammableBlock(type.wood(), 5, 5);
+                flammableBlock(type.strippedWood(), 5, 5);
+                flammableBlock(type.bookshelf(), 5, 20);
+                flammableBlock(type.slab(), 5, 20);
+                flammableBlock(type.stairs(), 5, 20);
+                flammableBlock(type.planks(), 5, 20);
+                flammableBlock(type.fence(), 5, 20);
+                flammableBlock(type.leaves(), 30, 60);
+            }
         }
 
         //Logs
