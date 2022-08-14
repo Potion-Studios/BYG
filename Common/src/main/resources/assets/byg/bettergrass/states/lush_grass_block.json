@@ -1,0 +1,11 @@
+{
+  "type": "grass",
+  "variants": {
+    "snowy=false": {
+      "data": "byg:bettergrass/data/lush_grass_block"
+    },
+    "snowy=true": {
+      "data": "byg:bettergrass/data/lush_grass_block_snowy"
+    }
+  }
+}
