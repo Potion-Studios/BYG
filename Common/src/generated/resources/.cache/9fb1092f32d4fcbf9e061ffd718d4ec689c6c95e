@@ -1,4 +1,4 @@
-// 1.19	2022-06-10T16:22:24.2557596	Recipes
+// 1.19.2	2022-08-14T15:00:25.648363	Recipes
 040b7c1b600131476663831b3614628b2e16af6e data/byg/advancements/recipes/byg.byg/wood/aspen/boat.json
 e5085099800fbd56da4c8693ad329f0169af037b data/byg/advancements/recipes/byg.byg/wood/aspen/bookshelf.json
 8396df911bffe2542072c233d2d132fb49c809f0 data/byg/advancements/recipes/byg.byg/wood/aspen/button.json
@@ -9,7 +9,6 @@ fe6d13420558aa65fe9ac1a49a7d3c15547e95b9 data/byg/advancements/recipes/byg.byg/w
 3831ae76ab56582e886b8e33ea6e3d103a84a0d5 data/byg/advancements/recipes/byg.byg/wood/aspen/fence_gate.json
 a52e1984fef268c301d3a010e3c713ef889261f6 data/byg/advancements/recipes/byg.byg/wood/aspen/planks.json
 ae04360f7a888634994853d55ddab9e225b05f3d data/byg/advancements/recipes/byg.byg/wood/aspen/pressure_plate.json
-c00d1d54058c75c1065ccab4796af656ee4b29f7 data/byg/advancements/recipes/byg.byg/wood/aspen/sign.json
 f98f056046ca6be5b29110963d29e07d63895526 data/byg/advancements/recipes/byg.byg/wood/aspen/slab.json
 1e114cf35dc84212dadf93f8e414395f18df6eda data/byg/advancements/recipes/byg.byg/wood/aspen/stairs.json
 6fdda6a7c7d79f8d067c2789ca28245cf8c350ad data/byg/advancements/recipes/byg.byg/wood/aspen/trapdoor.json
@@ -24,7 +23,6 @@ e39789c161f363a0be84c330c3808bb505e6728e data/byg/advancements/recipes/byg.byg/w
 b415ab480eec9889fb76779e8bebcc50dbdf1384 data/byg/advancements/recipes/byg.byg/wood/baobab/fence_gate.json
 48ee578deef02b7125580a878711cde849c5b8ed data/byg/advancements/recipes/byg.byg/wood/baobab/planks.json
 833c85bb50a7ec72f9f8deec3f64a70425bb4fd1 data/byg/advancements/recipes/byg.byg/wood/baobab/pressure_plate.json
-3e54770c4c114484b8b808d1999c28d54cbaf8e5 data/byg/advancements/recipes/byg.byg/wood/baobab/sign.json
 95d424a44fc3e2af90f9512697119ae6291562bc data/byg/advancements/recipes/byg.byg/wood/baobab/slab.json
 e7efa761ea7fc61d52d564454eca07ea5fa2dddc data/byg/advancements/recipes/byg.byg/wood/baobab/stairs.json
 cbb32a1b379f0807c4bee068fea8e721f2ac9b34 data/byg/advancements/recipes/byg.byg/wood/baobab/trapdoor.json
@@ -39,7 +37,6 @@ f0695fee1fd94c4dd5ad0ae444ca2c99df71a0fd data/byg/advancements/recipes/byg.byg/w
 18a8b18e5ae8454efe4c49a0c752ab2bb82f2876 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/fence_gate.json
 2b2739310a04304cfdcb1b4ea4bc599b907dde0b data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/planks.json
 ff24b5176adc5980b7e7527b633a85c5bab2a88c data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/pressure_plate.json
-3985c616dc2eda39fcaeda2881eec73b60622376 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/sign.json
 30078d49bbef406600dfad7c95f5e3671ab153ed data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/slab.json
 d2772afb028f1faa728923d7f8bca7fd57586229 data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/stairs.json
 d954b04509a527438537d32f1a8ee924adb4560b data/byg/advancements/recipes/byg.byg/wood/blue_enchanted/trapdoor.json
@@ -52,7 +49,6 @@ e8ef2bb6e4619a34e733a06a5117f355283230a5 data/byg/advancements/recipes/byg.byg/w
 0298da40551e23b3cba18952ca5e454917f36831 data/byg/advancements/recipes/byg.byg/wood/bulbis/fence_gate.json
 a348c1404e93dfd21c6db6bee532e591395f6e99 data/byg/advancements/recipes/byg.byg/wood/bulbis/planks.json
 701e52fa832bd6d6e90f7022c665a09196bfd88e data/byg/advancements/recipes/byg.byg/wood/bulbis/pressure_plate.json
-a060aff4998f02179996f87f3010bf9e49942ec1 data/byg/advancements/recipes/byg.byg/wood/bulbis/sign.json
 03fe9c36c1c54fb60d50195b26b3de5ef7b66587 data/byg/advancements/recipes/byg.byg/wood/bulbis/slab.json
 f0e1500c1b50c96431ee08898970eccbd14ed0b7 data/byg/advancements/recipes/byg.byg/wood/bulbis/stairs.json
 dea056103aa5687e35d08dc7a7381ebff608a78d data/byg/advancements/recipes/byg.byg/wood/bulbis/trapdoor.json
@@ -67,7 +63,6 @@ f8a33d51ea7a583c10eef47a9cd2f3c5b27a91aa data/byg/advancements/recipes/byg.byg/w
 aebd398d542b2f95ac7e434c156b03acabcb5927 data/byg/advancements/recipes/byg.byg/wood/cherry/fence_gate.json
 b8f0a0cc0174b5427ccbb1defd9133e7d79365cc data/byg/advancements/recipes/byg.byg/wood/cherry/planks.json
 41000ebf14c3a445787de64cb104d405a52ea86d data/byg/advancements/recipes/byg.byg/wood/cherry/pressure_plate.json
-0b233d4f365d13b5f0c8c88da52cd9264534b1a1 data/byg/advancements/recipes/byg.byg/wood/cherry/sign.json
 7d130d03453a351a4c2e51c8a3accff4c84d4d6a data/byg/advancements/recipes/byg.byg/wood/cherry/slab.json
 8de283f7604f1e2109804a365d5809f8864adad6 data/byg/advancements/recipes/byg.byg/wood/cherry/stairs.json
 ab7fcc005b126d0b84a4fb3b31a6ee44db3ff497 data/byg/advancements/recipes/byg.byg/wood/cherry/trapdoor.json
@@ -82,7 +77,6 @@ daac4d4ed1bc14e8e8e48534c6e096bcf8af609a data/byg/advancements/recipes/byg.byg/w
 d6ec4026d0306ec6684821b5def7b9eaca749771 data/byg/advancements/recipes/byg.byg/wood/cika/fence_gate.json
 41372fc90b2358b0c98b1f838ae609998aa8bdd5 data/byg/advancements/recipes/byg.byg/wood/cika/planks.json
 035340cdc7263b7e3fa54d879bf2d4d03ecab0de data/byg/advancements/recipes/byg.byg/wood/cika/pressure_plate.json
-b72f2cf78e9b813bbbec855c7b1e28f0cf15a6a2 data/byg/advancements/recipes/byg.byg/wood/cika/sign.json
 584105547faabe8121599c76805794365e255f22 data/byg/advancements/recipes/byg.byg/wood/cika/slab.json
 9a61147db2c6c4a792d6f553d01cfd00a4f9fa35 data/byg/advancements/recipes/byg.byg/wood/cika/stairs.json
 73418984c977cf16d52d648ff96be8f5e9e6a188 data/byg/advancements/recipes/byg.byg/wood/cika/trapdoor.json
@@ -97,7 +91,6 @@ a477b8ffd67525b3cc75d63fc5d28b0f7de65f49 data/byg/advancements/recipes/byg.byg/w
 d19e310ecf37151d24ad86cc8e43f7c60cdb22a3 data/byg/advancements/recipes/byg.byg/wood/cypress/fence_gate.json
 ad82fecfe9fa6312b14a803cae3765309dd07903 data/byg/advancements/recipes/byg.byg/wood/cypress/planks.json
 ba7b96ed365a0809ed6ed74af6496f1948a13af3 data/byg/advancements/recipes/byg.byg/wood/cypress/pressure_plate.json
-8f652eb8500a743b4e2701777090e8b5e7385036 data/byg/advancements/recipes/byg.byg/wood/cypress/sign.json
 77498b192b70eef88f13b41654ffb76bba4d94eb data/byg/advancements/recipes/byg.byg/wood/cypress/slab.json
 fe6ba52695f44b6e94ede724ba8ca250401bf127 data/byg/advancements/recipes/byg.byg/wood/cypress/stairs.json
 1d6cd73f3238b52501dacc02b1271629f3f176a6 data/byg/advancements/recipes/byg.byg/wood/cypress/trapdoor.json
@@ -112,7 +105,6 @@ c93bb5e76243038ea6641379edde02b1580b59e7 data/byg/advancements/recipes/byg.byg/w
 34a20e13d75938fdd177a2e5786623a6e76654a1 data/byg/advancements/recipes/byg.byg/wood/ebony/fence_gate.json
 f71812eeffd7ce4c988d75c652334d6a5b2ef711 data/byg/advancements/recipes/byg.byg/wood/ebony/planks.json
 35f0c4935332fc8639e30a0c57cecc65f2401f67 data/byg/advancements/recipes/byg.byg/wood/ebony/pressure_plate.json
-a27cc13c5d354566d6d43bce5fb107cab52a7535 data/byg/advancements/recipes/byg.byg/wood/ebony/sign.json
 5e03b2d15fc12e384e4d786284230c9be67cf787 data/byg/advancements/recipes/byg.byg/wood/ebony/slab.json
 37e5cd25f7e8ba58d5134b05f894b1fe55afbbf0 data/byg/advancements/recipes/byg.byg/wood/ebony/stairs.json
 5c017dfcd9bcd88bdf63bc0618e3743d16a32b6a data/byg/advancements/recipes/byg.byg/wood/ebony/trapdoor.json
@@ -125,7 +117,6 @@ d9848fa82272845f0c594a02ecb22d554926be68 data/byg/advancements/recipes/byg.byg/w
 fa9036a5f47cbee5b6daf06bac7e92d3bd209c4c data/byg/advancements/recipes/byg.byg/wood/embur/fence_gate.json
 e86d5dec93c5d194644cbc5a2d9ab114d83131df data/byg/advancements/recipes/byg.byg/wood/embur/planks.json
 3734b934078fcad0088b8e41d05af944e651f5cb data/byg/advancements/recipes/byg.byg/wood/embur/pressure_plate.json
-9babc16ff68fb221b8553064938644a1d9fea912 data/byg/advancements/recipes/byg.byg/wood/embur/sign.json
 975754ae3ca851088a261765df7dcd68148f4bd5 data/byg/advancements/recipes/byg.byg/wood/embur/slab.json
 64fd39925d9a84ff69e7af4c5f75e74038a82eba data/byg/advancements/recipes/byg.byg/wood/embur/stairs.json
 8b81f5e82c3d9dc6d9446b9928beeeeb63faf781 data/byg/advancements/recipes/byg.byg/wood/embur/trapdoor.json
@@ -138,7 +129,6 @@ a34fe78d9c80bb2606eaf725dabc50bf59bbfd83 data/byg/advancements/recipes/byg.byg/w
 154a5ec1724a2b5fc0e7eb190a7e8cbe73263a63 data/byg/advancements/recipes/byg.byg/wood/ether/fence_gate.json
 ad46e105dbb177e19b6ec43af2746cefd3f2682d data/byg/advancements/recipes/byg.byg/wood/ether/planks.json
 f82cd596026255d8e9de9047edc2752841887aca data/byg/advancements/recipes/byg.byg/wood/ether/pressure_plate.json
-dfaa06184d6e9aa9fc9d44cf32420bb73fca3c86 data/byg/advancements/recipes/byg.byg/wood/ether/sign.json
 cbd6b027662cde635ad6dd3f58c5e735f520c4f5 data/byg/advancements/recipes/byg.byg/wood/ether/slab.json
 19eff3d333d2e528ab7412c696c52aab8cc0eced data/byg/advancements/recipes/byg.byg/wood/ether/stairs.json
 60a61e3c9a6100d5bd23468fbb9b9492913b2628 data/byg/advancements/recipes/byg.byg/wood/ether/trapdoor.json
@@ -153,7 +143,6 @@ ce0ae8da3cd63b476ebbb106f2eecbc4a370fa8b data/byg/advancements/recipes/byg.byg/w
 000cf5690c614fab147f7789d8704544a7b20c58 data/byg/advancements/recipes/byg.byg/wood/fir/fence_gate.json
 a8f28bde8fa832ab2c95a1c720e8c5a1fc37d07b data/byg/advancements/recipes/byg.byg/wood/fir/planks.json
 891b41fc7c80e74002906d37ba02f18b981afaaa data/byg/advancements/recipes/byg.byg/wood/fir/pressure_plate.json
-db3025105aa9b62bc2dda6adc3a79414dca699bd data/byg/advancements/recipes/byg.byg/wood/fir/sign.json
 bf37ff586dbf524259bdb542092c6ff7f4856b1f data/byg/advancements/recipes/byg.byg/wood/fir/slab.json
 9309dfef936d10709895c018014880e9dd06a84b data/byg/advancements/recipes/byg.byg/wood/fir/stairs.json
 a42e1d38c21f077dd7cbe46baf6f57519456e435 data/byg/advancements/recipes/byg.byg/wood/fir/trapdoor.json
@@ -168,7 +157,6 @@ f6f30c29837842fe9e4a3c00c6e5b8d21c9fa52b data/byg/advancements/recipes/byg.byg/w
 1db8a4a9fd3cd8eda542f5a52ac3757ca01e2dfa data/byg/advancements/recipes/byg.byg/wood/green_enchanted/fence_gate.json
 114f2cfb3369db5c1e0a0c1928c5e2fa093d2b79 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/planks.json
 d420cd6475b29b52b3ae8a493c40056ab502a341 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/pressure_plate.json
-c220764532d38e25f7553b3061e81ddf022609b5 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/sign.json
 5c4fbe20b0e691fe670dc3f13bd037285bba3ab3 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/slab.json
 a4a45cc8a2ff25fb5ba5c8a920d5360979ecc1c5 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/stairs.json
 00007691ea4e18f253531da0b1757d8db7bd1f81 data/byg/advancements/recipes/byg.byg/wood/green_enchanted/trapdoor.json
@@ -183,7 +171,6 @@ a87d2077ecc021001d488bc334e91923fdc939d4 data/byg/advancements/recipes/byg.byg/w
 a88b158c3c70eede394dd09088f1e2a54e8955a7 data/byg/advancements/recipes/byg.byg/wood/holly/fence_gate.json
 aee39b56b2ea3730f2a6f89262c526a6dde021a0 data/byg/advancements/recipes/byg.byg/wood/holly/planks.json
 95536b65f99a7630dfa193035956f7ec1abe77b0 data/byg/advancements/recipes/byg.byg/wood/holly/pressure_plate.json
-e9d034aa5ff00ff396ebccc3015421687529b756 data/byg/advancements/recipes/byg.byg/wood/holly/sign.json
 bd7ab93f3ebe514fce6fe2b1820e7ade09754bb8 data/byg/advancements/recipes/byg.byg/wood/holly/slab.json
 61a4df28d7eb924433812a21b4abfe683bb99fbe data/byg/advancements/recipes/byg.byg/wood/holly/stairs.json
 dd72edd46e254466ade263f5a5518333d1c2d1a8 data/byg/advancements/recipes/byg.byg/wood/holly/trapdoor.json
@@ -196,7 +183,6 @@ dd72edd46e254466ade263f5a5518333d1c2d1a8 data/byg/advancements/recipes/byg.byg/w
 2faa8b78951438f114ea1b2f8c4488f430a6794c data/byg/advancements/recipes/byg.byg/wood/imparius/fence_gate.json
 8266bc1e96063447851ad93de1a8dfd361bf778a data/byg/advancements/recipes/byg.byg/wood/imparius/planks.json
 c78eb1909bee88946921c0a1deaa8e9c94beee86 data/byg/advancements/recipes/byg.byg/wood/imparius/pressure_plate.json
-851eeb3e2fa11a157ef2b9ecabe2be6b68f6ecd9 data/byg/advancements/recipes/byg.byg/wood/imparius/sign.json
 b6e8e544e9f6435a13b25a5b932b514f679add2c data/byg/advancements/recipes/byg.byg/wood/imparius/slab.json
 fe2bdada382f0fe6a5e6fb0b1f04be5689d8cb8a data/byg/advancements/recipes/byg.byg/wood/imparius/stairs.json
 515c5f22062b75e71da562a65acade43ee758578 data/byg/advancements/recipes/byg.byg/wood/imparius/trapdoor.json
@@ -211,7 +197,6 @@ c4939611fe88218b68bc9a067abe55fd00f2a00c data/byg/advancements/recipes/byg.byg/w
 9e80443e5b7677d5df4b1db7cd25091bc7ca6fc5 data/byg/advancements/recipes/byg.byg/wood/jacaranda/fence_gate.json
 c02317d7272ffb4af6de0e184467a0b345b36c8b data/byg/advancements/recipes/byg.byg/wood/jacaranda/planks.json
 97df91617b890ea687165542b74cb853875f3ed8 data/byg/advancements/recipes/byg.byg/wood/jacaranda/pressure_plate.json
-2b5c48c4050abd5a9c0ade6d06801d95a68326af data/byg/advancements/recipes/byg.byg/wood/jacaranda/sign.json
 b79bc5cac3b5e098f6120feb36d020fcc52c63cd data/byg/advancements/recipes/byg.byg/wood/jacaranda/slab.json
 824fea88cb9815c3d2d30a59e2de35a1fc789bbf data/byg/advancements/recipes/byg.byg/wood/jacaranda/stairs.json
 5a82b84b69fe0b3893901f7c9e1c1b6377046e68 data/byg/advancements/recipes/byg.byg/wood/jacaranda/trapdoor.json
@@ -224,7 +209,6 @@ e8eb7d7e77307ae9208b2501b3e20145d9d0c227 data/byg/advancements/recipes/byg.byg/w
 8619c5618171b4ff186a344150e80486e7e136d0 data/byg/advancements/recipes/byg.byg/wood/lament/fence_gate.json
 58a188baab3c77bfb74cedd0e94334d94d7b134c data/byg/advancements/recipes/byg.byg/wood/lament/planks.json
 2be7312a27dd2486d9148df242a4aaa1bb730038 data/byg/advancements/recipes/byg.byg/wood/lament/pressure_plate.json
-933f52c8e0e8fcc30061790cbdc472317d16da91 data/byg/advancements/recipes/byg.byg/wood/lament/sign.json
 b6e9531737446d2cf3ff649836174e480a625763 data/byg/advancements/recipes/byg.byg/wood/lament/slab.json
 b2c99758028dc74b53a3fd2f2316c10155b39bfc data/byg/advancements/recipes/byg.byg/wood/lament/stairs.json
 75f692f48d8070d7b8603945a59e447206339c87 data/byg/advancements/recipes/byg.byg/wood/lament/trapdoor.json
@@ -239,7 +223,6 @@ fb90769e5bf098dace60aa0c71bc45f8b2127e30 data/byg/advancements/recipes/byg.byg/w
 9e617de9db65c620ea9603a81f138144a32eb231 data/byg/advancements/recipes/byg.byg/wood/mahogany/fence_gate.json
 030e9eefaf3f76593e3430b38a16a5ca766272f6 data/byg/advancements/recipes/byg.byg/wood/mahogany/planks.json
 841299e062a226295479165419c7575786ba2173 data/byg/advancements/recipes/byg.byg/wood/mahogany/pressure_plate.json
-97384d11d01fc0e23cdadcae004b2b33f436a65f data/byg/advancements/recipes/byg.byg/wood/mahogany/sign.json
 8ec1c6e92172e1b0d8cff66ddfe653819ae7f87c data/byg/advancements/recipes/byg.byg/wood/mahogany/slab.json
 6f04474859ea617322c2e9331a8ce003bdf4ae7e data/byg/advancements/recipes/byg.byg/wood/mahogany/stairs.json
 2ce6b037613e9b1b581fd91bd04212398c2a6520 data/byg/advancements/recipes/byg.byg/wood/mahogany/trapdoor.json
@@ -254,7 +237,6 @@ e46650c6376e0df11128723c359112fd21921a5b data/byg/advancements/recipes/byg.byg/w
 c8e2b6886edb32c0eaa04471846f2a89ce6dc81b data/byg/advancements/recipes/byg.byg/wood/maple/fence_gate.json
 6ab58cf2354656b62bed834dcbf9a4d228e26913 data/byg/advancements/recipes/byg.byg/wood/maple/planks.json
 1afb6220b649c285418aaeda7d7a18be5fdf141e data/byg/advancements/recipes/byg.byg/wood/maple/pressure_plate.json
-9e744b940fede7d50f75b98e29a2146ee54aed2d data/byg/advancements/recipes/byg.byg/wood/maple/sign.json
 1e4ea35c24f9379866d2d7619c48ee0e7c05c8f6 data/byg/advancements/recipes/byg.byg/wood/maple/slab.json
 8ed8e5d3fee1a5534ecbc56327d7753b410eb7b5 data/byg/advancements/recipes/byg.byg/wood/maple/stairs.json
 758c2b478536c86a801d6d228fc3657a1e5fa75b data/byg/advancements/recipes/byg.byg/wood/maple/trapdoor.json
@@ -267,7 +249,6 @@ dd74685e2602194c07504f99fa8f901e49465949 data/byg/advancements/recipes/byg.byg/w
 30cb64c9fa37002c0f4ddc02e696a1b3b66f23a7 data/byg/advancements/recipes/byg.byg/wood/nightshade/fence_gate.json
 bc58e92503a93ae1fe54223bc81ba4a67833eaa6 data/byg/advancements/recipes/byg.byg/wood/nightshade/planks.json
 dce647f37ea9c2418faadce77de47f471d990a03 data/byg/advancements/recipes/byg.byg/wood/nightshade/pressure_plate.json
-b0fc76b0b8140620a0ac5a3b3666123f90672dd8 data/byg/advancements/recipes/byg.byg/wood/nightshade/sign.json
 60622933195b9ff55bb681863739ce13e3811da1 data/byg/advancements/recipes/byg.byg/wood/nightshade/slab.json
 a3b29a707b86cdc7b1c0051baad0ab9d6eb6ff3c data/byg/advancements/recipes/byg.byg/wood/nightshade/stairs.json
 cafb5553e0f5c82b7ccf03d2d2bbcd29eed99847 data/byg/advancements/recipes/byg.byg/wood/nightshade/trapdoor.json
@@ -282,7 +263,6 @@ d6debd1163ad4b39137f98de0ebdf33b13ece7bb data/byg/advancements/recipes/byg.byg/w
 1e8018b6e225068a080faa8160b9c6874e67c6c8 data/byg/advancements/recipes/byg.byg/wood/palm/fence_gate.json
 df95bfdc0df8dcca4e58d95f61d0420d4ff767c6 data/byg/advancements/recipes/byg.byg/wood/palm/planks.json
 892dd7c02aee959eb93e5b4466c7bb1c90fb8aa8 data/byg/advancements/recipes/byg.byg/wood/palm/pressure_plate.json
-01cdd7258932b98f3fe32c9ceca0914340500d69 data/byg/advancements/recipes/byg.byg/wood/palm/sign.json
 2ba8a3a43ff08cc813737c78a95a7decc93282fb data/byg/advancements/recipes/byg.byg/wood/palm/slab.json
 a6d0af74db7553c0c70b7fe9c538528d91a41a34 data/byg/advancements/recipes/byg.byg/wood/palm/stairs.json
 60d938b42de366c0e8e7ec63e81336f14dd60cfe data/byg/advancements/recipes/byg.byg/wood/palm/trapdoor.json
@@ -297,7 +277,6 @@ b1435c6b3ab6585bb1251861ca15eb606824c0a3 data/byg/advancements/recipes/byg.byg/w
 8d475ab576aebac8f71ae7e1108f909c74fb7647 data/byg/advancements/recipes/byg.byg/wood/pine/fence_gate.json
 dfd8aa7673a82cb5eded46abcb276f0335a1c585 data/byg/advancements/recipes/byg.byg/wood/pine/planks.json
 2b7551c06d0465cd0657d1ecda95e94b32a01693 data/byg/advancements/recipes/byg.byg/wood/pine/pressure_plate.json
-628392530d6b1c444e3f4ec322dc52a5a530bd38 data/byg/advancements/recipes/byg.byg/wood/pine/sign.json
 a34323c0a2f0d1e7b859efefc22970a12818bf56 data/byg/advancements/recipes/byg.byg/wood/pine/slab.json
 ec20f57999f2ee862495faea72f08bc9c0c8730e data/byg/advancements/recipes/byg.byg/wood/pine/stairs.json
 c227da77408018678aead45eaee814867852eedd data/byg/advancements/recipes/byg.byg/wood/pine/trapdoor.json
@@ -312,7 +291,6 @@ e03691dcf6b16d1fa849d018a609efedb2dc96d7 data/byg/advancements/recipes/byg.byg/w
 eb933f1a16c9c5cc91c92cc14e9538f7ffbe248c data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/fence_gate.json
 caed2787340d6af7d9ac38d6ae89f90fbf36bef9 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/planks.json
 4466c7ba3d405788332d0e9b6ca0dafd6fb0ae49 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/pressure_plate.json
-0eccfc6abfc722e43bc4a00198c4d73b9ca69d3b data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/sign.json
 e87342390f7df799e86628762215bf92b113f179 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/slab.json
 9dd07f31dc938687b059dae6c50246a6071fa342 data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/stairs.json
 b681fd0ab8684e6c9e065cab8602118455cf185d data/byg/advancements/recipes/byg.byg/wood/rainbow_eucalyptus/trapdoor.json
@@ -327,7 +305,6 @@ abfdfbe907eeeea59ffd0d0af9d763533ee1f5bc data/byg/advancements/recipes/byg.byg/w
 d8d9baa951883dc628391550943c727879ffd02b data/byg/advancements/recipes/byg.byg/wood/redwood/fence_gate.json
 57b8cccce1d5d24fed817493956ef2bbf6b74930 data/byg/advancements/recipes/byg.byg/wood/redwood/planks.json
 503edee08d8825be9a949fcbbbecba7229931b30 data/byg/advancements/recipes/byg.byg/wood/redwood/pressure_plate.json
-d97002b521594b28f41529cad27aa1705a3cc5cf data/byg/advancements/recipes/byg.byg/wood/redwood/sign.json
 46bac4b3092f1f29b72fdc08dc0ae42134ff2458 data/byg/advancements/recipes/byg.byg/wood/redwood/slab.json
 c29b08ff663a4f21c9b75b3aeab3b293e6646035 data/byg/advancements/recipes/byg.byg/wood/redwood/stairs.json
 4cc5cfd725cc3ff80ba7a82a5671315aa3987314 data/byg/advancements/recipes/byg.byg/wood/redwood/trapdoor.json
@@ -342,7 +319,6 @@ b8384532aaa8944a941a0e059d8c0a5f1130f833 data/byg/advancements/recipes/byg.byg/w
 1b3cf78355fe97d74d568870b6d0ec03eeaf2899 data/byg/advancements/recipes/byg.byg/wood/skyris/fence_gate.json
 3c141fa85cc0df01b32bd84757315b95e7c40041 data/byg/advancements/recipes/byg.byg/wood/skyris/planks.json
 0c29df6076fb283804ea72c52c0bb7b06fcede2d data/byg/advancements/recipes/byg.byg/wood/skyris/pressure_plate.json
-736c21ab9aa9263c3cc55c49db53906fbd857048 data/byg/advancements/recipes/byg.byg/wood/skyris/sign.json
 eefec419005125b9c2219ed06becb95881684363 data/byg/advancements/recipes/byg.byg/wood/skyris/slab.json
 e9588ae36b416c552b6924c5457bdb4ba63f342a data/byg/advancements/recipes/byg.byg/wood/skyris/stairs.json
 b830b4c7b598b39f3eb34a6d2e465ca6ce613ca0 data/byg/advancements/recipes/byg.byg/wood/skyris/trapdoor.json
@@ -355,7 +331,6 @@ b830b4c7b598b39f3eb34a6d2e465ca6ce613ca0 data/byg/advancements/recipes/byg.byg/w
 4c6ce72bc72bb7df98efe59d9a43d400faf60a6d data/byg/advancements/recipes/byg.byg/wood/sythian/fence_gate.json
 78d4717b5260650adb63a96003db9d55be3b3849 data/byg/advancements/recipes/byg.byg/wood/sythian/planks.json
 f1534f32491043a509ed5e9022d8df8034e2df36 data/byg/advancements/recipes/byg.byg/wood/sythian/pressure_plate.json
-c9089afdee486de6fd92d7213146ceb1dd879878 data/byg/advancements/recipes/byg.byg/wood/sythian/sign.json
 50c6003925ee200402ee27de7b42b4eafcc0ae26 data/byg/advancements/recipes/byg.byg/wood/sythian/slab.json
 9ee97b0d817ea4ecff38c3c56f0fa084339a8eaa data/byg/advancements/recipes/byg.byg/wood/sythian/stairs.json
 f415415a5e27d919782c9b02cc7467609cecba00 data/byg/advancements/recipes/byg.byg/wood/sythian/trapdoor.json
@@ -370,7 +345,6 @@ d986d621def0cd8bfcbba36bb2ec3ad317f02915 data/byg/advancements/recipes/byg.byg/w
 3bf5f5c237e36e40c0a11617cef81a831675fc46 data/byg/advancements/recipes/byg.byg/wood/white_mangrove/fence_gate.json
 0e758b8d34c5165febf1818543ab0ad4cd3873ec data/byg/advancements/recipes/byg.byg/wood/white_mangrove/planks.json
 40d277d7a1cb357510d31c7f9588e29f11368cc8 data/byg/advancements/recipes/byg.byg/wood/white_mangrove/pressure_plate.json
-25f84b2fa45ebbc31b707fe7b3c758fd39f0ad6e data/byg/advancements/recipes/byg.byg/wood/white_mangrove/sign.json
 40e9005a8c98ad86dbe7ff27d25813517ec54575 data/byg/advancements/recipes/byg.byg/wood/white_mangrove/slab.json
 bcfda18fd12b0d6c4ce6f9d26cf32374f00aa3d5 data/byg/advancements/recipes/byg.byg/wood/white_mangrove/stairs.json
 1bb8dfc4f2e57dc1dc61bb28db1479ea62e6e5a0 data/byg/advancements/recipes/byg.byg/wood/white_mangrove/trapdoor.json
@@ -385,7 +359,6 @@ a01cf97215442adb0dbc9e748d145c92a89fcd54 data/byg/advancements/recipes/byg.byg/w
 2c42b4e99e5589ad3e1757ac9d5fdd3c8c1e83d9 data/byg/advancements/recipes/byg.byg/wood/willow/fence_gate.json
 c63cb704f50dff0c58ea8b8c9ecfe44613c13500 data/byg/advancements/recipes/byg.byg/wood/willow/planks.json
 a74de7f802969717d6f585a009fbaadb5a5ccbc2 data/byg/advancements/recipes/byg.byg/wood/willow/pressure_plate.json
-b8a8b07c8e8cf729bc741f32ded91d2498bc16e8 data/byg/advancements/recipes/byg.byg/wood/willow/sign.json
 db3a4c2f8cbcce4cf514bd9a7b88f07063428ab1 data/byg/advancements/recipes/byg.byg/wood/willow/slab.json
 c70881e6dcb320660ed51f135c2fa6663c0ff958 data/byg/advancements/recipes/byg.byg/wood/willow/stairs.json
 cf3c653298b3239d2471a18268ebf64059d25aa6 data/byg/advancements/recipes/byg.byg/wood/willow/trapdoor.json
@@ -400,7 +373,6 @@ bbcb8e0f2d746781af42dc80de2cb7b30e4150e7 data/byg/advancements/recipes/byg.byg/w
 052d3ed164ec52fdb1f8966e4951dd3752771f23 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/fence_gate.json
 87ec07732f4df0afdeec40303cc530abd115aa69 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/planks.json
 5b96369fd5677b51c11a54d664c032b25f98e561 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/pressure_plate.json
-34a925ef3b49ab23346f29e83a4e3869f213698e data/byg/advancements/recipes/byg.byg/wood/witch_hazel/sign.json
 6ab44c51e8b3f086300d3a45c080d6897aeebca2 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/slab.json
 44562f23da2e636cb62478baa0ff7aeaa8004ec6 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/stairs.json
 80ff434f5d85a10c99b8e8dab2a86c9c8907a685 data/byg/advancements/recipes/byg.byg/wood/witch_hazel/trapdoor.json
@@ -415,7 +387,6 @@ da774e1bf33da51be947379da7a883508f0e2afd data/byg/advancements/recipes/byg.byg/w
 5297464074600cd345f0371f1a49dc69fdad5e80 data/byg/advancements/recipes/byg.byg/wood/zelkova/fence_gate.json
 5d93824a63ed16e3de24bcbe73cf9af1ead0e7a0 data/byg/advancements/recipes/byg.byg/wood/zelkova/planks.json
 c5b2a8b964e1f34344dd5571555793ca0154d333 data/byg/advancements/recipes/byg.byg/wood/zelkova/pressure_plate.json
-30d4e82896589c2fc9b0d444d5ef04cc340a9fff data/byg/advancements/recipes/byg.byg/wood/zelkova/sign.json
 146fda0678d021bfe0ab0fc2f90943d6a6b4d1e8 data/byg/advancements/recipes/byg.byg/wood/zelkova/slab.json
 5d47e2e9dacce11acbe8dee3a6bef8cf3f8b4b5e data/byg/advancements/recipes/byg.byg/wood/zelkova/stairs.json
 bbeefafac74edb0d46cb37be017b9eb4517f38bb data/byg/advancements/recipes/byg.byg/wood/zelkova/trapdoor.json
@@ -430,7 +401,6 @@ d52e9194f6b76c0383af1fa57a4106eb79d60379 data/byg/recipes/wood/aspen/fence.json
 af98e9b754ca68591601f6fb43c3f27d8dae0bb2 data/byg/recipes/wood/aspen/fence_gate.json
 f2e86c484b71307fb5d2bb460faeed7241e90fbb data/byg/recipes/wood/aspen/planks.json
 657c43ede97b18029c6f930c11d03a3dc1a15551 data/byg/recipes/wood/aspen/pressure_plate.json
-d18a0892f37fa7d2e8477f8a9cb541c302b30c64 data/byg/recipes/wood/aspen/sign.json
 48a152d59706592bebdfaceb955aa3d194860557 data/byg/recipes/wood/aspen/slab.json
 1a6b870fe30ccc7b2a9798c9bb1b189b8cbcae9a data/byg/recipes/wood/aspen/stairs.json
 70cb9a960effea98a65842fba0de5745df3a38c6 data/byg/recipes/wood/aspen/trapdoor.json
@@ -445,7 +415,6 @@ ff30d27d475f1394887611be1a733b750304d017 data/byg/recipes/wood/baobab/button.jso
 ddc766a9ac75152e6f9f12b5d80b7d91b6771487 data/byg/recipes/wood/baobab/fence_gate.json
 8626e93e932acd5333a88f949e0f6a0d24f7bd7f data/byg/recipes/wood/baobab/planks.json
 983cc62cd3dcd9c3b5b39058ea64c7092596e047 data/byg/recipes/wood/baobab/pressure_plate.json
-405b53e27a2101ffb74da71fab425d5ae9b6070d data/byg/recipes/wood/baobab/sign.json
 7ba0f4f88e43b05d4fbe2fc3b38735789c8336b7 data/byg/recipes/wood/baobab/slab.json
 c2e04c5030f4dd4fbe6465a174c978e80a532741 data/byg/recipes/wood/baobab/stairs.json
 dd73efc98689e3de0f5c72db59a8fd6f098c75f3 data/byg/recipes/wood/baobab/trapdoor.json
@@ -460,7 +429,6 @@ f1495d1c418d6c95ed37302fc860d82afa748eac data/byg/recipes/wood/blue_enchanted/fe
 4c7977d64b8febc59a0fef1afd8f152fe3ed9a65 data/byg/recipes/wood/blue_enchanted/fence_gate.json
 d60b8e918db7605b7e6d07f3a36fe54eb485fd4b data/byg/recipes/wood/blue_enchanted/planks.json
 93af6b908fe06557b1e8636b229bb3b13534a2bd data/byg/recipes/wood/blue_enchanted/pressure_plate.json
-8bd673b6fc1932d51e0e8a00b130e35715b186d0 data/byg/recipes/wood/blue_enchanted/sign.json
 1662da686cbd304ce15f622bee619bac4406c3d7 data/byg/recipes/wood/blue_enchanted/slab.json
 e3157030fa1f01db0a1c72c976db5fa8a508f0a6 data/byg/recipes/wood/blue_enchanted/stairs.json
 9585d889266a13643b42cebd0de79621d9ddb850 data/byg/recipes/wood/blue_enchanted/trapdoor.json
@@ -473,7 +441,6 @@ e97767e347bd94b2f91134f6c7a53a4d8b03db54 data/byg/recipes/wood/bulbis/fence.json
 5bcba792c54598efc521e78a6af35ada3aa4a086 data/byg/recipes/wood/bulbis/fence_gate.json
 739a3a573c14825b86dcf2e11d887740331dcc3a data/byg/recipes/wood/bulbis/planks.json
 b976cda414ece545a5ea6ae7ff923f062f68f3b9 data/byg/recipes/wood/bulbis/pressure_plate.json
-83e230067e99b4d62f9eb2dd161e19614e567d32 data/byg/recipes/wood/bulbis/sign.json
 a1adb2b1b8b24b51f0a87621795f9e6f0072770f data/byg/recipes/wood/bulbis/slab.json
 2dab655825e27ff70b9c04fa11be41a6c525aa77 data/byg/recipes/wood/bulbis/stairs.json
 2aaa9a76ab0a9d0d4a9d24614058d310427156ba data/byg/recipes/wood/bulbis/trapdoor.json
@@ -488,7 +455,6 @@ bb3ef8770215c98b2b06e3237bf5f8846f893a0e data/byg/recipes/wood/cherry/door.json
 7f777e0aaa8582c8178462e4c86f03d4b591e54e data/byg/recipes/wood/cherry/fence_gate.json
 598c4d9f7162d6d3a5f999456607db86cb881854 data/byg/recipes/wood/cherry/planks.json
 dd3800c066abd89e7359f87071319daa589b20de data/byg/recipes/wood/cherry/pressure_plate.json
-461b657e8caa2944fe707ad12a17b3fc78846035 data/byg/recipes/wood/cherry/sign.json
 4e13bdbf99dcf579eba0d11151d5b1e9f5d3e04d data/byg/recipes/wood/cherry/slab.json
 3546261caabbdbe80a8b2d5de4215ff56d58508d data/byg/recipes/wood/cherry/stairs.json
 25559ed8b11cb509915fa1bfa3326943187a6f9a data/byg/recipes/wood/cherry/trapdoor.json
@@ -503,7 +469,6 @@ bac4521005cc10a9645bf90a06ffd687b0ba0e1a data/byg/recipes/wood/cika/fence.json
 b9fa3f5e4e374911d8103ebd9f7edaba254b08f0 data/byg/recipes/wood/cika/fence_gate.json
 729cb65d1745222c15d36956c2c45454a929adca data/byg/recipes/wood/cika/planks.json
 718707cb2fa6d57c0e1e1f156c05e56fb648c5ba data/byg/recipes/wood/cika/pressure_plate.json
-8fce3a88da4914615954f523caa936c4ea13f277 data/byg/recipes/wood/cika/sign.json
 3d97ed710e4a36e238720311e95242a613a89e8d data/byg/recipes/wood/cika/slab.json
 7dcc18b470049e71dce9f0fa9674326bb733d1d3 data/byg/recipes/wood/cika/stairs.json
 69b7cf4f8819c252233a91547425944ed1fdb599 data/byg/recipes/wood/cika/trapdoor.json
@@ -518,7 +483,6 @@ fe788220d92dd124a6fe52e4354ec23450c395dc data/byg/recipes/wood/cypress/crafting_
 63f0dff7516c4fea5d63c7852daddf1415fd9e4d data/byg/recipes/wood/cypress/fence_gate.json
 e5fe9789041e3e3bfd9bffc057a4018768a8e75e data/byg/recipes/wood/cypress/planks.json
 e20244ad9871efaabc06795ae476995c737dec77 data/byg/recipes/wood/cypress/pressure_plate.json
-21a5ee8e769f4e77ca1a9ad8dd519d0b918c8922 data/byg/recipes/wood/cypress/sign.json
 ffa07d6155a9320aa4c5a9daaecfb16d1ab6a96d data/byg/recipes/wood/cypress/slab.json
 4f48eb58e9ded9f13e64bd1e3235ffd732cadee0 data/byg/recipes/wood/cypress/stairs.json
 49a1dfeaf4bd827208af6b39bf941ea503d4cbc4 data/byg/recipes/wood/cypress/trapdoor.json
@@ -533,7 +497,6 @@ ebb3932344aa81c3e6abc28b5afec0886db5ad1a data/byg/recipes/wood/ebony/door.json
 28ab0155d3efe20a3b0bb40e8123085600cb246f data/byg/recipes/wood/ebony/fence_gate.json
 07e77a526db1cb59276a53277e8d48a4a7b3d385 data/byg/recipes/wood/ebony/planks.json
 5fbd70ce8947d26d535e2a7f4a436d2600aa0ab1 data/byg/recipes/wood/ebony/pressure_plate.json
-99e44603fc71b941c34ece21842c07d7a6a470ca data/byg/recipes/wood/ebony/sign.json
 ba927d2bd614379afc92251a9a3730d780e67e4c data/byg/recipes/wood/ebony/slab.json
 52316ae610390022fbe46caad3b0cd13988399d6 data/byg/recipes/wood/ebony/stairs.json
 e7010b77d78f21208564a86c02751985faca7de6 data/byg/recipes/wood/ebony/trapdoor.json
@@ -546,7 +509,6 @@ a2aacfda1481eec964d0ef46e7b7fdc2b3313740 data/byg/recipes/wood/embur/door.json
 1c689e9ba9bfb260a6bdb174e0b98de6f70e4355 data/byg/recipes/wood/embur/fence_gate.json
 5bda66b85aa5a4ebb142654c22595af3ae6a9f86 data/byg/recipes/wood/embur/planks.json
 60033bb134c22fb1a3c09ff1f62bd241f4ce9306 data/byg/recipes/wood/embur/pressure_plate.json
-32a16173d6225f7e3fe64ce7b643646cf7e99af2 data/byg/recipes/wood/embur/sign.json
 928bdd18bc819e7e2a5113626dcf1575d0a32c6e data/byg/recipes/wood/embur/slab.json
 00d07b0a19a40ed7f13022d346297d3080966d78 data/byg/recipes/wood/embur/stairs.json
 bb5868770661d5f65938976de876a96529d76223 data/byg/recipes/wood/embur/trapdoor.json
@@ -559,7 +521,6 @@ c7c6da99ec99791b3f4f3e9c588436e9627805a3 data/byg/recipes/wood/embur/wood.json
 32f899edee90829567dca7e6b7965e805303f601 data/byg/recipes/wood/ether/fence_gate.json
 f67d9e2a99d595dee1af759a9b067a684e6ec27c data/byg/recipes/wood/ether/planks.json
 9b573cbab6be0072964d24cc3ae9b1171180ccdd data/byg/recipes/wood/ether/pressure_plate.json
-0e4aea9a7df26629fb703f0c695b45fe67b7b55b data/byg/recipes/wood/ether/sign.json
 574092324f37ae7f9f55aff9b77b6a1b96d6ee27 data/byg/recipes/wood/ether/slab.json
 85205cc81a866425850000216b49cbd0d3063032 data/byg/recipes/wood/ether/stairs.json
 12ee15bc63b65f03072bbb5bbee4bcc51eafac9c data/byg/recipes/wood/ether/trapdoor.json
@@ -574,7 +535,6 @@ f67d9e2a99d595dee1af759a9b067a684e6ec27c data/byg/recipes/wood/ether/planks.json
 a8310f20b173fa204245778de8b2f5e6c6420070 data/byg/recipes/wood/fir/fence_gate.json
 b8355c8c055badb1922052d37b12544dd08149ef data/byg/recipes/wood/fir/planks.json
 48a75f59256a16692e7968b76d1f2ec90ac8c483 data/byg/recipes/wood/fir/pressure_plate.json
-661dad56bf3f9e927cd9ec1c3300733cfbb81a65 data/byg/recipes/wood/fir/sign.json
 443b6d04295a95ec326b38e859c780d8aaf09aaf data/byg/recipes/wood/fir/slab.json
 9cac3b54e1ed4e20f2e7b747bf96f490849aaf01 data/byg/recipes/wood/fir/stairs.json
 4e990ed36f9ec9f7a1be55dc70bbbb072ba4a7d6 data/byg/recipes/wood/fir/trapdoor.json
@@ -589,7 +549,6 @@ ac64bafcbc843797cdd1468d645a06d8950a960e data/byg/recipes/wood/green_enchanted/f
 96677a428310d758aef611d417f4f4a71f23e8b3 data/byg/recipes/wood/green_enchanted/fence_gate.json
 13dbde422899451d2c634cfb7679ca54895ba60b data/byg/recipes/wood/green_enchanted/planks.json
 a3e07fb20f354bc4d5c7ad4c63f55c832897ea62 data/byg/recipes/wood/green_enchanted/pressure_plate.json
-8105cce704e9e490045bde33d3255ddaeb35bc0f data/byg/recipes/wood/green_enchanted/sign.json
 26d60c24530ad986538e9a762e95b7c97e53a378 data/byg/recipes/wood/green_enchanted/slab.json
 6f0e16e16f30966caa237c270822845a237e5fd0 data/byg/recipes/wood/green_enchanted/stairs.json
 6965a88c72d0523bb6dce3a7ce95ffd3468b2d8c data/byg/recipes/wood/green_enchanted/trapdoor.json
@@ -604,7 +563,6 @@ ab18b8dfba27a474487aa28c0ca96c5ee7ab490b data/byg/recipes/wood/holly/door.json
 34be28b2aa1d60ff9c49a57407865b7092a5d37e data/byg/recipes/wood/holly/fence_gate.json
 f5f83b483d45f553715034c0129fd7e4b17d633b data/byg/recipes/wood/holly/planks.json
 8449313ec219c41aecb4ebd94e5157c5920a8c9d data/byg/recipes/wood/holly/pressure_plate.json
-658fb0be7cbe5f46cb99a602d2a439d4d57c7aa1 data/byg/recipes/wood/holly/sign.json
 177f5770dfcaa42f1971e5ded5a6f582c320bf08 data/byg/recipes/wood/holly/slab.json
 30be38a9df1fe5ede6b2e72c7119014c82078c6a data/byg/recipes/wood/holly/stairs.json
 19f00b1955c1b9aaddd459b835e6984716353dc1 data/byg/recipes/wood/holly/trapdoor.json
@@ -617,7 +575,6 @@ b48bbcc3fcb71e1cceb8d8effc0ebb78c3ad7bb7 data/byg/recipes/wood/imparius/fence.js
 9942e1f101f9a37fe6ec3266936a964c5324f2fa data/byg/recipes/wood/imparius/fence_gate.json
 2f4fb081e5fc68d30754bf621a9892623d609c8e data/byg/recipes/wood/imparius/planks.json
 2492c98b52408cadd7422b5fc51481fc1c4debe0 data/byg/recipes/wood/imparius/pressure_plate.json
-099c71c61082a9c0feec327ffd5df53abba2d639 data/byg/recipes/wood/imparius/sign.json
 4412fb6a7a6d4e9597e5f1371873ab5aad48f604 data/byg/recipes/wood/imparius/slab.json
 447197f7c2a666ea737fcfcf2a31694c3eccbda1 data/byg/recipes/wood/imparius/stairs.json
 6258572ac8b5f12c5b16986431e1eb822d9cc53f data/byg/recipes/wood/imparius/trapdoor.json
@@ -632,7 +589,6 @@ bc5fbc49e787e0826332d7dfbeb4205178e55e83 data/byg/recipes/wood/jacaranda/fence.j
 2560d57b3792c6a65fc98488d19cd5a1a6f3eb8b data/byg/recipes/wood/jacaranda/fence_gate.json
 1b8356dee1398dd892122bf45058092571477815 data/byg/recipes/wood/jacaranda/planks.json
 31b177fbe5672aaae899806118345bd4fba7df56 data/byg/recipes/wood/jacaranda/pressure_plate.json
-2cf7d8dfa7862bf1368db809addb20014187fd6b data/byg/recipes/wood/jacaranda/sign.json
 18266122c9c0bcc103623f7f383283ccc2447985 data/byg/recipes/wood/jacaranda/slab.json
 d0782655f1006e3fd9c400e1ec808da765e933fd data/byg/recipes/wood/jacaranda/stairs.json
 0762379d3967d4d1bde57086cc387dc43d4cc641 data/byg/recipes/wood/jacaranda/trapdoor.json
@@ -645,7 +601,6 @@ b70448b805984ac2a2d23ae8d10267deb8bf9d1c data/byg/recipes/wood/lament/fence.json
 662883897195107782f0b0a33a481b49b376e74c data/byg/recipes/wood/lament/fence_gate.json
 94eb6b9162c19a615e70ebd1f8828c9ca0261bd2 data/byg/recipes/wood/lament/planks.json
 38fe4ac6ef095c8413658eb5b85d73b5a32273bd data/byg/recipes/wood/lament/pressure_plate.json
-a1a31d8df3da255ce18fc46bb12814e5a822927c data/byg/recipes/wood/lament/sign.json
 cd0367574124f5bf84ffd332145d4017193da3cf data/byg/recipes/wood/lament/slab.json
 c1fb2129cf2fbf322b3d4723f303d4506542203b data/byg/recipes/wood/lament/stairs.json
 e4f222ee49a7b52c90136b78443c6eee08f7b779 data/byg/recipes/wood/lament/trapdoor.json
@@ -660,7 +615,6 @@ ee1484f26dbcba37640ab2423d1ad05612636f5b data/byg/recipes/wood/mahogany/chest_bo
 f91f7ff1458a80a6de9f07c91f52ca141c2cef05 data/byg/recipes/wood/mahogany/fence_gate.json
 fae72906882df7766b8a9e60189c805fb92f4234 data/byg/recipes/wood/mahogany/planks.json
 a79b3565f74693571d469787315f2c217594ea2c data/byg/recipes/wood/mahogany/pressure_plate.json
-7f298142916923ced8e6aab148cca7cf2b5dfc8b data/byg/recipes/wood/mahogany/sign.json
 c37da99d0eeb6a9ea1eecc78dc483fd65ac74464 data/byg/recipes/wood/mahogany/slab.json
 e6b3471e277abcd9c4b3bb449725d7c1cc08b39c data/byg/recipes/wood/mahogany/stairs.json
 cba00bd01caa60a199b6707e936db57dedf46585 data/byg/recipes/wood/mahogany/trapdoor.json
@@ -675,7 +629,6 @@ fd9554c221c5988b7801b4fa00350e9e84074445 data/byg/recipes/wood/maple/door.json
 f5884e3b14c310465c2ae22ac08af0912d3c7631 data/byg/recipes/wood/maple/fence_gate.json
 ab9c6f0ad2ddee1b59f484a3c174a3ebcd32c0a2 data/byg/recipes/wood/maple/planks.json
 c415f0d28b31416ac7007ed57153069a28254ed2 data/byg/recipes/wood/maple/pressure_plate.json
-4c08a3dedcb1335c7def9ffc2871707f6f331727 data/byg/recipes/wood/maple/sign.json
 af47be95aac4211b95c0d74336f58fc2273e4b58 data/byg/recipes/wood/maple/slab.json
 3969dd7042a16ecc9aba27c2a53e198f45aaaa57 data/byg/recipes/wood/maple/stairs.json
 3f4bec8a58b1b610c08fc93f46af4d65491ba6bd data/byg/recipes/wood/maple/trapdoor.json
@@ -688,7 +641,6 @@ b69b169b23330cb127f7fddf6be181093a79af2b data/byg/recipes/wood/nightshade/door.j
 a1bd3496640e569be5d397c26fcae7f8470f9d5a data/byg/recipes/wood/nightshade/fence_gate.json
 722883f847d6bc9dea56bf5df4c34857e1542dbe data/byg/recipes/wood/nightshade/planks.json
 fa20dd49ccc37162c7d99278cb19fb6f67b4702a data/byg/recipes/wood/nightshade/pressure_plate.json
-d29e43ff36308f662507210bf3e15973627e2c28 data/byg/recipes/wood/nightshade/sign.json
 ebd969ff19261e1a802a7261db04e04dae3e882c data/byg/recipes/wood/nightshade/slab.json
 82910d54b282cf651f4efd01eca4ee5380a0cb66 data/byg/recipes/wood/nightshade/stairs.json
 d29191ce031a30a6fa53e3c06fe68d20f97d255e data/byg/recipes/wood/nightshade/trapdoor.json
@@ -703,7 +655,6 @@ f05e0c4c2dd3901053810b2467ed218b8e67eaff data/byg/recipes/wood/palm/button.json
 9016c03fbea0017429833988056cb6a00268f66a data/byg/recipes/wood/palm/fence_gate.json
 d90271e1961c35396695a7845d68b8c2024f739c data/byg/recipes/wood/palm/planks.json
 0faac6b5154b0e2d99e6e1e152a986a34860d9d7 data/byg/recipes/wood/palm/pressure_plate.json
-9cedee2d0c0c424d744ee3ee8298cc8e8b6240b3 data/byg/recipes/wood/palm/sign.json
 122032488e23e0691e72a283767e4abe2e0a67d2 data/byg/recipes/wood/palm/slab.json
 e88a36f3fcb110f94baff4d56d645fea86871d56 data/byg/recipes/wood/palm/stairs.json
 d6be3332892c4620facbf25a35d85bceb1b475eb data/byg/recipes/wood/palm/trapdoor.json
@@ -718,7 +669,6 @@ bd6b48115046355f986bf514afac1df73c351db9 data/byg/recipes/wood/pine/door.json
 876709b00a2b5a1aff8df63e3826420e13d5c9bf data/byg/recipes/wood/pine/fence_gate.json
 c1fc9ddddc60e978da9bd84cd01b4409ccf830b9 data/byg/recipes/wood/pine/planks.json
 ef8ce2ec7c64d983b2503da7ef522ef123d1ad15 data/byg/recipes/wood/pine/pressure_plate.json
-aca0de57d3db22fb8a5514a1ae2f752c8dd51906 data/byg/recipes/wood/pine/sign.json
 230302f65c611a6d4c94d07ca438329cdd9f2718 data/byg/recipes/wood/pine/slab.json
 7055c02b076fbefe86abfb755fa7305df51ebd2b data/byg/recipes/wood/pine/stairs.json
 64278f5bad494e4a6263b4f6dbacea6058268776 data/byg/recipes/wood/pine/trapdoor.json
@@ -733,7 +683,6 @@ f38590ec4bd70c336432783602cd225fa201e65e data/byg/recipes/wood/rainbow_eucalyptu
 5cfb8cd337ad051e887f0b1905e7d85d5014e648 data/byg/recipes/wood/rainbow_eucalyptus/fence_gate.json
 d13db3857087c115b38f7455fbadca458cb81946 data/byg/recipes/wood/rainbow_eucalyptus/planks.json
 da9aa7ceff21828f6218b8b793eaafccca2587a9 data/byg/recipes/wood/rainbow_eucalyptus/pressure_plate.json
-dee7cc477e520ac2134de529b9c519cd25915182 data/byg/recipes/wood/rainbow_eucalyptus/sign.json
 58887a36a80b2cd303d83246ef56b6dfad74155d data/byg/recipes/wood/rainbow_eucalyptus/slab.json
 fac1130b4f4a86fbd89c906b75451bfbd249efb3 data/byg/recipes/wood/rainbow_eucalyptus/stairs.json
 3d70d5409f38e2cc7a1d3c976184c918f0f9523a data/byg/recipes/wood/rainbow_eucalyptus/trapdoor.json
@@ -748,7 +697,6 @@ c53172515caf3ba97a70d905d28bde005edb5091 data/byg/recipes/wood/redwood/chest_boa
 62495ecf497e30a2ee850bf675a73bfba17f4836 data/byg/recipes/wood/redwood/fence_gate.json
 ba3da7ecb9a27d2ccf7e8e5cba4131db17009cf2 data/byg/recipes/wood/redwood/planks.json
 aaf47a6f8eb4c199ceec8398d1b45dca01a56868 data/byg/recipes/wood/redwood/pressure_plate.json
-9b344056b77136e77cab90def1f3ce54bb03029b data/byg/recipes/wood/redwood/sign.json
 d1d283e86fce14cfaf3be5edf7d085ce3ee90d68 data/byg/recipes/wood/redwood/slab.json
 5f6a66ca215ba9a9088c0f293254e8d7a4028be2 data/byg/recipes/wood/redwood/stairs.json
 5681d98d760bb2b5b76abf8348d765b6aee40bae data/byg/recipes/wood/redwood/trapdoor.json
@@ -763,7 +711,6 @@ f3994184c703c45d91943c1eae44e06076715298 data/byg/recipes/wood/skyris/fence.json
 514f5cd59ec804031a6f4bcde3d4222096f870ef data/byg/recipes/wood/skyris/fence_gate.json
 ac158202ced358a33db3cd47148445abaf710c8f data/byg/recipes/wood/skyris/planks.json
 90af3543adad7d0aa05af334e75a9787ff7daa5d data/byg/recipes/wood/skyris/pressure_plate.json
-1edaa7d342302b864f14cb6ef993d68366e4023f data/byg/recipes/wood/skyris/sign.json
 89615d92ee65de50df11608aa3516be666775376 data/byg/recipes/wood/skyris/slab.json
 5d8cb3d1ee2e77131acef7e8e3e398ff21ec83ae data/byg/recipes/wood/skyris/stairs.json
 1907e186a0571d4518d2d812000ea75147ed45aa data/byg/recipes/wood/skyris/trapdoor.json
@@ -776,7 +723,6 @@ d2f52532aa921ef2656ff35a0cd2c8fad1b2b448 data/byg/recipes/wood/sythian/fence.jso
 7bab05b7a92ab007c6810d3f2e2220688ed9e34f data/byg/recipes/wood/sythian/fence_gate.json
 b373aed7967d789c924f6d988489c84ff4f2fe95 data/byg/recipes/wood/sythian/planks.json
 f46aeae9cb75d850f3b7541a3abaa489fd4555f1 data/byg/recipes/wood/sythian/pressure_plate.json
-472f50e134fce962f45f370b3640da45f6cc1436 data/byg/recipes/wood/sythian/sign.json
 eed396f7ef9a2607ab77681c4bc6bb88cf3a6ad2 data/byg/recipes/wood/sythian/slab.json
 4a5a49229248acfcfac8d0920f5a8b3e6e43780e data/byg/recipes/wood/sythian/stairs.json
 beaf453c94627af60bc67c0cc4426c8883051f30 data/byg/recipes/wood/sythian/trapdoor.json
@@ -791,7 +737,6 @@ d51e49bdaf50d42804d0d7c74cff430c8610f65e data/byg/recipes/wood/white_mangrove/cr
 af3af850e145c72fb201865a32f6fdf2a06c7a3e data/byg/recipes/wood/white_mangrove/fence_gate.json
 2c5223e49f2b25ecb4ed7cfc1505a5f2c4cef49d data/byg/recipes/wood/white_mangrove/planks.json
 657b43edf679440e21be1f3bd8e5687e1436bb22 data/byg/recipes/wood/white_mangrove/pressure_plate.json
-f970c870cdaa5fdf7fe20f25954e2484979624f9 data/byg/recipes/wood/white_mangrove/sign.json
 08345025d727f4545620dd09925c1c5ef0d49c6b data/byg/recipes/wood/white_mangrove/slab.json
 1e73622a822b30508883dbc509a45d6f58c2017e data/byg/recipes/wood/white_mangrove/stairs.json
 fa9ac30c864cfa33fce3d432cf85535f16c88bb3 data/byg/recipes/wood/white_mangrove/trapdoor.json
@@ -806,7 +751,6 @@ b20529a7b0b32b7f8232483b3c8af4f0c585bd04 data/byg/recipes/wood/willow/fence.json
 2344aca6c5bcb4f3ca98a66e2a0ba4ca33b23798 data/byg/recipes/wood/willow/fence_gate.json
 a95ff4b7e110975dc973a9a072e7422c5b2b4ced data/byg/recipes/wood/willow/planks.json
 97feba90744cad9f9b3b54dbc80133d0ff6e346b data/byg/recipes/wood/willow/pressure_plate.json
-94496243e590eed59f145f95d73fa1911848d629 data/byg/recipes/wood/willow/sign.json
 da1f6704888d4e79bd9fce1da6eebe807389bfe6 data/byg/recipes/wood/willow/slab.json
 549aac03886f34143995efcf312e446541c3dc3d data/byg/recipes/wood/willow/stairs.json
 a2b2e7d93947cff6fb7eff4da84b68e5f5018d23 data/byg/recipes/wood/willow/trapdoor.json
@@ -821,7 +765,6 @@ df8e6409f48d7d01d089db85cdcff02aed4991d4 data/byg/recipes/wood/witch_hazel/door.
 5aea415cf43105172cac57627a2bcae0945e2cd4 data/byg/recipes/wood/witch_hazel/fence_gate.json
 c9739f43c235fdca0d3d6bca32646bc4ca5b1279 data/byg/recipes/wood/witch_hazel/planks.json
 9d271c49f71a115c05bd17a1b875d8a1b6112704 data/byg/recipes/wood/witch_hazel/pressure_plate.json
-c530db9849287f62a3d7b2de0a6f41efe90e136e data/byg/recipes/wood/witch_hazel/sign.json
 dadc3dc3247e5e78daf0cd078aeef81301f3a555 data/byg/recipes/wood/witch_hazel/slab.json
 8966f9a2a61d42b0a82597c99cccdb3b651dc063 data/byg/recipes/wood/witch_hazel/stairs.json
 ebf80eb02baac270f647ce7559d73a9a1cdfb014 data/byg/recipes/wood/witch_hazel/trapdoor.json
@@ -836,7 +779,6 @@ ba73ad5d9d121aa37d9da089647bdb3df57ef482 data/byg/recipes/wood/zelkova/fence.jso
 7d5dac8136b40594a1817cea5f0e39e849518d21 data/byg/recipes/wood/zelkova/fence_gate.json
 3642cc2c415903299d3781639103ded91e5ee249 data/byg/recipes/wood/zelkova/planks.json
 1bc57e126d14911fda8c2e35765c1d91c00a73dc data/byg/recipes/wood/zelkova/pressure_plate.json
-c0685b3240e27dd302aa217a4a1f7a909e459a65 data/byg/recipes/wood/zelkova/sign.json
 4f266a32883f0b3a908c84cc951bf14ea6935e6b data/byg/recipes/wood/zelkova/slab.json
 824d43f8ba93a57f5b1255a35c874e7bd3a1d523 data/byg/recipes/wood/zelkova/stairs.json
 567ebb9fc318e963be8fec0b4a8b1726b9eca7ca data/byg/recipes/wood/zelkova/trapdoor.json

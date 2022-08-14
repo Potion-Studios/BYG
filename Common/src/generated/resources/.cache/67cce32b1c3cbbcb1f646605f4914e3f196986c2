@@ -1,4 +1,4 @@
-// 1.19	2022-06-10T16:22:24.2437487	LootTables
+// 1.19.2	2022-08-14T15:00:25.6303465	LootTables
 4f0aa76b3b0d3b72b62ae9ff41b93182a24e80c0 data/byg/loot_tables/blocks/aspen_bookshelf.json
 20ca431b632c73966682eb62fb114d56509ba246 data/byg/loot_tables/blocks/aspen_button.json
 64328fd566cd8f2ec659468e124758f165405efa data/byg/loot_tables/blocks/aspen_crafting_table.json
@@ -10,7 +10,6 @@ f1c9acf1b8d99767a402c4241c2b2d1b349c3eb4 data/byg/loot_tables/blocks/aspen_log.j
 492a7be05db6fe7531592e2f3f1fb2f769301733 data/byg/loot_tables/blocks/aspen_planks.json
 d3ebb67e38c428a7e295898f0a4c3de388e4cdaf data/byg/loot_tables/blocks/aspen_pressure_plate.json
 59a6aa028c7236f7bd98f6b4e8dfc84d6a2c8924 data/byg/loot_tables/blocks/aspen_sapling.json
-bd967fb2280a1a01abc1b333a4a6da37010dfba1 data/byg/loot_tables/blocks/aspen_sign.json
 d3ec1024090ff07fa069b672d972741cb2eb4bca data/byg/loot_tables/blocks/aspen_slab.json
 d18f203e8de63c2d59374daa596fb121bf388235 data/byg/loot_tables/blocks/aspen_stairs.json
 461377b34a5bd319b26b9f32ea20ad7ae0d19b74 data/byg/loot_tables/blocks/aspen_trapdoor.json
@@ -26,7 +25,6 @@ edf7441d7c8e73d197fbf3a0102157a910480908 data/byg/loot_tables/blocks/baobab_leav
 4513fa87bc6107932adac4aada3107d3a5189d46 data/byg/loot_tables/blocks/baobab_planks.json
 3169f731368d12228354a6e3dc10397b88ff0e98 data/byg/loot_tables/blocks/baobab_pressure_plate.json
 7aac7b93c7bd806af67aadc38d398bc296605ca8 data/byg/loot_tables/blocks/baobab_sapling.json
-e56df72108011831862a7dd3265ee1b40308dc1c data/byg/loot_tables/blocks/baobab_sign.json
 bb6fc492243d395ca95443361a670457203ae894 data/byg/loot_tables/blocks/baobab_slab.json
 ae11170869af7df2c76080ef803ee1ad57a46a6c data/byg/loot_tables/blocks/baobab_stairs.json
 e51faa785b0a3154178dabd4e5923589ecf6e215 data/byg/loot_tables/blocks/baobab_trapdoor.json
@@ -42,7 +40,6 @@ e51faa785b0a3154178dabd4e5923589ecf6e215 data/byg/loot_tables/blocks/baobab_trap
 67b4085088e3e82eaa12600ee41ad37d6f7aa9f3 data/byg/loot_tables/blocks/blue_enchanted_planks.json
 12934813cd5e04b5080da697ebedf003c3a9e832 data/byg/loot_tables/blocks/blue_enchanted_pressure_plate.json
 0d1681b4b578cf034f34b573a36b3d390fae590b data/byg/loot_tables/blocks/blue_enchanted_sapling.json
-bcd47723af53116081ce6028243ead5a908c49f8 data/byg/loot_tables/blocks/blue_enchanted_sign.json
 19a7a3a83e0c65375c7b990dc058b70a1441c308 data/byg/loot_tables/blocks/blue_enchanted_slab.json
 0f069d864ba0bb0345a041f8f4048ba5a43335cf data/byg/loot_tables/blocks/blue_enchanted_stairs.json
 a54c79716c0220bd675688da40527c9edb0602b8 data/byg/loot_tables/blocks/blue_enchanted_trapdoor.json
@@ -56,7 +53,6 @@ dd2dffeaabc3fa13171969a2ef330c5b9487be41 data/byg/loot_tables/blocks/bulbis_fenc
 74631a3151f3b2a36c30b868a289658450189677 data/byg/loot_tables/blocks/bulbis_oddity.json
 c461f68e2240cbd078b34c482e6696353332a873 data/byg/loot_tables/blocks/bulbis_planks.json
 6674ce482edc3d32b357fbf6e4877cbbd7f6dbc4 data/byg/loot_tables/blocks/bulbis_pressure_plate.json
-9d882e8ff0cef2c29c6c43a02fd14fea1a5319b9 data/byg/loot_tables/blocks/bulbis_sign.json
 07b51baed67ba30ae75d2c494d0520376457d685 data/byg/loot_tables/blocks/bulbis_slab.json
 6211f402d284195f0778f3bfe5710a58c1fad342 data/byg/loot_tables/blocks/bulbis_stairs.json
 86d55439b962ecd2d4658043dbd9027118031600 data/byg/loot_tables/blocks/bulbis_stem.json
@@ -71,7 +67,6 @@ ee814b1a0941dd759f759cbd54e4c57218a2bc30 data/byg/loot_tables/blocks/cherry_fenc
 dbfb4d8108716b6dba23068ed0992d48b1663406 data/byg/loot_tables/blocks/cherry_log.json
 5c522ebbba2d329398fc7492a179dd42d7f61cfa data/byg/loot_tables/blocks/cherry_planks.json
 1dbe66558c57a924dcf63bcb406944087f5606d3 data/byg/loot_tables/blocks/cherry_pressure_plate.json
-0822fb04327028c9b85e4a627f97ac599e3f7211 data/byg/loot_tables/blocks/cherry_sign.json
 ea71277b65c118cceec88878b09f84910c0dbef2 data/byg/loot_tables/blocks/cherry_slab.json
 290721066f81c28e5297e32dcc83e3a05b10b557 data/byg/loot_tables/blocks/cherry_stairs.json
 8c17c9488fd135bd9d97f28f4fb93f382af14fc1 data/byg/loot_tables/blocks/cherry_trapdoor.json
@@ -87,7 +82,6 @@ a493c4a5e2e853e966b80e3b0b19e4e5b6e154cc data/byg/loot_tables/blocks/cika_fence.
 821647bc3bcfed541aaef76b688d1f5c9980bc9e data/byg/loot_tables/blocks/cika_planks.json
 88bacfb36c2bd4870af1a8a1599666e1ce1dd1a6 data/byg/loot_tables/blocks/cika_pressure_plate.json
 4b252abfa8d2b7da5d962dee442754fd2a8e0691 data/byg/loot_tables/blocks/cika_sapling.json
-51293e5484b4090f1cd569e840387823487512ea data/byg/loot_tables/blocks/cika_sign.json
 970b89fda27cca7e218f13b30e301c4110f9ce27 data/byg/loot_tables/blocks/cika_slab.json
 02ffb96ed8c6f130521edff09a35e27435d6e1ce data/byg/loot_tables/blocks/cika_stairs.json
 e368d2717d02580ba979c1104655c7021f917c10 data/byg/loot_tables/blocks/cika_trapdoor.json
@@ -103,7 +97,6 @@ d6c8173c96eb7ad2017839ad9b01bea40b12b3a9 data/byg/loot_tables/blocks/cypress_but
 7992e0e4b6cb7ca9738c03637b1dcb33d424d6fa data/byg/loot_tables/blocks/cypress_planks.json
 89ab7c6662275e830254800e2aa944a42381ba09 data/byg/loot_tables/blocks/cypress_pressure_plate.json
 328750bd67e32e8135bbbc951766d7d27050976b data/byg/loot_tables/blocks/cypress_sapling.json
-a3603512c15df50f9f87a48eea8d50e3ece6bf33 data/byg/loot_tables/blocks/cypress_sign.json
 2a26abe5921371645d5c29ba228a2df7c5a6c005 data/byg/loot_tables/blocks/cypress_slab.json
 4e521427bd0f715ab00dd317e4cffd3a63715055 data/byg/loot_tables/blocks/cypress_stairs.json
 411f1f96671e9f32cfb389f753e51627b0755744 data/byg/loot_tables/blocks/cypress_trapdoor.json
@@ -119,7 +112,6 @@ eb29e5912d02f647a4f30e67ca48e1a6acd8141f data/byg/loot_tables/blocks/ebony_log.j
 5e5915f7b4071f00a04cc38d0de945a57805a846 data/byg/loot_tables/blocks/ebony_planks.json
 ed99a88b40747c91bd0b9ebf4f6ecb31038ec9be data/byg/loot_tables/blocks/ebony_pressure_plate.json
 4f8a5ccb39aceb55ffd8fe96e626bddb7f37a122 data/byg/loot_tables/blocks/ebony_sapling.json
-890491e06ac8ddb3e260426ba122b8bdb5285a86 data/byg/loot_tables/blocks/ebony_sign.json
 3f4f0d31c0d7a807d3ac06c85c0fc7f49f19e4fd data/byg/loot_tables/blocks/ebony_slab.json
 472d403b4c2af4d15037eb5fd6029b805e3d2be7 data/byg/loot_tables/blocks/ebony_stairs.json
 4f8a86a164127df05164de17d5367190210f5eb7 data/byg/loot_tables/blocks/ebony_trapdoor.json
@@ -134,7 +126,6 @@ a3350dd5fcbb530ac629ebbee0c293cb61a789e4 data/byg/loot_tables/blocks/embur_hypha
 fa9e32d68f5b7808734ee9b05b254f5c854d0b7d data/byg/loot_tables/blocks/embur_pedu.json
 ad3b61d1ac1ae72c11d0063892f1237e0db9f01b data/byg/loot_tables/blocks/embur_planks.json
 90c0aef255c9bb72581bdda988567a0d0a030332 data/byg/loot_tables/blocks/embur_pressure_plate.json
-0adf4644e1a7ad8d0e91d0c09a50dcdf4f6c1b34 data/byg/loot_tables/blocks/embur_sign.json
 3767acdaa7aa00e41e43f82d24dc2918a5065cb2 data/byg/loot_tables/blocks/embur_slab.json
 10b81ac964bddb26ba24795ec3b84e48e39baf0d data/byg/loot_tables/blocks/embur_stairs.json
 1a8d14bfb2189d164579491f118ef4ced6e93c82 data/byg/loot_tables/blocks/embur_trapdoor.json
@@ -150,7 +141,6 @@ b663943b9433c5da649dbda297c68229e9c590bc data/byg/loot_tables/blocks/ether_leave
 e503f50800df558be93f2e0a753037a9e1d2d18d data/byg/loot_tables/blocks/ether_planks.json
 4b6b086da91237548b09966d47a9739297889700 data/byg/loot_tables/blocks/ether_pressure_plate.json
 b9208a42125e3e73df4af3af11087115ff3313d9 data/byg/loot_tables/blocks/ether_sapling.json
-f8fe8bbe6e79f717b73b07f5d65ad30d3bb5a730 data/byg/loot_tables/blocks/ether_sign.json
 433fdf26f9824266a03c165e19b339d29c0ff844 data/byg/loot_tables/blocks/ether_slab.json
 7bc0058d886b6dc208e3eabe70a065acdd0f1a21 data/byg/loot_tables/blocks/ether_stairs.json
 091865af7e13ea37079c239047475b32446916fe data/byg/loot_tables/blocks/ether_trapdoor.json
@@ -166,7 +156,6 @@ e19a33b206b462e7d0f3af1f996b40c2d06196b6 data/byg/loot_tables/blocks/fir_fence.j
 1476e32517cb4cd7d05a6de23272f6f26df47702 data/byg/loot_tables/blocks/fir_planks.json
 cd8984a9647d0c9b993749d5410b5752d9ecf3d7 data/byg/loot_tables/blocks/fir_pressure_plate.json
 996021484b35ae60cda9d0c4c41cd440960cafb5 data/byg/loot_tables/blocks/fir_sapling.json
-20a622c0f60db8c438361e98b01d3ba959aba4d8 data/byg/loot_tables/blocks/fir_sign.json
 e0532780cf27bed093c40c85bb481281b15c1df9 data/byg/loot_tables/blocks/fir_slab.json
 2feed78295b8ce019943fcc11529410a7c8c1558 data/byg/loot_tables/blocks/fir_stairs.json
 97e07ad024ac7940e407c3ff19cc17c590958136 data/byg/loot_tables/blocks/fir_trapdoor.json
@@ -182,7 +171,6 @@ c31eb2bc4be1e7298a6f06f90a91bf9fdc5f78bb data/byg/loot_tables/blocks/green_encha
 06fdf93f7007e906a53e40d0027b5c30648d56aa data/byg/loot_tables/blocks/green_enchanted_planks.json
 e5b1ee5302721c12b1f1ac5c3c0b826a90548f6d data/byg/loot_tables/blocks/green_enchanted_pressure_plate.json
 0a4fe5c3894fd0a2339cb993e67c31cd31aabfa6 data/byg/loot_tables/blocks/green_enchanted_sapling.json
-e5a4e177d936c1036e0f143b8d94f5ddbbd59d32 data/byg/loot_tables/blocks/green_enchanted_sign.json
 f83fe4d2fbd3a581e0bf532d576f9914572c94ea data/byg/loot_tables/blocks/green_enchanted_slab.json
 2adea58c0ccc8e618bec4d9c91fa98121d0ae275 data/byg/loot_tables/blocks/green_enchanted_stairs.json
 c700c1692e91d3aede561b5a60a8cc0564943f49 data/byg/loot_tables/blocks/green_enchanted_trapdoor.json
@@ -198,7 +186,6 @@ face99833ef5c575a2bab9a0afe657015130e55e data/byg/loot_tables/blocks/holly_door.
 cd96eef572ba4ca1ff83fdf57f2cf94096dbf07b data/byg/loot_tables/blocks/holly_planks.json
 1a71c8a9264268015e369cd11f43497ca0374e16 data/byg/loot_tables/blocks/holly_pressure_plate.json
 7885f03952cf97839a71d10bb9c9c348c9aef35f data/byg/loot_tables/blocks/holly_sapling.json
-212230ee0e3e98fcb81d04e8e368313af8d4b0f8 data/byg/loot_tables/blocks/holly_sign.json
 c9e9ef04edff91ff8c47bfab23f123b9503947f1 data/byg/loot_tables/blocks/holly_slab.json
 65fe80bb4d0eff662e3309232a7be24dc4e0b4c2 data/byg/loot_tables/blocks/holly_stairs.json
 a38dba0608bd03cc1466f8664a51c93c9e79f917 data/byg/loot_tables/blocks/holly_trapdoor.json
@@ -213,7 +200,6 @@ c07ea3ed770aabf2d5b66d4adca7a64c1e6672b1 data/byg/loot_tables/blocks/imparius_hy
 1088cec601916a675db4e11c983b7d640eef06fa data/byg/loot_tables/blocks/imparius_mushroom.json
 56d858a569070ed18176e11b6772617e4f21c593 data/byg/loot_tables/blocks/imparius_planks.json
 973ef7f2229f184ecf3a5628f537fc8d0837edc7 data/byg/loot_tables/blocks/imparius_pressure_plate.json
-0cd40c8b2f29362439a74d019c3cc8858a9abf9c data/byg/loot_tables/blocks/imparius_sign.json
 a8feab04e213ef0c5264fdbbdf4a8429eafb138e data/byg/loot_tables/blocks/imparius_slab.json
 93f9d3368bc25ee99f2bdc516da9275be7eb7311 data/byg/loot_tables/blocks/imparius_stairs.json
 6969fb304a608e455ea0fe150f278f18eb2c477b data/byg/loot_tables/blocks/imparius_stem.json
@@ -229,7 +215,6 @@ f1cbcc46454c4c1601be19bc6563c89493b91657 data/byg/loot_tables/blocks/jacaranda_l
 a11e9d79661715cd5e587a5aeb13531338f4b999 data/byg/loot_tables/blocks/jacaranda_planks.json
 6741c6a9f2206e97f8e73d79b98df205383e2e33 data/byg/loot_tables/blocks/jacaranda_pressure_plate.json
 22cc947f670133aa5b644493f376a595ce2c2689 data/byg/loot_tables/blocks/jacaranda_sapling.json
-90fb8605bb2b00370fdfa9fc091fb3b57fd711f5 data/byg/loot_tables/blocks/jacaranda_sign.json
 b957d0daf4d30bc371849cfe57250c53136fb542 data/byg/loot_tables/blocks/jacaranda_slab.json
 3e6f04a70599d6a1b5b48c7bcde304c294ecd4f5 data/byg/loot_tables/blocks/jacaranda_stairs.json
 a5d17a8dc75396117da27bd6f39eb2f93942938c data/byg/loot_tables/blocks/jacaranda_trapdoor.json
@@ -245,7 +230,6 @@ bef7c968e9982430ffbfcde8fe2930f385382c82 data/byg/loot_tables/blocks/lament_fenc
 4513d6d811cfdf1c11792f6255bf287ecc3c6588 data/byg/loot_tables/blocks/lament_planks.json
 d417ba84a2a9f24556965851dcc50ee9c197d1f5 data/byg/loot_tables/blocks/lament_pressure_plate.json
 877369b20bececa64c06894cd49f4ccf1d4dc093 data/byg/loot_tables/blocks/lament_sapling.json
-561602e5a6dbbd8003a80e4b3e5227172a976df3 data/byg/loot_tables/blocks/lament_sign.json
 ebdbd9cdfe68d2835ebd9d8c1cd036af146a458f data/byg/loot_tables/blocks/lament_slab.json
 635568303f5a683c088c8cb80c6e94d42f5e3a81 data/byg/loot_tables/blocks/lament_stairs.json
 2299005441ef2e8929f870bf4582abc214789810 data/byg/loot_tables/blocks/lament_trapdoor.json
@@ -261,7 +245,6 @@ e38ad99499e046e24350f41fefb885aebdeaaec8 data/byg/loot_tables/blocks/mahogany_lo
 d3181fe10361c6592d63a6bf0d66ca24380a1306 data/byg/loot_tables/blocks/mahogany_planks.json
 9cfd63b5117c4a803855812ec754fbc280ceb4bb data/byg/loot_tables/blocks/mahogany_pressure_plate.json
 e8f1b378ec7c1b308b64b6926c3ead209720472e data/byg/loot_tables/blocks/mahogany_sapling.json
-860aacca273f54788a4e56b4f5825381910780a6 data/byg/loot_tables/blocks/mahogany_sign.json
 e757ae3e488a2fea6b7207bf3b2b7ff7e47d5111 data/byg/loot_tables/blocks/mahogany_slab.json
 d2025adccf79adac59eb72abf05c66e564952f8f data/byg/loot_tables/blocks/mahogany_stairs.json
 c042a000aa5cd9c04279744b10819d09d6070896 data/byg/loot_tables/blocks/mahogany_trapdoor.json
@@ -277,7 +260,6 @@ bd557dedf878cf1af23d2b4cc02b11fdd493a263 data/byg/loot_tables/blocks/maple_log.j
 2a63c6f1cc7ff86f2ddd9e399ca55ae60a281a5e data/byg/loot_tables/blocks/maple_planks.json
 adc76095aace1eb83000def7e2498490b9363ba8 data/byg/loot_tables/blocks/maple_pressure_plate.json
 2b67057c6123b6f0b590ab15d5ed7a1b0928e0a0 data/byg/loot_tables/blocks/maple_sapling.json
-2a345a430420ceea2890592d2cd85870c88b85c5 data/byg/loot_tables/blocks/maple_sign.json
 3ef085da276494e2cf2de893c6743d3c32d10347 data/byg/loot_tables/blocks/maple_slab.json
 a5fb1860c9c52be08b0e91a84a9792b1cee1090c data/byg/loot_tables/blocks/maple_stairs.json
 66d432c83687230d4e50fd57963f232f2842d1d4 data/byg/loot_tables/blocks/maple_trapdoor.json
@@ -293,7 +275,6 @@ ca45f5a8939ac2a2c236d56ced6a5da94a5ccc9a data/byg/loot_tables/blocks/nightshade_
 aac01b585a366d2ce73e64901e387ba17e1b7493 data/byg/loot_tables/blocks/nightshade_planks.json
 41bebeaa015eec6dbbeb47dacb2e0265d537879c data/byg/loot_tables/blocks/nightshade_pressure_plate.json
 77cf75bd900ef2c6d12d48f3c9656499c77fdd27 data/byg/loot_tables/blocks/nightshade_sapling.json
-f34e8175e83063621b4ad7889fde88c61e050aa4 data/byg/loot_tables/blocks/nightshade_sign.json
 94494fd5fe8a360a3a4d9ca42dd627acb16b0abf data/byg/loot_tables/blocks/nightshade_slab.json
 27aae129c1fb02ed5716ea63def045cca3da2121 data/byg/loot_tables/blocks/nightshade_stairs.json
 ec1f62abdf0591417697f9282b1ece0883da1413 data/byg/loot_tables/blocks/nightshade_trapdoor.json
@@ -309,7 +290,6 @@ d57c94805a9e752de06de36a9f3a47d30add395e data/byg/loot_tables/blocks/palm_log.js
 0c83cae2ca6373b5a9b63e8e10e9800554efdb83 data/byg/loot_tables/blocks/palm_planks.json
 6a218b9459b19d60594174ff5ccce7414f9cac3b data/byg/loot_tables/blocks/palm_pressure_plate.json
 72a6f0da7393777b7e44a5d90be190102b34e875 data/byg/loot_tables/blocks/palm_sapling.json
-efadd140742c5f8038205b486dcdeee6ff04b5ef data/byg/loot_tables/blocks/palm_sign.json
 b9bb916c422a166d0018176889d87f737269b5ae data/byg/loot_tables/blocks/palm_slab.json
 7d898de55d16b98e4f648183a540153ef8f9d5e4 data/byg/loot_tables/blocks/palm_stairs.json
 b4071bc2dced2987785b5caad366db7d5a3cf54a data/byg/loot_tables/blocks/palm_trapdoor.json
@@ -325,7 +305,6 @@ ed6fecef9a5041e1578541513b41fe99a333126e data/byg/loot_tables/blocks/pine_leaves
 369d43949a2db83091b6e5b6391f96a475f004dc data/byg/loot_tables/blocks/pine_planks.json
 e623ca89843e1c7b1c0d7a6481d475e9709426b1 data/byg/loot_tables/blocks/pine_pressure_plate.json
 8536e4138de16178af5fac53345ed1402f026004 data/byg/loot_tables/blocks/pine_sapling.json
-c5141fae535dd171f40f0114d72d30dfe08af503 data/byg/loot_tables/blocks/pine_sign.json
 3a6ff1f257d5cbd4094578afa36092c766cd591d data/byg/loot_tables/blocks/pine_slab.json
 e347a4aa2c1562ae95bc58b6a372ef1eccc88088 data/byg/loot_tables/blocks/pine_stairs.json
 cbf438d48ea50c26c461e950b192d1a66823c4ac data/byg/loot_tables/blocks/pine_trapdoor.json
@@ -369,7 +348,6 @@ aa73e4168999be179e853bbb6af70c757806cfd4 data/byg/loot_tables/blocks/rainbow_euc
 0c12c14310b75ac11cb725abc693397c99caab88 data/byg/loot_tables/blocks/rainbow_eucalyptus_planks.json
 77bddc1c49a00a9d0bdeddc6b7317c4538e62504 data/byg/loot_tables/blocks/rainbow_eucalyptus_pressure_plate.json
 6c7cb395ef6dd64f2b8e1c1f73bf4327956963c5 data/byg/loot_tables/blocks/rainbow_eucalyptus_sapling.json
-02f67f3f8c312c52fd216e77b3a3de1bb73668be data/byg/loot_tables/blocks/rainbow_eucalyptus_sign.json
 472dd94a82c6019b191cfe335b3fa969d5e4a298 data/byg/loot_tables/blocks/rainbow_eucalyptus_slab.json
 88863e3c03b768cc129b747c99fcaa93624b5110 data/byg/loot_tables/blocks/rainbow_eucalyptus_stairs.json
 1b0125affd95cd9601072ff32c6dfb086cabb0d9 data/byg/loot_tables/blocks/rainbow_eucalyptus_trapdoor.json
@@ -385,7 +363,6 @@ cb807859ae592f9f09420a883b9b209063dfa380 data/byg/loot_tables/blocks/redwood_lea
 e64eadd0897ef81e6920b0f92f33ecba4cafc71b data/byg/loot_tables/blocks/redwood_planks.json
 7d0b45520b0ef40da1c43af86d348522f28f7d96 data/byg/loot_tables/blocks/redwood_pressure_plate.json
 48b3a4281a17210383f1888c1fd759df48050891 data/byg/loot_tables/blocks/redwood_sapling.json
-4b8525de77cebb2850c7da06350cbef1a3f51a6f data/byg/loot_tables/blocks/redwood_sign.json
 d525f6c17ac4f5fe3125464f7f71fcedf46fdd5f data/byg/loot_tables/blocks/redwood_slab.json
 d54215bbf698373a42adc0705a9367ca7d73845b data/byg/loot_tables/blocks/redwood_stairs.json
 479d7a7cc08908e7ac176efdcd26525640740fdc data/byg/loot_tables/blocks/redwood_trapdoor.json
@@ -401,7 +378,6 @@ fe1757223e24036a46e365f2344c28d190dbc743 data/byg/loot_tables/blocks/skyris_log.
 a5e8ed960f51bd99e0917cbcdbe8ffe5c74d3573 data/byg/loot_tables/blocks/skyris_planks.json
 b0a214f7417b98170c5e7d0f802bc097d6029107 data/byg/loot_tables/blocks/skyris_pressure_plate.json
 593dceb740f7189fcefd5dd49565fe430efacfb1 data/byg/loot_tables/blocks/skyris_sapling.json
-740fa66a782f3f645349b5ab9e24626a366708cf data/byg/loot_tables/blocks/skyris_sign.json
 8ee20f84fc51358c502b428749704464c3335f04 data/byg/loot_tables/blocks/skyris_slab.json
 bdc36464b70414d89bbdf1c8b405f21e2dbcf3dc data/byg/loot_tables/blocks/skyris_stairs.json
 7cfd8e78547b45a5424ec8b8d8eeea54c58ddeea data/byg/loot_tables/blocks/skyris_trapdoor.json
@@ -472,7 +448,6 @@ c20eac36af7643482cce91ee5cf591348437a03b data/byg/loot_tables/blocks/sythian_fun
 f35e85f9b5d03a5d747c23f9eb333bf4a8211ec1 data/byg/loot_tables/blocks/sythian_hyphae.json
 cc10ec2c107dd972a258d411da24ba2fbf81abf9 data/byg/loot_tables/blocks/sythian_planks.json
 25cd7b016224b5bfa6508f2aeed8aaff67c2d6c0 data/byg/loot_tables/blocks/sythian_pressure_plate.json
-5c7369e685e60eb169f282d69df3d976d7969a4a data/byg/loot_tables/blocks/sythian_sign.json
 db3a11d9d7e5eccafe470a39dee35cafbe3de622 data/byg/loot_tables/blocks/sythian_slab.json
 21fe4eb01e40ef6fb469d510def0e8b53f2ed93c data/byg/loot_tables/blocks/sythian_stairs.json
 cd8f0834dea148888dfd0f6ac54dcd7bfec25b0e data/byg/loot_tables/blocks/sythian_stem.json
@@ -489,7 +464,6 @@ a810f6222c62e170df9b1348cfd2f09fd00f1252 data/byg/loot_tables/blocks/white_mangr
 c5b51b23beb594700a36cfda1adec8ee046e7069 data/byg/loot_tables/blocks/white_mangrove_planks.json
 a2d8da7888f5f460b10b3de5ab293537f1df83ea data/byg/loot_tables/blocks/white_mangrove_pressure_plate.json
 978a885dc8c8a2fe0282332e1128635d1090031a data/byg/loot_tables/blocks/white_mangrove_sapling.json
-8f77de435ac59c3be0dc074980f4049480f00960 data/byg/loot_tables/blocks/white_mangrove_sign.json
 4584bd815908018668068b45f86d6116889411c5 data/byg/loot_tables/blocks/white_mangrove_slab.json
 04ea45bf3528baa831bbd85c2a3ea93cdcd0cff9 data/byg/loot_tables/blocks/white_mangrove_stairs.json
 bbe92c42a80df86aa334b0424feb8a7fa138c680 data/byg/loot_tables/blocks/white_mangrove_trapdoor.json
@@ -505,7 +479,6 @@ f81f0bea8293882296b9e93a911954660149bab9 data/byg/loot_tables/blocks/willow_log.
 59e0fb1a542ab13a3f687577c6dbdf572c3094f0 data/byg/loot_tables/blocks/willow_planks.json
 df93639d00a5eff505ab254fc354b45bc6f104bb data/byg/loot_tables/blocks/willow_pressure_plate.json
 321d93e80b1637b99a001cd79ba78b08cd9d1bef data/byg/loot_tables/blocks/willow_sapling.json
-ec8a1ecb124219f072026a225f1dfbff9ec6aeb3 data/byg/loot_tables/blocks/willow_sign.json
 cbb60737e8ee1844ec5af98d03484d19a475ebf0 data/byg/loot_tables/blocks/willow_slab.json
 0a013cfdaf4665c2b732281c5da7047d3f7a9526 data/byg/loot_tables/blocks/willow_stairs.json
 c72bfb8ba08de5e77e68351b65b0a3aabf6176ff data/byg/loot_tables/blocks/willow_trapdoor.json
@@ -521,7 +494,6 @@ fec0a14825ff7e052f440ac7590dcf572924e42f data/byg/loot_tables/blocks/witch_hazel
 318971ca9db9e26556a15ad1af46fa4919d916fa data/byg/loot_tables/blocks/witch_hazel_planks.json
 9e45d49820dff15d55bed8612f910cc173b61332 data/byg/loot_tables/blocks/witch_hazel_pressure_plate.json
 e99ddd565daa639663d5545a57ca2c0e8100028c data/byg/loot_tables/blocks/witch_hazel_sapling.json
-cadd74d5b837718cf8975413d47a524f8b47fe18 data/byg/loot_tables/blocks/witch_hazel_sign.json
 0b65a957fcc9c645248fa13db43530db2dec44fd data/byg/loot_tables/blocks/witch_hazel_slab.json
 851643011b47794b6da2643ed4b69ee0ae2a1621 data/byg/loot_tables/blocks/witch_hazel_stairs.json
 a982ca0d324a13bdb5a4825d5a08b279c8df03cc data/byg/loot_tables/blocks/witch_hazel_trapdoor.json
@@ -537,7 +509,6 @@ c7218f08c9fb8512e287259ab8ebe11d52c63bb2 data/byg/loot_tables/blocks/zelkova_lea
 29860f34cf259e9d2dd494c76694594552445346 data/byg/loot_tables/blocks/zelkova_planks.json
 4a2813e8feb10e7106a32429a9f16ec322fa13d2 data/byg/loot_tables/blocks/zelkova_pressure_plate.json
 e88064dd4aead6e372d0b03071eaf53d97b82e8c data/byg/loot_tables/blocks/zelkova_sapling.json
-2e722322982f16919279cf19d5ddff2fca5d9f8f data/byg/loot_tables/blocks/zelkova_sign.json
 7c00a37cc917ffd5d40754add35a64a26851f8a8 data/byg/loot_tables/blocks/zelkova_slab.json
 6065ebb60c7982e876c15c4593febdff1ba00259 data/byg/loot_tables/blocks/zelkova_stairs.json
 21bb4e650c8065b37ff6d013d713661d9e772d59 data/byg/loot_tables/blocks/zelkova_trapdoor.json

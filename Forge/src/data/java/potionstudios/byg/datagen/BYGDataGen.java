@@ -1,8 +1,8 @@
 package potionstudios.byg.datagen;
 
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import potionstudios.byg.BYG;
 import potionstudios.byg.datagen.providers.BYGRecipeProviders;
 import potionstudios.byg.datagen.providers.BYGWoodAssetsProvider;
