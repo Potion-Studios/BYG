@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
 import potionstudios.byg.common.block.nether.embur.BlueNetherrackBlock;
 import potionstudios.byg.common.block.nether.embur.EmburPlantBlock;
@@ -26,11 +27,12 @@ import potionstudios.byg.common.block.nether.weepingmire.LamentVinePlantBlock;
 
 @SuppressWarnings("deprecation")
 public class BYGBlockProperties {
-
+    public static Material FIREPROOF_PLANT = new Material(MaterialColor.PLANT, false, false, false, false, false, false, PushReaction.DESTROY);
+    public static Material FIREPROOF_LEAVES = new Material(MaterialColor.PLANT, false, true, true, false, false, false, PushReaction.DESTROY);
 
     public static class BYGDoubleNetherPlant extends DoubleNetherPlantBlock {
         public BYGDoubleNetherPlant() {
-            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT)
+            super(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT)
                     .sound(SoundType.ROOTS)
                     .strength(0.0f)
                     .noCollission()
@@ -42,7 +44,7 @@ public class BYGBlockProperties {
 
     public static class BYGDoubleDamagePlant extends DoubleDamagePlantBlock {
         public BYGDoubleDamagePlant() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
+            super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
                     .sound(SoundType.GRASS)
                     .strength(0.0f)
                     .noCollission()
@@ -64,7 +66,7 @@ public class BYGBlockProperties {
 
     public static class BYGEmburLily extends NetherLilyBlock {
         public BYGEmburLily() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
+            super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
                     .sound(SoundType.GRASS)
                     .strength(0.0f)
                     .noOcclusion()
@@ -274,7 +276,7 @@ public class BYGBlockProperties {
 
     public static class BYGLamentPlant extends NetherSproutsBlock {
         public BYGLamentPlant() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
+            super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
                     .sound(SoundType.ROOTS)
                     .strength(0.0F)
                     .noCollission()
@@ -287,7 +289,7 @@ public class BYGBlockProperties {
 
     public static class BYGLamentVinePlant extends LamentVinePlantBlock {
         public BYGLamentVinePlant() {
-            super(BlockBehaviour.Properties.of(Material.LEAVES)
+            super(BlockBehaviour.Properties.of(FIREPROOF_LEAVES)
                     .sound(SoundType.WEEPING_VINES)
                     .strength(0.2f)
                     .randomTicks()
@@ -299,7 +301,7 @@ public class BYGBlockProperties {
 
     public static class BYGLamentVine extends LamentVineBlock {
         public BYGLamentVine() {
-            super(BlockBehaviour.Properties.of(Material.LEAVES)
+            super(BlockBehaviour.Properties.of(FIREPROOF_LEAVES)
                     .sound(SoundType.WEEPING_VINES)
                     .strength(0.2f)
                     .randomTicks()
