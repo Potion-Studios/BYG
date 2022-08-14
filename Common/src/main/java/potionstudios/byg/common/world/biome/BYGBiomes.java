@@ -55,7 +55,7 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> WINDSWEPT_DESERT = createBiome("windswept_desert", () -> BYGOverworldBiomes.windsweptDesert(false), IS_OVERWORLD, IS_DESERT);
     public static final ResourceKey<Biome> EBONY_WOODS = createBiome("ebony_woods", BYGOverworldBiomes::ebonyWoods, IS_OVERWORLD, IS_FOREST);
     public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BYGOverworldBiomes::forgottenForest, IS_OVERWORLD, IS_FOREST, IS_MAGICAL);
-    public static final ResourceKey<Biome> GROVE = createBiome("temperate_grove", () -> temperateGrove(false), IS_OVERWORLD, CLIMATE_TEMPERATE_OVERWORLD);
+    public static final ResourceKey<Biome> GROVE = createBiome("temperate_grove", () -> temperateGrove(false), IS_OVERWORLD, CLIMATE_TEMPERATE_OVERWORLD, IS_FOREST);
     public static final ResourceKey<Biome> GUIANA_SHIELD = createBiome("guiana_shield", BYGOverworldBiomes::guianaShield, IS_OVERWORLD, IS_JUNGLE);
     public static final ResourceKey<Biome> HOWLING_PEAKS = createBiome("howling_peaks", BYGOverworldBiomes::howlingPeaks, IS_OVERWORLD, IS_MOUNTAIN);
     public static final ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", BYGOverworldBiomes::jacarandaForest, IS_OVERWORLD, IS_FOREST);
