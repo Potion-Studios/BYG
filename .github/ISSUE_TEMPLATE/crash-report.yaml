@@ -18,7 +18,7 @@ body:
       label: Minecraft Version
       description: What Minecraft version are you using? If your version isn't listed here, we don't support it.
       options:
-        - 1.19
+        - 1.19.2
         - 1.18.2
         - 1.16.5
     validations:
