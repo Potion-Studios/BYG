@@ -67,9 +67,9 @@ public class VolcanoPiece extends StructurePiece {
 
         int fluidYOffset = this.structureInfo.fluidY();
 
-        FastNoiseLite fastNoiseLite = FastNoiseLite.createSpongePerlin(this.structureInfo.noiseSeed());
+        FastNoiseLite spongeNoise = FastNoiseLite.createSpongeNoise(this.structureInfo.noiseSeed());
 
-        fastNoiseLite.SetFrequency(0.05F);
+        spongeNoise.SetFrequency(0.05F);
 
         BlockPos subtract = this.structureInfo.origin().offset(-volcanoConeSize, 0, -volcanoConeSize);
         int startX = subtract.getX();
@@ -92,13 +92,12 @@ public class VolcanoPiece extends StructurePiece {
             for (int worldZ = minZ; worldZ <= maxZ; worldZ++) {
                 int localZ = worldZ - this.structureInfo.origin().getZ();
 
+                float spongeNoiseValue = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(mutable.getX(), 0, mutable.getZ()));
+
                 for (double y = -volcanoConeSize; y <= maxY; y++) {
-
                     mutable.set(worldX, baseHeight + y + volcanoStartHeight, worldZ);
-                    float spongePerlinValue = FastNoiseLite.getSpongePerlinValue(fastNoiseLite.GetNoise(mutable.getX(), mutable.getZ()));
 
-                    double scaledNoise = (spongePerlinValue / 13) * (-(y * baseRadius) / ((localX * localX) + (localZ * localZ)));
-
+                    double scaledNoise = (spongeNoiseValue / 13) * (-(y * baseRadius) / ((localX * localX) + (localZ * localZ)));
 
                     int fluidY = maxY - fluidYOffset;
                     double lava = scaledNoise - leakage - (leakage / 2) - 0.5;

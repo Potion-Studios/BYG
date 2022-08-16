@@ -15,7 +15,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
-    FastNoiseLite fnlPerlin = null;
+    FastNoiseLite spongeNoise = null;
 
     public VolcanoFeature(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
@@ -41,11 +41,13 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
         for (double x = -volcanoConeSize; x <= volcanoConeSize; x++) {
             for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
+
+                float spongeNoiseValue = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(mutable.getX(), 0, mutable.getZ()));
+
                 for (double y = -volcanoConeSize; y <= -15; y++) {
                     mutable.set(pos).move((int) x, (int) y + volcanoStartHeight, (int) z);
-                    float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
 
-                    double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
+                    double scaledNoise = (spongeNoiseValue / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (scaledNoise - leakage >= threshold) {
                         if (y <= fluidY) {
                             while (!world.getBlockState(mutable).canOcclude() && mutable.getY() > world.getMinBuildHeight()) {
@@ -68,9 +70,9 @@ public class VolcanoFeature extends Feature<SimpleBlockProviderConfig> {
 
 
     public void setSeed(long seed) {
-        if (fnlPerlin == null) {
-            fnlPerlin = FastNoiseLite.createSpongePerlin((int) seed);
-            fnlPerlin.SetFrequency(0.2F);
+        if (spongeNoise == null) {
+            spongeNoise = FastNoiseLite.createSpongeNoise((int) seed);
+            spongeNoise.SetFrequency(0.2F);
         }
     }
 }

@@ -14,7 +14,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
 
-    FastNoiseLite perlin = null;
+    FastNoiseLite spongeNoise = null;
 
     public FloatingIslands2(Codec<FloatingIslandConfig> codec) {
         super(codec);
@@ -36,7 +36,7 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
             for (double y = 1; y <= topY; y++) {
                 for (double z = -radius - 8; z <= radius + 8; z++) {
                     mutable.set(pos).move((int) x, (int) y - 22, (int) z);
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
+                    double noise = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(mutable.getX(), mutable.getY(), mutable.getZ()));
                     double scaledNoise = (noise) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y == topY)
@@ -57,9 +57,9 @@ public class FloatingIslands2 extends Feature<FloatingIslandConfig> {
 
 
     public void setSeed(long seed) {
-        if (perlin == null) {
-            perlin = FastNoiseLite.createSpongePerlin((int) seed);
-            perlin.SetFrequency(0.2F);
+        if (spongeNoise == null) {
+            spongeNoise = FastNoiseLite.createSpongeNoise((int) seed);
+            spongeNoise.SetFrequency(0.2F);
         }
     }
 }

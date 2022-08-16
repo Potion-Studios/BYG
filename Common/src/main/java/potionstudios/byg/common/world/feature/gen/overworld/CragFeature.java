@@ -19,7 +19,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 public class CragFeature extends Feature<SimpleBlockProviderConfig> {
 
-    FastNoiseLite fnlPerlin = null;
+    FastNoiseLite spongeNoise = null;
 
     public CragFeature(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
@@ -62,7 +62,7 @@ public class CragFeature extends Feature<SimpleBlockProviderConfig> {
             mutable.setX((int) (pos.getX() + x));
             for (double z = -volcanoConeSize; z <= volcanoConeSize; z++) {
                 mutable.setZ((int) (pos.getZ() + z));
-                float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
+                float noise3 = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(mutable.getX(), 0, mutable.getZ()));
                 int topY = pos.getY();
                 int oceanFloorHeight = world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, mutable.getX(), mutable.getZ()) - 2;
                 for (double y = -volcanoConeSize; y <= -15; y++) {
@@ -109,9 +109,9 @@ public class CragFeature extends Feature<SimpleBlockProviderConfig> {
 
 
     public void setSeed(long seed) {
-        if (fnlPerlin == null) {
-            fnlPerlin = FastNoiseLite.createSpongePerlin((int) seed);
-            fnlPerlin.SetFrequency(0.2F);
+        if (spongeNoise == null) {
+            spongeNoise = FastNoiseLite.createSpongeNoise((int) seed);
+            spongeNoise.SetFrequency(0.2F);
         }
     }
 }

@@ -15,7 +15,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
 
-    FastNoiseLite fnlPerlin = null;
+    FastNoiseLite spongeNoise = null;
 
     public PurpurPeak(Codec<SimpleBlockProviderConfig> codec) {
         super(codec);
@@ -45,7 +45,7 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
             for (double x = -peakHeight; x <= peakHeight; x++) {
                 for (double z = -peakHeight; z <= peakHeight; z++) {
                     mutable.set(pos).move((int) x, (int) y + peakStartHeight, (int)z);
-                    float noise3 = FastNoiseLite.getSpongePerlinValue(fnlPerlin.GetNoise(mutable.getX(), mutable.getZ()));
+                    float noise3 = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(mutable.getX(), mutable.getZ()));
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (y == -peakHeight) {
                         if (scaledNoise >= threshold)
@@ -65,9 +65,9 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
 
 
     public void setSeed(long seed) {
-        if (fnlPerlin == null) {
-            fnlPerlin = FastNoiseLite.createSpongePerlin((int) seed);
-            fnlPerlin.SetFrequency(0.2F);
+        if (spongeNoise == null) {
+            spongeNoise = FastNoiseLite.createSpongeNoise((int) seed);
+            spongeNoise.SetFrequency(0.2F);
         }
     }
 }
