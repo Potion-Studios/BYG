@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-14T15:00:25.6283452	BYG Block Tags
+// 1.19.2	2022-08-22T20:43:13.6502036	BYG Block Tags
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/blocks/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/blocks/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/blocks/all/campfires.json
@@ -197,7 +197,7 @@ b0e5e440c312e885ab297889297056549670a7d0 data/minecraft/tags/blocks/ice.json
 7f68716ae76c474932f85cdfbed01be8f6cfc099 data/minecraft/tags/blocks/logs.json
 45939b54c12b5cc62a991367257ab5b384b33d2b data/minecraft/tags/blocks/logs_that_burn.json
 35d0a2f02b30c8b25e58951fcc0583981335bee4 data/minecraft/tags/blocks/mineable/axe.json
-4479225a6ee7640ff8223511337c7b5f3e0058c4 data/minecraft/tags/blocks/mineable/shovel.json
+6a9d6a39d08224103ae69ab19dc79656fe42ba33 data/minecraft/tags/blocks/mineable/shovel.json
 905fafa6eeb610de1832dd4816b99b1f102dc7d4 data/minecraft/tags/blocks/oak_logs.json
 20cc8683af7c6d66b8eb624d590d6576d70c1f00 data/minecraft/tags/blocks/planks.json
 11803f15e92dfe9aeaef44075ebe04cc8d0a53b9 data/minecraft/tags/blocks/sand.json
