@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-14T15:00:25.647362	Tags for minecraft:item
+// 1.19.2	2022-08-22T14:08:30.9770457	Tags for minecraft:item
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/items/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/items/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/items/all/campfires.json
@@ -13,7 +13,7 @@ d2928c3b1290575081140c87971b20603146d1e8 data/byg/tags/items/all/scaffolding.jso
 b80f5072dc24b79c5af499c165d2f04be56ddefd data/byg/tags/items/all/slabs.json
 8e8710dfff4c0fbb7d0dd4bf6e475b27121ee1fa data/byg/tags/items/all/stairs.json
 d244fe483fa897611ba94d7c25a157bbfb82f343 data/byg/tags/items/all/sticks.json
-9f07b59461d16a426afaf1988ffc51448dcbb176 data/byg/tags/items/bookshelves.json
+497c5a825e1b8839d021c531e5fd19e9ddc809cd data/byg/tags/items/bookshelves.json
 8715dc18ace435555ea4a6ffa4d89ea17484a112 data/byg/tags/items/buttons.json
 62978bd2ab4e2dff704fe9d5dd21ce5134f21eb5 data/byg/tags/items/campfires.json
 0d2672f3894b36bf755eb9bd3c2a40d69908e0e1 data/byg/tags/items/fence_gates/wooden.json

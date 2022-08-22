@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-22T20:43:13.6502036	BYG Block Tags
+// 1.19.2	2022-08-22T14:08:30.9790457	BYG Block Tags
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/blocks/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/blocks/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/blocks/all/campfires.json
@@ -12,7 +12,7 @@ d68dbee22557c09d311cf354fb2b33d3ca4a1c6b data/byg/tags/blocks/all/ores.json
 9d1b154cc86780e26cab9e8580210860ce7a9169 data/byg/tags/blocks/all/scaffolding.json
 b80f5072dc24b79c5af499c165d2f04be56ddefd data/byg/tags/blocks/all/slabs.json
 8e8710dfff4c0fbb7d0dd4bf6e475b27121ee1fa data/byg/tags/blocks/all/stairs.json
-9f07b59461d16a426afaf1988ffc51448dcbb176 data/byg/tags/blocks/bookshelves.json
+497c5a825e1b8839d021c531e5fd19e9ddc809cd data/byg/tags/blocks/bookshelves.json
 8715dc18ace435555ea4a6ffa4d89ea17484a112 data/byg/tags/blocks/buttons.json
 62978bd2ab4e2dff704fe9d5dd21ce5134f21eb5 data/byg/tags/blocks/campfires.json
 fb625d0f7d1039b071247f74b3fe90ebaa9b2f55 data/byg/tags/blocks/end_stone.json
