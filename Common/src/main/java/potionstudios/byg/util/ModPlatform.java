@@ -1,9 +1,12 @@
 package potionstudios.byg.util;
 
 import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -50,6 +53,8 @@ public interface ModPlatform {
     boolean hasLoadErrors();
 
     void addTagsUpdatedListener(TagsUpdatedEvent event);
+
+    boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos);
 
     @FunctionalInterface
     interface TagsUpdatedEvent {
