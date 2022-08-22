@@ -58,7 +58,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:subzero_crystal_shard"
+              "name": "byg:subzero_crystal_shard"
             }
           ]
         }

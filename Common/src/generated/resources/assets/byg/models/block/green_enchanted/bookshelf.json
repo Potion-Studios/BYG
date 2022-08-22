@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "byg:block/green_enchanted/planks_top",
+    "down": "byg:block/green_enchanted/planks",
     "east": "byg:block/green_enchanted/bookshelf",
     "north": "byg:block/green_enchanted/bookshelf",
     "particle": "byg:block/green_enchanted/planks",
     "south": "byg:block/green_enchanted/bookshelf",
-    "up": "byg:block/green_enchanted/planks_top",
+    "up": "byg:block/green_enchanted/planks",
     "west": "byg:block/green_enchanted/bookshelf"
   }
 }

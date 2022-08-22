@@ -1,7 +1,7 @@
 {
   "values": [
     "#byg:logs_that_burn",
-    "#byg:wood/palo_verde_logs",
-    "#byg:wood/withering_oak_logs"
+    "#byg:palo_verde_logs",
+    "#byg:withering_oak_logs"
   ]
 }

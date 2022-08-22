@@ -193,7 +193,7 @@ public enum BYGWoodTypes {
         this.builder = builder;
         this.woodType = WoodTypeAccess.byg_invokeRegister(WoodTypeAccess.byg_create(name));
 
-        logTag = MultiTag.create(BYG.createLocation("wood/" + name + "_logs"));
+        logTag = MultiTag.create(BYG.createLocation(name + "_logs"));
     }
 
     public void init() {

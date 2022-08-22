@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-14T15:00:25.6513658	Tags for minecraft:worldgen/biome
+// 1.19.2	2022-08-22T14:25:05.3166029	Tags for minecraft:worldgen/biome
 01ac5e72b6d93412a5de19cab2db2c2710ff96b8 data/byg/tags/worldgen/biome/allows_surface_slime_spawns.json
 69922f167def638f443a71a71cc06d08daff2ce4 data/byg/tags/worldgen/biome/has_structure/mineshaft_mesa.json
 be8618cf55ecb0de41960f6126ed7e8fee8e0abc data/byg/tags/worldgen/biome/is_badlands.json
@@ -7,7 +7,7 @@ a7995d6872486d3c213721b75abfd89cabd0f2a4 data/byg/tags/worldgen/biome/is_beach.j
 d45f84365bbb29a3e48930be3be0f2d188393c76 data/byg/tags/worldgen/biome/is_deep_ocean.json
 ebfc990394589416619124aba94985134d32667b data/byg/tags/worldgen/biome/is_desert.json
 6786d9482733235e639b4837f53effa820685faf data/byg/tags/worldgen/biome/is_end.json
-2e1628e61b7dfe26149b04fe9e2cd2a31876f089 data/byg/tags/worldgen/biome/is_forest.json
+6c00d930bfb4ad59757dd53a14d0fe72f8e7d1e5 data/byg/tags/worldgen/biome/is_forest.json
 0be07ca2db98cd997cdfdfb2910a3bf76c2b6f4a data/byg/tags/worldgen/biome/is_icy.json
 c4a8e17d2653770942534f81ae623d678464542f data/byg/tags/worldgen/biome/is_jungle.json
 ee18c68d424a4bf587a60ad6ff9563dc55e9a0f5 data/byg/tags/worldgen/biome/is_magical.json

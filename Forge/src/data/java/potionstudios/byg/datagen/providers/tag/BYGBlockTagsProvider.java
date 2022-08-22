@@ -166,7 +166,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     @SafeVarargs
     private void wood(String name, Supplier<? extends Block>... blocks) {
-        final var loc = createLocation("wood/" + name);
+        final var loc = createLocation(name);
         final var tag = create(loc);
         tag(tag, blocks);
         tag(BlockTags.LOGS).addTag(tag);

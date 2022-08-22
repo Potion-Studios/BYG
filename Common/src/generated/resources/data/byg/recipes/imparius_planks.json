@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_planks",
+  "ingredients": [
+    {
+      "tag": "byg:imparius_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "byg:imparius_planks"
+  }
+}
