@@ -69,10 +69,10 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             configureTransform(item.withExistingParent(type.bookshelf().getId().getPath(), bookshelf.getLocation()));
             simpleBlock(type.bookshelf().get(), bookshelf);
 
-            final var button = models().buttonInventory(typeName + "/button_inventory", rl(typeLoc + "planks"));
-            models().button(typeName + "/button", rl(typeLoc + "planks"));
+            final var button = models().button(typeName + "/button", rl(typeLoc + "planks"));
             final var buttonPressed = models().buttonPressed(typeName + "/button_pressed", rl(typeLoc + "planks"));
-            configureTransform(item.withExistingParent(type.button().getId().getPath(), button.getLocation()));
+            final var buttonInv = models().buttonInventory(typeName + "/button_inventory", rl(typeLoc + "planks"));
+            configureTransform(item.withExistingParent(type.button().getId().getPath(), buttonInv.getLocation()));
             buttonBlock((ButtonBlock) type.button().get(), button, buttonPressed);
 
             final var craftingTable = models().cube(

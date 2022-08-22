@@ -1,7 +1,7 @@
 {
   "variants": {
     "face=ceiling,facing=east,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "x": 180,
       "y": 270
     },
@@ -11,7 +11,7 @@
       "y": 270
     },
     "face=ceiling,facing=north,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "x": 180,
       "y": 180
     },
@@ -21,7 +21,7 @@
       "y": 180
     },
     "face=ceiling,facing=south,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "x": 180
     },
     "face=ceiling,facing=south,powered=true": {
@@ -29,7 +29,7 @@
       "x": 180
     },
     "face=ceiling,facing=west,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "x": 180,
       "y": 90
     },
@@ -39,7 +39,7 @@
       "y": 90
     },
     "face=floor,facing=east,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "y": 90
     },
     "face=floor,facing=east,powered=true": {
@@ -47,13 +47,13 @@
       "y": 90
     },
     "face=floor,facing=north,powered=false": {
-      "model": "byg:block/imparius/button_inventory"
+      "model": "byg:block/imparius/button"
     },
     "face=floor,facing=north,powered=true": {
       "model": "byg:block/imparius/button_pressed"
     },
     "face=floor,facing=south,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "y": 180
     },
     "face=floor,facing=south,powered=true": {
@@ -61,7 +61,7 @@
       "y": 180
     },
     "face=floor,facing=west,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "y": 270
     },
     "face=floor,facing=west,powered=true": {
@@ -69,7 +69,7 @@
       "y": 270
     },
     "face=wall,facing=east,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "uvlock": true,
       "x": 90,
       "y": 90
@@ -81,7 +81,7 @@
       "y": 90
     },
     "face=wall,facing=north,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "uvlock": true,
       "x": 90
     },
@@ -91,7 +91,7 @@
       "x": 90
     },
     "face=wall,facing=south,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "uvlock": true,
       "x": 90,
       "y": 180
@@ -103,7 +103,7 @@
       "y": 180
     },
     "face=wall,facing=west,powered=false": {
-      "model": "byg:block/imparius/button_inventory",
+      "model": "byg:block/imparius/button",
       "uvlock": true,
       "x": 90,
       "y": 270
