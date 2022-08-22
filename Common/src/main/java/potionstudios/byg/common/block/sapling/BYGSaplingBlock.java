@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
+import potionstudios.byg.util.ModPlatform;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
         if (state.getValue(STAGE) == 0) {
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
+            if (!ModPlatform.INSTANCE.canTreeGrowWithEvent(world, rand, pos)) return;
             FeatureGrowerFromBlockPattern.growFeature(this, world, pos, rand, this.patternsToSpawner);
         }
     }

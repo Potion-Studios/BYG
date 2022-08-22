@@ -6,9 +6,12 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -82,5 +85,10 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public void addTagsUpdatedListener(TagsUpdatedEvent event) {
         TAGS_UPDATED_EVENT.register(event);
+    }
+
+    @Override
+    public boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos) {
+        return true;
     }
 }

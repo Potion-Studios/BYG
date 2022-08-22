@@ -65,6 +65,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
             .run(super::tag);
 
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(WAILING_NYLIUM.get());
         tag(SCAFFOLDING.all(RegistryType.BLOCKS)).add(Blocks.SCAFFOLDING);
 
         tag(BYGBlockTags.GROUND_MANGROVE_TREE).addTags(BlockTags.DIRT, BlockTags.SAND).add(Blocks.CLAY);
