@@ -6,14 +6,13 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:popped_chorus_fruit"
+      "item": "minecraft:end_rod"
     },
     "/": {
       "item": "minecraft:redstone"
     }
   },
   "result": {
-    "item": "byg:cryptic_end_rod",
-    "count": 4
+    "item": "byg:cryptic_end_rod"
   }
 }
