@@ -1,5 +1,7 @@
 package potionstudios.byg.common.world.structure.arch;
 
+import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.DataResult;
 import it.unimi.dsi.fastutil.longs.Long2ObjectLinkedOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -17,11 +19,13 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class ArchPiece extends StructurePiece {
@@ -47,7 +51,14 @@ public class ArchPiece extends StructurePiece {
         for (Tag position : positions) {
             this.positions.add(NbtUtils.readBlockPos((CompoundTag) position));
         }
-        this.config = NoisySphereConfig.CODEC.decode(tagRegistryOps, tag.get("config")).result().orElseThrow().getFirst();
+
+        if (tag.contains("config")) {
+            BYG.LOGGER.error("No config info was present.");
+        }
+        DataResult<Pair<NoisySphereConfig, Tag>> config1 = NoisySphereConfig.CODEC.decode(tagRegistryOps, tag.get("config"));
+        config1.error().ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece deserialization error: " + tagPartialResult));
+
+        this.config = config1.result().orElseThrow().getFirst();
     }
 
     @Override
@@ -60,7 +71,12 @@ public class ArchPiece extends StructurePiece {
             positions.add(NbtUtils.writeBlockPos(position));
         }
         compoundTag.put("positions", positions);
-        compoundTag.put("config", NoisySphereConfig.CODEC.encodeStart(tagRegistryOps, this.config).result().orElseThrow());
+        DataResult<Tag> encodeStart = NoisySphereConfig.CODEC.encodeStart(tagRegistryOps, this.config);
+        Optional<DataResult.PartialResult<Tag>> error = encodeStart.error();
+        error.ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece serialization error: " + tagPartialResult));
+
+
+        compoundTag.put("config", encodeStart.result().orElseThrow());
     }
 
     @Override
