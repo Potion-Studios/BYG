@@ -139,6 +139,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             woodenStairsTag.add(type.stairs().get());
             woodenTrapdoorsTag.add(type.trapdoor().get());
         }
+        bookselvesTag.add(Blocks.BOOKSHELF);
         tag(BlockTags.FENCE_GATES).addTag(BYGBlockTags.WOODEN_FENCE_GATES);
 
         wood("withering_oak_logs", WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
