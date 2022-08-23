@@ -1,3 +1,28 @@
+## 2.0.0.8
+### Thank you to everyone for the PRs w/ fixes!
+* Put wailing nylium in the shovel tag.
+* Fire tree grow event on forge.
+* Fix button rendering.
+* Fix potted blocks.
+* Stop nether plants from burning.
+* Fix wailing nylium spreading to netherrack.
+* Add vietnamese translation.
+* Bump pack version.
+* Don't use unique paths for data files.
+* Tweaks to recipes and tags.
+  * Added a blasting recipe for budding ametrine ore.
+  * Added some missing tags to ores, fixes compatibility with Tinker's Construct.
+  * Added smelting and blasting recipes to nether gold and quartz ores.
+  * Adjusted cryptic end rod recipe to be crafted from an end rod and redstone dust.
+  * Adjusted lantern recipes to match the vanilla lantern recipes.
+  * Removed some blocks from the netherrack Forge tag, as Forge does not include similar vanilla blocks.
+  * Remove Forge tag references to lignite.
+  * Remove recipe to smelt magmatic stone into magma blocks as this can cause duplication issues with any mods that interact with magma.
+  * Remove second travertine crafting recipe and adjust its recipe to require calcite and cobblestone (rough equivalents of its real-world composition).
+  * Add a recipe to create purpur stone from popped chorus fruits and cobblestone.
+  * Make subzero crystal blocks drop some of their shards, similar to glowstone.
+  * Make foragers table drop itself when broken.
+
 ## 2.0.0.7
 * Update to 1.19.2.
 
