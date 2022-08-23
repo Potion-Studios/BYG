@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "byg:willow_chest_boat"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}
