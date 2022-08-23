@@ -9,6 +9,8 @@
 * Add vietnamese translation.
 * Bump pack version.
 * Don't use unique paths for data files.
+* Remove useless tinted overlays to simplify blocks.
+* Add LambdaBetterGrass metadata for "grassy" block.
 * Tweaks to recipes and tags.
   * Added a blasting recipe for budding ametrine ore.
   * Added some missing tags to ores, fixes compatibility with Tinker's Construct.
