@@ -3,9 +3,12 @@ package potionstudios.byg.util;
 import com.google.auto.service.AutoService;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.RandomSource;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -15,6 +18,7 @@ import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.nio.file.Path;
+import java.util.Random;
 
 @AutoService(ModPlatform.class)
 public class FabricModPlatform implements ModPlatform {
@@ -62,6 +66,11 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public boolean hasLoadErrors() {
         return false;
+    }
+
+    @Override
+    public boolean canTreeGrowWithEvent(Level level, Random random, BlockPos pos) {
+        return true;
     }
 
     @Override
