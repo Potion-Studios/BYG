@@ -35,9 +35,9 @@ public class EmburPlantBlock extends BushBlock implements BonemealableBlock {
     }
 
     public void performBonemeal(ServerLevel worldIn, Random rand, BlockPos pos, BlockState state) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.EMBUR_ROOTS.get() ? BYGBlocks.TALL_EMBUR_ROOTS.get() : BYGBlocks.TALL_EMBUR_ROOTS.get());
+        DoublePlantBlock doubleplantblock = BYGBlocks.TALL_EMBUR_ROOTS.get();
         if (doubleplantblock.defaultBlockState().canSurvive(worldIn, pos) && worldIn.isEmptyBlock(pos.above())) {
-            DoublePlantBlock.placeAt(worldIn, state, pos, 2);
+            DoublePlantBlock.placeAt(worldIn, doubleplantblock.defaultBlockState(), pos, Block.UPDATE_CLIENTS);
         }
 
     }
