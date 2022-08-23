@@ -13,16 +13,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.common.block.BYGBlocks;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    @Nullable
+    private final Supplier<DoublePlantBlock> tallPlant;
 
-    public EtherPlantBlock(Properties builder) {
+    public EtherPlantBlock(Properties builder, @Nullable Supplier<DoublePlantBlock> tallPlant) {
         super(builder);
-
+        this.tallPlant = tallPlant;
     }
 
     public OffsetType getOffsetType() {
@@ -47,21 +51,21 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
 
     @Override
     public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
-        return blockGetter.getBlockState(blockPos.above()).isAir();
+        return tallPlant != null && blockGetter.getBlockState(blockPos.above()).isAir();
     }
 
     @Override
     public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
-        return level.random.nextFloat() < 0.45F;
+        return tallPlant != null && level.random.nextFloat() < 0.45F;
     }
 
     public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState blockState) {
-        DoublePlantBlock doubleplantblock = BYGBlocks.TALL_ETHER_GRASS.get();
+        if (tallPlant == null)
+            return;
+        DoublePlantBlock doubleplantblock = tallPlant.get();
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, doubleplantblock.defaultBlockState(), pos, Block.UPDATE_CLIENTS);
         }
     }
 
-
 }
-

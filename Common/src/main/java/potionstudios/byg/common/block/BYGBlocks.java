@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.textures.BYGMaterials;
@@ -692,9 +693,9 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "ether_foliage");
     public static final BlockRegistryObject<TallEtherPlantBlock> TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
-    public static final BlockRegistryObject<Block> ETHER_GRASS = createEtherPlant("ether_grass");
-    public static final BlockRegistryObject<Block> ETHER_BUSH = createEtherPlant("ether_bush");
-    public static final BlockRegistryObject<Block> THEREAL_BELLFLOWER = createEtherPlant("thereal_bellflower");
+    public static final BlockRegistryObject<Block> ETHER_GRASS = createEtherPlant("ether_grass", TALL_ETHER_GRASS::get);
+    public static final BlockRegistryObject<Block> ETHER_BUSH = createEtherPlant("ether_bush", null);
+    public static final BlockRegistryObject<Block> THEREAL_BELLFLOWER = createEtherPlant("thereal_bellflower", null);
     public static final BlockRegistryObject<Block> NIGHTSHADE_SPROUTS = createNightshadePlant("nightshade_sprouts");
     public static final BlockRegistryObject<Block> NIGHTSHADE_ROOTS = createTallNightshadePlant("nightshade_roots");
     public static final BlockRegistryObject<Block> NIGHTSHADE_BERRY_BUSH = createNightshadeBerryBush("nightshade_berry_bush");
@@ -1643,8 +1644,8 @@ public class BYGBlocks {
         return createBlock(() -> new IvisPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission()), id);
     }
 
-    private static BlockRegistryObject<Block> createEtherPlant(String id) {
-        return createBlock(() -> new EtherPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission()), id);
+    private static BlockRegistryObject<Block> createEtherPlant(String id, @Nullable Supplier<DoublePlantBlock> tallPlant) {
+        return createBlock(() -> new EtherPlantBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT).sound(SoundType.GRASS).instabreak().noOcclusion().noCollission(), tallPlant), id);
     }
 
     private static BlockRegistryObject<TallEtherPlantBlock> createTallEtherPlant(String id) {
