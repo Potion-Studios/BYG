@@ -1,0 +1,25 @@
+{
+  "layers": [
+    {
+      "textures": {
+        "top": "lambdabettergrass:block/grass_block_side_shadow",
+        "side": "byg:block/lush_grass_side"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_underlay_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_underlay_arch_blend"
+      }
+    },
+    {
+      "color_index": 0,
+      "textures": {
+        "top": "byg:block/lush_grass_top",
+        "side": "byg:block/lush_grass_side_overlay"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_arch_blend"
+      }
+    }
+  ]
+}

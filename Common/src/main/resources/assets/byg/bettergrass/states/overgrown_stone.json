@@ -1,0 +1,11 @@
+{
+  "type": "grass",
+  "variants": {
+    "snowy=false": {
+      "data": "byg:bettergrass/data/overgrown_stone"
+    },
+    "snowy=true": {
+      "data": "byg:bettergrass/data/overgrown_stone_snowy"
+    }
+  }
+}

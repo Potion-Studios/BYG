@@ -1,0 +1,14 @@
+{
+  "layers": [
+    {
+      "textures": {
+        "top": "minecraft:block/crimson_nylium",
+        "side": "byg:block/overgrown_crimson_blackstone_side"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_arch_blend"
+      }
+    }
+  ]
+}
