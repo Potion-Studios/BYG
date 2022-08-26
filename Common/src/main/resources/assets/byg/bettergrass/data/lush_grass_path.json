@@ -1,0 +1,14 @@
+{
+  "layers": [
+    {
+      "textures": {
+        "top": "minecraft:block/dirt_path_top",
+        "side": "byg:block/lush_grass_path_side"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_arch_blend"
+      }
+    }
+  ]
+}
