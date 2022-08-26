@@ -42,7 +42,7 @@ public class BYGBonemealActionBlock extends TallGrassBlock implements Bonemealab
             return (level, random, pos, state) -> {
                 DoublePlantBlock doublePlantBlock = doublePlantBlockSupplier.get();
                 if (doublePlantBlock.defaultBlockState().canSurvive(level, pos) && level.isEmptyBlock(pos.above())) {
-                    DoublePlantBlock.placeAt(level, doublePlantBlock.defaultBlockState(), pos, 2);
+                    DoublePlantBlock.placeAt(level, doublePlantBlock.defaultBlockState(), pos, Block.UPDATE_CLIENTS);
                 }
             };
         }
