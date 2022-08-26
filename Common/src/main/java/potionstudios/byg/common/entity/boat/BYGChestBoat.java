@@ -90,6 +90,7 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
 
     }
 
+    @Override
     public Item getDropItem() {
         return this.getBYGBoatType().chestBoatItem().get();
     }

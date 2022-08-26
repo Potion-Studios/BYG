@@ -30,15 +30,21 @@ public class BYGEntityLootProvider extends EntityLoot {
         for (final BYGWoodTypes type : BYGWoodTypes.values()) {
             if (type.boatType() == null)
                 continue;
-            add(BYGBoat.getLootLocation(type.boatType(), false), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                            .add(LootItem.lootTableItem(type.boat().get()))));
-
-            add(BYGBoat.getLootLocation(type.boatType(), true), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(exactly(2))
-                            .add(lootTableItem(Items.STICK)))
-                    .withPool(LootPool.lootPool().setRolls(exactly(3))
-                            .add(lootTableItem(type.planks().get()))));
+            for (boolean isChest : new Boolean[]{true, false}) {
+                add(BYGBoat.getLootLocation(type.boatType(), isChest,false), LootTable.lootTable()
+                        .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                                .add(LootItem.lootTableItem(isChest ? type.chestBoat().get() : type.boat().get()))));
+                var loot = LootTable.lootTable()
+                        .withPool(LootPool.lootPool().setRolls(exactly(2))
+                                .add(lootTableItem(Items.STICK)))
+                        .withPool(LootPool.lootPool().setRolls(exactly(3))
+                                .add(lootTableItem(type.planks().get())));
+                if (isChest) {
+                    loot.withPool(LootPool.lootPool().setRolls(exactly(1))
+                            .add(lootTableItem(Items.CHEST)));
+                }
+                add(BYGBoat.getLootLocation(type.boatType(), isChest, true), loot);
+            }
         }
     }
 

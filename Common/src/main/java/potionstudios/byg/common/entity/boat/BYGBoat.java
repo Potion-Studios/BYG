@@ -58,9 +58,10 @@ public class BYGBoat extends Boat {
         super(boatEntityType, worldType);
     }
 
-    public static ResourceLocation getLootLocation(BYGType type, boolean isFall) {
+    public static ResourceLocation getLootLocation(BYGType type, boolean isChest, boolean isFall) {
         final var regName = BYGEntities.BOAT.getId();
-        return isFall ? new ResourceLocation(regName.getNamespace(), "boats/" + type + "_fall") : new ResourceLocation(regName.getNamespace(), "boats/" + type);
+        String typeName = type + (isChest ? "_chest" : "");
+        return isFall ? new ResourceLocation(regName.getNamespace(), "boats/" + typeName + "_fall") : new ResourceLocation(regName.getNamespace(), "boats/" + typeName);
     }
 
     public List<ItemStack> getDrops(DamageSource damageSource, boolean isFall) {
@@ -77,7 +78,7 @@ public class BYGBoat extends Boat {
             if (any != LootTable.EMPTY)
                 return any.getRandomItems(lootContext);
 
-            final var lootTable = serverLevel.getServer().getLootTables().get(getLootLocation(getBYGBoatType(), isFall));
+            final var lootTable = serverLevel.getServer().getLootTables().get(getLootLocation(getBYGBoatType(), this instanceof BYGChestBoat, isFall));
             return lootTable.getRandomItems(lootContext);
         }
         return List.of();
@@ -133,11 +134,6 @@ public class BYGBoat extends Boat {
     }
 
     @Override
-    public ItemStack getPickResult() {
-        return new ItemStack(getDropItem());
-    }
-
-    @Override
     protected void checkFallDamage(double y, boolean onGroundIn, @NotNull BlockState state, @NotNull BlockPos pos) {
         ((BoatEntityAccess) this).byg_setLastYd(this.getDeltaMovement().y);
         if (!this.isPassenger()) {
@@ -159,12 +155,11 @@ public class BYGBoat extends Boat {
 
                 this.fallDistance = 0.0F;
             } else if (!this.level.getFluidState((new BlockPos(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
-                this.fallDistance = (float) ((double) this.fallDistance - y);
+                this.fallDistance = (float) (this.fallDistance - y);
             }
 
         }
     }
-
     @Override
     public boolean hurt(@NotNull DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
@@ -177,15 +172,13 @@ public class BYGBoat extends Boat {
                 this.setHurtTime(10);
                 this.setDamage(this.getDamage() + amount * 10.0F);
                 this.markHurt();
-                boolean flag = source.getEntity() instanceof Player && ((Player) source.getEntity()).getAbilities().instabuild;
+                boolean flag = source.getEntity() instanceof Player player && player.getAbilities().instabuild;
                 if (flag || this.getDamage() > 40.0F) {
                     if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                         getDrops(source, false).forEach(this::spawnAtLocation);
                     }
-
                     this.discard();
                 }
-
                 return true;
             }
         } else {
