@@ -1,3 +1,6 @@
+## 2.0.0.9
+* Add chest boat drops.
+
 ## 2.0.0.8
 ### Thank you to everyone for the PRs w/ fixes!
 * Put wailing nylium in the shovel tag.
