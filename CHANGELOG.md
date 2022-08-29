@@ -1,3 +1,6 @@
+## 1.4.4
+* Strip trailing white space from configs when parsing.
+
 # 1.4.3
 * Fix errors when bonemealing ether root/ grass.
 * LambdaBetterGrass support.
