@@ -111,7 +111,7 @@ public class JanksonUtil {
         JsonElement load = null;
 
         try {
-            load = JANKSON.loadElement(path.toFile());
+            load = JANKSON.loadElement(configStringFromBytes(path).strip());
 
             DataResult<Pair<T, JsonElement>> decode = codec.decode(ops, load);
             Optional<DataResult.PartialResult<Pair<T, JsonElement>>> error = decode.error();
