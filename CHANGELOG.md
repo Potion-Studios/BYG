@@ -1,3 +1,6 @@
+## 2.0.0.10
+* Strip trailing white space from configs when parsing.
+
 ## 2.0.0.9
 * Add chest boat drops.
 
