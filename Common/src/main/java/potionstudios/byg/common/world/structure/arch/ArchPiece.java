@@ -52,11 +52,11 @@ public class ArchPiece extends StructurePiece {
             this.positions.add(NbtUtils.readBlockPos((CompoundTag) position));
         }
 
-        if (tag.contains("config")) {
-            BYG.LOGGER.error("No config info was present.");
+        if (!tag.contains("config")) {
+            BYG.LOGGER.error("No arch config info was present.");
         }
         DataResult<Pair<NoisySphereConfig, Tag>> config1 = NoisySphereConfig.CODEC.decode(tagRegistryOps, tag.get("config"));
-        config1.error().ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece deserialization error: " + tagPartialResult));
+        config1.error().ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece config deserialization error: " + tagPartialResult));
 
         this.config = config1.result().orElseThrow().getFirst();
     }
