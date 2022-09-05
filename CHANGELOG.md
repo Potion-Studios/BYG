@@ -1,3 +1,6 @@
+## 2.0.0.11
+* Fix an if statement in Arch Piece config deserialization that was spamming logs when there was actually no error present.
+
 ## 2.0.0.10
 * Strip trailing white space from configs when parsing.
 
