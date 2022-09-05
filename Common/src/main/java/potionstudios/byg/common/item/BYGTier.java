@@ -7,13 +7,14 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public class BYGTier implements Tier {
-   public static final BYGTier AMETRINE = new BYGTier(4, 64, 16.0F, 0.8F, 25, () -> {
+   public static final BYGTier AMETRINE = new BYGTier("ametrine", 4, 64, 16.0F, 0.8F, 25, () -> {
         return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
     });
-    public static final BYGTier PENDORITE = new BYGTier(5, 2500, 10.0F, 4.0F, 15, () -> {
+    public static final BYGTier PENDORITE = new BYGTier("pendorite", 5, 2500, 10.0F, 4.0F, 15, () -> {
         return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
     });
 
+    private final String id;
     private final int harvestLevel;
     private final int maxUses;
     private final float efficiency;
@@ -21,7 +22,8 @@ public class BYGTier implements Tier {
     private final int enchantability;
     private final LazyLoadedValue<Ingredient> repairMaterial;
 
-    public BYGTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
+    public BYGTier(String id, int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
+        this.id = id;
         this.harvestLevel = harvestLevelIn;
         this.maxUses = maxUsesIn;
         this.efficiency = efficiencyIn;
@@ -52,5 +54,10 @@ public class BYGTier implements Tier {
 
     public Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
+    }
+
+
+    public String getId() {
+        return id;
     }
 }
