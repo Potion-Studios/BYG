@@ -1,0 +1,25 @@
+{
+  "layers": [
+    {
+      "textures": {
+        "top": "byg:block/overgrown_dacite_side",
+        "side": "byg:block/overgrown_dacite_side"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_underlay_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_underlay_arch_blend"
+      }
+    },
+    {
+      "color_index": 0,
+      "textures": {
+        "top": "byg:block/overgrown_dacite_top",
+        "side": "byg:block/overgrown_dacite_side_overlay"
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/grass_block_side_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/grass_block_side_arch_blend"
+      }
+    }
+  ]
+}

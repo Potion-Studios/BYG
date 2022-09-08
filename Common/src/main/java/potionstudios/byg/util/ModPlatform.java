@@ -1,8 +1,10 @@
 package potionstudios.byg.util;
 
 import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -10,6 +12,7 @@ import potionstudios.byg.network.packet.BYGS2CPacket;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Random;
 import java.util.ServiceLoader;
 
 public interface ModPlatform {
@@ -47,6 +50,8 @@ public interface ModPlatform {
     Platform modPlatform();
 
     boolean hasLoadErrors();
+
+    boolean canTreeGrowWithEvent(Level level, Random random, BlockPos pos);
 
     default <P extends BYGS2CPacket> void sendToAllClients(List<ServerPlayer> players, P packet) {
         for (ServerPlayer player : players) {

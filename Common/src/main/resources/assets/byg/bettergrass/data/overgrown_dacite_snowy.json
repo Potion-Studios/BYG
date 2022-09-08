@@ -1,0 +1,23 @@
+{
+  "layers": [
+    {
+      "textures": {
+        "top": "minecraft:block/snow",
+        "side": "byg:block/overgrown_dacite_snow_side"
+      }
+    },
+    {
+      "textures": {
+        "top": "lambdabettergrass:block/snow_outline",
+        "side": "lambdabettergrass:block/transparent",
+        "overrides": {
+          "connect": "lambdabettergrass:block/transparent"
+        }
+      },
+      "masks": {
+        "blend_up": "lambdabettergrass:bettergrass/mask/snowy_grass_block_side_outline_blend_up",
+        "arch": "lambdabettergrass:bettergrass/mask/snowy_grass_block_side_outline_arch_blend"
+      }
+    }
+  ]
+}
