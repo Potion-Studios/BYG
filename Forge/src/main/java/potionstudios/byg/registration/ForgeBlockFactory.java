@@ -22,7 +22,7 @@ public class ForgeBlockFactory implements BYGBlockFactory {
     private static Map<Supplier<? extends Block>, FlowerPotBlock> flowerPots = new HashMap<>();
     @Override
     public FlowerPotBlock createPottedBlock(Supplier<? extends Block> block, BlockBehaviour.Properties behaviour) {
-        var pot = new FlowerPotBlock(null, block, behaviour);
+        var pot = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, block, behaviour);
         flowerPots.put(block, pot);
         return pot;
     }
