@@ -690,20 +690,15 @@ public class BYGBlockProperties {
                     .requiresCorrectToolForDrops()
 
             );
-            
         }
     }
-
-    public static class BYGBlueNetherrackBricks extends BlueNetherrackBlock {
-        public BYGBlueNetherrackBricks() {
-            super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLUE)
+    public static class BygNetherBricks extends Block {
+        public BygNetherBricks(MaterialColor color) {
+            super(BlockBehaviour.Properties.of(Material.STONE, color)
                     .sound(SoundType.NETHER_BRICKS)
-                    .strength(0.4F, 0.4F)
-
+                    .strength(2.0F, 6.0F)
                     .requiresCorrectToolForDrops()
-
             );
-            
         }
     }
 
