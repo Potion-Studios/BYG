@@ -626,7 +626,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CRIMSON_BERRY_BUSH = createCrimsonBerryBush("crimson_berry_bush");
     public static final BlockRegistryObject<Block> TALL_CRIMSON_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_crimson_roots");
     public static final BlockRegistryObject<Block> BRIMSTONE = createNetherStone(MaterialColor.TERRACOTTA_YELLOW, "brimstone");
-    public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICKS = createBlock(BYGBlockProperties.BYGNetherrack::new, "yellow_nether_bricks");
+    public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICKS = createBlock(() -> new BYGBlockProperties.BygNetherBricks(MaterialColor.TERRACOTTA_YELLOW), "yellow_nether_bricks");
     public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_STAIRS = createBlock(() -> StairBlockAccess.byg_create(YELLOW_NETHER_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_stairs");
     public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_SLAB = createBlock(() -> new SlabBlock(BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_slab");
     public static final BlockRegistryObject<Block> YELLOW_NETHER_BRICK_WALL = createBlock(() -> new WallBlock(BlockBehaviour.Properties.copy(YELLOW_NETHER_BRICKS.get())), "yellow_nether_brick_wall");
@@ -681,7 +681,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<BYGBlockProperties.BYGDoubleNetherPlant> TALL_EMBUR_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_embur_roots");
 
     public static final BlockRegistryObject<Block> BLUE_NETHERRACK = createNetherStone(MaterialColor.TERRACOTTA_BLUE, "blue_netherrack");
-    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICKS = createBlock(BYGBlockProperties.BYGBlueNetherrackBricks::new, "blue_nether_bricks");
+    public static final BlockRegistryObject<Block> BLUE_NETHER_BRICKS = createBlock(() -> new BYGBlockProperties.BygNetherBricks(MaterialColor.TERRACOTTA_BLUE), "blue_nether_bricks");
     public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_STAIRS = createBlock(() -> StairBlockAccess.byg_create(BLUE_NETHER_BRICKS.defaultBlockState(), BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_stairs");
     public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_SLAB = createBlock(() -> new SlabBlock(BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_slab");
     public static final BlockRegistryObject<Block> BLUE_NETHER_BRICK_WALL = createBlock(() -> new WallBlock(BlockBehaviour.Properties.copy(BLUE_NETHER_BRICKS.get())), "blue_nether_brick_wall");
