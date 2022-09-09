@@ -20,5 +20,6 @@ public class WaterSilkBlock extends WaterlilyBlock {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.COD && entityIn.getType() != EntityType.SQUID) {
             entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
         }
+        super.entityInside(state, worldIn, pos, entityIn);
     }
 }
