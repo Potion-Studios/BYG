@@ -26,7 +26,7 @@ public class BYGFlammables {
         BYG.LOGGER.debug("BYG: Adding Flammables...");
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            if (!type.isNether()) {
+            if (type.isFlammable()) {
                 flammableBlock(type.log(), 5, 5);
                 flammableBlock(type.strippedLog(), 5, 5);
                 flammableBlock(type.wood(), 5, 5);

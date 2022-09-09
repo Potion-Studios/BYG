@@ -123,7 +123,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             tag(type.logTag().block(), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
             logs.addTag(type.logTag().block());
-            if (!type.isNether())
+            if (type.isFlammable())
                 logsThatBurn.addTag(type.logTag().block());
 
             planksTag.add(type.planks().get());

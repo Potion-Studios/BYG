@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-22T14:58:16.0526979	Tags for minecraft:item
+// 1.19.2	2022-09-09T17:13:32.7895546	Tags for minecraft:item
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/items/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/items/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/items/all/campfires.json
@@ -36,7 +36,7 @@ f25c6968ff68cb356a0223c0c7d87c6bd98fe365 data/byg/tags/items/jacaranda_logs.json
 dddfc92c770ad7f92a3bbdf9bcc91bce4261347e data/byg/tags/items/lament_logs.json
 de833f9de7f2a524044bc9fcb2a64e41832cce1c data/byg/tags/items/leaves.json
 36b78cbcae9da7050dbe451c00f96b56460397b0 data/byg/tags/items/logs.json
-9b0992d00dbd44bdc6551576969a97a0edf43e74 data/byg/tags/items/logs_that_burn.json
+99e4b83df3bcee91e1e7d8586340ef52baa0d605 data/byg/tags/items/logs_that_burn.json
 bc209ef504cd8e1f9bb684ca72923ddbf4eddacc data/byg/tags/items/mahogany_logs.json
 2c0ab0d6b8e69b49a963860699e7dd105c7de5e8 data/byg/tags/items/maple_logs.json
 ef89ece741f37ca4edef1a32af40e5bd5fef30ed data/byg/tags/items/mushrooms.json

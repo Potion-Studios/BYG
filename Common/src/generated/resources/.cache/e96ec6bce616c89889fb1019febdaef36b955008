@@ -1,4 +1,4 @@
-// 1.19.2	2022-08-22T14:58:16.054699	BYG Block Tags
+// 1.19.2	2022-09-09T17:13:32.7705552	BYG Block Tags
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/blocks/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/blocks/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/blocks/all/campfires.json
@@ -36,7 +36,7 @@ f25c6968ff68cb356a0223c0c7d87c6bd98fe365 data/byg/tags/blocks/jacaranda_logs.jso
 dddfc92c770ad7f92a3bbdf9bcc91bce4261347e data/byg/tags/blocks/lament_logs.json
 d71e5f978687f7122480fd3f66c37bbd36507261 data/byg/tags/blocks/leaves.json
 36b78cbcae9da7050dbe451c00f96b56460397b0 data/byg/tags/blocks/logs.json
-9b0992d00dbd44bdc6551576969a97a0edf43e74 data/byg/tags/blocks/logs_that_burn.json
+99e4b83df3bcee91e1e7d8586340ef52baa0d605 data/byg/tags/blocks/logs_that_burn.json
 291cb53edd79525d3a0e1007725504fb91c0c6ce data/byg/tags/blocks/lush.json
 bc209ef504cd8e1f9bb684ca72923ddbf4eddacc data/byg/tags/blocks/mahogany_logs.json
 2c0ab0d6b8e69b49a963860699e7dd105c7de5e8 data/byg/tags/blocks/maple_logs.json
