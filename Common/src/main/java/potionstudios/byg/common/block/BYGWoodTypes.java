@@ -138,7 +138,8 @@ public enum BYGWoodTypes {
             .boatType(BYGBoat.BYGType.SKYRIS)),
     LAMENT("lament", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_LAMENT_SAPLING)
-            .materialColor(MaterialColor.COLOR_MAGENTA)),
+            .materialColor(MaterialColor.COLOR_MAGENTA)
+            .notFlammable()),
     MAPLE("maple", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
             .materialColor(MaterialColor.COLOR_GREEN)
@@ -373,6 +374,9 @@ public enum BYGWoodTypes {
     public boolean isNether() {
         return builder.isNether;
     }
+    public boolean isFlammable() {
+        return builder.flammable;
+    }
 
     public boolean leavesHaveOverlay() {
         return builder.leavesHaveOverlay;
@@ -408,6 +412,7 @@ public enum BYGWoodTypes {
         private MaterialColor materialColor;
         private Integer leavesLightLevel;
         private boolean isNether;
+        private boolean flammable = true;
         private boolean leavesHaveOverlay;
 
         public Builder growerItem(GrowerItemType type) {
@@ -436,6 +441,11 @@ public enum BYGWoodTypes {
         }
         public Builder nether() {
             this.isNether = true;
+            notFlammable();
+            return this;
+        }
+        public Builder notFlammable() {
+            this.flammable = false;
             return this;
         }
         public Builder registryName(BlockType blockType, String name) {
