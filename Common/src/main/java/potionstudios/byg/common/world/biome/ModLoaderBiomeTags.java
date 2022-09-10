@@ -53,11 +53,13 @@ public class ModLoaderBiomeTags {
         public static final TagKey<Biome> IS_PLAINS = create("is_plains");
         public static final TagKey<Biome> IS_SWAMP = create("is_swamp");
         public static final TagKey<Biome> IS_SANDY = create("is_sandy");
+        public static final TagKey<Biome> IS_DESERT = create("is_desert");
         public static final TagKey<Biome> IS_SNOWY = create("is_snowy");
         public static final TagKey<Biome> IS_WASTELAND = create("is_wasteland");
         public static final TagKey<Biome> IS_BEACH = create("is_beach");
         public static final TagKey<Biome> IS_VOID = create("is_void");
         public static final TagKey<Biome> IS_UNDERGROUND = create("is_underground");
+        public static final TagKey<Biome> IS_CAVE = create("is_cave");
 
         public static final TagKey<Biome> IS_PEAK = create("is_peak");
         public static final TagKey<Biome> IS_SLOPE = create("is_slope");

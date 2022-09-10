@@ -143,7 +143,7 @@ public class BYGBiomeTags {
     // Biome tag and what tags from vanilla or a mod loader to append to.
     public static final Supplier<Map<TagKey<Biome>, Set<TagKey<Biome>>>> BYG_BIOME_TAGS_TO_TAGS = Suppliers.memoize(() -> {
         Map<TagKey<Biome>, Set<TagKey<Biome>>> map = new Object2ObjectOpenHashMap<>();
-        map.put(IS_DESERT, Set.of(ModLoaderBiomeTags.Fabric.DESERT));
+        map.put(IS_DESERT, Set.of(ModLoaderBiomeTags.Fabric.DESERT, ModLoaderBiomeTags.Forge.IS_DESERT));
         map.put(IS_PLAIN, Set.of(ModLoaderBiomeTags.Forge.IS_PLAINS, ModLoaderBiomeTags.Fabric.PLAINS));
         map.put(IS_OCEAN, Set.of(BiomeTags.IS_OCEAN, ModLoaderBiomeTags.Fabric.OCEAN));
         map.put(IS_DEEP_OCEAN, Set.of(BiomeTags.IS_DEEP_OCEAN, ModLoaderBiomeTags.Fabric.DEEP_OCEAN));
