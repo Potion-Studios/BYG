@@ -634,18 +634,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGScaffolding extends BYGScaffoldingBlock {
-        public BYGScaffolding() {
-            super(BlockBehaviour.Properties.of(Material.DECORATION, MaterialColor.SAND)
-                    .sound(SoundType.SCAFFOLDING)
-                    .strength(0.0f, 0.0f)
-                    .dynamicShape()
-                    .lightLevel((state) -> 12)
-            );
-            
-        }
-    }
-
     public static class BYGStoneStairs extends StairBlock {
         public BYGStoneStairs() {
             super(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.COBBLESTONE)

@@ -5,6 +5,7 @@ import net.minecraft.Util;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MaterialColor;
 
 import java.util.ServiceLoader;
 import java.util.function.Supplier;
@@ -23,4 +24,5 @@ public interface BYGBlockFactory {
     });
 
     FlowerPotBlock createPottedBlock(Supplier<? extends Block> block, BlockBehaviour.Properties behaviour);
+    BYGScaffoldingBlock createScaffolding(BlockBehaviour.Properties behaviour);
 }

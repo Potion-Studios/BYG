@@ -11,13 +11,17 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
@@ -31,10 +35,14 @@ import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.WorldGenExportCommand;
 import potionstudios.byg.util.FileUtils;
+import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class BYG {
 
@@ -42,7 +50,12 @@ public class BYG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static boolean INITIALIZED;
 
+    private static final Map<Block, Predicate<BlockBehaviour.BlockStateBase>> BLOCKSTATE_IS_REPLACEMENTS = new HashMap<>();
+
     public static void commonLoad() {
+
+        blockToBlockTagReplacement(Blocks.BOOKSHELF, MLBlockTags.BOOKSHELVES);
+        blockToBlockTagReplacement(Blocks.FARMLAND, BYGBlockTags.FARMLAND);
 
         PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
 
@@ -66,6 +79,18 @@ public class BYG {
                 }
             });
         }
+    }
+
+    public static void blockToBlockTagReplacement(Block block, TagKey<Block> blockTag) {
+        BLOCKSTATE_IS_REPLACEMENTS.put(block, state -> state.is(blockTag));
+    }
+
+    public static void blockToInstanceOfReplacement(Block block, Class<? extends Block> clazz) {
+        BLOCKSTATE_IS_REPLACEMENTS.put(block, state -> clazz.isInstance(state.getBlock()));
+    }
+
+    public static Map<Block, Predicate<BlockBehaviour.BlockStateBase>> getBlockstateIsReplacements() {
+        return BLOCKSTATE_IS_REPLACEMENTS;
     }
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
