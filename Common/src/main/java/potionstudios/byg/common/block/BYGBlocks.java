@@ -644,7 +644,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createScaffoldingBlock(int light, MaterialColor materialColor, String id) {
-        return createBlock(() -> new BYGScaffoldingBlock(BlockBehaviour.Properties.copy(Blocks.SCAFFOLDING).lightLevel((state) -> light).color(materialColor)), id);
+        return createBlock(() -> BYGBlockFactory.INSTANCE.createScaffolding(BlockBehaviour.Properties.copy(Blocks.SCAFFOLDING).lightLevel(state -> light).color(materialColor)), id);
     }
 
     private static BlockRegistryObject<Block> createChiseledFungalImpariusSlab(String id) {

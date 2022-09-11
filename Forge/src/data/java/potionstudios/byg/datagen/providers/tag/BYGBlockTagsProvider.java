@@ -140,6 +140,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             woodenStairsTag.add(type.stairs().get());
             woodenTrapdoorsTag.add(type.trapdoor().get());
         }
+        //TODO for 1.20 remove
         bookselvesTag.add(Blocks.BOOKSHELF);
         tag(BlockTags.FENCE_GATES).addTag(BYGBlockTags.WOODEN_FENCE_GATES);
 

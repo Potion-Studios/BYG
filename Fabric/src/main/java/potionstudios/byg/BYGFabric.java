@@ -8,7 +8,10 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.tags.TagLoader;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ScaffoldingBlock;
 import potionstudios.byg.common.BYGFuels;
+import potionstudios.byg.common.block.BYGScaffoldingBlock;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
@@ -63,6 +66,7 @@ public class BYGFabric implements ModInitializer {
 
 
         BYG.commonLoad();
+        BYG.blockToInstanceOfReplacement(Blocks.SCAFFOLDING, BYGScaffoldingBlock.class);
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
         registerVillagerTrades();

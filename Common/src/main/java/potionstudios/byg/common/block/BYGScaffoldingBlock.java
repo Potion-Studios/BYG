@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWaterloggedBlock {
 
-    protected BYGScaffoldingBlock(Properties properties) {
+    public BYGScaffoldingBlock(Properties properties) {
         super(properties);
     }
 
