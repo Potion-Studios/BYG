@@ -140,7 +140,7 @@ public class WorldGenExportCommand {
                     load = JanksonUtil.addCommentsAndAlphabeticallySortRecursively(COMMENTS, load, "", true);
                     Files.write(path, load.toJson(JanksonUtil.JSON_GRAMMAR).getBytes());
                 } catch (IOException | SyntaxError e) {
-                    BYG.LOGGER.error(String.format("\"%s\" had errors: ", path.toString()));
+                    BYG.LOGGER.error(String.format("\"%s\" had errors: ", path));
                     e.printStackTrace();
                 }
             }
@@ -176,13 +176,14 @@ public class WorldGenExportCommand {
                     Files.createDirectories(path.getParent());
                     Files.write(path, gsonBuilder.toJson(jsonElement.get()).getBytes());
                 }
-            } catch (IOException var6) {
+            } catch (IOException ignored) {
             }
         }
 
     }
 
 
+    @SuppressWarnings("deprecation")
     private static void createPackMCMeta(Path path, boolean builtIn) throws IOException {
         String fileString = "{\n" +
                 "\t\"pack\":{\n" +
