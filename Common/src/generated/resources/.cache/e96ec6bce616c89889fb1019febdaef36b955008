@@ -1,4 +1,4 @@
-// 1.19.2	2022-09-09T17:13:32.7705552	BYG Block Tags
+// 1.19.2	2022-09-26T16:49:38.2495044	BYG Block Tags
 b3b8e8c9917f903ae73ca5aabc67983453b3514f data/byg/tags/blocks/all/bookshelves.json
 c1f73ceda6f26e20b83f22d827e099a1658d9cc8 data/byg/tags/blocks/all/buttons.json
 e5a6dcd740edeb57e2961754edae6eb6865050f0 data/byg/tags/blocks/all/campfires.json
@@ -176,6 +176,7 @@ e6ed0a9331ab9124714e552fafafe1cecc677093 data/byg/tags/blocks/ores.json
 181d5df9fe5ff1e224b3dec4cf5830d85ce877b2 data/byg/tags/blocks/slabs.json
 442c7cae60723ca7f466d21c4533ac3b98319728 data/byg/tags/blocks/stairs.json
 2233f58716ca83938f2fd3b85cc1d5cba070d8e1 data/byg/tags/blocks/sythian_logs.json
+8322713fae44b3435f38fb60d3e1c5a0e4c22172 data/byg/tags/blocks/sythian_stalk_plantable_on.json
 d0940d54945fc5ceb41121c0e21a1944b7b4e27a data/byg/tags/blocks/white_mangrove_logs.json
 b5444de87b7a8a3d8cf1a1d93d8e0f785a2ebbd3 data/byg/tags/blocks/willow_logs.json
 d9bee530cb743b4401ddc0ae6e746db1446cb58c data/byg/tags/blocks/witch_hazel_logs.json

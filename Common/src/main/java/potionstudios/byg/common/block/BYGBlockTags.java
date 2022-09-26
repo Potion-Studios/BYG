@@ -150,6 +150,8 @@ public class BYGBlockTags {
     public static final TagKey<Block> MUSHROOMS = createTag("mushrooms");
     public static final TagKey<Block> WOODEN_FENCE_GATES = createTag("fence_gates/wooden");
 
+    public static final TagKey<Block> SYTHIAN_STALK_PLANTABLE_ON = createTag("sythian_stalk_plantable_on");
+
     public static final TagKey<Block> LUSH = createTag("lush");
     public static final TagKey<Block> SLABS = createTag("slabs");
 

@@ -5,72 +5,83 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BambooBlock;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.material.FluidState;
+import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class SythianStalkBlock extends BambooBlock {
 
+    public static final int MAX_HEIGHT = 16;
+
     public SythianStalkBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)).setValue(LEAVES, BambooLeaves.NONE).setValue(STAGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(LEAVES, BambooLeaves.NONE).setValue(STAGE, 0));
     }
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
         if (!fluidState.isEmpty()) {
             return null;
-        } else {
-            BlockState blockStateDOWN = ctx.getLevel().getBlockState(ctx.getClickedPos().below());
-            if (blockStateDOWN.getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get()) {
-                Block blockDOWN = blockStateDOWN.getBlock();
-                if (blockDOWN == BYGWoodTypes.SYTHIAN.growerItem().get()) {
-                    return this.defaultBlockState().setValue(AGE, 0);
-                } else if (blockDOWN == this) {
-                    int getPropertyAge = blockStateDOWN.getValue(AGE) > 0 ? 1 : 0;
-                    return this.defaultBlockState().setValue(AGE, getPropertyAge);
-                } else {
-                    return BYGWoodTypes.SYTHIAN.growerItem().defaultBlockState();
+        }
+
+        BlockState stateDown = context.getLevel().getBlockState(context.getClickedPos().below());
+
+        if (stateDown.is(BYGBlockTags.SYTHIAN_STALK_PLANTABLE_ON)) {
+            if (stateDown.is(BYGBlocks.SYTHIAN_SAPLING.get())) {
+                return this.defaultBlockState().setValue(AGE, 0);
+            } else if (stateDown.is(this)) {
+                int age = stateDown.getValue(AGE) > 0 ? 1 : 0;
+                return this.defaultBlockState().setValue(AGE, age);
+            }
+
+            return BYGBlocks.SYTHIAN_SAPLING.get().defaultBlockState();
+        }
+
+        return null;
+    }
+
+    @Override
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
+        if (state.getValue(STAGE) == 0) {
+            if (level.isEmptyBlock(pos.above())) {
+                int i = this.getHeightBelowUpToMax(level, pos) + 1;
+
+                if (i < 16) {
+                    this.growBamboo(state, level, pos, random, i);
                 }
-            } else {
-                return null;
             }
         }
     }
 
+    @Nonnull
     @Override
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
-        if (!state.canSurvive(worldIn, pos)) {
-            worldIn.destroyBlock(pos, true);
+    public BlockState updateShape(BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor level, @NotNull BlockPos pos, @NotNull BlockPos posFrom) {
+        if (!state.canSurvive(level, pos)) {
+            level.scheduleTick(pos, this, 1);
         }
+
+        if (facing == Direction.UP && facingState.getBlock() == this && facingState.getValue(AGE) > state.getValue(AGE)) {
+            level.setBlock(pos, state.cycle(AGE), 2);
+        }
+
+        return super.updateShape(state, facing, facingState, level, pos, posFrom);
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState state2, LevelAccessor world, BlockPos pos, BlockPos posFrom) {
-        if (!state.canSurvive(world, pos)) {
-            world.scheduleTick(pos, this, 1);
-        }
-
-        if (direction == Direction.UP && state2.getBlock() == this && state2.getValue(AGE) > state.getValue(AGE)) {
-            world.setBlock(pos, state.cycle(AGE), 2);
-        }
-
-        return super.updateShape(state, direction, state2, world, pos, posFrom);
-    }
-
-    @Override
-    protected void growBamboo(BlockState state, Level world, BlockPos pos, RandomSource rand, int i) {
+    protected void growBamboo(@NotNull BlockState state, Level world, BlockPos pos, @NotNull RandomSource rand, int i) {
         BlockState stateDOWN = world.getBlockState(pos.below());
         BlockPos posDOWN2 = pos.below(2);
         BlockState blockStateDOWN2 = world.getBlockState(posDOWN2);
@@ -95,8 +106,29 @@ public class SythianStalkBlock extends BambooBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_NYLIUM.get() || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.SYTHIAN_STALK_BLOCK.get();
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        return level.getBlockState(pos.below()).is(BYGBlockTags.SYTHIAN_STALK_PLANTABLE_ON);
     }
 
+    @Override
+    protected int getHeightAboveUpToMax(@NotNull BlockGetter level, @NotNull BlockPos pos) {
+        int i = 0;
+
+        while (i < MAX_HEIGHT && level.getBlockState(pos.above(i + 1)).is(this)) {
+            i++;
+        }
+
+        return i;
+    }
+
+    @Override
+    protected int getHeightBelowUpToMax(@NotNull BlockGetter level, @NotNull BlockPos pos) {
+        int i = 0;
+
+        while (i < MAX_HEIGHT && level.getBlockState(pos.below(i + 1)).is(this)) {
+            i++;
+        }
+
+        return i;
+    }
 }
