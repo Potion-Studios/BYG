@@ -147,6 +147,8 @@ public class BYGBlockTags {
     public static final TagKey<Block> SPREADS_TO_NETHERRACK = createTag("spreads_to_netherrack");
     public static final TagKey<Block> SCAFFOLDING = createTag("scaffolding");
 
+    public static final TagKey<Block> SYTHIAN_STALK_PLANTABLE_ON = createTag("sythian_stalk_plantable_on");
+
     public static final TagKey<Block> LUSH = createTag("lush");
     public static final TagKey<Block> SLABS = createTag("slabs");
 
