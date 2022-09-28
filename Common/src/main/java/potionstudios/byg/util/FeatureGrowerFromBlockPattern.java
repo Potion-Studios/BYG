@@ -112,7 +112,6 @@ public interface FeatureGrowerFromBlockPattern {
 
 
                     if (matchedPattern) {
-                        System.out.println(rotated);
 
                         // Set tree
                         Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = level.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
