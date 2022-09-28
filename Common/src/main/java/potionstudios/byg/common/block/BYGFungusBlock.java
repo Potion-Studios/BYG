@@ -1,8 +1,9 @@
 package potionstudios.byg.common.block;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -14,12 +15,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBlockPattern {
 
-    private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner = new ArrayList<>();
+    private ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner = ImmutableList.of();
     private final TagKey<Block> groundTag;
 
     public BYGFungusBlock(Properties $$0, TagKey<Block> groundTag) {
@@ -40,11 +40,16 @@ public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBloc
 
     @Override
     public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos pos, BlockState state) {
-        FeatureGrowerFromBlockPattern.growFeature(this, serverLevel, pos, random, this.patternsToSpawner);
+        this.growFeature(this, serverLevel, pos, random);
     }
 
     @Override
-    public void load() {
-        FeatureGrowerFromBlockPattern.serializePatterns(Registry.BLOCK.getKey(this), this.patternsToSpawner);
+    public ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns() {
+        return this.patternsToSpawner;
+    }
+
+    @Override
+    public void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map) {
+        this.patternsToSpawner = map;
     }
 }

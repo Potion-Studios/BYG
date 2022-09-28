@@ -1,8 +1,10 @@
 package potionstudios.byg.util;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -20,14 +22,19 @@ public interface FeatureGrowerFromBlockPattern {
 
     List<Supplier<? extends FeatureGrowerFromBlockPattern>> ENTRIES = new ArrayList<>();
 
-    void load();
+    default void load(Block block) {
+        this.serializePatterns(Registry.BLOCK.getKey(block));
+    }
+
+    ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns();
+
+    void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map);
 
 
-    static void serializePatterns(ResourceLocation key, List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner) {
-        patternsToSpawner.clear();
-        Map<ResourceLocation, List<GrowingPatterns.GrowingPatternEntry>> patterns = GrowingPatterns.getConfig().patternsForBlock();
-        if (patterns.containsKey(key)) {
-            List<GrowingPatterns.GrowingPatternEntry> growingPatternEntries = new ArrayList<>(patterns.get(key));
+    default void serializePatterns(ResourceLocation key) {
+        List<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> list = new ArrayList<>();
+
+        GrowingPatterns.getConfig().getPatterns(key).map(ArrayList::new).ifPresent(growingPatternEntries -> {
             growingPatternEntries.sort(Comparator.comparingInt(p -> {
                 int saplingCount = 0;
                 for (String s : p.pattern()) {
@@ -41,12 +48,9 @@ public interface FeatureGrowerFromBlockPattern {
                 return saplingCount;
             }));
 
-            List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawnerMapped = new ArrayList<>();
             for (GrowingPatterns.GrowingPatternEntry growingPatternEntry : growingPatternEntries) {
                 List<String> pattern = growingPatternEntry.pattern();
-                SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner> spawner = growingPatternEntry.spawners();
-                Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>> newEntry = Pair.of(new ArrayList<>(), spawner);
-                patternsToSpawnerMapped.add(newEntry);
+                List<Vec3i> offsets = new ArrayList<>();
                 int patternLoopSize = Math.min(pattern.size(), GrowingPatterns.MAX_PATTERN_SIZE);
 
                 StringBuilder builder = new StringBuilder();
@@ -69,44 +73,49 @@ public interface FeatureGrowerFromBlockPattern {
                         char[] charArray = substring.toCharArray();
                         for (char c : charArray) {
                             if (c == 'x' || c == 'X') {
-                                newEntry.getFirst().add(new BlockPos(xOffset, 0, zOffset));
+                                offsets.add(new Vec3i(xOffset, 0, zOffset));
                             }
                             xOffset++;
                         }
                         zOffset++;
                     }
                 } else {
-                    newEntry.getFirst().add(new BlockPos(0, 0, 0));
+                    offsets.add(Vec3i.ZERO);
                 }
+                list.add(Pair.of(offsets, growingPatternEntry.spawners()));
             }
-            patternsToSpawner.addAll(patternsToSpawnerMapped);
-            Collections.reverse(patternsToSpawner);
-        }
+        });
+        Collections.reverse(list);
+
+        this.setPatterns(ImmutableList.copyOf(list));
     }
 
-    static boolean growFeature(Block block, ServerLevel world, BlockPos pos, RandomSource rand, List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner) {
+    default boolean growFeature(Block block, ServerLevel level, BlockPos pos, RandomSource rand) {
+        BlockPos.MutableBlockPos mutableBlockPos = pos.mutable();
         int range = (GrowingPatterns.MAX_PATTERN_SIZE - 1) / 2;
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
-        for (Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>> entry : patternsToSpawner) {
+
+        for (var entry : this.getPatterns()) {
             for (int xMove = -range; xMove <= range; xMove++) {
                 for (int zMove = -range; zMove <= range; zMove++) {
-                    boolean matchedPattern = true;
                     BlockPos.MutableBlockPos mutableBlockPos1 = new BlockPos.MutableBlockPos().set(mutableBlockPos.set(pos).move(xMove, 0, zMove));
 
-
-                    List<BlockPos> offsets = entry.getFirst();
+                    List<Vec3i> offsets = entry.getFirst();
                     SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner> treePicker = entry.getSecond();
-                    for (BlockPos offset : offsets) {
-                        BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
-                        BlockState offsetState = world.getBlockState(movedPos);
-                        if (offsetState.getBlock() != block) {
-                            matchedPattern = false;
-                            break;
-                        }
+
+                    boolean matchedPattern = FeatureGrowerFromBlockPattern.patternMatches(level, offsets, mutableBlockPos1, mutableBlockPos, block, false);
+                    boolean rotated = false;
+
+                    if (!matchedPattern && FeatureGrowerFromBlockPattern.patternMatches(level, offsets, mutableBlockPos1, mutableBlockPos, block, true)) {
+                        matchedPattern = true;
+                        rotated = true;
                     }
+
+
                     if (matchedPattern) {
+                        System.out.println(rotated);
+
                         // Set tree
-                        Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
+                        Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = level.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
                         if (configuredFeaturesOptionalRegistry.isPresent()) {
                             Registry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
                             Optional<GrowingPatterns.FeatureSpawner> randomValue = treePicker.getRandomValue(rand);
@@ -114,15 +123,19 @@ public interface FeatureGrowerFromBlockPattern {
                                 GrowingPatterns.FeatureSpawner featureSpawner = randomValue.get();
                                 ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
                                 if (configuredFeature != null) {
-                                    BlockPos spawnOffset = featureSpawner.spawnOffset();
+                                    Vec3i spawnOffset = featureSpawner.spawnOffset();
                                     BlockPos growthPos = mutableBlockPos1.offset(spawnOffset);
-                                    if (configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, growthPos)) {
+                                    if (configuredFeature.place(level, level.getChunkSource().getGenerator(), rand, growthPos)) {
                                         // Clear saplings
-                                        for (BlockPos offset : offsets) {
+                                        for (Vec3i offset : offsets) {
+                                            if (rotated) {
+                                                offset = new Vec3i(offset.getZ(), offset.getY(), offset.getX());
+                                            }
+
                                             BlockPos.MutableBlockPos movedPos = mutableBlockPos1.set(mutableBlockPos).move(offset);
-                                            BlockState offsetState = world.getBlockState(movedPos);
-                                            if (offsetState.getBlock() == block) {
-                                                world.removeBlock(movedPos, false);
+                                            BlockState offsetState = level.getBlockState(movedPos);
+                                            if (offsetState.is(block)) {
+                                                level.removeBlock(movedPos, false);
                                             }
                                         }
                                         if (GrowingPatterns.getConfig().logGrowth()) {
@@ -146,4 +159,20 @@ public interface FeatureGrowerFromBlockPattern {
         return false;
     }
 
+    static boolean patternMatches(ServerLevel level, List<Vec3i> offsets, BlockPos.MutableBlockPos mutableBlockPos, BlockPos pos, Block block, boolean rotated) {
+        for (Vec3i offset : offsets) {
+            if (rotated) {
+                offset = new Vec3i(offset.getZ(), offset.getY(), offset.getX());
+            }
+
+            mutableBlockPos.set(pos).move(offset);
+            BlockState offsetState = level.getBlockState(mutableBlockPos);
+
+            if (!offsetState.is(block)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

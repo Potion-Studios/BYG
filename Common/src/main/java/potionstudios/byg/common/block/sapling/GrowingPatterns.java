@@ -4,8 +4,8 @@ import blue.endless.jankson.api.SyntaxError;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -27,6 +27,13 @@ import static potionstudios.byg.BYG.createLocation;
 
 public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<GrowingPatternEntry>> patternsForBlock) {
     public static final int MAX_PATTERN_SIZE = 5;
+
+    public Optional<List<GrowingPatternEntry>> getPatterns(ResourceLocation key) {
+        if (this.patternsForBlock.containsKey(key)) {
+            return Optional.of(this.patternsForBlock.get(key));
+        }
+        return Optional.empty();
+    }
 
     public static final GrowingPatterns DEFAULT = new GrowingPatterns(false, Util.make(new TreeMap<>(), map -> {
         map.put(createLocation("araucaria_sapling"), List.of(
@@ -558,7 +565,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "xxx",
                         "xxx",
                         "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6, new BlockPos(-1, 0, -1)), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6, new Vec3i(-1, 0, -1)), 1)
                         .build()),
                 new GrowingPatternEntry(List.of(
                         "  x  ",
@@ -587,7 +594,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "xxx",
                         "xxx",
                         "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6, new BlockPos(-1, 0, -1)), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6, new Vec3i(-1, 0, -1)), 1)
                         .build()),
                 new GrowingPatternEntry(List.of(
                         "  x  ",
@@ -611,7 +618,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "x x",
                         " x "
                 ), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1, BlockPos.ZERO.offset(0, 0, 1)), 1)
+                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1, Vec3i.ZERO.offset(0, 0, 1)), 1)
                         .build()),
                 new GrowingPatternEntry(List.of(
                         "  x  ",
@@ -716,35 +723,35 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         public static final Codec<FeatureSpawner> CODEC = RecordCodecBuilder.create(builder -> {
             return builder.group(
                     CommentedCodec.of(ResourceLocation.CODEC, "featureID", "Registry ID of the configured feature.").forGetter(featureSpawner -> featureSpawner.spawnerID),
-                    CommentedCodec.optionalOf(BlockPos.CODEC, "spawnOffset", "Some features don't spawn centered, this lets us offset the feature to center it.", BlockPos.ZERO).forGetter(featureSpawner -> featureSpawner.spawnOffset)
+                    CommentedCodec.optionalOf(Vec3i.CODEC, "spawnOffset", "Some features don't spawn centered, this lets us offset the feature to center it.", Vec3i.ZERO).forGetter(featureSpawner -> featureSpawner.spawnOffset)
             ).apply(builder, FeatureSpawner::new);
         });
 
         private final ResourceLocation spawnerID;
-        private final BlockPos spawnOffset;
+        private final Vec3i spawnOffset;
 
         public FeatureSpawner(ResourceLocation spawnerID) {
-            this(spawnerID, BlockPos.ZERO);
+            this(spawnerID, Vec3i.ZERO);
         }
 
         public FeatureSpawner(Holder<?> spawnerID) {
-            this(spawnerID, BlockPos.ZERO);
+            this(spawnerID, Vec3i.ZERO);
         }
 
-        public FeatureSpawner(Holder<?> spawnerID, BlockPos spawnOffset) {
+        public FeatureSpawner(Holder<?> spawnerID, Vec3i spawnOffset) {
             this(spawnerID.unwrapKey().orElseThrow(), spawnOffset);
         }
 
         public FeatureSpawner(ResourceKey<?> spawnerID) {
-            this(spawnerID, BlockPos.ZERO);
+            this(spawnerID, Vec3i.ZERO);
         }
 
-        public FeatureSpawner(ResourceKey<?> spawnerID, BlockPos spawnOffset) {
+        public FeatureSpawner(ResourceKey<?> spawnerID, Vec3i spawnOffset) {
             this(spawnerID.location(), spawnOffset);
         }
 
 
-        public FeatureSpawner(ResourceLocation spawnerID, BlockPos spawnOffset) {
+        public FeatureSpawner(ResourceLocation spawnerID, Vec3i spawnOffset) {
             this.spawnerID = spawnerID;
             this.spawnOffset = spawnOffset;
         }
@@ -753,8 +760,8 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
             return spawnerID;
         }
 
-        public BlockPos spawnOffset() {
-            return spawnOffset;
+        public Vec3i spawnOffset() {
+            return this.spawnOffset;
         }
 
         @Override

@@ -1,8 +1,9 @@
 package potionstudios.byg.common.block.sapling;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
@@ -11,15 +12,15 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.ModPlatform;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBlockPattern {
 
-    private final List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner = new ArrayList<>();
+    private ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner = ImmutableList.of();
     private final TagKey<Block> groundTag;
 
     public BYGSaplingBlock(Properties properties, TagKey<Block> groundTag) {
@@ -29,22 +30,30 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos) {
         return state.is(this.groundTag);
     }
 
     @Override
-    public void advanceTree(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand) {
+    public void advanceTree(@NotNull ServerLevel level, @NotNull BlockPos pos, BlockState state, @NotNull RandomSource random) {
         if (state.getValue(STAGE) == 0) {
-            world.setBlock(pos, state.cycle(STAGE), 4);
+            level.setBlock(pos, state.cycle(STAGE), 4);
         } else {
-            if (!ModPlatform.INSTANCE.canTreeGrowWithEvent(world, rand, pos)) return;
-            FeatureGrowerFromBlockPattern.growFeature(this, world, pos, rand, this.patternsToSpawner);
+            if (!ModPlatform.INSTANCE.canTreeGrowWithEvent(level, random, pos)) {
+                return;
+            }
+
+            this.growFeature(this, level, pos, random);
         }
     }
 
     @Override
-    public void load() {
-        FeatureGrowerFromBlockPattern.serializePatterns(Registry.BLOCK.getKey(this), this.patternsToSpawner);
+    public ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns() {
+        return this.patternsToSpawner;
+    }
+
+    @Override
+    public void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map) {
+        this.patternsToSpawner = map;
     }
 }

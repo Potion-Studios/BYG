@@ -6,6 +6,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.block.Block;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.network.packet.SaplingPatternsPacket;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
@@ -39,7 +40,11 @@ public class ReloadConfigsCommand {
     private enum Config {
         GROWERS((stack) -> {
             GrowingPatterns.getConfig(true, false);
-            FeatureGrowerFromBlockPattern.ENTRIES.forEach(grower -> grower.get().load());
+            FeatureGrowerFromBlockPattern.ENTRIES.forEach(grower -> {
+                if (grower.get() instanceof Block block) {
+                    grower.get().load(block);
+                }
+            });
             ModPlatform.INSTANCE.sendToAllClients(stack.getServer().getPlayerList().getPlayers(), new SaplingPatternsPacket(GrowingPatterns.getConfig()));
         });
 
