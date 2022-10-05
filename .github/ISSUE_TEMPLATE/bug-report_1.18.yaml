@@ -1,0 +1,97 @@
+name: 1.18 Bug Report
+description: Report any bugs here! Report crashes using "Crash Report"
+title: "[1.18][Bug]: "
+labels: [ "Bug", "1.18" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Prior to filling out this bug report please try the following:**
+        -Reset your configs! Configurations typically change between mod updates and are typically the most common causes of crashes. To reset your configs, move your existing configs to a seperate directory that isn't your MC installation directory, run the game, and update the values from your old config in the newly generated config!
+
+        -Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
+        
+        -**TITLE THIS ISSUE PROPERLY**
+  - type: input
+    id: mod-version
+    attributes:
+      label: BYG Version
+      description: |
+        What version of the mod are you using? Make sure you are using the latest version available!
+        Latest version downloads can be found here: 
+        Forge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go/files
+        Fabric: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files
+        Quilt/Other Mod loaders: N/A
+      placeholder: ex. 1.2.1
+    validations:
+      required: true
+  - type: input
+    id: terrablender-version
+    attributes:
+      label: Terrablender Version
+      description: |
+        What version of Terrablender are you using? 
+        Terrablender is a required mod for BYG in 1.18+, if you're using 1.16, specify N/A.
+        Latest version downloads can be found here: 
+        Forge: https://www.curseforge.com/minecraft/mc-mods/terrablender/files
+        Fabric: https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric/files
+        Quilt/Other Mod loaders: N/A
+      placeholder: ex. 1.1.0.99
+    validations:
+      required: true
+  - type: dropdown
+    id: mod-loader
+    attributes:
+      label: Mod Loader
+      description: What Mod Loader are you running?
+      options:
+        - Forge
+        - Fabric
+        - Quilt
+    validations:
+      required: true
+  - type: input
+    id: mod-loader-version
+    attributes:
+      label: Mod Loader Version
+      description: What version of the mod loader are you using?
+      placeholder: ex. 36.0.45
+    validations:
+      required: true
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: Bug Severity
+      description: Would you describe the bug as minor or major? Something minor would be a missing loot table. An example of something major would be a mod incompatibility. Just use good judgement when specifying the severity and the impact on gameplay.
+      options:
+        - Major
+        - Minor
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Please give a thorough explanation of the issue(s) you found. Attach/Link relevant images/files in relation to the issue(s)!
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: latest-log
+    attributes:
+      label: latest.log
+      description: Please upload your latest.log file directly here or use https://gist.github.com/ and leave the link here.
+      placeholder: Drag and drop latest.log file here or link it with https://gist.github.com/!
+    validations:
+      required: true
+  - type: dropdown
+    id: isolate-mod
+    attributes:
+      label: Did you isolate BYG?
+      description: |
+        Did you try a seperate instance with BYG only and its required dependencies and manage to recreate the issue?? **If not please do so now!**
+      options:
+        - I tried BYG alone
+        - I did not try BYG alone
+    validations:
+      required: true

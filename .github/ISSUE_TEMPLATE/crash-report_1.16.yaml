@@ -1,7 +1,7 @@
-name: Crash Report
+name: 1.16 Crash Report
 description: Did you crash? Report it here!
-title: "[Crash]: "
-labels: [ "Bug", "Bug Major" ]
+title: "[1.16][Crash]: "
+labels: [ "Bug", "Bug Major", "1.16" ]
 body:
   - type: markdown
     attributes:
@@ -12,17 +12,6 @@ body:
         -Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
         
         -**TITLE THIS ISSUE PROPERLY**
-  - type: dropdown
-    id: minecraft-version
-    attributes:
-      label: Minecraft Version
-      description: What Minecraft version are you using? If your version isn't listed here, we don't support it.
-      options:
-        - 1.19.2
-        - 1.18.2
-        - 1.16.5
-    validations:
-      required: true
   - type: input
     id: mod-version
     attributes:
@@ -34,20 +23,6 @@ body:
         Fabric: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files
         Quilt/Other Mod loaders: N/A
       placeholder: ex. 1.2.1
-    validations:
-      required: true
-  - type: input
-    id: terrablender-version
-    attributes:
-      label: Terrablender Version
-      description: |
-        What version of Terrablender are you using? 
-        Terrablender is a required mod for BYG in 1.18+, if you're using 1.16, specify N/A.
-        Latest version downloads can be found here: 
-        Forge: https://www.curseforge.com/minecraft/mc-mods/terrablender/files
-        Fabric: https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric/files
-        Quilt/Other Mod loaders: N/A
-      placeholder: ex. 1.1.0.99
     validations:
       required: true
   - type: dropdown
