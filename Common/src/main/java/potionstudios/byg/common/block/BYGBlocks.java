@@ -868,7 +868,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createSoapstone(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
+        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_BLACK).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(1.5f, 6.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createTravertine(String id) {
@@ -896,7 +896,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createScoria(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
+        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
     private static BlockRegistryObject<Block> createDacite(String id) {
