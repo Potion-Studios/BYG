@@ -193,7 +193,9 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         map.put(createLocation("mangrove_sapling"), List.of(
                 new GrowingPatternEntry(List.of(
                         "  x  ",
+                        "     ",
                         "x   x",
+                        "     ",
                         "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(createLocation("mangrove_tree1")), 1)
                         .add(new FeatureSpawner(createLocation("mangrove_tree2")), 1)
