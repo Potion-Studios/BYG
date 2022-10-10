@@ -24,6 +24,7 @@ public class BYGHillsLayer implements IAreaTransformer2, IDimOffset1Transformer 
         this.hillMap = hillMap;
         this.biomeRegistry = biomeRegistry;
         this.hillReplacementChance = hillReplacementChance;
+        hillMap.forEach(((resourceLocation, resourceLocationWeightedList) -> LayerRandomWeightedListUtil.removeUnweightedEntries(resourceLocationWeightedList)));
     }
 
 

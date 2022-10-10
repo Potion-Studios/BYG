@@ -15,7 +15,7 @@ public class WeightedMasterLayer implements IAreaTransformer0 {
 
     public WeightedMasterLayer(Registry<Biome> biomeRegistry, WeightedList<ResourceLocation> weightedBiomesList) {
         this.biomeRegistry = biomeRegistry;
-        this.weightedBiomesList = weightedBiomesList;
+        this.weightedBiomesList = LayerRandomWeightedListUtil.removeUnweightedEntries(weightedBiomesList);
     }
 
     @Override
