@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,6 +21,7 @@ import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.common.BYGFuels;
+import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -29,6 +31,7 @@ import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.BiomeDictionaryConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
+import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
@@ -37,6 +40,7 @@ import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
+import java.util.IdentityHashMap;
 import java.util.Map;
 
 @Mod(BYG.MOD_ID)
@@ -86,6 +90,9 @@ public class BYGForge {
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
 
         BYGFuels.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
+        Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
+        BYGStrippables.strippableLogsBYG(strippables::put);
+        AxeItemAccess.byg_setStripables(strippables);
     }
 
     private void registerTerraBlender() {

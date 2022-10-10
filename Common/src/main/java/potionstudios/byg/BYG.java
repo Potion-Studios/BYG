@@ -134,7 +134,6 @@ public class BYG {
         BYGCompostables.compostablesBYG();
         BYGHoeables.tillablesBYG();
         BYGFlammables.flammablesBYG();
-        BYGStrippables.strippableLogsBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
         LOGGER.info("BYG: \"Load Complete\" Event Complete!");
