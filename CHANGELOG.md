@@ -1,3 +1,25 @@
+## 2.0.0.12
+* Add Portuguese language.
+* Make Embur Roots and Ether grass bonemeal action not throw errors.
+* Two ether blocks don't grow large now.
+* Fix flower dupe 1.18.
+* Fix Nether terrablender surface rules, BOP surface rules should work now!
+* Numerous Sythian Stalk Fixes.
+* Some Sapling growth fixes.
+* Fix Mahogany Boat Texture.
+* Use Fabric's `StrippableBlockRegistry`. This should add compat with quilt.
+* Add Forager's table to axe mineable tag.
+* Cardinal Tundra is now actually snowy.
+* Fix Mangrove Sapling's odd growing pattern.
+* Fix Missing Textures on Pendorite Sword.
+* Orange Amaranth can now be composted.
+* Blue Nether Brick can now be crafted into blocks.
+* Fix Yellow Nether Brick Using incorrect sounds & time.
+* Make Water Silk breakable by boats.
+* Fix Lament blocks burning in nether.
+* Fix seeds on modded farmland.
+* Sythian Scaffolding fixes.
+
 ## 2.0.0.11
 * Fix an if statement in Arch Piece config deserialization that was spamming logs when there was actually no error present.
 
