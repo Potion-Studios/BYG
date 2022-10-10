@@ -1,3 +1,17 @@
+## 1.4.5
+* Add Portuguese language.
+* Make Embur Roots and Ether grass bonemeal action not throw errors.
+* Two ether blocks don't grow large now.
+* Fix flower dupe 1.18.
+* Fix Nether terrablender surface rules, BOP surface rules should work now!
+* Numerous Sythian Stalk Fixes.
+* Some Sapling growth fixes.
+* Fix Mahogany Boat Texture.
+* Use Fabric's `StrippableBlockRegistry`. This should add compat with quilt.
+* Add Forager's table to axe mineable tag.
+* Cardinal Tundra is now actually snowy.
+* Fix Mangrove Sapling's odd growing pattern.
+
 ## 1.4.4
 * Strip trailing white space from configs when parsing.
 
