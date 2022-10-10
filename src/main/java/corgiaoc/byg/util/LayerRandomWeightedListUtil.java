@@ -6,6 +6,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.behavior.WeightedList;
 import net.minecraft.world.level.newbiome.context.Context;
 
+import java.util.List;
+
+@SuppressWarnings("unchecked")
 public class LayerRandomWeightedListUtil {
 
     private static double target(Context random, double weightTotal) {
@@ -19,7 +22,10 @@ public class LayerRandomWeightedListUtil {
     public static ResourceLocation pickBiomeFromID(WeightedList<ResourceLocation> biomeWeightedList, Context rand) {
         double total = 0;
 
-        for (WeightedList.WeightedEntry biomeEntry : ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries())
+        // Make sure we remove unweighted entries.
+        removeUnweightedEntries(biomeWeightedList);
+
+        for (WeightedList.WeightedEntry<ResourceLocation> biomeEntry : ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries())
             total = total + ((WeightedListEntryAccess) biomeEntry).getWeight();
 
         double randVal = target(rand, total);
@@ -31,5 +37,18 @@ public class LayerRandomWeightedListUtil {
         }
 
         return ((WeightedListAccess<ResourceLocation>) biomeWeightedList).getEntries().get(i).getData();
+    }
+
+
+    public static <T> WeightedList<T> removeUnweightedEntries(WeightedList<T> weightedList) {
+        List<WeightedList.WeightedEntry<T>> entries = ((WeightedListAccess<T>) weightedList).getEntries();
+        for (int i = 0; i < entries.size(); i++) {
+            WeightedList.WeightedEntry<T> biomeEntry = entries.get(i);
+            if (((WeightedListEntryAccess) biomeEntry).getWeight() <= 0) {
+                entries.remove(i);
+            }
+        }
+
+        return weightedList;
     }
 }
