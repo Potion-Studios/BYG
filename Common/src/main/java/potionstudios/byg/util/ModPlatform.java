@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.network.packet.BYGS2CPacket;
@@ -52,6 +53,8 @@ public interface ModPlatform {
     boolean hasLoadErrors();
 
     boolean canTreeGrowWithEvent(Level level, Random random, BlockPos pos);
+
+    SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack);
 
     default <P extends BYGS2CPacket> void sendToAllClients(List<ServerPlayer> players, P packet) {
         for (ServerPlayer player : players) {

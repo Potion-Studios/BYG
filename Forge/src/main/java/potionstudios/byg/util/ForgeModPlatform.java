@@ -6,12 +6,13 @@ import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.event.ForgeEventFactory;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -19,6 +20,7 @@ import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 import java.util.Random;
@@ -79,5 +81,10 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public boolean canTreeGrowWithEvent(Level level, Random source, BlockPos pos) {
         return ForgeEventFactory.saplingGrowTree(level, source, pos);
+    }
+
+    @Override
+    public SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack) {
+        return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
     }
 }
