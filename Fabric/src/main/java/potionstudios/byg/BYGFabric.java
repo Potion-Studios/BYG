@@ -5,12 +5,12 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.tags.TagLoader;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ScaffoldingBlock;
 import potionstudios.byg.common.BYGFuels;
+import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.block.BYGScaffoldingBlock;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
@@ -70,6 +70,7 @@ public class BYGFabric implements ModInitializer {
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
         registerVillagerTrades();
+        BYGStrippables.strippableLogsBYG(StrippableBlockRegistry::register);
         afterRegistriesFreezeLoaded = true;
         BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
     }
