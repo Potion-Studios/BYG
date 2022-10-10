@@ -40,7 +40,11 @@ public class AddSurfaceRulesUtil {
             if (surfaceRulesConfig.containsKey(levelStemKey) && surfaceRulesConfig.get(levelStemKey) != null) {
                 if (chunkGenerator instanceof NoiseBasedChunkGenerator) {
                     NoiseGeneratorSettings noiseGeneratorSettings = ((NoiseBasedChunkGeneratorAccess) chunkGenerator).byg_getSettings().value();
-                    ((NoiseGeneratorSettingsAccess) (Object) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, noiseGeneratorSettings.surfaceRule()));
+                    if (levelStemKey == LevelStem.NETHER) {
+                        ((NoiseGeneratorSettingsAccess) (Object) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(surfaceRulesConfig.get(levelStemKey), ModPlatform.INSTANCE.getTerraBlenderNetherSurfaceRules(noiseGeneratorSettings.surfaceRule())));
+                    } else {
+                        ((NoiseGeneratorSettingsAccess) (Object) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, noiseGeneratorSettings.surfaceRule()));
+                    }
                 } else {
                     BYG.LOGGER.warn(String.format("Ignoring BYG's appended surface rule \"%s\" for dimension: \"%s\" because the chunk generator was not an instance of \"NoiseBasedChunkGenerator\".\nThe chunk generator was an instanceof \"%s\".", path.toString(), levelStemKey.location(), chunkGenerator.getClass().getName()));
                 }

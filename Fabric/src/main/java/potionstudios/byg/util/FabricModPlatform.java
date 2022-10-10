@@ -4,15 +4,14 @@ import com.google.auto.service.AutoService;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
@@ -20,9 +19,9 @@ import potionstudios.byg.network.FabricNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
 import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
-import java.util.List;
 
 @AutoService(ModPlatform.class)
 public class FabricModPlatform implements ModPlatform {
@@ -90,5 +89,10 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos) {
         return true;
+    }
+
+    @Override
+    public SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack) {
+        return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
     }
 }

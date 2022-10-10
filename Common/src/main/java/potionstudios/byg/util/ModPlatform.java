@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.network.packet.BYGS2CPacket;
@@ -55,6 +56,8 @@ public interface ModPlatform {
     void addTagsUpdatedListener(TagsUpdatedEvent event);
 
     boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos);
+
+    SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack);
 
     @FunctionalInterface
     interface TagsUpdatedEvent {

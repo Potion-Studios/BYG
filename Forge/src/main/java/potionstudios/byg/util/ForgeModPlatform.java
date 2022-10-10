@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModList;
@@ -20,6 +21,7 @@ import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
+import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
 
@@ -84,5 +86,10 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos) {
         return net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(level, source, pos);
+    }
+
+    @Override
+    public SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack) {
+        return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
     }
 }
