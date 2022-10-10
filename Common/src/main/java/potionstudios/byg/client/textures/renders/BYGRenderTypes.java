@@ -172,6 +172,7 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.SYTHIAN_SAPLING.get(), RenderType.cutout());
 
         //Mushrooms
         map.put(BYGBlocks.WHITE_PUFFBALL.get(), RenderType.cutoutMipped());

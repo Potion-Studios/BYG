@@ -1,5 +1,6 @@
 package potionstudios.byg.config;
 
+import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.BiomepediaInventoryConfig;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
@@ -29,7 +30,11 @@ public class BYGConfigHandler {
         errors.append(tryCatchErrors(() -> SurfaceRulesConfig.getConfig(serialize, recreate)));
         errors.append(tryCatchErrors(() -> {
             GrowingPatterns.getConfig(serialize, recreate);
-            FeatureGrowerFromBlockPattern.ENTRIES.forEach(c -> c.get().load());
+            FeatureGrowerFromBlockPattern.ENTRIES.forEach(c -> {
+                if (c.get() instanceof Block block) {
+                    c.get().load(block);
+                }
+            });
         }));
         errors.append(tryCatchErrors(() -> TradesConfig.getConfig(serialize, recreate)));
         errors.append(tryCatchErrors(() -> SettingsConfig.getConfig(serialize, recreate)));

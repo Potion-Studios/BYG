@@ -95,6 +95,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         this.tag(BYGBlockTags.GROUND_PALM_SAPLING).addTag(BlockTags.SAND).addTag(BlockTags.DIRT);
         this.tag(BYGBlockTags.GROUND_FAIRY_SLIPPER).addTag(BlockTags.LOGS);
 
+        this.tag(BYGBlockTags.SYTHIAN_STALK_PLANTABLE_ON).add(SYTHIAN_NYLIUM.get(), SYTHIAN_STALK_BLOCK.get(), SYTHIAN_SAPLING.get());
+
         // For now, until we get all wood moved
         final var axeMineable = tag(BlockTags.MINEABLE_WITH_AXE);
         for (BYGWoodTypes type : BYGWoodTypes.values()) {

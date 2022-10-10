@@ -237,7 +237,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultGrass(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
 
         BYGDefaultBiomeFeatures.addBasaltFeatures(generationSettings);
 
