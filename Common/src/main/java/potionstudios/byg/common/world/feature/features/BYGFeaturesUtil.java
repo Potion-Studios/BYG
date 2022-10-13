@@ -48,7 +48,7 @@ public class BYGFeaturesUtil {
         return createConfiguredFeature(id, () -> Feature.FLOWER, () -> byg_invokeGrassPatch(SimpleStateProvider.simple(flowerBlock.get().defaultBlockState()), 15));
     }
 
-    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeatureWithBlock(String id, Supplier<Block> block, int tries) {
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> createPatchConfiguredFeatureWithBlock(String id, Supplier<? extends Block> block, int tries) {
         return createPatchConfiguredFeatureWithState(id, () -> block.get().defaultBlockState(), tries);
     }
 
