@@ -1,3 +1,11 @@
+## 1.4.6
+* Withering Oak Logs should no longer burn.
+* Water Silk can now be broken by boats.
+* Yellow & Blue Nether Bricks now have correct mining time & sounds.
+* Add Yellow & Blue Nether Bricks recipes.
+* Orange Amaranth may now be composted.
+* Fix Pendorite sword texture.
+
 ## 1.4.5
 * Add Portuguese language.
 * Make Embur Roots and Ether grass bonemeal action not throw errors.
