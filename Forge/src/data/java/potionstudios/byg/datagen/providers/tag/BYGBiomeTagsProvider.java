@@ -1,14 +1,11 @@
 package potionstudios.byg.datagen.providers.tag;
 
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.BYGBiomeTags;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.reg.RegistryObject;
