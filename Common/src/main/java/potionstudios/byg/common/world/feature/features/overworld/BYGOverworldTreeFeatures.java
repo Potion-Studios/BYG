@@ -976,6 +976,19 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IRONWOOD_TREE = createConfiguredFeature("ironwood_tree",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ironwood/ironwood_trunk_1"),
+                    BYG.createLocation("features/trees/ironwood/ironwood_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WHITE_MANGROVE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.AZALEA_LEAVES.defaultBlockState(), 4).add(Blocks.FLOWERING_AZALEA_LEAVES.defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    () -> Blocks.AZALEA_LEAVES,
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+            )
+    );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
             BYGFeatures.MAPLE_TREE2,

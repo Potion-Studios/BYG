@@ -64,10 +64,10 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         }
         RandomSource random = featurePlaceContext.random();
         StructurePlaceSettings placeSettings = new StructurePlaceSettings().setRotation(Rotation.getRandom(random));
-        StructureTemplate.Palette randomBasePalette = placeSettings.getRandomPalette(basePalettes, origin);
+        StructureTemplate.Palette trunkBasePalette = placeSettings.getRandomPalette(basePalettes, origin);
         StructureTemplate.Palette randomCanopyPalette = placeSettings.getRandomPalette(canopyPalettes, origin);
 
-        List<StructureTemplate.StructureBlockInfo> center = randomBasePalette.blocks(Blocks.WHITE_WOOL);
+        List<StructureTemplate.StructureBlockInfo> center = trunkBasePalette.blocks(Blocks.WHITE_WOOL);
         if (center.size() > 1) {
             throw new IllegalArgumentException("There cannot be more than one central position.");
         }
@@ -76,8 +76,8 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
         List<StructureTemplate.StructureBlockInfo> leaves = randomCanopyPalette.blocks(config.leavesTarget());
         List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(config.logTarget());
-        List<StructureTemplate.StructureBlockInfo> logs = randomBasePalette.blocks(config.logTarget());
-        List<StructureTemplate.StructureBlockInfo> logBuilders = randomBasePalette.blocks(Blocks.RED_WOOL);
+        List<StructureTemplate.StructureBlockInfo> logs = trunkBasePalette.blocks(config.logTarget());
+        List<StructureTemplate.StructureBlockInfo> logBuilders = trunkBasePalette.blocks(Blocks.RED_WOOL);
         if (logBuilders.isEmpty()) {
             throw new UnsupportedOperationException(String.format("\"%s\" is missing log builders.", baseLocation));
         }
@@ -85,8 +85,6 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         Set<BlockPos> leavePositions = new HashSet<>();
         Set<BlockPos> trunkPositions = new HashSet<>();
 
-
-        List<StructureTemplate.StructureBlockInfo> trunkAnchor = randomBasePalette.blocks(Blocks.YELLOW_WOOL);
 
         int trunkLength = config.height().sample(random);
         final int maxTrunkBuildingDepth = config.maxLogDepth();
@@ -99,24 +97,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
 
         }
 
-        for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
-            BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
-            BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
-
-            for (int i = 0; i < maxTrunkBuildingDepth; i++) {
-                BlockState blockState = level.getBlockState(mutableBlockPos);
-                if (!blockState.canOcclude()) {
-                    level.setBlock(mutableBlockPos, logProvider.getState(featurePlaceContext.random(), mutableBlockPos), 2);
-                    mutableBlockPos.move(Direction.DOWN);
-                } else {
-                    Block block = blockState.getBlock();
-                    if (BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.containsKey(block)) {
-                        level.setBlock(mutableBlockPos, BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.get(block).defaultBlockState(), 2);
-                    }
-                    break;
-                }
-            }
-        }
+        buildLogs(featurePlaceContext, logProvider, level, origin, placeSettings, centerOffset, logBuilders, maxTrunkBuildingDepth);
 
         for (StructureTemplate.StructureBlockInfo trunk : logs) {
             BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
@@ -124,18 +105,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             trunkPositions.add(pos);
         }
 
-        int trunkY = 0;
-        for (StructureTemplate.StructureBlockInfo trunk : trunkAnchor) {
-            trunkY = trunk.pos.getY();
-            BlockPos pos = getModifiedPos(placeSettings, trunk, centerOffset, origin);
-            BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
-            for (int i = 0; i <= trunkLength; i++) {
-                level.setBlock(mutable, logProvider.getState(random, mutable), 2);
-                mutable.move(Direction.UP);
-                trunkPositions.add(mutable.immutable());
-            }
-        }
         {
             List<StructureTemplate.StructureBlockInfo> canopyAnchor = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
             if (center.size() > 1) {
@@ -146,11 +116,13 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             }
             StructureTemplate.StructureBlockInfo structureBlockInfo = canopyAnchor.get(0);
             BlockPos canopyCenterOffset = structureBlockInfo.pos;
-            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkY - canopyCenterOffset.getY() + trunkLength, -canopyCenterOffset.getZ());
+            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), canopyTemplate.getSize().getY() + trunkLength, -canopyCenterOffset.getZ());
 
-            // some stray log
-            /* BlockPos placingPos = getModifiedPos(placeSettings, structureBlockInfo, new BlockPos(0, 0, 0), origin);
-            level.setBlock(placingPos, logProvider.getState(random, placingPos), 2); */
+            List<StructureTemplate.StructureBlockInfo> blocks = new ArrayList<>(randomCanopyPalette.blocks(Blocks.RED_WOOL));
+            blocks.addAll(randomCanopyPalette.blocks(Blocks.YELLOW_WOOL));
+            buildLogs(featurePlaceContext, logProvider, level, origin, placeSettings, canopyCenterOffset, blocks, level.getHeight());
+
+
 
             for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
                 BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
@@ -186,6 +158,27 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             }
         }
         return true;
+    }
+
+    private static void buildLogs(FeaturePlaceContext<TreeFromStructureNBTConfig> featurePlaceContext, BlockStateProvider logProvider, WorldGenLevel level, BlockPos origin, StructurePlaceSettings placeSettings, BlockPos centerOffset, List<StructureTemplate.StructureBlockInfo> logBuilders, int maxTrunkBuildingDepth) {
+        for (StructureTemplate.StructureBlockInfo logBuilder : logBuilders) {
+            BlockPos pos = getModifiedPos(placeSettings, logBuilder, centerOffset, origin);
+            BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos().set(pos);
+
+            for (int i = 0; i < maxTrunkBuildingDepth; i++) {
+                BlockState blockState = level.getBlockState(mutableBlockPos);
+                if (!blockState.canOcclude()) {
+                    level.setBlock(mutableBlockPos, logProvider.getState(featurePlaceContext.random(), mutableBlockPos), 2);
+                    mutableBlockPos.move(Direction.DOWN);
+                } else {
+                    Block block = blockState.getBlock();
+                    if (BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.containsKey(block)) {
+                        level.setBlock(mutableBlockPos, BYGAbstractTreeFeature.SPREADABLE_TO_NON_SPREADABLE.get(block).defaultBlockState(), 2);
+                    }
+                    break;
+                }
+            }
+        }
     }
 
 

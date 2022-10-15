@@ -988,6 +988,8 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.IRONWOOD_TREES);
+
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
