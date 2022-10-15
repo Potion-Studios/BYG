@@ -1,3 +1,7 @@
+## 2.0.0.13
+* Fix broken red rock village structures.
+* Fix bonemealing ether grass & Embur roots.
+
 ## 2.0.0.12
 * Add Portuguese language.
 * Make Embur Roots and Ether grass bonemeal action not throw errors.

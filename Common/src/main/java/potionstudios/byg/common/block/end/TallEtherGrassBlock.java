@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
 
-public class TallEtherPlantBlock extends DoublePlantBlock {
+public class TallEtherGrassBlock extends DoublePlantBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
 
-    public TallEtherPlantBlock(Properties builder) {
+    public TallEtherGrassBlock(Properties builder) {
         super(builder);
 
     }

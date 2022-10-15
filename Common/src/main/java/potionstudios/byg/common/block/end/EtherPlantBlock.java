@@ -55,7 +55,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState blockState) {
-        DoublePlantBlock doubleplantblock = (DoublePlantBlock) (this == BYGBlocks.ETHER_GRASS.get() ? BYGBlocks.TALL_ETHER_GRASS.get() : BYGBlocks.TALL_ETHER_GRASS.get());
+        DoublePlantBlock doubleplantblock = BYGBlocks.TALL_ETHER_GRASS.get();
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, blockState, pos, 2);
         }
