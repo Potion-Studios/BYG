@@ -10,6 +10,7 @@ import potionstudios.byg.datagen.providers.advancements.BYGAdvancementProvider;
 import potionstudios.byg.datagen.providers.lang.EnUsLanguageProvider;
 import potionstudios.byg.datagen.providers.loot.BYGLootTablesProvider;
 import potionstudios.byg.datagen.providers.tag.*;
+import potionstudios.byg.datagen.util.StructureTemplateUtil;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BYG.MOD_ID)
 public class BYGDataGen {
@@ -37,6 +38,8 @@ public class BYGDataGen {
         // Client:
         gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
         gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
+
+        StructureTemplateUtil.removeBlocks(existingFileHelper);
     }
 
 }

@@ -520,6 +520,7 @@ public class BYGOverworldTreeFeatures {
 
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BLOSSOM.defaultBlockState()), 3, List.of(Direction.DOWN));
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> MOSS_CARPET = () -> new AttachedToLogsDecorator(0.9F, 0, 0, SimpleStateProvider.simple(Blocks.MOSS_CARPET.defaultBlockState()), 1, List.of(Direction.UP));
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL1 = createConfiguredFeature("witch_hazel1",
@@ -1017,7 +1018,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
@@ -1030,7 +1031,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
@@ -1043,7 +1044,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
@@ -1056,7 +1057,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
@@ -1069,7 +1070,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
 
