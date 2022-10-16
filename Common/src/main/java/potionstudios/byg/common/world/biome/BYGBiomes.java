@@ -74,7 +74,7 @@ public class BYGBiomes {
     public static final ResourceKey<Biome> FIRECRACKER_SHRUBLAND = createBiome("firecracker_shrubland", BYGOverworldBiomes::firecrackerShrubland, IS_OVERWORLD);
     public static final ResourceKey<Biome> SIERRA_BADLANDS = createBiome("sierra_badlands", BYGOverworldBiomes::sierraBadlands, IS_BADLANDS, IS_OVERWORLD);
     public static final ResourceKey<Biome> SKYRIS_VALE = createBiome("skyris_vale", BYGOverworldBiomes::skyrisVale, IS_OVERWORLD);
-    public static final ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", BYGOverworldBiomes::redwoodThicket, IS_OVERWORLD, IS_FOREST);
+    public static final ResourceKey<Biome> REDWOOD_THICKET = createBiome("redwood_thicket", BYGOverworldBiomes::redwoodThicket, IS_OVERWORLD, IS_FOREST, HAS_ANCIENT_SEQUOIA);
     public static final ResourceKey<Biome> FROSTED_TAIGA = createBiome("frosted_taiga", () -> frostedTaiga(true, false), IS_SNOWY, IS_OVERWORLD);
     public static final ResourceKey<Biome> FROSTED_CONIFEROUS_FOREST = createBiome("frosted_coniferous_forest", () -> coniferousForest(true), IS_SNOWY, IS_OVERWORLD, IS_TAIGA);
     public static final ResourceKey<Biome> FRAGMENT_FOREST = createBiome("fragment_forest", BYGOverworldBiomes::fragmentForest, IS_OVERWORLD, IS_FOREST);

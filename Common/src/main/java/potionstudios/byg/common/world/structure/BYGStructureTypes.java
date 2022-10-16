@@ -18,6 +18,7 @@ public class BYGStructureTypes {
 
     public static final RegistryObject<StructureType<ArchStructure>> ARCH = register("arch", () -> ArchStructure.CODEC);
     public static final RegistryObject<StructureType<VolcanoStructure>> VOLCANO = register("volcano", () -> VolcanoStructure.CODEC);
+    public static final RegistryObject<StructureType<AncientSequoiaTreeStructure>> ANCIENT_SEQUOIA_TREE = register("ancient_sequoia_tree", () -> AncientSequoiaTreeStructure.CODEC);
 
     private static <S extends Structure> RegistryObject<StructureType<S>> register(String id, Supplier<? extends Codec<S>> codec) {
         return PROVIDER.register(id, () -> new StructureType<S>() {

@@ -21,6 +21,7 @@ public class BYGBiomeTags {
     public static final TagKey<Biome> HAS_RED_ROCK_ARCH = create("has_structure/red_rock_arch");
     public static final TagKey<Biome> HAS_OVERGROWN_STONE_ARCH = create("has_structure/overgrown_stone_arch");
     public static final TagKey<Biome> HAS_STONE_ARCH = create("has_structure/stone_arch");
+    public static final TagKey<Biome> HAS_ANCIENT_SEQUOIA = create("has_structure/ancient_sequoia");
 
     public static final TagKey<Biome> HAS_PALM_TREES = create("has_feature/palm_trees");
 
