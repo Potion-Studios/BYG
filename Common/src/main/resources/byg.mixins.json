@@ -53,6 +53,7 @@
     "access.SurfaceRulesStateRuleAccess",
     "access.SurfaceSystemAccess",
     "access.TrapDoorBlockAccess",
+    "access.TreeDecoratorTypeAccess",
     "access.VanillaBiomeAccess",
     "access.VegetationFeaturesAccess",
     "access.VegetationPlacementsAccess",

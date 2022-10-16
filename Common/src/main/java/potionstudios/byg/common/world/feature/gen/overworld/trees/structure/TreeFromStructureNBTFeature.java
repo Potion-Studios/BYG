@@ -116,7 +116,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             }
             StructureTemplate.StructureBlockInfo structureBlockInfo = canopyAnchor.get(0);
             BlockPos canopyCenterOffset = structureBlockInfo.pos;
-            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), canopyTemplate.getSize().getY() + trunkLength, -canopyCenterOffset.getZ());
+            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkLength, -canopyCenterOffset.getZ());
 
             List<StructureTemplate.StructureBlockInfo> blocks = new ArrayList<>(randomCanopyPalette.blocks(Blocks.RED_WOOL));
             blocks.addAll(randomCanopyPalette.blocks(Blocks.YELLOW_WOOL));

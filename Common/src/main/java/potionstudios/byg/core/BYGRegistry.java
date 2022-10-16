@@ -30,6 +30,7 @@ import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetatio
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTreeDecoratorTypes;
 import potionstudios.byg.common.world.feature.placement.BYGVillagePlacements;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
@@ -59,6 +60,7 @@ public class BYGRegistry {
         BYGSounds.loadClass();
         BYGStateProviders.loadClass();
         BYGStructureTypes.loadClass();
+        BYGTreeDecoratorTypes.loadClass();
         BYGOverworldTreeFeatures.loadClass();
         BYGOverworldVegetationFeatures.loadClass();
         BYGOverworldFeatures.loadClass();

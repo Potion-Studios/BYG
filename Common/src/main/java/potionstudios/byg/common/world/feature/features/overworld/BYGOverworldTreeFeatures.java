@@ -29,6 +29,8 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTrunkVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
@@ -1485,66 +1487,88 @@ public class BYGOverworldTreeFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
-            BYGFeatures.SKYRIS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(SKYRIS.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(SKYRIS.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(9)
-                    .setMinHeight(6)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_1"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE2 = createConfiguredFeature("skyris_tree2",
-            BYGFeatures.SKYRIS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(SKYRIS.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(SKYRIS.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(6)
-                    .setMinHeight(3)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE2 = createConfiguredFeature("skyris_tree2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_2"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE3 = createConfiguredFeature("skyris_tree3",
-            BYGFeatures.SKYRIS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(SKYRIS.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(SKYRIS.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(8)
-                    .setMinHeight(6)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE3 = createConfiguredFeature("skyris_tree3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_3"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4",
-            BYGFeatures.SKYRIS_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(SKYRIS.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(SKYRIS.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(8)
-                    .setMinHeight(6)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_4"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5",
-            BYGFeatures.SKYRIS_TREE5,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(SKYRIS.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1)
-                            .add(SKYRIS.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(8)
-                    .setMinHeight(6)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_5"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_5"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
     );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE6 = createConfiguredFeature("skyris_tree6",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/skyris/skyris_trunk_6"),
+                    BYG.createLocation("features/trees/skyris/skyris_canopy_6"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).add(SKYRIS.leaves().defaultBlockState(), 4).build()),
+                    SKYRIS.log(),
+                    SKYRIS.leaves(),
+                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F))
+            )
+    );
+
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE1 = createConfiguredFeature("spruce_tree1",
             BYGFeatures.SPRUCE_TREE1,
@@ -2299,11 +2323,12 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SKYRIS_TREES = createConfiguredFeature("skyris_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE3), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE4), 0.2F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE5))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE1), 0.1667F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE2), 0.1667F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE3), 0.1667F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE4), 0.1667F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE5), 0.1667F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SKYRIS_TREE6))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BAOBAB_TREES = createConfiguredFeature("baobab_trees",
