@@ -119,11 +119,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             fillLogsUnder(random, logProvider, level, origin, placeSettings, canopyCenterOffset, trunkFillers, level.getHeight());
 
 
-
-            for (StructureTemplate.StructureBlockInfo canopyLog : canopyLogs) {
-                BlockPos pos = getModifiedPos(placeSettings, canopyLog, canopyCenterOffset, origin);
-                level.setBlock(pos, getTransformedState(logProvider.getState(random, pos), canopyLog.state, placeSettings.getRotation()), 2);
-            }
+            placeLogsWithRotation(logProvider, level, origin, random, placeSettings, canopyCenterOffset, canopyLogs, trunkPositions);
 
             placeLeavesWithCalculatedDistanceAndRotation(leavesProvider, level, origin, random, placeSettings, leaves, leavePositions, canopyCenterOffset);
         }

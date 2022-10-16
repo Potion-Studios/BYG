@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
@@ -29,6 +30,7 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTrunkVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
@@ -516,61 +518,80 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HAZEL_TREE1 = createConfiguredFeature("hazel_tree1",
-            BYGFeatures.HAZEL_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(WITCH_HAZEL.log().get())
-                    .setLeavesBlock(
-                            new WeightedStateProvider(
-                                    SimpleWeightedRandomList.<BlockState>builder()
-                                            .add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1)
-                                            .add(WITCH_HAZEL.leaves().defaultBlockState(), 4)
-                                            .build()
-                            ))
-                    .setMaxHeight(15)
-                    .setMinHeight(6)
-                    .build()
+    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BLOSSOM.defaultBlockState()), 3, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL1 = createConfiguredFeature("witch_hazel1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_1"),
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WITCH_HAZEL.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    WITCH_HAZEL.log(),
+                    WITCH_HAZEL.leaves(),
+                    BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HAZEL_TREE2 = createConfiguredFeature("hazel_tree2",
-            BYGFeatures.HAZEL_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(WITCH_HAZEL.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1)
-                            .add(WITCH_HAZEL.leaves().defaultBlockState(), 4)
-                            .build()
-                    ))
-                    .setMaxHeight(12)
-                    .setMinHeight(7)
-                    .build()
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL2 = createConfiguredFeature("witch_hazel2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_2"),
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WITCH_HAZEL.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    WITCH_HAZEL.log(),
+                    WITCH_HAZEL.leaves(),
+                    BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DEAD_HAZEL_TREE1 = createConfiguredFeature("dead_hazel_tree1",
-            BYGFeatures.DEAD_HAZEL_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(WITCH_HAZEL.log().get())
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1)
-                                    .add(WITCH_HAZEL.leaves().defaultBlockState(), 4)
-                                    .build()
-                            ))
-                    .setMaxHeight(16)
-                    .setMinHeight(11)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL3 = createConfiguredFeature("witch_hazel3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_3"),
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WITCH_HAZEL.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    WITCH_HAZEL.log(),
+                    WITCH_HAZEL.leaves(),
+                    BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DEAD_HAZEL_TREE2 = createConfiguredFeature("dead_hazel_tree2",
-            BYGFeatures.DEAD_HAZEL_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(WITCH_HAZEL.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1)
-                            .add(WITCH_HAZEL.leaves().defaultBlockState(), 4)
-                            .build()
-                    ))
-                    .setMaxHeight(7)
-                    .setMinHeight(5)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL4 = createConfiguredFeature("witch_hazel4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_4"),
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WITCH_HAZEL.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    WITCH_HAZEL.log(),
+                    WITCH_HAZEL.leaves(),
+                    BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL5 = createConfiguredFeature("witch_hazel5",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_5"),
+                    BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_5"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WITCH_HAZEL.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES.defaultBlockState(), 1).add(WITCH_HAZEL.leaves().defaultBlockState(), 4).build()),
+                    WITCH_HAZEL.log(),
+                    WITCH_HAZEL.leaves(),
+                    BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> FIRECRACKER_SHRUB = createConfiguredFeature("firecracker_shrub",
@@ -2466,13 +2487,14 @@ public class BYGOverworldTreeFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> HAZEL_TREES = createConfiguredFeature("hazel_trees",
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> WITCH_HAZEL_TREES = createConfiguredFeature("witch_hazel_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(HAZEL_TREE1), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(HAZEL_TREE2), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DEAD_HAZEL_TREE1), 0.2F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DEAD_HAZEL_TREE2))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WITCH_HAZEL1), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WITCH_HAZEL2), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WITCH_HAZEL3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WITCH_HAZEL4), 0.2F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WITCH_HAZEL5))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> EBONY_TREES = createConfiguredFeature("ebony_trees",

@@ -12,7 +12,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorTy
 
 public class BYGTrunkVineDecorator extends TreeDecorator {
 
-
     public static final Codec<BYGTrunkVineDecorator> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
                     Registry.BLOCK.byNameCodec().flatXmap(BYGLeavesVineDecorator.mustExtendVineBlock(), BYGLeavesVineDecorator.mustExtendVineBlock()).fieldOf("vine_block").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.vineBlock),
