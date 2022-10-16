@@ -1,18 +1,20 @@
 package potionstudios.byg.common.entity.npc;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.Util;
+import net.minecraft.core.Registry;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import potionstudios.byg.BYG;
 import potionstudios.byg.core.BYGRegistry;
-import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.EmeraldForItemsAccess;
-import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsAndEmeraldsForItemsAccess;
-import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.ItemsForEmeraldsAccess;
-import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.SuspiciousStewForEmeraldAccess;
+import potionstudios.byg.mixin.access.world.entity.npc.villagertrades.*;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.util.codec.CodecUtil;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,11 +59,31 @@ public class VillagerTradeRegistry {
         ).apply(builder, VillagerTrades.SuspiciousStewForEmerald::new)
     );
 
+    public static final Codec<MapDecoration.Type> MAP_DECORATION_TYPE_CODEC = Codec.STRING.comapFlatMap(type -> {
+        try {
+          return DataResult.success(MapDecoration.Type.valueOf(type.toUpperCase()));
+        } catch (Exception e) {
+            return DataResult.error("Invalid Map Decoration Type! You put \"%s\". Valid values: %s".formatted(type, Arrays.toString(MapDecoration.Type.values())));
+        }
+    } , MapDecoration.Type::name);
+
+    private final static Codec<VillagerTrades.TreasureMapForEmeralds> TREASURE_MAP_FOR_EMERALDS_CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(
+                    Codec.INT.fieldOf("emerald_cost").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getEmeraldCost()),
+                    TagKey.hashedCodec(Registry.STRUCTURE_REGISTRY).fieldOf("destination").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getDestination()),
+                    Codec.STRING.fieldOf("display_name").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getDisplayName()),
+                    MAP_DECORATION_TYPE_CODEC.fieldOf("destination_type").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getDestinationType()),
+                    Codec.INT.fieldOf("max_uses").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getMaxUses()),
+                    Codec.INT.fieldOf("villager_xp").forGetter(listing -> ((TreasureMapForEmeraldAccess) listing).byg_getVillagerXp())
+            ).apply(builder, VillagerTrades.TreasureMapForEmeralds::new)
+    );
+
     private static final Map<Class<? extends VillagerTrades.ItemListing>, Codec<? extends VillagerTrades.ItemListing>> ITEM_LISTING_CLASS_BY_CODEC = Util.make(new HashMap<>(), map -> {
         map.put(VillagerTrades.EmeraldForItems.class, EMERALD_FOR_ITEMS_CODEC);
         map.put(VillagerTrades.ItemsForEmeralds.class, ITEMS_FOR_EMERALDS_CODEC);
         map.put(VillagerTrades.SuspiciousStewForEmerald.class, SUSPICIOUS_STEW_FOR_EMERALD_CODEC);
         map.put(VillagerTrades.ItemsAndEmeraldsToItems.class, ITEMS_AND_EMERALDS_TO_ITEMS_CODEC);
+        map.put(VillagerTrades.TreasureMapForEmeralds.class, TREASURE_MAP_FOR_EMERALDS_CODEC);
     });
 
     public static final Codec<VillagerTrades.ItemListing> ITEM_LISTING_CODEC = BYGRegistry.VILLAGER_TRADES_ITEM_LISTING.byNameCodec()
@@ -74,5 +96,6 @@ public class VillagerTradeRegistry {
         provider.register("items_for_emeralds", () -> ITEMS_FOR_EMERALDS_CODEC);
         provider.register("suspicious_stew_for_emerald", () -> SUSPICIOUS_STEW_FOR_EMERALD_CODEC);
         provider.register("items_and_emeralds_to_items", () -> ITEMS_AND_EMERALDS_TO_ITEMS_CODEC);
+        provider.register("treasure_map_for_emeralds", () -> TREASURE_MAP_FOR_EMERALDS_CODEC);
     }
 }

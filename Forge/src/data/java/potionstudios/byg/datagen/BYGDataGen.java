@@ -28,6 +28,7 @@ public class BYGDataGen {
         gen.addProvider(event.includeServer(), new BYGEntityTagsProvider(gen, existingFileHelper));
         gen.addProvider(event.includeServer(), new BYGBiomeTagsProvider(gen, existingFileHelper));
         gen.addProvider(event.includeServer(), new BYGPoiTypeTagsProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGStructureTagsProvider(gen, existingFileHelper));
 
         gen.addProvider(event.includeServer(), new BYGRecipeProviders(gen));
 

@@ -6,9 +6,11 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.tags.StructureTags;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
@@ -91,6 +93,12 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.RED_ROCK.get(), 1, 12, 12)
             }
         )));
+
+        map.put(VillagerProfession.CARTOGRAPHER, toIntMap(ImmutableMap.of(
+                2, new VillagerTrades.ItemListing[]{
+                        new VillagerTrades.TreasureMapForEmeralds(14, StructureTags.ON_WOODLAND_EXPLORER_MAPS, "filled_map.ancient_sequoia", MapDecoration.Type.MONUMENT, 12, 10),
+                }
+                )));
 
         for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION.stream().filter(villagerProfession -> villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE).toList()) {
             if (villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE) {

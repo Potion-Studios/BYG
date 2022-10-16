@@ -100,5 +100,6 @@
   "dimension.minecraft.the_end": "The End",
   "dimension.minecraft.the_nether": "The Nether",
   "entity.minecraft.villager.forager": "Forager",
-  "itemGroup.byg.byg": "Oh The Biomes You'll Go"
+  "itemGroup.byg.byg": "Oh The Biomes You'll Go",
+  "filled_map.ancient_sequoia": "Ancient Sequoia Map"
 }
