@@ -158,7 +158,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> EBONY_TREES = createPlacedFeature("ebony_trees", BYGOverworldTreeFeatures.EBONY_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(4, 0.25F, 4)));
     public static final Holder<PlacedFeature> ENCHANTED_TREES = createPlacedFeature("enchanted_trees", BYGOverworldTreeFeatures.ENCHANTED_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(5, 0.2F, 2)));
     public static final Holder<PlacedFeature> TEMPERATE_GROVE_TREES = createPlacedFeature("temperate_grove_trees", BYGOverworldTreeFeatures.TEMPERATE_GROVE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
-    public static final Holder<PlacedFeature> JACARANDA_TREES = createPlacedFeature("jacaranda_trees", BYGOverworldTreeFeatures.JACARANDA_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 2)));
+    public static final Holder<PlacedFeature> JACARANDA_TREES = createPlacedFeature("jacaranda_trees", BYGOverworldTreeFeatures.JACARANDA_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(14, 0.2F, 4)));
     public static final Holder<PlacedFeature> IRONWOOD_TREES = createPlacedFeature("ironwood_trees", BYGOverworldTreeFeatures.IRONWOOD_TREE, () -> clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 2)));
     public static final Holder<PlacedFeature> JACARANDA_BUSHES = createPlacedFeature("jacaranda_bushes", BYGOverworldVegetationFeatures.JACARANDA_BUSHES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final Holder<PlacedFeature> JOSHUA_TREES = createPlacedFeature("joshua_tree", BYGOverworldTreeFeatures.JOSHUA_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 2)));

@@ -865,45 +865,119 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JACARANDA_TREE1 = createConfiguredFeature("jacaranda_tree1",
-            BYGFeatures.JACARANDA_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(JACARANDA.log().get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 10)
-                            .add(JACARANDA.leaves().defaultBlockState(), 40)
-                    ))
-                    .setMaxHeight(15)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE1 = createConfiguredFeature("jacaranda_tree1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_1"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 1).add(JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JACARANDA_TREE2 = createConfiguredFeature("jacaranda_tree2",
-            BYGFeatures.JACARANDA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(JACARANDA_TREE1.value().config())
-                    .setMaxHeight(12)
-                    .setMinHeight(7)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE2 = createConfiguredFeature("jacaranda_tree2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_2"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 1).add(JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> INDIGO_JACARANDA_TREE1 = createConfiguredFeature("indigo_jacaranda_tree1",
-            BYGFeatures.JACARANDA_TREE1,
-            () -> new BYGTreeConfig.Builder().copy(JACARANDA_TREE1.value().config())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 40)
-                    ))
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE3 = createConfiguredFeature("jacaranda_tree3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_3"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 1).add(JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> INDIGO_JACARANDA_TREE2 = createConfiguredFeature("indigo_jacaranda_tree2",
-            BYGFeatures.JACARANDA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(JACARANDA_TREE2.value().config())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 40)
-                    ))
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE4 = createConfiguredFeature("jacaranda_tree4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_4"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_JACARANDA_LEAVES.defaultBlockState(), 1).add(JACARANDA.leaves().defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
     );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE1 = createConfiguredFeature("indigo_jacaranda_tree1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_1"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE2 = createConfiguredFeature("indigo_jacaranda_tree2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_2"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE3 = createConfiguredFeature("indigo_jacaranda_tree3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_3"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE4 = createConfiguredFeature("indigo_jacaranda_tree4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_4"),
+                    BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(JACARANDA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FLOWERING_INDIGO_JACARANDA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.INDIGO_JACARANDA_LEAVES.defaultBlockState(), 4).build()),
+                    JACARANDA.log(),
+                    JACARANDA.leaves(),
+                    BYGBlockTags.GROUND_JACARANDA_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
             BYGFeatures.JOSHUA_TREE1,
@@ -2195,10 +2269,14 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> JACARANDA_TREES = createConfiguredFeature("jacaranda_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE2), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE2), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE1), 0.3F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE1))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE1), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE2), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE3), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(JACARANDA_TREE4), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE1), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE2), 0.125F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE3), 0.125F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(INDIGO_JACARANDA_TREE4))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAPLE_TREES = createConfiguredFeature("maple_trees",
