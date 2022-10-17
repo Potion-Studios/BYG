@@ -874,7 +874,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.log(),
+                    BLUE_ENCHANTED.wood(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
