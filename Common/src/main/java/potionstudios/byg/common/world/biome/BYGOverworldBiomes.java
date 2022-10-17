@@ -977,15 +977,18 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addLightBambooVegetation(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addJungleTrees(generationSettings);
         BiomeDefaultFeatures.addJungleGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addSparseHugeMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addJacarandaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addDelphinium(generationSettings);
         BYGDefaultBiomeFeatures.addJacarandaBushes(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
+        BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));

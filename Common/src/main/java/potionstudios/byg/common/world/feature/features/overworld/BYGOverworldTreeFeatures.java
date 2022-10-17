@@ -866,6 +866,20 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_echanted_tree1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
+                    BiasedToBottomInt.of(5, 15),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.log(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE1 = createConfiguredFeature("jacaranda_tree1",
             BYGFeatures.BYG_TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
@@ -2497,12 +2511,12 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ENCHANTED_TREES = createConfiguredFeature("enchanted_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_BLUE_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_BLUE_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1), 0.2F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE1), 0.2F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE2), 0.2F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE3), 0.1F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_BLUE_TREE1))
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_TREES = createConfiguredFeature("aspen_trees",
