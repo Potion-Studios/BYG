@@ -5,6 +5,7 @@ import java.util.stream.Collectors
 buildscript {
     repositories {
         maven { url = 'https://maven.parchmentmc.org' }
+        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     }
     dependencies {
         classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
@@ -57,7 +58,7 @@ dependencies {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-1.19.2:${parchment_version}@zip")
     }
-
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:3.1.25"
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     implementation project(":Common")

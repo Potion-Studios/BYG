@@ -5,12 +5,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
+import potionstudios.byg.common.entity.manowar.ManOWarRenderer;
 
 public class BYGEntityRenderers {
 
     public static <T extends Entity> void register(RegisterStrategy registerStrategy) {
         registerStrategy.register(BYGEntities.BOAT.get(), (EntityRendererProvider.Context context) -> new BYGBoatRenderer(context, false));
         registerStrategy.register(BYGEntities.CHEST_BOAT.get(), (EntityRendererProvider.Context context) -> new BYGBoatRenderer(context, true));
+        registerStrategy.register(BYGEntities.MAN_O_WAR.get(), ManOWarRenderer::new);
     }
 
     @FunctionalInterface

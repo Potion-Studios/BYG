@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -21,6 +22,7 @@ import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
+import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -40,6 +42,8 @@ import terrablender.api.SurfaceRuleManager;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+
+import static potionstudios.byg.common.entity.BYGEntities.MAN_O_WAR;
 
 @Mod(BYG.MOD_ID)
 public class BYGForge {
@@ -70,10 +74,14 @@ public class BYGForge {
         });
 
         BYGRegistry.loadClasses();
-
+        modBus.addListener(this::createTestEntityAttributes);
         modBus.addListener(this::commonLoad);
         modBus.addListener(this::loadFinish);
         modBus.addListener(this::clientLoad);
+    }
+
+    public void createTestEntityAttributes(final EntityAttributeCreationEvent event){
+        event.put(MAN_O_WAR.get(), ManOWar.createAttributes().build());
     }
 
     private void commonLoad(FMLCommonSetupEvent event) {

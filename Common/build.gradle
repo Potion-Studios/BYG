@@ -37,6 +37,7 @@ dependencies {
     compileOnly('org.ow2.asm:asm-tree:9.3')
     compileOnly("com.electronwill.night-config:toml:${nightconfig_version}")
     compileOnly("blue.endless:jankson:${jankson_version}")
+    compileOnly ("software.bernie.geckolib:geckolib-forge-1.19:3.1.27")
 }
 
 processResources {

@@ -53,7 +53,6 @@ public class BYG {
     private static final Map<Block, Predicate<BlockBehaviour.BlockStateBase>> BLOCKSTATE_IS_REPLACEMENTS = new HashMap<>();
 
     public static void commonLoad() {
-
         blockToBlockTagReplacement(Blocks.BOOKSHELF, MLBlockTags.BOOKSHELVES);
         blockToBlockTagReplacement(Blocks.FARMLAND, BYGBlockTags.FARMLAND);
 

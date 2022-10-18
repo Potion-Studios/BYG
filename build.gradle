@@ -52,6 +52,7 @@ subprojects {
             url = 'https://repo.spongepowered.org/repository/maven-public/'
         }
         maven { url = 'https://maven.minecraftforge.net' }
+        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     }
 
 

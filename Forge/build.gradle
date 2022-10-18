@@ -7,6 +7,7 @@ buildscript {
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         maven { url "https://plugins.gradle.org/m2/" }
+        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
         mavenCentral()
     }
     dependencies {
@@ -137,7 +138,7 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
     library shadow("blue.endless:jankson:${jankson_version}")
-
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.27')
     dataImplementation sourceSets.main.output
 }
 reg.configureJarTask(shadowJar)
