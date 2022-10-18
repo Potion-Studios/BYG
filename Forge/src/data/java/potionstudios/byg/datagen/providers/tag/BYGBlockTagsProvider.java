@@ -148,6 +148,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
         wood("withering_oak_logs", WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
         wood("palo_verde_logs", PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD);
+        wood("imbued_blue_enchanted_logs", IMBUED_BLUE_ENCHANTED_LOG);
+        wood("imbued_green_enchanted_log", IMBUED_GREEN_ENCHANTED_LOG);
 
         tag(BlockTags.OAK_LOGS, WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
 
