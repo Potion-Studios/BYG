@@ -155,10 +155,11 @@ public class ManOWar extends Animal implements IAnimatable {
     }
 
     protected void registerGoals() {
+        super.registerGoals();
         this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(3, new AvoidEntityGoal(this, Player.class, 8.0F, 1.0D, 1.0D));
         this.goalSelector.addGoal(2, new ManOWarRandomMovementGoal(this));
-        this.goalSelector.addGoal(45, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
 
     }

@@ -16,6 +16,7 @@ import potionstudios.byg.common.block.BYGScaffoldingBlock;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.entity.npc.TradesConfig;
+import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -52,7 +53,7 @@ public class BYGFabric implements ModInitializer {
         registryBootStrap();
         BYGRegistry.loadClasses();
 
-        FabricDefaultAttributeRegistry.register(BYGEntities.MAN_O_WAR.get(), ManOWar.createAttributes());
+        registerRenderers();
 
         BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
@@ -60,6 +61,10 @@ public class BYGFabric implements ModInitializer {
         FabricNetworkHandler.init();
 
         BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
+    }
+    public static void registerRenderers() {
+        FabricDefaultAttributeRegistry.register(BYGEntities.MAN_O_WAR.get(), ManOWar.createAttributes());
+        FabricDefaultAttributeRegistry.register(BYGEntities.PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes());
     }
 
     public static void afterRegistriesFreeze() {

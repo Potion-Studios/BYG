@@ -12,12 +12,14 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.mixin.access.HoeItemAccess;
 import potionstudios.byg.mixin.access.PickaxeItemAccess;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
@@ -31,8 +33,9 @@ public class BYGItems {
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
     public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "biomepedia");
 
-    //TODO: Geckolib Mojmap 1.19
-    //    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(new SpawnEggItem(BYGEntities.MAN_O_WAR, new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_spawn_egg");
+    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> new SpawnEggItem(BYGEntities.MAN_O_WAR.get(), new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "man_o_war_spawn_egg");
+    public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> new SpawnEggItem(BYGEntities.PUMPKIN_WARDEN.get(), new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "pumpkin_warden_spawn_egg");
+
     public static final RegistryObject<Item> PEAT = createItem(BYGBlocks.PEAT);
     public static final RegistryObject<Item> LUSH_GRASS_BLOCK = createItem(BYGBlocks.LUSH_GRASS_BLOCK);
     public static final RegistryObject<Item> LUSH_GRASS_PATH = createItem(BYGBlocks.LUSH_GRASS_PATH);
