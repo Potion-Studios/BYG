@@ -871,12 +871,110 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(5, 15),
+                    BiasedToBottomInt.of(0, 1),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
                     BLUE_ENCHANTED.wood(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE2 = createConfiguredFeature("blue_echanted_tree2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE3 = createConfiguredFeature("blue_echanted_tree3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
+                    BiasedToBottomInt.of(0, 2),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE4 = createConfiguredFeature("blue_echanted_tree4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
+                    BiasedToBottomInt.of(0, 0),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE1 = createConfiguredFeature("green_echanted_tree1",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE2 = createConfiguredFeature("green_echanted_tree2",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE3 = createConfiguredFeature("green_echanted_tree3",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
+                    BiasedToBottomInt.of(0, 2),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE4 = createConfiguredFeature("green_echanted_tree4",
+            BYGFeatures.BYG_TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
+                    BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
+                    BiasedToBottomInt.of(0, 0),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.leaves(),
+                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
     );
 
@@ -2511,12 +2609,14 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ENCHANTED_TREES = createConfiguredFeature("enchanted_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ENCHANTED_GREEN_TREE3), 0.1F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE4), 0.05F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE2), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE4), 0.05F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE2), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE1), 0.05F)),
+            BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_TREES = createConfiguredFeature("aspen_trees",
