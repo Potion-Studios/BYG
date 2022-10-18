@@ -3,6 +3,7 @@ package potionstudios.byg;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -12,6 +13,8 @@ import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.block.BYGScaffoldingBlock;
+import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
@@ -48,6 +51,8 @@ public class BYGFabric implements ModInitializer {
 
         registryBootStrap();
         BYGRegistry.loadClasses();
+
+        FabricDefaultAttributeRegistry.register(BYGEntities.MAN_O_WAR.get(), ManOWar.createAttributes());
 
         BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
