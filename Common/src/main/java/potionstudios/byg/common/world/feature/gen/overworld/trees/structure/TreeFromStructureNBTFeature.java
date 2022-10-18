@@ -74,8 +74,7 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         BlockPos centerOffset = center.get(0).pos;
         centerOffset = new BlockPos(-centerOffset.getX(), 0, -centerOffset.getZ());
 
-        List<StructureTemplate.StructureBlockInfo> leaves = randomCanopyPalette.blocks(config.leavesTarget());
-        List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(config.logTarget());
+
         List<StructureTemplate.StructureBlockInfo> logs = trunkBasePalette.blocks(config.logTarget());
         List<StructureTemplate.StructureBlockInfo> logBuilders = trunkBasePalette.blocks(Blocks.RED_WOOL);
         if (logBuilders.isEmpty()) {
@@ -98,34 +97,35 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
         }
 
         fillLogsUnder(random, logProvider, level, origin, placeSettings, centerOffset, logBuilders, maxTrunkBuildingDepth);
-
         placeLogsWithRotation(logProvider, level, origin, random, placeSettings, centerOffset, logs, trunkPositions);
-
-
-        {
-            List<StructureTemplate.StructureBlockInfo> canopyAnchor = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
-            if (center.size() > 1) {
-                throw new IllegalArgumentException("There cannot be more than one central position.");
-            }
-            if (center.isEmpty()) {
-                throw new IllegalArgumentException("Canopy is missing anchor block (yellow wool).");
-            }
-            StructureTemplate.StructureBlockInfo structureBlockInfo = canopyAnchor.get(0);
-            BlockPos canopyCenterOffset = structureBlockInfo.pos;
-            canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkLength, -canopyCenterOffset.getZ());
-
-            List<StructureTemplate.StructureBlockInfo> trunkFillers = new ArrayList<>(randomCanopyPalette.blocks(Blocks.RED_WOOL));
-            trunkFillers.addAll(randomCanopyPalette.blocks(Blocks.YELLOW_WOOL));
-            fillLogsUnder(random, logProvider, level, origin, placeSettings, canopyCenterOffset, trunkFillers, level.getHeight());
-
-
-            placeLogsWithRotation(logProvider, level, origin, random, placeSettings, canopyCenterOffset, canopyLogs, trunkPositions);
-
-            placeLeavesWithCalculatedDistanceAndRotation(leavesProvider, level, origin, random, placeSettings, leaves, leavePositions, canopyCenterOffset);
-        }
+        placeCanopy(config, logProvider, leavesProvider, level, origin, random, placeSettings, randomCanopyPalette, center, leavePositions, trunkPositions, trunkLength);
         placeTreeDecorations(config.treeDecorators(), level, random, leavePositions, trunkPositions);
 
         return true;
+    }
+
+    private static void placeCanopy(TreeFromStructureNBTConfig config, BlockStateProvider logProvider, BlockStateProvider leavesProvider, WorldGenLevel level, BlockPos origin, RandomSource random, StructurePlaceSettings placeSettings, StructureTemplate.Palette randomCanopyPalette, List<StructureTemplate.StructureBlockInfo> center, Set<BlockPos> leavePositions, Set<BlockPos> trunkPositions, int trunkLength) {
+        List<StructureTemplate.StructureBlockInfo> leaves = randomCanopyPalette.blocks(config.leavesTarget());
+        List<StructureTemplate.StructureBlockInfo> canopyLogs = randomCanopyPalette.blocks(config.logTarget());
+        List<StructureTemplate.StructureBlockInfo> canopyAnchor = randomCanopyPalette.blocks(Blocks.WHITE_WOOL);
+        if (center.size() > 1) {
+            throw new IllegalArgumentException("There cannot be more than one central position.");
+        }
+        if (center.isEmpty()) {
+            throw new IllegalArgumentException("Canopy is missing anchor block (yellow wool).");
+        }
+        StructureTemplate.StructureBlockInfo structureBlockInfo = canopyAnchor.get(0);
+        BlockPos canopyCenterOffset = structureBlockInfo.pos;
+        canopyCenterOffset = new BlockPos(-canopyCenterOffset.getX(), trunkLength, -canopyCenterOffset.getZ());
+
+        List<StructureTemplate.StructureBlockInfo> trunkFillers = new ArrayList<>(randomCanopyPalette.blocks(Blocks.RED_WOOL));
+        trunkFillers.addAll(randomCanopyPalette.blocks(Blocks.YELLOW_WOOL));
+        fillLogsUnder(random, logProvider, level, origin, placeSettings, canopyCenterOffset, trunkFillers, level.getHeight());
+
+
+        placeLogsWithRotation(logProvider, level, origin, random, placeSettings, canopyCenterOffset, canopyLogs, trunkPositions);
+
+        placeLeavesWithCalculatedDistanceAndRotation(leavesProvider, level, origin, random, placeSettings, leaves, leavePositions, canopyCenterOffset);
     }
 
     public static void placeLogsWithRotation(BlockStateProvider logProvider, WorldGenLevel level, BlockPos origin, RandomSource random, StructurePlaceSettings placeSettings, BlockPos centerOffset, List<StructureTemplate.StructureBlockInfo> logs, Set<BlockPos> trunkPositions) {
@@ -148,15 +148,20 @@ public class TreeFromStructureNBTFeature extends Feature<TreeFromStructureNBTCon
             BlockPos pos = getModifiedPos(placeSettings, leaf, canopyCenterOffset, origin);
 
             BlockState state = leavesProvider.getState(random, pos);
+
+            if (state.hasProperty(LeavesBlock.DISTANCE) && leaf.state.hasProperty(LeavesBlock.DISTANCE)) {
+                state = state.setValue(LeavesBlock.DISTANCE, leaf.state.getValue(LeavesBlock.DISTANCE));
+            }
+
             if (!level.getBlockState(pos).canOcclude()) {
                 level.setBlock(pos, state, 2);
+                BlockState finalState = state;
                 Runnable postProcess = () -> {
-                    BlockState blockState = LeavesBlockAccess.byg_invokeUpdateDistance(state, level, pos);
+                    BlockState blockState = LeavesBlockAccess.byg_invokeUpdateDistance(finalState, level, pos);
                     if (blockState.getValue(LeavesBlock.DISTANCE) < LeavesBlock.DECAY_DISTANCE) {
                         leavePositions.add(pos);
                         level.setBlock(pos, blockState, 2);
                         level.scheduleTick(pos, blockState.getBlock(), 0);
-
                     } else {
                         level.removeBlock(pos, false);
                     }
