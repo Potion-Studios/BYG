@@ -1,3 +1,7 @@
+## 1.4.7
+* Update Chinese translation.
+* Don't log every time biome parameter points are mapped.
+
 ## 1.4.6
 * Withering Oak Logs should no longer burn.
 * Water Silk can now be broken by boats.
