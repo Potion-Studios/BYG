@@ -125,7 +125,5 @@ public class BYGTerraBlenderRegion extends Region {
         if (sanityCheck) {
             throw new UnsupportedOperationException(String.format("Not all biome parameter points were accepted for BYG Terrablender biome region: %s. %s/%s were accepted.", this.getName().toString(), totalPairsValue, mapperAcceptValue));
         }
-
-        BYG.LOGGER.info(bygMapperAccepted.getValue() + " biome parameter points were mapped for BYG region: " + this.getName().toString());
     }
 }

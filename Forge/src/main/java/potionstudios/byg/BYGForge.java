@@ -110,6 +110,7 @@ public class BYGForge {
                 BYG.LOGGER.info("BYG overworld biomes disabled.");
             }
         } catch (Exception e) {
+            BYG.LOGGER.error("Overworld config serialization failure... Stack trace:");
             e.printStackTrace();
             throw e;
         }
