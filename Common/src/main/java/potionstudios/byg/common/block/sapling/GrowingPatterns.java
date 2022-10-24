@@ -1,8 +1,11 @@
 package potionstudios.byg.common.block.sapling;
 
-import blue.endless.jankson.api.SyntaxError;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CommentedCodec;
+import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
@@ -14,9 +17,6 @@ import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatu
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.codec.CommentedCodec;
-import potionstudios.byg.util.jankson.JanksonJsonOps;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;

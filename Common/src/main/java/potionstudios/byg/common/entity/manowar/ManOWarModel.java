@@ -1,8 +1,8 @@
 package potionstudios.byg.common.entity.manowar;
 
 
-import potionstudios.byg.BYG;
 import net.minecraft.resources.ResourceLocation;
+import potionstudios.byg.BYG;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

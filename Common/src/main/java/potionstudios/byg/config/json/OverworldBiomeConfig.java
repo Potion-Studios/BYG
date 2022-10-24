@@ -1,21 +1,21 @@
 package potionstudios.byg.config.json;
 
-import blue.endless.jankson.JsonElement;
-import blue.endless.jankson.api.SyntaxError;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.FromFileOps;
+import corgitaco.corgilib.serialization.codec.Wrapped;
+import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import corgitaco.corgilib.shadow.blue.endless.jankson.JsonElement;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
 import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.codec.FromFileOps;
-import potionstudios.byg.util.codec.Wrapped;
-import potionstudios.byg.util.jankson.JanksonJsonOps;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,7 +23,8 @@ import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static potionstudios.byg.util.jankson.JanksonUtil.createConfig;
+import static corgitaco.corgilib.serialization.jankson.JanksonUtil.createConfig;
+
 
 public record OverworldBiomeConfig(boolean generateOverworld,
                                    List<Wrapped<OverworldRegion>> values) {

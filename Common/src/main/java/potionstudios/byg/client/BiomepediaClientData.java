@@ -10,8 +10,8 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.BYGCodecUtil;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.codec.CodecUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,6 +20,8 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
+
+
     public static final BiomepediaClientData DEFAULT = new BiomepediaClientData(new ObjectOpenHashSet<>());
     public static BiomepediaClientData INSTANCE = null;
 
@@ -29,7 +31,7 @@ public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
 
     private static final Codec<BiomepediaClientData> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
-            CodecUtil.BIOME_SET_CODEC.fieldOf("favorite_biomes").forGetter(biomepediaClientData -> biomepediaClientData.favoriteBiomes)
+                BYGCodecUtil.BIOME_SET_CODEC.fieldOf("favorite_biomes").forGetter(biomepediaClientData -> biomepediaClientData.favoriteBiomes)
         ).apply(builder, BiomepediaClientData::new));
 
 

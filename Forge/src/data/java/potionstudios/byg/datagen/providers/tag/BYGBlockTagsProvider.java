@@ -27,8 +27,8 @@ import java.util.function.Supplier;
 
 import static net.minecraft.tags.BlockTags.create;
 import static potionstudios.byg.BYG.createLocation;
-import static potionstudios.byg.common.block.BYGBlocks.*;
 import static potionstudios.byg.common.BYGTags.*;
+import static potionstudios.byg.common.block.BYGBlocks.*;
 
 @SuppressWarnings("ALL")
 public class BYGBlockTagsProvider extends BlockTagsProvider {

@@ -2,6 +2,8 @@ package potionstudios.byg.common.entity.npc;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.Codec;
+import corgitaco.corgilib.entity.npc.VillagerTradeRegistry;
+import corgitaco.corgilib.serialization.codec.CodecUtil;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.Util;
@@ -14,7 +16,6 @@ import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
-import potionstudios.byg.util.codec.CodecUtil;
 import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.util.*;

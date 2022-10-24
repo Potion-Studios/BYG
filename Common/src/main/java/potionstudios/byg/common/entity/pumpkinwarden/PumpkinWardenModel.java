@@ -3,8 +3,6 @@ package potionstudios.byg.common.entity.pumpkinwarden;
 
 import net.minecraft.resources.ResourceLocation;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.entity.manowar.ManOWar;
-import potionstudios.byg.common.entity.manowar.ManOWarRenderer;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;

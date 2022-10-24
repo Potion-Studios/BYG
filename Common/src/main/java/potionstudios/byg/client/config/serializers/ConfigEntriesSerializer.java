@@ -1,6 +1,6 @@
 package potionstudios.byg.client.config.serializers;
 
-import blue.endless.jankson.api.SyntaxError;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import net.minecraft.client.gui.screens.Screen;
 import potionstudios.byg.BYG;

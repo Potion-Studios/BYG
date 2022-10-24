@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.structure;
 
+import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
@@ -34,7 +35,6 @@ import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePool
 import potionstudios.byg.common.world.structure.volcano.VolcanoStructure;
 import potionstudios.byg.mixin.access.StructuresAccess;
 import potionstudios.byg.reg.RegistrationProvider;
-import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.List;
 import java.util.Map;

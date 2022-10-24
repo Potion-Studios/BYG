@@ -29,7 +29,6 @@ configurations {
 }
 shadowJar {
     configurations = [project.configurations.shadow]
-    relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
 }
 
 archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
@@ -50,6 +49,13 @@ repositories {
         name = "JitPack"
         url = "https://jitpack.io"
     }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -58,16 +64,14 @@ dependencies {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-1.19.2:${parchment_version}@zip")
     }
-    modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:3.1.25"
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     implementation project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
-    shadow("blue.endless:jankson:${jankson_version}")
     modImplementation("com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}")
-
-
+    modImplementation("software.bernie.geckolib:geckolib-fabric-1.19:${geckolib_version}")
+    modImplementation("maven.modrinth:corgilib:1.19.2-${corgilib_version}-fabric")
 //    modImplementation("com.github.CorgiTaco:databreaker:${databreaker_version}") {
 //        exclude module: "fabric-loader"
 //    }

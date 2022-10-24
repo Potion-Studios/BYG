@@ -1,6 +1,8 @@
 package potionstudios.byg.common.world.surfacerules;
 
-import blue.endless.jankson.api.SyntaxError;
+import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
@@ -8,8 +10,6 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.jankson.JanksonJsonOps;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
 import java.nio.file.Path;

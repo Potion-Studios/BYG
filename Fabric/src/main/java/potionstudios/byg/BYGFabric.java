@@ -1,5 +1,6 @@
 package potionstudios.byg;
 
+import corgitaco.corgilib.CorgiLibFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -42,6 +43,7 @@ public class BYGFabric implements ModInitializer {
     }
 
     public static void initializeBYG(String initializedFrom) {
+        CorgiLibFabric.initializeCorgiLib(initializedFrom);
         Objects.requireNonNull(initializedFrom, "BYG must be told where it was initialized from.");
         if (firstInitialized != null || BYG.INITIALIZED) {
             BYG.LOGGER.debug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));

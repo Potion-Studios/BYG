@@ -21,7 +21,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 import potionstudios.byg.mixin.access.ChunkAccessAccess;
 import potionstudios.byg.util.DuneCache;

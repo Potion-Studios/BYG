@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.structure;
 
+import corgitaco.corgilib.world.level.feature.gen.TreeFromStructureNBTFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTFeature;
 import potionstudios.byg.mixin.access.StructureTemplateAccess;
 
 import java.util.HashSet;

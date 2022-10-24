@@ -9,7 +9,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.material.PushReaction;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
-import potionstudios.byg.common.block.nether.embur.BlueNetherrackBlock;
 import potionstudios.byg.common.block.nether.embur.EmburPlantBlock;
 import potionstudios.byg.common.block.nether.glowstonegardens.HangingVinesBlock;
 import potionstudios.byg.common.block.nether.glowstonegardens.HangingVinesPlantBlock;

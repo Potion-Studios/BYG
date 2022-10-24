@@ -2,15 +2,15 @@ package potionstudios.byg.common.entity.npc;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.Util;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
+import potionstudios.byg.util.BYGCodecUtil;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.codec.CodecUtil;
-import potionstudios.byg.util.jankson.JanksonJsonOps;
-import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.util.lazy.LazySupplier;
 
 import java.nio.file.Path;
@@ -32,7 +32,7 @@ public record TradesConfig(boolean enabled,
     public static final Codec<TradesConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
             Codec.BOOL.fieldOf("visible").orElse(true).forGetter(config -> config.enabled),
-            Codec.unboundedMap(CodecUtil.VILLAGER_PROFESSION_CODEC, BYGVillagerTrades.createRangeCheckedKeyMap(1, 5)).fieldOf("trades_by_profession").forGetter(config -> config.tradesByProfession),
+            Codec.unboundedMap(BYGCodecUtil.VILLAGER_PROFESSION_CODEC, BYGVillagerTrades.createRangeCheckedKeyMap(1, 5)).fieldOf("trades_by_profession").forGetter(config -> config.tradesByProfession),
             BYGVillagerTrades.createRangeCheckedKeyMap(1, 2).fieldOf("wandering_trader_trades").forGetter(config -> config.wanderingTraderTrades)
         ).apply(builder, TradesConfig::new)
     );

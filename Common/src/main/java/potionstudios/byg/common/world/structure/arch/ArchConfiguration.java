@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.structure.arch;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -10,7 +11,6 @@ import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
-import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 public record ArchConfiguration(IntProvider height, IntProvider length, IntProvider width,
                                 SimpleWeightedRandomList<BlendingFunction> blendingFunction,

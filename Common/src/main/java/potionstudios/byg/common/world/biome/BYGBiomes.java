@@ -10,7 +10,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
-import potionstudios.byg.common.entity.npc.VillagerTradeRegistry;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomes;
 import potionstudios.byg.common.world.placement.BYGPlacementModifierType;
 import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
@@ -18,7 +17,6 @@ import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
-import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -135,11 +133,9 @@ public class BYGBiomes {
     }
 
     public static void loadClass() {
-        BlendingFunction.register();
         BYGStructurePieceTypes.bootStrap();
         BYGStructureSets.bootStrap();
         BYGPlacementModifierType.bootStrap();
         BYGRuleSources.bootStrap();
-        VillagerTradeRegistry.register();
     }
 }

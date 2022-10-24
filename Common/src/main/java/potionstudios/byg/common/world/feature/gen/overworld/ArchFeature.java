@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.mojang.serialization.Codec;
+import corgitaco.corgilib.math.blendingfunction.BlendingFunctions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -19,7 +20,6 @@ import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-import potionstudios.byg.util.blendingfunction.BlendingFunctions;
 
 import java.util.HashSet;
 import java.util.Optional;

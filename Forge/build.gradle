@@ -8,6 +8,13 @@ buildscript {
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
         mavenCentral()
     }
     dependencies {
@@ -55,7 +62,6 @@ archivesBaseName = "${mod_name}-forge-${minecraft_version}"
 
 shadowJar {
     configurations = [project.configurations.shadow]
-    relocate 'blue.endless.jankson', "${project.group}.shadow.blue.endless.jankson"
     archiveClassifier.set('')
 }
 reobf {
@@ -137,8 +143,9 @@ dependencies {
     compileOnly project(":Common")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
-    library shadow("blue.endless:jankson:${jankson_version}")
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.27')
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
+    implementation fg.deobf("maven.modrinth:corgilib:1.19.2-${corgilib_version}-forge")
+
     dataImplementation sourceSets.main.output
 }
 reg.configureJarTask(shadowJar)

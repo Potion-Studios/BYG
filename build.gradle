@@ -53,6 +53,14 @@ subprojects {
         }
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
     }
 
 

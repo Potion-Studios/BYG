@@ -3,14 +3,14 @@ package potionstudios.byg.common.world.biome.overworld;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import corgitaco.corgilib.serialization.codec.CodecUtil;
+import corgitaco.corgilib.serialization.codec.FromFileCodec;
+import corgitaco.corgilib.serialization.codec.Wrapped;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.common.world.biome.BYGBiomes;
-import potionstudios.byg.util.codec.CodecUtil;
-import potionstudios.byg.util.codec.FromFileCodec;
-import potionstudios.byg.util.codec.Wrapped;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.util.HashMap;
 import java.util.List;

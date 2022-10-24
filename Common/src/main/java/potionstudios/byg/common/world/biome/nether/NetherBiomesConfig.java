@@ -1,10 +1,12 @@
 package potionstudios.byg.common.world.biome.nether;
 
-import blue.endless.jankson.api.SyntaxError;
 import com.google.gson.JsonParser;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -15,8 +17,6 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.ModPlatform;
-import potionstudios.byg.util.jankson.JanksonJsonOps;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import javax.annotation.Nullable;
 import java.io.FileReader;

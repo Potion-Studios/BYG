@@ -1,5 +1,6 @@
 package potionstudios.byg;
 
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -33,7 +34,6 @@ import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.network.ForgeNetworkHandler;
-import potionstudios.byg.util.jankson.JanksonUtil;
 import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
 import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import potionstudios.byg.world.biome.BYGTerraBlenderRegion;

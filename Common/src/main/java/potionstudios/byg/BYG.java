@@ -33,7 +33,6 @@ import potionstudios.byg.mixin.access.PoiTypesAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
-import potionstudios.byg.server.command.WorldGenExportCommand;
 import potionstudios.byg.util.FileUtils;
 import potionstudios.byg.util.MLBlockTags;
 import potionstudios.byg.util.ModPlatform;
@@ -93,7 +92,6 @@ public class BYG {
     }
 
     public static void attachCommands(final CommandDispatcher<CommandSourceStack> dispatcher, final Commands.CommandSelection environmentType) {
-        WorldGenExportCommand.worldGenExportCommand(dispatcher);
         LiteralArgumentBuilder<CommandSourceStack> bygCommands = Commands.literal(BYG.MOD_ID);
         bygCommands.then(ReloadConfigsCommand.register());
         bygCommands.then(UpdateConfigsCommand.register());

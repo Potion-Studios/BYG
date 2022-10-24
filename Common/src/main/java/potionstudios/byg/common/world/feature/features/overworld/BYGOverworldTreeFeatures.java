@@ -1,6 +1,8 @@
 package potionstudios.byg.common.world.feature.features.overworld;
 
 import com.google.common.collect.ImmutableList;
+import corgitaco.corgilib.world.level.feature.CorgiLibFeatures;
+import corgitaco.corgilib.world.level.feature.gen.configurations.TreeFromStructureNBTConfig;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
@@ -33,7 +35,6 @@ import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTrunkVineDecorator;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.structure.TreeFromStructureNBTConfig;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
 import java.util.List;
@@ -524,7 +525,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL1 = createConfiguredFeature("witch_hazel1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_1"),
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_1"),
@@ -540,7 +541,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL2 = createConfiguredFeature("witch_hazel2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_2"),
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_2"),
@@ -554,7 +555,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL3 = createConfiguredFeature("witch_hazel3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_3"),
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_3"),
@@ -568,7 +569,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL4 = createConfiguredFeature("witch_hazel4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_4"),
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_4"),
@@ -582,7 +583,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL5 = createConfiguredFeature("witch_hazel5",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_trunk_5"),
                     BYG.createLocation("features/trees/witch-hazel/witch-hazel_canopy_5"),
@@ -867,7 +868,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_echanted_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
@@ -881,7 +882,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE2 = createConfiguredFeature("blue_echanted_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
@@ -895,7 +896,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE3 = createConfiguredFeature("blue_echanted_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
@@ -909,7 +910,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE4 = createConfiguredFeature("blue_echanted_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
@@ -923,7 +924,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE1 = createConfiguredFeature("green_echanted_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
@@ -937,7 +938,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE2 = createConfiguredFeature("green_echanted_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
@@ -951,7 +952,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE3 = createConfiguredFeature("green_echanted_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
@@ -965,7 +966,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE4 = createConfiguredFeature("green_echanted_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
@@ -979,7 +980,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE1 = createConfiguredFeature("jacaranda_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_1"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_1"),
@@ -993,7 +994,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE2 = createConfiguredFeature("jacaranda_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_2"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_2"),
@@ -1007,7 +1008,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE3 = createConfiguredFeature("jacaranda_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_3"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_3"),
@@ -1021,7 +1022,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JACARANDA_TREE4 = createConfiguredFeature("jacaranda_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_4"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_4"),
@@ -1035,7 +1036,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE1 = createConfiguredFeature("indigo_jacaranda_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_1"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_1"),
@@ -1049,7 +1050,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE2 = createConfiguredFeature("indigo_jacaranda_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_2"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_2"),
@@ -1063,7 +1064,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE3 = createConfiguredFeature("indigo_jacaranda_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_3"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_3"),
@@ -1077,7 +1078,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> INDIGO_JACARANDA_TREE4 = createConfiguredFeature("indigo_jacaranda_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/jacaranda/jacaranda_trunk_4"),
                     BYG.createLocation("features/trees/jacaranda/jacaranda_canopy_4"),
@@ -1121,7 +1122,7 @@ public class BYGOverworldTreeFeatures {
     public static final Supplier<AttachedToLeavesDecorator> PROPAGULE_DECORATOR = () -> new AttachedToLeavesDecorator(0.14F, 1, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(Blocks.MANGROVE_PROPAGULE.defaultBlockState().setValue(MangrovePropaguleBlock.HANGING, Boolean.TRUE)), MangrovePropaguleBlock.AGE, UniformInt.of(0, 4)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("white_mangrove_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree1_base"),
                     BYG.createLocation("features/trees/white_mangrove_tree1_canopy"),
@@ -1134,7 +1135,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree2_base"),
                     BYG.createLocation("features/trees/white_mangrove_tree2_canopy"),
@@ -1147,7 +1148,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree3_base"),
                     BYG.createLocation("features/trees/white_mangrove_tree3_canopy"),
@@ -1160,7 +1161,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree4_base"),
                     BYG.createLocation("features/trees/white_mangrove_tree4_canopy"),
@@ -1173,7 +1174,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree5_base"),
                     BYG.createLocation("features/trees/white_mangrove_tree5_canopy"),
@@ -1187,7 +1188,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IRONWOOD_TREE = createConfiguredFeature("ironwood_tree",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/ironwood/ironwood_trunk_1"),
                     BYG.createLocation("features/trees/ironwood/ironwood_canopy_1"),
@@ -1696,7 +1697,7 @@ public class BYGOverworldTreeFeatures {
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_1"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_1"),
@@ -1710,7 +1711,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE2 = createConfiguredFeature("skyris_tree2",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_2"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_2"),
@@ -1724,7 +1725,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE3 = createConfiguredFeature("skyris_tree3",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_3"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_3"),
@@ -1737,7 +1738,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_4"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_4"),
@@ -1750,7 +1751,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_5"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_5"),
@@ -1764,7 +1765,7 @@ public class BYGOverworldTreeFeatures {
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE6 = createConfiguredFeature("skyris_tree6",
-            BYGFeatures.BYG_TREE_FROM_NBT,
+            CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/skyris/skyris_trunk_6"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_6"),

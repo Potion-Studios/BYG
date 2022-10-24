@@ -2,6 +2,7 @@ package potionstudios.byg.common.world.structure.arch;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectCollection;
 import net.minecraft.core.BlockPos;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
-import potionstudios.byg.util.blendingfunction.BlendingFunction;
 
 import java.util.HashSet;
 import java.util.Optional;

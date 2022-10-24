@@ -1,16 +1,16 @@
 package potionstudios.byg.client.config.serializers;
 
-import blue.endless.jankson.JsonArray;
-import blue.endless.jankson.JsonElement;
-import blue.endless.jankson.JsonObject;
-import blue.endless.jankson.JsonPrimitive;
-import blue.endless.jankson.api.SyntaxError;
+import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import corgitaco.corgilib.shadow.blue.endless.jankson.JsonArray;
+import corgitaco.corgilib.shadow.blue.endless.jankson.JsonElement;
+import corgitaco.corgilib.shadow.blue.endless.jankson.JsonObject;
+import corgitaco.corgilib.shadow.blue.endless.jankson.JsonPrimitive;
+import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import potionstudios.byg.client.config.configeditor.ConfigCollectionEntry;
 import potionstudios.byg.client.config.configeditor.ConfigEditEntry;
 import potionstudios.byg.client.config.configeditor.ConfigPrimitiveEntry;
-import potionstudios.byg.util.jankson.JanksonUtil;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -35,3 +35,10 @@ mandatory = true
 versionRange = "[2.0.0.111,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.byg]]
+modId = "corgilib"
+mandatory = true
+versionRange = "[1.0.0.3,)"
+ordering = "BEFORE"
+side = "BOTH"

@@ -6,7 +6,6 @@ import net.minecraft.world.entity.EntityType;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 import potionstudios.byg.common.entity.manowar.ManOWarRenderer;
-import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWardenRenderer;
 
 public class BYGEntityRenderers {

@@ -2,12 +2,12 @@ package potionstudios.byg.common.world.biome;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CodecUtil;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.util.BYGUtil;
-import potionstudios.byg.util.codec.CodecUtil;
 
 import java.util.Collection;
 import java.util.function.BiPredicate;
