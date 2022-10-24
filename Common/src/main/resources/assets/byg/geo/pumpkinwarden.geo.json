@@ -12,13 +12,6 @@
 			},
 			"bones": [
 				{
-					"name": "bb_main",
-					"pivot": [0, 0, 0],
-					"cubes": [
-						{"origin": [-7, 6, -7], "size": [14, 13, 14], "uv": [0, 32]}
-					]
-				},
-				{
 					"name": "RightLeg",
 					"pivot": [-4, 6, -1],
 					"cubes": [
@@ -49,7 +42,7 @@
 				},
 				{
 					"name": "Head",
-					"pivot": [0, 0, 0],
+					"pivot": [0, 19, 0],
 					"cubes": [
 						{"origin": [-8, 19, -8], "size": [16, 16, 16], "pivot": [0, 26, 0], "rotation": [0, 0, 0], "uv": [0, 0]},
 						{"origin": [0, 35, -2], "size": [0, 4, 4], "pivot": [0, 0, 0], "rotation": [0, -45, 0], "uv": [0, 28]},
@@ -58,9 +51,17 @@
 				},
 				{
 					"name": "Nose",
+					"parent": "Head",
 					"pivot": [0, 27, -8],
 					"cubes": [
 						{"origin": [-2, 17, -12], "size": [4, 10, 4], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "Torso",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-7, 6, -7], "size": [14, 13, 14], "uv": [0, 32]}
 					]
 				}
 			]
