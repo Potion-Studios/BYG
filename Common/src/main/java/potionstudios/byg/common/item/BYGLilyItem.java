@@ -24,7 +24,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import potionstudios.byg.common.block.BYGBlocks;
 
 public class BYGLilyItem extends BlockItem {
     public BYGLilyItem(Block blockIn, Properties builder) {
@@ -55,8 +54,10 @@ public class BYGLilyItem extends BlockItem {
                 FluidState FluidState = worldIn.getFluidState(blockpos);
                 if ((FluidState.getType() == Fluids.WATER || material == Material.ICE) && worldIn.isEmptyBlock(blockpos1)) {
 
+                    // Maddie's probably janky fix
+                    Block lilypadblock = Block.byItem(itemstack.getItem());
                     // special case for handling block placement with water lilies
-                    worldIn.setBlock(blockpos1, BYGBlocks.TINY_LILYPADS.defaultBlockState(), 11);
+                    worldIn.setBlock(blockpos1, lilypadblock.defaultBlockState(), 11);
 
                     if (playerIn instanceof ServerPlayer) {
                         CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer) playerIn, blockpos1, itemstack);
