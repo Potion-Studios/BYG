@@ -188,7 +188,7 @@ public class BYGSurfaceRules {
                     .build()
             ));
 
-    public static final SurfaceRules.RuleSource JACARANDA_FOREST = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.JACARANDA_FOREST),
+    public static final SurfaceRules.RuleSource JACARANDA_FOREST = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.JACARANDA_FOREST, BYGBiomes.FORGOTTEN_FOREST),
             BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(LUSH_GRASS_LUSH_DIRT_LUSH_DIRT_SURFACE, 5).add(PEAT_SURFACE, 3)
                     .add(COARSE_DIRT_DIRT_SURFACE, 1).add(MUD_SURFACE, 1)
