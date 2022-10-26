@@ -39,7 +39,7 @@ public class BYGFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        initializeBYG("Fabric Mod Initializer");
+        initializeBYG("BYG Fabric Mod Initializer");
     }
 
     public static void initializeBYG(String initializedFrom) {
