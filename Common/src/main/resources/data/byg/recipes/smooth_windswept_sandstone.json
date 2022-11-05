@@ -3,8 +3,7 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "byg:blue_sandstone"
+    "item": "byg:windswept_sandstone"
   },
-  "result": "byg:blue_smooth_sandstone",
-  "count": 1
+  "result": "byg:smooth_windswept_sandstone"
 }

@@ -1,8 +1,9 @@
 {
-  "type": "minecraft:stonecutting",
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
   "ingredient": {
     "item": "byg:black_sandstone"
   },
-  "result": "byg:black_smooth_sandstone",
-  "count": 1
+  "result": "byg:black_smooth_sandstone"
 }
