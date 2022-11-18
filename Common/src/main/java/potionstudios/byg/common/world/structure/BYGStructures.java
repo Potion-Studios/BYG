@@ -28,10 +28,7 @@ import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
 import potionstudios.byg.common.world.feature.features.BYGStructurePlacedFeatures;
 import potionstudios.byg.common.world.structure.arch.ArchConfiguration;
 import potionstudios.byg.common.world.structure.arch.ArchStructure;
-import potionstudios.byg.common.world.structure.village.pool.RedRockVillagePools;
-import potionstudios.byg.common.world.structure.village.pool.RuinsVillagePools;
-import potionstudios.byg.common.world.structure.village.pool.SkyrisVillagePools;
-import potionstudios.byg.common.world.structure.village.pool.TropicalVillagePools;
+import potionstudios.byg.common.world.structure.village.pool.*;
 import potionstudios.byg.common.world.structure.volcano.VolcanoStructure;
 import potionstudios.byg.mixin.access.StructuresAccess;
 import potionstudios.byg.reg.RegistrationProvider;
@@ -45,6 +42,7 @@ public class BYGStructures {
 
     public static final RegistrationProvider<Structure> PROVIDER = RegistrationProvider.get(BuiltinRegistries.STRUCTURES, BYG.MOD_ID);
 
+    public static final Holder<Structure> VILLAGE_SALEM = register("village_salem", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_SALEM, TerrainAdjustment.BEARD_THIN), SalemVillagePools.SALEM_VILLAGE_JIGSAW, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_RED_ROCK = register("village_red_rock", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_RED_ROCK, TerrainAdjustment.BEARD_THIN), RedRockVillagePools.RED_ROCK_VILLAGE_JIGSAW, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_SKYRIS = register("village_skyris", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_SKYRIS, TerrainAdjustment.BEARD_THIN), SkyrisVillagePools.SKYRIS_VILLAGE_POOL, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_RUINS = register("village_ruins", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_RUINS, TerrainAdjustment.BEARD_THIN), RuinsVillagePools.RUINS_VILLAGE_POOL, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
