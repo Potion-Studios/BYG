@@ -24,6 +24,7 @@ import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.entity.manowar.ManOWar;
+import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -44,6 +45,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 import static potionstudios.byg.common.entity.BYGEntities.MAN_O_WAR;
+import static potionstudios.byg.common.entity.BYGEntities.PUMPKIN_WARDEN;
 
 @Mod(BYG.MOD_ID)
 public class BYGForge {
@@ -82,6 +84,7 @@ public class BYGForge {
 
     public void createTestEntityAttributes(final EntityAttributeCreationEvent event){
         event.put(MAN_O_WAR.get(), ManOWar.createAttributes().build());
+        event.put(PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes().build());
     }
 
     private void commonLoad(FMLCommonSetupEvent event) {

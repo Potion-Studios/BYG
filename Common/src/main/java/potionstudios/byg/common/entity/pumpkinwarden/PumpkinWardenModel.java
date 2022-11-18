@@ -19,7 +19,7 @@ public class PumpkinWardenModel<T extends IAnimatable> extends AnimatedGeoModel<
 		}
 		@Override
 		public ResourceLocation getTextureResource(T object) {
-			return BYG.createLocation("textures/entity/pumpkin_warden.png");
+			return ((PumpkinWarden)object).isHiding() ? BYG.createLocation("textures/entity/pumpkin_warden_hiding.png") : BYG.createLocation("textures/entity/pumpkin_warden.png");
 		}
 		@Override
 		public ResourceLocation getAnimationResource(T animatable) {
