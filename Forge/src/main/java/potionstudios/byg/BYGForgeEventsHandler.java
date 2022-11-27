@@ -3,6 +3,9 @@ package potionstudios.byg;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Item;
@@ -17,18 +20,23 @@ import potionstudios.byg.common.entity.npc.TradesConfig;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BYGForgeEventsHandler {
     static final Object2IntMap<Item> BURN_TIMES = new Object2IntOpenHashMap<>();
 
+    public static final Set<ResourceKey<VillagerProfession>> REGISTERED_PROFESSIONS = new ObjectOpenHashSet<>();
+
     @SubscribeEvent
     public static void appendBYGVillagerTrades(VillagerTradesEvent event) {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
-            Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
-            if (tradesByProfession.containsKey(event.getType())) {
-                Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(event.getType());
+            Map<ResourceKey<VillagerProfession>, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
+            ResourceKey<VillagerProfession> professionKey = Registry.VILLAGER_PROFESSION.getResourceKey(event.getType()).orElseThrow();
+            if (tradesByProfession.containsKey(professionKey)) {
+                REGISTERED_PROFESSIONS.add(professionKey);
+                Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(professionKey);
                 BYGVillagerTrades.appendTradesList(int2ObjectMap, event.getTrades());
             }
         }
