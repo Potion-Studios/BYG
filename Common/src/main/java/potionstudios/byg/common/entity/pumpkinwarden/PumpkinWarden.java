@@ -147,6 +147,11 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         }
     }
 
+    @Override
+    public boolean canBeLeashed(Player $$0) {
+        return false;
+    }
+
     @org.jetbrains.annotations.Nullable
     @Override
     protected SoundEvent getAmbientSound() {
