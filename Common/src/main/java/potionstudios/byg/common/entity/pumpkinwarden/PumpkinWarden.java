@@ -15,18 +15,18 @@ import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.checkerframework.checker.units.qual.A;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -36,9 +36,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
@@ -74,8 +72,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(10, new PumpkinWardenLeaveBlockGoal(this, 1, 30 ,5));
-        this.goalSelector.addGoal(11, new PumpkinWarden.PumpkinWardenTakeBlockGoal(this));
+        this.goalSelector.addGoal(1, new PumpkinWardenLeaveBlockGoal(this, 1, 30, 5));
+        this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         super.registerGoals();
     }
@@ -88,18 +86,17 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             return PlayState.CONTINUE;
         }
         if (this.getCarriedBlock() != null) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hold", false));
+            if (event.isMoving()) {
+                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_walking", true));
+            }else{
+                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_idle", true));
+            }
             return PlayState.CONTINUE;
-        }
-        else if (event.isMoving()) {
+        } else if (event.isMoving() && this.getCarriedBlock() == null) {
             controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.walking", true));
             return PlayState.CONTINUE;
-        }
-        else if (this.party) {
+        } else if (this.party) {
             controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.wave", true));
-            return PlayState.CONTINUE;
-        } else if (this.getCarriedBlock() != null) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", false));
             return PlayState.CONTINUE;
         } else {
             return PlayState.STOP;
@@ -116,26 +113,28 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
     public void aiStep() {
         super.aiStep();
-        System.out.println(isHiding());
-        System.out.println(getTimer());
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level.getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
             this.party = false;
             this.jukebox = null;
         }
-        if (this.getLastHurtByMob() != null){
+        if (this.getLastHurtByMob() != null) {
             this.setTimer(100);
             this.setLastHurtByMob(null);
         }
-        if (this.getTimer() >= 1){
+        if (this.getTimer() >= 1) {
             this.setTimer(this.getTimer() - 1);
             this.setHiding(true);
         }
-        if (this.getTimer() == 0){
+        if (this.getTimer() == 0) {
             this.setHiding(false);
         }
-
-        if (this.isHiding()){
+        if (this.isHiding()) {
             this.setDeltaMovement(0, 0, 0);
+        }
+        if (this.getCarriedBlock() != null){
+            this.setItemInHand(this.getUsedItemHand(), this.getCarriedBlock().getBlock().asItem().getDefaultInstance());
+        } else{
+            this.setItemInHand(this.getUsedItemHand(), ItemStack.EMPTY);
         }
     }
 
@@ -173,19 +172,18 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     public BlockState getCarriedBlock() {
         return this.entityData.get(DATA_CARRY_STATE).orElse(null);
     }
+
     static class PumpkinWardenTakeBlockGoal extends Goal {
         private final PumpkinWarden warden;
 
         public PumpkinWardenTakeBlockGoal(PumpkinWarden p) {
             this.warden = p;
         }
+
         public boolean canUse() {
-            if (this.warden.getCarriedBlock() != null) {
-                return false;
-            } else {
-                return this.warden.getRandom().nextInt(reducedTickDelay(20)) == 0;
-            }
+            return this.warden.getCarriedBlock() == null;
         }
+
         public void tick() {
             RandomSource randomsource = this.warden.getRandom();
             Level level = this.warden.level;
@@ -194,8 +192,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             int k = Mth.floor(this.warden.getZ() - 2.0D + randomsource.nextDouble() * 4.0D);
             BlockPos blockpos = new BlockPos(i, j, k);
             BlockState blockstate = level.getBlockState(blockpos);
-            Vec3 vec3 = new Vec3((double)this.warden.getBlockX() + 0.5D, (double)j + 0.5D, (double)this.warden.getBlockZ() + 0.5D);
-            Vec3 vec31 = new Vec3((double)i + 0.5D, (double)j + 0.5D, (double)k + 0.5D);
+            Vec3 vec3 = new Vec3((double) this.warden.getBlockX() + 0.5D, (double) j + 0.5D, (double) this.warden.getBlockZ() + 0.5D);
+            Vec3 vec31 = new Vec3((double) i + 0.5D, (double) j + 0.5D, (double) k + 0.5D);
             BlockHitResult blockhitresult = level.clip(new ClipContext(vec3, vec31, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, this.warden));
             boolean flag = blockhitresult.getBlockPos().equals(blockpos);
             if (blockstate.getBlock() instanceof StemGrownBlock && flag) {
@@ -205,6 +203,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             }
         }
     }
+
     static class PumpkinWardenLeaveBlockGoal extends MoveToBlockGoal {
         public PumpkinWarden warden;
 
@@ -212,17 +211,41 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             super(warden, speed, range, y);
             this.warden = warden;
         }
+
+        @Override
+        public double acceptedDistance() {
+            return 1.7D;
+        }
+
+        @Override
+        protected int nextStartTick(PathfinderMob $$0) {
+            return 10;
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return (this.warden.getCarriedBlock() != null);
+        }
+
+        @Override
         public boolean canUse() {
-            return this.warden.getCarriedBlock() != null;
+            if (this.warden.getCarriedBlock() == null){
+                return false;
+            }
+            return super.canUse();
         }
 
         public void tick() {
             super.tick();
-            if (this.isReachedTarget()){
-                BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
-                this.warden.setCarriedBlock(null);
+            if (this.isReachedTarget()) {
+                if (this.warden.getCarriedBlock() != null) {
+                    BehaviorUtils.throwItem(this.warden, this.warden.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.blockPos.getX(), this.blockPos.getY(), this.blockPos.getZ()));
+                    this.warden.setCarriedBlock(null);
+                    this.stop();
+                }
             }
         }
+
         @Override
         protected boolean isValidTarget(LevelReader var1, BlockPos var2) {
             BlockState pos = var1.getBlockState(var2);
