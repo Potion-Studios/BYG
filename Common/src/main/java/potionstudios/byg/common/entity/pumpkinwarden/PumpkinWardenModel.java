@@ -29,11 +29,8 @@ public class PumpkinWardenModel<T extends IAnimatable> extends AnimatedGeoModel<
 	public void setLivingAnimations(T entity, Integer uniqueID, @Nullable AnimationEvent customPredicate) {
 		super.setLivingAnimations(entity, uniqueID, customPredicate);
 		IBone head = this.getAnimationProcessor().getBone("Head");
-		IBone nose = this.getAnimationProcessor().getBone("Nose");
 		EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
 		head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
 		head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
-		nose.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
-		nose.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
 	}
 }

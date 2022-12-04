@@ -4,8 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
@@ -72,8 +75,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(1, new PumpkinWardenLeaveBlockGoal(this, 1, 30, 5));
-        this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this));
+        this.goalSelector.addGoal(1, new PumpkinWardenLeaveBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(1, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         super.registerGoals();
     }
@@ -105,6 +108,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
 
 
+
+
     @Override
     public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
         this.jukebox = pPos;
@@ -130,12 +135,39 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         }
         if (this.isHiding()) {
             this.setDeltaMovement(0, 0, 0);
+            if (this.getCarriedBlock() != null){
+                BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
+                this.setCarriedBlock(null);
+            }
         }
         if (this.getCarriedBlock() != null){
             this.setItemInHand(this.getUsedItemHand(), this.getCarriedBlock().getBlock().asItem().getDefaultInstance());
         } else{
             this.setItemInHand(this.getUsedItemHand(), ItemStack.EMPTY);
         }
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.VILLAGER_AMBIENT;
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource $$0) {
+        return SoundEvents.VILLAGER_HURT;
+    }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.VILLAGER_DEATH;
+    }
+
+    @Override
+    public float getVoicePitch() {
+        return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F;
     }
 
     @Override
@@ -173,34 +205,48 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         return this.entityData.get(DATA_CARRY_STATE).orElse(null);
     }
 
-    static class PumpkinWardenTakeBlockGoal extends Goal {
+    static class PumpkinWardenTakeBlockGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;
 
-        public PumpkinWardenTakeBlockGoal(PumpkinWarden p) {
+        public PumpkinWardenTakeBlockGoal(PumpkinWarden p, double speed, int range, int y) {
+            super(p, speed, range, y);
             this.warden = p;
         }
 
+        @Override
         public boolean canUse() {
-            return this.warden.getCarriedBlock() == null;
+            if (this.warden.getCarriedBlock() != null){
+                return false;
+            }
+            return super.canUse();
+        }
+
+        @Override
+        public double acceptedDistance() {
+            return 1.7D;
+        }
+
+        @Override
+        protected int nextStartTick(PathfinderMob $$0) {
+            return 5;
         }
 
         public void tick() {
-            RandomSource randomsource = this.warden.getRandom();
-            Level level = this.warden.level;
-            int i = Mth.floor(this.warden.getX() - 2.0D + randomsource.nextDouble() * 4.0D);
-            int j = Mth.floor(this.warden.getY() + randomsource.nextDouble() * 3.0D);
-            int k = Mth.floor(this.warden.getZ() - 2.0D + randomsource.nextDouble() * 4.0D);
-            BlockPos blockpos = new BlockPos(i, j, k);
-            BlockState blockstate = level.getBlockState(blockpos);
-            Vec3 vec3 = new Vec3((double) this.warden.getBlockX() + 0.5D, (double) j + 0.5D, (double) this.warden.getBlockZ() + 0.5D);
-            Vec3 vec31 = new Vec3((double) i + 0.5D, (double) j + 0.5D, (double) k + 0.5D);
-            BlockHitResult blockhitresult = level.clip(new ClipContext(vec3, vec31, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, this.warden));
-            boolean flag = blockhitresult.getBlockPos().equals(blockpos);
-            if (blockstate.getBlock() instanceof StemGrownBlock && flag) {
-                level.removeBlock(blockpos, false);
-                level.gameEvent(GameEvent.BLOCK_DESTROY, blockpos, GameEvent.Context.of(this.warden, blockstate));
-                this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());
+            super.tick();
+            if (this.isReachedTarget()) {
+                Level level = this.warden.level;
+                BlockState blockstate = level.getBlockState(this.blockPos);
+                if (blockstate.getBlock() instanceof StemGrownBlock) {
+                    level.removeBlock(this.blockPos, false);
+                    level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
+                    this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());
+                }
             }
+        }
+
+        @Override
+        protected boolean isValidTarget(LevelReader world, BlockPos pos) {
+            return world.getBlockState(pos).getBlock() instanceof StemGrownBlock;
         }
     }
 
