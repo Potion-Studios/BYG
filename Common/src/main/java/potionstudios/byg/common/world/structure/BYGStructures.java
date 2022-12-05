@@ -42,6 +42,7 @@ public class BYGStructures {
 
     public static final RegistrationProvider<Structure> PROVIDER = RegistrationProvider.get(BuiltinRegistries.STRUCTURES, BYG.MOD_ID);
 
+    public static final Holder<Structure> PUMPKIN_PATCH = register("pumpkin_patch", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_PUMPKIN_PATCH, TerrainAdjustment.BEARD_THIN), PumpkinPatchPools.PUMPKIN_PATCH_JIGSAW, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_SALEM = register("village_salem", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_SALEM, TerrainAdjustment.BEARD_THIN), SalemVillagePools.SALEM_VILLAGE_JIGSAW, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_RED_ROCK = register("village_red_rock", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_RED_ROCK, TerrainAdjustment.BEARD_THIN), RedRockVillagePools.RED_ROCK_VILLAGE_JIGSAW, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
     public static final Holder<Structure> VILLAGE_SKYRIS = register("village_skyris", () -> new JigsawStructure(structure(BYGBiomeTags.HAS_VILLAGE_SKYRIS, TerrainAdjustment.BEARD_THIN), SkyrisVillagePools.SKYRIS_VILLAGE_POOL, 6, ConstantHeight.of(VerticalAnchor.absolute(0)), true, Heightmap.Types.WORLD_SURFACE_WG));
