@@ -6,8 +6,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -17,18 +15,17 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -60,7 +57,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     protected void defineSynchedData() {
         this.entityData.define(DATA_CARRY_STATE, Optional.empty());
         this.entityData.define(HIDING, false);
-        this.entityData.define(TIMER, 50);
+        this.entityData.define(TIMER, 0);
         super.defineSynchedData();
     }
 
@@ -75,8 +72,18 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(1, new PumpkinWardenLeaveBlockGoal(this, 1, 32, 5));
-        this.goalSelector.addGoal(1, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(2, new PumpkinWardenLeaveBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D){
+            @Override
+            public boolean canContinueToUse() {
+                if (((PumpkinWarden)this.mob).isHiding()){
+                    return false;
+                }else {
+                    return super.canContinueToUse();
+                }
+            }
+        });
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         super.registerGoals();
     }
@@ -85,13 +92,21 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         AnimationController controller = event.getController();
         controller.transitionLengthTicks = 0;
         if (this.isHiding()) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", false));
-            return PlayState.CONTINUE;
+            if (this.getTimer() < 10) {
+                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hidestart", false));
+                return PlayState.CONTINUE;
+            }else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level.isDay() && this.getTimer() > 10){
+                    controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
+                    return PlayState.CONTINUE;
+            } else if (this.getTimer() > 180 && this.level.isDay()) {
+                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hideend", false));
+                return PlayState.CONTINUE;
+            }
         }
         if (this.getCarriedBlock() != null) {
             if (event.isMoving()) {
                 controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_walking", true));
-            }else{
+            } else {
                 controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_idle", true));
             }
             return PlayState.CONTINUE;
@@ -107,9 +122,6 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     }
 
 
-
-
-
     @Override
     public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
         this.jukebox = pPos;
@@ -118,31 +130,42 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
     public void aiStep() {
         super.aiStep();
+        System.out.println("Timer: " + this.getTimer());
+        System.out.println("Hiding: " + this.isHiding());
         if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level.getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
             this.party = false;
             this.jukebox = null;
         }
-        if (this.getLastHurtByMob() != null) {
-            this.setTimer(100);
-            this.setLastHurtByMob(null);
-        }
-        if (this.getTimer() >= 1) {
-            this.setTimer(this.getTimer() - 1);
-            this.setHiding(true);
-        }
-        if (this.getTimer() == 0) {
-            this.setHiding(false);
+        if (!this.level.isClientSide) {
+            System.out.println("Target: " + this.getLastHurtByMob());
+            if (!this.level.isDay()) {
+                this.setTimer(this.getTimer() + 1);
+                this.setHiding(true);
+            } else if (this.getTimer() > 0 && this.getLastHurtByMob() == null) {
+                this.setTimer(0);
+                this.setHiding(false);
+            }
+            if (this.getLastHurtByMob() != null) {
+                if (this.getTimer() < 200) {
+                    this.setTimer(this.getTimer() + 1);
+                    this.setHiding(true);
+                } else {
+                    this.setTimer(0);
+                    this.setHiding(false);
+                }
+            }
         }
         if (this.isHiding()) {
             this.setDeltaMovement(0, 0, 0);
-            if (this.getCarriedBlock() != null){
+            this.setRot(0, 0);
+            if (this.getCarriedBlock() != null) {
                 BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
                 this.setCarriedBlock(null);
             }
         }
-        if (this.getCarriedBlock() != null){
+        if (this.getCarriedBlock() != null) {
             this.setItemInHand(this.getUsedItemHand(), this.getCarriedBlock().getBlock().asItem().getDefaultInstance());
-        } else{
+        } else {
             this.setItemInHand(this.getUsedItemHand(), ItemStack.EMPTY);
         }
     }
@@ -220,7 +243,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         public boolean canUse() {
-            if (this.warden.getCarriedBlock() != null){
+            if (this.warden.getCarriedBlock() != null) {
                 return false;
             }
             return super.canUse();
@@ -241,7 +264,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             if (this.isReachedTarget()) {
                 Level level = this.warden.level;
                 BlockState blockstate = level.getBlockState(this.blockPos);
-                if (blockstate.getBlock() instanceof StemGrownBlock) {
+                if (blockstate.getBlock() instanceof StemGrownBlock block) {
+                    block.getAttachedStem();
                     level.removeBlock(this.blockPos, false);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, this.blockPos, GameEvent.Context.of(this.warden, blockstate));
                     this.warden.setCarriedBlock(blockstate.getBlock().defaultBlockState());
@@ -251,7 +275,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean isValidTarget(LevelReader world, BlockPos pos) {
-            return world.getBlockState(pos).getBlock() instanceof StemGrownBlock;
+            return (world.getBlockState(pos).getBlock() instanceof StemGrownBlock);
         }
     }
 
@@ -280,7 +304,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         public boolean canUse() {
-            if (this.warden.getCarriedBlock() == null){
+            if (this.warden.getCarriedBlock() == null) {
                 return false;
             }
             return super.canUse();
