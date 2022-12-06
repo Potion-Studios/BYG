@@ -654,9 +654,13 @@ public class BYGItems {
     public static final RegistryObject<Item> ODDITY_BUSH = createItem(BYGBlocks.ODDITY_BUSH);
     public static final RegistryObject<Item> END_SAND = createItem(BYGBlocks.END_SAND);
 
-    public static final RegistryObject<Item> THERIUM_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "therium_shard");
-    public static final RegistryObject<Item> THERIUM_CRYSTAL = createItem(BYGBlocks.THERIUM_CRYSTAL);
-    public static final RegistryObject<Item> THERIUM_BLOCK = createItem(BYGBlocks.THERIUM_BLOCK);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_BLOCK = createItem(BYGBlocks.THERIUM_CRYSTAL_BLOCK);
+    public static final RegistryObject<Item> BUDDING_THERIUM_CRYSTAL = createItem(BYGBlocks.BUDDING_THERIUM_CRYSTAL);
+    public static final RegistryObject<Item> SMALL_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.SMALL_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> MEDIUM_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.MEDIUM_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> LARGE_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.LARGE_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_CLUSTER = createItem(BYGBlocks.THERIUM_CRYSTAL_CLUSTER);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "therium_crystal_shard");
     public static final RegistryObject<Item> CHISELED_THERIUM = createItem(BYGBlocks.CHISELED_THERIUM);
     public static final RegistryObject<Item> CHISELED_THERIUM_STAIRS = createItem(BYGBlocks.CHISELED_THERIUM_STAIRS);
     public static final RegistryObject<Item> CHISELED_THERIUM_SLAB = createItem(BYGBlocks.CHISELED_THERIUM_SLAB);

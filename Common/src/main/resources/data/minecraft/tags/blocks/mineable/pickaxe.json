@@ -34,8 +34,6 @@
     "byg:carved_ether_stone_slab",
     "byg:carved_ether_stone_stairs",
     "byg:carved_ether_stone_wall",
-    "byg:therium_crystal",
-    "byg:therium_block",
     "byg:therium_lantern",
     "byg:boric_lantern",
     "byg:cryptic_lantern",
@@ -214,6 +212,11 @@
     "byg:imparius_phylium",
     "byg:hypogeal_imperium",
     "byg:packed_black_ice",
-    "byg:black_ice"
+    "byg:black_ice",
+    "byg:therium_crystal_block",
+    "byg:therium_crystal_cluster",
+    "byg:large_therium_crystal_bud",
+    "byg:medium_therium_crystal_bud",
+    "byg:small_therium_crystal_bud"
   ]
 }

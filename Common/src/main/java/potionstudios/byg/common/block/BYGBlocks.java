@@ -28,6 +28,7 @@ import potionstudios.byg.common.block.end.nightshade.NightshadeBerryBushBlock;
 import potionstudios.byg.common.block.end.shattereddesert.OddityCactusBlock;
 import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVineBlock;
 import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVinePlantBlock;
+import potionstudios.byg.common.block.end.therium.BuddingTheriumCrystalBlock;
 import potionstudios.byg.common.block.end.viscalisle.SculkGrowthBlock;
 import potionstudios.byg.common.block.nether.BoricFireBlock;
 import potionstudios.byg.common.block.nether.CrystalBlock;
@@ -282,8 +283,15 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
     public static final BlockRegistryObject<Block> VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
-    public static final BlockRegistryObject<Block> THERIUM_CRYSTAL = createTheriumCrystal("therium_crystal");
-    public static final BlockRegistryObject<Block> THERIUM_BLOCK = createTheriumBlock("therium_block");
+
+
+    public static final BlockRegistryObject<Block> THERIUM_CRYSTAL_BLOCK = createCrystalBlock(MaterialColor.COLOR_YELLOW,"therium_crystal_block");
+    public static final BlockRegistryObject<Block> BUDDING_THERIUM_CRYSTAL = createTheriumBuddingCrystalBlock(MaterialColor.COLOR_YELLOW,"budding_therium_crystal");
+    public static final BlockRegistryObject<Block> THERIUM_CRYSTAL_CLUSTER = createCrystalClusterBlock(5, 7, 3,MaterialColor.COLOR_YELLOW, "therium_crystal_cluster");
+    public static final BlockRegistryObject<Block> LARGE_THERIUM_CRYSTAL_BUD = createCrystalClusterBlock(4, 5, 3,MaterialColor.COLOR_YELLOW, "large_therium_crystal_bud");
+    public static final BlockRegistryObject<Block> MEDIUM_THERIUM_CRYSTAL_BUD = createCrystalClusterBlock(2, 4, 3,MaterialColor.COLOR_YELLOW, "medium_therium_crystal_bud");
+    public static final BlockRegistryObject<Block> SMALL_THERIUM_CRYSTAL_BUD = createCrystalClusterBlock(1, 3, 4,MaterialColor.COLOR_YELLOW, "small_therium_crystal_bud");
+
     public static final BlockRegistryObject<Block> THERIUM_LANTERN = createLanternBlock(MaterialColor.COLOR_CYAN, "therium_lantern");
     public static final BlockRegistryObject<Block> THERIUM_LAMP = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN)), "therium_lamp");
     public static final BlockRegistryObject<Block> CHISELED_THERIUM = createChiseledTherium("chiseled_therium");
@@ -338,12 +346,12 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> FROST_MAGMA = createBlock(BYGBlockProperties.BYGFrostMagma::new, "frost_magma");
     public static final BlockRegistryObject<Block> SUBZERO_ASH = createBlock(BYGBlockProperties.BYGSubzeroAsh::new, "subzero_ash");
     public static final BlockRegistryObject<Block> SUBZERO_ASH_BLOCK = createBlock(BYGBlockProperties.BYGSubzeroAshBlock::new, "subzero_ash_block");
-    public static final BlockRegistryObject<Block> SUBZERO_CRYSTAL_BLOCK = createSubzeroCrystalBlock("subzero_crystal_block");
-    public static final BlockRegistryObject<Block> BUDDING_SUBZERO_CRYSTAL = createBuddingSubzeroCrystal("budding_subzero_crystal");
-    public static final BlockRegistryObject<Block> SUBZERO_CRYSTAL_CLUSTER = createSubzeroCrystalCluster(5, 7, 3, "subzero_crystal_cluster");
-    public static final BlockRegistryObject<Block> LARGE_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(4, 5, 3, "large_subzero_crystal_bud");
-    public static final BlockRegistryObject<Block> MEDIUM_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(2, 4, 3, "medium_subzero_crystal_bud");
-    public static final BlockRegistryObject<Block> SMALL_SUBZERO_CRYSTAL_BUD = createSubzeroCrystalCluster(1, 3, 4, "small_subzero_crystal_bud");
+    public static final BlockRegistryObject<Block> SUBZERO_CRYSTAL_BLOCK = createCrystalBlock(MaterialColor.COLOR_LIGHT_BLUE,"subzero_crystal_block");
+    public static final BlockRegistryObject<Block> BUDDING_SUBZERO_CRYSTAL = createSubzeroBuddingCrystalBlock(MaterialColor.COLOR_LIGHT_BLUE, "budding_subzero_crystal");
+    public static final BlockRegistryObject<Block> SUBZERO_CRYSTAL_CLUSTER = createCrystalClusterBlock(5, 7, 3,MaterialColor.COLOR_LIGHT_BLUE ,"subzero_crystal_cluster");
+    public static final BlockRegistryObject<Block> LARGE_SUBZERO_CRYSTAL_BUD = createCrystalClusterBlock(4, 5, 3,MaterialColor.COLOR_LIGHT_BLUE ,"large_subzero_crystal_bud");
+    public static final BlockRegistryObject<Block> MEDIUM_SUBZERO_CRYSTAL_BUD = createCrystalClusterBlock(2, 4, 3,MaterialColor.COLOR_LIGHT_BLUE ,"medium_subzero_crystal_bud");
+    public static final BlockRegistryObject<Block> SMALL_SUBZERO_CRYSTAL_BUD = createCrystalClusterBlock(1, 3, 4,MaterialColor.COLOR_LIGHT_BLUE ,"small_subzero_crystal_bud");
     public static final BlockRegistryObject<Block> LAMENT_SPROUTS = createBlock(BYGBlockProperties.BYGLamentPlant::new, "lament_sprouts");
     public static final BlockRegistryObject<Block> LAMENT_VINE = createBlock(BYGBlockProperties.BYGLamentVine::new, "lament_vine");
     public static final BlockRegistryObject<Block> LAMENT_VINE_PLANT = createBlock(BYGBlockProperties.BYGLamentVinePlant::new, "lament_vine_plant");
@@ -659,20 +667,24 @@ public class BYGBlocks {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.WARPED_WART_BLOCK).sound(SoundType.HONEY_BLOCK).strength(2.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createSubzeroCrystalCluster(int light, int i, int j, String id) {
-        return createBlock(() -> new AmethystClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light)), id);
+    private static BlockRegistryObject<Block> createCrystalClusterBlock(int light, int i, int j, MaterialColor materialColor, String id) {
+        return createBlock(() -> new AmethystClusterBlock(i, j, BlockBehaviour.Properties.of(BYGMaterials.SUBZERO_CRYSTAL).sound(SoundType.GLASS).color(materialColor).strength(1.5f).requiresCorrectToolForDrops().noOcclusion().lightLevel((state) -> light)), id);
     }
 
     private static BlockRegistryObject<Block> createHypogealBlock(String id) {
         return createBlock(() -> new HypogealImperiumBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.GLASS).strength(1.5f).requiresCorrectToolForDrops().lightLevel(litBlockEmission(13))), id);
     }
 
-    private static BlockRegistryObject<Block> createBuddingSubzeroCrystal(String id) {
-        return createBlock(() -> new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).noLootTable().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f)), id);
+    private static BlockRegistryObject<Block> createSubzeroBuddingCrystalBlock(MaterialColor materialColor,String id) {
+        return createBlock(() -> new BuddingSubzeroCrystalBlock(BlockBehaviour.Properties.of(Material.STONE).color(materialColor).sound(SoundType.GLASS).lightLevel((state) -> 8).noLootTable().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f)), id);
     }
 
-    private static BlockRegistryObject<Block> createSubzeroCrystalBlock(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_BLUE).sound(SoundType.GLASS).lightLevel((state) -> 8).strength(1.5f, 1.5f).requiresCorrectToolForDrops()), id);
+    private static BlockRegistryObject<Block> createTheriumBuddingCrystalBlock(MaterialColor materialColor,String id) {
+        return createBlock(() -> new BuddingTheriumCrystalBlock(BlockBehaviour.Properties.of(Material.STONE).color(materialColor).sound(SoundType.GLASS).lightLevel((state) -> 8).noLootTable().randomTicks().requiresCorrectToolForDrops().strength(1.5f, 1.5f)), id);
+    }
+
+    private static BlockRegistryObject<Block> createCrystalBlock(MaterialColor materialColor, String id) {
+        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE).color(materialColor).sound(SoundType.GLASS).lightLevel((state) -> 8).strength(1.5f, 1.5f).requiresCorrectToolForDrops()), id);
     }
 
     private static BlockRegistryObject<Block> createTravertineSlab(String id) {
@@ -733,10 +745,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createArisianBloomBranch(String id) {
         return createBlock(() -> new TreeBranchBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT, MaterialColor.COLOR_PURPLE).instabreak().sound(SoundType.GRASS).noOcclusion().noCollission().lightLevel((state) -> 10)), id);
-    }
-
-    private static BlockRegistryObject<Block> createTheriumBlock(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_CYAN).sound(SoundType.GLASS).noLootTable().lightLevel((state) -> 12).strength(-1.0f, 3.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createTheriumGlass(String id) {
@@ -1052,10 +1060,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createTallVent(String id) {
         return createBlock(() -> new TallVentBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createTheriumCrystal(String id) {
-        return createBlock(() -> new TheriumCrystalBlock(BlockBehaviour.Properties.of(Material.GLASS).sound(SoundType.GLASS).strength(0.1f).noOcclusion().requiresCorrectToolForDrops().noCollission().lightLevel((state) -> 6)), id);
     }
 
     private static BlockRegistryObject<Block> createAmetrineCluster(String id) {

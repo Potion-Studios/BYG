@@ -106,12 +106,15 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.NIGHTSHADE_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.VERMILION_SCULK_GROWTH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_LANTERN.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.THERIUM_CRYSTAL_CLUSTER.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.LARGE_THERIUM_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.MEDIUM_THERIUM_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.SMALL_THERIUM_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_LANTERN.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BORIC_LANTERN.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_END_ROD.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_BUSH.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.THERIUM_CRYSTAL.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SHULKREN_MOSS_BLANKET.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SHULKREN_FUNGUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SHULKREN_VINE.get(), RenderType.cutoutMipped());

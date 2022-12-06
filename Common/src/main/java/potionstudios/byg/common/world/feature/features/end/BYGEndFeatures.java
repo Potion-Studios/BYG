@@ -143,18 +143,18 @@ public class BYGEndFeatures {
             BYGFeatures.NOISE_SPIKE,
             () -> new NoisySphereConfig.Builder()
                     .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 8)
+                            .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 8)
                             .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 2))
                     ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 6)
+                            .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 6)
                             .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 4))
                     )
                     .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(8, 15), BiasedToBottomInt.of(5, 10), 0, BiasedToBottomInt.of(8, 15)))
                     .withNoiseFrequency(0.5F).withVerifiesHeight(false).withBelowSurfaceDepth(ConstantInt.of(Integer.MIN_VALUE)).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
                     .withSpawningFeatures(List.of(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(
-                                    createPatchConfiguredFeatureWithState(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
+                                    createPatchConfiguredFeatureWithState(BYGBlocks.THERIUM_CRYSTAL_BLOCK.get(), 15),
                                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.THERIUM_BLOCK.get()))))
+                                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.THERIUM_CRYSTAL_BLOCK.get()))))
                             )
                     )
                     .build()
@@ -165,18 +165,20 @@ public class BYGEndFeatures {
             BYGFeatures.NOISE_SPIKE,
             () -> new NoisySphereConfig.Builder()
                     .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 2)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 8))
+                            .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 2)
+                            .add(BYGBlocks.BUDDING_THERIUM_CRYSTAL.defaultBlockState(), 3)
+                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 5))
                     ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.THERIUM_BLOCK.defaultBlockState(), 4)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 6))
+                            .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 3)
+                            .add(BYGBlocks.BUDDING_THERIUM_CRYSTAL.defaultBlockState(), 2)
+                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 5))
                     )
                     .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(13, 20), BiasedToBottomInt.of(20, 27), 0, BiasedToBottomInt.of(13, 20)))
                     .withNoiseFrequency(0.2F).withRadiusMatcher(RadiusMatcher.NONE).withPointed(true)
                     .withSpawningFeatures(List.of(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(
-                                    createPatchConfiguredFeatureWithState(BYGBlocks.THERIUM_CRYSTAL.get(), 15),
+                                    createPatchConfiguredFeatureWithState(BYGBlocks.THERIUM_CRYSTAL_CLUSTER.get(), 10),
                                     CountPlacement.of(UniformInt.of(10, 25)), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR,
-                                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.THERIUM_BLOCK.get()))))
+                                    BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), BYGBlocks.BUDDING_THERIUM_CRYSTAL.get()))))
                             )
                     )
                     .build()
