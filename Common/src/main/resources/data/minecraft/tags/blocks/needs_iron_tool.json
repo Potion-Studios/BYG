@@ -13,6 +13,11 @@
     "byg:large_subzero_crystal_bud",
     "byg:medium_subzero_crystal_bud",
     "byg:small_subzero_crystal_bud",
-    "byg:cryptic_redstone_ore"
+    "byg:cryptic_redstone_ore",
+    "byg:therium_crystal_block",
+    "byg:therium_crystal_cluster",
+    "byg:large_therium_crystal_bud",
+    "byg:medium_therium_crystal_bud",
+    "byg:small_therium_crystal_bud"
   ]
 }
