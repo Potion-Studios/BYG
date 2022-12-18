@@ -18,6 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -27,8 +28,10 @@ import net.minecraft.world.phys.HitResult;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class BYGLilyItem extends BlockItem {
+    Block block;
     public BYGLilyItem(Block blockIn, Properties builder) {
         super(blockIn, builder);
+        this.block = blockIn;
     }
 
     public InteractionResult useOn(UseOnContext context) {
@@ -56,7 +59,7 @@ public class BYGLilyItem extends BlockItem {
                 if ((FluidState.getType() == Fluids.WATER || material == Material.ICE) && worldIn.isEmptyBlock(blockpos1)) {
 
                     // special case for handling block placement with water lilies
-                    worldIn.setBlock(blockpos1, BYGBlocks.TINY_LILYPADS.defaultBlockState(), 11);
+                    worldIn.setBlock(blockpos1, this.block.defaultBlockState(), 11);
 
                     if (playerIn instanceof ServerPlayer) {
                         CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer) playerIn, blockpos1, itemstack);
