@@ -1,43 +1,7 @@
 {
-  "ambientocclusion": false,
+  "parent": "block/carpet",
   "textures": {
     "particle": "byg:block/clover_patch",
-    "texture": "byg:block/clover_patch"
-  },
-  "elements": [
-    {
-      "from": [
-        0,
-        0.25,
-        0
-      ],
-      "to": [
-        16,
-        0.25,
-        16
-      ],
-      "faces": {
-        "down": {
-          "uv": [
-            16,
-            16,
-            0,
-            0
-          ],
-          "texture": "#texture",
-          "tintindex": 0
-        },
-        "up": {
-          "uv": [
-            16,
-            0,
-            0,
-            16
-          ],
-          "texture": "#texture",
-          "tintindex": 0
-        }
-      }
-    }
-  ]
+    "wool": "byg:block/clover_patch"
+  }
 }
