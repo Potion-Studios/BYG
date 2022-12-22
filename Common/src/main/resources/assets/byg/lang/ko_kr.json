@@ -95,7 +95,7 @@
   "biomepedia.biomeabout.color.water": "물 색: %s",
   "biomepedia.biomeabout.color.waterfog": "물안개 색: %s",
   "biomepedia.biomeabout.dimensions": "차원:",
-  "biomepedia.biomeabout.dimensions.none": "이 생물군계는 어느 차원에서도 생성되지 않습니다.",
+  "biomepedia.biomeabout.dimensions.none": "이 생물군계는 어느 차원에도 생성되지 않습니다.",
   "biomepedia.biomeabout.mobspawns": "몹 스폰:",
   "biomepedia.biomeabout.mobspawns.none": "이 생물군계에서는 어느 몹도 스폰되지 않습니다.",
   "biomepedia.biomelist.search": "검색",
