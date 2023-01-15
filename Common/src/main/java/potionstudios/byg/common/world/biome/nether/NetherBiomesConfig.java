@@ -84,9 +84,9 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
             // Upgrade the config with registry values.
             NetherBiomesConfig registryUpdatedConfig = new NetherBiomesConfig(INSTANCE.forceBYGNetherBiomeSource(),
                 INSTANCE.addAllNetherBiomeTagEntries(), INSTANCE.layerSize(),
-                new LayersBiomeData(INSTANCE.bottomLayer().biomeWeights(), INSTANCE.bottomLayer().biomeSize()),
+                new LayersBiomeData(INSTANCE.upperLayer().biomeWeights(), INSTANCE.upperLayer().biomeSize()),
                 new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.middleLayer().biomeWeights(), registryDefaults), INSTANCE.middleLayer().biomeSize()),
-                new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.upperLayer().biomeWeights(), registryDefaults), INSTANCE.upperLayer().biomeSize()));
+                new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, INSTANCE.bottomLayer().biomeWeights(), registryDefaults), INSTANCE.bottomLayer().biomeSize()));
 
             createConfig(CONFIG_PATH.get(), registryUpdatedConfig);
             INSTANCE = registryUpdatedConfig;
