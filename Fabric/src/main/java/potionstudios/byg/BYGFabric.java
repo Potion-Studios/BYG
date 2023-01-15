@@ -6,12 +6,15 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
+import potionstudios.byg.common.BYGCompostables;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.block.BYGScaffoldingBlock;
@@ -84,6 +87,8 @@ public class BYGFabric implements ModInitializer {
         BYG.blockToInstanceOfReplacement(Blocks.SCAFFOLDING, BYGScaffoldingBlock.class);
         BYG.threadSafeCommonLoad();
         BYG.threadSafeLoadFinish();
+        BYGCompostables.COMPOSTABLES.get().forEach(CompostingChanceRegistry.INSTANCE::add);
+
         registerVillagerTrades();
         BYGStrippables.strippableLogsBYG(StrippableBlockRegistry::register);
         afterRegistriesFreezeLoaded = true;

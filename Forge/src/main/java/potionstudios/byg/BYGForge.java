@@ -10,6 +10,7 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
+import potionstudios.byg.common.BYGCompostables;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.entity.manowar.ManOWar;
@@ -132,7 +134,7 @@ public class BYGForge {
 
     private void loadFinish(FMLLoadCompleteEvent event) {
         event.enqueueWork(BYG::threadSafeLoadFinish);
-
+        event.enqueueWork(() -> ComposterBlock.COMPOSTABLES.putAll(BYGCompostables.COMPOSTABLES.get()));
         // Because Forge's enqueueWork eats exceptions, we need to cache it ourselves and throw it after the fact.
         // TODO: Remove this ugly workaround once forge fixes this issue.
         if (JanksonUtil.thrown != null) {

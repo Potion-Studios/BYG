@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -145,7 +146,6 @@ public class BYG {
 
     public static void threadSafeLoadFinish() {
         LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
-        BYGCompostables.compostablesBYG();
         BYGHoeables.tillablesBYG();
         BYGFlammables.flammablesBYG();
         BYGCarvableBlocks.addCarverBlocks();
