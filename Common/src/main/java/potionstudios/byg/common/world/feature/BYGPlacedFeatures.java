@@ -276,6 +276,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> CRAG_GEN = createPlacedFeature("crag_gen", BYGOverworldFeatures.CRAG_GEN, () -> CountOnEveryLayerPlacement.of(3), BiomeFilter::biome, () -> new AboveHeightmapFilter(Heightmap.Types.OCEAN_FLOOR_WG), () -> CRAG_NOISE);
     public static final Holder<PlacedFeature> ARCH_FEATURE = createPlacedFeature("arch_feature", BYGOverworldFeatures.ARCH_FEATURE, InSquarePlacement::spread, () -> RarityFilter.onAverageOnceEvery(12), () -> PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BiomeFilter::biome);
     public static final Holder<PlacedFeature> CRAG_DELTA = createPlacedFeature("crag_delta", BYGOverworldFeatures.CRAG_DELTA, () -> oceanFloorSquaredWithCount(3));
+    public static final Holder<PlacedFeature> IMPARIUS_GROVE_DELTA = createPlacedFeature("imparius_grove_delta", BYGEndFeatures.IMPARIUS_GROVE_DELTA, () -> oceanFloorSquaredWithCount(3));
     public static final Holder<PlacedFeature> VINES_1 = createPlacedFeature("vines", VegetationFeatures.VINES, () -> CountPlacement.of(256), InSquarePlacement::spread, () -> HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(100)), BiomeFilter::biome);
     public static final Holder<PlacedFeature> VINES_2 = createPlacedFeature("vines_2", VegetationFeatures.VINES, () -> CountPlacement.of(256), InSquarePlacement::spread, () -> HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(100)), BiomeFilter::biome);
 
