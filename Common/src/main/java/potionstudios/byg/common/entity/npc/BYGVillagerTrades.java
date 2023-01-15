@@ -8,6 +8,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -23,9 +24,9 @@ import java.util.function.Supplier;
 
 public class BYGVillagerTrades {
 
-    protected static final Supplier<Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>> TRADES = () ->
-            Util.make(new HashMap<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>>(), map -> {
-        map.put(BYGVillagerProfessions.FORAGER.get(), toIntMap(ImmutableMap.of(
+    protected static final Supplier<Map<ResourceKey<VillagerProfession>, Int2ObjectMap<VillagerTrades.ItemListing[]>>> TRADES = () ->
+            Util.make(new HashMap<ResourceKey<VillagerProfession>, Int2ObjectMap<VillagerTrades.ItemListing[]>>(), map -> {
+        map.put(BYGVillagerProfessions.FORAGER.getResourceKey(), toIntMap(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(Items.RED_MUSHROOM, 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(Items.BROWN_MUSHROOM, 10, 12, 2),
@@ -52,17 +53,17 @@ public class BYGVillagerTrades {
             }
         )));
 
-        map.put(VillagerProfession.ARMORER, toIntMap(ImmutableMap.of(
+        map.put(getKeyOrThrow(VillagerProfession.ARMORER), toIntMap(ImmutableMap.of(
             4, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsForEmeralds(BYGItems.CHAIN_PLATING.get(), 3, 7, 12, 2)
             }
         )));
-        map.put(VillagerProfession.BUTCHER, toIntMap(ImmutableMap.of(
+        map.put(getKeyOrThrow(VillagerProfession.BUTCHER), toIntMap(ImmutableMap.of(
             2, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(BYGItems.BLUE_BERRY.get(), 10, 12, 2)
             }
         )));
-        map.put(VillagerProfession.FARMER, toIntMap(ImmutableMap.of(
+        map.put(getKeyOrThrow(VillagerProfession.FARMER), toIntMap(ImmutableMap.of(
             1, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(BYGItems.CATTAIL_SPROUT.get(), 24, 12, 2)
             },
@@ -78,7 +79,7 @@ public class BYGVillagerTrades {
                 new VillagerTrades.ItemsAndEmeraldsToItems(Items.DIRT, 16, 2, BYGItems.LUSH_DIRT.get(), 16, 4, 4)
             }
         )));
-        map.put(VillagerProfession.MASON, toIntMap(ImmutableMap.of(
+        map.put(getKeyOrThrow(VillagerProfession.MASON), toIntMap(ImmutableMap.of(
             3, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsForEmeralds(BYGItems.ROCKY_STONE.get(), 1, 12, 12, 2),
                 new VillagerTrades.EmeraldForItems(BYGItems.ROCKY_STONE.get(), 1, 12, 12),
@@ -95,7 +96,7 @@ public class BYGVillagerTrades {
             }
         )));
 
-        map.put(VillagerProfession.CARTOGRAPHER, toIntMap(ImmutableMap.of(
+        map.put(getKeyOrThrow(VillagerProfession.CARTOGRAPHER), toIntMap(ImmutableMap.of(
                 2, new VillagerTrades.ItemListing[]{
                         new VillagerTrades.TreasureMapForEmeralds(14, StructureTags.ON_WOODLAND_EXPLORER_MAPS, "filled_map.ancient_sequoia", MapDecoration.Type.MONUMENT, 12, 10),
                 }
@@ -103,13 +104,17 @@ public class BYGVillagerTrades {
 
         for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION.stream().filter(villagerProfession -> villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE).toList()) {
             if (villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE) {
-                Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(villagerProfession, villagerProfession1 -> new Int2ObjectOpenHashMap<>());
+                Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(getKeyOrThrow(villagerProfession), villagerProfession1 -> new Int2ObjectOpenHashMap<>());
                 for (int i = 1; i <= 5; i++) {
                     tradesByLevel.computeIfAbsent(i, key ->  new VillagerTrades.ItemListing[]{});
                 }
             }
         }
     });
+
+    private static ResourceKey<VillagerProfession> getKeyOrThrow(VillagerProfession profession) {
+        return Registry.VILLAGER_PROFESSION.getResourceKey(profession).orElseThrow();
+    }
 
     protected static final LazySupplier<Int2ObjectMap<VillagerTrades.ItemListing[]>> WANDERING_TRADER_TRADES = new LazySupplier<>(() ->
             toIntMap(ImmutableMap.of(

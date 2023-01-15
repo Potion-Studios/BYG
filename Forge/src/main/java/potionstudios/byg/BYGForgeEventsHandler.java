@@ -1,34 +1,53 @@
 package potionstudios.byg;
 
+import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import potionstudios.byg.common.BYGHoeables;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BYGForgeEventsHandler {
     static final Object2IntMap<Item> BURN_TIMES = new Object2IntOpenHashMap<>();
 
+    public static final Set<ResourceKey<VillagerProfession>> REGISTERED_PROFESSIONS = new ObjectOpenHashSet<>();
+
     @SubscribeEvent
     public static void appendBYGVillagerTrades(VillagerTradesEvent event) {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
-            Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
-            if (tradesByProfession.containsKey(event.getType())) {
-                Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(event.getType());
+            Map<ResourceKey<VillagerProfession>, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
+            ResourceKey<VillagerProfession> professionKey = Registry.VILLAGER_PROFESSION.getResourceKey(event.getType()).orElseThrow();
+            if (tradesByProfession.containsKey(professionKey)) {
+                REGISTERED_PROFESSIONS.add(professionKey);
+                Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(professionKey);
                 BYGVillagerTrades.appendTradesList(int2ObjectMap, event.getTrades());
             }
         }
@@ -57,6 +76,22 @@ public class BYGForgeEventsHandler {
             event.setBurnTime(BURN_TIMES.getInt(item));
         }
     }
+
+    @SubscribeEvent
+    public static void appendBYGHoeTillables(BlockEvent.BlockToolModificationEvent event) {
+        if (event.getToolAction() == ToolActions.HOE_TILL) {
+            if (event.getHeldItemStack().getItem() instanceof HoeItem) {
+                Pair<Predicate<UseOnContext>, BlockState> pair = BYGHoeables.TILLABLES_FORGE.get(event.getFinalState().getBlock());
+                if (pair != null) {
+                    if (pair.getFirst().test(event.getContext())) {
+                        event.setFinalState(pair.getSecond());
+                    }
+                }
+
+            }
+        }
+    }
+
 
     @SubscribeEvent
     public static void registerCommands(final RegisterCommandsEvent event) {

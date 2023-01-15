@@ -1,10 +1,12 @@
 package potionstudios.byg;
 
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -24,6 +26,8 @@ import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.entity.manowar.ManOWar;
+import potionstudios.byg.common.entity.npc.TradesConfig;
+import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -42,8 +46,10 @@ import terrablender.api.SurfaceRuleManager;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import static potionstudios.byg.common.entity.BYGEntities.MAN_O_WAR;
+import static potionstudios.byg.common.entity.BYGEntities.PUMPKIN_WARDEN;
 
 @Mod(BYG.MOD_ID)
 public class BYGForge {
@@ -82,6 +88,7 @@ public class BYGForge {
 
     public void createTestEntityAttributes(final EntityAttributeCreationEvent event){
         event.put(MAN_O_WAR.get(), ManOWar.createAttributes().build());
+        event.put(PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes().build());
     }
 
     private void commonLoad(FMLCommonSetupEvent event) {
@@ -96,6 +103,11 @@ public class BYGForge {
         Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
         BYGStrippables.strippableLogsBYG(strippables::put);
         AxeItemAccess.byg_setStripables(strippables);
+        Set<ResourceKey<VillagerProfession>> resourceKeys = new ObjectOpenHashSet<>(TradesConfig.getConfig().tradesByProfession().keySet());
+        resourceKeys.removeAll(BYGForgeEventsHandler.REGISTERED_PROFESSIONS);
+        resourceKeys.forEach(key -> {
+            BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trades entry...".formatted(key.location().toString()));
+        });
     }
 
     private void registerTerraBlender() {

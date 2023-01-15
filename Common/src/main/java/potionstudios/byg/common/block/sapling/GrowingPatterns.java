@@ -405,13 +405,12 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         .build())
         ));
         map.put(createLocation("witch_hazel_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("hazel_tree1")), 4)
-                        .add(new FeatureSpawner(createLocation("hazel_tree2")), 4)
-                        .add(new FeatureSpawner(createLocation("dead_hazel_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("dead_hazel_tree2")), 1)
+                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(createLocation("witch_hazel1")), 2)
+                        .add(new FeatureSpawner(createLocation("witch_hazel2")), 2)
+                        .add(new FeatureSpawner(createLocation("witch_hazel3")), 1)
+                        .add(new FeatureSpawner(createLocation("witch_hazel4")), 3)
+                        .add(new FeatureSpawner(createLocation("witch_hazel5")), 1)
                         .build())
         ));
         map.put(createLocation("yellow_birch_sapling"), List.of(

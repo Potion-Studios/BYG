@@ -17,8 +17,9 @@ This project requires [JDK 17](https://adoptium.net/) & uses the [MultiLoader Te
 
 # Dependencies
 ## 1.18 & 1.19
-Terrablender: https://www.curseforge.com/minecraft/mc-mods/terrablender 
+GeckoLib: https://www.curseforge.com/minecraft/mc-mods/geckolib
 
+Terrablender: https://www.curseforge.com/minecraft/mc-mods/terrablender
 
 Terrablender(Fabric): https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric
 

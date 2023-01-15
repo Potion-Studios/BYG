@@ -18,6 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -26,8 +27,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class BYGLilyItem extends BlockItem {
+    Block block;
     public BYGLilyItem(Block blockIn, Properties builder) {
         super(blockIn, builder);
+        this.block = blockIn;
     }
 
     public InteractionResult useOn(UseOnContext context) {

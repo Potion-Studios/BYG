@@ -65,9 +65,9 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addImpariusPlants(generationSettings);
         BYGDefaultBiomeFeatures.addFungalImparius(generationSettings);
         BYGDefaultBiomeFeatures.addLargeImpariusMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addEndLake(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
         BYGDefaultBiomeFeatures.addEnderLily(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IMPARIUS_GROVE_DELTA);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 2, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));

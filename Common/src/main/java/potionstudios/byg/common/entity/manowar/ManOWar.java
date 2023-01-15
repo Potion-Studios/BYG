@@ -350,11 +350,12 @@ public class ManOWar extends Animal implements IAnimatable {
     }
 
     @Override
-    public void spawnChildFromBreeding(ServerLevel level, Animal $$1) {
+    public void spawnChildFromBreeding(ServerLevel level, Animal animal) {
         RandomSource rand = level.getRandom();
         int i = rand.nextIntBetweenInclusive(1, 3);
         for (int j = 0; j < i; j++) {
-            super.spawnChildFromBreeding(level, $$1);
+            ((ManOWar)animal).setColor(getRandColor(level.getRandom()));
+            super.spawnChildFromBreeding(level, animal);
         }
     }
 

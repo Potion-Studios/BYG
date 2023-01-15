@@ -83,6 +83,8 @@
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinPlayer",
     "common.entity.MixinServerPlayer",
+    "common.entity.MixinVillager",
+    "common.entity.MixinZombie",
     "common.item.MixinBoneMealItem",
     "common.lightengine.WorldLightManagerMixin",
     "common.world.MixinChunkAccess",

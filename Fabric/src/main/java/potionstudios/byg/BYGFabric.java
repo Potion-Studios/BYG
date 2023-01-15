@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.common.BYGFuels;
@@ -29,6 +30,7 @@ import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 import static potionstudios.byg.BYG.createLocation;
 
@@ -39,7 +41,7 @@ public class BYGFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        initializeBYG("Fabric Mod Initializer");
+        initializeBYG("BYG Fabric Mod Initializer");
     }
 
     public static void initializeBYG(String initializedFrom) {
@@ -64,6 +66,7 @@ public class BYGFabric implements ModInitializer {
 
         BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
     }
+
     public static void registerRenderers() {
         FabricDefaultAttributeRegistry.register(BYGEntities.MAN_O_WAR.get(), ManOWar.createAttributes());
         FabricDefaultAttributeRegistry.register(BYGEntities.PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes());
@@ -90,16 +93,22 @@ public class BYGFabric implements ModInitializer {
     private static void registerVillagerTrades() {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
-            tradesConfig.tradesByProfession().forEach((villagerProfession, int2ObjectMap) ->
-                int2ObjectMap.forEach((level, configListing) ->
-                    TradeOfferHelper.registerVillagerOffers(villagerProfession, level, itemListings ->
-                        itemListings.addAll(Arrays.asList(configListing))
-                    )
-                )
+            tradesConfig.tradesByProfession().forEach((professionKey, int2ObjectMap) -> {
+                        Optional<VillagerProfession> profession = Registry.VILLAGER_PROFESSION.getOptional(professionKey);
+                        if (profession.isPresent()) {
+                            int2ObjectMap.forEach((level, configListing) ->
+                                    TradeOfferHelper.registerVillagerOffers(profession.get(), level, itemListings ->
+                                            itemListings.addAll(Arrays.asList(configListing))
+                                    )
+                            );
+                        } else {
+                            BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.location().toString()));
+                        }
+                    }
             );
 
             tradesConfig.wanderingTraderTrades().forEach(
-                (level, listings) -> TradeOfferHelper.registerWanderingTraderOffers(level, itemListings -> itemListings.addAll(Arrays.asList(listings)))
+                    (level, listings) -> TradeOfferHelper.registerWanderingTraderOffers(level, itemListings -> itemListings.addAll(Arrays.asList(listings)))
             );
         } else {
             BYG.LOGGER.warn("Ignoring villager/wandering trader trades added by BYG.");

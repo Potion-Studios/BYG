@@ -654,9 +654,13 @@ public class BYGItems {
     public static final RegistryObject<Item> ODDITY_BUSH = createItem(BYGBlocks.ODDITY_BUSH);
     public static final RegistryObject<Item> END_SAND = createItem(BYGBlocks.END_SAND);
 
-    public static final RegistryObject<Item> THERIUM_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "therium_shard");
-    public static final RegistryObject<Item> THERIUM_CRYSTAL = createItem(BYGBlocks.THERIUM_CRYSTAL);
-    public static final RegistryObject<Item> THERIUM_BLOCK = createItem(BYGBlocks.THERIUM_BLOCK);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_BLOCK = createItem(BYGBlocks.THERIUM_CRYSTAL_BLOCK);
+    public static final RegistryObject<Item> BUDDING_THERIUM_CRYSTAL = createItem(BYGBlocks.BUDDING_THERIUM_CRYSTAL);
+    public static final RegistryObject<Item> SMALL_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.SMALL_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> MEDIUM_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.MEDIUM_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> LARGE_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.LARGE_THERIUM_CRYSTAL_BUD);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_CLUSTER = createItem(BYGBlocks.THERIUM_CRYSTAL_CLUSTER);
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "therium_crystal_shard");
     public static final RegistryObject<Item> CHISELED_THERIUM = createItem(BYGBlocks.CHISELED_THERIUM);
     public static final RegistryObject<Item> CHISELED_THERIUM_STAIRS = createItem(BYGBlocks.CHISELED_THERIUM_STAIRS);
     public static final RegistryObject<Item> CHISELED_THERIUM_SLAB = createItem(BYGBlocks.CHISELED_THERIUM_SLAB);
@@ -709,7 +713,7 @@ public class BYGItems {
     public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
     public static final RegistryObject<Item> WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
     public static final RegistryObject<Item> COOKED_WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f).build())), "cooked_white_puffball_cap");
-    public static final RegistryObject<Item> WHITE_PUFFBALL_STEW = createItem(() -> new BowlFoodItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
+    public static final RegistryObject<Item> WHITE_PUFFBALL_STEW = createItem(() -> new BowlFoodItem(new Properties().stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
 
     public static final RegistryObject<Item> WHITE_MUSHROOM_STEM = createItem(BYGBlocks.WHITE_MUSHROOM_STEM);
     public static final RegistryObject<Item> BROWN_MUSHROOM_STEM = createItem(BYGBlocks.BROWN_MUSHROOM_STEM);

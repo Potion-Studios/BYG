@@ -16,7 +16,6 @@
     "byg:cyan_rose",
     "byg:cyan_tulip",
     "byg:daffodil",
-    "byg:delphinium",
     "byg:fairy_slipper",
     "byg:firecracker_flower_bush",
     "byg:foxglove",
@@ -25,7 +24,6 @@
     "byg:guzmania",
     "byg:incan_lily",
     "byg:iris",
-    "byg:japanese_orchid",
     "byg:kovan_flower",
     "byg:lazarus_bellflower",
     "byg:lollipop_flower",
@@ -57,9 +55,6 @@
     "byg:winter_scilla",
     "byg:yellow_daffodil",
     "byg:yellow_tulip",
-    "byg:pollen_block",
-    "byg:tall_allium",
-    "byg:tall_pink_allium",
     "byg:thereal_bellflower"
   ]
 }
