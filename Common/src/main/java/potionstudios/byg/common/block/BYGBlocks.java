@@ -172,9 +172,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WEEPING_ROOTS_PLANT = createBlock(BYGBlockProperties.BYGHangingVinePlant::new, "weeping_roots_plant");
     public static final BlockRegistryObject<Block> BEACH_GRASS = createBlock(() -> new BYGBonemealActionBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_BEACH_GRASS, BYGBonemealActionBlock.BonemealAction.growDoublePlant(() -> BYGBlocks.TALL_BEACH_GRASS.get())), "beach_grass");
     public static final BlockRegistryObject<BYGDoublePlantBlock> TALL_BEACH_GRASS = createBlock(() -> new BYGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_TALL_BEACH_GRASS), "tall_beach_grass");
-    public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "leaf_pile");
-    public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_CLOVER_PATCH), "clover_patch");
-    public static final BlockRegistryObject<Block> FLOWER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS), BYGBlockTags.GROUND_FLOWER_PATCH), "flower_patch");
+    public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "leaf_pile");
+    public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ), BYGBlockTags.GROUND_CLOVER_PATCH), "clover_patch");
+    public static final BlockRegistryObject<Block> FLOWER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ), BYGBlockTags.GROUND_FLOWER_PATCH), "flower_patch");
     public static final BlockRegistryObject<Block> BAOBAB_FRUIT_BLOCK = createBaobabFruitBlock("baobab_fruit_block");
     public static final BlockRegistryObject<Block> ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
 
@@ -249,7 +249,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> IVIS_SPROUT = createIvisBulbisPlant("ivis_sprout");
     public static final BlockRegistryObject<Block> ENDER_LILY = createBlock(BYGBlockProperties.BYGEnderLily::new, "ender_lily");
 
-    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "ether_foliage");
+    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "ether_foliage");
     public static final BlockRegistryObject<DoublePlantBlock> TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
     public static final BlockRegistryObject<Block> ETHER_GRASS = createEtherPlant("ether_grass");
     public static final BlockRegistryObject<Block> ETHER_BUSH = createEtherPlant("ether_bush");
@@ -356,8 +356,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> LAMENT_VINE = createBlock(BYGBlockProperties.BYGLamentVine::new, "lament_vine");
     public static final BlockRegistryObject<Block> LAMENT_VINE_PLANT = createBlock(BYGBlockProperties.BYGLamentVinePlant::new, "lament_vine_plant");
 
-    public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "pink_cherry_foliage");
-    public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.copy(Blocks.GRASS)), "white_cherry_foliage");
+    public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "pink_cherry_foliage");
+    public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "white_cherry_foliage");
 
     public static final BlockRegistryObject<Block> POLLEN_BLOCK = createBlock(BYGBlockProperties.BYGPollen::new, "pollen_block");
 
