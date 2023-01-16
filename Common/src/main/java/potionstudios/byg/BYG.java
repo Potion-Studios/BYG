@@ -24,6 +24,7 @@ import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.BYGConfigHandler;
@@ -63,6 +64,7 @@ public class BYG {
             throw new IllegalStateException(loadAllConfigs);
         }
 
+        BYGEntities.registerSpawnPlacements();
         FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
 
         if (Boolean.getBoolean("bygDev")) {

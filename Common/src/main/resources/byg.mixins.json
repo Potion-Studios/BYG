@@ -43,6 +43,7 @@
     "access.SimpleParticleTypeAccess",
     "access.SimpleWeightedRandomListBuilderAccess",
     "access.SnowyDirtBlockAccess",
+    "access.SpawnPlacementsAccess",
     "access.SpreadableSnowyDirtBlockAccess",
     "access.StairBlockAccess",
     "access.StructuresAccess",
