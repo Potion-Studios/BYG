@@ -9,6 +9,7 @@ import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.MangrovePropaguleBlock;
@@ -1093,29 +1094,32 @@ public class BYGOverworldTreeFeatures {
 
 
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
-            BYGFeatures.JOSHUA_TREE1,
-            () -> new BYGTreeConfig.Builder().setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1)
-                            .add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 10)
-                    ))
-                    .setMaxHeight(6)
-                    .setMinHeight(3)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/joshua/joshua_trunk1"),
+                    BYG.createLocation("features/trees/joshua/joshua_canopy1"),
+                    BiasedToBottomInt.of(1, 2),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(),4).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.JOSHUA_LEAVES.get(),
+                    BYGBlockTags.GROUND_JOSHUA_SAPLING, 4, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> JOSHUA_TREE2 = createConfiguredFeature("joshua_tree2",
-            BYGFeatures.JOSHUA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 10)
-                            ))
-                    .setMaxHeight(6)
-                    .setMinHeight(3)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JOSHUA_TREE2 = createConfiguredFeature("joshua_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/joshua/joshua_trunk2"),
+                    BYG.createLocation("features/trees/joshua/joshua_canopy2"),
+                    BiasedToBottomInt.of(5, 8),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(),4).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.JOSHUA_LEAVES.get(),
+                    BYGBlockTags.GROUND_JOSHUA_SAPLING, 6, ImmutableList.of()
+                    )
     );
 
     // TODO: BYG Propagule
