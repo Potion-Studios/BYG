@@ -7,6 +7,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MaterialColor;
+import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.common.item.BYGBoatItem;
@@ -160,6 +161,8 @@ public enum BYGWoodTypes {
     private final MultiTag logTag;
 
     private BlockRegistryObject<Block> growerItem;
+
+    @Nullable
     private BlockRegistryObject<Block> leaves;
 
     private BlockRegistryObject<Block> log;
@@ -287,6 +290,7 @@ public enum BYGWoodTypes {
         return woodType;
     }
 
+    @Nullable
     public BlockRegistryObject<Block> leaves() {
         return leaves;
     }

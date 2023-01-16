@@ -40,7 +40,6 @@ import static potionstudios.byg.BYG.createLocation;
 public class BYGFabric implements ModInitializer {
 
     private static String firstInitialized = null;
-    private static boolean afterRegistriesFreezeLoaded = false;
 
     @Override
     public void onInitialize() {
@@ -76,13 +75,6 @@ public class BYGFabric implements ModInitializer {
     }
 
     public static void afterRegistriesFreeze() {
-        if (afterRegistriesFreezeLoaded) {
-            Throwable throwable = new Throwable();
-            BYG.LOGGER.warn("Attempted to fire BYG after registries froze a 2nd time...", throwable);
-        }
-        BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event firing...");
-
-
         BYG.commonLoad();
         BYG.blockToInstanceOfReplacement(Blocks.SCAFFOLDING, BYGScaffoldingBlock.class);
         BYG.threadSafeCommonLoad();
@@ -91,7 +83,6 @@ public class BYGFabric implements ModInitializer {
 
         registerVillagerTrades();
         BYGStrippables.strippableLogsBYG(StrippableBlockRegistry::register);
-        afterRegistriesFreezeLoaded = true;
         BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
     }
 

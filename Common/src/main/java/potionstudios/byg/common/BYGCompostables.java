@@ -4,10 +4,12 @@ import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.reg.BlockRegistryObject;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -17,8 +19,14 @@ public class BYGCompostables {
     public static final Supplier<Object2FloatOpenHashMap<Item>> COMPOSTABLES = Suppliers.memoize(() -> {
         Object2FloatOpenHashMap<Item> map = new Object2FloatOpenHashMap<>();
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            map.put(type.leaves().asItem(), 0.3f);
-            map.put(type.growerItem().asItem(), 0.3f);
+            BlockRegistryObject<Block> leaves = type.leaves();
+            if (leaves != null) {
+                map.put(leaves.asItem(), 0.3f);
+            }
+            BlockRegistryObject<Block> growerItem = type.growerItem();
+            if (growerItem != null) {
+                map.put(growerItem.asItem(), 0.3f);
+            }
         }
 
         //Leaves

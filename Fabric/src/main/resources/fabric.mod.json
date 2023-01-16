@@ -32,6 +32,9 @@
     "client": [
       "potionstudios.byg.client.BYGFabricClient"
     ],
+    "server": [
+      "potionstudios.byg.server.BYGFabricDedicatedServer"
+    ],
     "terrablender": [
       "potionstudios.byg.entry.BYGTerraBlenderEntry"
     ]

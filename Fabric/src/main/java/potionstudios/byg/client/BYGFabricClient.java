@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
+import potionstudios.byg.BYGFabric;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
 import potionstudios.byg.mixin.access.client.ItemBlockRenderTypeAccess;
 import potionstudios.byg.mixin.client.access.AccessEntityRenderers;
@@ -32,5 +33,6 @@ public class BYGFabricClient implements ClientModInitializer {
                 ParticleFactoryRegistry.getInstance().register(particle, provider::create);
             }
         });
+        BYGFabric.afterRegistriesFreeze();
     }
 }
