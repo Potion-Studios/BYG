@@ -57,6 +57,13 @@ public class BYGCompostables {
         map.put(BYGItems.BROWN_ZELKOVA_LEAVES.get(), 0.3f);
         map.put(BYGItems.WITHERING_OAK_LEAVES.get(), 0.3f);
         map.put(BYGItems.FIRECRACKER_LEAVES.get(), 0.3f);
+        map.put(BYGItems.JOSHUA_LEAVES.get(), 0.3f);
+        map.put(BYGItems.RIPE_JOSHUA_LEAVES.get(), 0.3f);
+        map.put(BYGItems.ARAUCARIA_LEAVES.get(), 0.3f);
+        map.put(BYGItems.FLOWERING_NIGHTSHADE_LEAVES.get(), 0.3f);
+        map.put(BYGItems.RED_OAK_LEAVES.get(), 0.3f);
+        map.put(BYGItems.RED_BIRCH_LEAVES.get(), 0.3f);
+
 
         //Saplings
         map.put(BYGItems.BLUE_SPRUCE_SAPLING.get(), 0.3f);
@@ -82,6 +89,10 @@ public class BYGCompostables {
         map.put(BYGItems.RED_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.BROWN_ZELKOVA_SAPLING.get(), 0.3f);
         map.put(BYGItems.WITHERING_OAK_SAPLING.get(), 0.3f);
+        map.put(BYGItems.RED_BIRCH_SAPLING.get(), 0.3f);
+        map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
+        map.put(BYGItems.JOSHUA_SAPLING.get(), 0.3f);
+        map.put(BYGItems.ARAUCARIA_SAPLING.get(), 0.3f);
 
         //Flowers
         map.put(BYGItems.ALLIUM_FLOWER_BUSH.get(), 0.65f);
@@ -170,6 +181,8 @@ public class BYGCompostables {
         //Foods
         map.put(BYGItems.CRIMSON_BERRIES.get(), 0.65f);
         map.put(BYGItems.CRIMSON_BERRY_PIE.get(), 0.65f);
+        map.put(BYGItems.JOSHUA_FRUIT.get(), 0.65f);
+        map.put(BYGItems.COOKED_JOSHUA_FRUIT.get(), 0.65f);
         map.put(BYGItems.GREEN_APPLE.get(), 0.65f);
         map.put(BYGItems.GREEN_APPLE_PIE.get(), 0.65f);
         map.put(BYGItems.GREEN_MUSHROOM.get(), 0.65f);
