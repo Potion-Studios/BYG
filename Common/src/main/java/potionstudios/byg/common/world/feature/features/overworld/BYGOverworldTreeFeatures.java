@@ -519,41 +519,57 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_PINK_TREE1 = createConfiguredFeature("pink_cherry_tree1",
-            BYGFeatures.CHERRY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CHERRY.log())
-                    .setLeavesBlock(BYGBlocks.PINK_CHERRY_LEAVES.get())
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CHERRY_PINK_TREE1 = createConfiguredFeature("pink_cherry_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
+                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
+                    CHERRY.log().get(),
+                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
+                    BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_PINK_TREE2 = createConfiguredFeature("pink_cherry_tree2",
-            BYGFeatures.CHERRY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CHERRY.log())
-                    .setLeavesBlock(BYGBlocks.PINK_CHERRY_LEAVES.get())
-                    .setMaxHeight(13)
-                    .setMinHeight(8)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CHERRY_PINK_TREE2 = createConfiguredFeature("pink_cherry_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
+                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
+                    CHERRY.log().get(),
+                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
+                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_WHITE_TREE1 = createConfiguredFeature("white_cherry_tree1",
-            BYGFeatures.CHERRY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CHERRY.log())
-                    .setLeavesBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get())
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CHERRY_WHITE_TREE1 = createConfiguredFeature("white_cherry_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
+                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
+                    CHERRY.log().get(),
+                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
+                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CHERRY_WHITE_TREE2 = createConfiguredFeature("white_cherry_tree2",
-            BYGFeatures.CHERRY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CHERRY.log())
-                    .setLeavesBlock(BYGBlocks.WHITE_CHERRY_LEAVES.get())
-                    .setMaxHeight(13)
-                    .setMinHeight(8)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CHERRY_WHITE_TREE2 = createConfiguredFeature("white_cherry_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
+                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
+                    CHERRY.log().get(),
+                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
+                    BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE1 = createConfiguredFeature("cika_tree1", BYGFeatures.CIKA_TREE1,
