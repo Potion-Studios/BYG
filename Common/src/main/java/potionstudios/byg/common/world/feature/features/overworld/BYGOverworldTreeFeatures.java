@@ -156,32 +156,46 @@ public class BYGOverworldTreeFeatures {
                             .build()
             );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
-            BYGFeatures.BAOBAB_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BAOBAB.log().get())
-                    .setLeavesBlock(BAOBAB.leaves().get())
-                    .setMaxHeight(28)
-                    .setMinHeight(20)
-                    .build()
+    //TODO: Fruit
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/baobab/baobab_tree_trunk1"),
+                    BYG.createLocation("features/trees/baobab/baobab_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
+                    BAOBAB.log(),
+                    BAOBAB.leaves(),
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
-            BYGFeatures.BAOBAB_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BAOBAB.log().get())
-                    .setLeavesBlock(BAOBAB.leaves().get())
-                    .setMaxHeight(28)
-                    .setMinHeight(20)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/baobab/baobab_tree_trunk2"),
+                    BYG.createLocation("features/trees/baobab/baobab_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
+                    BAOBAB.log(),
+                    BAOBAB.leaves(),
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
-            BYGFeatures.BAOBAB_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BAOBAB.log().get())
-                    .setLeavesBlock(BAOBAB.leaves().get())
-                    .setMaxHeight(28)
-                    .setMinHeight(20)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/baobab/baobab_tree_trunk3"),
+                    BYG.createLocation("features/trees/baobab/baobab_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
+                    BAOBAB.log(),
+                    BAOBAB.leaves(),
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_TREE1 = createConfiguredFeature("birch_tree1",
