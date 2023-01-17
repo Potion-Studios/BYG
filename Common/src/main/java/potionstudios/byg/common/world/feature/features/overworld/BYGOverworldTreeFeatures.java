@@ -44,23 +44,32 @@ import java.util.function.Supplier;
 import static potionstudios.byg.common.block.BYGWoodTypes.*;
 
 public class BYGOverworldTreeFeatures {
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",
-            BYGFeatures.ARAUCARIA_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(PINE.log())
-                    .setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES.get())
-                    .setMaxHeight(24)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ARAUCARIA_TREE1 = createConfiguredFeature("araucaria_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/araucaria/araucaria_tree_trunk1"),
+                    BYG.createLocation("features/trees/araucaria/araucaria_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ARAUCARIA_LEAVES.defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    BYGBlocks.ARAUCARIA_LEAVES,
+                    BYGBlockTags.GROUND_ARAUCARIA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ARAUCARIA_TREE2 = createConfiguredFeature("araucaria_tree2",
-            BYGFeatures.ARAUCARIA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(PINE.log())
-                    .setLeavesBlock(BYGBlocks.ARAUCARIA_LEAVES.get())
-                    .setMaxHeight(24)
-                    .setMinHeight(16)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ARAUCARIA_TREE2 = createConfiguredFeature("araucaria_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/araucaria/araucaria_tree_trunk1"),
+                    BYG.createLocation("features/trees/araucaria/araucaria_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ARAUCARIA_LEAVES.defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    BYGBlocks.ARAUCARIA_LEAVES,
+                    BYGBlockTags.GROUND_ARAUCARIA_SAPLING, 5, ImmutableList.of()
+            )
     );
 
 
