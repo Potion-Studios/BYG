@@ -29,7 +29,7 @@ import java.util.zip.GZIPInputStream;
 public class StructureTemplateUtil {
 
     public static final Map<String, Set<Block>> TO_KEEP = Util.make(new LinkedHashMap<>(), map -> {
-        map.put("ancient_trees/ancient_sequoia", Set.of(BYGWoodTypes.REDWOOD.log().get(), Blocks.RED_WOOL, Blocks.YELLOW_WOOL, Blocks.WHITE_WOOL));
+        map.put("ancient/ancient_sequoia", Set.of(BYGWoodTypes.REDWOOD.log().get(), Blocks.RED_WOOL, Blocks.YELLOW_WOOL, Blocks.WHITE_WOOL));
 
         for (int i = 1; i <= 6; i++) {
             map.put("skyris/skyris_canopy_" + i, Set.of(BYGWoodTypes.SKYRIS.log().get(), BYGWoodTypes.SKYRIS.leaves().get(), Blocks.RED_WOOL, Blocks.YELLOW_WOOL, Blocks.WHITE_WOOL));

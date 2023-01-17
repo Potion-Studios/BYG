@@ -64,31 +64,45 @@ public class BYGOverworldTreeFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE1 = createConfiguredFeature("ancient_tree1",
-            BYGFeatures.ANCIENT_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.DARK_OAK_LOG)
-                    .setLeavesBlock(Blocks.DARK_OAK_LEAVES)
-                    .setMaxHeight(25)
-                    .setMinHeight(15)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ANCIENT_TREE1 = createConfiguredFeature("ancient_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ancient/ancient_tree_trunk1"),
+                    BYG.createLocation("features/trees/ancient/ancient_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.DARK_OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DARK_OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.DARK_OAK_LOG,
+                    Blocks.DARK_OAK_LEAVES,
+                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE2 = createConfiguredFeature("ancient_tree2",
-            BYGFeatures.ANCIENT_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(EBONY)
-                    .setMaxHeight(25)
-                    .setMinHeight(15)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ANCIENT_TREE2 = createConfiguredFeature("ancient_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ancient/ancient_tree_trunk2"),
+                    BYG.createLocation("features/trees/ancient/ancient_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
+                    EBONY.log(),
+                    EBONY.leaves(),
+                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ANCIENT_TREE3 = createConfiguredFeature("ancient_tree3",
-            BYGFeatures.ANCIENT_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAPLE.log().get())
-                    .setLeavesBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get())
-                    .setMaxHeight(25)
-                    .setMinHeight(15)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ANCIENT_TREE3 = createConfiguredFeature("ancient_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ancient/ancient_tree_trunk3"),
+                    BYG.createLocation("features/trees/ancient/ancient_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(MAPLE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log(),
+                    BYGBlocks.SILVER_MAPLE_LEAVES,
+                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB1 = createConfiguredFeature("aspen_shrub1",

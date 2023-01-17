@@ -138,7 +138,7 @@ public class BYGStructures {
     }).build()));
 
     public static final Holder<Structure> VOLCANO = register("volcano", () -> new VolcanoStructure(structure(BiomeTags.IS_OCEAN, GenerationStep.Decoration.RAW_GENERATION, TerrainAdjustment.NONE)));
-    public static final Holder<Structure> ANCIENT_SEQUOIA = register("ancient_sequoia", () -> new AncientSequoiaTreeStructure(structure(BYGBiomeTags.HAS_ANCIENT_SEQUOIA, GenerationStep.Decoration.VEGETAL_DECORATION, TerrainAdjustment.NONE), new AncientSequoiaTreeStructure.Config(BYG.createLocation("features/trees/ancient_trees/ancient_sequoia"), true)));
+    public static final Holder<Structure> ANCIENT_SEQUOIA = register("ancient_sequoia", () -> new AncientSequoiaTreeStructure(structure(BYGBiomeTags.HAS_ANCIENT_SEQUOIA, GenerationStep.Decoration.VEGETAL_DECORATION, TerrainAdjustment.NONE), new AncientSequoiaTreeStructure.Config(BYG.createLocation("features/trees/ancient/ancient_sequoia"), true)));
 
     private static Holder<Structure> register(String id, Supplier<Structure> structureSupplier) {
         return PROVIDER.register(id, structureSupplier).asHolder();
