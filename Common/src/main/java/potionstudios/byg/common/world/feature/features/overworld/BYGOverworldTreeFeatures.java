@@ -198,156 +198,272 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_TREE1 = createConfiguredFeature("birch_tree1",
-            BYGFeatures.BIRCH_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .setMaxHeight(11)
-                    .setMinHeight(7)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE1 = createConfiguredFeature("birch_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_TREE2 = createConfiguredFeature("birch_tree2",
-            BYGFeatures.BIRCH_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .setMaxHeight(13)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE2 = createConfiguredFeature("birch_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_TREE3 = createConfiguredFeature("birch_tree3",
-            BYGFeatures.BIRCH_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .setMaxHeight(28)
-                    .setMinHeight(23)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE3 = createConfiguredFeature("birch_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_TREE4 = createConfiguredFeature("birch_tree4",
-            BYGFeatures.BIRCH_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .setMaxHeight(11)
-                    .setMinHeight(8)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BROWN_TREE1 = createConfiguredFeature("brown_birch_tree1",
-            BYGFeatures.BIRCH_TREE1,
-            () -> new BYGTreeConfig.Builder().copy(BIRCH_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BROWN_TREE2 = createConfiguredFeature("brown_birch_tree2",
-            BYGFeatures.BIRCH_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BROWN_TREE3 = createConfiguredFeature("brown_birch_tree3",
-            BYGFeatures.BIRCH_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BROWN_TREE4 = createConfiguredFeature("brown_birch_tree4",
-            BYGFeatures.BIRCH_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE4 = createConfiguredFeature("birch_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_ORANGE_TREE1 = createConfiguredFeature("orange_birch_tree1",
-            BYGFeatures.BIRCH_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_BIRCH_TREE1 = createConfiguredFeature("brown_birch_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_ORANGE_TREE2 = createConfiguredFeature("orange_birch_tree2",
-            BYGFeatures.BIRCH_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_BIRCH_TREE2 = createConfiguredFeature("brown_birch_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_ORANGE_TREE3 = createConfiguredFeature("orange_birch_tree3",
-            BYGFeatures.BIRCH_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_BIRCH_TREE3 = createConfiguredFeature("brown_birch_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_ORANGE_TREE4 = createConfiguredFeature("orange_birch_tree4",
-            BYGFeatures.BIRCH_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_BIRCH_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_RED_TREE1 = createConfiguredFeature("red_birch_tree1",
-            BYGFeatures.BIRCH_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_RED_TREE2 = createConfiguredFeature("red_birch_tree2",
-            BYGFeatures.BIRCH_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_RED_TREE3 = createConfiguredFeature("red_birch_tree3",
-            BYGFeatures.BIRCH_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_BIRCH_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_RED_TREE4 = createConfiguredFeature("red_birch_tree4",
-            BYGFeatures.BIRCH_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_BIRCH_TREE4 = createConfiguredFeature("brown_birch_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_YELLOW_TREE1 = createConfiguredFeature("yellow_birch_tree1",
-            BYGFeatures.BIRCH_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get())
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_ORANGE_TREE1 = createConfiguredFeature("orange_birch_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_YELLOW_TREE2 = createConfiguredFeature("yellow_birch_tree2",
-            BYGFeatures.BIRCH_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_ORANGE_TREE2 = createConfiguredFeature("orange_birch_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_YELLOW_TREE3 = createConfiguredFeature("yellow_birch_tree3",
-            BYGFeatures.BIRCH_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_ORANGE_TREE3 = createConfiguredFeature("orange_birch_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_YELLOW_TREE4 = createConfiguredFeature("yellow_birch_tree4",
-            BYGFeatures.BIRCH_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(BIRCH_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_ORANGE_TREE4 = createConfiguredFeature("orange_birch_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_RED_TREE1 = createConfiguredFeature("red_birch_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_RED_TREE2 = createConfiguredFeature("red_birch_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_RED_TREE3 = createConfiguredFeature("red_birch_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_RED_TREE4 = createConfiguredFeature("red_birch_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_YELLOW_TREE1 = createConfiguredFeature("yellow_birch_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_YELLOW_TREE2 = createConfiguredFeature("yellow_birch_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_YELLOW_TREE3 = createConfiguredFeature("yellow_birch_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_YELLOW_TREE4 = createConfiguredFeature("yellow_birch_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_tree_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.BROWN_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BLUFF_TREE1 = createConfiguredFeature("bluff_tree1",
