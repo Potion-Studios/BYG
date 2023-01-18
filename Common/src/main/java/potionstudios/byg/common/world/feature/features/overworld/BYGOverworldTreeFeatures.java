@@ -2475,37 +2475,57 @@ public class BYGOverworldTreeFeatures {
                     .setMinHeight(7)
                     .build()
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_TREE1 = createConfiguredFeature("willow_tree1",
-            BYGFeatures.WILLOW_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(WILLOW)
-                    .setMaxHeight(14)
-                    .setMinHeight(8)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE1 = createConfiguredFeature("willow_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/willow/willow_tree_trunk1"),
+                    BYG.createLocation("features/trees/willow/willow_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WILLOW.log().get()),
+                    BlockStateProvider.simple(WILLOW.leaves().get()),
+                    WILLOW.log(),
+                    WILLOW.leaves(),
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_TREE2 = createConfiguredFeature("willow_tree2",
-            BYGFeatures.WILLOW_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(WILLOW)
-                    .setMaxHeight(12)
-                    .setMinHeight(7)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE2 = createConfiguredFeature("willow_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/willow/willow_tree_trunk1"),
+                    BYG.createLocation("features/trees/willow/willow_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WILLOW.log().get()),
+                    BlockStateProvider.simple(WILLOW.leaves().get()),
+                    WILLOW.log(),
+                    WILLOW.leaves(),
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_TREE3 = createConfiguredFeature("willow_tree3",
-            BYGFeatures.WILLOW_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(WILLOW)
-                    .setMaxHeight(12)
-                    .setMinHeight(7)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE3 = createConfiguredFeature("willow_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/willow/willow_tree_trunk1"),
+                    BYG.createLocation("features/trees/willow/willow_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WILLOW.log().get()),
+                    BlockStateProvider.simple(WILLOW.leaves().get()),
+                    WILLOW.log(),
+                    WILLOW.leaves(),
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_TREE4 = createConfiguredFeature("willow_tree4",
-            BYGFeatures.WILLOW_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(WILLOW)
-                    .setMaxHeight(21)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE4 = createConfiguredFeature("willow_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/willow/willow_tree_trunk2"),
+                    BYG.createLocation("features/trees/willow/willow_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(WILLOW.log().get()),
+                    BlockStateProvider.simple(WILLOW.leaves().get()),
+                    WILLOW.log(),
+                    WILLOW.leaves(),
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_TREE1 = createConfiguredFeature("zelkova_tree1",

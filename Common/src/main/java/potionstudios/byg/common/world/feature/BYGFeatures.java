@@ -52,18 +52,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.boreal.BorealForestTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.boreal.BorealForestTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.coniferous.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree3;
@@ -115,9 +103,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.S
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.dead.WillowDeadTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.woodlands.WoodlandsTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
@@ -322,36 +307,6 @@ public class BYGFeatures {
     /********************************************************************Tree Features********************************************************************/
 
 
-    //Aspen
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE1 = createFeature("aspen_tree1", () -> new AspenTree(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE2 = createFeature("aspen_tree2", () -> new AspenTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE3 = createFeature("aspen_tree3", () -> new AspenTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Bluff
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BLUFF_TREE1 = createFeature("bluff_tree1", () -> new BluffTree(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BLUFF_TREE2 = createFeature("bluff_tree2", () -> new BluffTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BLUFF_TREE3 = createFeature("bluff_tree3", () -> new BluffTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Boreal Trees
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BOREAL_TREE1 = createFeature("boreal_tree1", () -> new BorealForestTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BOREAL_TREE2 = createFeature("boreal_tree2", () -> new BorealForestTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Coniferous
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE1 = createFeature("conifer_tree1", () -> new ConiferTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE2 = createFeature("conifer_tree2", () -> new ConiferTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE3 = createFeature("conifer_tree3", () -> new ConiferTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE4 = createFeature("conifer_tree4", () -> new ConiferTree4(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE5 = createFeature("conifer_tree5", () -> new ConiferTree5(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE6 = createFeature("conifer_tree6", () -> new ConiferTree6(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE7 = createFeature("conifer_tree7", () -> new ConiferTree7(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE8 = createFeature("conifer_tree8", () -> new ConiferTree8(BYGTreeConfig.CODEC.stable()));
-
-    //Cypress
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CYPRESS_TREE1 = createFeature("cypress_tree1", () -> new CypressTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CYPRESS_TREE2 = createFeature("cypress_tree2", () -> new CypressTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CYPRESS_TREE3 = createFeature("cypress_tree3", () -> new CypressTree3(BYGTreeConfig.CODEC.stable()));
-
-
     //Deciduous
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE1 = createFeature("deciduous_tree1", () -> new DeciduousTree1(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE2 = createFeature("deciduous_tree2", () -> new DeciduousTree2(BYGTreeConfig.CODEC.stable()));
@@ -454,10 +409,6 @@ public class BYGFeatures {
 
     //Willow
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_DEAD_TREE1 = createFeature("dead_willow_tree", () -> new WillowDeadTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE1 = createFeature("willow_tree1", () -> new WillowTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE2 = createFeature("willow_tree2", () -> new WillowTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE3 = createFeature("willow_tree3", () -> new WillowTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE4 = createFeature("willow_tree4", () -> new WillowTree4(BYGTreeConfig.CODEC.stable()));
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> createFeature(String id, Supplier<? extends F> feature) {
         return PROVIDER.register(id, feature);
