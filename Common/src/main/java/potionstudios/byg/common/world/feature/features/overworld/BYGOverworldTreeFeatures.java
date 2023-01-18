@@ -114,13 +114,18 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB1 = createConfiguredFeature("aspen_shrub1",
-            BYGFeatures.SHRUB1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ASPEN.log().get())
-                    .setLeavesBlock(ASPEN.leaves().get())
-                    .setMinHeight(2)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_SHRUB1 = createConfiguredFeature("aspen_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
+            )
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB2 = createConfiguredFeature("aspen_shrub2",
             BYGFeatures.SHRUB2,
@@ -572,31 +577,44 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE1 = createConfiguredFeature("cika_tree1", BYGFeatures.CIKA_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CIKA.log().get())
-                    .setLeavesBlock(CIKA.leaves().get())
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CIKA_TREE1 = createConfiguredFeature("cika_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cika/cika_trunk1"),
+                    BYG.createLocation("features/trees/cika/cika_canopy1"),
+                    BiasedToBottomInt.of(14, 21),
+                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
+                    CIKA.log().get(),
+                    CIKA.leaves().get(),
+                    BYGBlockTags.GROUND_CIKA_SAPLING, 14, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE2 = createConfiguredFeature("cika_tree2",
-            BYGFeatures.CIKA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CIKA.log().get())
-                    .setLeavesBlock(CIKA.leaves().get())
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CIKA_TREE2 = createConfiguredFeature("cika_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cika/cika_trunk2"),
+                    BYG.createLocation("features/trees/cika/cika_canopy2"),
+                    BiasedToBottomInt.of(5, 12),
+                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
+                    CIKA.log().get(),
+                    CIKA.leaves().get(),
+                    BYGBlockTags.GROUND_CIKA_SAPLING, 12, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CIKA_TREE3 = createConfiguredFeature("cika_tree3",
-            BYGFeatures.CIKA_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(CIKA.log().get())
-                    .setLeavesBlock(CIKA.leaves().get())
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CIKA_TREE3 = createConfiguredFeature("cika_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cika/cika_trunk3"),
+                    BYG.createLocation("features/trees/cika/cika_canopy3"),
+                    BiasedToBottomInt.of(7, 18),
+                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
+                    CIKA.log().get(),
+                    CIKA.leaves().get(),
+                    BYGBlockTags.GROUND_CIKA_SAPLING, 14, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE1 = createConfiguredFeature("conifer_tree1",
