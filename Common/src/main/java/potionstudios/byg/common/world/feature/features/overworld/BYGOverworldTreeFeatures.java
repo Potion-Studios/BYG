@@ -13,6 +13,7 @@ import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.MangrovePropaguleBlock;
+import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -24,6 +25,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntSt
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.CocoaDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import potionstudios.byg.BYG;
@@ -2419,62 +2421,72 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE1 = createConfiguredFeature("mahogany_tree1",
-            BYGFeatures.MAHOGANY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAHOGANY_TREE1 = createConfiguredFeature("mahogany_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_trunk1"),
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(MAHOGANY.log().get()),
+                    BlockStateProvider.simple(MAHOGANY.leaves().get()),
+                    MAHOGANY.log(),
+                    MAHOGANY.leaves(),
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.5F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F), new CocoaDecorator(0.2F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE2 = createConfiguredFeature("mahogany_tree2",
-            BYGFeatures.MAHOGANY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMaxHeight(14)
-                    .setMinHeight(8)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAHOGANY_TREE2 = createConfiguredFeature("mahogany_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_trunk1"),
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(MAHOGANY.log().get()),
+                    BlockStateProvider.simple(MAHOGANY.leaves().get()),
+                    MAHOGANY.log(),
+                    MAHOGANY.leaves(),
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.4F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F), new CocoaDecorator(0.2F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE3 = createConfiguredFeature("mahogany_tree3",
-            BYGFeatures.MAHOGANY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAHOGANY_TREE3 = createConfiguredFeature("mahogany_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_trunk1"),
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(MAHOGANY.log().get()),
+                    BlockStateProvider.simple(MAHOGANY.leaves().get()),
+                    MAHOGANY.log(),
+                    MAHOGANY.leaves(),
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.4F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F), new CocoaDecorator(0.2F))
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE4 = createConfiguredFeature("mahogany_tree4",
-            BYGFeatures.MAHOGANY_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMaxHeight(24)
-                    .setMinHeight(18)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAHOGANY_TREE5 = createConfiguredFeature("mahogany_tree5",
-            BYGFeatures.MAHOGANY_TREE5,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMaxHeight(31)
-                    .setMinHeight(25)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAHOGANY_TREE4 = createConfiguredFeature("mahogany_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_trunk4"),
+                    BYG.createLocation("features/trees/mahogany/mahogany_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(MAHOGANY.log().get()),
+                    BlockStateProvider.simple(MAHOGANY.leaves().get()),
+                    MAHOGANY.log(),
+                    MAHOGANY.leaves(),
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.4F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F), new CocoaDecorator(0.2F))
+            )
     );
 
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WOODLANDS_TREE1 = createConfiguredFeature("woodlands_tree1",
-            BYGFeatures.WOODLANDS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(5)
-                    .setMinHeight(25)
-                    .build()
-
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WOODLANDS_TREE1 = createConfiguredFeature("woodlands_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/woodlands/woodlands_tree_trunk1"),
+                    BYG.createLocation("features/trees/woodlands/woodlands_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    BlockStateProvider.simple(Blocks.OAK_LEAVES),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_DEAD_TREE1 = createConfiguredFeature("dead_willow_tree1",
@@ -2833,11 +2845,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAHOGANY_TREES = createConfiguredFeature("mahogany_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE1), 0.1F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE3), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE4), 0.15F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE5))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE1), 0.25F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE2), 0.25F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE3), 0.25F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREE4))
     );
 
 
