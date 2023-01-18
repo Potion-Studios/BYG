@@ -871,7 +871,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FIRECRACKER_SHRUB = createConfiguredFeature("firecracker_shrub",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_trunk"),
+                    BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy1"),
                     BiasedToBottomInt.of(0, 0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
@@ -885,7 +885,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FIRECRACKER_SHRUB2 = createConfiguredFeature("firecracker_shrub2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_trunk"),
+                    BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy2"),
                     BiasedToBottomInt.of(0, 0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
