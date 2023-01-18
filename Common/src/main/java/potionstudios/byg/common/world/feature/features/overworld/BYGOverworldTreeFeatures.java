@@ -520,6 +520,20 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_BOREAL_TREE1 = createConfiguredFeature("birch_boreal_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_yellow_boreal_trunk"),
+                    BYG.createLocation("features/trees/birch/birch_yellow_boreal_canopy"),
+                    BiasedToBottomInt.of(3, 5),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    Blocks.BIRCH_LEAVES,
+                    BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_YELLOW_BOREAL_TREE1 = createConfiguredFeature("birch_yellow_boreal_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/birch/birch_boreal_trunk1"),
                     BYG.createLocation("features/trees/birch/birch_boreal_canopy1"),
                     BiasedToBottomInt.of(3, 5),
@@ -529,25 +543,6 @@ public class BYGOverworldTreeFeatures {
                     BYGBlocks.YELLOW_BIRCH_LEAVES.get(),
                     BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, 5, ImmutableList.of()
             )
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BOREAL_TREE2 = createConfiguredFeature("boreal_tree2",
-            BYGFeatures.BOREAL_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(15)
-                    .setMinHeight(11)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_YELLOW_BOREAL_TREE1 = createConfiguredFeature("birch_yellow_boreal_tree1",
-            BYGFeatures.BOREAL_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(Blocks.BIRCH_LEAVES)
-                    .setMaxHeight(15)
-                    .setMinHeight(9)
-                    .build()
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CHERRY_PINK_TREE1 = createConfiguredFeature("pink_cherry_tree1",
@@ -2534,7 +2529,7 @@ public class BYGOverworldTreeFeatures {
             () -> new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_YELLOW_BOREAL_TREE1), 0.3F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_BOREAL_TREE1), 0.3F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BOREAL_TREE2))
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUFF_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BLACK_FOREST_TREES = createConfiguredFeature("black_forest_trees",
