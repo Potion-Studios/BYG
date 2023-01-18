@@ -517,14 +517,18 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BOREAL_TREE1 = createConfiguredFeature("birch_boreal_tree1",
-            BYGFeatures.BOREAL_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.BIRCH_LOG)
-                    .setLeavesBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get())
-                    .setMaxHeight(15)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_BOREAL_TREE1 = createConfiguredFeature("birch_boreal_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/birch/birch_boreal_trunk1"),
+                    BYG.createLocation("features/trees/birch/birch_boreal_canopy1"),
+                    BiasedToBottomInt.of(3, 5),
+                    BlockStateProvider.simple(Blocks.BIRCH_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_BIRCH_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.BIRCH_LOG,
+                    BYGBlocks.YELLOW_BIRCH_LEAVES.get(),
+                    BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
     );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BOREAL_TREE2 = createConfiguredFeature("boreal_tree2",
             BYGFeatures.BOREAL_TREE2,
