@@ -23,7 +23,7 @@ public class BorealForestTree1 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY >= 1 && posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
+        if (true) {
             if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
                 return false;
             } else {

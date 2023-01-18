@@ -490,28 +490,31 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BLUFF_TREE1 = createConfiguredFeature("bluff_tree1",
-            BYGFeatures.BLUFF_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(21).setMinHeight(17).build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUFF_TREE1 = createConfiguredFeature("bluff_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bluff/bluff_trunk2"),
+                    BYG.createLocation("features/trees/bluff/bluff_canopy1"),
+                    BiasedToBottomInt.of(1, 2),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BLUFF_TREE2 = createConfiguredFeature("bluff_tree2",
-            BYGFeatures.BLUFF_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(11).setMinHeight(8).build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BLUFF_TREE3 = createConfiguredFeature("bluff_tree3",
-            BYGFeatures.BLUFF_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(21)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUFF_TREE2 = createConfiguredFeature("bluff_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bluff/bluff_trunk2"),
+                    BYG.createLocation("features/trees/bluff/bluff_canopy2"),
+                    BiasedToBottomInt.of(1, 2),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BIRCH_BOREAL_TREE1 = createConfiguredFeature("birch_boreal_tree1",
@@ -2518,8 +2521,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PINE_TREE1), 0.05F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PINE_TREE2), 0.05F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUFF_TREE1), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUFF_TREE2), 0.3F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUFF_TREE3), 0.25F)),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUFF_TREE2), 0.3F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CONIFER_TREE6))
     );
 
