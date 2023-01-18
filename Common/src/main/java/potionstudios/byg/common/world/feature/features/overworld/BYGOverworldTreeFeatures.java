@@ -638,69 +638,117 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE1 = createConfiguredFeature("conifer_tree1",
-            BYGFeatures.CONIFER_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(25)
-                    .setMinHeight(19)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE1 = createConfiguredFeature("conifer_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy1"),
+                    BiasedToBottomInt.of(19,25),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE2 = createConfiguredFeature("conifer_tree2",
-            BYGFeatures.CONIFER_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(30)
-                    .setMinHeight(23)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE2 = createConfiguredFeature("conifer_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy2"),
+                    BiasedToBottomInt.of(23, 30),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE3 = createConfiguredFeature("conifer_tree3",
-            BYGFeatures.CONIFER_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(35)
-                    .setMinHeight(26)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE3 = createConfiguredFeature("conifer_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy3"),
+                    BiasedToBottomInt.of(26,35),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE4 = createConfiguredFeature("conifer_tree4",
-            BYGFeatures.CONIFER_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(35)
-                    .setMinHeight(25)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE4 = createConfiguredFeature("conifer_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy4"),
+                    BiasedToBottomInt.of(25, 35),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE5 = createConfiguredFeature("conifer_tree5",
-            BYGFeatures.CONIFER_TREE5,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(21)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE5 = createConfiguredFeature("conifer_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy5"),
+                    BiasedToBottomInt.of(7,11),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE6 = createConfiguredFeature("conifer_tree6",
-            BYGFeatures.CONIFER_TREE6,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(17)
-                    .setMinHeight(11)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE6 = createConfiguredFeature("conifer_tree6",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy6"),
+                    BiasedToBottomInt.of(10,15),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE7 = createConfiguredFeature("conifer_tree7",
-            BYGFeatures.CONIFER_TREE7,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(28)
-                    .setMinHeight(18)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE7 = createConfiguredFeature("conifer_tree7",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk1"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy7"),
+                    BiasedToBottomInt.of(11,18),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CONIFER_TREE8 = createConfiguredFeature("conifer_tree8",
-            BYGFeatures.CONIFER_TREE8,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.FIR)
-                    .setMaxHeight(28)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CONIFER_TREE8 = createConfiguredFeature("conifer_tree8",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/conifer/conifer_trunk8"),
+                    BYG.createLocation("features/trees/conifer/conifer_canopy8"),
+                    BiasedToBottomInt.of(12,18),
+                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
+                    FIR.log().get(),
+                    FIR.leaves().get(),
+                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+            )
+
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE1 = createConfiguredFeature("cypress_tree1",
