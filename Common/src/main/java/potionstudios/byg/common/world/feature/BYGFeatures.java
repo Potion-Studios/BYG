@@ -52,36 +52,18 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ancient.AncientTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ancient.AncientTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ancient.AncientTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.araucaria.AraucariaTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.araucaria.AraucariaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.aspen.AspenTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.baobab.BaobabTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.birch.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.bluff.BluffTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.boreal.BorealForestTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.boreal.BorealForestTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cherry.CherryTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cherry.CherryTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.cika.CikaTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.coniferous.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.cypress.CypressTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deadhazel.DeadHazelTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deadhazel.DeadHazelTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deadhazel.HazelTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deadhazel.HazelTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree3;
@@ -97,10 +79,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTre
 import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree4;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda.JacarandaTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.jacaranda.JacarandaTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.joshua.JoshuaTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.mahogany.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree2;
@@ -127,7 +105,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.rainbow_eucaly
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.skyris.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.giant.SpruceTreeLarge1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium2;
@@ -138,7 +115,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.S
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.white_mangrove.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree4;
@@ -495,5 +471,6 @@ public class BYGFeatures {
         return PROVIDER.register(id, feature);
     }
 
-    public static void loadClass() {}
+    public static void loadClass() {
+    }
 }

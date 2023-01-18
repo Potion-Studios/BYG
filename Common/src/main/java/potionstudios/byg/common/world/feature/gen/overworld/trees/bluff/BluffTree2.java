@@ -25,15 +25,8 @@ public class BluffTree2 extends BYGAbstractTreeFeature<BYGTreeConfig> {
         int posX = pos.getX();
         int posY = pos.getY();
         int posZ = pos.getZ();
-        if (posY + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
-
-            if (!isDesiredGroundwDirtTag(worldIn, pos.below(), config)) {
-                return false;
-            } else if (!this.isAnotherTreeNearby(worldIn, pos, randTreeHeight, 0, isSapling)) {
-                return false;
-            } else if (!this.doesSaplingHaveSpaceToGrow(worldIn, pos, randTreeHeight, 5, 5, 5, isSapling)) {
-                return false;
-            } else {
+        if (true) {
+            {
 
                 //this.setGroundBlockAt(worldIn, blockpos, pos, Blocks.STONE.getDefaultState());
                 Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);

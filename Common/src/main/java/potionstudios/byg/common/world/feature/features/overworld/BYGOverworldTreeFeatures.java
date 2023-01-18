@@ -127,39 +127,58 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_SHRUB2 = createConfiguredFeature("aspen_shrub2",
-            BYGFeatures.SHRUB2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ASPEN.log().get())
-                    .setLeavesBlock(ASPEN.leaves().get())
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_SHRUB2 = createConfiguredFeature("aspen_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy2"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE1 = createConfiguredFeature("aspen_tree1",
-            BYGFeatures.ASPEN_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ASPEN.log().get())
-                    .setLeavesBlock(ASPEN.leaves().get())
-                    .setMaxHeight(10)
-                    .setMinHeight(7)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE1 = createConfiguredFeature("aspen_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen/aspen_trunk1"),
+                    BYG.createLocation("features/trees/aspen/aspen_canopy1"),
+                    BiasedToBottomInt.of(4, 7),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE2 = createConfiguredFeature("aspen_tree2",
-            BYGFeatures.ASPEN_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ASPEN.log().get())
-                    .setLeavesBlock(ASPEN.leaves().get())
-                    .setMaxHeight(19).setMinHeight(14).build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE2 = createConfiguredFeature("aspen_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen/aspen_trunk2"),
+                    BYG.createLocation("features/trees/aspen/aspen_canopy2"),
+                    BiasedToBottomInt.of(4, 7),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 8, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ASPEN_TREE3 =
-            createConfiguredFeature("aspen_tree3", BYGFeatures.ASPEN_TREE3,
-                    () -> new BYGTreeConfig.Builder()
-                            .setTrunkBlock(ASPEN.log().get())
-                            .setLeavesBlock(ASPEN.leaves().get())
-                            .setMaxHeight(18)
-                            .setMinHeight(11)
-                            .build()
-            );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE3 = createConfiguredFeature("aspen_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen/aspen_trunk3"),
+                    BYG.createLocation("features/trees/aspen/aspen_canopy3"),
+                    BiasedToBottomInt.of(4, 7),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of()
+            )
+    );
 
     //TODO: Fruit
 
