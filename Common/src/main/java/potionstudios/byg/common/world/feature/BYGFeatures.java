@@ -345,38 +345,14 @@ public class BYGFeatures {
     //Subzero
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SUBZERO_CRYSTAL = createFeature("subzero_crystal", () -> new SubzeroCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
 
-    /********************************************************************Structures***********************************************************************/
-
 
     /********************************************************************Tree Features********************************************************************/
 
-    //Default
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BASIC_TREE = createFeature("tree", () -> new BasicTree(BYGTreeConfig.CODEC.stable()));
-
-    //Araucaria
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ARAUCARIA_TREE1 = createFeature("araucaria_tree1", () -> new AraucariaTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ARAUCARIA_TREE2 = createFeature("araucaria_tree2", () -> new AraucariaTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Ancient
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ANCIENT_TREE1 = createFeature("ancient_tree1", () -> new AncientTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ANCIENT_TREE2 = createFeature("ancient_tree2", () -> new AncientTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ANCIENT_TREE3 = createFeature("ancient_tree3", () -> new AncientTree3(BYGTreeConfig.CODEC.stable()));
 
     //Aspen
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE1 = createFeature("aspen_tree1", () -> new AspenTree(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE2 = createFeature("aspen_tree2", () -> new AspenTree2(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ASPEN_TREE3 = createFeature("aspen_tree3", () -> new AspenTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Baobab
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BAOBAB_TREE1 = createFeature("baobab_tree1", () -> new BaobabTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BAOBAB_TREE2 = createFeature("baobab_tree2", () -> new BaobabTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BAOBAB_TREE3 = createFeature("baobab_tree3", () -> new BaobabTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Birch
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BIRCH_TREE1 = createFeature("birch_tree1", () -> new BirchTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BIRCH_TREE2 = createFeature("birch_tree2", () -> new BirchTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BIRCH_TREE3 = createFeature("birch_tree3", () -> new BirchTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BIRCH_TREE4 = createFeature("birch_tree4", () -> new BirchTree4(BYGTreeConfig.CODEC.stable()));
 
     //Bluff
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BLUFF_TREE1 = createFeature("bluff_tree1", () -> new BluffTree(BYGTreeConfig.CODEC.stable()));
@@ -386,15 +362,6 @@ public class BYGFeatures {
     //Boreal Trees
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BOREAL_TREE1 = createFeature("boreal_tree1", () -> new BorealForestTree1(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> BOREAL_TREE2 = createFeature("boreal_tree2", () -> new BorealForestTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Cherry
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CHERRY_TREE1 = createFeature("cherry_tree1", () -> new CherryTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CHERRY_TREE2 = createFeature("cherry_tree2", () -> new CherryTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Cika
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CIKA_TREE1 = createFeature("cika_tree1", () -> new CikaTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CIKA_TREE2 = createFeature("cika_tree2", () -> new CikaTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CIKA_TREE3 = createFeature("cika_tree3", () -> new CikaTree3(BYGTreeConfig.CODEC.stable()));
 
     //Coniferous
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CONIFER_TREE1 = createFeature("conifer_tree1", () -> new ConiferTree1(BYGTreeConfig.CODEC.stable()));
@@ -411,11 +378,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CYPRESS_TREE2 = createFeature("cypress_tree2", () -> new CypressTree2(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> CYPRESS_TREE3 = createFeature("cypress_tree3", () -> new CypressTree3(BYGTreeConfig.CODEC.stable()));
 
-    //Dead Hazel
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HAZEL_TREE1 = createFeature("hazel_tree1", () -> new HazelTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HAZEL_TREE2 = createFeature("hazel_tree2", () -> new HazelTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DEAD_HAZEL_TREE1 = createFeature("dead_hazel_tree1", () -> new DeadHazelTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DEAD_HAZEL_TREE2 = createFeature("dead_hazel_tree2", () -> new DeadHazelTree2(BYGTreeConfig.CODEC.stable()));
 
     //Deciduous
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE1 = createFeature("deciduous_tree1", () -> new DeciduousTree1(BYGTreeConfig.CODEC.stable()));
@@ -440,21 +402,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE2 = createFeature("holly_tree2", () -> new HollyTree2(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE3 = createFeature("holly_tree3", () -> new HollyTree3(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE4 = createFeature("holly_tree4", () -> new HollyTree4(BYGTreeConfig.CODEC.stable()));
-
-    //Jacaranda
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> JACARANDA_TREE1 = createFeature("jacaranda_tree1", () -> new JacarandaTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> JACARANDA_TREE2 = createFeature("jacaranda_tree2", () -> new JacarandaTree2(BYGTreeConfig.CODEC.stable()));
-
-    //JoshuaTree
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> JOSHUA_TREE1 = createFeature("joshua_tree1", () -> new JoshuaTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> JOSHUA_TREE2 = createFeature("joshua_tree2", () -> new JoshuaTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Mangrove
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE1 = createFeature("white_mangrove_tree1", () -> new MangroveTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE2 = createFeature("white_mangrove_tree2", () -> new MangroveTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE3 = createFeature("white_mangrove_tree3", () -> new MangroveTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE4 = createFeature("white_mangrove_tree4", () -> new MangroveTree4(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MANGROVE_TREE5 = createFeature("white_mangrove_tree5", () -> new MangroveTree5(BYGTreeConfig.CODEC.stable()));
 
     //Maple
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE1 = createFeature("maple_tree1", () -> new MapleTree1(BYGTreeConfig.CODEC.stable()));
@@ -508,12 +455,6 @@ public class BYGFeatures {
     //Shrubs
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB1 = createFeature("shrub1", () -> new Shrub1(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB2 = createFeature("shrub2", () -> new Shrub2(BYGTreeConfig.CODEC.stable()));
-    //Skyris
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SKYRIS_TREE1 = createFeature("skyris_tree1", () -> new SkyrisTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SKYRIS_TREE2 = createFeature("skyris_tree2", () -> new SkyrisTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SKYRIS_TREE3 = createFeature("skyris_tree3", () -> new SkyrisTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SKYRIS_TREE4 = createFeature("skyris_tree4", () -> new SkyrisTree4(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SKYRIS_TREE5 = createFeature("skyris_tree5", () -> new SkyrisTree5(BYGTreeConfig.CODEC.stable()));
 
     //Spruce
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_LARGE1 = createFeature("large_spruce_tree1", () -> new SpruceTreeLarge1(BYGTreeConfig.CODEC.stable()));
