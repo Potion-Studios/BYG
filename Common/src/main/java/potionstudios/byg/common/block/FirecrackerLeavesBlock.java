@@ -32,9 +32,7 @@ public class FirecrackerLeavesBlock extends LeavesBlock {
             level.setBlockAndUpdate(blockPos, BYGBlocks.FIRECRACKER_FLOWER_BUSH.defaultBlockState());
             level.neighborChanged(blockPos, BYGBlocks.FIRECRACKER_FLOWER_BUSH.get(), blockPos);
             level.addParticle(ParticleTypes.HAPPY_VILLAGER, d, e, f, 0.0D, 0.0D, 0.0D);
-
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
-
+        return super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
     }
 }

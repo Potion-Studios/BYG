@@ -868,22 +868,32 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> FIRECRACKER_SHRUB = createConfiguredFeature("firecracker_shrub",
-            BYGFeatures.SHRUB1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.FIRECRACKER_LEAVES.get())
-                    .setMinHeight(2)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FIRECRACKER_SHRUB = createConfiguredFeature("firecracker_shrub",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_trunk"),
+                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy1"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.FIRECRACKER_LEAVES.get(),
+                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 1, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> FIRECRACKER_SHRUB2 = createConfiguredFeature("firecracker_shrub2",
-            BYGFeatures.SHRUB2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.FIRECRACKER_LEAVES.get())
-                    .setMinHeight(2)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FIRECRACKER_SHRUB2 = createConfiguredFeature("firecracker_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_trunk"),
+                    BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy2"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.FIRECRACKER_LEAVES.get(),
+                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 1, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_TREE1 = createConfiguredFeature("deciduous_tree1",
