@@ -2493,57 +2493,84 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_TREE1 = createConfiguredFeature("zelkova_tree1",
-            BYGFeatures.ZELKOVA_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(ZELKOVA)
-                    .setMaxHeight(20)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_TREE1 = createConfiguredFeature("zelkova_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_TREE2 = createConfiguredFeature("zelkova_tree2",
-            BYGFeatures.ZELKOVA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(ZELKOVA)
-                    .setMaxHeight(28)
-                    .setMinHeight(18)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_TREE2 = createConfiguredFeature("zelkova_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_TREE3 = createConfiguredFeature("zelkova_tree3",
-            BYGFeatures.ZELKOVA_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(ZELKOVA)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_TREE3 = createConfiguredFeature("zelkova_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_BROWN_TREE1 = createConfiguredFeature("zelkova_brown_tree1",
-            BYGFeatures.ZELKOVA_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ZELKOVA.log().get())
-                    .setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES.get())
-                    .setMaxHeight(21)
-                    .setMinHeight(11)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_BROWN_TREE1 = createConfiguredFeature("brown_zelkova_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_BROWN_TREE2 = createConfiguredFeature("zelkova_brown_tree2",
-            BYGFeatures.ZELKOVA_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ZELKOVA.log().get())
-                    .setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES.get())
-                    .setMaxHeight(20)
-                    .setMinHeight(10)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_BROWN_TREE2 = createConfiguredFeature("brown_zelkova_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ZELKOVA_BROWN_TREE3 = createConfiguredFeature("zelkova_brown_tree3",
-            BYGFeatures.ZELKOVA_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(ZELKOVA.log().get())
-                    .setLeavesBlock(BYGBlocks.BROWN_ZELKOVA_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ZELKOVA_BROWN_TREE3 = createConfiguredFeature("brown_zelkova_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
+                    BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(ZELKOVA.log().get()),
+                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
+                    ZELKOVA.log(),
+                    ZELKOVA.leaves(),
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> FIRECRACKER_SHRUBS = createConfiguredFeature("firecracker_shrubs",

@@ -120,9 +120,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowT
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.WillowTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.dead.WillowDeadTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.woodlands.WoodlandsTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.ZelkovaTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.ZelkovaTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.zelkova.ZelkovaTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
@@ -461,11 +458,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE2 = createFeature("willow_tree2", () -> new WillowTree2(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE3 = createFeature("willow_tree3", () -> new WillowTree3(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_TREE4 = createFeature("willow_tree4", () -> new WillowTree4(BYGTreeConfig.CODEC.stable()));
-
-    //Zelkova
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ZELKOVA_TREE1 = createFeature("zelkova_tree1", () -> new ZelkovaTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ZELKOVA_TREE2 = createFeature("zelkova_tree2", () -> new ZelkovaTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ZELKOVA_TREE3 = createFeature("zelkova_tree3", () -> new ZelkovaTree3(BYGTreeConfig.CODEC.stable()));
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> createFeature(String id, Supplier<? extends F> feature) {
         return PROVIDER.register(id, feature);
