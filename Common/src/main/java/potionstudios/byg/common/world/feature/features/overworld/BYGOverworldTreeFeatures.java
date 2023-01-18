@@ -751,29 +751,44 @@ public class BYGOverworldTreeFeatures {
 
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE1 = createConfiguredFeature("cypress_tree1",
-            BYGFeatures.CYPRESS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.CYPRESS)
-                    .setMaxHeight(30)
-                    .setMinHeight(20)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE1 = createConfiguredFeature("cypress_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cypress/cypress_trunk1"),
+                    BYG.createLocation("features/trees/cypress/cypress_canopy1"),
+                    BiasedToBottomInt.of(14, 16),
+                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
+                    CYPRESS.log().get(),
+                    CYPRESS.leaves().get(),
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE2 = createConfiguredFeature("cypress_tree2",
-            BYGFeatures.CYPRESS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.CYPRESS)
-                    .setMaxHeight(30)
-                    .setMinHeight(20)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE2 = createConfiguredFeature("cypress_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cypress/cypress_trunk2"),
+                    BYG.createLocation("features/trees/cypress/cypress_canopy2"),
+                    BiasedToBottomInt.of(10, 13),
+                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
+                    CYPRESS.log().get(),
+                    CYPRESS.leaves().get(),
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> CYPRESS_TREE3 = createConfiguredFeature("cypress_tree3",
-            BYGFeatures.CYPRESS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.CYPRESS)
-                    .setMaxHeight(30)
-                    .setMinHeight(20)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE3 = createConfiguredFeature("cypress_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/cypress/cypress_trunk3"),
+                    BYG.createLocation("features/trees/cypress/cypress_canopy3"),
+                    BiasedToBottomInt.of(10, 13),
+                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
+                    CYPRESS.log().get(),
+                    CYPRESS.leaves().get(),
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+            )
     );
 
     public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BLOSSOM.defaultBlockState()), 3, List.of(Direction.DOWN));
