@@ -880,7 +880,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     BYGBlocks.FIRECRACKER_LEAVES.get(),
-                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 1, ImmutableList.of()
+                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 0, ImmutableList.of()
             )
     );
 
@@ -894,135 +894,64 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     BYGBlocks.FIRECRACKER_LEAVES.get(),
-                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 1, ImmutableList.of()
+                    BYGBlockTags.GROUND_FIRECRACKER_FLOWER_BUSH, 0, ImmutableList.of()
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_TREE1 = createConfiguredFeature("deciduous_tree1",
-            BYGFeatures.DECIDUOUS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(19)
-                    .setMinHeight(14)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> DECIDUOUS_TREE1 = createConfiguredFeature("deciduous_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/deciduous/deciduous_trunk1"),
+                    BYG.createLocation("features/trees/deciduous/deciduous_canopy1"),
+                    BiasedToBottomInt.of(4, 7),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 1, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_TREE2 = createConfiguredFeature("deciduous_tree2",
-            BYGFeatures.DECIDUOUS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(22)
-                    .setMinHeight(17)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> DECIDUOUS_TREE2 = createConfiguredFeature("deciduous_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/deciduous/deciduous_canopy2"),
+                    BiasedToBottomInt.of(6, 8),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 1, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_TREE3 = createConfiguredFeature("deciduous_tree3",
-            BYGFeatures.DECIDUOUS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(21)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> DECIDUOUS_TREE3 = createConfiguredFeature("deciduous_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/deciduous/deciduous_canopy3"),
+                    BiasedToBottomInt.of(6, 8),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 1, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_TREE4 = createConfiguredFeature("deciduous_tree4",
-            BYGFeatures.DECIDUOUS_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(21)
-                    .setMinHeight(16)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_RED_TREE1 = createConfiguredFeature("deciduous_red_tree1",
-            BYGFeatures.DECIDUOUS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_RED_TREE2 = createConfiguredFeature("deciduous_red_tree2",
-            BYGFeatures.DECIDUOUS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_RED_TREE3 = createConfiguredFeature("deciduous_red_tree3",
-            BYGFeatures.DECIDUOUS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_RED_TREE4 = createConfiguredFeature("deciduous_red_tree4",
-            BYGFeatures.DECIDUOUS_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_ORANGE_TREE1 = createConfiguredFeature("deciduous_orange_tree1",
-            BYGFeatures.DECIDUOUS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_ORANGE_TREE2 = createConfiguredFeature("deciduous_orange_tree2",
-            BYGFeatures.DECIDUOUS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_ORANGE_TREE3 = createConfiguredFeature("deciduous_orange_tree3",
-            BYGFeatures.DECIDUOUS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_ORANGE_TREE4 = createConfiguredFeature("deciduous_orange_tree4",
-            BYGFeatures.DECIDUOUS_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_BROWN_TREE1 = createConfiguredFeature("deciduous_brown_tree1",
-            BYGFeatures.DECIDUOUS_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_BROWN_TREE2 = createConfiguredFeature("deciduous_brown_tree2",
-            BYGFeatures.DECIDUOUS_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_BROWN_TREE3 = createConfiguredFeature("deciduous_brown_tree3",
-            BYGFeatures.DECIDUOUS_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> DECIDUOUS_BROWN_TREE4 = createConfiguredFeature("deciduous_brown_tree4",
-            BYGFeatures.DECIDUOUS_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(DECIDUOUS_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> DECIDUOUS_TREE4 = createConfiguredFeature("deciduous_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/deciduous/deciduous_canopy4"),
+                    BiasedToBottomInt.of(5, 8),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 8, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_BUSH1 = createConfiguredFeature("ebony_bush1",
@@ -1033,21 +962,31 @@ public class BYGOverworldTreeFeatures {
                     .setMinHeight(23)
                     .build()
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_TREE1 = createConfiguredFeature("ebony_tree1",
-            BYGFeatures.EBONY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.EBONY)
-                    .setMaxHeight(13)
-                    .setMinHeight(6)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> EBONY_TREE1 = createConfiguredFeature("ebony_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ebony/ebony_trunk1"),
+                    BYG.createLocation("features/trees/ebony/ebony_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
+                    EBONY.log(),
+                    EBONY.leaves(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> EBONY_TREE2 = createConfiguredFeature("ebony_tree2",
-            BYGFeatures.EBONY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.EBONY)
-                    .setMaxHeight(17)
-                    .setMinHeight(11)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> EBONY_TREE2 = createConfiguredFeature("ebony_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ebony/ebony_trunk2"),
+                    BYG.createLocation("features/trees/ebony/ebony_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
+                    EBONY.log(),
+                    EBONY.leaves(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
@@ -1116,39 +1055,57 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
-            BYGFeatures.HOLLY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(HOLLY.log())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1)
-                            .add(HOLLY.leaves().defaultBlockState(), 10)))
-                    .setMaxHeight(23)
-                    .setMinHeight(17)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/holly/holly_canopy1"),
+                    BiasedToBottomInt.of(10, 16),
+                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    HOLLY.log(),
+                    HOLLY.leaves(),
+                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HOLLY_TREE2 = createConfiguredFeature("holly_tree2",
-            BYGFeatures.HOLLY_TREE2,
-            () -> new BYGTreeConfig.Builder().copy(HOLLY_TREE1.value().config())
-                    .setMaxHeight(15)
-                    .setMinHeight(10)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> HOLLY_TREE2 = createConfiguredFeature("holly_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/holly/holly_canopy2"),
+                    BiasedToBottomInt.of(8, 14),
+                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    HOLLY.log(),
+                    HOLLY.leaves(),
+                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HOLLY_TREE3 = createConfiguredFeature("holly_tree3",
-            BYGFeatures.HOLLY_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(HOLLY_TREE1.value().config())
-                    .setMaxHeight(25)
-                    .setMinHeight(18)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> HOLLY_TREE3 = createConfiguredFeature("holly_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/holly/holly_trunk3"),
+                    BYG.createLocation("features/trees/holly/holly_canopy3"),
+                    BiasedToBottomInt.of(2, 12),
+                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    HOLLY.log(),
+                    HOLLY.leaves(),
+                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> HOLLY_TREE4 = createConfiguredFeature("holly_tree4",
-            BYGFeatures.HOLLY_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(HOLLY_TREE1.value().config())
-                    .setMaxHeight(14)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> HOLLY_TREE4 = createConfiguredFeature("holly_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/holly/holly_canopy4"),
+                    BiasedToBottomInt.of(10, 16),
+                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    HOLLY.log(),
+                    HOLLY.leaves(),
+                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_echanted_tree1",
