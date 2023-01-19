@@ -52,21 +52,7 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.deciduous.DeciduousTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.ebony.EbonyBush1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ebony.EbonyTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ebony.EbonyTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.enchanted.EnchantedGroveTree;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.enchanted.EnchantedTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.enchanted.EnchantedTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.enchanted.EnchantedTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.holly.HollyTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree3;
@@ -305,29 +291,9 @@ public class BYGFeatures {
     /********************************************************************Tree Features********************************************************************/
 
 
-    //Deciduous
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE1 = createFeature("deciduous_tree1", () -> new DeciduousTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE2 = createFeature("deciduous_tree2", () -> new DeciduousTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE3 = createFeature("deciduous_tree3", () -> new DeciduousTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DECIDUOUS_TREE4 = createFeature("deciduous_tree4", () -> new DeciduousTree4(BYGTreeConfig.CODEC.stable()));
-
     //Ebony
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> EBONY_BUSH1 = createFeature("ebony_bush", () -> new EbonyBush1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> EBONY_TREE1 = createFeature("ebony_tree1", () -> new EbonyTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> EBONY_TREE2 = createFeature("ebony_tree2", () -> new EbonyTree2(BYGTreeConfig.CODEC.stable()));
 
-    //Enchanted Trees
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ENCHANTED_TREE1 = createFeature("enchanted_tree1", () -> new EnchantedTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ENCHANTED_TREE2 = createFeature("enchanted_tree2", () -> new EnchantedTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ENCHANTED_TREE3 = createFeature("enchanted_tree3", () -> new EnchantedTree3(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ENCHANTED_GROVE_TREE1 = createFeature("enchanted_grove_tree1", () -> new EnchantedGroveTree(BYGTreeConfig.CODEC.stable()));
-
-    //Holly
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE1 = createFeature("holly_tree1", () -> new HollyTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE2 = createFeature("holly_tree2", () -> new HollyTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE3 = createFeature("holly_tree3", () -> new HollyTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> HOLLY_TREE4 = createFeature("holly_tree4", () -> new HollyTree4(BYGTreeConfig.CODEC.stable()));
 
     //Maple
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE1 = createFeature("maple_tree1", () -> new MapleTree1(BYGTreeConfig.CODEC.stable()));
@@ -373,27 +339,9 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> RAINBOW_TREE1 = createFeature("rainbow_eucalyptus_tree", () -> new RainbowEucalyptusTree(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> RAINBOW_LARGE_TREE1 = createFeature("large_rainbow_eucalyptus_tree", () -> new LargeRainbowEucalyptus(BYGTreeConfig.CODEC.stable()));
 
-    //RedWood
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> REDWOOD_TREE1 = createFeature("redwood_tree1", () -> new RedwoodTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> REDWOOD_TREE2 = createFeature("redwood_tree2", () -> new RedwoodTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> REDWOOD_TREE3 = createFeature("redwood_tree3", () -> new RedwoodTree3(BYGTreeConfig.CODEC.stable()));
-
     //Shrubs
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB1 = createFeature("shrub1", () -> new Shrub1(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB2 = createFeature("shrub2", () -> new Shrub2(BYGTreeConfig.CODEC.stable()));
-
-    //Spruce
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_LARGE1 = createFeature("large_spruce_tree1", () -> new SpruceTreeLarge1(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_MEDIUM1 = createFeature("medium_spruce_tree1", () -> new SpruceTreeMedium1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_MEDIUM2 = createFeature("medium_spruce_tree2", () -> new SpruceTreeMedium2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_MEDIUM3 = createFeature("medium_spruce_tree3", () -> new SpruceTreeMedium3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE_MEDIUM4 = createFeature("medium_spruce_tree4", () -> new SpruceTreeMedium4(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE1 = createFeature("spruce_tree1", () -> new SpruceTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE2 = createFeature("spruce_tree2", () -> new SpruceTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE3 = createFeature("spruce_tree3", () -> new SpruceTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SPRUCE_TREE4 = createFeature("spruce_tree4", () -> new SpruceTree4(BYGTreeConfig.CODEC.stable()));
 
 
     //Willow

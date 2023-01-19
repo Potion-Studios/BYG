@@ -944,7 +944,7 @@ public class BYGOverworldTreeFeatures {
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
-                    BYG.createLocation("features/trees/deciduous/deciduous_canopy4"),
+                    BYG.createLocation("features/trees/deciduous/deciduous_canopy3"),
                     BiasedToBottomInt.of(5, 8),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
@@ -987,72 +987,6 @@ public class BYGOverworldTreeFeatures {
                     EBONY.leaves(),
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
             )
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
-            BYGFeatures.ENCHANTED_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
-                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE2 = createConfiguredFeature("blue_enchanted_tree2",
-            BYGFeatures.ENCHANTED_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
-                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
-                    .setMaxHeight(26)
-                    .setMinHeight(19)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_TREE3 = createConfiguredFeature("blue_enchanted_tree3",
-            BYGFeatures.ENCHANTED_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
-                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
-                    .setMaxHeight(15)
-                    .setMinHeight(9)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_TREE1 = createConfiguredFeature("green_enchanted_tree1",
-            BYGFeatures.ENCHANTED_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(ENCHANTED_BLUE_TREE1.value().config())
-                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_TREE2 = createConfiguredFeature("green_enchanted_tree2",
-            BYGFeatures.ENCHANTED_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(ENCHANTED_BLUE_TREE2.value().config())
-                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_TREE3 = createConfiguredFeature("green_enchanted_tree3",
-            BYGFeatures.ENCHANTED_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(ENCHANTED_BLUE_TREE3.value().config())
-                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_BLUE_GROVE_TREE1 = createConfiguredFeature("blue_enchanted_grove_tree1",
-            BYGFeatures.ENCHANTED_GROVE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BLUE_ENCHANTED.log().get())
-                    .setLeavesBlock(BLUE_ENCHANTED.leaves().get())
-                    .setMaxHeight(15)
-                    .setMinHeight(9)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ENCHANTED_GREEN_GROVE_TREE1 = createConfiguredFeature("green_enchanted_grove_tree1",
-            BYGFeatures.ENCHANTED_GROVE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(ENCHANTED_BLUE_TREE1.value().config())
-                    .fromWoodType(BYGWoodTypes.GREEN_ENCHANTED)
-                    .build()
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
@@ -1878,29 +1812,44 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> REDWOOD_TREE1 = createConfiguredFeature("redwood_tree1",
-            BYGFeatures.REDWOOD_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.REDWOOD)
-                    .setMaxHeight(37)
-                    .setMinHeight(36)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> REDWOOD_TREE1 = createConfiguredFeature("redwood_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/redwood/redwood_tree_trunk1"),
+                    BYG.createLocation("features/trees/redwood/redwood_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
+                    REDWOOD.log(),
+                    REDWOOD.leaves(),
+                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> REDWOOD_TREE2 = createConfiguredFeature("redwood_tree2",
-            BYGFeatures.REDWOOD_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.REDWOOD)
-                    .setMaxHeight(34)
-                    .setMinHeight(31)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> REDWOOD_TREE2 = createConfiguredFeature("redwood_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/redwood/redwood_tree_trunk2"),
+                    BYG.createLocation("features/trees/redwood/redwood_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
+                    REDWOOD.log(),
+                    REDWOOD.leaves(),
+                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> REDWOOD_TREE3 = createConfiguredFeature("redwood_tree3",
-            BYGFeatures.REDWOOD_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.REDWOOD)
-                    .setMaxHeight(25)
-                    .setMinHeight(18)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> REDWOOD_TREE3 = createConfiguredFeature("redwood_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/redwood/redwood_tree_trunk3"),
+                    BYG.createLocation("features/trees/redwood/redwood_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
+                    REDWOOD.log(),
+                    REDWOOD.leaves(),
+                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SHRUB_MEADOW = createConfiguredFeature("meadow_shrub1",
@@ -2023,352 +1972,606 @@ public class BYGOverworldTreeFeatures {
     );
 
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE1 = createConfiguredFeature("spruce_tree1",
-            BYGFeatures.SPRUCE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(17)
-                    .setMinHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE1 = createConfiguredFeature("spruce_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE2 = createConfiguredFeature("spruce_tree2",
-            BYGFeatures.SPRUCE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(17)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE2 = createConfiguredFeature("spruce_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE3 = createConfiguredFeature("spruce_tree3",
-            BYGFeatures.SPRUCE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(16)
-                    .setMinHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE3 = createConfiguredFeature("spruce_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE4 = createConfiguredFeature("spruce_tree4",
-            BYGFeatures.SPRUCE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(17)
-                    .setMinHeight(12)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE_MEDIUM1 = createConfiguredFeature("spruce_tree_medium1", BYGFeatures.SPRUCE_TREE_MEDIUM1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(24)
-                    .setMinHeight(19)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE_MEDIUM2 = createConfiguredFeature("spruce_tree_medium2", BYGFeatures.SPRUCE_TREE_MEDIUM2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(25)
-                    .setMinHeight(20)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE_MEDIUM3 = createConfiguredFeature("spruce_tree_medium3", BYGFeatures.SPRUCE_TREE_MEDIUM3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(26)
-                    .setMinHeight(21)
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE_MEDIUM4 = createConfiguredFeature("spruce_tree_medium4", BYGFeatures.SPRUCE_TREE_MEDIUM4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(25)
-                    .setMinHeight(19)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE4 = createConfiguredFeature("spruce_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_TREE_LARGE1 = createConfiguredFeature("spruce_tree_large1", BYGFeatures.SPRUCE_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.SPRUCE_LOG)
-                    .setLeavesBlock(Blocks.SPRUCE_LEAVES)
-                    .setMaxHeight(55)
-                    .setMinHeight(40)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE_MEDIUM1 = createConfiguredFeature("spruce_tree_medium1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE_MEDIUM2 = createConfiguredFeature("spruce_tree_medium2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE_MEDIUM3 = createConfiguredFeature("spruce_tree_medium3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE_MEDIUM4 = createConfiguredFeature("spruce_tree_medium4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_TREE_LARGE1 = createConfiguredFeature("spruce_tree_large1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
     //Yellow Spruce
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE1 = createConfiguredFeature("spruce_yellow_tree1",
-            BYGFeatures.SPRUCE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE1 = createConfiguredFeature("spruce_yellow_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE2 = createConfiguredFeature("spruce_yellow_tree2",
-            BYGFeatures.SPRUCE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE2 = createConfiguredFeature("spruce_yellow_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE3 = createConfiguredFeature("spruce_yellow_tree3",
-            BYGFeatures.SPRUCE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE3 = createConfiguredFeature("spruce_yellow_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE4 = createConfiguredFeature("spruce_yellow_tree4",
-            BYGFeatures.SPRUCE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM1 = createConfiguredFeature("spruce_yellow_tree_medium1",
-            BYGFeatures.SPRUCE_TREE_MEDIUM1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM1.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM2 = createConfiguredFeature("spruce_yellow_tree_medium2",
-            BYGFeatures.SPRUCE_TREE_MEDIUM2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM2.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM3 = createConfiguredFeature("spruce_yellow_tree_medium3",
-            BYGFeatures.SPRUCE_TREE_MEDIUM3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM3.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM4 = createConfiguredFeature("spruce_yellow_tree_medium4",
-            BYGFeatures.SPRUCE_TREE_MEDIUM4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM4.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE4 = createConfiguredFeature("spruce_yellow_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_YELLOW_TREE_LARGE1 = createConfiguredFeature("spruce_yellow_tree_large1",
-            BYGFeatures.SPRUCE_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_LARGE1.value().config())
-                    .setLeavesBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM1 = createConfiguredFeature("spruce_yellow_tree_medium1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM2 = createConfiguredFeature("spruce_yellow_tree_medium2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM3 = createConfiguredFeature("spruce_yellow_tree_medium3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE_MEDIUM4 = createConfiguredFeature("spruce_yellow_tree_medium4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_YELLOW_TREE_LARGE1 = createConfiguredFeature("spruce_yellow_tree_large1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
     //Orange Spruce
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE1 = createConfiguredFeature("spruce_orange_tree1",
-            BYGFeatures.SPRUCE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE1 = createConfiguredFeature("spruce_orange_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE2 = createConfiguredFeature("spruce_orange_tree2",
-            BYGFeatures.SPRUCE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE2 = createConfiguredFeature("spruce_orange_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE3 = createConfiguredFeature("spruce_orange_tree3",
-            BYGFeatures.SPRUCE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE3 = createConfiguredFeature("spruce_orange_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE4 = createConfiguredFeature("spruce_orange_tree4",
-            BYGFeatures.SPRUCE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM1 = createConfiguredFeature("spruce_orange_tree_medium1",
-            BYGFeatures.SPRUCE_TREE_MEDIUM1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM1.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM2 = createConfiguredFeature("spruce_orange_tree_medium2",
-            BYGFeatures.SPRUCE_TREE_MEDIUM2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM2.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM3 = createConfiguredFeature("spruce_orange_tree_medium3",
-            BYGFeatures.SPRUCE_TREE_MEDIUM3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM3.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM4 = createConfiguredFeature("spruce_orange_tree_medium4",
-            BYGFeatures.SPRUCE_TREE_MEDIUM4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM4.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE4 = createConfiguredFeature("spruce_orange_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_ORANGE_TREE_LARGE1 = createConfiguredFeature("spruce_orange_tree_large1",
-            BYGFeatures.SPRUCE_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_LARGE1.value().config())
-                    .setLeavesBlock(BYGBlocks.ORANGE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM1 = createConfiguredFeature("spruce_orange_tree_medium1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM2 = createConfiguredFeature("spruce_orange_tree_medium2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM3 = createConfiguredFeature("spruce_orange_tree_medium3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE_MEDIUM4 = createConfiguredFeature("spruce_orange_tree_medium4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_ORANGE_TREE_LARGE1 = createConfiguredFeature("spruce_orange_tree_large1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
     //Red Spruce
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE1 = createConfiguredFeature("spruce_red_tree1",
-            BYGFeatures.SPRUCE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE1 = createConfiguredFeature("spruce_red_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE2 = createConfiguredFeature("spruce_red_tree2",
-            BYGFeatures.SPRUCE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE2 = createConfiguredFeature("spruce_red_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE3 = createConfiguredFeature("spruce_red_tree3",
-            BYGFeatures.SPRUCE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE3 = createConfiguredFeature("spruce_red_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE4 = createConfiguredFeature("spruce_red_tree4",
-            BYGFeatures.SPRUCE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE_MEDIUM1 = createConfiguredFeature("spruce_red_tree_medium1",
-            BYGFeatures.SPRUCE_TREE_MEDIUM1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM1.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE_MEDIUM2 = createConfiguredFeature("spruce_red_tree_medium2",
-            BYGFeatures.SPRUCE_TREE_MEDIUM2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM2.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE_MEDIUM3 = createConfiguredFeature("spruce_red_tree_medium3",
-            BYGFeatures.SPRUCE_TREE_MEDIUM3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM3.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE_MEDIUM4 = createConfiguredFeature("spruce_red_tree_medium4",
-            BYGFeatures.SPRUCE_TREE_MEDIUM4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM4.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE4 = createConfiguredFeature("spruce_red_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_RED_TREE_LARGE1 = createConfiguredFeature("spruce_red_tree_large1",
-            BYGFeatures.SPRUCE_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_LARGE1.value().config())
-                    .setLeavesBlock(BYGBlocks.RED_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE_MEDIUM1 = createConfiguredFeature("spruce_red_tree_medium1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE_MEDIUM2 = createConfiguredFeature("spruce_red_tree_medium2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE_MEDIUM3 = createConfiguredFeature("spruce_red_tree_medium3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE_MEDIUM4 = createConfiguredFeature("spruce_red_tree_medium4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE1 = createConfiguredFeature("spruce_blue_tree1",
-            BYGFeatures.SPRUCE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE2 = createConfiguredFeature("spruce_blue_tree2",
-            BYGFeatures.SPRUCE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE3 = createConfiguredFeature("spruce_blue_tree3",
-            BYGFeatures.SPRUCE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE3.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
-    );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE4 = createConfiguredFeature("spruce_blue_tree4",
-            BYGFeatures.SPRUCE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE4.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_RED_TREE_LARGE1 = createConfiguredFeature("spruce_red_tree_large1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM1 = createConfiguredFeature("spruce_blue_tree_medium1",
-            BYGFeatures.SPRUCE_TREE_MEDIUM1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM1.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE1 = createConfiguredFeature("spruce_blue_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM2 = createConfiguredFeature("spruce_blue_tree_medium2",
-            BYGFeatures.SPRUCE_TREE_MEDIUM2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM2.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE2 = createConfiguredFeature("spruce_blue_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM3 = createConfiguredFeature("spruce_blue_tree_medium3",
-            BYGFeatures.SPRUCE_TREE_MEDIUM3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM3.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE3 = createConfiguredFeature("spruce_blue_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM4 = createConfiguredFeature("spruce_blue_tree_medium4",
-            BYGFeatures.SPRUCE_TREE_MEDIUM4,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_MEDIUM4.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE4 = createConfiguredFeature("spruce_blue_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SPRUCE_BLUE_TREE_LARGE1 = createConfiguredFeature("spruce_blue_tree_large1",
-            BYGFeatures.SPRUCE_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(SPRUCE_TREE_LARGE1.value().config())
-                    .setLeavesBlock(BYGBlocks.BLUE_SPRUCE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM1 = createConfiguredFeature("spruce_blue_tree_medium1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM2 = createConfiguredFeature("spruce_blue_tree_medium2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy2"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM3 = createConfiguredFeature("spruce_blue_tree_medium3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy3"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE_MEDIUM4 = createConfiguredFeature("spruce_blue_tree_medium4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_trunk2"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_medium_canopy4"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
     );
 
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SPRUCE_BLUE_TREE_LARGE1 = createConfiguredFeature("spruce_blue_tree_large1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/spruce/spruce_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.SPRUCE_LOG,
+                    Blocks.SPRUCE_LEAVES,
+                    BlockTags.DIRT, 5, ImmutableList.of()
+            )
+    );
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> TROPICAL_SHRUB1 = createConfiguredFeature("tropical_shrub1",
             BYGFeatures.SHRUB1,
             () -> new BYGTreeConfig.Builder()
