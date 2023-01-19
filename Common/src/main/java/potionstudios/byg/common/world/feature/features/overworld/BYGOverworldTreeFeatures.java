@@ -9,7 +9,6 @@ import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
-import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.MangrovePropaguleBlock;
@@ -1795,21 +1794,31 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> RAINBOW_TREE1 = createConfiguredFeature("rainbow_eucalyptus_tree1",
-            BYGFeatures.RAINBOW_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.RAINBOW_EUCALYPTUS)
-                    .setMaxHeight(32)
-                    .setMinHeight(27)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RAINBOW_EUCALYPTUS_TREE1 = createConfiguredFeature("rainbow_eucalyptus_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(RAINBOW_EUCALYPTUS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
+                    RAINBOW_EUCALYPTUS.log(),
+                    RAINBOW_EUCALYPTUS.leaves(),
+                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> RAINBOW_LARGE_TREE1 = createConfiguredFeature("large_rainbow_eucalyptus_tree1",
-            BYGFeatures.RAINBOW_LARGE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.RAINBOW_EUCALYPTUS)
-                    .setMaxHeight(19)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RAINBOW_EUCALYPTUS_LARGE_TREE1 = createConfiguredFeature("rainbow_eucalyptus_large_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_trunk1"),
+                    BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_canopy1"),
+                    BiasedToBottomInt.of(5, 15),
+                    BlockStateProvider.simple(RAINBOW_EUCALYPTUS.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
+                    RAINBOW_EUCALYPTUS.log(),
+                    RAINBOW_EUCALYPTUS.leaves(),
+                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of(new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F))
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> REDWOOD_TREE1 = createConfiguredFeature("redwood_tree1",
@@ -1980,7 +1989,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -1993,7 +2002,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2006,7 +2015,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2019,7 +2028,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2033,7 +2042,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2100,7 +2109,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2113,7 +2122,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2126,7 +2135,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2139,7 +2148,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2153,7 +2162,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.YELLOW_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2220,7 +2229,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2233,7 +2242,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2246,7 +2255,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2259,7 +2268,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2273,7 +2282,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2341,7 +2350,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2354,7 +2363,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2367,7 +2376,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2380,7 +2389,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2394,7 +2403,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2461,7 +2470,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2474,7 +2483,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2487,7 +2496,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2500,7 +2509,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -2514,7 +2523,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BLUE_SPRUCE_LEAVES.defaultBlockState(), 1).build()),
-                    Blocks.OAK_LOG,
+                    Blocks.SPRUCE_LOG,
                     Blocks.SPRUCE_LEAVES,
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
@@ -3022,8 +3031,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> GUIANA_SHIELD_TREES = createConfiguredFeature("guiana_shield_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_LARGE_TREE1), 0.1F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_TREE1), 0.1F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_EUCALYPTUS_LARGE_TREE1), 0.1F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_EUCALYPTUS_TREE1), 0.1F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(TROPICAL_SHRUB1), 0.1F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAHOGANY_TREES))
     );
@@ -3031,8 +3040,8 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RAINBOW_EUCALYPTUS_TREES = createConfiguredFeature("rainbow_eucalyptus_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_LARGE_TREE1), 0.333F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_TREE1))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_EUCALYPTUS_LARGE_TREE1), 0.333F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RAINBOW_EUCALYPTUS_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SKYRIS_TREES = createConfiguredFeature("skyris_trees",

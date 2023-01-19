@@ -73,20 +73,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree4
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.pine.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.rainbow_eucalyptus.LargeRainbowEucalyptus;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.rainbow_eucalyptus.RainbowEucalyptusTree;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.redwood.RedwoodTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.giant.SpruceTreeLarge1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.medium.SpruceTreeMedium4;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.spruce.small.SpruceTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.dead.WillowDeadTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
@@ -334,10 +320,6 @@ public class BYGFeatures {
     //Palo Verde
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE1 = createFeature("palo_verde_tree1", () -> new PaloVerdeTree(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE2 = createFeature("palo_verde_tree2", () -> new PaloVerdeTree2(BYGTreeConfig.CODEC.stable()));
-
-    //Rainbow Eucalyptus
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> RAINBOW_TREE1 = createFeature("rainbow_eucalyptus_tree", () -> new RainbowEucalyptusTree(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> RAINBOW_LARGE_TREE1 = createFeature("large_rainbow_eucalyptus_tree", () -> new LargeRainbowEucalyptus(BYGTreeConfig.CODEC.stable()));
 
     //Shrubs
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB1 = createFeature("shrub1", () -> new Shrub1(BYGTreeConfig.CODEC.stable()));
