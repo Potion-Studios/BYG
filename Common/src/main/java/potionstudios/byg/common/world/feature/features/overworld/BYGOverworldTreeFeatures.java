@@ -1378,45 +1378,70 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
-            BYGFeatures.MAPLE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAPLE.log().get())
-                    .setLeavesBlock(BYGBlocks.RED_MAPLE_LEAVES.get())
-                    .setMaxHeight(9)
-                    .setMinHeight(4)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/red_maple_canopy1"),
+                    BiasedToBottomInt.of(2, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    BYGBlocks.RED_MAPLE_LEAVES.get(),
+                    BYGBlockTags.GROUND_RED_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_RED_TREE2 = createConfiguredFeature("red_maple_tree2",
-            BYGFeatures.MAPLE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAPLE.log().get())
-                    .setLeavesBlock(BYGBlocks.RED_MAPLE_LEAVES.get())
-                    .setMaxHeight(9)
-                    .setMinHeight(4)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_RED_TREE2 = createConfiguredFeature("red_maple_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/red_maple_trunk2"),
+                    BYG.createLocation("features/trees/maple/red_maple_canopy2"),
+                    BiasedToBottomInt.of(2, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    BYGBlocks.RED_MAPLE_LEAVES.get(),
+                    BYGBlockTags.GROUND_RED_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_SILVER_TREE1 = createConfiguredFeature("silver_maple_tree1",
-            BYGFeatures.MAPLE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(MAPLE_RED_TREE1.value().config())
-                    .setLeavesBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_SILVER_TREE1 = createConfiguredFeature("silver_maple_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/silver_maple_canopy1"),
+                    BiasedToBottomInt.of(2, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    BYGBlocks.SILVER_MAPLE_LEAVES.get(),
+                    BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_SILVER_TREE2 = createConfiguredFeature("silver_maple_tree2",
-            BYGFeatures.MAPLE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .copy(MAPLE_RED_TREE2.value().config())
-                    .setLeavesBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get())
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_SILVER_TREE2 = createConfiguredFeature("silver_maple_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/red_maple_trunk2"),
+                    BYG.createLocation("features/trees/maple/silver_maple_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    BYGBlocks.SILVER_MAPLE_LEAVES.get(),
+                    BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MAPLE_TREE1 = createConfiguredFeature("maple_tree1",
-            BYGFeatures.MAPLE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(MAPLE)
-                    .setMaxHeight(10)
-                    .setMinHeight(5)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE1 = createConfiguredFeature("maple_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/maple_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> MEADOW_TREE1 = createConfiguredFeature("meadow_tree1",
