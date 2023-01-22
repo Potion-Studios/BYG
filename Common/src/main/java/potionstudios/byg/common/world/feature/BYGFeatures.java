@@ -53,9 +53,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAb
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.ebony.EbonyBush1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.maple.MapleTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.meadow.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree2;
@@ -280,11 +277,6 @@ public class BYGFeatures {
     //Ebony
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> EBONY_BUSH1 = createFeature("ebony_bush", () -> new EbonyBush1(BYGTreeConfig.CODEC.stable()));
 
-
-    //Maple
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE1 = createFeature("maple_tree1", () -> new MapleTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE2 = createFeature("maple_tree2", () -> new MapleTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MAPLE_TREE3 = createFeature("maple_tree3", () -> new MapleTree3(BYGTreeConfig.CODEC.stable()));
 
     //Meadow
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MEADOW_TREE1 = createFeature("meadow_tree1", () -> new MeadowTree1(BYGTreeConfig.CODEC.stable()));
