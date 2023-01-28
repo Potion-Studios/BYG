@@ -1528,32 +1528,44 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> OAK_TREE_LARGE1 = createConfiguredFeature("large_oak_tree1",
-            BYGFeatures.OAK_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> OAK_TREE_LARGE1 = createConfiguredFeature("large_oak_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk1"),
+                    BYG.createLocation("features/trees/oak/large_oak_canopy1"),
+                    BiasedToBottomInt.of(2, 4),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> OAK_TREE_LARGE2 = createConfiguredFeature("large_oak_tree2",
-            BYGFeatures.OAK_TREE_LARGE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> OAK_TREE_LARGE2 = createConfiguredFeature("large_oak_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk2"),
+                    BYG.createLocation("features/trees/oak/large_oak_canopy2"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> OAK_TREE_LARGE3 = createConfiguredFeature("large_oak_tree3",
-            BYGFeatures.OAK_TREE_LARGE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> OAK_TREE_LARGE3 = createConfiguredFeature("large_oak_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk3"),
+                    BYG.createLocation("features/trees/oak/large_oak_canopy3"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_OAK_TREE1 = createConfiguredFeature("red_oak_tree1",
@@ -1595,32 +1607,44 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_RED_OAK_SAPLING, 5, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> RED_OAK_TREE_LARGE1 = createConfiguredFeature("large_red_oak_tree1",
-            BYGFeatures.OAK_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_OAK_TREE_LARGE1 = createConfiguredFeature("large_red_oak_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk1"),
+                    BYG.createLocation("features/trees/oak/large_red_oak_canopy1"),
+                    BiasedToBottomInt.of(2,4),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.RED_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> RED_OAK_TREE_LARGE2 = createConfiguredFeature("large_red_oak_tree2",
-            BYGFeatures.OAK_TREE_LARGE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_OAK_TREE_LARGE2 = createConfiguredFeature("large_red_oak_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk2"),
+                    BYG.createLocation("features/trees/oak/large_red_oak_canopy2"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.RED_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> RED_OAK_TREE_LARGE3 = createConfiguredFeature("large_red_oak_tree3",
-            BYGFeatures.OAK_TREE_LARGE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.RED_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_OAK_TREE_LARGE3 = createConfiguredFeature("large_red_oak_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk3"),
+                    BYG.createLocation("features/trees/oak/large_red_oak_canopy3"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.RED_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_OAK_TREE1 = createConfiguredFeature("brown_oak_tree1",
@@ -1662,32 +1686,44 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BROWN_OAK_TREE_LARGE1 = createConfiguredFeature("large_brown_oak_tree1",
-            BYGFeatures.OAK_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_OAK_TREE_LARGE1 = createConfiguredFeature("large_brown_oak_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk1"),
+                    BYG.createLocation("features/trees/oak/large_brown_oak_canopy1"),
+                    BiasedToBottomInt.of(2, 4),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.BROWN_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BROWN_OAK_TREE_LARGE2 = createConfiguredFeature("large_brown_oak_tree2",
-            BYGFeatures.OAK_TREE_LARGE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_OAK_TREE_LARGE2 = createConfiguredFeature("large_brown_oak_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk2"),
+                    BYG.createLocation("features/trees/oak/large_brown_oak_canopy2"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.BROWN_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> BROWN_OAK_TREE_LARGE3 = createConfiguredFeature("large_brown_oak_tree3",
-            BYGFeatures.OAK_TREE_LARGE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.BROWN_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BROWN_OAK_TREE_LARGE3 = createConfiguredFeature("large_brown_oak_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk3"),
+                    BYG.createLocation("features/trees/oak/large_brown_oak_canopy3"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BROWN_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.BROWN_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORANGE_OAK_TREE1 = createConfiguredFeature("orange_oak_tree1",
@@ -1729,32 +1765,44 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORANGE_OAK_TREE_LARGE1 = createConfiguredFeature("large_orange_oak_tree1",
-            BYGFeatures.OAK_TREE_LARGE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORANGE_OAK_TREE_LARGE1 = createConfiguredFeature("large_orange_oak_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk1"),
+                    BYG.createLocation("features/trees/oak/large_orange_oak_canopy1"),
+                    BiasedToBottomInt.of(2, 4),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORANGE_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORANGE_OAK_TREE_LARGE2 = createConfiguredFeature("large_orange_oak_tree2",
-            BYGFeatures.OAK_TREE_LARGE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORANGE_OAK_TREE_LARGE2 = createConfiguredFeature("large_orange_oak_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk2"),
+                    BYG.createLocation("features/trees/oak/large_orange_oak_canopy2"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORANGE_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORANGE_OAK_TREE_LARGE3 = createConfiguredFeature("large_orange_oak_tree3",
-            BYGFeatures.OAK_TREE_LARGE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(BYGBlocks.ORANGE_OAK_LEAVES.get())
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORANGE_OAK_TREE_LARGE3 = createConfiguredFeature("large_orange_oak_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/oak/large_oak_trunk2"),
+                    BYG.createLocation("features/trees/oak/large_orange_oak_canopy2"),
+                    BiasedToBottomInt.of(1, 3),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ORANGE_OAK_LEAVES.get().defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORANGE_OAK_LEAVES.get(),
+                    BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1",
