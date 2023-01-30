@@ -1848,37 +1848,57 @@ public class BYGOverworldTreeFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE1 = createConfiguredFeature("palm_tree1",
-            BYGFeatures.PALM_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PALM)
-                    .setMaxHeight(5)
-                    .setMinHeight(3)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE1 = createConfiguredFeature("palm_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/palm/palm_trunk"),
+                    BYG.createLocation("features/trees/palm/palm_canopy1"),
+                    BiasedToBottomInt.of(1, 1),
+                    BlockStateProvider.simple(PALM.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PALM.leaves().defaultBlockState(), 1).build()),
+                    PALM.log(),
+                    PALM.leaves(),
+                    BYGBlockTags.GROUND_PALM_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE2 = createConfiguredFeature("palm_tree2",
-            BYGFeatures.PALM_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PALM)
-                    .setMaxHeight(5)
-                    .setMinHeight(3)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE2 = createConfiguredFeature("palm_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/palm/palm_trunk"),
+                    BYG.createLocation("features/trees/palm/palm_canopy2"),
+                    BiasedToBottomInt.of(3, 4),
+                    BlockStateProvider.simple(PALM.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PALM.leaves().defaultBlockState(), 1).build()),
+                    PALM.log(),
+                    PALM.leaves(),
+                    BYGBlockTags.GROUND_PALM_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE3 = createConfiguredFeature("palm_tree3",
-            BYGFeatures.PALM_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PALM)
-                    .setMaxHeight(5)
-                    .setMinHeight(3)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE3 = createConfiguredFeature("palm_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/palm/palm_trunk"),
+                    BYG.createLocation("features/trees/palm/palm_canopy3"),
+                    BiasedToBottomInt.of(1, 2),
+                    BlockStateProvider.simple(PALM.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PALM.leaves().defaultBlockState(), 1).build()),
+                    PALM.log(),
+                    PALM.leaves(),
+                    BYGBlockTags.GROUND_PALM_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALM_TREE4 = createConfiguredFeature("palm_tree4",
-            BYGFeatures.PALM_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PALM)
-                    .setMaxHeight(5)
-                    .setMinHeight(3)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE4 = createConfiguredFeature("palm_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/palm/palm_trunk4"),
+                    BYG.createLocation("features/trees/palm/palm_canopy4"),
+                    BiasedToBottomInt.of(3, 4),
+                    BlockStateProvider.simple(PALM.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PALM.leaves().defaultBlockState(), 1).build()),
+                    PALM.log(),
+                    PALM.leaves(),
+                    BYGBlockTags.GROUND_PALM_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PINE_LARGE_TREE1 = createConfiguredFeature("large_pine_tree1", BYGFeatures.PINE_LARGE_TREE1,
