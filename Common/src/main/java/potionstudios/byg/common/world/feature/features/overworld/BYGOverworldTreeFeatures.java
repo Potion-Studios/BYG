@@ -2074,7 +2074,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE1 = createConfiguredFeature("prairie_shrub1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/generic_shrub_trunk"),
                     BYG.createLocation("features/trees/prairie/prairie_shrub_canopy1"),
                     BiasedToBottomInt.of(0, 0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
@@ -2087,7 +2087,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE2 = createConfiguredFeature("prairie_shrub2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/generic_shrub_trunk"),
                     BYG.createLocation("features/trees/prairie/prairie_shrub_canopy2"),
                     BiasedToBottomInt.of(0, 0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
@@ -2782,13 +2782,18 @@ public class BYGOverworldTreeFeatures {
                     BlockTags.DIRT, 5, ImmutableList.of()
             )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> TROPICAL_SHRUB1 = createConfiguredFeature("tropical_shrub1",
-            BYGFeatures.SHRUB1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(MAHOGANY.log().get())
-                    .setLeavesBlock(MAHOGANY.leaves().get())
-                    .setMinHeight(2)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> TROPICAL_SHRUB1 = createConfiguredFeature("tropical_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_shrub_trunk"),
+                    BYG.createLocation("features/trees/mahogany/tropical_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(MAHOGANY.log().get()),
+                    BlockStateProvider.simple(MAHOGANY.leaves().get()),
+                    MAHOGANY.log(),
+                    MAHOGANY.leaves(),
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAHOGANY_TREE1 = createConfiguredFeature("mahogany_tree1",
