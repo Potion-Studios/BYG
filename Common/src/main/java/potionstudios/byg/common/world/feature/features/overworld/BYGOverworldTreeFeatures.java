@@ -2864,13 +2864,18 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> WILLOW_DEAD_TREE1 = createConfiguredFeature("dead_willow_tree1",
-            BYGFeatures.WILLOW_DEAD_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(WILLOW)
-                    .setMaxHeight(12)
-                    .setMinHeight(7)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_DEAD_TREE1 = createConfiguredFeature("dead_willow_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/willow/dead_willow_trunk"),
+                    BYG.createLocation("features/trees/willow/dead_willow_canopy"),
+                    BiasedToBottomInt.of(5, 7),
+                    BlockStateProvider.simple(WILLOW.log().get()),
+                    BlockStateProvider.simple(WILLOW.leaves().get()),
+                    WILLOW.log(),
+                    WILLOW.leaves(),
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+            )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE1 = createConfiguredFeature("willow_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
