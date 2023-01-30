@@ -30,7 +30,6 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
@@ -644,7 +643,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy1"),
-                    BiasedToBottomInt.of(19,25),
+                    BiasedToBottomInt.of(19, 25),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -672,7 +671,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy3"),
-                    BiasedToBottomInt.of(26,35),
+                    BiasedToBottomInt.of(26, 35),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -700,7 +699,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy5"),
-                    BiasedToBottomInt.of(7,11),
+                    BiasedToBottomInt.of(7, 11),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -714,7 +713,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy6"),
-                    BiasedToBottomInt.of(10,15),
+                    BiasedToBottomInt.of(10, 15),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -728,7 +727,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy7"),
-                    BiasedToBottomInt.of(11,18),
+                    BiasedToBottomInt.of(11, 18),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -742,7 +741,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/conifer/conifer_trunk8"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy8"),
-                    BiasedToBottomInt.of(12,18),
+                    BiasedToBottomInt.of(12, 18),
                     BlockStateProvider.simple(FIR.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
                     FIR.log().get(),
@@ -810,7 +809,6 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING, 5, ImmutableList.of(WITCH_HAZEL_BLOSSOM.get(), WITCH_HAZEL_BRANCH.get())
             )
     );
-
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL2 = createConfiguredFeature("witch_hazel2",
@@ -1271,7 +1269,6 @@ public class BYGOverworldTreeFeatures {
     );
 
 
-
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
@@ -1279,7 +1276,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/joshua/joshua_canopy1"),
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(),4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     BYGBlocks.JOSHUA_LEAVES.get(),
                     BYGBlockTags.GROUND_JOSHUA_SAPLING, 4, ImmutableList.of()
@@ -1293,11 +1290,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/joshua/joshua_canopy2"),
                     BiasedToBottomInt.of(5, 8),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(),4).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 4).build()),
                     Blocks.OAK_LOG,
                     BYGBlocks.JOSHUA_LEAVES.get(),
                     BYGBlockTags.GROUND_JOSHUA_SAPLING, 6, ImmutableList.of()
-                    )
+            )
     );
 
     // TODO: BYG Propagule
@@ -1612,7 +1609,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/oak/large_oak_trunk1"),
                     BYG.createLocation("features/trees/oak/large_red_oak_canopy1"),
-                    BiasedToBottomInt.of(2,4),
+                    BiasedToBottomInt.of(2, 4),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_OAK_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
@@ -2046,40 +2043,59 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SHRUB_MEADOW = createConfiguredFeature("meadow_shrub1",
-            BYGFeatures.SHRUB1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.DARK_OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_MEADOW = createConfiguredFeature("meadow_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/meadow/meadow_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.DARK_OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.DARK_OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SHRUB_MEADOW2 = createConfiguredFeature("meadow_shrub2",
-            BYGFeatures.SHRUB2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.DARK_OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_MEADOW2 = createConfiguredFeature("meadow_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/meadow/meadow_shrub_canopy2"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.DARK_OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.DARK_OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SHRUB_PRAIRIE1 = createConfiguredFeature("prairie_shrub1",
-            BYGFeatures.SHRUB1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMinHeight(1)
-                    .setMaxHeight(2)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE1 = createConfiguredFeature("prairie_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/prairie/prairie_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> SHRUB_PRAIRIE2 = createConfiguredFeature("prairie_shrub2",
-            BYGFeatures.SHRUB2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(Blocks.OAK_LEAVES)
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE2 = createConfiguredFeature("prairie_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/prairie/prairie_shrub_canopy2"),
+                    BiasedToBottomInt.of(0, 0),
+                    BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+            )
     );
 
 
@@ -3313,7 +3329,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE3), 0.2F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE2), 0.2F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(GREEN_ENCHANTED_TREE1), 0.1F)),
-            BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1))
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ENCHANTED_TREE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_TREES = createConfiguredFeature("aspen_trees",
@@ -3507,5 +3523,6 @@ public class BYGOverworldTreeFeatures {
         return BYGFeaturesUtil.CONFIGURED_FEATURES.<ConfiguredFeature<FC, ?>>register(id, () -> new ConfiguredFeature<>(feature.get(), config.get())).asHolder();
     }
 
-    public static void loadClass() {}
+    public static void loadClass() {
+    }
 }
