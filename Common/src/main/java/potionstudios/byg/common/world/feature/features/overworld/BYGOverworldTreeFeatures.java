@@ -1901,33 +1901,57 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PINE_LARGE_TREE1 = createConfiguredFeature("large_pine_tree1", BYGFeatures.PINE_LARGE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PINE)
-                    .setMaxHeight(28)
-                    .setMinHeight(23)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PINE_LARGE_TREE1 = createConfiguredFeature("large_pine_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/pine/large_pine_trunk1"),
+                    BYG.createLocation("features/trees/pine/large_pine_canopy2"),
+                    BiasedToBottomInt.of(7, 9),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PINE.leaves().defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    PINE.leaves(),
+                    BYGBlockTags.GROUND_PINE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PINE_LARGE_TREE2 = createConfiguredFeature("large_pine_tree2", BYGFeatures.PINE_LARGE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PINE)
-                    .setMaxHeight(31)
-                    .setMinHeight(26)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PINE_LARGE_TREE2 = createConfiguredFeature("large_pine_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/pine/large_pine_canopy1"),
+                    BiasedToBottomInt.of(7, 9),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PINE.leaves().defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    PINE.leaves(),
+                    BYGBlockTags.GROUND_PINE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PINE_TREE1 = createConfiguredFeature("pine_tree1", BYGFeatures.PINE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PINE)
-                    .setMaxHeight(20)
-                    .setMinHeight(15)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PINE_TREE1 = createConfiguredFeature("pine_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/pine/pine_canopy1"),
+                    BiasedToBottomInt.of(9, 12),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PINE.leaves().defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    PINE.leaves(),
+                    BYGBlockTags.GROUND_PINE_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PINE_TREE2 = createConfiguredFeature("pine_tree2", BYGFeatures.PINE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.PINE)
-                    .setMaxHeight(21)
-                    .setMinHeight(16)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PINE_TREE2 = createConfiguredFeature("pine_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/pine/pine_canopy2"),
+                    BiasedToBottomInt.of(9, 12),
+                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(PINE.leaves().defaultBlockState(), 1).build()),
+                    PINE.log(),
+                    PINE.leaves(),
+                    BYGBlockTags.GROUND_PINE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALO_VERDE_TREE1 = createConfiguredFeature("palo_verde_tree1",
