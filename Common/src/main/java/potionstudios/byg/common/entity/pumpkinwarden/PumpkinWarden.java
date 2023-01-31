@@ -89,7 +89,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
                 }
             }
         });
-        this.goalSelector.addGoal(3, new StayByBellGoal(this, 1, 32));
+        this.goalSelector.addGoal(3, new StayByBellGoal(this, 1, 5000));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         super.registerGoals();
     }
