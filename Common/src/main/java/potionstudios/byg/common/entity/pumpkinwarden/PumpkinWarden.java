@@ -25,6 +25,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -276,7 +277,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean isValidTarget(LevelReader level, BlockPos pos) {
-            if (level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof BushBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof BushBlock) {
+            if (level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof StemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof StemBlock) {
                 return (level.getBlockState(pos).getBlock() instanceof StemGrownBlock);
             }
             return false;
