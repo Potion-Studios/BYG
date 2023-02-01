@@ -66,8 +66,8 @@ public class BYGBlockProperties {
     public static class BYGEmburLily extends NetherLilyBlock {
         public BYGEmburLily() {
             super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
+                    .sound(SoundType.LILY_PAD)
+                    .instabreak()
                     .noOcclusion()
             );
             

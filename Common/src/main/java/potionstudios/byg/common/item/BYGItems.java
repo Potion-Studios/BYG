@@ -590,7 +590,7 @@ public class BYGItems {
     public static final RegistryObject<Item> EMBUR_SPROUTS = createItem(BYGBlocks.EMBUR_SPROUTS);
     public static final RegistryObject<Item> EMBUR_ROOTS = createItem(BYGBlocks.EMBUR_ROOTS);
     public static final RegistryObject<Item> TALL_EMBUR_ROOTS = createItem(BYGBlocks.TALL_EMBUR_ROOTS);
-    public static final RegistryObject<Item> EMBUR_LILY = createItem(BYGBlocks.EMBUR_LILY);
+    public static final RegistryObject<Item> EMBUR_LILY = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.EMBUR_LILY.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_lily");
 
     public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_nether_brick");
     public static final RegistryObject<Item> BLUE_NETHERRACK = createItem(BYGBlocks.BLUE_NETHERRACK);

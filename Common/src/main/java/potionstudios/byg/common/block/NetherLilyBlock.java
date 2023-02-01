@@ -2,6 +2,7 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
@@ -16,6 +17,7 @@ public class NetherLilyBlock extends WaterlilyBlock {
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter reader, BlockPos pos) {
         FluidState fluidState = reader.getFluidState(pos);
-        return fluidState.getType() == Fluids.LAVA || super.mayPlaceOn(state, reader, pos);
+        FluidState fluidState2 = reader.getFluidState(pos.above());
+        return fluidState.getType() == Fluids.LAVA && fluidState2.getType() == Fluids.EMPTY;
     }
 }
