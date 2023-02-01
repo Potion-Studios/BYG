@@ -22,6 +22,7 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
+        addAncientDebris(generationSettings);
 
         BYGDefaultBiomeFeatures.addBrimstoneOres(generationSettings);
         BYGDefaultBiomeFeatures.addBoricFire(generationSettings);
@@ -66,6 +67,7 @@ public class BYGNetherBiomes {
         BYGDefaultBiomeFeatures.addEmburBogVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addBlueNetherOres(generationSettings);
+        addAncientDebris(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BLAZE, 20, 2, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
@@ -232,6 +234,7 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
+        addAncientDebris(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
         BYGDefaultBiomeFeatures.addWitheringOakTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMagmaFire(generationSettings);
@@ -254,6 +257,7 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
+        addAncientDebris(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS); 
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
         BYGDefaultBiomeFeatures.addLamentTrees(generationSettings);
@@ -280,6 +284,12 @@ public class BYGNetherBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, VegetationPlacements.BROWN_MUSHROOM_NETHER);
         generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, VegetationPlacements.RED_MUSHROOM_NETHER);
         generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, OrePlacements.ORE_MAGMA);
+
         generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, NetherPlacements.SPRING_CLOSED);
+    }
+
+    private static void addAncientDebris(BiomeGenerationSettings.Builder generationSettings) {
+        generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, OrePlacements.ORE_ANCIENT_DEBRIS_LARGE);
+        generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, OrePlacements.ORE_ANCIENT_DEBRIS_SMALL);
     }
 }
