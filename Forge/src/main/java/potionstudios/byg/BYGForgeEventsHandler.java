@@ -4,16 +4,12 @@ import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -28,27 +24,29 @@ import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BYGForgeEventsHandler {
     static final Object2IntMap<Item> BURN_TIMES = new Object2IntOpenHashMap<>();
 
-    public static final Set<ResourceKey<VillagerProfession>> REGISTERED_PROFESSIONS = new ObjectOpenHashSet<>();
+    public static final Set<ResourceLocation> REGISTERED_PROFESSIONS = new HashSet<>();
 
     @SubscribeEvent
     public static void appendBYGVillagerTrades(VillagerTradesEvent event) {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
-            Map<ResourceKey<VillagerProfession>, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
-            ResourceKey<VillagerProfession> professionKey = Registry.VILLAGER_PROFESSION.getResourceKey(event.getType()).orElseThrow();
+            Map<ResourceLocation, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
+            ResourceLocation professionKey = Registry.VILLAGER_PROFESSION.getKey(event.getType());
             if (tradesByProfession.containsKey(professionKey)) {
                 REGISTERED_PROFESSIONS.add(professionKey);
                 Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(professionKey);
                 BYGVillagerTrades.appendTradesList(int2ObjectMap, event.getTrades());
+            } else {
+                BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
             }
         }
     }

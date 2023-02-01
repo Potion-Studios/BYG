@@ -13,7 +13,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
 import potionstudios.byg.common.BYGCompostables;
 import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
@@ -98,7 +97,7 @@ public class BYGFabric implements ModInitializer {
                                     )
                             );
                         } else {
-                            BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.location().toString()));
+                            BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
                         }
                     }
             );
