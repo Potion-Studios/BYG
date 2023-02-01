@@ -2874,7 +2874,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE1 = createConfiguredFeature("willow_tree1",
@@ -2887,7 +2887,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE2 = createConfiguredFeature("willow_tree2",
@@ -2900,7 +2900,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE3 = createConfiguredFeature("willow_tree3",
@@ -2913,7 +2913,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE4 = createConfiguredFeature("willow_tree4",
@@ -2926,7 +2926,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
             )
     );
 
@@ -3019,7 +3019,7 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BAYOU_TREES = createConfiguredFeature("bayou_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WILLOW_DEAD_TREE1), 0.1F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WILLOW_DEAD_TREE1), 0.01F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WILLOW_TREE1), 0.25F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WILLOW_TREE2), 0.25F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WILLOW_TREE3), 0.25F)),

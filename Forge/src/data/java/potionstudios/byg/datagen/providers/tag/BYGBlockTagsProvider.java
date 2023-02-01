@@ -85,6 +85,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         for (TagKey<Block> plantTag : BYGBlockTags.PLANT_TAGS) {
             this.tag(plantTag).addTag(BlockTags.DIRT);
         }
+        this.tag(BYGBlockTags.GROUND_WILLOW_SAPLING).add(Blocks.CLAY);
+
         for (TagKey<Block> plantTag : BYGBlockTags.MUSHROOM_TAGS) {
             this.tag(plantTag).addTag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(BlockTags.DIRT).addTags(BlockTags.BASE_STONE_OVERWORLD);
         }
