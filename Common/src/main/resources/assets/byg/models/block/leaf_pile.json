@@ -3,5 +3,14 @@
   "textures": {
     "particle": "byg:block/leaf_pile",
     "wool": "byg:block/leaf_pile"
-  }
+  },
+  "elements": [
+    {   "from": [  0, 0.25,  0 ],
+      "to":   [ 16, 0.25, 16 ],
+      "faces": {
+        "down":  { "uv": [  0, 16, 16,  0 ], "texture": "#wool", "tintindex": 0 },
+        "up":  { "uv": [  0,  0, 16, 16 ], "texture": "#wool", "tintindex": 0 }
+      }
+    }
+  ]
 }

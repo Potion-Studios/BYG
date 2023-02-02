@@ -66,8 +66,9 @@ public class BYGNetherBiomes {
         vanillaNetherFeatures(generationSettings);
         BYGDefaultBiomeFeatures.addEmburBogVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
+        addAncientDebris(generationSettings); //Ores
         BYGDefaultBiomeFeatures.addBlueNetherOres(generationSettings);
-        addAncientDebris(generationSettings);
+
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BLAZE, 20, 2, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
@@ -234,8 +235,8 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
-        addAncientDebris(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
+        addAncientDebris(generationSettings); //Ores
         BYGDefaultBiomeFeatures.addWitheringOakTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMagmaFire(generationSettings);
         BYGDefaultBiomeFeatures.addScorchedPlants(generationSettings);
@@ -257,9 +258,9 @@ public class BYGNetherBiomes {
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
-        addAncientDebris(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS); 
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
+        addAncientDebris(generationSettings); //Ores
         BYGDefaultBiomeFeatures.addLamentTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMiniNetherMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addWeepigMireVegetation(generationSettings);

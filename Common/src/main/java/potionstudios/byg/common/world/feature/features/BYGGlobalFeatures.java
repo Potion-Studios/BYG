@@ -58,7 +58,7 @@ public class BYGGlobalFeatures {
     public static final Holder<ConfiguredFeature<GlobalBiomeFeature.Config, ?>> GLOBAL_VEGETAL_DECORATION = createConfiguredFeature(globalGenStagePath(VEGETAL_DECORATION),
             BYGFeatures.GLOBAL, () -> new GlobalBiomeFeature.Config(HolderSet.direct(
                     BYGPlacedFeaturesUtil.createPlacedFeature(globalFeaturePath("palm_trees"), BYGOverworldTreeFeatures.PALM_TREES,
-                            () -> PlacementUtils.countExtra(1, 0.2F, 1), InSquarePlacement::spread, () -> TREE_THRESHOLD,
+                            () -> PlacementUtils.countExtra(0, 0.5F, 1), InSquarePlacement::spread, () -> TREE_THRESHOLD,
                             () -> PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, () -> new IsBiomeTagFilter(BYGBiomeTags.HAS_PALM_TREES)
                     )
             ))

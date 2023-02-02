@@ -72,7 +72,7 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 2)
+            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 
     public static final LayersBiomeData DEFAULT_NETHER_UPPER = new LayersBiomeData(
@@ -93,7 +93,7 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 2)
+            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 
 
@@ -115,6 +115,6 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 2)
+            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 }
