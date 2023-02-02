@@ -11,11 +11,12 @@ import net.minecraft.world.item.TooltipFlag;
 import potionstudios.byg.client.gui.biomepedia.widget.ItemWidget;
 import potionstudios.byg.common.item.BYGItems;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class ItemsViewScreen extends AbstractBiomepediaScreen {
+public class BiomepediaItemsViewScreen extends AbstractBiomepediaScreen {
 
     int page;
     int maxPagePairCount;
@@ -23,7 +24,7 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
     ItemWidget[][][][] items;
     private final Screen parent;
 
-    protected ItemsViewScreen(Screen parent) {
+    protected BiomepediaItemsViewScreen(Screen parent) {
         super(Component.literal(""));
         this.parent = parent;
     }
@@ -54,7 +55,7 @@ public class ItemsViewScreen extends AbstractBiomepediaScreen {
     }
 
     private void createMenu() {
-        createMenu(BYGItems.PROVIDER.getEntries().<Supplier<? extends Item>>toArray(Supplier[]::new), 7, 10);
+        createMenu(BYGItems.PROVIDER.getEntries().stream().sorted(Comparator.comparing(itemRegistryObject -> itemRegistryObject.getResourceKey().location().toString())).<Supplier<? extends Item>>toArray(Supplier[]::new), 7, 10);
     }
 
     private void createMenu(Supplier<? extends Item>[] bygItems, int rowLength, int columnLength) {

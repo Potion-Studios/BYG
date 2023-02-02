@@ -54,7 +54,7 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
         int buttonWidth = (IMAGE_WIDTH - 10) / 3;
         int buttonHeight = 20;
         Button blocksAndItems = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.blocksanditems"),
-                button -> this.minecraft.setScreen(new ItemsViewScreen(this)), makeButtonToolTip(Component.translatable("biomepedia.intro.options.blocksanditems.hover"), this));
+                button -> this.minecraft.setScreen(new BiomepediaItemsViewScreen(this)), makeButtonToolTip(Component.translatable("biomepedia.intro.options.blocksanditems.hover"), this));
 
         Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.biomes"), button -> {
             this.minecraft.setScreen(new BiomeListScreen(this));
