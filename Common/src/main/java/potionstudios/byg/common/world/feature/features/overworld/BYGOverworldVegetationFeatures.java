@@ -8,6 +8,7 @@ import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -84,7 +85,7 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> GOLDEN_SPINED_CACTI = createPatchConfiguredFeature("golden_spined_cacti", () -> BYGBlocks.GOLDEN_SPINED_CACTUS.get(), 5);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PINK_CHERRY_FOLIAGE = createPatchConfiguredFeature("pink_cherry_foliage", () -> BYGBlocks.PINK_CHERRY_FOLIAGE.get(), 15);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WHITE_CHERRY_FOLIAGE = createPatchConfiguredFeature("white_cherry_foliage", () -> BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), 15);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BLUE_BERRY_BUSH = createPatchConfiguredFeatureState("blue_berry_bush", () -> BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3), 3);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PATCH_BLUEBERRY = createPatchConfiguredFeatureState("blue_berry_bush", () -> BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3), 32);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE = createFlowerConfiguredFeature("rose", () -> BYGBlocks.ROSE.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> CROCUS = createFlowerConfiguredFeature("crocus", () -> BYGBlocks.CROCUS.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> IRIS = createFlowerConfiguredFeature("iris", () -> BYGBlocks.IRIS.get());

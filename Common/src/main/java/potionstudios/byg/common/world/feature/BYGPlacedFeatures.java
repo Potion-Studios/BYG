@@ -71,8 +71,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> SHRUB = createPlacedFeature("shrub", BYGOverworldVegetationFeatures.SHRUB, () -> worldSurfaceSquaredWithCount(1));
 
     public static final Holder<PlacedFeature> FIRECRACKER_BUSH = createPlacedFeature("firecracker_bush", BYGOverworldVegetationFeatures.FIRECRACKER_BUSH, () -> worldSurfaceSquaredWithCount(3));
-    public static final Holder<PlacedFeature> BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH, () -> RarityFilter.onAverageOnceEvery(64), InSquarePlacement::spread, () -> PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter::biome);
-    public static final Holder<PlacedFeature> BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGOverworldVegetationFeatures.BLUE_BERRY_BUSH, () -> RarityFilter.onAverageOnceEvery(32), InSquarePlacement::spread, () -> PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter::biome);
+    public static final Holder<PlacedFeature> BLUE_BERRY_BUSH = createPlacedFeature("blue_berry_bush", BYGOverworldVegetationFeatures.PATCH_BLUEBERRY, () -> RarityFilter.onAverageOnceEvery(32), InSquarePlacement::spread, () -> PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter::biome);
+    public static final Holder<PlacedFeature> BLUE_BERRY_BUSH_LUSH = createPlacedFeature("blue_berry_bush_lush", BYGOverworldVegetationFeatures.PATCH_BLUEBERRY, () -> RarityFilter.onAverageOnceEvery(24), InSquarePlacement::spread, () -> PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter::biome);
 
     public static final Holder<PlacedFeature> CATTAIL = createPlacedFeature("cattails", BYGOverworldVegetationFeatures.CATTAIL, () -> oceanFloorSquaredWithCountAndMaxDepth(10, OptionalInt.of(2)));
     public static final Holder<PlacedFeature> LUSH_CATTAIL = createPlacedFeature("lush_cattails", BYGOverworldVegetationFeatures.CATTAIL, () -> oceanFloorSquaredWithCountAndMaxDepth(25, OptionalInt.of(2)));
@@ -213,7 +213,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> LARGE_HOWLING_PEAKS_BOULDERS = createPlacedFeature("large_howling_peaks_boulders", BYGOverworldFeatures.LARGE_HOWLING_PEAKS_BOULDER, () -> oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(DIRT_TAG)));
 
     public static final Holder<PlacedFeature> LARGE_WINDSWEPT_BOULDERS = createPlacedFeature("large_windswept_boulders", BYGOverworldFeatures.LARGE_WINDSWEPT_BOULDER, () -> oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(5), BlockPredicateFilter.forPredicate(BlockPredicate.solid(new BlockPos(0, -1, 0))), RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-3, -1))));
-    public static final Holder<PlacedFeature> ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGOverworldVegetationFeatures.ROSE_FIELD_FLOWERS, () -> worldSurfaceSquaredWithCount(20));
+    public static final Holder<PlacedFeature> ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGOverworldVegetationFeatures.ROSE_FIELD_FLOWERS, () -> worldSurfaceSquaredWithCount(10));
     public static final Holder<PlacedFeature> FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGOverworldFeatures.FROST_MAGMA_LAKE, () -> worldSurfaceSquaredWithCount(3));
     public static final Holder<PlacedFeature> TINY_LILY_PAD = createPlacedFeature("tiny_lily_pad", BYGOverworldVegetationFeatures.TINY_LILY_PAD, () -> worldSurfaceSquaredWithCount(4));
     public static final Holder<PlacedFeature> LILY_PAD = createPlacedFeature("lily_pad", VegetationFeatures.PATCH_WATERLILY, () -> CountPlacement.of(15), InSquarePlacement::spread, () -> HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter::biome);
