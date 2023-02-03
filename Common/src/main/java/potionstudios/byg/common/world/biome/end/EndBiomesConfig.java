@@ -107,7 +107,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
                 reader.close();
                 Files.delete(legacyPath);
             } catch (IOException e) {
-                BYG.LOGGER.error("Could not create new config file for: " + legacyPath.toString());
+                BYG.logError("Could not create new config file for: " + legacyPath.toString());
                 e.printStackTrace();
                 return config;
             }
@@ -116,7 +116,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
         if (!path.toFile().exists() || recreate) {
             createConfig(path, config);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

@@ -30,11 +30,11 @@ public class BYGHoeables {
     });
 
     public static void tillablesBYG() {
-        BYG.LOGGER.debug("BYG: Adding tillables...");
+        BYG.logDebug("BYG: Adding tillables...");
         Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> tillables = new IdentityHashMap<>(HoeItemAccess.byg_getTILLABLES());
         tillables.putAll(TILLABLES);
         HoeItemAccess.byg_setTILLABLES(tillables);
-        BYG.LOGGER.info("BYG: Added tillables!");
+        BYG.logInfo("BYG: Added tillables!");
     }
 }
 

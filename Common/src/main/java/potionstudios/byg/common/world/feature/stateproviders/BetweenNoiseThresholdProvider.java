@@ -45,7 +45,7 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
     @Override
     public BlockState getState(RandomSource random, BlockPos pos) {
         double noiseValue = this.use3D ? getNoiseValue2D(pos, 4) : this.getNoiseValue(pos, this.scale);
-//        BYG.LOGGER.info(noiseValue);
+//        BYG.logInfo(noiseValue);
 
         for (FloatProvider threshold : this.thresholds) {
             if (noiseValue >= threshold.getMinValue() && noiseValue <= threshold.getMaxValue()) {

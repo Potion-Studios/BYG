@@ -52,7 +52,7 @@ public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
         if (!path.toFile().exists()) {
             create(path, DEFAULT);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return CODEC.decode(NbtOps.INSTANCE, NbtIo.read(path.toFile())).result().orElseThrow().getFirst();
@@ -68,7 +68,7 @@ public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
             Files.createDirectories(path.getParent());
             NbtIo.write((CompoundTag) tag, path.toFile());
         } catch (IOException e) {
-            BYG.LOGGER.error(e.toString());
+            BYG.logError(e.toString());
         }
     }
 }

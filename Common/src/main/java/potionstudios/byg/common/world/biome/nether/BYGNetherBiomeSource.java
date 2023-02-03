@@ -108,7 +108,7 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
 
         String ignored = BYGUtil.dumpCollection(missingBiomes);
         if (!ignored.isEmpty()) {
-            BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", NetherBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
+            BYG.logWarning(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", NetherBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
         }
         return createBiomesFromBiomeData(biomeRegistry, upperLayer, middleLayer, bottomLayer);
     }

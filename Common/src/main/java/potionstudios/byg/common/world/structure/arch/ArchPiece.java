@@ -53,10 +53,10 @@ public class ArchPiece extends StructurePiece {
         }
 
         if (!tag.contains("config")) {
-            BYG.LOGGER.error("No arch config info was present.");
+            BYG.logError("No arch config info was present.");
         }
         DataResult<Pair<NoisySphereConfig, Tag>> config1 = NoisySphereConfig.CODEC.decode(tagRegistryOps, tag.get("config"));
-        config1.error().ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece config deserialization error: " + tagPartialResult));
+        config1.error().ifPresent(tagPartialResult -> BYG.logError("BYG Arch piece config deserialization error: " + tagPartialResult));
 
         this.config = config1.result().orElseThrow().getFirst();
     }
@@ -73,7 +73,7 @@ public class ArchPiece extends StructurePiece {
         compoundTag.put("positions", positions);
         DataResult<Tag> encodeStart = NoisySphereConfig.CODEC.encodeStart(tagRegistryOps, this.config);
         Optional<DataResult.PartialResult<Tag>> error = encodeStart.error();
-        error.ifPresent(tagPartialResult -> BYG.LOGGER.error("BYG Arch piece serialization error: " + tagPartialResult));
+        error.ifPresent(tagPartialResult -> BYG.logError("BYG Arch piece serialization error: " + tagPartialResult));
 
 
         compoundTag.put("config", encodeStart.result().orElseThrow());

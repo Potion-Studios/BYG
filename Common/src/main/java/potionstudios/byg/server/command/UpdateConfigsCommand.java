@@ -78,7 +78,7 @@ public class UpdateConfigsCommand {
 
             if (!(isSinglePlayerOwner || isServerConsole)) {
                 stack.sendFailure(CONTACT_SERVER_OWNER);
-                BYG.LOGGER.warn("BYG's configs are outdated, run \"/byg update_configs update\" to dismiss this warning");
+                BYG.logWarning("BYG's configs are outdated, run \"/byg update_configs update\" to dismiss this warning");
                 return 0;
             }
 

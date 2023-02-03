@@ -28,7 +28,7 @@ public class FileUtils {
         ZipOutputStream zipOutputStream = makeZipOutputStream(pathToBackUp, backupPath, path -> !path.equals(backupPath) && !path.toFile().isDirectory());
         try {
             zipOutputStream.close();
-            BYG.LOGGER.info(String.format("Created compressed zip back up for \"%s\" in \"%s\"", pathToBackUp, backupPath));
+            BYG.logInfo(String.format("Created compressed zip back up for \"%s\" in \"%s\"", pathToBackUp, backupPath));
         } catch (IOException e) {
             e.printStackTrace();
         }

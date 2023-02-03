@@ -51,7 +51,7 @@ public class JigsawUtil {
         // Grab the pool we want to add to
         StructureTemplatePool pool = templatePoolRegistry.get(poolRL);
         if (pool == null) {
-            BYG.LOGGER.warn(String.format("Ignoring pool \"%s\" bc it's not available.", poolRL.toString()));
+            BYG.logWarning(String.format("Ignoring pool \"%s\" bc it's not available.", poolRL.toString()));
             return;
         }
         List<Pair<StructurePoolElement, Integer>> listOfPieceEntries = new ArrayList<>(((StructureTemplatePoolAccess) pool).byg_getRawTemplates());
@@ -61,7 +61,7 @@ public class JigsawUtil {
             @Nullable
             String location = GSONUtil.readFirstField("location", String.class, jsonElement);
             if (nbtPieceRL.equals(location)) {
-                BYG.LOGGER.info(String.format("Not appending structure pool element \"%s\" because it is already specified via data packs for this pool \"%s\".", nbtPieceRL, poolRL.toString()));
+                BYG.logInfo(String.format("Not appending structure pool element \"%s\" because it is already specified via data packs for this pool \"%s\".", nbtPieceRL, poolRL.toString()));
                 return;
             }
         }

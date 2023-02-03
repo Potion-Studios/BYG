@@ -11,6 +11,7 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
 import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.lazy.LazySupplier;
+
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +59,7 @@ public record TradesConfig(boolean enabled,
         if (!path.toFile().exists() || recreate) {
             createConfig(path);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

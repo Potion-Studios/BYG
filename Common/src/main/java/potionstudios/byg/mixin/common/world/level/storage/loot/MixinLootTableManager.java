@@ -57,7 +57,7 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
                 return appendedElement.getAsJsonObject().getAsJsonArray("pools");
             }
         } catch (IOException e) {
-            BYG.LOGGER.error("Could not read appended table:" + location);
+            BYG.logError("Could not read appended table:" + location);
             e.printStackTrace();
         }
         return new JsonArray();

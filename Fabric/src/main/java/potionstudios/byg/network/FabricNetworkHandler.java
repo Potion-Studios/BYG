@@ -81,7 +81,7 @@ public class FabricNetworkHandler {
                         try {
                             handler.accept(packet, level);
                         } catch (Throwable throwable) {
-                            BYG.LOGGER.error("Packet failed: ", throwable);
+                            BYG.logError("Packet failed: " + throwable.getMessage());
                             throw throwable;
                         }
                     }

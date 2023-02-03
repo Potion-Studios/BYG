@@ -46,7 +46,7 @@ public class BYGForgeEventsHandler {
                 Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(professionKey);
                 BYGVillagerTrades.appendTradesList(int2ObjectMap, event.getTrades());
             } else {
-                BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
+                BYG.logWarning("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
             }
         }
     }
@@ -63,7 +63,7 @@ public class BYGForgeEventsHandler {
                 event.getRareTrades().addAll(Arrays.asList(wanderingTraderTrades.get(2)));
             }
         } else {
-            BYG.LOGGER.warn("Ignoring villager/wandering trader trades added by BYG.");
+            BYG.logWarning("Ignoring villager/wandering trader trades added by BYG.");
         }
     }
 

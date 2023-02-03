@@ -77,7 +77,7 @@ public interface ConfigEntriesSerializer<T> {
         } else if (value instanceof Boolean asBoolean) {
             return new ConfigPrimitiveEntry<>(parent, key, asBoolean, Boolean::parseBoolean, comment);
         }
-        BYG.LOGGER.error(String.format("Could not make entry to edit for key: \"%s\"", key));
+        BYG.logError(String.format("Could not make entry to edit for key: \"%s\"", key));
 
         return null;
     }

@@ -13,13 +13,13 @@ import java.util.function.Function;
 public interface BYGS2CPacket {
 
     Map<String, Handler<?>> S2C_PACKETS = Util.make(new HashMap<>(), map -> {
-        BYG.LOGGER.info("Initializing BYG network...");
+        BYG.logInfo("Initializing BYG network...");
         map.put("sapling_patterns", new Handler<>(SaplingPatternsPacket.class, SaplingPatternsPacket::write, SaplingPatternsPacket::read, SaplingPatternsPacket::handle));
         map.put("discovered_biomes", new Handler<>(DiscoveredBiomesPacket.class, DiscoveredBiomesPacket::write, DiscoveredBiomesPacket::read, DiscoveredBiomesPacket::handle));
         map.put("construct_byg_player_tracked_data", new Handler<>(ConstructBYGPlayerTrackedDataPacket.class, ConstructBYGPlayerTrackedDataPacket::write, ConstructBYGPlayerTrackedDataPacket::read, ConstructBYGPlayerTrackedDataPacket::handle));
         map.put("biomepedia_active", new Handler<>(BiomepediaActivePacket.class, BiomepediaActivePacket::write, BiomepediaActivePacket::read, BiomepediaActivePacket::handle));
         map.put("level_biome_tracker", new Handler<>(LevelBiomeTrackerPacket.class, LevelBiomeTrackerPacket::write, LevelBiomeTrackerPacket::read, LevelBiomeTrackerPacket::handle));
-        BYG.LOGGER.info("Initialized BYG network!");
+        BYG.logInfo("Initialized BYG network!");
     });
 
 

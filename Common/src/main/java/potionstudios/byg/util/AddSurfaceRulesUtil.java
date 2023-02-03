@@ -27,7 +27,7 @@ public class AddSurfaceRulesUtil {
         }
         LevelStem levelStem = worldData.worldGenSettings().dimensions().get(levelStemKey);
         if (levelStem == null) {
-            BYG.LOGGER.error(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nNot adding surface rules....", levelStemKey));
+            BYG.logError(String.format("Unable to find level stem/dimension \"%s\", this is most likely due to a world being moved across minecraft versions, Oh The Biomes You'll Go cannot support this operation.\nNot adding surface rules....", levelStemKey));
             return;
         }
         ChunkGenerator chunkGenerator = levelStem.generator();
@@ -46,7 +46,7 @@ public class AddSurfaceRulesUtil {
                         ((NoiseGeneratorSettingsAccess) (Object) noiseGeneratorSettings).byg_setSurfaceRule(SurfaceRules.sequence(ruleSource, noiseGeneratorSettings.surfaceRule()));
                     }
                 } else {
-                    BYG.LOGGER.warn(String.format("Ignoring BYG's appended surface rule \"%s\" for dimension: \"%s\" because the chunk generator was not an instance of \"NoiseBasedChunkGenerator\".\nThe chunk generator was an instanceof \"%s\".", path.toString(), levelStemKey.location(), chunkGenerator.getClass().getName()));
+                    BYG.logWarning(String.format("Ignoring BYG's appended surface rule \"%s\" for dimension: \"%s\" because the chunk generator was not an instance of \"NoiseBasedChunkGenerator\".\nThe chunk generator was an instanceof \"%s\".", path.toString(), levelStemKey.location(), chunkGenerator.getClass().getName()));
                 }
             } else {
                 throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the Surface Rule config file found at: \"%s\"", levelStemKey.location().toString(), path));
@@ -54,6 +54,6 @@ public class AddSurfaceRulesUtil {
         }
 
         Codec<? extends BiomeSource> biomeSourceCodec = ((BiomeSourceAccess) chunkGenerator.getBiomeSource()).byg_invokeCodec();
-        BYG.LOGGER.info(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location().toString(), Registry.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
+        BYG.logInfo(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location().toString(), Registry.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
     }
 }

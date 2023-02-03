@@ -11,7 +11,7 @@ import java.util.function.BiConsumer;
 public class BYGStrippables {
 
     public static void strippableLogsBYG(BiConsumer<Block, Block> handler) {
-        BYG.LOGGER.debug("BYG: Adding strippable Blocks...");
+        BYG.logDebug("BYG: Adding strippable Blocks...");
 
         for (final BYGWoodTypes type : BYGWoodTypes.values()) {
             if (type.strippedLog() != null && type.log() != null)
@@ -29,7 +29,7 @@ public class BYGStrippables {
         handler.accept(BYGBlocks.PALO_VERDE_WOOD.get(), BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get());
         handler.accept(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);
         handler.accept(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE.get(), BYGWoodTypes.IMPARIUS.wood().get());
-        BYG.LOGGER.info("BYG: Added strippable Blocks...");
+        BYG.logInfo("BYG: Added strippable Blocks...");
 
     }
 }

@@ -85,7 +85,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         final Path path = ModPlatform.INSTANCE.configPath().resolve("overworld").resolve("byg-overworld-biomes.json5");
         OverworldBiomeConfig getOldOrDefault = readAndDeleteOldOverworldConfig(ModPlatform.INSTANCE.configPath().resolve("overworld-biomes.json"), OLD_CODEC, JanksonJsonOps.INSTANCE, DEFAULT);
         if (getOldOrDefault != DEFAULT) {
-            BYG.LOGGER.warn("Old overworld config detected, lets try and repair it...");
+            BYG.logWarning("Old overworld config detected, lets try and repair it...");
         }
 
         FromFileOps.Access registry = new FromFileOps.Access();
@@ -100,7 +100,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
                 createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
-            BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+            BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
             return overworldBiomeConfig;
         } catch (IOException | SyntaxError e) {
             throw new IllegalStateException(e);

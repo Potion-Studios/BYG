@@ -22,10 +22,10 @@ import java.util.function.Supplier;
 public class BYGClient {
 
     public static void load() {
-        BYG.LOGGER.debug("BYG: \"Client Setup\" Event Starting...");
+        BYG.logDebug("BYG: \"Client Setup\" Event Starting...");
 //        BiomepediaClientData.getConfig(true);
 //        EntityRendererRegistry.register(BYGEntities.MAN_O_WAR, ManOWarRenderer::new);
-        BYG.LOGGER.info("BYG: \"Client Setup\" Event Complete!");
+        BYG.logInfo("BYG: \"Client Setup\" Event Complete!");
     }
 
     public static void threadSafeLoad() {

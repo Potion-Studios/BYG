@@ -115,7 +115,7 @@ public class BYGForge {
                 }
                 config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
             } else {
-                BYG.LOGGER.info("BYG overworld biomes disabled.");
+                BYG.logInfo("BYG overworld biomes disabled.");
             }
         } catch (Exception e) {
             e.printStackTrace();

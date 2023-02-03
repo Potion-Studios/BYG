@@ -9,7 +9,6 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -46,7 +45,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ResourceLocation resourceLocation = new ResourceLocation(biomeKey.location().getNamespace(), "/textures/biome_previews/" + biomeKey.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).isPresent() ? resourceLocation : null;
         if (previewImageLocation == null) {
-            BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
+            BYG.logWarning("No image preview available for: " + resourceLocation.toString());
         }
 
         MutableComponent dimensionsText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));

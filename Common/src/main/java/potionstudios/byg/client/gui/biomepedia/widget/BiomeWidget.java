@@ -30,7 +30,7 @@ public class BiomeWidget extends AbstractWidget {
         ResourceLocation resourceLocation = new ResourceLocation(biome.location().getNamespace(), "/textures/biome_previews/" + biome.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).isPresent() ? resourceLocation : null;
         if (previewImageLocation == null) {
-            BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
+            BYG.logWarning("No image preview available for: " + resourceLocation.toString());
         }
         this.name = Component.translatable("biome." + biome.location().getNamespace() + "." + biome.location().getPath());
         this.borderColor = FastColor.ARGB32.color(255, 0, 0, 0);

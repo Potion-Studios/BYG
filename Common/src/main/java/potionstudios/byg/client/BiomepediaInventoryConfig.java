@@ -52,7 +52,7 @@ public record BiomepediaInventoryConfig(boolean visible, PlayerInventoryPosition
                 map.put("inventory_position", "Inventory GUI settings for the biomepedia button position.");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
-        BYG.LOGGER.debug(String.format("\"%s\" was read.", path.toString()));
+        BYG.logDebug(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

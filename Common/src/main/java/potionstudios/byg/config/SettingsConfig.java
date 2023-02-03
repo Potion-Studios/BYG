@@ -2,26 +2,29 @@ package potionstudios.byg.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CollectionCodec;
+import corgitaco.corgilib.serialization.codec.CommentedCodec;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
-import potionstudios.byg.BYG;
 import potionstudios.byg.util.ModPlatform;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.function.Supplier;
 
 public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLootTables, boolean customVillagers,
-                             boolean customStructures, boolean useBYGWorldGen) {
+                             boolean customStructures, boolean useBYGWorldGen, LoggerSettings loggerSettings) {
 
     public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("settings.json5");
 
     private static SettingsConfig INSTANCE = null;
 
-    private static final SettingsConfig DEFAULT = new SettingsConfig(true, true, true, true, true);
+    private static final SettingsConfig DEFAULT = new SettingsConfig(true, true, true, true, true, new LoggerSettings(false, false, false, Set.of()));
 
     public static final Codec<SettingsConfig> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
@@ -29,7 +32,8 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
             Codec.BOOL.fieldOf("add_loot_tables").orElse(true).forGetter(config -> config.appendLootTables),
             Codec.BOOL.fieldOf("add_custom_villagers").orElse(true).forGetter(config -> config.customVillagers),
             Codec.BOOL.fieldOf("add_custom_structures").orElse(true).forGetter(config -> config.customStructures),
-            Codec.BOOL.fieldOf("world_generation").orElse(true).forGetter(config -> config.useBYGWorldGen)
+            Codec.BOOL.fieldOf("world_generation").orElse(true).forGetter(config -> config.useBYGWorldGen),
+            CommentedCodec.of(LoggerSettings.CODEC, "logger_settings", "Logger settings.").orElse(new LoggerSettings(false, false, false, Set.of())).forGetter(config -> config.loggerSettings)
         ).apply(builder, SettingsConfig::new)
     );
 
@@ -55,7 +59,6 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
         if (!path.toFile().exists() || recreate) {
             createConfig(path);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
@@ -94,5 +97,26 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
             map.put("world_generation", "Use BYG world generation?");
         });
         JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, comments, JanksonJsonOps.INSTANCE, DEFAULT);
+    }
+
+    public record LoggerSettings(boolean logInfo, boolean logWarnings, boolean logDebug, Set<String> exclude) {
+        public static final Codec<Set<String>> HASH_SET_CODEC = new CollectionCodec<>(Codec.STRING, HashSet::new);
+
+        public static final Codec<LoggerSettings> CODEC = RecordCodecBuilder.create(builder ->
+                builder.group(
+                        Codec.BOOL.fieldOf("log_info").orElse(false).forGetter(config -> config.logInfo),
+                        Codec.BOOL.fieldOf("log_warnings").orElse(false).forGetter(config -> config.logWarnings),
+                        Codec.BOOL.fieldOf("log_debug").orElse(false).forGetter(config -> config.logDebug),
+                        CommentedCodec.of(HASH_SET_CODEC, "exclude", """
+                                Exclude BYG loggers that may contain any of the words or phrases in this list.
+                                Example:
+                                "exclude": [
+                                           "event",
+                                           "load event",
+                                           "loaded"
+                                           ]
+                                """).fieldOf("exclude").orElse(Set.of()).forGetter(config -> config.exclude)
+                ).apply(builder, LoggerSettings::new)
+        );
     }
 }

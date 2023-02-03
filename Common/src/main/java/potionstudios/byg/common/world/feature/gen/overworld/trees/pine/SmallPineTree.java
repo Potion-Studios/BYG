@@ -45,7 +45,7 @@ public class SmallPineTree extends Feature<NoneFeatureConfiguration> {
             Optional<StructureTemplate> structureTemplate = templatemanager.get(BYG.createLocation(":features/trees/withering_oak_tree5"));
 
             if (structureTemplate.isEmpty()) {
-                BYG.LOGGER.warn("NBT does not exist!");
+                BYG.logWarning("NBT does not exist!");
                 return false;
             }
             StructureTemplate template = structureTemplate.get();

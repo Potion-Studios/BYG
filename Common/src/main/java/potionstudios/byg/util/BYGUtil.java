@@ -138,7 +138,7 @@ public class BYGUtil {
                 if (biome.isPresent()) {
                     biomes.add(biome.get());
                 } else {
-                    BYG.LOGGER.info("\"" + resourceKey.location() + "\" is not a value in the biome registry at this point, ignore this warning if the data pack containing this biome is not yet added during world creation.");
+                    BYG.logInfo("\"" + resourceKey.location() + "\" is not a value in the biome registry at this point, ignore this warning if the data pack containing this biome is not yet added during world creation.");
                 }
             }
         }

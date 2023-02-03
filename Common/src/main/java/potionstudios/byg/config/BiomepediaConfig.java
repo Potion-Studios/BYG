@@ -48,7 +48,7 @@ public record BiomepediaConfig(boolean biomepediaEnabled) {
                 map.put("inventory_enabled", "Whether the biomepedia button is enabled or not in the player inventory for all users connected to this host.");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

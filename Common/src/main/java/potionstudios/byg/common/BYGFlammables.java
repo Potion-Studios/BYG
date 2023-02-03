@@ -23,7 +23,7 @@ public class BYGFlammables {
     }
 
     public static void flammablesBYG() {
-        BYG.LOGGER.debug("BYG: Adding Flammables...");
+        BYG.logDebug("BYG: Adding Flammables...");
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             if (type.isFlammable()) {
@@ -149,6 +149,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.INDIGO_JACARANDA_BUSH.get(), 15, 100);
         flammableBlock(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), 15, 100);
 
-        BYG.LOGGER.info("BYG: Added Flammables!");
+        BYG.logInfo("BYG: Added Flammables!");
     }
 }

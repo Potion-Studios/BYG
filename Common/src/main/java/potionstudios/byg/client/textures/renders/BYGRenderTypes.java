@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public class BYGRenderTypes {
     public static void renderTypes(Consumer<Map<Block, RenderType>> mapConsumer) {
-        BYG.LOGGER.debug("BYG: Rendering Texture Cutouts...");
+        BYG.logDebug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
@@ -275,7 +275,7 @@ public class BYGRenderTypes {
         for (final var potBlock : BYGBlocks.FLOWER_POT_BLOCKS)
             map.put(potBlock.get(), RenderType.cutoutMipped());
 
-        BYG.LOGGER.debug("BYG: Texture Cutouts Rendered!");
+        BYG.logDebug("BYG: Texture Cutouts Rendered!");
 
         mapConsumer.accept(map);
     }

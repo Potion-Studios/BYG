@@ -699,7 +699,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         if (!PATH.toFile().exists() || recreate) {
             JanksonUtil.createConfig(PATH, CODEC, JanksonUtil.HEADER_CLOSED, new HashMap<>(), JanksonJsonOps.INSTANCE, from);
         }
-        BYG.LOGGER.info(String.format("\"%s\" was read.", PATH.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", PATH.toString()));
 
         try {
             JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);

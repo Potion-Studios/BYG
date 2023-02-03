@@ -49,7 +49,7 @@ public class BYGFabric implements ModInitializer {
         CorgiLibFabric.initializeCorgiLib(initializedFrom);
         Objects.requireNonNull(initializedFrom, "BYG must be told where it was initialized from.");
         if (firstInitialized != null || BYG.INITIALIZED) {
-            BYG.LOGGER.debug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
+            BYG.logDebug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
             return;
         }
         firstInitialized = initializedFrom;
@@ -65,7 +65,7 @@ public class BYGFabric implements ModInitializer {
         CommandRegistrationCallback.EVENT.register((dispatcher, commandBuildContext, commandSelection) -> BYG.attachCommands(dispatcher, commandSelection));
         FabricNetworkHandler.init();
 
-        BYG.LOGGER.info(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
+        BYG.logInfo(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
     }
 
     public static void registerRenderers() {
@@ -82,7 +82,7 @@ public class BYGFabric implements ModInitializer {
 
         registerVillagerTrades();
         BYGStrippables.strippableLogsBYG(StrippableBlockRegistry::register);
-        BYG.LOGGER.info("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
+        BYG.logInfo("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
     }
 
     private static void registerVillagerTrades() {
@@ -97,7 +97,7 @@ public class BYGFabric implements ModInitializer {
                                     )
                             );
                         } else {
-                            BYG.LOGGER.warn("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
+                            BYG.logWarning("\"%s\" is not a registered villager profession, skipping trade entry...".formatted(professionKey.toString()));
                         }
                     }
             );
@@ -106,7 +106,7 @@ public class BYGFabric implements ModInitializer {
                     (level, listings) -> TradeOfferHelper.registerWanderingTraderOffers(level, itemListings -> itemListings.addAll(Arrays.asList(listings)))
             );
         } else {
-            BYG.LOGGER.warn("Ignoring villager/wandering trader trades added by BYG.");
+            BYG.logWarning("Ignoring villager/wandering trader trades added by BYG.");
         }
     }
 
@@ -114,6 +114,6 @@ public class BYGFabric implements ModInitializer {
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO.get())));
         Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
         Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
-        BYG.LOGGER.info("BYG registries bootstrapped");
+        BYG.logInfo("BYG registries bootstrapped");
     }
 }

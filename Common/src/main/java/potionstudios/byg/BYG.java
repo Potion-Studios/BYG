@@ -14,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -29,6 +28,7 @@ import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
+import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.mixin.access.BlockEntityTypeAccess;
 import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.mixin.access.PoiTypesAccess;
@@ -48,7 +48,7 @@ import java.util.function.Predicate;
 public class BYG {
 
     public static final String MOD_ID = "byg";
-    public static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
     public static boolean INITIALIZED;
 
     private static final Map<Block, Predicate<BlockBehaviour.BlockStateBase>> BLOCKSTATE_IS_REPLACEMENTS = new HashMap<>();
@@ -60,7 +60,7 @@ public class BYG {
         PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
 
         String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
-        if(!loadAllConfigs.isEmpty()) {
+        if (!loadAllConfigs.isEmpty()) {
             throw new IllegalStateException(loadAllConfigs);
         }
 
@@ -74,7 +74,7 @@ public class BYG {
                         final var bygTag = tag.byg(allowed);
                         final var holder = allowed.getTag(bygTag);
                         if (holder.isEmpty() || holder.get().stream().findFirst().isEmpty()) {
-                            LOGGER.warn("Tag {} of type {} is empty!", bygTag.location(), allowed.registry.location());
+                            logWarning("Tag %s of type %s is empty!".formatted(bygTag.location(), allowed.registry.location()));
                         }
                     }
                 }
@@ -147,12 +147,12 @@ public class BYG {
     }
 
     public static void threadSafeLoadFinish() {
-        LOGGER.debug("BYG: \"Load Complete Event\" Starting...");
+        logDebug("BYG: \"Load Complete Event\" Starting...");
         BYGHoeables.tillablesBYG();
         BYGFlammables.flammablesBYG();
         BYGCarvableBlocks.addCarverBlocks();
         BYGFlattenables.addFlattenables();
-        LOGGER.info("BYG: \"Load Complete\" Event Complete!");
+        logDebug("BYG: \"Load Complete\" Event Complete!");
     }
 
     public static ResourceLocation createLocation(String path) {
@@ -165,6 +165,31 @@ public class BYG {
 
     public static ResourceLocation createLocation(Holder<?> holder) {
         return createLocation(holder.unwrapKey().orElseThrow());
+    }
+
+    public static void logWarning(String msg) {
+        SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
+        if (loggerSettings.logWarnings() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+            LOGGER.warn(msg);
+        }
+    }
+
+    public static void logInfo(String msg) {
+        SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
+        if (loggerSettings.logInfo() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+            LOGGER.info(msg);
+        }
+    }
+
+    public static void logDebug(String msg) {
+        SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
+        if (loggerSettings.logDebug() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+            LOGGER.debug(msg);
+        }
+    }
+
+    public static void logError(String msg) {
+        LOGGER.error(msg);
     }
 
     static {
