@@ -765,6 +765,7 @@ public class BYGItems {
     public static final RegistryObject<Item> BEGONIA = createItem(BYGBlocks.BEGONIA);
     public static final RegistryObject<Item> BISTORT = createItem(BYGBlocks.BISTORT);
     public static final RegistryObject<Item> BLACK_ROSE = createItem(BYGBlocks.BLACK_ROSE);
+    public static final RegistryObject<Item> BLUE_ROSE_BUSH = createItem(BYGBlocks.BLUE_ROSE_BUSH);
     public static final RegistryObject<Item> BLUE_SAGE = createItem(BYGBlocks.BLUE_SAGE);
     public static final RegistryObject<Item> CALIFORNIA_POPPY = createItem(BYGBlocks.CALIFORNIA_POPPY);
     public static final RegistryObject<Item> CROCUS = createItem(BYGBlocks.CROCUS);

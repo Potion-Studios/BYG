@@ -213,7 +213,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> LARGE_HOWLING_PEAKS_BOULDERS = createPlacedFeature("large_howling_peaks_boulders", BYGOverworldFeatures.LARGE_HOWLING_PEAKS_BOULDER, () -> oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(12), BlockPredicateFilter.forPredicate(DIRT_TAG)));
 
     public static final Holder<PlacedFeature> LARGE_WINDSWEPT_BOULDERS = createPlacedFeature("large_windswept_boulders", BYGOverworldFeatures.LARGE_WINDSWEPT_BOULDER, () -> oceanFloorSquaredWithCount(1, RarityFilter.onAverageOnceEvery(5), BlockPredicateFilter.forPredicate(BlockPredicate.solid(new BlockPos(0, -1, 0))), RandomOffsetPlacement.vertical(BiasedToBottomInt.of(-3, -1))));
-    public static final Holder<PlacedFeature> ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGOverworldVegetationFeatures.ROSE_FIELD_FLOWERS, () -> worldSurfaceSquaredWithCount(10));
+    public static final Holder<PlacedFeature> ROSE_FIELD_FLOWERS = createPlacedFeature("rose_field_flowers", BYGOverworldVegetationFeatures.ROSE_FIELD_FLOWERS, () -> worldSurfaceSquaredWithCount(12));
     public static final Holder<PlacedFeature> FROST_MAGMA_LAKE = createPlacedFeature("frost_magma_lake", BYGOverworldFeatures.FROST_MAGMA_LAKE, () -> worldSurfaceSquaredWithCount(3));
     public static final Holder<PlacedFeature> TINY_LILY_PAD = createPlacedFeature("tiny_lily_pad", BYGOverworldVegetationFeatures.TINY_LILY_PAD, () -> worldSurfaceSquaredWithCount(4));
     public static final Holder<PlacedFeature> LILY_PAD = createPlacedFeature("lily_pad", VegetationFeatures.PATCH_WATERLILY, () -> CountPlacement.of(15), InSquarePlacement::spread, () -> HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES), BiomeFilter::biome);

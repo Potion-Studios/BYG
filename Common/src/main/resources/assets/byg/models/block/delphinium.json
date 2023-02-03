@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/delphinium_flower",
-    "particle": "byg:block/delphinium_flower"
-  }
-}

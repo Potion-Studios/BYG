@@ -89,6 +89,7 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.BISTORT.get(), 60, 100);
         flammableBlock(BYGBlocks.BLACK_ROSE.get(), 60, 100);
         flammableBlock(BYGBlocks.BLUE_SAGE.get(), 60, 100);
+        flammableBlock(BYGBlocks.BLUE_ROSE_BUSH.get(), 60, 100);
         flammableBlock(BYGBlocks.CALIFORNIA_POPPY.get(), 60, 100);
         flammableBlock(BYGBlocks.CROCUS.get(), 60, 100);
         flammableBlock(BYGBlocks.CYAN_AMARANTH.get(), 60, 100);

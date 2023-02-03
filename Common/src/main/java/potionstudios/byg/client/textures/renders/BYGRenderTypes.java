@@ -32,6 +32,7 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.BLOOMING_ALOE_VERA.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HORSEWEED.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLUE_SAGE.get(), RenderType.cutoutMipped());
+        map.put(BYGBlocks.BLUE_ROSE_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.MINI_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PRICKLY_PEAR_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_SUCCULENT.get(), RenderType.cutoutMipped());

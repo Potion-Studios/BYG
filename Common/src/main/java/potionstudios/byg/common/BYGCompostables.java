@@ -105,6 +105,7 @@ public class BYGCompostables {
         map.put(BYGItems.BEGONIA.get(), 0.65f);
         map.put(BYGItems.BISTORT.get(), 0.65f);
         map.put(BYGItems.BLACK_ROSE.get(), 0.65f);
+        map.put(BYGItems.BLUE_ROSE_BUSH.get(), 0.85f);
         map.put(BYGItems.BLUE_SAGE.get(), 0.65f);
         map.put(BYGItems.CALIFORNIA_POPPY.get(), 0.65f);
         map.put(BYGItems.CROCUS.get(), 0.65f);

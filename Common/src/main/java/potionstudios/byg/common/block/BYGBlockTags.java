@@ -54,6 +54,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_ANGELICA = createPlantTag("may_place_on/angelica");
     public static final TagKey<Block> GROUND_BEGONIA = createPlantTag("may_place_on/begonia");
     public static final TagKey<Block> GROUND_BISTORT = createPlantTag("may_place_on/bistort");
+    public static final TagKey<Block> GROUND_BLUE_ROSE_BUSH = createPlantTag("may_place_on/blue_rose_bush");
     public static final TagKey<Block> GROUND_BLUE_SAGE = createPlantTag("may_place_on/blue_sage");
     public static final TagKey<Block> GROUND_CALIFORNIA_POPPY = createPlantTag("may_place_on/california_poppy");
     public static final TagKey<Block> GROUND_CROCUS = createPlantTag("may_place_on/crocus");

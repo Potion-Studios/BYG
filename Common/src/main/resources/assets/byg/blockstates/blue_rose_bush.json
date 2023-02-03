@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "byg:block/blue_rose_bush_bottom"
+    },
+    "half=upper": {
+      "model": "byg:block/blue_rose_bush_top"
+    }
+  }
+}
