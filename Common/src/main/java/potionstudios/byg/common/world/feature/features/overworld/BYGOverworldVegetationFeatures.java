@@ -74,8 +74,8 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> RICHEA = createFlowerConfiguredFeature("richea", () -> BYGBlocks.RICHEA.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> PRAIRIE_GRASS_PATCH = createPatchConfiguredFeature("prairie_grass_patch", () -> BYGBlocks.PRAIRIE_GRASS.get(), 100);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> TALL_PRAIRIE_GRASS_PATCH = createPatchConfiguredFeature("tall_prairie_grass_patch", () -> BYGBlocks.TALL_PRAIRIE_GRASS.get(), 100);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BLUE_ROSE_BUSH = createPatchConfiguredFeature("blue_rose_bush", () -> BYGBlocks.BLUE_ROSE_BUSH.get(), 25);
-    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE_BUSH = createPatchConfiguredFeature("rose_bush", () -> Blocks.ROSE_BUSH, 25);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> BLUE_ROSE_BUSH = createPatchConfiguredFeature("blue_rose_bush", () -> BYGBlocks.BLUE_ROSE_BUSH.get(), 5);
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE_BUSH = createPatchConfiguredFeature("rose_bush", () -> Blocks.ROSE_BUSH, 5);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> JAPANESE_ORCHID = createFlowerConfiguredFeature("japanese_orchid", () -> BYGBlocks.JAPANESE_ORCHID.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FOXGLOVE = createFlowerConfiguredFeature("foxglove", () -> BYGBlocks.FOXGLOVE.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> FLOWERING_INDIGO_JACARANDA_BUSH = createPatchConfiguredFeature("flowering_indigo_jacaranda_bush", () -> BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), 32);
@@ -170,8 +170,8 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ROSE_FIELD_FLOWERS = createConfiguredFeature("rose_field_flowers",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CYAN_ROSE), 0.25F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ROSE_BUSH), 0.25F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ROSE_OSIRIA), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BLUE_ROSE_BUSH), 0.3F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ROSE), 0.25F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ROSE_BUSH))
     );

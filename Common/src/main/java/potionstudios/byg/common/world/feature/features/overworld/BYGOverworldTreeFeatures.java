@@ -3222,6 +3222,19 @@ public class BYGOverworldTreeFeatures {
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_BLUE_TREE1))
     );
 
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ROSE_FIELD_SPRUCE_TREES = createConfiguredFeature("rose_field_spruce_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_BLUE_TREE1), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_BLUE_TREE2), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_BLUE_TREE3), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_BLUE_TREE4), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_RED_TREE1), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_RED_TREE2), 0.111F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_RED_TREE3), 0.111F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SPRUCE_RED_TREE4))
+    );
+
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAHOGANY_TREES = createConfiguredFeature("mahogany_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(

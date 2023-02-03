@@ -245,6 +245,14 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSES);
     }
 
+    public static void addBlueRoseBush(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLUE_ROSE_BUSH);
+    }
+
+    public static void addBlueRoseBushLush(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLUE_ROSE_BUSH_LUSH);
+    }
+
     public static void addBlackRose(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLACK_ROSE);
     }
@@ -715,9 +723,9 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
     }
 
-//    public static void addRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
-//        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_SPRUCE_RED_TREE);
-//    }
+    public static void addRoseFieldSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSE_FIELD_SPRUCE_TREES);
+    }
 
     public static void addSpareRedSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_SPRUCE_TREES_SPARSE);

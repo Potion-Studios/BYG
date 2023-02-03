@@ -1,6 +1,8 @@
 {
   "values": [
     "#minecraft:dirt",
-    "minecraft:clay"
+    "minecraft:clay",
+    "minecraft:mud",
+    "byg:white_sand"
   ]
 }

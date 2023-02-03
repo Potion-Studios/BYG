@@ -317,6 +317,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
+        BYGDefaultBiomeFeatures.addBlueRoseBush(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
@@ -394,7 +395,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-
         BYGDefaultBiomeFeatures.addCanadianShieldTrees(generationSettings);
         BYGDefaultBiomeFeatures.addScarceSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseAspenTrees(generationSettings);
@@ -402,6 +402,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addHydrangeas(generationSettings);
+        BYGDefaultBiomeFeatures.addBlueRoseBush(generationSettings);
 
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
@@ -485,6 +486,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
+        BYGDefaultBiomeFeatures.addBlueRoseBush(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -528,6 +530,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
+        BYGDefaultBiomeFeatures.addBlueRoseBush(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
         if (snowy) {
@@ -606,7 +609,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
-        BiomeDefaultFeatures.addDefaultGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addSwampExtraVegetation(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
@@ -673,6 +676,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addIris(generationSettings);
+        BYGDefaultBiomeFeatures.addBlueRoseBush(generationSettings);
         BYGDefaultBiomeFeatures.addWinterSucculent(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
@@ -1499,10 +1503,10 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-        BiomeDefaultFeatures.addForestGrass(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
 
-        BYGDefaultBiomeFeatures.addSpareRedSpruceTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addRoseFieldSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addRoseFieldFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
