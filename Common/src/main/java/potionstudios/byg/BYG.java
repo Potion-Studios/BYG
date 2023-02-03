@@ -169,21 +169,21 @@ public class BYG {
 
     public static void logWarning(String msg) {
         SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
-        if (loggerSettings.logWarnings() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+        if (loggerSettings.logWarnings() && loggerSettings.exclude().stream().noneMatch(msg::contains)) {
             LOGGER.warn(msg);
         }
     }
 
     public static void logInfo(String msg) {
         SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
-        if (loggerSettings.logInfo() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+        if (loggerSettings.logInfo() && loggerSettings.exclude().stream().noneMatch(msg::contains)) {
             LOGGER.info(msg);
         }
     }
 
     public static void logDebug(String msg) {
         SettingsConfig.LoggerSettings loggerSettings = SettingsConfig.getConfig().loggerSettings();
-        if (loggerSettings.logDebug() || loggerSettings.exclude().stream().anyMatch(msg::contains)) {
+        if (loggerSettings.logDebug() && loggerSettings.exclude().stream().noneMatch(msg::contains)) {
             LOGGER.debug(msg);
         }
     }
