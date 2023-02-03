@@ -24,9 +24,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.AttachedStemBlock;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.StemBlock;
 import net.minecraft.world.level.block.StemGrownBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -43,6 +42,9 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
+
+import static net.minecraft.world.level.block.Blocks.MELON_STEM;
+import static net.minecraft.world.level.block.Blocks.PUMPKIN_STEM;
 
 public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
@@ -74,13 +76,13 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.PUMPKIN_PIE), false));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 2.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(2, new PumpkinWardenLeaveBlockGoal(this, 1, 32, 5));
-        this.goalSelector.addGoal(2, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
-        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D) {
+        this.goalSelector.addGoal(1, new PumpkinWardenTakeBlockGoal(this, 1, 32, 5));
+        this.goalSelector.addGoal(0, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 1.0D, 1.0D) {
             @Override
             public boolean canContinueToUse() {
                 if (((PumpkinWarden) this.mob).isHiding()) {
@@ -113,7 +115,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             } else if (this.getTimer() > 180) {
                 if (this.level.getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
                     controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hideend", false));
-                } else{
+                } else {
                     controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
                 }
                 return PlayState.CONTINUE;
@@ -269,7 +271,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected int nextStartTick(PathfinderMob $$0) {
-            return 5;
+            return 0;
         }
 
         public void tick() {
@@ -287,8 +289,10 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean isValidTarget(LevelReader level, BlockPos pos) {
-            if (level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof StemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof StemBlock) {
-                return (level.getBlockState(pos).getBlock() instanceof StemGrownBlock);
+            if (level.getBlockState(pos).is(Blocks.PUMPKIN)) {
+                return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
+            } else if (level.getBlockState(pos).is(Blocks.MELON)) {
+                return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
             }
             return false;
         }
@@ -304,12 +308,12 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         public double acceptedDistance() {
-            return 1.7D;
+            return 8D;
         }
 
         @Override
         protected int nextStartTick(PathfinderMob $$0) {
-            return 10;
+            return 0;
         }
 
         @Override
