@@ -85,7 +85,7 @@ public class ConfigEditScreen extends Screen {
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         for (ConfigEditEntry<?> child : this.configEntries.children()) {
             if (child.renderToolTip) {
-                this.renderTooltip(pPoseStack, child.toolTip, Optional.empty(), pMouseX, pMouseY);
+                this.renderTooltip(pPoseStack, child.toolTip, pMouseX, pMouseY);
             }
         }
     }

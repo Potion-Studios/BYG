@@ -5,8 +5,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.FormattedCharSequence;
 import org.apache.commons.lang3.mutable.MutableInt;
-import potionstudios.byg.client.GuiUtil;
 import potionstudios.byg.client.config.ScreenPosition;
 
 import javax.annotation.Nullable;
@@ -21,7 +21,7 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
     public final int maxCommentWidth;
     private final Component comment;
     protected final ScreenPosition keyScreenPosition = new ScreenPosition();
-    public final List<Component> toolTip = new ArrayList<>();
+    public final List<FormattedCharSequence> toolTip = new ArrayList<>();
     private final MutableInt cachedWidth = new MutableInt(0);
     public boolean renderToolTip;
 
@@ -47,7 +47,11 @@ public abstract class ConfigEditEntry<T> extends ContainerObjectSelectionList.En
 
         this.keyScreenPosition.x = x;
         this.keyScreenPosition.y = y;
-        GuiUtil.makeAndCacheConfigCommentWrappedToolTip(pWidth, this.comment.getString(), this.cachedWidth, this.toolTip);
+
+        if(this.toolTip.isEmpty() || this.cachedWidth.getValue() != pWidth) {
+           this.toolTip.addAll(Minecraft.getInstance().font.split(this.comment, pWidth));
+           this.cachedWidth.setValue(pWidth);
+        };
         Minecraft.getInstance().font.draw(pPoseStack, this.key, this.keyScreenPosition.x, this.keyScreenPosition.y, 16777215);
     }
 

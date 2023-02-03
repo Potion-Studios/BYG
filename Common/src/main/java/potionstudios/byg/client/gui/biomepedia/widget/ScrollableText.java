@@ -9,11 +9,9 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FastColor;
-import org.apache.commons.lang3.mutable.MutableInt;
-import potionstudios.byg.client.GuiUtil;
+import net.minecraft.util.FormattedCharSequence;
 import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableText.ScrollableTextEntry> {
@@ -28,10 +26,9 @@ public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableTe
         super(width, height, y0, y1, Minecraft.getInstance().font.lineHeight + 1);
         this.setRenderBackground(renderBackground);
         this.setRenderTopAndBottom(renderTopAndBottom);
-        ArrayList<Component> toolTip = new ArrayList<>();
-        GuiUtil.makeAndCacheConfigCommentWrappedToolTip(width - 6, text.getString(), new MutableInt(), toolTip);
-        for (Component component : toolTip) {
-            this.addEntry(new ScrollableTextEntry(component, width, textColor));
+
+        for (FormattedCharSequence formattedCharSequence : Minecraft.getInstance().font.split(text, width - 6)) {
+            this.addEntry(new ScrollableTextEntry(formattedCharSequence, width, textColor));
         }
     }
 
@@ -45,11 +42,11 @@ public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableTe
 
     public static class ScrollableTextEntry extends ContainerObjectSelectionList.Entry<ScrollableTextEntry> {
 
-        private final Component text;
+        private final FormattedCharSequence text;
         private final int textMaxWidth;
         private final int textColor;
 
-        public ScrollableTextEntry(Component text, int textMaxWidth, int textColor) {
+        public ScrollableTextEntry(FormattedCharSequence text, int textMaxWidth, int textColor) {
             this.text = text;
             this.textMaxWidth = textMaxWidth;
             this.textColor = textColor;
