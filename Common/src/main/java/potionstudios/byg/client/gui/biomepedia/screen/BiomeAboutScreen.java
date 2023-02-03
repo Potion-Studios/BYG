@@ -9,6 +9,7 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
@@ -48,7 +49,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
             BYG.LOGGER.warn("No image preview available for: " + resourceLocation.toString());
         }
 
-        MutableComponent dimensionsText = Component.translatable("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent dimensionsText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));
         Map<ResourceKey<Biome>, Collection<ResourceKey<Level>>> biomeDimensions = LevelBiomeTracker.client_instance.biomeDimensions();
 
         if (biomeDimensions.containsKey(biomeKey)) {
@@ -56,21 +57,21 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
             Collection<ResourceKey<Level>> dimensions = biomeDimensions.get(biomeKey);
             for (ResourceKey<Level> levelResourceKey : dimensions) {
                 String dimensionTranslationKey = "dimension." + levelResourceKey.location().getNamespace() + "." + levelResourceKey.location().getPath();
-                MutableComponent dimensionComponent = Component.translatable(dimensionTranslationKey);
-                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : Component.literal(levelResourceKey.location().toString()));
+                MutableComponent dimensionComponent = Component.translatable(dimensionTranslationKey).withStyle(ChatFormatting.RESET);
+                dimensionsText.append("\n").append(!I18n.get(translationKey).equals(dimensionTranslationKey) ? dimensionComponent : Component.literal(levelResourceKey.location().toString()).withStyle(ChatFormatting.RESET));
             }
         } else {
             dimensionsText.append("\n").append(Component.translatable("biomepedia.biomeabout.dimensions.none"));
         }
         this.dimensionsText = dimensionsText;
 
-        MutableComponent climateText = Component.translatable("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD);
+        MutableComponent climateText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));
         Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
         Biome biome = biomeRegistry.get(biomeKey);
 
-        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()));
-        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.downfall", biome.getDownfall()));
-        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.precipitation", Component.translatable("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()).withStyle(ChatFormatting.RESET));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.downfall", biome.getDownfall()).withStyle(ChatFormatting.RESET));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.precipitation", Component.translatable("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())).withStyle(ChatFormatting.RESET));
         this.climateText = climateText;
     }
 
