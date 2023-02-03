@@ -21,7 +21,7 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
         BYGFabric.initializeBYG("TerraBlender Initializer");
 
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
-        if (config.generateOverworld()) {
+        if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
             config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
         } else {
             BYG.logInfo("BYG overworld biomes disabled.");
