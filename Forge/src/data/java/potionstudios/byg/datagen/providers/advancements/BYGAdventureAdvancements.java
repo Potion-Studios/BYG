@@ -3,9 +3,12 @@ package potionstudios.byg.datagen.providers.advancements;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.FrameType;
+import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGBiomes;
@@ -29,5 +32,6 @@ public class BYGAdventureAdvancements implements BYGAdvancementConsumer {
                 Component.translatable("byg.advancements.adventure.explore_biomes.description"), null, FrameType.CHALLENGE, true, true, false)
             .rewards(AdvancementRewards.Builder.experience(1000))
             .save(advancementConsumer, "byg:adventure/oh_the_biomes_youll_go");
+
     }
 }

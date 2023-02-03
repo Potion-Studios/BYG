@@ -1,0 +1,72 @@
+{
+  "parent": "byg:husbandry/root",
+  "criteria": {
+    "rose": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "byg:blue_rose_bush"
+            ]
+          },
+          {
+            "items": [
+              "byg:black_rose"
+            ]
+          },
+          {
+            "items": [
+              "byg:winter_rose"
+            ]
+          },
+          {
+            "items": [
+              "byg:cyan_rose"
+            ]
+          },
+          {
+            "items": [
+              "byg:osiria_rose"
+            ]
+          },
+          {
+            "items": [
+              "byg:rose"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:rose_bush"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:wither_rose"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "byg.advancements.husbandry.rose_collector.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "byg:rose"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "byg.advancements.husbandry.rose_collector.title"
+    }
+  },
+  "requirements": [
+    [
+      "rose"
+    ]
+  ]
+}
