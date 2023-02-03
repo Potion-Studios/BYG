@@ -23,6 +23,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.StemBlock;
@@ -94,6 +95,11 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         super.registerGoals();
     }
 
+    @Override
+    public boolean removeWhenFarAway(double $$0) {
+        return false;
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         AnimationController controller = event.getController();
         controller.transitionLengthTicks = 0;
@@ -104,8 +110,12 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level.isDay() && this.getTimer() > 10) {
                 controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
                 return PlayState.CONTINUE;
-            } else if (this.getTimer() > 180 && this.level.isDay()) {
-                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hideend", false));
+            } else if (this.getTimer() > 180) {
+                if (this.level.getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
+                    controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hideend", false));
+                } else{
+                    controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
+                }
                 return PlayState.CONTINUE;
             }
         }
