@@ -3086,13 +3086,14 @@ public class BYGOverworldTreeFeatures {
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CYPRESS_TREE3))
     );
 
+    //TODO: Add back deciduous trees
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DECIDUOUS_TREES = createConfiguredFeature("deciduous_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DECIDUOUS_TREE1), 0.25F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DECIDUOUS_TREE2), 0.25F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DECIDUOUS_TREE3), 0.25F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(DECIDUOUS_TREE4))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_TREE1), 0.25F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_TREE2), 0.25F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_TREE3), 0.25F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_TREE_LARGE1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> DACITE_RIDGE_TREES = createConfiguredFeature("dacite_ridge_trees",
