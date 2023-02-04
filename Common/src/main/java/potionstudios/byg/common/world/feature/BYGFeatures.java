@@ -52,26 +52,12 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.ebony.EbonyBush1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.meadow.*;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.OakTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.large.OakTreeLarge1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.large.OakTreeLarge2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.oak.large.OakTreeLarge3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree3;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palm.PalmTree4;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.pine.*;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.willow.dead.WillowDeadTree1;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
@@ -83,7 +69,6 @@ public class BYGFeatures {
 
     public static final RegistryObject<Feature<GlobalBiomeFeature.Config>> GLOBAL = createFeature("global", () -> new GlobalBiomeFeature());
 
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> DUMMY_TREE = createFeature("dummy_tree", () -> new SmallPineTree(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BEEHIVE = createFeature("beehive", () -> new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> HUH = createFeature("river_feature", () -> new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> VOLCANO = createFeature("volcano", () -> new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
@@ -274,52 +259,15 @@ public class BYGFeatures {
     /********************************************************************Tree Features********************************************************************/
 
 
-    //Ebony
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> EBONY_BUSH1 = createFeature("ebony_bush", () -> new EbonyBush1(BYGTreeConfig.CODEC.stable()));
-
-
-    //Meadow
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MEADOW_TREE1 = createFeature("meadow_tree1", () -> new MeadowTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MEADOW_TREE2 = createFeature("meadow_tree2", () -> new MeadowTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> MEADOW_TREE3 = createFeature("meadow_tree3", () -> new MeadowTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Oak
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE1 = createFeature("oak_tree1", () -> new OakTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE2 = createFeature("oak_tree2", () -> new OakTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE3 = createFeature("oak_tree3", () -> new OakTree3(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE_LARGE1 = createFeature("large_oak_tree1", () -> new OakTreeLarge1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE_LARGE2 = createFeature("large_oak_tree2", () -> new OakTreeLarge2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> OAK_TREE_LARGE3 = createFeature("large_oak_tree3", () -> new OakTreeLarge3(BYGTreeConfig.CODEC.stable()));
-
     //Orchard
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE1 = createFeature("orchard_tree1", () -> new OrchardTree1(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE2 = createFeature("orchard_tree2", () -> new OrchardTree2(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE3 = createFeature("orchard_tree3", () -> new OrchardTree3(BYGTreeConfig.CODEC.stable()));
 
-    //Palm
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALM_TREE1 = createFeature("palm_tree1", () -> new PalmTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALM_TREE2 = createFeature("palm_tree2", () -> new PalmTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALM_TREE3 = createFeature("palm_tree3", () -> new PalmTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALM_TREE4 = createFeature("palm_tree4", () -> new PalmTree4(BYGTreeConfig.CODEC.stable()));
-
-    //Pine
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PINE_LARGE_TREE1 = createFeature("large_pine_tree1", () -> new LargePineTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PINE_LARGE_TREE2 = createFeature("large_pine_tree2", () -> new LargePineTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PINE_TREE1 = createFeature("pine_tree1", () -> new PineTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PINE_TREE2 = createFeature("pine_tree2", () -> new PineTree2(BYGTreeConfig.CODEC.stable()));
-
     //Palo Verde
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE1 = createFeature("palo_verde_tree1", () -> new PaloVerdeTree(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE2 = createFeature("palo_verde_tree2", () -> new PaloVerdeTree2(BYGTreeConfig.CODEC.stable()));
 
-    //Shrubs
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB1 = createFeature("shrub1", () -> new Shrub1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> SHRUB2 = createFeature("shrub2", () -> new Shrub2(BYGTreeConfig.CODEC.stable()));
-
-
-    //Willow
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WILLOW_DEAD_TREE1 = createFeature("dead_willow_tree", () -> new WillowDeadTree1(BYGTreeConfig.CODEC.stable()));
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> createFeature(String id, Supplier<? extends F> feature) {
         return PROVIDER.register(id, feature);
