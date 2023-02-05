@@ -38,7 +38,7 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
 public class BYGEndFeatures {
 
-    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> IMPARIUS_GROVE_DELTA = createConfiguredFeature("imparius_grove_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.IMPARIUS_PHYLIUM.defaultBlockState(), UniformInt.of(7, 15), ConstantInt.of(0)));
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> IMPARIUS_GROVE_DELTA = createConfiguredFeature("imparius_grove_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.IMPARIUS_PHYLIUM.defaultBlockState(), UniformInt.of(7, 15), ConstantInt.of(1)));
 
     public static final Supplier<BlockPredicate> CRYPTIC_STONE_UNDER = () -> BlockPredicate.matchesBlocks(BlockPos.ZERO.relative(Direction.DOWN), BYGBlocks.CRYPTIC_STONE.get());
 

@@ -90,6 +90,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRAG_DELTA);
         gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRAG_GEN);
     }
+    public static void addSwampDelta(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.SWAMP_GRASS_BLOCK_DELTA);
+    }
+
 
     public static void addOvergrownVines(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.VINES_1);

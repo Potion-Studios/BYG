@@ -117,7 +117,7 @@ public class BYG {
                                 if (material == Material.PLANT || material == Material.BAMBOO ||
                                         material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
                                         material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
-                                        material == Material.LEAVES || material == Material.WOOD || material == Material.GRASS) {
+                                        material == Material.LEAVES || material == Material.WOOD) {
                                     list.add(block);
                                 }
                             }

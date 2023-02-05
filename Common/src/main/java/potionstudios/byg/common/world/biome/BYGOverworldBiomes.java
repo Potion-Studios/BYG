@@ -258,7 +258,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
-
+        BYGDefaultBiomeFeatures.addSwampDelta(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);
@@ -605,6 +605,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
+        BYGDefaultBiomeFeatures.addSwampDelta(generationSettings);
 
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
@@ -1057,6 +1058,7 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
+        BYGDefaultBiomeFeatures.addSwampDelta(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addSwampClayDisk(generationSettings);

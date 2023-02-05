@@ -8,7 +8,6 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,7 +58,9 @@ public class BYGOverworldFeatures {
                             SimpleStateProvider.simple(Blocks.TUFF), SimpleStateProvider.simple(Blocks.DEEPSLATE), false)
             ));
 
-    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), ConstantInt.of(0)));
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), UniformInt.of(1, 3)));
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> SWAMP_MOSS_DELTA = createConfiguredFeature("swamp_moss_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), Blocks.MOSS_BLOCK.defaultBlockState(), UniformInt.of(10, 15), UniformInt.of(1, 3)));
+    public static final Holder<ConfiguredFeature<DeltaFeatureConfiguration, ?>> SWAMP_GRASS_BLOCK_DELTA = createConfiguredFeature("swamp_grass_block_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), Blocks.GRASS_BLOCK.defaultBlockState(), UniformInt.of(10, 15), UniformInt.of(1, 3)));
 
 
     public static final Holder<ConfiguredFeature<SimpleBlockProviderConfig, ?>> WIDE_WATER_LAKE = createConfiguredFeature("wide_water_lake",
