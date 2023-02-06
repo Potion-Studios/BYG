@@ -266,6 +266,13 @@ public class BYGOverworldVegetationFeatures {
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PINK_CHERRY_FOLIAGE))
     );
 
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> CLOVER_AND_FLOWERS = createConfiguredFeature("clovers_and_flowers",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(FLOWER_PATCH), 0.5F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CLOVER_PATCH))
+    );
+
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ANEMONES = createConfiguredFeature("anemones",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
