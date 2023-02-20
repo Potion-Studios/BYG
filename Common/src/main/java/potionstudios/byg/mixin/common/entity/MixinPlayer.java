@@ -8,15 +8,18 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.common.entity.player.extension.BiomepediaExtension;
 import potionstudios.byg.server.level.BYGPlayerTrackedData;
 import potionstudios.byg.util.BYGAdditionalData;
 
 import java.util.HashMap;
 
 @Mixin(Player.class)
-public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Access {
+public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Access, BiomepediaExtension {
 
     private BYGPlayerTrackedData bygPlayerTrackedData = new BYGPlayerTrackedData(new HashMap<>());
+
+    private boolean gotBiomepedia = false;
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
     private void writeBYGData(CompoundTag tag, CallbackInfo ci) {
@@ -30,12 +33,15 @@ public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Acce
 
     @Override
     public Tag write() {
-        return BYGPlayerTrackedData.CODEC.encodeStart(NbtOps.INSTANCE, this.bygPlayerTrackedData).result().orElseThrow();
+        CompoundTag tag = (CompoundTag) BYGPlayerTrackedData.CODEC.encodeStart(NbtOps.INSTANCE, this.bygPlayerTrackedData).result().orElseThrow();
+        tag.putBoolean("biomepedia", gotBiomepedia);
+        return tag;
     }
 
     @Override
     public void read(CompoundTag tag) {
         this.bygPlayerTrackedData = BYGPlayerTrackedData.CODEC.decode(NbtOps.INSTANCE, tag).result().orElseThrow().getFirst();
+        this.gotBiomepedia = tag.contains("biomepedia") && tag.getBoolean("biomepedia");
     }
 
     @Override
@@ -47,5 +53,15 @@ public class MixinPlayer implements BYGAdditionalData, BYGPlayerTrackedData.Acce
     public BYGPlayerTrackedData setPlayerTrackedData(BYGPlayerTrackedData newVal) {
         this.bygPlayerTrackedData = newVal;
         return this.bygPlayerTrackedData;
+    }
+
+    @Override
+    public void setGotBiomepedia(boolean gotBiomepedia) {
+        this.gotBiomepedia = gotBiomepedia;
+    }
+
+    @Override
+    public boolean gotBiomepedia() {
+        return this.gotBiomepedia;
     }
 }

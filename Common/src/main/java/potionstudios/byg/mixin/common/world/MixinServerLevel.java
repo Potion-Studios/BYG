@@ -12,6 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.dimension.DimensionType;
@@ -26,6 +27,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
+import potionstudios.byg.common.entity.player.extension.BiomepediaExtension;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.LevelBiomeTracker;
 import potionstudios.byg.config.BiomepediaConfig;
 import potionstudios.byg.config.ConfigVersionTracker;
@@ -61,6 +64,7 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Inject(method = "<init>", at = @At("RETURN"))
     private void getWorldFolder(MinecraftServer $$0, Executor $$1, LevelStorageSource.LevelStorageAccess storageAccess, ServerLevelData $$3, ResourceKey<Level> levelResourceKey, LevelStem $$5, ChunkProgressListener $$6, boolean $$7, long $$8, List $$9, boolean $$10, CallbackInfo ci) {
         this.worldPath = storageAccess.getDimensionPath(levelResourceKey);
+        BiomepediaConfig.getConfig(true);
     }
 
     @Shadow
@@ -70,10 +74,17 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Inject(method = "addPlayer", at = @At("HEAD"))
     private void warnExperimentalBYG(ServerPlayer serverPlayer, CallbackInfo ci) {
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new SaplingPatternsPacket(GrowingPatterns.getConfig()));
-        ModPlatform.INSTANCE.sendToClient(serverPlayer, new BiomepediaActivePacket(BiomepediaConfig.getConfig().biomepediaEnabled()));
+        ModPlatform.INSTANCE.sendToClient(serverPlayer, new BiomepediaActivePacket(BiomepediaConfig.getConfig().biomepediaInventoryButtonEnabled()));
         if (this.bygLevelBiomeTracker == null) {
             this.bygLevelBiomeTracker = LevelBiomeTracker.fromServer(this.getServer());
         }
+
+        BiomepediaExtension biomepediaExtension = (BiomepediaExtension) serverPlayer;
+        if (BiomepediaConfig.getConfig().giveBiomepediaBook() && !biomepediaExtension.gotBiomepedia()) {
+            serverPlayer.getInventory().add(new ItemStack(BYGItems.BIOMEPEDIA.get()).copy());
+            biomepediaExtension.setGotBiomepedia(true);
+        }
+
         ModPlatform.INSTANCE.sendToClient(serverPlayer, new LevelBiomeTrackerPacket(this.bygLevelBiomeTracker));
         if (ConfigVersionTracker.getConfig().configVersion() != BYGConstants.CONFIG_VERSION) {
             if (getServer().isSingleplayerOwner(serverPlayer.getGameProfile())) {
