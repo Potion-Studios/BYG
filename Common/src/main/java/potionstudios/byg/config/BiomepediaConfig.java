@@ -2,6 +2,7 @@ package potionstudios.byg.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CommentedCodec;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
@@ -13,14 +14,15 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 
-public record BiomepediaConfig(boolean biomepediaEnabled) {
+public record BiomepediaConfig(boolean biomepediaInventoryButtonEnabled, boolean giveBiomepediaBook) {
 
     public static final Codec<BiomepediaConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.BOOL.fieldOf("inventory_enabled").forGetter(BiomepediaConfig::biomepediaEnabled)
+                    CommentedCodec.of(Codec.BOOL, "inventory_enabled", "Whether the biomepedia inventory BUTTON is enabled or not in the player inventory for all users connected to this host.").forGetter(BiomepediaConfig::biomepediaInventoryButtonEnabled),
+                    CommentedCodec.of(Codec.BOOL, "give_item", "Whether to give the biomepedia book ITEM to new players for the first time.").orElse(true).forGetter(BiomepediaConfig::giveBiomepediaBook)
             ).apply(builder, BiomepediaConfig::new));
 
-    public static final BiomepediaConfig DEFAULT = new BiomepediaConfig(true);
+    public static final BiomepediaConfig DEFAULT = new BiomepediaConfig(true, true);
 
     public static BiomepediaConfig INSTANCE = null;
 
@@ -45,7 +47,7 @@ public record BiomepediaConfig(boolean biomepediaEnabled) {
 
         if (!path.toFile().exists() || recreate) {
             JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> {
-                map.put("inventory_enabled", "Whether the biomepedia button is enabled or not in the player inventory for all users connected to this host.");
+                map.put("inventory_enabled", "");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
         BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
