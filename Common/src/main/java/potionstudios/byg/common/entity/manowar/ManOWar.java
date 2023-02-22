@@ -198,7 +198,9 @@ public class ManOWar extends Animal implements IAnimatable {
     @org.jetbrains.annotations.Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return BYGEntities.MAN_O_WAR.get().create(serverLevel);
+        ManOWar manOWar = BYGEntities.MAN_O_WAR.get().create(serverLevel);
+        manOWar.setColor(getRandColor(serverLevel.getRandom()));
+        return manOWar;
     }
 
     @Override
