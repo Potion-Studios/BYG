@@ -22,7 +22,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.player.Player;
@@ -53,7 +52,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     private final AnimationFactory factory = new AnimationFactory(this);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.BOOLEAN);
-
 
     public float xBodyRot;
     public float xBodyRotO;
@@ -133,7 +131,7 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         int i = world.getSeaLevel();
         int j = i - 13;
         return pos.getY() >= j && pos.getY() <= i && world.getFluidState(pos.below()).is(FluidTags.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER);
-    }  
+    }
 
     @Override
     public int getMaxAirSupply() {
@@ -183,7 +181,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         this.goalSelector.addGoal(2, new ManOWarRandomMovementGoal(this));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-
     }
 
     public void handleEntityEvent(byte b) {
@@ -193,7 +190,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
             super.handleEntityEvent(b);
         }
     }
-
 
     public void setMovementVector(float f, float g, float h) {
         this.tx = f;
@@ -209,8 +205,15 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
-        setColor(getRandColor(random));
-        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
+        spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
+        if (mobSpawnType == MobSpawnType.BUCKET && spawnGroupData != null && compoundTag.contains("BucketVariantTag", 3)) {
+            this.setRawFlag(compoundTag.getInt("BucketVariantTag"));
+            this.setBaby(true);
+            return spawnGroupData;
+        } else {
+            setColor(getRandColor(random));
+            return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
+        }
     }
 
     @org.jetbrains.annotations.Nullable
@@ -233,8 +236,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putInt("Flag", this.getRawFlag());
         compoundTag.putBoolean("FromBucket", this.fromBucket());
-
-
     }
 
     @Override
@@ -243,7 +244,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         this.setRawFlag(compoundTag.getInt("Flag"));
         this.setFromBucket(compoundTag.getBoolean("FromBucket"));
     }
-
 
 
     public void aiStep() {
@@ -292,7 +292,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
             if (!this.level.isClientSide) {
                 this.setDeltaMovement(this.tx * this.speed, (double) (this.ty * this.speed), (double) (this.tz * this.speed));
             }
-
             Vec3 vec3 = this.getDeltaMovement();
             double d = vec3.horizontalDistance();
             this.yBodyRot += (-((float) Mth.atan2(vec3.x, vec3.z)) * 57.295776F - this.yBodyRot) * 0.1F;
@@ -308,13 +307,10 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
                 } else if (!this.isNoGravity()) {
                     e -= 0.08D;
                 }
-
                 this.setDeltaMovement(0.0D, e * 0.9800000190734863D, 0.0D);
             }
-
             this.xBodyRot = (float) ((double) this.xBodyRot + (double) (-90.0F - this.xBodyRot) * 0.02D);
         }
-
     }
 
     //getters setters
@@ -339,7 +335,6 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     }
 
     //colors
-
 
     public static Colors getRandColor(RandomSource rand) {
         int i = rand.nextInt(5);
@@ -383,7 +378,7 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         RandomSource rand = level.getRandom();
         int i = rand.nextIntBetweenInclusive(1, 3);
         for (int j = 0; j < i; j++) {
-            ((ManOWar)animal).setColor(getRandColor(level.getRandom()));
+            ((ManOWar) animal).setColor(getRandColor(level.getRandom()));
             super.spawnChildFromBreeding(level, animal);
         }
     }
@@ -413,7 +408,7 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     @Override
     public void loadFromBucketTag(CompoundTag pTag) {
         Bucketable.loadDefaultDataFromBucketTag(this, pTag);
-        pTag.putInt("Flag", this.getRawFlag());
+        pTag.putInt("BucketVariantTag", this.getRawFlag());
     }
 
     @Override
