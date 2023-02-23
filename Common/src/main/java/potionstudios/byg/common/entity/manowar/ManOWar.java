@@ -62,6 +62,8 @@ public class ManOWar extends Animal implements IAnimatable {
     private float ty;
     private float tz;
 
+    public boolean glowLayer = false;
+
     public ManOWar(EntityType<? extends ManOWar> entityType, Level level) {
         super(entityType, level);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);

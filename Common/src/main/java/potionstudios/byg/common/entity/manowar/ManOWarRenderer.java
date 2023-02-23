@@ -4,13 +4,14 @@ import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.minecraft.Util;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import potionstudios.byg.BYG;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib3.renderers.geo.layer.LayerGlowingAreasGeo;
 
 import java.util.Map;
 
@@ -24,10 +25,10 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
     });
 
-    public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BYG.createLocation("man_o_war"), "main");
 
     public ManOWarRenderer(EntityRendererProvider.Context context) {
         super(context, new ManOWarModel());
+        this.addLayer(new LayerGlowingAreasGeo<>(this, this::getTextureLocation, o -> BYG.createLocation("geo/man_o_war.geo.json"), RenderType::eyes));
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
     public ResourceLocation getTextureLocation(T entity) {
         return TEXTURES.get(entity.getColor());
     }
+
 
     protected void applyRotations(T squid, PoseStack poseStack, float f, float g, float h) {
         float i = Mth.lerp(h, squid.xBodyRotO, squid.xBodyRot);
