@@ -34,7 +34,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     private final Component climateText;
 
     protected BiomeAboutScreen(ResourceKey<Biome> biomeKey, Screen parent) {
-        super(Component.translatable("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()));
+        super(Component.translatable("biome." + biomeKey.location().getNamespace() + "." + biomeKey.location().getPath()).withStyle(ChatFormatting.BOLD));
         this.biomeKey = biomeKey;
         this.parent = parent;
         String translationKey = String.format("biomepedia.biome.%s.%s.desc", biomeKey.location().getNamespace(), biomeKey.location().getPath());
