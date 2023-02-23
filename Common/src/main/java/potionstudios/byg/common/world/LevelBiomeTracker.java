@@ -5,7 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.serialization.codec.CollectionCodec;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -16,6 +15,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.WeightedListAccess;
 
 import java.util.Collection;
@@ -52,7 +52,7 @@ public final class LevelBiomeTracker {
         for (ServerLevel level : server.getAllLevels()) {
             ObjectOpenHashSet<ResourceKey<Biome>> biomes = map.computeIfAbsent(level.dimension(), key -> new ObjectOpenHashSet<>());
 
-            for (Holder<Biome> possibleBiome : level.getChunkSource().getGenerator().getBiomeSource().possibleBiomes()) {
+            level.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream().filter(biomeHolder -> biomeHolder.unwrapKey().orElseThrow().location().getNamespace().equals(BYG.MOD_ID)).forEach(possibleBiome -> {
                 ResourceKey<Biome> biomeResourceKey = possibleBiome.unwrapKey().orElseThrow();
                 biomes.add(biomeResourceKey);
 
@@ -63,7 +63,7 @@ public final class LevelBiomeTracker {
                     });
 
                 }
-            }
+            });
         }
         return new LevelBiomeTracker(map, entitySpawns);
     }
