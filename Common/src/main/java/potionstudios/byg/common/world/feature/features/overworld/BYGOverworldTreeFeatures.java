@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
@@ -180,7 +181,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    //TODO: Fruit
+    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState()), BaobabFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -192,7 +193,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
@@ -205,7 +206,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
@@ -218,7 +219,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
 
