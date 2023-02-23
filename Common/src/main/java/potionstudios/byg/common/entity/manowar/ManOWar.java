@@ -7,11 +7,14 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -19,7 +22,9 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -31,6 +36,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.common.entity.BYGEntities;
+import potionstudios.byg.common.item.BYGItems;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -42,10 +48,12 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ManOWar extends Animal implements IAnimatable {
+public class ManOWar extends Animal implements IAnimatable, Bucketable {
 
     private final AnimationFactory factory = new AnimationFactory(this);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.BOOLEAN);
+
 
     public float xBodyRot;
     public float xBodyRotO;
@@ -137,6 +145,14 @@ public class ManOWar extends Animal implements IAnimatable {
     }
 
     @Override
+    public InteractionResult mobInteract(Player $$0, InteractionHand $$1) {
+        if (this.isBaby()) {
+            return Bucketable.bucketMobPickup($$0, $$1, this).orElse(super.mobInteract($$0, $$1));
+        }
+        return super.mobInteract($$0, $$1);
+    }
+
+    @Override
     public void playerTouch(Player player) {
         if (player instanceof ServerPlayer && player.hurt(DamageSource.mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
@@ -208,6 +224,7 @@ public class ManOWar extends Animal implements IAnimatable {
     @Override
     protected void defineSynchedData() {
         this.entityData.define(COLOR, 0);
+        this.entityData.define(FROM_BUCKET, false);
         super.defineSynchedData();
     }
 
@@ -215,6 +232,8 @@ public class ManOWar extends Animal implements IAnimatable {
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putInt("Flag", this.getRawFlag());
+        compoundTag.putBoolean("FromBucket", this.fromBucket());
+
 
     }
 
@@ -222,8 +241,10 @@ public class ManOWar extends Animal implements IAnimatable {
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         this.setRawFlag(compoundTag.getInt("Flag"));
-
+        this.setFromBucket(compoundTag.getBoolean("FromBucket"));
     }
+
+
 
     public void aiStep() {
         if (!this.isInWater() && this.onGround && this.verticalCollision) {
@@ -365,6 +386,45 @@ public class ManOWar extends Animal implements IAnimatable {
             ((ManOWar)animal).setColor(getRandColor(level.getRandom()));
             super.spawnChildFromBreeding(level, animal);
         }
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return !this.fromBucket() && !this.hasCustomName();
+    }
+
+    @Override
+    public boolean fromBucket() {
+        return this.entityData.get(FROM_BUCKET);
+    }
+
+    @Override
+    public void setFromBucket(boolean pFromBucket) {
+        this.entityData.set(FROM_BUCKET, pFromBucket);
+    }
+
+    @Override
+    public void saveToBucketTag(ItemStack var1) {
+        Bucketable.saveDefaultDataToBucketTag(this, var1);
+        CompoundTag compoundtag = var1.getOrCreateTag();
+        compoundtag.putInt("BucketVariantTag", this.getRawFlag());
+    }
+
+    @Override
+    public void loadFromBucketTag(CompoundTag pTag) {
+        Bucketable.loadDefaultDataFromBucketTag(this, pTag);
+        pTag.putInt("Flag", this.getRawFlag());
+    }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return BYGItems.MAN_O_WAR_BUCKET.get().getDefaultInstance();
+    }
+
+
+    @Override
+    public SoundEvent getPickupSound() {
+        return SoundEvents.BUCKET_FILL_AXOLOTL;
     }
 
     public enum Colors {
