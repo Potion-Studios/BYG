@@ -128,7 +128,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> RED_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_maple_leaves");
     public static final BlockRegistryObject<Block> RED_OAK_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_oak_leaves");
     public static final BlockRegistryObject<Block> RED_SPRUCE_LEAVES = createLeaves(MaterialColor.COLOR_RED, "red_spruce_leaves");
-    public static final BlockRegistryObject<Block> RIPE_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "ripe_orchard_leaves");
+    public static final BlockRegistryObject<Block> RIPE_ORCHARD_LEAVES = createFruitLeaves(MaterialColor.COLOR_GREEN, () -> BYGBlocks.APPLE_FRUIT_BLOCK.defaultBlockState().setValue(AppleFruitBlock.AGE, 0), "ripe_orchard_leaves", 0.04F);
     public static final BlockRegistryObject<Block> SILVER_MAPLE_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY, "silver_maple_leaves");
     public static final BlockRegistryObject<Block> SKYRIS_LEAVES_GREEN_APPLE = createLeaves(MaterialColor.COLOR_PINK, "green_apple_skyris_leaves");
     public static final BlockRegistryObject<Block> WHITE_CHERRY_LEAVES = createLeaves(MaterialColor.COLOR_LIGHT_GRAY, "white_cherry_leaves");
@@ -1232,6 +1232,10 @@ public class BYGBlocks {
 
     static BlockRegistryObject<Block> createGlowingLeaves(MaterialColor color, int lightLevel, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel)), id);
+    }
+
+    static BlockRegistryObject<Block> createFruitLeaves(MaterialColor color, Supplier<BlockState> fruit, String id, float tickSpawnChance) {
+        return createBlock(() -> new HangingFruitLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false), fruit, tickSpawnChance), id);
     }
 
     private static BlockRegistryObject<Block> createFirecrackerLeavesBlock(MaterialColor color, String id) {

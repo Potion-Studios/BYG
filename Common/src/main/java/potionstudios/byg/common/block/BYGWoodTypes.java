@@ -31,12 +31,12 @@ public enum BYGWoodTypes {
     BAOBAB("baobab", new Builder()
             .boatType(BYGBoat.BYGType.BAOBAB)
             .growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN)),
+            .materialColor(MaterialColor.TERRACOTTA_GREEN).leavesFactory(id -> BYGBlocks.createFruitLeaves(MaterialColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, 0), id, 0.01F))),
     BLUE_ENCHANTED("blue_enchanted", new Builder()
             .boatType(BYGBoat.BYGType.BLUE_ENCHANTED)
             .growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING)
             .materialColor(MaterialColor.COLOR_BLUE)
-            .leavesLightLevel(15)),
+            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, id))),
     BULBIS("bulbis", new Builder()
             .materialColor(MaterialColor.COLOR_BLUE)
             .growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY)
@@ -71,7 +71,7 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING)
             .boatType(BYGBoat.BYGType.GREEN_ENCHANTED)
             .materialColor(MaterialColor.COLOR_GREEN)
-            .leavesLightLevel(15)),
+            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, id))),
     HOLLY("holly", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
             .materialColor(MaterialColor.TERRACOTTA_GREEN)
@@ -151,7 +151,8 @@ public enum BYGWoodTypes {
             .materialColor(MaterialColor.TERRACOTTA_PURPLE));
 
     public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
-            .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));;
+            .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
+    ;
 
     private final String name;
     private final WoodType woodType;
@@ -204,20 +205,21 @@ public enum BYGWoodTypes {
         if (initialized)
             return;
         if (!builder.excludes.contains(BlockType.SAPLING)) {
-        this.growerItem = switch (builder.growerItemType) {
-            case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
-            case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
-            case FUNGUS -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_fungus");
-            case MUSHROOM -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_mushroom");
-            case WART -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_wart");
-        };
-        BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
+            this.growerItem = switch (builder.growerItemType) {
+                case SAPLING -> BYGBlocks.createSapling(builder.growerItemGroundTag, name + "_sapling");
+                case ODDITY -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_oddity");
+                case FUNGUS -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_fungus");
+                case MUSHROOM -> BYGBlocks.createMushroom(builder.growerItemGroundTag, name + "_mushroom");
+                case WART -> BYGBlocks.createFungus(builder.growerItemGroundTag, name + "_wart");
+            };
+            BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
         if (!builder.excludes.contains(BlockType.LEAVES)) {
             if (builder.isNether)
                 this.leaves = BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, nameOr("%s_wart_block", BlockType.LEAVES));
-            else
-                this.leaves = builder.leavesLightLevel == null ? BYGBlocks.createLeaves(builder.materialColor, name + "_leaves") : BYGBlocks.createGlowingLeaves(builder.materialColor, builder.leavesLightLevel, name + "_leaves");
+            else {
+                this.leaves = builder.leavesFactory.apply(name + "_leaves");
+            }
             BYGItems.createItem(leaves);
         }
 
@@ -283,9 +285,11 @@ public enum BYGWoodTypes {
     public BlockRegistryObject<Block> planks() {
         return planks;
     }
+
     public BlockRegistryObject<Block> growerItem() {
         return growerItem;
     }
+
     public WoodType woodType() {
         return woodType;
     }
@@ -378,6 +382,7 @@ public enum BYGWoodTypes {
     public boolean isNether() {
         return builder.isNether;
     }
+
     public boolean isFlammable() {
         return builder.flammable;
     }
@@ -414,7 +419,7 @@ public enum BYGWoodTypes {
         private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
         private BYGBoat.BYGType boatType;
         private MaterialColor materialColor;
-        private Integer leavesLightLevel;
+        private Function<String, BlockRegistryObject<Block>> leavesFactory = id -> BYGBlocks.createLeaves(materialColor, id);
         private boolean isNether;
         private boolean flammable = true;
         private boolean leavesHaveOverlay;
@@ -423,41 +428,50 @@ public enum BYGWoodTypes {
             this.growerItemType = type;
             return this;
         }
+
         public Builder exclude(BlockType... types) {
             excludes.addAll(List.of(types));
             return this;
         }
+
         public Builder growerItemGroundTag(TagKey<Block> tag) {
             this.growerItemGroundTag = tag;
             return this;
         }
+
         public Builder boatType(BYGBoat.BYGType type) {
             this.boatType = type;
             return this;
         }
+
         public Builder materialColor(MaterialColor colour) {
             this.materialColor = colour;
             return this;
         }
-        public Builder leavesLightLevel(Integer leavesLightLevel) {
-            this.leavesLightLevel = leavesLightLevel;
-            return this;
-        }
+
         public Builder nether() {
             this.isNether = true;
             notFlammable();
             return this;
         }
+
         public Builder notFlammable() {
             this.flammable = false;
             return this;
         }
+
         public Builder registryName(BlockType blockType, String name) {
             this.registryName.put(blockType, name);
             return this;
         }
+
         public Builder leavesHaveOverlay() {
             this.leavesHaveOverlay = true;
+            return this;
+        }
+
+        public Builder leavesFactory(Function<String, BlockRegistryObject<Block>> leavesFactory) {
+            this.leavesFactory = leavesFactory;
             return this;
         }
     }
