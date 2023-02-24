@@ -3,7 +3,7 @@
 	"minecraft:geometry": [
 		{
 			"description": {
-				"identifier": "geometry.unknown",
+				"identifier": "geometry.manOWar",
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 3,
@@ -58,14 +58,22 @@
 					"name": "tentacleOuter",
 					"pivot": [0, 16, 0],
 					"cubes": [
-						{"origin": [-3.5, 0, -3.5], "size": [7, 16, 7], "uv": [0, 1]}
+						{"origin": [-3.5, 0, -3.5], "size": [7, 16, 7], "uv": [0, 1]},
+						{"origin": [-3.5, 0, 3.5], "size": [7, 16, 0], "uv": [48, 8]},
+						{"origin": [-3.5, 0, -3.5], "size": [7, 16, 0], "uv": [48, 8]},
+						{"origin": [3.5, 0, -3.5], "size": [0, 16, 7], "uv": [40, 1]},
+						{"origin": [-3.5, 0, -3.5], "size": [0, 16, 7], "uv": [40, 1]}
 					]
 				},
 				{
 					"name": "tentacleInner",
 					"pivot": [0, 16, 0],
 					"cubes": [
-						{"origin": [-2, 0, -2], "size": [4, 16, 4], "uv": [32, 30]}
+						{"origin": [-2, 0, -2], "size": [4, 16, 4], "uv": [32, 30]},
+						{"origin": [2, 0, -2], "size": [0, 16, 4], "uv": [56, 20]},
+						{"origin": [-2, 0, -2], "size": [0, 16, 4], "uv": [52, 20]},
+						{"origin": [-2, 0, 2], "size": [4, 16, 0], "uv": [56, 24]},
+						{"origin": [-2, 0, -2], "size": [4, 16, 0], "uv": [52, 24]}
 					]
 				}
 			]

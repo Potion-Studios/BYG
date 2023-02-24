@@ -1,13 +1,16 @@
 package potionstudios.byg.common.item;
 
 import net.minecraft.core.Registry;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -35,6 +38,9 @@ public class BYGItems {
 
     public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> new SpawnEggItem(BYGEntities.MAN_O_WAR.get(), new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "man_o_war_spawn_egg");
     public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> new SpawnEggItem(BYGEntities.PUMPKIN_WARDEN.get(), new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "pumpkin_warden_spawn_egg");
+
+    public static final RegistryObject<Item> MAN_O_WAR_BUCKET = createItem(() -> new MobBucketItem(BYGEntities.MAN_O_WAR.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_bucket");
+
 
     public static final RegistryObject<Item> PEAT = createItem(BYGBlocks.PEAT);
     public static final RegistryObject<Item> LUSH_GRASS_BLOCK = createItem(BYGBlocks.LUSH_GRASS_BLOCK);
