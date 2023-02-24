@@ -2226,7 +2226,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 0, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE2 = createConfiguredFeature("prairie_shrub2",
@@ -2239,7 +2239,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 0, ImmutableList.of()
             )
     );
 
@@ -2937,7 +2937,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MAHOGANY.leaves().get()),
                     MAHOGANY.log(),
                     MAHOGANY.leaves(),
-                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of()
             )
     );
 
