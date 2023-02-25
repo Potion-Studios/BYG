@@ -583,6 +583,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLUE_SPRUCE_TREES);
     }
 
+    public static void addSparseBlueSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BLUE_SPRUCE_TREES);
+    }
+
     public static void addBlackForestTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.BLACK_FOREST_TREES);
     }
@@ -627,8 +631,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.RANDOM_REDWOOD_SPARSE_TREE);
     }
 
-    public static void addMapleTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MAPLE_TREES);
+    public static void addMapleTaigaTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MAPLE_TAIGA_TREES);
     }
 
     public static void addMapleSparseTrees(BiomeGenerationSettings.Builder gen) {

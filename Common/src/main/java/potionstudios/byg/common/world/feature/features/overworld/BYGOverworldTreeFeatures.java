@@ -30,6 +30,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
@@ -180,7 +181,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    //TODO: Fruit
+    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState()), BaobabFruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -188,11 +189,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk1"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
@@ -201,11 +202,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk2"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
@@ -214,11 +215,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk3"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(PINE.log().defaultBlockState()),
+                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BAOBAB.leaves().defaultBlockState(), 1).build()),
                     BAOBAB.log(),
                     BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
 
@@ -1380,66 +1381,210 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_RED_TREE1 = createConfiguredFeature("red_maple_tree1",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
-                    BYG.createLocation("features/trees/maple/red_maple_canopy1"),
-                    BiasedToBottomInt.of(2, 6),
-                    BlockStateProvider.simple(MAPLE.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
-                    MAPLE.log().get(),
-                    BYGBlocks.RED_MAPLE_LEAVES.get(),
-                    BYGBlockTags.GROUND_RED_MAPLE_SAPLING, 5, ImmutableList.of()
-            )
-    );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_RED_TREE2 = createConfiguredFeature("red_maple_tree2",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/maple/red_maple_trunk2"),
-                    BYG.createLocation("features/trees/maple/red_maple_canopy2"),
-                    BiasedToBottomInt.of(2, 6),
-                    BlockStateProvider.simple(MAPLE.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
-                    MAPLE.log().get(),
-                    BYGBlocks.RED_MAPLE_LEAVES.get(),
-                    BYGBlockTags.GROUND_RED_MAPLE_SAPLING, 5, ImmutableList.of()
-            )
-    );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_SILVER_TREE1 = createConfiguredFeature("silver_maple_tree1",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
-                    BYG.createLocation("features/trees/maple/silver_maple_canopy1"),
-                    BiasedToBottomInt.of(2, 6),
-                    BlockStateProvider.simple(MAPLE.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
-                    MAPLE.log().get(),
-                    BYGBlocks.SILVER_MAPLE_LEAVES.get(),
-                    BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, 5, ImmutableList.of()
-            )
-    );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_SILVER_TREE2 = createConfiguredFeature("silver_maple_tree2",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/maple/red_maple_trunk2"),
-                    BYG.createLocation("features/trees/maple/silver_maple_canopy2"),
-                    BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(MAPLE.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.get().defaultBlockState(), 1).build()),
-                    MAPLE.log().get(),
-                    BYGBlocks.SILVER_MAPLE_LEAVES.get(),
-                    BYGBlockTags.GROUND_SILVER_MAPLE_SAPLING, 5, ImmutableList.of()
-            )
-    );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE1 = createConfiguredFeature("maple_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/maple/red_maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/maple_trunk1"),
                     BYG.createLocation("features/trees/maple/maple_canopy1"),
                     BiasedToBottomInt.of(4, 6),
                     BlockStateProvider.simple(MAPLE.log().get()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE2 = createConfiguredFeature("maple_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk2"),
+                    BYG.createLocation("features/trees/maple/maple_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE3 = createConfiguredFeature("maple_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk3"),
+                    BYG.createLocation("features/trees/maple/maple_canopy3"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE4 = createConfiguredFeature("maple_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy4"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MAPLE_TREE5 = createConfiguredFeature("maple_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy5"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(MAPLE.leaves().get().defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_MAPLE_TREE1 = createConfiguredFeature("red_maple_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/maple_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_MAPLE_TREE2 = createConfiguredFeature("red_maple_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk2"),
+                    BYG.createLocation("features/trees/maple/maple_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_MAPLE_TREE3 = createConfiguredFeature("red_maple_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk3"),
+                    BYG.createLocation("features/trees/maple/maple_canopy3"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_MAPLE_TREE4 = createConfiguredFeature("red_maple_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy4"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RED_MAPLE_TREE5 = createConfiguredFeature("red_maple_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy5"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.RED_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SILVER_MAPLE_TREE1 = createConfiguredFeature("silver_maple_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk1"),
+                    BYG.createLocation("features/trees/maple/maple_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SILVER_MAPLE_TREE2 = createConfiguredFeature("silver_maple_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk2"),
+                    BYG.createLocation("features/trees/maple/maple_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SILVER_MAPLE_TREE3 = createConfiguredFeature("silver_maple_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk3"),
+                    BYG.createLocation("features/trees/maple/maple_canopy3"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SILVER_MAPLE_TREE4 = createConfiguredFeature("silver_maple_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy4"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
+                    MAPLE.log().get(),
+                    MAPLE.leaves().get(),
+                    BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SILVER_MAPLE_TREE5 = createConfiguredFeature("silver_maple_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/maple/maple_trunk4"),
+                    BYG.createLocation("features/trees/maple/maple_canopy5"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(MAPLE.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
                     MAPLE.log().get(),
                     MAPLE.leaves().get(),
                     BYGBlockTags.GROUND_MAPLE_SAPLING, 5, ImmutableList.of()
@@ -2081,7 +2226,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 0, ImmutableList.of()
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHRUB_PRAIRIE2 = createConfiguredFeature("prairie_shrub2",
@@ -2094,7 +2239,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, 0, ImmutableList.of()
             )
     );
 
@@ -2792,7 +2937,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MAHOGANY.leaves().get()),
                     MAHOGANY.log(),
                     MAHOGANY.leaves(),
-                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of()
             )
     );
 
@@ -3120,11 +3265,39 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAPLE_TREES = createConfiguredFeature("maple_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_RED_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_RED_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_SILVER_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_SILVER_TREE2), 0.2F)),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREE5), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREE4), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREE2), 0.2F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREE1))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> RED_MAPLE_TREES = createConfiguredFeature("red_maple_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREE5), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREE4), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREE2), 0.2F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREE1))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SILVER_MAPLE_TREES = createConfiguredFeature("silver_maple_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREE5), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREE4), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREE2), 0.2F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREE1))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MAPLE_TAIGA_TREES = createConfiguredFeature("maple_taiga_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SILVER_MAPLE_TREES), 0.1F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(RED_MAPLE_TREES), 0.35F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MAPLE_TREES))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> NORTHERN_FOREST_TREES = createConfiguredFeature("northern_forest_trees",

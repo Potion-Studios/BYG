@@ -1092,39 +1092,33 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
 
-
         byg_invokeGlobalOverworldGeneration(generationSettings);
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
+        BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addTaigaGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
-        BYGDefaultBiomeFeatures.addMapleTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addMapleTaigaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseSpruceTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseAspenTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
+        BYGDefaultBiomeFeatures.addDelphinium(generationSettings);
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addRose(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.SHEEP, 12, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PIG, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.COW, 8, 4, 4));
-        spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SPIDER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE, 95, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CREEPER, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
+        BiomeDefaultFeatures.farmAnimals(spawnSettings);
+        BiomeDefaultFeatures.commonSpawns(spawnSettings);
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5406551).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6586199).foliageColorOverride(14206262).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome coconinoMeadow(boolean flowering, boolean wooded) {
@@ -1749,6 +1743,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
         BYGDefaultBiomeFeatures.addSkyrisTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addSparseBlueSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addRockyStoneBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addFoxgloves(generationSettings);

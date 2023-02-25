@@ -102,6 +102,10 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         return false;
     }
 
+    @Override
+    public void checkDespawn() {
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         AnimationController controller = event.getController();
         controller.transitionLengthTicks = 0;
@@ -140,6 +144,8 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     }
 
 
+
+
     @Override
     public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
         this.jukebox = pPos;
@@ -171,7 +177,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
             }
         }
         if (this.isHiding()) {
-            this.setDeltaMovement(0, 0, 0);
+            this.setDeltaMovement(0, this.getDeltaMovement().y(), 0);
             this.setRot(0, 0);
             if (this.getCarriedBlock() != null) {
                 BehaviorUtils.throwItem(this, this.getCarriedBlock().getBlock().asItem().getDefaultInstance(), new Vec3(this.getX() + 2, this.getY(), this.getZ()));
@@ -187,7 +193,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
     @Override
     public boolean canBeLeashed(Player $$0) {
-        return false;
+        return true;
     }
 
     @org.jetbrains.annotations.Nullable

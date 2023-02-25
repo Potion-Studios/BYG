@@ -64,7 +64,6 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
         if (j < 0.0F) {
             j = 0.0F;
         }
-
         if (h > 0.0F) {
             matrixStackIn.mulPose(Vector3f.XP.rotationDegrees(Mth.sin(h) * h * j / 10.0F * (float) boat.getHurtDir()));
         }
@@ -73,7 +72,6 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
         if (!Mth.equal(k, 0.0F)) {
             matrixStackIn.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 1.0F), boat.getBubbleAngle(partialTicks), true));
         }
-
         Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBYGBoatType());
         ResourceLocation resourceLocation = (ResourceLocation) pair.getFirst();
         BoatModel boatModel = (BoatModel) pair.getSecond();
@@ -86,11 +84,9 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
             VertexConsumer vertexConsumer2 = multiBufferSource.getBuffer(RenderType.waterMask());
             boatModel.waterPatch().render(matrixStackIn, vertexConsumer2, packedLightIn, OverlayTexture.NO_OVERLAY);
         }
-
         matrixStackIn.popPose();
         super.render(boat, entityYaw, partialTicks, matrixStackIn, multiBufferSource, packedLightIn);
     }
-
 
     /**
      * Returns the location of an entity's texture.
