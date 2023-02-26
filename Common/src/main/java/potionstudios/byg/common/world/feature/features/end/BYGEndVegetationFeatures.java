@@ -35,7 +35,7 @@ import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
 import java.util.Set;
 
-import static potionstudios.byg.common.block.BYGWoodTypes.BULBIS;
+import static potionstudios.byg.common.block.BYGWoodTypes.*;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
 public class BYGEndVegetationFeatures {
@@ -312,64 +312,89 @@ public class BYGEndVegetationFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
-            BYGFeatures.IMPARIUS_MUSHROOM1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk1"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy1"),
+                    BiasedToBottomInt.of(3, 4),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
-            BYGFeatures.IMPARIUS_MUSHROOM2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk2"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy2"),
+                    BiasedToBottomInt.of(7, 11),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
-            BYGFeatures.IMPARIUS_MUSHROOM3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk3"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy3"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
-            BYGFeatures.IMPARIUS_MUSHROOM4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk4"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy4"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
-            BYGFeatures.IMPARIUS_MUSHROOM5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk5"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy5"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
-            BYGFeatures.IMPARIUS_MUSHROOM6,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk6"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy6"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1",

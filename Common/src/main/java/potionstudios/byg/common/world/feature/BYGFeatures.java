@@ -18,7 +18,6 @@ import potionstudios.byg.common.world.feature.gen.end.trees.ether.*;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree1;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree2;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree3;
-import potionstudios.byg.common.world.feature.gen.end.trees.impariusgrove.*;
 import potionstudios.byg.common.world.feature.gen.end.trees.nightshade.*;
 import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree1;
 import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree2;
@@ -149,14 +148,6 @@ public class BYGFeatures {
     //Shulkren
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> SHULKREN_TREE1 = createFeature("shulkren_tree1", () -> new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> SHULKREN_TREE2 = createFeature("shulkren_tree2", () -> new ShulkrenTree2(BYGMushroomConfig.CODEC.stable()));
-
-    //Imparius
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM1 = createFeature("imparius_mushroom1", () -> new ImpariusMushroom1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM2 = createFeature("imparius_mushroom2", () -> new ImpariusMushroom2(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM3 = createFeature("imparius_mushroom3", () -> new ImpariusMushroom3(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM4 = createFeature("imparius_mushroom4", () -> new ImpariusMushroom4(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM5 = createFeature("imparius_mushroom5", () -> new ImpariusMushroom5(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> IMPARIUS_MUSHROOM6 = createFeature("imparius_mushroom6", () -> new ImpariusMushroom6(BYGMushroomConfig.CODEC.stable()));
 
     public static final RegistryObject<Feature<FloatingIslandConfig>> FLOATING_ISLAND1 = createFeature("floating_island1", () -> new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));
     public static final RegistryObject<Feature<FloatingIslandConfig>> FLOATING_ISLAND2 = createFeature("floating_island2", () -> new FloatingIslands2(FloatingIslandConfig.CODEC.stable()));
