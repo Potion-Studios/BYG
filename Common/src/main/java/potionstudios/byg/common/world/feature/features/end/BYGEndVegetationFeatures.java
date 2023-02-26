@@ -1,10 +1,13 @@
 package potionstudios.byg.common.world.feature.features.end;
 
 import com.google.common.collect.ImmutableList;
+import corgitaco.corgilib.world.level.feature.CorgiLibFeatures;
+import corgitaco.corgilib.world.level.feature.gen.configurations.TreeFromStructureNBTConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -15,10 +18,13 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
+import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
@@ -26,6 +32,8 @@ import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
+
+import java.util.Set;
 
 import static potionstudios.byg.common.block.BYGWoodTypes.BULBIS;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
@@ -364,54 +372,94 @@ public class BYGEndVegetationFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1",
-            BYGFeatures.FUNGAL_IMPARIUS1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk1"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS2 = createConfiguredFeature("fungal_imparius2",
-            BYGFeatures.FUNGAL_IMPARIUS2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS2 = createConfiguredFeature("fungal_imparius2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk2"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS3 = createConfiguredFeature("fungal_imparius3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk3"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy3"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS3 = createConfiguredFeature("fungal_imparius3",
-            BYGFeatures.FUNGAL_IMPARIUS3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS4 = createConfiguredFeature("fungal_imparius4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk4"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy4"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS4 = createConfiguredFeature("fungal_imparius4",
-            BYGFeatures.FUNGAL_IMPARIUS4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS5 = createConfiguredFeature("fungal_imparius5",
-            BYGFeatures.FUNGAL_IMPARIUS5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS5 = createConfiguredFeature("fungal_imparius5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk5"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy5"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1",
