@@ -52,9 +52,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree1;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.orchard.OrchardTree3;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
@@ -258,11 +255,6 @@ public class BYGFeatures {
 
     /********************************************************************Tree Features********************************************************************/
 
-
-    //Orchard
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE1 = createFeature("orchard_tree1", () -> new OrchardTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE2 = createFeature("orchard_tree2", () -> new OrchardTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ORCHARD_TREE3 = createFeature("orchard_tree3", () -> new OrchardTree3(BYGTreeConfig.CODEC.stable()));
 
     //Palo Verde
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE1 = createFeature("palo_verde_tree1", () -> new PaloVerdeTree(BYGTreeConfig.CODEC.stable()));

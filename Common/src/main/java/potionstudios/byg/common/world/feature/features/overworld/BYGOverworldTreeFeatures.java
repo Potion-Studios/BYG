@@ -1947,47 +1947,56 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1",
-            BYGFeatures.ORCHARD_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/orchard/orchard_trunk1"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy1"),
+                    BiasedToBottomInt.of(6, 11),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2",
-            BYGFeatures.ORCHARD_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(26)
-                    .setMinHeight(21)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/orchard/orchard_trunk2"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy2"),
+                    BiasedToBottomInt.of(7, 12),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3",
-            BYGFeatures.ORCHARD_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(12)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy3"),
+                    UniformInt.of(9, 12),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE1 = createConfiguredFeature("palm_tree1",
