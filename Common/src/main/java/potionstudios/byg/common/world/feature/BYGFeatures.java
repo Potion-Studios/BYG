@@ -52,8 +52,6 @@ import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin2;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree;
-import potionstudios.byg.common.world.feature.gen.overworld.trees.palo_verde.PaloVerdeTree2;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.util.BYGAbstractTreeFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.volcano.VolcanoFeature;
 import potionstudios.byg.reg.RegistrationProvider;
@@ -251,14 +249,6 @@ public class BYGFeatures {
 
     //Subzero
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SUBZERO_CRYSTAL = createFeature("subzero_crystal", () -> new SubzeroCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
-
-
-    /********************************************************************Tree Features********************************************************************/
-
-
-    //Palo Verde
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE1 = createFeature("palo_verde_tree1", () -> new PaloVerdeTree(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> PALO_VERDE_TREE2 = createFeature("palo_verde_tree2", () -> new PaloVerdeTree2(BYGTreeConfig.CODEC.stable()));
 
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> createFeature(String id, Supplier<? extends F> feature) {
