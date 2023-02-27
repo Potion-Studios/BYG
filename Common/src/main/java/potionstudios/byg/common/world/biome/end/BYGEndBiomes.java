@@ -23,6 +23,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addBulbisOddity(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 5, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -40,6 +41,7 @@ public class BYGEndBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRYPTIC_SPIKE);
         generationSettings.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, BYGPlacedFeatures.CRYPTIC_REDSTONE);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
 
@@ -53,6 +55,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addEtherFoliage(generationSettings);
         BYGDefaultBiomeFeatures.addSparseEtherTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 5, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -68,6 +71,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
         BYGDefaultBiomeFeatures.addEnderLily(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IMPARIUS_GROVE_DELTA);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 2, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -83,6 +87,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addSparseBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addSparsePurpleBulbisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 5, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -95,6 +100,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addNightshadePlants(generationSettings);
         BYGDefaultBiomeFeatures.addNightShadeTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 2, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -110,6 +116,7 @@ public class BYGEndBiomes {
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMITE, 5, 1, 2));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -122,6 +129,7 @@ public class BYGEndBiomes {
         BYGDefaultBiomeFeatures.addShulkrenTrees(generationSettings);
         BYGDefaultBiomeFeatures.addShulkrenPlants(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
+        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SHULKER, 1, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));

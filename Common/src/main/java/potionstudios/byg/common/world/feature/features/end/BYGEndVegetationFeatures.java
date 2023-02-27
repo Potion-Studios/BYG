@@ -188,109 +188,114 @@ public class BYGEndVegetationFeatures {
                     .build()
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_SHRUB1 = createConfiguredFeature("nightshade_shrub1",
-            BYGFeatures.NIGHTSHADE_BUSH1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_SHRUB1 = createConfiguredFeature("nightshade_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_SHRUB2 = createConfiguredFeature("nightshade_shrub2",
-            BYGFeatures.NIGHTSHADE_BUSH2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_SHRUB2 = createConfiguredFeature("nightshade_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy2"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE1 = createConfiguredFeature("nightshade_tree1",
-            BYGFeatures.NIGHTSHADE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE1 = createConfiguredFeature("nightshade_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk1"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy1"),
+                    BiasedToBottomInt.of(3, 5),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE2 = createConfiguredFeature("nightshade_tree2",
-            BYGFeatures.NIGHTSHADE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE2 = createConfiguredFeature("nightshade_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy2"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE3 = createConfiguredFeature("nightshade_tree3",
-            BYGFeatures.NIGHTSHADE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(33)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE3 = createConfiguredFeature("nightshade_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk3"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy3"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE4 = createConfiguredFeature("nightshade_tree4",
-            BYGFeatures.NIGHTSHADE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(44)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE4 = createConfiguredFeature("nightshade_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk4"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy4"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
+
 
     public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SHULKREN_TREE1 = createConfiguredFeature("shulkren_tree1",
             BYGFeatures.SHULKREN_TREE1,

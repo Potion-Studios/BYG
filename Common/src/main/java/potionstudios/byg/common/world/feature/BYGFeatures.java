@@ -18,7 +18,6 @@ import potionstudios.byg.common.world.feature.gen.end.trees.ether.*;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree1;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree2;
 import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree3;
-import potionstudios.byg.common.world.feature.gen.end.trees.nightshade.*;
 import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree1;
 import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree2;
 import potionstudios.byg.common.world.feature.gen.nether.Chain;
@@ -135,15 +134,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE3 = createFeature("ether_tree3", () -> new EtherTree3(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE4 = createFeature("ether_tree4", () -> new EtherTree4(BYGTreeConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE5 = createFeature("ether_tree5", () -> new EtherTree5(BYGTreeConfig.CODEC.stable()));
-
-    //Nightshade
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_BUSH1 = createFeature("nightshade_bush1", () -> new NightshadeBush1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_BUSH2 = createFeature("nightshade_bush2", () -> new NightshadeBush2(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_TREE1 = createFeature("nightshade_tree1", () -> new NightshadeTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_TREE2 = createFeature("nightshade_tree2", () -> new NightshadeTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_TREE3 = createFeature("nightshade_tree3", () -> new NightshadeTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> NIGHTSHADE_TREE4 = createFeature("nightshade_tree4", () -> new NightshadeTree4(BYGTreeConfig.CODEC.stable()));
 
     //Shulkren
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> SHULKREN_TREE1 = createFeature("shulkren_tree1", () -> new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));

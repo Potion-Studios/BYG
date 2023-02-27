@@ -76,8 +76,8 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
         tag(BYGBlockTags.END_STONE).add(ETHER_STONE.get(), BULBIS_PHYCELIUM.get(), NIGHTSHADE_PHYLIUM.get(), IMPARIUS_PHYLIUM.get(), IVIS_PHYLIUM.get(), SHULKREN_PHYLIUM.get(), Blocks.END_STONE);
 
-        for (TagKey<Block> netherPlantTag : BYGBlockTags.END_PLANT_TAGS) {
-            tag(netherPlantTag).add(Blocks.END_STONE).addTag(BYGBlockTags.END_STONE)
+        for (TagKey<Block> endPlantTag : BYGBlockTags.END_PLANT_TAGS) {
+            tag(endPlantTag).add(Blocks.END_STONE).addTag(BYGBlockTags.END_STONE)
                     .addOptionalTag(new ResourceLocation("c", "end_stones"))
                     .addOptionalTag(new ResourceLocation("forge", "end_stones"));
         }

@@ -140,7 +140,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_LAMENT_SAPLING = createPlantTag("may_place_on/lament_sapling");
     public static final TagKey<Block> GROUND_WITHERING_OAK_SAPLING = createNetherPlantTag("may_place_on/withering_oak_sapling");
     public static final TagKey<Block> GROUND_ETHER_SAPLING = createPlantTag("may_place_on/ether_sapling");
-    public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createPlantTag("may_place_on/nightshade_sapling");
+    public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createEndPlantTag("may_place_on/nightshade_sapling");
 
     public static final TagKey<Block> FARMLAND = createTag("farmland");
     public static final TagKey<Block> SPREADS_TO_END_STONE = createTag("spreads_to_end_stone");
