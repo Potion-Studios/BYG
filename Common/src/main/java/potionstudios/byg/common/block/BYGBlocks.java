@@ -251,7 +251,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> IVIS_SPROUT = createIvisBulbisPlant("ivis_sprout");
     public static final BlockRegistryObject<Block> ENDER_LILY = createBlock(BYGBlockProperties.BYGEnderLily::new, "ender_lily");
 
-    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ)), "ether_foliage");
+    public static final BlockRegistryObject<Block> ETHER_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS)), "ether_foliage");
     public static final BlockRegistryObject<DoublePlantBlock> TALL_ETHER_GRASS = createTallEtherPlant("tall_ether_grass");
     public static final BlockRegistryObject<Block> ETHER_GRASS = createEtherPlant("ether_grass");
     public static final BlockRegistryObject<Block> ETHER_BUSH = createEtherPlant("ether_bush");
