@@ -999,7 +999,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy1"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
                     HOLLY.log(),
                     HOLLY.leaves(),
                     BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
@@ -1012,7 +1012,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy2"),
                     BiasedToBottomInt.of(8, 14),
                     BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
                     HOLLY.log(),
                     HOLLY.leaves(),
                     BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
@@ -1025,7 +1025,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy3"),
                     BiasedToBottomInt.of(2, 12),
                     BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
                     HOLLY.log(),
                     HOLLY.leaves(),
                     BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
@@ -1038,7 +1038,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy4"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
                     HOLLY.log(),
                     HOLLY.leaves(),
                     BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
