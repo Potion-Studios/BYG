@@ -13,13 +13,6 @@ import potionstudios.byg.common.world.feature.gen.end.islands.shattered.Shattere
 import potionstudios.byg.common.world.feature.gen.end.islands.shattered.ShatteredFloatingIslands3;
 import potionstudios.byg.common.world.feature.gen.end.islands.shattered.ShatteredFloatingIslands4;
 import potionstudios.byg.common.world.feature.gen.end.purpurpeaks.PurpurPeak;
-import potionstudios.byg.common.world.feature.gen.end.trees.bulbis.*;
-import potionstudios.byg.common.world.feature.gen.end.trees.ether.*;
-import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree1;
-import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree2;
-import potionstudios.byg.common.world.feature.gen.end.trees.ether.dead.DeadEtherTree3;
-import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree1;
-import potionstudios.byg.common.world.feature.gen.end.trees.shulkren.ShulkrenTree2;
 import potionstudios.byg.common.world.feature.gen.nether.Chain;
 import potionstudios.byg.common.world.feature.gen.nether.ConfigurablePillar;
 import potionstudios.byg.common.world.feature.gen.nether.HangingColumn;
@@ -40,11 +33,6 @@ import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.WailingVin
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.pillars.WailingPillar1;
 import potionstudios.byg.common.world.feature.gen.nether.warpeddesert.WarpedCoralFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.*;
-import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.AngelicaGiant;
-import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.DandelionGiant;
-import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.IrisGiant;
-import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.RoseGiant;
-import potionstudios.byg.common.world.feature.gen.overworld.giantflowers.util.BYGAbstractGiantFlowerFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.*;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 import potionstudios.byg.common.world.feature.gen.overworld.pumpkins.LargePumpkin1;
@@ -91,12 +79,6 @@ public class BYGFeatures {
     public static final RegistryObject<Feature<PumpkinConfig>> LARGE_PUMPKIN1 = createFeature("pumpkin", () -> new LargePumpkin1(PumpkinConfig.CODEC.stable()));
     public static final RegistryObject<Feature<PumpkinConfig>> LARGE_PUMPKIN2 = createFeature("pumpkin2", () -> new LargePumpkin2(PumpkinConfig.CODEC.stable()));
 
-    /*********************************************************************Large Flower Features***********************************************************/
-    public static final RegistryObject<BYGAbstractGiantFlowerFeature<GiantFlowerConfig>> GIANT_ANGELICA_FLOWER = createFeature("giant_angelica_flower", () -> new AngelicaGiant(GiantFlowerConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractGiantFlowerFeature<GiantFlowerConfig>> GIANT_DANDELION_FLOWER = createFeature("giant_dandelion_flower", () -> new DandelionGiant(GiantFlowerConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractGiantFlowerFeature<GiantFlowerConfig>> GIANT_IRIS_FLOWER = createFeature("giant_iris_flower", () -> new IrisGiant(GiantFlowerConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractGiantFlowerFeature<GiantFlowerConfig>> GIANT_ROSE_FLOWER = createFeature("giant_rose", () -> new RoseGiant(GiantFlowerConfig.CODEC.stable()));
-
 
     /*********************************************************************Large Mushroom Features*********************************************************/
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> GREEN_MUSHROOM_HUGE = createFeature("green_mushroom_huge", () -> new GreenMushroomHuge(BYGMushroomConfig.CODEC.stable()));
@@ -111,33 +93,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> MINI_WOOD_BLEWIT = createFeature("mini_wood_blewit", () -> new MiniWoodBlewit(BYGMushroomConfig.CODEC.stable()));
 
     /********************************************************************End Features********************************************************************/
-    //Bulbis
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_BUSH1 = createFeature("bulbis_bush1", () -> new BulbisBush1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE1 = createFeature("bulbis_tree1", () -> new BulbisTree1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE2 = createFeature("bulbis_tree2", () -> new BulbisTree2(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE3 = createFeature("bulbis_tree3", () -> new BulbisTree3(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE4 = createFeature("bulbis_tree4", () -> new BulbisTree4(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE5 = createFeature("bulbis_tree5", () -> new BulbisTree5(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE6 = createFeature("bulbis_tree6", () -> new BulbisTree6(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> BULBIS_TREE7 = createFeature("bulbis_tree7", () -> new BulbisTree7(BYGMushroomConfig.CODEC.stable()));
-
-    //Ether
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DEAD_ETHER_TREE1 = createFeature("dead_ether_tree1", () -> new DeadEtherTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DEAD_ETHER_TREE2 = createFeature("dead_ether_tree2", () -> new DeadEtherTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> DEAD_ETHER_TREE3 = createFeature("dead_ether_tree3", () -> new DeadEtherTree3(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_BUSH1 = createFeature("ether_bush1", () -> new EtherBush1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_BUSH2 = createFeature("ether_bush2", () -> new EtherBush2(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE1 = createFeature("ether_tree1", () -> new EtherTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE2 = createFeature("ether_tree2", () -> new EtherTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE3 = createFeature("ether_tree3", () -> new EtherTree3(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE4 = createFeature("ether_tree4", () -> new EtherTree4(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> ETHER_TREE5 = createFeature("ether_tree5", () -> new EtherTree5(BYGTreeConfig.CODEC.stable()));
-
-    //Shulkren
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> SHULKREN_TREE1 = createFeature("shulkren_tree1", () -> new ShulkrenTree1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> SHULKREN_TREE2 = createFeature("shulkren_tree2", () -> new ShulkrenTree2(BYGMushroomConfig.CODEC.stable()));
 
     public static final RegistryObject<Feature<FloatingIslandConfig>> FLOATING_ISLAND1 = createFeature("floating_island1", () -> new FloatingIslands1(FloatingIslandConfig.CODEC.stable()));
     public static final RegistryObject<Feature<FloatingIslandConfig>> FLOATING_ISLAND2 = createFeature("floating_island2", () -> new FloatingIslands2(FloatingIslandConfig.CODEC.stable()));

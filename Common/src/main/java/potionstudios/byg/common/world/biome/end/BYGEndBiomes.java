@@ -18,8 +18,7 @@ public class BYGEndBiomes {
     public static Biome bulbisGardens() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
-        BYGDefaultBiomeFeatures.addBulbisTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addPurpleBulbisTrees(generationSettings);
+        BYGDefaultBiomeFeatures.addMixedColorBulbisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisOddity(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
