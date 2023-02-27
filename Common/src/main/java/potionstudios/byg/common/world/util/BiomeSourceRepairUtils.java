@@ -9,6 +9,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.WorldGenSettings;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.BYGDebugBiomeSource;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.common.world.biome.end.EndBiomesConfig;
@@ -60,7 +61,7 @@ public class BiomeSourceRepairUtils {
     private static boolean repair(LevelStem dimension, ResourceLocation targetBiomeSourceID, Supplier<BiomeSource> replacement) {
         ChunkGenerator generator = dimension.generator();
         Codec<? extends BiomeSource> codec = ((BiomeSourceAccess) generator.getBiomeSource()).byg_invokeCodec();
-        if (!Registry.BIOME_SOURCE.getKey(codec).equals(targetBiomeSourceID)) {
+        if (!Registry.BIOME_SOURCE.getKey(codec).equals(targetBiomeSourceID) && !(generator.getBiomeSource() instanceof BYGDebugBiomeSource)) {
             BiomeSource replacementBiomeSource = replacement.get();
             ((ChunkGeneratorAccess) generator).byg_setBiomeSource(replacementBiomeSource);
             return true;

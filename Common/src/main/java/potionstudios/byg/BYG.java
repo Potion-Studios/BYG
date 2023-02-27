@@ -26,6 +26,8 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.villager.BYGVillagerType;
+import potionstudios.byg.common.world.biome.BYGDebugBiomeSource;
+import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.config.ConfigVersionTracker;
 import potionstudios.byg.config.SettingsConfig;
@@ -54,6 +56,8 @@ public class BYG {
     private static final Map<Block, Predicate<BlockBehaviour.BlockStateBase>> BLOCKSTATE_IS_REPLACEMENTS = new HashMap<>();
 
     public static void commonLoad() {
+        Registry.register(Registry.BIOME_SOURCE, createLocation("debug_source"), BYGDebugBiomeSource.CODEC);
+
         blockToBlockTagReplacement(Blocks.BOOKSHELF, MLBlockTags.BOOKSHELVES);
         blockToBlockTagReplacement(Blocks.FARMLAND, BYGBlockTags.FARMLAND);
         blockToBlockTagReplacement(Blocks.END_STONE, BYGBlockTags.END_STONE);

@@ -10,6 +10,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGBiomes;
+import potionstudios.byg.common.world.preset.BYGWorldPresets;
 import potionstudios.byg.reg.RegistrationProvider;
 
 import java.io.InputStream;
@@ -23,6 +24,7 @@ public class EnUsLanguageProvider extends LanguageProvider {
         map.put(BYGBiomes.PROVIDER, "biome");
         map.put(BYGBlocks.PROVIDER, "block");
         map.put(BYGItems.PROVIDER, "item");
+        map.put(BYGWorldPresets.PROVIDER, "generator");
     });
 
     public EnUsLanguageProvider(DataGenerator gen) {

@@ -26,6 +26,7 @@ import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVeg
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTreeDecoratorTypes;
 import potionstudios.byg.common.world.feature.placement.BYGVillagePlacements;
 import potionstudios.byg.common.world.feature.stateproviders.BYGStateProviders;
+import potionstudios.byg.common.world.preset.BYGWorldPresets;
 import potionstudios.byg.common.world.structure.BYGStructureTags;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
 
@@ -59,5 +60,6 @@ public class BYGRegistry {
         BYGVillagePlacements.loadClass();
         BYGPOITypeTags.loadClass();
         BYGStructureTags.loadClass();
+        BYGWorldPresets.loadClass();
     }
 }
