@@ -18,7 +18,6 @@ public class BYGBlockTags {
     public static final List<TagKey<Block>> NETHER_PLANT_TAGS = new ArrayList<>();
     public static final List<TagKey<Block>> END_PLANT_TAGS = new ArrayList<>();
 
-    public static final TagKey<Block> GROUND_MANGROVE_TREE = createDesertPlantTag("may_place_on/white_mangrove_tree");
     public static final TagKey<Block> GROUND_EMBUR_WART = createNetherPlantTag("may_place_on/embur_wart");
     public static final TagKey<Block> GROUND_WEEPING_MILK_CAP = createMushroomTag("may_place_on/weeping_milk_cap");
     public static final TagKey<Block> GROUND_WOOD_BLEWIT = createMushroomTag("may_place_on/wood_blewit");
@@ -114,7 +113,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_INDIGO_JACARANDA_SAPLING = createPlantTag("may_place_on/indigo_jacaranda_sapling");
     public static final TagKey<Block> GROUND_JOSHUA_SAPLING = createPlantTag("may_place_on/joshua_sapling");
     public static final TagKey<Block> GROUND_MAHOGANY_SAPLING = createPlantTag("may_place_on/mahogany_sapling");
-    public static final TagKey<Block> GROUND_MANGROVE_SAPLING = createPlantTag("may_place_on/white_mangrove_sapling");
+    public static final TagKey<Block> GROUND_WHITE_MANGROVE_SAPLING = createPlantTag("may_place_on/white_mangrove_sapling");
     public static final TagKey<Block> GROUND_MAPLE_SAPLING = createPlantTag("may_place_on/maple_sapling");
     public static final TagKey<Block> GROUND_ORANGE_BIRCH_SAPLING = createPlantTag("may_place_on/orange_birch_sapling");
     public static final TagKey<Block> GROUND_ORANGE_OAK_SAPLING = createPlantTag("may_place_on/orange_oak_sapling");
@@ -141,7 +140,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_LAMENT_SAPLING = createPlantTag("may_place_on/lament_sapling");
     public static final TagKey<Block> GROUND_WITHERING_OAK_SAPLING = createNetherPlantTag("may_place_on/withering_oak_sapling");
     public static final TagKey<Block> GROUND_ETHER_SAPLING = createPlantTag("may_place_on/ether_sapling");
-    public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createPlantTag("may_place_on/nightshade_sapling");
+    public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createEndPlantTag("may_place_on/nightshade_sapling");
 
     public static final TagKey<Block> FARMLAND = createTag("farmland");
     public static final TagKey<Block> SPREADS_TO_END_STONE = createTag("spreads_to_end_stone");

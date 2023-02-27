@@ -768,7 +768,6 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addWindsweptDesertVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addWindsweptRocks(generationSettings);
-        BYGDefaultBiomeFeatures.addLargeWindsweptLake(generationSettings);
 
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }

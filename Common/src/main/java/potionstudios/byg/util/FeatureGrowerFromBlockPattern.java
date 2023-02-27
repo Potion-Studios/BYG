@@ -124,7 +124,7 @@ public interface FeatureGrowerFromBlockPattern {
                                 if (configuredFeature != null) {
                                     Vec3i spawnOffset = featureSpawner.spawnOffset();
                                     BlockPos growthPos = mutableBlockPos1.offset(spawnOffset);
-                                    if (configuredFeature.place(level, level.getChunkSource().getGenerator(), rand, growthPos)) {
+                                    if (configuredFeature.place(level, level.getChunkSource().getGenerator(), rand, growthPos.immutable())) {
                                         // Clear saplings
                                         for (Vec3i offset : offsets) {
                                             if (rotated) {

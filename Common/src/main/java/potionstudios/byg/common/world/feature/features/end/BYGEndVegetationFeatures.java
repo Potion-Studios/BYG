@@ -1,10 +1,15 @@
 package potionstudios.byg.common.world.feature.features.end;
 
 import com.google.common.collect.ImmutableList;
+import corgitaco.corgilib.world.level.feature.CorgiLibFeatures;
+import corgitaco.corgilib.world.level.feature.gen.configurations.TreeFromStructureNBTConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -15,19 +20,26 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.*;
+import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
 import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
-import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
-import static potionstudios.byg.common.block.BYGWoodTypes.BULBIS;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Supplier;
+
+import static potionstudios.byg.common.block.BYGWoodTypes.*;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 
 public class BYGEndVegetationFeatures {
@@ -87,491 +99,681 @@ public class BYGEndVegetationFeatures {
                     ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.relative(Direction.DOWN), Fluids.WATER))))
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
-            BYGFeatures.ETHER_BUSH1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), BaobabFruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
+                    BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy1"),
+                    ConstantInt.of(0),
+                    BlockStateProvider.simple(ETHER.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 1, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_BUSH2 = createConfiguredFeature("ether_bush2",
-            BYGFeatures.ETHER_BUSH2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE1 = createConfiguredFeature("ether_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy1"),
+                    BiasedToBottomInt.of(5, 10),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE1 = createConfiguredFeature("ether_tree1",
-            BYGFeatures.ETHER_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE2 = createConfiguredFeature("ether_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy2"),
+                    BiasedToBottomInt.of(5, 13),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE2 = createConfiguredFeature("ether_tree2",
-            BYGFeatures.ETHER_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE3 = createConfiguredFeature("ether_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy3"),
+                    BiasedToBottomInt.of(5, 13),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE3 = createConfiguredFeature("ether_tree3",
-            BYGFeatures.ETHER_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE4 = createConfiguredFeature("ether_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ether/ether_trunk4"),
+                    BYG.createLocation("features/trees/ether/ether_canopy4"),
+                    BiasedToBottomInt.of(5, 13),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE4 = createConfiguredFeature("ether_tree4",
-            BYGFeatures.ETHER_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE5 = createConfiguredFeature("ether_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/ether/ether_trunk4"),
+                    BYG.createLocation("features/trees/ether/ether_canopy4"),
+                    BiasedToBottomInt.of(5, 13),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE5 = createConfiguredFeature("ether_tree5",
-            BYGFeatures.ETHER_TREE5,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.ETHER)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE_DEAD1 = createConfiguredFeature("ether_tree_dead1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy1"),
+                    BiasedToBottomInt.of(5, 10),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD1 = createConfiguredFeature("ether_tree_dead1",
-            BYGFeatures.DEAD_ETHER_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
-                    .setLeavesBlock(Blocks.AIR)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE_DEAD2 = createConfiguredFeature("ether_tree_dead2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy2"),
+                    BiasedToBottomInt.of(5, 10),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD2 = createConfiguredFeature("ether_tree_dead2",
-            BYGFeatures.DEAD_ETHER_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
-                    .setLeavesBlock(Blocks.AIR)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_TREE_DEAD3 = createConfiguredFeature("ether_tree_dead3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/ether/ether_canopy3"),
+                    BiasedToBottomInt.of(5, 10),
+                    BlockStateProvider.simple(ETHER.log().get()),
+                    BlockStateProvider.simple(Blocks.AIR),
+                    ETHER.log().get(),
+                    ETHER.leaves().get(),
+                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ETHER_TREE_DEAD3 = createConfiguredFeature("ether_tree_dead3",
-            BYGFeatures.DEAD_ETHER_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGWoodTypes.ETHER.wood().get())
-                    .setLeavesBlock(Blocks.AIR)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_SHRUB1 = createConfiguredFeature("nightshade_shrub1",
-            BYGFeatures.NIGHTSHADE_BUSH1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_SHRUB1 = createConfiguredFeature("nightshade_shrub1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy1"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_SHRUB2 = createConfiguredFeature("nightshade_shrub2",
-            BYGFeatures.NIGHTSHADE_BUSH2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_SHRUB2 = createConfiguredFeature("nightshade_shrub2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy2"),
+                    BiasedToBottomInt.of(0, 1),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE1 = createConfiguredFeature("nightshade_tree1",
-            BYGFeatures.NIGHTSHADE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE1 = createConfiguredFeature("nightshade_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk1"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy1"),
+                    BiasedToBottomInt.of(3, 5),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE2 = createConfiguredFeature("nightshade_tree2",
-            BYGFeatures.NIGHTSHADE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE2 = createConfiguredFeature("nightshade_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy2"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE3 = createConfiguredFeature("nightshade_tree3",
-            BYGFeatures.NIGHTSHADE_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(33)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE3 = createConfiguredFeature("nightshade_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk3"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy3"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> NIGHTSHADE_TREE4 = createConfiguredFeature("nightshade_tree4",
-            BYGFeatures.NIGHTSHADE_TREE4,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                                    .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1))
-                    )
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                                    .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8))
-                    )
-                    .setMaxHeight(30)
-                    .setMinHeight(44)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> NIGHTSHADE_TREE4 = createConfiguredFeature("nightshade_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/nightshade/nightshade_trunk4"),
+                    BYG.createLocation("features/trees/nightshade/nightshade_canopy4"),
+                    BiasedToBottomInt.of(2, 4),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
+                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
+                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
+                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
+                    NIGHTSHADE.log().get(),
+                    NIGHTSHADE.leaves().get(),
+                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SHULKREN_TREE1 = createConfiguredFeature("shulkren_tree1",
-            BYGFeatures.SHULKREN_TREE1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM.get())
-                    .setMushroomBlock(BYGBlocks.SHULKREN_WART_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Supplier<AttachedToLeavesDecorator> SHULKREN_VINE_PLANT = () -> new AttachedToLeavesDecorator(0.3F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> SHULKREN_VINE = () -> new AttachedToLeavesDecorator(0.3F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.SHULKREN_VINE.defaultBlockState()), EtherBulbsBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> PURPLE_SHROOMLIGHT = () -> new AttachedToLeavesDecorator(0.13F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN, Direction.UP));
+
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHULKREN_TREE1 = createConfiguredFeature("shulkren_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/fungi/shulkren/shulkren_canopy1"),
+                    BiasedToBottomInt.of(3, 7),
+                    BlockStateProvider.simple(BYGBlocks.WHITE_MUSHROOM_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_WART_BLOCK.defaultBlockState(), 1).build()),
+                    BYGBlocks.WHITE_MUSHROOM_STEM.get(),
+                    BYGBlocks.SHULKREN_WART_BLOCK.get(),
+                    BYGBlockTags.GROUND_SHULKREN_FUNGUS, 5, ImmutableList.of(PURPLE_SHROOMLIGHT.get(), SHULKREN_VINE_PLANT.get(), SHULKREN_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> SHULKREN_TREE2 = createConfiguredFeature("shulkren_tree2",
-            BYGFeatures.SHULKREN_TREE2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WHITE_MUSHROOM_STEM.get())
-                    .setMushroomBlock(BYGBlocks.SHULKREN_WART_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SHULKREN_TREE2 = createConfiguredFeature("shulkren_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/fungi/shulkren/shulkren_canopy2"),
+                    BiasedToBottomInt.of(3, 4),
+                    BlockStateProvider.simple(BYGBlocks.WHITE_MUSHROOM_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_WART_BLOCK.defaultBlockState(), 1).build()),
+                    BYGBlocks.WHITE_MUSHROOM_STEM.get(),
+                    BYGBlocks.SHULKREN_WART_BLOCK.get(),
+                    BYGBlockTags.GROUND_SHULKREN_FUNGUS, 5, ImmutableList.of(PURPLE_SHROOMLIGHT.get(), SHULKREN_VINE_PLANT.get(), SHULKREN_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
-            BYGFeatures.IMPARIUS_MUSHROOM1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Supplier<AttachedToLogsDecorator> IMPARIUS_MUSHROOM_BRANCH = () -> new AttachedToLogsDecorator(0.43F, 0, 1, SimpleStateProvider.simple(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLeavesDecorator> IMPARIUS_VINE_PLANT = () -> new AttachedToLeavesDecorator(0.15F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_VINE_PLANT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> IMPARIUS_VINE = () -> new AttachedToLeavesDecorator(0.15F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.IMPARIUS_VINE.defaultBlockState()), ImpariusVineBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM1 = createConfiguredFeature("imparius_mushroom1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk1"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy1"),
+                    BiasedToBottomInt.of(3, 4),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
-            BYGFeatures.IMPARIUS_MUSHROOM2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM2 = createConfiguredFeature("imparius_mushroom2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk2"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy2"),
+                    BiasedToBottomInt.of(7, 11),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
-            BYGFeatures.IMPARIUS_MUSHROOM3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM3 = createConfiguredFeature("imparius_mushroom3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk3"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy3"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
-            BYGFeatures.IMPARIUS_MUSHROOM4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM4 = createConfiguredFeature("imparius_mushroom4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk4"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy4"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
-            BYGFeatures.IMPARIUS_MUSHROOM5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM5 = createConfiguredFeature("imparius_mushroom5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk5"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy5"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
-            BYGFeatures.IMPARIUS_MUSHROOM6,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.IMPARIUS.log().get())
-                    .setMushroomBlock(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> IMPARIUS_MUSHROOM6 = createConfiguredFeature("imparius_mushroom6",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_trunk6"),
+                    BYG.createLocation("features/mushrooms/imparius/imparius_mushroom_canopy6"),
+                    BiasedToBottomInt.of(10, 15),
+                    BlockStateProvider.simple(IMPARIUS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.defaultBlockState(), 1).build()),
+                    IMPARIUS.log().get(),
+                    BYGBlocks.IMPARIUS_MUSHROOM_BLOCK.get(),
+                    BYGBlockTags.GROUND_IMPARIUS_MUSHROOM, 5, ImmutableList.of(IMPARIUS_MUSHROOM_BRANCH.get(), IMPARIUS_VINE_PLANT.get(), IMPARIUS_VINE.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1",
-            BYGFeatures.FUNGAL_IMPARIUS1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS1 = createConfiguredFeature("fungal_imparius1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk1"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy1"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS2 = createConfiguredFeature("fungal_imparius2",
-            BYGFeatures.FUNGAL_IMPARIUS2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS2 = createConfiguredFeature("fungal_imparius2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk2"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy2"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS3 = createConfiguredFeature("fungal_imparius3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk3"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy3"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS3 = createConfiguredFeature("fungal_imparius3",
-            BYGFeatures.FUNGAL_IMPARIUS3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS4 = createConfiguredFeature("fungal_imparius4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk4"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy4"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS4 = createConfiguredFeature("fungal_imparius4",
-            BYGFeatures.FUNGAL_IMPARIUS4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> FUNGAL_IMPARIUS5 = createConfiguredFeature("fungal_imparius5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/fungi/imparius/imparius_trunk5"),
+                    BYG.createLocation("features/fungi/imparius/imparius_canopy5"),
+                    BiasedToBottomInt.of(4, 6),
+                    BlockStateProvider.simple(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.defaultBlockState(), 1).build()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_STEM.get()),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_FUNGAL_IMPARIUS),
+                    BlockPredicate.replaceable(),
+                    5,
+                    ImmutableList.of(),
+                    Set.of(BYGBlocks.FUNGAL_IMPARIUS_FILAMENT_BLOCK.get(), BYGBlocks.FUNGAL_IMPARIUS.get())
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> FUNGAL_IMPARIUS5 = createConfiguredFeature("fungal_imparius5",
-            BYGFeatures.FUNGAL_IMPARIUS5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.FUNGAL_IMPARIUS_STEM.get())
-                    .setMushroomBlock(BYGBlocks.FUNGAL_IMPARIUS_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Supplier<AttachedToLeavesDecorator> PURPLE_SHROOMLIGHT_DOWN = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN));
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_bush_canopy1"),
+                    BiasedToBottomInt.of(0, 2),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 8).add(BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_BUSH1 = createConfiguredFeature("bulbis_bush1",
-            BYGFeatures.BULBIS_BUSH1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE1 = createConfiguredFeature("bulbis_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk1"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy1"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE1 = createConfiguredFeature("bulbis_tree1",
-            BYGFeatures.BULBIS_TREE1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE2 = createConfiguredFeature("bulbis_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk2"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy2"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE2 = createConfiguredFeature("bulbis_tree2",
-            BYGFeatures.BULBIS_TREE2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE3 = createConfiguredFeature("bulbis_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk2"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy3"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE3 = createConfiguredFeature("bulbis_tree3",
-            BYGFeatures.BULBIS_TREE3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE4 = createConfiguredFeature("bulbis_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk4"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy4"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE4 = createConfiguredFeature("bulbis_tree4",
-            BYGFeatures.BULBIS_TREE4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE5 = createConfiguredFeature("bulbis_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk5"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy5"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE5 = createConfiguredFeature("bulbis_tree5",
-            BYGFeatures.BULBIS_TREE5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE6 = createConfiguredFeature("bulbis_tree6",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk6"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy6"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE6 = createConfiguredFeature("bulbis_tree6",
-            BYGFeatures.BULBIS_TREE6,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BULBIS_TREE7 = createConfiguredFeature("bulbis_tree7",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk7"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy7"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> BULBIS_TREE7 = createConfiguredFeature("bulbis_tree7",
-            BYGFeatures.BULBIS_TREE7,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_BUSH1 = createConfiguredFeature("purple_bulbis_bush1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_bush_canopy1"),
+                    BiasedToBottomInt.of(0, 2),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 8).add(BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE1 = createConfiguredFeature("purple_bulbis_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk1"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy1"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_BUSH1 = createConfiguredFeature("purple_bulbis_bush1",
-            BYGFeatures.BULBIS_BUSH1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE2 = createConfiguredFeature("purple_bulbis_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk2"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy2"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE1 = createConfiguredFeature("purple_bulbis_tree1",
-            BYGFeatures.BULBIS_TREE1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE3 = createConfiguredFeature("purple_bulbis_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk2"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy3"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE2 = createConfiguredFeature("purple_bulbis_tree2",
-            BYGFeatures.BULBIS_TREE2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE4 = createConfiguredFeature("purple_bulbis_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk4"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy4"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE3 = createConfiguredFeature("purple_bulbis_tree3",
-            BYGFeatures.BULBIS_TREE3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE5 = createConfiguredFeature("purple_bulbis_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk5"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy5"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE4 = createConfiguredFeature("purple_bulbis_tree4",
-            BYGFeatures.BULBIS_TREE4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE6 = createConfiguredFeature("purple_bulbis_tree6",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk6"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy6"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE5 = createConfiguredFeature("purple_bulbis_tree5",
-            BYGFeatures.BULBIS_TREE5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE6 = createConfiguredFeature("purple_bulbis_tree6",
-            BYGFeatures.BULBIS_TREE6,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-
-    public static final Holder<ConfiguredFeature<BYGMushroomConfig, ?>> PURPLE_BULBIS_TREE7 = createConfiguredFeature("purple_bulbis_tree7",
-            BYGFeatures.BULBIS_TREE7,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BULBIS.wood())
-                    .setMushroomBlock(BYGBlocks.PURPLE_BULBIS_SHELL.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PURPLE_BULBIS_TREE7 = createConfiguredFeature("purple_bulbis_tree7",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bulbis/bulbis_trunk7"),
+                    BYG.createLocation("features/trees/bulbis/bulbis_canopy7"),
+                    BiasedToBottomInt.of(8, 15),
+                    BlockStateProvider.simple(BULBIS.log().get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_BULBIS_SHELL.get().defaultBlockState(), 1).build()),
+                    Set.of(BULBIS.log().get(), BULBIS.wood().get()),
+                    Set.of(BYGBlocks.BULBIS_SHELL.get()),
+                    BlockPredicate.matchesTag(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY), BlockPredicate.replaceable(), 5, ImmutableList.of(PURPLE_SHROOMLIGHT_DOWN.get()), Set.of()
+            )
     );
 
 
@@ -599,6 +801,13 @@ public class BYGEndVegetationFeatures {
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PURPLE_BULBIS_TREE5), 0.14285f),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PURPLE_BULBIS_TREE6), 0.14285f)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PURPLE_BULBIS_TREE7))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MIXED_COLOR_BULBIS_TREES = createConfiguredFeature("mixed_color_bulbis_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(PURPLE_BULBIS_TREES), 0.5F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BULBIS_TREES))
     );
 
 
@@ -692,10 +901,6 @@ public class BYGEndVegetationFeatures {
             new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ETHER_TREE_DEAD2), 0.33F)),
             BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ETHER_TREE_DEAD3))
     );
-
-    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ETHER_BUSHES = createConfiguredFeature("ether_bushes", () -> Feature.RANDOM_SELECTOR, () -> new RandomFeatureConfiguration(ImmutableList.of(
-            new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ETHER_BUSH1), 0.5F)),
-            BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ETHER_BUSH2)));
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> IMPARIUS_PLANTS = createConfiguredFeature("imparius_plants", () -> Feature.RANDOM_SELECTOR, () -> new RandomFeatureConfiguration(ImmutableList.of(
             new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(IMPARIUS_BUSH), 0.2F),

@@ -82,12 +82,12 @@ public enum BYGWoodTypes {
             .growerItem(GrowerItemType.MUSHROOM)
             .nether()),
     MAHOGANY("mahogany", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
+            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
             .boatType(BYGBoat.BYGType.MAHOGANY)
             .materialColor(MaterialColor.COLOR_GREEN)
             .leavesHaveOverlay()),
     WHITE_MANGROVE("white_mangrove", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_MANGROVE_SAPLING)
+            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
             .boatType(BYGBoat.BYGType.MANGROVE)
             .materialColor(MaterialColor.COLOR_GREEN)),
     PALM("palm", new Builder()

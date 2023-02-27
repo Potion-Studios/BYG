@@ -56,6 +56,7 @@ public class BYG {
     public static void commonLoad() {
         blockToBlockTagReplacement(Blocks.BOOKSHELF, MLBlockTags.BOOKSHELVES);
         blockToBlockTagReplacement(Blocks.FARMLAND, BYGBlockTags.FARMLAND);
+        blockToBlockTagReplacement(Blocks.END_STONE, BYGBlockTags.END_STONE);
 
         PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
 

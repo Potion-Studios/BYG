@@ -110,7 +110,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> BROWN_BIRCH_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_birch_leaves");
     public static final BlockRegistryObject<Block> BROWN_OAK_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_oak_leaves");
     public static final BlockRegistryObject<Block> BROWN_ZELKOVA_LEAVES = createLeaves(MaterialColor.COLOR_BROWN, "brown_zelkova_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_ORCHARD_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "flowering_orchard_leaves");
+    public static final BlockRegistryObject<Block> FLOWERING_ORCHARD_LEAVES = createChangingLeaves(MaterialColor.COLOR_GREEN, () -> (LeavesBlock) BYGBlocks.RIPE_ORCHARD_LEAVES.get(), 0.02F, "flowering_orchard_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MaterialColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
     public static final BlockRegistryObject<Block> HOLLY_BERRY_LEAVES = createLeaves(MaterialColor.TERRACOTTA_GREEN, "holly_berry_leaves");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_LEAVES = createLeaves(MaterialColor.TERRACOTTA_BLUE, "indigo_jacaranda_leaves");
@@ -1228,6 +1228,10 @@ public class BYGBlocks {
 
     static BlockRegistryObject<Block> createLeaves(MaterialColor color, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false)), id);
+    }
+
+    static BlockRegistryObject<Block> createChangingLeaves(MaterialColor color, Supplier<LeavesBlock> next, float chance, String id) {
+        return createBlock(() -> new ChangingLeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false), next, chance), id);
     }
 
     static BlockRegistryObject<Block> createGlowingLeaves(MaterialColor color, int lightLevel, String id) {

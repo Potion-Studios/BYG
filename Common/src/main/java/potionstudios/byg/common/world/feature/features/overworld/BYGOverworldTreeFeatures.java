@@ -9,6 +9,7 @@ import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.MangrovePropaguleBlock;
@@ -31,8 +32,6 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockTags;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BaobabFruitBlock;
-import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
@@ -120,7 +119,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy1"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0),
                     BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
@@ -133,7 +132,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy2"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0),
                     BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
@@ -873,7 +872,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy1"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
@@ -887,7 +886,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/firecracker-shrub/firecracker_canopy2"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
@@ -957,7 +956,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/ebony/ebony_bush_trunk"),
                     BYG.createLocation("features/trees/ebony/ebony_canopy2"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(EBONY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
                     EBONY.log(),
@@ -1092,7 +1092,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
                     BLUE_ENCHANTED.wood(),
@@ -1148,7 +1149,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
                     BLUE_ENCHANTED.wood(),
@@ -1311,7 +1313,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
@@ -1324,7 +1326,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BlockTags.DIRT, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
@@ -1337,7 +1339,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
@@ -1350,7 +1352,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
@@ -1363,7 +1365,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WHITE_MANGROVE.leaves().get()),
                     WHITE_MANGROVE.log(),
                     WHITE_MANGROVE.leaves(),
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
 
@@ -1377,7 +1379,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.AZALEA_LEAVES.defaultBlockState(), 4).add(Blocks.FLOWERING_AZALEA_LEAVES.defaultBlockState(), 1).build()),
                     ASPEN.log(),
                     () -> Blocks.AZALEA_LEAVES,
-                    BYGBlockTags.GROUND_MANGROVE_TREE, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
+                    BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
     );
 
@@ -1947,47 +1949,56 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1",
-            BYGFeatures.ORCHARD_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(18)
-                    .setMinHeight(13)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE1 = createConfiguredFeature("orchard_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/orchard/orchard_trunk1"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy1"),
+                    BiasedToBottomInt.of(6, 11),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2",
-            BYGFeatures.ORCHARD_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(26)
-                    .setMinHeight(21)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/orchard/orchard_trunk2"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy2"),
+                    BiasedToBottomInt.of(7, 12),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3",
-            BYGFeatures.ORCHARD_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(Blocks.OAK_LOG)
-                    .setLeavesBlock(
-                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                                    .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                                    .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                                    .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(12)
-                    .setMinHeight(9)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/orchard/orchard_canopy3"),
+                    UniformInt.of(9, 12),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
+                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
+                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
+                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                    ),
+                    Blocks.OAK_LOG,
+                    BYGBlocks.ORCHARD_LEAVES.get(),
+                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALM_TREE1 = createConfiguredFeature("palm_tree1",
@@ -2096,29 +2107,31 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALO_VERDE_TREE1 = createConfiguredFeature("palo_verde_tree1",
-            BYGFeatures.PALO_VERDE_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALO_VERDE_LOG.get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.PALO_VERDE_LEAVES.defaultBlockState(), 6)
-                            .add(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(1)
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALO_VERDE_TREE1 = createConfiguredFeature("palo_verde_tree1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/palo-verde/palo_verde_tree_canopy1"),
+                    BiasedToBottomInt.of(1, 4),
+                    BlockStateProvider.simple(BYGBlocks.PALO_VERDE_LOG.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PALO_VERDE_LEAVES.get().defaultBlockState(), 1).build()),
+                    BYGBlocks.PALO_VERDE_LOG.get(),
+                    BYGBlocks.PALO_VERDE_LEAVES.get(),
+                    BYGBlockTags.GROUND_PALO_VERDE_SAPLING, 2, ImmutableList.of()
+            )
     );
-    public static final Holder<ConfiguredFeature<BYGTreeConfig, ?>> PALO_VERDE_TREE2 = createConfiguredFeature("palo_verde_tree2",
-            BYGFeatures.PALO_VERDE_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .setTrunkBlock(BYGBlocks.PALO_VERDE_LOG.get())
-                    .setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.PALO_VERDE_LEAVES.defaultBlockState(), 6)
-                            .add(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES.defaultBlockState(), 1))
-                    )
-                    .setMaxHeight(2)
-                    .setMinHeight(1)
-                    .build()
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> PALO_VERDE_TREE2 = createConfiguredFeature("palo_verde_tree2",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/generic_trunk"),
+                    BYG.createLocation("features/trees/palo-verde/palo_verde_tree_canopy2"),
+                    BiasedToBottomInt.of(1, 4),
+                    BlockStateProvider.simple(BYGBlocks.PALO_VERDE_LOG.get()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PALO_VERDE_LEAVES.get().defaultBlockState(), 1).build()),
+                    BYGBlocks.PALO_VERDE_LOG.get(),
+                    BYGBlocks.PALO_VERDE_LEAVES.get(),
+                    BYGBlockTags.GROUND_PALO_VERDE_SAPLING, 2, ImmutableList.of()
+            )
     );
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RAINBOW_EUCALYPTUS_TREE1 = createConfiguredFeature("rainbow_eucalyptus_tree1",
@@ -2193,7 +2206,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/meadow/meadow_shrub_canopy1"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(Blocks.DARK_OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
@@ -2207,7 +2221,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/meadow/meadow_shrub_canopy2"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(Blocks.DARK_OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
@@ -2221,7 +2236,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/prairie/prairie_shrub_canopy1"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
@@ -2234,7 +2250,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/prairie/prairie_shrub_canopy2"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.OAK_LOG,
@@ -2932,7 +2949,8 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/mahogany/tropical_shrub_canopy1"),
-                    BiasedToBottomInt.of(0, 0),
+                    ConstantInt.of(0)
+                    ,
                     BlockStateProvider.simple(MAHOGANY.log().get()),
                     BlockStateProvider.simple(MAHOGANY.leaves().get()),
                     MAHOGANY.log(),

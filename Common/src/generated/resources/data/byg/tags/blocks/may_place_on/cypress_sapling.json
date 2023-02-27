@@ -1,5 +1,8 @@
 {
   "values": [
-    "#minecraft:dirt"
+    "#minecraft:dirt",
+    "#minecraft:sand",
+    "minecraft:clay",
+    "minecraft:mud"
   ]
 }
