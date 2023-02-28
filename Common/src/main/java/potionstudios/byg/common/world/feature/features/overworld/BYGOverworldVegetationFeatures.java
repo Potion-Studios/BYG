@@ -99,6 +99,7 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> HYDRANGEA_HEDGE = createFlowerConfiguredFeature("hydrangea_hedge", () -> BYGBlocks.HYDRANGEA_HEDGE.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SAGE_WHITE = createFlowerConfiguredFeature("white_sage", () -> BYGBlocks.WHITE_SAGE.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SAGE_PURPLE = createFlowerConfiguredFeature("purple_sage", () -> BYGBlocks.PURPLE_SAGE.get());
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> SAGE_BLUE = createFlowerConfiguredFeature("blue_sage", BYGBlocks.BLUE_SAGE);
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> DAFFODIL_YELLOW = createFlowerConfiguredFeature("yellow_daffodil", () -> BYGBlocks.YELLOW_DAFFODIL.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ALPINE_BELLFLOWER = createFlowerConfiguredFeature("alpine_bellflower", () -> BYGBlocks.ALPINE_BELLFLOWER.get());
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> KOVAN_FLOWER = createFlowerConfiguredFeature("kovan_flower", () -> BYGBlocks.KOVAN_FLOWER.get());
@@ -283,7 +284,8 @@ public class BYGOverworldVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> SAGES = createConfiguredFeature("sages",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SAGE_PURPLE), 0.5F)),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SAGE_BLUE), 0.33F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SAGE_PURPLE), 0.33F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(SAGE_WHITE))
     );
 

@@ -30,6 +30,7 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_SHULKREN_FUNGUS = createEndPlantTag("may_place_on/shulkren_fungus");
     public static final TagKey<Block> GROUND_IMPARIUS_MUSHROOM = createEndPlantTag("may_place_on/imparius_mushroom");
     public static final TagKey<Block> GROUND_FUNGAL_IMPARIUS = createEndPlantTag("may_place_on/fungal_imparius");
+    public static final TagKey<Block> GROUND_NETHER_BRISTLE = createNetherPlantTag("may_place_on/nether_bristle");
 
     public static final TagKey<Block> GROUND_BEACH_GRASS = createDesertPlantTag("may_place_on/beach_grass");
     public static final TagKey<Block> GROUND_TALL_BEACH_GRASS = createDesertPlantTag("may_place_on/tall_beach_grass");

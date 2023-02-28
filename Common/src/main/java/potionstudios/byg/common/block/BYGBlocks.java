@@ -189,7 +189,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ANTHRACITE_BLOCK = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_block");
     public static final BlockRegistryObject<Block> ANTHRACITE_ORE = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_ore");
 
-    public static final BlockRegistryObject<Block> NETHER_BRISTLE = createBlock(BYGBlockProperties.BYGDoubleDamagePlant::new, "nether_bristle");
+    public static final BlockRegistryObject<Block> NETHER_BRISTLE = createDoubleDamagePlantBlock("nether_bristle", BYGBlockTags.GROUND_NETHER_BRISTLE);
 
     public static final BlockRegistryObject<Block> CRIMSON_BERRY_BUSH = createCrimsonBerryBush("crimson_berry_bush");
     public static final BlockRegistryObject<Block> TALL_CRIMSON_ROOTS = createBlock(BYGBlockProperties.BYGDoubleNetherPlant::new, "tall_crimson_roots");
@@ -894,6 +894,10 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createNetherStone(MaterialColor color, String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.STONE, color).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK).strength(0.4f, 0.4f)), id);
+    }
+
+    private static BlockRegistryObject<Block> createDoubleDamagePlantBlock(String id, TagKey<Block> groundTag) {
+        return createBlock(() -> new DoubleDamagePlantBlock(BlockBehaviour.Properties.of(Material.PLANT).sound(SoundType.TWISTING_VINES).strength(0.0f).noCollission().noOcclusion(), groundTag), id);
     }
 
     private static BlockRegistryObject<Block> createBoricFireBlock(MaterialColor color, String id) {

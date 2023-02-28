@@ -41,17 +41,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGDoubleDamagePlant extends DoubleDamagePlantBlock {
-        public BYGDoubleDamagePlant() {
-            super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
-                    .sound(SoundType.GRASS)
-                    .strength(0.0f)
-                    .noCollission()
-                    .noOcclusion()
-            );
-        }
-    }
-
     public static class BYGSnowyPlant extends BYGSnowyPlants {
         public BYGSnowyPlant() {
             super(BlockBehaviour.Properties.of(Material.PLANT)

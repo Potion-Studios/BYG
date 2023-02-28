@@ -2,6 +2,8 @@
   "values": [
     "#minecraft:nylium",
     "minecraft:mycelium",
-    "minecraft:soul_soil"
+    "minecraft:soul_soil",
+    "byg:mycelium_netherrack",
+    "byg:overgrown_netherrack"
   ]
 }
