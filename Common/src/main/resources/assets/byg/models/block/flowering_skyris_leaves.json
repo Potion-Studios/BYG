@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "byg:block/flowering_skyris_leaves",
+    "particle": "byg:block/flowering_skyris_leaves"
+  }
+}

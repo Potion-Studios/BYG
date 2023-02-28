@@ -27,18 +27,18 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
 
-public class BaobabFruitBlock extends Block implements BonemealableBlock {
+public class GreenAppleFruitBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
     protected static final VoxelShape SHAPE = Block.box(4.0D, 9.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
-    public BaobabFruitBlock(Properties properties) {
+    public GreenAppleFruitBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.BAOBAB_FRUIT.get());
+        return new ItemStack(BYGItems.GREEN_APPLE.get());
     }
 
     @Override
@@ -49,7 +49,7 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (i > 2) {
             int j = 1;
-            popResource(worldIn, pos, new ItemStack(BYGItems.BAOBAB_FRUIT.get(), j));
+            popResource(worldIn, pos, new ItemStack(BYGItems.GREEN_APPLE.get(), j));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 2);
             return InteractionResult.SUCCESS;
@@ -63,7 +63,7 @@ public class BaobabFruitBlock extends Block implements BonemealableBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-        return block == BYGBlocks.RIPE_BAOBAB_LEAVES.get();
+        return block == BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get();
     }
 
     @Override

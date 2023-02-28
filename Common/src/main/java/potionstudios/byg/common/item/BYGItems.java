@@ -492,6 +492,11 @@ public class BYGItems {
     public static final RegistryObject<Item> FLOWERING_ORCHARD_LEAVES = createItem(BYGBlocks.FLOWERING_ORCHARD_LEAVES);
     public static final RegistryObject<Item> ORCHARD_LEAVES = createItem(BYGBlocks.ORCHARD_LEAVES);
 
+    public static final RegistryObject<Item> FLOWERING_SKYRIS_LEAVES = createItem(BYGBlocks.FLOWERING_SKYRIS_LEAVES);
+    public static final RegistryObject<Item> FLOWERING_BAOBAB_LEAVES = createItem(BYGBlocks.FLOWERING_BAOBAB_LEAVES);
+    public static final RegistryObject<Item> FLOWERING_JOSHUA_LEAVES = createItem(BYGBlocks.FLOWERING_JOSHUA_LEAVES);
+    public static final RegistryObject<Item> RIPE_BAOBAB_LEAVES = createItem(BYGBlocks.RIPE_BAOBAB_LEAVES);
+
     public static final RegistryObject<GrowerItem> RED_BIRCH_SAPLING = createSaplingItem(BYGBlocks.RED_BIRCH_SAPLING);
     public static final RegistryObject<Item> RED_BIRCH_LEAVES = createItem(BYGBlocks.RED_BIRCH_LEAVES);
 

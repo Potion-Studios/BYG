@@ -68,6 +68,14 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PINK_CHERRY_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_OAK_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RIPE_ORCHARD_LEAVES.get(), 30, 60);
+        flammableBlock(BYGBlocks.RIPE_BAOBAB_LEAVES.get(), 30, 60);
+        flammableBlock(BYGBlocks.RIPE_JOSHUA_LEAVES.get(), 30, 60);
+
+        flammableBlock(BYGBlocks.APPLE_FRUIT_BLOCK.get(), 30, 60);
+        flammableBlock(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), 30, 60);
+        flammableBlock(BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.get(), 30, 60);
+        flammableBlock(BYGBlocks.JOSHUA_FRUIT_BLOCK.get(), 30, 60);
+
         flammableBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), 30, 60);
