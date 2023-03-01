@@ -1,5 +1,7 @@
 import com.modrinth.minotaur.TaskModrinthUpload
 import net.darkhax.curseforgegradle.TaskPublishCurseForge
+import com.modrinth.minotaur.dependencies.ModDependency
+import com.modrinth.minotaur.dependencies.DependencyType
 
 import java.util.stream.Collectors
 
@@ -214,6 +216,8 @@ task forge_publishCurseForge(type: TaskPublishCurseForge) {
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "${project.release_type}"
     mainFile.addRequirement("terrablender")
+    mainFile.addRequirement("corgilib")
+    mainFile.addRequirement("geckolib")
     mainFile.addGameVersion("${project.minecraft_version}")
     mainFile.addModLoader("forge")
 }
@@ -226,6 +230,7 @@ task forge_publishModrinth (type: TaskModrinthUpload) {
         versionNumber = "${project.minecraft_version}-${project.version}-forge"
         versionType = "${project.release_type}"
         uploadFile = shadowJar
+        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED)] //TODO: Add terrablender when available.
 
         String modrinthChangelogText = changelogText.substring(0, changelogText.indexOf("##", changelogText.indexOf("##") + 1)).trim()
         changelog = modrinthChangelogText
