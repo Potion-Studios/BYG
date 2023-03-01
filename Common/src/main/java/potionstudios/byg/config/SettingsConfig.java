@@ -23,7 +23,7 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
 
     private static SettingsConfig INSTANCE = null;
 
-    private static final SettingsConfig DEFAULT = new SettingsConfig(true, true, true, true, true, new LoggerSettings(false, false, false, Set.of()));
+    private static final SettingsConfig DEFAULT = new SettingsConfig(true, true, true, true, true, new LoggerSettings(false, true, false, Set.of()));
 
     public static final Codec<SettingsConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
