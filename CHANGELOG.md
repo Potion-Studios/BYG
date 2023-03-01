@@ -8,69 +8,67 @@
     * https://www.curseforge.com/minecraft/mc-mods/geckolib
     * https://modrinth.com/mod/geckolib
 
-
-* New Content
-  * Mobs
-    * Man O War!
-      * These glowing aquatic mob spawns in the Lush Stacks!
-      * Comes in the following colors:
-          * Rainbow
-          * Blue
-          * Purple
-          * Magenta
-      * Gameplay? These are ambient creatures and will poison the injurer.
+* ## Mobs
+  * ### Man O War!
+    * These glowing aquatic mob spawns in the Lush Stacks!
+    * Comes in the following colors:
+        * Rainbow
+        * Blue
+        * Purple
+        * Magenta
+    * These ambient creatures will sting you if you get too close!
+    * Pick up Baby Man O' Wars with a Water Bucket
   
-    * Pumpkin Ward!
-      * Pumpkin Wards can be exclusively found in Pumpkin Patches, a unique village found in all autumnal biomes & Cika Woods.
-      * Pumpkin Wards will harvest pumpkins & melons and will drop it in front of a carved pumpkin (auto pumpkin & melon farming!).
-      * Pumpkin Wards will stay within a 35 block radius of a Bell or wander till they find one
-      * Pumpkin Wards don't sleep
-      * Pumpkin Wards can be lured with Pumpkin Pie (They do not eat it!)
-      * Pumpkin Wards Cannot be bred. So take special care of your pumpkin friends!
-      * Playing a music disc within  a 10 block radius will cause them to rave into a dance party!
-      * When threatened, the Pumpkin Ward will drop any items it's carrying and pretend to be a pumpkin.
-  
+  * ### Pumpkin Ward!
+    * Pumpkin Wards can be exclusively found in **Pumpkin Patches**.
+    * Pumpkin Wards will harvest pumpkins & melons and will drop it in front of a carved pumpkin (auto pumpkin & melon farming!).
+    * Pumpkin Wards will stay within a 35 block radius of a Bell or wander till they find one
+    * Pumpkin Wards will sleep at Night Time (No Bed Required)
+    * Pumpkin Wards can be lured with Pumpkin Pie (They do not eat it!)
+    * Pumpkin Wards Cannot be bred. So take special care of your pumpkin friends!
+    * Playing a music disc within  a 10 block radius will cause them to rave into a dance party!
+    * When threatened, the Pumpkin Ward will drop any items it's carrying and pretend to be a pumpkin.
+    * Splashing a Baby Villager with Weakness then Right-clicking them with a Carved Pumpkin will produce a Pumpkin Ward
 
-  * New Blocks! 
-    * Flowering & Ripe leave blocks. Flowering leaves have a rare chance of turning into their ripe counterpart. Ripe leaves have a rare chance of spawning a fruit block. The following species have flowering/ripe leaves: 
-      * Skyris
-      * Orchard
-      * Baobab
-      * Joshua
-    * Apple fruit blocks - Can be found at the nearest Orchard biome growing/hanging from ripe orchard leaves!
-    * Joshua fruit blocks - Can found at the nearest Mojave Desert growing/hanging from ripe Joshua fruit leaves!
-    * Green Apple fruit blocks - Can found at the nearest Skyris Vale growing/hanging from green apple skyris leaves!
-    * Blue rose bush.
-    * Imbued green & blue enchanted logs.
-
+* ## Blocks 
+  * Flowering & Ripe leave blocks. Flowering leaves have a rare chance of turning into their ripe counterpart. Ripe leaves have a rare chance of spawning a fruit block. The following species have flowering/ripe leaves: 
+    * Skyris
+    * Orchard
+    * Baobab
+    * Joshua
+  * Apple fruit blocks - Can be found at the nearest Orchard biome growing/hanging from ripe orchard leaves!
+  * Joshua fruit blocks - Can found at the nearest Mojave Desert growing/hanging from ripe Joshua fruit leaves!
+  * Green Apple fruit blocks - Can found at the nearest Skyris Vale growing/hanging from green apple skyris leaves!
+  * Blue rose bush.
+  * Imbued green & blue enchanted logs.
     
-  * New Points of Interests!
-    * Pumpkin Patches - Home to the Pumpkin ward. Found in all autumnal biomes & Cika Woods.
-  
+* ## New Points of Interests
+  * **_Pumpkin Patches_** - Home to the Pumpkin ward. Found in all autumnal biomes.
+  * **_Salem Village_** - A new unique village found in Weeping Witch Forests
 
-  * New Advancements!
-    * Rose Collector
-      * Can be achieved when collecting the following items:
-        * Blue Rose Bush
-        * Black Rose
-        * Winter Rose
-        * Cyan Rose
-        * Osiria Rose
-        * Rose
-        * Rose Bush
-        * Wither rose
+* ## Advancements
+  * **_Rose Collector_**
+    * Can be achieved when collecting the following items:
+      * Blue Rose Bush
+      * Black Rose
+      * Winter Rose
+      * Cyan Rose
+      * Osiria Rose
+      * Rose
+      * Rose Bush
+      * Wither Rose
 
-* Reworks
-  * New Textures 
+* ## Reworks
+  * **_New Textures_** 
     * New Green Enchanted textures.
     * New Maple textures.
     * New Cherry leave textures.
     * New Ametrine Block & Armor textures.
     * New Therium textures.
-    * New Arisian Textures.
+    * New Orchard textures
+    * New Joshua Leaf textures
 
-
-  * Therium Rework
+  * **_Therium Rework_**
     * Therium Deposits can now be found once again throughout BYG End Biomes.
     * Therium now functions exactly like Amethyst.
     * Therium is now very common and deposits are very large, the goal of this is to make Therium a more viable resource for decorations & lanterns (which still moisturize lush farmland!).
@@ -78,106 +76,114 @@
     * Therium Lanterns now have an animation.
     * With this revamp, old therium blocks have been removed. This includes 'Therium Crystal' & 'Therium Block' and Therium Shard have been renamed to 'Therium Crystal Shard'.
     * Therium Buds & Clusters, etc. are mineable at Iron Tier and higher.
-  
 
-  * Biome reworks
-    * Araucaria Savanna 
-      * Generation Tweaks
-        * Remove Firecracker Shrub
-        * Add Shrubs
+* ## Biome Revamps
+  * Araucaria Savanna 
+    * Generation Tweaks
+      * Remove Firecracker Shrub
+      * Add Shrubs
     
-    * Forgotten Forest
-      * Generation overhaul.
-        * New vegetation.
-        * New Imbued green & blue enchanted logs spawn in the trunks of the enchanted trees.
+  * Atacama Desert
+    * Hostile Mobs + Husk can now spawn
+    * Rabbits now can now spawn
+    
+  * Forgotten Forest
+    * Generation overhaul:
+      * New Trees
+      * New Vegetation.
+      * New Imbued green & blue enchanted logs spawn in the trunks of the enchanted trees.
       
-    * Imparius Grove
-      * Generation overhaul.
-        * Deltas now spawn in place of the lakes which would cause eyesore cuts in the terrain.
-        * Denser Vegetation.
-        * No more floating tree trunks
+  * Imparius Grove
+    * Generation overhaul:
+      * Deltas now spawn in place of the lakes which would cause eyesore cuts in the terrain.
+      * Denser Vegetation.
+      * No more floating tree trunks
 
-    * Jacaranda Forest
-      * Generation Overhauls.
-        * New Trees & Vegetation.
+  * Jacaranda Forest
+    * Generation Overhauls:
+      * New Trees & Vegetation.
       
-    * Maple Taiga
-      * Maple Taiga now has proper Mob Spawning parity to that of Taigas.
-      * Generation Overhauls.
-        * Add sparse spruce trees.
-        * New vegetation.
-        * New block textures.
+  * Maple Taiga
+    * Maple Taiga now has proper Mob Spawning parity to that of Taigas.
+    * Generation Overhauls:
+      * Add sparse spruce trees.
+      * New vegetation.
+      * New block textures.
     
-    * Mojave Desert
-      * Joshua trees now provide joshua fruit.
+  * Mojave Desert
+    * Joshua trees now provide joshua fruit.
 
-    * Orchard
-      * Orchard trees now provide apples.
+  * Orchard
+    * Orchard trees now provide apples.
     
-    * Rose fields
-      * Lower flower spawn rates to reduce performance impact.
-      * Add Blue Rose Bushes to world gen.
-      * Add a mix of blue & red spruce trees.
+  * Rose fields
+    * Lower flower spawn rates to reduce performance impact.
+    * Add Blue Rose Bushes to world gen.
+    * Add a mix of blue & red spruce trees.
 
-    * Tropical Rainforest
-      * Generation Tweaks
-        * Vines are far denser & Cocoa beans now spawn on trees (thanks tree decorators). Should feel much more like a jungle.
-      * Temporarily remove Tropical Village spawning.
+  * Tropical Rainforest
+    * Generation Tweaks
+      * Vines are far denser & Cocoa beans now spawn on trees (thanks tree decorators). Should feel much more like a jungle.
+    * Temporarily remove Tropical Village spawning.
     
-    * Skyris Vale
-      * Generation overhaul.
-        * New Trees & Vegetation.
-      * Skyris trees provide green apples.
+  * Skyris Vale
+    * Generation overhaul:
+      * New Trees & Vegetation.
+    * Skyris trees provide green apples.
   
-    * Windswept Dunes
-      * Generation Tweaks
-        * Remove windswept lake. These need redesigning.
+  * Windswept Dunes
+    * Hostile Mobs + Husk can now spawn
+    * Rabbits now can now spawn
+    * Generation Tweaks
+      * Remove windswept lake. These need redesigning.
+        
+  * Weeping Witch Forest
+    * New POI: Salem Village can be found here.
+    * Generation overhaul:
+      * New Trees & Vegetation
+
+  * Swamp Biomes
+    * Spawn delta features to flood the biomes more. This also means water will appear at elevations not at sea level.
+    * Should now spawn swamp huts.
     
-    * Weeping Witch Forest
-      * New POI: Salem Village can be found here.
+  * All Overworld & End Biomes
+    * Floating tree/fungi/mushroom trunks should no longer occur. 
+      * All trunks verify they are not on a cliff prior to placing blocks.
+      * All trunks now fill to the ground and (random) tick their ground block.
 
-    * Swamp Biomes
-      * Spawn delta features to flood the biomes more. This also means water will appear at elevations not at sea level.
-      * Should now spawn swamp huts.
-    
-    * All Overworld & End Biomes
-      * Floating tree/fungi/mushroom trunks should no longer occur. 
-        * All trunks verify they are not on a cliff prior to placing blocks.
-        * All trunks now fill to the ground and (random) tick their ground block.
+  * Some Overworld biomes
+    * More vanilla logs can be found in many of our biomes mixed with the other vegetation.
+    * Increase grass spawns.
+    * Add blueberry spawns to following biomes:
+      * Autumnal Taiga
+      * Black Forest
+      * Canadian Shield
+      * Cika Woods
+      * Coconino Meadows
+      * Coniferous Forest
+      * Dacite Ridges
+      * Howling Peaks
+      * Maple Taiga
+      * Rose Fields
+      * Weeping Witch Forest
+      * Zelkova Forest
+    * Misc tweaks.
 
-    * Some Overworld biomes
-      * More vanilla logs can be found in many of our biomes mixed with the other vegetation.
-      * Increase grass spawns.
-      * Add blueberry spawns to following biomes:
-        * Autumnal Taiga
-        * Black Forest
-        * Canadian Shield
-        * Cika Woods
-        * Coconino Meadows
-        * Coniferous Forest
-        * Dacite Ridges
-        * Howling Peaks
-        * Maple Taiga
-        * Rose Fields
-        * Weeping Witch Forest
-        * Zelkova Forest
-      * Misc tweaks.
-
-  * Biomepedia
-    * New biome descriptions(not all complete yet).
-    * Biomepedia text now supports chat component formatting (internal change).
-      * Bold biome names & information categories
-      * Fix sky color using fog color.
-      * Biome colors(sky, water, water fog, grass color, foliage color) will now have their text colored based off the color of the field.
-    * Item page items are now alphabetically sorted.
+* ## Biomepedia
+  * New biome descriptions(not all complete yet).
+  * Biomepedia text now supports chat component formatting (internal change).
+    * Bold biome names & information categories
+    * Fix sky color using fog color.
+    * Biome colors(sky, water, water fog, grass color, foliage color) will now have their text colored based off the color of the field.
+  * Item page items are now alphabetically sorted.
 
 
-* Removed content
+* ## Removed Content
   * Remove Windswept lakes until they're redesigned/improved.
   * Temporarily remove Tropical Village spawning(it still exists in the registry to not break worlds) due to a broken NBT.
 
 
-* Technical Changes
+* ## Technical Changes
   * Datapacks
     * Any datapacks modifying trees are broken.
     * Trees now use CorgiLib's `tree_from_nbt` feature.
@@ -194,28 +200,28 @@
     * Removed Biomepedia item advancement gift. Switched to config option.
     * Remove numerous configured features and features from the registry.
 
-  * Configs
-    * **It is advised to delete your config directory and let your game regenerate them fresh.**
-    * Overworld Biomes - `<gamedir>/config/byg-overworld-biomes.json5`
-      * Added a global biome swapper which allows you to swap a biome of your choice to another for ALL Overworld regions. This is for those of you who don't want to edit numerous files.
-      * The ability to disable Overworld biomes should now function.
-        * Disable it by setting `"overworld_enabled": true`.
-    * Biomepedia - `<gamedir>/config/biomepedia.json5`
-      * Added the ability to disable the biomepedia item, it will no longer be gifted with an advancement.
-        * Disable it by setting `"give_item": true`
-    * Settings - `<gamedir>/config/settings.json5`
-      * Logger settings
-        * Added the ability to disable certain types of logging such as warnings, info, & debug. Errors cannot be hidden.
-          * Warnings & info are disabled by default.
-        * Added the ability to filter out specific terms, characters or phrases from logging in your `latest.log`
-      * World Generation
-        * The ability to disable BYG world gen altogether should now function.
-          * Disable it by setting `"world_generation": true`.
-    * Villager Trades - `<gamedir>/config/trades.json5`
-      * Villager Trades config will no longer crash when a villager not existent in your game's registry is in the config. A warning will be logged instead.
+* ## Configs
+  * **It is advised to delete your config directory and let your game regenerate them fresh.**
+  * Overworld Biomes - `<gamedir>/config/byg-overworld-biomes.json5`
+    * Added a global biome swapper which allows you to swap a biome of your choice to another for ALL Overworld regions. This is for those of you who don't want to edit numerous files.
+    * The ability to disable Overworld biomes should now function.
+      * Disable it by setting `"overworld_enabled": true`.
+  * Biomepedia - `<gamedir>/config/biomepedia.json5`
+    * Added the ability to disable the biomepedia item, it will no longer be gifted with an advancement.
+      * Disable it by setting `"give_item": true`
+  * Settings - `<gamedir>/config/settings.json5`
+    * Logger settings
+      * Added the ability to disable certain types of logging such as warnings, info, & debug. Errors cannot be hidden.
+        * Warnings & info are disabled by default.
+      * Added the ability to filter out specific terms, characters or phrases from logging in your `latest.log`
+    * World Generation
+      * The ability to disable BYG world gen altogether should now function.
+        * Disable it by setting `"world_generation": true`.
+  * Villager Trades - `<gamedir>/config/trades.json5`
+    * Villager Trades config will no longer crash when a villager not existent in your game's registry is in the config. A warning will be logged instead.
 
 
-* Bug Fixes
+* ## Bug Fixes
   * Fix floating trees in Overworld & End Dimensions. Trees will now check they're **not** on a cliff first & build logs until they hit the ground. Tree trunks will now always be in contact with the ground.
   * Add Bastion Remnants to BYG biomes. Fixes #1096
   * Villagers can now use Foragers table.

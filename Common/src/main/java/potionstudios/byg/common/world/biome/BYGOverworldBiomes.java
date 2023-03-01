@@ -751,6 +751,8 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addSages(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
+        BiomeDefaultFeatures.desertSpawns(spawnSettings);
+
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
@@ -768,6 +770,8 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addWindsweptDesertVegetation(generationSettings);
         BYGDefaultBiomeFeatures.addWindsweptRocks(generationSettings);
+
+        BiomeDefaultFeatures.desertSpawns(spawnSettings);
 
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
@@ -1732,7 +1736,6 @@ public class BYGOverworldBiomes {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
         byg_invokeGlobalOverworldGeneration(generationSettings);
-
 
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
