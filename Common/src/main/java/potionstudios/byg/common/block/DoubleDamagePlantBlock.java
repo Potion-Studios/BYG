@@ -13,16 +13,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 public class DoubleDamagePlantBlock extends BYGDoublePlantBlock {
-    private final TagKey<Block> mayPlaceOn;
 
     public DoubleDamagePlantBlock(Properties properties, TagKey<Block> mayPlaceOn) {
-        super(properties);
-        this.mayPlaceOn = mayPlaceOn;
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(this.mayPlaceOn);
+        super(properties, mayPlaceOn);
     }
 
     @Override
