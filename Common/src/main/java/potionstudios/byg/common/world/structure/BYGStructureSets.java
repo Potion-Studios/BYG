@@ -19,7 +19,7 @@ public class BYGStructureSets {
     public static final Holder<StructureSet> ARCH = register("arches", () -> new StructureSet(List.of(StructureSet.entry(BYGStructures.RED_ROCK_ARCH), StructureSet.entry(BYGStructures.DESTROYED_RED_ROCK_ARCH)), new RandomSpreadStructurePlacement(8, 2, RandomSpreadType.LINEAR, 498548954)));
     public static final Holder<StructureSet> SEA_ARCHES = register("sea_arches", () -> new StructureSet(List.of(StructureSet.entry(BYGStructures.OVERGROWN_STONE_ARCH, 24), StructureSet.entry(BYGStructures.STONE_ARCH, 1)), new RandomSpreadStructurePlacement(5, 2, RandomSpreadType.LINEAR, 457854789)));
     //    public static final Holder<StructureSet> VOLCANOES = register("volcanoes", () -> new StructureSet(List.of(StructureSet.entry(BYGStructures.VOLCANO)), new RandomSpreadStructurePlacement(15, 6, RandomSpreadType.LINEAR, 98778678)));
-    public static final Holder<StructureSet> ANCIENT_SEQUOIA = register("ancient_sequoia", () -> new StructureSet(List.of(StructureSet.entry(BYGStructures.ANCIENT_SEQUOIA)), new RandomSpreadStructurePlacement(80, 20, RandomSpreadType.TRIANGULAR, 983248973)));
+//    public static final Holder<StructureSet> ANCIENT_SEQUOIA = register("ancient_sequoia", () -> new StructureSet(List.of(StructureSet.entry(BYGStructures.ANCIENT_SEQUOIA)), new RandomSpreadStructurePlacement(80, 20, RandomSpreadType.TRIANGULAR, 983248973)));
 
     private static <T extends StructureSet> Holder<T> register(String id, Supplier<? extends T> set) {
         return PROVIDER.<T>register(id, set).asHolder();
