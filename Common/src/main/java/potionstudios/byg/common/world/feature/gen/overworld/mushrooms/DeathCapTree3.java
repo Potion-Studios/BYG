@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.mushrooms.util.BYGAbstractMushroomFeature;
 
@@ -25,7 +26,7 @@ public class DeathCapTree3 extends BYGAbstractMushroomFeature<BYGMushroomConfig>
         BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
-            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), Blocks.GRASS_BLOCK)) {
+            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), Blocks.GRASS_BLOCK, Blocks.WARPED_NYLIUM, BYGBlocks.OVERGROWN_NETHERRACK.get(), BYGBlocks.MYCELIUM_NETHERRACK.get())) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;

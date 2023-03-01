@@ -96,10 +96,16 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
 
         return reader.isStateAtPosition(pos, (state) -> {
             Block block = state.getBlock();
+
+            boolean foundMatching = false;
             for (Block block1 : desiredGroundBlock) {
-                return state.is(BlockTags.DIRT) || block == block1;
+                if (block == block1) {
+                    foundMatching = true;
+                    break;
+                }
+
             }
-            return state.is(BlockTags.DIRT);
+            return state.is(BlockTags.DIRT) || foundMatching;
         });
     }
 
