@@ -1,11 +1,11 @@
+import com.modrinth.minotaur.TaskModrinthUpload
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 import java.util.stream.Collectors
 
 buildscript {
     repositories {
         maven { url = 'https://maven.parchmentmc.org' }
-    }
-    dependencies {
-        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '2.+'
     }
 }
 
@@ -16,6 +16,7 @@ plugins {
     id 'java'
     id 'com.github.johnrengelman.shadow' version '8.1.1'
     id "net.darkhax.curseforgegradle" version "1.1.16"
+    id "com.modrinth.minotaur" version "2.+"
 }
 
 tasks.build.dependsOn(shadowJar)
@@ -47,6 +48,13 @@ repositories {
         name = "JitPack"
         url = "https://jitpack.io"
     }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -58,7 +66,6 @@ dependencies {
 
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
     implementation project(":Common")
     include implementation("com.electronwill.night-config:toml:${nightconfig_version}")
     include implementation("com.electronwill.night-config:core:${nightconfig_version}")
@@ -163,12 +170,13 @@ task fabric_checkForRefmap() {
     }
 }
 
-task fabric_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    apiToken = "$System.env.CURSEFORGE_KEY"
-    int projectId = 391378
-    String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
+String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
-    def mainFile = upload(projectId, remapJar)
+
+task fabric_publishCurseForge(type: TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGE_KEY"
+
+    def mainFile = upload(project.fabric_curseforge_id, remapJar)
     mainFile.changelog = changelogText
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "${project.release_type}"
@@ -177,12 +185,29 @@ task fabric_publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurs
     mainFile.addModLoader("fabric")
 }
 
+// Make sure it runs after build!
+task fabric_publishModrinth (type: TaskModrinthUpload){
+    modrinth {
+        token = "$System.env.MODRINTH_KEY"
+        projectId = "${project.modrinth_id}"
+        versionName = "${archivesBaseName}-${project.version}"
+        versionNumber = "${project.minecraft_version}-${project.version}-fabric"
+        versionType = "${project.release_type}"
+        uploadFile = remapJar
+
+        String modrinthChangelogText = changelogText.substring(0, changelogText.indexOf("##", changelogText.indexOf("##") + 1)).trim()
+        changelog = modrinthChangelogText
+
+        gameVersions = ["${project.minecraft_version}"]
+        loaders = ['fabric']
+    }
+}
+
 task fabric_buildAndReleaseCurseforge {}
 tasks.fabric_checkForRefmap.mustRunAfter tasks.build
 tasks.fabric_publishCurseForge.mustRunAfter tasks.fabric_checkForRefmap
 tasks.fabric_buildAndReleaseCurseforge.dependsOn(tasks.build, tasks.fabric_checkForRefmap, tasks.fabric_publishCurseForge)
 
-apply from: 'gradle/modrinth.gradle'
 task fabric_buildAndReleaseModrinth {}
 tasks.fabric_checkForRefmap.mustRunAfter tasks.build
 tasks.fabric_publishModrinth.mustRunAfter tasks.fabric_checkForRefmap
