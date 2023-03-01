@@ -2,11 +2,9 @@ package potionstudios.byg.util;
 
 import com.google.auto.service.AutoService;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,12 +13,8 @@ import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
-import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.network.ForgeNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
-import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
-import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
@@ -41,16 +35,6 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public <P extends BYGS2CPacket> void sendToClient(ServerPlayer player, P packet) {
         ForgeNetworkHandler.sendToPlayer(player, packet);
-    }
-
-    @Override
-    public BYGNetherBiomeSource createNetherBiomeSource(Registry<Biome> biomeRegistry) {
-        return new BYGForgeNetherBiomeSource(biomeRegistry);
-    }
-
-    @Override
-    public BYGEndBiomeSource createEndBiomeSource(Registry<Biome> biomeRegistry) {
-        return new BYGForgeEndBiomeSource(biomeRegistry);
     }
 
     @Override

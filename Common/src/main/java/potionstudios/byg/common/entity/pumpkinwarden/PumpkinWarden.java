@@ -43,9 +43,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-import static net.minecraft.world.level.block.Blocks.MELON_STEM;
-import static net.minecraft.world.level.block.Blocks.PUMPKIN_STEM;
-
 public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
     private final AnimationFactory factory = new AnimationFactory(this);

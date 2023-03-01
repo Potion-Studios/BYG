@@ -1,17 +1,22 @@
 package potionstudios.byg.common.world.biome.end;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.LayerUtil;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.util.BYGUtil;
+import terrablender.worldgen.noise.Area;
 
 import java.util.*;
 import java.util.function.BiPredicate;
@@ -19,7 +24,14 @@ import java.util.stream.Collectors;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
-public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
+public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
+
+    public static final Codec<BYGEndBiomeSource> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(
+                    RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter(BYGEndBiomeSource::getBiomeRegistry)
+            ).apply(builder, builder.stable(BYGEndBiomeSource::new))
+    );
+
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
 
     private final Registry<Biome> biomeRegistry;
@@ -28,7 +40,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadS
     private BiomeResolver skyBiomeResolver;
     private final int skyLayersStartY;
 
-    protected BYGEndBiomeSource(Registry<Biome> biomeRegistry) {
+    public BYGEndBiomeSource(Registry<Biome> biomeRegistry) {
         super(getPossibleBiomes(biomeRegistry));
         this.biomeRegistry = biomeRegistry;
 
@@ -36,22 +48,6 @@ public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadS
 
         this.skyLayersStartY = QuartPos.fromBlock(config.skyLayerStartY());
     }
-
-    @Override
-    public void lazyLoad(long seed) {
-        EndBiomesConfig config = EndBiomesConfig.getConfig();
-        Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
-        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
-        this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, config.islandLayers().filter(filter));
-        this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, config.voidLayers().filter(filter));
-        this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, config.skyLayers().filter(filter));
-    }
-
-    public abstract BiomeResolver getIslandBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData);
-
-    public abstract BiomeResolver getVoidBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData voidLayersBiomeData);
-
-    public abstract BiomeResolver getSkyBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData skyLayersBiomeData);
 
 
     @Override
@@ -79,6 +75,21 @@ public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadS
                 }
             }
         }
+    }
+
+    @Override
+    protected Codec<? extends BiomeSource> codec() {
+        return CODEC;
+    }
+
+    @Override
+    public void lazyLoad(long seed) {
+        EndBiomesConfig config = EndBiomesConfig.getConfig();
+        Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
+        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
+        this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, config.islandLayers().filter(filter));
+        this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, config.voidLayers().filter(filter));
+        this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, config.skyLayers().filter(filter));
     }
 
     protected Registry<Biome> getBiomeRegistry() {
@@ -112,5 +123,21 @@ public abstract class BYGEndBiomeSource extends BiomeSource implements LazyLoadS
         List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);
         biomesFromBiomeData.add(biomeRegistry.getHolderOrThrow(Biomes.THE_END));
         return biomesFromBiomeData;
+    }
+
+
+    public static BiomeResolver getIslandBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData islandLayersBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, islandLayersBiomeData.biomeWeights(), islandLayersBiomeData.biomeSize(), EndBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+    }
+
+    public static BiomeResolver getVoidBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData voidLayersBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, voidLayersBiomeData.biomeWeights(), voidLayersBiomeData.biomeSize(), EndBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+    }
+
+    public static BiomeResolver getSkyBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData skyLayersBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, skyLayersBiomeData.biomeWeights(), skyLayersBiomeData.biomeSize(), EndBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
 }

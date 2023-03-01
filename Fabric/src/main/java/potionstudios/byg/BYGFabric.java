@@ -23,12 +23,8 @@ import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
-import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.network.FabricNetworkHandler;
-import potionstudios.byg.world.biome.BYGFabricEndBiomeSource;
-import potionstudios.byg.world.biome.BYGFabricNetherBiomeSource;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -112,8 +108,7 @@ public class BYGFabric implements ModInitializer {
 
     private static void registryBootStrap() {
         BYGCreativeTab.init(FabricItemGroupBuilder.build(createLocation(BYG.MOD_ID), () -> new ItemStack(BYGItems.BYG_LOGO.get())));
-        Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGFabricEndBiomeSource.CODEC);
-        Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGFabricNetherBiomeSource.CODEC);
+
         BYG.logInfo("BYG registries bootstrapped");
     }
 }

@@ -3,15 +3,11 @@ package potionstudios.byg.common;
 import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ComposterBlock;
-import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.reg.BlockRegistryObject;
 
-import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class BYGCompostables {

@@ -2,7 +2,6 @@ package potionstudios.byg;
 
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -29,17 +28,13 @@ import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
-import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
+import potionstudios.byg.common.world.biome.BYGTerraBlenderRegion;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.mixin.access.AxeItemAccess;
 import potionstudios.byg.network.ForgeNetworkHandler;
-import potionstudios.byg.world.biome.BYGForgeEndBiomeSource;
-import potionstudios.byg.world.biome.BYGForgeNetherBiomeSource;
-import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
@@ -94,8 +89,6 @@ public class BYGForge {
         event.enqueueWork(BYG::threadSafeCommonLoad);
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
-        Registry.register(Registry.BIOME_SOURCE, BYGEndBiomeSource.LOCATION, BYGForgeEndBiomeSource.CODEC);
-        Registry.register(Registry.BIOME_SOURCE, BYGNetherBiomeSource.LOCATION, BYGForgeNetherBiomeSource.CODEC);
 
         BYGFuels.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
         Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
@@ -113,7 +106,7 @@ public class BYGForge {
                 } else {
                     throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the config file found at: \"%s\"", LevelStem.OVERWORLD.location().toString(), SurfaceRulesConfig.CONFIG_PATHS.get().get(LevelStem.OVERWORLD)));
                 }
-                config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
+                config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value(), config.globalSwapper())));
             } else {
                 BYG.logInfo("BYG overworld biomes disabled.");
             }

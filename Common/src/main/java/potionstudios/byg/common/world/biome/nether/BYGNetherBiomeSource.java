@@ -1,8 +1,11 @@
 package potionstudios.byg.common.world.biome.nether;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -11,10 +14,12 @@ import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.biome.LayerUtil;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 import potionstudios.byg.util.BYGUtil;
+import terrablender.worldgen.noise.Area;
 
 import java.util.*;
 import java.util.function.BiPredicate;
@@ -22,10 +27,16 @@ import java.util.stream.Collectors;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
-public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
+public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     public static final ResourceLocation LOCATION = BYG.createLocation("nether");
 
-    private  FastNoiseLite lowerLayerRoughnessNoise;
+    public static final Codec<BYGNetherBiomeSource> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(
+                    RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter(BYGNetherBiomeSource::getBiomeRegistry)
+            ).apply(builder, builder.stable(BYGNetherBiomeSource::new))
+    );
+
+    private FastNoiseLite lowerLayerRoughnessNoise;
     private FastNoiseLite upperLayerRoughnessNoise;
     private final Registry<Biome> biomeRegistry;
     private BiomeResolver upperBiomeResolver;
@@ -33,17 +44,30 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
     private BiomeResolver bottomResolver;
     private final int bottomTopY;
 
-    protected BYGNetherBiomeSource(Registry<Biome> biomeRegistry) {
+    public BYGNetherBiomeSource(Registry<Biome> biomeRegistry) {
         super(getPossibleBiomes(biomeRegistry));
         this.biomeRegistry = biomeRegistry;
 
-
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
-        Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
-        BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
 
         int usedLayerSize = config.layerSize();
         this.bottomTopY = QuartPos.fromBlock(usedLayerSize);
+    }
+
+    @Override
+    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+        if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 5) {
+            return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
+        } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 5) {
+            return this.upperBiomeResolver.getNoiseBiome(x, y, z, sampler);
+        } else {
+            return this.middleBiomeResolver.getNoiseBiome(x, y, z, sampler);
+        }
+    }
+
+    @Override
+    protected Codec<? extends BiomeSource> codec() {
+        return CODEC;
     }
 
     @Override
@@ -63,24 +87,6 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
         this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, config.upperLayer().filter(filter));
         this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, config.middleLayer().filter(filter));
         this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, config.bottomLayer().filter(filter));
-    }
-
-    public abstract BiomeResolver getUpperBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData);
-
-    public abstract BiomeResolver getMiddleBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData middleLayerBiomeData);
-
-    public abstract BiomeResolver getLowerBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData lowerLayerBiomeData);
-
-
-    @Override
-    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
-        if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 5) {
-            return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
-        } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 5) {
-            return this.upperBiomeResolver.getNoiseBiome(x, y, z, sampler);
-        } else {
-            return this.middleBiomeResolver.getNoiseBiome(x, y, z, sampler);
-        }
     }
 
     protected Registry<Biome> getBiomeRegistry() {
@@ -111,5 +117,20 @@ public abstract class BYGNetherBiomeSource extends BiomeSource implements LazyLo
             BYG.logWarning(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", NetherBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
         }
         return createBiomesFromBiomeData(biomeRegistry, upperLayer, middleLayer, bottomLayer);
+    }
+
+    public static BiomeResolver getUpperBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData upperLayerBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, upperLayerBiomeData.biomeWeights(), upperLayerBiomeData.biomeSize(), NetherBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+    }
+
+    public static BiomeResolver getMiddleBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData middleLayerBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, middleLayerBiomeData.biomeWeights(), middleLayerBiomeData.biomeSize(), NetherBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
+    }
+
+    public static BiomeResolver getLowerBiomeResolver(Registry<Biome> biomeRegistry, long seed, LayersBiomeData lowerLayerBiomeData) {
+        Area layers = LayerUtil.createLayers(biomeRegistry, seed, lowerLayerBiomeData.biomeWeights(), lowerLayerBiomeData.biomeSize(), NetherBiomesConfig.CONFIG_PATH.get());
+        return (x, y, z, sampler) -> biomeRegistry.getHolder(layers.get(x, z)).orElseThrow();
     }
 }

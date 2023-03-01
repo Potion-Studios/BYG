@@ -1,4 +1,4 @@
-package potionstudios.byg.world.biome;
+package potionstudios.byg.common.world.biome;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;

@@ -84,7 +84,7 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
     private static Button.OnTooltip getToolTip(Component component, Screen screen) {
         return (button, poseStack, mouseX, mouseZ) -> {
             if (!button.active) {
-                screen.renderTooltip(poseStack, Component.translatable("biomepedia.intro.options.disabled.hover"), mouseX, mouseZ);
+                screen.renderTooltip(poseStack, Component.translatable("biomepedia.intro.options.swapper.hover"), mouseX, mouseZ);
             } else {
                 screen.renderTooltip(poseStack, component, mouseX, mouseZ);
             }

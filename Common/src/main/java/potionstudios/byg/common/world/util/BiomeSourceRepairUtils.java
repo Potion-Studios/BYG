@@ -17,7 +17,6 @@ import potionstudios.byg.common.world.biome.nether.BYGNetherBiomeSource;
 import potionstudios.byg.common.world.biome.nether.NetherBiomesConfig;
 import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.mixin.access.ChunkGeneratorAccess;
-import potionstudios.byg.util.ModPlatform;
 
 import java.util.function.Supplier;
 
@@ -26,8 +25,7 @@ public class BiomeSourceRepairUtils {
         NetherBiomesConfig netherBiomesConfig = NetherBiomesConfig.getConfig(true, false, biomeRegistry);
 
         if (netherBiomesConfig.forceBYGNetherBiomeSource()) {
-            Supplier<BiomeSource> netherBiomeSource = () ->
-                    ModPlatform.INSTANCE.createNetherBiomeSource(biomeRegistry);
+            Supplier<BiomeSource> netherBiomeSource = () -> new BYGNetherBiomeSource(biomeRegistry);
 
             LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.NETHER);
             if (levelStem == null) {
@@ -39,8 +37,7 @@ public class BiomeSourceRepairUtils {
         EndBiomesConfig endBiomesConfig = EndBiomesConfig.getConfig(true, false, biomeRegistry);
 
         if (endBiomesConfig.forceBYGEndBiomeSource()) {
-            Supplier<BiomeSource> endBiomeSource = () ->
-                    ModPlatform.INSTANCE.createEndBiomeSource(biomeRegistry);
+            Supplier<BiomeSource> endBiomeSource = () -> new BYGEndBiomeSource(biomeRegistry);
 
             LevelStem levelStem = worldGenSettings.dimensions().get(LevelStem.END);
             if (levelStem == null) {

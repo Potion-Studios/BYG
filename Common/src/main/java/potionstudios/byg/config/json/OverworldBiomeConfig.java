@@ -5,13 +5,16 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CommentedCodec;
 import corgitaco.corgilib.serialization.codec.FromFileOps;
 import corgitaco.corgilib.serialization.codec.Wrapped;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.JsonElement;
 import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
-import net.minecraft.Util;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
 import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
@@ -20,29 +23,48 @@ import potionstudios.byg.util.ModPlatform;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static corgitaco.corgilib.serialization.jankson.JanksonUtil.createConfig;
 
 
 public record OverworldBiomeConfig(boolean generateOverworld,
-                                   List<Wrapped<OverworldRegion>> values) {
-    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, OverworldRegion.OVERWORLD_DEFAULTS);
+                                   List<Wrapped<OverworldRegion>> values, Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper) {
 
-    public static OverworldBiomeConfig INSTANCE = null;
+    public static final Codec<Map<ResourceKey<Biome>, ResourceKey<Biome>>> BIOME_SWAPPER = Codec.unboundedMap(ResourceKey.codec(Registry.BIOME_REGISTRY), ResourceKey.codec(Registry.BIOME_REGISTRY));
 
-    public static final Map<String, String> COMMENTS = Util.make(new HashMap<>(), map -> {
-        map.put("overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.");
-        map.put("regions", "A list of weighted regions containing a unique biome layout.\nRegions may be inlined or may call a file from \"this_file_parent_directory/regions\"");
-    });
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-                    OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf().fieldOf("regions").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+                    CommentedCodec.of(Codec.BOOL, "overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
+                    CommentedCodec.of(OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf(), "regions", "A list of weighted regions containing a unique biome layout.\nRegions may be inlined or may call a file from \"this_file_parent_directory/regions\"").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values),
+                    CommentedCodec.of(BIOME_SWAPPER, "global_biome_swapper", """
+                            Global biome swapper that swaps any biome of your choice with another in all Overworld regions.
+                            
+                            You must use biome ids.
+                            
+                            Example:
+                            =====================
+                            
+                            "global_biome_swapper": {
+                                "byg:atacama_desert": "minecraft:desert",
+                                "byg:bayou": "minecraft:swamp",
+                                "minecraft:sunflower_plains": "byg:black_forest"
+                            }
+                            
+                            =====================
+                            
+                            """).forGetter(overworldBiomeConfig -> overworldBiomeConfig.globalSwapper)
             ).apply(builder, OverworldBiomeConfig::new)
     );
+
+    public static final OverworldBiomeConfig DEFAULT = new OverworldBiomeConfig(true, OverworldRegion.OVERWORLD_DEFAULTS, Map.of());
+
+    public static OverworldBiomeConfig INSTANCE = null;
 
     public static final Codec<List<Wrapped<OverworldRegion>>> FROM_OLD_CODEC_LIST = OverworldRegion.OLD_CODEC.listOf().comapFlatMap(biomeProviderDataList -> {
         List<Wrapped<OverworldRegion>> wrapped = new ArrayList<>();
@@ -60,7 +82,8 @@ public record OverworldBiomeConfig(boolean generateOverworld,
     public static final Codec<OverworldBiomeConfig> OLD_CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
                     Codec.BOOL.fieldOf("overworld_enabled").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
-                    FROM_OLD_CODEC_LIST.fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values)
+                    FROM_OLD_CODEC_LIST.fieldOf("providers").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values),
+                    BIOME_SWAPPER.fieldOf("global_biome_swapper").forGetter(overworldBiomeConfig -> overworldBiomeConfig.globalSwapper)
             ).apply(builder, OverworldBiomeConfig::new)
     );
 
@@ -97,7 +120,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
             createDefaultsAndRegister(recreate, BYGOverworldBiomeSelectors.BIOME_LAYOUTS, registry.get("biome_layout"), BYGOverworldBiomeSelectors.BIOME_LAYOUT_CODEC, fromFileOps, biomePickers);
             createDefaultsAndRegister(recreate, OverworldRegion.BIOME_REGIONS, registry.get("regions"), OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC, fromFileOps, regions);
             if (!path.toFile().exists() || recreate) {
-                createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, COMMENTS, fromFileOps, getOldOrDefault);
+                createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Map.of(), fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
             BYG.logInfo(String.format("\"%s\" was read.", path.toString()));

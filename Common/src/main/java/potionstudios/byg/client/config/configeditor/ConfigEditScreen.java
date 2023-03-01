@@ -15,7 +15,10 @@ import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 import potionstudios.byg.client.config.serializers.ConfigEntriesSerializer;
 
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 import java.util.function.BiFunction;
 
 public class ConfigEditScreen extends Screen {

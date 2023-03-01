@@ -1,4 +1,4 @@
-package potionstudios.byg.world.biome;
+package potionstudios.byg.common.world.biome;
 
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
@@ -29,10 +29,11 @@ public class BYGTerraBlenderRegion extends Region {
 
     private final Set<ResourceKey<Biome>> bygKeys = new ObjectOpenHashSet<>();
     private final Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper;
+    private final Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper;
 
     private final BYGOverworldBiomeBuilder bygOverworldBiomeBuilder;
 
-    public BYGTerraBlenderRegion(OverworldRegion overworldRegion) {
+    public BYGTerraBlenderRegion(OverworldRegion overworldRegion, Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper) {
         this(overworldRegion.overworldWeight(),
                 _2DResourceKeyArrayTo2DList(overworldRegion.oceans().value()),
                 _2DResourceKeyArrayTo2DList(overworldRegion.middleBiomes().value()),
@@ -45,7 +46,7 @@ public class BYGTerraBlenderRegion extends Region {
                 _2DResourceKeyArrayTo2DList(overworldRegion.peakBiomesVariant().value()),
                 _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomes().value()),
                 _2DResourceKeyArrayTo2DList(overworldRegion.slopeBiomesVariant().value()),
-                overworldRegion.swapper());
+                overworldRegion.swapper(), globalSwapper);
     }
 
     public BYGTerraBlenderRegion(int overworldWeight,
@@ -54,9 +55,10 @@ public class BYGTerraBlenderRegion extends Region {
                                  ResourceKey<Biome>[][] plateauBiomesVariant, ResourceKey<Biome>[][] shatteredBiomes,
                                  ResourceKey<Biome>[][] beachBiomes, ResourceKey<Biome>[][] peakBiomes,
                                  ResourceKey<Biome>[][] peakBiomesVariant, ResourceKey<Biome>[][] slopeBiomes, ResourceKey<Biome>[][] slopeBiomesVariant,
-                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper) {
+                                 Map<ResourceKey<Biome>, ResourceKey<Biome>> swapper, Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper) {
         super(BYG.createLocation("region_" + count++), RegionType.OVERWORLD, overworldWeight);
         this.swapper = swapper;
+        this.globalSwapper = globalSwapper;
         Predicate<ResourceKey<Biome>> noVoidBiomes = biomeResourceKey -> biomeResourceKey != Biomes.THE_VOID;
         oceans = filter("oceans", this.getName(), count, oceans, noVoidBiomes, true);
         middleBiomes = filter("middle_biomes", this.getName(), count, middleBiomes, noVoidBiomes, true);
@@ -91,6 +93,7 @@ public class BYGTerraBlenderRegion extends Region {
         MutableInt totalPairs = new MutableInt();
         MutableInt bygMapperAccepted = new MutableInt(0);
         ((OverworldBiomeBuilderAccess) this.bygOverworldBiomeBuilder).byg_invokeAddBiomes((parameterPointResourceKeyPair -> {
+            Climate.ParameterPoint parameterPoint = parameterPointResourceKeyPair.getFirst();
             ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
             if (!registry.containsKey(biomeKey)) {
                 throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location().toString()));
@@ -99,7 +102,7 @@ public class BYGTerraBlenderRegion extends Region {
             boolean mapped = false;
             boolean alreadyMappedOutsideSwapper = false;
             if (this.bygKeys.contains(biomeKey)) {
-                mapper.accept(new Pair<>(parameterPointResourceKeyPair.getFirst(), biomeKey));
+                mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeKey, biomeKey)));
                 bygMapperAccepted.increment();
                 alreadyMappedOutsideSwapper = true;
                 mapped = true;
@@ -109,13 +112,14 @@ public class BYGTerraBlenderRegion extends Region {
                 if (alreadyMappedOutsideSwapper) {
                     throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location().toString(), this.swapper.get(biomeKey).location().toString(), this.getName().toString()));
                 }
-                mapper.accept(new Pair<>(parameterPointResourceKeyPair.getFirst(), this.swapper.get(biomeKey)));
+                ResourceKey<Biome> biomeResourceKey = this.swapper.get(biomeKey);
+                mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeResourceKey, biomeResourceKey)));
                 bygMapperAccepted.increment();
                 mapped = true;
             }
 
             if (!mapped) {
-                mapper.accept(parameterPointResourceKeyPair);
+                mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeKey, biomeKey)));
                 bygMapperAccepted.increment();
             }
         }));

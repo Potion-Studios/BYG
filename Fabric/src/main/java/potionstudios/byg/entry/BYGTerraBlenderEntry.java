@@ -5,10 +5,10 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGFabric;
+import potionstudios.byg.common.world.biome.BYGTerraBlenderRegion;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.config.SettingsConfig;
 import potionstudios.byg.config.json.OverworldBiomeConfig;
-import potionstudios.byg.world.biome.BYGTerraBlenderRegion;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
@@ -22,7 +22,7 @@ public class BYGTerraBlenderEntry implements TerraBlenderApi {
 
         OverworldBiomeConfig config = OverworldBiomeConfig.getConfig();
         if (config.generateOverworld() && SettingsConfig.getConfig().useBYGWorldGen()) {
-            config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value())));
+            config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value(), config.globalSwapper())));
         } else {
             BYG.logInfo("BYG overworld biomes disabled.");
         }
