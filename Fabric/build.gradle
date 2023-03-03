@@ -22,7 +22,7 @@ plugins {
     id "com.modrinth.minotaur" version "2.+"
 }
 
-tasks.build.dependsOn(tasks.findByName("shadowJar"))
+tasks.build.dependsOn(tasks.shadowJar)
 
 configurations {
     shadow
