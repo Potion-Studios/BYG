@@ -139,14 +139,14 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLogsDecorator> SHELF_FUNGI = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.SHELF_FUNGI.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> SHELF_FUNGI = () -> new AttachedToLogsDecorator(0.3F, 0, 1, SimpleStateProvider.simple(BYGBlocks.SHELF_FUNGI.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE1 = createConfiguredFeature("aspen_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/aspen/aspen_trunk1"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy1"),
-                    BiasedToBottomInt.of(4, 7),
+                    BiasedToBottomInt.of(7, 12),
                     BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
@@ -159,7 +159,7 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/aspen/aspen_trunk2"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy2"),
-                    BiasedToBottomInt.of(4, 7),
+                    BiasedToBottomInt.of(7, 12),
                     BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
@@ -172,7 +172,33 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/aspen/aspen_trunk3"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy3"),
-                    BiasedToBottomInt.of(4, 7),
+                    BiasedToBottomInt.of(6, 10),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE4 = createConfiguredFeature("aspen_tree4",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen/aspen_trunk4"),
+                    BYG.createLocation("features/trees/aspen/aspen_canopy4"),
+                    BiasedToBottomInt.of(6, 10),
+                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
+                    ASPEN.log(),
+                    ASPEN.leaves(),
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+            )
+    );
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE5 = createConfiguredFeature("aspen_tree5",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/aspen/aspen_trunk5"),
+                    BYG.createLocation("features/trees/aspen/aspen_canopy5"),
+                    BiasedToBottomInt.of(6, 12),
                     BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
@@ -3597,8 +3623,10 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ASPEN_TREES = createConfiguredFeature("aspen_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE2), 0.50F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE3), 0.25F)),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE5), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE4), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE2), 0.2F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ASPEN_TREE1))
     );
 
