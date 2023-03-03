@@ -102,7 +102,7 @@ public class BYGSurfaceRules {
             )
     );
 
-    public static final SurfaceRules.RuleSource HOWLING_PEAKS_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.HOWLING_PEAKS),
+    public static final SurfaceRules.RuleSource HOWLING_PEAKS_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.HOWLING_PEAKS, BYGBiomes.ASPEN_FOREST),
             SurfaceRules.sequence(
                     SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
                             SurfaceRules.sequence(

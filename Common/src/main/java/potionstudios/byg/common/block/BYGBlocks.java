@@ -104,6 +104,8 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WITCH_HAZEL_BRANCH = createTreeBranchBlock(MaterialColor.COLOR_ORANGE, "witch_hazel_branch");
     public static final BlockRegistryObject<Block> WITCH_HAZEL_BLOSSOM = createWitchHazelBlossomBlock(MaterialColor.COLOR_YELLOW, "witch_hazel_blossom");
 
+    public static final BlockRegistryObject<Block> SHELF_FUNGI = createTreeBranchBlock(MaterialColor.TERRACOTTA_ORANGE, "shelf_fungi");
+
     public static final BlockRegistryObject<Block> ARAUCARIA_LEAVES = createLeaves(MaterialColor.COLOR_GREEN, "araucaria_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_BAOBAB_LEAVES = createChangingLeaves(MaterialColor.COLOR_GREEN, () -> (LeavesBlock) BYGBlocks.RIPE_BAOBAB_LEAVES.get(), 0.02F, "flowering_baobab_leaves");
     public static final BlockRegistryObject<Block> RIPE_BAOBAB_LEAVES = createFruitLeaves(MaterialColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(AppleFruitBlock.AGE, 0), "ripe_baobab_leaves", 0.04F);

@@ -188,6 +188,7 @@ public class BYGCompostables {
         map.put(BYGItems.GREEN_APPLE_PIE.get(), 0.65f);
         map.put(BYGItems.GREEN_MUSHROOM.get(), 0.65f);
         map.put(BYGItems.WHITE_PUFFBALL_CAP.get(), 0.65f);
+        map.put(BYGItems.SHELF_FUNGI.get(), 0.65f);
         map.put(BYGItems.WEEPING_MILKCAP.get(), 0.65f);
         map.put(BYGItems.WOOD_BLEWIT.get(), 0.65f);
         map.put(BYGItems.NIGHTSHADE_BERRIES.get(), 0.65f);

@@ -138,6 +138,9 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
             )
     );
+
+    public static final Supplier<AttachedToLogsDecorator> SHELF_FUNGI = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.SHELF_FUNGI.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE1 = createConfiguredFeature("aspen_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
@@ -148,7 +151,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
                     ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of()
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE2 = createConfiguredFeature("aspen_tree2",
@@ -161,7 +164,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
                     ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 8, ImmutableList.of()
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 8, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ASPEN_TREE3 = createConfiguredFeature("aspen_tree3",
@@ -174,7 +177,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
                     ASPEN.log(),
                     ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of()
+                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
 
