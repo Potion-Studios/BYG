@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout_mipped",
   "textures": {
     "cross": "byg:block/white_mangrove/grower_item"
   }

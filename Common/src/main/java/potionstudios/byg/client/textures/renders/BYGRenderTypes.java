@@ -22,8 +22,6 @@ public class BYGRenderTypes {
             };
             map.put(type.door().get(), renderType);
             map.put(type.trapdoor().get(), renderType);
-            if (type.growerItem() != null)
-                map.put(type.growerItem().get(), RenderType.cutoutMipped());
         }
         map.put(BYGBlocks.SHELF_FUNGI.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());

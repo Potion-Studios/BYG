@@ -160,14 +160,14 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 
             if (type.growerItem() != null) {
                 final var textureLoc = rl(typeLoc + "grower_item");
-                final var growerItem = models().cross(typeName + "/grower_item", textureLoc);
+                final var growerItem = models().cross(typeName + "/grower_item", textureLoc).renderType("cutout_mipped");
                 item.withExistingParent(type.growerItem().getId().getPath(), generatedParent)
                         .texture("layer0", textureLoc);
                 simpleBlock(type.growerItem().get(), growerItem);
 
                 final var pottedBlock = ForgeRegistries.BLOCKS.getValue(BYG.createLocation("potted_" + type.growerItem().getId().getPath()));
                 final var potted = models().withExistingParent(typeLoc + "potted_grower_item", mcLoc("block/flower_pot_cross"))
-                        .texture("plant", growerItem.getLocation());
+                        .texture("plant", growerItem.getLocation()).renderType("cutout_mipped");
                 simpleBlock(pottedBlock, potted);
             }
             final var pressurePlate = models().pressurePlate(typeName + "/pressure_plate", rl(typeLoc + "planks"));
