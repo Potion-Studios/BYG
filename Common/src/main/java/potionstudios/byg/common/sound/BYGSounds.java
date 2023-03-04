@@ -14,7 +14,7 @@ public class BYGSounds {
     public static final RegistryObject<SoundEvent> AMBIENT_WAILING_GARTH_ADDITIONS = createSound("ambient_wailing_garth_additions");
     public static final RegistryObject<SoundEvent> AMBIENT_END_FOREST_LOOP = createSound("ambient_end_forest");
     public static final RegistryObject<SoundEvent> AMBIENT_END_OMINOUS_LOOP = createSound("ambient_end_ominous");
-
+    public static final RegistryObject<SoundEvent> AMBIENT_OVERWORLD_FOREST_LOOP = createSound("ambient_overworld_forest");
 
     public static RegistryObject<SoundEvent> createSound(String location) {
         final var soundLocation = BYG.createLocation(location);
