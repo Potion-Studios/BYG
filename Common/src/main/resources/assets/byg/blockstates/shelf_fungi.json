@@ -1,0 +1,23 @@
+{
+	"variants": {
+		"facing=east": [
+			{"model": "byg:block/shelf_fungi", "y": 90},
+			{"model": "byg:block/shelf_fungi2", "y": 90}
+		],
+
+		"facing=north": [
+			{"model": "byg:block/shelf_fungi"},
+			{"model": "byg:block/shelf_fungi2"}
+		],
+
+		"facing=south": [
+			{"model": "byg:block/shelf_fungi", "y": 180},
+			{"model": "byg:block/shelf_fungi2", "y": 180}
+		],
+
+		"facing=west": [
+			{"model": "byg:block/shelf_fungi", "y": 270},
+			{"model": "byg:block/shelf_fungi2", "y": 270}
+		]
+	}
+}
