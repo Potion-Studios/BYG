@@ -49,7 +49,13 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("baobab_tree1")), 1).add(new FeatureSpawner(createLocation("baobab_tree2")), 1).build())
         ));
         map.put(createLocation("blue_enchanted_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("blue_enchanted_tree1")), 1).add(new FeatureSpawner(createLocation("blue_enchanted_tree2")), 1).build())
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree1")), 2)
+                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree2")), 1)
+                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree3")), 1).build())
         ));
         map.put(createLocation("blue_spruce_sapling"), List.of(
                 new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
@@ -153,11 +159,13 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
 
         ));
         map.put(createLocation("green_enchanted_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("green_enchanted_tree1")), 1)
+                new GrowingPatternEntry(List.of(
+                        " x ",
+                        "xxx",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        .add(new FeatureSpawner(createLocation("green_enchanted_tree1")), 2)
                         .add(new FeatureSpawner(createLocation("green_enchanted_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("green_enchanted_tree3")), 1)
-                        .build())
+                        .add(new FeatureSpawner(createLocation("green_enchanted_tree3")), 1).build())
         ));
         map.put(createLocation("holly_sapling"), List.of(
                 new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
@@ -199,9 +207,9 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         ));
         map.put(createLocation("white_mangrove_sapling"), List.of(
                 new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        "x   x",
-                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                        " x ",
+                        "x x",
+                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
                         .add(new FeatureSpawner(createLocation("white_mangrove_tree1")), 1)
                         .add(new FeatureSpawner(createLocation("white_mangrove_tree2")), 1)
                         .add(new FeatureSpawner(createLocation("white_mangrove_tree3")), 1)

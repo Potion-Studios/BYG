@@ -1089,10 +1089,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(0, 1),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1103,10 +1103,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(0, 1),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1117,10 +1117,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(0, 2),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.defaultBlockState(), 1).add(BLUE_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(BLUE_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1146,10 +1146,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
-                    BiasedToBottomInt.of(0, 1),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1160,10 +1160,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
-                    BiasedToBottomInt.of(0, 1),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1174,10 +1174,10 @@ public class BYGOverworldTreeFeatures {
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
-                    BiasedToBottomInt.of(0, 2),
+                    BiasedToBottomInt.of(3, 8),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
@@ -1192,7 +1192,7 @@ public class BYGOverworldTreeFeatures {
                     ,
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
                     BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
-                    BLUE_ENCHANTED.wood(),
+                    BLUE_ENCHANTED.log(),
                     BLUE_ENCHANTED.leaves(),
                     BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
             )
