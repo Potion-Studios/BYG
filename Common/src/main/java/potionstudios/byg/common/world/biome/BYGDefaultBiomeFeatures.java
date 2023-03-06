@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.data.worldgen.placement.EndPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -557,6 +558,11 @@ public class BYGDefaultBiomeFeatures {
 //        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER);
     }
 
+
+    public static void addDefaultEndFeatures(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
+    }
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
     }

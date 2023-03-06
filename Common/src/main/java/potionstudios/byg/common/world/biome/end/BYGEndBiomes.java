@@ -18,11 +18,11 @@ public class BYGEndBiomes {
     public static Biome bulbisGardens() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
         BYGDefaultBiomeFeatures.addMixedColorBulbisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisOddity(generationSettings);
         BYGDefaultBiomeFeatures.addBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(10040012).waterFogColor(10040012).fogColor(8339307).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.0F)).ambientParticle(new AmbientParticleSettings(ParticleTypes.WITCH, 0.00428F)).ambientLoopSound(BYGSounds.AMBIENT_END_FOREST_LOOP.get()).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_END)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -32,6 +32,8 @@ public class BYGEndBiomes {
     public static Biome crypticWastes() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.CRYPTIC_CAVE);
         BYGDefaultBiomeFeatures.addCrypticVents(generationSettings);
         BYGDefaultBiomeFeatures.addCrypticBramble(generationSettings);
@@ -49,11 +51,12 @@ public class BYGEndBiomes {
     public static Biome etherealIslands() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         BYGDefaultBiomeFeatures.addEtherPlants(generationSettings);
         BYGDefaultBiomeFeatures.addEtherFoliage(generationSettings);
         BYGDefaultBiomeFeatures.addSparseEtherTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(3905655).waterFogColor(3905655).fogColor(8339307).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.0F)).ambientParticle(new AmbientParticleSettings(ParticleTypes.CRIMSON_SPORE, 0.00428F)).ambientLoopSound(BYGSounds.AMBIENT_END_OMINOUS_LOOP.get()).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_END)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -62,13 +65,14 @@ public class BYGEndBiomes {
     public static Biome impariusGrove() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         BYGDefaultBiomeFeatures.addImpariusPlants(generationSettings);
         BYGDefaultBiomeFeatures.addFungalImparius(generationSettings);
         BYGDefaultBiomeFeatures.addLargeImpariusMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
         BYGDefaultBiomeFeatures.addEnderLily(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IMPARIUS_GROVE_DELTA);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(3722412).waterFogColor(3722412).fogColor(8339307).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.0F)).ambientParticle(new AmbientParticleSettings(ParticleTypes.WARPED_SPORE, 0.00428F)).ambientLoopSound(BYGSounds.AMBIENT_END_FOREST_LOOP.get()).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_NETHER_WASTES_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_NETHER_WASTES_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_END)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -77,13 +81,14 @@ public class BYGEndBiomes {
     public static Biome ivisFields() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IVIS_FIELDS_SPIKE);
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.IVIS_FIELDS_COLUMN);
         BYGDefaultBiomeFeatures.addIvisPlants(generationSettings);
         BYGDefaultBiomeFeatures.addSparseBulbisAnomaly(generationSettings);
         BYGDefaultBiomeFeatures.addSparsePurpleBulbisTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(8339307).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.0F)).ambientParticle(new AmbientParticleSettings(ParticleTypes.WITCH, 0.00428F)).ambientLoopSound(BYGSounds.AMBIENT_END_OMINOUS_LOOP.get()).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_END)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -92,10 +97,11 @@ public class BYGEndBiomes {
     public static Biome nightshadeForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         BYGDefaultBiomeFeatures.addNightshadePlants(generationSettings);
         BYGDefaultBiomeFeatures.addNightShadeTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PHANTOM, 1, 1, 2));
@@ -106,11 +112,10 @@ public class BYGEndBiomes {
     public static Biome shatteredDesert() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         BYGDefaultBiomeFeatures.addShatteredDesertPlants(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(8339307).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.0F)).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.00428F)).ambientLoopSound(BYGSounds.AMBIENT_END_OMINOUS_LOOP.get()).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_END)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
@@ -119,10 +124,11 @@ public class BYGEndBiomes {
     public static Biome shulkrenForest() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         BYGDefaultBiomeFeatures.addShulkrenTrees(generationSettings);
         BYGDefaultBiomeFeatures.addShulkrenPlants(generationSettings);
         BYGDefaultBiomeFeatures.addTheriumDeposit(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
 
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SHULKER, 1, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 60, 1, 3));
@@ -132,6 +138,8 @@ public class BYGEndBiomes {
     public static Biome viscalIsles() {
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BYGDefaultBiomeFeatures.addDefaultEndFeatures(generationSettings);
+
         generationSettings.addFeature(GenerationStep.Decoration.RAW_GENERATION, BYGPlacedFeatures.ISLANDS);
         BYGDefaultBiomeFeatures.addHangingTheriumLanterns(generationSettings);
         BYGDefaultBiomeFeatures.addDeadEtherTrees(generationSettings);
