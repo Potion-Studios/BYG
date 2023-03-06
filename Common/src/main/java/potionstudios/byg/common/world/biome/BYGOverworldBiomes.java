@@ -584,7 +584,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addLushCavesVegetationFeatures(generationSettings);
 
         BYGDefaultBiomeFeatures.addlushStacksSpires(generationSettings);
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BYGEntities.MAN_O_WAR.get(), 400, 4, 12));
+        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BYGEntities.MAN_O_WAR.get(), 200, 50, 50));
         BiomeDefaultFeatures.warmOceanSpawns(spawnSettings, 10, 4);
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(1.0F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4445678).waterFogColor(270131).grassColorOverride(10275901).foliageColorOverride(10275901).waterFogColor(2835532).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }

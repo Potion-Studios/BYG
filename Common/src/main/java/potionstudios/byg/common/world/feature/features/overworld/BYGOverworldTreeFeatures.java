@@ -787,8 +787,11 @@ public class BYGOverworldTreeFeatures {
                     FIR.leaves().get(),
                     BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
             )
-
     );
+
+    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BLOSSOM.defaultBlockState()), 3, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
+    public static final Supplier<AttachedToLogsDecorator> MOSS_CARPET = () -> new AttachedToLogsDecorator(0.9F, 0, 0, SimpleStateProvider.simple(Blocks.MOSS_CARPET.defaultBlockState()), 1, List.of(Direction.UP));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE1 = createConfiguredFeature("cypress_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -800,7 +803,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
                     CYPRESS.log().get(),
                     CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE2 = createConfiguredFeature("cypress_tree2",
@@ -813,7 +816,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
                     CYPRESS.log().get(),
                     CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> CYPRESS_TREE3 = createConfiguredFeature("cypress_tree3",
@@ -826,14 +829,9 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
                     CYPRESS.log().get(),
                     CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of()
+                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
-
-    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BLOSSOM = () -> new AttachedToLogsDecorator(0.1F, 15, 15, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BLOSSOM.defaultBlockState()), 3, List.of(Direction.DOWN));
-    public static final Supplier<AttachedToLogsDecorator> WITCH_HAZEL_BRANCH = () -> new AttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BYGBlocks.WITCH_HAZEL_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
-    public static final Supplier<AttachedToLogsDecorator> MOSS_CARPET = () -> new AttachedToLogsDecorator(0.9F, 0, 0, SimpleStateProvider.simple(Blocks.MOSS_CARPET.defaultBlockState()), 1, List.of(Direction.UP));
-
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WITCH_HAZEL1 = createConfiguredFeature("witch_hazel1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -2192,7 +2190,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
                     RAINBOW_EUCALYPTUS.log(),
                     RAINBOW_EUCALYPTUS.leaves(),
-                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F))
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RAINBOW_EUCALYPTUS_LARGE_TREE1 = createConfiguredFeature("rainbow_eucalyptus_large_tree1",
@@ -3028,7 +3026,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MAHOGANY.leaves().get()),
                     MAHOGANY.log(),
                     MAHOGANY.leaves(),
-                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of()
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.5F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F))
             )
     );
 
@@ -3123,7 +3121,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE2 = createConfiguredFeature("willow_tree2",
@@ -3136,7 +3134,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE3 = createConfiguredFeature("willow_tree3",
@@ -3149,7 +3147,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WILLOW_TREE4 = createConfiguredFeature("willow_tree4",
@@ -3162,7 +3160,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(WILLOW.leaves().get()),
                     WILLOW.log(),
                     WILLOW.leaves(),
-                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of()
+                    BYGBlockTags.GROUND_WILLOW_SAPLING, 10, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
 
