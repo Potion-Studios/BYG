@@ -1281,6 +1281,8 @@
   "byg.nether.not.used.terrablender": "Warning: You are receiving this warning because BYG's Nether Biome Source is not being used in this world's Nether and therefore renders BYG's nether config useless. Your config specifies it should be using it! If this is intentional(ie using another nether mod), you may disable this warning from appearing in future worlds by visiting BYG's nether config found here: \"%s\" and setting \"warnBYGNetherBiomeSourceNotUsedInNewWorlds\" to \"false\"!\nWe've detected that this world's biome source is controlled by terrablender, please set \"replace_default_nether\" to \"false\" in the terrablender config found here: %s.\n Bare in mind this change applies in new worlds only, if this is an existing world follow thee instructions found here: %s",
   "byg.saplingpattern.suggest.hold.shift": "Hold %s to view sapling patterns.",
   "byg.saplingpattern.tooltip": "Sapling patterns:",
+  "byg.saplingpattern.tooltip.empty": "□ = empty",
+  "byg.saplingpattern.tooltip.sapling": "x = sapling",
   "byg.screen.configloadfail.openconfigdir": "Open config dir",
   "byg.screen.configloadfail.openconfigdir.hover": "Open config directory.",
   "byg.screen.configloadfail.recreateconfigs": "Recreate configs",
