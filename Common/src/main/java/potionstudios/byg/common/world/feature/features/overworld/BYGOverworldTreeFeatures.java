@@ -2190,7 +2190,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
                     RAINBOW_EUCALYPTUS.log(),
                     RAINBOW_EUCALYPTUS.leaves(),
-                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F))
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> RAINBOW_EUCALYPTUS_LARGE_TREE1 = createConfiguredFeature("rainbow_eucalyptus_large_tree1",
@@ -3026,7 +3026,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(MAHOGANY.leaves().get()),
                     MAHOGANY.log(),
                     MAHOGANY.leaves(),
-                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of()
+                    BYGBlockTags.GROUND_MAHOGANY_SAPLING, 0, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.5F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 1F))
             )
     );
 
