@@ -1,5 +1,42 @@
-## 2.0.1.0
+# 2.0.1.1
 
+* ## Biome Changes
+  * ### Aspen Forest
+    * Biome generation overhaul.
+    * Add Shelf fungi on the sides of Aspen Trees
+    * New Aspen Trees
+    * New Aspen Leaves textures
+    * Add Spruce Trees
+
+  * ### Redwood Forest
+    * Redwood forest will now rarely generate an ancient sequoia tree.
+      * This is a structure internally, can be found with `/locate structure byg:ancient_sequoia`.
+
+  * ### Bayou & Cypress Swamplands
+    * Add Vines & Moss to trees.
+
+  * ### Overworld Forests
+    * Add ambience audio.
+
+  * ### End biomes
+    * Add end gateways to all end biomes.
+    * Remove endermite spawns.
+
+  * ### Biome Distribution
+    * Biome distribution should be more consistent. Reset configs to see this change.
+
+  * ### Rainbow Eucalyptus Trees
+    * Add vines to all Rainbow Eucalyptus trees.
+
+* ## Misc Changes
+  * Improve Sapling Pattern tooltip.
+
+* ## Bug fixes
+  * Fix crash with Terralith due to feature cycle. (#1105)
+  * Add Imbued Nightshade logs to logs tags. Should fix instances of leaves decaying in the Nightshade forest.
+  * Fix man o war spawning.
+
+# 2.0.1.0
 * New Dependencies
   * CorgiLib is now required for forge & fabric. You can get it here:
     * https://www.curseforge.com/minecraft/mc-mods/corgilib
@@ -272,11 +309,11 @@
 * Set material color for numerous blocks to better match their textures.
 * Other bugs *probably*.
 
-## 2.0.0.13
+# 2.0.0.13
 * Fix broken red rock village structures.
 * Fix bonemealing ether grass & Embur roots.
 
-## 2.0.0.12
+# 2.0.0.12
 * Add Portuguese language.
 * Make Embur Roots and Ether grass bonemeal action not throw errors.
 * Two ether blocks don't grow large now.
@@ -298,16 +335,16 @@
 * Fix seeds on modded farmland.
 * Sythian Scaffolding fixes.
 
-## 2.0.0.11
+# 2.0.0.11
 * Fix an if statement in Arch Piece config deserialization that was spamming logs when there was actually no error present.
 
-## 2.0.0.10
+# 2.0.0.10
 * Strip trailing white space from configs when parsing.
 
-## 2.0.0.9
+# 2.0.0.9
 * Add chest boat drops.
 
-## 2.0.0.8
+# 2.0.0.8
 ### Thank you to everyone for the PRs w/ fixes!
 * Put wailing nylium in the shovel tag.
 * Fire tree grow event on forge.
@@ -334,10 +371,10 @@
   * Make subzero crystal blocks drop some of their shards, similar to glowstone.
   * Make foragers table drop itself when broken.
 
-## 2.0.0.7
+# 2.0.0.7
 * Update to 1.19.2.
 
-## 2.0.0.6
+# 2.0.0.6
 * Remove signs.
 * Fix BYG on Forge versions above `41.0.64`.
 
