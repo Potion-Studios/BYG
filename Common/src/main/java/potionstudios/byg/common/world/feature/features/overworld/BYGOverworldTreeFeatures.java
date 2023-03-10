@@ -261,6 +261,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
+
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE1 = createConfiguredFeature("birch_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
@@ -271,7 +272,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     BYGBlocks.BROWN_BIRCH_LEAVES.get(),
-                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE2 = createConfiguredFeature("birch_tree2",
@@ -284,7 +285,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     BYGBlocks.BROWN_BIRCH_LEAVES.get(),
-                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE3 = createConfiguredFeature("birch_tree3",
@@ -297,7 +298,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     BYGBlocks.BROWN_BIRCH_LEAVES.get(),
-                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BIRCH_TREE4 = createConfiguredFeature("birch_tree4",
@@ -310,7 +311,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.BIRCH_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.BIRCH_LOG,
                     BYGBlocks.BROWN_BIRCH_LEAVES.get(),
-                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of()
+                    BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, 5, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
 
@@ -3555,6 +3556,15 @@ public class BYGOverworldTreeFeatures {
             () -> new RandomFeatureConfiguration(ImmutableList.of(
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ARAUCARIA_TREE1), 0.5F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ARAUCARIA_TREE2))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> BIRCH_TREES = createConfiguredFeature("birch_trees",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_TREE1), 0.33F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_TREE2), 0.33F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_TREE3), 0.33F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(BIRCH_TREE4))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORANGE_BIRCH_TREES = createConfiguredFeature("orange_birch_trees",

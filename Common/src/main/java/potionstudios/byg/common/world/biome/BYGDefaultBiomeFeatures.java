@@ -663,6 +663,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.OAK_TREES);
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_OAK_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BIRCH_TREES);
     }
 
     public static void addHowlingTrees(BiomeGenerationSettings.Builder gen) {
@@ -733,10 +734,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PRAIRIE_SHRUBS);
     }
 
-    public static void addScarceSpruceTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
-    }
-
     public static void addRoseFieldSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSE_FIELD_SPRUCE_TREES);
     }
@@ -747,6 +744,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addSparseSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
+    }
+
+    public static void addSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES);
     }
 
     public static void addCanadianShieldTrees(BiomeGenerationSettings.Builder gen) {

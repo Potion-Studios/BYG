@@ -145,6 +145,10 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> BAOBAB_TREES = createPlacedFeature("baobab_trees", BYGOverworldTreeFeatures.BAOBAB_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 1)));
     public static final Holder<PlacedFeature> ORANGE_BIRCH_TREES = createPlacedFeature("orange_birch_trees", BYGOverworldTreeFeatures.ORANGE_BIRCH_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final Holder<PlacedFeature> YELLOW_BIRCH_TREES = createPlacedFeature("yellow_birch_trees", BYGOverworldTreeFeatures.YELLOW_BIRCH_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
+    public static final Holder<PlacedFeature> BIRCH_TREES = createPlacedFeature("birch_trees", BYGOverworldTreeFeatures.BIRCH_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(5, 0.25F, 3)));
+    public static final Holder<PlacedFeature> SPARSE_BIRCH_TREES = createPlacedFeature("sparse_birch_trees", BYGOverworldTreeFeatures.BIRCH_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
+
+
     public static final Holder<PlacedFeature> NIGHTSHADE_TREES = createPlacedFeature("nightshade_tree", BYGEndVegetationFeatures.NIGHTSHADE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(3, 0.25F, 1)));
     public static final Holder<PlacedFeature> NIGHTSHADE_SHRUBS = createPlacedFeature("nightshade_shrubs", BYGEndVegetationFeatures.NIGHTSHADE_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(3, 0.25F, 1)));
     public static final Holder<PlacedFeature> BOREAL_TREES = createPlacedFeature("boreal_trees", BYGOverworldTreeFeatures.BOREAL_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 2)));
@@ -198,9 +202,11 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> PRAIRIE_SHRUBS = createPlacedFeature("prairie_shrubs", BYGOverworldTreeFeatures.PRAIRIE_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
     public static final Holder<PlacedFeature> GUIANA_SHIELD_TREES = createPlacedFeature("guiana_shield_trees", BYGOverworldTreeFeatures.GUIANA_SHIELD_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(15, 0.25F, 1)));
     public static final Holder<PlacedFeature> RAINFOREST_TREES = createPlacedFeature("rainforest_trees", BYGOverworldTreeFeatures.RAINFOREST_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(15, 0.25F, 1)));
-    public static final Holder<PlacedFeature> REDWOOD_TREES = createPlacedFeature("redwood_trees", BYGOverworldTreeFeatures.REDWOOD_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
+    public static final Holder<PlacedFeature> REDWOOD_TREES = createPlacedFeature("redwood_trees", BYGOverworldTreeFeatures.REDWOOD_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(2, 0.2F, 2)));
     public static final Holder<PlacedFeature> FRAGMENT_FOREST_TREES = createPlacedFeature("fragment_forest_trees", BYGOverworldTreeFeatures.FRAGMENT_FOREST_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(2, 0.25F, 2)));
     public static final Holder<PlacedFeature> SKYRIS_TREES = createPlacedFeature("skyris_trees", BYGOverworldTreeFeatures.SKYRIS_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
+    public static final Holder<PlacedFeature> SPRUCE_TREES = createPlacedFeature("spruce_trees", BYGOverworldTreeFeatures.SPRUCE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(3,0.2F, 1)));
+
     public static final Holder<PlacedFeature> RED_SPRUCE_TREES_SPARSE = createPlacedFeature("sparse_red_spruce_trees", BYGOverworldTreeFeatures.RED_SPRUCE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 1)));
     public static final Holder<PlacedFeature> BLUE_SPRUCE_TREES = createPlacedFeature("blue_spruce_trees", BYGOverworldTreeFeatures.BLUE_SPRUCE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(2, 0.1F, 1)));
     public static final Holder<PlacedFeature> SPRUCE_TREES_SPARSE = createPlacedFeature("sparse_spruce_trees", BYGOverworldTreeFeatures.SPRUCE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
