@@ -440,8 +440,8 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     private static class ManOWarRandomMovementGoal extends Goal {
         private final ManOWar mano;
 
-        public ManOWarRandomMovementGoal(ManOWar mano2) {
-            this.mano = mano2;
+        public ManOWarRandomMovementGoal(ManOWar mano) {
+            this.mano = mano;
         }
 
         public boolean canUse() {
