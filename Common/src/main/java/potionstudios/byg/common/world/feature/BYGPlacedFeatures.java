@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -233,6 +234,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> HUGE_MUSHROOMS = createPlacedFeature("huge_mushrooms", BYGOverworldVegetationFeatures.HUGE_MUSHROOMS, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
 
     public static final Holder<PlacedFeature> MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGOverworldTreeFeatures.MEADOW_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
+    public static final Holder<PlacedFeature> OAK_BUSHES = createPlacedFeature("oak_bushes", BYGOverworldTreeFeatures.OAK_BUSHES, () -> clearingTreePlacement(PlacementUtils.countExtra(2, 0.25F, 2)));
+
     public static final Holder<PlacedFeature> FIRECRACKER_SHRUBS = createPlacedFeature("firecracker_shrubs", BYGOverworldTreeFeatures.FIRECRACKER_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
 
     public static final Holder<PlacedFeature> SPARSE_RED_OAK_TREES = createPlacedFeature("sparse_red_oak_trees", BYGOverworldTreeFeatures.RED_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));

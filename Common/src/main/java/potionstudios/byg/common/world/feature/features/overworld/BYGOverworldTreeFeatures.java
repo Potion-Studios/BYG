@@ -6,6 +6,7 @@ import corgitaco.corgilib.world.level.feature.gen.configurations.TreeFromStructu
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
@@ -582,6 +583,20 @@ public class BYGOverworldTreeFeatures {
                     Blocks.BIRCH_LOG,
                     BYGBlocks.YELLOW_BIRCH_LEAVES.get(),
                     BYGBlockTags.GROUND_YELLOW_BIRCH_SAPLING, 5, ImmutableList.of()
+            )
+    );
+
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> OAK_BUSH1 = createConfiguredFeature("oak_bush1",
+            CorgiLibFeatures.TREE_FROM_NBT,
+            () -> new TreeFromStructureNBTConfig(
+                    BYG.createLocation("features/trees/bush/trunk_bush1"),
+                    BYG.createLocation("features/trees/bush/canopy_bush1"),
+                    BiasedToBottomInt.of(1, 2),
+                    BlockStateProvider.simple(Blocks.OAK_LOG),
+                    BlockStateProvider.simple(Blocks.OAK_LEAVES),
+                    Blocks.OAK_LOG,
+                    Blocks.OAK_LEAVES,
+                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
             )
     );
 
@@ -3591,6 +3606,13 @@ public class BYGOverworldTreeFeatures {
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ZELKOVA_BROWN_TREE1), 0.33F),
                     new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ZELKOVA_BROWN_TREE2), 0.33F)),
                     BYGPlacedFeaturesUtil.createPlacedFeatureDirect(ZELKOVA_BROWN_TREE3))
+    );
+
+    public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> OAK_BUSHES = createConfiguredFeature("oak_bushes",
+            () -> Feature.RANDOM_SELECTOR,
+            () -> new RandomFeatureConfiguration(ImmutableList.of(
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_BUSH1), 0.5F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(OAK_BUSH1))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MEADOW_SHRUBS = createConfiguredFeature("meadow_shrubs",

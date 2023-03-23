@@ -795,6 +795,10 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.REDWOOD_TREES);
     }
 
+    public static void addOakBushes(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.OAK_BUSHES);
+    }
+
     public static void addMeadowShrubs(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.MEADOW_SHRUBS);
     }

@@ -34,9 +34,9 @@ public class BYGClient {
 
     public static void registerParticles(ParticleStrategy strategy) {
         strategy.register(BYGParticleTypes.THERIUM_GLINT.get(), TheriumGlint.Provider::new);
-        strategy.register(BYGParticleTypes.WITCH_HAZEL_LEAF.get(), FallingLeafParticle.Provider::new);
-        strategy.register(BYGParticleTypes.CHERRY_BLOSSOM_FALL_WHITE.get(), FallingLeafParticle.Provider::new);
-        strategy.register(BYGParticleTypes.CHERRY_BLOSSOM_FALL_PINK.get(), FallingLeafParticle.Provider::new);
+        strategy.register(BYGParticleTypes.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
+        strategy.register(BYGParticleTypes.CHERRY_BLOSSOM_LEAVES.get(), FallingLeafParticle.Provider::new);
+        strategy.register(BYGParticleTypes.MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
     }
 
     public interface ParticleStrategy {
