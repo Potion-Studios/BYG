@@ -111,7 +111,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> JAPANESE_ORCHID = createPlacedFeature("japanese_orchid", BYGOverworldVegetationFeatures.JAPANESE_ORCHID, () -> worldSurfaceSquaredWithCount(1));
     public static final Holder<PlacedFeature> FOXGLOVES = createPlacedFeature("foxgloves", BYGOverworldVegetationFeatures.FOXGLOVE, () -> worldSurfaceSquaredWithCount(1));
     public static final Holder<PlacedFeature> FAIRY_SLIPPER = createPlacedFeature("fairy_slipper", BYGOverworldVegetationFeatures.FAIRY_SLIPPER, () -> worldSurfaceSquaredWithCount(1));
-    public static final Holder<PlacedFeature> CHERRY_FOLIAGE = createPlacedFeature("cherry_foliage", BYGOverworldVegetationFeatures.CHERRY_FOLIAGE, () -> worldSurfaceSquaredWithCount(6));
+    public static final Holder<PlacedFeature> CHERRY_FOLIAGE = createPlacedFeature("cherry_foliage", BYGOverworldVegetationFeatures.CHERRY_FOLIAGE, () -> worldSurfaceSquaredWithCount(9));
     public static final Holder<PlacedFeature> WINTER_ROSES = createPlacedFeature("winter_roses", BYGOverworldVegetationFeatures.ROSE_WINTER, () -> worldSurfaceSquaredWithCount(3));
     public static final Holder<PlacedFeature> HORSEWEED = createPlacedFeature("horseweed", BYGOverworldVegetationFeatures.HORSEWEED, () -> worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> PRAIRIE_GRASS = createPlacedFeature("prairie_grass", BYGOverworldVegetationFeatures.PRAIRIE_GRASS, () -> CountPlacement.of(25), InSquarePlacement::spread, () -> PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter::biome);
@@ -236,7 +236,7 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> MEADOW_SHRUBS = createPlacedFeature("meadow_shrubs", BYGOverworldTreeFeatures.MEADOW_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
     public static final Holder<PlacedFeature> OAK_BUSHES = createPlacedFeature("oak_bushes", BYGOverworldTreeFeatures.OAK_BUSHES, () -> clearingTreePlacement(PlacementUtils.countExtra(2, 0.25F, 2)));
 
-    public static final Holder<PlacedFeature> FIRECRACKER_SHRUBS = createPlacedFeature("firecracker_shrubs", BYGOverworldTreeFeatures.FIRECRACKER_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.25F, 2)));
+    public static final Holder<PlacedFeature> FIRECRACKER_SHRUBS = createPlacedFeature("firecracker_shrubs", BYGOverworldTreeFeatures.FIRECRACKER_SHRUBS, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.25F, 2)));
 
     public static final Holder<PlacedFeature> SPARSE_RED_OAK_TREES = createPlacedFeature("sparse_red_oak_trees", BYGOverworldTreeFeatures.RED_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
 

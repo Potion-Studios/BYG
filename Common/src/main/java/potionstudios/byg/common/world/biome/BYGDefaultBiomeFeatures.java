@@ -884,6 +884,7 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CHERRY_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BIRCH_TREES);
     }
 
     public static void addSparseCherryTrees(BiomeGenerationSettings.Builder gen) {

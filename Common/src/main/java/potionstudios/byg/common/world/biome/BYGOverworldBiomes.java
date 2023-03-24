@@ -1014,6 +1014,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addSavannaExtraGrass(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addMapleTaigaTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseSpruceTrees(generationSettings);
         BYGDefaultBiomeFeatures.addSparseAspenTrees(generationSettings);
@@ -1042,23 +1043,22 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.addForestFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowGrass(generationSettings);
+        BYGDefaultBiomeFeatures.addVanillaSunFlowers(generationSettings);
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addSparseMeadowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
+        BYGDefaultBiomeFeatures.addTulips(generationSettings);
         BYGDefaultBiomeFeatures.addWhitePuffball(generationSettings);
         BYGDefaultBiomeFeatures.addAlpineBellflower(generationSettings);
-        if (flowering) {
-            BYGDefaultBiomeFeatures.addTulips(generationSettings);
-            BYGDefaultBiomeFeatures.addVanillaSunFlowers(generationSettings);
-        }
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
         BiomeDefaultFeatures.farmAnimals(spawnSettings);
