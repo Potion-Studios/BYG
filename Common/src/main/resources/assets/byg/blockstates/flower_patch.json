@@ -1,21 +1,20 @@
 {
   "variants": {
     "": [
-      {
-        "model": "byg:block/flower_patch"
-      },
-      {
-        "model": "byg:block/flower_patch",
-        "y": 90
-      },
-      {
-        "model": "byg:block/flower_patch",
-        "y": 180
-      },
-      {
-        "model": "byg:block/flower_patch",
-        "y": 270
-      }
+      {"model": "byg:block/flower_patch"},
+      {"model": "byg:block/flower_patch", "y": 90},
+      {"model": "byg:block/flower_patch", "y": 180},
+      {"model": "byg:block/flower_patch", "y": 270},
+
+      {"model": "byg:block/flower_patch2"},
+      {"model": "byg:block/flower_patch2", "y": 90},
+      {"model": "byg:block/flower_patch2", "y": 180},
+      {"model": "byg:block/flower_patch2", "y": 270},
+
+      {"model": "byg:block/flower_patch3"},
+      {"model": "byg:block/flower_patch3", "y": 90},
+      {"model": "byg:block/flower_patch3", "y": 180},
+      {"model": "byg:block/flower_patch3", "y": 270}
     ]
   }
 }

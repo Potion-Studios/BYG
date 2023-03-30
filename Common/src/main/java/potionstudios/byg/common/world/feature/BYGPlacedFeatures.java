@@ -81,6 +81,8 @@ public class BYGPlacedFeatures {
     public static final Holder<PlacedFeature> LEAF_PILES = createPlacedFeature("leaf_piles", BYGOverworldVegetationFeatures.LEAF_PILE, () -> worldSurfaceSquaredWithCount(2));
     public static final Holder<PlacedFeature> LOLLIPOP_FLOWERS = createPlacedFeature("lollipop_flowers", BYGOverworldVegetationFeatures.LOLLIPOP_FLOWER, () -> worldSurfaceSquaredWithCount(1));
     public static final Holder<PlacedFeature> CLOVER_FLOWERS = createPlacedFeature("clover_flower_patch", BYGOverworldVegetationFeatures.CLOVER_AND_FLOWERS, () -> worldSurfaceSquaredWithCount(2));
+    public static final Holder<PlacedFeature> CLOVER_PATCHES = createPlacedFeature("clover_patches", BYGOverworldVegetationFeatures.CLOVER_PATCH, () -> worldSurfaceSquaredWithCount(5));
+    public static final Holder<PlacedFeature> FLOWER_PATCHES = createPlacedFeature("flower_patches", BYGOverworldVegetationFeatures.FLOWER_PATCH, () -> worldSurfaceSquaredWithCount(5));
     public static final Holder<PlacedFeature> CRYPTIC_BRAMBLE = createPlacedFeature("cryptic_bramble", BYGEndVegetationFeatures.CRYPTIC_BRAMBLE_PATCH, () -> new ImmutableList.Builder<PlacementModifier>().addAll(worldSurfaceSquaredWithCount(2)).build());
     public static final Holder<PlacedFeature> CROCUS = createPlacedFeature("crocus", BYGOverworldVegetationFeatures.CROCUS, () -> worldSurfaceSquaredWithCount(1));
     public static final Holder<PlacedFeature> ANEMONES = createPlacedFeature("anemones", BYGOverworldVegetationFeatures.ANEMONES, () -> worldSurfaceSquaredWithCount(1));

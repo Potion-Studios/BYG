@@ -132,7 +132,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addLargePumpkins(generationSettings);
-        BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BYGDefaultBiomeFeatures.addCloverPatches(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
@@ -361,7 +361,8 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addJapaneseOrchid(generationSettings);
         BYGDefaultBiomeFeatures.addLeafPile(generationSettings);
         BYGDefaultBiomeFeatures.addCherryFoliage(generationSettings);
-        BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BYGDefaultBiomeFeatures.addFlowerPatches(generationSettings);
+        BYGDefaultBiomeFeatures.addCloverPatches(generationSettings);
         BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
 
@@ -746,7 +747,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addHugeMushrooms(generationSettings);
         BYGDefaultBiomeFeatures.addEnchantedTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BYGDefaultBiomeFeatures.addFlowerPatches(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addFairyslipper(generationSettings);
         BYGDefaultBiomeFeatures.addCyanRose(generationSettings);
@@ -874,6 +875,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
         BiomeDefaultFeatures.addJungleVines(generationSettings);
 
+        BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addGuianaShieldTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addBYGMushrooms(generationSettings);
@@ -1053,6 +1055,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addSparseMeadowTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMeadowShrubs(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BYGDefaultBiomeFeatures.addCloverPatches(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addAnemones(generationSettings);
@@ -1145,6 +1148,7 @@ public class BYGOverworldBiomes {
 
         BYGDefaultBiomeFeatures.addOrchardTrees(generationSettings);
         BYGDefaultBiomeFeatures.addCloverFlowerPatch(generationSettings);
+        BYGDefaultBiomeFeatures.addCloverPatches(generationSettings);
         BYGDefaultBiomeFeatures.addLolliPop(generationSettings);
         BYGDefaultBiomeFeatures.addYellowDaffodil(generationSettings);
         BYGDefaultBiomeFeatures.addPinkAllium(generationSettings);
@@ -1521,7 +1525,6 @@ public class BYGOverworldBiomes {
 
         byg_invokeGlobalOverworldGeneration(generationSettings);
 
-
         BiomeDefaultFeatures.addDefaultOres(generationSettings);
         BiomeDefaultFeatures.addExtraGold(generationSettings);
         BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
@@ -1530,6 +1533,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addBadlandExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addPaloVerdeTrees(generationSettings);
         BYGDefaultBiomeFeatures.addTerracottaBoulder(generationSettings);
         BYGDefaultBiomeFeatures.addFirecracker(generationSettings);
@@ -1663,6 +1667,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(generationSettings);
         BiomeDefaultFeatures.addDefaultExtraVegetation(generationSettings);
 
+        BYGDefaultBiomeFeatures.addOakBushes(generationSettings);
         BYGDefaultBiomeFeatures.addFragmentForestTrees(generationSettings);
         BYGDefaultBiomeFeatures.addBYGTropicFlowers(generationSettings);
         BYGDefaultBiomeFeatures.addMossyStoneBoulder(generationSettings);

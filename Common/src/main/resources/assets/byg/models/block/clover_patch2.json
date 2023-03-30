@@ -3,6 +3,7 @@
 	"ambientocclusion": false,
 	"textures": {
 		"1": "byg:block/flower_patch_stem",
+		"2": "byg:block/clover_patch_overlay",
 		"3": "byg:block/clover_patch",
 		"particle": "byg:block/flower_patch"
 	},
@@ -18,6 +19,19 @@
 				"west": {"uv": [0, 0, 16, 16], "texture": "#3", "tintindex": 0},
 				"up": {"uv": [0, 0, 16, 16], "texture": "#3", "tintindex": 0},
 				"down": {"uv": [0, 16, 16, 0], "texture": "#3", "tintindex": 0}
+			}
+		},
+		{
+			"name": "Flowers",
+			"from": [0, 2.1, 0],
+			"to": [16, 2.1, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#2"}
 			}
 		},
 		{
@@ -231,6 +245,7 @@
 	],
 	"groups": [
 		0,
+		1,
 		{
 			"name": "Stems",
 			"origin": [8, 8, 8],
@@ -240,49 +255,49 @@
 					"name": "Stem8",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [1, 2]
+					"children": [2, 3]
 				},
 				{
 					"name": "Stem7",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [3, 4]
+					"children": [4, 5]
 				},
 				{
 					"name": "Stem6",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [5, 6]
+					"children": [6, 7]
 				},
 				{
 					"name": "Stem5",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [7, 8]
+					"children": [8, 9]
 				},
 				{
 					"name": "Stem4",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [9, 10]
+					"children": [10, 11]
 				},
 				{
 					"name": "Stem3",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [11, 12]
+					"children": [12, 13]
 				},
 				{
 					"name": "Stem2",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [13, 14]
+					"children": [14, 15]
 				},
 				{
 					"name": "Stem1",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [15, 16]
+					"children": [16, 17]
 				}
 			]
 		}
