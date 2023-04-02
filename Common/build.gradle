@@ -33,7 +33,7 @@ sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
-    compileOnly('org.ow2.asm:asm-tree:9.4')
+    compileOnly('org.ow2.asm:asm-tree:9.5')
     compileOnly("com.electronwill.night-config:toml:${nightconfig_version}")
     compileOnly ("software.bernie.geckolib:geckolib-forge-1.19:3.1.27")
     compileOnly("maven.modrinth:corgilib:1.19.2-${corgilib_version}-forge")
