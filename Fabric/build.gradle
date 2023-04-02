@@ -200,7 +200,7 @@ task fabric_publishModrinth (type: TaskModrinthUpload){
         uploadFile = remapJar
         dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED)] //TODO: Add terrablender when available.
 
-        String modrinthChangelogText = changelogText.substring(0, changelogText.indexOf("##", changelogText.indexOf("##") + 1)).trim()
+        String modrinthChangelogText = changelogText.substring(0, changelogText.indexOf("# 2", changelogText.indexOf("# 2") + 1)).trim()
         changelog = modrinthChangelogText
 
         gameVersions = ["${project.minecraft_version}"]

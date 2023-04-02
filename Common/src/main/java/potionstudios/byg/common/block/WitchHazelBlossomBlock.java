@@ -22,14 +22,14 @@ public class WitchHazelBlossomBlock extends SporeBlossomBlock {
         double $$7 = (double)$$4 + random.nextDouble();
         double $$8 = (double)$$5 + 0.7D;
         double $$9 = (double)$$6 + random.nextDouble();
-        level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAF.get(), $$7, $$8, $$9, 0.0D, 0.0D, 0.0D);
+        level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAVES.get(), $$7, $$8, $$9, 0.0D, 0.0D, 0.0D);
         BlockPos.MutableBlockPos level0 = new BlockPos.MutableBlockPos();
 
         for(int level1 = 0; level1 < 14; ++level1) {
             level0.set($$4 + Mth.nextInt(random, -10, 10), $$5 - random.nextInt(10), $$6 + Mth.nextInt(random, -10, 10));
             BlockState level2 = level.getBlockState(level0);
             if (!level2.isCollisionShapeFullBlock(level, level0)) {
-                level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAF.get(), (double)level0.getX() + random.nextDouble(), (double)level0.getY() + random.nextDouble(), (double)level0.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
+                level.addParticle(BYGParticleTypes.WITCH_HAZEL_LEAVES.get(), (double)level0.getX() + random.nextDouble(), (double)level0.getY() + random.nextDouble(), (double)level0.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
             }
         }
 

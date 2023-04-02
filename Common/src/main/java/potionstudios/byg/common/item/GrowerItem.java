@@ -39,11 +39,14 @@ public class GrowerItem extends BlockItem {
             KeyMapping keyShift = mc.options.keyShift;
             if (BYGClientUtil.isKeyOrMouseButtonDown(mc, keyShift)) {
                 components.add(Component.translatable("byg.saplingpattern.tooltip"));
+                components.add(Component.translatable("byg.saplingpattern.tooltip.sapling"));
+                components.add(Component.translatable("byg.saplingpattern.tooltip.empty"));
+                components.add(Component.empty());
 
                 for (int i = 0; i < patternEntries.size(); i++) {
                     GrowingPatterns.GrowingPatternEntry entry = patternEntries.get(i);
                     for (String s : entry.pattern()) {
-                        Component textComponent = Component.literal(s.replace(" ", "-"));
+                        Component textComponent = Component.literal(s.replace(" ", "□"));
                         components.add(textComponent);
                     }
                     if (i < patternEntries.size() - 1) {

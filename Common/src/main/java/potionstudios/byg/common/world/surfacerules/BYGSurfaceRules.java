@@ -115,7 +115,7 @@ public class BYGSurfaceRules {
             )
     );
 
-    public static final SurfaceRules.RuleSource ASPEN_FOREST_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.ASPEN_FOREST),
+    public static final SurfaceRules.RuleSource ASPEN_FOREST_SURFACE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.ASPEN_FOREST, BYGBiomes.RED_OAK_FOREST),
             SurfaceRules.sequence(
                     SurfaceRules.ifTrue(byg_invokeSurfaceNoiseAbove(1.75D),
                             SurfaceRules.sequence(

@@ -1,51 +1,84 @@
 {
   "ambient_viscal_isles_loop": {
+    "category": "ambient",
     "sounds": [
       {
-        "name": "byg:ambient_viscal_isles_loop",
-        "volume": 0.8,
+        "name": "byg:ambient/viscal_isles",
+        "stream": true,
+        "volume": 0.05,
         "pitch": 1.0
       }
     ]
   },
-
   "ambient_viscal_isles_additions": {
+    "category": "ambient",
     "sounds": [
       {
-        "name": "byg:ambient_viscal_isles_additions",
-        "volume": 0.2,
+        "name": "byg:ambient/viscal_isles_additions/additions1",
+        "stream": true,
+        "volume": 0.01,
         "pitch": 1.0
       }
     ]
   },
-
   "ambient_end_forest": {
+    "category": "ambient",
     "sounds": [
       {
-        "name": "byg:ambient_end_forest",
-        "volume": 0.8,
+        "name": "byg:ambient/end_forest",
+        "stream": true,
+        "volume": 0.05,
         "pitch": 1.0
       }
     ]
   },
-
   "ambient_end_ominous": {
+    "category": "ambient",
     "sounds": [
       {
-        "name": "byg:ambient_end_ominous",
-        "volume": 0.8,
+        "name": "byg:ambient/end_ominous",
+        "stream": true,
+        "volume": 0.05,
         "pitch": 1.0
       }
     ]
   },
-
   "ambient_wailing_garth_additions": {
+    "category": "ambient",
     "sounds": [
       {
-        "name": "byg:ambient_wailing_garth_additions",
-        "volume": 0.2,
+        "name": "byg:ambient/wailing_garth_additions/additions1",
+        "stream": true,
+        "volume": 0.01,
         "pitch": 0.5
       }
     ]
-  }
+  },
+  "ambient_overworld_forest_loop": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "byg:ambient/overworld_forest",
+        "stream": true,
+        "volume": 0.03,
+        "pitch": 1.0
+      }
+    ]
+  },  "ambient_overworld_forest_additions": {
+  "category": "ambient",
+  "sounds": [
+    {
+      "name": "byg:ambient/overworld_forest_additions/additions1",
+      "stream": false,
+      "volume": 0.02,
+      "pitch": 0.5
+    },
+    {
+      "name": "byg:ambient/overworld_forest_additions/additions2",
+      "stream": false,
+      "volume": 0.02,
+      "pitch": 0.5
+    }
+  ]
+}
 }

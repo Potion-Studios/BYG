@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.data.worldgen.placement.EndPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -164,6 +165,14 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addCloverFlowerPatch(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CLOVER_FLOWERS);
+    }
+
+    public static void addCloverPatches(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CLOVER_PATCHES);
+    }
+
+    public static void addFlowerPatches(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.FLOWER_PATCHES);
     }
 
     public static void addCherryFoliage(BiomeGenerationSettings.Builder gen) {
@@ -557,6 +566,11 @@ public class BYGDefaultBiomeFeatures {
 //        //gen.withFeature(GenerationStage.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.WHITE_SANDSTONE_BOULDER);
     }
 
+
+    public static void addDefaultEndFeatures(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, EndPlacements.END_GATEWAY_RETURN);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, EndPlacements.CHORUS_PLANT);
+    }
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
     }
@@ -657,6 +671,7 @@ public class BYGDefaultBiomeFeatures {
     public static void addRedOakForestTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.OAK_TREES);
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.RED_OAK_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BIRCH_TREES);
     }
 
     public static void addHowlingTrees(BiomeGenerationSettings.Builder gen) {
@@ -727,10 +742,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.PRAIRIE_SHRUBS);
     }
 
-    public static void addScarceSpruceTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
-    }
-
     public static void addRoseFieldSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ROSE_FIELD_SPRUCE_TREES);
     }
@@ -741,6 +752,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addSparseSpruceTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES_SPARSE);
+    }
+
+    public static void addSpruceTrees(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPRUCE_TREES);
     }
 
     public static void addCanadianShieldTrees(BiomeGenerationSettings.Builder gen) {
@@ -786,6 +801,10 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addRedwoodTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.REDWOOD_TREES);
+    }
+
+    public static void addOakBushes(BiomeGenerationSettings.Builder gen) {
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.OAK_BUSHES);
     }
 
     public static void addMeadowShrubs(BiomeGenerationSettings.Builder gen) {
@@ -873,6 +892,7 @@ public class BYGDefaultBiomeFeatures {
 
     public static void addCherryTrees(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.CHERRY_TREES);
+        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_BIRCH_TREES);
     }
 
     public static void addSparseCherryTrees(BiomeGenerationSettings.Builder gen) {

@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "byg:block/clover_patch"
+    "layer0": "byg:block/clover_patch",
+    "layer1": "byg:block/clover_patch_overlay"
   }
 }
