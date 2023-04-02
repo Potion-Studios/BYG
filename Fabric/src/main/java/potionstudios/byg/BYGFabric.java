@@ -54,7 +54,7 @@ public class BYGFabric implements ModInitializer {
         registryBootStrap();
         BYGRegistry.loadClasses();
 
-        registerRenderers();
+        registerEntityAttributes();
 
         BYGFuels.loadFuels(FuelRegistry.INSTANCE::add);
 
@@ -64,7 +64,7 @@ public class BYGFabric implements ModInitializer {
         BYG.logInfo(String.format("Oh The Biomes You'll Go (BYG) was initialized from \"%s\"", initializedFrom));
     }
 
-    public static void registerRenderers() {
+    public static void registerEntityAttributes() {
         FabricDefaultAttributeRegistry.register(BYGEntities.MAN_O_WAR.get(), ManOWar.createAttributes());
         FabricDefaultAttributeRegistry.register(BYGEntities.PUMPKIN_WARDEN.get(), PumpkinWarden.createAttributes());
     }

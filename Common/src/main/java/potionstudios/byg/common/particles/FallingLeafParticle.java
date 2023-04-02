@@ -14,6 +14,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
         this.hasPhysics = false;
         this.friction = 1.0F;
         this.gravity = 0.0F;
+
         this.setSize(0.01F, 0.01F);
     }
 
@@ -58,7 +59,7 @@ public class FallingLeafParticle extends TextureSheetParticle {
             leaf.lifetime = Mth.randomBetweenInclusive(world.random, 500, 1000);
             leaf.gravity = 0.01F;
             leaf.setColor(1.0f, 1.0f, 1.0f);
-            leaf.setSpriteFromAge(this.sprite);
+            leaf.setSprite(this.sprite.get(world.random.nextInt(16), 16));
             return leaf;
         }
 

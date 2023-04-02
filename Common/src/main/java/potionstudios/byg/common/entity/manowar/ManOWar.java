@@ -129,8 +129,8 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
 
     public static boolean checkManOWarSpawnRules(EntityType<? extends ManOWar> entity, LevelAccessor world, MobSpawnType spawnType, BlockPos pos, RandomSource rand) {
         int i = world.getSeaLevel();
-        int j = i - 13;
-        return pos.getY() >= j && pos.getY() <= i && world.getFluidState(pos.below()).is(FluidTags.WATER) && world.getBlockState(pos.above()).is(Blocks.WATER);
+        int j = i - 2;
+        return pos.getY() <= j && world.getFluidState(pos.below()).is(FluidTags.WATER);
     }
 
     @Override
@@ -440,8 +440,8 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     private static class ManOWarRandomMovementGoal extends Goal {
         private final ManOWar mano;
 
-        public ManOWarRandomMovementGoal(ManOWar mano2) {
-            this.mano = mano2;
+        public ManOWarRandomMovementGoal(ManOWar mano) {
+            this.mano = mano;
         }
 
         public boolean canUse() {
