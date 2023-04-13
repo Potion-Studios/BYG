@@ -254,6 +254,18 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     static class PumpkinWardenTakeBlockGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;
 
+        /**
+         * The delay until {@link PumpkinWardenTakeBlockGoal#findNearestBlock()}
+         * attempts to find for a new melon or pumpkin block nearby.
+         * This delay is counted in ticks and is continuously decremented until it hits
+         * 0, at which point a new nearest block will be searched for.
+         * The value of this field will be -1 if the goal has already found a
+         * valid target block.
+         *
+         * <p>This field mainly exists for performance reasons.
+         */
+        private int searchNearestBlockDelay = 0;
+
         public PumpkinWardenTakeBlockGoal(PumpkinWarden p, double speed, int range, int y) {
             super(p, speed, range, y);
             this.warden = p;
@@ -261,10 +273,29 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         public boolean canUse() {
+            if (this.searchNearestBlockDelay > 0) {
+                this.searchNearestBlockDelay--;
+            }
             if (this.warden.getCarriedBlock() != null) {
                 return false;
             }
             return super.canUse();
+        }
+
+        @Override
+        protected boolean findNearestBlock() {
+            if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+                return true;
+            } else if (this.searchNearestBlockDelay > 0) {
+                return false;
+            }
+            if (super.findNearestBlock()) {
+                this.searchNearestBlockDelay = -1;
+                return true;
+            } else {
+                this.searchNearestBlockDelay = 20;
+                return false;
+            }
         }
 
         @Override
@@ -292,9 +323,10 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean isValidTarget(LevelReader level, BlockPos pos) {
-            if (level.getBlockState(pos).is(Blocks.PUMPKIN)) {
+            BlockState positionState = level.getBlockState(pos);
+            if (positionState.is(Blocks.PUMPKIN)) {
                 return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
-            } else if (level.getBlockState(pos).is(Blocks.MELON)) {
+            } else if (positionState.is(Blocks.MELON)) {
                 return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
             }
             return false;
@@ -303,6 +335,18 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
     static class PumpkinWardenLeaveBlockGoal extends MoveToBlockGoal {
         public PumpkinWarden warden;
+
+        /**
+         * The delay until {@link PumpkinWardenLeaveBlockGoal#findNearestBlock()}
+         * attempts to find for a new carved pumpkin block nearby.
+         * This delay is counted in ticks and is continuously decremented until it hits
+         * 0, at which point a new nearest block will be searched for.
+         * The value of this field will be -1 if the goal has already found a
+         * valid target block.
+         *
+         * <p>This field mainly exists for performance reasons.
+         */
+        private int searchNearestBlockDelay = 0;
 
         public PumpkinWardenLeaveBlockGoal(PumpkinWarden warden, double speed, int range, int y) {
             super(warden, speed, range, y);
@@ -326,10 +370,29 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         public boolean canUse() {
+            if (this.searchNearestBlockDelay > 0) {
+                this.searchNearestBlockDelay--;
+            }
             if (this.warden.getCarriedBlock() == null) {
                 return false;
             }
             return super.canUse();
+        }
+
+        @Override
+        protected boolean findNearestBlock() {
+            if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+                return true;
+            } else if (this.searchNearestBlockDelay > 0) {
+                return false;
+            }
+            if (super.findNearestBlock()) {
+                this.searchNearestBlockDelay = -1;
+                return true;
+            } else {
+                this.searchNearestBlockDelay = 20;
+                return false;
+            }
         }
 
         public void tick() {
