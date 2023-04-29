@@ -284,10 +284,10 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean findNearestBlock() {
-            if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+            if (this.searchNearestBlockDelay > 0) {
+              return false;
+            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
                 return true;
-            } else if (this.searchNearestBlockDelay > 0) {
-                return false;
             }
             if (super.findNearestBlock()) {
                 this.searchNearestBlockDelay = -1;
@@ -381,10 +381,10 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
 
         @Override
         protected boolean findNearestBlock() {
-            if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
-                return true;
-            } else if (this.searchNearestBlockDelay > 0) {
+            if (this.searchNearestBlockDelay > 0) {
                 return false;
+            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+                return true;
             }
             if (super.findNearestBlock()) {
                 this.searchNearestBlockDelay = -1;
