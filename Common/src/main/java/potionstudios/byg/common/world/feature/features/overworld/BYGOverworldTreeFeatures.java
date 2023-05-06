@@ -1112,7 +1112,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_echanted_tree1",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
@@ -1126,7 +1126,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE2 = createConfiguredFeature("blue_echanted_tree2",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE2 = createConfiguredFeature("blue_enchanted_tree2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
@@ -1140,7 +1140,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE3 = createConfiguredFeature("blue_echanted_tree3",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE3 = createConfiguredFeature("blue_enchanted_tree3",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
@@ -1154,7 +1154,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE4 = createConfiguredFeature("blue_echanted_tree4",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BLUE_ENCHANTED_TREE4 = createConfiguredFeature("blue_enchanted_tree4",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
@@ -1169,7 +1169,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE1 = createConfiguredFeature("green_echanted_tree1",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE1 = createConfiguredFeature("green_enchanted_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
@@ -1183,7 +1183,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE2 = createConfiguredFeature("green_echanted_tree2",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE2 = createConfiguredFeature("green_enchanted_tree2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
@@ -1197,7 +1197,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE3 = createConfiguredFeature("green_echanted_tree3",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE3 = createConfiguredFeature("green_enchanted_tree3",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
@@ -1211,7 +1211,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE4 = createConfiguredFeature("green_echanted_tree4",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> GREEN_ENCHANTED_TREE4 = createConfiguredFeature("green_enchanted_tree4",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_4"),
