@@ -7,11 +7,14 @@ body:
     attributes:
       value: |
         **Prior to filling out this bug report please try the following:**
-        -Reset your configs! Configurations typically change between mod updates and are typically the most common causes of crashes. To reset your configs, move your existing configs to a seperate directory that isn't your MC installation directory, run the game, and update the values from your old config in the newly generated config!
+        * Reset your configs! Configurations typically change between mod updates and are typically the most common causes of crashes. To reset your configs, move your existing configs to a separate directory that isn't your MC installation directory, run the game, and update the values from your old config in the newly generated config!
+        Here's how to delete your BYG configs: 
+        ![Resetting configs](https://user-images.githubusercontent.com/66983020/236601583-9cdc2625-13ee-4deb-8b99-17b510f1b3aa.gif)
+        *[If you're using a launcher such as CurseForge, MultiMC, GDLauncher, Prism Launcher or any other launcher, please click here](https://github.com/AOCAWOL/BYG/wiki/Resetting-Configs)*
 
-        -Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
+        * Isolate this mod on its own and attempt to reproduce the crash with the mod. If it works on its own, this is more than likely a mod incompatibility. Please make sure to mention whether or not this is a mod incompatibility in the "What Happened" section of this issue!
         
-        -**TITLE THIS ISSUE PROPERLY**
+        * **TITLE THIS ISSUE PROPERLY**
   - type: input
     id: mod-version
     attributes:
@@ -21,7 +24,7 @@ body:
         Latest version downloads can be found here: 
         Forge: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go/files
         Fabric: https://www.curseforge.com/minecraft/mc-mods/oh-the-biomes-youll-go-fabric/files
-        Quilt/Other Mod loaders: N/A
+        Other Mod loaders: N/A
       placeholder: ex. 1.2.1
     validations:
       required: true
@@ -33,14 +36,13 @@ body:
       options:
         - Forge
         - Fabric
-        - Quilt
     validations:
       required: true
   - type: input
     id: mod-loader-version
     attributes:
       label: Mod Loader Version
-      description: What version of the mod loader are you using?
+      description: What version of the mod loader are you using? Mod loaders not listed are not supported.
       placeholder: ex. 36.0.45
     validations:
       required: true
@@ -75,9 +77,35 @@ body:
     attributes:
       label: Did you isolate BYG?
       description: |
-        Did you try a seperate instance with BYG only and its required dependencies and manage to recreate the issue?? **If not please do so now!**
+        Did you try a separate instance with BYG only and its required dependencies and manage to recreate the issue?? **If not please do so now!**
       options:
         - I tried BYG alone
         - I did not try BYG alone
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        # Agreement
+        Before submitting this issue, you must agree to the following: 
+        * I am using the latest version of BYG linked [here](https://github.com/AOCAWOL/BYG#official-downloads) for my MC version.
+        * I am using the required dependencies for BYG listed for my MC version [here](https://github.com/AOCAWOL/BYG#dependencies).
+        * **I am using the Fabric or Forge Mod Loader** and I understand BYG has no interest in supporting other mod loaders at this time. *PRs for other mod loader related fixes are welcomed but this issue tracker will not track issues related to other mod loaders*.
+        * I understand issue reports for other mod loaders will be immediately closed and locked.
+        * If this is a game crash...
+          * I have reset/deleted BYG configs by following the guide provided [here](https://github.com/AOCAWOL/BYG/wiki/Resetting-Configs) and relaunched my game with BYG and my issue still persists.
+        * I have isolated BYG alongside its required dependencies and tested whether this issue exists with BYG & its dependencies or other 3rd party mods.
+          * If this issue doesn't exist with BYG and its dependencies alone but with a 3rd party mod, I have specified that this issue only occurs with another mod and have listed the problematic mod with a link to it in the "What Happened?" segment of this issue report.
+        * I have properly titled this issue clearly outlining the issue so others do not create duplicate issues.
+        * I have checked both open and closed issues on the [BYG GitHub Issue Tracker](https://github.com/AOCAWOL/BYG/issues) before reporting my issue.
+        * I understand that this issue may remain open for a prolonged period of time and that the developers have lives outside of modding Minecraft.
+  - type: checkboxes
+    id: agreement
+    attributes:
+      label: Did you read and understand the above agreement?
+      description: |
+        Did you read and understand the above agreement? **You will not be able to submit this issue unless you agree to the agreement.**
+      options:
+        - label: I agree.
     validations:
       required: true
