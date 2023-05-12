@@ -1,3 +1,29 @@
+# 2.0.1.2
+## Biome Changes
+### End Biomes
+* Make Chorus fruits and end gateways generate last in BYG end biomes.
+
+### Overworld Biomes
+* Gave Red Oak Forest the Aspen Forest Surface Rules.
+* Fixed Mob Spawns for various overworld biomes.
+* Added more vanilla woodtypes to BYG biomes.
+* WIP Maple, Cherry, & Witch Hazel animated leaves.
+* Bush Tree for forest biomes.
+* Redid Clover & Flower Patches
+* Increased & Decreased Clovers & Flower patches across various biomes.
+* Changed Cherry Blossom Forests to be a bit more common
+* Add oak bushes to various Overworld biomes
+* Re-added firecracker bushes (oops!)
+* Added sparse birch trees to the Cherry Blossom Forest
+* Increased cherry foliage blocks in the Cherry Blossom Forest.
+* Tulips & sunflowers now properly spawn in the Coconino Meadows.
+
+## Bug Fixes
+* Fix typo in BYGOverworldTreeFeatures.java (#1130)
+* Reduce performance footprint of Pumpkin Warden AI (#1140)
+* Add Geckolib3 dependency to Forge & Fabric. Fixes #1163
+
+
 # 2.0.1.1
 
 * ## Biome Changes

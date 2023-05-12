@@ -174,17 +174,36 @@ task fabric_checkForRefmap() {
 
 String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
+String dependencyText = """
+# Required Dependencies
+
+
+_Links redirect to the dependency's file listing with filters by game version and mod loader applied._
+
+- Terrablender - [Curseforge](https://www.curseforge.com/minecraft/mc-mods/terrablender-fabric/files?version=${project.minecraft_version}&gameVersionTypeId=4) .
+
+- GeckoLib - [Curseforge](https://www.curseforge.com/minecraft/mc-mods/geckolib/files?version=${project.minecraft_version}&gameVersionTypeId=4) or [Modrinth](https://modrinth.com/mod/geckolib/versions?g=${project.minecraft_version}&l=fabric).
+
+- CorgiLib - [Curseforge](https://www.curseforge.com/minecraft/mc-mods/corgilib/files?gameVersionTypeId=4&version=${project.minecraft_version}) or [Modrinth](https://modrinth.com/mod/corgilib/versions?g=${project.minecraft_version}&l=fabric).
+
+- Fabric API - [Curseforge](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files?version=${project.minecraft_version}&gameVersionTypeId=4) or [Modrinth](https://modrinth.com/mod/fabric-api/versions?g=${project.minecraft_version}&l=fabric).
+
+# Changelog
+
+"""
+
 
 task fabric_publishCurseForge(type: TaskPublishCurseForge) {
     apiToken = "$System.env.CURSEFORGE_KEY"
 
     def mainFile = upload(project.fabric_curseforge_id, remapJar)
-    mainFile.changelog = changelogText
+    mainFile.changelog = dependencyText + changelogText
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "${project.release_type}"
     mainFile.addRequirement("terrablender-fabric")
     mainFile.addRequirement("geckolib")
     mainFile.addRequirement("corgilib")
+    mainFile.addRequirement("fabric-api")
     mainFile.addGameVersion("${project.minecraft_version}")
     mainFile.addModLoader("fabric")
 }
@@ -198,9 +217,9 @@ task fabric_publishModrinth (type: TaskModrinthUpload){
         versionNumber = "${project.minecraft_version}-${project.version}-fabric"
         versionType = "${project.release_type}"
         uploadFile = remapJar
-        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED)] //TODO: Add terrablender when available.
+        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED), new ModDependency("P7dR8mSH", DependencyType.REQUIRED)] //TODO: Add terrablender when available.
 
-        String modrinthChangelogText = changelogText.substring(0, changelogText.indexOf("# 2", changelogText.indexOf("# 2") + 1)).trim()
+        String modrinthChangelogText = dependencyText + changelogText.substring(0, changelogText.indexOf("# 2", changelogText.indexOf("# 2") + 1)).trim()
         changelog = modrinthChangelogText
 
         gameVersions = ["${project.minecraft_version}"]
