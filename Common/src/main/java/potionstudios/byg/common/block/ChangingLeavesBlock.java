@@ -1,6 +1,7 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
@@ -11,12 +12,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class ChangingLeavesBlock extends LeavesBlock implements BonemealableBlock {
+public class ChangingLeavesBlock extends BYGLeavesBlock implements BonemealableBlock {
     private final Supplier<LeavesBlock> next;
     private final float chance;
 
-    public ChangingLeavesBlock(Properties properties, Supplier<LeavesBlock> next, float chance) {
-        super(properties);
+    public ChangingLeavesBlock(Properties properties, Supplier<LeavesBlock> next, float chance, Supplier<ParticleOptions> particleTypes) {
+        super(properties, particleTypes);
         this.next = next;
         this.chance = chance;
     }

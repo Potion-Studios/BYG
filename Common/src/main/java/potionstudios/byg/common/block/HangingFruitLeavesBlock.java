@@ -1,22 +1,22 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class HangingFruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
+public class HangingFruitLeavesBlock extends BYGLeavesBlock implements BonemealableBlock {
     private final Supplier<BlockState> fruitBlock;
     private final float tickSpawnChance;
 
-    public HangingFruitLeavesBlock(Properties properties, Supplier<BlockState> fruitBlock, float tickSpawnChance) {
-        super(properties);
+    public HangingFruitLeavesBlock(Properties properties, Supplier<BlockState> fruitBlock, Supplier<ParticleOptions> particleType, float tickSpawnChance) {
+        super(properties, particleType);
         this.fruitBlock = fruitBlock;
         this.tickSpawnChance = tickSpawnChance;
     }

@@ -43,7 +43,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
                     CommentedCodec.of(Codec.BOOL, "overworld_enabled", "Global toggle to enable or disable BYG's overworld biomes.").forGetter(overworldBiomeConfig -> overworldBiomeConfig.generateOverworld),
                     CommentedCodec.of(OverworldRegion.BIOME_PROVIDER_DATA_FROM_FILE_CODEC.listOf(), "regions", "A list of weighted regions containing a unique biome layout.\nRegions may be inlined or may call a file from \"this_file_parent_directory/regions\"").forGetter(overworldBiomeConfig -> overworldBiomeConfig.values),
                     CommentedCodec.of(BIOME_SWAPPER, "global_biome_swapper", """
-                            Global biome swapper that swaps any biome of your choice with another in all Overworld regions.
+                            Global biome swapper that swaps any biome of your choice with another in all BYG Overworld regions.
                             
                             You must use biome ids.
                             
