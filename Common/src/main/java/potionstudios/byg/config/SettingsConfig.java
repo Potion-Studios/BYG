@@ -6,10 +6,8 @@ import corgitaco.corgilib.serialization.codec.CollectionCodec;
 import corgitaco.corgilib.serialization.codec.CommentedCodec;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Map;
@@ -95,8 +93,10 @@ public record SettingsConfig(boolean appendBiomePlacedFeatures, boolean appendLo
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (IOException | SyntaxError e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
+            return DEFAULT;
         }
     }
 

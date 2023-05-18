@@ -11,13 +11,13 @@ import corgitaco.corgilib.serialization.codec.Wrapped;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.JsonElement;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.overworld.BYGOverworldBiomeSelectors;
 import potionstudios.byg.common.world.biome.overworld.OverworldRegion;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
 
 import java.io.IOException;
@@ -125,14 +125,18 @@ public record OverworldBiomeConfig(boolean generateOverworld,
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
             BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
             return overworldBiomeConfig;
-        } catch (IOException | SyntaxError e) {
-            throw new IllegalStateException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
+            return DEFAULT;
         }
     }
 
     private static <T> void createDefaultsAndRegister(boolean recreate, Map<String, Pair<Map<String, String>, T>> defaults, Map<String, T> registry, Codec<T> codec, FromFileOps<JsonElement> fromFileOps, Path providers) throws IOException {
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
+
+            registry.put(s, listWrapped.getSecond());
             if (!registryPath.toFile().exists() || recreate) {
                 createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", JanksonUtil.HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
@@ -146,8 +150,9 @@ public record OverworldBiomeConfig(boolean generateOverworld,
                 String id = relativizedPath.replace(".json5", "").replace(".json", "").replace("\\", "/");
                 try {
                     registry.put(id, JanksonUtil.readConfig(path1, codec, fromFileOps));
-                } catch (IOException | SyntaxError e) {
+                } catch (Exception e) {
                     e.printStackTrace();
+                    BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
                 }
             }
         });
@@ -158,7 +163,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
             try {
                 from = JanksonUtil.readConfig(oldPath, codec, ops);
                 Files.delete(oldPath);
-            } catch (IOException | SyntaxError e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

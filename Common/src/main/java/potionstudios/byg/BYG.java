@@ -59,9 +59,8 @@ public class BYG {
         PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
 
         String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
-        if (!loadAllConfigs.isEmpty()) {
-            throw new IllegalStateException(loadAllConfigs);
-        }
+
+        logConfigErrors();
 
         BYGEntities.registerSpawnPlacements();
         FileUtils.backUpDirectory(ModPlatform.INSTANCE.configPath(), "last_working_configs_backup");
@@ -199,5 +198,32 @@ public class BYG {
 
     static {
         ConfigVersionTracker.getConfig(new ConfigVersionTracker(ModPlatform.INSTANCE.configPath().toFile().exists() ? 0 : BYGConstants.CONFIG_VERSION), false);
+    }
+
+    public static void logConfigErrors() {
+        if (!BYGConfigHandler.CONFIG_EXCEPTIONS.isEmpty()) {
+            for (int i = 0; i < 3; i++) {
+                BYG.logError("");
+            }
+            BYG.logError("=".repeat(100));
+            BYG.logError("");
+            BYG.logError("BYG config(s) errors have occurred, BYG has used default settings instead! Errors:");
+            BYG.logError("");
+            int count = 0;
+            for (Exception e : BYGConfigHandler.CONFIG_EXCEPTIONS) {
+                BYG.logError(count + ". " + e.getMessage());
+                BYG.logError("");
+                count++;
+            }
+
+            BYG.logError("");
+            BYG.logError("This error goes away after you fix or delete your configs and you restart your game.");
+            BYG.logError("");
+            BYG.logError("=".repeat(100));
+
+            for (int i = 0; i < 3; i++) {
+                BYG.logError("");
+            }
+        }
     }
 }

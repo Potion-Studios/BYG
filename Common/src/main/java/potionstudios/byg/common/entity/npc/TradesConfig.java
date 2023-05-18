@@ -9,6 +9,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import potionstudios.byg.BYG;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.lazy.LazySupplier;
 
@@ -64,7 +65,9 @@ public record TradesConfig(boolean enabled,
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
+            return DEFAULT.get();
         }
     }
 

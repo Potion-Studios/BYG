@@ -2,16 +2,15 @@ package potionstudios.byg.common.world.surfacerules;
 
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.Util;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import potionstudios.byg.BYG;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,15 +50,18 @@ public record SurfaceRulesConfig() {
     private static Map<ResourceKey<LevelStem>, SurfaceRules.RuleSource> readConfig(boolean recreate) {
         Object2ObjectOpenHashMap<ResourceKey<LevelStem>, SurfaceRules.RuleSource> result = new Object2ObjectOpenHashMap<>();
         CONFIG_PATHS.get().forEach((stemResourceKey, path) -> {
+            SurfaceRules.RuleSource defaultValue = DEFAULTS.get(stemResourceKey);
+            result.put(stemResourceKey, defaultValue);
             if (!path.toFile().exists() || recreate) {
-                JanksonUtil.createConfig(path, SurfaceRules.RuleSource.CODEC, JanksonUtil.HEADER_OPEN + "\n\nSurface rules in this file are added after data packs load for this dimension(file name is the dimension).\nA guide for surface rules can be found here: https://github.com/TheForsakenFurby/Surface-Rules-Guide-Minecraft-JE-1.18/blob/main/Guide.md\n*/", new HashMap<>(), JanksonJsonOps.INSTANCE, DEFAULTS.get(stemResourceKey));
+                JanksonUtil.createConfig(path, SurfaceRules.RuleSource.CODEC, JanksonUtil.HEADER_OPEN + "\n\nSurface rules in this file are added after data packs load for this dimension(file name is the dimension).\nA guide for surface rules can be found here: https://github.com/TheForsakenFurby/Surface-Rules-Guide-Minecraft-JE-1.18/blob/main/Guide.md\n*/", new HashMap<>(), JanksonJsonOps.INSTANCE, defaultValue);
             }
             BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
 
             try {
                 result.put(stemResourceKey, JanksonUtil.readConfig(path, SurfaceRules.RuleSource.CODEC, JanksonJsonOps.INSTANCE));
-            } catch (IOException | SyntaxError e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                e.printStackTrace();
+                BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
             }
         });
         return result;

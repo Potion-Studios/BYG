@@ -29,6 +29,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
 import potionstudios.byg.common.world.surfacerules.BYGSurfaceRules;
@@ -64,6 +65,9 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     private long byg$killTime = -1;
     private boolean byg$killClient = false;
 
+    private int byg$notifyErrorFrequency = 0;
+
+
     @Inject(at = @At("RETURN"), method = "<init>")
     private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, Services $$6, ChunkProgressListenerFactory $$7, CallbackInfo ci) {
         Registry<Biome> biomeRegistry = this.registryHolder.registryOrThrow(Registry.BIOME_REGISTRY);
@@ -82,7 +86,10 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
             Registry<StructureProcessorList> processorListRegistry = this.registryHolder.registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
             JigsawUtil.addBYGBuildingsToPool(templatePoolRegistry, processorListRegistry);
         }
+
+        BYG.logConfigErrors();
     }
+
 
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
@@ -113,6 +120,12 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
                 UpdateConfigsCommand.backupAndKillGameInstance((MinecraftServer) (Object) this, new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), this.byg$killClient);
             }
         }
+
+        if (byg$notifyErrorFrequency >= 36000) {
+            BYG.logConfigErrors();
+            byg$notifyErrorFrequency = 0;
+        }
+        byg$notifyErrorFrequency++;
     }
 
     @Override

@@ -9,8 +9,7 @@
     "dev.TagBuilderAccess"
   ],
   "client": [
-    "client.MixinInventoryScreen",
-    "client.MixinMinecraft"
+    "client.MixinInventoryScreen"
   ],
   "plugin": "potionstudios.byg.mixin.BYGPotionStudiosMixinPlugin",
   "injectors": {

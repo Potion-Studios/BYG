@@ -4,12 +4,11 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import potionstudios.byg.BYG;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 
@@ -56,8 +55,10 @@ public record BiomepediaInventoryConfig(boolean visible, PlayerInventoryPosition
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (IOException | SyntaxError e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
+            return DEFAULT;
         }
     }
 
