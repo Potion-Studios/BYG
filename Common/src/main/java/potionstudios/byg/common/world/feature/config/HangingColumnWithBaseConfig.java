@@ -1,19 +1,15 @@
 package potionstudios.byg.common.world.feature.config;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class HangingColumnWithBaseConfig implements FeatureConfiguration {
 
@@ -28,9 +24,7 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
             return config.minLength;
         }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
             return config.maxLength;
-        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
-        })).apply(codecRecorder, HangingColumnWithBaseConfig::new);
+        }), BlockPredicate.CODEC.fieldOf("placement_filter").forGetter(HangingColumnWithBaseConfig::getPlacementFilter)).apply(codecRecorder, HangingColumnWithBaseConfig::new);
     });
 
     private final BlockStateProvider baseBlockProvider;
@@ -38,16 +32,16 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
     private final BlockStateProvider endBlockProvider;
     private final int minLength;
     private final int maxLength;
-    private final Set<Block> whitelist;
+    private final BlockPredicate placementFilter;
 
 
-    HangingColumnWithBaseConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, BlockStateProvider endBlockProvider, int minLength, int maxLength, List<BlockState> whitelist) {
+    HangingColumnWithBaseConfig(BlockStateProvider baseBlockProvider, BlockStateProvider blockProvider, BlockStateProvider endBlockProvider, int minLength, int maxLength, BlockPredicate placementFilter) {
         this.baseBlockProvider = baseBlockProvider;
         this.blockProvider = blockProvider;
         this.endBlockProvider = endBlockProvider;
         this.minLength = minLength;
         this.maxLength = maxLength;
-        this.whitelist = whitelist.stream().map(BlockBehaviour.BlockStateBase::getBlock).collect(Collectors.toSet());
+        this.placementFilter = placementFilter;
 
     }
 
@@ -79,15 +73,15 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
         return returnValue;
     }
 
-    public Set<Block> getWhitelist() {
-        return whitelist;
+    public BlockPredicate getPlacementFilter() {
+        return placementFilter;
     }
 
     public static class Builder {
         private BlockStateProvider baseBlockProvider = SimpleStateProvider.simple(Blocks.OAK_LOG.defaultBlockState());
         private BlockStateProvider blockProvider = SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider endBlockProvider = SimpleStateProvider.simple(Blocks.AIR.defaultBlockState());;
-        private List<Block> whitelist = ImmutableList.of(Blocks.GRASS_BLOCK);
+        private BlockPredicate placementFilter = BlockPredicate.matchesTag(BlockTags.DIRT);
         private int minLength = 1;
         private int maxLength = 9;
 
@@ -176,8 +170,8 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
             return this;
         }
 
-        public Builder setWhitelist(ImmutableList<Block> whitelist) {
-            this.whitelist = whitelist;
+        public Builder setPlacementFilter(BlockPredicate placementFilter) {
+            this.placementFilter = placementFilter;
             return this;
         }
 
@@ -187,12 +181,12 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
             this.endBlockProvider = config.endBlockProvider;
             this.minLength = config.minLength;
             this.maxLength = config.maxLength;
-            this.whitelist = ImmutableList.copyOf(config.whitelist);
+            this.placementFilter = config.placementFilter;
             return this;
         }
 
         public HangingColumnWithBaseConfig build() {
-            return new HangingColumnWithBaseConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()));
+            return new HangingColumnWithBaseConfig(baseBlockProvider, blockProvider, endBlockProvider, minLength, maxLength, this.placementFilter);
         }
     }
 }

@@ -87,7 +87,7 @@ public class BYGEndVegetationFeatures {
                     .setEndBlock(BYGBlocks.SHULKREN_VINE.defaultBlockState().setValue(BlockStateProperties.AGE_25, 23))
                     .setMinLength(1)
                     .setMaxLength(8)
-                    .setWhitelist(ImmutableList.of(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM.get()))
+                    .setPlacementFilter(BlockPredicate.anyOf(BlockPredicate.matchesTag(BYGBlockTags.END_STONE), BlockPredicate.matchesBlocks(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM.get())))
                     .build()
     );
 
