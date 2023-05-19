@@ -5,11 +5,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.util.ModPlatform;
 
-import java.io.IOException;
 import java.nio.file.Path;
 
 public record ConfigVersionTracker(int configVersion) {
@@ -20,6 +18,7 @@ public record ConfigVersionTracker(int configVersion) {
     );
 
     public static ConfigVersionTracker INSTANCE = null;
+    public static ConfigVersionTracker DEFAULT = new ConfigVersionTracker(BYGConstants.CONFIG_VERSION);
 
 
     public static ConfigVersionTracker getConfig() {
@@ -33,10 +32,11 @@ public record ConfigVersionTracker(int configVersion) {
         }
         try {
             INSTANCE = JanksonUtil.readConfig(resolve, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (IOException | SyntaxError e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
         }
 
-        return INSTANCE;
+        return DEFAULT;
     }
 }

@@ -121,6 +121,8 @@ public interface FeatureGrowerFromBlockPattern {
                             if (randomValue.isPresent()) {
                                 GrowingPatterns.FeatureSpawner featureSpawner = randomValue.get();
                                 ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
+                                ResourceLocation blockKey = Registry.BLOCK.getKey(block);
+                                String blockID = blockKey == null ? "unknown_grower_block" : blockKey.toString();
                                 if (configuredFeature != null) {
                                     Vec3i spawnOffset = featureSpawner.spawnOffset();
                                     BlockPos growthPos = mutableBlockPos1.offset(spawnOffset);
@@ -138,16 +140,16 @@ public interface FeatureGrowerFromBlockPattern {
                                             }
                                         }
                                         if (GrowingPatterns.getConfig().logGrowth()) {
-                                            BYG.logInfo(String.format("Grower \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", Registry.BLOCK.getKey(block).toString(), featureSpawner.toString(), growthPos, spawnOffset));
+                                            BYG.logInfo(String.format("Grower \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner.toString(), growthPos, spawnOffset));
                                         }
                                         return true;
                                     } else {
                                         if (GrowingPatterns.getConfig().logGrowth()) {
-                                            BYG.logInfo(String.format("Grower \"%s\" couldn't grow configured feature \"%s\" at position %s(growth offset: %s).", Registry.BLOCK.getKey(block).toString(), featureSpawner.toString(), growthPos, spawnOffset));
+                                            BYG.logInfo(String.format("Grower \"%s\" couldn't grow configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner.toString(), growthPos, spawnOffset));
                                         }
                                     }
                                 } else {
-                                    BYG.logError(String.format("Grower \"%s\" failed when attempting to spawn configured feature \"%s\" at position %s. \"%s\" is not a valid configured feature ID in this world's datapack configured feature registry! Valid entries:\n %s", Registry.BLOCK.getKey(block).toString(), featureSpawner, pos, featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
+                                    BYG.logError(String.format("Grower \"%s\" failed when attempting to spawn configured feature \"%s\" at position %s. \"%s\" is not a valid configured feature ID in this world's datapack configured feature registry! Valid entries:\n %s", blockID, featureSpawner, pos, featureSpawner, BYGUtil.dumpRegistry(configuredFeaturesRegistry)));
                                 }
                             }
                         }
