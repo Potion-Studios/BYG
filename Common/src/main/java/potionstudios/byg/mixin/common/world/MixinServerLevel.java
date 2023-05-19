@@ -60,7 +60,6 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     private LevelBiomeTracker bygLevelBiomeTracker = null;
 
 
-
     protected MixinServerLevel(WritableLevelData $$0, ResourceKey<Level> $$1, Holder<DimensionType> $$2, Supplier<ProfilerFiller> $$3, boolean $$4, boolean $$5, long $$6, int $$7) {
         super($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7);
     }
@@ -110,19 +109,19 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
                     serverPlayer.displayClientMessage(Component.translatable("byg.experimental.warning").withStyle(ChatFormatting.YELLOW), false);
                 }
             }
+
+
+            serverPlayer.displayClientMessage(Component.literal("BYG config(s) errors have occurred, BYG has used default settings instead! See your latest.log for details.").withStyle(ChatFormatting.RED), false);
+            Path latestLogPath = ModPlatform.INSTANCE.configPath().getParent().getParent().resolve("logs").resolve("latest.log");
+            serverPlayer.displayClientMessage(Component.literal("[Click here to open latest.log!]").withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_RED)).withBold(true).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, latestLogPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("corgilib.clickevent.hovertext")))), false);
+            serverPlayer.displayClientMessage(Component.literal(""), false);
+
+
+            serverPlayer.displayClientMessage(Component.literal("Make changes and do \"/byg configs validate\" to validate config changes. If you didn't fix your config(s) and the validation fails, this message will repeat.").withStyle(ChatFormatting.RED), false);
+            serverPlayer.displayClientMessage(Component.literal("Or if you didn't edit your configs and it just broke, you can do \"/byg configs reset\"").withStyle(ChatFormatting.RED), false);
+            serverPlayer.displayClientMessage(Component.literal("Changes to configs require a game restart to apply to the game.").withStyle(ChatFormatting.RED), false);
         }
-
-        serverPlayer.displayClientMessage(Component.literal("BYG config(s) errors have occurred, BYG has used default settings instead! See your latest.log for details.").withStyle(ChatFormatting.RED), false);
-        Path latestLogPath = ModPlatform.INSTANCE.configPath().getParent().getParent().resolve("logs").resolve("latest.log");
-        serverPlayer.displayClientMessage(Component.literal("[Click here to open latest.log!]").withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_RED)).withBold(true).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, latestLogPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("corgilib.clickevent.hovertext")))), false);
-        serverPlayer.displayClientMessage(Component.literal(""), false);
-
-
-        serverPlayer.displayClientMessage(Component.literal("Make changes and do \"/byg configs validate\" to validate config changes. If you didn't fix your config(s) and the validation fails, this message will repeat.").withStyle(ChatFormatting.RED), false);
-        serverPlayer.displayClientMessage(Component.literal("Or if you didn't edit your configs and it just broke, you can do \"/byg configs reset\"").withStyle(ChatFormatting.RED), false);
-        serverPlayer.displayClientMessage(Component.literal("Changes to configs require a game restart to apply to the game.").withStyle(ChatFormatting.RED), false);
     }
-
 
 
     @Override
