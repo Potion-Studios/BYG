@@ -101,18 +101,34 @@ body:
     attributes:
       value: |
         # Agreement
-        Before submitting this issue, you must agree to the following: 
-        * I am using the latest version of BYG linked [here](https://github.com/AOCAWOL/BYG#official-downloads) for my MC version.
-        * I am using the required dependencies for BYG listed for my MC version [here](https://github.com/AOCAWOL/BYG#dependencies).
+        Before submitting this issue, you must agree to and try the following: 
+        * **If this is a crash, please use the crash report form!**
+        * I am not asking a question.
+            * Is this a question? Please feel free to join our [Discord](https://discord.gg/zQA4eez2eS) or asking in our [Discussions Tab](https://github.com/AOCAWOL/BYG/discussions/)!
+        * I am not making a feature request.
+            * Is this a feature request? Please post it in our [Discussions Tab](https://github.com/AOCAWOL/BYG/discussions/)!
+        * I am using the right version of Minecraft & correct mod loader for my version of BYG.
+            * BYG jars have their MC version and mod loader listed in the file name.
+                * Ie: `Oh_The_Biomes_You'll_Go-**fabric**-**1.19.2**-2.0.1.0.jar` or `Oh_The_Biomes_You'll_Go-**forge**-**1.19.2**-2.0.1.0.jar`
+        * I am using the correct version of Java. 1.19 uses Java 17, and I should not be using any other higher or lower version.
+        * I am using the latest version of BYG as listed [here](https://github.com/AOCAWOL/BYG#official-downloads) for my MC version.
+        * I am using the required dependencies for BYG for my MC version as listed [here](https://github.com/AOCAWOL/BYG#dependencies).
         * **I am using the Fabric or Forge Mod Loader** and I understand BYG has no interest in supporting other mod loaders at this time. *PRs for other mod loader related fixes are welcomed but this issue tracker will not track issues related to other mod loaders*.
-        * I understand issue reports for other mod loaders will be immediately closed and locked.
+            * I understand issue reports for other mod loaders will be immediately closed and locked.
         * If this is a game crash...
-          * I have reset/deleted BYG configs by following the guide provided [here](https://github.com/AOCAWOL/BYG/wiki/Resetting-Configs) and relaunched my game with BYG and my issue still persists.
+            * I have reset/deleted BYG configs by following the guide provided [here](https://github.com/AOCAWOL/BYG/wiki/Resetting-Configs) and relaunched my game with BYG and my issue still persists.
         * I have isolated BYG alongside its required dependencies and tested whether this issue exists with BYG & its dependencies or other 3rd party mods.
-          * If this issue doesn't exist with BYG and its dependencies alone but with a 3rd party mod, I have specified that this issue only occurs with another mod and have listed the problematic mod with a link to it in the "What Happened?" segment of this issue report.
+            * If this issue doesn't exist with BYG and its dependencies alone but with a 3rd party mod, I have specified that this issue only occurs with another mod and have listed the problematic mod with a link to it in the "What Happened?" segment of this issue report.
+            * I have also reported this issue to the conflicting mod to inform the other mod authors.
         * I have properly titled this issue clearly outlining the issue so others do not create duplicate issues.
         * I have checked both open and closed issues on the [BYG GitHub Issue Tracker](https://github.com/AOCAWOL/BYG/issues) before reporting my issue.
-        * I understand that this issue may remain open for a prolonged period of time and that the developers have lives outside of modding Minecraft.
+        * I have provided videos/pictures related to the issue. 
+        * If I'm using a modpack, the modpack developers have been notified of this issue.
+        * I have provided both my `latest.log` and crash log (if applicable) files. 
+            * Believe it or not, your latest.log may provide valuable information so **we really recommend providing it whether you think it helps or not.**
+        * I understand that if my issue is marked with the label "Requires Information" after my issue is reviewed and no other comments are made on my issue, the issue will be closed after 30 days.
+            * We suggest [turning on your GitHub notifications](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications) to stay up to date with this issue!
+        * I understand that this issue may remain open for a prolonged period of time with no activity and that the developers have lives outside of modding Minecraft.
   - type: checkboxes
     id: agreement
     attributes:
