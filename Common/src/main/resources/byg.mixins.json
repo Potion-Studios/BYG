@@ -107,7 +107,8 @@
     "access.client.MenuScreensAccess",
     "access.client.ScreenAccess",
     "client.MixinDebugOverlayGui",
-    "client.MixinOptionsScreen"
+    "client.MixinOptionsScreen",
+    "client.MixinSheets"
   ],
   "injectors": {
     "defaultRequire": 1
