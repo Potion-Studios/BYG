@@ -6,7 +6,6 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
-import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +14,7 @@ import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.BYGUtil;
 import potionstudios.byg.util.ModPlatform;
 
@@ -120,8 +120,10 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (IOException | SyntaxError e) {
-            throw new IllegalStateException(e);
+        } catch (Exception e) {
+            e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
+            return DEFAULT;
         }
     }
 

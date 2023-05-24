@@ -9,7 +9,6 @@
     "client.MixinInventoryScreen",
     "client.MixinItemColors",
     "client.MixinLayerDefinitions",
-    "client.MixinMinecraft",
     "client.access.AccessEntityRenderers",
     "dev.ReloadableServerResourcesMixin"
   ],

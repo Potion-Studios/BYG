@@ -16,6 +16,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
+import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
 
 import java.io.IOException;
@@ -710,9 +711,10 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
         BYG.logInfo(String.format("\"%s\" was read.", PATH.toString()));
 
         try {
-            JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);
-        } catch (SyntaxError | IOException e) {
+            from = JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);
+        } catch (Exception e) {
             e.printStackTrace();
+            BYGConfigHandler.CONFIG_EXCEPTIONS.add(e);
         }
         return from;
     }

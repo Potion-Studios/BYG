@@ -39,7 +39,7 @@ side = "BOTH"
 [[dependencies.byg]]
 modId = "corgilib"
 mandatory = true
-versionRange = "[1.0.0.32,)"
+versionRange = "[1.0.0.33,)"
 ordering = "BEFORE"
 side = "BOTH"
 

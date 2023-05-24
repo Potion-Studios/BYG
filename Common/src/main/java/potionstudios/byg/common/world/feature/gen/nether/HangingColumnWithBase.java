@@ -7,7 +7,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -29,8 +28,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         if (!world.isEmptyBlock(pos)) {
             return false;
         } else {
-            BlockState blockstate = world.getBlockState(pos.above());
-            if (!config.getWhitelist().contains(blockstate.getBlock())) {
+            if (!config.getPlacementFilter().test(world, pos.above())) {
                 return false;
             } else {
                 this.generateBase(world, rand, pos, config);
@@ -40,7 +38,7 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
         }
     }
 
-    private void generateBase(LevelAccessor world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    private void generateBase(WorldGenLevel world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         world.setBlock(pos, config.getBaseBlockProvider().getState(rand, pos), 2);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos();
@@ -51,8 +49,8 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
                 int j = 0;
 
                 for (Direction direction : DIRECTIONS) {
-                    BlockState blockstate = world.getBlockState(mutable2.setWithOffset(mutable, direction));
-                    if (config.getWhitelist().contains(blockstate.getBlock())) {
+                    mutable2.setWithOffset(mutable, direction);
+                    if (config.getPlacementFilter().test(world, mutable2)) {
                         ++j;
                     }
 
@@ -69,14 +67,13 @@ public class HangingColumnWithBase extends Feature<HangingColumnWithBaseConfig> 
 
     }
 
-    private void generateVinesInArea(LevelAccessor world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
+    private void generateVinesInArea(WorldGenLevel world, RandomSource rand, BlockPos pos, HangingColumnWithBaseConfig config) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
         for (int i = 0; i < 100; ++i) {
             mutable.setWithOffset(pos, rand.nextInt(8) - rand.nextInt(8), rand.nextInt(2) - rand.nextInt(7), rand.nextInt(8) - rand.nextInt(8));
             if (world.isEmptyBlock(mutable)) {
-                BlockState blockstate = world.getBlockState(mutable.above());
-                if (config.getWhitelist().contains(blockstate.getBlock())) {
+                if (config.getPlacementFilter().test(world, mutable.above())) {
                     int length = Mth.nextInt(rand, config.getMinLength(), config.getMaxLength());
                     if (rand.nextInt(6) == 0) {
                         length *= 2;
