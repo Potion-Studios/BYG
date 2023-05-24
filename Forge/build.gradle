@@ -21,14 +21,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
         classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
     id "net.darkhax.curseforgegradle" version "1.0.11"
     id "com.modrinth.minotaur" version "2.+"
 
