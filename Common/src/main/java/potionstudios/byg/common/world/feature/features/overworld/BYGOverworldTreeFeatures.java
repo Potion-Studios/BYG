@@ -6,7 +6,6 @@ import corgitaco.corgilib.world.level.feature.gen.configurations.TreeFromStructu
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.TreeFeatures;
-import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
@@ -1379,7 +1378,7 @@ public class BYGOverworldTreeFeatures {
     // TODO: BYG Propagule
     public static final Supplier<AttachedToLeavesDecorator> PROPAGULE_DECORATOR = () -> new AttachedToLeavesDecorator(0.14F, 1, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(Blocks.MANGROVE_PROPAGULE.defaultBlockState().setValue(MangrovePropaguleBlock.HANGING, Boolean.TRUE)), MangrovePropaguleBlock.AGE, UniformInt.of(0, 4)), 2, List.of(Direction.DOWN));
 
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE1 = createConfiguredFeature("white_mangrove_tree1",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WHITE_MANGROVE_TREE1 = createConfiguredFeature("white_mangrove_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree1_base"),
@@ -1392,7 +1391,7 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WHITE_MANGROVE_TREE2 = createConfiguredFeature("white_mangrove_tree2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree2_base"),
@@ -1405,7 +1404,7 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WHITE_MANGROVE_TREE3 = createConfiguredFeature("white_mangrove_tree3",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree3_base"),
@@ -1418,7 +1417,7 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WHITE_MANGROVE_TREE4 = createConfiguredFeature("white_mangrove_tree4",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree4_base"),
@@ -1431,7 +1430,7 @@ public class BYGOverworldTreeFeatures {
                     BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING, 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
-    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
+    public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> WHITE_MANGROVE_TREE5 = createConfiguredFeature("white_mangrove_tree5",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/white_mangrove_tree5_base"),
@@ -3766,11 +3765,11 @@ public class BYGOverworldTreeFeatures {
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> MANGROVE_TREES = createConfiguredFeature("white_mangrove_trees",
             () -> Feature.RANDOM_SELECTOR,
             () -> new RandomFeatureConfiguration(ImmutableList.of(
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE1), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE2), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE3), 0.2F),
-                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE4), 0.2F)),
-                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(MANGROVE_TREE5))
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WHITE_MANGROVE_TREE1), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WHITE_MANGROVE_TREE2), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WHITE_MANGROVE_TREE3), 0.2F),
+                    new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WHITE_MANGROVE_TREE4), 0.2F)),
+                    BYGPlacedFeaturesUtil.createPlacedFeatureDirect(WHITE_MANGROVE_TREE5))
     );
 
     public static final Holder<ConfiguredFeature<RandomFeatureConfiguration, ?>> ORCHARD_TREES = createConfiguredFeature("orchard_trees",

@@ -23,7 +23,7 @@ public interface FeatureGrowerFromBlockPattern {
     List<Supplier<? extends FeatureGrowerFromBlockPattern>> ENTRIES = new ArrayList<>();
 
     default void load(Block block) {
-        this.serializePatterns(Registry.BLOCK.getKey(block));
+        this.serializePatterns(block);
     }
 
     ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns();
@@ -31,7 +31,7 @@ public interface FeatureGrowerFromBlockPattern {
     void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map);
 
 
-    default void serializePatterns(ResourceLocation key) {
+    default void serializePatterns(Block key) {
         List<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> list = new ArrayList<>();
 
         GrowingPatterns.getConfig().getPatterns(key).map(ArrayList::new).ifPresent(growingPatternEntries -> {

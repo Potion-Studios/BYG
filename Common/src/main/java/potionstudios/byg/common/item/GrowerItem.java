@@ -3,7 +3,6 @@ package potionstudios.byg.common.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -34,7 +33,7 @@ public class GrowerItem extends BlockItem {
     public void appendHoverText(ItemStack $$0, @Nullable Level $$1, List<Component> components, TooltipFlag $$3) {
         super.appendHoverText($$0, $$1, components, $$3);
 
-        GrowingPatterns.getConfig().getPatterns(Registry.BLOCK.getKey(this.getBlock())).ifPresent(patternEntries -> {
+        GrowingPatterns.getConfig().getPatterns(this.getBlock()).ifPresent(patternEntries -> {
             Minecraft mc = Minecraft.getInstance();
             KeyMapping keyShift = mc.options.keyShift;
             if (BYGClientUtil.isKeyOrMouseButtonDown(mc, keyShift)) {

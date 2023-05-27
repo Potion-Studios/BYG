@@ -1,20 +1,26 @@
 package potionstudios.byg.common.block.sapling;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import corgitaco.corgilib.serialization.codec.CodecUtil;
 import corgitaco.corgilib.serialization.codec.CommentedCodec;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.api.SyntaxError;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
 import potionstudios.byg.config.BYGConfigHandler;
 import potionstudios.byg.util.ModPlatform;
@@ -23,652 +29,661 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.function.Supplier;
 
-import static potionstudios.byg.BYG.createLocation;
+public record GrowingPatterns(boolean logGrowth,
+                              Supplier<Map<Block, List<GrowingPatternEntry>>> patternsForBlock) {
 
-public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<GrowingPatternEntry>> patternsForBlock) {
+
     public static final int MAX_PATTERN_SIZE = 5;
 
-    public Optional<List<GrowingPatternEntry>> getPatterns(ResourceLocation key) {
-        if (this.patternsForBlock.containsKey(key)) {
-            return Optional.of(this.patternsForBlock.get(key));
+    public Optional<List<GrowingPatternEntry>> getPatterns(Block key) {
+        Map<Block, List<GrowingPatternEntry>> resourceLocationListMap = this.patternsForBlock.get();
+        List<GrowingPatternEntry> entry = resourceLocationListMap.get(key);
+        if (entry != null) {
+            return Optional.of(entry);
         }
         return Optional.empty();
     }
 
-    public static final GrowingPatterns DEFAULT = new GrowingPatterns(false, Util.make(new TreeMap<>(), map -> {
-        map.put(createLocation("araucaria_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("araucaria_tree1")), 1).add(new FeatureSpawner(createLocation("araucaria_tree2")), 1).build())
-        ));
-        map.put(createLocation("aspen_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("aspen_tree1")), 1).add(new FeatureSpawner(createLocation("aspen_tree2")), 1).add(new FeatureSpawner(createLocation("aspen_tree3")), 1).build())
-        ));
-        map.put(createLocation("baobab_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder().add(new FeatureSpawner(createLocation("baobab_tree1")), 1).add(new FeatureSpawner(createLocation("baobab_tree2")), 1).build())
-        ));
-        map.put(createLocation("blue_enchanted_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree1")), 2)
-                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("blue_enchanted_tree3")), 1).build())
-        ));
-        map.put(createLocation("blue_spruce_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree_medium1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree_medium2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree_medium3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_blue_tree_medium4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("spruce_blue_tree_large1"))))
-        ));
-        map.put(createLocation("brown_birch_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("brown_birch_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_birch_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_birch_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_birch_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("brown_oak_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("deciduous_brown_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_brown_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_brown_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_brown_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("brown_oak_tree3")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("large_brown_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("large_brown_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("large_brown_oak_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("brown_zelkova_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("cika_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("cika_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("cika_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("cika_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("cypress_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        "  x  ",
-                        "xxxxx",
-                        "  x  ",
-                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("cypress_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("cypress_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("cypress_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("ebony_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("ebony_bush1")), 1)
-                        .add(new FeatureSpawner(createLocation("ebony_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("ebony_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("fir_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("conifer_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree5")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree6")), 1)
-                        .add(new FeatureSpawner(createLocation("conifer_tree7")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("conifer_tree8")), 1)
-                        .build())
+    public static final Supplier<GrowingPatterns> DEFAULT = Suppliers.memoize(() -> {
+        return new GrowingPatterns(false, Suppliers.memoize(() -> {
+            Map<Block, List<GrowingPatternEntry>> map = new TreeMap<>(Comparator.comparing(s -> Registry.BLOCK.getKey(s)));
 
-        ));
-        map.put(createLocation("green_enchanted_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("green_enchanted_tree1")), 2)
-                        .add(new FeatureSpawner(createLocation("green_enchanted_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("green_enchanted_tree3")), 1).build())
-        ));
-        map.put(createLocation("holly_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("holly_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("holly_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("holly_tree4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("holly_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("jacaranda_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("jacaranda_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("jacaranda_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("indigo_jacaranda_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("indigo_jacaranda_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("indigo_jacaranda_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("joshua_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("joshua_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("joshua_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("mahogany_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("mahogany_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("mahogany_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("mahogany_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("mahogany_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("white_mangrove_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "x x",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("white_mangrove_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("white_mangrove_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("white_mangrove_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("white_mangrove_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("white_mangrove_tree5")), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"),
+                            SimpleWeightedRandomList.<FeatureSpawner>builder()
+                                    .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ARAUCARIA_TREE1)), 1)
+                                    .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ARAUCARIA_TREE2)), 1)
+                                    .build())
+            ));
+            map.put(BYGWoodTypes.ASPEN.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.BAOBAB.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BAOBAB_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BAOBAB_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.BLUE_ENCHANTED.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BLUE_ENCHANTED_TREE1)), 2)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BLUE_ENCHANTED_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BLUE_ENCHANTED_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.BLUE_SPRUCE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE_MEDIUM1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE_MEDIUM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE_MEDIUM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE_MEDIUM4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_BLUE_TREE_LARGE1))))
+            ));
+            map.put(BYGBlocks.BROWN_BIRCH_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_BIRCH_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_BIRCH_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_BIRCH_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_BIRCH_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.BROWN_OAK_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE_LARGE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE_LARGE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BROWN_OAK_TREE_LARGE3)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.CIKA.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CIKA_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CIKA_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CIKA_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.CYPRESS.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            "  x  ",
+                            "xxxxx",
+                            "  x  ",
+                            "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CYPRESS_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CYPRESS_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CYPRESS_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.EBONY.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.EBONY_BUSH1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.EBONY_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.EBONY_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.FIR.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE5)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE6)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE7)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CONIFER_TREE8)), 1)
+                            .build())
 
-        map.put(createLocation("maple_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("maple_tree1"))))
-        ));
-        map.put(createLocation("orange_birch_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("orange_birch_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_birch_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_birch_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_birch_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("orange_oak_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("deciduous_orange_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_orange_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_orange_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_orange_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("orange_oak_tree3")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("large_orange_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("large_orange_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("large_orange_oak_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("orange_spruce_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree_medium1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree_medium2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree_medium3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_orange_tree_medium4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("spruce_orange_tree_large1"))))
-        ));
-        map.put(createLocation("orchard_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("orchard_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("orchard_tree3")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("orchard_tree2"))))
-        ));
-        map.put(createLocation("palo_verde_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("palo_verde_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("palo_verde_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("palo_verde_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("palo_verde_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("palo_verde_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("pine_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("pine_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("pine_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("pink_cherry_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("pink_cherry_tree2")))),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("pink_cherry_tree1"))))
-        ));
-        map.put(createLocation("rainbow_eucalyptus_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("rainbow_eucalyptus_tree1")))),
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("large_rainbow_eucalyptus_tree1"))))
-        ));
-        map.put(createLocation("red_birch_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("red_birch_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("red_birch_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("red_birch_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("red_birch_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("red_maple_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("red_maple_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("red_maple_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("red_oak_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("deciduous_red_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_red_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_red_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("deciduous_red_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("red_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("red_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("red_oak_tree3")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("large_red_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("large_red_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("large_red_oak_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("red_spruce_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree_medium1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree_medium2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree_medium3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_red_tree_medium4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("spruce_red_tree_large1"))))
-        ));
-        map.put(createLocation("redwood_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("redwood_tree3")))),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"
-                ), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("redwood_tree1")))),
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        " xxx ",
-                        "xxxxx",
-                        " xxx ",
-                        "  x  "
-                ), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("redwood_tree2"))))
-        ));
-        map.put(createLocation("silver_maple_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("silver_maple_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("silver_maple_tree2")), 1)
-                        .build())
-        ));
-        map.put(createLocation("skyris_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("skyris_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("skyris_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("skyris_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("skyris_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("skyris_tree5")), 1)
-                        .build())
-        ));
-        map.put(createLocation("white_cherry_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("white_cherry_tree2")))),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(createLocation("white_cherry_tree1"))))
-        ));
-        map.put(createLocation("willow_sapling"), List.of(
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        "     ",
-                        "x   x",
-                        "     ",
-                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("willow_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("willow_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("willow_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("willow_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("witch_hazel_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("witch_hazel1")), 2)
-                        .add(new FeatureSpawner(createLocation("witch_hazel2")), 2)
-                        .add(new FeatureSpawner(createLocation("witch_hazel3")), 1)
-                        .add(new FeatureSpawner(createLocation("witch_hazel4")), 3)
-                        .add(new FeatureSpawner(createLocation("witch_hazel5")), 1)
-                        .build())
-        ));
-        map.put(createLocation("yellow_birch_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("yellow_birch_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("yellow_birch_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("yellow_birch_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("yellow_birch_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("yellow_spruce_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xx",
-                        "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree_medium1")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree_medium2")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree_medium3")), 1)
-                        .add(new FeatureSpawner(createLocation("spruce_yellow_tree_medium4")), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(createLocation("spruce_yellow_tree_large1"))))
-        ));
-        map.put(createLocation("zelkova_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("zelkova_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("zelkova_brown_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("palm_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("palm_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("palm_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("palm_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("palm_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("lament_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("lament_twisty_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("lament_twisty_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("lament_twisty_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("lament_weeping_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("lament_weeping_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("lament_weeping_tree3")), 1)
-                        .build())
-        ));
-        map.put(createLocation("withering_oak_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("withering_oak_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("withering_oak_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("withering_oak_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("withering_oak_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("withering_oak_tree5")), 1)
-                        .build())
-        ));
-        map.put(createLocation("ether_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("ether_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("ether_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("ether_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("ether_tree4")), 1)
-                        .add(new FeatureSpawner(createLocation("ether_tree5")), 1)
-                        .build())
-        ));
-        map.put(createLocation("nightshade_sapling"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(createLocation("nightshade_tree1")), 1)
-                        .add(new FeatureSpawner(createLocation("nightshade_tree2")), 1)
-                        .add(new FeatureSpawner(createLocation("nightshade_tree3")), 1)
-                        .add(new FeatureSpawner(createLocation("nightshade_tree4")), 1)
-                        .build())
-        ));
-        map.put(createLocation("embur_wart"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM2), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM3), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM4), 1)
-                        .build())
-        ));
+            ));
+            map.put(BYGWoodTypes.GREEN_ENCHANTED.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE1)), 2)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE3)), 1).build())
+            ));
+            map.put(BYGWoodTypes.HOLLY.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.HOLLY_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.HOLLY_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.HOLLY_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.HOLLY_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.JACARANDA.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.JACARANDA_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.JACARANDA_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.INDIGO_JACARANDA_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.INDIGO_JACARANDA_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.INDIGO_JACARANDA_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.JOSHUA_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.JOSHUA_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.JOSHUA_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.MAHOGANY.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.MAHOGANY_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.MAHOGANY_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.MAHOGANY_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.MAHOGANY_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.WHITE_MANGROVE.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "x x",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WHITE_MANGROVE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WHITE_MANGROVE_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WHITE_MANGROVE_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WHITE_MANGROVE_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WHITE_MANGROVE_TREE5)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("weeping_milkcap"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGOverworldVegetationFeatures.WEEPING_MILKCAP_HUGE), 1)
-                        .build())
-        ));
+            map.put(BYGWoodTypes.MAPLE.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.MAPLE_TREE1))))
+            ));
+            map.put(BYGBlocks.ORANGE_BIRCH_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_ORANGE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_ORANGE_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_ORANGE_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_ORANGE_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.ORANGE_OAK_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE_LARGE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE_LARGE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORANGE_OAK_TREE_LARGE3)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_MEDIUM1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_MEDIUM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_MEDIUM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_MEDIUM4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_LARGE1))))
+            ));
+            map.put(BYGBlocks.ORCHARD_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORCHARD_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORCHARD_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ORCHARD_TREE2))))
+            ));
+            map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALO_VERDE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALO_VERDE_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALO_VERDE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALO_VERDE_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.PINE.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PINE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PINE_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CHERRY_PINK_TREE2)))),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CHERRY_PINK_TREE1))))
+            ));
+            map.put(BYGWoodTypes.RAINBOW_EUCALYPTUS.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RAINBOW_EUCALYPTUS_TREE1)))),
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RAINBOW_EUCALYPTUS_TREE1))))
+            ));
+            map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_RED_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_RED_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_RED_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_RED_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_MAPLE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_MAPLE_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.RED_OAK_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE_LARGE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE_LARGE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.RED_OAK_TREE_LARGE3)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.RED_SPRUCE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_MEDIUM1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_MEDIUM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_MEDIUM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_MEDIUM4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_LARGE1))))
+            ));
+            map.put(BYGWoodTypes.REDWOOD.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.REDWOOD_TREE3)))),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"
+                    ), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.REDWOOD_TREE1)))),
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            " xxx ",
+                            "xxxxx",
+                            " xxx ",
+                            "  x  "
+                    ), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.REDWOOD_TREE2))))
+            ));
+            map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SILVER_MAPLE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SILVER_MAPLE_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.SKYRIS.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SKYRIS_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SKYRIS_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SKYRIS_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SKYRIS_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SKYRIS_TREE5)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CHERRY_WHITE_TREE2)))),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.CHERRY_WHITE_TREE1))))
+            ));
+            map.put(BYGWoodTypes.WILLOW.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            "     ",
+                            "x   x",
+                            "     ",
+                            "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WILLOW_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WILLOW_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WILLOW_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WILLOW_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.WITCH_HAZEL.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WITCH_HAZEL1)), 2)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WITCH_HAZEL2)), 2)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WITCH_HAZEL3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WITCH_HAZEL4)), 3)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.WITCH_HAZEL5)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.YELLOW_BIRCH_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_YELLOW_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_YELLOW_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_YELLOW_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_YELLOW_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_MEDIUM1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_MEDIUM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_MEDIUM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_MEDIUM4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_LARGE1))))
+            ));
+            map.put(BYGWoodTypes.ZELKOVA.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.PALM.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALM_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALM_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALM_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.PALM_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.LAMENT.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE3)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.WITHERING_OAK_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.WITHERING_OAK_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.WITHERING_OAK_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.WITHERING_OAK_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.WITHERING_OAK_TREE5)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.ETHER.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.ETHER_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.ETHER_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.ETHER_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.ETHER_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.ETHER_TREE5)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.NIGHTSHADE.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.NIGHTSHADE_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.NIGHTSHADE_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.NIGHTSHADE_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.NIGHTSHADE_TREE4)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.EMBUR.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.EMBUR_MUSHROOM)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.EMBUR_MUSHROOM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.EMBUR_MUSHROOM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.EMBUR_MUSHROOM4)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("wood_blewit"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGOverworldVegetationFeatures.WOOD_BLEWIT_HUGE), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.WEEPING_MILKCAP.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldVegetationFeatures.WEEPING_MILKCAP_HUGE)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("green_mushroom"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGOverworldVegetationFeatures.GREEN_MUSHROOM_HUGE), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.WOOD_BLEWIT.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldVegetationFeatures.WOOD_BLEWIT_HUGE)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("sythian_fungus"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE1), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE2), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE3), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE4), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.GREEN_MUSHROOM.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldVegetationFeatures.GREEN_MUSHROOM_HUGE)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("soul_shroom"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE1), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE2), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE3), 1)
-                        .build())
-        ));
+            map.put(BYGWoodTypes.SYTHIAN.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SYTHIAN_FUNGUS_TREE4)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("death_cap"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.DEATH_CAP_TREE1), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.DEATH_CAP_TREE2), 1)
-                        .add(new FeatureSpawner(BYGNetherVegetationFeatures.DEATH_CAP_TREE3), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.SOUL_SHROOM.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.SOUL_SHROOM_TREE3)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("bulbis_oddity"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE1), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE2), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE3), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE4), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE5), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE6, new Vec3i(-1, 0, -1)), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        " xxx ",
-                        "xxxxx",
-                        " xxx ",
-                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE7), 1)
-                        .build())
-        ));
+            map.put(BYGBlocks.DEATH_CAP.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.DEATH_CAP_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.DEATH_CAP_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGNetherVegetationFeatures.DEATH_CAP_TREE3)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("purple_bulbis_oddity"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE1), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE2), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE3), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "xxx",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE4), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE5), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "xxx",
-                        "xxx",
-                        "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6, new Vec3i(-1, 0, -1)), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        " xxx ",
-                        "xxxxx",
-                        " xxx ",
-                        "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.BULBIS_TREE7), 1)
-                        .build())
-        ));
+            map.put(BYGWoodTypes.BULBIS.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE5)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE6), new Vec3i(-1, 0, -1)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            " xxx ",
+                            "xxxxx",
+                            " xxx ",
+                            "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE7)), 1)
+                            .build())
+            ));
 
-        map.put(createLocation("shulkren_fungus"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.SHULKREN_TREE1), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.SHULKREN_TREE2), 1)
-                        .build())
-        ));
-        map.put(createLocation("imparius_mushroom"), List.of(
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "x x",
-                        " x "
-                ), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1, Vec3i.ZERO.offset(0, 0, 1)), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        "  x  ",
-                        "x   x",
-                        "  x  "
-                ), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM2), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM3), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM4), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM5), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM6), 1)
-                        .build())
-        ));
-        map.put(createLocation("fungal_imparius"), List.of(
-                new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5), 1)
-                        .build()),
-                new GrowingPatternEntry(List.of(
-                        " x ",
-                        "x x",
-                        " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4), 1)
-                        .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5), 1)
-                        .build())
-        ));
-    }));
+            map.put(BYGBlocks.PURPLE_BULBIS_ODDITY.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE5)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "xxx",
+                            "xxx",
+                            "xxx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.PURPLE_BULBIS_TREE6), new Vec3i(-1, 0, -1)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            " xxx ",
+                            "xxxxx",
+                            " xxx ",
+                            "  x  "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.BULBIS_TREE7)), 1)
+                            .build())
+            ));
+
+            map.put(BYGBlocks.SHULKREN_FUNGUS.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.SHULKREN_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.SHULKREN_TREE2)), 1)
+                            .build())
+            ));
+            map.put(BYGWoodTypes.IMPARIUS.growerItem().get(), List.of(
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "x x",
+                            " x "
+                    ), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM1), Vec3i.ZERO.offset(0, 0, 1)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "  x  ",
+                            "x   x",
+                            "  x  "
+                    ), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM5)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.IMPARIUS_MUSHROOM6)), 1)
+                            .build())
+            ));
+            map.put(BYGBlocks.FUNGAL_IMPARIUS.get(), List.of(
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "x x",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5)), 1)
+                            .build())
+            ));
+            return map;
+        }));
+    });
 
     public static GrowingPatterns INSTANCE = null;
 
-    public static final Codec<GrowingPatterns> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-                CommentedCodec.optionalOf(Codec.BOOL, "logGrowth", "Print growable related actions in the latest.log?", false).forGetter(saplingPatterns -> saplingPatterns.logGrowth),
-                CommentedCodec.of(Codec.unboundedMap(ResourceLocation.CODEC, GrowingPatternEntry.CODEC.listOf()), "sapling_patterns", "Sapling patterns for a given block.\nNot all blocks work, only blocks using \"FeatureGrowerFromBlockPattern\"").forGetter(saplingPatterns -> saplingPatterns.patternsForBlock)
-        ).apply(builder, GrowingPatterns::new);
-    });
+    public static final Codec<GrowingPatterns> CODEC = RecordCodecBuilder.create(builder ->
+            builder.group(
+                    CommentedCodec.optionalOf(Codec.BOOL, "logGrowth", "Print growable related actions in the latest.log?", false).forGetter(saplingPatterns -> saplingPatterns.logGrowth),
+                    CommentedCodec.of(Codec.unboundedMap(CodecUtil.BLOCK_CODEC, GrowingPatternEntry.CODEC.listOf()), "sapling_patterns", "Sapling patterns for a given block.\nNot all blocks work, only blocks using \"FeatureGrowerFromBlockPattern\"").forGetter(saplingPatterns -> saplingPatterns.patternsForBlock.get())
+            ).apply(builder, (Boolean logGrowth1, Map<Block, List<GrowingPatternEntry>> patternsForBlock1) -> new GrowingPatterns(logGrowth1, Suppliers.memoize(() -> patternsForBlock1)))
+    );
 
     private static final Path PATH = ModPlatform.INSTANCE.configPath().resolve("growing-patterns.json5");
     private static final Path OLD_PATH = ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-sapling-patterns.json");
@@ -691,7 +706,7 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
 
     private static GrowingPatterns readConfig(boolean recreate) {
 
-        GrowingPatterns from = DEFAULT;
+        GrowingPatterns from = DEFAULT.get();
         if (OLD_PATH.toFile().exists()) {
             try {
                 try {
@@ -720,80 +735,33 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
     }
 
     public record GrowingPatternEntry(List<String> pattern, SimpleWeightedRandomList<FeatureSpawner> spawners) {
-        public static final Codec<GrowingPatternEntry> CODEC = RecordCodecBuilder.create(builder -> {
-            return builder.group(
-                    CommentedCodec.of(Codec.STRING.listOf(), "pattern", "Pattern required for this block to spawn a configured feature.\n\"x\" represents a sapling position.\" \" represents air.\nMax size is 5x5.").forGetter(growingPatternEntry -> growingPatternEntry.pattern),
-                    CommentedCodec.of(SimpleWeightedRandomList.wrappedCodec(FeatureSpawner.CODEC), "spawners", "Configured Feature spawner.").forGetter(overworldBiomeConfig -> overworldBiomeConfig.spawners)
-            ).apply(builder, GrowingPatternEntry::new);
-        });
+        public static final Codec<GrowingPatternEntry> CODEC = RecordCodecBuilder.create(builder ->
+                builder.group(
+                        CommentedCodec.of(Codec.STRING.listOf(), "pattern", "Pattern required for this block to spawn a configured feature.\n\"x\" represents a sapling position.\" \" represents air.\nMax size is 5x5.").forGetter(GrowingPatternEntry::pattern),
+                        CommentedCodec.of(SimpleWeightedRandomList.wrappedCodec(FeatureSpawner.CODEC), "spawners", "Configured Feature spawner.").forGetter(GrowingPatternEntry::spawners)
+                ).apply(builder, GrowingPatternEntry::new)
+        );
     }
 
-    public static final class FeatureSpawner {
-        public static final Codec<FeatureSpawner> CODEC = RecordCodecBuilder.create(builder -> {
-            return builder.group(
-                    CommentedCodec.of(ResourceLocation.CODEC, "featureID", "Registry ID of the configured feature.").forGetter(featureSpawner -> featureSpawner.spawnerID),
-                    CommentedCodec.optionalOf(Vec3i.CODEC, "spawnOffset", "Some features don't spawn centered, this lets us offset the feature to center it.", Vec3i.ZERO).forGetter(featureSpawner -> featureSpawner.spawnOffset)
-            ).apply(builder, FeatureSpawner::new);
-        });
 
-        private final ResourceLocation spawnerID;
-        private final Vec3i spawnOffset;
+    public record FeatureSpawner(ResourceKey<ConfiguredFeature<?, ?>> spawnerID, Vec3i spawnOffset) {
+        public static final Codec<FeatureSpawner> CODEC = RecordCodecBuilder.create(builder ->
+                builder.group(
+                        CommentedCodec.of(ResourceKey.codec(Registry.CONFIGURED_FEATURE_REGISTRY), "featureID", "Registry ID of the configured feature.").forGetter(FeatureSpawner::spawnerID),
+                        CommentedCodec.optionalOf(Vec3i.CODEC, "spawnOffset", "Some features don't spawn centered, this lets us offset the feature to center it.", Vec3i.ZERO).forGetter(FeatureSpawner::spawnOffset)
+                ).apply(builder, FeatureSpawner::new)
+        );
 
-        public FeatureSpawner(ResourceLocation spawnerID) {
+        public FeatureSpawner(Holder<ConfiguredFeature<?, ?>> spawnerID) {
             this(spawnerID, Vec3i.ZERO);
         }
 
-        public FeatureSpawner(Holder<?> spawnerID) {
-            this(spawnerID, Vec3i.ZERO);
-        }
-
-        public FeatureSpawner(Holder<?> spawnerID, Vec3i spawnOffset) {
+        public FeatureSpawner(Holder<ConfiguredFeature<?, ?>> spawnerID, Vec3i spawnOffset) {
             this(spawnerID.unwrapKey().orElseThrow(), spawnOffset);
         }
 
-        public FeatureSpawner(ResourceKey<?> spawnerID) {
+        public FeatureSpawner(ResourceKey<ConfiguredFeature<?, ?>> spawnerID) {
             this(spawnerID, Vec3i.ZERO);
         }
-
-        public FeatureSpawner(ResourceKey<?> spawnerID, Vec3i spawnOffset) {
-            this(spawnerID.location(), spawnOffset);
-        }
-
-
-        public FeatureSpawner(ResourceLocation spawnerID, Vec3i spawnOffset) {
-            this.spawnerID = spawnerID;
-            this.spawnOffset = spawnOffset;
-        }
-
-        public ResourceLocation spawnerID() {
-            return spawnerID;
-        }
-
-        public Vec3i spawnOffset() {
-            return this.spawnOffset;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == this) return true;
-            if (obj == null || obj.getClass() != this.getClass()) return false;
-            var that = (FeatureSpawner) obj;
-            return Objects.equals(this.spawnerID, that.spawnerID) &&
-                    Objects.equals(this.spawnOffset, that.spawnOffset);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(spawnerID, spawnOffset);
-        }
-
-        @Override
-        public String toString() {
-            return "Spawner[" +
-                    "spawnerID=" + spawnerID + ", " +
-                    "spawnOffset=" + spawnOffset + ']';
-        }
-
-
     }
 }
