@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'fabric-loom' version '1.1-SNAPSHOT'
     id 'maven-publish'
     id 'idea'
     id 'java'
@@ -22,7 +22,7 @@ plugins {
     id "com.modrinth.minotaur" version "2.+"
 }
 
-tasks.build.dependsOn(tasks.findByName("shadowJar"))
+tasks.build.dependsOn(tasks.shadowJar)
 
 configurations {
     shadow
@@ -112,7 +112,7 @@ processResources {
 //tasks.withType(JavaCompile) {
 //    source(project(":Common").sourceSets.main.allSource)
 //}
-tasks.withType(Javadoc) {
+tasks.withType(Javadoc).configureEach {
     failOnError false
 }
 
@@ -135,9 +135,7 @@ sourceSets {
     }
 }
 
-remapJar {
-    input.set shadowJar.archiveFile
-}
+remapJar.inputFile.set(shadowJar.archiveFile)
 
 task fabric_checkForRefmap() {
     doLast {

@@ -39,7 +39,7 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-tasks.build.dependsOn(tasks.findByName("shadowJar"))
+tasks.build.dependsOn(tasks.shadowJar)
 
 configurations {
     shadow
@@ -162,7 +162,7 @@ mixin {
     config "${mod_id}_forge.mixins.json"
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     source(project(":Common").sourceSets.main.allSource)
 }
 
@@ -180,10 +180,7 @@ processResources {
 
 jar.finalizedBy('reobfJar')
 
-
-jar {
-    archiveClassifier.set('slim')
-}
+jar.archiveClassifier.set('slim')
 
 task forge_checkForRefmap() {
     doLast {
@@ -205,7 +202,7 @@ task forge_checkForRefmap() {
     }
 }
 
-String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8');
+String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
 
 String dependencyText = """
 # Required Dependencies
