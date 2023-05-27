@@ -81,18 +81,18 @@ public class BYGVillagerTrades {
         )));
         map.put(getKeyOrThrow(VillagerProfession.MASON), toIntMap(ImmutableMap.of(
             3, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.ROCKY_STONE.get(), 1, 12, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.ROCKY_STONE.get(), 1, 12, 12),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.MOSSY_STONE.get(), 1, 12, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.MOSSY_STONE.get(), 1, 12, 12)
+                   new VillagerTrades.EmeraldForItems(BYGItems.ROCKY_STONE.get(), 12, 12, 20),
+                   new VillagerTrades.ItemsForEmeralds(BYGItems.ROCKY_STONE.get(), 1, 1, 12, 10),
+                   new VillagerTrades.EmeraldForItems(BYGItems.MOSSY_STONE.get(), 12, 12, 20),
+                   new VillagerTrades.ItemsForEmeralds(BYGItems.MOSSY_STONE.get(), 1, 1, 12, 10)
             },
             4, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.DACITE.get(), 1, 12, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.DACITE.get(), 1, 12, 12),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.SOAPSTONE.get(), 1, 12, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SOAPSTONE.get(), 1, 12, 12),
-                new VillagerTrades.ItemsForEmeralds(BYGItems.RED_ROCK.get(), 1, 12, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.RED_ROCK.get(), 1, 12, 12)
+                   new VillagerTrades.EmeraldForItems(BYGItems.DACITE.get(), 12, 12, 30),
+                   new VillagerTrades.ItemsForEmeralds(BYGItems.DACITE.get(), 1, 1, 12, 15),
+                   new VillagerTrades.EmeraldForItems(BYGItems.SOAPSTONE.get(), 12, 12, 30),
+                   new VillagerTrades.ItemsForEmeralds(BYGItems.SOAPSTONE.get(), 1, 1, 12, 15),
+                   new VillagerTrades.EmeraldForItems(BYGItems.RED_ROCK.get(), 12, 12, 30),
+                   new VillagerTrades.ItemsForEmeralds(BYGItems.RED_ROCK.get(), 1, 1, 12, 15)
             }
         )));
 
