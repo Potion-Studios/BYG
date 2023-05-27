@@ -4,7 +4,6 @@ plugins {
     id('java')
     id('org.spongepowered.gradle.vanilla') version '0.2.1-SNAPSHOT'
     id('com.matyrobbrt.pngoptimiser') version '0.2.0'
-    id "com.github.spotbugs" version "5.0.12"
 }
 
 archivesBaseName = "${mod_name}-common-${minecraft_version}"
@@ -34,8 +33,8 @@ sourceSets.main.resources.srcDir 'src/generated/resources'
 
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
-    compileOnly('org.ow2.asm:asm-tree:9.3')
-    compileOnly ("software.bernie.geckolib:geckolib-forge-1.19:3.1.27")
+    compileOnly("org.ow2.asm:asm-tree:9.5")
+    compileOnly("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
     compileOnly("maven.modrinth:corgilib:1.19.2-${corgilib_version}-forge")
     compileOnly("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
 }
@@ -51,6 +50,6 @@ processResources {
     exclude("data/forge/tags/**")
 }
 
-tasks.withType(Javadoc) {
+tasks.withType(Javadoc).configureEach {
     failOnError false
 }
