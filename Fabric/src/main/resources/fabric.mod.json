@@ -48,7 +48,7 @@
     "fabric": "*",
     "minecraft": ">=1.18.2",
     "terrablender": ">=2.0.0.111",
-    "corgilib": ">=1.0.0.33",
+    "corgilib": ">=1.0.0.34",
     "geckolib3": ">=3.1.25"
   },
   "accessWidener": "byg.aw"
