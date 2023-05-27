@@ -33,12 +33,10 @@ public class EnUsLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        PROVIDER_TO_ID.forEach((provider, id) -> {
-            provider.getEntries().forEach(entry -> {
-                final var descId = Util.makeDescriptionId(id, entry.getId());
-                add(descId, WordUtils.capitalize(entry.getId().getPath().replace("_", " ")));
-            });
-        });
+        PROVIDER_TO_ID.forEach((provider, id) -> provider.getEntries().forEach(entry -> {
+            final var descId = Util.makeDescriptionId(id, entry.getId());
+            add(descId, WordUtils.capitalize(entry.getId().getPath().replace("_", " ")));
+        }));
 
         final InputStream resourceAsStream = BYG.class.getResourceAsStream("/assets/byg/lang/en_us_misc.json");
         if (resourceAsStream != null) {

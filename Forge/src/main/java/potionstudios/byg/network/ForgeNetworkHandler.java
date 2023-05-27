@@ -53,9 +53,7 @@ public class ForgeNetworkHandler {
     public static <T extends BYGS2CPacket> void handle(T packet, Supplier<NetworkEvent.Context> ctx, BiConsumer<T, Level> handle) {
         NetworkEvent.Context context = ctx.get();
         if (context.getDirection().getReceptionSide().isClient()) {
-            context.enqueueWork(() -> {
-                Client.clientHandle(packet, handle);
-            });
+            context.enqueueWork(() -> Client.clientHandle(packet, handle));
             context.setPacketHandled(true);
         }
     }

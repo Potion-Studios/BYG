@@ -260,25 +260,21 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 .element()
                 .from(0, 0, 0)
                 .to(16, 16, 16)
-                .allFaces((dir, builder) -> {
-                    builder
-                            .uvs(0, 0, 16, 16)
-                            .texture("#" + dir.getName())
-                            .cullface(dir)
-                            .end();
-                })
+                .allFaces((dir, builder) -> builder
+                        .uvs(0, 0, 16, 16)
+                        .texture("#" + dir.getName())
+                        .cullface(dir)
+                        .end())
                 .end()
                 .element()
                 .from(0, 0, 0)
                 .to(16, 16, 16)
-                .allFaces((dir, builder) -> {
-                    builder
-                            .uvs(0, 0, 16, 16)
-                            .texture("#" + dir.getName())
-                            .cullface(dir)
-                            .tintindex(1)
-                            .end();
-                })
+                .allFaces((dir, builder) -> builder
+                        .uvs(0, 0, 16, 16)
+                        .texture("#" + dir.getName())
+                        .cullface(dir)
+                        .tintindex(1)
+                        .end())
                 .end();
     }
 
