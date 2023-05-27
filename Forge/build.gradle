@@ -56,7 +56,7 @@ sourceSets {
     data
 }
 
-minecraft.runs.all {
+minecraft.runs.configureEach {
     lazyToken('minecraft_classpath') {
         configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
     }

@@ -50,6 +50,6 @@ processResources {
     exclude("data/forge/tags/**")
 }
 
-tasks.withType(Javadoc) {
+tasks.withType(Javadoc).configureEach {
     failOnError false
 }
