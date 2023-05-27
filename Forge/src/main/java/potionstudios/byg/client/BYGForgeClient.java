@@ -1,15 +1,7 @@
 package potionstudios.byg.client;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.toasts.SystemToast;
-import net.minecraft.client.gui.components.toasts.ToastComponent;
-import net.minecraft.network.chat.Component;
 import net.minecraftforge.client.ForgeHooksClient;
-import net.minecraftforge.fml.config.ConfigTracker;
-import net.minecraftforge.fml.config.IConfigEvent;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.loading.FMLPaths;
-import potionstudios.byg.client.config.filebrowser.FileBrowserScreen;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -22,54 +14,6 @@ public class BYGForgeClient {
     };
 
     public static void client() {
-        FileBrowserScreen.ON_RELOAD = path -> {
-            Path configDir = FMLPaths.CONFIGDIR.get();
-            Path relativized = configDir.relativize(path);
-
-            ToastComponent toasts = Minecraft.getInstance().getToasts();
-            ConfigTracker.INSTANCE.fileMap().values().stream().filter(modConfig -> FILTER.test(relativized, modConfig)).findAny()
-                .ifPresentOrElse(
-                    modConfig -> {
-                        try {
-                            IConfigEvent.reloading(modConfig);
-                            toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
-                                SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                                Component.literal(String.format("Reloaded %s Config File: ", modConfig.getType().toString())),
-                                Component.literal(relativized.toString()))
-                            );
-                        } catch (Exception e) {
-                            toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
-                                SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                                Component.literal(String.format("Reloaded %s Config File FAILED: ", modConfig.getType().toString())),
-                                Component.literal(relativized.toString() + ": " + e.getMessage()))
-                            );
-                        }
-
-                    },
-                    () -> toasts.addToast(SystemToast.multiline(Minecraft.getInstance(),
-                        SystemToast.SystemToastIds.PACK_LOAD_FAILURE,
-                        Component.literal("Config file reloading failed for:"),
-                        Component.literal(relativized.toString()))
-                    )
-                );
-
-        };
-        FileBrowserScreen.RELOADS_ON_SAVE = fileAbsolutePath -> {
-            Path configDir = FMLPaths.CONFIGDIR.get();
-            if (fileAbsolutePath.startsWith(configDir)) {
-                Path relativized = configDir.relativize(fileAbsolutePath);
-
-                boolean anyMatch = ConfigTracker.INSTANCE.configSets().get(ModConfig.Type.CLIENT).stream().anyMatch(modConfig -> FILTER.test(relativized, modConfig));
-                if (!anyMatch) {
-                    if (Minecraft.getInstance().isLocalServer() || Minecraft.getInstance().level == null) {
-                        return ConfigTracker.INSTANCE.configSets().get(ModConfig.Type.COMMON).stream().anyMatch(modConfig -> FILTER.test(relativized, modConfig));
-                    }
-                }
-                return anyMatch;
-            }
-            return false;
-        };
-
         BYGClient.registerLayerDefinitions(ForgeHooksClient::registerLayerDefinition);
     }
 }
