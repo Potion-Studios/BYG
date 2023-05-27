@@ -206,7 +206,7 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
         spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
-        if (mobSpawnType == MobSpawnType.BUCKET && spawnGroupData != null && compoundTag.contains("BucketVariantTag", 3)) {
+        if (mobSpawnType == MobSpawnType.BUCKET && compoundTag != null && compoundTag.contains("BucketVariantTag", 3)) {
             this.setRawFlag(compoundTag.getInt("BucketVariantTag"));
             this.setBaby(true);
             return spawnGroupData;
