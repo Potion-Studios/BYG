@@ -13,8 +13,17 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": ["minecraft:shears"]
+                    "items": [
+                      "minecraft:shears"
+                    ]
                   }
+                }
+              ],
+              "functions": [
+                {
+                  "add": false,
+                  "count": 2.0,
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "byg:prairie_grass"
