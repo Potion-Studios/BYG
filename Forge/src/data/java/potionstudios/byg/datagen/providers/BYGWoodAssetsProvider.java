@@ -229,13 +229,12 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
         getVariantBuilder(door)
                 .forAllStatesExcept(state -> {
                     int yRot = ((int) state.getValue(DoorBlock.FACING).toYRot()) + 90;
-                    boolean rh = state.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
+                    boolean right = state.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
                     boolean open = state.getValue(DoorBlock.OPEN);
-                    boolean right = rh ^ open;
                     if (open) {
                         yRot += 90;
                     }
-                    if (rh && open) {
+                    if (right && open) {
                         yRot += 180;
                     }
                     yRot %= 360;
