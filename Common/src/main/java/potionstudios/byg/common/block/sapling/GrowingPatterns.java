@@ -59,9 +59,21 @@ public record GrowingPatterns(boolean logGrowth,
             ));
             map.put(BYGWoodTypes.ASPEN.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE1)), 1)
                             .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE2)), 1)
                             .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE3)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            " x ",
+                            "xxx",
+                            " x "), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE4)), 1)
+                            .build()),
+                    new GrowingPatternEntry(List.of(
+                            "x x",
+                            " x ",
+                            "x x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.ASPEN_TREE5)), 1)
                             .build())
             ));
             map.put(BYGWoodTypes.BAOBAB.growerItem().get(), List.of(
