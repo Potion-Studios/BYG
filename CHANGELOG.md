@@ -2,12 +2,14 @@
 ## Biome Changes
 ### End Biomes
 * Make Chorus fruits and end gateways generate last in BYG end biomes.
+* Make Chorus fruits and End Gateways the final features to gen in BYG end biomes.
 
 ### Overworld Biomes
 * Gave Red Oak Forest the Aspen Forest Surface Rules.
 * Fixed Mob Spawns for various overworld biomes.
 * Added more vanilla woodtypes to BYG biomes.
-* WIP Maple, Cherry, & Witch Hazel animated leaves.
+* New Maple, Cherry, & Witch Hazel particles.
+  * Particles now fall from leaves as opposed to being an ambient particle in the biome.
 * Bush Tree for forest biomes.
 * Redid Clover & Flower Patches
 * Increased & Decreased Clovers & Flower patches across various biomes.
@@ -18,10 +20,33 @@
 * Increased cherry foliage blocks in the Cherry Blossom Forest.
 * Tulips & sunflowers now properly spawn in the Coconino Meadows.
 
+## Misc Changes
+* Finished "Cs" in the Biomepedia Biome Section for Descs. -Started "Ds" in the Biomepedia Biome Section for Descs.
+* Re-add signs.
+* Remove unused libraries and classes.
+* Update zh_cn.json (#1171).
+* Add Ukrainian translation from #1146.
+* Update and require CorgiLib to `1.0.34`.
+*  Fabric Loom 1.1-SNAPSHOT, other Gradle tweaks/updates  (#1187)
+
+
 ## Bug Fixes
-* Fix typo in BYGOverworldTreeFeatures.java (#1130)
-* Reduce performance footprint of Pumpkin Warden AI (#1140)
-* Add Geckolib3 dependency to Forge & Fabric. Fixes #1163
+* Fix typo in BYGOverworldTreeFeatures.java (#1130).
+* Reduce performance footprint of Pumpkin Warden AI (#1140).
+* Add Geckolib3 dependency to Forge & Fabric. Fixes #1163.
+* Fix typo in BYGOverworldTreeFeatures.java (#1130).
+* Reduce performance footprint of Pumpkin Warden AI (#1140).
+* Do not crash BYG when configs fail to load. Log the errors instead and use defaults.
+* Fix WoodType registration to use our namespace and to prevent mod conflicts. Fixes #1137 on 1.19.
+* Use BlockPredicate for `HangingColumnWithBase` placement. Fixes some nether plants not spawning. Fixes #1061
+* Removed empty shapeless recipe for brown dye (#1170).
+* Use internal references for GrowingPatterns config. Fixes outdated sapling references. Fixes #1115
+* Update and require CorgiLib to `1.0.34`, use better sapling patterns for Aspen Saplings. Fixes #1174.
+* Fix Sandstone Recipes. Fixes #1190
+* Drop 2 prairie grass items when using shears. Fixes #1104
+* Fix Mason Villager Trades. Fixes #1109
+* Fix Man O War bucket spawning. Fixes #1113
+* Fix reversed door blockstates, fixes #1125
 
 
 # 2.0.1.1
@@ -61,6 +86,7 @@
   * Fix crash with Terralith due to feature cycle. (#1105)
   * Add Imbued Nightshade logs to logs tags. Should fix instances of leaves decaying in the Nightshade forest.
   * Fix man o war spawning.
+
 
 # 2.0.1.0
 * New Dependencies
