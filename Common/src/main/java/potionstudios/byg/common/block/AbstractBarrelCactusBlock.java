@@ -31,6 +31,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.common.BYGTags;
 
 public class AbstractBarrelCactusBlock extends Block implements BonemealableBlock {
     protected static final VoxelShape COLLISION_SHAPE;
@@ -72,7 +73,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
 
     public InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {
         ItemStack $$6 = $$3.getItemInHand($$4);
-        if ($$6.is(Items.SHEARS)) {
+        if ($$6.is(BYGTags.SHEARS.all(BYGTags.RegistryType.ITEMS))) {
             if (!world.isClientSide) {
                 world.playSound(null, $$2, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 world.setBlock($$2, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState(), 11);

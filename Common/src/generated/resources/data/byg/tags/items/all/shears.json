@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#byg:shears",
+      "required": false
+    },
+    {
+      "id": "#c:shears",
+      "required": false
+    },
+    {
+      "id": "#forge:shears",
+      "required": false
+    }
+  ]
+}
