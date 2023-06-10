@@ -1,5 +1,11 @@
 package potionstudios.byg.config;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.network.chat.TextColor;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.client.BiomepediaInventoryConfig;
@@ -76,5 +82,17 @@ public class BYGConfigHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void displayChatErrors(ServerPlayer serverPlayer) {
+        serverPlayer.displayClientMessage(Component.translatable("byg.config.error").withStyle(ChatFormatting.RED), false);
+        Path latestLogPath = ModPlatform.INSTANCE.configPath().getParent().getParent().resolve("logs").resolve("latest.log");
+        serverPlayer.displayClientMessage(Component.translatable("byg.config.error.latestlog").withStyle(ChatFormatting.UNDERLINE).withStyle(text -> text.withColor(TextColor.fromLegacyFormat(ChatFormatting.DARK_RED)).withBold(true).withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, latestLogPath.toString())).withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("corgilib.clickevent.hovertext")))), false);
+        serverPlayer.displayClientMessage(Component.literal(""), false);
+
+
+        serverPlayer.displayClientMessage(Component.translatable("byg.config.error.commandvalidate").withStyle(ChatFormatting.RED), false);
+        serverPlayer.displayClientMessage(Component.translatable("byg.config.error.resetconfigs").withStyle(ChatFormatting.RED), false);
+        serverPlayer.displayClientMessage(Component.translatable("byg.config.error.restart").withStyle(ChatFormatting.RED), false);
     }
 }

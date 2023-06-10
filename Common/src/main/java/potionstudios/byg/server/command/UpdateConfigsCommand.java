@@ -28,7 +28,7 @@ public class UpdateConfigsCommand {
 
     private static final long COUNTDOWN_LENGTH = 1200; // 60 Seconds in ticks(assuming 20 ticks per second)
 
-    public static final String COMMAND_STRING = "update_configs";
+    public static final String COMMAND_STRING = "update";
     public static final String UPDATE_STRING = "update";
     public static final String DISMISS_STRING = "dismiss";
 
