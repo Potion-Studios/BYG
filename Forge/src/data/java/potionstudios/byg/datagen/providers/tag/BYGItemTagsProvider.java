@@ -79,6 +79,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
             .run(this::tag);
 
         tag(STICKS.byg(RegistryType.ITEMS)).add(Items.STICK);
+        tag(SHEARS.byg(RegistryType.ITEMS)).add(Items.SHEARS);
 
         for (BYGTags tag : BYGTags.values()) {
             DatagenUtils.addBYGTag(this::tag, tag, Registry.ITEM_REGISTRY);

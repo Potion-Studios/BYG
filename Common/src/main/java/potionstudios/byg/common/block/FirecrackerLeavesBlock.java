@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import potionstudios.byg.common.BYGTags;
 
 public class FirecrackerLeavesBlock extends LeavesBlock {
     public FirecrackerLeavesBlock(Properties properties) {
@@ -24,7 +25,7 @@ public class FirecrackerLeavesBlock extends LeavesBlock {
         RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 
-        if (player.getItemInHand(interactionHand).is(Items.SHEARS) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {
+        if (player.getItemInHand(interactionHand).is(BYGTags.SHEARS.all(BYGTags.RegistryType.ITEMS)) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {
             level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             double d = (double) blockPos.getX() + random.nextDouble();
             double e = (double) blockPos.getY() + 1.0D;

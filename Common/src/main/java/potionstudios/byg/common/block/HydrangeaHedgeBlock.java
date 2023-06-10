@@ -21,6 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import potionstudios.byg.common.BYGTags;
 
 public class HydrangeaHedgeBlock extends AzaleaBlock {
     private static final VoxelShape SHAPE = Shapes.or(Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.box(6.0D, 0.0D, 6.0D, 10.0D, 8.0D, 10.0D));
@@ -48,7 +49,7 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
         RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 
-        if (player.getItemInHand(interactionHand).is(Items.SHEARS) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {
+        if (player.getItemInHand(interactionHand).is(BYGTags.SHEARS.all(BYGTags.RegistryType.ITEMS)) && level.getBlockState(blockPos2).is(BlockTags.DIRT)) {
             level.playSound(null, blockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             double d = (double) blockPos.getX() + random.nextDouble();
             double e = (double) blockPos.getY() + 1.0D;
