@@ -1,6 +1,7 @@
 package potionstudios.byg.server.command;
 
 import com.mojang.brigadier.builder.ArgumentBuilder;
+import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -24,7 +25,8 @@ public class ValidateConfigsCommand {
                 BYG.logConfigErrors();
                 BYGConfigHandler.displayChatErrors(cs.getSource().getPlayerOrException());
             } else {
-                cs.getSource().sendSuccess(Component.translatable("byg.command.validateconfig.notifyrestart"), true);
+                cs.getSource().sendSuccess(Component.translatable("byg.command.validateconfig.success").withStyle(ChatFormatting.GREEN), true);
+                cs.getSource().sendSuccess(Component.translatable("byg.command.validateconfig.notifyrestart").withStyle(ChatFormatting.YELLOW), true);
             }
 
             return 1;

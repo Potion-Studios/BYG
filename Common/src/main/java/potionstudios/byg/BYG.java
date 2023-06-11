@@ -34,6 +34,7 @@ import potionstudios.byg.mixin.access.DeltaFeatureAccess;
 import potionstudios.byg.mixin.access.PoiTypesAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.server.command.ReloadConfigsCommand;
+import potionstudios.byg.server.command.ResetConfigsCommand;
 import potionstudios.byg.server.command.UpdateConfigsCommand;
 import potionstudios.byg.server.command.ValidateConfigsCommand;
 import potionstudios.byg.util.FileUtils;
@@ -106,6 +107,7 @@ public class BYG {
         config.then(ReloadConfigsCommand.register());
         config.then(UpdateConfigsCommand.register());
         config.then(ValidateConfigsCommand.register());
+        config.then(ResetConfigsCommand.register());
 
         bygCommands.then(config);
 
