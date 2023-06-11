@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.BYGTags;
 import potionstudios.byg.common.block.BYGWoodTypes;
@@ -20,7 +21,7 @@ public class BYGRecipeProviders extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         final var sticksTag = BYGTags.STICKS.all(BYGTags.RegistryType.ITEMS);
         
         for (BYGWoodTypes type : BYGWoodTypes.values()) {

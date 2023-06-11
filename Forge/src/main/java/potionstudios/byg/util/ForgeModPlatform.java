@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoader;
 import net.minecraftforge.fml.loading.FMLEnvironment;
@@ -69,7 +70,7 @@ public class ForgeModPlatform implements ModPlatform {
 
     @Override
     public boolean canTreeGrowWithEvent(Level level, RandomSource source, BlockPos pos) {
-        return net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(level, source, pos);
+        return !net.minecraftforge.event.ForgeEventFactory.blockGrowFeature(level, source, pos, null).getResult().equals(Event.Result.DENY);
     }
 
     @Override

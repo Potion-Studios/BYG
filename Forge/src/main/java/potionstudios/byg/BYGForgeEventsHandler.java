@@ -4,7 +4,6 @@ import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.HoeItem;
@@ -19,6 +18,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 import potionstudios.byg.common.BYGHoeables;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.TradesConfig;
@@ -40,7 +40,7 @@ public class BYGForgeEventsHandler {
         TradesConfig tradesConfig = TradesConfig.getConfig();
         if (tradesConfig.enabled()) {
             Map<ResourceLocation, Int2ObjectMap<VillagerTrades.ItemListing[]>> tradesByProfession = tradesConfig.tradesByProfession();
-            ResourceLocation professionKey = Registry.VILLAGER_PROFESSION.getKey(event.getType());
+            ResourceLocation professionKey = ForgeRegistries.VILLAGER_PROFESSIONS.getKey(event.getType());
             if (tradesByProfession.containsKey(professionKey)) {
                 REGISTERED_PROFESSIONS.add(professionKey);
                 Int2ObjectMap<VillagerTrades.ItemListing[]> int2ObjectMap = tradesByProfession.get(professionKey);

@@ -9,6 +9,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
@@ -58,7 +59,7 @@ class BYGBlockLootProvider extends BlockLoot {
     }
 
     @Override
-    public void accept(BiConsumer<ResourceLocation, LootTable.Builder> p_124179_) {
+    public void accept(@NotNull BiConsumer<ResourceLocation, LootTable.Builder> p_124179_) {
         addTables();
         map.forEach(p_124179_);
     }

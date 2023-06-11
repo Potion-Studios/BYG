@@ -18,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
@@ -52,7 +53,7 @@ public class BYGForge {
         final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
         BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
             @Override
-            public ItemStack makeIcon() {
+            public @NotNull ItemStack makeIcon() {
                 return new ItemStack(BYGItems.BYG_LOGO.get());
             }
 
@@ -67,7 +68,7 @@ public class BYGForge {
             }
 
             @Override
-            public ResourceLocation getBackgroundImage() {
+            public @NotNull ResourceLocation getBackgroundImage() {
                 return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
             }
         });
@@ -104,7 +105,7 @@ public class BYGForge {
                 if (surfaceRulesConfig.containsKey(LevelStem.OVERWORLD) && surfaceRulesConfig.get(LevelStem.OVERWORLD) != null) {
                     SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, BYG.MOD_ID, surfaceRulesConfig.get(LevelStem.OVERWORLD));
                 } else {
-                    throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the config file found at: \"%s\"", LevelStem.OVERWORLD.location().toString(), SurfaceRulesConfig.CONFIG_PATHS.get().get(LevelStem.OVERWORLD)));
+                    throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the config file found at: \"%s\"", LevelStem.OVERWORLD.location(), SurfaceRulesConfig.CONFIG_PATHS.get().get(LevelStem.OVERWORLD)));
                 }
                 config.values().forEach(biomeProviderData -> Regions.register(new BYGTerraBlenderRegion(biomeProviderData.value(), config.globalSwapper())));
             } else {
