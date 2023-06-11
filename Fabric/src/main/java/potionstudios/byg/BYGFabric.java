@@ -24,6 +24,7 @@ import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
 import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.core.BYGRegistry;
+import potionstudios.byg.entry.BYGTerraBlenderEntry;
 import potionstudios.byg.network.FabricNetworkHandler;
 
 import java.util.Arrays;
@@ -78,6 +79,7 @@ public class BYGFabric implements ModInitializer {
 
         registerVillagerTrades();
         BYGStrippables.strippableLogsBYG(StrippableBlockRegistry::register);
+        BYGTerraBlenderEntry.readOverworldSurfaceRules();
         BYG.logInfo("\"Oh The Biomes You'll Go\" after registries freeze event complete!");
     }
 
