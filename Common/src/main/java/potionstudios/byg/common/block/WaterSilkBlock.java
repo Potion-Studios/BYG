@@ -14,12 +14,4 @@ public class WaterSilkBlock extends WaterlilyBlock {
     protected WaterSilkBlock(Properties builder) {
         super(builder);
     }
-
-    @Override
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-        if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.COD && entityIn.getType() != EntityType.SQUID) {
-            entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
-        }
-        super.entityInside(state, worldIn, pos, entityIn);
-    }
 }

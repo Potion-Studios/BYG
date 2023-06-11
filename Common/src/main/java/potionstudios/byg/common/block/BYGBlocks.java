@@ -661,7 +661,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createWaterSilkBlock(MaterialColor materialColor, String id) {
-        return createBlock(() -> new WaterSilkBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).color(materialColor)), id);
+        return createBlock(() -> new WaterSilkBlock(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).noCollission().color(materialColor)), id);
     }
 
     private static BlockRegistryObject<Block> createScaffoldingBlock(int light, MaterialColor materialColor, String id) {
