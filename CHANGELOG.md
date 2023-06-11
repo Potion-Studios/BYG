@@ -27,8 +27,12 @@
 * Update zh_cn.json (#1171).
 * Add Ukrainian translation from #1146.
 * Update and require CorgiLib to `1.0.34`.
-*  Fabric Loom 1.1-SNAPSHOT, other Gradle tweaks/updates  (#1187)
-
+* Fabric Loom 1.1-SNAPSHOT, other Gradle tweaks/updates  (#1187)
+* Add modded shears support, Fixes #1043 (#1196)
+* Move Overworld surface rules registration after registries freeze.
+* Add `/byg config validate` & `/byg config reset` commands.
+* Move `/byg update_configs` -> `/byg config update`
+* Move `/byg reload` -> `/byg config reload`
 
 ## Bug Fixes
 * Fix typo in BYGOverworldTreeFeatures.java (#1130).
@@ -47,7 +51,7 @@
 * Fix Mason Villager Trades. Fixes #1109
 * Fix Man O War bucket spawning. Fixes #1113
 * Fix reversed door blockstates, fixes #1125
-
+* Don't give biomepedia several times, only once. Fixes #1194
 
 # 2.0.1.1
 
