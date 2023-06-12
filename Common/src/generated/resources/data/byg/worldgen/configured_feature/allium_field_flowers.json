@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:pink_allium_bush",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:tall_allium_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:tall_pink_allium_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:allium_bush",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

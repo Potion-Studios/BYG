@@ -1,0 +1,54 @@
+{
+  "type": "corgilib:tree_from_nbt",
+  "config": {
+    "base_location": "byg:features/trees/conifer/conifer_trunk1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "byg:may_place_on/fir_sapling"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "byg:features/trees/conifer/conifer_canopy5",
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 11,
+        "min_inclusive": 7
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:fir_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "byg:fir_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:fir_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "byg:fir_log"
+    ],
+    "max_log_depth": 14,
+    "place_from_nbt": []
+  }
+}

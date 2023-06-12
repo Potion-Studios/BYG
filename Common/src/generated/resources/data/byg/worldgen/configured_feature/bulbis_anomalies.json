@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:purple_bulbis_anomaly",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "byg:bulbis_anomaly",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

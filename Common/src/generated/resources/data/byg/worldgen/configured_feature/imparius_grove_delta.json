@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "minecraft:water",
+      "Properties": {
+        "level": "0"
+      }
+    },
+    "rim": {
+      "Name": "byg:imparius_phylium"
+    },
+    "rim_size": 1,
+    "size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 7
+      }
+    }
+  }
+}

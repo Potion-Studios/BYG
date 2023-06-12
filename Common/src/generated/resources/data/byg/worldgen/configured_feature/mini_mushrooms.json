@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:mini_wood_blewit",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.16,
+        "feature": {
+          "feature": "byg:mini_green_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16,
+        "feature": {
+          "feature": "byg:mini_red_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16,
+        "feature": {
+          "feature": "byg:mini_brown_mushroom",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.16,
+        "feature": {
+          "feature": "byg:mini_weeping_milkcap",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

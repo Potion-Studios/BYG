@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:bulbis_tree7",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_bush1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree5",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.14285,
+        "feature": {
+          "feature": "byg:bulbis_tree6",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

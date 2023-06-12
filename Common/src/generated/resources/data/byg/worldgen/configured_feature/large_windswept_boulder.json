@@ -1,0 +1,90 @@
+{
+  "type": "byg:boulder",
+  "config": {
+    "2d_noise_chance": 0.25,
+    "belowSurfaceDepth": 2147483647,
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:windswept_sandstone"
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "byg:smooth_windswept_sandstone"
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "byg:windswept_sand"
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "edge_features": [],
+    "fluidState": {
+      "Name": "minecraft:empty"
+    },
+    "fluid_start_y": -2147483648,
+    "noise_frequency": 0.04,
+    "pointed": false,
+    "radius_divisor_per_stack": 1.0,
+    "radius_matcher": "NONE",
+    "radius_settings": {
+      "upper_half_additional": 0,
+      "x_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 14,
+          "min_inclusive": 9
+        }
+      },
+      "y_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 14,
+          "min_inclusive": 9
+        }
+      },
+      "z_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 14,
+          "min_inclusive": 9
+        }
+      }
+    },
+    "squared_distance_check": true,
+    "stackHeight": 1,
+    "top_block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:windswept_sandstone"
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "byg:smooth_windswept_sandstone"
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "byg:windswept_sand"
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "use_scaled_noise_height": true,
+    "verifies_height": false
+  }
+}

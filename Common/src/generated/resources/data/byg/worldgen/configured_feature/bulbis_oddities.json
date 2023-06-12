@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:purple_bulbis_oddity",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "byg:bulbis_oddity",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

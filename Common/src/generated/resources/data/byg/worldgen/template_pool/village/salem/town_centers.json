@@ -1,0 +1,23 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/salem/town_centers/salem_meeting_point_1",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      },
+      "weight": 35
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/salem/town_centers/salem_meeting_point_2",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      },
+      "weight": 35
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

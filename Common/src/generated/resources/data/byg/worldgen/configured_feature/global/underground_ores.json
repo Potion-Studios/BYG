@@ -1,0 +1,9 @@
+{
+  "type": "byg:global",
+  "config": {
+    "features_to_place": [
+      "byg:global/placed_feature/ore_soapstone_upper",
+      "byg:global/placed_feature/ore_soapstone_lower"
+    ]
+  }
+}

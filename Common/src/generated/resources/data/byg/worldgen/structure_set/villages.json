@@ -1,0 +1,34 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 437845874,
+    "separation": 8,
+    "spacing": 34
+  },
+  "structures": [
+    {
+      "structure": "byg:village_red_rock",
+      "weight": 1
+    },
+    {
+      "structure": "byg:village_ruins",
+      "weight": 1
+    },
+    {
+      "structure": "byg:village_salem",
+      "weight": 1
+    },
+    {
+      "structure": "byg:pumpkin_patch",
+      "weight": 1
+    },
+    {
+      "structure": "byg:village_tropical",
+      "weight": 1
+    },
+    {
+      "structure": "byg:village_skyris",
+      "weight": 1
+    }
+  ]
+}

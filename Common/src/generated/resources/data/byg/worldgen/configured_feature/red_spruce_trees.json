@@ -1,0 +1,67 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:spruce_red_tree1",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree4",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree_medium1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree_medium2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree_medium3",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.111,
+        "feature": {
+          "feature": "byg:spruce_red_tree_medium4",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:cika_tree1",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:cika_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "byg:cika_tree3",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

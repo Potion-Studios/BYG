@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:rainbow_eucalyptus_tree1",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.333,
+        "feature": {
+          "feature": "byg:rainbow_eucalyptus_large_tree1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

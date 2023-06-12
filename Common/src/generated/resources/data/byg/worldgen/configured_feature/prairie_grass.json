@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:tall_prairie_grass_patch",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "byg:prairie_grass_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

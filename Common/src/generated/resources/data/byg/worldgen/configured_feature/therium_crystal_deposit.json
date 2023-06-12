@@ -1,0 +1,145 @@
+{
+  "type": "byg:noise_spike",
+  "config": {
+    "2d_noise_chance": 0.25,
+    "belowSurfaceDepth": -2147483648,
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:therium_crystal_block"
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "byg:ether_stone"
+          },
+          "weight": 4
+        }
+      ]
+    },
+    "edge_features": {
+      "feature": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "feature": {
+            "feature": {
+              "type": "minecraft:simple_block",
+              "config": {
+                "to_place": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "byg:therium_crystal_block"
+                  }
+                }
+              }
+            },
+            "placement": [
+              {
+                "type": "minecraft:block_predicate_filter",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "minecraft:air"
+                }
+              }
+            ]
+          },
+          "tries": 15,
+          "xz_spread": 7,
+          "y_spread": 3
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:count",
+          "count": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_inclusive": 25,
+              "min_inclusive": 10
+            }
+          }
+        },
+        {
+          "type": "minecraft:in_square"
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "OCEAN_FLOOR"
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "byg:therium_crystal_block",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "fluidState": {
+      "Name": "minecraft:empty"
+    },
+    "fluid_start_y": -2147483648,
+    "noise_frequency": 0.5,
+    "pointed": true,
+    "radius_divisor_per_stack": 1.0,
+    "radius_matcher": "XZ",
+    "radius_settings": {
+      "upper_half_additional": 0,
+      "x_radius": {
+        "type": "minecraft:biased_to_bottom",
+        "value": {
+          "max_inclusive": 15,
+          "min_inclusive": 8
+        }
+      },
+      "y_radius": {
+        "type": "minecraft:biased_to_bottom",
+        "value": {
+          "max_inclusive": 10,
+          "min_inclusive": 5
+        }
+      },
+      "z_radius": {
+        "type": "minecraft:biased_to_bottom",
+        "value": {
+          "max_inclusive": 15,
+          "min_inclusive": 8
+        }
+      }
+    },
+    "squared_distance_check": true,
+    "stackHeight": 1,
+    "top_block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:therium_crystal_block"
+          },
+          "weight": 8
+        },
+        {
+          "data": {
+            "Name": "byg:ether_stone"
+          },
+          "weight": 2
+        }
+      ]
+    },
+    "use_scaled_noise_height": true,
+    "verifies_height": false
+  }
+}

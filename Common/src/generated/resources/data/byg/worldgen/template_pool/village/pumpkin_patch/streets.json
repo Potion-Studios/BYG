@@ -1,0 +1,126 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_corner_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_corner_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_straight_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_straight_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_straight_3",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_crossroad_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_crossroad_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_crossroad_3",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_square_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_square_2",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/streets/pumpkin_patch_turn_1",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "byg:village/pumpkin_patch/terminators"
+}

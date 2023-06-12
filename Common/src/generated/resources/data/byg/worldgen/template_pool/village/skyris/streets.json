@@ -1,0 +1,126 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_corner_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_corner_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_straight_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_straight_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_straight_03",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_crossroad_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_crossroad_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_crossroad_03",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_square_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_square_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/skyris/streets/skyris_turn_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "byg:village/skyris/terminators"
+}

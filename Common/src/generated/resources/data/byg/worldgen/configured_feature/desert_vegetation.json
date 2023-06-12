@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:golden_spined_cacti",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "byg:mini_cacti",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "byg:prickly_pear_cacti",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:aloe_vera",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "byg:firecracker_bush",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

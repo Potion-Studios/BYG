@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 457854789,
+    "separation": 2,
+    "spacing": 5
+  },
+  "structures": [
+    {
+      "structure": "byg:overgrown_stone_arch",
+      "weight": 24
+    },
+    {
+      "structure": "byg:stone_arch",
+      "weight": 1
+    }
+  ]
+}

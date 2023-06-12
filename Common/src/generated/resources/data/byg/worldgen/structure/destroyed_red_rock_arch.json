@@ -1,0 +1,133 @@
+{
+  "type": "byg:arch",
+  "biomes": "#byg:has_structure/red_rock_arch",
+  "settings": {
+    "allowed_biomes": "empty:empty",
+    "blending_functions": [
+      {
+        "data": {
+          "type": "corgilib:ease_out_cubic"
+        },
+        "weight": 16
+      },
+      {
+        "data": {
+          "type": "corgilib:ease_in_out_circ"
+        },
+        "weight": 8
+      },
+      {
+        "data": {
+          "type": "corgilib:ease_out_bounce"
+        },
+        "weight": 1
+      }
+    ],
+    "generation": {
+      "2d_noise_chance": 0.25,
+      "belowSurfaceDepth": 2147483647,
+      "block_provider": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "byg:red_rock"
+            },
+            "weight": 4
+          },
+          {
+            "data": {
+              "Name": "minecraft:terracotta"
+            },
+            "weight": 1
+          }
+        ]
+      },
+      "edge_features": [],
+      "fluidState": {
+        "Name": "minecraft:empty"
+      },
+      "fluid_start_y": -2147483648,
+      "noise_frequency": 0.1,
+      "pointed": false,
+      "radius_divisor_per_stack": 1.0,
+      "radius_matcher": "NONE",
+      "radius_settings": {
+        "upper_half_additional": 0,
+        "x_radius": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 15,
+            "min_inclusive": 10
+          }
+        },
+        "y_radius": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 15,
+            "min_inclusive": 10
+          }
+        },
+        "z_radius": {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_inclusive": 15,
+            "min_inclusive": 10
+          }
+        }
+      },
+      "squared_distance_check": true,
+      "stackHeight": 1,
+      "top_block_provider": {
+        "type": "minecraft:weighted_state_provider",
+        "entries": [
+          {
+            "data": {
+              "Name": "byg:red_rock"
+            },
+            "weight": 4
+          },
+          {
+            "data": {
+              "Name": "minecraft:terracotta"
+            },
+            "weight": 1
+          }
+        ]
+      },
+      "use_scaled_noise_height": true,
+      "verifies_height": false
+    },
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 90,
+        "min_inclusive": 35
+      }
+    },
+    "length": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 250,
+        "min_inclusive": 50
+      }
+    },
+    "matching_blending_function_chance": 0.2,
+    "percentage_destroyed": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 1.0,
+        "min_inclusive": 0.45
+      }
+    },
+    "width": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 10,
+        "min_inclusive": 1
+      }
+    }
+  },
+  "spawn_overrides": {},
+  "step": "raw_generation"
+}

@@ -1,0 +1,65 @@
+{
+  "type": "byg:sphere",
+  "config": {
+    "2d_noise_chance": 0.25,
+    "belowSurfaceDepth": 2147483647,
+    "block_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:stone"
+      }
+    },
+    "edge_features": [],
+    "fluidState": {
+      "Name": "minecraft:empty"
+    },
+    "fluid_start_y": -2147483648,
+    "noise_frequency": 0.09,
+    "pointed": false,
+    "radius_divisor_per_stack": 2.0,
+    "radius_matcher": "NONE",
+    "radius_settings": {
+      "upper_half_additional": 17,
+      "x_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 20,
+          "min_inclusive": 8
+        }
+      },
+      "y_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 100,
+          "min_inclusive": 80
+        }
+      },
+      "z_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 18,
+          "min_inclusive": 6
+        }
+      }
+    },
+    "squared_distance_check": false,
+    "stackHeight": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 7,
+        "min_inclusive": 3
+      }
+    },
+    "top_block_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:overgrown_stone",
+        "Properties": {
+          "snowy": "false"
+        }
+      }
+    },
+    "use_scaled_noise_height": true,
+    "verifies_height": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:willow_tree4",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.01,
+        "feature": {
+          "feature": "byg:dead_willow_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:willow_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:willow_tree2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:willow_tree3",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

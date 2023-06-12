@@ -1,0 +1,19 @@
+{
+  "feature": "byg:prairie_grass",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 25
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

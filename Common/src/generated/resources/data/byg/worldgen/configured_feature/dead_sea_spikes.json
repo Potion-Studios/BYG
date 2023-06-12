@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:dead_sea_tall_spike",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "byg:dead_sea_spike",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

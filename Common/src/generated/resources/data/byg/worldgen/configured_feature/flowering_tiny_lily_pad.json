@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "byg:flowering_tiny_lily_pads"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_fluids",
+            "fluids": "minecraft:water",
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        },
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:replaceable"
+          }
+        }
+      ]
+    },
+    "tries": 10,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

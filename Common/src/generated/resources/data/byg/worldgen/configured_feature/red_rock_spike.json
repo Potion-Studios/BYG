@@ -1,0 +1,22 @@
+{
+  "type": "byg:spike",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:red_rock"
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "minecraft:terracotta"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

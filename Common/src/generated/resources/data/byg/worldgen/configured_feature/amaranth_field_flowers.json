@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:cyan_amaranth",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:amaranth",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:magenta_amaranth",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:orange_amaranth",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:purple_amaranth",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

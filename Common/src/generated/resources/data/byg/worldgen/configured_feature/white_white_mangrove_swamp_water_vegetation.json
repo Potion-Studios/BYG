@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:flowering_tiny_lily_pad",
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_fluids",
+            "fluids": "minecraft:water",
+            "offset": [
+              0,
+              -1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "byg:tiny_lily_pad",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_fluids",
+                "fluids": "minecraft:water",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

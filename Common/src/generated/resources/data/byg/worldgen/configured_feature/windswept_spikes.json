@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:windswept_tall_spike",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "byg:windswept_spike",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 498548954,
+    "separation": 2,
+    "spacing": 8
+  },
+  "structures": [
+    {
+      "structure": "byg:red_rock_arch",
+      "weight": 1
+    },
+    {
+      "structure": "byg:destroyed_red_rock_arch",
+      "weight": 1
+    }
+  ]
+}

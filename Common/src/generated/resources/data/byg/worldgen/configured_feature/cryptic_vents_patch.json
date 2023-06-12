@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:tall_cryptic_vent_patch",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "byg:cryptic_vent_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

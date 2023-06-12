@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:floating_island5",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "byg:floating_island1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:floating_island2",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:floating_island3",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

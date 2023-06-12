@@ -1,0 +1,25 @@
+{
+  "type": "byg:shattered_hollow_floating_island",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:ether_stone"
+          },
+          "weight": 45
+        }
+      ]
+    },
+    "island_features": [],
+    "max_radius": 17,
+    "min_radius": 13,
+    "top_block_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:vermilion_sculk"
+      }
+    }
+  }
+}

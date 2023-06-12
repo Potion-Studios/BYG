@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:beach_grass_patch",
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_block_tag",
+            "offset": [
+              0,
+              -1,
+              0
+            ],
+            "tag": "minecraft:sand"
+          }
+        }
+      ]
+    },
+    "features": [
+      {
+        "chance": 0.33,
+        "feature": {
+          "feature": "byg:tall_beach_grass_patch",
+          "placement": [
+            {
+              "type": "minecraft:block_predicate_filter",
+              "predicate": {
+                "type": "minecraft:matching_block_tag",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ],
+                "tag": "minecraft:sand"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

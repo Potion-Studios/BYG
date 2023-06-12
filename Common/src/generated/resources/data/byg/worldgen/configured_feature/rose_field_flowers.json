@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:rose_bush",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:osiria_rose",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "byg:blue_rose_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:rose",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "byg:pointed_rock",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:windswept_sandstone"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "byg:smooth_windswept_sandstone"
+          },
+          "weight": 2
+        }
+      ]
+    },
+    "height_multiplier": 1.0,
+    "post_features": [],
+    "seed": 85
+  }
+}

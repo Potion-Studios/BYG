@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:imparius_mushroom",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:imparius_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.4,
+        "feature": {
+          "feature": "byg:fungal_imparius_patch",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

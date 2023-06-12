@@ -1,0 +1,77 @@
+{
+  "type": "byg:wailing_pillar1",
+  "config": {
+    "disk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:podzol",
+        "Properties": {
+          "snowy": "false"
+        }
+      }
+    },
+    "disk_radius": 0,
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:polished_blackstone_bricks"
+          },
+          "weight": 4
+        },
+        {
+          "data": {
+            "Name": "minecraft:cracked_polished_blackstone_bricks"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "minecraft:blackstone"
+          },
+          "weight": 2
+        },
+        {
+          "data": {
+            "Name": "byg:dusted_polished_blackstone_bricks"
+          },
+          "weight": 3
+        }
+      ]
+    },
+    "max_height": 31,
+    "min_height": 22,
+    "trunk_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:basalt",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 8
+        },
+        {
+          "data": {
+            "Name": "minecraft:polished_basalt",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 2
+        }
+      ]
+    },
+    "whitelist": [
+      {
+        "Name": "minecraft:grass_block",
+        "Properties": {
+          "snowy": "false"
+        }
+      }
+    ]
+  }
+}

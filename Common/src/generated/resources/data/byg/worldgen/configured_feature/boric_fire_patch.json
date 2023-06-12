@@ -1,0 +1,110 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "byg:boric_fire"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:solid",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    1,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    0,
+                    -1
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    0,
+                    1
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air",
+                  "minecraft:cave_air"
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": "byg:brimstone",
+                "offset": [
+                  0,
+                  -1,
+                  0
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 24,
+    "xz_spread": 4,
+    "y_spread": 7
+  }
+}

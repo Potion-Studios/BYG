@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:delta_feature",
+  "config": {
+    "contents": {
+      "Name": "minecraft:water",
+      "Properties": {
+        "level": "0"
+      }
+    },
+    "rim": {
+      "Name": "minecraft:moss_block"
+    },
+    "rim_size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      }
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 10
+      }
+    }
+  }
+}

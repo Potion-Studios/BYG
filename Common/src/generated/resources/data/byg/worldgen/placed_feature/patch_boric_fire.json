@@ -1,0 +1,12 @@
+{
+  "feature": "byg:boric_fire_patch",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:green_tulip",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:magenta_tulip",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:yellow_tulip",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:purple_tulip",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "byg:cyan_tulip",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

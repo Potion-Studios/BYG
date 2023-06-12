@@ -1,0 +1,105 @@
+{
+  "type": "corgilib:tree_from_nbt",
+  "config": {
+    "base_location": "byg:features/trees/witch-hazel/witch-hazel_trunk_1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "byg:may_place_on/witch_hazel_sapling"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "byg:features/trees/witch-hazel/witch-hazel_canopy_1",
+    "decorators": [
+      {
+        "type": "byg:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "byg:witch_hazel_blossom"
+          }
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 15,
+        "exclusion_radius_y": 15,
+        "probability": 0.1,
+        "required_empty_blocks": 3
+      },
+      {
+        "type": "byg:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "byg:witch_hazel_branch",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.65,
+        "required_empty_blocks": 2
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 5
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:blooming_witch_hazel_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "byg:witch_hazel_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 4
+        }
+      ]
+    },
+    "leaves_target": [
+      "byg:witch_hazel_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:witch_hazel_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "byg:witch_hazel_log"
+    ],
+    "place_from_nbt": []
+  }
+}

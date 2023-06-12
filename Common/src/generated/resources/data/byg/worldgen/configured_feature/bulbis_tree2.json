@@ -1,0 +1,80 @@
+{
+  "type": "corgilib:tree_from_nbt",
+  "config": {
+    "base_location": "byg:features/trees/bulbis/bulbis_trunk2",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "byg:may_place_on/bulbis_oddity"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "byg:features/trees/bulbis/bulbis_canopy2",
+    "decorators": [
+      {
+        "type": "minecraft:attached_to_leaves",
+        "block_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "data": {
+                "Name": "byg:purple_shroomlight"
+              },
+              "weight": 1
+            }
+          ]
+        },
+        "directions": [
+          "down"
+        ],
+        "exclusion_radius_xz": 2,
+        "exclusion_radius_y": 0,
+        "probability": 0.2,
+        "required_empty_blocks": 2
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 15,
+        "min_inclusive": 8
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:bulbis_shell",
+            "Properties": {
+              "down": "true",
+              "east": "true",
+              "north": "true",
+              "south": "true",
+              "up": "true",
+              "west": "true"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "byg:bulbis_shell"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:bulbis_stem",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "byg:bulbis_stem",
+      "byg:bulbis_wood"
+    ],
+    "place_from_nbt": []
+  }
+}

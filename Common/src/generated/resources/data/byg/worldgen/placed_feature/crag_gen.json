@@ -1,0 +1,22 @@
+{
+  "feature": "byg:crag_gen",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 3
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "byg:above_heightmap_filter",
+      "above_type": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "above_noise": 0,
+      "below_noise": 1,
+      "noise_level": 0.0
+    }
+  ]
+}

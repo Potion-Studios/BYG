@@ -1,0 +1,42 @@
+{
+  "feature": "byg:bayou_trees",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 4,
+            "weight": 4
+          },
+          {
+            "data": 6,
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:random_offset",
+      "xz_spread": 0,
+      "y_spread": {
+        "type": "minecraft:biased_to_bottom",
+        "value": {
+          "max_inclusive": 5,
+          "min_inclusive": 3
+        }
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

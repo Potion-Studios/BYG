@@ -1,0 +1,348 @@
+{
+  "type": "byg:noisy_cave_sphere",
+  "config": {
+    "2d_noise_chance": 0.25,
+    "belowSurfaceDepth": 2147483647,
+    "block_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:cave_air"
+      }
+    },
+    "edge_features": [
+      {
+        "feature": "byg:cryptic_fire",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 5
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      -1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "byg:cryptic_stone",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": "byg:cryptic_vents",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 10
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      -1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "byg:cryptic_stone",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": "byg:cryptic_bramble",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 12
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:solid",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      -1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      1,
+                      0,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      -1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      0,
+                      1
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:not",
+                  "predicate": {
+                    "type": "minecraft:solid",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:air",
+                    "minecraft:cave_air"
+                  ]
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": "byg:cryptic_stone",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "fluidState": {
+      "Name": "minecraft:lava",
+      "Properties": {
+        "falling": "true"
+      }
+    },
+    "fluid_start_y": -2147483648,
+    "noise_frequency": 0.04,
+    "pointed": false,
+    "radius_divisor_per_stack": 1.0,
+    "radius_matcher": "NONE",
+    "radius_settings": {
+      "upper_half_additional": 0,
+      "x_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 24,
+          "min_inclusive": 16
+        }
+      },
+      "y_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 16,
+          "min_inclusive": 10
+        }
+      },
+      "z_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 24,
+          "min_inclusive": 16
+        }
+      }
+    },
+    "squared_distance_check": true,
+    "stackHeight": 1,
+    "top_block_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:cave_air"
+      }
+    },
+    "use_scaled_noise_height": true,
+    "verifies_height": false
+  }
+}

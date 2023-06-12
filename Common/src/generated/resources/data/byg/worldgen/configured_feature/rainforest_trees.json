@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:mahogany_trees",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.35,
+        "feature": {
+          "feature": "byg:tropical_shrub1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

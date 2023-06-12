@@ -1,0 +1,10 @@
+{
+  "type": "byg:ancient_sequoia_tree",
+  "biomes": "#byg:has_structure/ancient_sequoia",
+  "config": {
+    "location": "byg:features/trees/ancient/ancient_sequoia",
+    "no_air": true
+  },
+  "spawn_overrides": {},
+  "step": "vegetal_decoration"
+}

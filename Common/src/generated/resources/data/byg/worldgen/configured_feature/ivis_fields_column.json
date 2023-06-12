@@ -1,0 +1,1242 @@
+{
+  "type": "byg:sphere",
+  "config": {
+    "2d_noise_chance": 0.25,
+    "belowSurfaceDepth": 2147483647,
+    "block_provider": {
+      "type": "byg:between_noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "firstOctave": -9
+      },
+      "outside_noise_state_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:obsidian"
+        }
+      },
+      "scale": 1.0,
+      "seed": 2222,
+      "thresholds": [
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.9875,
+            "min_inclusive": -1.0
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.96250004,
+            "min_inclusive": -0.975
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.93750006,
+            "min_inclusive": -0.95000005
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.9125001,
+            "min_inclusive": -0.9250001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.8875001,
+            "min_inclusive": -0.9000001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.86250013,
+            "min_inclusive": -0.8750001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.83750015,
+            "min_inclusive": -0.85000014
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.8125002,
+            "min_inclusive": -0.82500017
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7875002,
+            "min_inclusive": -0.8000002
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7625002,
+            "min_inclusive": -0.7750002
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.73750025,
+            "min_inclusive": -0.75000024
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7125003,
+            "min_inclusive": -0.72500026
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.6875003,
+            "min_inclusive": -0.7000003
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.6625003,
+            "min_inclusive": -0.6750003
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.63750035,
+            "min_inclusive": -0.65000033
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.61250037,
+            "min_inclusive": -0.62500036
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.5875004,
+            "min_inclusive": -0.6000004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.5625004,
+            "min_inclusive": -0.5750004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.53750044,
+            "min_inclusive": -0.5500004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.51250046,
+            "min_inclusive": -0.52500045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.4875005,
+            "min_inclusive": -0.5000005
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.46250048,
+            "min_inclusive": -0.47500047
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.43750048,
+            "min_inclusive": -0.45000046
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.41250047,
+            "min_inclusive": -0.42500046
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.38750046,
+            "min_inclusive": -0.40000045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.36250046,
+            "min_inclusive": -0.37500045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.33750045,
+            "min_inclusive": -0.35000044
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.31250045,
+            "min_inclusive": -0.32500044
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.28750044,
+            "min_inclusive": -0.30000043
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.26250044,
+            "min_inclusive": -0.27500042
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.23750041,
+            "min_inclusive": -0.25000042
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.21250041,
+            "min_inclusive": -0.22500041
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.1875004,
+            "min_inclusive": -0.2000004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.1625004,
+            "min_inclusive": -0.1750004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.13750039,
+            "min_inclusive": -0.1500004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.112500384,
+            "min_inclusive": -0.12500039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.087500386,
+            "min_inclusive": -0.10000039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.06250039,
+            "min_inclusive": -0.07500039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.037500393,
+            "min_inclusive": -0.050000392
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.012500391,
+            "min_inclusive": -0.025000392
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.012499609,
+            "min_inclusive": -3.9115548E-7
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.03749961,
+            "min_inclusive": 0.02499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.06249961,
+            "min_inclusive": 0.04999961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.08749961,
+            "min_inclusive": 0.07499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.11249961,
+            "min_inclusive": 0.09999961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.1374996,
+            "min_inclusive": 0.124999605
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.1624996,
+            "min_inclusive": 0.1499996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.18749961,
+            "min_inclusive": 0.17499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.21249962,
+            "min_inclusive": 0.19999962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.23749962,
+            "min_inclusive": 0.22499962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.26249963,
+            "min_inclusive": 0.24999963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.2874996,
+            "min_inclusive": 0.27499962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.3124996,
+            "min_inclusive": 0.29999962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.33749962,
+            "min_inclusive": 0.32499963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.36249962,
+            "min_inclusive": 0.34999964
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.38749963,
+            "min_inclusive": 0.37499964
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.41249964,
+            "min_inclusive": 0.39999965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.43749964,
+            "min_inclusive": 0.42499965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.46249965,
+            "min_inclusive": 0.44999966
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.48749965,
+            "min_inclusive": 0.47499967
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.5124997,
+            "min_inclusive": 0.49999967
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.53749967,
+            "min_inclusive": 0.5249997
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.56249964,
+            "min_inclusive": 0.54999965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.5874996,
+            "min_inclusive": 0.57499963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6124996,
+            "min_inclusive": 0.5999996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6374996,
+            "min_inclusive": 0.6249996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.66249955,
+            "min_inclusive": 0.64999956
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6874995,
+            "min_inclusive": 0.67499954
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7124995,
+            "min_inclusive": 0.6999995
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7374995,
+            "min_inclusive": 0.7249995
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.76249945,
+            "min_inclusive": 0.74999946
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7874994,
+            "min_inclusive": 0.77499944
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.8124994,
+            "min_inclusive": 0.7999994
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.8374994,
+            "min_inclusive": 0.8249994
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.86249936,
+            "min_inclusive": 0.84999937
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.88749933,
+            "min_inclusive": 0.87499934
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.9124993,
+            "min_inclusive": 0.8999993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.9374993,
+            "min_inclusive": 0.9249993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.96249926,
+            "min_inclusive": 0.9499993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.98749924,
+            "min_inclusive": 0.97499925
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 1.0124992,
+            "min_inclusive": 0.9999992
+          }
+        }
+      ],
+      "use_3d_noise": false,
+      "within_noise_state_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:crying_obsidian"
+        }
+      }
+    },
+    "edge_features": [],
+    "fluidState": {
+      "Name": "minecraft:empty"
+    },
+    "fluid_start_y": -2147483648,
+    "noise_frequency": 0.09,
+    "pointed": false,
+    "radius_divisor_per_stack": 2.0,
+    "radius_matcher": "NONE",
+    "radius_settings": {
+      "upper_half_additional": 17,
+      "x_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 20,
+          "min_inclusive": 8
+        }
+      },
+      "y_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 100,
+          "min_inclusive": 80
+        }
+      },
+      "z_radius": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": 18,
+          "min_inclusive": 6
+        }
+      }
+    },
+    "squared_distance_check": false,
+    "stackHeight": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 7,
+        "min_inclusive": 3
+      }
+    },
+    "top_block_provider": {
+      "type": "byg:between_noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "firstOctave": -9
+      },
+      "outside_noise_state_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:obsidian"
+        }
+      },
+      "scale": 1.0,
+      "seed": 2222,
+      "thresholds": [
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.9875,
+            "min_inclusive": -1.0
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.96250004,
+            "min_inclusive": -0.975
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.93750006,
+            "min_inclusive": -0.95000005
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.9125001,
+            "min_inclusive": -0.9250001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.8875001,
+            "min_inclusive": -0.9000001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.86250013,
+            "min_inclusive": -0.8750001
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.83750015,
+            "min_inclusive": -0.85000014
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.8125002,
+            "min_inclusive": -0.82500017
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7875002,
+            "min_inclusive": -0.8000002
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7625002,
+            "min_inclusive": -0.7750002
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.73750025,
+            "min_inclusive": -0.75000024
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.7125003,
+            "min_inclusive": -0.72500026
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.6875003,
+            "min_inclusive": -0.7000003
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.6625003,
+            "min_inclusive": -0.6750003
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.63750035,
+            "min_inclusive": -0.65000033
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.61250037,
+            "min_inclusive": -0.62500036
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.5875004,
+            "min_inclusive": -0.6000004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.5625004,
+            "min_inclusive": -0.5750004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.53750044,
+            "min_inclusive": -0.5500004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.51250046,
+            "min_inclusive": -0.52500045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.4875005,
+            "min_inclusive": -0.5000005
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.46250048,
+            "min_inclusive": -0.47500047
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.43750048,
+            "min_inclusive": -0.45000046
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.41250047,
+            "min_inclusive": -0.42500046
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.38750046,
+            "min_inclusive": -0.40000045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.36250046,
+            "min_inclusive": -0.37500045
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.33750045,
+            "min_inclusive": -0.35000044
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.31250045,
+            "min_inclusive": -0.32500044
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.28750044,
+            "min_inclusive": -0.30000043
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.26250044,
+            "min_inclusive": -0.27500042
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.23750041,
+            "min_inclusive": -0.25000042
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.21250041,
+            "min_inclusive": -0.22500041
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.1875004,
+            "min_inclusive": -0.2000004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.1625004,
+            "min_inclusive": -0.1750004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.13750039,
+            "min_inclusive": -0.1500004
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.112500384,
+            "min_inclusive": -0.12500039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.087500386,
+            "min_inclusive": -0.10000039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.06250039,
+            "min_inclusive": -0.07500039
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.037500393,
+            "min_inclusive": -0.050000392
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": -0.012500391,
+            "min_inclusive": -0.025000392
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.012499609,
+            "min_inclusive": -3.9115548E-7
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.03749961,
+            "min_inclusive": 0.02499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.06249961,
+            "min_inclusive": 0.04999961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.08749961,
+            "min_inclusive": 0.07499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.11249961,
+            "min_inclusive": 0.09999961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.1374996,
+            "min_inclusive": 0.124999605
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.1624996,
+            "min_inclusive": 0.1499996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.18749961,
+            "min_inclusive": 0.17499961
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.21249962,
+            "min_inclusive": 0.19999962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.23749962,
+            "min_inclusive": 0.22499962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.26249963,
+            "min_inclusive": 0.24999963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.2874996,
+            "min_inclusive": 0.27499962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.3124996,
+            "min_inclusive": 0.29999962
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.33749962,
+            "min_inclusive": 0.32499963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.36249962,
+            "min_inclusive": 0.34999964
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.38749963,
+            "min_inclusive": 0.37499964
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.41249964,
+            "min_inclusive": 0.39999965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.43749964,
+            "min_inclusive": 0.42499965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.46249965,
+            "min_inclusive": 0.44999966
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.48749965,
+            "min_inclusive": 0.47499967
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.5124997,
+            "min_inclusive": 0.49999967
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.53749967,
+            "min_inclusive": 0.5249997
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.56249964,
+            "min_inclusive": 0.54999965
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.5874996,
+            "min_inclusive": 0.57499963
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6124996,
+            "min_inclusive": 0.5999996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6374996,
+            "min_inclusive": 0.6249996
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.66249955,
+            "min_inclusive": 0.64999956
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.6874995,
+            "min_inclusive": 0.67499954
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7124995,
+            "min_inclusive": 0.6999995
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7374995,
+            "min_inclusive": 0.7249995
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.76249945,
+            "min_inclusive": 0.74999946
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.7874994,
+            "min_inclusive": 0.77499944
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.8124994,
+            "min_inclusive": 0.7999994
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.8374994,
+            "min_inclusive": 0.8249994
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.86249936,
+            "min_inclusive": 0.84999937
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.88749933,
+            "min_inclusive": 0.87499934
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.9124993,
+            "min_inclusive": 0.8999993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.9374993,
+            "min_inclusive": 0.9249993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.96249926,
+            "min_inclusive": 0.9499993
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 0.98749924,
+            "min_inclusive": 0.97499925
+          }
+        },
+        {
+          "type": "minecraft:uniform",
+          "value": {
+            "max_exclusive": 1.0124992,
+            "min_inclusive": 0.9999992
+          }
+        }
+      ],
+      "use_3d_noise": false,
+      "within_noise_state_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:crying_obsidian"
+        }
+      }
+    },
+    "use_scaled_noise_height": true,
+    "verifies_height": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:deciduous_trees",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": {
+          "feature": "minecraft:jungle_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.45,
+        "feature": {
+          "feature": "byg:ebony_trees",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

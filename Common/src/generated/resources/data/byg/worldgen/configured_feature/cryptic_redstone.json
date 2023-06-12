@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 8,
+    "targets": [
+      {
+        "state": {
+          "Name": "byg:cryptic_redstone_ore",
+          "Properties": {
+            "lit": "false"
+          }
+        },
+        "target": {
+          "block": "byg:cryptic_stone",
+          "predicate_type": "minecraft:block_match"
+        }
+      }
+    ]
+  }
+}

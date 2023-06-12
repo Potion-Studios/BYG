@@ -1,0 +1,31 @@
+{
+  "type": "byg:pumpkin2",
+  "config": {
+    "leaves_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dark_oak_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
+      }
+    },
+    "pumpkin_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:pumpkin"
+      }
+    },
+    "stem_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dark_oak_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    }
+  }
+}

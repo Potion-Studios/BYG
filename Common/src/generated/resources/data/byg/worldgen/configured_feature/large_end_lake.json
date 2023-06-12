@@ -1,0 +1,24 @@
+{
+  "type": "byg:overworld_lake",
+  "config": {
+    "edgeStateProvider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:end_stone"
+      }
+    },
+    "edgeStateProvider_placement": [],
+    "edge_features": [],
+    "floorStateProvider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:end_stone"
+      }
+    },
+    "maxDepth": 12,
+    "maxRadius": 22,
+    "minDepth": 7,
+    "minRadius": 15,
+    "surface_features": []
+  }
+}

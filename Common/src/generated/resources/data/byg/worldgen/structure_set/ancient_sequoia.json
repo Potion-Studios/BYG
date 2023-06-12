@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 983248973,
+    "separation": 20,
+    "spacing": 80,
+    "spread_type": "triangular"
+  },
+  "structures": [
+    {
+      "structure": "byg:ancient_sequoia",
+      "weight": 1
+    }
+  ]
+}

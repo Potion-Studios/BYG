@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 10,
+    "targets": [
+      {
+        "state": {
+          "Name": "byg:brimstone_nether_quartz_ore"
+        },
+        "target": {
+          "block": "byg:brimstone",
+          "predicate_type": "minecraft:block_match"
+        }
+      }
+    ]
+  }
+}

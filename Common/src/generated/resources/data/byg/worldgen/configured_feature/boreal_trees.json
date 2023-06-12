@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:bluff_tree1",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "byg:birch_yellow_boreal_tree1",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.3,
+        "feature": {
+          "feature": "byg:birch_boreal_tree1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

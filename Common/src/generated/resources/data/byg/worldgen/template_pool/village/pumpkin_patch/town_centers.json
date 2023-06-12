@@ -1,0 +1,32 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_1",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      },
+      "weight": 35
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_2",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      },
+      "weight": 35
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/pumpkin_patch/town_centers/pumpkin_patch_meeting_point_3",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      },
+      "weight": 35
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

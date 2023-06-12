@@ -1,0 +1,69 @@
+{
+  "type": "byg:death_cap_tree1",
+  "config": {
+    "max_height": 13,
+    "min_height": 6,
+    "mushroom2_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:death_cap_mushroom_block",
+        "Properties": {
+          "down": "true",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
+        }
+      }
+    },
+    "mushroom3_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:death_cap_mushroom_block",
+        "Properties": {
+          "down": "true",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
+        }
+      }
+    },
+    "mushroom_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:death_cap_mushroom_block",
+        "Properties": {
+          "down": "true",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
+        }
+      }
+    },
+    "pollen_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:pollen_block"
+      }
+    },
+    "stem_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:mushroom_stem",
+        "Properties": {
+          "down": "true",
+          "east": "true",
+          "north": "true",
+          "south": "true",
+          "up": "true",
+          "west": "true"
+        }
+      }
+    }
+  }
+}

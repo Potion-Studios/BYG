@@ -1,0 +1,31 @@
+{
+  "type": "byg:tall_pointed_rock",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:stone"
+          },
+          "weight": 6
+        },
+        {
+          "data": {
+            "Name": "minecraft:andesite"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "byg:rocky_stone"
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "height_multiplier": 1.0,
+    "post_features": [],
+    "seed": 85
+  }
+}

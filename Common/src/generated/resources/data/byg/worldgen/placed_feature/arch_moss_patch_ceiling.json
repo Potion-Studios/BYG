@@ -1,0 +1,20 @@
+{
+  "feature": "minecraft:moss_patch_ceiling",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 350
+    },
+    {
+      "type": "minecraft:random_offset",
+      "xz_spread": 0,
+      "y_spread": {
+        "type": "minecraft:uniform",
+        "value": {
+          "max_inclusive": -10,
+          "min_inclusive": -15
+        }
+      }
+    }
+  ]
+}

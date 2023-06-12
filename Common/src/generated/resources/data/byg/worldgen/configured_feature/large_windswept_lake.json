@@ -1,0 +1,180 @@
+{
+  "type": "byg:overworld_lake",
+  "config": {
+    "edgeStateProvider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:windswept_sand"
+      }
+    },
+    "edgeStateProvider_placement": [],
+    "edge_features": [
+      {
+        "feature": "minecraft:dripleaf",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 8
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:big_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "tilt": "none",
+                      "waterlogged": "false"
+                    }
+                  }
+                },
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:small_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "half": "lower",
+                      "waterlogged": "false"
+                    }
+                  }
+                },
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:small_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "half": "lower",
+                      "waterlogged": "false"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": "byg:palm_trees",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 30
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR_WG"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:would_survive",
+              "state": {
+                "Name": "byg:palm_sapling",
+                "Properties": {
+                  "stage": "0"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "floorStateProvider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:windswept_sand"
+      }
+    },
+    "maxDepth": 10,
+    "maxRadius": 22,
+    "minDepth": 4,
+    "minRadius": 15,
+    "surface_features": [
+      {
+        "feature": "byg:tiny_lily_pad",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 95
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_fluids",
+              "fluids": "minecraft:water",
+              "offset": [
+                0,
+                -1,
+                0
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": "minecraft:dripleaf",
+        "placement": [
+          {
+            "type": "minecraft:rarity_filter",
+            "chance": 80
+          },
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "OCEAN_FLOOR"
+          },
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:any_of",
+              "predicates": [
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:big_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "tilt": "none",
+                      "waterlogged": "false"
+                    }
+                  }
+                },
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:small_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "half": "lower",
+                      "waterlogged": "false"
+                    }
+                  }
+                },
+                {
+                  "type": "minecraft:would_survive",
+                  "state": {
+                    "Name": "minecraft:small_dripleaf",
+                    "Properties": {
+                      "facing": "north",
+                      "half": "lower",
+                      "waterlogged": "false"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "feature": "byg:soul_shroom_trees",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 8
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

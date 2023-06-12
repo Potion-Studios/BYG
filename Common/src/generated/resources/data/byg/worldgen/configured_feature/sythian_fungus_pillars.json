@@ -1,0 +1,28 @@
+{
+  "type": "byg:pillar",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:sythian_hyphae",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 9
+        },
+        {
+          "data": {
+            "Name": "byg:sythian_hyphae",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

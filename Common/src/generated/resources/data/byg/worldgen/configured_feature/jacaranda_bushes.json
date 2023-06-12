@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:jacaranda_bush",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:flowering_indigo_jacaranda_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:flowering_jacaranda_bush",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:indigo_jacaranda_bush",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "type": "corgilib:tree_from_nbt",
+  "config": {
+    "base_location": "byg:features/trees/aspen/aspen_trunk1",
+    "can_grow_on_filter": {
+      "type": "minecraft:matching_block_tag",
+      "tag": "byg:may_place_on/aspen_sapling"
+    },
+    "can_leaves_place_filter": {
+      "type": "minecraft:replaceable"
+    },
+    "canopy_location": "byg:features/trees/aspen/aspen_canopy1",
+    "decorators": [
+      {
+        "type": "byg:attached_to_logs",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "byg:shelf_fungi",
+            "Properties": {
+              "facing": "north",
+              "waterlogged": "false"
+            }
+          }
+        },
+        "directions": [
+          "west",
+          "north",
+          "south",
+          "east"
+        ],
+        "exclusion_radius_xz": 0,
+        "exclusion_radius_y": 1,
+        "probability": 0.3,
+        "required_empty_blocks": 2
+      }
+    ],
+    "height": {
+      "type": "minecraft:biased_to_bottom",
+      "value": {
+        "max_inclusive": 12,
+        "min_inclusive": 7
+      }
+    },
+    "leaves_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:aspen_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    },
+    "leaves_target": [
+      "byg:aspen_leaves"
+    ],
+    "log_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "byg:aspen_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "log_target": [
+      "byg:aspen_log"
+    ],
+    "max_log_depth": 4,
+    "place_from_nbt": []
+  }
+}

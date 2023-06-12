@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:lush_stacks_tall_spike",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.75,
+        "feature": {
+          "feature": "byg:lush_stacks_spike",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

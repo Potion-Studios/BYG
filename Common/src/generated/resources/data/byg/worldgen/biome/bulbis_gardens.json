@@ -1,0 +1,75 @@
+{
+  "carvers": {},
+  "downfall": 0.8,
+  "effects": {
+    "additions_sound": {
+      "sound": "minecraft:ambient.crimson_forest.additions",
+      "tick_chance": 0.0111
+    },
+    "ambient_sound": "byg:ambient_end_forest",
+    "fog_color": 8339307,
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.crimson_forest.mood",
+      "tick_delay": 6000
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.end"
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:witch"
+      },
+      "probability": 0.00428
+    },
+    "sky_color": 8364543,
+    "water_color": 10040012,
+    "water_fog_color": 10040012
+  },
+  "features": [
+    [
+      "byg:therium_deposit"
+    ],
+    [],
+    [],
+    [],
+    [
+      "minecraft:end_gateway_return"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "byg:mixed_color_bulbis_trees",
+      "byg:bulbis_oddities",
+      "byg:bulbis_sprouts",
+      "byg:bulbis_anomalies",
+      "minecraft:chorus_plant"
+    ]
+  ],
+  "precipitation": "none",
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "minecraft:enderman",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 60
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "byg:vermilion_sculk_growth"
+                },
+                "weight": 5
+              },
+              {
+                "data": {
+                  "Name": "byg:vermilion_sculk_tendrils"
+                },
+                "weight": 5
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING"
+        }
+      ]
+    },
+    "tries": 64,
+    "xz_spread": 16,
+    "y_spread": 4
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_corner_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_corner_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_straight_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_straight_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_straight_03",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_crossroad_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_crossroad_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_crossroad_03",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_square_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_square_02",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "byg:village/red_rock/streets/red_rock_turn_01",
+        "processors": {
+          "processors": []
+        },
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "byg:village/red_rock/terminators"
+}

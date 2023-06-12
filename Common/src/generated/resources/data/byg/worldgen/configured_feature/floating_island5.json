@@ -1,0 +1,152 @@
+{
+  "type": "byg:floating_island5",
+  "config": {
+    "block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:ether_stone"
+          },
+          "weight": 25
+        },
+        {
+          "data": {
+            "Name": "byg:budding_ametrine_ore"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "byg:ametrine_ore"
+          },
+          "weight": 4
+        }
+      ]
+    },
+    "island_features": [
+      {
+        "feature": {
+          "type": "minecraft:random_patch",
+          "config": {
+            "feature": {
+              "feature": {
+                "type": "minecraft:simple_block",
+                "config": {
+                  "to_place": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "byg:ametrine_cluster",
+                      "Properties": {
+                        "facing": "up",
+                        "waterlogged": "false"
+                      }
+                    }
+                  }
+                }
+              },
+              "placement": [
+                {
+                  "type": "minecraft:heightmap",
+                  "heightmap": "MOTION_BLOCKING"
+                },
+                {
+                  "type": "minecraft:block_predicate_filter",
+                  "predicate": {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "byg:budding_ametrine_ore",
+                    "offset": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  }
+                }
+              ]
+            },
+            "tries": 64,
+            "xz_spread": 16,
+            "y_spread": 4
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:random_patch",
+          "config": {
+            "feature": {
+              "feature": {
+                "type": "minecraft:simple_block",
+                "config": {
+                  "to_place": {
+                    "type": "minecraft:weighted_state_provider",
+                    "entries": [
+                      {
+                        "data": {
+                          "Name": "byg:vermilion_sculk_growth"
+                        },
+                        "weight": 5
+                      },
+                      {
+                        "data": {
+                          "Name": "byg:vermilion_sculk_tendrils"
+                        },
+                        "weight": 5
+                      }
+                    ]
+                  }
+                }
+              },
+              "placement": [
+                {
+                  "type": "minecraft:heightmap",
+                  "heightmap": "MOTION_BLOCKING"
+                }
+              ]
+            },
+            "tries": 64,
+            "xz_spread": 16,
+            "y_spread": 4
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:heightmap",
+            "heightmap": "MOTION_BLOCKING"
+          }
+        ]
+      }
+    ],
+    "max_radius": 17,
+    "min_radius": 13,
+    "top_block_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "byg:vermilion_sculk"
+          },
+          "weight": 25
+        },
+        {
+          "data": {
+            "Name": "byg:budding_ametrine_ore"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "byg:ametrine_ore"
+          },
+          "weight": 4
+        }
+      ]
+    }
+  }
+}

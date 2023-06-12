@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:oak_trees",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:red_oak_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:brown_oak_trees",
+          "placement": []
+        }
+      },
+      {
+        "chance": 0.25,
+        "feature": {
+          "feature": "byg:orange_oak_trees",
+          "placement": []
+        }
+      }
+    ]
+  }
+}
