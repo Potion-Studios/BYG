@@ -3,10 +3,18 @@ package potionstudios.byg.util;
 import com.google.auto.service.AutoService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MobBucketItem;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.ModList;
@@ -19,6 +27,7 @@ import potionstudios.byg.network.packet.BYGS2CPacket;
 import terrablender.api.SurfaceRuleManager;
 
 import java.nio.file.Path;
+import java.util.function.Supplier;
 
 @AutoService(ModPlatform.class)
 public class ForgeModPlatform implements ModPlatform {
@@ -76,5 +85,15 @@ public class ForgeModPlatform implements ModPlatform {
     @Override
     public SurfaceRules.RuleSource getTerraBlenderNetherSurfaceRules(SurfaceRules.RuleSource fallBack) {
         return SurfaceRuleManager.getNamespacedRules(SurfaceRuleManager.RuleCategory.NETHER, fallBack);
+    }
+
+    @Override
+    public SpawnEggItem createSpawnEgg(Supplier<? extends EntityType<? extends Mob>> type, int backgroundColor, int highlightColor, Item.Properties properties) {
+        return new ForgeSpawnEggItem(type, backgroundColor, highlightColor, properties);
+    }
+
+    @Override
+    public MobBucketItem createMobBucketItem(Supplier<? extends EntityType<?>> entitySupplier, Supplier<? extends Fluid> fluidSupplier, Supplier<? extends SoundEvent> soundSupplier, Item.Properties properties) {
+        return new MobBucketItem(entitySupplier, fluidSupplier, soundSupplier, properties);
     }
 }

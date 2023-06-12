@@ -3,16 +3,24 @@ package potionstudios.byg.common.world.feature.features;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
+import potionstudios.byg.common.world.biome.BYGBiomeTags;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.BYGGlobalPlacedFeatures;
 import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
+import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
+import potionstudios.byg.common.world.placement.IsBiomeTagFilter;
 
 import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.*;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.globalGenStagePath;
+import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.globalFeaturePath;
 
 public class BYGGlobalFeatures {
 
@@ -55,14 +63,8 @@ public class BYGGlobalFeatures {
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOBAL_VEGETAL_DECORATION = createConfiguredFeature(globalGenStagePath(VEGETAL_DECORATION),
             BYGFeatures.GLOBAL, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-               return new GlobalBiomeFeature.Config(HolderSet.direct(
-// TODO: Race Condition?
-//                        BYGPlacedFeaturesUtil.createPlacedFeature(globalFeaturePath("palm_trees"), BYGOverworldTreeFeatures.PALM_TREES,
-//                                () -> PlacementUtils.countExtra(0, 0.5F, 1), InSquarePlacement::spread, () -> SurfaceWaterDepthFilter.forMaxDepth(0),
-//                                () -> PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, () -> new IsBiomeTagFilter(BYGBiomeTags.HAS_PALM_TREES)
-//                        )
-                ));
+                HolderGetter<PlacedFeature> lookup = configuredFeatureBootstapContext.lookup(Registries.PLACED_FEATURE);
+                return new GlobalBiomeFeature.Config(HolderSet.direct(lookup.getOrThrow(BYGGlobalPlacedFeatures.PALM_TREES)));
             }
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOBAL_TOP_LAYER_MODIFICATION = createConfiguredFeature(globalGenStagePath(TOP_LAYER_MODIFICATION),

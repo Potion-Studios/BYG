@@ -20,6 +20,7 @@ import potionstudios.byg.mixin.access.HoeItemAccess;
 import potionstudios.byg.mixin.access.PickaxeItemAccess;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
+import potionstudios.byg.util.ModPlatform;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -35,10 +36,10 @@ public class BYGItems {
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
     public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties()), "biomepedia");
 
-    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> new SpawnEggItem(BYGEntities.MAN_O_WAR.get(), new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties())), "man_o_war_spawn_egg");
-    public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> new SpawnEggItem(BYGEntities.PUMPKIN_WARDEN.get(), new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties())), "pumpkin_warden_spawn_egg");
+    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> ModPlatform.INSTANCE.createSpawnEgg(BYGEntities.MAN_O_WAR, new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties())), "man_o_war_spawn_egg");
+    public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> ModPlatform.INSTANCE.createSpawnEgg(BYGEntities.PUMPKIN_WARDEN, new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties())), "pumpkin_warden_spawn_egg");
 
-    public static final RegistryObject<Item> MAN_O_WAR_BUCKET = createItem(() -> new MobBucketItem(BYGEntities.MAN_O_WAR.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)), "man_o_war_bucket");
+    public static final RegistryObject<Item> MAN_O_WAR_BUCKET = createItem(() -> ModPlatform.INSTANCE.createMobBucketItem(BYGEntities.MAN_O_WAR, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)), "man_o_war_bucket");
 
 
     public static final RegistryObject<Item> PEAT = createItem(BYGBlocks.PEAT);

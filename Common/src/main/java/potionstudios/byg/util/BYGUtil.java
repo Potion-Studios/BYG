@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -30,15 +29,6 @@ public class BYGUtil {
 
     public static boolean useTagReplacements = false;
 
-    /*
-     * Part of the Cyanide mod.
-     * Licensed under MIT. See the project LICENSE.txt for details.
-     */
-    public static final ThreadLocal<RegistryAccess> CAPTURED_REGISTRY_ACCESS = ThreadLocal.withInitial(() -> null);
-
-    public static void captureRegistryAccess(RegistryAccess registryAccess) {
-        CAPTURED_REGISTRY_ACCESS.set(registryAccess);
-    }
 
     public static <V> List<List<V>> convert2DArray(V[][] arrayToConvert) {
         List<List<V>> convertedArrays = new ArrayList<>();

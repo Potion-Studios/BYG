@@ -30,7 +30,7 @@ import static potionstudios.byg.common.world.biome.BYGOverworldBiomes.*;
 public class BYGBiomes {
 
     public static final RegistrationProvider<Biome> PROVIDER = RegistrationProvider.get(Registries.BIOME, BYG.MOD_ID);
-    public static final Multimap<TagKey<Biome>, RegistryObject<Biome>> BIOMES_BY_TAG = Multimaps.newSetMultimap(new HashMap<>(), HashSet::new);
+    public static final Multimap<TagKey<Biome>, ResourceKey<Biome>> BIOMES_BY_TAG = Multimaps.newSetMultimap(new HashMap<>(), HashSet::new);
 
     public static final Map<ResourceKey<Biome>, BiomeFactory> BIOME_FACTORIES = new Reference2ObjectOpenHashMap<>();
 
@@ -119,18 +119,19 @@ public class BYGBiomes {
 
     @SafeVarargs
     public static <B extends Biome> ResourceKey<Biome> createBiome(String id, BiomeFactory biomeFactory, TagKey<Biome>... tags) {
+        ResourceKey<Biome> biomeResourceKey = ResourceKey.create(Registries.BIOME, BYG.createLocation(id));
+        BIOME_FACTORIES.put(biomeResourceKey, biomeFactory);
 
         if (BYGConstants.BIOMES) {
             for (TagKey<Biome> tag : tags) {
                 if (!tag.location().getNamespace().equals(BYG.MOD_ID)) {
                     throw new IllegalArgumentException("Tag key must be from the BYG namespace!");
                 }
-//            TODO:    BIOMES_BY_TAG.put(tag, reg);
+                BIOMES_BY_TAG.put(tag, biomeResourceKey);
             }
         }
 
-        ResourceKey<Biome> biomeResourceKey = ResourceKey.create(Registries.BIOME, BYG.createLocation(id));
-        BIOME_FACTORIES.put(biomeResourceKey, biomeFactory);
+
 
         return biomeResourceKey;
     }

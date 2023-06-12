@@ -13,6 +13,7 @@ import potionstudios.byg.common.sound.BYGSounds;
 import potionstudios.byg.common.world.biome.BYGBiomeSources;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
+import potionstudios.byg.common.world.feature.BYGGlobalPlacedFeatures;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 import potionstudios.byg.common.world.feature.features.BYGGlobalFeatureFeatures;
 import potionstudios.byg.common.world.feature.features.BYGGlobalFeatures;
@@ -51,6 +52,7 @@ public class BYGRegistry {
         BYGOverworldVegetationFeatures.loadClass();
         BYGOverworldFeatures.loadClass();
         BYGGlobalFeatureFeatures.loadClass();
+        BYGGlobalPlacedFeatures.loadClass();
         BYGGlobalFeatures.loadClass();
         BYGEndVegetationFeatures.loadClass();
         BYGEndFeatures.loadClass();
