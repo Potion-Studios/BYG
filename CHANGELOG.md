@@ -1,3 +1,9 @@
+# 3.0.0.0
+* Update to 1.19.3.
+
+# End 1.19, start 1.19.3
+***
+
 # 2.0.1.2
 ## Biome Changes
 ### End Biomes
