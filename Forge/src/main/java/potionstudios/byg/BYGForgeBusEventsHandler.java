@@ -4,13 +4,16 @@ import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -22,6 +25,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import potionstudios.byg.common.BYGHoeables;
 import potionstudios.byg.common.entity.npc.BYGVillagerTrades;
 import potionstudios.byg.common.entity.npc.TradesConfig;
+import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -30,7 +35,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class BYGForgeEventsHandler {
+public class BYGForgeBusEventsHandler {
     static final Object2IntMap<Item> BURN_TIMES = new Object2IntOpenHashMap<>();
 
     public static final Set<ResourceLocation> REGISTERED_PROFESSIONS = new HashSet<>();

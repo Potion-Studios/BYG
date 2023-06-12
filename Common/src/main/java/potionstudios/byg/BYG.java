@@ -49,6 +49,7 @@ import java.util.function.Predicate;
 
 public class BYG {
 
+
     public static final String MOD_ID = "byg";
     private static final Logger LOGGER = LogManager.getLogger();
     public static boolean INITIALIZED;

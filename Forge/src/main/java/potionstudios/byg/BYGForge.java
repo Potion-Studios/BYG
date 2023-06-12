@@ -85,7 +85,7 @@ public class BYGForge {
         event.enqueueWork(ForgeNetworkHandler::init);
         event.enqueueWork(this::registerTerraBlender);
 
-        BYGFuels.loadFuels(BYGForgeEventsHandler.BURN_TIMES::put);
+        BYGFuels.loadFuels(BYGForgeBusEventsHandler.BURN_TIMES::put);
         Map<Block, Block> strippables = new IdentityHashMap<>(AxeItemAccess.byg_getStrippables());
         BYGStrippables.strippableLogsBYG(strippables::put);
         AxeItemAccess.byg_setStripables(strippables);

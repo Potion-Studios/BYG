@@ -3,13 +3,17 @@ package potionstudios.byg;
 import corgitaco.corgilib.CorgiLibFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import potionstudios.byg.common.BYGCompostables;
 import potionstudios.byg.common.BYGFuels;
@@ -19,9 +23,11 @@ import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.entity.npc.TradesConfig;
 import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.entry.BYGTerraBlenderEntry;
 import potionstudios.byg.network.FabricNetworkHandler;
+import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -43,6 +49,15 @@ public class BYGFabric implements ModInitializer {
             BYG.logDebug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
             return;
         }
+        FabricItemGroup.builder(BYG.createLocation(BYG.MOD_ID)).title(Component.translatable("itemGroup.byg.byg")).icon(() -> new ItemStack(BYGItems.BYG_LOGO.get())).displayItems((pEnabledFeatures, pOutput, pDisplayOperatorCreativeTab) -> {
+            for (RegistryObject<Item> entry : BYGItems.PROVIDER.getEntries()) {
+                Item pItem = entry.get();
+
+                if (pItem != BYGItems.BYG_LOGO.get()) {
+                    pOutput.accept(pItem);
+                }
+            }
+        }).build();
         firstInitialized = initializedFrom;
         BYG.INITIALIZED = true;
 
