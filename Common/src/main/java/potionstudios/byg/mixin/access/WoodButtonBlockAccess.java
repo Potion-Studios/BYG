@@ -1,15 +1,15 @@
 package potionstudios.byg.mixin.access;
 
-import net.minecraft.world.level.block.WoodButtonBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(WoodButtonBlock.class)
+@Mixin(Blocks.class)
 public interface WoodButtonBlockAccess {
 
-    @Invoker("<init>")
-    static WoodButtonBlock byg_create(BlockBehaviour.Properties properties) {
+    @Invoker("woodenButton")
+    static ButtonBlock byg_create() {
         throw new Error("Mixin did not apply!");
     }
 }

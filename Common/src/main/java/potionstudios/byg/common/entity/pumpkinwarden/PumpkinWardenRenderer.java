@@ -2,16 +2,18 @@ package potionstudios.byg.common.entity.pumpkinwarden;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.Entity;
 import potionstudios.byg.BYG;
-import software.bernie.geckolib3.geo.render.built.GeoBone;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib.cache.object.GeoBone;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
+
 
 public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRenderer<T> {
 
@@ -29,18 +31,21 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     }
 
     @Override
-    public void renderRecursively(GeoBone bone, PoseStack stack, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
+    public void renderRecursively(PoseStack stack, T animatable, GeoBone bone, RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if (bone.getName().equals("RightArm")) {
             stack.pushPose();
-            stack.mulPose(Vector3f.XP.rotationDegrees(15));
-            stack.mulPose(Vector3f.YP.rotationDegrees(0));
-            stack.mulPose(Vector3f.ZP.rotationDegrees(3.5f));
+            stack.mulPose(Axis.XP.rotationDegrees(15));
+            stack.mulPose(Axis.YP.rotationDegrees(0));
+            stack.mulPose(Axis.ZP.rotationDegrees(3.5f));
             stack.translate(0.05D, 0.2D, -1D);
             stack.scale(2f, 2f, 2f);
-            Minecraft.getInstance().getItemRenderer().renderStatic(mainHand, ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND, packedLightIn, packedOverlayIn, stack, this.rtb, 1);
+            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, 1);
             stack.popPose();
-            bufferIn = rtb.getBuffer(RenderType.entityTranslucent(whTexture));
+            buffer = bufferSource.getBuffer(RenderType.entityTranslucent(((GeoEntityRenderer)this).getTextureLocation((Entity) animatable)));
         }
-        super.renderRecursively(bone, stack, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
+
+        super.renderRecursively(stack, animatable, bone, renderType, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+
+
     }
 }

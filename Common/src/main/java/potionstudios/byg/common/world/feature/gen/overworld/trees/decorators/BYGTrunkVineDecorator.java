@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.feature.gen.overworld.trees.decorators;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -14,7 +14,7 @@ public class BYGTrunkVineDecorator extends TreeDecorator {
 
     public static final Codec<BYGTrunkVineDecorator> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Registry.BLOCK.byNameCodec().flatXmap(BYGLeavesVineDecorator.mustExtendVineBlock(), BYGLeavesVineDecorator.mustExtendVineBlock()).fieldOf("vine_block").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.vineBlock),
+                    BuiltInRegistries.BLOCK.byNameCodec().flatXmap(BYGLeavesVineDecorator.mustExtendVineBlock(), BYGLeavesVineDecorator.mustExtendVineBlock()).fieldOf("vine_block").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.vineBlock),
                     Codec.FLOAT.fieldOf("probability").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.probability)
             ).apply(builder, ((vineBlock, probability) -> new BYGTrunkVineDecorator((VineBlock) vineBlock, probability)))
     );

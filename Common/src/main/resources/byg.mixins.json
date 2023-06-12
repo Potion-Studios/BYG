@@ -37,7 +37,6 @@
     "access.PickaxeItemAccess",
     "access.PoiTypesAccess",
     "access.PressurePlateBlockAccess",
-    "access.RegistryAccess",
     "access.ResourceKeyAccess",
     "access.ShovelItemAccess",
     "access.SimpleParticleTypeAccess",

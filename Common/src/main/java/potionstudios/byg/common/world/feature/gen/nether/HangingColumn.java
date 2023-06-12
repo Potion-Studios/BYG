@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.feature.gen.nether;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biomes;
@@ -27,7 +27,7 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
         int randLength = rand.nextInt(config.getMaxPossibleLength()) + config.getMinLength();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(pos);
 
-        if (worldIn.registryAccess().registry(Registry.BIOME_REGISTRY).get().getResourceKey(worldIn.getBiome(pos).value()).get() != Biomes.THE_VOID) {
+        if (worldIn.registryAccess().registry(Registries.BIOME).get().getResourceKey(worldIn.getBiome(pos).value()).get() != Biomes.THE_VOID) {
             //Code
         }
 

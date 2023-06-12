@@ -1,7 +1,7 @@
 package potionstudios.byg.mixin.access;
 
+import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.Structures;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -17,7 +17,7 @@ import java.util.Map;
 public interface StructuresAccess {
 
     @Invoker("structure")
-    static Structure.StructureSettings structure(TagKey<Biome> p_236546_, Map<MobCategory, StructureSpawnOverride> p_236547_, GenerationStep.Decoration p_236548_, TerrainAdjustment p_236549_) {
+    static Structure.StructureSettings structure(HolderSet<Biome> p_236546_, Map<MobCategory, StructureSpawnOverride> p_236547_, GenerationStep.Decoration p_236548_, TerrainAdjustment p_236549_) {
         throw new Error("Mixin did not apply!");
     }
 

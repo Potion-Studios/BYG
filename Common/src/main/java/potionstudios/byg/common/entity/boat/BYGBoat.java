@@ -1,9 +1,10 @@
 package potionstudios.byg.common.entity.boat;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -72,7 +73,7 @@ public class BYGBoat extends Boat {
                     .withParameter(LootContextParams.ORIGIN, position())
                     .withParameter(LootContextParams.DAMAGE_SOURCE, damageSource)
                     .create(LOOT_CONTEXT_PARAM_SETS);
-            final var regName = Registry.ENTITY_TYPE.getKey(this.getType());
+            final var regName = BuiltInRegistries.ENTITY_TYPE.getKey(this.getType());
             final var defaultLocation = this.getType().getDefaultLootTable();
             final var any = serverLevel.getServer().getLootTables().get(isFall ? new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_fall") : defaultLocation);
             if (any != LootTable.EMPTY)
@@ -187,7 +188,7 @@ public class BYGBoat extends Boat {
     }
 
     @Override
-    public @NotNull Packet<?> getAddEntityPacket() {
+    public @NotNull Packet<ClientGamePacketListener> getAddEntityPacket() {
         //TODO: Is this right?
         return new ClientboundAddEntityPacket(this);
     }

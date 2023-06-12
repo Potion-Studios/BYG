@@ -11,7 +11,6 @@ import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.common.item.BYGBoatItem;
-import potionstudios.byg.common.item.BYGCreativeTab;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
@@ -263,8 +262,8 @@ public enum BYGWoodTypes {
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
 
         if (builder.boatType != null) {
-            this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), name + "_boat");
-            this.chestBoat = BYGItems.createItem(() -> new BYGBoatItem(true, builder.boatType, new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB).stacksTo(1)), name + "_chest_boat");
+            this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().stacksTo(1)), name + "_boat");
+            this.chestBoat = BYGItems.createItem(() -> new BYGBoatItem(true, builder.boatType, new Item.Properties().stacksTo(1)), name + "_chest_boat");
         }
         initialized = true;
     }

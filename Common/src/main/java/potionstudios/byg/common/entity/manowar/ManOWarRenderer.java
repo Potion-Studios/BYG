@@ -2,16 +2,15 @@ package potionstudios.byg.common.entity.manowar;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import potionstudios.byg.BYG;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
-import software.bernie.geckolib3.renderers.geo.layer.LayerGlowingAreasGeo;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 import java.util.Map;
 
@@ -28,7 +27,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
     public ManOWarRenderer(EntityRendererProvider.Context context) {
         super(context, new ManOWarModel());
-        this.addLayer(new LayerGlowingAreasGeo<>(this, this::getTextureLocation, o -> BYG.createLocation("geo/man_o_war.geo.json"), RenderType::eyes));
+        this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
@@ -55,9 +54,9 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
         float i = Mth.lerp(h, squid.xBodyRotO, squid.xBodyRot);
         float j = Mth.lerp(h, squid.zBodyRotO, squid.zBodyRot);
         poseStack.translate(0.0D, 0.5D, 0.0D);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(180.0F - g));
-        poseStack.mulPose(Vector3f.XP.rotationDegrees(i));
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(j));
+        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - g));
+        poseStack.mulPose(Axis.XP.rotationDegrees(i));
+        poseStack.mulPose(Axis.YP.rotationDegrees(j));
         poseStack.translate(0.0D, -1.2000000476837158D, 0.0D);
     }
 }

@@ -38,11 +38,6 @@ public class BiomeWidget extends AbstractWidget {
         this.active = false;
     }
 
-
-    @Override
-    public void updateNarration(NarrationElementOutput narrationElementOutput) {
-    }
-
     @Override
     public void onClick(double $$0, double $$1) {
         if (this.active) {
@@ -52,19 +47,24 @@ public class BiomeWidget extends AbstractWidget {
     }
 
     @Override
+    protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+
+    }
+
+    @Override
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
             if (previewImageLocation != null) {
                 float scale = 0.09F;
-                renderBiomePicture(poseStack, scale, this.x, this.y, this.previewImageLocation);
+                renderBiomePicture(poseStack, scale, this.getX(), this.getY(), this.previewImageLocation);
             }
 
             int textWidth = Minecraft.getInstance().font.width(this.name) / 2;
-            int textX = (this.x + (this.width / 2)) - textWidth;
-            int textY = this.y + height - 10;
+            int textX = (this.getX() + (this.width / 2)) - textWidth;
+            int textY = this.getY() + height - 10;
             Minecraft.getInstance().font.draw(poseStack, this.name, textX, textY, FastColor.ARGB32.color(255, 0, 0, 0));
 
-            if (BYGUtil.isInside(this.x, this.y, this.x + this.width, this.y + this.height, mouseX, mouseY)) {
+            if (BYGUtil.isInside(this.getX(), this.getY(), this.getX() + this.width, this.getY() + this.height, mouseX, mouseY)) {
                 drawWidgetBorder(poseStack);
             }
         }
@@ -81,10 +81,10 @@ public class BiomeWidget extends AbstractWidget {
     }
 
     private void drawWidgetBorder(PoseStack poseStack) {
-        vLine(poseStack, this.x, this.y, this.y + this.height, this.borderColor);
-        vLine(poseStack, this.x + this.width, this.y, this.y + this.height, this.borderColor);
-        hLine(poseStack, this.x, this.x + this.width, this.y, this.borderColor);
-        hLine(poseStack, this.x, this.x + this.width, this.y + this.height, this.borderColor);
+        vLine(poseStack, this.getX(), this.getY(), this.getY() + this.height, this.borderColor);
+        vLine(poseStack, this.getX() + this.width, this.getY(), this.getY() + this.height, this.borderColor);
+        hLine(poseStack, this.getX(), this.getX() + this.width, this.getY(), this.borderColor);
+        hLine(poseStack, this.getX(), this.getX() + this.width, this.getY() + this.height, this.borderColor);
     }
 
     public interface OnClick {

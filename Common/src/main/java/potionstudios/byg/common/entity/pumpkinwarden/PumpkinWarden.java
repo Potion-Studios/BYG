@@ -31,21 +31,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class PumpkinWarden extends PathfinderMob implements IAnimatable {
+public class PumpkinWarden extends PathfinderMob implements GeoAnimatable {
 
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private BlockPos jukebox;
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
@@ -103,37 +104,62 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     public void checkDespawn() {
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        AnimationController controller = event.getController();
-        controller.transitionLengthTicks = 0;
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return animatableInstanceCache;
+    }
+
+    @Override
+    public double getTick(Object o) {
+        return 0;
+    }
+
+    private static final RawAnimation HIDE_START = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hidestart");
+    private static final RawAnimation HIDE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hide");
+    private static final RawAnimation HIDE_END = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hideend");
+    private static final RawAnimation HOLDING_WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_walking");
+    private static final RawAnimation HOLDING_IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
+    private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
+    private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
+
+
+    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
+        AnimationController<E> controller = event.getController();
+        controller.setTransitionLength(0);
         if (this.isHiding()) {
             if (this.getTimer() < 10) {
-                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hidestart", false));
+                controller.setAnimation(HIDE_START);
                 return PlayState.CONTINUE;
             } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level.isDay() && this.getTimer() > 10) {
-                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
+                controller.setAnimation(HIDE);
                 return PlayState.CONTINUE;
             } else if (this.getTimer() > 180) {
                 if (this.level.getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
-                    controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hideend", false));
+                    controller.setAnimation(HIDE_END);
                 } else {
-                    controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.hide", true));
+                    controller.setAnimation(HIDE);
                 }
                 return PlayState.CONTINUE;
             }
         }
         if (this.getCarriedBlock() != null) {
             if (event.isMoving()) {
-                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_walking", true));
+                controller.setAnimation(HOLDING_WALKING);
             } else {
-                controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.holding_idle", true));
+                controller.setAnimation(HOLDING_IDLE);
             }
             return PlayState.CONTINUE;
         } else if (event.isMoving() && this.getCarriedBlock() == null) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.walking", true));
+            controller.setAnimation(WALKING);
             return PlayState.CONTINUE;
         } else if (this.party) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.pumpkinwarden.wave", true));
+            controller.setAnimation(WAVE);
             return PlayState.CONTINUE;
         } else {
             return PlayState.STOP;
@@ -216,10 +242,6 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F;
     }
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
-    }
 
     public boolean isHiding() {
         return entityData.get(HIDING);
@@ -237,11 +259,6 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
         entityData.set(TIMER, flag);
     }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
-
     public void setCarriedBlock(@Nullable BlockState pState) {
         this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable(pState));
     }
@@ -250,6 +267,7 @@ public class PumpkinWarden extends PathfinderMob implements IAnimatable {
     public BlockState getCarriedBlock() {
         return this.entityData.get(DATA_CARRY_STATE).orElse(null);
     }
+
 
     static class PumpkinWardenTakeBlockGoal extends MoveToBlockGoal {
         private final PumpkinWarden warden;

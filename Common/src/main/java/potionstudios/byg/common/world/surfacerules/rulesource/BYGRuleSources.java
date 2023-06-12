@@ -1,6 +1,6 @@
 package potionstudios.byg.common.world.surfacerules.rulesource;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -30,7 +30,7 @@ public class BYGRuleSources {
 
 
     static {
-        final var provider = RegistrationProvider.get(Registry.RULE_REGISTRY, BYG.MOD_ID);
+        final var provider = RegistrationProvider.get(Registries.MATERIAL_RULE, BYG.MOD_ID);
 
         provider.register("state_provider", WeightedRuleSource.CODEC::codec);
         provider.register("bands", BandsRuleSource.CODEC::codec);

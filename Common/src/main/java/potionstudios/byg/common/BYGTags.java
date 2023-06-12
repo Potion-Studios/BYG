@@ -2,6 +2,8 @@ package potionstudios.byg.common;
 
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -85,9 +87,9 @@ public enum BYGTags {
     public static final class RegistryType<T> {
         public static final Map<ResourceKey<?>, RegistryType<?>> REGISTRY = new HashMap<>();
 
-        public static final RegistryType<Block> BLOCKS = new RegistryType<>(Registry.BLOCK_REGISTRY);
-        public static final RegistryType<Item> ITEMS = new RegistryType<>(Registry.ITEM_REGISTRY);
-        public static final RegistryType<EntityType<?>> ENTITY_TYPES = new RegistryType<>(Registry.ENTITY_TYPE_REGISTRY);
+        public static final RegistryType<Block> BLOCKS = new RegistryType<>(Registries.BLOCK);
+        public static final RegistryType<Item> ITEMS = new RegistryType<>(Registries.ITEM);
+        public static final RegistryType<EntityType<?>> ENTITY_TYPES = new RegistryType<>(Registries.ENTITY_TYPE);
 
         public final ResourceKey<? extends Registry<T>> registry;
 
@@ -97,7 +99,7 @@ public enum BYGTags {
         }
 
         public Optional<HolderSet.Named<T>> getTag(TagKey<?> key) {
-            final var registry = (Registry<T>) get(Registry.REGISTRY, this.registry);
+            final var registry = (Registry<T>) get(BuiltInRegistries.REGISTRY, this.registry);
             return registry.getTag((TagKey<T>) key);
         }
 

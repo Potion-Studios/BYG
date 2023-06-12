@@ -3,9 +3,6 @@ package potionstudios.byg;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.dimension.LevelStem;
@@ -18,7 +15,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.BYGClient;
 import potionstudios.byg.client.BYGForgeClient;
 import potionstudios.byg.client.textures.renders.BYGRenderTypes;
@@ -27,8 +23,6 @@ import potionstudios.byg.common.BYGFuels;
 import potionstudios.byg.common.BYGStrippables;
 import potionstudios.byg.common.entity.manowar.ManOWar;
 import potionstudios.byg.common.entity.pumpkinwarden.PumpkinWarden;
-import potionstudios.byg.common.item.BYGCreativeTab;
-import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.world.biome.BYGTerraBlenderRegion;
 import potionstudios.byg.common.world.surfacerules.SurfaceRulesConfig;
 import potionstudios.byg.config.SettingsConfig;
@@ -51,27 +45,27 @@ public class BYGForge {
     public BYGForge() {
         BYG.INITIALIZED = true;
         final var modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
-            @Override
-            public @NotNull ItemStack makeIcon() {
-                return new ItemStack(BYGItems.BYG_LOGO.get());
-            }
-
-            @Override
-            public boolean hasSearchBar() {
-                return true;
-            }
-
-            @Override
-            public boolean canScroll() {
-                return true;
-            }
-
-            @Override
-            public @NotNull ResourceLocation getBackgroundImage() {
-                return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
-            }
-        });
+//        BYGCreativeTab.init(new CreativeModeTab("byg.byg") {
+//            @Override
+//            public @NotNull ItemStack makeIcon() {
+//                return new ItemStack(BYGItems.BYG_LOGO.get());
+//            }
+//
+//            @Override
+//            public boolean hasSearchBar() {
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean canScroll() {
+//                return true;
+//            }
+//
+//            @Override
+//            public @NotNull ResourceLocation getBackgroundImage() {
+//                return new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
+//            }
+//        });
 
         BYGRegistry.loadClasses();
         modBus.addListener(this::createTestEntityAttributes);

@@ -9,7 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.BambooStalkBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.material.FluidState;
@@ -20,7 +20,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class SythianStalkBlock extends BambooBlock {
+public class SythianStalkBlock extends BambooStalkBlock {
 
     public static final int MAX_HEIGHT = 16;
 

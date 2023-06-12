@@ -1,6 +1,6 @@
 package potionstudios.byg.common.blockentity;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import potionstudios.byg.BYG;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public class BYGBlockEntities {
 
-    private static final RegistrationProvider<BlockEntityType<?>> PROVIDER = RegistrationProvider.get(Registry.BLOCK_ENTITY_TYPE_REGISTRY, BYG.MOD_ID);
+    private static final RegistrationProvider<BlockEntityType<?>> PROVIDER = RegistrationProvider.get(Registries.BLOCK_ENTITY_TYPE, BYG.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<HypogealImperiumBlockEntity>> HYPOGEAL = register("hypogeal", () -> BlockEntityType.Builder.of(HypogealImperiumBlockEntity::new, BYGBlocks.HYPOGEAL_IMPERIUM.get()));
 

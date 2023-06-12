@@ -134,7 +134,7 @@ public class BYGUtil {
 
             for (WeightedEntry.Wrapper<ResourceKey<Biome>> key : items) {
                 ResourceKey<Biome> resourceKey = key.getData();
-                Optional<Holder<Biome>> biome = biomeRegistry.getHolder(resourceKey);
+                Optional<Holder.Reference<Biome>> biome = biomeRegistry.getHolder(resourceKey);
                 if (biome.isPresent()) {
                     biomes.add(biome.get());
                 } else {

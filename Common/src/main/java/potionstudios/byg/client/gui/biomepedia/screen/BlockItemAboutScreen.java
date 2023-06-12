@@ -2,7 +2,7 @@ package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -88,8 +88,8 @@ public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
         MultiBufferSource.BufferSource bufferSource = MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
 
         poseStack.translate(scaledX, scaledZ, 30);
-        poseStack.mulPose(Vector3f.ZN.rotationDegrees(180));
-        poseStack.mulPose(Vector3f.YN.rotationDegrees(45));
+        poseStack.mulPose(Axis.XN.rotationDegrees(180));
+        poseStack.mulPose(Axis.YN.rotationDegrees(45));
         Minecraft.getInstance().getBlockRenderer().renderSingleBlock(this.currentlyRendered, poseStack, bufferSource, 15728880, OverlayTexture.NO_OVERLAY);
         bufferSource.endBatch();
         poseStack.popPose();

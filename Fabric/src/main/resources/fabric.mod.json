@@ -46,10 +46,10 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.18.2",
-    "terrablender": ">=2.0.0.111",
-    "corgilib": ">=1.0.0.34",
-    "geckolib3": ">=3.1.25"
+    "minecraft": ">=1.19.3",
+    "terrablender": ">=2.1.0.132",
+    "corgilib": ">=2.0.0.0",
+    "geckolib": ">=4.0.6"
   },
   "accessWidener": "byg.aw"
 }

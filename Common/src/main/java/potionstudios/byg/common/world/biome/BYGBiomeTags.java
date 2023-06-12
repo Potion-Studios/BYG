@@ -2,7 +2,7 @@ package potionstudios.byg.common.world.biome;
 
 import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -140,7 +140,7 @@ public class BYGBiomeTags {
 
 
     private static TagKey<Biome> create(String id) {
-        return TagKey.create(Registry.BIOME_REGISTRY, BYG.createLocation(id));
+        return TagKey.create(Registries.BIOME, BYG.createLocation(id));
     }
 
     // Biome tag and what tags from vanilla or a mod loader to append to.

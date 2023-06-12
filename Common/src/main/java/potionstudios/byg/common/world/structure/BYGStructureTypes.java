@@ -1,7 +1,7 @@
 package potionstudios.byg.common.world.structure;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import potionstudios.byg.BYG;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class BYGStructureTypes {
 
-    public static final RegistrationProvider<StructureType<?>> PROVIDER = RegistrationProvider.get(Registry.STRUCTURE_TYPES, BYG.MOD_ID);
+    public static final RegistrationProvider<StructureType<?>> PROVIDER = RegistrationProvider.get(Registries.STRUCTURE_TYPE, BYG.MOD_ID);
 
     public static final RegistryObject<StructureType<ArchStructure>> ARCH = register("arch", () -> ArchStructure.CODEC);
     public static final RegistryObject<StructureType<VolcanoStructure>> VOLCANO = register("volcano", () -> VolcanoStructure.CODEC);

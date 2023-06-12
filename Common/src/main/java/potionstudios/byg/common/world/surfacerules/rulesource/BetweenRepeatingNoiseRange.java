@@ -2,7 +2,7 @@ package potionstudios.byg.common.world.surfacerules.rulesource;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.util.valueproviders.FloatProvider;
@@ -18,7 +18,7 @@ public final class BetweenRepeatingNoiseRange implements SurfaceRules.RuleSource
 
     public static final KeyDispatchDataCodec<BetweenRepeatingNoiseRange> CODEC = KeyDispatchDataCodec.of(RecordCodecBuilder.mapCodec(builder ->
         builder.group(
-            ResourceKey.codec(Registry.NOISE_REGISTRY).fieldOf("noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.noiseParametersResourceKey),
+            ResourceKey.codec(Registries.NOISE).fieldOf("noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.noiseParametersResourceKey),
             Codec.FLOAT.fieldOf("size_per_repetition").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.size),
             Codec.FLOAT.fieldOf("repeat_from_noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.min),
             Codec.FLOAT.fieldOf("repeat_to_noise").forGetter(betweenRepeatingNoiseRange -> betweenRepeatingNoiseRange.max),

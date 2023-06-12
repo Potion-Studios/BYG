@@ -2,6 +2,7 @@ package potionstudios.byg.mixin.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
@@ -37,10 +38,10 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
                         18,
                         new ResourceLocation("byg", "textures/gui/biomepedia.png"),
                         256, 256,
-                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(Component.literal(""))), BiomepediaHomeScreen.makeButtonToolTip(Component.literal("BYG Biomepedia"), this),
+                        (button) -> Minecraft.getInstance().setScreen(new BiomepediaHomeScreen(Component.literal(""))),
                         Component.literal("Lorem Ipsum")
                 );
-
+                biomePedia.setTooltip(Tooltip.create(Component.literal("BYG Biomepedia")));
                 biomePedia.visible = BiomepediaInventoryConfig.server_value;
                 biomePedia.active = BiomepediaInventoryConfig.server_value;
                 addRenderableWidget(this.biomePedia = biomePedia);

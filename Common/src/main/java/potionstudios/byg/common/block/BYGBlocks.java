@@ -1,9 +1,12 @@
 package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.NetherFeatures;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -60,7 +63,7 @@ import java.util.function.ToIntFunction;
 
 @SuppressWarnings("ALL")
 public class BYGBlocks {
-    public static final RegistrationProvider<Block> PROVIDER = RegistrationProvider.get(Registry.BLOCK_REGISTRY, BYG.MOD_ID);
+    public static final RegistrationProvider<Block> PROVIDER = RegistrationProvider.get(Registries.BLOCK, BYG.MOD_ID);
 
     public static final List<BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new ArrayList<>();
     public static final List<BlockRegistryObject<Block>> SIGN_BLOCKS = new ArrayList<>();
@@ -637,21 +640,21 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> PODZOL_DACITE = createBlock(() -> SnowyDirtBlockAccess.byg_create(BlockBehaviour.Properties.copy(BYGBlocks.DACITE.get())), "podzol_dacite");
     public static final BlockRegistryObject<Block> OVERGROWN_DACITE = createStoneSpreadable(DACITE, MaterialColor.COLOR_GREEN, "overgrown_dacite");
     public static final BlockRegistryObject<Block> OVERGROWN_STONE = createStoneSpreadable(() -> Blocks.STONE, MaterialColor.COLOR_GREEN, "overgrown_stone");
-    public static final BlockRegistryObject<Block> OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, MaterialColor.COLOR_RED, () -> NetherFeatures.CRIMSON_FOREST_VEGETATION_BONEMEAL.value(), "overgrown_crimson_blackstone");
-    public static final BlockRegistryObject<Block> MYCELIUM_NETHERRACK = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_GRAY, () -> BYGNetherVegetationFeatures.WAILING_VEGETATION.value(), "mycelium_netherrack");
-    public static final BlockRegistryObject<Block> OVERGROWN_NETHERRACK = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_GREEN, () -> NetherFeatures.TWISTING_VINES_BONEMEAL.value(), "overgrown_netherrack");
-    public static final BlockRegistryObject<Block> IVIS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_PURPLE, () -> BYGEndVegetationFeatures.IVIS_PLANTS.value(), "ivis_phylium");
-    public static final BlockRegistryObject<Block> EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MaterialColor.COLOR_ORANGE, () -> BYGNetherVegetationFeatures.EMBUR_BOG_VEGETATION.value(), "embur_nylium");
-    public static final BlockRegistryObject<Block> SYTHIAN_NYLIUM = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_YELLOW, () -> BYGNetherVegetationFeatures.SYTHIAN_VEGETATION.value(), "sythian_nylium");
-    public static final BlockRegistryObject<Block> WAILING_NYLIUM = createNetherSpreadable(() -> Blocks.SOUL_SOIL, MaterialColor.COLOR_PURPLE, () -> BYGNetherVegetationFeatures.WAILING_VEGETATION.value(), "wailing_nylium");
+    public static final BlockRegistryObject<Block> OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, MaterialColor.COLOR_RED, () -> NetherFeatures.CRIMSON_FOREST_VEGETATION_BONEMEAL, "overgrown_crimson_blackstone");
+    public static final BlockRegistryObject<Block> MYCELIUM_NETHERRACK = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_GRAY, () -> BYGNetherVegetationFeatures.WAILING_VEGETATION, "mycelium_netherrack");
+    public static final BlockRegistryObject<Block> OVERGROWN_NETHERRACK = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_GREEN, () -> NetherFeatures.TWISTING_VINES_BONEMEAL, "overgrown_netherrack");
+    public static final BlockRegistryObject<Block> IVIS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_PURPLE, () -> BYGEndVegetationFeatures.IVIS_PLANTS, "ivis_phylium");
+    public static final BlockRegistryObject<Block> EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MaterialColor.COLOR_ORANGE, () -> BYGNetherVegetationFeatures.EMBUR_BOG_VEGETATION, "embur_nylium");
+    public static final BlockRegistryObject<Block> SYTHIAN_NYLIUM = createNetherSpreadable(() -> Blocks.NETHERRACK, MaterialColor.COLOR_YELLOW, () -> BYGNetherVegetationFeatures.SYTHIAN_VEGETATION, "sythian_nylium");
+    public static final BlockRegistryObject<Block> WAILING_NYLIUM = createNetherSpreadable(() -> Blocks.SOUL_SOIL, MaterialColor.COLOR_PURPLE, () -> BYGNetherVegetationFeatures.WAILING_VEGETATION, "wailing_nylium");
     public static final BlockRegistryObject<Block> LUSH_GRASS_BLOCK = createDirtSpreadable(LUSH_DIRT, MaterialColor.COLOR_GREEN, "lush_grass_block");
-    public static final BlockRegistryObject<Block> NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS.value(), "nightshade_phylium");
-    public static final BlockRegistryObject<Block> ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MaterialColor.COLOR_MAGENTA, () -> BYGEndVegetationFeatures.ETHER_PLANTS.value(), "ether_phylium");
-    public static final BlockRegistryObject<Block> VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, () -> BYGEndFeatures.ISLAND_SCULK_PLANTS.value().feature().value(), "vermilion_sculk");
-    public static final BlockRegistryObject<Block> SHULKREN_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, () -> BYGEndVegetationFeatures.SHULKREN_PLANTS.value(), "shulkren_phylium");
+    public static final BlockRegistryObject<Block> NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS, "nightshade_phylium");
+    public static final BlockRegistryObject<Block> ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MaterialColor.COLOR_MAGENTA, () -> BYGEndVegetationFeatures.ETHER_PLANTS, "ether_phylium");
+    public static final BlockRegistryObject<Block> VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MaterialColor.COLOR_RED, () -> BYGEndFeatures.GROWABLE_SCULK, "vermilion_sculk");
+    public static final BlockRegistryObject<Block> SHULKREN_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_LIGHT_GREEN, () -> BYGEndVegetationFeatures.SHULKREN_PLANTS, "shulkren_phylium");
     public static final BlockRegistryObject<DirtPathBlock> LUSH_GRASS_PATH = createBlock(() -> DirtPathBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
-    public static final BlockRegistryObject<Block> BULBIS_PHYCELIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, () -> BYGEndVegetationFeatures.BULBIS_ANOMALIES.value(), "bulbis_phycelium");
-    public static final BlockRegistryObject<Block> IMPARIUS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_CYAN, () -> BYGEndVegetationFeatures.IMPARIUS_PLANTS.value(), "imparius_phylium");
+    public static final BlockRegistryObject<Block> BULBIS_PHYCELIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.TERRACOTTA_WHITE, () -> BYGEndVegetationFeatures.BULBIS_ANOMALIES, "bulbis_phycelium");
+    public static final BlockRegistryObject<Block> IMPARIUS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MaterialColor.COLOR_CYAN, () -> BYGEndVegetationFeatures.IMPARIUS_PLANTS, "imparius_phylium");
 
     public static final BlockRegistryObject<Block> HYPOGEAL_IMPERIUM = createHypogealBlock("hypogeal_imperium");
 //    public static final BlockRO<Block> BORIC_TORCH = createBlock(new BoricTorchBlock(AbstractBlock.Properties.of(Material.WOOD).instabreak().lightLevel((state) -> 14), BoricFlameParticle.BoricParticleData.BORIC), "boric_torch");
@@ -805,7 +808,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createFenceGate(String id) {
-        return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
+        return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f), SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), id);
     }
 
     private static BlockRegistryObject<Block> createSand(MaterialColor color, int dustColor, String id) {
@@ -845,15 +848,15 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createWoodPressurePlate(String id) {
-        return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F)), id);
+        return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F), SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON), id);
     }
 
     static BlockRegistryObject<Block> createWoodStairs(String id) {
-        return createBlock(() -> StairBlockAccess.byg_create(Registry.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
+        return createBlock(() -> StairBlockAccess.byg_create(BuiltInRegistries.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
     static BlockRegistryObject<Block> createTrapDoor(String id) {
-        return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()), id);
+        return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN), id);
     }
 
     static BlockRegistryObject<Block> createCraftingTable(String id) {
@@ -861,7 +864,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createWoodButton(String id) {
-        return createBlock(() -> WoodButtonBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.DECORATION).sound(SoundType.WOOD).noCollission().strength(0.5F)), id);
+        return createBlock(() -> WoodButtonBlockAccess.byg_create(), id);
     }
 
     static BlockRegistryObject<Block> createBookshelf(String id) {
@@ -869,7 +872,7 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createDoor(String id) {
-        return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion()), id);
+        return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN), id);
     }
 
     static BlockRegistryObject<Block> createPlanks(String id) {
@@ -1304,19 +1307,19 @@ public class BYGBlocks {
         return createBlock(() -> new BYGGrassBlock(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(1.5f, 6.0f).randomTicks().requiresCorrectToolForDrops(), blockToSpreadToo.get()), id);
     }
 
-    private static BlockRegistryObject<Block> createEndStoneSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ConfiguredFeature<?, ?>> feature, String id) {
+    private static BlockRegistryObject<Block> createEndStoneSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature, String id) {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.STONE).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo.get()), id);
     }
 
-    private static BlockRegistryObject<Block> createEndDirtSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ConfiguredFeature<?, ?>> feature, String id) {
+    private static BlockRegistryObject<Block> createEndDirtSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature, String id) {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo.get()), id);
     }
 
-    private static BlockRegistryObject<Block> createNetherSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ConfiguredFeature<?, ?>> feature, String id) {
+    private static BlockRegistryObject<Block> createNetherSpreadable(Supplier<? extends Block> blockToSpreadToo, MaterialColor color, Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature, String id) {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4F).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo.get()), id);
     }
 
-    private static BlockRegistryObject<Block> createNetherStoneSpreadable(Block blockToSpreadToo, MaterialColor color, Supplier<ConfiguredFeature<?, ?>> feature, String id) {
+    private static BlockRegistryObject<Block> createNetherStoneSpreadable(Block blockToSpreadToo, MaterialColor color, Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature, String id) {
         return createBlock(() -> new BYGNylium(BlockBehaviour.Properties.of(Material.STONE, color).sound(SoundType.NYLIUM).strength(0.4f).randomTicks().requiresCorrectToolForDrops(), feature, blockToSpreadToo), id);
     }
 

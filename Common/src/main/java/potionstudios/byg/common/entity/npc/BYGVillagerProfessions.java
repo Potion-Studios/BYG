@@ -2,7 +2,7 @@ package potionstudios.byg.common.entity.npc;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 
 public class BYGVillagerProfessions {
 
-    private static final RegistrationProvider<VillagerProfession> PROVIDER = RegistrationProvider.get(Registry.VILLAGER_PROFESSION_REGISTRY, BYG.MOD_ID);
+    private static final RegistrationProvider<VillagerProfession> PROVIDER = RegistrationProvider.get(Registries.VILLAGER_PROFESSION, BYG.MOD_ID);
 
     public static final RegistryObject<VillagerProfession> FORAGER = createVillagerProfession("forager", () -> register(BYG.MOD_ID + ":forager", BYGPoiTypes.FORAGER.getResourceKey(), null));
 

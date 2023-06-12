@@ -1,7 +1,7 @@
 package potionstudios.byg.common.world.biome;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.biome.BiomeSource;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.end.BYGEndBiomeSource;
@@ -12,7 +12,7 @@ import potionstudios.byg.reg.RegistryObject;
 import java.util.function.Supplier;
 
 public class BYGBiomeSources {
-    public static final RegistrationProvider<Codec<? extends BiomeSource>> PROVIDER = RegistrationProvider.get(Registry.BIOME_SOURCE, BYG.MOD_ID);
+    public static final RegistrationProvider<Codec<? extends BiomeSource>> PROVIDER = RegistrationProvider.get(Registries.BIOME_SOURCE, BYG.MOD_ID);
 
     public static final RegistryObject<Codec<BYGEndBiomeSource>> END_BIOME_SOURCE_CODEC = register("end", () -> BYGEndBiomeSource.CODEC);
     public static final RegistryObject<Codec<BYGNetherBiomeSource>> NETHER_BIOME_SOURCE_CODEC = register("nether", () -> BYGNetherBiomeSource.CODEC);

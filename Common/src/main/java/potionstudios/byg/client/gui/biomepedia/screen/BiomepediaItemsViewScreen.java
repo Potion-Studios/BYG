@@ -41,8 +41,8 @@ public class BiomepediaItemsViewScreen extends AbstractBiomepediaScreen {
             load(this.page);
         }, true);
         this.addRenderableWidget(pageBack);
-        pageBack.x = this.leftPos + 15;
-        pageBack.y = this.topPos - pageBack.getHeight() - 13;
+        pageBack.setX(this.leftPos + 15);
+        pageBack.setY(this.topPos - pageBack.getHeight() - 13);
 
         PageButton pageForward = new PageButton(this.rightPos - 5, this.topPos - 10, true, button -> {
             unload(page);
@@ -50,8 +50,8 @@ public class BiomepediaItemsViewScreen extends AbstractBiomepediaScreen {
             load(this.page);
         }, true);
         this.addRenderableWidget(pageForward);
-        pageForward.x = this.rightPos - pageBack.getWidth() - 22;
-        pageForward.y = this.topPos - pageBack.getHeight() - 13;
+        pageForward.setX(this.rightPos - pageBack.getWidth() - 22);
+        pageForward.setY(this.topPos - pageBack.getHeight() - 13);
     }
 
     private void createMenu() {

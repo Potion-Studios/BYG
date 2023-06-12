@@ -5,6 +5,7 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
@@ -23,7 +24,7 @@ import java.util.function.Function;
 
 public class JigsawUtil {
     private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSOR_LIST_KEY = ResourceKey.create(
-        Registry.PROCESSOR_LIST_REGISTRY, new ResourceLocation("minecraft", "empty"));
+            Registries.PROCESSOR_LIST, new ResourceLocation("minecraft", "empty"));
 
     public static void addBYGBuildingsToPool(Registry<StructureTemplatePool> templatePoolRegistry,
                                              Registry<StructureProcessorList> processorListRegistry) {

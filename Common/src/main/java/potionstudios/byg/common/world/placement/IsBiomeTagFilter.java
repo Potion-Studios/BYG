@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.placement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
@@ -17,7 +17,7 @@ public class IsBiomeTagFilter extends PlacementModifier {
 
     public static final Codec<IsBiomeTagFilter> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(
-            TagKey.codec(Registry.BIOME_REGISTRY).fieldOf("valid_biome").forGetter(isBiomeTagFilter -> isBiomeTagFilter.biomeTag)
+            TagKey.codec(Registries.BIOME).fieldOf("valid_biome").forGetter(isBiomeTagFilter -> isBiomeTagFilter.biomeTag)
         ).apply(builder, IsBiomeTagFilter::new));
 
     private final TagKey<Biome> biomeTag;

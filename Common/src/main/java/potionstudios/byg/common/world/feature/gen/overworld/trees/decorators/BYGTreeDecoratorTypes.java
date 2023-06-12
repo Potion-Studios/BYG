@@ -1,7 +1,7 @@
 package potionstudios.byg.common.world.feature.gen.overworld.trees.decorators;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import potionstudios.byg.BYG;
@@ -11,7 +11,7 @@ import potionstudios.byg.reg.RegistryObject;
 
 public class BYGTreeDecoratorTypes {
 
-    public static final RegistrationProvider<TreeDecoratorType<?>> PROVIDER = RegistrationProvider.get(Registry.TREE_DECORATOR_TYPES, BYG.MOD_ID);
+    public static final RegistrationProvider<TreeDecoratorType<?>> PROVIDER = RegistrationProvider.get(Registries.TREE_DECORATOR_TYPE, BYG.MOD_ID);
 
     public static final RegistryObject<TreeDecoratorType<BYGTrunkVineDecorator>> TRUNK_VINE = register("trunk_vine", BYGTrunkVineDecorator.CODEC);
     public static final RegistryObject<TreeDecoratorType<BYGLeavesVineDecorator>> LEAVE_VINE = register("leave_vine", BYGLeavesVineDecorator.CODEC);

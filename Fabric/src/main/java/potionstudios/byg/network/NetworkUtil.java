@@ -3,7 +3,7 @@ package potionstudios.byg.network;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +27,7 @@ public class NetworkUtil {
         FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
         buf.writeVarInt(e.getId());
         buf.writeUUID(e.getUUID());
-        buf.writeVarInt(Registry.ENTITY_TYPE.getId(e.getType()));
+        buf.writeVarInt(BuiltInRegistries.ENTITY_TYPE.getId(e.getType()));
         buf.writeDouble(e.getX());
         buf.writeDouble(e.getY());
         buf.writeDouble(e.getZ());
@@ -58,7 +58,7 @@ public class NetworkUtil {
 
         int id = buf.readVarInt();
         UUID uuid = buf.readUUID();
-        EntityType entityTypeId = Registry.ENTITY_TYPE.byId(buf.readVarInt());
+        EntityType entityTypeId = BuiltInRegistries.ENTITY_TYPE.byId(buf.readVarInt());
         double x = buf.readDouble();
         double y = buf.readDouble();
         double z = buf.readDouble();

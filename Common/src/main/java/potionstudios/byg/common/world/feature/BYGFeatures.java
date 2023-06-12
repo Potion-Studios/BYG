@@ -1,6 +1,6 @@
 package potionstudios.byg.common.world.feature;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import potionstudios.byg.BYG;
@@ -45,7 +45,7 @@ import potionstudios.byg.reg.RegistryObject;
 import java.util.function.Supplier;
 
 public class BYGFeatures {
-    private static final RegistrationProvider<Feature<?>> PROVIDER = RegistrationProvider.get(Registry.FEATURE_REGISTRY, BYG.MOD_ID);
+    private static final RegistrationProvider<Feature<?>> PROVIDER = RegistrationProvider.get(Registries.FEATURE, BYG.MOD_ID);
 
     public static final RegistryObject<Feature<GlobalBiomeFeature.Config>> GLOBAL = createFeature("global", () -> new GlobalBiomeFeature());
 

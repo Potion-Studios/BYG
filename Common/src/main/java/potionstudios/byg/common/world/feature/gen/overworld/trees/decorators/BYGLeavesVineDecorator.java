@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.VineBlock;
@@ -18,14 +18,14 @@ public class BYGLeavesVineDecorator extends TreeDecorator {
 
     public static final Codec<BYGLeavesVineDecorator> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Registry.BLOCK.byNameCodec().flatXmap(mustExtendVineBlock(), mustExtendVineBlock()).fieldOf("vine_block").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.vineBlock),
+                    BuiltInRegistries.BLOCK.byNameCodec().flatXmap(mustExtendVineBlock(), mustExtendVineBlock()).fieldOf("vine_block").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.vineBlock),
                     Codec.FLOAT.fieldOf("probability").forGetter(bygLeavesVineDecorator -> bygLeavesVineDecorator.probability)
             ).apply(builder, ((vineBlock, probability) -> new BYGLeavesVineDecorator((VineBlock) vineBlock, probability)))
     );
 
 
     static Function<Block, DataResult<Block>> mustExtendVineBlock() {
-        return block -> block instanceof VineBlock ? DataResult.success(block) : DataResult.error(String.format("\"%s\" is not an instance of `VineBlock`.", Registry.BLOCK.getKey(block)));
+        return block -> block instanceof VineBlock ? DataResult.success(block) : DataResult.error(String.format("\"%s\" is not an instance of `VineBlock`.", BuiltInRegistries.BLOCK.getKey(block)));
     }
 
     private final VineBlock vineBlock;

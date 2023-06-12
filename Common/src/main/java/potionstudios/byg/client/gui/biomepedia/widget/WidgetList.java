@@ -50,8 +50,8 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
 
         @Override
         public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
-            this.widget.x = pLeft;
-            this.widget.y = pTop;
+            this.widget.setX(pLeft);
+            this.widget.setY(pTop);
             this.widget.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         }
 

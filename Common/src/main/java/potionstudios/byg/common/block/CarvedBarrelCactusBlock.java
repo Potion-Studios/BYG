@@ -63,7 +63,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean b) {
+    public boolean isValidBonemealTarget(LevelReader blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean b) {
         return false;
     }
 

@@ -45,7 +45,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
         return blockGetter.getBlockState(blockPos.above()).isAir();
     }
 

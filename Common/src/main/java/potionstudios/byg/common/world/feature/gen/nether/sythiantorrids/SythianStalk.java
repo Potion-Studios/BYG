@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.BambooBlock;
+import net.minecraft.world.level.block.BambooStalkBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BambooLeaves;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -74,9 +74,9 @@ public class SythianStalk extends Feature<ProbabilityFeatureConfiguration> {
     }
 
     static {
-        BAMBOO_BASE = BYGBlocks.SYTHIAN_STALK_BLOCK.defaultBlockState().setValue(BambooBlock.AGE, 1).setValue(BambooBlock.LEAVES, BambooLeaves.NONE).setValue(BambooBlock.STAGE, 0);
-        BAMBOO_LARGE_LEAVES_GROWN = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooBlock.STAGE, 1);
-        BAMBOO_LARGE_LEAVES = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.LARGE);
-        BAMBOO_SMALL_LEAVES = BAMBOO_BASE.setValue(BambooBlock.LEAVES, BambooLeaves.SMALL);
+        BAMBOO_BASE = BYGBlocks.SYTHIAN_STALK_BLOCK.defaultBlockState().setValue(BambooStalkBlock.AGE, 1).setValue(BambooStalkBlock.LEAVES, BambooLeaves.NONE).setValue(BambooStalkBlock.STAGE, 0);
+        BAMBOO_LARGE_LEAVES_GROWN = BAMBOO_BASE.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE).setValue(BambooStalkBlock.STAGE, 1);
+        BAMBOO_LARGE_LEAVES = BAMBOO_BASE.setValue(BambooStalkBlock.LEAVES, BambooLeaves.LARGE);
+        BAMBOO_SMALL_LEAVES = BAMBOO_BASE.setValue(BambooStalkBlock.LEAVES, BambooLeaves.SMALL);
     }
 }

@@ -1,11 +1,9 @@
 package potionstudios.byg.common.world.biome.end;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.*;
@@ -26,23 +24,19 @@ import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
 public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
 
-    public static final Codec<BYGEndBiomeSource> CODEC = RecordCodecBuilder.create(builder ->
-            builder.group(
-                    RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter(BYGEndBiomeSource::getBiomeRegistry)
-            ).apply(builder, builder.stable(BYGEndBiomeSource::new))
-    );
+    public static final Codec<BYGEndBiomeSource> CODEC = Codec.unit(BYGEndBiomeSource::new);
 
     public static final ResourceLocation LOCATION = BYG.createLocation("end");
 
-    private final Registry<Biome> biomeRegistry;
+    private Registry<Biome> biomeRegistry;
+
     private BiomeResolver islandBiomeResolver;
     private BiomeResolver voidBiomeResolver;
     private BiomeResolver skyBiomeResolver;
     private final int skyLayersStartY;
 
-    public BYGEndBiomeSource(Registry<Biome> biomeRegistry) {
-        super(getPossibleBiomes(biomeRegistry));
-        this.biomeRegistry = biomeRegistry;
+    public BYGEndBiomeSource() {
+        super(new ArrayList<>());
 
         EndBiomesConfig config = EndBiomesConfig.getConfig();
 
@@ -83,17 +77,16 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    public void lazyLoad(long seed) {
+    public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
+        this.biomeRegistry = biomeRegistry;
+        this.possibleBiomes().addAll(getPossibleBiomes(biomeRegistry));
+
         EndBiomesConfig config = EndBiomesConfig.getConfig();
         Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
         this.islandBiomeResolver = getIslandBiomeResolver(biomeRegistry, seed, config.islandLayers().filter(filter));
         this.voidBiomeResolver = getVoidBiomeResolver(biomeRegistry, seed, config.voidLayers().filter(filter));
         this.skyBiomeResolver = getSkyBiomeResolver(biomeRegistry, seed, config.skyLayers().filter(filter));
-    }
-
-    protected Registry<Biome> getBiomeRegistry() {
-        return biomeRegistry;
     }
 
     @NotNull

@@ -38,17 +38,17 @@ public class GlobalBiomeFeature extends Feature<GlobalBiomeFeature.Config> {
         }
         features = settings.features();
 
-        addPlacedFeature(GenerationStep.Decoration.RAW_GENERATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_RAW_GENERATION.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.LAKES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_LAKES.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_LOCAL_MODIFICATIONS.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_STRUCTURES.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_SURFACE_STRUCTURES.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.STRONGHOLDS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_STRONGHOLDS.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_ORES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_ORES.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_DECORATION.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.FLUID_SPRINGS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_FLUID_SPRINGS.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.VEGETAL_DECORATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_VEGETAL_DECORATION.unwrapKey().orElseThrow())));
-        addPlacedFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_TOP_LAYER_MODIFICATION.unwrapKey().orElseThrow())));
+        addPlacedFeature(GenerationStep.Decoration.RAW_GENERATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_RAW_GENERATION)));
+        addPlacedFeature(GenerationStep.Decoration.LAKES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_LAKES)));
+        addPlacedFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_LOCAL_MODIFICATIONS)));
+        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_STRUCTURES)));
+        addPlacedFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_SURFACE_STRUCTURES)));
+        addPlacedFeature(GenerationStep.Decoration.STRONGHOLDS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_STRONGHOLDS)));
+        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_ORES, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_ORES)));
+        addPlacedFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_UNDERGROUND_DECORATION)));
+        addPlacedFeature(GenerationStep.Decoration.FLUID_SPRINGS, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_FLUID_SPRINGS)));
+        addPlacedFeature(GenerationStep.Decoration.VEGETAL_DECORATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_VEGETAL_DECORATION)));
+        addPlacedFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, features, HolderSet.direct(placedFeatures.getHolderOrThrow(BYGPlacedFeatures.GLOBAL_TOP_LAYER_MODIFICATION)));
     }
 
     private static void addPlacedFeature(GenerationStep.Decoration step, List<HolderSet<PlacedFeature>> existing, HolderSet<PlacedFeature> toAppend) {

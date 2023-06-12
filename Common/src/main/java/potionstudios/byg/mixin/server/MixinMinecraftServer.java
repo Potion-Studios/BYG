@@ -5,6 +5,7 @@ import com.mojang.datafixers.DataFixer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -23,7 +24,6 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.WorldData;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -52,15 +52,14 @@ import static potionstudios.byg.util.AddSurfaceRulesUtil.appendSurfaceRule;
 @Mixin(MinecraftServer.class)
 public abstract class MixinMinecraftServer implements ServerKillCountDown {
 
-    @Shadow
-    @Final
-    private RegistryAccess.Frozen registryHolder;
 
     @Shadow
     public abstract WorldData getWorldData();
 
     @Shadow
     public abstract PlayerList getPlayerList();
+
+    @Shadow public abstract RegistryAccess.Frozen registryAccess();
 
     private long byg$killTime = -1;
     private boolean byg$killClient = false;
@@ -70,20 +69,20 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
 
     @Inject(at = @At("RETURN"), method = "<init>")
     private void appendGlobalFeatures(Thread $$0, LevelStorageSource.LevelStorageAccess $$1, PackRepository $$2, WorldStem $$3, Proxy $$4, DataFixer $$5, Services $$6, ChunkProgressListenerFactory $$7, CallbackInfo ci) {
-        Registry<Biome> biomeRegistry = this.registryHolder.registryOrThrow(Registry.BIOME_REGISTRY);
+        Registry<Biome> biomeRegistry = this.registryAccess().registryOrThrow(Registries.BIOME);
         if (SettingsConfig.getConfig().appendBiomePlacedFeatures()) {
-            Registry<PlacedFeature> placedFeatureRegistry = this.registryHolder.registryOrThrow(Registry.PLACED_FEATURE_REGISTRY);
+            Registry<PlacedFeature> placedFeatureRegistry = this.registryAccess().registryOrThrow(Registries.PLACED_FEATURE);
             for (Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.entrySet()) {
                 GlobalBiomeFeature.appendGlobalFeatures(biomeEntry.getValue().getGenerationSettings(), placedFeatureRegistry);
             }
         }
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            BiomeSourceRepairUtils.repairBiomeSources(biomeRegistry, getWorldData().worldGenSettings());
+            BiomeSourceRepairUtils.repairBiomeSources(biomeRegistry, (MinecraftServer)(Object) this);
         }
 
         if (SettingsConfig.getConfig().customVillagers()) {
-            Registry<StructureTemplatePool> templatePoolRegistry = this.registryHolder.registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
-            Registry<StructureProcessorList> processorListRegistry = this.registryHolder.registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
+            Registry<StructureTemplatePool> templatePoolRegistry = this.registryAccess().registry(Registries.TEMPLATE_POOL).orElseThrow();
+            Registry<StructureProcessorList> processorListRegistry = this.registryAccess().registry(Registries.PROCESSOR_LIST).orElseThrow();
             JigsawUtil.addBYGBuildingsToPool(templatePoolRegistry, processorListRegistry);
         }
 
@@ -94,12 +93,12 @@ public abstract class MixinMinecraftServer implements ServerKillCountDown {
     @Inject(method = "createLevels", at = @At("RETURN"))
     private void hackyAddSurfaceRules(ChunkProgressListener $$0, CallbackInfo ci) {
         if (SettingsConfig.getConfig().useBYGWorldGen()) {
-            boolean terrablenderApplied = ModPlatform.INSTANCE.isModLoaded("terrablender") && this.getWorldData().worldGenSettings().dimensions().getHolderOrThrow(LevelStem.OVERWORLD).value().generator().getBiomeSource() instanceof MultiNoiseBiomeSource;
+            boolean terrablenderApplied = ModPlatform.INSTANCE.isModLoaded("terrablender") && this.registryAccess().registryOrThrow(Registries.LEVEL_STEM).getHolderOrThrow(LevelStem.OVERWORLD).value().generator().getBiomeSource() instanceof MultiNoiseBiomeSource;
             if (!terrablenderApplied && OverworldBiomeConfig.getConfig().generateOverworld()) { // We add our surface rules through Terrablender's API.
-                appendSurfaceRule(this.getWorldData(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
+                appendSurfaceRule(registryAccess(), LevelStem.OVERWORLD, BYGSurfaceRules.OVERWORLD_SURFACE_RULES);
             }
-            appendSurfaceRule(this.getWorldData(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
-            appendSurfaceRule(this.getWorldData(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
+            appendSurfaceRule(registryAccess(), LevelStem.NETHER, BYGSurfaceRules.NETHER_SURFACE_RULES);
+            appendSurfaceRule(registryAccess(), LevelStem.END, BYGSurfaceRules.END_SURFACE_RULES);
         }
         BYGUtil.useTagReplacements = true;
     }

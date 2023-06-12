@@ -8,7 +8,7 @@ import net.minecraft.Util;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -58,7 +58,7 @@ public class BYG {
     public static void commonLoad() {
         registerBlockTagReplacements();
 
-        PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder());
+        PoiTypesAccess.byg_invokeRegisterBlockStates(BYGPoiTypes.FORAGER.asHolder(), BYGPoiTypes.FORAGER.asHolder().value().matchingStates());
 
         String loadAllConfigs = BYGConfigHandler.loadAllConfigs(false, false);
 
@@ -125,7 +125,7 @@ public class BYG {
                         .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
                         .add(BYGBlocks.EMBUR_GEL_VINES.get())
                         .addAll(Util.make(new ArrayList<>(), list -> {
-                            for (Block block : Registry.BLOCK) {
+                            for (Block block : BuiltInRegistries.BLOCK) {
                                 Material material = block.defaultBlockState().getMaterial();
                                 if (material == Material.PLANT || material == Material.BAMBOO ||
                                         material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||

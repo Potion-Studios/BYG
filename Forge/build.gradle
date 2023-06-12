@@ -1,7 +1,7 @@
 import com.modrinth.minotaur.TaskModrinthUpload
-import net.darkhax.curseforgegradle.TaskPublishCurseForge
-import com.modrinth.minotaur.dependencies.ModDependency
 import com.modrinth.minotaur.dependencies.DependencyType
+import com.modrinth.minotaur.dependencies.ModDependency
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
 import java.util.stream.Collectors
 
@@ -74,7 +74,7 @@ reobf {
 }
 
 minecraft {
-    mappings channel: 'parchment', version: "1.19.2-${parchment_version}-1.19.2"
+    mappings channel: 'parchment', version: "1.19.3-${parchment_version}-1.19.3"
 
     if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {
         // This location is hardcoded in Forge and can not be changed.
@@ -147,8 +147,8 @@ dependencies {
     compileOnly project(":Common")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
-    implementation fg.deobf("maven.modrinth:corgilib:1.19.2-${corgilib_version}-forge")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19.3:${geckolib_version}")
+    implementation fg.deobf("maven.modrinth:corgilib:${minecraft_version}-${corgilib_version}-forge")
 
     dataImplementation sourceSets.main.output
 }

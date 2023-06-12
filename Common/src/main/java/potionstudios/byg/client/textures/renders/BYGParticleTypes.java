@@ -1,8 +1,8 @@
 package potionstudios.byg.client.textures.renders;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.Registries;
 import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
 import potionstudios.byg.reg.RegistrationProvider;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public class BYGParticleTypes {
 
-    public static final RegistrationProvider<ParticleType<?>> PROVIDER = RegistrationProvider.get(Registry.PARTICLE_TYPE_REGISTRY, BYG.MOD_ID);
+    public static final RegistrationProvider<ParticleType<?>> PROVIDER = RegistrationProvider.get(Registries.PARTICLE_TYPE, BYG.MOD_ID);
 
     public static final RegistryObject<SimpleParticleType> THERIUM_GLINT = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(true), "therium_glint");
     public static final RegistryObject<SimpleParticleType> WITCH_HAZEL_LEAVES = createSimpleParticle(() -> SimpleParticleTypeAccess.byg_create(true), "witch_hazel_leaves");

@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.structure.arch;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.math.blendingfunction.BlendingFunction;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -18,7 +18,7 @@ public record ArchConfiguration(IntProvider height, IntProvider length, IntProvi
                                 FloatProvider percentageDestroyed,
                                 NoisySphereConfig sphereConfig,
                                 TagKey<Biome> biomeEnforcement) implements FeatureConfiguration {
-    public static final TagKey<Biome> EMPTY = TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("empty", "empty"));
+    public static final TagKey<Biome> EMPTY = TagKey.create(Registries.BIOME, new ResourceLocation("empty", "empty"));
 
     public static final Codec<ArchConfiguration> CODEC = RecordCodecBuilder.create(builder ->
         builder.group(IntProvider.CODEC.fieldOf("height").forGetter(archConfiguration -> archConfiguration.height),
@@ -28,7 +28,7 @@ public record ArchConfiguration(IntProvider height, IntProvider length, IntProvi
             FloatProvider.CODEC.fieldOf("matching_blending_function_chance").forGetter(archConfiguration -> archConfiguration.matchingBlendingFunctionChance),
             FloatProvider.CODEC.fieldOf("percentage_destroyed").forGetter(archConfiguration -> archConfiguration.percentageDestroyed),
             NoisySphereConfig.CODEC.fieldOf("generation").forGetter(archConfiguration -> archConfiguration.sphereConfig),
-            TagKey.codec(Registry.BIOME_REGISTRY).fieldOf("allowed_biomes").orElse(EMPTY).forGetter(archConfiguration -> archConfiguration.biomeEnforcement)
+            TagKey.codec(Registries.BIOME).fieldOf("allowed_biomes").orElse(EMPTY).forGetter(archConfiguration -> archConfiguration.biomeEnforcement)
         ).apply(builder, ArchConfiguration::new));
 
 

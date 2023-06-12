@@ -92,7 +92,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
 
     }
 
-    public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return state.getValue(AGE) < 3;
     }
 

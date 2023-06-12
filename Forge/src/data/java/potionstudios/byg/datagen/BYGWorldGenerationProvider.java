@@ -2,7 +2,6 @@ package potionstudios.byg.datagen;
 
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,11 +14,8 @@ import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.structure.BYGStructures;
 import potionstudios.byg.common.world.structure.village.pool.StructureTemplatePoolFactory;
 
-import java.util.Set;
-
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BYG.MOD_ID)
-public class BYGDataGen {
-
+public class BYGWorldGenerationProvider {
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, pContext -> {
@@ -60,32 +56,7 @@ public class BYGDataGen {
             });
 
     @SubscribeEvent
-    static void onDatagen(final GatherDataEvent event) {
-        final var gen = event.getGenerator();
-        final var existingFileHelper = event.getExistingFileHelper();
+    public static void onGatherData(GatherDataEvent event) {
 
-        // Server:
-//        gen.addProvider(event.includeServer(), new BYGLootTablesProvider(gen));
-//        CompletableFuture<HolderLookup.Provider> completablefuture = CompletableFuture.supplyAsync(VanillaRegistries::createLookup, Util.backgroundExecutor());
-
-//        final var blockTags = new BYGBlockTagsProvider(completablefuture, gen , existingFileHelper);
-//        gen.addProvider(event.includeServer(), blockTags);
-//        gen.addProvider(event.includeServer(), new BYGItemTagsProvider(gen, completablefuture, blockTags, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGEntityTagsProvider(gen, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGBiomeTagsProvider(gen, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGPoiTypeTagsProvider(gen, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGStructureTagsProvider(gen, existingFileHelper));
-
-//        gen.addProvider(event.includeServer(), new BYGRecipeProviders(gen));
-
-//        gen.addProvider(event.includeServer(), new BYGAdvancementProvider(gen, existingFileHelper));
-
-        // Client:
-//        gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
-//        gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
-        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(gen.getPackOutput(), event.getLookupProvider(), BUILDER, Set.of(BYG.MOD_ID)));
-
-//        StructureTemplateUtil.removeBlocks(existingFileHelper);
     }
-
 }

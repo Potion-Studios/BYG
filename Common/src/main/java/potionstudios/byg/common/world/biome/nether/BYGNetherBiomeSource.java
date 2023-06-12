@@ -1,11 +1,9 @@
 package potionstudios.byg.common.world.biome.nether;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -30,23 +28,17 @@ import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     public static final ResourceLocation LOCATION = BYG.createLocation("nether");
 
-    public static final Codec<BYGNetherBiomeSource> CODEC = RecordCodecBuilder.create(builder ->
-            builder.group(
-                    RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter(BYGNetherBiomeSource::getBiomeRegistry)
-            ).apply(builder, builder.stable(BYGNetherBiomeSource::new))
-    );
+    public static final Codec<BYGNetherBiomeSource> CODEC = Codec.unit(BYGNetherBiomeSource::new);
 
     private FastNoiseLite lowerLayerRoughnessNoise;
     private FastNoiseLite upperLayerRoughnessNoise;
-    private final Registry<Biome> biomeRegistry;
     private BiomeResolver upperBiomeResolver;
     private BiomeResolver middleBiomeResolver;
     private BiomeResolver bottomResolver;
     private final int bottomTopY;
 
-    public BYGNetherBiomeSource(Registry<Biome> biomeRegistry) {
-        super(getPossibleBiomes(biomeRegistry));
-        this.biomeRegistry = biomeRegistry;
+    public BYGNetherBiomeSource() {
+        super(new ArrayList<>());
 
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
 
@@ -71,7 +63,8 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    public void lazyLoad(long seed) {
+    public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
+        this.possibleBiomes().addAll(getPossibleBiomes(biomeRegistry));
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
         Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);
@@ -87,10 +80,6 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
         this.upperBiomeResolver = getUpperBiomeResolver(biomeRegistry, seed, config.upperLayer().filter(filter));
         this.middleBiomeResolver = getMiddleBiomeResolver(biomeRegistry, seed, config.middleLayer().filter(filter));
         this.bottomResolver = getLowerBiomeResolver(biomeRegistry, seed, config.bottomLayer().filter(filter));
-    }
-
-    protected Registry<Biome> getBiomeRegistry() {
-        return biomeRegistry;
     }
 
     @NotNull

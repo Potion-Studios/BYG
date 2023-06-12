@@ -25,7 +25,7 @@ public class EmburPlantBlock extends BushBlock implements BonemealableBlock {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean isValidBonemealTarget(BlockGetter worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 

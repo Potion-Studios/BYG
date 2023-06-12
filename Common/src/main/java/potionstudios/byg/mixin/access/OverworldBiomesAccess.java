@@ -1,7 +1,10 @@
 package potionstudios.byg.mixin.access;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
@@ -15,7 +18,7 @@ public interface OverworldBiomesAccess {
 
 
     @Invoker("baseOceanGeneration")
-    static BiomeGenerationSettings.Builder byg_invokeBaseOceanGeneration() {
+    static BiomeGenerationSettings.Builder byg_invokeBaseOceanGeneration(HolderGetter<PlacedFeature> placedFeatureHolderGetter, HolderGetter<ConfiguredWorldCarver<?>> configuredWorldCarverHolderGetter) {
         throw new Error("Mixin did not apply!");
     }
 }

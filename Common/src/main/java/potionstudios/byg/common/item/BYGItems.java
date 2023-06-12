@@ -1,6 +1,6 @@
 package potionstudios.byg.common.item;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -28,17 +28,17 @@ import java.util.function.Supplier;
 
 public class BYGItems {
 
-    public static final RegistrationProvider<Item> PROVIDER = RegistrationProvider.get(Registry.ITEM_REGISTRY, BYG.MOD_ID);
+    public static final RegistrationProvider<Item> PROVIDER = RegistrationProvider.get(Registries.ITEM, BYG.MOD_ID);
 
     public static final List<RegistryObject<GrowerItem>> SAPLINGS = new ArrayList<>();
 
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
-    public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "biomepedia");
+    public static final RegistryObject<Item> BIOMEPEDIA = createItem(() -> new BiomepediaItem(new Properties()), "biomepedia");
 
-    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> new SpawnEggItem(BYGEntities.MAN_O_WAR.get(), new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "man_o_war_spawn_egg");
-    public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> new SpawnEggItem(BYGEntities.PUMPKIN_WARDEN.get(), new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties().tab(BYGCreativeTab.CREATIVE_TAB))), "pumpkin_warden_spawn_egg");
+    public static final RegistryObject<Item> MAN_O_WAR_SPAWN_EGG = createItem(() -> new SpawnEggItem(BYGEntities.MAN_O_WAR.get(), new Color(182, 162, 196).getRGB(), new Color(103, 59, 134).getRGB(), (new Item.Properties())), "man_o_war_spawn_egg");
+    public static final RegistryObject<Item> PUMPKIN_WARDEN = createItem(() -> new SpawnEggItem(BYGEntities.PUMPKIN_WARDEN.get(), new Color(79, 57, 46).getRGB(), new Color(192, 106, 5).getRGB(), (new Item.Properties())), "pumpkin_warden_spawn_egg");
 
-    public static final RegistryObject<Item> MAN_O_WAR_BUCKET = createItem(() -> new MobBucketItem(BYGEntities.MAN_O_WAR.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB)), "man_o_war_bucket");
+    public static final RegistryObject<Item> MAN_O_WAR_BUCKET = createItem(() -> new MobBucketItem(BYGEntities.MAN_O_WAR.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)), "man_o_war_bucket");
 
 
     public static final RegistryObject<Item> PEAT = createItem(BYGBlocks.PEAT);
@@ -47,33 +47,33 @@ public class BYGItems {
     public static final RegistryObject<Item> LUSH_DIRT = createItem(BYGBlocks.LUSH_DIRT);
     public static final RegistryObject<Item> LUSH_FARMLAND = createItem(BYGBlocks.LUSH_FARMLAND);
 
-    public static final RegistryObject<Item> CHAIN_PLATING = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "chain_plating");
+    public static final RegistryObject<Item> CHAIN_PLATING = createItem(() -> new Item(new Properties()), "chain_plating");
     public static final RegistryObject<Item> FORAGERS_TABLE = createItem(BYGBlocks.FORAGERS_TABLE);
 
-    public static final RegistryObject<Item> AMETRINE_GEMS = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "ametrine_gems");
+    public static final RegistryObject<Item> AMETRINE_GEMS = createItem(() -> new Item(new Properties()), "ametrine_gems");
     public static final RegistryObject<Item> AMETRINE_ORE = createItem(BYGBlocks.AMETRINE_ORE);
     public static final RegistryObject<Item> AMETRINE_CLUSTER = createItem(BYGBlocks.AMETRINE_CLUSTER);
     public static final RegistryObject<Item> BUDDING_AMETRINE_ORE = createItem(BYGBlocks.BUDDING_AMETRINE_ORE);
     public static final RegistryObject<Item> AMETRINE_BLOCK = createItem(BYGBlocks.AMETRINE_BLOCK);
-    public static final RegistryObject<Item> AMETRINE_HELMET = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.HEAD, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "ametrine_helmet");
-    public static final RegistryObject<Item> AMETRINE_CHEST = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.CHEST, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "ametrine_chestplate");
-    public static final RegistryObject<Item> AMETRINE_LEGGINGS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.LEGS, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "ametrine_leggings");
-    public static final RegistryObject<Item> AMETRINE_BOOTS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.FEET, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "ametrine_boots");
-    public static final RegistryObject<Item> AMETRINE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(15, "ametrine", new Properties().stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "ametrine_horse_armor");
+    public static final RegistryObject<Item> AMETRINE_HELMET = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.HEAD, new Properties().fireResistant()), "ametrine_helmet");
+    public static final RegistryObject<Item> AMETRINE_CHEST = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.CHEST, new Properties().fireResistant()), "ametrine_chestplate");
+    public static final RegistryObject<Item> AMETRINE_LEGGINGS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.LEGS, new Properties().fireResistant()), "ametrine_leggings");
+    public static final RegistryObject<Item> AMETRINE_BOOTS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.FEET, new Properties().fireResistant()), "ametrine_boots");
+    public static final RegistryObject<Item> AMETRINE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(15, "ametrine", new Properties().stacksTo(1).fireResistant()), "ametrine_horse_armor");
 
-    public static final RegistryObject<Item> RAW_PENDORITE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "raw_pendorite");
-    public static final RegistryObject<Item> PENDORITE_INGOT = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_ingot");
-    public static final RegistryObject<Item> PENDORITE_SCRAPS = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "pendorite_scraps");
+    public static final RegistryObject<Item> RAW_PENDORITE = createItem(() -> new Item(new Properties()), "raw_pendorite");
+    public static final RegistryObject<Item> PENDORITE_INGOT = createItem(() -> new Item(new Properties()), "pendorite_ingot");
+    public static final RegistryObject<Item> PENDORITE_SCRAPS = createItem(() -> new Item(new Properties()), "pendorite_scraps");
     public static final RegistryObject<Item> PENDORITE_ORE = createItem(BYGBlocks.PENDORITE_ORE);
     public static final RegistryObject<Item> RAW_PENDORITE_BLOCK = createItem(BYGBlocks.RAW_PENDORITE_BLOCK);
     public static final RegistryObject<Item> PENDORITE_BLOCK = createItem(BYGBlocks.PENDORITE_BLOCK);
-    public static final RegistryObject<Item> PENDORITE_AXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 5.0F, -3.0F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_axe");
-    public static final RegistryObject<Item> PENDORITE_PICK = createItem(() -> PickaxeItemAccess.byg_create(BYGTier.PENDORITE, 1, -2.8F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_pickaxe");
-    public static final RegistryObject<Item> PENDORITE_SWORD = createItem(() -> new SwordItem(BYGTier.PENDORITE, 3, -2.4F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_sword");
-    public static final RegistryObject<Item> PENDORITE_BATTLEAXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 7.0F, -3.3F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_battleaxe");
-    public static final RegistryObject<Item> PENDORITE_SHOVEL = createItem(() -> new ShovelItem(BYGTier.PENDORITE, 1.5F, -3.0F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_shovel");
-    public static final RegistryObject<Item> PENDORITE_HOE = createItem(() -> HoeItemAccess.byg_create(BYGTier.PENDORITE, -4, 0.0F, new Properties().tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_hoe");
-    public static final RegistryObject<Item> PENDORITE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(11, "pendorite", new Properties().stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB).fireResistant()), "pendorite_horse_armor");
+    public static final RegistryObject<Item> PENDORITE_AXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 5.0F, -3.0F, new Properties().fireResistant()), "pendorite_axe");
+    public static final RegistryObject<Item> PENDORITE_PICK = createItem(() -> PickaxeItemAccess.byg_create(BYGTier.PENDORITE, 1, -2.8F, new Properties().fireResistant()), "pendorite_pickaxe");
+    public static final RegistryObject<Item> PENDORITE_SWORD = createItem(() -> new SwordItem(BYGTier.PENDORITE, 3, -2.4F, new Properties().fireResistant()), "pendorite_sword");
+    public static final RegistryObject<Item> PENDORITE_BATTLEAXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 7.0F, -3.3F, new Properties().fireResistant()), "pendorite_battleaxe");
+    public static final RegistryObject<Item> PENDORITE_SHOVEL = createItem(() -> new ShovelItem(BYGTier.PENDORITE, 1.5F, -3.0F, new Properties().fireResistant()), "pendorite_shovel");
+    public static final RegistryObject<Item> PENDORITE_HOE = createItem(() -> HoeItemAccess.byg_create(BYGTier.PENDORITE, -4, 0.0F, new Properties().fireResistant()), "pendorite_hoe");
+    public static final RegistryObject<Item> PENDORITE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(11, "pendorite", new Properties().stacksTo(1).fireResistant()), "pendorite_horse_armor");
 
     public static final RegistryObject<Item> DACITE = createItem(BYGBlocks.DACITE);
     public static final RegistryObject<Item> DACITE_STAIRS = createItem(BYGBlocks.DACITE_STAIRS);
@@ -149,7 +149,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CHISELED_TRAVERTINE_WALL = createItem(BYGBlocks.CHISELED_TRAVERTINE_WALL);
 
     public static final RegistryObject<Item> EMERALDITE_ORE = createItem(BYGBlocks.EMERALDITE_ORE);
-    public static final RegistryObject<Item> EMERALDITE_SHARDS = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "emeraldite_shards");
+    public static final RegistryObject<Item> EMERALDITE_SHARDS = createItem(() -> new Item(new Properties()), "emeraldite_shards");
 
     public static final RegistryObject<Item> SCORIA_STONE = createItem(BYGBlocks.SCORIA_STONE);
     public static final RegistryObject<Item> SCORIA_STAIRS = createItem(BYGBlocks.SCORIA_STAIRS);
@@ -343,7 +343,7 @@ public class BYGItems {
 
         FLOWERING_BAOBAB_LEAVES = createItem(BYGBlocks.FLOWERING_BAOBAB_LEAVES);
         RIPE_BAOBAB_LEAVES = createItem(BYGBlocks.RIPE_BAOBAB_LEAVES);
-        BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
+        BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
         BYGWoodTypes.BAOBAB.init();
 
         IMBUED_BLUE_ENCHANTED_LOG = createItem(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG);
@@ -368,7 +368,7 @@ public class BYGItems {
         BYGWoodTypes.CYPRESS.init();
         BYGWoodTypes.EBONY.init();
 
-        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
+        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
         BYGWoodTypes.ETHER.init();
         BYGWoodTypes.FIR.init();
 
@@ -432,8 +432,8 @@ public class BYGItems {
 
         FLOWERING_SKYRIS_LEAVES = createItem(BYGBlocks.FLOWERING_SKYRIS_LEAVES);
         SKYRIS_LEAVES_GREEN_APPLE = createItem(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE);
-        GREEN_APPLE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
-        GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
+        GREEN_APPLE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.35f).build())), "green_apple");
+        GREEN_APPLE_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).effect(new MobEffectInstance(MobEffects.DIG_SPEED, 200, 0), 1.0F).build())), "green_apple_pie");
         SKYRIS_VINE = createItem(BYGBlocks.SKYRIS_VINE);
         BYGWoodTypes.SKYRIS.init();
 
@@ -448,7 +448,7 @@ public class BYGItems {
         BYGWoodTypes.SYTHIAN.init();
 
         BYGWoodTypes.EMBUR.init();
-        EMBUR_GEL_BALL = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_gel_ball");
+        EMBUR_GEL_BALL = createItem(() -> new Item(new Properties()), "embur_gel_ball");
         EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
         EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
         EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
@@ -479,8 +479,8 @@ public class BYGItems {
     public static final RegistryObject<Item> JOSHUA_LEAVES = createItem(BYGBlocks.JOSHUA_LEAVES);
     public static final RegistryObject<Item> FLOWERING_JOSHUA_LEAVES = createItem(BYGBlocks.FLOWERING_JOSHUA_LEAVES);
     public static final RegistryObject<Item> RIPE_JOSHUA_LEAVES = createItem(BYGBlocks.RIPE_JOSHUA_LEAVES);
-    public static final RegistryObject<Item> JOSHUA_FRUIT = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.35f).build())), "joshua_fruit");
-    public static final RegistryObject<Item> COOKED_JOSHUA_FRUIT = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.4f).build())), "cooked_joshua_fruit");
+    public static final RegistryObject<Item> JOSHUA_FRUIT = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.35f).build())), "joshua_fruit");
+    public static final RegistryObject<Item> COOKED_JOSHUA_FRUIT = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.4f).build())), "cooked_joshua_fruit");
 
     public static final RegistryObject<GrowerItem> ORANGE_BIRCH_SAPLING = createSaplingItem(BYGBlocks.ORANGE_BIRCH_SAPLING);
     public static final RegistryObject<Item> ORANGE_BIRCH_LEAVES = createItem(BYGBlocks.ORANGE_BIRCH_LEAVES);
@@ -517,8 +517,8 @@ public class BYGItems {
     //Nether
     public static final RegistryObject<Item> OVERGROWN_CRIMSON_BLACKSTONE = createItem(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE);
     public static final RegistryObject<Item> TALL_CRIMSON_ROOTS = createItem(BYGBlocks.TALL_CRIMSON_ROOTS);
-    public static final RegistryObject<Item> CRIMSON_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.CRIMSON_BERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
-    public static final RegistryObject<Item> CRIMSON_BERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0), 1.0F).build())), "crimson_berry_pie");
+    public static final RegistryObject<Item> CRIMSON_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.CRIMSON_BERRY_BUSH.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
+    public static final RegistryObject<Item> CRIMSON_BERRY_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0), 1.0F).build())), "crimson_berry_pie");
 
     public static final RegistryObject<Item> WARPED_CACTUS = createItem(BYGBlocks.WARPED_CACTUS);
     public static final RegistryObject<Item> WARPED_BUSH = createItem(BYGBlocks.WARPED_BUSH);
@@ -537,14 +537,14 @@ public class BYGItems {
     public static final RegistryObject<Item> MEDIUM_SUBZERO_CRYSTAL_BUD = createItem(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD);
     public static final RegistryObject<Item> LARGE_SUBZERO_CRYSTAL_BUD = createItem(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD);
     public static final RegistryObject<Item> SUBZERO_CRYSTAL_CLUSTER = createItem(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER);
-    public static final RegistryObject<Item> SUBZERO_CRYSTAL_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "subzero_crystal_shard");
+    public static final RegistryObject<Item> SUBZERO_CRYSTAL_SHARD = createItem(() -> new Item(new Properties()), "subzero_crystal_shard");
     public static final RegistryObject<Item> HYPOGEAL_IMPERIUM = createItem(BYGBlocks.HYPOGEAL_IMPERIUM);
 
-    public static final RegistryObject<Item> ANTHRACITE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "anthracite");
+    public static final RegistryObject<Item> ANTHRACITE = createItem(() -> new Item(new Properties()), "anthracite");
     public static final RegistryObject<Item> ANTHRACITE_BLOCK = createItem(BYGBlocks.ANTHRACITE_BLOCK);
     public static final RegistryObject<Item> ANTHRACITE_ORE = createItem(BYGBlocks.ANTHRACITE_ORE);
     public static final RegistryObject<Item> BRIMSTONE = createItem(BYGBlocks.BRIMSTONE);
-    public static final RegistryObject<Item> BRIM_POWDER = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "brim_powder");
+    public static final RegistryObject<Item> BRIM_POWDER = createItem(() -> new Item(new Properties()), "brim_powder");
     public static final RegistryObject<Item> BORIC_CAMPFIRE = createItem(BYGBlocks.BORIC_CAMPFIRE);
     public static final RegistryObject<Item> BORIC_LANTERN = createItem(BYGBlocks.BORIC_LANTERN);
     public static final RegistryObject<Item> YELLOW_NETHER_BRICKS = createItem(BYGBlocks.YELLOW_NETHER_BRICKS);
@@ -552,7 +552,7 @@ public class BYGItems {
     public static final RegistryObject<Item> YELLOW_NETHER_BRICK_STAIRS = createItem(BYGBlocks.YELLOW_NETHER_BRICK_STAIRS);
     public static final RegistryObject<Item> YELLOW_NETHER_BRICK_WALL = createItem(BYGBlocks.YELLOW_NETHER_BRICK_WALL);
 
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "yellow_nether_brick");
+    public static final RegistryObject<Item> YELLOW_NETHER_BRICK = createItem(() -> new Item(new Properties()), "yellow_nether_brick");
     public static final RegistryObject<Item> MAGMATIC_STONE = createItem(BYGBlocks.MAGMATIC_STONE);
 
     public static final RegistryObject<Item> HANGING_BONE = createItem(BYGBlocks.HANGING_BONE);
@@ -600,9 +600,9 @@ public class BYGItems {
     public static final RegistryObject<Item> EMBUR_SPROUTS = createItem(BYGBlocks.EMBUR_SPROUTS);
     public static final RegistryObject<Item> EMBUR_ROOTS = createItem(BYGBlocks.EMBUR_ROOTS);
     public static final RegistryObject<Item> TALL_EMBUR_ROOTS = createItem(BYGBlocks.TALL_EMBUR_ROOTS);
-    public static final RegistryObject<Item> EMBUR_LILY = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.EMBUR_LILY.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "embur_lily");
+    public static final RegistryObject<Item> EMBUR_LILY = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.EMBUR_LILY.get(), new Properties()), "embur_lily");
 
-    public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_nether_brick");
+    public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties()), "blue_nether_brick");
     public static final RegistryObject<Item> BLUE_NETHERRACK = createItem(BYGBlocks.BLUE_NETHERRACK);
     public static final RegistryObject<Item> BLUE_NETHER_BRICKS = createItem(BYGBlocks.BLUE_NETHER_BRICKS);
     public static final RegistryObject<Item> BLUE_NETHER_BRICK_SLAB = createItem(BYGBlocks.BLUE_NETHER_BRICK_SLAB);
@@ -649,8 +649,8 @@ public class BYGItems {
     public static final RegistryObject<Item> ETHER_BUSH = createItem(BYGBlocks.ETHER_BUSH);
     public static final RegistryObject<Item> THEREAL_BELLFLOWER = createItem(BYGBlocks.THEREAL_BELLFLOWER);
 
-    public static final RegistryObject<Item> NIGHTSHADE_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
-    public static final RegistryObject<Item> NIGHTSHADE_BERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F).build())), "nightshade_berry_pie");
+    public static final RegistryObject<Item> NIGHTSHADE_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
+    public static final RegistryObject<Item> NIGHTSHADE_BERRY_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F).build())), "nightshade_berry_pie");
     public static final RegistryObject<Item> NIGHTSHADE_PHYLIUM = createItem(BYGBlocks.NIGHTSHADE_PHYLIUM);
     public static final RegistryObject<Item> NIGHTSHADE_SPROUTS = createItem(BYGBlocks.NIGHTSHADE_SPROUTS);
     public static final RegistryObject<Item> NIGHTSHADE_ROOTS = createItem(BYGBlocks.NIGHTSHADE_ROOTS);
@@ -670,7 +670,7 @@ public class BYGItems {
     public static final RegistryObject<Item> MEDIUM_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.MEDIUM_THERIUM_CRYSTAL_BUD);
     public static final RegistryObject<Item> LARGE_THERIUM_CRYSTAL_BUD = createItem(BYGBlocks.LARGE_THERIUM_CRYSTAL_BUD);
     public static final RegistryObject<Item> THERIUM_CRYSTAL_CLUSTER = createItem(BYGBlocks.THERIUM_CRYSTAL_CLUSTER);
-    public static final RegistryObject<Item> THERIUM_CRYSTAL_SHARD = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "therium_crystal_shard");
+    public static final RegistryObject<Item> THERIUM_CRYSTAL_SHARD = createItem(() -> new Item(new Properties()), "therium_crystal_shard");
     public static final RegistryObject<Item> CHISELED_THERIUM = createItem(BYGBlocks.CHISELED_THERIUM);
     public static final RegistryObject<Item> CHISELED_THERIUM_STAIRS = createItem(BYGBlocks.CHISELED_THERIUM_STAIRS);
     public static final RegistryObject<Item> CHISELED_THERIUM_SLAB = createItem(BYGBlocks.CHISELED_THERIUM_SLAB);
@@ -707,7 +707,7 @@ public class BYGItems {
     public static final RegistryObject<Item> CRYPTIC_VENT = createItem(BYGBlocks.CRYPTIC_VENT);
     public static final RegistryObject<Item> TALL_CRYPTIC_VENT = createItem(BYGBlocks.TALL_CRYPTIC_VENT);
     public static final RegistryObject<Item> CRYPTIC_BRAMBLE = createItem(BYGBlocks.CRYPTIC_BRAMBLE);
-    public static final RegistryObject<Item> CRYPTIC_BRAMBLE_BRANCH = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "cryptic_bramble_branch");
+    public static final RegistryObject<Item> CRYPTIC_BRAMBLE_BRANCH = createItem(() -> new Item(new Properties()), "cryptic_bramble_branch");
 
     //Ice
     public static final RegistryObject<Item> BLACK_ICE = createItem(BYGBlocks.BLACK_ICE);
@@ -720,10 +720,10 @@ public class BYGItems {
     public static final RegistryObject<Item> MILKCAP_MUSHROOM_BLOCK = createItem(BYGBlocks.MILKCAP_MUSHROOM_BLOCK);
     public static final RegistryObject<GrowerItem> WOOD_BLEWIT = createGrowerItem(BYGBlocks.WOOD_BLEWIT);
     public static final RegistryObject<Item> BLEWIT_MUSHROOM_BLOCK = createItem(BYGBlocks.BLEWIT_MUSHROOM_BLOCK);
-    public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "white_puffball_spores");
-    public static final RegistryObject<Item> WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
-    public static final RegistryObject<Item> COOKED_WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f).build())), "cooked_white_puffball_cap");
-    public static final RegistryObject<Item> WHITE_PUFFBALL_STEW = createItem(() -> new BowlFoodItem(new Properties().stacksTo(1).tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
+    public static final RegistryObject<Item> WHITE_PUFFBALL_SPORES = createItem(() -> new ItemNameBlockItem(BYGBlocks.WHITE_PUFFBALL.get(), new Properties()), "white_puffball_spores");
+    public static final RegistryObject<Item> WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build())), "white_puffball_cap");
+    public static final RegistryObject<Item> COOKED_WHITE_PUFFBALL_CAP = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f).build())), "cooked_white_puffball_cap");
+    public static final RegistryObject<Item> WHITE_PUFFBALL_STEW = createItem(() -> new BowlFoodItem(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(9).saturationMod(1.0f).build())), "white_puffball_stew");
     public static final RegistryObject<Item> SHELF_FUNGI = createItem(BYGBlocks.SHELF_FUNGI);
 
     public static final RegistryObject<Item> WHITE_MUSHROOM_STEM = createItem(BYGBlocks.WHITE_MUSHROOM_STEM);
@@ -731,10 +731,10 @@ public class BYGItems {
 
     //Plants
     public static final RegistryObject<Item> SHRUB = createItem(BYGBlocks.SHRUB);
-    public static final RegistryObject<Item> BLUE_BERRY = createItem(() -> new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
-    public static final RegistryObject<Item> BLUEBERRY_PIE = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
+    public static final RegistryObject<Item> BLUE_BERRY = createItem(() -> new ItemNameBlockItem(BYGBlocks.BLUEBERRY_BUSH.get(), new Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f).build())), "blueberries");
+    public static final RegistryObject<Item> BLUEBERRY_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())), "blueberry_pie");
 
-    public static final RegistryObject<Item> ALOE_VERA_JUICE = createItem(() -> new HoneyBottleItem(new Properties().tab(BYGCreativeTab.CREATIVE_TAB).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.0F).build())), "aloe_vera_juice");
+    public static final RegistryObject<Item> ALOE_VERA_JUICE = createItem(() -> new HoneyBottleItem(new Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16).food(new FoodProperties.Builder().nutrition(3).saturationMod(1.0F).build())), "aloe_vera_juice");
     public static final RegistryObject<Item> ALOE_VERA = createItem(BYGBlocks.ALOE_VERA);
     public static final RegistryObject<Item> BARREL_CACTUS = createItem(BYGBlocks.BARREL_CACTUS);
     public static final RegistryObject<Item> FLOWERING_BARREL_CACTUS = createItem(BYGBlocks.FLOWERING_BARREL_CACTUS);
@@ -746,15 +746,15 @@ public class BYGItems {
     public static final RegistryObject<Item> PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final RegistryObject<Item> TALL_PRAIRIE_GRASS = createItem(BYGBlocks.TALL_PRAIRIE_GRASS);
     public static final RegistryObject<Item> PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
-    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), "byg.cattail_campfire", new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.CATTAIL_SPROUT);
+    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), "byg.cattail_campfire", new Properties()), BYGBlocks.CATTAIL_SPROUT);
     public static final RegistryObject<Item> CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final RegistryObject<Item> CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final RegistryObject<Item> CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
     public static final RegistryObject<Item> CATTAIL_THATCH_SLAB = createItem(BYGBlocks.CATTAIL_THATCH_SLAB);
 
-    public static final RegistryObject<Item> FLOWERING_TINY_LILY_PADS = createItem(() -> new BYGLilyItem(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.FLOWERING_TINY_LILY_PADS);
-    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.TINY_LILYPADS);
-    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), BYGBlocks.WATER_SILK);
+    public static final RegistryObject<Item> FLOWERING_TINY_LILY_PADS = createItem(() -> new BYGLilyItem(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Properties()), BYGBlocks.FLOWERING_TINY_LILY_PADS);
+    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS.get(), new Properties()), BYGBlocks.TINY_LILYPADS);
+    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK.get(), new Properties()), BYGBlocks.WATER_SILK);
     public static final RegistryObject<Item> WINTER_SUCCULENT = createItem(BYGBlocks.WINTER_SUCCULENT);
 
     public static final RegistryObject<Item> BEACH_GRASS = createItem(BYGBlocks.BEACH_GRASS);
@@ -763,7 +763,7 @@ public class BYGItems {
     public static final RegistryObject<Item> FLOWER_PATCH = createItem(BYGBlocks.FLOWER_PATCH);
 
     public static final RegistryObject<Item> POLLEN_BLOCK = createItem(BYGBlocks.POLLEN_BLOCK);
-    public static final RegistryObject<Item> POLLEN_DUST = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "pollen_dust");
+    public static final RegistryObject<Item> POLLEN_DUST = createItem(() -> new Item(new Properties()), "pollen_dust");
 
     //FlowerItems
     public static final RegistryObject<Item> ALLIUM_FLOWER_BUSH = createItem(BYGBlocks.ALLIUM_FLOWER_BUSH);
@@ -825,11 +825,11 @@ public class BYGItems {
     public static final RegistryObject<Item> YELLOW_TULIP = createItem(BYGBlocks.YELLOW_TULIP);
 
     public static RegistryObject<Item> createItem(RegistryObject<? extends Block> block) {
-        return block == null ? null : createItem(() -> new BlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        return block == null ? null : createItem(() -> new BlockItem(block.get(), new Properties()), block);
     }
 
     public static RegistryObject<Item> createScaffoldingBlockItem(RegistryObject<? extends Block> block) {
-        return createItem(() -> new ScaffoldingBlockItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        return createItem(() -> new ScaffoldingBlockItem(block.get(), new Properties()), block);
     }
 
     public static RegistryObject<GrowerItem> createSaplingItem(RegistryObject<? extends Block> block) {
@@ -841,7 +841,7 @@ public class BYGItems {
     }
 
     public static RegistryObject<GrowerItem> createGrowerItem(RegistryObject<? extends Block> block, boolean isSapling) {
-        final var item = createItem(() -> new GrowerItem(block.get(), new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), block);
+        final var item = createItem(() -> new GrowerItem(block.get(), new Properties()), block);
         if (isSapling) {
             SAPLINGS.add(item);
         }
@@ -849,7 +849,7 @@ public class BYGItems {
     }
 
     public static RegistryObject<SignItem> createSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
-        return BYGConstants.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16).tab(BYGCreativeTab.CREATIVE_TAB), signBlock.get(), wallSignBlock.get()), id) : null;
+        return BYGConstants.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16), signBlock.get(), wallSignBlock.get()), id) : null;
     }
 
     public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {

@@ -96,7 +96,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         builder.add(AGE);
     }
 
-    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
         return blockState.getValue(AGE) < 3;
     }
 

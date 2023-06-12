@@ -1,6 +1,6 @@
 package potionstudios.byg.common.world.biome;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -68,7 +68,7 @@ public class ModLoaderBiomeTags {
         public static final TagKey<Biome> IS_END = create("is_end");
 
         private static TagKey<Biome> create(String id) {
-            return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("forge", id));
+            return TagKey.create(Registries.BIOME, new ResourceLocation("forge", id));
         }
     }
     public static class Fabric {
@@ -130,7 +130,7 @@ public class ModLoaderBiomeTags {
         public static final TagKey<Biome> SHALLOW_OCEAN = create("shallow_ocean");
 
         private static TagKey<Biome> create(String id) {
-            return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("c", id));
+            return TagKey.create(Registries.BIOME, new ResourceLocation("c", id));
         }
     }
 

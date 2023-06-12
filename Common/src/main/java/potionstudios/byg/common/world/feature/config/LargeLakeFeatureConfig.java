@@ -4,11 +4,13 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
@@ -46,11 +48,11 @@ public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth,
         return random.nextInt(Math.max(1, this.maxDepth - this.minDepth)) + this.minRadius;
     }
 
-    public static Holder<PlacedFeature> createDripLeavesPlacedFeature(int rarity, PlacementModifier... modifiers) {
+    public static Holder<PlacedFeature> createDripLeavesPlacedFeature(HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureHolderGetter, int rarity, PlacementModifier... modifiers) {
         ArrayList<PlacementModifier> placementModifiers = new ArrayList<>();
         placementModifiers.add(RarityFilter.onAverageOnceEvery(rarity));
         placementModifiers.addAll(List.of(modifiers));
         placementModifiers.addAll(List.of(BlockPredicateFilter.forPredicate(BlockPredicate.anyOf(BlockPredicate.wouldSurvive(Blocks.BIG_DRIPLEAF.defaultBlockState(), BlockPos.ZERO), BlockPredicate.wouldSurvive(Blocks.SMALL_DRIPLEAF.defaultBlockState(), BlockPos.ZERO), BlockPredicate.wouldSurvive(Blocks.SMALL_DRIPLEAF.defaultBlockState(), BlockPos.ZERO)))));
-        return BYGPlacedFeaturesUtil.createPlacedFeatureDirect(CaveFeatures.DRIPLEAF, placementModifiers);
+        return BYGPlacedFeaturesUtil.createPlacedFeatureDirect(configuredFeatureHolderGetter.getOrThrow(CaveFeatures.DRIPLEAF), placementModifiers);
     }
 }

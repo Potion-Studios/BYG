@@ -10,7 +10,7 @@ import corgitaco.corgilib.serialization.codec.FromFileCodec;
 import corgitaco.corgilib.serialization.codec.Wrapped;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import net.minecraft.Util;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -52,7 +52,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
                         throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
                     }
-                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
+                    return DataResult.success(ResourceKey.create(Registries.BIOME, resourceLocation));
                 }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::new);
     });
@@ -76,7 +76,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
                         throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
                     }
-                    return DataResult.success(ResourceKey.create(Registry.BIOME_REGISTRY, resourceLocation));
+                    return DataResult.success(ResourceKey.create(Registries.BIOME, resourceLocation));
                 }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
         ).apply(builder, OverworldRegion::fromOldCodec);
     });

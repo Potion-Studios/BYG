@@ -4,9 +4,11 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
@@ -58,7 +60,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
     protected void init() {
         super.init();
         this.clearWidgets();
-        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registries.BIOME);
         List<ResourceKey<Biome>> resourceKeys = biomeRegistry.entrySet().stream().map(Map.Entry::getKey).filter(biomeResourceKey -> biomeResourceKey.location().getNamespace().equals(BYG.MOD_ID)).sorted(Comparator.comparing(ResourceKey::location)).collect(Collectors.toList());
 
         if (this.widgets == null) {
@@ -84,8 +86,8 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
 
         this.back = back;
         this.addRenderableWidget(this.back);
-        this.back.x = this.leftPos + 15;
-        this.back.y = this.topPos - this.back.getHeight() - 13;
+        this.back.setX(this.leftPos + 15);
+        this.back.setY(this.topPos - this.back.getHeight() - 13);
 
         PageButton next = new PageButton(pageButtonForwardX, pageButtonY, true, button -> {
             if (pagePairsCount == 0) {
@@ -102,8 +104,8 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
 
         this.next = next;
         this.addRenderableWidget(this.next);
-        this.next.x = this.rightPos - this.back.getWidth() - 22;
-        this.next.y = this.topPos - this.back.getHeight() - 13;
+        this.next.setX(this.rightPos - this.back.getWidth() - 22);
+        this.next.setY(this.topPos - this.back.getHeight() - 13);
         load(pagePair);
 
         MutableBoolean snapToFront = new MutableBoolean(false);
@@ -139,7 +141,8 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                         this.back.visible = true;
                         this.back.active = true;
                     }
-                }, (button, poseStack, mouseX, mouseZ) -> renderTooltip(poseStack, Component.translatable("biomepedia.biomelist.search"), mouseX, mouseZ), Component.empty());
+                });
+        this.searchButton.setTooltip(Tooltip.create(Component.translatable("biomepedia.biomelist.search")));
         this.addRenderableWidget(this.searchButton);
         this.addRenderableWidget(this.search);
 

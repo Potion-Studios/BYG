@@ -5,7 +5,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import corgitaco.corgilib.serialization.codec.CollectionCodec;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -40,8 +41,8 @@ public final class LevelBiomeTracker {
 
     public static final Codec<LevelBiomeTracker> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                    Codec.unboundedMap(ResourceKey.codec(Registry.DIMENSION_REGISTRY), new CollectionCodec<>(ResourceKey.codec(Registry.BIOME_REGISTRY), ObjectOpenHashSet::new)).fieldOf("biomes_for_level").forGetter(levelBiomeTracker -> levelBiomeTracker.biomesForLevel),
-                    Codec.unboundedMap(ResourceKey.codec(Registry.BIOME_REGISTRY), new CollectionCodec<>(ResourceKey.codec(Registry.ENTITY_TYPE_REGISTRY), ObjectOpenHashSet::new)).fieldOf("biome_mobs").forGetter(levelBiomeTracker -> levelBiomeTracker.biomeMobs)
+                    Codec.unboundedMap(ResourceKey.codec(Registries.DIMENSION), new CollectionCodec<>(ResourceKey.codec(Registries.BIOME), ObjectOpenHashSet::new)).fieldOf("biomes_for_level").forGetter(levelBiomeTracker -> levelBiomeTracker.biomesForLevel),
+                    Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), new CollectionCodec<>(ResourceKey.codec(Registries.ENTITY_TYPE), ObjectOpenHashSet::new)).fieldOf("biome_mobs").forGetter(levelBiomeTracker -> levelBiomeTracker.biomeMobs)
             ).apply(builder, LevelBiomeTracker::new));
     private final Map<ResourceKey<Level>, ObjectOpenHashSet<ResourceKey<Biome>>> biomesForLevel;
 
@@ -58,7 +59,7 @@ public final class LevelBiomeTracker {
 
                 for (MobCategory category : MobCategory.values()) {
                     WeightedRandomList<MobSpawnSettings.SpawnerData> mobs = possibleBiome.value().getMobSettings().getMobs(category);
-                    ((WeightedListAccess<MobSpawnSettings.SpawnerData>) mobs).byg_getItems().stream().map(spawnerData -> spawnerData.type).map(entityType -> Registry.ENTITY_TYPE.getResourceKey(entityType).orElseThrow()).forEach(entityTypeResourceKey -> {
+                    ((WeightedListAccess<MobSpawnSettings.SpawnerData>) mobs).byg_getItems().stream().map(spawnerData -> spawnerData.type).map(entityType -> BuiltInRegistries.ENTITY_TYPE.getResourceKey(entityType).orElseThrow()).forEach(entityTypeResourceKey -> {
                         entitySpawns.computeIfAbsent(biomeResourceKey, key -> new ObjectOpenHashSet<>()).add(entityTypeResourceKey);
                     });
 

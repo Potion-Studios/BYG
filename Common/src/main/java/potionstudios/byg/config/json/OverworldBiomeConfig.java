@@ -11,7 +11,7 @@ import corgitaco.corgilib.serialization.codec.Wrapped;
 import corgitaco.corgilib.serialization.jankson.JanksonJsonOps;
 import corgitaco.corgilib.serialization.jankson.JanksonUtil;
 import corgitaco.corgilib.shadow.blue.endless.jankson.JsonElement;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
@@ -35,7 +35,7 @@ import static corgitaco.corgilib.serialization.jankson.JanksonUtil.createConfig;
 public record OverworldBiomeConfig(boolean generateOverworld,
                                    List<Wrapped<OverworldRegion>> values, Map<ResourceKey<Biome>, ResourceKey<Biome>> globalSwapper) {
 
-    public static final Codec<Map<ResourceKey<Biome>, ResourceKey<Biome>>> BIOME_SWAPPER = Codec.unboundedMap(ResourceKey.codec(Registry.BIOME_REGISTRY), ResourceKey.codec(Registry.BIOME_REGISTRY));
+    public static final Codec<Map<ResourceKey<Biome>, ResourceKey<Biome>>> BIOME_SWAPPER = Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), ResourceKey.codec(Registries.BIOME));
 
 
     public static final Codec<OverworldBiomeConfig> CODEC = RecordCodecBuilder.create(builder ->

@@ -3,7 +3,7 @@ package potionstudios.byg.common.world.placement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 public class IsDimensionFilter extends PlacementModifier {
 
     public static final Codec<IsDimensionFilter> CODEC = RecordCodecBuilder.create(builder ->
-            builder.group(ResourceKey.codec(Registry.DIMENSION_REGISTRY).listOf().fieldOf("valid_dimensions").forGetter(isBiomeTagFilter -> isBiomeTagFilter.validDimensions)
+            builder.group(ResourceKey.codec(Registries.DIMENSION).listOf().fieldOf("valid_dimensions").forGetter(isBiomeTagFilter -> isBiomeTagFilter.validDimensions)
             ).apply(builder, IsDimensionFilter::new));
 
     private final List<ResourceKey<Level>> validDimensions;

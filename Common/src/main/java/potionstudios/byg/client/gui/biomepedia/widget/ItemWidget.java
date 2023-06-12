@@ -24,7 +24,7 @@ public class ItemWidget extends AbstractWidget {
     }
 
     @Override
-    public void updateNarration(NarrationElementOutput narrationElementOutput) {
+    protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
 
     }
 
@@ -37,7 +37,7 @@ public class ItemWidget extends AbstractWidget {
     @Override
     public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         this.itemRenderer.blitOffset = 100.0F;
-        this.itemRenderer.renderAndDecorateItem(this.stack, this.x, this.y);
+        this.itemRenderer.renderAndDecorateItem(this.stack, this.getX(), this.getY());
     }
 
     public interface OnClick {

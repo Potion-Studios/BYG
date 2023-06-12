@@ -5,6 +5,8 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -114,14 +116,14 @@ public interface FeatureGrowerFromBlockPattern {
                     if (matchedPattern) {
 
                         // Set tree
-                        Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = level.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);
+                        Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = level.registryAccess().registry(Registries.CONFIGURED_FEATURE);
                         if (configuredFeaturesOptionalRegistry.isPresent()) {
                             Registry<ConfiguredFeature<?, ?>> configuredFeaturesRegistry = configuredFeaturesOptionalRegistry.get();
                             Optional<GrowingPatterns.FeatureSpawner> randomValue = treePicker.getRandomValue(rand);
                             if (randomValue.isPresent()) {
                                 GrowingPatterns.FeatureSpawner featureSpawner = randomValue.get();
                                 ConfiguredFeature<?, ?> configuredFeature = configuredFeaturesRegistry.get(featureSpawner.spawnerID());
-                                ResourceLocation blockKey = Registry.BLOCK.getKey(block);
+                                ResourceLocation blockKey = BuiltInRegistries.BLOCK.getKey(block);
                                 String blockID = blockKey == null ? "unknown_grower_block" : blockKey.toString();
                                 if (configuredFeature != null) {
                                     Vec3i spawnOffset = featureSpawner.spawnOffset();

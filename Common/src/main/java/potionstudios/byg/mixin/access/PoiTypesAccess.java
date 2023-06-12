@@ -26,7 +26,7 @@ public interface PoiTypesAccess {
     }
 
     @Invoker("registerBlockStates")
-    static void byg_invokeRegisterBlockStates(Holder<PoiType> $$0) {
+    static void byg_invokeRegisterBlockStates(Holder<PoiType> $$0, Set<BlockState> $$1) {
         throw new Error("Mixin did not apply!");
     }
 }

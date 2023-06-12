@@ -1,6 +1,6 @@
 package potionstudios.byg.util;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +14,7 @@ public class MLBlockTags {
     public static final TagKey<Block> SANDSTONE = createTag("sandstones");
 
     public static TagKey<Block> createTag(String path) {
-        return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(ModPlatform.INSTANCE.tagNameSpace(), path));
+        return TagKey.create(Registries.BLOCK, new ResourceLocation(ModPlatform.INSTANCE.tagNameSpace(), path));
     }
 
     public static void bootStrap() {

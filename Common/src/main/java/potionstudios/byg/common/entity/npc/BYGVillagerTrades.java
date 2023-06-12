@@ -7,7 +7,7 @@ import corgitaco.corgilib.serialization.codec.CodecUtil;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.Util;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -102,7 +102,7 @@ public class BYGVillagerTrades {
                 }
                 )));
 
-        for (VillagerProfession villagerProfession : Registry.VILLAGER_PROFESSION.stream().filter(villagerProfession -> villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE).toList()) {
+        for (VillagerProfession villagerProfession : BuiltInRegistries.VILLAGER_PROFESSION.stream().filter(villagerProfession -> villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE).toList()) {
             if (villagerProfession != VillagerProfession.NITWIT && villagerProfession != VillagerProfession.NONE) {
                 Int2ObjectMap<VillagerTrades.ItemListing[]> tradesByLevel = map.computeIfAbsent(getKeyOrThrow(villagerProfession), villagerProfession1 -> new Int2ObjectOpenHashMap<>());
                 for (int i = 1; i <= 5; i++) {
@@ -113,7 +113,7 @@ public class BYGVillagerTrades {
     });
 
     private static ResourceKey<VillagerProfession> getKeyOrThrow(VillagerProfession profession) {
-        return Registry.VILLAGER_PROFESSION.getResourceKey(profession).orElseThrow();
+        return BuiltInRegistries.VILLAGER_PROFESSION.getResourceKey(profession).orElseThrow();
     }
 
     protected static final LazySupplier<Int2ObjectMap<VillagerTrades.ItemListing[]>> WANDERING_TRADER_TRADES = new LazySupplier<>(() ->

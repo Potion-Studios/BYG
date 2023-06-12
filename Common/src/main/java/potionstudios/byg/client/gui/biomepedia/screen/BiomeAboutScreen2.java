@@ -6,6 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
@@ -39,7 +41,7 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
         Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> biomeMobs = levelBiomeTracker.getBiomeMobs();
         if (biomeMobs.containsKey(biomeKey)) {
             biomeMobs.get(biomeKey).stream().sorted(Comparator.comparing(key -> key.location().toString())).forEach(entityTypeResourceKey -> {
-                mobSpawnsText.append("\n").append(Registry.ENTITY_TYPE.getOrThrow(entityTypeResourceKey).getDescription());
+                mobSpawnsText.append("\n").append(BuiltInRegistries.ENTITY_TYPE.getOrThrow(entityTypeResourceKey).getDescription());
             });
         } else {
             mobSpawnsText.append("\n").append(Component.translatable("biomepedia.biomeabout.mobspawns.none"));
@@ -48,7 +50,7 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
 
         MutableComponent biomeTagsText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.biometags").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));
         MutableInt count = new MutableInt(0);
-        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registries.BIOME);
         biomeRegistry.getHolder(biomeKey).orElseThrow().tags()
                 .sorted(Comparator.comparing(biomeTagKey -> biomeTagKey.location().toString()))
                 .forEach(biomeTagKey -> biomeTagsText.append(String.format("\n%s. ", count.incrementAndGet())).append(Component.literal(biomeTagKey.location().toString()).withStyle(Style.EMPTY)));

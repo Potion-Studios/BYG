@@ -1,6 +1,6 @@
 package potionstudios.byg.common.container;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import potionstudios.byg.BYG;
@@ -11,7 +11,7 @@ import potionstudios.byg.reg.RegistryObject;
 
 public class BYGMenuTypes {
 
-    private static final RegistrationProvider<MenuType<?>> PROVIDER = RegistrationProvider.get(Registry.MENU_REGISTRY, BYG.MOD_ID);
+    private static final RegistrationProvider<MenuType<?>> PROVIDER = RegistrationProvider.get(Registries.MENU, BYG.MOD_ID);
 
     public static final RegistryObject<MenuType<HypogealImperiumContainer>> HYPOGEAL_CONTAINER = register("hypogeal", HypogealImperiumContainer::new);
 

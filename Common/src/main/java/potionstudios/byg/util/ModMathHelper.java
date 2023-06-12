@@ -1,6 +1,5 @@
 package potionstudios.byg.util;
 
-import com.mojang.math.Vector3f;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 
@@ -276,35 +275,5 @@ import java.util.Random;
 
     public static final float degreesToRadians(float value) {
         return value / RAD_TO_DEG;
-    }
-
-    public static Vector3f cross(Vector3f vec1, Vector3f vec2)
-    {
-        float cx = vec1.y() * vec2.z() - vec1.z() * vec2.y();
-        float cy = vec1.z() * vec2.x() - vec1.x() * vec2.z();
-        float cz = vec1.x() * vec2.y() - vec1.y() * vec2.x();
-        return new Vector3f(cx, cy, cz);
-    }
-
-    public static Vector3f normalize(Vector3f vec)
-    {
-        float length = lengthSqr(vec.x(), vec.y(), vec.z());
-        if (length > 0)
-        {
-            length = (float) Math.sqrt(length);
-            float x = vec.x() / length;
-            float y = vec.y() / length;
-            float z = vec.z() / length;
-            vec.set(x, y, z);
-        }
-        return vec;
-    }
-
-    public static float angle(Vector3f vec1, Vector3f vec2)
-    {
-        float dot = vec1.x() * vec2.x() + vec1.y() * vec2.y() + vec1.z() * vec2.z();
-        float length1 = lengthSqr(vec1.x(), vec1.y(), vec1.z());
-        float length2 = lengthSqr(vec2.x(), vec2.y(), vec2.z());
-        return (float) Math.acos(dot / Math.sqrt(length1 * length2));
     }
 }

@@ -5,8 +5,8 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.ConfirmLinkScreen;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -21,7 +21,6 @@ import potionstudios.byg.util.ModPlatform;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
     public static final String PATREON_URL = "https://www.patreon.com/biomesyougo";
@@ -53,24 +52,49 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
 
         int buttonWidth = (IMAGE_WIDTH - 10) / 3;
         int buttonHeight = 20;
-        Button blocksAndItems = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.blocksanditems"),
-                button -> this.minecraft.setScreen(new BiomepediaItemsViewScreen(this)), makeButtonToolTip(Component.translatable("biomepedia.intro.options.blocksanditems.hover"), this));
+        Button blocksAndItems = new Button.Builder(Component.translatable("biomepedia.intro.options.blocksanditems"),
+                button -> this.minecraft.setScreen(new BiomepediaItemsViewScreen(this)))
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.blocksanditems.hover")))
+                .build();
 
-        Button biomes = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.biomes"), button -> {
-            this.minecraft.setScreen(new BiomeListScreen(this));
-        }, getToolTip(Component.translatable("biomepedia.intro.options.biomes.hover"), this));
+        Button biomes = new Button.Builder(Component.translatable("biomepedia.intro.options.biomes"),
+                button -> this.minecraft.setScreen(new BiomeListScreen(this)))
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.biomes.hover")))
+                .build();
 
-        Button ores = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.ores"), button -> {
-        }, getToolTip(Component.translatable("biomepedia.intro.options.ores.hover"), this));
+        Button ores = new Button.Builder(Component.translatable("biomepedia.intro.options.ores"),
+                button -> {
+                })
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.ores.hover")))
+                .build();
 
-        Button translations = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.translate"), consumeLink(TRANSLATIONS_URL), getToolTip(Component.translatable("biomepedia.intro.options.translate.hover"), this));
+        Button translations = new Button.Builder(Component.translatable("biomepedia.intro.options.translate"),
+                consumeLink(TRANSLATIONS_URL))
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.translate.hover")))
+                .build();
 
         ores.active = false;
 
-        Button issues = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.issues"), consumeLink(GITHUB_ISSUES_URL), makeButtonToolTip(Component.translatable("biomepedia.intro.options.issues.hover"), this));
+        Button issues = new Button.Builder(Component.translatable("biomepedia.intro.options.issues"),
+                consumeLink(GITHUB_ISSUES_URL))
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.issues.hover")))
+                .build();
 
-        Button donate = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.donate"), consumeLink(PATREON_URL), makeButtonToolTip(Component.translatable("biomepedia.intro.options.donate.hover"), this));
-        Button download = new Button(0, this.topPos, buttonWidth, buttonHeight, Component.translatable("biomepedia.intro.options.download"), consumeLink(DOWNLOAD_URL), makeButtonToolTip(Component.translatable("biomepedia.intro.options.download.hover"), this));
+        Button donate = new Button.Builder(Component.translatable("biomepedia.intro.options.donate"),
+                consumeLink(PATREON_URL))
+                .bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.donate.hover"))).build();
+
+
+        Button download = new Button.Builder(Component.translatable("biomepedia.intro.options.download"),
+                consumeLink(DOWNLOAD_URL)).bounds(0, this.topPos, buttonWidth, buttonHeight)
+                .tooltip(Tooltip.create(Component.translatable("biomepedia.intro.options.download.hover")))
+                .build();
 
         List<AbstractWidget> buttons = ImmutableList.of(blocksAndItems, biomes, ores, download, translations, issues, donate);
 
@@ -78,31 +102,6 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
         this.widgets = new WidgetList(buttons, buttonWidth + 9, listRenderedHeight + 20, this.bottomPos + 15, listRenderedHeight - 15, buttonHeight + 4);
         this.widgets.setLeftPos(this.leftPos + (IMAGE_WIDTH / 4) + buttonWidth);
         this.addWidget(this.widgets);
-    }
-
-    @NotNull
-    private static Button.OnTooltip getToolTip(Component component, Screen screen) {
-        return (button, poseStack, mouseX, mouseZ) -> {
-            if (!button.active) {
-                screen.renderTooltip(poseStack, Component.translatable("biomepedia.intro.options.swapper.hover"), mouseX, mouseZ);
-            } else {
-                screen.renderTooltip(poseStack, component, mouseX, mouseZ);
-            }
-        };
-    }
-
-    @NotNull
-    public static Button.OnTooltip makeButtonToolTip(Component component, Screen screen) {
-        return makeButtonToolTip(component, screen, button -> button.active);
-    }
-
-    @NotNull
-    public static Button.OnTooltip makeButtonToolTip(Component component, Screen screen, Predicate<Button> buttonPredicate) {
-        return (button, poseStack, mouseX, mouseZ) -> {
-            if (buttonPredicate.test(button)) {
-                screen.renderTooltip(poseStack, component, mouseX, mouseZ);
-            }
-        };
     }
 
     @NotNull

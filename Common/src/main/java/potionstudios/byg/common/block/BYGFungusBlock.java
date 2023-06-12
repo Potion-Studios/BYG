@@ -9,6 +9,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FungusBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,7 +24,7 @@ public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBloc
     private final TagKey<Block> groundTag;
 
     public BYGFungusBlock(Properties $$0, TagKey<Block> groundTag) {
-        super($$0, null);
+        super($$0, null, null);
         this.groundTag = groundTag;
         ENTRIES.add(() -> this);
     }
@@ -34,7 +35,7 @@ public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBloc
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos pos, BlockState state, boolean isClient) {
         return true;
     }
 

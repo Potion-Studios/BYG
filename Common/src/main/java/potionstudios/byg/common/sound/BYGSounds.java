@@ -1,13 +1,13 @@
 package potionstudios.byg.common.sound;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import potionstudios.byg.BYG;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
 
 public class BYGSounds {
-    private static final RegistrationProvider<SoundEvent> PROVIDER = RegistrationProvider.get(Registry.SOUND_EVENT_REGISTRY, BYG.MOD_ID);
+    private static final RegistrationProvider<SoundEvent> PROVIDER = RegistrationProvider.get(Registries.SOUND_EVENT, BYG.MOD_ID);
 
     public static final RegistryObject<SoundEvent> AMBIENT_VISCAL_ISLES_LOOP = createSound("ambient_viscal_isles_loop");
     public static final RegistryObject<SoundEvent> AMBIENT_VISCAL_ISLES_ADDITIONS = createSound("ambient_viscal_isles_additions");
@@ -19,7 +19,7 @@ public class BYGSounds {
 
     public static RegistryObject<SoundEvent> createSound(String location) {
         final var soundLocation = BYG.createLocation(location);
-        return PROVIDER.register(location, () -> new SoundEvent(soundLocation));
+        return PROVIDER.register(location, () -> SoundEvent.createVariableRangeEvent(soundLocation));
     }
 
     public static void loadClass() {}

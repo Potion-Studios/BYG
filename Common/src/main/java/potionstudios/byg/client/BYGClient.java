@@ -1,6 +1,7 @@
 package potionstudios.byg.client;
 
 import net.minecraft.client.model.BoatModel;
+import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.particle.ParticleEngine;
@@ -47,8 +48,8 @@ public class BYGClient {
 
     public static void registerLayerDefinitions(final BiConsumer<ModelLayerLocation, Supplier<LayerDefinition>> consumer) {
         for (BYGBoat.BYGType value : BYGBoat.BYGType.values()) {
-            consumer.accept(BYGBoatRenderer.createBoatModelName(value), () -> BoatModel.createBodyModel(false));
-            consumer.accept(BYGBoatRenderer.createChestBoatModelName(value), () -> BoatModel.createBodyModel(true));
+            consumer.accept(BYGBoatRenderer.createBoatModelName(value), BoatModel::createBodyModel);
+            consumer.accept(BYGBoatRenderer.createChestBoatModelName(value), ChestBoatModel::createBodyModel);
         }
     }
 }

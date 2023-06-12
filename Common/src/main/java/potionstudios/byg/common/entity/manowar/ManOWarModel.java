@@ -3,10 +3,10 @@ package potionstudios.byg.common.entity.manowar;
 
 import net.minecraft.resources.ResourceLocation;
 import potionstudios.byg.BYG;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.model.GeoModel;
 
-public class ManOWarModel<T extends IAnimatable> extends AnimatedGeoModel<T>{
+public class ManOWarModel<T extends GeoAnimatable> extends GeoModel<T> {
 
 		@Override
 		public ResourceLocation getModelResource(T object) {

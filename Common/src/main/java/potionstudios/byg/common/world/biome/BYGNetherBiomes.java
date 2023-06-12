@@ -1,5 +1,6 @@
 package potionstudios.byg.common.world.biome;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Carvers;
@@ -13,13 +14,15 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.BYGPlacedFeatures;
 
 public class BYGNetherBiomes {
 
-    public static Biome brimstoneCaverns() {
+    public static Biome brimstoneCaverns(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         addAncientDebris(generationSettings);
@@ -36,9 +39,9 @@ public class BYGNetherBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(4738078).skyColor(3343107).ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_BASALT_DELTAS)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome crimsonGardens() {
+    public static Biome crimsonGardens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
@@ -58,9 +61,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome emburBog() {
+    public static Biome emburBog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, NetherPlacements.DELTA);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
@@ -78,9 +81,9 @@ public class BYGNetherBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(15110510).skyColor(15110510).ambientParticle(new AmbientParticleSettings(ParticleTypes.FLAME, 0.00228F)).ambientLoopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_BASALT_DELTAS)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome glowstoneGardens() {
+    public static Biome glowstoneGardens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS);
@@ -101,9 +104,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome magmaWastes() {
+    public static Biome magmaWastes(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
@@ -123,9 +126,9 @@ public class BYGNetherBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(4794404).skyColor(4794404).ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SOUL_SAND_VALLEY)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome quartzDesert() {
+    public static Biome quartzDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
@@ -142,9 +145,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome subzeroHypogeal() {
+    public static Biome subzeroHypogeal(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, BYGPlacedFeatures.SUBZERO_CRYSTALS);
@@ -165,9 +168,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome sythianTorrids() {
+    public static Biome sythianTorrids(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BYGDefaultBiomeFeatures.addSythianVegetation(generationSettings);
@@ -184,9 +187,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome warpedDesert() {
+    public static Biome warpedDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
@@ -204,9 +207,9 @@ public class BYGNetherBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(328985).skyColor(328985).ambientParticle(new AmbientParticleSettings(ParticleTypes.WARPED_SPORE, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SOUL_SAND_VALLEY)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome wailingGarth() {
+    public static Biome wailingGarth(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
 
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
@@ -230,9 +233,9 @@ public class BYGNetherBiomes {
         return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(4529794).skyColor(4529794).ambientParticle(new AmbientParticleSettings(ParticleTypes.WARPED_SPORE, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SOUL_SAND_VALLEY)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
-    public static Biome arisianUndergrowth() {
+    public static Biome arisianUndergrowth(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
@@ -253,9 +256,9 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome weepingMire() {
+    public static Biome weepingMire(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
         vanillaNetherFeatures(generationSettings);
         generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS); 

@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceKey;
@@ -65,7 +66,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         this.dimensionsText = dimensionsText;
 
         MutableComponent climateText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.climate").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));
-        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        Registry<Biome> biomeRegistry = Minecraft.getInstance().level.registryAccess().registryOrThrow(Registries.BIOME);
         Biome biome = biomeRegistry.get(biomeKey);
 
         climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()).withStyle(ChatFormatting.RESET));

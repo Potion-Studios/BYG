@@ -3,7 +3,9 @@ package potionstudios.byg.common.world.biome;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
@@ -14,17 +16,16 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
-public class BYGDebugBiomeSource extends BiomeSource {
+public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
 
     private static final int WIDTH = Integer.parseInt(System.getProperty("byg.debug.biomes.width", "50"));
 
 
     public static final Codec<BYGDebugBiomeSource> CODEC = RecordCodecBuilder.create(builder ->
             builder.group(
-                            RegistryOps.retrieveRegistry(Registry.BIOME_REGISTRY).forGetter(bygEndBiomeSource -> null),
-                            TagKey.codec(Registry.BIOME_REGISTRY).fieldOf("filter").forGetter(bygDebugBiomeSource -> bygDebugBiomeSource.biomeTagKey)
+                            RegistryOps.retrieveGetter(Registries.BIOME),
+                            TagKey.codec(Registries.BIOME).fieldOf("filter").forGetter(bygDebugBiomeSource -> bygDebugBiomeSource.biomeTagKey)
                     )
                     .apply(builder, builder.stable(BYGDebugBiomeSource::new)));
 
@@ -34,8 +35,8 @@ public class BYGDebugBiomeSource extends BiomeSource {
     private final TagKey<Biome> biomeTagKey;
 
 
-    public BYGDebugBiomeSource(Registry<Biome> biomeRegistry, TagKey<Biome> biomeTagKey) {
-        super(StreamSupport.stream(biomeRegistry.asHolderIdMap().spliterator(), false));
+    public BYGDebugBiomeSource(HolderGetter<Biome> biomeRegistry, TagKey<Biome> biomeTagKey) {
+        super(biomeRegistry.getOrThrow(biomeTagKey).stream());
         this.biomeTagKey = biomeTagKey;
     }
 
@@ -61,4 +62,8 @@ public class BYGDebugBiomeSource extends BiomeSource {
     }
 
 
+    @Override
+    public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
+
+    }
 }

@@ -31,25 +31,25 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ManOWar extends Animal implements IAnimatable, Bucketable {
+public class ManOWar extends Animal implements GeoAnimatable, Bucketable {
 
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.BOOLEAN);
 
@@ -349,29 +349,38 @@ public class ManOWar extends Animal implements IAnimatable, Bucketable {
         }
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        AnimationController controller = event.getController();
-        controller.transitionLengthTicks = 0;
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.animatableInstanceCache;
+    }
+
+    @Override
+    public double getTick(Object o) {
+        return 0;
+    }
+
+    private static final RawAnimation SWIM_ANIMATION = RawAnimation.begin().thenPlay("animation.man_o_war.swim");
+    private static final RawAnimation BEACHED_ANIMATION = RawAnimation.begin().thenPlay("animation.man_o_war.beached");
+
+    private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
+        AnimationController<E> controller = event.getController();
+        controller.setTransitionLength(0);
         if (this.isInWater()) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.man_o_war.swim", true));
+            controller.setAnimation(SWIM_ANIMATION);
             return PlayState.CONTINUE;
         } else if (!this.isInWater()) {
-            controller.setAnimation(new AnimationBuilder().addAnimation("animation.man_o_war.beached", true));
+            controller.setAnimation(BEACHED_ANIMATION);
             return PlayState.CONTINUE;
         } else {
             return PlayState.STOP;
         }
     }
 
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
-    }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return this.factory;
-    }
 
     @Override
     public void spawnChildFromBreeding(ServerLevel level, Animal animal) {
