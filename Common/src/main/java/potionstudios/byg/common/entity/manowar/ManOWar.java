@@ -35,6 +35,7 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
+import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -43,11 +44,12 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib.util.RenderUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ManOWar extends Animal implements GeoAnimatable, Bucketable {
+public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(ManOWar.class, EntityDataSerializers.INT);
@@ -357,11 +359,6 @@ public class ManOWar extends Animal implements GeoAnimatable, Bucketable {
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.animatableInstanceCache;
-    }
-
-    @Override
-    public double getTick(Object o) {
-        return 0;
     }
 
     private static final RawAnimation SWIM_ANIMATION = RawAnimation.begin().thenPlay("animation.man_o_war.swim");

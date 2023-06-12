@@ -31,6 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -39,12 +40,13 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+import software.bernie.geckolib.util.RenderUtils;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class PumpkinWarden extends PathfinderMob implements GeoAnimatable {
+public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     private final AnimatableInstanceCache animatableInstanceCache = GeckoLibUtil.createInstanceCache(this);
     private BlockPos jukebox;
@@ -115,17 +117,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoAnimatable {
         return animatableInstanceCache;
     }
 
-    @Override
-    public double getTick(Object o) {
-        return 0;
-    }
-
     private static final RawAnimation HIDE_START = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hidestart");
     private static final RawAnimation HIDE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hide");
     private static final RawAnimation HIDE_END = RawAnimation.begin().thenPlay("animation.pumpkinwarden.hideend");
     private static final RawAnimation HOLDING_WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_walking");
     private static final RawAnimation HOLDING_IDLE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
-    private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.holding_idle");
+    private static final RawAnimation WALKING = RawAnimation.begin().thenPlay("animation.pumpkinwarden.walking");
     private static final RawAnimation WAVE = RawAnimation.begin().thenPlay("animation.pumpkinwarden.wave");
 
 
