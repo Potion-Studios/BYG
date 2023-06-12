@@ -64,6 +64,6 @@ public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
 
     @Override
     public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
-
+        this.possibleBiomes().addAll(biomeRegistry.holders().filter(biomeReference -> biomeReference.is(this.biomeTagKey)).toList());
     }
 }

@@ -1,5 +1,5 @@
 {
-  "type": "byg:tall_pointed_rock",
+  "type": "byg:pointed_rock",
   "config": {
     "block_provider": {
       "type": "minecraft:weighted_state_provider",

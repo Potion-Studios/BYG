@@ -99,7 +99,7 @@ public class BYGOverworldFeatures {
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LUSH_STACKS_SPIKE_TALL = createConfiguredFeature("lush_stacks_tall_spike",
-            BYGFeatures.TALL_POINTED_ROCK,
+            BYGFeatures.POINTY_ROCK,
             (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
                 return new PointyRockConfig.Builder()
