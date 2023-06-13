@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.client.resources.language.I18n;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -18,6 +19,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.client.gui.biomepedia.widget.BiomeWidget;
 import potionstudios.byg.client.gui.biomepedia.widget.ScrollableText;
 import potionstudios.byg.common.world.LevelBiomeTracker;
+import potionstudios.byg.mixin.access.BiomeAccess;
 
 import javax.annotation.Nullable;
 import java.util.Collection;
@@ -70,8 +72,8 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         Biome biome = biomeRegistry.get(biomeKey);
 
         climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.basetemperature", biome.getBaseTemperature()).withStyle(ChatFormatting.RESET));
-        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.downfall", biome.getDownfall()).withStyle(ChatFormatting.RESET));
-        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.precipitation", Component.translatable("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitation().getSerializedName())).withStyle(ChatFormatting.RESET));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.downfall", ((BiomeAccess) (Object) biome).byg_getClimateSettings().downfall()).withStyle(ChatFormatting.RESET));
+        climateText.append("\n").append(Component.translatable("biomepedia.biomeabout.climate.precipitation", Component.translatable("biomepedia.biomeabout.climate.precipitation." + biome.getPrecipitationAt(new BlockPos(0, 64, 0)))).withStyle(ChatFormatting.RESET));
         this.climateText = climateText;
     }
 

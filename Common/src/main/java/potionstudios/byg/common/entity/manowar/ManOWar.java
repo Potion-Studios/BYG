@@ -15,7 +15,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -44,7 +43,6 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import software.bernie.geckolib.util.RenderUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -103,7 +101,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             this.setAirSupply($$0 - 1);
             if (this.getAirSupply() == -20) {
                 this.setAirSupply(0);
-                this.hurt(DamageSource.DROWN, 2.0F);
+                this.hurt(this.damageSources().drown(), 2.0F);
             }
         } else {
             this.setAirSupply(300);
@@ -154,7 +152,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void playerTouch(Player player) {
-        if (player instanceof ServerPlayer && player.hurt(DamageSource.mobAttack(this), (float) (1))) {
+        if (player instanceof ServerPlayer && player.hurt(player.damageSources().mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
             int i = rand.nextInt(4);
             if (i <= 2) {

@@ -70,9 +70,9 @@ public class ArchStructure extends Structure {
         float percentageDestroyed2 = 1.0F - config.percentageDestroyed().sample(random);
 
         {
-            BlockPos start = center.offset(-xOffset, 0, -zOffset);
+            BlockPos start = center.offset((int) -xOffset, 0, (int) -zOffset);
             start = new BlockPos(start.getX(), generator.getBaseHeight(start.getX(), start.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), randomState) - 5, start.getZ());
-            BlockPos end = center.offset(xOffset, 0, zOffset);
+            BlockPos end = center.offset((int) xOffset, 0, (int) zOffset);
             end = new BlockPos(end.getX(), generator.getBaseHeight(end.getX(), end.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), randomState) - 5, end.getZ());
 
             int points = 1000;
@@ -92,7 +92,7 @@ public class ArchStructure extends Structure {
                 double factor = (double) pointCount / points;
                 int squareDistance = 2;
                 {
-                    BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), center.getX()), blendingFunction.apply(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ()));
+                    BlockPos startToCenterLerpPos = BlockPos.containing(lerp(factor, start.getX(), center.getX()), blendingFunction.apply(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ()));
 
                     if (startToCenterLastPos == null || startToCenterLastPos.distSqr(startToCenterLerpPos) > squareDistance) {
                         if (factor > percentageDestroyed) {
@@ -106,7 +106,7 @@ public class ArchStructure extends Structure {
                     }
                 }
                 {
-                    BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), center.getX()), blendingFunction2.apply(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ()));
+                    BlockPos centerToEndLerpPos = BlockPos.containing(lerp(factor, end.getX(), center.getX()), blendingFunction2.apply(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ()));
                     if (endToCenterLastPos == null || endToCenterLastPos.distSqr(centerToEndLerpPos) > squareDistance) {
                         if (factor > percentageDestroyed2) {
                             centerToEndLerpPos = new BlockPos(centerToEndLerpPos.getX(), Integer.MIN_VALUE, centerToEndLerpPos.getZ());
@@ -137,18 +137,18 @@ public class ArchStructure extends Structure {
 
                 for (Set<BlockPos> value : capture) {
                     for (BlockPos pos : value) {
-                        BlockPos start = pos.offset(-widthXOffset, 0, -widthZOffset);
-                        BlockPos end = pos.offset(widthXOffset, 0, widthZOffset);
+                        BlockPos start = pos.offset((int) -widthXOffset, 0, (int) -widthZOffset);
+                        BlockPos end = pos.offset((int) widthXOffset, 0, (int) widthZOffset);
                         for (int thickness = (int) totalThicknessPoints; thickness >= 1; thickness--) {
                             double factor = (double) thickness / totalThicknessPoints;
                             {
-                                BlockPos startToCenterLerpPos = new BlockPos(lerp(factor, start.getX(), pos.getX()), pos.getY(), lerp(factor, start.getZ(), pos.getZ()));
+                                BlockPos startToCenterLerpPos = BlockPos.containing(lerp(factor, start.getX(), pos.getX()), pos.getY(), lerp(factor, start.getZ(), pos.getZ()));
                                 startToCenterLerpPos = new BlockPos(startToCenterLerpPos.getX(), pos.getY(), startToCenterLerpPos.getZ());
                                 long chunkKey = ChunkPos.asLong(SectionPos.blockToSectionCoord(startToCenterLerpPos.getX()), SectionPos.blockToSectionCoord(startToCenterLerpPos.getZ()));
                                 newSortedPositions.computeIfAbsent(chunkKey, (key -> new HashSet<>())).add(startToCenterLerpPos);
                             }
                             {
-                                BlockPos centerToEndLerpPos = new BlockPos(lerp(factor, end.getX(), pos.getX()), pos.getY(), lerp(factor, end.getZ(), pos.getZ()));
+                                BlockPos centerToEndLerpPos = BlockPos.containing(lerp(factor, end.getX(), pos.getX()), pos.getY(), lerp(factor, end.getZ(), pos.getZ()));
                                 centerToEndLerpPos = new BlockPos(centerToEndLerpPos.getX(), pos.getY(), centerToEndLerpPos.getZ());
 
 

@@ -1,10 +1,10 @@
 package potionstudios.byg.common.item;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
@@ -31,6 +31,8 @@ public class BYGItems {
 
     public static final RegistrationProvider<Item> PROVIDER = RegistrationProvider.get(Registries.ITEM, BYG.MOD_ID);
 
+    public static final List<ResourceKey<Item>> REGISTRATION_ORDERED_ITEMS = new ArrayList<>();
+
     public static final List<RegistryObject<GrowerItem>> SAPLINGS = new ArrayList<>();
 
     public static final RegistryObject<Item> BYG_LOGO = createItem(() -> new Item(new Properties()), "byg_logo");
@@ -56,10 +58,10 @@ public class BYGItems {
     public static final RegistryObject<Item> AMETRINE_CLUSTER = createItem(BYGBlocks.AMETRINE_CLUSTER);
     public static final RegistryObject<Item> BUDDING_AMETRINE_ORE = createItem(BYGBlocks.BUDDING_AMETRINE_ORE);
     public static final RegistryObject<Item> AMETRINE_BLOCK = createItem(BYGBlocks.AMETRINE_BLOCK);
-    public static final RegistryObject<Item> AMETRINE_HELMET = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.HEAD, new Properties().fireResistant()), "ametrine_helmet");
-    public static final RegistryObject<Item> AMETRINE_CHEST = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.CHEST, new Properties().fireResistant()), "ametrine_chestplate");
-    public static final RegistryObject<Item> AMETRINE_LEGGINGS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.LEGS, new Properties().fireResistant()), "ametrine_leggings");
-    public static final RegistryObject<Item> AMETRINE_BOOTS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, EquipmentSlot.FEET, new Properties().fireResistant()), "ametrine_boots");
+    public static final RegistryObject<Item> AMETRINE_HELMET = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.HELMET, new Properties().fireResistant()), "ametrine_helmet");
+    public static final RegistryObject<Item> AMETRINE_CHEST = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.CHESTPLATE, new Properties().fireResistant()), "ametrine_chestplate");
+    public static final RegistryObject<Item> AMETRINE_LEGGINGS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.LEGGINGS, new Properties().fireResistant()), "ametrine_leggings");
+    public static final RegistryObject<Item> AMETRINE_BOOTS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.BOOTS, new Properties().fireResistant()), "ametrine_boots");
     public static final RegistryObject<Item> AMETRINE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(15, "ametrine", new Properties().stacksTo(1).fireResistant()), "ametrine_horse_armor");
 
     public static final RegistryObject<Item> RAW_PENDORITE = createItem(() -> new Item(new Properties()), "raw_pendorite");
@@ -747,7 +749,7 @@ public class BYGItems {
     public static final RegistryObject<Item> PRICKLY_PEAR_CACTUS = createItem(BYGBlocks.PRICKLY_PEAR_CACTUS);
     public static final RegistryObject<Item> TALL_PRAIRIE_GRASS = createItem(BYGBlocks.TALL_PRAIRIE_GRASS);
     public static final RegistryObject<Item> PRAIRIE_GRASS = createItem(BYGBlocks.PRAIRIE_GRASS);
-    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), "byg.cattail_campfire", new Properties()), BYGBlocks.CATTAIL_SPROUT);
+    public static final RegistryObject<Item> CATTAIL_SPROUT = createItem(() -> new CampfireExplodingBlockItem(BYGBlocks.CATTAIL_SPROUT.get(), new Properties()), BYGBlocks.CATTAIL_SPROUT);
     public static final RegistryObject<Item> CATTAIL_THATCH = createItem(BYGBlocks.CATTAIL_THATCH);
     public static final RegistryObject<Item> CATTAIL_THATCH_STAIRS = createItem(BYGBlocks.CATTAIL_THATCH_STAIRS);
     public static final RegistryObject<Item> CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
@@ -858,6 +860,7 @@ public class BYGItems {
     }
 
     public static <T extends Item> potionstudios.byg.reg.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
+        REGISTRATION_ORDERED_ITEMS.add(ResourceKey.create(Registries.ITEM, BYG.createLocation(id)));
         return PROVIDER.register(id, item);
     }
 

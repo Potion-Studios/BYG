@@ -37,12 +37,12 @@ public class ForgeNetworkHandler {
     }
 
     public static void sendToPlayer(ServerPlayer playerEntity, Object objectToSend) {
-        SIMPLE_CHANNEL.sendTo(objectToSend, playerEntity.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+        SIMPLE_CHANNEL.sendTo(objectToSend, playerEntity.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
     }
 
     public static void sendToAllPlayers(List<ServerPlayer> playerEntities, Object objectToSend) {
         for (ServerPlayer playerEntity : playerEntities) {
-            SIMPLE_CHANNEL.sendTo(objectToSend, playerEntity.connection.getConnection(), NetworkDirection.PLAY_TO_CLIENT);
+            SIMPLE_CHANNEL.sendTo(objectToSend, playerEntity.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
         }
     }
 

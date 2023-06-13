@@ -1,6 +1,8 @@
 package potionstudios.byg.common.world.biome.end;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
@@ -13,12 +15,14 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.LayerUtil;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
+import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 import terrablender.worldgen.noise.Area;
 
 import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
@@ -36,7 +40,7 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
     private final int skyLayersStartY;
 
     public BYGEndBiomeSource() {
-        super(new ArrayList<>());
+        super();
 
         EndBiomesConfig config = EndBiomesConfig.getConfig();
 
@@ -77,9 +81,14 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
+    protected Stream<Holder<Biome>> collectPossibleBiomes() {
+        return Stream.empty();
+    }
+
+    @Override
     public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
         this.biomeRegistry = biomeRegistry;
-        this.possibleBiomes().addAll(getPossibleBiomes(biomeRegistry));
+        ((BiomeSourceAccess) this).byg_setPossibleBiomes(Suppliers.memoize(() -> getPossibleBiomes(biomeRegistry).stream().collect(ObjectOpenHashSet.toSet())));
 
         EndBiomesConfig config = EndBiomesConfig.getConfig();
         Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());

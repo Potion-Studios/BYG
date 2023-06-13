@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -43,7 +42,7 @@ public class TallVentBlock extends Block {
 
     public void stepOn(Level worldIn, BlockPos pos, BlockState blockState, Entity entityIn) {
         if (!entityIn.fireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
-            entityIn.hurt(DamageSource.HOT_FLOOR, 1.0F);
+            entityIn.hurt(entityIn.damageSources().hotFloor(), 1.0F);
         }
 
         super.stepOn(worldIn, pos, blockState, entityIn);

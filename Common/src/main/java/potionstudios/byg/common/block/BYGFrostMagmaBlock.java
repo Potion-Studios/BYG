@@ -3,7 +3,6 @@ package potionstudios.byg.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -20,7 +19,7 @@ public class BYGFrostMagmaBlock extends Block {
 
     public void stepOn(Level block, BlockPos pos, BlockState state, Entity entity) {
         if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
+            entity.hurt(entity.damageSources().hotFloor(), 1.0F);
         }
         super.stepOn(block, pos, state, entity);
     }

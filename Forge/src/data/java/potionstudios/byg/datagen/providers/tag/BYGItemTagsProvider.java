@@ -39,8 +39,8 @@ import static potionstudios.byg.BYG.createLocation;
 import static potionstudios.byg.common.BYGTags.*;
 
 public class BYGItemTagsProvider extends ItemTagsProvider {
-    public BYGItemTagsProvider(DataGenerator p_126530_, CompletableFuture<HolderLookup.Provider> pLookupProvider, TagsProvider<Block> blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(p_126530_.getPackOutput(), pLookupProvider, blockTagsProvider, BYG.MOD_ID, existingFileHelper);
+    public BYGItemTagsProvider(DataGenerator p_126530_, CompletableFuture<HolderLookup.Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> future, @Nullable ExistingFileHelper existingFileHelper) {
+        super(p_126530_.getPackOutput(), pLookupProvider, future, BYG.MOD_ID, existingFileHelper);
     }
 
     @Override

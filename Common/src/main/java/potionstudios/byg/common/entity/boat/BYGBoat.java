@@ -13,7 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.IndirectEntityDamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
@@ -128,7 +127,7 @@ public class BYGBoat extends Boat {
     }
 
     @Override
-    public void animateHurt() {
+    public void animateHurt(float f) {
         this.setHurtDir(-this.getHurtDir());
         this.setHurtTime(10);
         this.setDamage(this.getDamage() * 11.0F);
@@ -145,17 +144,17 @@ public class BYGBoat extends Boat {
                         return;
                     }
 
-                    this.causeFallDamage(this.fallDistance, 1.0F, DamageSource.FALL);
+                    this.causeFallDamage(this.fallDistance, 1.0F, this.damageSources().fall());
                     if (!this.level.isClientSide && !this.isRemoved()) {
                         this.kill();
                         if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
-                            getDrops(DamageSource.FALL, true).forEach(this::spawnAtLocation);
+                            getDrops(this.damageSources().fall(), true).forEach(this::spawnAtLocation);
                         }
                     }
                 }
 
                 this.fallDistance = 0.0F;
-            } else if (!this.level.getFluidState((new BlockPos(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
+            } else if (!this.level.getFluidState((BlockPos.containing(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
                 this.fallDistance = (float) (this.fallDistance - y);
             }
 
@@ -166,7 +165,7 @@ public class BYGBoat extends Boat {
         if (this.isInvulnerableTo(source)) {
             return false;
         } else if (!this.level.isClientSide && !this.isRemoved()) {
-            if (source instanceof IndirectEntityDamageSource && source.getEntity() != null && this.hasPassenger(source.getEntity())) {
+            if (source.isIndirect() && source.getEntity() != null && this.hasPassenger(source.getEntity())) {
                 return false;
             } else {
                 this.setHurtDir(-this.getHurtDir());

@@ -2,7 +2,6 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -41,7 +40,7 @@ public class DesertPlant extends BushBlock {
             double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
             double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.hurt(DamageSource.SWEET_BERRY_BUSH, 1.0F);
+                entityIn.hurt(entityIn.damageSources().sweetBerryBush(), 1.0F);
             }
         }
 

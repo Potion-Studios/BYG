@@ -1,6 +1,8 @@
 package potionstudios.byg.common.world.biome.nether;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
@@ -16,12 +18,14 @@ import potionstudios.byg.common.world.biome.LayerUtil;
 import potionstudios.byg.common.world.biome.LayersBiomeData;
 import potionstudios.byg.common.world.biome.LazyLoadSeed;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
+import potionstudios.byg.mixin.access.BiomeSourceAccess;
 import potionstudios.byg.util.BYGUtil;
 import terrablender.worldgen.noise.Area;
 
 import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static potionstudios.byg.util.BYGUtil.createBiomesFromBiomeData;
 
@@ -38,7 +42,7 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     private final int bottomTopY;
 
     public BYGNetherBiomeSource() {
-        super(new ArrayList<>());
+        super();
 
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
 
@@ -63,8 +67,13 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
+    protected Stream<Holder<Biome>> collectPossibleBiomes() {
+        return Stream.empty();
+    }
+
+    @Override
     public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
-        this.possibleBiomes().addAll(getPossibleBiomes(biomeRegistry));
+        ((BiomeSourceAccess) this).byg_setPossibleBiomes(Suppliers.memoize(() -> getPossibleBiomes(biomeRegistry).stream().collect(ObjectOpenHashSet.toSet())));
         NetherBiomesConfig config = NetherBiomesConfig.getConfig();
         Set<ResourceKey<Biome>> possibleBiomes = possibleBiomes().stream().map(Holder::unwrapKey).map(Optional::orElseThrow).collect(Collectors.toSet());
         BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added) && possibleBiomes.contains(added);

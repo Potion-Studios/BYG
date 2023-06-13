@@ -6,7 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.NetherFeatures;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -14,6 +13,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -807,8 +807,8 @@ public class BYGBlocks {
         return createBlock(() -> new FenceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createFenceGate(String id) {
-        return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f), SoundEvents.FENCE_GATE_CLOSE, SoundEvents.FENCE_GATE_OPEN), id);
+    static BlockRegistryObject<Block> createFenceGate(String id, WoodType woodType) {
+        return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).strength(2.0f, 3.0f), woodType), id);
     }
 
     private static BlockRegistryObject<Block> createSand(MaterialColor color, int dustColor, String id) {
@@ -847,32 +847,32 @@ public class BYGBlocks {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
-    static BlockRegistryObject<Block> createWoodPressurePlate(String id) {
-        return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F), SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON), id);
+    static BlockRegistryObject<Block> createWoodPressurePlate(String id, BlockSetType blockSetType) {
+        return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noCollission().strength(0.5F), blockSetType), id);
     }
 
     static BlockRegistryObject<Block> createWoodStairs(String id) {
         return createBlock(() -> StairBlockAccess.byg_create(BuiltInRegistries.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createTrapDoor(String id) {
-        return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_TRAPDOOR_CLOSE, SoundEvents.WOODEN_TRAPDOOR_OPEN), id);
+    static BlockRegistryObject<Block> createTrapDoor(String id, BlockSetType blockSetType) {
+        return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), blockSetType), id);
     }
 
     static BlockRegistryObject<Block> createCraftingTable(String id) {
         return createBlock(() -> new BYGCraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)), id);
     }
 
-    static BlockRegistryObject<Block> createWoodButton(String id) {
-        return createBlock(() -> WoodButtonBlockAccess.byg_create(), id);
+    static BlockRegistryObject<Block> createWoodButton(String id, BlockSetType blockSetType) {
+        return createBlock(() -> WoodButtonBlockAccess.byg_create(blockSetType), id);
     }
 
     static BlockRegistryObject<Block> createBookshelf(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createDoor(String id) {
-        return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), SoundEvents.WOODEN_DOOR_CLOSE, SoundEvents.WOODEN_DOOR_OPEN), id);
+    static BlockRegistryObject<Block> createDoor(String id, BlockSetType blockSetType) {
+        return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), blockSetType), id);
     }
 
     static BlockRegistryObject<Block> createPlanks(String id) {

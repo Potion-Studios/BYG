@@ -1,10 +1,13 @@
 package potionstudios.byg.common.block;
 
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MaterialColor;
 import org.jetbrains.annotations.Nullable;
@@ -12,6 +15,7 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.mixin.access.BlockSetTypeAccess;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
@@ -61,7 +65,7 @@ public enum BYGWoodTypes {
             .materialColor(MaterialColor.COLOR_GREEN)),
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
-            .materialColor(MaterialColor.COLOR_CYAN)),
+            .materialColor(MaterialColor.COLOR_CYAN).end()),
     FIR("fir", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_FIR_SAPLING)
             .materialColor(MaterialColor.COLOR_GREEN)
@@ -131,7 +135,7 @@ public enum BYGWoodTypes {
             .nether()),
     NIGHTSHADE("nightshade", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING)
-            .materialColor(MaterialColor.COLOR_ORANGE)),
+            .materialColor(MaterialColor.COLOR_ORANGE).end()),
     SKYRIS("skyris", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SKYRIS_SAPLING)
             .materialColor(MaterialColor.COLOR_PINK)
@@ -195,8 +199,9 @@ public enum BYGWoodTypes {
     BYGWoodTypes(String name, Builder builder) {
         this.name = name;
         this.builder = builder;
-        this.woodType = WoodTypeAccess.byg_invokeRegister(WoodTypeAccess.byg_create(BYG.createLocation(name).toString().replace(':', '/')));
+        this.woodType = WoodTypeAccess.byg_invokeRegister(builder.woodTypeFactory.apply(BYG.createLocation(name).toString().replace(':', '/')));
 
+        BlockSetTypeAccess.byg_invokeRegister(woodType.setType());
         logTag = MultiTag.create(BYG.createLocation(name + "_logs"));
     }
 
@@ -244,17 +249,17 @@ public enum BYGWoodTypes {
 
         this.fence = BYGBlocks.createFence(name + "_fence");
         BYGItems.createItem(fence);
-        this.fenceGate = BYGBlocks.createFenceGate(name + "_fence_gate");
+        this.fenceGate = BYGBlocks.createFenceGate(name + "_fence_gate", woodType);
         BYGItems.createItem(fenceGate);
 
-        this.door = BYGBlocks.createDoor(name + "_door");
+        this.door = BYGBlocks.createDoor(name + "_door", this.woodType.setType());
         BYGItems.createItem(door);
-        this.trapdoor = BYGBlocks.createTrapDoor(name + "_trapdoor");
+        this.trapdoor = BYGBlocks.createTrapDoor(name + "_trapdoor", this.woodType.setType());
         BYGItems.createItem(trapdoor);
 
-        this.pressurePlate = BYGBlocks.createWoodPressurePlate(name + "_pressure_plate");
+        this.pressurePlate = BYGBlocks.createWoodPressurePlate(name + "_pressure_plate", this.woodType.setType());
         BYGItems.createItem(pressurePlate);
-        this.button = BYGBlocks.createWoodButton(name + "_button");
+        this.button = BYGBlocks.createWoodButton(name + "_button", this.woodType.setType());
         BYGItems.createItem(button);
 
         this.sign = BYGBlocks.createSign(name + "_sign", woodType, planks);
@@ -413,6 +418,9 @@ public enum BYGWoodTypes {
 
     public static final class Builder {
         private final Map<BlockType, String> registryName = new HashMap<>();
+
+        Function<String, WoodType> woodTypeFactory = s -> new WoodType(s, new BlockSetType(s));
+
         private GrowerItemType growerItemType = GrowerItemType.SAPLING;
         private final EnumSet<BlockType> excludes = EnumSet.noneOf(BlockType.class);
         private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
@@ -448,9 +456,20 @@ public enum BYGWoodTypes {
             return this;
         }
 
+        public Builder woodTypeFactory(Function<String, WoodType> factory) {
+            this.woodTypeFactory = factory;
+            return this;
+        }
+
         public Builder nether() {
             this.isNether = true;
             notFlammable();
+            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
+            return this;
+        }
+
+        public Builder end() {
+            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
             return this;
         }
 

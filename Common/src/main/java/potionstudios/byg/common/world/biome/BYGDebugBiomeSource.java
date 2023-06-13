@@ -1,7 +1,9 @@
 package potionstudios.byg.common.world.biome;
 
+import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
 import org.jetbrains.annotations.Nullable;
+import potionstudios.byg.mixin.access.BiomeSourceAccess;
 
 import java.util.Comparator;
 import java.util.List;
@@ -36,13 +39,13 @@ public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
 
 
     public BYGDebugBiomeSource(HolderGetter<Biome> biomeRegistry, TagKey<Biome> biomeTagKey) {
-        super(biomeRegistry.getOrThrow(biomeTagKey).stream());
+        super();
         this.biomeTagKey = biomeTagKey;
     }
 
 
     public BYGDebugBiomeSource(Stream<Holder<Biome>> holderStream, TagKey<Biome> biomeTagKey) {
-        super(holderStream);
+        super();
         this.possibleBiomesSorted = null;
         this.biomeTagKey = biomeTagKey;
     }
@@ -51,6 +54,12 @@ public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
     protected Codec<? extends BiomeSource> codec() {
         return CODEC;
     }
+
+    @Override
+    protected Stream<Holder<Biome>> collectPossibleBiomes() {
+        return Stream.empty();
+    }
+
 
     @Override
     public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
@@ -64,6 +73,6 @@ public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
 
     @Override
     public void lazyLoad(long seed, Registry<Biome> biomeRegistry) {
-        this.possibleBiomes().addAll(biomeRegistry.holders().filter(biomeReference -> biomeReference.is(this.biomeTagKey)).toList());
+        ((BiomeSourceAccess) this).byg_setPossibleBiomes(Suppliers.memoize(() -> biomeRegistry.holders().filter(biomeReference -> biomeReference.is(this.biomeTagKey)).collect(ObjectOpenHashSet.toSet())));
     }
 }

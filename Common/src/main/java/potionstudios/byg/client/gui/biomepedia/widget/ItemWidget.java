@@ -35,9 +35,8 @@ public class ItemWidget extends AbstractWidget {
     }
 
     @Override
-    public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        this.itemRenderer.blitOffset = 100.0F;
-        this.itemRenderer.renderAndDecorateItem(this.stack, this.getX(), this.getY());
+    public void renderWidget(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+        this.itemRenderer.renderAndDecorateItem(poseStack, this.stack, this.getX(), this.getY());
     }
 
     public interface OnClick {

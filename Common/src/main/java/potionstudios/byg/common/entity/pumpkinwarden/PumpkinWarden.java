@@ -40,11 +40,9 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
-import software.bernie.geckolib.util.RenderUtils;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Optional;
 
 public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
@@ -53,7 +51,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     private boolean party;
     private static final EntityDataAccessor<Boolean> HIDING = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> TIMER = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Optional<BlockState>> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
+    private static final EntityDataAccessor<BlockState> DATA_CARRY_STATE = SynchedEntityData.defineId(PumpkinWarden.class, EntityDataSerializers.BLOCK_STATE);
 
 
     public PumpkinWarden(EntityType<? extends PathfinderMob> $$0, Level $$1) {
@@ -63,7 +61,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     @Override
     protected void defineSynchedData() {
-        this.entityData.define(DATA_CARRY_STATE, Optional.empty());
+        this.entityData.define(DATA_CARRY_STATE, Blocks.AIR.defaultBlockState());
         this.entityData.define(HIDING, false);
         this.entityData.define(TIMER, 0);
         super.defineSynchedData();
@@ -128,7 +126,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
-        controller.setTransitionLength(0);
+        controller.transitionLength(0);
         if (this.isHiding()) {
             if (this.getTimer() < 10) {
                 controller.setAnimation(HIDE_START);
@@ -257,12 +255,13 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     public void setCarriedBlock(@Nullable BlockState pState) {
-        this.entityData.set(DATA_CARRY_STATE, Optional.ofNullable(pState));
+        this.entityData.set(DATA_CARRY_STATE, pState == null ? Blocks.AIR.defaultBlockState() : pState);
     }
 
     @Nullable
     public BlockState getCarriedBlock() {
-        return this.entityData.get(DATA_CARRY_STATE).orElse(null);
+        BlockState blockState = this.entityData.get(DATA_CARRY_STATE);
+        return blockState == Blocks.AIR.defaultBlockState() ? null : blockState;
     }
 
 

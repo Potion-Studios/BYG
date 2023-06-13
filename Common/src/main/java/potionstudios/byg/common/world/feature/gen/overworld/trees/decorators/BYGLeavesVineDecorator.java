@@ -25,7 +25,7 @@ public class BYGLeavesVineDecorator extends TreeDecorator {
 
 
     static Function<Block, DataResult<Block>> mustExtendVineBlock() {
-        return block -> block instanceof VineBlock ? DataResult.success(block) : DataResult.error(String.format("\"%s\" is not an instance of `VineBlock`.", BuiltInRegistries.BLOCK.getKey(block)));
+        return block -> block instanceof VineBlock ? DataResult.success(block) : DataResult.error(() -> String.format("\"%s\" is not an instance of `VineBlock`.", BuiltInRegistries.BLOCK.getKey(block)));
     }
 
     private final VineBlock vineBlock;

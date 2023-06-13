@@ -134,7 +134,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                     this.search.visible = !this.search.visible;
                     this.search.active = !this.search.active;
                     if (this.search.visible) {
-                        this.search.setFocus(true);
+                        this.search.setFocused(true);
                         this.back.visible = false;
                         this.back.active = false;
                     } else {

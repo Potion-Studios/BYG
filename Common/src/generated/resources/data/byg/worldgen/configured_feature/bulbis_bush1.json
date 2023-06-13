@@ -55,8 +55,8 @@
       }
     },
     "log_target": [
-      "byg:bulbis_stem",
-      "byg:bulbis_wood"
+      "byg:bulbis_wood",
+      "byg:bulbis_stem"
     ],
     "place_from_nbt": []
   }

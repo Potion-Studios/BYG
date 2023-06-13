@@ -71,9 +71,9 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
             )
             .build();
 
-        BlockPos start = center.offset(-xOffset, 0, -zOffset);
+        BlockPos start = center.offset((int)-xOffset, 0,(int) -zOffset);
         start = new BlockPos(start.getX(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, start.getX(), start.getZ()) - 5, start.getZ());
-        BlockPos end = center.offset(xOffset, 0, zOffset);
+        BlockPos end = center.offset((int)xOffset, 0, (int)zOffset);
         end = new BlockPos(end.getX(), world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, end.getX(), end.getZ()) - 5, end.getZ());
 
 
@@ -82,8 +82,8 @@ public class ArchFeature extends Feature<SimpleBlockProviderConfig> {
         int points = 1000;
         for (int pointCount = points; pointCount >= 1; pointCount--) {
             double factor = (double) pointCount / points;
-            spherePositions.add(new BlockPos(lerp(factor, start.getX(), center.getX()), easeOutCubic(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ())));
-            spherePositions.add(new BlockPos(lerp(factor, end.getX(), center.getX()), easeOutCubic(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ())));
+            spherePositions.add(BlockPos.containing(lerp(factor, start.getX(), center.getX()), easeOutCubic(factor, start.getY(), center.getY()), lerp(factor, start.getZ(), center.getZ())));
+            spherePositions.add(BlockPos.containing(lerp(factor, end.getX(), center.getX()), easeOutCubic(factor, end.getY(), center.getY()), lerp(factor, end.getZ(), center.getZ())));
         }
 
         for (BlockPos spherePosition : spherePositions) {

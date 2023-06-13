@@ -3,7 +3,7 @@ package potionstudios.byg.common.item;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -36,12 +36,14 @@ public class BYGArmorMaterial implements ArmorMaterial {
         this.repairMaterial = new LazyLoadedValue<>(repairMaterialSupplier);
     }
 
-    public int getDurabilityForSlot(EquipmentSlot slotIn) {
-        return MAX_DAMAGE_ARRAY[slotIn.getIndex()] * this.maxDamageFactor;
+    @Override
+    public int getDurabilityForType(ArmorItem.Type slotIn) {
+        return MAX_DAMAGE_ARRAY[slotIn.ordinal()] * this.maxDamageFactor;
     }
 
-    public int getDefenseForSlot(EquipmentSlot slotIn) {
-        return this.damageReductionAmountArray[slotIn.getIndex()];
+    @Override
+    public int getDefenseForType(ArmorItem.Type slotIn) {
+        return this.damageReductionAmountArray[slotIn.ordinal()];
     }
 
     public int getEnchantmentValue() {

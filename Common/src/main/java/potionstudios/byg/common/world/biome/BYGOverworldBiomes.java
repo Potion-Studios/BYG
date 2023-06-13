@@ -44,7 +44,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome amaranthFields(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -62,7 +62,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome araucariaSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean forest) {
@@ -91,7 +91,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.DONKEY, 1, 1, 1));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.LLAMA, 1, 3, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(1.2F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.2F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome aspenForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -120,7 +120,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.5F).downfall(0.6F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11909994).foliageColorOverride(14194987).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.5F).downfall(0.6F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11909994).foliageColorOverride(14194987).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome autumnalValley(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -142,7 +142,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.farmAnimals(spawnSettings);
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.35F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.35F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome baobabSavanna(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -165,7 +165,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.DONKEY, 1, 1, 1));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.LLAMA, 1, 3, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(1.2F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.2F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10860373).foliageColorOverride(10860373).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome basaltBarrera(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -182,7 +182,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.85F).downfall(0.75F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.85F).downfall(0.75F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome bayou(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -211,7 +211,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 25, 8, 8));
 
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4815438).waterFogColor(6717479).grassColorOverride(7375928).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4815438).waterFogColor(6717479).grassColorOverride(7375928).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome blackForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -260,7 +260,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.45F).downfall(0.65F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.45F).downfall(0.65F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome borealisGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -296,7 +296,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome canadianShield(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -340,7 +340,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.SNOW).temperature(0.25F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome cherryBlossomForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -383,7 +383,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10999916).foliageColorOverride(10999916).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10999916).foliageColorOverride(10999916).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome cikaWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -424,7 +424,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.35F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(13414235).foliageColorOverride(13414235).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.35F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(13414235).foliageColorOverride(13414235).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy) {
@@ -476,7 +476,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(snowy ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN).temperature(snowy ? -0.5F : 0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(snowy ? -0.5F : 0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome cragGardens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -519,7 +519,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(1.0F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(8170451).waterFogColor(6200521).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(1.0F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(8170451).waterFogColor(6200521).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome cypressSwamplands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -549,7 +549,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 25, 8, 8));
 
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6337104).foliageColorOverride(6337104).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome lushStacks(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -565,7 +565,7 @@ public class BYGOverworldBiomes {
         BYGDefaultBiomeFeatures.addlushStacksSpires(generationSettings);
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BYGEntities.MAN_O_WAR.get(), 200, 50, 50));
         BiomeDefaultFeatures.warmOceanSpawns(spawnSettings, 10, 4);
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(1.0F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4445678).waterFogColor(270131).grassColorOverride(10275901).foliageColorOverride(10275901).waterFogColor(2835532).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(1.0F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4445678).waterFogColor(270131).grassColorOverride(10275901).foliageColorOverride(10275901).waterFogColor(2835532).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome daciteRidges(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -608,7 +608,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome daciteShore(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -641,7 +641,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).grassColorOverride(5011004).foliageColorOverride(2263842).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome atacamaDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -667,7 +667,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.desertSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome windsweptDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean duneTerrain) {
@@ -687,7 +687,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.desertSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).fogColor(12815488).skyColor(12815488).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome ebonyWoods(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -729,7 +729,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5406551).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5406551).foliageColorOverride(6589494).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome forgottenForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -773,7 +773,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PANDA, 1, 1, 2));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.ALLAY, 1, 1, 2));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10003745).foliageColorOverride(11898572).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10003745).foliageColorOverride(11898572).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome frostedTaiga(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean snowy, boolean giant) {
@@ -819,7 +819,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(snowy ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN).temperature(snowy ? -0.5F : 0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(snowy ? -0.5F : 0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome temperateGrove(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean flowering) {
@@ -860,7 +860,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.75F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11190111).foliageColorOverride(11190111).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.75F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11190111).foliageColorOverride(11190111).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome guianaShield(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -899,7 +899,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 2, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6208527).foliageColorOverride(6208527).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6208527).foliageColorOverride(6208527).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome jacarandaForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -942,7 +942,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.95F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(14180771).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.95F).downfall(0.5F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(14180771).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome cardinalTundra(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -974,7 +974,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 20, 4, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.STRAY, 80, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.SNOW).temperature(0.145F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10044989).foliageColorOverride(10044989).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.145F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10044989).foliageColorOverride(10044989).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome whiteMangroveMarshes(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1002,7 +1002,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 25, 8, 8));
 
         Music music = Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SWAMP);
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(5878398).waterFogColor(2047788).grassColorOverride(5737549).foliageColorOverride(5737549).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(5878398).waterFogColor(2047788).grassColorOverride(5737549).foliageColorOverride(5737549).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).backgroundMusic(music).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome mapleTaiga(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1036,7 +1036,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6586199).foliageColorOverride(14206262).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6586199).foliageColorOverride(14206262).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome coconinoMeadow(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1072,7 +1072,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6530407).foliageColorOverride(5999709).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6530407).foliageColorOverride(5999709).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome deadSea(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1098,7 +1098,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 15, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(9230578).waterFogColor(2835532).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome mojaveDesert(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1132,7 +1132,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIE_VILLAGER, 1, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.HUSK, 80, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.NONE).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome orchard(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1160,7 +1160,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10210365).foliageColorOverride(10210365).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10210365).foliageColorOverride(10210365).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome prairie(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1184,7 +1184,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.plainsSpawns(spawnSettings);
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.2F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10003745).foliageColorOverride(10003745).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.2F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10003745).foliageColorOverride(10003745).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome rainbowBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1201,7 +1201,7 @@ public class BYGOverworldBiomes {
 
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.85F).downfall(0.75F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.85F).downfall(0.75F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4566514).waterFogColor(267827).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome redOakForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1229,7 +1229,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     // Come back later and do decent arches
@@ -1265,7 +1265,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(1.2F).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(1.2F).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome redwoodThicket(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1296,7 +1296,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.9F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8896351).foliageColorOverride(8896351).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.9F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8896351).foliageColorOverride(8896351).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome rockyBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1322,7 +1322,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome roseFields(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1361,7 +1361,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 100, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8231780).foliageColorOverride(8231780).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8231780).foliageColorOverride(8231780).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome autumnalForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1403,7 +1403,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(12435265).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(12435265).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome autumnalTaiga(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean giant) {
@@ -1452,7 +1452,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(11513689).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome shatteredGlacier(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1479,7 +1479,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.STRAY, 80, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.SNOW).temperature(-0.5F).downfall(1.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).grassColorOverride(15834405).foliageColorOverride(15834405).fogColor(12638463).skyColor(12700876).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(-0.5F).downfall(1.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).grassColorOverride(15834405).foliageColorOverride(15834405).fogColor(12638463).skyColor(12700876).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome firecrackerShrubland(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1517,7 +1517,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(2.0F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(9874031).foliageColorOverride(7048739).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(2.0F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(9874031).foliageColorOverride(7048739).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome sierraBadlands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1552,7 +1552,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(1.2F).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(1.2F).downfall(0.1F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10855786).foliageColorOverride(10855786).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome skyrisVale(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1589,7 +1589,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6409356).foliageColorOverride(7135854).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(6409356).foliageColorOverride(7135854).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome howlingPeaks(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1621,7 +1621,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.STRAY, 80, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.SNOW).temperature(-0.5F).downfall(1.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).grassColorOverride(15834405).foliageColorOverride(15834405).fogColor(12638463).skyColor(12700876).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(-0.5F).downfall(1.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(6200521).waterFogColor(6200521).grassColorOverride(15834405).foliageColorOverride(15834405).fogColor(12638463).skyColor(12700876).ambientParticle(new AmbientParticleSettings(ParticleTypes.WHITE_ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome snowyBlackBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter, boolean rocky) {
@@ -1649,7 +1649,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.SNOW).temperature(0.0F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.0F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome fragmentForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1694,7 +1694,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 2, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome tropicalRainforest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1732,7 +1732,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 2, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome tropicalIslands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1763,7 +1763,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.CHICKEN, 10, 4, 4));
         spawnSettings.addSpawn(MobCategory.AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.BAT, 10, 8, 8));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.95F).downfall(0.9F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(10145074).foliageColorOverride(10145074).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome twilightMeadow(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1801,7 +1801,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(9470285).foliageColorOverride(9470285).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)).ambientParticle(new AmbientParticleSettings(ParticleTypes.END_ROD, 0.00028F)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(9470285).foliageColorOverride(9470285).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_CRIMSON_FOREST_MOOD, 6000, 8, 2.0D)).ambientParticle(new AmbientParticleSettings(ParticleTypes.END_ROD, 0.00028F)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome weepingWitchForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1835,7 +1835,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 6, 1, 1));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.CAVE_SPIDER, 100, 4, 4));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(12435265).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(12435265).foliageColorOverride(12435265).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome whiteBeach(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1860,7 +1860,7 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.4F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome temperateRainForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1888,7 +1888,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.farmAnimals(spawnSettings);
         BiomeDefaultFeatures.commonSpawns(spawnSettings);
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8034667).foliageColorOverride(8034667).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(8034667).foliageColorOverride(8034667).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     public static Biome zelkovaForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
@@ -1928,6 +1928,6 @@ public class BYGOverworldBiomes {
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 10, 1, 4));
         spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.WITCH, 5, 1, 1));
 
-        return new Biome.BiomeBuilder().precipitation(Biome.Precipitation.RAIN).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5416309).foliageColorOverride(5416309).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
+        return new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.25F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(5416309).foliageColorOverride(5416309).fogColor(12638463).skyColor(VanillaBiomeAccess.byg_invokeCalculateSkyColor(0.8F)).ambientLoopSound(BYGSounds.AMBIENT_OVERWORLD_FOREST_LOOP.asHolder()).ambientAdditionsSound(new AmbientAdditionsSettings(BYGSounds.AMBIENT_OVERWORLD_FOREST_ADDITIONS.asHolder(), 0.0001D)).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 }

@@ -9,6 +9,7 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.world.BYGDamageTypes;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
@@ -67,6 +68,11 @@ public class BYGDataGen {
                     pContext.register(resourceKey, factory.generate(pContext));
 
                 });
+            }).add(Registries.DAMAGE_TYPE, pContext -> {
+                BYGDamageTypes.DAMAGE_TYPE_FACTORIES.forEach((resourceKey, factory) -> {
+                    pContext.register(resourceKey, factory.generate(pContext));
+
+                });
             });
 
     @SubscribeEvent
@@ -75,24 +81,24 @@ public class BYGDataGen {
         final var existingFileHelper = event.getExistingFileHelper();
 
         // Server:
-//        gen.addProvider(event.includeServer(), new BYGLootTablesProvider(gen));
-//        CompletableFuture<HolderLookup.Provider> completablefuture = event.getLookupProvider();
+        gen.addProvider(event.includeServer(), new BYGLootTablesProvider(gen));
+        CompletableFuture<HolderLookup.Provider> completablefuture = event.getLookupProvider();
+//
+        final var blockTags = new BYGBlockTagsProvider(completablefuture, gen , existingFileHelper);
+        gen.addProvider(event.includeServer(), blockTags);
+        gen.addProvider(event.includeServer(), new BYGItemTagsProvider(gen, completablefuture, blockTags.contentsGetter(), existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGEntityTagsProvider(gen, completablefuture, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGBiomeTagsProvider(gen, completablefuture, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGPoiTypeTagsProvider(gen, completablefuture, existingFileHelper));
+        gen.addProvider(event.includeServer(), new BYGStructureTagsProvider(gen, completablefuture, existingFileHelper));
 
-//        final var blockTags = new BYGBlockTagsProvider(completablefuture, gen , existingFileHelper);
-//        gen.addProvider(event.includeServer(), blockTags);
-//        gen.addProvider(event.includeServer(), new BYGItemTagsProvider(gen, completablefuture, blockTags, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGEntityTagsProvider(gen, completablefuture, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGBiomeTagsProvider(gen, completablefuture, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGPoiTypeTagsProvider(gen, completablefuture, existingFileHelper));
-//        gen.addProvider(event.includeServer(), new BYGStructureTagsProvider(gen, completablefuture, existingFileHelper));
-//
-//        gen.addProvider(event.includeServer(), new BYGRecipeProviders(gen));
-//
-//        gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(gen.getPackOutput(), completablefuture,  existingFileHelper, List.of(new BYGAdvancementProvider())));
-//
+        gen.addProvider(event.includeServer(), new BYGRecipeProviders(gen));
+
+        gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(gen.getPackOutput(), completablefuture,  existingFileHelper, List.of(new BYGAdvancementProvider())));
+
          Client:
-//        gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
-//        gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
+        gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(gen.getPackOutput(), event.getLookupProvider(), BUILDER, Set.of(BYG.MOD_ID)));
 
 //        StructureTemplateUtil.removeBlocks(existingFileHelper);

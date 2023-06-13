@@ -2,7 +2,6 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -21,7 +20,7 @@ public class PoisonIvyBlock extends VineBlock {
         if (!worldIn.isClientSide && worldIn.getDifficulty() != Difficulty.PEACEFUL) {
             if (entityIn instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity) entityIn;
-                if (!livingentity.isInvulnerableTo(DamageSource.MAGIC)) {
+                if (!livingentity.isInvulnerableTo(entityIn.damageSources().magic())) {
                     livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
                 }
             }

@@ -7,9 +7,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemDisplayContext;
 import potionstudios.byg.BYG;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -39,7 +39,7 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
             stack.mulPose(Axis.ZP.rotationDegrees(3.5f));
             stack.translate(0.05D, 0.2D, -1D);
             stack.scale(2f, 2f, 2f);
-            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, 1);
+            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, animatable.getLevel(), 1);
             stack.popPose();
             buffer = bufferSource.getBuffer(RenderType.entityTranslucent(((GeoEntityRenderer)this).getTextureLocation((Entity) animatable)));
         }

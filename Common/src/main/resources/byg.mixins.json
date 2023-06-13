@@ -12,6 +12,7 @@
     "access.BiomeSourceAccess",
     "access.BlockEntityTypeAccess",
     "access.BlockEntityTypeBuilderAccess",
+    "access.BlockSetTypeAccess",
     "access.BlockStateProviderAccess",
     "access.BoatEntityAccess",
     "access.ChunkAccessAccess",

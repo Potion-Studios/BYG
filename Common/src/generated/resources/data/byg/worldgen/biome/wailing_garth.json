@@ -70,7 +70,7 @@
       "byg:wailing_pillar"
     ]
   ],
-  "precipitation": "none",
+  "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],

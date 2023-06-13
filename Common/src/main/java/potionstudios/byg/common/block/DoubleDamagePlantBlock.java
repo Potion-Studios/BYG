@@ -2,7 +2,6 @@ package potionstudios.byg.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,7 +23,7 @@ public class DoubleDamagePlantBlock extends BYGDoublePlantBlock {
             double d0 = Math.abs(entityIn.getX() - entityIn.xOld);
             double d1 = Math.abs(entityIn.getZ() - entityIn.zOld);
             if (d0 >= (double) 0.003F || d1 >= (double) 0.003F) {
-                entityIn.hurt(DamageSource.CACTUS, 1.0F);
+                entityIn.hurt(entityIn.damageSources().cactus(), 1.0F);
             }
         }
 

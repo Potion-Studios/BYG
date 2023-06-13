@@ -124,7 +124,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             });
 
             if (!errors.isEmpty()) {
-                return DataResult.error(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors.toString()));
+                return DataResult.error(() -> String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors.toString()));
             }
             return DataResult.success(region1);
         };

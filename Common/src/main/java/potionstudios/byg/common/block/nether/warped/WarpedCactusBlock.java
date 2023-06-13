@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -92,7 +91,7 @@ public class WarpedCactusBlock extends Block {
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.hurt(DamageSource.CACTUS, 2.0F);
+        entityIn.hurt(entityIn.damageSources().cactus(), 2.0F);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

@@ -10,7 +10,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -58,7 +57,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
                 double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                 double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                 if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    pEntity.hurt(DamageSource.CACTUS, 1.0F);
+                    pEntity.hurt(pEntity.damageSources().cactus(), 1.0F);
                 }
             }
 

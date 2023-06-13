@@ -67,7 +67,7 @@
       "byg:black_rose"
     ]
   ],
-  "precipitation": "none",
+  "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],

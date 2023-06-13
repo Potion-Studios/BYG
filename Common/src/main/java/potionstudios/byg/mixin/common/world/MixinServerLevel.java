@@ -5,10 +5,8 @@ import it.unimi.dsi.fastutil.bytes.Byte2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
-import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.HoverEvent;
-import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -60,9 +58,8 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
     @Nullable
     private LevelBiomeTracker bygLevelBiomeTracker = null;
 
-
-    protected MixinServerLevel(WritableLevelData $$0, ResourceKey<Level> $$1, Holder<DimensionType> $$2, Supplier<ProfilerFiller> $$3, boolean $$4, boolean $$5, long $$6, int $$7) {
-        super($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7);
+    protected MixinServerLevel(WritableLevelData $$0, ResourceKey<Level> $$1, RegistryAccess $$2, Holder<DimensionType> $$3, Supplier<ProfilerFiller> $$4, boolean $$5, boolean $$6, long $$7, int $$8) {
+        super($$0, $$1, $$2, $$3, $$4, $$5, $$6, $$7, $$8);
     }
 
 

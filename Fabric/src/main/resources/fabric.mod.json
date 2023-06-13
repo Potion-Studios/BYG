@@ -46,7 +46,7 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.19.3",
+    "minecraft": ">=1.19.4",
     "terrablender": ">=2.1.0.132",
     "corgilib": ">=2.0.0.0",
     "geckolib": ">=4.0.6"

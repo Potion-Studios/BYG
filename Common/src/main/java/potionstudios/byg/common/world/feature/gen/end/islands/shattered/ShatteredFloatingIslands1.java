@@ -43,10 +43,10 @@ public class ShatteredFloatingIslands1 extends Feature<FloatingIslandConfig> {
                     double scaledNoise = (noise / 11) * ((y * 3) / ((x * x) + (z * z)));
                     if (scaledNoise >= 0.5) {
                         if (y >= 1) {
-                            world.setBlock(pos.offset(x, y - modifiedRadiusOnY, z), config.getBlockProvider().getState(rand, pos), 2);
+                            world.setBlock(pos.offset((int) x, (int) y - modifiedRadiusOnY, (int) z), config.getBlockProvider().getState(rand, pos), 2);
                             if (y == modifiedRadiusOnY) {
                                 //Top block
-                                world.setBlock(pos.offset(x, y - modifiedRadiusOnY, z), config.getTopBlockProvider().getState(rand, pos), 2);
+                                world.setBlock(pos.offset((int) x, (int) y - modifiedRadiusOnY, (int) z), config.getTopBlockProvider().getState(rand, pos), 2);
                             }
                         }
                     }

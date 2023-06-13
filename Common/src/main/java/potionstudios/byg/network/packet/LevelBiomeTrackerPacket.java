@@ -1,5 +1,6 @@
 package potionstudios.byg.network.packet;
 
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.Level;
 import potionstudios.byg.common.world.LevelBiomeTracker;
@@ -8,7 +9,7 @@ public record LevelBiomeTrackerPacket(LevelBiomeTracker biomeTracker) implements
 
     public static LevelBiomeTrackerPacket read(FriendlyByteBuf buf) {
         try {
-            return new LevelBiomeTrackerPacket(buf.readWithCodec(LevelBiomeTracker.CODEC));
+            return new LevelBiomeTrackerPacket(buf.readWithCodec(NbtOps.INSTANCE, LevelBiomeTracker.CODEC));
         } catch (Exception e) {
             throw new IllegalStateException("LevelBiomeTracker packet could not be read. This is really really bad...\n\n" + e.getMessage());
         }
@@ -18,7 +19,7 @@ public record LevelBiomeTrackerPacket(LevelBiomeTracker biomeTracker) implements
     @Override
     public void write(FriendlyByteBuf buf) {
         try {
-            buf.writeWithCodec(LevelBiomeTracker.CODEC, this.biomeTracker);
+            buf.writeWithCodec(NbtOps.INSTANCE, LevelBiomeTracker.CODEC, this.biomeTracker);
         } catch (Exception e) {
             throw new IllegalStateException("LevelBiomeTracker packet could not be written. This is really really bad...\n\n" + e.getMessage());
         }

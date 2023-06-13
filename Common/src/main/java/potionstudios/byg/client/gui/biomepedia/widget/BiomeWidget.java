@@ -52,7 +52,7 @@ public class BiomeWidget extends AbstractWidget {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void renderWidget(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
             if (previewImageLocation != null) {
                 float scale = 0.09F;

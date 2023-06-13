@@ -9,7 +9,6 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.monster.Monster;
@@ -187,7 +186,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
                     mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 3, false, true));
                     --hypogealImperiumBlockEntity.damageTime;
                     if (hypogealImperiumBlockEntity.damageTime <= 0) {
-                        mob.hurt(DamageSource.MAGIC, 2);
+                        mob.hurt(mob.damageSources().magic(), 2);
                         useFuel(level, blockPos, blockState, hypogealImperiumBlockEntity);
                         hypogealImperiumBlockEntity.damageTime = 100;
                     }

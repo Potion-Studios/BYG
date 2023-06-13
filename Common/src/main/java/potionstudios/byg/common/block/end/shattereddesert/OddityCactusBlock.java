@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -98,7 +97,7 @@ public class OddityCactusBlock extends Block {
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.ENDERMITE && entityIn.getType() != EntityType.ENDERMAN)
             entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
-        entityIn.hurt(DamageSource.CACTUS, 2.0F);
+        entityIn.hurt(entityIn.damageSources().cactus(), 2.0F);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

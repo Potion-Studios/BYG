@@ -1,6 +1,7 @@
 package potionstudios.byg.mixin.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -18,7 +19,7 @@ public class MixinFarmBlock {
 
     // Is there a better way to do this?
     @Inject(method = "turnToDirt", at = @At("RETURN"))
-    private static void byg_turnLushToLushDirt(BlockState state, Level level, BlockPos pos, CallbackInfo ci) {
+    private static void byg_turnLushToLushDirt(Entity entity, BlockState state, Level level, BlockPos pos, CallbackInfo ci) {
         if (state.is(BYGBlockTags.LUSH)) {
             level.setBlockAndUpdate(pos, pushEntitiesUp(state, BYGBlocks.LUSH_DIRT.defaultBlockState(), level, pos));
         }

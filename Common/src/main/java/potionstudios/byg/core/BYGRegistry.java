@@ -10,6 +10,7 @@ import potionstudios.byg.common.entity.ai.village.poi.BYGPoiTypes;
 import potionstudios.byg.common.entity.npc.BYGVillagerProfessions;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.sound.BYGSounds;
+import potionstudios.byg.common.world.BYGDamageTypes;
 import potionstudios.byg.common.world.biome.BYGBiomeSources;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
@@ -65,5 +66,6 @@ public class BYGRegistry {
         BYGStructureTags.loadClass();
         BYGBiomeSources.loadClass();
         BYGWorldPresets.loadClass();
+        BYGDamageTypes.loadClass();
     }
 }

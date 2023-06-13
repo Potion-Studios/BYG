@@ -1,6 +1,7 @@
 package potionstudios.byg.common.container;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import potionstudios.byg.BYG;
@@ -16,7 +17,7 @@ public class BYGMenuTypes {
     public static final RegistryObject<MenuType<HypogealImperiumContainer>> HYPOGEAL_CONTAINER = register("hypogeal", HypogealImperiumContainer::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> register(String key, MenuType.MenuSupplier<T> builder) {
-        return PROVIDER.register(key, () -> MenuTypeAccess.byg_create(builder));
+        return PROVIDER.register(key, () -> MenuTypeAccess.byg_create(builder, FeatureFlags.VANILLA_SET));
     }
 
     public static void loadClass() {}

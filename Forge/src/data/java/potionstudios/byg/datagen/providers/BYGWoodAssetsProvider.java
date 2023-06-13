@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
@@ -286,12 +287,12 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
     private ItemModelBuilder configureTransform(ItemModelBuilder builder) {
         return builder
                 .transforms()
-                .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
                 .rotation(10, -45, 170)
                 .translation(0, 1.5f, -2.75f)
                 .scale(0.375f, 0.375f, 0.375f)
                 .end()
-                .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
                 .rotation(10, -45, 170)
                 .translation(0, 1.5f, -2.75f)
                 .scale(0.375f, 0.375f, 0.375f)

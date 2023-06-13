@@ -77,8 +77,18 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
         super.remove(p_219894_);
     }
 
-    public InteractionResult interact(Player p_219898_, InteractionHand p_219899_) {
-        return this.canAddPassenger(p_219898_) && !p_219898_.isSecondaryUseActive() ? super.interact(p_219898_, p_219899_) : this.interactWithChestVehicle(this::gameEvent, p_219898_);
+    public InteractionResult interact(Player player, InteractionHand hand) {
+        if (this.canAddPassenger(player) && !player.isSecondaryUseActive()) {
+            return super.interact(player, hand);
+        } else {
+            InteractionResult interactionresult = this.interactWithContainerVehicle(player);
+            if (interactionresult.consumesAction()) {
+                this.gameEvent(GameEvent.CONTAINER_OPEN, player);
+                PiglinAi.angerNearbyPiglins(player, true);
+            }
+
+            return interactionresult;
+        }
     }
 
     public void openCustomInventoryScreen(Player p_219906_) {
