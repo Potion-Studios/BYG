@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[40,)"
+loaderVersion = "[46,)"
 license = "Code: LGPLv3 \nAssets: All Rights Reserved"
 issueTrackerURL = "https://github.com/AOCAWOL/BYG/issues"
 [[mods]]
@@ -18,28 +18,28 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[45.1.00,)"
+versionRange = "[46.0.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4,)"
+versionRange = "[1.20,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[2.2.0.0,)"
+versionRange = "[3.0.0.163,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "corgilib"
 mandatory = true
-versionRange = "[3.0.0.0,)"
+versionRange = "[4.0.0.0,)"
 ordering = "BEFORE"
 side = "BOTH"
 

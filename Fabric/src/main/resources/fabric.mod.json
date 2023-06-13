@@ -15,6 +15,12 @@
       "contact": {
         "homepage": "https://github.com/TheModdingInquisition"
       }
+    },
+    {
+      "name": "J.T. McQuigg (JT122406)",
+      "contact": {
+        "homepage": "https://github.com/JT122406"
+      }
     }
   ],
   "contact": {
@@ -46,9 +52,9 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "minecraft": ">=1.19.4",
-    "terrablender": ">=2.2.0.0",
-    "corgilib": ">=3.0.0.0",
+    "minecraft": ">=1.20",
+    "terrablender": ">=3.0.0.163",
+    "corgilib": ">=4.0.0.0",
     "geckolib": ">=4.2.0"
   },
   "accessWidener": "byg.aw"
