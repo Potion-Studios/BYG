@@ -18,34 +18,34 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[44.1.00,)"
+versionRange = "[45.1.00,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19,)"
+versionRange = "[1.19.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[2.1.0.132,)"
+versionRange = "[2.2.0.0,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "corgilib"
 mandatory = true
-versionRange = "[2.0.0.0,)"
+versionRange = "[3.0.0.0,)"
 ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies.byg]]
 modId = "geckolib"
 mandatory = true
-versionRange = "[4.0.6,)"
+versionRange = "[4.2,)"
 ordering = "BEFORE"
 side = "BOTH"
