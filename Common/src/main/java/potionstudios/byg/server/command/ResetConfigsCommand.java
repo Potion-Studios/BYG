@@ -17,7 +17,7 @@ public class ResetConfigsCommand {
             BYGConfigHandler.loadAllConfigs(true, true, ModPlatform.INSTANCE.isClientEnvironment());
 
 
-            cs.getSource().sendSuccess(Component.translatable("byg.command.resetconfig.notifyrestart").withStyle(ChatFormatting.YELLOW), true);
+            cs.getSource().sendSuccess(() -> Component.translatable("byg.command.resetconfig.notifyrestart").withStyle(ChatFormatting.YELLOW), true);
             return 1;
         });
     }

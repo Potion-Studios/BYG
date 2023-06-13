@@ -8,7 +8,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.FloatingIslandConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
@@ -42,7 +41,7 @@ public class ShatteredFloatingIslands3 extends Feature<FloatingIslandConfig> {
                     double distanceSqt1 = x * x + y * y + z * z + squareNoise1 * squareNoise1;
                     if (distanceSqt1 <= radius * radius) {
                         mutable.set(pos).move((int) x, (int) y, (int) z);
-                        if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
+                        if (world.getBlockState(mutable).isAir()) {
                             if (y <= 1)
                                 world.setBlock(mutable, config.getTopBlockProvider().getState(rand, mutable), 2);
                             if (y <= 0)

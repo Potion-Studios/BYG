@@ -1,21 +1,16 @@
 package potionstudios.byg.datagen.providers.tag;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
@@ -25,13 +20,11 @@ import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
-import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
 import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 import static net.minecraft.tags.ItemTags.create;
@@ -80,7 +73,7 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(BYGBlockTags.MUSHROOMS, bygTag("mushrooms"));
 
         new PredicatedTagProvider<>(BYGItems.PROVIDER)
-                .add(isBlockMaterial(Material.LEAVES), LEAVES.byg(RegistryType.ITEMS)) // Can't copy this one due to slight differences
+//                .add(isBlockMaterial(Material.LEAVES), LEAVES.byg(RegistryType.ITEMS)) // Can't copy this one due to slight differences
                 .run(this::tag);
 
         tag(STICKS.byg(RegistryType.ITEMS)).add(Items.STICK);
@@ -99,15 +92,6 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
 
     private static TagKey<Item> bygTag(String path) {
         return create(createLocation(path));
-    }
-
-    private static Predicate<ResourceKey<Item>> isBlockMaterial(Material material) {
-        return itemKey -> {
-            Item item = BuiltInRegistries.ITEM.get(itemKey);
-
-
-            return item instanceof BlockItem bi && ((BlockBehaviorAccess) bi.getBlock()).getMaterial() == material;
-        };
     }
 
     @SafeVarargs

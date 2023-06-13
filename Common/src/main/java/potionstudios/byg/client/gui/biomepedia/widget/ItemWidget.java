@@ -1,6 +1,7 @@
 package potionstudios.byg.client.gui.biomepedia.widget;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -35,8 +36,8 @@ public class ItemWidget extends AbstractWidget {
     }
 
     @Override
-    public void renderWidget(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        this.itemRenderer.renderAndDecorateItem(poseStack, this.stack, this.getX(), this.getY());
+    public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        guiGraphics.renderItem(this.stack, this.getX(), this.getY());
     }
 
     public interface OnClick {

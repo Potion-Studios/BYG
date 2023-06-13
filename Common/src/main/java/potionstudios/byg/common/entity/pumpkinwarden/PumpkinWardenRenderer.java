@@ -39,7 +39,7 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
             stack.mulPose(Axis.ZP.rotationDegrees(3.5f));
             stack.translate(0.05D, 0.2D, -1D);
             stack.scale(2f, 2f, 2f);
-            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, animatable.getLevel(), 1);
+            Minecraft.getInstance().getItemRenderer().renderStatic(animatable.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, packedOverlay, stack, bufferSource, animatable.level(), 1);
             stack.popPose();
             buffer = bufferSource.getBuffer(RenderType.entityTranslucent(((GeoEntityRenderer)this).getTextureLocation((Entity) animatable)));
         }

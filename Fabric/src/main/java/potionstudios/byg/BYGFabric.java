@@ -50,15 +50,6 @@ public class BYGFabric implements ModInitializer {
             BYG.logDebug(String.format("Attempted to Initialize Oh The Biomes You'll Go (BYG) from \"%s\" but BYG already was initialized from \"%s\", this should not be a problem.", initializedFrom, firstInitialized));
             return;
         }
-        FabricItemGroup.builder(BYG.createLocation(BYG.MOD_ID)).title(Component.translatable("itemGroup.byg.byg")).icon(() -> new ItemStack(BYGItems.BYG_LOGO.get())).displayItems((displayParameters, pOutput) -> {
-            for (ResourceKey<Item> entry : BYGItems.REGISTRATION_ORDERED_ITEMS) {
-                Item pItem = BYGItems.PROVIDER.getRegistry().get(entry);
-
-                if (pItem != BYGItems.BYG_LOGO.get()) {
-                    pOutput.accept(pItem);
-                }
-            }
-        }).build();
         firstInitialized = initializedFrom;
         BYG.INITIALIZED = true;
 

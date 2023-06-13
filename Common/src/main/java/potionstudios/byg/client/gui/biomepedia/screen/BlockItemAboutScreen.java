@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -77,8 +78,10 @@ public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         int scale = 75;
         poseStack.scale(scale, scale, 30);
@@ -94,6 +97,7 @@ public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
         bufferSource.endBatch();
         poseStack.popPose();
         int startX = this.leftPos + ((IMAGE_WIDTH / 4)) - (Minecraft.getInstance().font.width(this.getTitle()) / 2) + 4;
-        Minecraft.getInstance().font.draw(poseStack, this.getTitle(), startX, this.bottomPos + 13, 0);
+
+        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0);
     }
 }

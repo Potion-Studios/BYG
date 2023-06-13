@@ -25,8 +25,8 @@ public class ValidateConfigsCommand {
                 BYG.logConfigErrors();
                 BYGConfigHandler.displayChatErrors(cs.getSource().getPlayerOrException());
             } else {
-                cs.getSource().sendSuccess(Component.translatable("byg.command.validateconfig.success").withStyle(ChatFormatting.GREEN), true);
-                cs.getSource().sendSuccess(Component.translatable("byg.command.validateconfig.notifyrestart").withStyle(ChatFormatting.YELLOW), true);
+                cs.getSource().sendSuccess(() -> Component.translatable("byg.command.validateconfig.success").withStyle(ChatFormatting.GREEN), true);
+                cs.getSource().sendSuccess(() -> Component.translatable("byg.command.validateconfig.notifyrestart").withStyle(ChatFormatting.YELLOW), true);
             }
 
             return 1;

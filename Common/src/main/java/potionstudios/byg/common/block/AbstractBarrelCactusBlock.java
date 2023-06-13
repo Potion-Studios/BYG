@@ -91,7 +91,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
 
     protected boolean mayPlaceOn(@NotNull BlockState $$0, BlockGetter $$1, BlockPos $$2) {
         BlockState $$6 = $$1.getBlockState($$2.below());
-        return ($$6.is(BlockTags.SAND)) && !$$1.getBlockState($$2.above()).getMaterial().isLiquid();
+        return ($$6.is(BlockTags.SAND)) && $$1.getBlockState($$2.above()).getFluidState().isEmpty();
     }
 
     public boolean canSurvive(BlockState $$0, LevelReader $$1, @NotNull BlockPos $$2) {

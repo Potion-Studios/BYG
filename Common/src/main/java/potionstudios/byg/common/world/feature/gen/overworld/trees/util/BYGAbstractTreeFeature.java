@@ -26,7 +26,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 import potionstudios.byg.BYGConstants;
@@ -57,11 +56,11 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public static boolean canLogPlaceHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER) || FeatureGenUtil.isPlant(worldReader, blockPos);
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || state.getFluidState().isEmpty()) || FeatureGenUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean canLogPlaceHereNether(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> state.getMaterial() == Material.AIR || state.getMaterial() == Material.WATER || state.getMaterial() == Material.LAVA) || FeatureGenUtil.isPlant(worldReader, blockPos);
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.isAir() || !state.getFluidState().isEmpty()) || FeatureGenUtil.isPlant(worldReader, blockPos);
     }
 
     public boolean isAnotherTreeHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
@@ -159,7 +158,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      */
     public boolean canSaplingGrowHere(LevelSimulatedReader reader, BlockPos pos) {
         return reader.isStateAtPosition(pos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
+            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.is(BlockTags.REPLACEABLE_BY_TREES);
         });
     }
 

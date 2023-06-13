@@ -1,37 +1,35 @@
-package potionstudios.byg.mixin.common.world.level.storage.loot;
+package potionstudios.byg.mixin.world.level.storage.loot;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.util.profiling.ProfilerFiller;
-import net.minecraft.world.level.storage.loot.LootTables;
+import net.minecraft.world.level.storage.loot.LootDataManager;
+import net.minecraft.world.level.storage.loot.LootDataType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import potionstudios.byg.BYG;
 import potionstudios.byg.config.SettingsConfig;
-import potionstudios.byg.mixin.access.JsonReloadListenerAccess;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Optional;
 
-@Mixin(LootTables.class)
-public abstract class MixinLootTableManager extends SimpleJsonResourceReloadListener {
+@Mixin(LootDataManager.class)
+public abstract class MixinLootTableManager {
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
-    public MixinLootTableManager(Gson gson, String string) {
-        super(gson, string);
-    }
 
-    @Inject(method = "apply(Ljava/util/Map;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at = @At("HEAD"))
-    private void appendTables(Map<ResourceLocation, JsonElement> values, ResourceManager resourceManager, ProfilerFiller profilerFiller, CallbackInfo ci) {
+    @Inject(method = "lambda$scheduleElementParse$5", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/packs/resources/SimpleJsonResourceReloadListener;scanDirectory(Lnet/minecraft/server/packs/resources/ResourceManager;Ljava/lang/String;Lcom/google/gson/Gson;Ljava/util/Map;)V"), locals = LocalCapture.CAPTURE_FAILHARD)
+    private static void appendTables(ResourceManager resourceManager, LootDataType $$1x, Map<LootDataType<?>, Map<ResourceLocation, ?>> typeMapMap, CallbackInfo ci, Map<ResourceLocation, JsonElement> values) {
         if (!SettingsConfig.getConfig().appendLootTables()) {
             return;
         }
@@ -45,7 +43,7 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
         }
     }
 
-    private JsonArray extractPools(ResourceManager resourceManager, ResourceLocation location) {
+    private static JsonArray extractPools(ResourceManager resourceManager, ResourceLocation location) {
         try {
             Optional<Resource> optionalResource = resourceManager.getResource(location);
             if (optionalResource.isPresent()) {
@@ -53,7 +51,7 @@ public abstract class MixinLootTableManager extends SimpleJsonResourceReloadList
 
                 InputStream inputstream = appendedTable.open();
                 Reader reader = new BufferedReader(new InputStreamReader(inputstream, StandardCharsets.UTF_8));
-                JsonElement appendedElement = GsonHelper.fromJson(((JsonReloadListenerAccess) this).byg_getGson(), reader, JsonElement.class);
+                JsonElement appendedElement = GsonHelper.fromJson(GSON, reader, JsonElement.class);
                 return appendedElement.getAsJsonObject().getAsJsonArray("pools");
             }
         } catch (IOException e) {

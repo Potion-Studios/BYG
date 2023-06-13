@@ -1,8 +1,8 @@
 package potionstudios.byg.client.gui.biomepedia.screen;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.client.resources.language.I18n;
@@ -109,13 +109,13 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
-        BiomeWidget.renderBiomePicture(poseStack, 0.09F, this.startXLeftPage + 3, this.bottomPos + 25, this.previewImageLocation);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        BiomeWidget.renderBiomePicture(guiGraphics, 0.09F, this.startXLeftPage + 3, this.bottomPos + 25, this.previewImageLocation);
 
         int leftPageCenter = this.leftPos + ((IMAGE_WIDTH / 4)) + 4;
         int startX = leftPageCenter - (Minecraft.getInstance().font.width(this.getTitle()) / 2);
-        Minecraft.getInstance().font.draw(poseStack, this.getTitle(), startX, this.bottomPos + 13, 0);
+        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0);
     }
 
     @Override

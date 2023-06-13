@@ -66,12 +66,12 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
 
     public void destroy(DamageSource p_219892_) {
         super.destroy(p_219892_);
-        this.chestVehicleDestroyed(p_219892_, this.level, this);
+        this.chestVehicleDestroyed(p_219892_, this.level(), this);
     }
 
     public void remove(Entity.RemovalReason p_219894_) {
-        if (!this.level.isClientSide && p_219894_.shouldDestroy()) {
-            Containers.dropContents(this.level, this, this);
+        if (!this.level().isClientSide && p_219894_.shouldDestroy()) {
+            Containers.dropContents(this.level(), this, this);
         }
 
         super.remove(p_219894_);
@@ -93,7 +93,7 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
 
     public void openCustomInventoryScreen(Player p_219906_) {
         p_219906_.openMenu(this);
-        if (!p_219906_.level.isClientSide) {
+        if (!p_219906_.level().isClientSide) {
             this.gameEvent(GameEvent.CONTAINER_OPEN, p_219906_);
             PiglinAi.angerNearbyPiglins(p_219906_, true);
         }

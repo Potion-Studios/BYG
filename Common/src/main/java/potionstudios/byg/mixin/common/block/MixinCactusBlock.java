@@ -17,7 +17,7 @@ public class MixinCactusBlock {
     @Inject(method = "canSurvive", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/LevelReader;getBlockState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;", ordinal = 1), cancellable = true)
     private void addBYGSands(BlockState state, LevelReader worldIn, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         BlockState blockState = worldIn.getBlockState(pos.below());
-        if (blockState.is(BlockTags.SAND) && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid())
+        if (blockState.is(BlockTags.SAND) && worldIn.getBlockState(pos.above()).getFluidState().isEmpty())
             cir.setReturnValue(true);
     }
 }

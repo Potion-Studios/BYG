@@ -6,7 +6,8 @@
   "mixins": [
     "dev.ModelBuilderMixin",
     "dev.ModelProviderAccess",
-    "dev.TagBuilderAccess"
+    "dev.TagBuilderAccess",
+    "world.level.storage.loot.MixinLootTableManager"
   ],
   "client": [
     "client.MixinInventoryScreen"

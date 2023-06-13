@@ -1,7 +1,6 @@
 package potionstudios.byg.common.world.feature.gen.overworld;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,16 +17,11 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.PerlinSimplexNoise;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 
-import java.util.Set;
-
 
 public class WideLake extends Feature<SimpleBlockProviderConfig> {
-
-    protected static final Set<Material> unacceptableSolidMaterials = ImmutableSet.of(Material.BAMBOO, Material.BAMBOO_SAPLING, Material.LEAVES, Material.WEB, Material.CACTUS, Material.HEAVY_METAL, Material.VEGETABLE, Material.CAKE, Material.EGG, Material.BARRIER, Material.CAKE);
 
     protected long noiseSeed;
     protected PerlinSimplexNoise noiseGen;
@@ -51,13 +45,13 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
+    //TODO: Double Check this...
     public boolean place(WorldGenLevel world, ChunkGenerator chunkSettings, RandomSource random, BlockPos position, SimpleBlockProviderConfig config) {
         setSeed(world.getSeed());
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(position.below(2));
 
         // creates the actual lakes
         boolean containedFlag;
-        Material material;
         BlockState blockState;
         for (int x = -2; x < 18; ++x) {
             for (int z = -2; z < 18; ++z) {
@@ -95,9 +89,8 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                             // remove floating plants so they aren't hovering.
                             // check above while moving up one.
                             blockState = world.getBlockState(mutable.move(Direction.UP));
-                            material = blockState.getMaterial();
 
-                            if (material == Material.PLANT && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.ENDER_LILY.get() && blockState.getBlock() != BYGBlocks.TINY_LILYPADS.get()) {
+                            if (blockState.is(BlockTags.REPLACEABLE) && blockState.getBlock() != Blocks.LILY_PAD && blockState.getBlock() != BYGBlocks.ENDER_LILY.get() && blockState.getBlock() != BYGBlocks.TINY_LILYPADS.get()) {
                                 world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
 
                                 // recursively moves up and breaks floating sugar cane
@@ -105,7 +98,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
                                     world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
                                 }
                             }
-                            if (material == Material.REPLACEABLE_PLANT && blockState.getBlock() != Blocks.VINE) {
+                            if (blockState.is(BlockTags.REPLACEABLE) && blockState.getBlock() != Blocks.VINE) {
                                 world.setBlock(mutable, Blocks.AIR.defaultBlockState(), 2);
                                 world.setBlock(mutable.above(), Blocks.AIR.defaultBlockState(), 2);
                             }
@@ -125,8 +118,8 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
      * @param blockpos$Mutable - location to check if valid
      * @return - if the spot is valid
      */
+    //TODO: Double Check this...
     private boolean checkIfValidSpot(LevelAccessor world, BlockPos.MutableBlockPos blockpos$Mutable, double noise) {
-        Material material;
         BlockState blockState;
 
         //cannot be under ledge
@@ -142,8 +135,7 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         // must be solid below
         // Will also return false if an unacceptable solid material is found.
         blockState = world.getBlockState(blockpos$Mutable.below());
-        material = blockState.getMaterial();
-        if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) ||
+        if ((!blockState.isSolid() ||
                 blockState.is(BlockTags.PLANKS)) &&
                 blockState.getFluidState().isEmpty() &&
                 blockState.getFluidState() != Fluids.WATER.getSource(false)) {
@@ -155,8 +147,6 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         if ((noise < 2D && world.getBlockState(blockpos$Mutable.above()).isAir())) {
             int open = 0;
             for (Direction direction : Direction.Plane.HORIZONTAL) {
-                Material material2 = world.getBlockState(blockpos$Mutable.relative(direction)).getMaterial();
-                if (unacceptableSolidMaterials.contains(material2)) return false;
                 if (world.getBlockState(blockpos$Mutable.relative(direction)).isAir()) open++;
             }
             if (open == 1) return true;
@@ -167,9 +157,8 @@ public class WideLake extends Feature<SimpleBlockProviderConfig> {
         for (int x2 = -1; x2 < 2; x2++) {
             for (int z2 = -1; z2 < 2; z2++) {
                 blockState = world.getBlockState(blockpos$Mutable.offset(x2, 0, z2));
-                material = blockState.getMaterial();
 
-                if ((!material.isSolid() || unacceptableSolidMaterials.contains(material) || blockState.is(BlockTags.PLANKS)) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getSource(false)) {
+                if ((!blockState.isSolid() || blockState.is(BlockTags.PLANKS)) && blockState.getFluidState().isEmpty() && blockState.getFluidState() != Fluids.WATER.getSource(false)) {
                     return false;
                 }
             }

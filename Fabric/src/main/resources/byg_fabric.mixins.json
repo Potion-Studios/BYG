@@ -3,6 +3,7 @@
   "package": "potionstudios.byg.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "world.level.storage.loot.MixinLootTableManager"
   ],
   "client": [
     "client.MixinBlockColors",

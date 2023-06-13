@@ -1,8 +1,8 @@
 package potionstudios.byg.client.gui.biomepedia.widget;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
@@ -52,39 +52,39 @@ public class BiomeWidget extends AbstractWidget {
     }
 
     @Override
-    public void renderWidget(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
             if (previewImageLocation != null) {
                 float scale = 0.09F;
-                renderBiomePicture(poseStack, scale, this.getX(), this.getY(), this.previewImageLocation);
+                renderBiomePicture(guiGraphics, scale, this.getX(), this.getY(), this.previewImageLocation);
             }
 
             int textWidth = Minecraft.getInstance().font.width(this.name) / 2;
             int textX = (this.getX() + (this.width / 2)) - textWidth;
             int textY = this.getY() + height - 10;
-            Minecraft.getInstance().font.draw(poseStack, this.name, textX, textY, FastColor.ARGB32.color(255, 0, 0, 0));
+
+            guiGraphics.drawString(Minecraft.getInstance().font, this.name, textX, textY, FastColor.ARGB32.color(255, 0, 0, 0));
 
             if (BYGUtil.isInside(this.getX(), this.getY(), this.getX() + this.width, this.getY() + this.height, mouseX, mouseY)) {
-                drawWidgetBorder(poseStack);
+                drawWidgetBorder(guiGraphics);
             }
         }
     }
 
-    public static void renderBiomePicture(PoseStack poseStack, float scale, int x, int y, ResourceLocation location) {
-        poseStack.pushPose();
+    public static void renderBiomePicture(GuiGraphics guiGraphics, float scale, int x, int y, ResourceLocation location) {
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.scale(scale, scale, 1);
-        RenderSystem.setShaderTexture(0, location);
         int scaledX = (int) (x / scale);
         int scaledY = (int) (y / scale);
-        blit(poseStack, scaledX, scaledY, 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_HEIGHT);
+        guiGraphics.blit(location, scaledX, scaledY, 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_WIDTH, IMAGE_HEIGHT);
         poseStack.popPose();
     }
 
-    private void drawWidgetBorder(PoseStack poseStack) {
-        vLine(poseStack, this.getX(), this.getY(), this.getY() + this.height, this.borderColor);
-        vLine(poseStack, this.getX() + this.width, this.getY(), this.getY() + this.height, this.borderColor);
-        hLine(poseStack, this.getX(), this.getX() + this.width, this.getY(), this.borderColor);
-        hLine(poseStack, this.getX(), this.getX() + this.width, this.getY() + this.height, this.borderColor);
+    private void drawWidgetBorder(GuiGraphics guiGraphics) {
+        guiGraphics.vLine(this.getX(), this.getY(), this.getY() + this.height, this.borderColor);
+        guiGraphics.vLine(this.getX() + this.width, this.getY(), this.getY() + this.height, this.borderColor);
+        guiGraphics.hLine(this.getX(), this.getX() + this.width, this.getY(), this.borderColor);
+        guiGraphics.hLine(this.getX(), this.getX() + this.width, this.getY() + this.height, this.borderColor);
     }
 
     public interface OnClick {

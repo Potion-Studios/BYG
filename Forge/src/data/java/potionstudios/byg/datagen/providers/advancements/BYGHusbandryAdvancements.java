@@ -25,7 +25,7 @@ public class BYGHusbandryAdvancements implements BYGAdvancementConsumer {
 
         Advancement.Builder.advancement().parent(husbandryRoot).display(BYGItems.CATTAIL_SPROUT.get(), Component.translatable("byg.advancements.husbandry.hot_diggity_not_dog.title"),
                 Component.translatable("byg.advancements.husbandry.hot_diggity_not_dog.description"), null, FrameType.CHALLENGE, true, true, false)
-            .addCriterion("cattail_sprout", ItemInteractWithBlockTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BlockTags.CAMPFIRES).build()), ItemPredicate.Builder.item().of(BYGItems.CATTAIL_SPROUT.get()))).save(advancementConsumer, "byg:husbandry/hot_diggity_not_dog");
+            .addCriterion("cattail_sprout", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BlockTags.CAMPFIRES).build()), ItemPredicate.Builder.item().of(BYGItems.CATTAIL_SPROUT.get()))).save(advancementConsumer, "byg:husbandry/hot_diggity_not_dog");
 
         Advancement.Builder.advancement().parent(husbandryRoot).display(BYGItems.WHITE_PUFFBALL_CAP.get(), Component.translatable("byg.advancements.husbandry.forager.title"),
                 Component.translatable("byg.advancements.husbandry.forager.description"), null, FrameType.CHALLENGE, true, true, false)

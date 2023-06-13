@@ -2,6 +2,7 @@ package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.PageButton;
 import net.minecraft.network.chat.Component;
@@ -77,7 +78,7 @@ public class BiomepediaItemsViewScreen extends AbstractBiomepediaScreen {
                         if (registryIdx > bygItems.length - 1) {
                             break;
                         }
-                        ItemWidget itemWidget = new ItemWidget(bygItems[registryIdx].get().getDefaultInstance(), this.itemRenderer, xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
+                        ItemWidget itemWidget = new ItemWidget(bygItems[registryIdx].get().getDefaultInstance(), Minecraft.getInstance().getItemRenderer(), xOffset + startX, yOffset, buttonSize, buttonSize, button -> {
                             Item item = button.stack.getItem();
                             if (button.hasAdditonalInfo) {
                                 if (item instanceof BlockItem blockItem) {
@@ -97,15 +98,15 @@ public class BiomepediaItemsViewScreen extends AbstractBiomepediaScreen {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
         forEach(items, itemWidget -> {
             if (itemWidget.isMouseOver(mouseX, mouseY)) {
                 List<Component> tooltipLines = itemWidget.stack.getTooltipLines(Minecraft.getInstance().player, this.minecraft.options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL);
                 if (itemWidget.hasAdditonalInfo) {
                     tooltipLines.add(1, Component.literal("Click for more info"));
                 }
-                this.renderTooltip(poseStack, tooltipLines, itemWidget.stack.getTooltipImage(), mouseX, mouseY);
+                guiGraphics.renderTooltip(Minecraft.getInstance().font, tooltipLines, itemWidget.stack.getTooltipImage(), mouseX, mouseY);
             }
         });
     }

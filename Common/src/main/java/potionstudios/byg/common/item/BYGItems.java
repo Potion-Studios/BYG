@@ -755,9 +755,9 @@ public class BYGItems {
     public static final RegistryObject<Item> CATTAIL_THATCH_CARPET = createItem(BYGBlocks.CATTAIL_THATCH_CARPET);
     public static final RegistryObject<Item> CATTAIL_THATCH_SLAB = createItem(BYGBlocks.CATTAIL_THATCH_SLAB);
 
-    public static final RegistryObject<Item> FLOWERING_TINY_LILY_PADS = createItem(() -> new BYGLilyItem(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Properties()), BYGBlocks.FLOWERING_TINY_LILY_PADS);
-    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new BYGLilyItem(BYGBlocks.TINY_LILYPADS.get(), new Properties()), BYGBlocks.TINY_LILYPADS);
-    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new BYGWaterSilkItem(BYGBlocks.WATER_SILK.get(), new Properties()), BYGBlocks.WATER_SILK);
+    public static final RegistryObject<Item> FLOWERING_TINY_LILY_PADS = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), new Properties()), BYGBlocks.FLOWERING_TINY_LILY_PADS);
+    public static final RegistryObject<Item> TINY_LILYPADS = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.TINY_LILYPADS.get(), new Properties()), BYGBlocks.TINY_LILYPADS);
+    public static final RegistryObject<Item> WATER_SILK = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.WATER_SILK.get(), new Properties()), BYGBlocks.WATER_SILK);
     public static final RegistryObject<Item> WINTER_SUCCULENT = createItem(BYGBlocks.WINTER_SUCCULENT);
 
     public static final RegistryObject<Item> BEACH_GRASS = createItem(BYGBlocks.BEACH_GRASS);

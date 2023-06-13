@@ -8,7 +8,6 @@ import net.minecraft.Util;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -17,7 +16,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import potionstudios.byg.common.*;
@@ -126,15 +124,16 @@ public class BYG {
                         .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
                         .add(BYGBlocks.EMBUR_GEL_VINES.get())
                         .addAll(Util.make(new ArrayList<>(), list -> {
-                            for (Block block : BuiltInRegistries.BLOCK) {
-                                Material material = block.defaultBlockState().getMaterial();
-                                if (material == Material.PLANT || material == Material.BAMBOO ||
-                                        material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
-                                        material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
-                                        material == Material.LEAVES || material == Material.WOOD) {
-                                    list.add(block);
-                                }
-                            }
+                            // TODO: Replace
+//                            for (Block block : BuiltInRegistries.BLOCK) {
+//                                Material material = block.defaultBlockState().getMaterial();
+//                                if (material == Material.PLANT || material == Material.BAMBOO ||
+//                                        material == Material.BAMBOO_SAPLING || material == Material.REPLACEABLE_PLANT ||
+//                                        material == Material.REPLACEABLE_FIREPROOF_PLANT || material == Material.REPLACEABLE_WATER_PLANT ||
+//                                        material == Material.LEAVES || material == Material.WOOD) {
+//                                    list.add(block);
+//                                }
+//                            }
                         }))
                         .build()
         );

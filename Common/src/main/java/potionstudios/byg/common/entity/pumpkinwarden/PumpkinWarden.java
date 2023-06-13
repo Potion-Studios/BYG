@@ -131,11 +131,11 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
             if (this.getTimer() < 10) {
                 controller.setAnimation(HIDE_START);
                 return PlayState.CONTINUE;
-            } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level.isDay() && this.getTimer() > 10) {
+            } else if ((this.getTimer() > 10 && this.getTimer() < 180) || !this.level().isDay() && this.getTimer() > 10) {
                 controller.setAnimation(HIDE);
                 return PlayState.CONTINUE;
             } else if (this.getTimer() > 180) {
-                if (this.level.getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
+                if (this.level().getBrightness(LightLayer.SKY, this.getOnPos()) > 2) {
                     controller.setAnimation(HIDE_END);
                 } else {
                     controller.setAnimation(HIDE);
@@ -172,12 +172,12 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     public void aiStep() {
         super.aiStep();
-        if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level.getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
+        if (this.jukebox == null || !this.jukebox.closerToCenterThan(this.position(), 10D) || !this.level().getBlockState(this.jukebox).is(Blocks.JUKEBOX)) {
             this.party = false;
             this.jukebox = null;
         }
-        if (!this.level.isClientSide) {
-            if (!this.level.isDay()) {
+        if (!this.level().isClientSide) {
+            if (!this.level().isDay()) {
                 this.setTimer(this.getTimer() + 1);
                 this.setHiding(true);
             } else if (this.getTimer() > 0 && this.getLastHurtByMob() == null) {
@@ -300,7 +300,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         protected boolean findNearestBlock() {
             if (this.searchNearestBlockDelay > 0) {
               return false;
-            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level(), this.blockPos)) {
                 return true;
             }
             if (super.findNearestBlock()) {
@@ -325,7 +325,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         public void tick() {
             super.tick();
             if (this.isReachedTarget()) {
-                Level level = this.warden.level;
+                Level level = this.warden.level();
                 BlockState blockstate = level.getBlockState(this.blockPos);
                 if (blockstate.getBlock() instanceof StemGrownBlock block) {
                     level.removeBlock(this.blockPos, false);
@@ -397,7 +397,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         protected boolean findNearestBlock() {
             if (this.searchNearestBlockDelay > 0) {
                 return false;
-            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level, this.blockPos)) {
+            } else if (this.searchNearestBlockDelay == -1 && this.isValidTarget(this.warden.level(), this.blockPos)) {
                 return true;
             }
             if (super.findNearestBlock()) {

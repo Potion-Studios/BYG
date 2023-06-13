@@ -31,7 +31,7 @@ public class BYGAdvancementProvider implements ForgeAdvancementProvider.Advancem
     public void generate(HolderLookup.Provider registries, Consumer<Advancement> consumer, ExistingFileHelper existingFileHelper) {
         final Advancement root = Advancement.Builder.advancement()
                 .display(BYGItems.BYG_LOGO.get(), Component.translatable("byg.advancements.root.title"), Component.translatable("byg.advancements.root.description"), createLocation("textures/block/lush_dirt.png"), FrameType.TASK, false, false, false)
-                .addCriterion("tick", new PlayerTrigger.TriggerInstance(CriteriaTriggers.TICK.getId(), EntityPredicate.Composite.ANY)).save(consumer, "byg:root");
+                .addCriterion("tick", new PlayerTrigger.TriggerInstance(CriteriaTriggers.TICK.getId(), EntityPredicate.wrap(EntityPredicate.ANY))).save(consumer, "byg:root");
 
         advancements.stream().map(Supplier::get).forEach(cons -> cons.accept(consumer, root));
     }

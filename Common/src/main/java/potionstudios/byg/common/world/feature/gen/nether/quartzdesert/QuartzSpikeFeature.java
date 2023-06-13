@@ -11,7 +11,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
@@ -34,7 +33,7 @@ public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
     public boolean place(WorldGenLevel world, ChunkGenerator generator, RandomSource rand, BlockPos pos, QuartzSpikeConfig config) {
         setSeed(world.getSeed());
 
-        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()) != BYGBlocks.QUARTZITE_SAND.defaultBlockState() || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
+        if (world.getBlockState(pos.below()).isAir() || world.getBlockState(pos.below()) != BYGBlocks.QUARTZITE_SAND.defaultBlockState() || !world.getBlockState(pos.below()).getFluidState().isEmpty() || world.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, pos.getX(), pos.getZ()) < 4)
             return false;
 
 
@@ -54,12 +53,12 @@ public class QuartzSpikeFeature extends Feature<QuartzSpikeConfig> {
 
                     if (y == -height) {
                         if (scaledNoise >= threshold)
-                            if (world.getBlockState(mutable.relative(Direction.DOWN)).getMaterial() == Material.AIR)
+                            if (world.getBlockState(mutable.relative(Direction.DOWN)).isAir())
                                 return false;
                     }
 
                     if (scaledNoise >= threshold) {
-                        if (world.getBlockState(mutable).getMaterial() == Material.AIR) {
+                        if (world.getBlockState(mutable).isAir()) {
                             BlockState blockState = config.getBlockProvider().getState(rand, mutable);
                             world.setBlock(mutable, blockState, 2);
                         }

@@ -3,6 +3,7 @@ package potionstudios.byg.client.gui.biomepedia.screen;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
@@ -123,23 +124,22 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
-        renderBYGLogo(poseStack);
-        this.widgets.render(poseStack, mouseX, mouseY, partialTick);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        renderBYGLogo(guiGraphics);
+        this.widgets.render(guiGraphics, mouseX, mouseY, partialTick);
     }
 
-    private void renderBYGLogo(PoseStack poseStack) {
+    private void renderBYGLogo(GuiGraphics guiGraphics) {
+
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1, 1, 1, 1);
-        RenderSystem.setShaderTexture(0, BOOK_TEXTURES);
         float scale = 3.35F;
         poseStack.scale(scale, scale, 0);
 
         // We need to scale the position by the scale of the matrix to match the coordinates.
         float toolTipMaxWidthScaled = (this.toolTipMaxWidth) / scale;
-        blit(poseStack, Math.round((this.leftPos + (toolTipMaxWidthScaled / 2)) / scale) + 1, Math.round((this.bottomPos / scale) + (4 / scale)), 20, 224, 32, 32);
+        guiGraphics.blit(BOOK_TEXTURES, Math.round((this.leftPos + (toolTipMaxWidthScaled / 2)) / scale) + 1, Math.round((this.bottomPos / scale) + (4 / scale)), 20, 224, 32, 32);
         poseStack.popPose();
     }
 }

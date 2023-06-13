@@ -68,7 +68,7 @@ public class UpdateConfigsCommand {
 
             ConfigVersionTracker configVersionTracker = new ConfigVersionTracker(BYGConstants.CONFIG_VERSION);
             if (ConfigVersionTracker.getConfig().configVersion() == BYGConstants.CONFIG_VERSION) {
-                stack.sendSuccess(Component.translatable("byg.command.updateconfig.configsuptodate"), true);
+                stack.sendSuccess(() -> Component.translatable("byg.command.updateconfig.configsuptodate"), true);
                 return 1;
             }
 

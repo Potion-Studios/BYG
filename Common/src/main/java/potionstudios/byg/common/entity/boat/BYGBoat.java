@@ -23,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -65,8 +66,8 @@ public class BYGBoat extends Boat {
     }
 
     public List<ItemStack> getDrops(DamageSource damageSource, boolean isFall) {
-        if (level instanceof ServerLevel serverLevel) {
-            LootContext lootContext = new LootContext.Builder(serverLevel)
+        if (level() instanceof ServerLevel serverLevel) {
+            LootParams lootContext = new LootParams.Builder(serverLevel)
                     .withParameter(BYGLootContextParams.BOAT_TYPE, getBYGBoatType())
                     .withParameter(LootContextParams.THIS_ENTITY, this)
                     .withParameter(LootContextParams.ORIGIN, position())
@@ -74,11 +75,11 @@ public class BYGBoat extends Boat {
                     .create(LOOT_CONTEXT_PARAM_SETS);
             final var regName = BuiltInRegistries.ENTITY_TYPE.getKey(this.getType());
             final var defaultLocation = this.getType().getDefaultLootTable();
-            final var any = serverLevel.getServer().getLootTables().get(isFall ? new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_fall") : defaultLocation);
+            final var any = serverLevel.getServer().getLootData().getLootTable(isFall ? new ResourceLocation(defaultLocation.getNamespace(), defaultLocation.getPath() + "_fall") : defaultLocation);
             if (any != LootTable.EMPTY)
                 return any.getRandomItems(lootContext);
 
-            final var lootTable = serverLevel.getServer().getLootTables().get(getLootLocation(getBYGBoatType(), this instanceof BYGChestBoat, isFall));
+            final var lootTable = serverLevel.getServer().getLootData().getLootTable(getLootLocation(getBYGBoatType(), this instanceof BYGChestBoat, isFall));
             return lootTable.getRandomItems(lootContext);
         }
         return List.of();
@@ -145,16 +146,16 @@ public class BYGBoat extends Boat {
                     }
 
                     this.causeFallDamage(this.fallDistance, 1.0F, this.damageSources().fall());
-                    if (!this.level.isClientSide && !this.isRemoved()) {
+                    if (!this.level().isClientSide && !this.isRemoved()) {
                         this.kill();
-                        if (this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+                        if (this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                             getDrops(this.damageSources().fall(), true).forEach(this::spawnAtLocation);
                         }
                     }
                 }
 
                 this.fallDistance = 0.0F;
-            } else if (!this.level.getFluidState((BlockPos.containing(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
+            } else if (!this.level().getFluidState((BlockPos.containing(this.getX(), this.getY(), this.getZ()).below())).is(FluidTags.WATER) && y < 0.0D) {
                 this.fallDistance = (float) (this.fallDistance - y);
             }
 
@@ -164,7 +165,7 @@ public class BYGBoat extends Boat {
     public boolean hurt(@NotNull DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) {
             return false;
-        } else if (!this.level.isClientSide && !this.isRemoved()) {
+        } else if (!this.level().isClientSide && !this.isRemoved()) {
             if (source.isIndirect() && source.getEntity() != null && this.hasPassenger(source.getEntity())) {
                 return false;
             } else {
@@ -174,7 +175,7 @@ public class BYGBoat extends Boat {
                 this.markHurt();
                 boolean flag = source.getEntity() instanceof Player player && player.getAbilities().instabuild;
                 if (flag || this.getDamage() > 40.0F) {
-                    if (!flag && this.level.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+                    if (!flag && this.level().getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
                         getDrops(source, false).forEach(this::spawnAtLocation);
                     }
                     this.discard();

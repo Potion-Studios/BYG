@@ -93,7 +93,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     public int getExperienceReward() {
-        return 1 + this.level.random.nextInt(3);
+        return 1 + this.level().random.nextInt(3);
     }
 
     protected void handleAirSupply(int $$0) {
@@ -247,9 +247,9 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
 
     public void aiStep() {
-        if (!this.isInWater() && this.onGround && this.verticalCollision) {
+        if (!this.isInWater() && this.onGround() && this.verticalCollision) {
             this.setDeltaMovement(this.getDeltaMovement().add((double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F), 0.4000000059604645D, (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F)));
-            this.onGround = false;
+            this.setOnGround(false);
             this.hasImpulse = true;
             this.playSound(SoundEvents.SALMON_FLOP, this.getSoundVolume(), this.getVoicePitch());
         }
@@ -261,7 +261,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         this.oldTentacleAngle = this.tentacleAngle;
         this.tentacleMovement += this.tentacleSpeed;
         if ((double) this.tentacleMovement > 6.283185307179586D) {
-            if (this.level.isClientSide) {
+            if (this.level().isClientSide) {
                 this.tentacleMovement = 6.2831855F;
             } else {
                 this.tentacleMovement = (float) ((double) this.tentacleMovement - 6.283185307179586D);
@@ -269,7 +269,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                     this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
                 }
 
-                this.level.broadcastEntityEvent(this, (byte) 19);
+                this.level().broadcastEntityEvent(this, (byte) 19);
             }
         }
 
@@ -289,7 +289,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
                 this.rotateSpeed *= 0.99F;
             }
 
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 this.setDeltaMovement(this.tx * this.speed, (double) (this.ty * this.speed), (double) (this.tz * this.speed));
             }
             Vec3 vec3 = this.getDeltaMovement();
@@ -300,7 +300,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             this.xBodyRot += (-((float) Mth.atan2(d, vec3.y)) * 57.295776F - this.xBodyRot) * 0.1F;
         } else {
             this.tentacleAngle = Mth.abs(Mth.sin(this.tentacleMovement)) * 3.1415927F * 0.25F;
-            if (!this.level.isClientSide) {
+            if (!this.level().isClientSide) {
                 double e = this.getDeltaMovement().y;
                 if (this.hasEffect(MobEffects.LEVITATION)) {
                     e = 0.05D * (double) (this.getEffect(MobEffects.LEVITATION).getAmplifier() + 1);
@@ -364,7 +364,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
-        controller.setTransitionLength(0);
+        controller.transitionLength(0);
         if (this.isInWater()) {
             controller.setAnimation(SWIM_ANIMATION);
             return PlayState.CONTINUE;

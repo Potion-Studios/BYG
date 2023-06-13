@@ -50,7 +50,7 @@ public class BlockHelper {
 
     public static int downRayRep(LevelReader world, BlockPos pos, int maxDist) {
         POS.set(pos);
-        for (int j = 1; j < maxDist && (world.getBlockState(POS)).getMaterial().isReplaceable(); j++) {
+        for (int j = 1; j < maxDist && (world.getBlockState(POS)).is(BlockTags.REPLACEABLE); j++) {
             POS.setY(POS.getY() - 1);
         }
         return pos.getY() - POS.getY();

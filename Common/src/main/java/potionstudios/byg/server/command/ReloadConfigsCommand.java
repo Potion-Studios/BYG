@@ -27,7 +27,7 @@ public class ReloadConfigsCommand {
             try {
                 Config config = Config.valueOf(cs.getArgument(argName, String.class).toUpperCase(Locale.ROOT));
                 config.accept(cs.getSource());
-                cs.getSource().sendSuccess(Component.translatable("byg.command.config.success", config.toString()), true);
+                cs.getSource().sendSuccess(() -> Component.translatable("byg.command.config.success", config.toString()), true);
                 return 1;
             } catch (IllegalArgumentException e) {
                 cs.getSource().sendFailure(Component.translatable("byg.command.config.error", argName, Config.values().toString()));

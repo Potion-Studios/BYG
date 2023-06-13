@@ -40,10 +40,10 @@ public class MixinVillager extends AbstractVillager {
     @Inject(method = "mobInteract", at = @At("HEAD"))
     public void makeWarden(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         if (this.hasEffect(MobEffects.WEAKNESS) && player.getItemInHand(hand).is(Items.CARVED_PUMPKIN) && this.isBaby()) {
-            PumpkinWarden warden = BYGEntities.PUMPKIN_WARDEN.get().create(player.level);
+            PumpkinWarden warden = BYGEntities.PUMPKIN_WARDEN.get().create(player.level());
             warden.setPos(this.position());
-            this.level.addFreshEntity(warden);
-            this.level.playSound(null, this.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 1);
+            this.level().addFreshEntity(warden);
+            this.level().playSound(null, this.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 1);
             this.remove(RemovalReason.DISCARDED);
         }
     }

@@ -10,7 +10,6 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.HangingColumnConfig;
 
 public class HangingColumn extends Feature<HangingColumnConfig> {
@@ -37,7 +36,7 @@ public class HangingColumn extends Feature<HangingColumnConfig> {
             return false;
         } else {
             for (int WeepingRootPlantLength = 0; WeepingRootPlantLength <= randLength; WeepingRootPlantLength++) {
-                if (worldIn.getBlockState(mutable).getMaterial() == Material.AIR)
+                if (worldIn.getBlockState(mutable).isAir())
                     worldIn.setBlock(mutable, config.getBlockProvider().getState(rand, mutable), 10);
                 mutable.move(Direction.DOWN);
             }

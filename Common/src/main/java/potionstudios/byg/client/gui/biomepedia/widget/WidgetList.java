@@ -2,6 +2,7 @@ package potionstudios.byg.client.gui.biomepedia.widget;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -26,13 +27,13 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
-        super.renderList(poseStack, mouseX, mouseY, partialTick);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        super.renderList(guiGraphics, mouseX, mouseY, partialTick);
     }
 
     @Override
-    protected void renderList(PoseStack $$0, int $$1, int $$2, float $$3) {
+    protected void renderList(GuiGraphics guiGraphics, int $$1, int $$2, float $$3) {
     }
 
     @Override
@@ -49,10 +50,10 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
         }
 
         @Override
-        public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
+        public void render(GuiGraphics guiGraphics, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
             this.widget.setX(pLeft);
             this.widget.setY(pTop);
-            this.widget.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+            this.widget.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         }
 
         @Override

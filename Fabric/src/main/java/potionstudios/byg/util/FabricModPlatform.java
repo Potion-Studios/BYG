@@ -4,20 +4,22 @@ import com.google.auto.service.AutoService;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.MobBucketItem;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.material.Fluid;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.network.FabricNetworkHandler;
 import potionstudios.byg.network.packet.BYGS2CPacket;
 import terrablender.api.SurfaceRuleManager;
@@ -96,5 +98,18 @@ public class FabricModPlatform implements ModPlatform {
     @Override
     public MobBucketItem createMobBucketItem(Supplier<? extends EntityType<?>> entitySupplier, Supplier<? extends Fluid> fluidSupplier, Supplier<? extends SoundEvent> soundSupplier, Item.Properties properties) {
         return new MobBucketItem(entitySupplier.get(), fluidSupplier.get(), soundSupplier.get(), properties);
+    }
+
+    @Override
+    public CreativeModeTab creativeModeTab() {
+        return FabricItemGroup.builder().title(Component.translatable("itemGroup.byg.byg")).icon(() -> new ItemStack(BYGItems.BYG_LOGO.get())).displayItems((displayParameters, pOutput) -> {
+            for (ResourceKey<Item> entry : BYGItems.REGISTRATION_ORDERED_ITEMS) {
+                Item pItem = BYGItems.PROVIDER.getRegistry().get(entry);
+
+                if (pItem != BYGItems.BYG_LOGO.get()) {
+                    pOutput.accept(pItem);
+                }
+            }
+        }).build();
     }
 }

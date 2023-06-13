@@ -2,6 +2,7 @@ package potionstudios.byg.client.gui.biomepedia.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Tooltip;
@@ -248,9 +249,9 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        super.render(poseStack, mouseX, mouseY, partialTick);
-        this.forEachWidget(biomeWidget -> biomeWidget.render(poseStack, mouseX, mouseY, partialTick));
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+        this.forEachWidget(biomeWidget -> biomeWidget.render(guiGraphics, mouseX, mouseY, partialTick));
     }
 
     private void unload(int page) {

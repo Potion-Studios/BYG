@@ -1,6 +1,7 @@
 package potionstudios.byg.common.world.feature.gen.end;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -10,7 +11,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
@@ -206,15 +206,6 @@ public class EndLakeFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private boolean canReplace(BlockState state) {
-        return state.getMaterial().isReplaceable()
-                || state.is(MLBlockTags.END_STONES)
-                || state.is(MLBlockTags.ORES) // Handles floating ores
-                || state.is(BYGBlocks.IMPARIUS_BUSH.get()) // Handles other blocks that could be left floating
-                || state.is(BYGWoodTypes.IMPARIUS.growerItem().get()) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.FUNGAL_IMPARIUS.get()) // Handles other blocks that could be left floating
-                || state.is(BYGBlocks.END_SAND.get())
-                || state.getMaterial().equals(Material.PLANT)
-                || state.getMaterial().equals(Material.WATER_PLANT)
-                || state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT);
+        return state.is(BlockTags.OVERWORLD_CARVER_REPLACEABLES);
     }
 }

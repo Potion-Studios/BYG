@@ -1,15 +1,12 @@
 package potionstudios.byg.datagen.providers.tag;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -19,7 +16,6 @@ import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.datagen.util.DatagenUtils;
 import potionstudios.byg.datagen.util.PredicatedTagProvider;
-import potionstudios.byg.mixin.dev.BlockBehaviorAccess;
 import potionstudios.byg.reg.RegistryObject;
 
 import java.util.ArrayList;
@@ -27,7 +23,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 import static net.minecraft.tags.BlockTags.TERRACOTTA;
@@ -53,7 +48,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 LUSH_GRASS_PATH, LUSH_GRASS_BLOCK, LUSH_FARMLAND
         );
 
-        final Material[] shovelMaterials = {Material.DIRT, Material.GRASS, Material.SAND, Material.CLAY};
 
         new PredicatedTagProvider<>(PROVIDER)
                 .forInstance(SlabBlock.class, bygTag(SLABS))
@@ -65,10 +59,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 .forInstance(CampfireBlock.class, bygTag(CAMPFIRES))
                 .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
                 .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
-                .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
-                .add(isMaterial(Material.SAND), bygTag(SAND))
-                .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
+//                .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
+//                .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
+//                .add(isMaterial(Material.SAND), bygTag(SAND))
+//                .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
                 .run(super::tag);
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(WAILING_NYLIUM.get());
@@ -176,15 +170,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
     private static TagKey<Block> bygTag(BYGTags tags) {
         return tags.byg(BYGTags.RegistryType.BLOCKS);
-    }
-
-    private static Predicate<ResourceKey<Block>> isMaterial(Material... materials) {
-        final var materialsList = List.of(materials);
-        return blockResourceKey -> {
-            Block bl = BuiltInRegistries.BLOCK.get(blockResourceKey);
-
-            return materialsList.contains(((BlockBehaviorAccess) bl).getMaterial());
-        };
     }
 
     @SafeVarargs

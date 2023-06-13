@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.entity.boat.BYGBoat;
@@ -29,19 +29,19 @@ import java.util.stream.Collectors;
 public enum BYGWoodTypes {
     ASPEN("aspen", new Builder()
             .boatType(BYGBoat.BYGType.ASPEN)
-            .materialColor(MaterialColor.TERRACOTTA_YELLOW)
+            .MapColor(MapColor.TERRACOTTA_YELLOW)
             .growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
     BAOBAB("baobab", new Builder()
             .boatType(BYGBoat.BYGType.BAOBAB)
             .growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN).leavesFactory(id -> BYGBlocks.createFruitLeaves(MaterialColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, 0), id, 0.01F))),
+            .MapColor(MapColor.TERRACOTTA_GREEN).leavesFactory(id -> BYGBlocks.createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, 0), id, 0.01F))),
     BLUE_ENCHANTED("blue_enchanted", new Builder()
             .boatType(BYGBoat.BYGType.BLUE_ENCHANTED)
             .growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING)
-            .materialColor(MaterialColor.COLOR_BLUE)
-            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, id))),
+            .MapColor(MapColor.COLOR_BLUE)
+            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))),
     BULBIS("bulbis", new Builder()
-            .materialColor(MaterialColor.COLOR_BLUE)
+            .MapColor(MapColor.COLOR_BLUE)
             .growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY)
             .growerItem(GrowerItemType.ODDITY)
             .exclude(BlockType.LEAVES)
@@ -54,30 +54,30 @@ public enum BYGWoodTypes {
     CIKA("cika", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_CIKA_SAPLING)
             .boatType(BYGBoat.BYGType.CIKA)
-            .materialColor(MaterialColor.TERRACOTTA_ORANGE)),
+            .MapColor(MapColor.TERRACOTTA_ORANGE)),
     CYPRESS("cypress", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_CYPRESS_SAPLING)
             .boatType(BYGBoat.BYGType.CYPRESS)
-            .materialColor(MaterialColor.TERRACOTTA_LIGHT_GREEN)),
+            .MapColor(MapColor.TERRACOTTA_LIGHT_GREEN)),
     EBONY("ebony", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_EBONY_SAPLING)
             .boatType(BYGBoat.BYGType.EBONY)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .MapColor(MapColor.COLOR_GREEN)),
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
-            .materialColor(MaterialColor.COLOR_CYAN).end()),
+            .MapColor(MapColor.COLOR_CYAN).end()),
     FIR("fir", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_FIR_SAPLING)
-            .materialColor(MaterialColor.COLOR_GREEN)
+            .MapColor(MapColor.COLOR_GREEN)
             .boatType(BYGBoat.BYGType.FIR)),
     GREEN_ENCHANTED("green_enchanted", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING)
             .boatType(BYGBoat.BYGType.GREEN_ENCHANTED)
-            .materialColor(MaterialColor.COLOR_GREEN)
-            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MaterialColor.COLOR_GREEN, 15, id))),
+            .MapColor(MapColor.COLOR_GREEN)
+            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))),
     HOLLY("holly", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN)
+            .MapColor(MapColor.TERRACOTTA_GREEN)
             .boatType(BYGBoat.BYGType.HOLLY)),
     IMPARIUS("imparius", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
@@ -87,41 +87,41 @@ public enum BYGWoodTypes {
     MAHOGANY("mahogany", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
             .boatType(BYGBoat.BYGType.MAHOGANY)
-            .materialColor(MaterialColor.COLOR_GREEN)
+            .MapColor(MapColor.COLOR_GREEN)
             .leavesHaveOverlay()),
     WHITE_MANGROVE("white_mangrove", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
             .boatType(BYGBoat.BYGType.MANGROVE)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .MapColor(MapColor.COLOR_GREEN)),
     PALM("palm", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_PALM_SAPLING)
             .boatType(BYGBoat.BYGType.PALM)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .MapColor(MapColor.COLOR_GREEN)),
     PINE("pine", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_PINE_SAPLING)
             .boatType(BYGBoat.BYGType.PINE)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN)),
+            .MapColor(MapColor.TERRACOTTA_GREEN)),
     RAINBOW_EUCALYPTUS("rainbow_eucalyptus", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING)
             .boatType(BYGBoat.BYGType.RAINBOW_EUCALYPTUS)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .MapColor(MapColor.COLOR_GREEN)),
     REDWOOD("redwood", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_REDWOOD_SAPLING)
             .boatType(BYGBoat.BYGType.REDWOOD)
-            .materialColor(MaterialColor.COLOR_GREEN)),
+            .MapColor(MapColor.COLOR_GREEN)),
     WILLOW("willow", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WILLOW_SAPLING)
             .boatType(BYGBoat.BYGType.WILLOW)
-            .materialColor(MaterialColor.TERRACOTTA_GREEN)
+            .MapColor(MapColor.TERRACOTTA_GREEN)
             .leavesHaveOverlay()),
     WITCH_HAZEL("witch_hazel", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING)
             .boatType(BYGBoat.BYGType.WITCH_HAZEL)
-            .materialColor(MaterialColor.COLOR_ORANGE)),
+            .MapColor(MapColor.COLOR_ORANGE)),
     ZELKOVA("zelkova", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ZELKOVA_SAPLING)
             .boatType(BYGBoat.BYGType.ZELKOVA)
-            .materialColor(MaterialColor.TERRACOTTA_RED)),
+            .MapColor(MapColor.TERRACOTTA_RED)),
     SYTHIAN("sythian", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
             .growerItem(GrowerItemType.FUNGUS)
@@ -135,23 +135,23 @@ public enum BYGWoodTypes {
             .nether()),
     NIGHTSHADE("nightshade", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING)
-            .materialColor(MaterialColor.COLOR_ORANGE).end()),
+            .MapColor(MapColor.COLOR_ORANGE).end()),
     SKYRIS("skyris", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SKYRIS_SAPLING)
-            .materialColor(MaterialColor.COLOR_PINK)
+            .MapColor(MapColor.COLOR_PINK)
             .boatType(BYGBoat.BYGType.SKYRIS)),
     LAMENT("lament", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_LAMENT_SAPLING)
-            .materialColor(MaterialColor.COLOR_MAGENTA)
+            .MapColor(MapColor.COLOR_MAGENTA)
             .notFlammable()),
     MAPLE("maple", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
-            .materialColor(MaterialColor.COLOR_GREEN)
+            .MapColor(MapColor.COLOR_GREEN)
             .boatType(BYGBoat.BYGType.MAPLE)),
     JACARANDA("jacaranda", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_JACARANDA_SAPLING)
             .boatType(BYGBoat.BYGType.JACARANDA)
-            .materialColor(MaterialColor.TERRACOTTA_PURPLE));
+            .MapColor(MapColor.TERRACOTTA_PURPLE));
 
     public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
             .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
@@ -425,8 +425,8 @@ public enum BYGWoodTypes {
         private final EnumSet<BlockType> excludes = EnumSet.noneOf(BlockType.class);
         private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
         private BYGBoat.BYGType boatType;
-        private MaterialColor materialColor;
-        private Function<String, BlockRegistryObject<Block>> leavesFactory = id -> BYGBlocks.createLeaves(materialColor, id);
+        private MapColor mapColor;
+        private Function<String, BlockRegistryObject<Block>> leavesFactory = id -> BYGBlocks.createLeaves(mapColor, id);
         private boolean isNether;
         private boolean flammable = true;
         private boolean leavesHaveOverlay;
@@ -451,8 +451,8 @@ public enum BYGWoodTypes {
             return this;
         }
 
-        public Builder materialColor(MaterialColor colour) {
-            this.materialColor = colour;
+        public Builder MapColor(MapColor colour) {
+            this.mapColor = colour;
             return this;
         }
 
@@ -464,12 +464,12 @@ public enum BYGWoodTypes {
         public Builder nether() {
             this.isNether = true;
             notFlammable();
-            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
+            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, true, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
             return this;
         }
 
         public Builder end() {
-            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
+            this.woodTypeFactory = s -> new WoodType(s, new BlockSetType(s, true, SoundType.NETHER_WOOD, SoundEvents.NETHER_WOOD_DOOR_CLOSE, SoundEvents.NETHER_WOOD_DOOR_OPEN, SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE, SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON, SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF, SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON), SoundType.NETHER_WOOD, SoundType.NETHER_WOOD_HANGING_SIGN, SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE, SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN);
             return this;
         }
 

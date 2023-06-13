@@ -9,7 +9,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
@@ -30,7 +29,7 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
         setSeed(world.getSeed());
 
 
-        if (world.getBlockState(pos.below()).getMaterial() == Material.AIR || world.getBlockState(pos.below()).getMaterial() == Material.WATER || world.getBlockState(pos.below()).getMaterial() == Material.LAVA || world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ()) < 4)
+        if (world.getBlockState(pos.below()).isAir() || !world.getBlockState(pos.below()).getFluidState().isEmpty() || world.getHeight(Heightmap.Types.MOTION_BLOCKING, pos.getX(), pos.getZ()) < 4)
             return false;
 
 
@@ -49,7 +48,7 @@ public class PurpurPeak extends Feature<SimpleBlockProviderConfig> {
                     double scaledNoise = (noise3 / 11) * (-(y * baseRadius) / ((x * x) + (z * z)));
                     if (y == -peakHeight) {
                         if (scaledNoise >= threshold)
-                            if (world.getBlockState(mutable.relative(Direction.DOWN)).getMaterial() == Material.AIR)
+                            if (world.getBlockState(mutable.relative(Direction.DOWN)).isAir())
                                 return false;
                     }
 
