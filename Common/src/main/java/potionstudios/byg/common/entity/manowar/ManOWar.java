@@ -364,7 +364,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
-        controller.setTransitionLength(0);
+        controller.transitionLength(0);
         if (this.isInWater()) {
             controller.setAnimation(SWIM_ANIMATION);
             return PlayState.CONTINUE;
