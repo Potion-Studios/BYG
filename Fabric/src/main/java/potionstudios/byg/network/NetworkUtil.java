@@ -58,7 +58,7 @@ public class NetworkUtil {
 
         int id = buf.readVarInt();
         UUID uuid = buf.readUUID();
-        EntityType entityTypeId = BuiltInRegistries.ENTITY_TYPE.byId(buf.readVarInt());
+        EntityType<?> entityTypeId = BuiltInRegistries.ENTITY_TYPE.byId(buf.readVarInt());
         double x = buf.readDouble();
         double y = buf.readDouble();
         double z = buf.readDouble();
