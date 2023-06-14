@@ -1,6 +1,8 @@
 package potionstudios;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -23,8 +25,8 @@ public class BYGModBusEventsHandler {
             builder.withSearchBar();
             builder.withBackgroundLocation(new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png"));
             builder.displayItems((pEnabledFeatures, pOutput, pDisplayOperatorCreativeTab) -> {
-                for (RegistryObject<Item> entry : BYGItems.PROVIDER.getEntries()) {
-                    Item pItem = entry.get();
+                for (ResourceKey<Item> key : BYGItems.REGISTRATION_ORDERED_ITEMS) {
+                    Item pItem = BuiltInRegistries.ITEM.getOrThrow(key);
 
                     if (pItem != BYGItems.BYG_LOGO.get()) {
                         pOutput.accept(pItem);

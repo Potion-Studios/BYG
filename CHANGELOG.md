@@ -1,5 +1,6 @@
 # 3.0.0.1
 * Fix Overworld Biome Configs.
+* Ordered Creative Tab Items.
 
 # 3.0.0.0
 * Update to 1.19.3.

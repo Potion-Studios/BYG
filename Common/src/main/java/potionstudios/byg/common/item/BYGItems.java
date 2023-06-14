@@ -1,6 +1,7 @@
 package potionstudios.byg.common.item;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -30,6 +31,8 @@ import java.util.function.Supplier;
 public class BYGItems {
 
     public static final RegistrationProvider<Item> PROVIDER = RegistrationProvider.get(Registries.ITEM, BYG.MOD_ID);
+
+    public static final List<ResourceKey<Item>> REGISTRATION_ORDERED_ITEMS = new ArrayList<>();
 
     public static final List<RegistryObject<GrowerItem>> SAPLINGS = new ArrayList<>();
 
@@ -858,6 +861,7 @@ public class BYGItems {
     }
 
     public static <T extends Item> potionstudios.byg.reg.RegistryObject<T> createItem(Supplier<? extends T> item, String id) {
+        REGISTRATION_ORDERED_ITEMS.add(ResourceKey.create(Registries.ITEM, BYG.createLocation(id)));
         return PROVIDER.register(id, item);
     }
 
