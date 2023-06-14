@@ -1,3 +1,6 @@
+# 4.0.0.1
+* Fix Overworld Biome Configs.
+
 # 4.0.0.0
 * Update to 1.19.4.
 
