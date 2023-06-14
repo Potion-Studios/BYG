@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[40,)"
+loaderVersion = "[45,)"
 license = "Code: LGPLv3 \nAssets: All Rights Reserved"
 issueTrackerURL = "https://github.com/AOCAWOL/BYG/issues"
 [[mods]]

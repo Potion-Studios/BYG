@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 plugins {
     id 'java'
     id 'idea'
-    id 'com.matyrobbrt.mc.registrationutils' version '1.19.3-2.0.1'
+    id 'com.matyrobbrt.mc.registrationutils' version '1.19.3-2.0.2'
 }
 
 registrationUtils {
