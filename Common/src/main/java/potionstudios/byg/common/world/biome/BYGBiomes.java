@@ -18,7 +18,6 @@ import potionstudios.byg.common.world.structure.BYGStructurePieceTypes;
 import potionstudios.byg.common.world.structure.BYGStructureSets;
 import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
 import potionstudios.byg.reg.RegistrationProvider;
-import potionstudios.byg.reg.RegistryObject;
 
 import java.util.HashMap;
 import java.util.HashSet;

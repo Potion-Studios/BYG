@@ -48,8 +48,7 @@ public class BeeHiveFeature extends Feature<NoneFeatureConfiguration> {
                 world.setBlock(pos, beeHiveState, 2);
                 BlockEntity tileEntity = world.getBlockEntity(pos);
 
-                if (tileEntity instanceof BeehiveBlockEntity) {
-                    BeehiveBlockEntity beehiveTileEntity = (BeehiveBlockEntity) tileEntity;
+                if (tileEntity instanceof BeehiveBlockEntity beehiveTileEntity) {
                     int beeCount = rand.nextInt(4);
 
                     for (int bee = 0; bee <= beeCount; bee++) {

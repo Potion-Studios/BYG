@@ -21,6 +21,7 @@ public class LazyCollection<T> implements Supplier<Collection<? extends T>> {
         this(lazy, Collectors.toList());
     }
 
+    @SafeVarargs
     public static <T> LazyCollection<T> of(Collector<T, ?, ? extends Collection<? extends T>> collector, Supplier<? extends T>... elements) {
         return new LazyCollection<>(List.of(elements), collector);
     }

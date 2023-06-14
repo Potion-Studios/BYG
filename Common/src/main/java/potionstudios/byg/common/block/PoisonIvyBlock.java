@@ -18,9 +18,8 @@ public class PoisonIvyBlock extends VineBlock {
     @Override
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
         if (!worldIn.isClientSide && worldIn.getDifficulty() != Difficulty.PEACEFUL) {
-            if (entityIn instanceof LivingEntity) {
-                LivingEntity livingentity = (LivingEntity) entityIn;
-                if (!livingentity.isInvulnerableTo(entityIn.damageSources().magic())) {
+            if (entityIn instanceof LivingEntity livingentity) {
+	            if (!livingentity.isInvulnerableTo(entityIn.damageSources().magic())) {
                     livingentity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
                 }
             }

@@ -16,9 +16,8 @@ public class TallBulbisBlock extends TallFlowerBlock {
     }
 
     public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
-            if (entityIn instanceof LivingEntity && !EnchantmentHelper.hasSoulSpeed((LivingEntity)entityIn)) {
-                LivingEntity livingentity = (LivingEntity)entityIn;
-                    livingentity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 160, 0, false, false));
+            if (entityIn instanceof LivingEntity livingentity && !EnchantmentHelper.hasSoulSpeed((LivingEntity)entityIn)) {
+	            livingentity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 160, 0, false, false));
             }
     }
 }

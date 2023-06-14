@@ -2,7 +2,6 @@ package potionstudios.byg.datagen.providers.loot;
 
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -10,13 +9,9 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.stream.Stream;
 
 import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableItem;
 import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;

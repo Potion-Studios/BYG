@@ -147,7 +147,8 @@ public class FloatingIslandConfig implements FeatureConfiguration {
             return this;
         }
 
-        public Builder addFeatures(Holder<PlacedFeature>... features) {
+        @SafeVarargs
+        public final Builder addFeatures(Holder<PlacedFeature>... features) {
             this.features.addAll(Arrays.asList(features));
             return this;
         }

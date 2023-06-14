@@ -3,24 +3,16 @@ package potionstudios.byg.common.world.feature.features;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter;
-import potionstudios.byg.common.world.biome.BYGBiomeTags;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.BYGGlobalPlacedFeatures;
 import potionstudios.byg.common.world.feature.GlobalBiomeFeature;
-import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
-import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
-import potionstudios.byg.common.world.placement.IsBiomeTagFilter;
 
 import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.*;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.globalGenStagePath;
-import static potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil.globalFeaturePath;
 
 public class BYGGlobalFeatures {
 

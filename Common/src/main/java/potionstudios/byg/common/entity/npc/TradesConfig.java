@@ -60,7 +60,7 @@ public record TradesConfig(boolean enabled,
         if (!path.toFile().exists() || recreate) {
             createConfig(path);
         }
-        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

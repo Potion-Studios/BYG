@@ -52,7 +52,7 @@ public record BiomepediaClientData(Set<ResourceKey<Biome>> favoriteBiomes) {
         if (!path.toFile().exists()) {
             create(path, DEFAULT);
         }
-        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path));
 
         try {
             return CODEC.decode(NbtOps.INSTANCE, NbtIo.read(path.toFile())).result().orElseThrow().getFirst();
