@@ -35,7 +35,7 @@ public class NetworkUtil {
         //buf.writeByte(MathHelper.floor(e.pitch * 256.0F / 360.0F));
         buf.writeFloat(e.getYRot());
         //buf.writeByte(MathHelper.floor(e.yaw * 256.0F / 360.0F));
-        Integer owner = 0;
+        int owner = 0;
         if (e instanceof Projectile) {
             Entity ownerEntity = ((Projectile) e).getOwner();
             owner = ownerEntity != null ? ownerEntity.getId() : 0;
@@ -87,8 +87,6 @@ public class NetworkUtil {
         entity.setXRot(pitch);
         entity.setYRot(yaw);
         entity.setDeltaMovement(velocityX, velocityY, velocityZ);
-        client.execute(() -> {
-            ((ClientLevelAccess) client.level).byg_invokeAddEntity(id, entity);
-        });
+        client.execute(() -> ((ClientLevelAccess) client.level).byg_invokeAddEntity(id, entity));
     }
 }
