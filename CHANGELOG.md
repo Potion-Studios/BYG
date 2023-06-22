@@ -1,3 +1,7 @@
+# 3.0.0.2
+* Fix broken NBT files. Fixes #1206 and #1207
+* Fix broken audio files.
+
 # 3.0.0.1
 * Fix Overworld Biome Configs.
 * Ordered Creative Tab Items.
