@@ -1,3 +1,7 @@
+# 2.0.1.4
+* Fix broken NBT files. Fixes #1206 and #1207
+* Fix broken audio files.
+
 # 2.0.1.3
 * Fix Overworld Biome Configs.
 
