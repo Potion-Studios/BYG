@@ -1,18 +1,25 @@
 package potionstudios.byg.datagen.providers.tag;
 
+import it.unimi.dsi.fastutil.Pair;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.datagen.util.DatagenUtils;
-import potionstudios.byg.reg.RegistryObject;
 
 import java.util.concurrent.CompletableFuture;
 
+import static potionstudios.byg.BYG.createLocation;
+
+@SuppressWarnings("ALL")
 public class BYGBiomeTagsProvider extends BiomeTagsProvider {
     public BYGBiomeTagsProvider(DataGenerator gen, CompletableFuture<HolderLookup.Provider> pLookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(gen.getPackOutput(), pLookupProvider, BYG.MOD_ID, existingFileHelper);
@@ -22,15 +29,34 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         BYGBiomes.BIOMES_BY_TAG.asMap()
                 .forEach((tag, ros) -> {
-                    this.tag(tag).add(ros.stream().toArray(ResourceKey[]::new));
-//                    BYGBiomeTags.BYG_BIOME_TAGS_TO_TAGS.get().forEach((bygBiomeTag, delegates) -> {
-//                        if (BuiltinRegistries.BIOME.getTag(bygBiomeTag).isPresent()) {
-//                            for (TagKey<Biome> tagKey : delegates) {
-//                                this.tag(tagKey).addTag(bygBiomeTag);
-//                            }
-//                        }
-//                    });
+                    if (tag.location().getNamespace().equals(BYG.MOD_ID)) {
+                        this.tag(tag).add(ros.stream().toArray(ResourceKey[]::new));
+                    } else {
+                        this.bygTagWrap(tag, ros.stream().toArray(ResourceKey[]::new));
+                    }
                 });
         DatagenUtils.sortTagsAlphabeticallyAndRemoveDuplicateTagEntries(this.builders);
+    }
+
+    public Pair<TagKey<Biome>, TagAppender<Biome>> bygTagWrap(TagKey<Biome> targetTag, ResourceKey<Biome>... values) {
+        ResourceLocation targetLocation = targetTag.location();
+        TagKey<Biome> bygTag = TagKey.create(Registries.BIOME, createLocation(targetLocation.getPath()));
+        TagAppender<Biome> tag = tag(bygTag, values);
+        tag(targetTag).addTag(bygTag);
+
+        if (targetLocation.getNamespace().equals("forge")) {
+            tag(TagKey.create(Registries.BIOME, new ResourceLocation("c", targetLocation.getPath()))).addTag(bygTag);
+        } else if (targetLocation.getNamespace().equals("c")) {
+            tag(TagKey.create(Registries.BIOME, new ResourceLocation("forge", targetLocation.getPath()))).addTag(bygTag);
+        }
+
+        return Pair.of(bygTag, tag);
+    }
+
+    @SafeVarargs
+    @SuppressWarnings("ALL")
+    private TagAppender<Biome> tag(TagKey<Biome> tag, ResourceKey<Biome>... biomes) {
+
+        return this.tag(tag).add(biomes);
     }
 }
