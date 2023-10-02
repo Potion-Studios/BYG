@@ -126,8 +126,9 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     }
 
     public static void setLit(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumBlockEntity hypogealImperiumBlockEntity) {
-        if (hypogealImperiumBlockEntity.isLit()) {
-            level.setBlock(hypogealImperiumBlockEntity.worldPosition, level.getBlockState(hypogealImperiumBlockEntity.worldPosition).setValue(HypogealImperiumBlock.LIT, hypogealImperiumBlockEntity.isLit()), 3);
+        BlockState state = hypogealImperiumBlockEntity.getBlockState();
+        if (hypogealImperiumBlockEntity.isLit() && state.getBlock() instanceof HypogealImperiumBlock) {
+            level.setBlock(hypogealImperiumBlockEntity.worldPosition, state.setValue(HypogealImperiumBlock.LIT, hypogealImperiumBlockEntity.isLit()), 3);
             hypogealImperiumBlockEntity.setChanged();
         }
     }
