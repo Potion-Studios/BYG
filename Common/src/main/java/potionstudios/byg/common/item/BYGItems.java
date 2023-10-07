@@ -856,6 +856,10 @@ public class BYGItems {
         return BYGConstants.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16), signBlock.get(), wallSignBlock.get()), id) : null;
     }
 
+    public static RegistryObject<HangingSignItem> createHangingSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
+        return BYGConstants.SIGNS ? createItem(() -> new HangingSignItem(signBlock.get(), wallSignBlock.get(), new Properties().stacksTo(16)), id) : null;
+    }
+
     public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {
         return createItem(item, block.getId().getPath());
     }
