@@ -365,7 +365,7 @@ public class BYGItems {
         WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
         WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
         WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
-        BYGWoodTypes.CHERRY.init();
+        BYGWoodTypes.SAKURA_CHERRY.init();
 
         BYGWoodTypes.CIKA.init();
         BYGWoodTypes.CYPRESS.init();
