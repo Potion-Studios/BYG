@@ -1346,6 +1346,30 @@ public class BYGBlocks {
         return signBlock;
     }
 
+    static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createHangingSign(id, type, () -> color.get().defaultMapColor());
+    }
+
+    private static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
+        return signBlock;
+    }
+
+    static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createWallHangingSign(id, type, () -> color.get().defaultMapColor());
+    }
+
+    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
+        return signBlock;
+    }
+
     public static <B extends Block> BlockRegistryObject<B> createBlock(Supplier<? extends B> block, String id) {
         final var ro = PROVIDER.<B>register(id, block);
         return BlockRegistryObject.wrap(ro);
