@@ -135,7 +135,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.ROSE.get(), 60, 100);
         flammableBlock(BYGBlocks.SILVER_VASE_FLOWER.get(), 60, 100);
         flammableBlock(BYGBlocks.SNOWDROPS.get(), 60, 100);
-        flammableBlock(BYGBlocks.TORCH_GINGER.get(), 60, 100);
         flammableBlock(BYGBlocks.VIOLET_LEATHER_FLOWER.get(), 60, 100);
         flammableBlock(BYGBlocks.WHITE_ANEMONE.get(), 60, 100);
         flammableBlock(BYGBlocks.WHITE_SAGE.get(), 60, 100);

@@ -817,7 +817,6 @@ public class BYGItems {
     public static final RegistryObject<Item> ROSE = createItem(BYGBlocks.ROSE);
     public static final RegistryObject<Item> SILVER_VASE_FLOWER = createItem(BYGBlocks.SILVER_VASE_FLOWER);
     public static final RegistryObject<Item> SNOWDROPS = createItem(BYGBlocks.SNOWDROPS);
-    public static final RegistryObject<Item> TORCH_GINGER = createItem(BYGBlocks.TORCH_GINGER);
     public static final RegistryObject<Item> VIOLET_LEATHER_FLOWER = createItem(BYGBlocks.VIOLET_LEATHER_FLOWER);
     public static final RegistryObject<Item> WHITE_ANEMONE = createItem(BYGBlocks.WHITE_ANEMONE);
     public static final RegistryObject<Item> WHITE_SAGE = createItem(BYGBlocks.WHITE_SAGE);
