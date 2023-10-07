@@ -110,7 +110,7 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
 
         String ignored = BYGUtil.dumpCollection(missingBiomes);
         if (!ignored.isEmpty()) {
-            BYG.logWarning(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
+            BYG.logWarning(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored));
         }
 
         List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);

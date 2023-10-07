@@ -25,7 +25,7 @@ public class SubzeroAshBlock extends Block {
 
     protected SubzeroAshBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, Integer.valueOf(1)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
     }
 
     public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
@@ -96,7 +96,7 @@ public class SubzeroAshBlock extends Block {
         BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
         if (blockstate.is(this)) {
             int i = blockstate.getValue(LAYERS);
-            return blockstate.setValue(LAYERS, Integer.valueOf(Math.min(8, i + 1)));
+            return blockstate.setValue(LAYERS, Math.min(8, i + 1));
         } else {
             return super.getStateForPlacement(context);
         }

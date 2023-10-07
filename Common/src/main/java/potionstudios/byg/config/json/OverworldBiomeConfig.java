@@ -123,7 +123,7 @@ public record OverworldBiomeConfig(boolean generateOverworld,
                 createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Map.of(), fromFileOps, getOldOrDefault);
             }
             OverworldBiomeConfig overworldBiomeConfig = JanksonUtil.readConfig(path, CODEC, fromFileOps);
-            BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
+            BYG.logInfo(String.format("\"%s\" was read.", path));
             return overworldBiomeConfig;
         } catch (Exception e) {
             e.printStackTrace();

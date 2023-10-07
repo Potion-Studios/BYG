@@ -20,7 +20,7 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BYG.createLocation("pumpkinwarden"), "main");
 
     public PumpkinWardenRenderer(EntityRendererProvider.Context context) {
-        super(context, new PumpkinWardenModel());
+        super(context, new PumpkinWardenModel<T>());
     }
 
     @Override

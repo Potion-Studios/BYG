@@ -10,7 +10,6 @@ import static potionstudios.byg.common.block.BYGBlocks.*;
 
 public class BYGCarvableBlocks {
 
-    @SuppressWarnings("deprecation")
     public static LazyCollection<Block> addCarverBlocks() {
         return LazyCollection.of(
             Collectors.toSet(),

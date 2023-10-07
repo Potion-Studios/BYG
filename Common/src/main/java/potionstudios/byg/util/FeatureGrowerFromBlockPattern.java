@@ -142,12 +142,12 @@ public interface FeatureGrowerFromBlockPattern {
                                             }
                                         }
                                         if (GrowingPatterns.getConfig().logGrowth()) {
-                                            BYG.logInfo(String.format("Grower \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner.toString(), growthPos, spawnOffset));
+                                            BYG.logInfo(String.format("Grower \"%s\" grew configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner, growthPos, spawnOffset));
                                         }
                                         return true;
                                     } else {
                                         if (GrowingPatterns.getConfig().logGrowth()) {
-                                            BYG.logInfo(String.format("Grower \"%s\" couldn't grow configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner.toString(), growthPos, spawnOffset));
+                                            BYG.logInfo(String.format("Grower \"%s\" couldn't grow configured feature \"%s\" at position %s(growth offset: %s).", blockID, featureSpawner, growthPos, spawnOffset));
                                         }
                                     }
                                 } else {

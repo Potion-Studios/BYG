@@ -9,7 +9,6 @@ import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.datagen.util.DatagenUtils;
-import potionstudios.byg.reg.RegistryObject;
 
 import java.util.concurrent.CompletableFuture;
 

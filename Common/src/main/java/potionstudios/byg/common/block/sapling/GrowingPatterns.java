@@ -47,7 +47,7 @@ public record GrowingPatterns(boolean logGrowth,
 
     public static final Supplier<GrowingPatterns> DEFAULT = Suppliers.memoize(() -> {
         return new GrowingPatterns(false, Suppliers.memoize(() -> {
-            Map<Block, List<GrowingPatternEntry>> map = new TreeMap<>(Comparator.comparing(s -> BuiltInRegistries.BLOCK.getKey(s)));
+            Map<Block, List<GrowingPatternEntry>> map = new TreeMap<>(Comparator.comparing(BuiltInRegistries.BLOCK::getKey));
 
             map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), List.of(
                     new GrowingPatternEntry(List.of("x"),
@@ -734,7 +734,7 @@ public record GrowingPatterns(boolean logGrowth,
         if (!PATH.toFile().exists() || recreate) {
             JanksonUtil.createConfig(PATH, CODEC, JanksonUtil.HEADER_CLOSED, new HashMap<>(), JanksonJsonOps.INSTANCE, from);
         }
-        BYG.logInfo(String.format("\"%s\" was read.", PATH.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", PATH));
 
         try {
             from = JanksonUtil.readConfig(PATH, CODEC, JanksonJsonOps.INSTANCE);

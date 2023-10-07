@@ -29,7 +29,6 @@ import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.core.BYGRegistry;
 import potionstudios.byg.entry.BYGTerraBlenderEntry;
 import potionstudios.byg.network.FabricNetworkHandler;
-import potionstudios.byg.reg.RegistryObject;
 
 import java.util.Arrays;
 import java.util.Objects;
