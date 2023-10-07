@@ -10,7 +10,6 @@ import potionstudios.byg.mixin.access.VillagerTypeAccess;
 
 import java.util.Map;
 
-@SuppressWarnings("deprecation")
 public class BYGVillagerType {
 
     private static final Map<ResourceKey<Biome>, VillagerType> BY_BYG_BIOME = Util.make(Maps.newHashMap(), (map) -> {

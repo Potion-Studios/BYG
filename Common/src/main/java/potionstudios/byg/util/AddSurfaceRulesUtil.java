@@ -47,11 +47,11 @@ public class AddSurfaceRulesUtil {
                     BYG.logWarning(String.format("Ignoring BYG's appended surface rule \"%s\" for dimension: \"%s\" because the chunk generator was not an instance of \"NoiseBasedChunkGenerator\".\nThe chunk generator was an instanceof \"%s\".", path.toString(), levelStemKey.location(), chunkGenerator.getClass().getName()));
                 }
             } else {
-                throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the Surface Rule config file found at: \"%s\"", levelStemKey.location().toString(), path));
+                throw new IllegalStateException(String.format("Surface rules for \"%s\" are required to load. Fix the Surface Rule config file found at: \"%s\"", levelStemKey.location(), path));
             }
         }
 
         Codec<? extends BiomeSource> biomeSourceCodec = ((BiomeSourceAccess) chunkGenerator.getBiomeSource()).byg_invokeCodec();
-        BYG.logInfo(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location().toString(), BuiltInRegistries.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
+        BYG.logInfo(String.format("Loading dimension \"%s\" with biome source: \"%s\".", levelStemKey.location(), BuiltInRegistries.BIOME_SOURCE.getKey(biomeSourceCodec).toString()));
     }
 }

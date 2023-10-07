@@ -50,7 +50,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant),
                 Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
-                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
+                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation + "\"");
                     }
                     return DataResult.success(ResourceKey.create(Registries.BIOME, resourceLocation));
                 }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
@@ -74,7 +74,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
                 OLD_BIOME_LAYOUT_CODEC.fieldOf("slope_biomes_variant").orElse(SLOPE_BIOMES_VARIANT_VANILLA.value()).forGetter(overworldRegion -> overworldRegion.slopeBiomesVariant.value()),
                 Codec.unboundedMap(ResourceLocation.CODEC.comapFlatMap(resourceLocation -> {
                     if (!resourceLocation.getNamespace().equals("minecraft")) {
-                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation.toString() + "\"");
+                        throw new IllegalArgumentException("Only biomes from MC can be used as the swapper's key!!! You put: \"" + resourceLocation + "\"");
                     }
                     return DataResult.success(ResourceKey.create(Registries.BIOME, resourceLocation));
                 }, ResourceKey::location), CodecUtil.BIOME_CODEC).fieldOf("swapper").forGetter(overworldRegion -> overworldRegion.swapper)
@@ -124,7 +124,7 @@ public record OverworldRegion(int overworldWeight, Wrapped<List<List<ResourceKey
             });
 
             if (!errors.isEmpty()) {
-                return DataResult.error(() -> String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors.toString()));
+                return DataResult.error(() -> String.format("Attempting to assign a biome resource key in both the swapper and biome selectors! \n%s", errors));
             }
             return DataResult.success(region1);
         };

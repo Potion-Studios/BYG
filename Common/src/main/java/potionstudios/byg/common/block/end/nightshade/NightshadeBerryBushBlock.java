@@ -35,7 +35,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
 
     public NightshadeBerryBushBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
     public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
         int i = state.getValue(AGE);
         if (i < 3 && worldIn.getRawBrightness(pos.above(), 0) <= 10 && random.nextInt(5) == 0) {
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(i + 1)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, i + 1), 2);
         }
     }
 
@@ -61,7 +61,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
             int j = 1 + worldIn.random.nextInt(2);
             popResource(worldIn, pos, new ItemStack(BYGItems.NIGHTSHADE_BERRIES.get(), j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return InteractionResult.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

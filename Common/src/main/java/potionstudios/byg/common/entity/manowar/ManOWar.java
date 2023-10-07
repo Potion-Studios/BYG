@@ -177,7 +177,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(3, new AvoidEntityGoal(this, Player.class, 8.0F, 1.0D, 1.0D));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Player.class, 8.0F, 1.0D, 1.0D));
         this.goalSelector.addGoal(2, new ManOWarRandomMovementGoal(this));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
@@ -351,7 +351,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
     @Override
@@ -364,7 +364,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     private <E extends GeoAnimatable> PlayState predicate(AnimationState<E> event) {
         AnimationController<E> controller = event.getController();
-        controller.setTransitionLength(0);
+        controller.transitionLength(0);
         if (this.isInWater()) {
             controller.setAnimation(SWIM_ANIMATION);
             return PlayState.CONTINUE;

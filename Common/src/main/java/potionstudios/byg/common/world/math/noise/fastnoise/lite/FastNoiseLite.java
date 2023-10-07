@@ -62,16 +62,16 @@ public class FastNoiseLite
         Perlin,
         ValueCubic,
         Value
-    };
+    }
 
-    public enum RotationType3D
+	public enum RotationType3D
     {
         None,
         ImproveXYPlanes,
         ImproveXZPlanes
-    };
+    }
 
-    public enum FractalType
+	public enum FractalType
     {
         None,
         FBm,
@@ -79,17 +79,17 @@ public class FastNoiseLite
         PingPong,
         DomainWarpProgressive,
         DomainWarpIndependent
-    };
+    }
 
-    public enum CellularDistanceFunction
+	public enum CellularDistanceFunction
     {
         Euclidean,
         EuclideanSq,
         Manhattan,
         Hybrid
-    };
+    }
 
-    public enum CellularReturnType
+	public enum CellularReturnType
     {
         CellValue,
         Distance,
@@ -98,24 +98,24 @@ public class FastNoiseLite
         Distance2Sub,
         Distance2Mul,
         Distance2Div
-    };
+    }
 
-    public enum DomainWarpType
+	public enum DomainWarpType
     {
         OpenSimplex2,
         OpenSimplex2Reduced,
         BasicGrid
-    };
+    }
 
-    private enum TransformType3D
+	private enum TransformType3D
     {
         None,
         ImproveXYPlanes,
         ImproveXZPlanes,
         DefaultOpenSimplex2
-    };
+    }
 
-    private int mSeed = 1337;
+	private int mSeed = 1337;
     private float mFrequency = 0.01f;
     private NoiseType mNoiseType = NoiseType.OpenSimplex2;
     private RotationType3D mRotationType3D = RotationType3D.None;

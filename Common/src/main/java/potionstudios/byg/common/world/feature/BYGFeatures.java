@@ -47,7 +47,7 @@ import java.util.function.Supplier;
 public class BYGFeatures {
     private static final RegistrationProvider<Feature<?>> PROVIDER = RegistrationProvider.get(Registries.FEATURE, BYG.MOD_ID);
 
-    public static final RegistryObject<Feature<GlobalBiomeFeature.Config>> GLOBAL = createFeature("global", () -> new GlobalBiomeFeature());
+    public static final RegistryObject<Feature<GlobalBiomeFeature.Config>> GLOBAL = createFeature("global", GlobalBiomeFeature::new);
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BEEHIVE = createFeature("beehive", () -> new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> HUH = createFeature("river_feature", () -> new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
@@ -72,7 +72,7 @@ public class BYGFeatures {
     //Lakes
     public static final RegistryObject<Feature<BlockStateConfiguration>> FROSTED_LAKE = createFeature("frosted_lake", () -> new FrostMagmaLakeFeature(BlockStateConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> WIDE_LAKE = createFeature("wide_lake", () -> new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> END_LAKE = createFeature("end_lake", () -> new EndLakeFeature());
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> END_LAKE = createFeature("end_lake", EndLakeFeature::new);
     public static final RegistryObject<Feature<LargeLakeFeatureConfig>> LARGE_LAKE = createFeature("overworld_lake", () -> new LargeLakeFeature(LargeLakeFeatureConfig.CODEC));
 
     //Pumpkins
