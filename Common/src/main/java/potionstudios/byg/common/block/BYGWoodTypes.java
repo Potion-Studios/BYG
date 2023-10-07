@@ -3,6 +3,7 @@ package potionstudios.byg.common.block;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
@@ -192,6 +193,10 @@ public enum BYGWoodTypes {
     private BlockRegistryObject<Block> wallSign;
     private RegistryObject<SignItem> signItem;
 
+    private BlockRegistryObject<Block> hangingSign;
+    private BlockRegistryObject<Block> wallHangingSign;
+    private RegistryObject<HangingSignItem> hangingSignItem;
+
     private RegistryObject<BYGBoatItem> boat;
     private RegistryObject<BYGBoatItem> chestBoat;
 
@@ -264,6 +269,11 @@ public enum BYGWoodTypes {
         this.sign = BYGBlocks.createSign(name + "_sign", woodType, planks);
         this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks, this.sign);
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
+
+        this.hangingSign = BYGBlocks.createHangingSign(name + "_hanging_sign", woodType, planks);
+        this.wallHangingSign = BYGBlocks.createWallHangingSign(name + "_wall_hanging_sign", woodType, planks);
+        this.hangingSignItem = BYGItems.createHangingSign(name + "_hanging_sign", hangingSign, wallHangingSign);
+
 
         if (builder.boatType != null) {
             this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().stacksTo(1)), name + "_boat");
@@ -368,6 +378,18 @@ public enum BYGWoodTypes {
 
     public RegistryObject<SignItem> signItem() {
         return signItem;
+    }
+
+    public BlockRegistryObject<Block> hangingSign() {
+        return hangingSign;
+    }
+
+    public BlockRegistryObject<Block> wallHangingSign() {
+        return wallHangingSign;
+    }
+
+    public RegistryObject<HangingSignItem> hangingSignItem() {
+        return hangingSignItem;
     }
 
     public RegistryObject<BYGBoatItem> boat() {
