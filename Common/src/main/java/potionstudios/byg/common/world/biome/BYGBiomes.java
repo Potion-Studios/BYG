@@ -264,7 +264,7 @@ public class BYGBiomes {
             HAS_VILLAGE_TAIGA
     );
 
-    public static final ResourceKey<Biome> CHERRY_BLOSSOM_FOREST = createBiome("cherry_blossom_forest", BYGOverworldBiomes::cherryBlossomForest,
+    public static final ResourceKey<Biome> SAKURA_GROVE = createBiome("sakura_grove", BYGOverworldBiomes::sakuraGrove,
             // Dimension Properties
             IS_OVERWORLD,
             IN_OVERWORLD,
@@ -496,7 +496,7 @@ public class BYGBiomes {
             HAS_STRONGHOLD
     );
 
-    public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BYGOverworldBiomes::forgottenForest,
+    public static final ResourceKey<Biome> ENCHANTED_TANGLE = createBiome("enchanted_tangle", BYGOverworldBiomes::enchantedTangle,
             // Dimension
             IS_OVERWORLD,
             IN_OVERWORLD,
@@ -574,7 +574,7 @@ public class BYGBiomes {
             HAS_STRONGHOLD
     );
 
-    public static final ResourceKey<Biome> JACARANDA_FOREST = createBiome("jacaranda_forest", BYGOverworldBiomes::jacarandaForest,
+    public static final ResourceKey<Biome> JACARANDA_JUNGLE = createBiome("jacaranda_jungle", BYGOverworldBiomes::jacarandaJungle,
             // Dimension
             IS_OVERWORLD,
             IN_OVERWORLD,
@@ -1054,7 +1054,7 @@ public class BYGBiomes {
             ALLOWS_SURFACE_SLIME_SPAWNS
     );
 
-    public static final ResourceKey<Biome> TEMPERATE_RAINFOREST = createBiome("temperate_rainforest", BYGOverworldBiomes::temperateRainForest,
+    public static final ResourceKey<Biome> FORGOTTEN_FOREST = createBiome("forgotten_forest", BYGOverworldBiomes::forgottenForest,
             // Dimensions
             IS_OVERWORLD,
             IN_OVERWORLD,
