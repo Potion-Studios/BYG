@@ -58,11 +58,6 @@ public class BYGItems {
     public static final RegistryObject<Item> AMETRINE_CLUSTER = createItem(BYGBlocks.AMETRINE_CLUSTER);
     public static final RegistryObject<Item> BUDDING_AMETRINE_ORE = createItem(BYGBlocks.BUDDING_AMETRINE_ORE);
     public static final RegistryObject<Item> AMETRINE_BLOCK = createItem(BYGBlocks.AMETRINE_BLOCK);
-    public static final RegistryObject<Item> AMETRINE_HELMET = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.HELMET, new Properties().fireResistant()), "ametrine_helmet");
-    public static final RegistryObject<Item> AMETRINE_CHEST = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.CHESTPLATE, new Properties().fireResistant()), "ametrine_chestplate");
-    public static final RegistryObject<Item> AMETRINE_LEGGINGS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.LEGGINGS, new Properties().fireResistant()), "ametrine_leggings");
-    public static final RegistryObject<Item> AMETRINE_BOOTS = createItem(() -> new BYGArmorItem(BYGArmorMaterial.AMETRINE, ArmorItem.Type.BOOTS, new Properties().fireResistant()), "ametrine_boots");
-    public static final RegistryObject<Item> AMETRINE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(15, "ametrine", new Properties().stacksTo(1).fireResistant()), "ametrine_horse_armor");
 
     public static final RegistryObject<Item> RAW_PENDORITE = createItem(() -> new Item(new Properties()), "raw_pendorite");
     public static final RegistryObject<Item> PENDORITE_INGOT = createItem(() -> new Item(new Properties()), "pendorite_ingot");
@@ -70,13 +65,6 @@ public class BYGItems {
     public static final RegistryObject<Item> PENDORITE_ORE = createItem(BYGBlocks.PENDORITE_ORE);
     public static final RegistryObject<Item> RAW_PENDORITE_BLOCK = createItem(BYGBlocks.RAW_PENDORITE_BLOCK);
     public static final RegistryObject<Item> PENDORITE_BLOCK = createItem(BYGBlocks.PENDORITE_BLOCK);
-    public static final RegistryObject<Item> PENDORITE_AXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 5.0F, -3.0F, new Properties().fireResistant()), "pendorite_axe");
-    public static final RegistryObject<Item> PENDORITE_PICK = createItem(() -> PickaxeItemAccess.byg_create(BYGTier.PENDORITE, 1, -2.8F, new Properties().fireResistant()), "pendorite_pickaxe");
-    public static final RegistryObject<Item> PENDORITE_SWORD = createItem(() -> new SwordItem(BYGTier.PENDORITE, 3, -2.4F, new Properties().fireResistant()), "pendorite_sword");
-    public static final RegistryObject<Item> PENDORITE_BATTLEAXE = createItem(() -> AxeItemAccess.byg_create(BYGTier.PENDORITE, 7.0F, -3.3F, new Properties().fireResistant()), "pendorite_battleaxe");
-    public static final RegistryObject<Item> PENDORITE_SHOVEL = createItem(() -> new ShovelItem(BYGTier.PENDORITE, 1.5F, -3.0F, new Properties().fireResistant()), "pendorite_shovel");
-    public static final RegistryObject<Item> PENDORITE_HOE = createItem(() -> HoeItemAccess.byg_create(BYGTier.PENDORITE, -4, 0.0F, new Properties().fireResistant()), "pendorite_hoe");
-    public static final RegistryObject<Item> PENDORITE_HORSE_ARMOR = createItem(() -> new BYGHorseArmor(11, "pendorite", new Properties().stacksTo(1).fireResistant()), "pendorite_horse_armor");
 
     public static final RegistryObject<Item> DACITE = createItem(BYGBlocks.DACITE);
     public static final RegistryObject<Item> DACITE_STAIRS = createItem(BYGBlocks.DACITE_STAIRS);
