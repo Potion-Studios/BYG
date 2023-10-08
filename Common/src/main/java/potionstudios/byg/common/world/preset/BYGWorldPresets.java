@@ -6,6 +6,7 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
@@ -36,15 +37,15 @@ public class BYGWorldPresets {
 
         Holder<NoiseGeneratorSettings> overworldNoiseGenSettings = noiseSettings.getOrThrow(NoiseGeneratorSettings.OVERWORLD);
         Holder<DimensionType> overworldDimensionType = dimensionTypes.getOrThrow(BuiltinDimensionTypes.OVERWORLD);
-        LevelStem overworldStem = new LevelStem(overworldDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, BYGBiomeTags.IS_OVERWORLD), overworldNoiseGenSettings));
+        LevelStem overworldStem = new LevelStem(overworldDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, TagKey.create(Registries.BIOME, BYG.createLocation("is_overworld"))), overworldNoiseGenSettings));
 
         Holder<DimensionType> netherDimensionType = dimensionTypes.getOrThrow(BuiltinDimensionTypes.NETHER);
         Holder<NoiseGeneratorSettings> netherNoiseSettings = noiseSettings.getOrThrow(NoiseGeneratorSettings.NETHER);
-        LevelStem netherStem = new LevelStem(netherDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, BYGBiomeTags.IS_NETHER), netherNoiseSettings));
+        LevelStem netherStem = new LevelStem(netherDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, TagKey.create(Registries.BIOME, BYG.createLocation("is_nether"))), netherNoiseSettings));
 
         Holder<DimensionType> endDimensionType = dimensionTypes.getOrThrow(BuiltinDimensionTypes.END);
         Holder<NoiseGeneratorSettings> endNoiseSettings = noiseSettings.getOrThrow(NoiseGeneratorSettings.END);
-        LevelStem endStem = new LevelStem(endDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, BYGBiomeTags.IS_END), endNoiseSettings));
+        LevelStem endStem = new LevelStem(endDimensionType, new NoiseBasedChunkGenerator(new BYGDebugBiomeSource(biomes, TagKey.create(Registries.BIOME, BYG.createLocation("is_end"))), endNoiseSettings));
 
         Map<ResourceKey<LevelStem>, LevelStem> stemMap = Map.of(
                 LevelStem.OVERWORLD, overworldStem,

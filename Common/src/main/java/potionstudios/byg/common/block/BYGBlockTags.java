@@ -86,7 +86,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_RICHEA = createPlantTag("may_place_on/richea");
     public static final TagKey<Block> GROUND_ROSE = createPlantTag("may_place_on/rose");
     public static final TagKey<Block> GROUND_SILVER_VASE_FLOWER = createPlantTag("may_place_on/silver_vase_flower");
-    public static final TagKey<Block> GROUND_TORCH_GINGER = createPlantTag("may_place_on/torch_ginger");
     public static final TagKey<Block> GROUND_VIOLET_LEATHER_FLOWER = createPlantTag("may_place_on/violet_leather_flower");
     public static final TagKey<Block> GROUND_WHITE_ANEMONE = createPlantTag("may_place_on/white_anemone");
     public static final TagKey<Block> GROUND_WHITE_SAGE = createPlantTag("may_place_on/white_sage");

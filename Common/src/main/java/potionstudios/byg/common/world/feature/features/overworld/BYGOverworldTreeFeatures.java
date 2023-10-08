@@ -606,9 +606,9 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
                     BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    CHERRY.log().get(),
+                    SAKURA_CHERRY.log().get(),
                     BYGBlocks.PINK_CHERRY_LEAVES.get(),
                     BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
             )
@@ -619,9 +619,9 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
                     BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    CHERRY.log().get(),
+                    SAKURA_CHERRY.log().get(),
                     BYGBlocks.PINK_CHERRY_LEAVES.get(),
                     BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
             )
@@ -632,9 +632,9 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
                     BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    CHERRY.log().get(),
+                    SAKURA_CHERRY.log().get(),
                     BYGBlocks.PINK_CHERRY_LEAVES.get(),
                     BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
             )
@@ -645,9 +645,9 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
                     BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(CHERRY.log().defaultBlockState()),
+                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    CHERRY.log().get(),
+                    SAKURA_CHERRY.log().get(),
                     BYGBlocks.PINK_CHERRY_LEAVES.get(),
                     BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
             )

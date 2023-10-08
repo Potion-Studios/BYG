@@ -2,17 +2,17 @@
   "values": [
     "byg:aspen_forest",
     "byg:autumnal_forest",
-    "byg:cherry_blossom_forest",
+    "byg:sakura_grove",
     "byg:cika_woods",
     "byg:ebony_woods",
-    "byg:forgotten_forest",
+    "byg:enchanted_tangle",
     "byg:fragment_forest",
-    "byg:jacaranda_forest",
+    "byg:jacaranda_jungle",
     "byg:orchard",
     "byg:red_oak_forest",
     "byg:redwood_thicket",
     "byg:temperate_grove",
-    "byg:temperate_rainforest",
+    "byg:forgotten_forest",
     "byg:zelkova_forest"
   ]
 }

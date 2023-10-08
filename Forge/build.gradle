@@ -29,7 +29,7 @@ buildscript {
 
 plugins {
     id 'com.github.johnrengelman.shadow' version '8.1.1'
-    id "net.darkhax.curseforgegradle" version "1.0.14"
+    id "net.darkhax.curseforgegradle" version "1.1.16"
     id "com.modrinth.minotaur" version "2.+"
 
 }
@@ -74,8 +74,7 @@ reobf {
 }
 
 minecraft {
-//    mappings channel: 'parchment', version: "1.19.4-${parchment_version}-1.19.4"
-    mappings channel: 'official', version: "${minecraft_version}"
+    mappings channel: 'parchment', version: "${minecraft_version}-${parchment_version}-${minecraft_version}"
 
     if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {
         // This location is hardcoded in Forge and can not be changed.
@@ -148,7 +147,7 @@ dependencies {
     compileOnly project(":Common")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20:${geckolib_version}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
     implementation fg.deobf("maven.modrinth:corgilib:${minecraft_version}-${corgilib_version}-forge")
 
     dataImplementation sourceSets.main.output

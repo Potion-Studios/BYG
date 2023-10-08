@@ -40,13 +40,6 @@
           "feature": "byg:richea",
           "placement": []
         }
-      },
-      {
-        "chance": 0.142,
-        "feature": {
-          "feature": "byg:torch_ginger",
-          "placement": []
-        }
       }
     ]
   }

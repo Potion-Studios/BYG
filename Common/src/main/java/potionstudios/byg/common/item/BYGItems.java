@@ -365,7 +365,7 @@ public class BYGItems {
         WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
         WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
         WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
-        BYGWoodTypes.CHERRY.init();
+        BYGWoodTypes.SAKURA_CHERRY.init();
 
         BYGWoodTypes.CIKA.init();
         BYGWoodTypes.CYPRESS.init();
@@ -817,7 +817,6 @@ public class BYGItems {
     public static final RegistryObject<Item> ROSE = createItem(BYGBlocks.ROSE);
     public static final RegistryObject<Item> SILVER_VASE_FLOWER = createItem(BYGBlocks.SILVER_VASE_FLOWER);
     public static final RegistryObject<Item> SNOWDROPS = createItem(BYGBlocks.SNOWDROPS);
-    public static final RegistryObject<Item> TORCH_GINGER = createItem(BYGBlocks.TORCH_GINGER);
     public static final RegistryObject<Item> VIOLET_LEATHER_FLOWER = createItem(BYGBlocks.VIOLET_LEATHER_FLOWER);
     public static final RegistryObject<Item> WHITE_ANEMONE = createItem(BYGBlocks.WHITE_ANEMONE);
     public static final RegistryObject<Item> WHITE_SAGE = createItem(BYGBlocks.WHITE_SAGE);
@@ -853,6 +852,10 @@ public class BYGItems {
 
     public static RegistryObject<SignItem> createSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
         return BYGConstants.SIGNS ? createItem(() -> new SignItem(new Properties().stacksTo(16), signBlock.get(), wallSignBlock.get()), id) : null;
+    }
+
+    public static RegistryObject<HangingSignItem> createHangingSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
+        return BYGConstants.SIGNS ? createItem(() -> new HangingSignItem(signBlock.get(), wallSignBlock.get(), new Properties().stacksTo(16)), id) : null;
     }
 
     public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {

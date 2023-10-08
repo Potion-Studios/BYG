@@ -106,7 +106,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final var axeMineable = tag(BlockTags.MINEABLE_WITH_AXE);
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             add(axeMineable, type.bookshelf(), type.button(), type.craftingTable(), type.door(), type.trapdoor(), type.planks(), type.fence(), type.fenceGate(), type.log(), type.wood(), type.strippedLog(), type.strippedWood(),
-                    type.pressurePlate(), type.sign(), type.wallSign(), type.slab(), type.stairs());
+                    type.pressurePlate(), type.sign(), type.wallSign(), type.hangingSign(), type.wallHangingSign(), type.slab(), type.stairs());
         }
         add(axeMineable,
                 BORIC_CAMPFIRE, SOUL_SHROOM_BLOCK, SOUL_SHROOM_STEM, GREEN_MUSHROOM_BLOCK, IMBUED_NIGHTSHADE_LOG,

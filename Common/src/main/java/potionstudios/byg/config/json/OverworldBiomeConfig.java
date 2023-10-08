@@ -136,10 +136,10 @@ public record OverworldBiomeConfig(boolean generateOverworld,
         defaults.forEach((s, listWrapped) -> {
             Path registryPath = providers.resolve(s + ".json5");
 
-            registry.put(s, listWrapped.getSecond());
             if (!registryPath.toFile().exists() || recreate) {
                 createConfig(registryPath, codec, listWrapped.getFirst().getOrDefault("", JanksonUtil.HEADER_CLOSED), listWrapped.getFirst(), fromFileOps, listWrapped.getSecond());
             }
+            registry.putIfAbsent(s, listWrapped.getSecond());
         });
 
 

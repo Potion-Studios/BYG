@@ -22,7 +22,6 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
@@ -197,7 +196,7 @@ public class BYGBoat extends Boat {
         ASPEN("aspen", () -> BYGWoodTypes.ASPEN.chestBoat().get()),
         BAOBAB("baobab", () -> BYGWoodTypes.BAOBAB.chestBoat().get()),
         BLUE_ENCHANTED("blue_enchanted", () -> BYGWoodTypes.BLUE_ENCHANTED.chestBoat().get()),
-        CHERRY("cherry", () -> BYGWoodTypes.CHERRY.chestBoat().get()),
+        SAKURA_CHERRY("sakura_cherry", () -> BYGWoodTypes.SAKURA_CHERRY.chestBoat().get()),
         CIKA("cika", () -> BYGWoodTypes.CIKA.chestBoat().get()),
         CYPRESS("cypress", () -> BYGWoodTypes.CYPRESS.chestBoat().get()),
         EBONY("ebony", () -> BYGWoodTypes.EBONY.chestBoat().get()),

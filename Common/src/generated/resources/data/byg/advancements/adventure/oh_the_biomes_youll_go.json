@@ -289,7 +289,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:cherry_blossom_forest": {
+    "byg:sakura_grove": {
       "conditions": {
         "player": [
           {
@@ -297,7 +297,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "byg:cherry_blossom_forest"
+                "biome": "byg:sakura_grove"
               }
             }
           }
@@ -529,7 +529,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:forgotten_forest": {
+    "byg:enchanted_tangle": {
       "conditions": {
         "player": [
           {
@@ -537,7 +537,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "byg:forgotten_forest"
+                "biome": "byg:enchanted_tangle"
               }
             }
           }
@@ -673,7 +673,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:jacaranda_forest": {
+    "byg:jacaranda_jungle": {
       "conditions": {
         "player": [
           {
@@ -681,7 +681,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "byg:jacaranda_forest"
+                "biome": "byg:jacaranda_jungle"
               }
             }
           }
@@ -1009,7 +1009,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:temperate_rainforest": {
+    "byg:forgotten_forest": {
       "conditions": {
         "player": [
           {
@@ -1017,7 +1017,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "biome": "byg:temperate_rainforest"
+                "biome": "byg:forgotten_forest"
               }
             }
           }
@@ -1206,7 +1206,7 @@
       "byg:quartz_desert"
     ],
     [
-      "byg:temperate_rainforest"
+      "byg:forgotten_forest"
     ],
     [
       "byg:nightshade_forest"
@@ -1257,7 +1257,7 @@
       "byg:frosted_taiga"
     ],
     [
-      "byg:cherry_blossom_forest"
+      "byg:sakura_grove"
     ],
     [
       "byg:frosted_coniferous_forest"
@@ -1299,7 +1299,7 @@
       "byg:red_rock_valley"
     ],
     [
-      "byg:jacaranda_forest"
+      "byg:jacaranda_jungle"
     ],
     [
       "byg:ethereal_islands"
@@ -1353,7 +1353,7 @@
       "byg:ivis_fields"
     ],
     [
-      "byg:forgotten_forest"
+      "byg:enchanted_tangle"
     ],
     [
       "byg:zelkova_forest"

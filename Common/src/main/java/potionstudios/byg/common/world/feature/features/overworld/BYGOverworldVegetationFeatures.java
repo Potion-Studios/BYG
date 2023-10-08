@@ -71,7 +71,6 @@ public class BYGOverworldVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GUZMANIA = createFlowerConfiguredFeature("guzmania", () -> BYGBlocks.GUZMANIA.get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> INCAN_LILY = createFlowerConfiguredFeature("incan_lily", () -> BYGBlocks.INCAN_LILY.get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> LAZARUS_BELLFLOWER = createFlowerConfiguredFeature("lazarus_bellflower", () -> BYGBlocks.LAZARUS_BELLFLOWER.get());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TORCH_GINGER = createFlowerConfiguredFeature("torch_ginger", () -> BYGBlocks.TORCH_GINGER.get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> WINTER_SUCCULENT = createPatchConfiguredFeatureWithBlock("winter_succulent", () -> BYGBlocks.WINTER_SUCCULENT.get(), 10);
     public static final ResourceKey<ConfiguredFeature<?, ?>> BEACH_GRASS = createPatchConfiguredFeatureWithBlock("beach_grass_patch", () -> BYGBlocks.BEACH_GRASS.get(), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_BEACH_GRASS_PATCH = createPatchConfiguredFeatureWithBlock("tall_beach_grass_patch", () -> BYGBlocks.TALL_BEACH_GRASS.get(), 32);
@@ -275,8 +274,7 @@ public class BYGOverworldVegetationFeatures {
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(GUZMANIA)), 0.142F),
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BEGONIA)), 0.142F),
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAZARUS_BELLFLOWER)), 0.142F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RICHEA)), 0.142F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TORCH_GINGER)), 0.142F)),
+                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(RICHEA)), 0.142F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(INCAN_LILY)));
             }
     );

@@ -625,7 +625,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ROSE = createFlower("rose", BYGBlockTags.GROUND_ROSE);
     public static final BlockRegistryObject<Block> SNOWDROPS = createPottedBlock(BYGBlockProperties.BYGSnowyPlant::new, "snowdrops");
     public static final BlockRegistryObject<Block> SILVER_VASE_FLOWER = createFlower("silver_vase_flower", BYGBlockTags.GROUND_SILVER_VASE_FLOWER);
-    public static final BlockRegistryObject<Block> TORCH_GINGER = createFlower("torch_ginger", BYGBlockTags.GROUND_TORCH_GINGER);
     public static final BlockRegistryObject<Block> VIOLET_LEATHER_FLOWER = createFlower("violet_leather_flower", BYGBlockTags.GROUND_VIOLET_LEATHER_FLOWER);
     public static final BlockRegistryObject<Block> WHITE_ANEMONE = createFlower("white_anemone", BYGBlockTags.GROUND_WHITE_ANEMONE);
     public static final BlockRegistryObject<Block> WHITE_SAGE = createFlower("white_sage", BYGBlockTags.GROUND_WHITE_SAGE);
@@ -1340,6 +1339,30 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MapColor> color) {
         BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
+        return signBlock;
+    }
+
+    static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createHangingSign(id, type, () -> color.get().defaultMapColor());
+    }
+
+    private static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
+        if (signBlock != null) {
+            SIGN_BLOCKS.add(signBlock);
+        }
+        return signBlock;
+    }
+
+    static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
+        return createWallHangingSign(id, type, () -> color.get().defaultMapColor());
+    }
+
+    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
         if (signBlock != null) {
             SIGN_BLOCKS.add(signBlock);
         }
