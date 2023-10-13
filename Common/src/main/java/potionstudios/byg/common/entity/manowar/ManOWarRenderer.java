@@ -26,7 +26,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
 
     public ManOWarRenderer(EntityRendererProvider.Context context) {
-        super(context, new ManOWarModel());
+        super(context, new ManOWarModel<T>());
         this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 

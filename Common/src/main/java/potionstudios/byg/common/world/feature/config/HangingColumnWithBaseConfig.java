@@ -80,8 +80,8 @@ public class HangingColumnWithBaseConfig implements FeatureConfiguration {
     public static class Builder {
         private BlockStateProvider baseBlockProvider = SimpleStateProvider.simple(Blocks.OAK_LOG.defaultBlockState());
         private BlockStateProvider blockProvider = SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState());
-        private BlockStateProvider endBlockProvider = SimpleStateProvider.simple(Blocks.AIR.defaultBlockState());;
-        private BlockPredicate placementFilter = BlockPredicate.matchesTag(BlockTags.DIRT);
+        private BlockStateProvider endBlockProvider = SimpleStateProvider.simple(Blocks.AIR.defaultBlockState());
+	    private BlockPredicate placementFilter = BlockPredicate.matchesTag(BlockTags.DIRT);
         private int minLength = 1;
         private int maxLength = 9;
 

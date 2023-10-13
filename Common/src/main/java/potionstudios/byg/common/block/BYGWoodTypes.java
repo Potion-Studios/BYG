@@ -157,7 +157,7 @@ public enum BYGWoodTypes {
     public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
             .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
 
-    private final String name;
+	private final String name;
     private final WoodType woodType;
     private final Builder builder;
     private boolean initialized;

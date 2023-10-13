@@ -48,7 +48,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         ResourceLocation resourceLocation = new ResourceLocation(biomeKey.location().getNamespace(), "/textures/biome_previews/" + biomeKey.location().getPath() + ".png");
         this.previewImageLocation = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).isPresent() ? resourceLocation : null;
         if (previewImageLocation == null) {
-            BYG.logWarning("No image preview available for: " + resourceLocation.toString());
+            BYG.logWarning("No image preview available for: " + resourceLocation);
         }
 
         MutableComponent dimensionsText = Component.literal("").append(Component.translatable("biomepedia.biomeabout.dimensions").withStyle(ChatFormatting.UNDERLINE).withStyle(ChatFormatting.BOLD));

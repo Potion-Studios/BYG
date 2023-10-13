@@ -43,7 +43,7 @@ public class WailingVine extends Feature<NoneFeatureConfiguration> {
                 if (worldIn.isEmptyBlock(mutable)) {
                     for (Direction direction : Direction.values()) {
                         if (direction != Direction.DOWN && VineBlock.isAcceptableNeighbour(worldIn, mutable, direction)) {
-                            worldIn.setBlock(mutable, storedState.setValue(VineBlock.getPropertyForFace(direction), Boolean.valueOf(true)), 2);
+                            worldIn.setBlock(mutable, storedState.setValue(VineBlock.getPropertyForFace(direction), Boolean.TRUE), 2);
                             break;
                             }
                         }

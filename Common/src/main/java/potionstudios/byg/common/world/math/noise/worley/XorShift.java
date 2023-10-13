@@ -64,9 +64,8 @@ public class XorShift {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof XorShift) {
-            XorShift o = (XorShift) obj;
-            return Objects.equals(seeds, o.seeds);
+        if (obj instanceof XorShift o) {
+	        return Objects.equals(seeds, o.seeds);
         } else {
             return false;
         }

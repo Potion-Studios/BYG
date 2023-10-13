@@ -48,7 +48,7 @@ public record BiomepediaConfig(boolean biomepediaInventoryButtonEnabled, boolean
                 map.put("inventory_enabled", "");
             }), JanksonJsonOps.INSTANCE, DEFAULT);
         }
-        BYG.logInfo(String.format("\"%s\" was read.", path.toString()));
+        BYG.logInfo(String.format("\"%s\" was read.", path));
 
         try {
             return JanksonUtil.readConfig(path, CODEC, JanksonJsonOps.INSTANCE);

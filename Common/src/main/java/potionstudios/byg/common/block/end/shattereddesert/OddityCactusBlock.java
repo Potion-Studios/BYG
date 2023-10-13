@@ -31,7 +31,7 @@ public class OddityCactusBlock extends Block {
 
     public OddityCactusBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
@@ -54,11 +54,11 @@ public class OddityCactusBlock extends Block {
                 int j = state.getValue(AGE);
                 if (j == 15) {
                     worldIn.setBlockAndUpdate(blockpos, this.defaultBlockState());
-                    BlockState blockstate = state.setValue(AGE, Integer.valueOf(0));
+                    BlockState blockstate = state.setValue(AGE, 0);
                     worldIn.setBlock(pos, blockstate, 4);
                     blockstate.neighborChanged(worldIn, blockpos, this, pos, false);
                 } else {
-                    worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(j + 1)), 4);
+                    worldIn.setBlock(pos, state.setValue(AGE, j + 1), 4);
                 }
             }
         }

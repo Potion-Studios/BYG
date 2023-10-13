@@ -96,7 +96,7 @@ public class BYGTerraBlenderRegion extends Region {
             Climate.ParameterPoint parameterPoint = parameterPointResourceKeyPair.getFirst();
             ResourceKey<Biome> biomeKey = parameterPointResourceKeyPair.getSecond();
             if (!registry.containsKey(biomeKey)) {
-                throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location().toString()));
+                throw new IllegalArgumentException(String.format("\"%s\" is not a valid biome in the world registry!", biomeKey.location()));
             }
             totalPairs.increment();
             boolean mapped = false;
@@ -110,7 +110,7 @@ public class BYGTerraBlenderRegion extends Region {
 
             if (this.swapper.containsKey(biomeKey)) {
                 if (alreadyMappedOutsideSwapper) {
-                    throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location().toString(), this.swapper.get(biomeKey).location().toString(), this.getName().toString()));
+                    throw new UnsupportedOperationException(String.format("Attempting to assign a biome resource key in both the swapper and biome selectors. We're crashing your game to let you know that \"%s\" was put in the biome selectors but will always be swapped by \"%s\" due to the swapper. In region \"%s\".", biomeKey.location(), this.swapper.get(biomeKey).location(), this.getName().toString()));
                 }
                 ResourceKey<Biome> biomeResourceKey = this.swapper.get(biomeKey);
                 mapper.accept(new Pair<>(parameterPoint, this.globalSwapper.getOrDefault(biomeResourceKey, biomeResourceKey)));

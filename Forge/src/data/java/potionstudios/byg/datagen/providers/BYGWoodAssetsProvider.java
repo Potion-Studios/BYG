@@ -1,6 +1,5 @@
 package potionstudios.byg.datagen.providers;
 
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;

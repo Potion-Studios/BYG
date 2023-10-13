@@ -129,7 +129,6 @@ public class UpdateConfigsCommand {
         Path directory = ModPlatform.INSTANCE.configPath();
         ConfigVersionTracker.getConfig(configVersionTracker, true);
         Path backUpPath = FileUtils.backUpDirectory(directory);
-        //noinspection ConstantConditions
         FileUtils.deleteDirectory(directory, path -> !path.equals(backUpPath) && !(path.toFile().isDirectory() && path.toFile().listFiles().length > 0));
         BYGConfigHandler.loadAllConfigs(true, true);
     }
