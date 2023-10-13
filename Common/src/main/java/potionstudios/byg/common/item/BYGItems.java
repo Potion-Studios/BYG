@@ -576,8 +576,6 @@ public class BYGItems {
     public static final RegistryObject<Item> MYCELIUM_NETHERRACK = createItem(BYGBlocks.MYCELIUM_NETHERRACK);
     public static final RegistryObject<Item> OVERGROWN_NETHERRACK = createItem(BYGBlocks.OVERGROWN_NETHERRACK);
 
-    public static final RegistryObject<Item> GLOWSTONE_LANTERN = createItem(BYGBlocks.GLOWSTONE_LANTERN);
-    public static final RegistryObject<Item> GLOWSTONE_LAMP = createItem(BYGBlocks.GLOWSTONE_LAMP);
 
     public static final RegistryObject<Item> SYTHIAN_NYLIUM = createItem(BYGBlocks.SYTHIAN_NYLIUM);
     public static final RegistryObject<Item> SYTHIAN_ROOTS = createItem(BYGBlocks.SYTHIAN_ROOTS);

@@ -352,8 +352,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
     public static final BlockRegistryObject<Block> PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
-    public static final BlockRegistryObject<Block> GLOWSTONE_LAMP = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.SEA_LANTERN)), "glowstone_lamp");
-    public static final BlockRegistryObject<Block> GLOWSTONE_LANTERN = createLanternBlock(MapColor.TERRACOTTA_PURPLE, "glowstone_lantern");
     public static final BlockRegistryObject<Block> PACKED_BLACK_ICE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)), "packed_black_ice");
     public static final BlockRegistryObject<Block> BLACK_ICE = createBlock(() -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.ICE)), "black_ice");
     public static final BlockRegistryObject<Block> FROST_MAGMA = createBlock(BYGBlockProperties.BYGFrostMagma::new, "frost_magma");
