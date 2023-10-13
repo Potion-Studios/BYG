@@ -352,7 +352,6 @@ public class BYGSurfaceRules {
 
     public static final SurfaceRules.RuleSource GLOWSTONE_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.GLOWSTONE_GARDENS),
             BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
-                    .add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.MYCELIUM_NETHERRACK.defaultBlockState())), 1)
                     .add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.WARPED_NYLIUM.defaultBlockState())), 1)
                     .add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState())), 1)
                     .build()));

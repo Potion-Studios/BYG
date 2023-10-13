@@ -607,7 +607,6 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.ETHER_PHYLIUM.get(), BYGBlocks.ETHER_SOIL.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_BLOCK.get(), BYGBlocks.LUSH_DIRT.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_PATH.get(), BYGBlocks.LUSH_DIRT.get());
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.MYCELIUM_NETHERRACK.get(), Blocks.NETHERRACK);
     }
 
     public static final class PooledMutable extends MutableBlockPos implements AutoCloseable {

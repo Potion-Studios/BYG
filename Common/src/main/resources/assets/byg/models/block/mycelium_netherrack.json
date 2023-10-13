@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "minecraft:block/mycelium_top",
-    "bottom": "minecraft:block/netherrack",
-    "side": "byg:block/mycelium_netherrack_side"
-  }
-}
