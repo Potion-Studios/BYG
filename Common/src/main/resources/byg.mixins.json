@@ -81,6 +81,7 @@
     "common.block.MixinPointedDripstoneBlock",
     "common.block.MixinSugarCaneBlock",
     "common.block.PlantBlockMixin",
+    "common.block.SaplingBlockMixin",
     "common.entity.MixinEatGrassGoal",
     "common.entity.MixinPlayer",
     "common.entity.MixinServerPlayer",
