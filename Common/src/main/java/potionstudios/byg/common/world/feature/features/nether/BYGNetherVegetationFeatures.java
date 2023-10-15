@@ -37,10 +37,6 @@ import static potionstudios.byg.common.world.feature.features.overworld.BYGOverw
 
 public class BYGNetherVegetationFeatures {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_ROOTS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("embur_roots", BYGBlocks.EMBUR_ROOTS, 15);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_EMBUR_ROOTS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("tall_embur_roots", BYGBlocks.TALL_EMBUR_ROOTS, 15);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_WART = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("embur_wart", BYGWoodTypes.EMBUR.growerItem(), 15);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_SPROUT = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("embur_sprout", BYGBlocks.EMBUR_SPROUTS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_ROOTS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("sythian_roots", BYGBlocks.SYTHIAN_ROOTS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_SPROUT = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("sythian_sprout", BYGBlocks.SYTHIAN_SPROUT, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_FUNGUS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("sythian_fungus", BYGWoodTypes.SYTHIAN.growerItem(), 15);
@@ -51,7 +47,6 @@ public class BYGNetherVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_CORAL_FAN = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("warped_coral_fan", BYGBlocks.WARPED_CORAL_FAN, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_CRIMSON_ROOTS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("tall_crimson_roots", BYGBlocks.TALL_CRIMSON_ROOTS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_BERRY_BUSH = createSimpleBlockConfiguredFeatureWithBlock("crimson_berry_bush", BYGBlocks.CRIMSON_BERRY_BUSH);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_LILY = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("embur_lily", BYGBlocks.EMBUR_LILY, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SOUL_SHROOM = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("soul_shroom", BYGBlocks.SOUL_SHROOM, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEATH_CAP = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("death_cap", BYGBlocks.DEATH_CAP, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_BRISTLE = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("nether_bristle", BYGBlocks.NETHER_BRISTLE, 15);
@@ -59,8 +54,6 @@ public class BYGNetherVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCORCHED_GRASS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("scorched_grass", BYGBlocks.SCORCHED_GRASS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> WAILING_GRASS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("wailing_grass", BYGBlocks.WAILING_GRASS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> WAILING_VINE = createConfiguredFeature("wailing_vine", BYGFeatures.WAILING_VINES, () -> FeatureConfiguration.NONE);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_SPROUTS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("lament_sprouts", BYGBlocks.LAMENT_SPROUTS, 15);
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> WEEPING_ROOTS = createConfiguredFeature("weeping_roots", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(BYGBlocks.WEEPING_ROOTS_PLANT.get()).setEndBlock(BYGBlocks.WEEPING_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setPlacementFilter(BlockPredicate.matchesBlocks(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> WEEPING_VINES = createConfiguredFeature("weeping_vines", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.GLOWSTONE).setBlock(Blocks.WEEPING_VINES_PLANT).setEndBlock(Blocks.WEEPING_VINES.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setPlacementFilter(BlockPredicate.matchesBlocks(Blocks.NETHERRACK, Blocks.GLOWSTONE, Blocks.BLACKSTONE)).build());
 
@@ -69,58 +62,9 @@ public class BYGNetherVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_SOUL_SHROOM_SPORES = createConfiguredFeature("hanging_soul_shroom_spores", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SOUL_SHROOM_BLOCK.get()).setBlock(BYGBlocks.SOUL_SHROOM_SPORE.get()).setEndBlock(BYGBlocks.SOUL_SHROOM_SPORE_END.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(Blocks.SOUL_SOIL, Blocks.SOUL_SAND, BYGBlocks.WARPED_SOUL_SAND.get(), BYGBlocks.WARPED_SOUL_SAND.get())).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_SYTHIAN_ROOTS = createConfiguredFeature("hanging_sythian_roots", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGWoodTypes.SYTHIAN.leaves().get()).setBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.defaultBlockState()).setEndBlock(BYGBlocks.HANGING_SYTHIAN_ROOTS.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(Blocks.NETHERRACK, BYGWoodTypes.SYTHIAN.leaves().get())).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_BONES = createConfiguredFeature("hanging_bones", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.BONE_BLOCK).setBlock(BYGBlocks.HANGING_BONE.get()).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(BYGBlocks.QUARTZITE_SAND.get(), Blocks.BONE_BLOCK)).build());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_VINE_FEATURE = createConfiguredFeature("lament_vine", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(Blocks.NETHERRACK).setBlock(BYGBlocks.LAMENT_VINE_PLANT.get()).setEndBlock(BYGBlocks.LAMENT_VINE.defaultBlockState().setValue(GrowingPlantHeadBlock.AGE, 23)).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(Blocks.NETHERRACK)).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_STALK = createConfiguredFeature("sythian_stalk", BYGFeatures.SYTHIAN_STALK, () -> new ProbabilityFeatureConfiguration(0.9F));
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_CORAL_PLANT = createConfiguredFeature("warped_coral_plant", BYGFeatures.HUGE_WARPED_CORAL_PLANT, () -> new WhitelistedSimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.WARPED_CORAL_BLOCK.defaultBlockState()), ImmutableList.of(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState(), BYGBlocks.WARPED_SOUL_SAND.defaultBlockState())));
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_VEGETATION = createConfiguredFeature("lament_vegetation", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SCORCHED_BUSH)), 0.2F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SCORCHED_GRASS)), 0.2F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_SPROUTS)));
-            }
-    );
-
-
-    //Nether Mushrooms
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_MUSHROOM = createConfiguredFeature("embur_mushroom1",
-            BYGFeatures.EMBUR_MUSHROOM,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.EMBUR.log().get())
-                    .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_MUSHROOM2 = createConfiguredFeature("embur_mushroom2",
-            BYGFeatures.EMBUR_MUSHROOM2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.EMBUR.log().get())
-                    .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_MUSHROOM3 = createConfiguredFeature("embur_mushroom3",
-            BYGFeatures.EMBUR_MUSHROOM3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.EMBUR.log().get())
-                    .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_MUSHROOM4 = createConfiguredFeature("embur_mushroom4",
-            BYGFeatures.EMBUR_MUSHROOM4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGWoodTypes.EMBUR.log().get())
-                    .setMushroomBlock(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                    .setMinHeight(6)
-                    .setMaxHeight(12)
-                    .build()
-    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_FUNGUS1 = createConfiguredFeature("crimson_fungus1",
             BYGFeatures.CRIMSON_FUNGUS_TREE1,
@@ -253,105 +197,6 @@ public class BYGNetherVegetationFeatures {
                     .build()
     );
 
-    //Nether Trees
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_TWISTY_TREE1 = createConfiguredFeature("lament_twisty_tree1",
-            BYGFeatures.LAMENT_TWISTY_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_TWISTY_TREE2 = createConfiguredFeature("lament_twisty_tree2",
-            BYGFeatures.LAMENT_TWISTY_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_TWISTY_TREE3 = createConfiguredFeature("lament_twisty_tree3",
-            BYGFeatures.LAMENT_TWISTY_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_WEEPING_TREE1 = createConfiguredFeature("lament_weeping_tree1",
-            BYGFeatures.LAMENT_WEEPING_TREE1,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .setWhitelist(ImmutableList.of(Blocks.LAVA))
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_WEEPING_TREE2 = createConfiguredFeature("lament_weeping_tree2",
-            BYGFeatures.LAMENT_WEEPING_TREE2,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .setWhitelist(ImmutableList.of(Blocks.LAVA))
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LAMENT_WEEPING_TREE3 = createConfiguredFeature("lament_weeping_tree3",
-            BYGFeatures.LAMENT_WEEPING_TREE3,
-            () -> new BYGTreeConfig.Builder()
-                    .fromWoodType(BYGWoodTypes.LAMENT)
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .setWhitelist(ImmutableList.of(Blocks.LAVA))
-                    .build()
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREE1 = createConfiguredFeature("withering_oak_tree1",
-            BYGFeatures.WITHERING_OAK_TREE1,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WITHERING_OAK_LOG.get())
-                    .setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREE2 = createConfiguredFeature("withering_oak_tree2",
-            BYGFeatures.WITHERING_OAK_TREE2,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WITHERING_OAK_LOG.get())
-                    .setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREE3 = createConfiguredFeature("withering_oak_tree3",
-            BYGFeatures.WITHERING_OAK_TREE3,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WITHERING_OAK_LOG.get())
-                    .setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREE4 = createConfiguredFeature("withering_oak_tree4",
-            BYGFeatures.WITHERING_OAK_TREE4,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WITHERING_OAK_LOG.get())
-                    .setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREE5 = createConfiguredFeature("withering_oak_tree5",
-            BYGFeatures.WITHERING_OAK_TREE5,
-            () -> new BYGMushroomConfig.Builder()
-                    .setStemBlock(BYGBlocks.WITHERING_OAK_LOG.get())
-                    .setMushroomBlock(BYGBlocks.WITHERING_OAK_LEAVES.get())
-                    .setMaxHeight(30)
-                    .setMinHeight(22)
-                    .build()
-    );
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGI = createConfiguredFeature("fungi", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -367,20 +212,8 @@ public class BYGNetherVegetationFeatures {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
 
                 return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_ROOTS)), 0.45F),
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_CRIMSON_ROOTS)), 0.8F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CRIMSON_BERRY_BUSH)));
-            }
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_MUSHROOMS = createConfiguredFeature("embur_mushrooms", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_MUSHROOM4)), 0.25F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_MUSHROOM3)), 0.25F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_MUSHROOM2)), 0.25F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_MUSHROOM)));
             }
     );
 
@@ -415,16 +248,6 @@ public class BYGNetherVegetationFeatures {
             }
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> EMBUR_BOG_VEGETATION = createConfiguredFeature("embur_bog_vegetation", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(TALL_EMBUR_ROOTS)), 0.333F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_ROOTS)), 0.333F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(EMBUR_WART)));
-            }
-    );
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWSTONE_GARDEN_VEGETATION = createConfiguredFeature("glowstone_garden_vegetation", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -444,19 +267,6 @@ public class BYGNetherVegetationFeatures {
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SCORCHED_BUSH)));
             }
     );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WITHERING_OAK_TREES = createConfiguredFeature("withering_oak_trees", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WITHERING_OAK_TREE5)), 0.2F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WITHERING_OAK_TREE4)), 0.2F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WITHERING_OAK_TREE3)), 0.2F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WITHERING_OAK_TREE2)), 0.2F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WITHERING_OAK_TREE1)));
-            }
-    );
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> WAILING_VEGETATION = createConfiguredFeature("wailing_vegetation", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
 
@@ -499,26 +309,6 @@ public class BYGNetherVegetationFeatures {
                         list.add(new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WARPED_CACTI)), 0.25F));
                     }
                 }), BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(WARPED_CORAL_FAN)));
-            }
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TWISTY_LAMENT_TREES = createConfiguredFeature("twisty_lament_trees", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_TWISTY_TREE3)), 0.35F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_TWISTY_TREE2)), 0.35F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_TWISTY_TREE1)));
-            }
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WEEPING_LAMENT_TREES = createConfiguredFeature("weeping_lament_trees", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_WEEPING_TREE3)), 0.35F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_WEEPING_TREE2)), 0.35F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(LAMENT_WEEPING_TREE1)));
             }
     );
 

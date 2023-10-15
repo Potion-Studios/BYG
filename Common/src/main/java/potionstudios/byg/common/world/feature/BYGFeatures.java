@@ -23,12 +23,6 @@ import potionstudios.byg.common.world.feature.gen.nether.quartzdesert.RawQuartzC
 import potionstudios.byg.common.world.feature.gen.nether.spike.SpikeFeature;
 import potionstudios.byg.common.world.feature.gen.nether.subzero.SubzeroCrystalFeature;
 import potionstudios.byg.common.world.feature.gen.nether.sythiantorrids.SythianStalk;
-import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushroom;
-import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushroom2;
-import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushroom3;
-import potionstudios.byg.common.world.feature.gen.nether.trees.embur.EmburMushroom4;
-import potionstudios.byg.common.world.feature.gen.nether.trees.lament.*;
-import potionstudios.byg.common.world.feature.gen.nether.trees.withering.*;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.WailingVine;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.pillars.WailingPillar1;
 import potionstudios.byg.common.world.feature.gen.nether.warpeddesert.WarpedCoralFeature;
@@ -118,21 +112,6 @@ public class BYGFeatures {
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> DEATH_CAP_TREE2 = createFeature("death_cap_tree2", () -> new DeathCapTree2(BYGMushroomConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> DEATH_CAP_TREE3 = createFeature("death_cap_tree3", () -> new DeathCapTree3(BYGMushroomConfig.CODEC.stable()));
 
-    //Lament
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_WEEPING_TREE1 = createFeature("lament_weeping_tree1", () -> new LamentWeepingTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_WEEPING_TREE2 = createFeature("lament_weeping_tree2", () -> new LamentWeepingTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_WEEPING_TREE3 = createFeature("lament_weeping_tree3", () -> new LamentWeepingTree3(BYGTreeConfig.CODEC.stable()));
-
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_TWISTY_TREE1 = createFeature("lament_twisty_tree1", () -> new LamentTwistyTree1(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_TWISTY_TREE2 = createFeature("lament_twisty_tree2", () -> new LamentTwistyTree2(BYGTreeConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> LAMENT_TWISTY_TREE3 = createFeature("lament_twisty_tree3", () -> new LamentTwistyTree3(BYGTreeConfig.CODEC.stable()));
-
-    //Withering Oak
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WITHERING_OAK_TREE1 = createFeature("withering_oak_tree1", () -> new WitheringOakTree1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WITHERING_OAK_TREE2 = createFeature("withering_oak_tree2", () -> new WitheringOakTree2(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WITHERING_OAK_TREE3 = createFeature("withering_oak_tree3", () -> new WitheringOakTree3(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WITHERING_OAK_TREE4 = createFeature("withering_oak_tree4", () -> new WitheringOakTree4(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WITHERING_OAK_TREE5 = createFeature("withering_oak_tree5", () -> new WitheringOakTree5(BYGMushroomConfig.CODEC.stable()));
 
     //QuartzDesert
     public static final RegistryObject<Feature<HangingColumnWithBaseConfig>> HANGING_FEATURE = createFeature("hanging_feature", () -> new HangingColumnWithBase(HangingColumnWithBaseConfig.CODEC.stable()));
@@ -160,12 +139,6 @@ public class BYGFeatures {
     //Wailing
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> WAILING_VINES = createFeature("wailing_vine", () -> new WailingVine(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<BYGAbstractTreeFeature<BYGTreeConfig>> WAILING_PILLAR1 = createFeature("wailing_pillar1", () -> new WailingPillar1(BYGTreeConfig.CODEC.stable()));
-
-    //Embur
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> EMBUR_MUSHROOM = createFeature("embur_mushroom1", () -> new EmburMushroom(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> EMBUR_MUSHROOM2 = createFeature("embur_mushroom2", () -> new EmburMushroom2(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> EMBUR_MUSHROOM3 = createFeature("embur_mushroom3", () -> new EmburMushroom3(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> EMBUR_MUSHROOM4 = createFeature("embur_mushroom4", () -> new EmburMushroom4(BYGMushroomConfig.CODEC.stable()));
 
     public static final RegistryObject<Feature<BrimstoneVentsConfig>> BRIMSTONE_VENT_FEATURE = createFeature("brimstone_vent", () -> new BrimstoneVentFeature(BrimstoneVentsConfig.CODEC.stable()));
 

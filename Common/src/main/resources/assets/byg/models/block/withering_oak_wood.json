@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "byg:block/withering_oak_log",
-    "end": "byg:block/withering_oak_log"
-  }
-}

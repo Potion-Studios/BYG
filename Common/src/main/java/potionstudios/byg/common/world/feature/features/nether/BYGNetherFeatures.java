@@ -45,21 +45,17 @@ public class BYGNetherFeatures {
 
 
     public static final Supplier<RuleTest> BRIMSTONE = () -> new BlockMatchTest(BYGBlocks.BRIMSTONE.get());
-    public static final Supplier<RuleTest> BLUE_NETHERRACK = () -> new BlockMatchTest(BYGBlocks.BLUE_NETHERRACK.get());
     public static final Supplier<RuleTest> SCORIA_STONE = () -> new BlockMatchTest(BYGBlocks.SCORIA_STONE.get());
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSTONE_VOLCANO = createConfiguredFeature("brimstone_volcano", BYGFeatures.VOLCANO, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS, () -> new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES, () -> new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND.get()).build());
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_PENDORITE = createConfiguredFeature("ore_pendorite", () -> Feature.ORE, () -> new OreConfiguration(BLUE_NETHERRACK.get(), BYGBlocks.PENDORITE_ORE.defaultBlockState(), 6));
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", () -> Feature.ORE, () -> new OreConfiguration(SCORIA_STONE.get(), BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 6));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", () -> Feature.ORE, () -> new OreConfiguration(BRIMSTONE.get(), BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10));
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", () -> Feature.ORE, () -> new OreConfiguration(BRIMSTONE.get(), BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10));
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_QUARTZ_BRIMSTONE = createConfiguredFeature("ore_quartz_brimstone", () -> Feature.ORE, () -> new OreConfiguration(BRIMSTONE.get(), BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE.defaultBlockState(), 10));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_GOLD_BLUE_NETHERRACK = createConfiguredFeature("ore_gold_blue_netherrack", () -> Feature.ORE, () -> new OreConfiguration(BLUE_NETHERRACK.get(), BYGBlocks.BLUE_NETHER_GOLD_ORE.defaultBlockState(), 10));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_QUARTZ_BLUE_NETHERRACK = createConfiguredFeature("ore_quartz_blue_netherrack", () -> Feature.ORE, () -> new OreConfiguration(BLUE_NETHERRACK.get(), BYGBlocks.BLUE_NETHER_QUARTZ_ORE.defaultBlockState(), 10));
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSTONE_PILLARS = createConfiguredFeature("brimstone_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> BORIC_FIRE_PATCH = createConfiguredFeature("boric_fire_patch", () -> Feature.RANDOM_PATCH, () ->
             new RandomPatchConfiguration(24, 4, 7,

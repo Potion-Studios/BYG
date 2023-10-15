@@ -18,7 +18,7 @@
   "biome.byg.bluff_peaks": "Отвесный пик",
   "biome.byg.bluff_steeps": "Обрывистая гора",
   "biome.byg.bog": "Трясины",
-  "item.byg.embur_gel_ball": "Тлеющий гелиевый шарик",
+
   "biome.byg.boreal_clearing": "Бореальная поляна",
   "biome.byg.boreal_forest": "Бореальный лес",
   "biome.byg.boreal_forest_hills": "Холмистый бореальный лес",
@@ -42,7 +42,7 @@
   "biome.byg.dunes": "Дюны",
   "biome.byg.ebony_hills": "Эбеновые холмы",
   "biome.byg.ebony_woods": "Эбеновые леса",
-  "biome.byg.embur_bog": "Тлеющая трясина",
+
   "biome.byg.enchanted_forest": "Магический лес",
   "biome.byg.enchanted_forest_hills": "Холмистый магический лес",
   "biome.byg.enchanted_grove": "Магический лесок",
@@ -227,8 +227,8 @@
   "block.byg.blue_glowcane_block": "Голубой блок светростника",
   "block.byg.blue_glowshroom": "Голубой светогриб",
   "block.byg.blue_glowshroom_block": "Синий блок светогриба",
-  "block.byg.blue_nether_bricks": "Синие незеритовые кирпичи",
-  "block.byg.blue_netherrack": "Синий незерак",
+
+
   "block.byg.blue_petal_block": "Синий блок лепестка",
   "block.byg.blue_sage": "Голубой шалфей",
   "block.byg.blue_sand": "Голубой песок",
@@ -339,13 +339,13 @@
   "block.byg.ebony_trapdoor": "Эбоновый люк",
   "block.byg.ebony_wall": "Эбоновая ограда",
   "block.byg.ebony_wood": "Эбен",
-  "block.byg.embur_gel_block": "Тлеющий гелиевый блок",
-  "block.byg.embur_gel_vines": "Тлеющие гелиевые лианы",
-  "block.byg.embur_lily": "Тлеющая кувшинка",
-  "block.byg.embur_nylium": "Тлеющий нилий",
-  "block.byg.embur_pedu": "Тлеющий стебель",
-  "block.byg.embur_roots": "Тлеющие корни",
-  "block.byg.embur_wart": "Тлеющий цветок",
+
+
+
+
+
+
+
   "block.byg.fairy_slipper": "Калипсо клубневая",
   "block.byg.fir_bookshelf": "Пихтовая книжная полка",
   "block.byg.fir_button": "Пихтовая кнопка",
@@ -536,7 +536,7 @@
   "block.byg.peach_leather_flower": "Peach Leather Flower",
   "block.byg.peat": "Торф",
   "block.byg.peat_grass_block": "Заросший торф",
-  "block.byg.pendorite_ore": "Пендоритовая руда",
+
   "block.byg.pervaded_netherrack": "Светящийся незерак",
   "block.byg.pine_bookshelf": "Сосновая книжная полка",
   "block.byg.pine_button": "Сосновая кнопка",
@@ -763,7 +763,7 @@
   "block.byg.sythian_sprout": "Скифский росток",
   "block.byg.sythian_stalk_block": "Скифский стебель",
   "block.byg.tall_allium": "Высокий фиолетовый лук",
-  "block.byg.tall_embur_roots": "Высокие тлеющие корни",
+
   "block.byg.tall_pink_allium": "Высокий розовый лук",
   "block.byg.tall_prairie_grass": "Высокая луговая трава",
   "block.byg.tiny_lily_pads": "Маленькие кувшинки",
@@ -874,7 +874,7 @@
   "item.byg.baobab_boat": "Лодка из баобаба",
   "item.byg.blue_enchanted_boat": "Синяя магическая лодка",
   "item.byg.blue_glowcane_dust": "Синяя светростниковая пыль",
-  "item.byg.blue_nether_brick": "Синий адский кирпич",
+
   "item.byg.blueberries": "Черника",
   "item.byg.byglogo": "Byg Логотип",
   "item.byg.chain_plating": "Chain Plating",
@@ -895,14 +895,14 @@
   "item.byg.white_mangrove_boat": "Мангровая лодка",
   "item.byg.maple_boat": "Кленовая лодка",
   "item.byg.mud": "Грязь",
-  "item.byg.pendorite_axe": "Пендоритовый топор",
-  "item.byg.pendorite_battleaxe": "Пендоритовый боевой топор",
-  "item.byg.pendorite_hoe": "Пендоритовая мотыга",
-  "item.byg.pendorite_horse_armor": "Пендоритовая конская броня",
-  "item.byg.pendorite_pickaxe": "Пендоритовая кирка",
-  "item.byg.pendorite_scraps": "Пендоритовый лом",
-  "item.byg.pendorite_shovel": "Пендоритовая лопата",
-  "item.byg.pendorite_sword": "Пендоритовый меч",
+
+
+
+
+
+
+
+
   "item.byg.pine_boat": "Сосновая лодка",
   "item.byg.pink_glowcane_dust": "Розовая светростниковая пыль",
   "item.byg.pollen_dust": "Пыльца",

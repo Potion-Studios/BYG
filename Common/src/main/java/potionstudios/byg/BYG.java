@@ -120,9 +120,6 @@ public class BYG {
         DeltaFeatureAccess.byg_setCANNOT_REPLACE(
                 new ImmutableList.Builder<Block>()
                         .addAll(DeltaFeatureAccess.byg_getCANNOT_REPLACE())
-                        .add(BYGBlocks.EMBUR_GEL_BLOCK.get())
-                        .add(BYGBlocks.EMBUR_GEL_BRANCH.get())
-                        .add(BYGBlocks.EMBUR_GEL_VINES.get())
                         .addAll(Util.make(new ArrayList<>(), list -> {
                             // TODO: Replace
 //                            for (Block block : BuiltInRegistries.BLOCK) {

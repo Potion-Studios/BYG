@@ -1174,20 +1174,6 @@ public class BYGBiomes {
             HAS_RUINED_PORTAL_NETHER
     );
 
-    public static final ResourceKey<Biome> EMBUR_BOG = createBiome("embur_bog", BYGNetherBiomes::emburBog,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
     public static final ResourceKey<Biome> GLOWSTONE_GARDENS = createBiome("glowstone_gardens", BYGNetherBiomes::glowstoneGardens,
             // Dimensions
             IS_NETHER,
@@ -1272,20 +1258,6 @@ public class BYGBiomes {
     );
 
     public static final ResourceKey<Biome> ARISIAN_UNDERGROWTH = createBiome("arisian_undergrowth", BYGNetherBiomes::arisianUndergrowth,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
-    public static final ResourceKey<Biome> WEEPING_MIRE = createBiome("weeping_mire", BYGNetherBiomes::weepingMire,
             // Dimensions
             IS_NETHER,
             IN_NETHER,

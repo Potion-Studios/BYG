@@ -492,25 +492,6 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PALM_TREE4), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.LAMENT.growerItem().get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE1), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE2), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_TWISTY_TREE3), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE1), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE2), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.LAMENT_WEEPING_TREE3), 1)
-                            .build())
-            ));
-            map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.WITHERING_OAK_TREE1), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.WITHERING_OAK_TREE2), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.WITHERING_OAK_TREE3), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.WITHERING_OAK_TREE4), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.WITHERING_OAK_TREE5), 1)
-                            .build())
-            ));
             map.put(BYGWoodTypes.ETHER.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.ETHER_TREE1), 1)
@@ -526,14 +507,6 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.NIGHTSHADE_TREE2), 1)
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.NIGHTSHADE_TREE3), 1)
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.NIGHTSHADE_TREE4), 1)
-                            .build())
-            ));
-            map.put(BYGWoodTypes.EMBUR.growerItem().get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM2), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM3), 1)
-                            .add(new FeatureSpawner(BYGNetherVegetationFeatures.EMBUR_MUSHROOM4), 1)
                             .build())
             ));
 

@@ -29,7 +29,7 @@
   "biome.byg.dacite_shore": "Bờ biển Dacite",
   "biome.byg.dead_sea": "Biển Chết",
   "biome.byg.ebony_woods": "Rừng gỗ mun",
-  "biome.byg.embur_bog": "Đầm lầy Embur",
+
   "biome.byg.ethereal_islands": "Quần đảo Ethereal",
   "biome.byg.firecracker_shrubland": "Vùng bụi cây pháo bông",
   "biome.byg.enchanted_tangle": "Rừng lãng quên",
@@ -199,13 +199,13 @@
   "block.byg.blue_enchanted_trapdoor": "Cửa sập gỗ mê hoặc xanh dương",
   "block.byg.blue_enchanted_wall_sign": "Biển gỗ mê hoặc xanh dương treo tường",
   "block.byg.blue_enchanted_wood": "Gỗ mê hoặc xanh dương",
-  "block.byg.blue_nether_brick_slab": "Phiến gạch Nether xanh nước biển",
-  "block.byg.blue_nether_brick_stairs": "Cầu thang gạch Nether xanh nước biển",
-  "block.byg.blue_nether_brick_wall": "Tường gạch Nether xanh nước biển",
-  "block.byg.blue_nether_bricks": "Gạch Nether xanh nước biển",
-  "block.byg.blue_nether_gold_ore": "Quặng vàng Netherrack xanh nước biển",
-  "block.byg.blue_nether_quartz_ore": "Quặng thạch anh Netherrack xanh nước biển",
-  "block.byg.blue_netherrack": "Netherrack xanh nước biển",
+
+
+
+
+
+
+
   "block.byg.blue_petal_block": "Khối cánh hoa xanh nước biển",
   "block.byg.blue_sage": "Xô Thơm xanh",
   "block.byg.blue_sand": "Cát xanh nước biển",
@@ -401,30 +401,30 @@
   "block.byg.ebony_trapdoor": "Cửa sập gỗ mun",
   "block.byg.ebony_wall_sign": "Biển gỗ mun treo tường",
   "block.byg.ebony_wood": "Gỗ mun",
-  "block.byg.embur_bookshelf": "Kệ sách gỗ Embur",
-  "block.byg.embur_button": "Nút gỗ Embur",
-  "block.byg.embur_crafting_table": "Bàn chế tạo gỗ Embur",
-  "block.byg.embur_door": "Cửa gỗ Embur",
-  "block.byg.embur_fence": "Hàng rào gỗ Embur",
-  "block.byg.embur_fence_gate": "Cổng hàng rào gỗ Embur",
-  "block.byg.embur_gel_block": "Khối gel Embur",
-  "block.byg.embur_gel_branch": "Cành cây gel Embur",
-  "block.byg.embur_gel_vines": "Dây leo Embur",
-  "block.byg.embur_gel_vines_plant": "Dây leo Embur",
-  "block.byg.embur_hyphae": "Gỗ Embur",
-  "block.byg.embur_lily": "Lá súng Embur",
-  "block.byg.embur_nylium": "Khuẩn dị thể Embur",
-  "block.byg.embur_pedu": "Thân cây Embur",
-  "block.byg.embur_planks": "Ván gỗ Embur",
-  "block.byg.embur_pressure_plate": "Đĩa cảm biến áp lực gỗ Embur",
-  "block.byg.embur_roots": "Rễ Embur",
-  "block.byg.embur_sign": "Biển gỗ Embur",
-  "block.byg.embur_slab": "Phiến gỗ Embur",
-  "block.byg.embur_sprouts": "Mầm Embur",
-  "block.byg.embur_stairs": "Cầu thang gỗ Embur",
-  "block.byg.embur_trapdoor": "Cửa sập gỗ Embur",
-  "block.byg.embur_wall_sign": "Biển gỗ Embur treo tường",
-  "block.byg.embur_wart": "Chồi cây Embur",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.emeraldite_ore": "Quặng ngọc lục bảo",
   "block.byg.end_sand": "Cát End",
   "block.byg.ender_lily": "Lá súng Ender",
@@ -598,26 +598,26 @@
   "block.byg.joshua_leaves": "Lá cây Joshua",
   "block.byg.joshua_sapling": "Chồi cây Joshua",
   "block.byg.kovan_flower": "Hoa Kovan",
-  "block.byg.lament_bookshelf": "Kệ sách gỗ than thở",
-  "block.byg.lament_button": "Nút gỗ than thở",
-  "block.byg.lament_crafting_table": "Bàn chế tạo gỗ than thở",
-  "block.byg.lament_door": "Cửa gỗ than thở",
-  "block.byg.lament_fence": "Hàng rào gỗ than thở",
-  "block.byg.lament_fence_gate": "Cổng rào gỗ than thở",
-  "block.byg.lament_leaves": "Lá cây than thở",
-  "block.byg.lament_log": "Thân cây than thở",
-  "block.byg.lament_planks": "Ván gỗ than thở",
-  "block.byg.lament_pressure_plate": "Đĩa cảm biến áp lực gỗ than thở",
-  "block.byg.lament_sapling": "Chồi cây than thở",
-  "block.byg.lament_sign": "Biển gỗ than thở",
-  "block.byg.lament_slab": "Phiến gỗ than thở",
-  "block.byg.lament_sprouts": "Mầm cây than thở",
-  "block.byg.lament_stairs": "Cầu thang gỗ than thở",
-  "block.byg.lament_trapdoor": "Cửa sập gỗ than thở",
-  "block.byg.lament_vine": "Dây leo than thở",
-  "block.byg.lament_vine_plant": "Dây leo than thở",
-  "block.byg.lament_wall_sign": "Biển gỗ than thở treo tường",
-  "block.byg.lament_wood": "Gỗ than thở",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.large_subzero_crystal_bud": "Nụ pha lê băng giá lớn",
   "block.byg.lazarus_bellflower": "Hoa đầu rắn",
   "block.byg.leaf_pile": "Đống lá",
@@ -758,8 +758,8 @@
   "block.byg.palo_verde_wood": "Gỗ kim tước chi ",
   "block.byg.peach_leather_flower": "Hoa ông lão hồng",
   "block.byg.peat": "Than bùn",
-  "block.byg.pendorite_block": "Khối Pendorite",
-  "block.byg.pendorite_ore": "Quặng Pendorite",
+
+
   "block.byg.pervaded_netherrack": "Netherrack ngấm đá phát sáng",
   "block.byg.pine_bookshelf": "Kệ sách gỗ thông ",
   "block.byg.pine_button": "Nút gỗ thông ",
@@ -826,7 +826,7 @@
   "block.byg.potted_daffodil": "Chậu thủy tiên",
   "block.byg.potted_death_cap": "Chậu nấm tử thần",
   "block.byg.potted_ebony_sapling": "Chậu chồi cây mun",
-  "block.byg.potted_embur_wart": "Chậu chồi cây Embur",
+
   "block.byg.potted_ether_sapling": "Chậu chồi cây Ether",
   "block.byg.potted_fir_sapling": "Chậu chồi cây linh sam",
   "block.byg.potted_firecracker_flower_bush": "Chậu bụi cây pháo bông",
@@ -1083,8 +1083,8 @@
   "block.byg.stripped_cypress_wood": "Gỗ cây bách đã cạo vỏ",
   "block.byg.stripped_ebony_log": "Thân cây gỗ mun đã cạo vỏ",
   "block.byg.stripped_ebony_wood": "Gỗ mun đã cạo vỏ",
-  "block.byg.stripped_embur_hyphae": "Gỗ Embur đã cạo vỏ",
-  "block.byg.stripped_embur_pedu": "Thân cây Embur đã cạo vỏ",
+
+
   "block.byg.stripped_ether_log": "Thân cây Ether đã cạo vỏ",
   "block.byg.stripped_ether_wood": "Gỗ Ether đã cạo vỏ",
   "block.byg.stripped_fir_log": "Thân cây linh sam đã cạo vỏ",
@@ -1095,8 +1095,8 @@
   "block.byg.stripped_holly_wood": "Gỗ nhựa ruồi đã cạo vỏ",
   "block.byg.stripped_jacaranda_log": "Thân cây phượng tím đã cạo vỏ",
   "block.byg.stripped_jacaranda_wood": "Gỗ phượng tím đã cạo vỏ",
-  "block.byg.stripped_lament_log": "Thân cây than thở đã cạo vỏ",
-  "block.byg.stripped_lament_wood": "Gỗ than thở đã cạo vỏ",
+
+
   "block.byg.stripped_mahogany_log": "Thân cây dái ngựa đã cạo vỏ",
   "block.byg.stripped_mahogany_wood": "Gỗ dái ngựa đã cạo vỏ",
   "block.byg.stripped_white_mangrove_log": "Thân cây đước trắng đã cạo vỏ",
@@ -1156,7 +1156,7 @@
   "block.byg.tall_beach_grass": "Cỏ bãi biển cao",
   "block.byg.tall_crimson_roots": "Rễ đỏ thẫm cao",
   "block.byg.tall_cryptic_vent": "Miệng phun bí ẩn cao",
-  "block.byg.tall_embur_roots": "Rễ Embur cao",
+
   "block.byg.tall_ether_grass": "Cỏ Ether cao",
   "block.byg.tall_pink_allium": "Tỏi hồng cao",
   "block.byg.tall_prairie_grass": "Cỏ thảo nguyên cao",
@@ -1253,10 +1253,10 @@
   "block.byg.witch_hazel_trapdoor": "Cửa sập gỗ phỉ",
   "block.byg.witch_hazel_wall_sign": "Biển gỗ phỉ treo tường",
   "block.byg.witch_hazel_wood": "Gỗ phỉ",
-  "block.byg.withering_oak_leaves": "Lá sồi khô héo",
-  "block.byg.withering_oak_log": "Thân cây sồi khô héo",
-  "block.byg.withering_oak_sapling": "Chồi cây sồi khô héo",
-  "block.byg.withering_oak_wood": "Gỗ sồi khô héo",
+
+
+
+
   "block.byg.wood_blewit": "Nấm gỗ thổi",
   "block.byg.wood_blewit_mushroom_block": "Khối nấm gỗ thổi",
   "block.byg.yellow_birch_leaves": "Lá bạch dương vàng",
@@ -1433,14 +1433,14 @@
   "item.byg.blue_enchanted_stairs": "Cầu thang gỗ mê hoặc xanh dương",
   "item.byg.blue_enchanted_trapdoor": "Cửa sập gỗ mê hoặc xanh dương",
   "item.byg.blue_enchanted_wood": "Gỗ mê hoặc xanh dương",
-  "item.byg.blue_nether_brick": "Viên gạch Nether xanh nước biển",
-  "item.byg.blue_nether_brick_slab": "Phiến gạch Nether xanh nước biển",
-  "item.byg.blue_nether_brick_stairs": "Cầu thang gạch Nether xanh nước biển",
-  "item.byg.blue_nether_brick_wall": "Tường gạch Nether xanh nước biển",
-  "item.byg.blue_nether_bricks": "Gạch Nether xanh nước biển",
-  "item.byg.blue_nether_gold_ore": "Quặng vàng Netherrack xanh nước biển",
-  "item.byg.blue_nether_quartz_ore": "Quặng thạch anh Netherrack xanh nước biển",
-  "item.byg.blue_netherrack": "Netherrack xanh nước biển",
+
+
+
+
+
+
+
+
   "item.byg.blue_petal_block": "Khối cánh hoa xanh nước biển",
   "item.byg.blue_sage": "Xô Thơm xanh",
   "item.byg.blue_sand": "Cát xanh nước biển",
@@ -1640,29 +1640,29 @@
   "item.byg.ebony_stairs": "Cầu thang gỗ mun",
   "item.byg.ebony_trapdoor": "Cửa sập gỗ mun",
   "item.byg.ebony_wood": "Gỗ mun",
-  "item.byg.embur_bookshelf": "Kệ sách gỗ Embur",
-  "item.byg.embur_button": "Nút gỗ Embur",
-  "item.byg.embur_crafting_table": "Bàn chế tạo gỗ Embur",
-  "item.byg.embur_door": "Cửa gỗ Embur",
-  "item.byg.embur_fence": "Hàng rào gỗ Embur",
-  "item.byg.embur_fence_gate": "Cổng rào gỗ Embur",
-  "item.byg.embur_gel_ball": "Bóng gel Embur",
-  "item.byg.embur_gel_block": "Khối gel Embur",
-  "item.byg.embur_gel_branch": "Cành cây gel Embur",
-  "item.byg.embur_gel_vines": "Dây leo Embur",
-  "item.byg.embur_hyphae": "Gỗ Embur",
-  "item.byg.embur_lily": "Lá súng Embur",
-  "item.byg.embur_nylium": "Khuẩn dị thể Embur",
-  "item.byg.embur_pedu": "Thân cây Embur",
-  "item.byg.embur_planks": "Ván gỗ Embur",
-  "item.byg.embur_pressure_plate": "Đĩa cảm biến áp lực gỗ Embur",
-  "item.byg.embur_roots": "Rễ Embur",
-  "item.byg.embur_sign": "Biển gỗ Embur",
-  "item.byg.embur_slab": "Phiến gỗ Embur",
-  "item.byg.embur_sprouts": "Mầm Embur",
-  "item.byg.embur_stairs": "Cầu thang gỗ Embur",
-  "item.byg.embur_trapdoor": "Cửa sập gỗ Embur",
-  "item.byg.embur_wart": "Chồi cây Embur",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.emeraldite_ore": "Quặng ngọc lục bảo",
   "item.byg.emeraldite_shards": "Mảnh ngọc lục bảo",
   "item.byg.end_sand": "Cát End",
@@ -1836,24 +1836,24 @@
   "item.byg.joshua_leaves": "Lá cây Joshua",
   "item.byg.joshua_sapling": "Chồi cây Joshua",
   "item.byg.kovan_flower": "Hoa Kovan",
-  "item.byg.lament_bookshelf": "Kệ sách gỗ than thở",
-  "item.byg.lament_button": "Nút gỗ than thở",
-  "item.byg.lament_crafting_table": "Bàn chế tạo gỗ than thở",
-  "item.byg.lament_door": "Cửa gỗ than thở",
-  "item.byg.lament_fence": "Hàng rào gỗ than thở",
-  "item.byg.lament_fence_gate": "Cổng rào gỗ than thở",
-  "item.byg.lament_leaves": "Lá cây than thở",
-  "item.byg.lament_log": "Thân cây than thở",
-  "item.byg.lament_planks": "Ván gỗ than thở",
-  "item.byg.lament_pressure_plate": "Đĩa cảm biến áp lực gỗ than thở",
-  "item.byg.lament_sapling": "Chồi cây than thở",
-  "item.byg.lament_sign": "Biển gỗ than thở",
-  "item.byg.lament_slab": "Phiến gỗ than thở",
-  "item.byg.lament_sprouts": "Mầm cây than thở",
-  "item.byg.lament_stairs": "Cầu thang gỗ than thở",
-  "item.byg.lament_trapdoor": "Cửa sập gỗ than thở",
-  "item.byg.lament_vine": "Dây leo than thở",
-  "item.byg.lament_wood": "Gỗ than thở",
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
   "item.byg.large_subzero_crystal_bud": "Nụ pha lê băng giá lớn",
   "item.byg.lazarus_bellflower": "Hoa đầu rắn",
   "item.byg.leaf_pile": "Đống lá",
@@ -1996,17 +1996,17 @@
   "item.byg.palo_verde_wood": "Gỗ kim tước chi ",
   "item.byg.peach_leather_flower": "Hoa ông lão hồng",
   "item.byg.peat": "Than bùn",
-  "item.byg.pendorite_axe": "Rìu Pendorite",
-  "item.byg.pendorite_battleaxe": "Rìu chiến Pendorite",
-  "item.byg.pendorite_block": "Khối Pendorite",
-  "item.byg.pendorite_hoe": "Cuốc Pendorite",
-  "item.byg.pendorite_horse_armor": "Giáp ngựa Pendorite",
-  "item.byg.pendorite_ingot": "Phôi Pendorite",
-  "item.byg.pendorite_ore": "Quặng Pendorite",
-  "item.byg.pendorite_pickaxe": "Cuốc chim Pendorite",
-  "item.byg.pendorite_scraps": "Vụn Pendorite",
-  "item.byg.pendorite_shovel": "Xẻng Pendorite",
-  "item.byg.pendorite_sword": "Kiếm Pendorite",
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.pervaded_netherrack": "Netherrack ngấm đá phát sáng",
   "item.byg.pine_boat": "Thuyền gỗ thông",
   "item.byg.pine_bookshelf": "Kệ sách gỗ thông ",
@@ -2219,8 +2219,8 @@
   "item.byg.stripped_cypress_wood": "Gỗ cây bách đã cạo vỏ",
   "item.byg.stripped_ebony_log": "Thân cây gỗ mun đã cạo vỏ",
   "item.byg.stripped_ebony_wood": "Gỗ mun đã cạo vỏ",
-  "item.byg.stripped_embur_hyphae": "Gỗ Embur đã cạo vỏ",
-  "item.byg.stripped_embur_pedu": "Thân cây Embur đã cạo vỏ",
+
+
   "item.byg.stripped_ether_log": "Thân cây Ether đã cạo vỏ",
   "item.byg.stripped_ether_wood": "Gỗ Ether đã cạo vỏ",
   "item.byg.stripped_fir_log": "Thân cây linh sam đã cạo vỏ",
@@ -2231,8 +2231,8 @@
   "item.byg.stripped_holly_wood": "Gỗ nhựa ruồi đã cạo vỏ",
   "item.byg.stripped_jacaranda_log": "Thân cây phượng tím đã cạo vỏ",
   "item.byg.stripped_jacaranda_wood": "Gỗ phượng tím đã cạo vỏ",
-  "item.byg.stripped_lament_log": "Thân cây than thở đã cạo vỏ",
-  "item.byg.stripped_lament_wood": "Gỗ than thở đã cạo vỏ",
+
+
   "item.byg.stripped_mahogany_log": "Thân cây dái ngựa đã cạo vỏ",
   "item.byg.stripped_mahogany_wood": "Gỗ dái ngựa đã cạo vỏ",
   "item.byg.stripped_mangrove_log": "Thân cây đước đã cạo vỏ",
@@ -2290,7 +2290,7 @@
   "item.byg.tall_allium": "Hành tím cao",
   "item.byg.tall_crimson_roots": "Rễ đỏ thẫm cao",
   "item.byg.tall_cryptic_vent": "Miệng phun bí ẩn cao",
-  "item.byg.tall_embur_roots": "Rễ Embur cao",
+
   "item.byg.tall_ether_grass": "Cỏ Ether cao",
   "item.byg.tall_pink_allium": "Tỏi hồng cao",
   "item.byg.tall_prairie_grass": "Cỏ thảo nguyên cao",
@@ -2387,10 +2387,10 @@
   "item.byg.witch_hazel_stairs": "Cầu thang gỗ phỉ",
   "item.byg.witch_hazel_trapdoor": "Cửa sập gỗ phỉ",
   "item.byg.witch_hazel_wood": "Gỗ phỉ",
-  "item.byg.withering_oak_leaves": "Lá sồi khô héo",
-  "item.byg.withering_oak_log": "Thân cây sồi khô héo",
-  "item.byg.withering_oak_sapling": "Chồi cây sồi khô héo",
-  "item.byg.withering_oak_wood": "Gỗ sồi khô héo",
+
+
+
+
   "item.byg.wood_blewit": "Nấm gỗ thổi",
   "item.byg.wood_blewit_mushroom_block": "Khối nấm gỗ thổi",
   "item.byg.yellow_birch_leaves": "Lá bạch dương vàng",

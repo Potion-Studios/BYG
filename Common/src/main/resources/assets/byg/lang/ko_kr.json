@@ -29,7 +29,7 @@
   "biome.byg.dacite_shore": "석영안산암 해안",
   "biome.byg.dead_sea": "사해",
   "biome.byg.ebony_woods": "흑단나무 삼림",
-  "biome.byg.embur_bog": "엠버 습지",
+
   "biome.byg.ethereal_islands": "에테르 섬",
   "biome.byg.firecracker_shrubland": "폭죽꽃 관목지",
   "biome.byg.enchanted_tangle": "잊혀진 숲",
@@ -191,13 +191,13 @@
   "block.byg.blue_enchanted_stairs": "파란색 마법나무 계단",
   "block.byg.blue_enchanted_trapdoor": "파란색 마법나무 다락문",
   "block.byg.blue_enchanted_wood": "파란색 마법나무",
-  "block.byg.blue_nether_brick_slab": "푸른 네더 벽돌 반 블록",
-  "block.byg.blue_nether_brick_stairs": "푸른 네더 벽돌 계단",
-  "block.byg.blue_nether_brick_wall": "푸른 네더 벽돌 담장",
-  "block.byg.blue_nether_bricks": "푸른 네더 벽돌",
-  "block.byg.blue_nether_gold_ore": "푸른 네더 금 광석",
-  "block.byg.blue_nether_quartz_ore": "푸른 네더 석영 광석",
-  "block.byg.blue_netherrack": "푸른 네더랙",
+
+
+
+
+
+
+
   "block.byg.blue_sage": "파란색 세이지",
   "block.byg.blue_sand": "푸른 모래",
   "block.byg.blue_sandstone": "푸른 사암",
@@ -382,28 +382,28 @@
   "block.byg.ebony_stairs": "흑단나무 계단",
   "block.byg.ebony_trapdoor": "흑단나무 다락문",
   "block.byg.ebony_wood": "흑단나무",
-  "block.byg.embur_bookshelf": "엠버 책장",
-  "block.byg.embur_button": "엠버 버튼",
-  "block.byg.embur_crafting_table": "엠버 제작대",
-  "block.byg.embur_door": "엠버 문",
-  "block.byg.embur_fence": "엠버 울타리",
-  "block.byg.embur_fence_gate": "엠버 울타리 문",
-  "block.byg.embur_gel_block": "엠버 젤 블록",
-  "block.byg.embur_gel_branch": "엠버 젤 가지",
-  "block.byg.embur_gel_vines": "엠버 젤 덩굴",
-  "block.byg.embur_gel_vines_plant": "엠버 젤 덩굴 열매",
-  "block.byg.embur_hyphae": "엠버 균사",
-  "block.byg.embur_lily": "엠버 수련잎",
-  "block.byg.embur_nylium": "엠버 네사체",
-  "block.byg.embur_pedu": "엠버 자루",
-  "block.byg.embur_planks": "엠버 판자",
-  "block.byg.embur_pressure_plate": "엠버 압력판",
-  "block.byg.embur_roots": "엠버 뿌리",
-  "block.byg.embur_slab": "엠버 반 블록",
-  "block.byg.embur_sprouts": "엠버 싹",
-  "block.byg.embur_stairs": "엠버 계단",
-  "block.byg.embur_trapdoor": "엠버 다락문",
-  "block.byg.embur_wart": "엠버 사마귀",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.emeraldite_ore": "네더 에메랄드 광석",
   "block.byg.end_sand": "엔드 모래",
   "block.byg.ender_lily": "엔더 수련잎",
@@ -567,24 +567,24 @@
   "block.byg.joshua_leaves": "조수아 잎",
   "block.byg.joshua_sapling": "조수아 묘목",
   "block.byg.kovan_flower": "코반 꽃",
-  "block.byg.lament_bookshelf": "비탄나무 책장",
-  "block.byg.lament_button": "비탄나무 버튼",
-  "block.byg.lament_crafting_table": "비탄나무 제작대",
-  "block.byg.lament_door": "비탄나무 문",
-  "block.byg.lament_fence": "비탄나무 울타리",
-  "block.byg.lament_fence_gate": "비탄나무 울타리 문",
-  "block.byg.lament_leaves": "비탄나무 잎",
-  "block.byg.lament_log": "비탄나무 원목",
-  "block.byg.lament_planks": "비탄나무 판자",
-  "block.byg.lament_pressure_plate": "비탄나무 압력판",
-  "block.byg.lament_sapling": "비탄나무 묘목",
-  "block.byg.lament_slab": "비탄나무 반 블록",
-  "block.byg.lament_sprouts": "비탄나무 싹",
-  "block.byg.lament_stairs": "비탄나무 계단",
-  "block.byg.lament_trapdoor": "비탄나무 다락문",
-  "block.byg.lament_vine": "비탄나무 덩굴",
-  "block.byg.lament_vine_plant": "비탄나무 덩굴 열매",
-  "block.byg.lament_wood": "비탄나무",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.large_subzero_crystal_bud": "큰 얼어붙은 수정 봉오리",
   "block.byg.lazarus_bellflower": "라자러스 초롱꽃",
   "block.byg.leaf_pile": "떨어진 잎",
@@ -695,8 +695,8 @@
   "block.byg.palo_verde_wood": "팔로 베르데 나무",
   "block.byg.peach_leather_flower": "복숭아색 참으아리",
   "block.byg.peat": "토탄",
-  "block.byg.pendorite_block": "펜도라이트 블록",
-  "block.byg.pendorite_ore": "펜도라이트 광석",
+
+
   "block.byg.pervaded_netherrack": "스며든 네더랙",
   "block.byg.pine_bookshelf": "소나무 책장",
   "block.byg.pine_button": "소나무 버튼",
@@ -760,7 +760,7 @@
   "block.byg.potted_daffodil": "화분에 심겨진 수선화",
   "block.byg.potted_death_cap": "화분에 심겨진 광대버섯",
   "block.byg.potted_ebony_sapling": "화분에 심겨진 흑단나무 묘목",
-  "block.byg.potted_embur_wart": "화분에 심겨진 엠버 사마귀",
+
   "block.byg.potted_ether_sapling": "화분에 심겨진 에테르나무 묘목",
   "block.byg.potted_fir_sapling": "화분에 심겨진 전나무 묘목",
   "block.byg.potted_firecracker_flower_bush": "화분에 심겨진 폭죽꽃 덤불",
@@ -1009,8 +1009,8 @@
   "block.byg.stripped_cypress_wood": "껍질 벗긴 사이프러스 나무",
   "block.byg.stripped_ebony_log": "껍질 벗긴 흑단나무 원목",
   "block.byg.stripped_ebony_wood": "껍질 벗긴 흑단나무",
-  "block.byg.stripped_embur_hyphae": "껍질 벗긴 엠버 균사",
-  "block.byg.stripped_embur_pedu": "껍질 벗긴 엠버 자루",
+
+
   "block.byg.stripped_ether_log": "껍질 벗긴 에테르나무 원목",
   "block.byg.stripped_ether_wood": "껍질 벗긴 에테르나무",
   "block.byg.stripped_fir_log": "껍질 벗긴 전나무 원목",
@@ -1021,8 +1021,8 @@
   "block.byg.stripped_holly_wood": "껍질 벗긴 호랑가시나무",
   "block.byg.stripped_jacaranda_log": "껍질 벗긴 자카란다나무 원목",
   "block.byg.stripped_jacaranda_wood": "껍질 벗긴 자카란다나무",
-  "block.byg.stripped_lament_log": "껍질 벗긴 비탄나무 원목",
-  "block.byg.stripped_lament_wood": "껍질 벗긴 비탄나무",
+
+
   "block.byg.stripped_mahogany_log": "껍질 벗긴 마호가니 원목",
   "block.byg.stripped_mahogany_wood": "껍질 벗긴 마호가니 나무",
   "block.byg.stripped_maple_log": "껍질 벗긴 단풍나무 원목",
@@ -1080,7 +1080,7 @@
   "block.byg.tall_beach_grass": "키 큰 해변 잔디",
   "block.byg.tall_crimson_roots": "키 큰 진홍빛 뿌리",
   "block.byg.tall_cryptic_vent": "키 큰 토굴 열수구",
-  "block.byg.tall_embur_roots": "키 큰 엠버 뿌리",
+
   "block.byg.tall_ether_grass": "키 큰 에테르 잔디",
   "block.byg.tall_pink_allium": "키 큰 분홍색 야생 파꽃",
   "block.byg.tall_prairie_grass": "키 큰 대초원 잔디",
@@ -1187,10 +1187,10 @@
   "block.byg.witch_hazel_stairs": "하마멜리스 계단",
   "block.byg.witch_hazel_trapdoor": "하마멜리스 다락문",
   "block.byg.witch_hazel_wood": "하마멜리스 나무",
-  "block.byg.withering_oak_leaves": "시들어버린 참나무 잎",
-  "block.byg.withering_oak_log": "시들어버린 참나무 원목",
-  "block.byg.withering_oak_sapling": "시들어버린 참나무 묘목",
-  "block.byg.withering_oak_wood": "시들어버린 참나무",
+
+
+
+
   "block.byg.wood_blewit": "민자주방망이버섯",
   "block.byg.wood_blewit_mushroom_block": "민자주방망이버섯 블록",
   "block.byg.yellow_birch_leaves": "노란색 자작나무 잎",
@@ -1365,14 +1365,14 @@
   "item.byg.blue_enchanted_stairs": "파란색 마법나무 계단",
   "item.byg.blue_enchanted_trapdoor": "파란색 마법나무 다락문",
   "item.byg.blue_enchanted_wood": "파란색 마법나무",
-  "item.byg.blue_nether_brick": "푸른 네더 벽돌",
-  "item.byg.blue_nether_brick_slab": "푸른 네더 벽돌 반 블록",
-  "item.byg.blue_nether_brick_stairs": "푸른 네더 벽돌 계단",
-  "item.byg.blue_nether_brick_wall": "푸른 네더 벽돌 담장",
-  "item.byg.blue_nether_bricks": "푸른 네더 벽돌",
-  "item.byg.blue_nether_gold_ore": "푸른 네더 금 광석",
-  "item.byg.blue_nether_quartz_ore": "푸른 네더 석영 광석",
-  "item.byg.blue_netherrack": "푸른 네더랙",
+
+
+
+
+
+
+
+
   "item.byg.blue_sage": "파란색 세이지",
   "item.byg.blue_sand": "푸른 모래",
   "item.byg.blue_sandstone": "푸른 사암",
@@ -1570,28 +1570,28 @@
   "item.byg.ebony_stairs": "흑단나무 계단",
   "item.byg.ebony_trapdoor": "흑단나무 다락문",
   "item.byg.ebony_wood": "흑단나무",
-  "item.byg.embur_bookshelf": "엠버 책장",
-  "item.byg.embur_button": "엠버 버튼",
-  "item.byg.embur_crafting_table": "엠버 제작대",
-  "item.byg.embur_door": "엠버 문",
-  "item.byg.embur_fence": "엠버 울타리",
-  "item.byg.embur_fence_gate": "엠버 울타리 문",
-  "item.byg.embur_gel_ball": "엠버 젤 볼",
-  "item.byg.embur_gel_block": "엠버 젤 블록",
-  "item.byg.embur_gel_branch": "엠버 젤 가지",
-  "item.byg.embur_gel_vines": "엠버 젤 덩굴",
-  "item.byg.embur_hyphae": "엠버 균사",
-  "item.byg.embur_lily": "엠버 수련잎",
-  "item.byg.embur_nylium": "엠버 네사체",
-  "item.byg.embur_pedu": "엠버 자루",
-  "item.byg.embur_planks": "엠버 판자",
-  "item.byg.embur_pressure_plate": "엠버 압력판",
-  "item.byg.embur_roots": "엠버 뿌리",
-  "item.byg.embur_slab": "엠버 반 블록",
-  "item.byg.embur_sprouts": "엠버 싹",
-  "item.byg.embur_stairs": "엠버 계단",
-  "item.byg.embur_trapdoor": "엠버 다락문",
-  "item.byg.embur_wart": "엠버 사마귀",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.emeraldite_ore": "네더 에메랄드 광석",
   "item.byg.emeraldite_shards": "네더 에메랄드 조각",
   "item.byg.end_sand": "엔드 모래",
@@ -1764,23 +1764,23 @@
   "item.byg.joshua_leaves": "조수아 잎",
   "item.byg.joshua_sapling": "조수아 묘목",
   "item.byg.kovan_flower": "코반 꽃",
-  "item.byg.lament_bookshelf": "비탄나무 책장",
-  "item.byg.lament_button": "비탄나무 버튼",
-  "item.byg.lament_crafting_table": "비탄나무 제작대",
-  "item.byg.lament_door": "비탄나무 문",
-  "item.byg.lament_fence": "비탄나무 울타리",
-  "item.byg.lament_fence_gate": "비탄나무 울타리 문",
-  "item.byg.lament_leaves": "비탄나무 잎",
-  "item.byg.lament_log": "비탄나무 원목",
-  "item.byg.lament_planks": "비탄나무 판자",
-  "item.byg.lament_pressure_plate": "비탄나무 압력판",
-  "item.byg.lament_sapling": "비탄나무 묘목",
-  "item.byg.lament_slab": "비탄나무 반 블록",
-  "item.byg.lament_sprouts": "비탄나무 싹",
-  "item.byg.lament_stairs": "비탄나무 계단",
-  "item.byg.lament_trapdoor": "비탄나무 다락문",
-  "item.byg.lament_vine": "비탄나무 덩굴",
-  "item.byg.lament_wood": "비탄나무",
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
   "item.byg.large_subzero_crystal_bud": "큰 얼어붙은 수정 봉오리",
   "item.byg.lazarus_bellflower": "라자러스 초롱꽃",
   "item.byg.leaf_pile": "떨어진 잎",
@@ -1898,17 +1898,17 @@
   "item.byg.palo_verde_wood": "팔로 베르데 나무",
   "item.byg.peach_leather_flower": "복숭아색 참으아리",
   "item.byg.peat": "토탄",
-  "item.byg.pendorite_axe": "펜도라이트 도끼",
-  "item.byg.pendorite_battleaxe": "펜도라이트 양날도끼",
-  "item.byg.pendorite_block": "펜도라이트 블록",
-  "item.byg.pendorite_hoe": "펜도라이트 괭이",
-  "item.byg.pendorite_horse_armor": "펜도라이트 말 갑옷",
-  "item.byg.pendorite_ingot": "펜도라이트 주괴",
-  "item.byg.pendorite_ore": "펜도라이트 광석",
-  "item.byg.pendorite_pickaxe": "펜도라이트 곡괭이",
-  "item.byg.pendorite_scraps": "펜도라이트 파편",
-  "item.byg.pendorite_shovel": "펜도라이트 삽",
-  "item.byg.pendorite_sword": "펜도라이트 검",
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.pervaded_netherrack": "스며든 네더랙",
   "item.byg.pine_boat": "소나무 보트",
   "item.byg.pine_bookshelf": "소나무 책장",
@@ -2118,8 +2118,8 @@
   "item.byg.stripped_cypress_wood": "껍질 벗긴 사이프러스 나무",
   "item.byg.stripped_ebony_log": "껍질 벗긴 흑단나무 원목",
   "item.byg.stripped_ebony_wood": "껍질 벗긴 흑단나무",
-  "item.byg.stripped_embur_hyphae": "껍질 벗긴 엠버 균사",
-  "item.byg.stripped_embur_pedu": "껍질 벗긴 엠버 자루",
+
+
   "item.byg.stripped_ether_log": "껍질 벗긴 에테르나무 원목",
   "item.byg.stripped_ether_wood": "껍질 벗긴 에테르나무",
   "item.byg.stripped_fir_log": "껍질 벗긴 전나무 원목",
@@ -2130,8 +2130,8 @@
   "item.byg.stripped_holly_wood": "껍질 벗긴 호랑가시나무",
   "item.byg.stripped_jacaranda_log": "껍질 벗긴 자카란다나무 원목",
   "item.byg.stripped_jacaranda_wood": "껍질 벗긴 자카란다나무",
-  "item.byg.stripped_lament_log": "껍질 벗긴 비탄나무 원목",
-  "item.byg.stripped_lament_wood": "껍질 벗긴 비탄나무",
+
+
   "item.byg.stripped_mahogany_log": "껍질 벗긴 마호가니 원목",
   "item.byg.stripped_mahogany_wood": "껍질 벗긴 마호가니 나무",
   "item.byg.stripped_maple_log": "껍질 벗긴 단풍나무 원목",
@@ -2188,7 +2188,7 @@
   "item.byg.tall_allium": "키 큰 야생 파꽃",
   "item.byg.tall_crimson_roots": "키 큰 진홍빛 뿌리",
   "item.byg.tall_cryptic_vent": "키 큰 토굴 열수구",
-  "item.byg.tall_embur_roots": "키 큰 엠버 뿌리",
+
   "item.byg.tall_ether_grass": "키 큰 에테르 잔디",
   "item.byg.tall_pink_allium": "키 큰 분홍색 야생 파꽃",
   "item.byg.tall_prairie_grass": "키 큰 대초원 잔디",
@@ -2301,10 +2301,10 @@
   "item.byg.witch_hazel_stairs": "하마멜리스 계단",
   "item.byg.witch_hazel_trapdoor": "하마멜리스 다락문",
   "item.byg.witch_hazel_wood": "하마멜리스 나무",
-  "item.byg.withering_oak_leaves": "시들어버린 참나무 잎",
-  "item.byg.withering_oak_log": "시들어버린 참나무 원목",
-  "item.byg.withering_oak_sapling": "시들어버린 참나무 묘목",
-  "item.byg.withering_oak_wood": "시들어버린 참나무",
+
+
+
+
   "item.byg.wood_blewit": "민자주방망이버섯",
   "item.byg.wood_blewit_mushroom_block": "민자주방망이버섯 블록",
   "item.byg.yellow_birch_leaves": "노란색 자작나무 잎",

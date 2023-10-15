@@ -15,9 +15,6 @@ import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
-import potionstudios.byg.mixin.access.AxeItemAccess;
-import potionstudios.byg.mixin.access.HoeItemAccess;
-import potionstudios.byg.mixin.access.PickaxeItemAccess;
 import potionstudios.byg.reg.RegistrationProvider;
 import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.util.ModPlatform;
@@ -58,13 +55,6 @@ public class BYGItems {
     public static final RegistryObject<Item> AMETRINE_CLUSTER = createItem(BYGBlocks.AMETRINE_CLUSTER);
     public static final RegistryObject<Item> BUDDING_AMETRINE_ORE = createItem(BYGBlocks.BUDDING_AMETRINE_ORE);
     public static final RegistryObject<Item> AMETRINE_BLOCK = createItem(BYGBlocks.AMETRINE_BLOCK);
-
-    public static final RegistryObject<Item> RAW_PENDORITE = createItem(() -> new Item(new Properties()), "raw_pendorite");
-    public static final RegistryObject<Item> PENDORITE_INGOT = createItem(() -> new Item(new Properties()), "pendorite_ingot");
-    public static final RegistryObject<Item> PENDORITE_SCRAPS = createItem(() -> new Item(new Properties()), "pendorite_scraps");
-    public static final RegistryObject<Item> PENDORITE_ORE = createItem(BYGBlocks.PENDORITE_ORE);
-    public static final RegistryObject<Item> RAW_PENDORITE_BLOCK = createItem(BYGBlocks.RAW_PENDORITE_BLOCK);
-    public static final RegistryObject<Item> PENDORITE_BLOCK = createItem(BYGBlocks.PENDORITE_BLOCK);
 
     public static final RegistryObject<Item> DACITE = createItem(BYGBlocks.DACITE);
     public static final RegistryObject<Item> DACITE_STAIRS = createItem(BYGBlocks.DACITE_STAIRS);
@@ -288,10 +278,6 @@ public class BYGItems {
     public static final RegistryObject<Item> INDIGO_JACARANDA_LEAVES;
     public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_LEAVES;
 
-    //Lament Woodtype
-    public static final RegistryObject<Item> LAMENT_VINE;
-    public static final RegistryObject<Item> LAMENT_SPROUTS;
-
     //Maple Woodtype
     public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING;
     public static final RegistryObject<Item> RED_MAPLE_LEAVES;
@@ -322,12 +308,6 @@ public class BYGItems {
     public static final RegistryObject<Item> WITCH_HAZEL_BLOSSOM;
     public static final RegistryObject<Item> WITCH_HAZEL_BRANCH;
     public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES;
-
-    //Embur Woodtype
-    public static final RegistryObject<Item> EMBUR_GEL_BALL;
-    public static final RegistryObject<Item> EMBUR_GEL_BLOCK;
-    public static final RegistryObject<Item> EMBUR_GEL_BRANCH;
-    public static final RegistryObject<Item> EMBUR_GEL_VINES;
 
     static {
         BYGWoodTypes.ASPEN.init();
@@ -379,10 +359,6 @@ public class BYGItems {
         FUNGAL_IMPARIUS_STEM = createItem(BYGBlocks.FUNGAL_IMPARIUS_STEM);
         FUNGAL_IMPARIUS_HYPHAE = createItem(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE);
         BYGWoodTypes.IMPARIUS.init();
-
-        LAMENT_VINE = createItem(BYGBlocks.LAMENT_VINE);
-        LAMENT_SPROUTS = createItem(BYGBlocks.LAMENT_SPROUTS);
-        BYGWoodTypes.LAMENT.init();
 
         JACARANDA_BUSH = createItem(BYGBlocks.JACARANDA_BUSH);
         FLOWERING_JACARANDA_BUSH = createItem(BYGBlocks.FLOWERING_JACARANDA_BUSH);
@@ -438,18 +414,7 @@ public class BYGItems {
         BYGWoodTypes.ZELKOVA.init();
         BYGWoodTypes.SYTHIAN.init();
 
-        BYGWoodTypes.EMBUR.init();
-        EMBUR_GEL_BALL = createItem(() -> new Item(new Properties()), "embur_gel_ball");
-        EMBUR_GEL_BLOCK = createItem(BYGBlocks.EMBUR_GEL_BLOCK);
-        EMBUR_GEL_BRANCH = createItem(BYGBlocks.EMBUR_GEL_BRANCH);
-        EMBUR_GEL_VINES = createItem(BYGBlocks.EMBUR_GEL_VINES);
     }
-
-    //SaplingItems
-    public static final RegistryObject<GrowerItem> WITHERING_OAK_SAPLING = createSaplingItem(BYGBlocks.WITHERING_OAK_SAPLING);
-    public static final RegistryObject<Item> WITHERING_OAK_LEAVES = createItem(BYGBlocks.WITHERING_OAK_LEAVES);
-    public static final RegistryObject<Item> WITHERING_OAK_LOG = createItem(BYGBlocks.WITHERING_OAK_LOG);
-    public static final RegistryObject<Item> WITHERING_OAK_WOOD = createItem(BYGBlocks.WITHERING_OAK_WOOD);
 
     public static final RegistryObject<GrowerItem> ARAUCARIA_SAPLING = createSaplingItem(BYGBlocks.ARAUCARIA_SAPLING);
     public static final RegistryObject<Item> ARAUCARIA_LEAVES = createItem(BYGBlocks.ARAUCARIA_LEAVES);
@@ -550,8 +515,6 @@ public class BYGItems {
     public static final RegistryObject<Item> QUARTZ_CRYSTAL = createItem(BYGBlocks.QUARTZ_CRYSTAL);
     public static final RegistryObject<Item> QUARTZITE_SAND = createItem(BYGBlocks.QUARTZITE_SAND);
     public static final RegistryObject<Item> RAW_QUARTZ_BLOCK = createItem(BYGBlocks.RAW_QUARTZ_BLOCK);
-    public static final RegistryObject<Item> BLUE_NETHER_GOLD_ORE = createItem(BYGBlocks.BLUE_NETHER_GOLD_ORE);
-    public static final RegistryObject<Item> BLUE_NETHER_QUARTZ_ORE = createItem(BYGBlocks.BLUE_NETHER_QUARTZ_ORE);
     public static final RegistryObject<Item> BRIMSTONE_NETHER_GOLD_ORE = createItem(BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE);
     public static final RegistryObject<Item> BRIMSTONE_NETHER_QUARTZ_ORE = createItem(BYGBlocks.BRIMSTONE_NETHER_QUARTZ_ORE);
 
@@ -580,20 +543,6 @@ public class BYGItems {
     public static final RegistryObject<Item> SYTHIAN_STALK_BLOCK = createItem(BYGBlocks.SYTHIAN_STALK_BLOCK);
     public static final RegistryObject<Item> SYTHIAN_SCAFFOLDING = createScaffoldingBlockItem(BYGBlocks.SYTHIAN_SCAFFOLDING);
     public static final RegistryObject<Item> HANGING_SYTHIAN_ROOTS = createItem(BYGBlocks.HANGING_SYTHIAN_ROOTS);
-
-    public static final RegistryObject<Item> EMBUR_NYLIUM = createItem(BYGBlocks.EMBUR_NYLIUM);
-    public static final RegistryObject<Item> EMBUR_SPROUTS = createItem(BYGBlocks.EMBUR_SPROUTS);
-    public static final RegistryObject<Item> EMBUR_ROOTS = createItem(BYGBlocks.EMBUR_ROOTS);
-    public static final RegistryObject<Item> TALL_EMBUR_ROOTS = createItem(BYGBlocks.TALL_EMBUR_ROOTS);
-    public static final RegistryObject<Item> EMBUR_LILY = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.EMBUR_LILY.get(), new Properties()), "embur_lily");
-
-    public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties()), "blue_nether_brick");
-    public static final RegistryObject<Item> BLUE_NETHERRACK = createItem(BYGBlocks.BLUE_NETHERRACK);
-    public static final RegistryObject<Item> BLUE_NETHER_BRICKS = createItem(BYGBlocks.BLUE_NETHER_BRICKS);
-    public static final RegistryObject<Item> BLUE_NETHER_BRICK_SLAB = createItem(BYGBlocks.BLUE_NETHER_BRICK_SLAB);
-    public static final RegistryObject<Item> BLUE_NETHER_BRICK_STAIRS = createItem(BYGBlocks.BLUE_NETHER_BRICK_STAIRS);
-    public static final RegistryObject<Item> BLUE_NETHER_BRICKS_WALL = createItem(BYGBlocks.BLUE_NETHER_BRICK_WALL);
-
 
     //End
     public static final RegistryObject<Item> IVIS_PHYLIUM = createItem(BYGBlocks.IVIS_PHYLIUM);

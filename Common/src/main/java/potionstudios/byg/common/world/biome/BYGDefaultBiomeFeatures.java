@@ -126,19 +126,6 @@ public class BYGDefaultBiomeFeatures {
 
     }
 
-    public static void addEmburBogVegetation(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EMBUR_MUSHROOMS);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EMBUR_BOG_VEGETATION);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EMBUR_LILY);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EMBUR_SPROUT);
-    }
-
-    public static void addBlueNetherOres(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_PENDORITE);
-        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_GOLD_BLUE_NETHERRACK);
-        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_QUARTZ_BLUE_NETHERRACK);
-    }
-
     public static void addEmeralditeOre(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_EMERALDITE);
     }
@@ -469,12 +456,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WAILING_VEGETATION);
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.WAILING_VINES);
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.CHAINS);
-    }
-
-    public static void addWeepigMireVegetation(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LAMENT_VEGETATION);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.LAMENT_VINE_FEATURE);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.EMBUR_LILY);
     }
 
     public static void addSythianVegetation(BiomeGenerationSettings.Builder gen) {
@@ -947,21 +928,8 @@ public class BYGDefaultBiomeFeatures {
         //gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGConfiguredFeatures.DUMMY_TREE);
     }
 
-    public static void addLamentTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.TWISTY_LAMENT_TREES);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WEEPING_LAMENT_TREES);
-    }
-
     public static void addWailingPillars(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WAILING_PILLARS);
-    }
-
-    public static void addWitheringOakTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WITHERING_OAK_TREES);
-    }
-
-    public static void addSparseWitheringOakTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_WITHERING_OAK_TREES);
     }
 
     public static void addMixedColorBulbisTrees(BiomeGenerationSettings.Builder gen) {

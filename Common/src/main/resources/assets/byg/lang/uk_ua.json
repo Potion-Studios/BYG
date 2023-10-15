@@ -29,7 +29,7 @@
     "biome.byg.dacite_shore": "Дацитовий берег",
     "biome.byg.dead_sea": "Мертве море",
     "biome.byg.ebony_woods": "Ебенові ліси",
-    "biome.byg.embur_bog": "Тліюче болото",
+
     "biome.byg.ethereal_islands": "Етерні острови",
     "biome.byg.firecracker_shrubland": "Скреб",
     "biome.byg.enchanted_tangle": "Забутий ліс",
@@ -203,13 +203,13 @@
     "block.byg.blue_enchanted_stairs": "Сині магічні сходи",
     "block.byg.blue_enchanted_trapdoor": "Синій магічний люк",
     "block.byg.blue_enchanted_wood": "Синя магічна деревина",
-    "block.byg.blue_nether_brick_slab": "Синя плита з незерської цегли",
-    "block.byg.blue_nether_brick_stairs": "Сині сходи з незерської цегли",
-    "block.byg.blue_nether_brick_wall": "Синя стіна з незерської цегли",
-    "block.byg.blue_nether_bricks": "Синя незерська цегла",
-    "block.byg.blue_nether_gold_ore": "Синя незерська золота руда",
-    "block.byg.blue_nether_quartz_ore": "Синя незерська кварцова руда",
-    "block.byg.blue_netherrack": "Синій незерак",
+
+
+
+
+
+
+
     "block.byg.blue_rose_bush": "Синій трояндовий кущ",
     "block.byg.blue_sage": "Синя шавлія",
     "block.byg.blue_sand": "Блакитний пісок",
@@ -396,28 +396,28 @@
     "block.byg.ebony_stairs": "Ебенові сходи",
     "block.byg.ebony_trapdoor": "Ебеновий люк",
     "block.byg.ebony_wood": "Ебенова деревина",
-    "block.byg.embur_bookshelf": "Тліюча книжкова полиця",
-    "block.byg.embur_button": "Тліюча кнопка",
-    "block.byg.embur_crafting_table": "Тліючий верстак",
-    "block.byg.embur_door": "Тліючі двері",
-    "block.byg.embur_fence": "Тліючий паркан",
-    "block.byg.embur_fence_gate": "Тліюча хвіртка",
-    "block.byg.embur_gel_block": "Тліюча оболонка",
-    "block.byg.embur_gel_branch": "Тліюче гілля",
-    "block.byg.embur_gel_vines": "Тліючі лози",
-    "block.byg.embur_gel_vines_plant": "Тліючі лози",
-    "block.byg.embur_hyphae": "Тліючі гіфи",
-    "block.byg.embur_lily": "Тліюче латаття",
-    "block.byg.embur_nylium": "Тліючий нілій",
-    "block.byg.embur_pedu": "Тліюче стебло",
-    "block.byg.embur_planks": "Тліючі дошки",
-    "block.byg.embur_pressure_plate": "Тліюча натискна плита",
-    "block.byg.embur_roots": "Тліюче коріння",
-    "block.byg.embur_slab": "Тліюча плита",
-    "block.byg.embur_sprouts": "Тліючі паростки",
-    "block.byg.embur_stairs": "Тліючі сходи",
-    "block.byg.embur_trapdoor": "Тліючий люк",
-    "block.byg.embur_wart": "Паросток тліючого дерева",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.emeraldite_ore": "Смарагдитова руда",
     "block.byg.end_sand": "Пісок енду",
     "block.byg.ender_lily": "Латаття енду",
@@ -586,24 +586,24 @@
     "block.byg.joshua_leaves": "Юкове листя",
     "block.byg.joshua_sapling": "Паросток юки",
     "block.byg.kovan_flower": "Червона конвалія",
-    "block.byg.lament_bookshelf": "Плакуча книжкова полиця",
-    "block.byg.lament_button": "Плакуча кнопка",
-    "block.byg.lament_crafting_table": "Плакучий верстак",
-    "block.byg.lament_door": "Плакучі двері",
-    "block.byg.lament_fence": "Плакучий паркан",
-    "block.byg.lament_fence_gate": "Плакуча хвіртка",
-    "block.byg.lament_leaves": "Плакуче листя",
-    "block.byg.lament_log": "Плакуча колода",
-    "block.byg.lament_planks": "Плакучі дошки",
-    "block.byg.lament_pressure_plate": "Плакуча натискна плита",
-    "block.byg.lament_sapling": "Паросток плакучого дерева",
-    "block.byg.lament_slab": "Плакуча плита",
-    "block.byg.lament_sprouts": "Плакучі паростки",
-    "block.byg.lament_stairs": "Плакучі сходи",
-    "block.byg.lament_trapdoor": "Плакучий люк",
-    "block.byg.lament_vine": "Кручена плакуча лоза",
-    "block.byg.lament_vine_plant": "Кручена плакуча лоза",
-    "block.byg.lament_wood": "Плакуча деревина",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.large_subzero_crystal_bud": "Великий зародок нульового кристала",
     "block.byg.large_therium_crystal_bud": "Великий зародок теріуму",
     "block.byg.lazarus_bellflower": "Рябчик шаховий",
@@ -716,8 +716,8 @@
     "block.byg.palo_verde_wood": "Деревина \"Пало Верде\"",
     "block.byg.peach_leather_flower": "Клематіс техаський",
     "block.byg.peat": "Торф",
-    "block.byg.pendorite_block": "Пендоритовий блок",
-    "block.byg.pendorite_ore": "Пендоритова руда",
+
+
     "block.byg.pervaded_netherrack": "Світлокам'яна руда",
     "block.byg.pine_bookshelf": "Соснова книжкова полиця",
     "block.byg.pine_button": "Соснова кнопка",
@@ -781,7 +781,7 @@
     "block.byg.potted_daffodil": "Нарцис в горщику",
     "block.byg.potted_death_cap": "Бліда поганка в горщику",
     "block.byg.potted_ebony_sapling": "Паросток ебоні в горщику",
-    "block.byg.potted_embur_wart": "Паросток тліючого дерева в горщику",
+
     "block.byg.potted_ether_sapling": "Паросток етерового дерева в горщику",
     "block.byg.potted_fir_sapling": "Паросток ялиці в горщику",
     "block.byg.potted_firecracker_flower_bush": "Кросандровий кущ в горщику",
@@ -1032,8 +1032,8 @@
     "block.byg.stripped_cypress_wood": "Обтесана кипарисова деревина",
     "block.byg.stripped_ebony_log": "Обтесана ебенова колода",
     "block.byg.stripped_ebony_wood": "Обтесана ебенова деревина",
-    "block.byg.stripped_embur_hyphae": "Обтесані тліючі гіфи",
-    "block.byg.stripped_embur_pedu": "Обтесане тліюче стебло",
+
+
     "block.byg.stripped_ether_log": "Обтесана етерова колода",
     "block.byg.stripped_ether_wood": "Обтесана етерова деревина",
     "block.byg.stripped_fir_log": "Обтесана ялицева колода",
@@ -1044,8 +1044,8 @@
     "block.byg.stripped_holly_wood": "Обтесана падубова деревина",
     "block.byg.stripped_jacaranda_log": "Обтесана жакарандова колода",
     "block.byg.stripped_jacaranda_wood": "Обтесана жакарандова деревина",
-    "block.byg.stripped_lament_log": "Обтесана плакуча колода",
-    "block.byg.stripped_lament_wood": "Обтесана плакуча деревина",
+
+
     "block.byg.stripped_mahogany_log": "Обтесана махагонова колода",
     "block.byg.stripped_mahogany_wood": "Обтесана махагонова деревина",
     "block.byg.stripped_maple_log": "Обтесана кленова колода",
@@ -1103,7 +1103,7 @@
     "block.byg.tall_beach_grass": "Висока пляжна трава",
     "block.byg.tall_crimson_roots": "Високе багряне коріння",
     "block.byg.tall_cryptic_vent": "Велике таємниче жерло",
-    "block.byg.tall_embur_roots": "Високе тліюче коріння",
+
     "block.byg.tall_ether_grass": "Велика етерова трава",
     "block.byg.tall_pink_allium": "Високий рожевий різанцевий кущ",
     "block.byg.tall_prairie_grass": "Висока степова трава",
@@ -1210,10 +1210,10 @@
     "block.byg.witch_hazel_stairs": "Гамамелісові сходи",
     "block.byg.witch_hazel_trapdoor": "Гамамелісовий люк",
     "block.byg.witch_hazel_wood": "Гамамелісова деревина",
-    "block.byg.withering_oak_leaves": "Сухе дубове листя",
-    "block.byg.withering_oak_log": "Суха дубова колода",
-    "block.byg.withering_oak_sapling": "Паросток сухого дуба",
-    "block.byg.withering_oak_wood": "Суха дубова деревина",
+
+
+
+
     "block.byg.wood_blewit": "Рядовка фіолетова",
     "block.byg.wood_blewit_mushroom_block": "Блок фіолетової рядовки",
     "block.byg.yellow_birch_leaves": "Жовте березове листя",
@@ -1394,14 +1394,14 @@
     "item.byg.blue_enchanted_stairs": "Сині магічні сходи",
     "item.byg.blue_enchanted_trapdoor": "Синій магічний люк",
     "item.byg.blue_enchanted_wood": "Синя магічна деревина",
-    "item.byg.blue_nether_brick": "Синя незерська цегла",
-    "item.byg.blue_nether_brick_slab": "Плита з синьої незерської цегли",
-    "item.byg.blue_nether_brick_stairs": "Сходи з синьої незерської цегли",
-    "item.byg.blue_nether_brick_wall": "Стіна з синьої незерської цегли",
-    "item.byg.blue_nether_bricks": "Синя незерська цегла",
-    "item.byg.blue_nether_gold_ore": "Синя незерська золота руда",
-    "item.byg.blue_nether_quartz_ore": "Синя незерська кварцова руда",
-    "item.byg.blue_netherrack": "Синій незерак",
+
+
+
+
+
+
+
+
     "item.byg.blue_rose_bush": "Синій трояндовий кущ",
     "item.byg.blue_sage": "Синя шавлія",
     "item.byg.blue_sand": "Блакитний пісок",
@@ -1601,28 +1601,28 @@
     "item.byg.ebony_stairs": "Ебенові сходи",
     "item.byg.ebony_trapdoor": "Ебеновий люк",
     "item.byg.ebony_wood": "Ебенова деревина",
-    "item.byg.embur_bookshelf": "Тліюча книжкова полиця",
-    "item.byg.embur_button": "Тліюча кнопка",
-    "item.byg.embur_crafting_table": "Тліючий верстак",
-    "item.byg.embur_door": "Тліючі двері",
-    "item.byg.embur_fence": "Тліючий паркан",
-    "item.byg.embur_fence_gate": "Тліюча хвіртка",
-    "item.byg.embur_gel_ball": "Тліюча куля",
-    "item.byg.embur_gel_block": "Тліюча оболонка",
-    "item.byg.embur_gel_branch": "Тліюче гілля",
-    "item.byg.embur_gel_vines": "Тліючі лози",
-    "item.byg.embur_hyphae": "Тліючі гіфи",
-    "item.byg.embur_lily": "Тліюче латаття",
-    "item.byg.embur_nylium": "Тліючий нілій",
-    "item.byg.embur_pedu": "Тліюче стебло",
-    "item.byg.embur_planks": "Тліючі дошки",
-    "item.byg.embur_pressure_plate": "Тліюча натискна плита",
-    "item.byg.embur_roots": "Тліюче коріння",
-    "item.byg.embur_slab": "Тліюча плита",
-    "item.byg.embur_sprouts": "Тліючі корні",
-    "item.byg.embur_stairs": "Тліючі сходи",
-    "item.byg.embur_trapdoor": "Тліючий люк",
-    "item.byg.embur_wart": "Паросток тліючого дерева",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.emeraldite_ore": "Смарагдитова руда",
     "item.byg.emeraldite_shards": "Смарагдитові уламки",
     "item.byg.end_sand": "Пісок енду",
@@ -1798,23 +1798,23 @@
     "item.byg.joshua_leaves": "Юкове листя",
     "item.byg.joshua_sapling": "Паросток юки",
     "item.byg.kovan_flower": "Червона конвалія",
-    "item.byg.lament_bookshelf": "Плакуча книжкова полиця",
-    "item.byg.lament_button": "Плакуча кнопка",
-    "item.byg.lament_crafting_table": "Плакучий верстак",
-    "item.byg.lament_door": "Плакучі двері",
-    "item.byg.lament_fence": "Плакучий паркан",
-    "item.byg.lament_fence_gate": "Плакуча хвіртка",
-    "item.byg.lament_leaves": "Плакуче листя",
-    "item.byg.lament_log": "Плакуча колода",
-    "item.byg.lament_planks": "Плакучі дошки",
-    "item.byg.lament_pressure_plate": "Плакуча натискна плита",
-    "item.byg.lament_sapling": "Плакучий паросток",
-    "item.byg.lament_slab": "Плакуча плита",
-    "item.byg.lament_sprouts": "Плакучі паростки",
-    "item.byg.lament_stairs": "Плакучі сходи",
-    "item.byg.lament_trapdoor": "Плакучий люк",
-    "item.byg.lament_vine": "Кручена плакуча лоза",
-    "item.byg.lament_wood": "Плакуча деревина",
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
     "item.byg.large_subzero_crystal_bud": "Великий зародок нульового кристала",
     "item.byg.large_therium_crystal_bud": "Великий зародок теріуму",
     "item.byg.lazarus_bellflower": "Рябчик шаховий",
@@ -1936,17 +1936,17 @@
     "item.byg.palo_verde_wood": "Деревина \"Пало Верде\"",
     "item.byg.peach_leather_flower": "Клематіс техаський",
     "item.byg.peat": "Торф",
-    "item.byg.pendorite_axe": "Пендоритова сокира",
-    "item.byg.pendorite_battleaxe": "Пендоритова бойова сокира",
-    "item.byg.pendorite_block": "Пендоритовий блок",
-    "item.byg.pendorite_hoe": "Пендоритова мотика",
-    "item.byg.pendorite_horse_armor": "Пендоритові кінські обладунки",
-    "item.byg.pendorite_ingot": "Пендоритовий злиток",
-    "item.byg.pendorite_ore": "Пендоритова руда",
-    "item.byg.pendorite_pickaxe": "Пендоритове кайло",
-    "item.byg.pendorite_scraps": "Пендоритовий уламок",
-    "item.byg.pendorite_shovel": "Пендоритова лопата",
-    "item.byg.pendorite_sword": "Пендоритовий меч",
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.pervaded_netherrack": "Світлокам'яна руда",
     "item.byg.pine_boat": "Сосновий човен",
     "item.byg.pine_bookshelf": "Соснова книжкова полиця",
@@ -2159,8 +2159,8 @@
     "item.byg.stripped_cypress_wood": "Обтесана кипарисова деревина",
     "item.byg.stripped_ebony_log": "Обтесана ебенова колода",
     "item.byg.stripped_ebony_wood": "Обтесана ебенова деревина",
-    "item.byg.stripped_embur_hyphae": "Обтесане тліюче стебло",
-    "item.byg.stripped_embur_pedu": "Обтесане тліюче стебло",
+
+
     "item.byg.stripped_ether_log": "Обтесана етерова колода",
     "item.byg.stripped_ether_wood": "Обтесана етерова деревина",
     "item.byg.stripped_fir_log": "Обтесана ялицева колода",
@@ -2171,8 +2171,8 @@
     "item.byg.stripped_holly_wood": "Обтесана падубова деревина",
     "item.byg.stripped_jacaranda_log": "Обтесана жакарандова колода",
     "item.byg.stripped_jacaranda_wood": "Обтесана жакарандова деревина",
-    "item.byg.stripped_lament_log": "Обтесана плакуча колода",
-    "item.byg.stripped_lament_wood": "Обтесана плакуча деревина",
+
+
     "item.byg.stripped_mahogany_log": "Обтесана махагонова колода",
     "item.byg.stripped_mahogany_wood": "Обтесана махагонова деревина",
     "item.byg.stripped_maple_log": "Обтесана кленова колода",
@@ -2229,7 +2229,7 @@
     "item.byg.tall_allium": "Високий різанцевий кущ",
     "item.byg.tall_crimson_roots": "Високе багряне коріння",
     "item.byg.tall_cryptic_vent": "Велике таємниче жерло",
-    "item.byg.tall_embur_roots": "Високе тліюче коріння",
+
     "item.byg.tall_ether_grass": "Висока етерова трава",
     "item.byg.tall_pink_allium": "Високий рожевий різанцевий кущ",
     "item.byg.tall_prairie_grass": "Висока степова трава",
@@ -2342,10 +2342,10 @@
     "item.byg.witch_hazel_stairs": "Гамамелісові сходи",
     "item.byg.witch_hazel_trapdoor": "Гамамелісовий люк",
     "item.byg.witch_hazel_wood": "Гамамелісова деревина",
-    "item.byg.withering_oak_leaves": "Сухе дубове листя",
-    "item.byg.withering_oak_log": "Суха дубова колода",
-    "item.byg.withering_oak_sapling": "Паросток сухого дуба",
-    "item.byg.withering_oak_wood": "Суха дубова деревина",
+
+
+
+
     "item.byg.wood_blewit": "Рядовка фіолетова",
     "item.byg.wood_blewit_mushroom_block": "Блок фіолетової рядовки",
     "item.byg.yellow_birch_leaves": "Жовте березове листя",

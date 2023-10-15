@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "byg:block/embur_nylium",
-    "bottom": "byg:block/blue_netherrack",
-    "side": "byg:block/embur_nylium_side"
-  }
-}

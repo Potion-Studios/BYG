@@ -144,7 +144,7 @@
   "biome.byg.warped_desert": "Desierto distorsionado",
   "biome.byg.sythian_torrids": "Tórridos sidianos",
   "biome.byg.glowstone_gardens": "Jardín de piedra luminosa",
-  "biome.byg.embur_bog": "Turbera de embur",
+
   "biome.byg.ivis_fields": "Campo de ivis",
   "biome.byg.araucaria_savanna": "Sabana de araucarias",
   "biome.byg.rose_fields": "Campo de rosas",
@@ -207,9 +207,9 @@
   "block.byg.witch_hazel_planks": "Tablones de avellano de bruja",
   "block.byg.zelkova_planks": "Tablones de zelkova",
   "block.byg.sythian_planks": "Tablones sidianos",
-  "block.byg.embur_planks": "Tablones de embur",
+
   "block.byg.palm_planks": "Tablones de palmera",
-  "block.byg.lament_planks": "Tablones de los lamentos",
+
   "block.byg.bulbis_planks": "Tablones de bulbis",
   "block.byg.nightshade_planks": "Tablones de belladona",
   "block.byg.ether_planks": "Tablones de éter",
@@ -236,9 +236,9 @@
   "block.byg.witch_hazel_bookshelf": "Librería de avellano de bruja",
   "block.byg.zelkova_bookshelf": "Librería de zelkova",
   "block.byg.sythian_bookshelf": "Librería sidiana",
-  "block.byg.embur_bookshelf": "Librería de embur",
+
   "block.byg.palm_bookshelf": "Librería de palmera",
-  "block.byg.lament_bookshelf": "Librería de los lamentos",
+
   "block.byg.bulbis_bookshelf": "Librería de bulbis",
   "block.byg.nightshade_bookshelf": "Librería de belladona",
   "block.byg.ether_bookshelf": "Librería de éter",
@@ -265,9 +265,9 @@
   "block.byg.witch_hazel_door": "Puerta de avellano de bruja",
   "block.byg.zelkova_door": "Puerta de zelkova",
   "block.byg.sythian_door": "Puerta sidiana",
-  "block.byg.embur_door": "Puerta de embur",
+
   "block.byg.palm_door": "Puerta de palmera",
-  "block.byg.lament_door": "Puerta de los lamentos",
+
   "block.byg.bulbis_door": "Puerta de bulbis",
   "block.byg.nightshade_door": "Puerta de belladona",
   "block.byg.ether_door": "Puerta de éter",
@@ -294,9 +294,9 @@
   "block.byg.witch_hazel_pressure_plate": "Placa de presión de avellano de bruja",
   "block.byg.zelkova_pressure_plate": "Placa de presión de zelkova",
   "block.byg.sythian_pressure_plate": "Placa de presión sidiana",
-  "block.byg.embur_pressure_plate": "Placa de presión de embur",
+
   "block.byg.palm_pressure_plate": "Placa de presión de palmera",
-  "block.byg.lament_pressure_plate": "Placa de presión de los lamentos",
+
   "block.byg.bulbis_pressure_plate": "Placa de presión de bulbis",
   "block.byg.nightshade_pressure_plate": "Placa de presión de belladona",
   "block.byg.ether_pressure_plate": "Placa de presión de éter",
@@ -323,9 +323,9 @@
   "block.byg.witch_hazel_button": "Botón de avellano de bruja",
   "block.byg.zelkova_button": "Botón de zelkova",
   "block.byg.sythian_button": "Botón sidiano",
-  "block.byg.embur_button": "Botón de embur",
+
   "block.byg.palm_button": "Botón de palmera",
-  "block.byg.lament_button": "Botón de los lamentos",
+
   "block.byg.bulbis_button": "Botón de bulbis",
   "block.byg.nightshade_button": "Botón de belladona",
   "block.byg.ether_button": "Botón de éter",
@@ -352,9 +352,9 @@
   "block.byg.witch_hazel_trapdoor": "Trampilla de avellano de bruja",
   "block.byg.zelkova_trapdoor": "Trampilla de zelkova",
   "block.byg.sythian_trapdoor": "Trampilla sidiana",
-  "block.byg.embur_trapdoor": "Trampilla de embur",
+
   "block.byg.palm_trapdoor": "Trampilla de palmera",
-  "block.byg.lament_trapdoor": "Trampilla de los lamentos",
+
   "block.byg.bulbis_trapdoor": "Trampilla de bulbis",
   "block.byg.nightshade_trapdoor": "Trampilla de belladona",
   "block.byg.ether_trapdoor": "Trampilla de éter",
@@ -381,9 +381,9 @@
   "block.byg.witch_hazel_crafting_table": "Mesa de trabajo de avellano de bruja",
   "block.byg.zelkova_crafting_table": "Mesa de trabajo de zelkova",
   "block.byg.sythian_crafting_table": "Mesa de trabajo sidiana",
-  "block.byg.embur_crafting_table": "Mesa de trabajo de embur",
+
   "block.byg.palm_crafting_table": "Mesa de trabajo de palmera",
-  "block.byg.lament_crafting_table": "Mesa de trabajo de los lamentos",
+
   "block.byg.bulbis_crafting_table": "Mesa de trabajo de bulbis",
   "block.byg.nightshade_crafting_table": "Mesa de trabajo de belladona",
   "block.byg.ether_crafting_table": "Mesa de trabajo de éter",
@@ -410,9 +410,9 @@
   "block.byg.witch_hazel_fence_gate": "Puerta de valla de avellano de bruja",
   "block.byg.zelkova_fence_gate": "Puerta de valla de zelkova",
   "block.byg.sythian_fence_gate": "Puerta de valla sidiana",
-  "block.byg.embur_fence_gate": "Puerta de valla de embur",
+
   "block.byg.palm_fence_gate": "Puerta de valla de palmera",
-  "block.byg.lament_fence_gate": "Puerta de valla de los lamentos",
+
   "block.byg.bulbis_fence_gate": "Puerta de valla de bulbis",
   "block.byg.nightshade_fence_gate": "Puerta de valla de belladona",
   "block.byg.ether_fence_gate": "Puerta de valla de éter",
@@ -439,9 +439,9 @@
   "block.byg.witch_hazel_slab": "Losa de avellano de bruja",
   "block.byg.zelkova_slab": "Losa de zelkova",
   "block.byg.sythian_slab": "Losa sidiana",
-  "block.byg.embur_slab": "Losa de embur",
+
   "block.byg.palm_slab": "Losa de palmera",
-  "block.byg.lament_slab": "Losa de los lamentos",
+
   "block.byg.bulbis_slab": "Losa de bulbis",
   "block.byg.nightshade_slab": "Losa de belladona",
   "block.byg.ether_slab": "Losa de éter",
@@ -468,9 +468,9 @@
   "block.byg.witch_hazel_stairs": "Escaleras de avellano de bruja",
   "block.byg.zelkova_stairs": "Escaleras de selkova",
   "block.byg.sythian_stairs": "Escaleras sidianas",
-  "block.byg.embur_stairs": "Escaleras de embur",
+
   "block.byg.palm_stairs": "Escaleras de palmera",
-  "block.byg.lament_stairs": "Escaleras de los lamentos",
+
   "block.byg.bulbis_stairs": "Escaleras de bulbis",
   "block.byg.nightshade_stairs": "Escaleras de belladona",
   "block.byg.ether_stairs": "Escaleras de éter",
@@ -497,9 +497,9 @@
   "block.byg.witch_hazel_fence": "Valla de avellano de bruja",
   "block.byg.zelkova_fence": "Valla de zelkova",
   "block.byg.sythian_fence": "Valla sidiana",
-  "block.byg.embur_fence": "Valla de embur",
+
   "block.byg.palm_fence": "Valla de palmera",
-  "block.byg.lament_fence": "Valla de los lamentos",
+
   "block.byg.bulbis_fence": "Valla de bulbis",
   "block.byg.nightshade_fence": "Valla de belladona",
   "block.byg.ether_fence": "Valla de éter",
@@ -554,8 +554,8 @@
   "block.byg.yellow_spruce_sapling": "Brote de abeto amarillo",
   "block.byg.zelkova_sapling": "Brote de zelkova",
   "block.byg.palm_sapling": "Brote de palmera",
-  "block.byg.lament_sapling": "Brote de los lamentos",
-  "block.byg.withering_oak_sapling": "Brote de roble marchito",
+
+
   "block.byg.ether_sapling": "Brote de éter",
   "block.byg.nightshade_sapling": "Brote de belladona",
   "block.byg.jacaranda_bush": "Arbusto de jacarandá",
@@ -611,8 +611,8 @@
   "block.byg.yellow_spruce_leaves": "Hojas de abeto amarillo",
   "block.byg.zelkova_leaves": "Hojas de zelkova",
   "block.byg.palm_leaves": "Hojas de palmera",
-  "block.byg.lament_leaves": "Hojas de los lamentos",
-  "block.byg.withering_oak_leaves": "Hojas de roble marchito",
+
+
   "block.byg.flowering_nightshade_leaves": "Hojas de belladona florecidas",
   "block.byg.nightshade_leaves": "Hojas de belladona",
   "block.byg.ether_leaves": "Hojas de éter",
@@ -677,8 +677,8 @@
   "block.byg.quartz_crystal": "Cristal de cuarzo",
   "block.byg.quartzite_sand": "Arena de cuarcita",
   "block.byg.raw_quartz_block": "Bloque de cuarzo en bruto",
-  "block.byg.blue_nether_quartz_ore": "Mena de cuarzo del Nether azul",
-  "block.byg.blue_nether_gold_ore": "Mena de oro del Nether azul",
+
+
   "block.byg.brimstone_nether_quartz_ore": "Mena de cuarzo del Nether de azufre",
   "block.byg.brimstone_nether_gold_ore": "Mena de oro del Nether de azufre",
   "block.byg.wailing_bell_blossom": "Flor de los lamentos",
@@ -703,17 +703,17 @@
   "block.byg.sythian_sapling": "Brote sidiano",
   "block.byg.hanging_sythian_roots": "Enredaderas sidianas",
   "block.byg.hanging_sythian_roots_plant": "Planta de enredaderas sidianas",
-  "block.byg.embur_lily": "Lirio de embur",
-  "block.byg.embur_gel_block": "Bloque de gel de embur",
-  "block.byg.embur_gel_vines": "Enredaderas de gel de embur",
-  "block.byg.embur_gel_vines_plant": "Planta de enredaderas de gel de embur",
-  "block.byg.embur_gel_branch": "Rama de gel de embur",
-  "block.byg.embur_sprouts": "Rastrojo de embur",
-  "block.byg.embur_roots": "Raíces de embur",
-  "block.byg.embur_wart": "Verruga de embur",
-  "block.byg.tall_embur_roots": "Raíces de embur altas",
-  "block.byg.blue_netherrack": "Netherrack azul",
-  "block.byg.blue_nether_bricks": "Ladrillos del Nether azules",
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.bulbis_sprouts": "Rastrojo de bulbis",
   "block.byg.ivis_roots": "Raíces de ivis",
   "block.byg.ivis_sprout": "Rastrojo de ivis",
@@ -809,9 +809,9 @@
   "block.byg.large_subzero_crystal_bud": "Brote de cristal bajo cero grande",
   "block.byg.medium_subzero_crystal_bud": "Brote de cristal bajo cero mediano",
   "block.byg.small_subzero_crystal_bud": "Brote de cristal bajo cero pequeño",
-  "block.byg.lament_sprouts": "Rastrojo de los lamentos",
-  "block.byg.lament_vine": "Enredaderas de los lamentos",
-  "block.byg.lament_vine_plant": "Planta de enredaderas de los lamentos",
+
+
+
   "block.byg.pink_cherry_foliage": "Follaje de cerezo rosa",
   "block.byg.white_cherry_foliage": "Follaje de cerezo blanco",
   "block.byg.white_petal_block": "Bloque de pétalos blancos",
@@ -870,10 +870,10 @@
   "block.byg.witch_hazel_log": "Tronco de avellano de bruja",
   "block.byg.zelkova_log": "Tronco de zelkova",
   "block.byg.sythian_stem": "Tallo sidiano",
-  "block.byg.embur_pedu": "Tallo de embur",
+
   "block.byg.palm_log": "Tronco de palmera",
-  "block.byg.lament_log": "Tronco de los lamentos",
-  "block.byg.withering_oak_log": "Tronco de roble marchito",
+
+
   "block.byg.bulbis_stem": "Tallo de bulbis",
   "block.byg.nightshade_log": "Tronco de belladona",
   "block.byg.imbued_nightshade_log": "Tronco de belladona imbuido",
@@ -903,10 +903,10 @@
   "block.byg.witch_hazel_wood": "Leño de avellano de bruja",
   "block.byg.zelkova_wood": "Leño de zelkova",
   "block.byg.sythian_hyphae": "Hifas sidianas",
-  "block.byg.embur_hyphae": "Hifas de embur",
+
   "block.byg.palm_wood": "Leño de palmera",
-  "block.byg.lament_wood": "Leño de los lamentos",
-  "block.byg.withering_oak_wood": "Leño de roble marchito",
+
+
   "block.byg.bulbis_wood": "Leño de bulbis",
   "block.byg.nightshade_wood": "Leño de belladona",
   "block.byg.ether_wood": "Leño de éter",
@@ -931,9 +931,9 @@
   "block.byg.soul_shroom_spore": "Espora de hongo de almas",
   "block.byg.soul_shroom_spore_end": "Extremo de espora de hongo de almas",
   "block.byg.raw_pendorite_block": "Bloque de pendorita en bruto",
-  "block.byg.pendorite_ore": "Mena de pendorita",
+
   "block.byg.ametrine_ore": "Mena de ametrino",
-  "block.byg.pendorite_block": "Bloque de pendorita",
+
   "block.byg.ametrine_block": "Bloque de ametrino",
   "block.byg.budding_ametrine_ore": "Mena brotadora de ametrino",
   "block.byg.ametrine_cluster": "Cúmulo de ametrino",
@@ -1051,9 +1051,9 @@
   "block.byg.stripped_witch_hazel_log": "Tronco de avellano de bruja sin corteza",
   "block.byg.stripped_zelkova_log": "Tronco de zelkova sin corteza",
   "block.byg.stripped_sythian_stem": "Tallo sidiano sin corteza",
-  "block.byg.stripped_embur_pedu": "Tallo de embur sin corteza",
+
   "block.byg.stripped_palm_log": "Tronco de palmera sin corteza",
-  "block.byg.stripped_lament_log": "Tronco de los lamentos sin corteza",
+
   "block.byg.stripped_bulbis_stem": "Tallo de bulbis sin corteza",
   "block.byg.stripped_nightshade_log": "Tronco de belladona sin corteza",
   "block.byg.stripped_ether_log": "Tronco de éter sin corteza",
@@ -1080,9 +1080,9 @@
   "block.byg.stripped_witch_hazel_wood": "Leño de avellano de bruja sin corteza",
   "block.byg.stripped_zelkova_wood": "Leño de zelkova sin corteza",
   "block.byg.stripped_sythian_hyphae": "Hifas sidianas sin corteza",
-  "block.byg.stripped_embur_hyphae": "Hifas de embur sin corteza",
+
   "block.byg.stripped_palm_wood": "Leño de palmera sin corteza",
-  "block.byg.stripped_lament_wood": "Leño de los lamentos sin corteza",
+
   "block.byg.stripped_bulbis_wood": "Leño de bulbis sin corteza",
   "block.byg.stripped_nightshade_wood": "Leño de belladona sin corteza",
   "block.byg.stripped_ether_wood": "Leño de éter sin corteza",
@@ -1153,7 +1153,7 @@
   "block.byg.overgrown_crimson_blackstone": "Piedra negra carmesí",
 
   "block.byg.ivis_phylium": "Ficelio de ivis",
-  "block.byg.embur_nylium": "Necelio de embur",
+
   "block.byg.sythian_nylium": "Necelio sidiano",
   "block.byg.wailing_nylium": "Necelio de los lamentos",
   "block.byg.meadow_grass_block": "Césped de prado",
@@ -1219,7 +1219,7 @@
   "block.byg.potted_mini_cactus": "Maceta con mini cactus",
   "block.byg.potted_prickly_pear_cactus": "Maceta con nopal",
   "block.byg.potted_winter_succulent": "Maceta con suculenta invernal",
-  "block.byg.potted_embur_wart": "Maceta con verruga de embur",
+
   "block.byg.potted_black_puff": "Maceta con bejín negro",
   "block.byg.potted_weeping_milkcap": "Maceta con lactario anaranjado",
   "block.byg.potted_wood_blewit": "Maceta con pie azul",
@@ -1302,18 +1302,18 @@
   "item.byg.ametrine_boots": "Botas de ametrino",
   "item.byg.ametrine_horse_armor": "Armadura de ametrino para caballo",
   "item.byg.raw_pendorite": "Pendorita en bruto",
-  "item.byg.pendorite_ingot": "Lingote de pendorita",
-  "item.byg.pendorite_scraps": "Fragmentos de pendorita",
-  "item.byg.pendorite_ore": "Mena de pendorita",
+
+
+
   "item.byg.raw_pendorite_block": "Bloque de pendorita en bruto",
-  "item.byg.pendorite_block": "Bloque de pendorita",
-  "item.byg.pendorite_axe": "Hacha de pendorita",
-  "item.byg.pendorite_pickaxe": "Pico de pendorita",
-  "item.byg.pendorite_sword": "Espada de pendorita",
-  "item.byg.pendorite_battleaxe": "Hacha de guerra de pendorita",
-  "item.byg.pendorite_shovel": "Pala de pendorita",
-  "item.byg.pendorite_hoe": "Azada de pendorita",
-  "item.byg.pendorite_horse_armor": "Armadura de pendorita para caballo",
+
+
+
+
+
+
+
+
   "item.byg.dacite": "Dacita",
   "item.byg.dacite_stairs": "Escaleras de dacita",
   "item.byg.dacite_slab": "Losa de dacita",
@@ -1707,25 +1707,25 @@
   "item.byg.jacaranda_pressure_plate": "Placa de presión de jacarandá",
   "item.byg.jacaranda_button": "Botón de jacarandá",
   "item.byg.jacaranda_boat": "Barca de jacarandá",
-  "item.byg.lament_sapling": "Brote de los lamentos",
-  "item.byg.lament_leaves": "Hojas de los lamentos",
-  "item.byg.lament_vine": "Enredaderas de los lamentos",
-  "item.byg.lament_sprouts": "Rastrojo de los lamentos",
-  "item.byg.lament_log": "Tronco de los lamentos",
-  "item.byg.lament_wood": "Leño de los lamentos",
-  "item.byg.stripped_lament_log": "Tronco de los lamentos sin corteza",
-  "item.byg.stripped_lament_wood": "Leño de los lamentos sin corteza",
-  "item.byg.lament_planks": "Tablones de los lamentos",
-  "item.byg.lament_bookshelf": "Librería de los lamentos",
-  "item.byg.lament_crafting_table": "Mesa de trabajo de los lamentos",
-  "item.byg.lament_stairs": "Escaleras de los lamentos",
-  "item.byg.lament_slab": "Losa de los lamentos",
-  "item.byg.lament_fence": "Valla de los lamentos",
-  "item.byg.lament_fence_gate": "Puerta de valla de los lamentos",
-  "item.byg.lament_door": "Puerta de los lamentos",
-  "item.byg.lament_trapdoor": "Trampilla de los lamentos",
-  "item.byg.lament_pressure_plate": "Placa de presión de los lamentos",
-  "item.byg.lament_button": "Botón de los lamentos",
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+
+
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
   "item.byg.mahogany_sapling": "Brote de caoba",
   "item.byg.mahogany_leaves": "Hojas de caoba",
   "item.byg.mahogany_log": "Tronco de caoba",
@@ -1976,30 +1976,30 @@
   "item.byg.sythian_trapdoor": "Trampilla sidiana",
   "item.byg.sythian_pressure_plate": "Placa de presión sidiana",
   "item.byg.sythian_button": "Botón sidiano",
-  "item.byg.embur_gel_ball": "Bola de gel de embur",
-  "item.byg.embur_gel_block": "Bloque de gel de embur",
-  "item.byg.embur_gel_branch": "Rama de gel de embur",
-  "item.byg.embur_gel_vines": "Enredaderas de gel de embur",
-  "item.byg.embur_wart": "Verruga de embur",
-  "item.byg.embur_pedu": "Tallo de embur",
-  "item.byg.embur_hyphae": "Hifas de embur",
-  "item.byg.stripped_embur_pedu": "Tallo de embur sin corteza",
-  "item.byg.stripped_embur_hyphae": "Hifas de embur sin corteza",
-  "item.byg.embur_planks": "Tablones de embur",
-  "item.byg.embur_bookshelf": "Librería de embur",
-  "item.byg.embur_crafting_table": "Mesa de trabajo de embur",
-  "item.byg.embur_stairs": "Escaleras de embur",
-  "item.byg.embur_slab": "Losa de embur",
-  "item.byg.embur_fence": "Valla de embur",
-  "item.byg.embur_fence_gate": "Puerta de valla de embur",
-  "item.byg.embur_door": "Puerta de embur",
-  "item.byg.embur_trapdoor": "Trampilla de embur",
-  "item.byg.embur_pressure_plate": "Placa de presión de embur",
-  "item.byg.embur_button": "Botón de embur",
-  "item.byg.withering_oak_sapling": "Brote de roble marchito",
-  "item.byg.withering_oak_leaves": "Hojas de roble marchito",
-  "item.byg.withering_oak_log": "Tronco de roble marchito",
-  "item.byg.withering_oak_wood": "Leño de roble marchito",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.araucaria_sapling": "Brote de araucaria",
   "item.byg.araucaria_leaves": "Hojas de araucaria",
   "item.byg.blue_spruce_sapling": "Brote de abeto azul",
@@ -2088,8 +2088,8 @@
   "item.byg.quartz_crystal": "Cristal de cuarzo",
   "item.byg.quartzite_sand": "Arena de cuarcita",
   "item.byg.raw_quartz_block": "Bloque de cuarzo en bruto",
-  "item.byg.blue_nether_gold_ore": "Mena de oro del Nether azul",
-  "item.byg.blue_nether_quartz_ore": "Mena de cuarzo del Nether azul",
+
+
   "item.byg.brimstone_nether_gold_ore": "Mena de oro del Nether de azufre",
   "item.byg.brimstone_nether_quartz_ore": "Mena de cuarzo del Nether de azufre",
   "item.byg.wailing_bell_blossom":"Flor de los lamentos",
@@ -2118,14 +2118,14 @@
   "item.byg.sythian_stalk_block": "Bloque de cañas sidianas",
   "item.byg.sythian_scaffolding": "Andamio sidiano",
   "item.byg.hanging_sythian_roots": "Enredaderas sidianas",
-  "item.byg.embur_nylium": "Necelio de embur",
-  "item.byg.embur_sprouts": "Rastrojo de embur",
-  "item.byg.embur_roots": "Raíces de embur",
-  "item.byg.tall_embur_roots": "Raíces de embur altas",
-  "item.byg.embur_lily": "Lirio de embur",
-  "item.byg.blue_nether_brick": "Ladrillo del Nether azul",
-  "item.byg.blue_netherrack": "Netherrack azul",
-  "item.byg.blue_nether_bricks": "Ladrillos del Nether azules",
+
+
+
+
+
+
+
+
   "item.byg.ivis_phylium": "Ficelio de ivis",
   "item.byg.ivis_roots": "Raíces de ivis",
   "item.byg.ivis_sprout": "Rastrojo de ivis",

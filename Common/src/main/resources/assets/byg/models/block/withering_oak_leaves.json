@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/leaves",
-  "textures": {
-    "all": "byg:block/withering_oak_leaves"
-  }
-}

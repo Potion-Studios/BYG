@@ -61,26 +61,6 @@ public class BYGNetherBiomes {
 
     }
 
-    public static Biome emburBog(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        generationSettings.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, NetherPlacements.DELTA);
-        generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
-        vanillaNetherFeatures(generationSettings);
-        BYGDefaultBiomeFeatures.addEmburBogVegetation(generationSettings);
-        BYGDefaultBiomeFeatures.addBeeHive(generationSettings);
-        addAncientDebris(generationSettings); //Ores
-        BYGDefaultBiomeFeatures.addBlueNetherOres(generationSettings);
-
-
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.BLAZE, 20, 2, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIFIED_PIGLIN, 80, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.MAGMA_CUBE, 100, 2, 5));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PIGLIN, 15, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.STRIDER, 60, 1, 2));
-        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(15110510).skyColor(15110510).ambientParticle(new AmbientParticleSettings(ParticleTypes.FLAME, 0.00228F)).ambientLoopSound(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_BASALT_DELTAS)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
-    }
-
     public static Biome glowstoneGardens(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -111,7 +91,6 @@ public class BYGNetherBiomes {
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
 
-        BYGDefaultBiomeFeatures.addSparseWitheringOakTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMagmaFire(generationSettings);
         BYGDefaultBiomeFeatures.addMagmaPillars(generationSettings);
         BYGDefaultBiomeFeatures.addScorchedPlants(generationSettings);
@@ -240,7 +219,6 @@ public class BYGNetherBiomes {
         vanillaNetherFeatures(generationSettings);
         BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
         addAncientDebris(generationSettings); //Ores
-        BYGDefaultBiomeFeatures.addWitheringOakTrees(generationSettings);
         BYGDefaultBiomeFeatures.addMagmaFire(generationSettings);
         BYGDefaultBiomeFeatures.addScorchedPlants(generationSettings);
         BYGDefaultBiomeFeatures.addBlackRose(generationSettings);
@@ -254,29 +232,6 @@ public class BYGNetherBiomes {
 
         return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(4794404).skyColor(4794404).ambientParticle(new AmbientParticleSettings(ParticleTypes.ASH, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SOUL_SAND_VALLEY)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
 
-    }
-
-    public static Biome weepingMire(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) { 
-        MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
-        BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        generationSettings.addCarver(GenerationStep.Carving.AIR, Carvers.NETHER_CAVE);
-        vanillaNetherFeatures(generationSettings);
-        generationSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, NetherPlacements.NETHER_SPROUTS); 
-        BiomeDefaultFeatures.addNetherDefaultOres(generationSettings); //Ores
-        addAncientDebris(generationSettings); //Ores
-        BYGDefaultBiomeFeatures.addLamentTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addMiniNetherMushrooms(generationSettings);
-        BYGDefaultBiomeFeatures.addWeepigMireVegetation(generationSettings);
-
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.GHAST, 50, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ZOMBIFIED_PIGLIN, 100, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.MAGMA_CUBE, 2, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 1, 4, 4));
-        spawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.PIGLIN, 15, 4, 4));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.STRIDER, 60, 1, 2));
-        spawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.HOGLIN, 60, 1, 2));
-
-        return new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).grassColorOverride(10162563).foliageColorOverride(10162563).waterColor(4159204).waterFogColor(329011).fogColor(5318201).skyColor(5318201).ambientParticle(new AmbientParticleSettings(ParticleTypes.WARPED_SPORE, 0.01428F)).ambientLoopSound(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP).ambientMoodSound(new AmbientMoodSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD, 6000, 8, 2.0D)).ambientAdditionsSound(new AmbientAdditionsSettings(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, 0.0111D)).backgroundMusic(Musics.createGameMusic(SoundEvents.MUSIC_BIOME_SOUL_SAND_VALLEY)).build()).mobSpawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
 
     private static void vanillaNetherFeatures(BiomeGenerationSettings.Builder generationSettings) {

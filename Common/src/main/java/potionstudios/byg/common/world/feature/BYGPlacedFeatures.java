@@ -277,11 +277,7 @@ public class BYGPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> ORE_GOLD_BRIMSTONE = createPlacedFeature("ore_gold_brimstone", BYGNetherFeatures.ORE_GOLD_BRIMSTONE, () -> byg_invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
     public static final ResourceKey<PlacedFeature> ORE_QUARTZ_BRIMSTONE = createPlacedFeature("ore_quartz_brimstone", BYGNetherFeatures.ORE_QUARTZ_BRIMSTONE, () -> byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
-    public static final ResourceKey<PlacedFeature> ORE_GOLD_BLUE_NETHERRACK = createPlacedFeature("ore_gold_blue_netherrack", BYGNetherFeatures.ORE_GOLD_BLUE_NETHERRACK, () -> byg_invokeCommonOrePlacement(10, PlacementUtils.RANGE_10_10));
-    public static final ResourceKey<PlacedFeature> ORE_QUARTZ_BLUE_NETHERRACK = createPlacedFeature("ore_quartz_blue_netherrack", BYGNetherFeatures.ORE_QUARTZ_BLUE_NETHERRACK, () -> byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
     public static final ResourceKey<PlacedFeature> ORE_ANTHRACITE = createPlacedFeature("ore_anthracite", BYGNetherFeatures.ORE_ANTHRACITE, () -> byg_invokeCommonOrePlacement(20, PlacementUtils.RANGE_10_10));
-
-    public static final ResourceKey<PlacedFeature> ORE_PENDORITE = createPlacedFeature("ore_pendorite", BYGNetherFeatures.ORE_PENDORITE, () -> byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
     public static final ResourceKey<PlacedFeature> ORE_EMERALDITE = createPlacedFeature("ore_emeraldite", BYGNetherFeatures.ORE_EMERALDITE, () -> byg_invokeCommonOrePlacement(16, PlacementUtils.RANGE_10_10));
 
 
@@ -302,10 +298,6 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> SOUL_SOIL_PILLARS = createPlacedFeature("soul_soil_pillars", BYGNetherFeatures.SOUL_SOIL_PILLARS, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_FUNGUS_PILLARS = createPlacedFeature("sythian_fungus_pillars", BYGNetherFeatures.SYTHIAN_FUNGUS_PILLARS, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
 
-    public static final ResourceKey<PlacedFeature> EMBUR_ROOTS = createPlacedFeature("embur_roots", BYGNetherVegetationFeatures.EMBUR_ROOTS, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> TALL_EMBUR_ROOTS = createPlacedFeature("tall_embur_roots", BYGNetherVegetationFeatures.TALL_EMBUR_ROOTS, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> EMBUR_WART = createPlacedFeature("embur_wart", BYGNetherVegetationFeatures.EMBUR_WART, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> EMBUR_SPROUT = createPlacedFeature("embur_sprout", BYGNetherVegetationFeatures.EMBUR_SPROUT, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_ROOTS = createPlacedFeature("sythian_roots", BYGNetherVegetationFeatures.SYTHIAN_ROOTS, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_SPROUT = createPlacedFeature("sythian_sprout", BYGNetherVegetationFeatures.SYTHIAN_SPROUT, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_FUNGUS = createPlacedFeature("sythian_fungus", BYGNetherVegetationFeatures.SYTHIAN_FUNGUS, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
@@ -317,10 +309,8 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> CRIMSON_BERRY_BUSH = createPlacedFeature("crimson_berry_bush", BYGNetherVegetationFeatures.CRIMSON_BERRY_BUSH, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> CHAINS = createPlacedFeature("chains", BYGNetherVegetationFeatures.CHAINS, () -> HeightRangePlacement.uniform(VerticalAnchor.belowTop(6), VerticalAnchor.aboveBottom(6)), InSquarePlacement::spread, BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> CRIMSON_GARDEN_VEGETATION = createPlacedFeature("crimson_garden_vegetation", BYGNetherVegetationFeatures.CRIMSON_GARDEN_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> EMBUR_BOG_VEGETATION = createPlacedFeature("embur_bog_vegetation", BYGNetherVegetationFeatures.EMBUR_BOG_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> GLOWSTONE_GARDEN_VEGETATION = createPlacedFeature("glowstone_garden_vegetation", BYGNetherVegetationFeatures.GLOWSTONE_GARDEN_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_VEGETATION = createPlacedFeature("sythian_vegetation", BYGNetherVegetationFeatures.SYTHIAN_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> EMBUR_LILY = createPlacedFeature("embur_lily", BYGNetherVegetationFeatures.EMBUR_LILY, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> FUNGI = createPlacedFeature("fungi", BYGNetherVegetationFeatures.FUNGI, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> BLACKSTONE_BOULDERS_NETHER = createPlacedFeature("blackstone_boulders_nether", BYGOverworldFeatures.BLACKSTONE_BOULDER, () -> CountOnEveryLayerPlacement.of(2), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> WEEPING_VINES = createPlacedFeature("weeping_vines", BYGNetherVegetationFeatures.WEEPING_VINES, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
@@ -332,11 +322,6 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> HANGING_CHAINS = createPlacedFeature("hanging_chains", BYGNetherFeatures.HANGING_CHAINS, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> HANGING_LANTERNS = createPlacedFeature("hanging_lanterns", BYGNetherFeatures.HANGING_LANTERNS, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> HANGING_SOUL_SHROOM_SPORES = createPlacedFeature("hanging_soul_shroom_spores", BYGNetherVegetationFeatures.HANGING_SOUL_SHROOM_SPORES, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> LAMENT_VINE_FEATURE = createPlacedFeature("lament_vine_feature", BYGNetherVegetationFeatures.LAMENT_VINE_FEATURE, () -> CountPlacement.of(10), InSquarePlacement::spread, () -> PlacementUtils.FULL_RANGE, BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> EMBUR_MUSHROOMS = createPlacedFeature("embur_mushrooms", BYGNetherVegetationFeatures.EMBUR_MUSHROOMS, () -> CountOnEveryLayerPlacement.of(3), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> LAMENT_VEGETATION = createPlacedFeature("lament_vegetation", BYGNetherVegetationFeatures.LAMENT_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> SPARSE_WITHERING_OAK_TREES = createPlacedFeature("sparse_withering_oak_trees", BYGNetherVegetationFeatures.WITHERING_OAK_TREES, () -> CountOnEveryLayerPlacement.of(4), () -> RarityFilter.onAverageOnceEvery(3), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> WITHERING_OAK_TREES = createPlacedFeature("withering_oak_trees", BYGNetherVegetationFeatures.WITHERING_OAK_TREES, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SOUL_SHROOM_TREES = createPlacedFeature("soul_shroom_trees", BYGNetherVegetationFeatures.SOUL_SHROOM_TREES, () -> CountOnEveryLayerPlacement.of(8), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_FUNGI_TREES = createPlacedFeature("sythian_fungi_trees", BYGNetherVegetationFeatures.SYTHIAN_FUNGI_TREES, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> SYTHIAN_STALK = createPlacedFeature("sythian_stalk", BYGNetherVegetationFeatures.SYTHIAN_STALK, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
@@ -349,8 +334,6 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> WARPED_DESERT_VEGETATION = createPlacedFeature("warped_desert_vegetation", BYGNetherVegetationFeatures.WARPED_DESERT_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> WAILING_VEGETATION = createPlacedFeature("wailing_vegetation", BYGNetherVegetationFeatures.WAILING_VEGETATION, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> MINI_MUSHROOMS = createPlacedFeature("mini_mushrooms", BYGNetherVegetationFeatures.MINI_MUSHROOMS, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> TWISTY_LAMENT_TREES = createPlacedFeature("twisty_lament_trees", BYGNetherVegetationFeatures.TWISTY_LAMENT_TREES, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
-    public static final ResourceKey<PlacedFeature> WEEPING_LAMENT_TREES = createPlacedFeature("weeping_lament_trees", BYGNetherVegetationFeatures.WEEPING_LAMENT_TREES, () -> CountOnEveryLayerPlacement.of(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> WAILING_PILLARS = createPlacedFeature("wailing_pillar", BYGNetherFeatures.WAILING_PILLAR, () -> CountOnEveryLayerPlacement.of(1), () -> RarityFilter.onAverageOnceEvery(4), BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> MAGMA_PATCH_FIRE = createPlacedFeature("magma_patch_fire", BYGNetherFeatures.MAGMA_PATCH_FIRE, () -> CountPlacement.of(UniformInt.of(30, 45)), InSquarePlacement::spread, () -> PlacementUtils.RANGE_4_4, BiomeFilter::biome);
     public static final ResourceKey<PlacedFeature> NYLIUM_SOUL_PATCH_FIRE = createPlacedFeature("nylium_soul_patch_fire", BYGNetherFeatures.NYLIUM_SOUL_PATCH_FIRE, () -> CountPlacement.of(UniformInt.of(5, 10)), InSquarePlacement::spread, () -> PlacementUtils.RANGE_4_4, BiomeFilter::biome);

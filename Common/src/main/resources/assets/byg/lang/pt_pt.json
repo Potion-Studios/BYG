@@ -29,7 +29,7 @@
     "biome.byg.dacite_shore":"Costa Dacita",
     "biome.byg.dead_sea":"Mar Morto",
     "biome.byg.ebony_woods":"Bosques de Ébano",
-    "biome.byg.embur_bog":"Pântano Embur",
+
     "biome.byg.ethereal_islands":"Ilhas Etéreas",
     "biome.byg.firecracker_shrubland":"Matagal de fogos de artifício",
     "biome.byg.enchanted_tangle":"Floresta Esquecida",
@@ -191,13 +191,13 @@
     "block.byg.blue_enchanted_stairs":"Escadas Encantadas Azuis",
     "block.byg.blue_enchanted_trapdoor":"Alçapão Encantado Azul",
     "block.byg.blue_enchanted_wood":"Madeira Encantada Azul",
-    "block.byg.blue_nether_brick_slab":"Laje de tijolo azul do Nether",
-    "block.byg.blue_nether_brick_stairs":"Escadas de tijolo azul do Nether",
-    "block.byg.blue_nether_brick_wall":"Parede de tijolo azul do Nether",
-    "block.byg.blue_nether_bricks":"Tijolos do Nether Azuis",
-    "block.byg.blue_nether_gold_ore":"Minério de ouro inferior azul",
-    "block.byg.blue_nether_quartz_ore":"Minério de Quartzo Nether Azul",
-    "block.byg.blue_netherrack":"Netherrack azul",
+
+
+
+
+
+
+
     "block.byg.blue_sage":"Sálvia Azul",
     "block.byg.blue_sand":"Areia Azul",
     "block.byg.blue_sandstone":"Arenito Azul",
@@ -382,28 +382,28 @@
     "block.byg.ebony_stairs":"Escadas de Ébano",
     "block.byg.ebony_trapdoor":"Alçapão de Ébano",
     "block.byg.ebony_wood":"Madeira de ébano",
-    "block.byg.embur_bookshelf":"Estante Embur",
-    "block.byg.embur_button":"Botão de embutir",
-    "block.byg.embur_crafting_table":"Embur Crafting Table",
-    "block.byg.embur_door":"Emburrar Porta",
-    "block.byg.embur_fence":"Cerca de Emburrar",
-    "block.byg.embur_fence_gate":"Emburr Portão",
-    "block.byg.embur_gel_block":"Bloco de Gel Emburrado",
-    "block.byg.embur_gel_branch":"Ramo de Gel Embur",
-    "block.byg.embur_gel_vines":"Videiras de Gel Embur",
-    "block.byg.embur_gel_vines_plant":"Planta de vinhas de gel Embur",
-    "block.byg.embur_hyphae":"Embur Hyphae",
-    "block.byg.embur_lily":"Embur Lily",
-    "block.byg.embur_nylium":"Embur Nylium",
-    "block.byg.embur_pedu":"Embur Pedu",
-    "block.byg.embur_planks":"Pranchas de embutir",
-    "block.byg.embur_pressure_plate":"Placa de Pressão Emburrada",
-    "block.byg.embur_roots":"Embutir Raízes",
-    "block.byg.embur_slab":"Laje de Revestimento",
-    "block.byg.embur_sprouts":"Brotos Embutidos",
-    "block.byg.embur_stairs":"Escadas Emburradas",
-    "block.byg.embur_trapdoor":"Alçapão Embur",
-    "block.byg.embur_wart":"Embur Wart",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.emeraldite_ore":"Minério de esmeralda",
     "block.byg.end_sand":"Areia final",
     "block.byg.ender_lily":"Ender Lily",
@@ -567,24 +567,24 @@
     "block.byg.joshua_leaves":"Folhas de Josué",
     "block.byg.joshua_sapling":"Rebento de Josué",
     "block.byg.kovan_flower":"Flor Kovan",
-    "block.byg.lament_bookshelf":"Estante de Lamento",
-    "block.byg.lament_button":"Botão de lamento",
-    "block.byg.lament_crafting_table":"Mesa de trabalho de lamento",
-    "block.byg.lament_door":"Porta do lamento",
-    "block.byg.lament_fence":"Cerca Lamento",
-    "block.byg.lament_fence_gate":"Lamento Portão",
-    "block.byg.lament_leaves":"Folhas de lamento",
-    "block.byg.lament_log":"Registro de Lamento",
-    "block.byg.lament_planks":"Pranchas de lamento",
-    "block.byg.lament_pressure_plate":"Placa de Pressão do lamento",
-    "block.byg.lament_sapling":"Rebento de lamento",
-    "block.byg.lament_slab":"Laje de Lamento",
-    "block.byg.lament_sprouts":"Brotos de Lamento",
-    "block.byg.lament_stairs":"Escadas de Lamento",
-    "block.byg.lament_trapdoor":"Alçapão do lamento",
-    "block.byg.lament_vine":"Lamento Vinha",
-    "block.byg.lament_vine_plant":"Planta de Videira Lament",
-    "block.byg.lament_wood":"Madeira de Lamento",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.large_subzero_crystal_bud":"Grande botão de cristal subzero",
     "block.byg.lazarus_bellflower":"Campainha de Lázaro",
     "block.byg.leaf_pile":"Pilha de folhas",
@@ -695,8 +695,8 @@
     "block.byg.palo_verde_wood":"Madeira Palo Verde",
     "block.byg.peach_leather_flower":"Flor de couro de pêssego",
     "block.byg.peat":"Turfa",
-    "block.byg.pendorite_block":"Bloco de Pendorite",
-    "block.byg.pendorite_ore":"Minério de Pendorite",
+
+
     "block.byg.pervaded_netherrack":"Netherrack permeável",
     "block.byg.pine_bookshelf":"Estante de pinho",
     "block.byg.pine_button":"Botão de pinho",
@@ -760,7 +760,7 @@
     "block.byg.potted_daffodil":"Narciso em vaso",
     "block.byg.potted_death_cap":"Capuz da Morte em Vaso",
     "block.byg.potted_ebony_sapling":"Rebento de ébano em vaso",
-    "block.byg.potted_embur_wart":"Verruga Embur Em Vaso",
+
     "block.byg.potted_ether_sapling":"Rebento de éter em vaso",
     "block.byg.potted_fir_sapling":"Rebento de Abeto em Vaso",
     "block.byg.potted_firecracker_flower_bush":"Arbusto de flores de bombinhas em vaso",
@@ -1009,8 +1009,8 @@
     "block.byg.stripped_cypress_wood":"Madeira de Cipreste Despojado",
     "block.byg.stripped_ebony_log":"Tronco de Ébano Despojado",
     "block.byg.stripped_ebony_wood":"Madeira de Ébano Despojada",
-    "block.byg.stripped_embur_hyphae":"Hifas Embur Despojadas",
-    "block.byg.stripped_embur_pedu":"Embur Pedu despojado",
+
+
     "block.byg.stripped_ether_log":"Log de Éter Despojado",
     "block.byg.stripped_ether_wood":"Madeira de éter descascada",
     "block.byg.stripped_fir_log":"Tronco de Abeto Despojado",
@@ -1021,8 +1021,8 @@
     "block.byg.stripped_holly_wood":"Madeira de azevinho descascada",
     "block.byg.stripped_jacaranda_log":"Tronco de Jacarandá Despojado",
     "block.byg.stripped_jacaranda_wood":"Madeira de Jacarandá descascada",
-    "block.byg.stripped_lament_log":"Log de Lamento Despojado",
-    "block.byg.stripped_lament_wood":"Madeira de Lamento Despojado",
+
+
     "block.byg.stripped_mahogany_log":"Tronco de mogno descascado",
     "block.byg.stripped_mahogany_wood":"Madeira de mogno descascada",
     "block.byg.stripped_maple_log":"Log de Maple Despojado",
@@ -1080,7 +1080,7 @@
     "block.byg.tall_beach_grass":"Grama de praia alta",
     "block.byg.tall_crimson_roots":"Raízes Carmesim Altas",
     "block.byg.tall_cryptic_vent":"Ventilador Críptico Alto",
-    "block.byg.tall_embur_roots":"Raízes Embutidas Altas",
+
     "block.byg.tall_ether_grass":"Grama de éter alta",
     "block.byg.tall_pink_allium":"Allium rosa alto",
     "block.byg.tall_prairie_grass":"Grama alta da pradaria",
@@ -1187,10 +1187,10 @@
     "block.byg.witch_hazel_stairs":"Escadas de hamamélis",
     "block.byg.witch_hazel_trapdoor":"Alçapão de Hamamélis",
     "block.byg.witch_hazel_wood":"Madeira de Hamamélis",
-    "block.byg.withering_oak_leaves":"Folhas de carvalho murchando",
-    "block.byg.withering_oak_log":"Tronco de Carvalho Murcha",
-    "block.byg.withering_oak_sapling":"Rebento de carvalho murcha",
-    "block.byg.withering_oak_wood":"Madeira de carvalho murcha",
+
+
+
+
     "block.byg.wood_blewit":"blewit de madeira",
     "block.byg.wood_blewit_mushroom_block":"Bloco de Cogumelo Blewit de Madeira",
     "block.byg.yellow_birch_leaves":"Folhas de Bétula Amarela",
@@ -1365,14 +1365,14 @@
     "item.byg.blue_enchanted_stairs":"Escadas Encantadas Azuis",
     "item.byg.blue_enchanted_trapdoor":"Alçapão Encantado Azul",
     "item.byg.blue_enchanted_wood":"Madeira Encantada Azul",
-    "item.byg.blue_nether_brick":"Tijolo do Nether Azul",
-    "item.byg.blue_nether_brick_slab":"Laje de tijolo azul do Nether",
-    "item.byg.blue_nether_brick_stairs":"Escadas de tijolo azul do Nether",
-    "item.byg.blue_nether_brick_wall":"Parede de tijolo azul do Nether",
-    "item.byg.blue_nether_bricks":"Tijolos do Nether Azuis",
-    "item.byg.blue_nether_gold_ore":"Minério de ouro inferior azul",
-    "item.byg.blue_nether_quartz_ore":"Minério de Quartzo Nether Azul",
-    "item.byg.blue_netherrack":"Netherrack azul",
+
+
+
+
+
+
+
+
     "item.byg.blue_sage":"Sálvia Azul",
     "item.byg.blue_sand":"Areia Azul",
     "item.byg.blue_sandstone":"Arenito Azul",
@@ -1570,28 +1570,28 @@
     "item.byg.ebony_stairs":"Escadas de Ébano",
     "item.byg.ebony_trapdoor":"Alçapão de Ébano",
     "item.byg.ebony_wood":"Madeira de ébano",
-    "item.byg.embur_bookshelf":"Estante Embur",
-    "item.byg.embur_button":"Botão de embutir",
-    "item.byg.embur_crafting_table":"Embur Crafting Table",
-    "item.byg.embur_door":"Emburrar Porta",
-    "item.byg.embur_fence":"Cerca de Emburrar",
-    "item.byg.embur_fence_gate":"Portão Embur",
-    "item.byg.embur_gel_ball":"Bola de Gel Embur",
-    "item.byg.embur_gel_block":"Bloco de Gel Emburrado",
-    "item.byg.embur_gel_branch":"Ramo de Gel Embur",
-    "item.byg.embur_gel_vines":"Videiras de Gel Embur",
-    "item.byg.embur_hyphae":"Embur Hyphae",
-    "item.byg.embur_lily":"Embur Lily",
-    "item.byg.embur_nylium":"Embur Nylium",
-    "item.byg.embur_pedu":"Embur Pedu",
-    "item.byg.embur_planks":"Pranchas de embutir",
-    "item.byg.embur_pressure_plate":"Placa de Pressão Emburrada",
-    "item.byg.embur_roots":"Embutir Raízes",
-    "item.byg.embur_slab":"Laje de Revestimento",
-    "item.byg.embur_sprouts":"Brotos Embutidos",
-    "item.byg.embur_stairs":"Escadas Emburradas",
-    "item.byg.embur_trapdoor":"Alçapão Embur",
-    "item.byg.embur_wart":"Embur Wart",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.emeraldite_ore":"Minério de esmeralda",
     "item.byg.emeraldite_shards":"Fragmentos de Esmeralda",
     "item.byg.end_sand":"Areia final",
@@ -1764,23 +1764,23 @@
     "item.byg.joshua_leaves":"Folhas de Josué",
     "item.byg.joshua_sapling":"Rebento de Josué",
     "item.byg.kovan_flower":"Flor Kovan",
-    "item.byg.lament_bookshelf":"Estante de Lamento",
-    "item.byg.lament_button":"Botão de lamento",
-    "item.byg.lament_crafting_table":"Mesa de trabalho de lamento",
-    "item.byg.lament_door":"Porta do lamento",
-    "item.byg.lament_fence":"Cerca Lamento",
-    "item.byg.lament_fence_gate":"Lamento Portão",
-    "item.byg.lament_leaves":"Folhas de lamento",
-    "item.byg.lament_log":"Registro de Lamento",
-    "item.byg.lament_planks":"Pranchas de lamento",
-    "item.byg.lament_pressure_plate":"Placa de Pressão do lamento",
-    "item.byg.lament_sapling":"Rebento de lamento",
-    "item.byg.lament_slab":"Laje de Lamento",
-    "item.byg.lament_sprouts":"Brotos de Lamento",
-    "item.byg.lament_stairs":"Escadas de Lamento",
-    "item.byg.lament_trapdoor":"Alçapão do lamento",
-    "item.byg.lament_vine":"Lamento Vinha",
-    "item.byg.lament_wood":"Madeira de Lamento",
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
     "item.byg.large_subzero_crystal_bud":"Grande botão de cristal subzero",
     "item.byg.lazarus_bellflower":"Campainha de Lázaro",
     "item.byg.leaf_pile":"Pilha de folhas",
@@ -1898,17 +1898,17 @@
     "item.byg.palo_verde_wood":"Madeira Palo Verde",
     "item.byg.peach_leather_flower":"Flor de couro de pêssego",
     "item.byg.peat":"Turfa",
-    "item.byg.pendorite_axe":"Machado de Pendorite",
-    "item.byg.pendorite_battleaxe":"Machado de Batalha Pendorite",
-    "item.byg.pendorite_block":"Bloco de Pendorite",
-    "item.byg.pendorite_hoe":"Enxada de Pendorite",
-    "item.byg.pendorite_horse_armor":"Armadura de Cavalo Pendorite",
-    "item.byg.pendorite_ingot":"Lingote de Pendorite",
-    "item.byg.pendorite_ore":"Minério de Pendorite",
-    "item.byg.pendorite_pickaxe":"Picareta de Pendorite",
-    "item.byg.pendorite_scraps":"Restos de Pendorite",
-    "item.byg.pendorite_shovel":"Pá de Pendorite",
-    "item.byg.pendorite_sword":"Espada de Pendorite",
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.pervaded_netherrack":"Netherrack permeável",
     "item.byg.pine_boat":"Barco Pinheiro",
     "item.byg.pine_bookshelf":"Estante de pinho",
@@ -2118,8 +2118,8 @@
     "item.byg.stripped_cypress_wood":"Madeira de Cipreste Despojado",
     "item.byg.stripped_ebony_log":"Tronco de Ébano Despojado",
     "item.byg.stripped_ebony_wood":"Madeira de Ébano Despojada",
-    "item.byg.stripped_embur_hyphae":"Hifas Embur Despojadas",
-    "item.byg.stripped_embur_pedu":"Embur Pedu despojado",
+
+
     "item.byg.stripped_ether_log":"Log de Éter Despojado",
     "item.byg.stripped_ether_wood":"Madeira de éter descascada",
     "item.byg.stripped_fir_log":"Tronco de Abeto Despojado",
@@ -2130,8 +2130,8 @@
     "item.byg.stripped_holly_wood":"Madeira de azevinho descascada",
     "item.byg.stripped_jacaranda_log":"Tronco de Jacarandá Despojado",
     "item.byg.stripped_jacaranda_wood":"Madeira de Jacarandá descascada",
-    "item.byg.stripped_lament_log":"Log de Lamento Despojado",
-    "item.byg.stripped_lament_wood":"Madeira de Lamento Despojado",
+
+
     "item.byg.stripped_mahogany_log":"Tronco de mogno descascado",
     "item.byg.stripped_mahogany_wood":"Madeira de mogno descascada",
     "item.byg.stripped_maple_log":"Log de Maple Despojado",
@@ -2189,7 +2189,7 @@
     "item.byg.tall_allium":"Allium alto",
     "item.byg.tall_crimson_roots":"Raízes Carmesim Altas",
     "item.byg.tall_cryptic_vent":"Ventilador Críptico Alto",
-    "item.byg.tall_embur_roots":"Raízes Embutidas Altas",
+
     "item.byg.tall_ether_grass":"Grama de éter alta",
     "item.byg.tall_pink_allium":"Allium rosa alto",
     "item.byg.tall_prairie_grass":"Grama alta da pradaria",
@@ -2302,10 +2302,10 @@
     "item.byg.witch_hazel_stairs":"Escadas de hamamélis",
     "item.byg.witch_hazel_trapdoor":"Alçapão de Hamamélis",
     "item.byg.witch_hazel_wood":"Madeira de Hamamélis",
-    "item.byg.withering_oak_leaves":"Folhas de carvalho murchando",
-    "item.byg.withering_oak_log":"Tronco de Carvalho Murcha",
-    "item.byg.withering_oak_sapling":"Rebento de carvalho murcha",
-    "item.byg.withering_oak_wood":"Madeira de carvalho murcha",
+
+
+
+
     "item.byg.wood_blewit":"blewit de madeira",
     "item.byg.wood_blewit_mushroom_block":"Bloco de Cogumelo Blewit de Madeira",
     "item.byg.yellow_birch_leaves":"Folhas de Bétula Amarela",
