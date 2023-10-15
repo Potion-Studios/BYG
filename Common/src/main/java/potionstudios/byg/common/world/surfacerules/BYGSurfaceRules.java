@@ -353,7 +353,6 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource GLOWSTONE_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.GLOWSTONE_GARDENS),
             BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(Blocks.WARPED_NYLIUM.defaultBlockState())), 1)
-                    .add(SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState())), 1)
                     .build()));
 
     public static final SurfaceRules.RuleSource SUBZERO_HYPOGEAL = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.SUBZERO_HYPOGEAL),
@@ -365,13 +364,11 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource ARISIAN_UNDERGROWTH = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.ARISIAN_UNDERGROWTH),
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SurfaceRules.state(BYGBlocks.MAGMATIC_STONE.defaultBlockState()), 1)
-                    .add(SurfaceRules.state(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState()), 9)
                     .build())));
 
     public static final SurfaceRules.RuleSource WEEPING_MIRE = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WEEPING_MIRE),
             SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()
                     .add(SurfaceRules.state(Blocks.SOUL_SOIL.defaultBlockState()), 1)
-                    .add(SurfaceRules.state(BYGBlocks.OVERGROWN_NETHERRACK.defaultBlockState()), 9)
                     .build())));
 
     public static final SurfaceRules.RuleSource WARPED_DESERT = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.WARPED_DESERT),

@@ -60,7 +60,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SCORCHED_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BORIC_CAMPFIRE.get(), RenderType.cutoutMipped());
         //Nether
-        map.put(BYGBlocks.OVERGROWN_NETHERRACK.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE_END.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM.get(), RenderType.cutoutMipped());

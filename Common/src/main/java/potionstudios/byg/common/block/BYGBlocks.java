@@ -636,7 +636,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> OVERGROWN_DACITE = createStoneSpreadable(DACITE, MapColor.COLOR_GREEN, "overgrown_dacite");
     public static final BlockRegistryObject<Block> OVERGROWN_STONE = createStoneSpreadable(() -> Blocks.STONE, MapColor.COLOR_GREEN, "overgrown_stone");
     public static final BlockRegistryObject<Block> OVERGROWN_CRIMSON_BLACKSTONE = createNetherStoneSpreadable(Blocks.BLACKSTONE, MapColor.COLOR_RED, () -> NetherFeatures.CRIMSON_FOREST_VEGETATION_BONEMEAL, "overgrown_crimson_blackstone");
-    public static final BlockRegistryObject<Block> OVERGROWN_NETHERRACK = createNetherSpreadable(() -> Blocks.NETHERRACK, MapColor.COLOR_GREEN, () -> NetherFeatures.TWISTING_VINES_BONEMEAL, "overgrown_netherrack");
     public static final BlockRegistryObject<Block> IVIS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.COLOR_PURPLE, () -> BYGEndVegetationFeatures.IVIS_PLANTS, "ivis_phylium");
     public static final BlockRegistryObject<Block> EMBUR_NYLIUM = createNetherSpreadable(BLUE_NETHERRACK, MapColor.COLOR_ORANGE, () -> BYGNetherVegetationFeatures.EMBUR_BOG_VEGETATION, "embur_nylium");
     public static final BlockRegistryObject<Block> SYTHIAN_NYLIUM = createNetherSpreadable(() -> Blocks.NETHERRACK, MapColor.COLOR_YELLOW, () -> BYGNetherVegetationFeatures.SYTHIAN_VEGETATION, "sythian_nylium");

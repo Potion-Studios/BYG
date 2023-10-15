@@ -573,8 +573,6 @@ public class BYGItems {
 
     public static final RegistryObject<Item> WEEPING_ROOTS = createItem(BYGBlocks.WEEPING_ROOTS);
     public static final RegistryObject<Item> NETHER_BRISTLE = createItem(BYGBlocks.NETHER_BRISTLE);
-    public static final RegistryObject<Item> OVERGROWN_NETHERRACK = createItem(BYGBlocks.OVERGROWN_NETHERRACK);
-
 
     public static final RegistryObject<Item> SYTHIAN_NYLIUM = createItem(BYGBlocks.SYTHIAN_NYLIUM);
     public static final RegistryObject<Item> SYTHIAN_ROOTS = createItem(BYGBlocks.SYTHIAN_ROOTS);
