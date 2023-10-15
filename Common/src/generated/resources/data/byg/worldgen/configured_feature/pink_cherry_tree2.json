@@ -39,14 +39,14 @@
     "log_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "byg:cherry_log",
+        "Name": "minecraft:cherry_log",
         "Properties": {
           "axis": "y"
         }
       }
     },
     "log_target": [
-      "byg:cherry_log"
+      "minecraft:cherry_log"
     ],
     "place_from_nbt": []
   }
