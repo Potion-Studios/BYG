@@ -161,7 +161,7 @@
   "biome.byg.magma_wastes": "Baldíos magmáticos",
   "biome.byg.subzero_hypogeal": "Hipogeo bajo cero",
   "biome.byg.wailing_garth": "Jardín de los lamentos",
-  "biome.byg.withering_woods": "Bosque marchito",
+
   "biome.byg.weeping_mire": "Ciénaga lacrimosa",
   "biome.byg.quartz_desert": "Desierto de cuarzo",
   "biome.byg.nightshade_forest": "Bosque de belladonas",
@@ -1209,8 +1209,7 @@
   "block.byg.potted_yellow_spruce_sapling": "Maceta con brote de abeto amarillo",
   "block.byg.potted_zelkova_sapling": "Maceta con brote de zelkova",
   "block.byg.potted_palm_sapling": "Maceta con brote de palmera",
-  "block.byg.potted_lament_sapling": "Maceta con brote de los lamentos",
-  "block.byg.potted_withering_oak_sapling": "Maceta con brote de roble marchito",
+
   "block.byg.potted_ether_sapling": "Maceta con brote de éter",
   "block.byg.potted_nightshade_sapling": "Maceta con brote de belladona",
   "block.byg.potted_jacaranda_bush": "Maceta con arbusto de jacarandá",

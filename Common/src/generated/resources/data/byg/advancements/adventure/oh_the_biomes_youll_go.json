@@ -481,22 +481,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:embur_bog": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:embur_bog"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:ethereal_islands": {
       "conditions": {
         "player": [
@@ -1291,9 +1275,6 @@
     ],
     [
       "byg:basalt_barrera"
-    ],
-    [
-      "byg:embur_bog"
     ],
     [
       "byg:red_rock_valley"

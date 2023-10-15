@@ -64,12 +64,7 @@
     ],
     [],
     [
-      "minecraft:nether_sprouts",
-      "byg:twisty_lament_trees",
-      "byg:weeping_lament_trees",
-      "byg:lament_vegetation",
-      "byg:lament_vine_feature",
-      "byg:embur_lily"
+      "minecraft:nether_sprouts"
     ]
   ],
   "has_precipitation": false,

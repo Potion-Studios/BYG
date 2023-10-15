@@ -45,17 +45,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmburLily extends NetherLilyBlock {
-        public BYGEmburLily() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.LILY_PAD)
-                    .instabreak()
-                    .noOcclusion()
-            );
-
-        }
-    }
-
     public static class BYGEnderLily extends WaterlilyBlock {
         public BYGEnderLily() {
             super(BlockBehaviour.Properties.of()
@@ -250,19 +239,6 @@ public class BYGBlockProperties {
                     .sound(SoundType.WART_BLOCK)
                     .strength(1.0F)
             );
-        }
-    }
-
-    public static class BYGLamentPlant extends NetherSproutsBlock {
-        public BYGLamentPlant() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.ROOTS)
-                    .strength(0.0F)
-                    .noCollission()
-                    .noOcclusion()
-            );
-
-
         }
     }
 

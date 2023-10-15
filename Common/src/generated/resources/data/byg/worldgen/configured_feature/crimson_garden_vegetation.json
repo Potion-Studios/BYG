@@ -7,13 +7,6 @@
     },
     "features": [
       {
-        "chance": 0.45,
-        "feature": {
-          "feature": "byg:embur_roots",
-          "placement": []
-        }
-      },
-      {
         "chance": 0.8,
         "feature": {
           "feature": "byg:tall_crimson_roots",
