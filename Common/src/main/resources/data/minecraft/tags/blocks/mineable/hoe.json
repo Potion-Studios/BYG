@@ -29,7 +29,7 @@
     "byg:orchard_leaves",
     "byg:palo_verde_leaves",
     "byg:pine_leaves",
-    "byg:pink_cherry_leaves",
+    "minecraft:cherry_leaves",
     "byg:rainbow_eucalyptus_leaves",
     "byg:red_birch_leaves",
     "byg:red_maple_leaves",
@@ -50,7 +50,6 @@
     "byg:palm_leaves",
     "byg:araucaria_leaves",
     "byg:brown_zelkova_leaves",
-
     "byg:ether_leaves",
     "byg:nightshade_leaves",
     "byg:flowering_nightshade_leaves",

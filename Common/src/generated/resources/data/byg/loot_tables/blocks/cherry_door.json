@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "byg:cherry_door",
+              "block": "byg.sakura_cherry_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "byg:cherry_door"
+          "name": "byg.sakura_cherry_door"
         }
       ],
       "rolls": 1.0

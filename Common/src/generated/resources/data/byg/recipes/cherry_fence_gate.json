@@ -6,7 +6,7 @@
       "tag": "byg:all/sticks"
     },
     "W": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -14,6 +14,6 @@
     "#W#"
   ],
   "result": {
-    "item": "byg:cherry_fence_gate"
+    "item": "byg.sakura_cherry_fence_gate"
   }
 }

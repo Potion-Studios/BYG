@@ -34,7 +34,7 @@
       ]
     },
     "leaves_target": [
-      "byg:pink_cherry_leaves"
+      "minecraft:cherry_leaves"
     ],
     "log_provider": {
       "type": "minecraft:simple_state_provider",

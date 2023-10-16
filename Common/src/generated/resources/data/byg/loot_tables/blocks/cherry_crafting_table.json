@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:cherry_crafting_table"
+          "name": "byg.sakura_cherry_crafting_table"
         }
       ],
       "rolls": 1.0

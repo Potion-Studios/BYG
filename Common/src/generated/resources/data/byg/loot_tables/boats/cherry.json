@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:cherry_boat"
+          "name": "byg.sakura_cherry_boat"
         }
       ],
       "rolls": 1.0

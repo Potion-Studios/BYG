@@ -3,7 +3,7 @@
   "group": "crafting_table",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -11,6 +11,6 @@
     "PP"
   ],
   "result": {
-    "item": "byg:cherry_crafting_table"
+    "item": "byg.sakura_cherry_crafting_table"
   }
 }

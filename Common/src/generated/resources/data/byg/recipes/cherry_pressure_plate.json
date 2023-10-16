@@ -3,13 +3,13 @@
   "group": "wooden_pressure_plate",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
     "PP"
   ],
   "result": {
-    "item": "byg:cherry_pressure_plate"
+    "item": "byg.sakura_cherry_pressure_plate"
   }
 }

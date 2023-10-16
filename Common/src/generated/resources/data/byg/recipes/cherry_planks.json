@@ -3,11 +3,11 @@
   "group": "wooden_planks",
   "ingredients": [
     {
-      "tag": "byg:cherry_logs"
+      "tag": "byg.sakura_cherry_logs"
     }
   ],
   "result": {
     "count": 4,
-    "item": "byg:cherry_planks"
+    "item": "byg.sakura_cherry_planks"
   }
 }

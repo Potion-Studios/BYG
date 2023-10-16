@@ -6,7 +6,7 @@
       "item": "minecraft:book"
     },
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -15,6 +15,6 @@
     "PPP"
   ],
   "result": {
-    "item": "byg:cherry_bookshelf"
+    "item": "byg.sakura_cherry_bookshelf"
   }
 }

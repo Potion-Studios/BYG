@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:cherry_stairs"
+          "name": "byg.sakura_cherry_stairs"
         }
       ],
       "rolls": 1.0

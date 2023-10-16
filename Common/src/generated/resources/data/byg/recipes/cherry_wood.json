@@ -3,7 +3,7 @@
   "group": "wood",
   "key": {
     "L": {
-      "item": "byg:cherry_log"
+      "item": "byg.sakura_cherry_log"
     }
   },
   "pattern": [
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "byg:cherry_wood"
+    "item": "byg.sakura_cherry_wood"
   }
 }

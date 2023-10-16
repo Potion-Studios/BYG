@@ -3,7 +3,7 @@
   "group": "sign",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     },
     "S": {
       "tag": "byg:all/sticks"
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "byg:cherry_sign"
+    "item": "byg.sakura_cherry_sign"
   }
 }

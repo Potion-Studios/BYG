@@ -16,7 +16,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:cherry_planks"
+          "name": "byg.sakura_cherry_planks"
         }
       ],
       "rolls": 3.0

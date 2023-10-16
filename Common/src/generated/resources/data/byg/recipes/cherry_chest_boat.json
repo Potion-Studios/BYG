@@ -6,10 +6,10 @@
       "item": "minecraft:chest"
     },
     {
-      "item": "byg:cherry_boat"
+      "item": "byg.sakura_cherry_boat"
     }
   ],
   "result": {
-    "item": "byg:cherry_chest_boat"
+    "item": "byg.sakura_cherry_chest_boat"
   }
 }

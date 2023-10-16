@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "byg:cherry_pressure_plate"
+          "name": "byg.sakura_cherry_pressure_plate"
         }
       ],
       "rolls": 1.0

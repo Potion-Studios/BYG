@@ -7,9 +7,6 @@
     "byg:dacite_brick_wall",
     "byg:mossy_stone_wall",
     "byg:rocky_stone_wall",
-
-
-
     "byg:soapstone_wall",
     "byg:polished_soapstone_wall",
     "byg:soapstone_brick_wall",
@@ -33,6 +30,6 @@
     "byg:windswept_sandstone_wall",
     "byg:cut_windswept_sandstone_wall",
     "byg:chiseled_windswept_sandstone_wall",
-    "byg:smooth_windswept_sandstone_wall",
+    "byg:smooth_windswept_sandstone_wall"
   ]
 }

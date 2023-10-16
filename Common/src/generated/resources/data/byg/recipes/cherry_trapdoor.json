@@ -3,7 +3,7 @@
   "group": "wooden_trapdoor",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 2,
-    "item": "byg:cherry_trapdoor"
+    "item": "byg.sakura_cherry_trapdoor"
   }
 }

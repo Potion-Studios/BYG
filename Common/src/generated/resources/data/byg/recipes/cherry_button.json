@@ -3,10 +3,10 @@
   "group": "wooden_button",
   "ingredients": [
     {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   ],
   "result": {
-    "item": "byg:cherry_button"
+    "item": "byg.sakura_cherry_button"
   }
 }

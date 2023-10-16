@@ -6,7 +6,7 @@
       "tag": "byg:all/sticks"
     },
     "W": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -15,6 +15,6 @@
   ],
   "result": {
     "count": 3,
-    "item": "byg:cherry_fence"
+    "item": "byg.sakura_cherry_fence"
   }
 }

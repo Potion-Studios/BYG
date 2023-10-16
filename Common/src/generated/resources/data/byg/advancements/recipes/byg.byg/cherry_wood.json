@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "byg:cherry_log"
+              "byg.sakura_cherry_log"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:cherry_wood"
+        "recipe": "byg.sakura_cherry_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:cherry_wood"
+      "byg.sakura_cherry_wood"
     ]
   }
 }

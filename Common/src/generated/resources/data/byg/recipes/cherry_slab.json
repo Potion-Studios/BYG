@@ -3,7 +3,7 @@
   "group": "wooden_slab",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -11,6 +11,6 @@
   ],
   "result": {
     "count": 6,
-    "item": "byg:cherry_slab"
+    "item": "byg.sakura_cherry_slab"
   }
 }

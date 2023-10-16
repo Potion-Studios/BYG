@@ -3,7 +3,7 @@
   "group": "boat",
   "key": {
     "P": {
-      "item": "byg:cherry_planks"
+      "item": "byg.sakura_cherry_planks"
     }
   },
   "pattern": [
@@ -11,6 +11,6 @@
     "PPP"
   ],
   "result": {
-    "item": "byg:cherry_boat"
+    "item": "byg.sakura_cherry_boat"
   }
 }
