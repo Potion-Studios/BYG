@@ -1271,6 +1271,20 @@ public class BYGBiomes {
             HAS_RUINED_PORTAL_NETHER
     );
 
+    public static final ResourceKey<Biome> WEEPING_MIRE = createBiome("weeping_mire", BYGNetherBiomes::weepingMire,
+            // Dimensions
+            IS_NETHER,
+            IN_NETHER,
+            // Climate
+            IS_HOT_NETHER,
+            IS_HOT,
+            CLIMATE_HOT,
+            // Structures
+            HAS_NETHER_FORTRESS,
+            HAS_BASTION_REMNANT,
+            HAS_RUINED_PORTAL_NETHER
+    );
+
     public static final ResourceKey<Biome> QUARTZ_DESERT = createBiome("quartz_desert", BYGNetherBiomes::quartzDesert,
             // Dimensions
             IS_NETHER,
