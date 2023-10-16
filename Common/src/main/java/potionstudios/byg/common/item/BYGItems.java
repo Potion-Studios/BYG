@@ -47,7 +47,6 @@ public class BYGItems {
     public static final RegistryObject<Item> LUSH_DIRT = createItem(BYGBlocks.LUSH_DIRT);
     public static final RegistryObject<Item> LUSH_FARMLAND = createItem(BYGBlocks.LUSH_FARMLAND);
 
-    public static final RegistryObject<Item> CHAIN_PLATING = createItem(() -> new Item(new Properties()), "chain_plating");
     public static final RegistryObject<Item> FORAGERS_TABLE = createItem(BYGBlocks.FORAGERS_TABLE);
 
     public static final RegistryObject<Item> AMETRINE_GEMS = createItem(() -> new Item(new Properties()), "ametrine_gems");
