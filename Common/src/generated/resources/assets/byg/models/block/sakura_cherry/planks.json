@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "byg:block/sakura_cherry/planks",
+    "east": "byg:block/sakura_cherry/planks",
+    "north": "byg:block/sakura_cherry/planks",
+    "particle": "byg:block/sakura_cherry/planks",
+    "south": "byg:block/sakura_cherry/planks",
+    "up": "byg:block/sakura_cherry/planks",
+    "west": "byg:block/sakura_cherry/planks"
+  }
+}

@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "byg.sakura_cherry_planks"
+              "byg:sakura_cherry_planks"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg.sakura_cherry_slab"
+        "recipe": "byg:sakura_cherry_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg.sakura_cherry_slab"
+      "byg:sakura_cherry_slab"
     ]
   }
 }
