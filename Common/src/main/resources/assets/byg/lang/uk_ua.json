@@ -322,7 +322,7 @@
     "block.byg.cracked_red_rock_brick_wall": "Тріснута стіна з червоної кам'яної цегли",
     "block.byg.cracked_red_rock_bricks": "Тріснута червона кам'яна цегла",
     "block.byg.cracked_red_sand": "Затверділий червоний пісок",
-    "block.byg.cracked_scoria_stone_bricks": "Тріснута шлакова цегла",
+
     "block.byg.crimson_berry_bush": "Багряний ягідний кущ",
     "block.byg.crocus": "Шафран",
     "block.byg.cryptic_bramble": "Таємничий кущ",
@@ -418,7 +418,7 @@
 
 
 
-    "block.byg.emeraldite_ore": "Смарагдитова руда",
+
     "block.byg.end_sand": "Пісок енду",
     "block.byg.ender_lily": "Латаття енду",
     "block.byg.ether_bookshelf": "Етерова книжкова полиця",
@@ -948,19 +948,19 @@
     "block.byg.rose": "Троянда",
     "block.byg.scorched_bush": "Випалений кущ",
     "block.byg.scorched_grass": "Випалена трава",
-    "block.byg.scoria_cobblestone": "Шлаковий кругляк",
-    "block.byg.scoria_cobblestone_slab": "Шлакова кам'яна плита",
-    "block.byg.scoria_cobblestone_stairs": "Шлакові кам'яні сходи",
-    "block.byg.scoria_cobblestone_wall": "Шлакова кам'яна стіна",
-    "block.byg.scoria_pillar": "Шлакова колона",
-    "block.byg.scoria_stone": "Шлаковий камінь",
-    "block.byg.scoria_stone_slab": "Шлакова кам'яна плита",
-    "block.byg.scoria_stone_stairs": "Шлакові кам'яні сходи",
-    "block.byg.scoria_stone_wall": "Шлакова кам'яна стіна",
-    "block.byg.scoria_stonebrick_slab": "Плита зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebrick_stairs": "Сходи зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebrick_wall": "Стіна зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebricks": "Шлакова кам'яна цегла",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.shiny_chiseled_therium": "Блискучий різьблений теріум",
     "block.byg.shiny_chiseled_therium_slab": "Плита з блискучого різьбленого теріуму",
     "block.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",
@@ -1522,7 +1522,7 @@
     "item.byg.cracked_red_rock_brick_wall": "Стіна з тріснутої кам'яної цегли",
     "item.byg.cracked_red_rock_bricks": "Тріснута червона кам'яна цегла",
     "item.byg.cracked_red_sand": "Затверділий червоний пісок",
-    "item.byg.cracked_scoria_stone_bricks": "Тріснута шлакова цегла",
+
     "item.byg.crimson_berries": "Багряні ягоди",
     "item.byg.crimson_berry_pie": "Багряний ягідний пиріг",
     "item.byg.crocus": "Шафран",
@@ -1623,8 +1623,8 @@
 
 
 
-    "item.byg.emeraldite_ore": "Смарагдитова руда",
-    "item.byg.emeraldite_shards": "Смарагдитові уламки",
+
+
     "item.byg.end_sand": "Пісок енду",
     "item.byg.ender_lily": "Латаття енду",
     "item.byg.ether_bookshelf": "Етерова книжкова полиця",
@@ -2075,19 +2075,19 @@
     "item.byg.rose": "Троянда",
     "item.byg.scorched_bush": "Випалений кущ",
     "item.byg.scorched_grass": "Випалена трава",
-    "item.byg.scoria_cobblestone": "Шлаковий кругляк",
-    "item.byg.scoria_cobblestone_slab": "Шлакова круглякова плита",
-    "item.byg.scoria_cobblestone_stairs": "Шлакові круглякові сходи",
-    "item.byg.scoria_cobblestone_wall": "Шлакова круглякова стіна",
-    "item.byg.scoria_pillar": "Шлакова колона",
-    "item.byg.scoria_stone": "Шлаковий камінь",
-    "item.byg.scoria_stone_slab": "Шлакова плита",
-    "item.byg.scoria_stone_stairs": "Шлакові сходи",
-    "item.byg.scoria_stone_wall": "Шлакова стіна",
-    "item.byg.scoria_stonebrick_slab": "Плита зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebrick_stairs": "Сходи зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebrick_wall": "Стіна зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebricks": "Шлакова кам'яна цегла",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.shiny_chiseled_therium": "Блискучий різьблений теріум",
     "item.byg.shiny_chiseled_therium_slab": "Плита з блискучого різьбленого теріуму",
     "item.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",

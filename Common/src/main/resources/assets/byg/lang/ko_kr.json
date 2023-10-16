@@ -308,7 +308,7 @@
   "block.byg.cracked_red_rock_brick_wall": "금 간 적암 벽돌 담장",
   "block.byg.cracked_red_rock_bricks": "금 간 적암 벽돌",
   "block.byg.cracked_red_sand": "금 간 붉은 사암",
-  "block.byg.cracked_scoria_stone_bricks": "금 간 화산암 벽돌",
+
   "block.byg.crimson_berry_bush": "진홍빛 베리 덤불",
   "block.byg.crocus": "크로커스",
   "block.byg.cryptic_bramble": "토굴 들장미",
@@ -404,7 +404,7 @@
 
 
 
-  "block.byg.emeraldite_ore": "네더 에메랄드 광석",
+
   "block.byg.end_sand": "엔드 모래",
   "block.byg.ender_lily": "엔더 수련잎",
   "block.byg.ether_bookshelf": "에테르나무 책장",
@@ -926,19 +926,19 @@
   "block.byg.rose": "장미",
   "block.byg.scorched_bush": "그을은 덤불",
   "block.byg.scorched_grass": "그을은 잔디",
-  "block.byg.scoria_cobblestone": "화산암 조약돌",
-  "block.byg.scoria_cobblestone_slab": "화산암 조약돌 반 블록",
-  "block.byg.scoria_cobblestone_stairs": "화산암 조약돌 계단",
-  "block.byg.scoria_cobblestone_wall": "화산암 조약돌 담장",
-  "block.byg.scoria_pillar": "화산암 기둥",
-  "block.byg.scoria_stone": "화산암 돌",
-  "block.byg.scoria_stone_slab": "화산암 돌 반 블록",
-  "block.byg.scoria_stone_stairs": "화산암 돌 계단",
-  "block.byg.scoria_stone_wall": "화산암 돌 담장",
-  "block.byg.scoria_stonebrick_slab": "화산암 벽돌 반 블록",
-  "block.byg.scoria_stonebrick_stairs": "화산암 벽돌 계단",
-  "block.byg.scoria_stonebrick_wall": "화산암 벽돌 담장",
-  "block.byg.scoria_stonebricks": "화산암 벽돌",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.shiny_chiseled_therium": "반짝거리는 조각된 테리움",
   "block.byg.shiny_chiseled_therium_slab": "반짝거리는 조각된 테리움 반 블록",
   "block.byg.shiny_chiseled_therium_stairs": "반짝거리는 조각된 테리움 계단",
@@ -1491,7 +1491,7 @@
   "item.byg.cracked_red_rock_brick_wall": "금 간 적암 벽돌 담장",
   "item.byg.cracked_red_rock_bricks": "금 간 적암 벽돌",
   "item.byg.cracked_red_sand": "금 간 붉은 사암",
-  "item.byg.cracked_scoria_stone_bricks": "금 간 화산암 벽돌",
+
   "item.byg.crimson_berries": "진홍베리",
   "item.byg.crimson_berry_pie": "진홍베리파이",
   "item.byg.crocus": "크로커스",
@@ -1592,8 +1592,8 @@
 
 
 
-  "item.byg.emeraldite_ore": "네더 에메랄드 광석",
-  "item.byg.emeraldite_shards": "네더 에메랄드 조각",
+
+
   "item.byg.end_sand": "엔드 모래",
   "item.byg.ender_lily": "엔더 수련잎",
   "item.byg.ether_bookshelf": "에테르나무 책장",
@@ -2035,19 +2035,19 @@
   "item.byg.rose": "장미",
   "item.byg.scorched_bush": "그을은 덤불",
   "item.byg.scorched_grass": "그을은 잔디",
-  "item.byg.scoria_cobblestone": "화산암 조약돌",
-  "item.byg.scoria_cobblestone_slab": "화산암 조약돌 반 블록",
-  "item.byg.scoria_cobblestone_stairs": "화산암 조약돌 계단",
-  "item.byg.scoria_cobblestone_wall": "화산암 조약돌 담장",
-  "item.byg.scoria_pillar": "화산암 기둥",
-  "item.byg.scoria_stone": "화산암 돌",
-  "item.byg.scoria_stone_slab": "화산암 돌 반 블록",
-  "item.byg.scoria_stone_stairs": "화산암 돌 계단",
-  "item.byg.scoria_stone_wall": "화산암 돌 담장",
-  "item.byg.scoria_stonebrick_slab": "화산암 벽돌 반 블록",
-  "item.byg.scoria_stonebrick_stairs": "화산암 벽돌 계단",
-  "item.byg.scoria_stonebrick_wall": "화산암 벽돌 담장",
-  "item.byg.scoria_stonebricks": "화산암 벽돌",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.shiny_chiseled_therium": "반짝거리는 조각된 테리움",
   "item.byg.shiny_chiseled_therium_slab": "반짝거리는 조각된 테리움 반 블록",
   "item.byg.shiny_chiseled_therium_stairs": "반짝거리는 조각된 테리움 계단",

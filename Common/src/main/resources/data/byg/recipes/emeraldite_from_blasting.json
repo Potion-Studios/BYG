@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "byg:emeraldite_ore"
-  },
-  "result": "byg:emeraldite_shards",
-  "experience": 0.7,
-  "cookingtime": 150
-}

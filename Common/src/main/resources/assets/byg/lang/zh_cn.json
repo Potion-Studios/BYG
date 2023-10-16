@@ -346,7 +346,7 @@
   "block.byg.cracked_red_rock_brick_wall": "裂纹红岩砖墙",
   "block.byg.cracked_red_rock_bricks": "裂纹红岩砖",
   "block.byg.cracked_red_sand": "裂纹红沙",
-  "block.byg.cracked_scoria_stone_bricks": "裂纹熔渣石砖",
+
   "block.byg.crimson_berry_bush": "绯红浆果丛",
   "block.byg.crocus": "番红花",
   "block.byg.cryptic_bramble": "隐秘荆棘",
@@ -448,7 +448,7 @@
 
 
 
-  "block.byg.emeraldite_ore": "绿辉石矿石",
+
   "block.byg.end_sand": "末地沙",
   "block.byg.ender_lily": "末影百合",
   "block.byg.ether_bookshelf": "以太木书架",
@@ -1006,19 +1006,19 @@
   "block.byg.rose": "玫瑰",
   "block.byg.scorched_bush": "烧焦的灌木",
   "block.byg.scorched_grass": "烧焦的草",
-  "block.byg.scoria_cobblestone": "熔渣圆石",
-  "block.byg.scoria_cobblestone_slab": "熔渣圆石台阶",
-  "block.byg.scoria_cobblestone_stairs": "熔渣圆石楼梯",
-  "block.byg.scoria_cobblestone_wall": "熔渣圆石墙",
-  "block.byg.scoria_pillar": "熔渣石柱",
-  "block.byg.scoria_stone": "熔渣石",
-  "block.byg.scoria_stone_slab": "熔渣石台阶",
-  "block.byg.scoria_stone_stairs": "熔渣石楼梯",
-  "block.byg.scoria_stone_wall": "熔渣石墙",
-  "block.byg.scoria_stonebrick_slab": "熔渣石砖台阶",
-  "block.byg.scoria_stonebrick_stairs": "熔渣石砖楼梯",
-  "block.byg.scoria_stonebrick_wall": "熔渣石砖墙",
-  "block.byg.scoria_stonebricks": "熔渣石砖",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.shelf_fungi": "层孔菌",
   "block.byg.shiny_chiseled_therium": "闪亮的錾制空灵晶块",
   "block.byg.shiny_chiseled_therium_slab": "闪亮的錾制空灵晶台阶",
@@ -1599,7 +1599,7 @@
   "item.byg.cracked_red_rock_brick_wall": "裂纹红岩砖墙",
   "item.byg.cracked_red_rock_bricks": "裂纹红岩砖",
   "item.byg.cracked_red_sand": "裂纹红沙",
-  "item.byg.cracked_scoria_stone_bricks": "裂纹熔渣石砖",
+
   "item.byg.crimson_berries": "绯红浆果",
   "item.byg.crimson_berry_pie": "绯红浆果派",
   "item.byg.crocus": "番红花",
@@ -1703,8 +1703,8 @@
 
 
 
-  "item.byg.emeraldite_ore": "绿辉石矿石",
-  "item.byg.emeraldite_shards": "绿辉石碎片",
+
+
   "item.byg.end_sand": "末地沙",
   "item.byg.ender_lily": "末影百合",
   "item.byg.ether_bookshelf": "以太木书架",
@@ -2169,19 +2169,19 @@
   "item.byg.rose": "玫瑰",
   "item.byg.scorched_bush": "烧焦的灌木",
   "item.byg.scorched_grass": "烧焦的草",
-  "item.byg.scoria_cobblestone": "熔渣圆石",
-  "item.byg.scoria_cobblestone_slab": "熔渣圆石台阶",
-  "item.byg.scoria_cobblestone_stairs": "熔渣圆石楼梯",
-  "item.byg.scoria_cobblestone_wall": "熔渣圆石墙",
-  "item.byg.scoria_pillar": "熔渣石柱",
-  "item.byg.scoria_stone": "熔渣石",
-  "item.byg.scoria_stone_slab": "熔渣石台阶",
-  "item.byg.scoria_stone_stairs": "熔渣石楼梯",
-  "item.byg.scoria_stone_wall": "熔渣石墙",
-  "item.byg.scoria_stonebrick_slab": "熔渣石砖台阶",
-  "item.byg.scoria_stonebrick_stairs": "熔渣石砖楼梯",
-  "item.byg.scoria_stonebrick_wall": "熔渣石砖墙",
-  "item.byg.scoria_stonebricks": "熔渣石砖",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.shelf_fungi": "层孔菌",
   "item.byg.shiny_chiseled_therium": "闪亮的錾制空灵晶块",
   "item.byg.shiny_chiseled_therium_slab": "闪亮的錾制空灵晶台阶",

@@ -346,8 +346,7 @@ public class BYGSurfaceRules {
                             SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, SurfaceRules.state(Blocks.SOUL_SOIL.defaultBlockState())),
                             SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRules.state(Blocks.SOUL_SOIL.defaultBlockState()))
                     ), 2)
-                    .build()),
-            SurfaceRules.ifTrue(ABOVE_31, SurfaceRules.state(BYGBlocks.SCORIA_STONE.defaultBlockState()))));
+                    .build())));
 
     public static final SurfaceRules.RuleSource GLOWSTONE_GARDENS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.GLOWSTONE_GARDENS),
             BYGRuleSources.weightedRuleSource(SimpleWeightedRandomList.<SurfaceRules.RuleSource>builder()

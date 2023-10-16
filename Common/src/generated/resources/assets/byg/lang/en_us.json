@@ -346,7 +346,7 @@
   "block.byg.cracked_red_rock_brick_wall": "Cracked Red Rock Brick Wall",
   "block.byg.cracked_red_rock_bricks": "Cracked Red Rock Bricks",
   "block.byg.cracked_red_sand": "Cracked Red Sand",
-  "block.byg.cracked_scoria_stone_bricks": "Cracked Scoria Stone Bricks",
+
   "block.byg.crimson_berry_bush": "Crimson Berry Bush",
   "block.byg.crocus": "Crocus",
   "block.byg.cryptic_bramble": "Cryptic Bramble",
@@ -448,7 +448,7 @@
 
 
 
-  "block.byg.emeraldite_ore": "Emeraldite Ore",
+
   "block.byg.end_sand": "End Sand",
   "block.byg.ender_lily": "Ender Lily",
   "block.byg.ether_bookshelf": "Ether Bookshelf",
@@ -1003,19 +1003,19 @@
   "block.byg.rose": "Rose",
   "block.byg.scorched_bush": "Scorched Bush",
   "block.byg.scorched_grass": "Scorched Grass",
-  "block.byg.scoria_cobblestone": "Scoria Cobblestone",
-  "block.byg.scoria_cobblestone_slab": "Scoria Cobblestone Slab",
-  "block.byg.scoria_cobblestone_stairs": "Scoria Cobblestone Stairs",
-  "block.byg.scoria_cobblestone_wall": "Scoria Cobblestone Wall",
-  "block.byg.scoria_pillar": "Scoria Pillar",
-  "block.byg.scoria_stone": "Scoria Stone",
-  "block.byg.scoria_stone_slab": "Scoria Stone Slab",
-  "block.byg.scoria_stone_stairs": "Scoria Stone Stairs",
-  "block.byg.scoria_stone_wall": "Scoria Stone Wall",
-  "block.byg.scoria_stonebrick_slab": "Scoria Stonebrick Slab",
-  "block.byg.scoria_stonebrick_stairs": "Scoria Stonebrick Stairs",
-  "block.byg.scoria_stonebrick_wall": "Scoria Stonebrick Wall",
-  "block.byg.scoria_stonebricks": "Scoria Stonebricks",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.shelf_fungi": "Shelf Fungi",
   "block.byg.shiny_chiseled_therium": "Shiny Chiseled Therium",
   "block.byg.shiny_chiseled_therium_slab": "Shiny Chiseled Therium Slab",
@@ -1600,7 +1600,7 @@
   "item.byg.cracked_red_rock_brick_wall": "Cracked Red Rock Brick Wall",
   "item.byg.cracked_red_rock_bricks": "Cracked Red Rock Bricks",
   "item.byg.cracked_red_sand": "Cracked Red Sand",
-  "item.byg.cracked_scoria_stone_bricks": "Cracked Scoria Stone Bricks",
+
   "item.byg.crimson_berries": "Crimson Berries",
   "item.byg.crimson_berry_pie": "Crimson Berry Pie",
   "item.byg.crocus": "Crocus",
@@ -1704,8 +1704,8 @@
 
 
 
-  "item.byg.emeraldite_ore": "Emeraldite Ore",
-  "item.byg.emeraldite_shards": "Emeraldite Shards",
+
+
   "item.byg.end_sand": "End Sand",
   "item.byg.ender_lily": "Ender Lily",
   "item.byg.ether_bookshelf": "Ether Bookshelf",
@@ -2170,19 +2170,19 @@
   "item.byg.rose": "Rose",
   "item.byg.scorched_bush": "Scorched Bush",
   "item.byg.scorched_grass": "Scorched Grass",
-  "item.byg.scoria_cobblestone": "Scoria Cobblestone",
-  "item.byg.scoria_cobblestone_slab": "Scoria Cobblestone Slab",
-  "item.byg.scoria_cobblestone_stairs": "Scoria Cobblestone Stairs",
-  "item.byg.scoria_cobblestone_wall": "Scoria Cobblestone Wall",
-  "item.byg.scoria_pillar": "Scoria Pillar",
-  "item.byg.scoria_stone": "Scoria Stone",
-  "item.byg.scoria_stone_slab": "Scoria Stone Slab",
-  "item.byg.scoria_stone_stairs": "Scoria Stone Stairs",
-  "item.byg.scoria_stone_wall": "Scoria Stone Wall",
-  "item.byg.scoria_stonebrick_slab": "Scoria Stonebrick Slab",
-  "item.byg.scoria_stonebrick_stairs": "Scoria Stonebrick Stairs",
-  "item.byg.scoria_stonebrick_wall": "Scoria Stonebrick Wall",
-  "item.byg.scoria_stonebricks": "Scoria Stonebricks",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.shelf_fungi": "Shelf Fungi",
   "item.byg.shiny_chiseled_therium": "Shiny Chiseled Therium",
   "item.byg.shiny_chiseled_therium_slab": "Shiny Chiseled Therium Slab",

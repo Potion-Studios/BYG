@@ -129,25 +129,6 @@ public class BYGItems {
     public static final RegistryObject<Item> CHISELED_TRAVERTINE_SLAB = createItem(BYGBlocks.CHISELED_TRAVERTINE_SLAB);
     public static final RegistryObject<Item> CHISELED_TRAVERTINE_WALL = createItem(BYGBlocks.CHISELED_TRAVERTINE_WALL);
 
-    public static final RegistryObject<Item> EMERALDITE_ORE = createItem(BYGBlocks.EMERALDITE_ORE);
-    public static final RegistryObject<Item> EMERALDITE_SHARDS = createItem(() -> new Item(new Properties()), "emeraldite_shards");
-
-    public static final RegistryObject<Item> SCORIA_STONE = createItem(BYGBlocks.SCORIA_STONE);
-    public static final RegistryObject<Item> SCORIA_STAIRS = createItem(BYGBlocks.SCORIA_STAIRS);
-    public static final RegistryObject<Item> SCORIA_SLAB = createItem(BYGBlocks.SCORIA_SLAB);
-    public static final RegistryObject<Item> SCORIA_WALL = createItem(BYGBlocks.SCORIA_WALL);
-
-    public static final RegistryObject<Item> SCORIA_COBBLESTONE = createItem(BYGBlocks.SCORIA_COBBLESTONE);
-    public static final RegistryObject<Item> SCORIA_COBBLESTONE_STAIRS = createItem(BYGBlocks.SCORIA_COBBLESTONE_STAIRS);
-    public static final RegistryObject<Item> SCORIA_COBBLESTONE_SLAB = createItem(BYGBlocks.SCORIA_COBBLESTONE_SLAB);
-    public static final RegistryObject<Item> SCORIA_COBBLESTONE_WALL = createItem(BYGBlocks.SCORIA_COBBLESTONE_WALL);
-
-    public static final RegistryObject<Item> SCORIA_PILLAR = createItem(BYGBlocks.SCORIA_PILLAR);
-    public static final RegistryObject<Item> SCORIA_STONEBRICKS = createItem(BYGBlocks.SCORIA_STONEBRICKS);
-    public static final RegistryObject<Item> SCORIA_STONEBRICK_STAIRS = createItem(BYGBlocks.SCORIA_STONEBRICK_STAIRS);
-    public static final RegistryObject<Item> SCORIA_STONEBRICK_SLAB = createItem(BYGBlocks.SCORIA_STONEBRICK_SLAB);
-    public static final RegistryObject<Item> SCORIA_STONEBRICK_WALL = createItem(BYGBlocks.SCORIA_STONEBRICK_WALL);
-    public static final RegistryObject<Item> CRACKED_SCORIA_STONE_BRICKS = createItem(BYGBlocks.CRACKED_SCORIA_STONE_BRICKS);
 
     public static final RegistryObject<Item> SOAPSTONE = createItem(BYGBlocks.SOAPSTONE);
     public static final RegistryObject<Item> SOAPSTONE_STAIRS = createItem(BYGBlocks.SOAPSTONE_STAIRS);

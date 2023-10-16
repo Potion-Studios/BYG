@@ -308,7 +308,7 @@
     "block.byg.cracked_red_rock_brick_wall":"Parede de tijolos de pedra vermelha rachada",
     "block.byg.cracked_red_rock_bricks":"Tijolos de pedra vermelha rachados",
     "block.byg.cracked_red_sand":"Areia vermelha rachada",
-    "block.byg.cracked_scoria_stone_bricks":"Tijolos de pedra de escória rachados",
+
     "block.byg.crimson_berry_bush":"Carmesim Berry Bush",
     "block.byg.crocus":"Açafrão",
     "block.byg.cryptic_bramble":"Espinheiro Críptico",
@@ -404,7 +404,7 @@
 
 
 
-    "block.byg.emeraldite_ore":"Minério de esmeralda",
+
     "block.byg.end_sand":"Areia final",
     "block.byg.ender_lily":"Ender Lily",
     "block.byg.ether_bookshelf":"Estante de Éter",
@@ -926,19 +926,19 @@
     "block.byg.rose":"Rosa",
     "block.byg.scorched_bush":"Arbusto Queimado",
     "block.byg.scorched_grass":"Grama Queimada",
-    "block.byg.scoria_cobblestone":"Paralelepípedos de escória",
-    "block.byg.scoria_cobblestone_slab":"Laje de paralelepípedos Scoria",
-    "block.byg.scoria_cobblestone_stairs":"Escadas de paralelepípedos Scoria",
-    "block.byg.scoria_cobblestone_wall":"Parede de paralelepípedos Scoria",
-    "block.byg.scoria_pillar":"Pilar Escória",
-    "block.byg.scoria_stone":"Pedra de Escória",
-    "block.byg.scoria_stone_slab":"Laje de pedra escória",
-    "block.byg.scoria_stone_stairs":"Escadas de pedra Scoria",
-    "block.byg.scoria_stone_wall":"Muralha de pedra escória",
-    "block.byg.scoria_stonebrick_slab":"Placa de tijolos de pedra escória",
-    "block.byg.scoria_stonebrick_stairs":"Escadas de tijolos de pedra Scoria",
-    "block.byg.scoria_stonebrick_wall":"Parede de tijolos de pedra escória",
-    "block.byg.scoria_stonebricks":"Tijolos de pedra escória",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.shiny_chiseled_therium":"Therium brilhante esculpido",
     "block.byg.shiny_chiseled_therium_slab":"Laje Therium Cinzelada Brilhante",
     "block.byg.shiny_chiseled_therium_stairs":"Escadas Therium Cinzeladas Brilhantes",
@@ -1491,7 +1491,7 @@
     "item.byg.cracked_red_rock_brick_wall":"Parede de tijolos de pedra vermelha rachada",
     "item.byg.cracked_red_rock_bricks":"Tijolos de pedra vermelha rachados",
     "item.byg.cracked_red_sand":"Areia vermelha rachada",
-    "item.byg.cracked_scoria_stone_bricks":"Tijolos de pedra de escória rachados",
+
     "item.byg.crimson_berries":"Bagas Carmesim",
     "item.byg.crimson_berry_pie":"Torta de frutas vermelhas",
     "item.byg.crocus":"Açafrão",
@@ -1592,8 +1592,8 @@
 
 
 
-    "item.byg.emeraldite_ore":"Minério de esmeralda",
-    "item.byg.emeraldite_shards":"Fragmentos de Esmeralda",
+
+
     "item.byg.end_sand":"Areia final",
     "item.byg.ender_lily":"Ender Lily",
     "item.byg.ether_bookshelf":"Estante de Éter",
@@ -2035,19 +2035,19 @@
     "item.byg.rose":"Rosa",
     "item.byg.scorched_bush":"Arbusto Queimado",
     "item.byg.scorched_grass":"Grama Queimada",
-    "item.byg.scoria_cobblestone":"Paralelepípedos de escória",
-    "item.byg.scoria_cobblestone_slab":"Laje de paralelepípedos Scoria",
-    "item.byg.scoria_cobblestone_stairs":"Escadas de paralelepípedos Scoria",
-    "item.byg.scoria_cobblestone_wall":"Parede de paralelepípedos Scoria",
-    "item.byg.scoria_pillar":"Pilar Escória",
-    "item.byg.scoria_stone":"Pedra de Escória",
-    "item.byg.scoria_stone_slab":"Laje de pedra escória",
-    "item.byg.scoria_stone_stairs":"Escadas de pedra Scoria",
-    "item.byg.scoria_stone_wall":"Muralha de pedra escória",
-    "item.byg.scoria_stonebrick_slab":"Placa de tijolos de pedra escória",
-    "item.byg.scoria_stonebrick_stairs":"Escadas de tijolos de pedra Scoria",
-    "item.byg.scoria_stonebrick_wall":"Parede de tijolos de pedra escória",
-    "item.byg.scoria_stonebricks":"Tijolos de pedra escória",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.shiny_chiseled_therium":"Therium brilhante esculpido",
     "item.byg.shiny_chiseled_therium_slab":"Laje Therium Cinzelada Brilhante",
     "item.byg.shiny_chiseled_therium_stairs":"Escadas Therium Cinzeladas Brilhantes",

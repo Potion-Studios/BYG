@@ -490,23 +490,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> CHISELED_TRAVERTINE_SLAB = createTravertineSlab("chiseled_travertine_slab");
     public static final BlockRegistryObject<Block> CHISELED_TRAVERTINE_STAIRS = createTravertineStairs("chiseled_travertine_stairs");
     public static final BlockRegistryObject<Block> CHISELED_TRAVERTINE_WALL = createTravertineWall("chiseled_travertine_wall");
-
-    public static final BlockRegistryObject<Block> SCORIA_STONE = createScoria("scoria_stone");
-    public static final BlockRegistryObject<Block> SCORIA_SLAB = createScoriaStoneSlab("scoria_stone_slab");
-    public static final BlockRegistryObject<Block> SCORIA_STAIRS = createScoriaStoneStairs("scoria_stone_stairs");
-    public static final BlockRegistryObject<Block> SCORIA_WALL = createScoriaStoneWall("scoria_stone_wall");
-    public static final BlockRegistryObject<Block> SCORIA_COBBLESTONE = createScoria("scoria_cobblestone");
-    public static final BlockRegistryObject<Block> SCORIA_COBBLESTONE_SLAB = createScoriaStoneSlab("scoria_cobblestone_slab");
-    public static final BlockRegistryObject<Block> SCORIA_COBBLESTONE_STAIRS = createScoriaStoneStairs("scoria_cobblestone_stairs");
-    public static final BlockRegistryObject<Block> SCORIA_COBBLESTONE_WALL = createScoriaStoneWall("scoria_cobblestone_wall");
-    public static final BlockRegistryObject<Block> SCORIA_PILLAR = createScoriaStonePillar("scoria_pillar");
-    public static final BlockRegistryObject<Block> SCORIA_STONEBRICKS = createScoria("scoria_stonebricks");
-    public static final BlockRegistryObject<Block> SCORIA_STONEBRICK_SLAB = createScoriaStoneSlab("scoria_stonebrick_slab");
-    public static final BlockRegistryObject<Block> SCORIA_STONEBRICK_STAIRS = createScoriaStoneStairs("scoria_stonebrick_stairs");
-    public static final BlockRegistryObject<Block> SCORIA_STONEBRICK_WALL = createScoriaStoneWall("scoria_stonebrick_wall");
-    public static final BlockRegistryObject<Block> CRACKED_SCORIA_STONE_BRICKS = createScoria("cracked_scoria_stone_bricks");
-    public static final BlockRegistryObject<Block> EMERALDITE_ORE = createEmeralditeOre("emeraldite_ore");
-
     public static final BlockRegistryObject<Block> DUSTED_POLISHED_BLACKSTONE_BRICKS = createDustedPolishedBlackstoneBricks("dusted_polished_blackstone_bricks");
     public static final BlockRegistryObject<Block> ARISIAN_BLOOM_BRANCH = createArisianBloomBranch("arisian_bloom_branch");
 
@@ -669,22 +652,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createTravertineWall(String id) {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createScoriaStoneSlab(String id) {
-        return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createScoriaStoneStairs(String id) {
-        return createBlock(() -> StairBlockAccess.byg_create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createScoriaStoneWall(String id) {
-        return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createScoriaStonePillar(String id) {
-        return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
     private static BlockRegistryObject<Block> createWailingBellBlossom(String id) {
@@ -863,10 +830,6 @@ public class BYGBlocks {
         return createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS).requiresCorrectToolForDrops().strength(1.5f, 6.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createScoria(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_RED).sound(SoundType.STONE).strength(1.5f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
     private static BlockRegistryObject<Block> createDacite(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
     }
@@ -905,10 +868,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createRawPendoriteBlock(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PURPLE).requiresCorrectToolForDrops().sound(SoundType.ANCIENT_DEBRIS).strength(1.5f, 6.0f)), id);
-    }
-
-    private static BlockRegistryObject<Block> createEmeralditeOre(String id) {
-        return createBlock(() -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f), UniformInt.of(4, 7)), id);
     }
 
     private static BlockRegistryObject<Block> createNetherOre(SoundType sound, MapColor color, String id, UniformInt xpRange) {

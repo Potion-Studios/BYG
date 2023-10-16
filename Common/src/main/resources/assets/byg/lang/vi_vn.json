@@ -323,7 +323,7 @@
   "block.byg.cracked_red_rock_brick_wall": "Tường gạch đá đỏ nứt",
   "block.byg.cracked_red_rock_bricks": "Gạch đá đỏ nứt",
   "block.byg.cracked_red_sand": "Cát đỏ nứt",
-  "block.byg.cracked_scoria_stone_bricks": "Gạch đá nham thạch nứt",
+
   "block.byg.crimson_berry_bush": "Bụi cây mọng đỏ thẫm",
   "block.byg.crocus": "Hoa nghệ tây",
   "block.byg.cryptic_bramble": "Bụi cây bí ẩn",
@@ -425,7 +425,7 @@
 
 
 
-  "block.byg.emeraldite_ore": "Quặng ngọc lục bảo",
+
   "block.byg.end_sand": "Cát End",
   "block.byg.ender_lily": "Lá súng Ender",
   "block.byg.ether_bookshelf": "Kệ sách gỗ Ether",
@@ -998,19 +998,19 @@
   "block.byg.rose": "Hoa hồng",
   "block.byg.scorched_bush": "Bụi cây bị cháy rụi",
   "block.byg.scorched_grass": "Cỏ bị cháy rụi",
-  "block.byg.scoria_cobblestone": "Đá cuội nham thạch",
-  "block.byg.scoria_cobblestone_slab": "Phiến đá cuội nham thạch",
-  "block.byg.scoria_cobblestone_stairs": "Cầu thang đá cuội nham thạch",
-  "block.byg.scoria_cobblestone_wall": "Tường đá cuội nham thạch",
-  "block.byg.scoria_pillar": "Cột đá nham thạch",
-  "block.byg.scoria_stone": "Đá nham thạch",
-  "block.byg.scoria_stone_slab": "Phiến đá nham thạch",
-  "block.byg.scoria_stone_stairs": "Cầu thang đá nham thạch",
-  "block.byg.scoria_stone_wall": "Tường đá nham thạch",
-  "block.byg.scoria_stonebrick_slab": "Phiến gạch đá nham thạch",
-  "block.byg.scoria_stonebrick_stairs": "Cầu thang gạch đá nham thạch",
-  "block.byg.scoria_stonebrick_wall": "Tường gạch đá nham thạch",
-  "block.byg.scoria_stonebricks": "Gạch đá nham thạch",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.shiny_chiseled_therium": "Therium được đục sáng bóng",
   "block.byg.shiny_chiseled_therium_slab": "Phiến Therium được đục sáng bóng",
   "block.byg.shiny_chiseled_therium_stairs": "Cầu thang Therium được đục sáng bóng",
@@ -1561,7 +1561,7 @@
   "item.byg.cracked_red_rock_brick_wall": "Tường gạch đá đỏ nứt",
   "item.byg.cracked_red_rock_bricks": "Gạch đá đỏ nứt",
   "item.byg.cracked_red_sand": "Cát đỏ nứt",
-  "item.byg.cracked_scoria_stone_bricks": "Gạch đá nham thạch nứt",
+
   "item.byg.crimson_berries": "Quả mọng đỏ thẫm",
   "item.byg.crimson_berry_pie": "Bánh quả mọng đỏ thẫm",
   "item.byg.crocus": "Hoa nghệ tây",
@@ -1663,8 +1663,8 @@
 
 
 
-  "item.byg.emeraldite_ore": "Quặng ngọc lục bảo",
-  "item.byg.emeraldite_shards": "Mảnh ngọc lục bảo",
+
+
   "item.byg.end_sand": "Cát End",
   "item.byg.ender_lily": "Lá súng Ender",
   "item.byg.ether_bookshelf": "Kệ sách gỗ Ether",
@@ -2136,19 +2136,19 @@
   "item.byg.rose": "Hoa hồng",
   "item.byg.scorched_bush": "Bụi cây bị cháy rụi",
   "item.byg.scorched_grass": "Cỏ bị cháy rụi",
-  "item.byg.scoria_cobblestone": "Đá cuội nham thạch",
-  "item.byg.scoria_cobblestone_slab": "Phiến đá cuội nham thạch",
-  "item.byg.scoria_cobblestone_stairs": "Cầu thang đá cuội nham thạch",
-  "item.byg.scoria_cobblestone_wall": "Tường đá cuội nham thạch",
-  "item.byg.scoria_pillar": "Cột đá nham thạch",
-  "item.byg.scoria_stone": "Đá nham thạch",
-  "item.byg.scoria_stone_slab": "Phiến đá nham thạch",
-  "item.byg.scoria_stone_stairs": "Cầu thang đá nham thạch",
-  "item.byg.scoria_stone_wall": "Tường đá nham thạch",
-  "item.byg.scoria_stonebrick_slab": "Phiến gạch đá nham thạch",
-  "item.byg.scoria_stonebrick_stairs": "Cầu thang gạch đá nham thạch",
-  "item.byg.scoria_stonebrick_wall": "Tường gạch đá nham thạch",
-  "item.byg.scoria_stonebricks": "Gạch đá nham thạch",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.shiny_chiseled_therium": "Therium được đục sáng bóng",
   "item.byg.shiny_chiseled_therium_slab": "Phiến Therium được đục sáng bóng",
   "item.byg.shiny_chiseled_therium_stairs": "Cầu thang Therium được đục sáng bóng",

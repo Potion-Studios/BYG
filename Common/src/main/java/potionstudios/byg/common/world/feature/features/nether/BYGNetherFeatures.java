@@ -26,7 +26,6 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
-import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 import potionstudios.byg.common.world.feature.config.QuartzSpikeConfig;
 import potionstudios.byg.common.world.feature.config.SimpleBlockProviderConfig;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
@@ -45,13 +44,9 @@ public class BYGNetherFeatures {
 
 
     public static final Supplier<RuleTest> BRIMSTONE = () -> new BlockMatchTest(BYGBlocks.BRIMSTONE.get());
-    public static final Supplier<RuleTest> SCORIA_STONE = () -> new BlockMatchTest(BYGBlocks.SCORIA_STONE.get());
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> BRIMSTONE_VOLCANO = createConfiguredFeature("brimstone_volcano", BYGFeatures.VOLCANO, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.BRIMSTONE.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_COLUMNS = createConfiguredFeature("quartz_columns", BYGFeatures.QUARTZ_COLUMNS, () -> new ColumnFeatureConfiguration(ConstantInt.of(1), UniformInt.of(1, 3)));
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_SPIKE = createConfiguredFeature("quartz_spike", BYGFeatures.QUARTZ_SPIKES, () -> new QuartzSpikeConfig.Builder().setBlock(BYGBlocks.QUARTZITE_SAND.get()).build());
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_EMERALDITE = createConfiguredFeature("ore_emeraldite", () -> Feature.ORE, () -> new OreConfiguration(SCORIA_STONE.get(), BYGBlocks.EMERALDITE_ORE.defaultBlockState(), 6));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_ANTHRACITE = createConfiguredFeature("ore_anthracite", () -> Feature.ORE, () -> new OreConfiguration(BRIMSTONE.get(), BYGBlocks.ANTHRACITE_ORE.defaultBlockState(), 10));
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORE_GOLD_BRIMSTONE = createConfiguredFeature("ore_gold_brimstone", () -> Feature.ORE, () -> new OreConfiguration(BRIMSTONE.get(), BYGBlocks.BRIMSTONE_NETHER_GOLD_ORE.defaultBlockState(), 10));
@@ -66,9 +61,7 @@ public class BYGNetherFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SOUL_SOIL_PILLARS = createConfiguredFeature("soul_soil_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> FROST_MAGMA_PILLARS = createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.FROST_MAGMA.defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAGMA_PILLARS = createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.MAGMATIC_STONE.defaultBlockState())));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_LANTERNS = createConfiguredFeature("hanging_lanterns", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE.get()).setBlock(Blocks.CAVE_AIR.defaultBlockState()).setEndBlock(BYGBlocks.WAILING_BELL_BLOSSOM.defaultBlockState()).setMinLength(1).setMaxLength(4).setPlacementFilter(BlockPredicate.matchesBlocks(BYGBlocks.SCORIA_STONE.get())).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_FUNGUS_PILLARS = createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGWoodTypes.SYTHIAN.wood().defaultBlockState(), 9).add(BYGWoodTypes.SYTHIAN.wood().defaultBlockState(), 1))));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_CHAINS = createConfiguredFeature("hanging_chains", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.SCORIA_STONE.get()).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(Blocks.CHAIN.defaultBlockState()).setMinLength(8).setMaxLength(16).setPlacementFilter(BlockPredicate.matchesBlocks(BYGBlocks.SCORIA_STONE.get())).build());
     public static final ResourceKey<ConfiguredFeature<?, ?>> SUBZERO_ASHES = createConfiguredFeature("subzero_ashes", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
 

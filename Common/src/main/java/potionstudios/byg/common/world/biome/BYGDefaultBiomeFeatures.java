@@ -126,10 +126,6 @@ public class BYGDefaultBiomeFeatures {
 
     }
 
-    public static void addEmeralditeOre(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.ORE_EMERALDITE);
-    }
-
     public static void addVanillaSunFlowers(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_SUNFLOWER);
     }
@@ -455,7 +451,6 @@ public class BYGDefaultBiomeFeatures {
     public static void addWailingVegetation(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.WAILING_VEGETATION);
         gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.WAILING_VINES);
-        gen.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, BYGPlacedFeatures.CHAINS);
     }
 
     public static void addSythianVegetation(BiomeGenerationSettings.Builder gen) {
@@ -554,14 +549,6 @@ public class BYGDefaultBiomeFeatures {
     }
     public static void addHangingTheriumLanterns(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_THERIUM_LANTERNS);
-    }
-
-    public static void addHangingChains(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_CHAINS);
-    }
-
-    public static void addHangingLanterns(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.HANGING_LANTERNS);
     }
 
     public static void addGiantFlowerFeatures(BiomeGenerationSettings.Builder gen) {
