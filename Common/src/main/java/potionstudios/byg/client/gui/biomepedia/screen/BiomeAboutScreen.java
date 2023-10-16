@@ -115,7 +115,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
 
         int leftPageCenter = this.leftPos + ((IMAGE_WIDTH / 4)) + 4;
         int startX = leftPageCenter - (Minecraft.getInstance().font.width(this.getTitle()) / 2);
-        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0);
+        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0, false);
     }
 
     @Override
