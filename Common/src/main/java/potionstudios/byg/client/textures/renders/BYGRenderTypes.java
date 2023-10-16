@@ -37,8 +37,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.PRICKLY_PEAR_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_SUCCULENT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NETHER_BRISTLE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEEPING_ROOTS_PLANT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEEPING_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PINK_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_PINK_ALLIUM.get(), RenderType.cutoutMipped());
@@ -57,15 +55,7 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SOUL_SHROOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.DEATH_CAP.get(), RenderType.cutoutMipped());
 
-        map.put(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
-
         map.put(BYGBlocks.ARISIAN_BLOOM_BRANCH.get(), RenderType.cutoutMipped());
-
-        map.put(BYGBlocks.TALL_CRIMSON_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CRIMSON_BERRY_BUSH.get(), RenderType.cutoutMipped());
 
         map.put(BYGBlocks.WARPED_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WARPED_CACTUS.get(), RenderType.cutoutMipped());

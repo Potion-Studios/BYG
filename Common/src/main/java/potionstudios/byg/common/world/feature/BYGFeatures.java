@@ -21,7 +21,6 @@ import potionstudios.byg.common.world.feature.gen.nether.brimstone.BrimstoneVent
 import potionstudios.byg.common.world.feature.gen.nether.quartzdesert.QuartzSpikeFeature;
 import potionstudios.byg.common.world.feature.gen.nether.quartzdesert.RawQuartzColumnFeature;
 import potionstudios.byg.common.world.feature.gen.nether.spike.SpikeFeature;
-import potionstudios.byg.common.world.feature.gen.nether.subzero.SubzeroCrystalFeature;
 import potionstudios.byg.common.world.feature.gen.nether.sythiantorrids.SythianStalk;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.WailingVine;
 import potionstudios.byg.common.world.feature.gen.nether.wailinggarth.pillars.WailingPillar1;
@@ -64,7 +63,6 @@ public class BYGFeatures {
     public static final RegistryObject<Feature<PointyRockConfig>> TALL_POINTED_ROCK = createFeature("tall_pointed_rock", () -> new TallPointedRocks(PointyRockConfig.CODEC.stable()));
 
     //Lakes
-    public static final RegistryObject<Feature<BlockStateConfiguration>> FROSTED_LAKE = createFeature("frosted_lake", () -> new FrostMagmaLakeFeature(BlockStateConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> WIDE_LAKE = createFeature("wide_lake", () -> new WideLake(SimpleBlockProviderConfig.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> END_LAKE = createFeature("end_lake", EndLakeFeature::new);
     public static final RegistryObject<Feature<LargeLakeFeatureConfig>> LARGE_LAKE = createFeature("overworld_lake", () -> new LargeLakeFeature(LargeLakeFeatureConfig.CODEC));
@@ -127,12 +125,7 @@ public class BYGFeatures {
     public static final RegistryObject<Feature<WhitelistedSimpleBlockProviderConfig>> HUGE_WARPED_CORAL_PLANT = createFeature("warped_coral_plant", () -> new WarpedCoralFeature(WhitelistedSimpleBlockProviderConfig.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> PILLARS = createFeature("pillar", () -> new ConfigurablePillar(SimpleBlockProviderConfig.CODEC.stable()));
 
-    //Chains
-    public static final RegistryObject<Feature<ChainConfig>> CHAIN = createFeature("chain", () -> new Chain(ChainConfig.CODEC.stable()));
-
     //Crimson Gardens
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> CRIMSON_FUNGUS_TREE1 = createFeature("crimson_fungus_tree1", () -> new CrimsonFungus1(BYGMushroomConfig.CODEC.stable()));
-    public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> CRIMSON_FUNGUS_TREE2 = createFeature("crimson_fungus_tree2", () -> new CrimsonFungus2(BYGMushroomConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WARPED_FUNGUS_TREE1 = createFeature("warped_fungus_tree1", () -> new WarpedFungus1(BYGMushroomConfig.CODEC.stable()));
     public static final RegistryObject<BYGAbstractMushroomFeature<BYGMushroomConfig>> WARPED_FUNGUS_TREE2 = createFeature("warped_fungus_tree2", () -> new WarpedFungus2(BYGMushroomConfig.CODEC.stable()));
 
@@ -147,9 +140,6 @@ public class BYGFeatures {
     //QuartzDesert
     public static final RegistryObject<Feature<ColumnFeatureConfiguration>> QUARTZ_COLUMNS = createFeature("quartz_columns", () -> new RawQuartzColumnFeature(ColumnFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<QuartzSpikeConfig>> QUARTZ_SPIKES = createFeature("quartz_spikes", () -> new QuartzSpikeFeature(QuartzSpikeConfig.CODEC.stable()));
-
-    //Subzero
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SUBZERO_CRYSTAL = createFeature("subzero_crystal", () -> new SubzeroCrystalFeature(NoneFeatureConfiguration.CODEC.stable()));
 
 
     public static <C extends FeatureConfiguration, F extends Feature<C>> RegistryObject<F> createFeature(String id, Supplier<? extends F> feature) {

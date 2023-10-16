@@ -7,12 +7,10 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
-import potionstudios.byg.common.block.nether.glowstonegardens.HangingVinesBlock;
-import potionstudios.byg.common.block.nether.glowstonegardens.HangingVinesPlantBlock;
+
 import potionstudios.byg.common.block.nether.glowstonegardens.SoulShroomSporeBlock;
 import potionstudios.byg.common.block.nether.glowstonegardens.SoulShroomSporeEndBlock;
 import potionstudios.byg.common.block.nether.scorched.ScorchedPlantBlock;
-import potionstudios.byg.common.block.nether.subzerohypogeal.SubzeroAshBlock;
 import potionstudios.byg.common.block.nether.sythian.*;
 import potionstudios.byg.common.block.nether.wailing.HangingBonesBlock;
 import potionstudios.byg.common.block.nether.warped.BYGWarpedBushBlock;
@@ -79,27 +77,6 @@ public class BYGBlockProperties {
                     .lightLevel((state) -> 10)
                     .requiresCorrectToolForDrops()
 
-            );
-
-        }
-    }
-
-    public static class BYGSubzeroAsh extends SubzeroAshBlock {
-        public BYGSubzeroAsh() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.SAND)
-                    .strength(0.1f)
-                    .speedFactor(0.6F)
-            );
-
-        }
-    }
-
-    public static class BYGSubzeroAshBlock extends Block {
-        public BYGSubzeroAshBlock() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.SAND)
-                    .strength(0.2f)
             );
 
         }
@@ -350,32 +327,6 @@ public class BYGBlockProperties {
         public BYGSkyrisVine() {
             super(BlockBehaviour.Properties.of()
                     .sound(SoundType.GRASS)
-                    .strength(0.2f)
-                    .randomTicks()
-                    .noCollission()
-            );
-
-        }
-    }
-
-    public static class BYGHangingVine extends HangingVinesBlock {
-        public BYGHangingVine() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.WEEPING_VINES)
-                    .strength(0.2f)
-                    .randomTicks()
-                    .noCollission()
-                    .lightLevel((state) -> 14)
-
-            );
-
-        }
-    }
-
-    public static class BYGHangingVinePlant extends HangingVinesPlantBlock {
-        public BYGHangingVinePlant() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.WEEPING_VINES)
                     .strength(0.2f)
                     .randomTicks()
                     .noCollission()

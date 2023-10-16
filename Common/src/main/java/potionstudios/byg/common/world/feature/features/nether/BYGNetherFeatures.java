@@ -38,8 +38,6 @@ import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.*;
 public class BYGNetherFeatures {
 
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SUBZERO_ASH_BLOCK = createConfiguredFeature("subzero_ash_block", () -> Feature.RANDOM_PATCH, () -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(BYGBlocks.SUBZERO_ASH_BLOCK.get())), List.of(BYGBlocks.SUBZERO_ASH_BLOCK.get())));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SUBZERO_ASH = createPatchConfiguredFeatureWithBlock("subzero_ash", BYGBlocks.SUBZERO_ASH, 35);
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_CRYSTAL = createPatchConfiguredFeatureWithBlock("quartz_crystal", BYGBlocks.QUARTZ_CRYSTAL, 15);
 
 
@@ -59,26 +57,14 @@ public class BYGNetherFeatures {
     );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SOUL_SOIL_PILLARS = createConfiguredFeature("soul_soil_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.WARPED_SOUL_SOIL.defaultBlockState())));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FROST_MAGMA_PILLARS = createConfiguredFeature("frost_magma_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.FROST_MAGMA.defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAGMA_PILLARS = createConfiguredFeature("magma_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(BlockStateProvider.simple(BYGBlocks.MAGMATIC_STONE.defaultBlockState())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> SYTHIAN_FUNGUS_PILLARS = createConfiguredFeature("sythian_fungus_pillars", BYGFeatures.PILLARS, () -> new SimpleBlockProviderConfig(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BYGWoodTypes.SYTHIAN.wood().defaultBlockState(), 9).add(BYGWoodTypes.SYTHIAN.wood().defaultBlockState(), 1))));
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SUBZERO_ASHES = createConfiguredFeature("subzero_ashes", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SUBZERO_ASH)), 0.6F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(((SUBZERO_ASH_BLOCK)))));
-            }
-    );
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WAILING_PILLAR = createConfiguredFeature("wailing_pillar1", BYGFeatures.WAILING_PILLAR1, () -> new BYGTreeConfig.Builder().setTrunkBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.BASALT.defaultBlockState(), 8).add(Blocks.POLISHED_BASALT.defaultBlockState(), 2))).setLeavesBlock(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 4).add(Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3).add(Blocks.BLACKSTONE.defaultBlockState(), 2).add(BYGBlocks.DUSTED_POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), 3))).setMaxHeight(30).setMinHeight(22).build());
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> NYLIUM_SOUL_PATCH_FIRE = createConfiguredFeature("nylium_soul_patch_fire", () -> Feature.RANDOM_PATCH, () -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.SOUL_FIRE)), List.of(BYGBlocks.WARPED_SOUL_SOIL.get(), BYGBlocks.WARPED_SOUL_SAND.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> MAGMA_PATCH_FIRE = createConfiguredFeature("magma_patch_fire", () -> Feature.RANDOM_PATCH, () -> FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FIRE)), List.of(BYGBlocks.MAGMATIC_STONE.get())));
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SUBZERO_CRYSTAL = createConfiguredFeature("subzero_crystal", BYGFeatures.SUBZERO_CRYSTAL, () -> FeatureConfiguration.NONE);
-
     public static void loadClass() {
     }
 }

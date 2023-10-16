@@ -175,8 +175,6 @@ public class BYGCompostables {
         map.put(BYGItems.BULBIS_SHELL.get(), 0.85f);
 
         //Foods
-        map.put(BYGItems.CRIMSON_BERRIES.get(), 0.65f);
-        map.put(BYGItems.CRIMSON_BERRY_PIE.get(), 0.65f);
         map.put(BYGItems.JOSHUA_FRUIT.get(), 0.65f);
         map.put(BYGItems.COOKED_JOSHUA_FRUIT.get(), 0.65f);
         map.put(BYGItems.GREEN_APPLE.get(), 0.65f);

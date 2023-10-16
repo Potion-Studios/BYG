@@ -115,20 +115,6 @@ public class BYGItems {
     public static final RegistryObject<Item> ROCKY_SLAB = createItem(BYGBlocks.ROCKY_SLAB);
     public static final RegistryObject<Item> ROCKY_WALL = createItem(BYGBlocks.ROCKY_WALL);
 
-    public static final RegistryObject<Item> TRAVERTINE = createItem(BYGBlocks.TRAVERTINE);
-    public static final RegistryObject<Item> TRAVERTINE_STAIRS = createItem(BYGBlocks.TRAVERTINE_STAIRS);
-    public static final RegistryObject<Item> TRAVERTINE_SLAB = createItem(BYGBlocks.TRAVERTINE_SLAB);
-    public static final RegistryObject<Item> TRAVERTINE_WALL = createItem(BYGBlocks.TRAVERTINE_WALL);
-    public static final RegistryObject<Item> POLISHED_TRAVERTINE = createItem(BYGBlocks.POLISHED_TRAVERTINE);
-    public static final RegistryObject<Item> POLISHED_TRAVERTINE_STAIRS = createItem(BYGBlocks.POLISHED_TRAVERTINE_STAIRS);
-    public static final RegistryObject<Item> POLISHED_TRAVERTINE_SLAB = createItem(BYGBlocks.POLISHED_TRAVERTINE_SLAB);
-    public static final RegistryObject<Item> POLISHED_TRAVERTINE_WALL = createItem(BYGBlocks.POLISHED_TRAVERTINE_WALL);
-    public static final RegistryObject<Item> CHISELED_TRAVERTINE = createItem(BYGBlocks.CHISELED_TRAVERTINE);
-    public static final RegistryObject<Item> CHISELED_TRAVERTINE_STAIRS = createItem(BYGBlocks.CHISELED_TRAVERTINE_STAIRS);
-    public static final RegistryObject<Item> CHISELED_TRAVERTINE_SLAB = createItem(BYGBlocks.CHISELED_TRAVERTINE_SLAB);
-    public static final RegistryObject<Item> CHISELED_TRAVERTINE_WALL = createItem(BYGBlocks.CHISELED_TRAVERTINE_WALL);
-
-
     public static final RegistryObject<Item> SOAPSTONE = createItem(BYGBlocks.SOAPSTONE);
     public static final RegistryObject<Item> SOAPSTONE_STAIRS = createItem(BYGBlocks.SOAPSTONE_STAIRS);
     public static final RegistryObject<Item> SOAPSTONE_SLAB = createItem(BYGBlocks.SOAPSTONE_SLAB);
@@ -452,10 +438,6 @@ public class BYGItems {
 
     //Nether
     public static final RegistryObject<Item> OVERGROWN_CRIMSON_BLACKSTONE = createItem(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE);
-    public static final RegistryObject<Item> TALL_CRIMSON_ROOTS = createItem(BYGBlocks.TALL_CRIMSON_ROOTS);
-    public static final RegistryObject<Item> CRIMSON_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.CRIMSON_BERRY_BUSH.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "crimson_berries");
-    public static final RegistryObject<Item> CRIMSON_BERRY_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200, 0), 1.0F).build())), "crimson_berry_pie");
-
     public static final RegistryObject<Item> WARPED_CACTUS = createItem(BYGBlocks.WARPED_CACTUS);
     public static final RegistryObject<Item> WARPED_BUSH = createItem(BYGBlocks.WARPED_BUSH);
     public static final RegistryObject<Item> WARPED_CORAL_BLOCK = createItem(BYGBlocks.WARPED_CORAL_BLOCK);
@@ -463,18 +445,6 @@ public class BYGItems {
     public static final RegistryObject<Item> WARPED_CORAL_FAN = createItem(BYGBlocks.WARPED_CORAL_FAN);
     public static final RegistryObject<Item> WARPED_SOUL_SAND = createItem(BYGBlocks.WARPED_SOUL_SAND);
     public static final RegistryObject<Item> WARPED_SOUL_SOIL = createItem(BYGBlocks.WARPED_SOUL_SOIL);
-
-    public static final RegistryObject<Item> FROST_MAGMA = createItem(BYGBlocks.FROST_MAGMA);
-    public static final RegistryObject<Item> SUBZERO_ASH = createItem(BYGBlocks.SUBZERO_ASH);
-    public static final RegistryObject<Item> SUBZERO_ASH_BLOCK = createItem(BYGBlocks.SUBZERO_ASH_BLOCK);
-    public static final RegistryObject<Item> SUBZERO_CRYSTAL_BLOCK = createItem(BYGBlocks.SUBZERO_CRYSTAL_BLOCK);
-    public static final RegistryObject<Item> BUDDING_SUBZERO_CRYSTAL = createItem(BYGBlocks.BUDDING_SUBZERO_CRYSTAL);
-    public static final RegistryObject<Item> SMALL_SUBZERO_CRYSTAL_BUD = createItem(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD);
-    public static final RegistryObject<Item> MEDIUM_SUBZERO_CRYSTAL_BUD = createItem(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD);
-    public static final RegistryObject<Item> LARGE_SUBZERO_CRYSTAL_BUD = createItem(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD);
-    public static final RegistryObject<Item> SUBZERO_CRYSTAL_CLUSTER = createItem(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER);
-    public static final RegistryObject<Item> SUBZERO_CRYSTAL_SHARD = createItem(() -> new Item(new Properties()), "subzero_crystal_shard");
-    public static final RegistryObject<Item> HYPOGEAL_IMPERIUM = createItem(BYGBlocks.HYPOGEAL_IMPERIUM);
 
     public static final RegistryObject<Item> ANTHRACITE = createItem(() -> new Item(new Properties()), "anthracite");
     public static final RegistryObject<Item> ANTHRACITE_BLOCK = createItem(BYGBlocks.ANTHRACITE_BLOCK);
@@ -508,7 +478,6 @@ public class BYGItems {
     public static final RegistryObject<GrowerItem> DEATH_CAP = createGrowerItem(BYGBlocks.DEATH_CAP);
     public static final RegistryObject<Item> DEATH_CAP_MUSHROOM_BLOCK = createItem(BYGBlocks.DEATH_CAP_MUSHROOM_BLOCK);
 
-    public static final RegistryObject<Item> WEEPING_ROOTS = createItem(BYGBlocks.WEEPING_ROOTS);
     public static final RegistryObject<Item> NETHER_BRISTLE = createItem(BYGBlocks.NETHER_BRISTLE);
 
     public static final RegistryObject<Item> SYTHIAN_NYLIUM = createItem(BYGBlocks.SYTHIAN_NYLIUM);

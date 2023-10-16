@@ -1160,34 +1160,6 @@ public class BYGBiomes {
             HAS_RUINED_PORTAL_NETHER
     );
 
-    public static final ResourceKey<Biome> CRIMSON_GARDENS = createBiome("crimson_gardens", BYGNetherBiomes::crimsonGardens,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
-    public static final ResourceKey<Biome> GLOWSTONE_GARDENS = createBiome("glowstone_gardens", BYGNetherBiomes::glowstoneGardens,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
     public static final ResourceKey<Biome> MAGMA_WASTES = createBiome("magma_wastes", BYGNetherBiomes::magmaWastes, IS_NETHER,
             // Dimensions
             IS_NETHER,
@@ -1202,19 +1174,6 @@ public class BYGBiomes {
             HAS_RUINED_PORTAL_NETHER
     );
 
-    public static final ResourceKey<Biome> SUBZERO_HYPOGEAL = createBiome("subzero_hypogeal", BYGNetherBiomes::subzeroHypogeal,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_COLD_NETHER,
-            IS_COLD,
-            CLIMATE_COLD,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
     public static final ResourceKey<Biome> SYTHIAN_TORRIDS = createBiome("sythian_torrids", BYGNetherBiomes::sythianTorrids,
             // Dimensions
             IS_NETHER,
@@ -1244,34 +1203,6 @@ public class BYGBiomes {
     );
 
     public static final ResourceKey<Biome> WAILING_GARTH = createBiome("wailing_garth", BYGNetherBiomes::wailingGarth,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
-    public static final ResourceKey<Biome> ARISIAN_UNDERGROWTH = createBiome("arisian_undergrowth", BYGNetherBiomes::arisianUndergrowth,
-            // Dimensions
-            IS_NETHER,
-            IN_NETHER,
-            // Climate
-            IS_HOT_NETHER,
-            IS_HOT,
-            CLIMATE_HOT,
-            // Structures
-            HAS_NETHER_FORTRESS,
-            HAS_BASTION_REMNANT,
-            HAS_RUINED_PORTAL_NETHER
-    );
-
-    public static final ResourceKey<Biome> WEEPING_MIRE = createBiome("weeping_mire", BYGNetherBiomes::weepingMire,
             // Dimensions
             IS_NETHER,
             IN_NETHER,
