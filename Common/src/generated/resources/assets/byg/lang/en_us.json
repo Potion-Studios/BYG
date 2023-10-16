@@ -221,13 +221,13 @@
   "block.byg.blue_enchanted_trapdoor": "Blue Enchanted Trapdoor",
   "block.byg.blue_enchanted_wall_sign": "Blue Enchanted Wall Sign",
   "block.byg.blue_enchanted_wood": "Blue Enchanted Wood",
-  "block.byg.blue_nether_brick_slab": "Blue Nether Brick Slab",
-  "block.byg.blue_nether_brick_stairs": "Blue Nether Brick Stairs",
-  "block.byg.blue_nether_brick_wall": "Blue Nether Brick Wall",
-  "block.byg.blue_nether_bricks": "Blue Nether Bricks",
-  "block.byg.blue_nether_gold_ore": "Blue Nether Gold Ore",
-  "block.byg.blue_nether_quartz_ore": "Blue Nether Quartz Ore",
-  "block.byg.blue_netherrack": "Blue Netherrack",
+
+
+
+
+
+
+
   "block.byg.blue_rose_bush": "Blue Rose Bush",
   "block.byg.blue_sage": "Blue Sage",
   "block.byg.blue_sand": "Blue Sand",
@@ -1281,10 +1281,10 @@
   "block.byg.yellow_birch_leaves": "Yellow Birch Leaves",
   "block.byg.yellow_birch_sapling": "Yellow Birch Sapling",
   "block.byg.yellow_daffodil": "Yellow Daffodil",
-  "block.byg.yellow_nether_brick_slab": "Yellow Nether Brick Slab",
-  "block.byg.yellow_nether_brick_stairs": "Yellow Nether Brick Stairs",
-  "block.byg.yellow_nether_brick_wall": "Yellow Nether Brick Wall",
-  "block.byg.yellow_nether_bricks": "Yellow Nether Bricks",
+
+
+
+
   "block.byg.yellow_spruce_leaves": "Yellow Spruce Leaves",
   "block.byg.yellow_spruce_sapling": "Yellow Spruce Sapling",
   "block.byg.yellow_tulip": "Yellow Tulip",
@@ -1469,14 +1469,14 @@
   "item.byg.blue_enchanted_stairs": "Blue Enchanted Stairs",
   "item.byg.blue_enchanted_trapdoor": "Blue Enchanted Trapdoor",
   "item.byg.blue_enchanted_wood": "Blue Enchanted Wood",
-  "item.byg.blue_nether_brick": "Blue Nether Brick",
-  "item.byg.blue_nether_brick_slab": "Blue Nether Brick Slab",
-  "item.byg.blue_nether_brick_stairs": "Blue Nether Brick Stairs",
-  "item.byg.blue_nether_brick_wall": "Blue Nether Brick Wall",
-  "item.byg.blue_nether_bricks": "Blue Nether Bricks",
-  "item.byg.blue_nether_gold_ore": "Blue Nether Gold Ore",
-  "item.byg.blue_nether_quartz_ore": "Blue Nether Quartz Ore",
-  "item.byg.blue_netherrack": "Blue Netherrack",
+
+
+
+
+
+
+
+
   "item.byg.blue_rose_bush": "Blue Rose Bush",
   "item.byg.blue_sage": "Blue Sage",
   "item.byg.blue_sand": "Blue Sand",
@@ -2450,11 +2450,11 @@
   "item.byg.yellow_birch_leaves": "Yellow Birch Leaves",
   "item.byg.yellow_birch_sapling": "Yellow Birch Sapling",
   "item.byg.yellow_daffodil": "Yellow Daffodil",
-  "item.byg.yellow_nether_brick": "Yellow Nether Brick",
-  "item.byg.yellow_nether_brick_slab": "Yellow Nether Brick Slab",
-  "item.byg.yellow_nether_brick_stairs": "Yellow Nether Brick Stairs",
-  "item.byg.yellow_nether_brick_wall": "Yellow Nether Brick Wall",
-  "item.byg.yellow_nether_bricks": "Yellow Nether Bricks",
+
+
+
+
+
   "item.byg.yellow_spruce_leaves": "Yellow Spruce Leaves",
   "item.byg.yellow_spruce_sapling": "Yellow Spruce Sapling",
   "item.byg.yellow_tulip": "Yellow Tulip",

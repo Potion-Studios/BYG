@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "byg:block/yellow_nether_bricks",
-    "top": "byg:block/yellow_nether_bricks",
-    "side": "byg:block/yellow_nether_bricks"
-  }
-}

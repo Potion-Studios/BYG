@@ -3,7 +3,6 @@
     "byg:aspen_stairs",
     "byg:baobab_stairs",
     "byg:blue_enchanted_stairs",
-    "byg:blue_nether_brick_stairs",
     "byg:bulbis_stairs",
     "byg:carved_ether_stone_stairs",
     "byg:cattail_thatch_stairs",
@@ -61,7 +60,7 @@
     "byg:willow_stairs",
     "byg:windswept_sandstone_stairs",
     "byg:witch_hazel_stairs",
-    "byg:yellow_nether_brick_stairs",
+
     "byg:zelkova_stairs"
   ]
 }

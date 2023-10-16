@@ -503,12 +503,6 @@ public class BYGItems {
     public static final RegistryObject<Item> BRIM_POWDER = createItem(() -> new Item(new Properties()), "brim_powder");
     public static final RegistryObject<Item> BORIC_CAMPFIRE = createItem(BYGBlocks.BORIC_CAMPFIRE);
     public static final RegistryObject<Item> BORIC_LANTERN = createItem(BYGBlocks.BORIC_LANTERN);
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICKS = createItem(BYGBlocks.YELLOW_NETHER_BRICKS);
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_SLAB = createItem(BYGBlocks.YELLOW_NETHER_BRICK_SLAB);
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_STAIRS = createItem(BYGBlocks.YELLOW_NETHER_BRICK_STAIRS);
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICK_WALL = createItem(BYGBlocks.YELLOW_NETHER_BRICK_WALL);
-
-    public static final RegistryObject<Item> YELLOW_NETHER_BRICK = createItem(() -> new Item(new Properties()), "yellow_nether_brick");
     public static final RegistryObject<Item> MAGMATIC_STONE = createItem(BYGBlocks.MAGMATIC_STONE);
 
     public static final RegistryObject<Item> HANGING_BONE = createItem(BYGBlocks.HANGING_BONE);
