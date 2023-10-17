@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.level.biome.Biome;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.util.BYGUtil;
 
@@ -52,7 +53,7 @@ public class BiomeWidget extends AbstractWidget {
     }
 
     @Override
-    public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+    public void renderWidget(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
             if (previewImageLocation != null) {
                 float scale = 0.09F;
@@ -63,7 +64,7 @@ public class BiomeWidget extends AbstractWidget {
             int textX = (this.getX() + (this.width / 2)) - textWidth;
             int textY = this.getY() + height - 10;
 
-            guiGraphics.drawString(Minecraft.getInstance().font, this.name, textX, textY, FastColor.ARGB32.color(255, 0, 0, 0));
+            guiGraphics.drawString(Minecraft.getInstance().font, this.name, textX, textY, FastColor.ARGB32.color(255, 0, 0, 0), false);
 
             if (BYGUtil.isInside(this.getX(), this.getY(), this.getX() + this.width, this.getY() + this.height, mouseX, mouseY)) {
                 drawWidgetBorder(guiGraphics);
@@ -73,6 +74,7 @@ public class BiomeWidget extends AbstractWidget {
 
     public static void renderBiomePicture(GuiGraphics guiGraphics, float scale, int x, int y, ResourceLocation location) {
         PoseStack poseStack = guiGraphics.pose();
+        poseStack.pushPose();
         poseStack.scale(scale, scale, 1);
         int scaledX = (int) (x / scale);
         int scaledY = (int) (y / scale);

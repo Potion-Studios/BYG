@@ -98,6 +98,6 @@ public class BlockItemAboutScreen extends AbstractBiomepediaScreen {
         poseStack.popPose();
         int startX = this.leftPos + ((IMAGE_WIDTH / 4)) - (Minecraft.getInstance().font.width(this.getTitle()) / 2) + 4;
 
-        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0);
+        guiGraphics.drawString(Minecraft.getInstance().font, this.getTitle(), startX, this.bottomPos + 13, 0, false);
     }
 }
