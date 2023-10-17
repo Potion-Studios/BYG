@@ -7,7 +7,7 @@
     },
     "features": [
       {
-        "chance": 0.50,
+        "chance": 1.0,
         "feature": {
           "feature": "byg:white_cherry_tree1",
           "placement": []
