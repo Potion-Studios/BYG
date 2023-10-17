@@ -66,7 +66,7 @@ public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableTe
         @Override
         public void render(GuiGraphics guiGraphics, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
             int textHeightOffset =  (pTop + pHeight - Minecraft.getInstance().font.lineHeight);
-            guiGraphics.drawString(Minecraft.getInstance().font, this.text, (pLeft) + rowWidth - this.textMaxWidth, textHeightOffset, this.textColor);
+            guiGraphics.drawString(Minecraft.getInstance().font, this.text, (pLeft) + rowWidth - this.textMaxWidth, textHeightOffset, this.textColor, false);
         }
     }
 }
