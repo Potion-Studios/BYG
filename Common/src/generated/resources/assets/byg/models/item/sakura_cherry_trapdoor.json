@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry/trapdoor_bottom",
+  "parent": "byg:block/sakura_cherry/trapdoor_bottom",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

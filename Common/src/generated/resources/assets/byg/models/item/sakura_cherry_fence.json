@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry/fence_inv",
+  "parent": "byg:block/sakura_cherry/fence_inv",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

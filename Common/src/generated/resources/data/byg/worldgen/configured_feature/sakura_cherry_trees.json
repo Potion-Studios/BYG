@@ -7,21 +7,7 @@
     },
     "features": [
       {
-        "chance": 0.25,
-        "feature": {
-          "feature": "byg:pink_cherry_tree1",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.25,
-        "feature": {
-          "feature": "byg:pink_cherry_tree2",
-          "placement": []
-        }
-      },
-      {
-        "chance": 0.25,
+        "chance": 0.50,
         "feature": {
           "feature": "byg:white_cherry_tree1",
           "placement": []

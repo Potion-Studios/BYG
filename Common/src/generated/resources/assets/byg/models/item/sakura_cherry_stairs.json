@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry/stairs",
+  "parent": "byg:block/sakura_cherry/stairs",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [
