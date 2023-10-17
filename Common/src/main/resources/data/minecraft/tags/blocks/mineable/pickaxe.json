@@ -50,10 +50,6 @@
     "byg:cryptic_vent",
     "byg:tall_cryptic_vent",
     "byg:cryptic_redstone_ore",
-    "byg:frost_magma",
-    "byg:subzero_crystal_block",
-    "byg:budding_subzero_crystal",
-    "byg:subzero_crystal_cluster",
     "byg:black_sandstone",
     "byg:black_chiseled_sandstone",
     "byg:black_cut_sandstone",
@@ -140,18 +136,18 @@
     "byg:rocky_stone_slab",
     "byg:rocky_stone_stairs",
     "byg:rocky_stone_wall",
-    "byg:travertine",
-    "byg:travertine_slab",
-    "byg:travertine_stairs",
-    "byg:travertine_wall",
-    "byg:polished_travertine",
-    "byg:polished_travertine_slab",
-    "byg:polished_travertine_stairs",
-    "byg:polished_travertine_wall",
-    "byg:chiseled_travertine",
-    "byg:chiseled_travertine_slab",
-    "byg:chiseled_travertine_stairs",
-    "byg:chiseled_travertine_wall",
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,7 +195,6 @@
     "byg:shulkren_phylium",
     "byg:bulbis_phycelium",
     "byg:imparius_phylium",
-    "byg:hypogeal_imperium",
     "byg:packed_black_ice",
     "byg:black_ice",
     "byg:therium_crystal_block",

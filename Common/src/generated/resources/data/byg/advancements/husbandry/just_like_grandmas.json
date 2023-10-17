@@ -13,18 +13,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "crimson_berry_pie": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "byg:crimson_berry_pie"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "green_apple_pie": {
       "conditions": {
         "items": [
@@ -69,7 +57,6 @@
     [
       "blueberry_pie",
       "green_apple_pie",
-      "crimson_berry_pie",
       "nightshade_berry_pie"
     ]
   ]

@@ -54,20 +54,6 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGFrostMagma extends BYGFrostMagmaBlock {
-        public BYGFrostMagma() {
-            super(BlockBehaviour.Properties.of()
-                    .sound(SoundType.STONE)
-                    .strength(0.2f)
-                    .friction(0.98F)
-                    .lightLevel((state) -> 10)
-                    .requiresCorrectToolForDrops()
-
-            );
-
-        }
-    }
-
     public static class BYGMagma extends MagmaBlock {
         public BYGMagma() {
             super(BlockBehaviour.Properties.of()

@@ -50,6 +50,7 @@ public enum BYGWoodTypes {
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
     SAKURA_CHERRY("sakura_cherry", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING)
             .exclude(BlockType.SAPLING, BlockType.LEAVES)
             .boatType(BYGBoat.BYGType.SAKURA_CHERRY)),
     CIKA("cika", new Builder()

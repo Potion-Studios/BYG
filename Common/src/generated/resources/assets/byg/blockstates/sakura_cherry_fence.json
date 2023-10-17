@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "byg:block/cherry/fence_post"
+        "model": "byg:block/sakura_cherry/fence_post"
       }
     },
     {
       "apply": {
-        "model": "byg:block/cherry/fence",
+        "model": "byg:block/sakura_cherry/fence",
         "uvlock": true
       },
       "when": {
@@ -16,7 +16,7 @@
     },
     {
       "apply": {
-        "model": "byg:block/cherry/fence",
+        "model": "byg:block/sakura_cherry/fence",
         "uvlock": true,
         "y": 180
       },
@@ -26,7 +26,7 @@
     },
     {
       "apply": {
-        "model": "byg:block/cherry/fence",
+        "model": "byg:block/sakura_cherry/fence",
         "uvlock": true,
         "y": 270
       },
@@ -36,7 +36,7 @@
     },
     {
       "apply": {
-        "model": "byg:block/cherry/fence",
+        "model": "byg:block/sakura_cherry/fence",
         "uvlock": true,
         "y": 90
       },

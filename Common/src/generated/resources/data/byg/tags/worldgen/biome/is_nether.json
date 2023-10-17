@@ -1,15 +1,10 @@
 {
   "values": [
-    "byg:arisian_undergrowth",
     "byg:brimstone_caverns",
-    "byg:crimson_gardens",
-    "byg:glowstone_gardens",
     "byg:magma_wastes",
     "byg:quartz_desert",
-    "byg:subzero_hypogeal",
     "byg:sythian_torrids",
     "byg:wailing_garth",
-    "byg:warped_desert",
-    "byg:weeping_mire"
+    "byg:warped_desert"
   ]
 }

@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "byg:block/cherry/stripped_log",
+      "model": "byg:block/sakura_cherry/stripped_log",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "byg:block/cherry/stripped_log"
+      "model": "byg:block/sakura_cherry/stripped_log"
     },
     "axis=z": {
-      "model": "byg:block/cherry/stripped_log",
+      "model": "byg:block/sakura_cherry/stripped_log",
       "x": 90
     }
   }

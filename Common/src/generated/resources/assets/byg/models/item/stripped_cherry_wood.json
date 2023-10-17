@@ -1,5 +1,5 @@
 {
-  "parent": "byg:block/cherry/stripped_wood",
+  "parent": "byg:block/sakura_cherry/stripped_wood",
   "display": {
     "thirdperson_lefthand": {
       "rotation": [

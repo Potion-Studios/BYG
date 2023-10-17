@@ -413,10 +413,10 @@ public record GrowingPatterns(boolean logGrowth,
                             .build())
             ));
             map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.WHITE_SAKURA_CHERRY_TREE2))),
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.SAKURA_CHERRY_TREE2))),
                     new GrowingPatternEntry(List.of(
                             "xx",
-                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.WHITE_SAKURA_CHERRY_TREE1)))
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.SAKURA_CHERRY_TREE1)))
             ));
             map.put(BYGWoodTypes.WILLOW.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of(
