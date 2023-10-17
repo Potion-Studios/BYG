@@ -22,7 +22,7 @@
   "biome.byg.coconino_meadow": "Đồng cỏ Coconino",
   "biome.byg.coniferous_forest": "Rừng cây lá kim",
   "biome.byg.crag_gardens": "Vườn vách đá cheo leo",
-  "biome.byg.crimson_gardens": "Vườn đỏ thẫm",
+
   "biome.byg.cryptic_wastes": "Cryptic Wastes",
   "biome.byg.cypress_swamplands": "Đầm lầy cây bách",
   "biome.byg.dacite_ridges": "Dãy núi Dacit",
@@ -59,7 +59,7 @@
   "biome.byg.shulkren_forest": "Rừng Shulkren",
   "biome.byg.sierra_badlands": "Sierra Badlands",
   "biome.byg.skyris_vale": "Skyris Vale",
-  "biome.byg.subzero_hypogeal": "Subzero Hypogeal",
+
   "biome.byg.sythian_torrids": "Sythian Torrids",
   "biome.byg.temperate_grove": "Rừng ôn đới",
   "biome.byg.forgotten_forest": "Rừng mưa ôn đới",
@@ -68,7 +68,7 @@
   "biome.byg.viscal_isles": "Đảo viscal",
   "biome.byg.wailing_garth": "Garth than khóc ",
   "biome.byg.warped_desert": "Sa mạc kì dị",
-  "biome.byg.weeping_mire": "Đầm lầy đau khổ",
+
   "biome.byg.weeping_witch_forest": "Rừng phù thủy khóc ",
   "biome.byg.white_mangrove_marshes": "Đầm lầy ngập mặn",
   "biome.byg.windswept_beach": "Bãi biển lộng gió",
@@ -228,7 +228,7 @@
   "block.byg.brown_zelkova_leaves": "Lá Zelkova nâu",
   "block.byg.brown_zelkova_sapling": "Chồi cây Zelkova nâu",
   "block.byg.budding_ametrine_ore": "Nụ quặng Ametrine",
-  "block.byg.budding_subzero_crystal": "Nụ pha lê băng giá",
+
   "block.byg.bulbis_anomaly": "Cây Bulbis",
   "block.byg.bulbis_bookshelf": "Kệ sách Bulbis",
   "block.byg.bulbis_button": "Nút Bulbis",
@@ -288,10 +288,10 @@
   "block.byg.chiseled_therium_slab": "Phiến Therium được đục",
   "block.byg.chiseled_therium_stairs": "Cầu thang Therium được đục",
   "block.byg.chiseled_therium_wall": "Tường Therium được đục",
-  "block.byg.chiseled_travertine": "Đá travectin được đục",
-  "block.byg.chiseled_travertine_slab": "Phiến đá travectin được đục",
-  "block.byg.chiseled_travertine_stairs": "Cầu thang đá travectin được đục",
-  "block.byg.chiseled_travertine_wall": "Tường đá travectin được đục",
+
+
+
+
   "block.byg.chiseled_windswept_sandstone": "Cát kết gợn sóng được đục",
   "block.byg.chiseled_windswept_sandstone_slab": "Phiến cát kết gợn sóng được đục",
   "block.byg.chiseled_windswept_sandstone_stairs": "Cầu thang cát kết gợn sóng được đục",
@@ -324,7 +324,7 @@
   "block.byg.cracked_red_rock_bricks": "Gạch đá đỏ nứt",
   "block.byg.cracked_red_sand": "Cát đỏ nứt",
 
-  "block.byg.crimson_berry_bush": "Bụi cây mọng đỏ thẫm",
+
   "block.byg.crocus": "Hoa nghệ tây",
   "block.byg.cryptic_bramble": "Bụi cây bí ẩn",
   "block.byg.cryptic_campfire": "Lửa trại bí ẩn",
@@ -487,7 +487,7 @@
   "block.byg.flowering_tiny_lily_pads": "Lá súng nhỏ có hoa",
   "block.byg.foragers_table": "Bàn săn bắt & hái lượm",
   "block.byg.foxglove": "Mao địa hoàng",
-  "block.byg.frost_magma": "Khối dung nham đóng băng",
+
   "block.byg.fungal_imparius": "Chồi cây Imparius",
   "block.byg.fungal_imparius_block": "Khối nấm Imparius",
   "block.byg.fungal_imparius_filament": "Nhụy nấm Imparius",
@@ -544,7 +544,7 @@
   "block.byg.horseweed": "Cỏ ngựa",
   "block.byg.hydrangea_bush": "Bụi hoa cẩm tú cầu",
   "block.byg.hydrangea_hedge": "Cẩm tú cầu",
-  "block.byg.hypogeal_imperium": "Hypogeal Imperium",
+
   "block.byg.imbued_nightshade_log": "Thân cây Nightshade",
   "block.byg.imparius_bookshelf": "Kệ sách Imparius",
   "block.byg.imparius_bush": "Bụi Imparius",
@@ -618,7 +618,7 @@
 
 
 
-  "block.byg.large_subzero_crystal_bud": "Nụ pha lê băng giá lớn",
+
   "block.byg.lazarus_bellflower": "Hoa đầu rắn",
   "block.byg.leaf_pile": "Đống lá",
   "block.byg.light_blue_petal_block": "Khối cánh hoa xanh nước biển nhạt",
@@ -683,7 +683,7 @@
   "block.byg.maple_trapdoor": "Cửa sập gỗ phong",
   "block.byg.maple_wall_sign": "Biển gỗ phong treo tường",
   "block.byg.maple_wood": "Gỗ phong",
-  "block.byg.medium_subzero_crystal_bud": "Nụ pha lê băng giá trung bình",
+
   "block.byg.mini_cactus": "Xương rồng mini",
   "block.byg.mossy_red_rock_brick_slab": "Phiến gạch đá đỏ phủ rêu",
   "block.byg.mossy_red_rock_brick_stairs": "Cầu thang gạch đá đỏ phủ rêu",
@@ -797,10 +797,10 @@
   "block.byg.polished_soapstone_slab": "Phiến đá xà phòng được đánh bóng",
   "block.byg.polished_soapstone_stairs": "Cầu thang đá xà phòng được đánh bóng",
   "block.byg.polished_soapstone_wall": "Tường đá xà phòng được đánh bóng",
-  "block.byg.polished_travertine": "Đá travectin được đánh bóng",
-  "block.byg.polished_travertine_slab": "Phiến đá travectin được đánh bóng",
-  "block.byg.polished_travertine_stairs": "Cầu thang đá travectin được đánh bóng",
-  "block.byg.polished_travertine_wall": "Tường đá travectin được đánh bóng",
+
+
+
+
   "block.byg.pollen_block": "Khối phấn hoa",
   "block.byg.potted_alpine_bellflower": "Chậu hoa chuông Alpine",
   "block.byg.potted_angelica": "Chậu bạch chỉ",
@@ -1043,7 +1043,7 @@
   "block.byg.skyris_vine": "Dây leo Skyris",
   "block.byg.skyris_wall_sign": "Biển gỗ Skyris treo tường",
   "block.byg.skyris_wood": "Gỗ Skyris",
-  "block.byg.small_subzero_crystal_bud": "Nụ pha lê băng giá nhỏ",
+
   "block.byg.smooth_windswept_sandstone": "Cát kết gợn sóng mịn",
   "block.byg.smooth_windswept_sandstone_slab": "Phiến cát kết gợn sóng mịn",
   "block.byg.smooth_windswept_sandstone_stairs": "Cầu thang cát kết gợn sóng mịn",
@@ -1125,10 +1125,10 @@
   "block.byg.stripped_witch_hazel_wood": "Gỗ phỉ đã cạo vỏ",
   "block.byg.stripped_zelkova_log": "Thân cây Zelkova đã cạo vỏ",
   "block.byg.stripped_zelkova_wood": "Gỗ Zelkova đã cạo vỏ",
-  "block.byg.subzero_ash": "Tro băng giá",
-  "block.byg.subzero_ash_block": "Khối tro băng giá",
-  "block.byg.subzero_crystal_block": "Khối pha lê băng giá",
-  "block.byg.subzero_crystal_cluster": "Cụm pha lê băng giá",
+
+
+
+
   "block.byg.sythian_bookshelf": "Kệ sách Sythian",
   "block.byg.sythian_button": "Nút Sythian",
   "block.byg.sythian_crafting_table": "Bàn chế tạo Sythian",
@@ -1168,10 +1168,10 @@
   "block.byg.therium_lamp": "Đèn Therium",
   "block.byg.therium_lantern": "Đèn lồng Therium",
   "block.byg.tiny_lilypads": "Lá súng nhỏ",
-  "block.byg.travertine": "Đá travectin",
-  "block.byg.travertine_slab": "Phiến đá travectin",
-  "block.byg.travertine_stairs": "Cầu thang đá travectin",
-  "block.byg.travertine_wall": "Tường đá travectin",
+
+
+
+
   "block.byg.vermilion_sculk": "Khối xúc tác Sculk đỏ son",
   "block.byg.vermilion_sculk_growth": "Mạch Sculk đỏ son",
   "block.byg.vermilion_sculk_tendrils": "Sculk đỏ son",
@@ -1192,8 +1192,8 @@
   "block.byg.water_silk": "Tảo nước",
   "block.byg.weeping_milkcap": "Nấm sữa than khóc",
   "block.byg.weeping_milkcap_mushroom_block": "Khối nấm sữa than khóc",
-  "block.byg.weeping_roots": "Rễ than khóc",
-  "block.byg.weeping_roots_plant": "Rễ than khóc",
+
+
   "block.byg.white_anemone": "Hoa cỏ chân ngỗng trắng",
   "block.byg.white_cherry_foliage": "Lá anh đào trắng",
   "block.byg.white_cherry_leaves": "Lá anh đào trắng",
@@ -1338,7 +1338,7 @@
   "byg.worldgenexport.singleplayer": "World generation export command must be used in single player!",
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
-  "container.hypogeal_imperium_container": "Hypogeal Imperium",
+
   "death.attack.byg.cattail_campfire": "%s quá tò mò",
   "dimension.minecraft.overworld": "Overworld",
   "dimension.minecraft.the_end": "The End",
@@ -1464,7 +1464,7 @@
   "item.byg.brown_zelkova_leaves": "Lá Zelkova nâu",
   "item.byg.brown_zelkova_sapling": "Chồi cây Zelkova nâu",
   "item.byg.budding_ametrine_ore": "Nụ quặng Ametrine",
-  "item.byg.budding_subzero_crystal": "Nụ pha lê băng giá",
+
   "item.byg.bulbis_anomaly": "Cây Bulbis",
   "item.byg.bulbis_bookshelf": "Kệ sách Bulbis",
   "item.byg.bulbis_button": "Nút Bulbis",
@@ -1524,10 +1524,10 @@
   "item.byg.chiseled_therium_slab": "Phiến Therium được đục",
   "item.byg.chiseled_therium_stairs": "Cầu thang Therium được đục",
   "item.byg.chiseled_therium_wall": "Tường Therium được đục",
-  "item.byg.chiseled_travertine": "Đá travectin được đục",
-  "item.byg.chiseled_travertine_slab": "Phiến đá travectin được đục",
-  "item.byg.chiseled_travertine_stairs": "Cầu thang đá travectin được đục",
-  "item.byg.chiseled_travertine_wall": "Tường đá travectin được đục",
+
+
+
+
   "item.byg.chiseled_windswept_sandstone": "Cát kết gợn sóng được đục",
   "item.byg.chiseled_windswept_sandstone_slab": "Phiến cát kết gợn sóng được đục",
   "item.byg.chiseled_windswept_sandstone_stairs": "Cầu thang cát kết gợn sóng được đục",
@@ -1562,8 +1562,8 @@
   "item.byg.cracked_red_rock_bricks": "Gạch đá đỏ nứt",
   "item.byg.cracked_red_sand": "Cát đỏ nứt",
 
-  "item.byg.crimson_berries": "Quả mọng đỏ thẫm",
-  "item.byg.crimson_berry_pie": "Bánh quả mọng đỏ thẫm",
+
+
   "item.byg.crocus": "Hoa nghệ tây",
   "item.byg.cryptic_bramble": "Bụi cây bí ẩn",
   "item.byg.cryptic_bramble_branch": "Cành cây bí ẩn",
@@ -1725,7 +1725,7 @@
   "item.byg.flowering_tiny_lily_pads": "Lá súng nhỏ có hoa",
   "item.byg.foragers_table": "Bàn săn bắt & hái lượm",
   "item.byg.foxglove": "Mao địa hoàng",
-  "item.byg.frost_magma": "Khối dung nham đóng băng",
+
   "item.byg.fungal_imparius": "Chồi cây Imparius",
   "item.byg.fungal_imparius_block": "Khối nấm Imparius",
   "item.byg.fungal_imparius_filament": "Nhụy nấm Imparius",
@@ -1783,7 +1783,7 @@
   "item.byg.horseweed": "Cỏ ngựa",
   "item.byg.hydrangea_bush": "Bụi hoa cẩm tú cầu",
   "item.byg.hydrangea_hedge": "Cẩm tú cầu",
-  "item.byg.hypogeal_imperium": "Hypogeal Imperium",
+
   "item.byg.imbued_nightshade_log": "Thân cây Nightshade",
   "item.byg.imparius_bookshelf": "Kệ sách Imparius",
   "item.byg.imparius_bush": "Bụi Imparius",
@@ -1854,7 +1854,7 @@
   ,
   ,
   ,
-  "item.byg.large_subzero_crystal_bud": "Nụ pha lê băng giá lớn",
+
   "item.byg.lazarus_bellflower": "Hoa đầu rắn",
   "item.byg.leaf_pile": "Đống lá",
   "item.byg.light_blue_petal_block": "Khối cánh hoa xanh nước biển nhạt",
@@ -1920,7 +1920,7 @@
   "item.byg.maple_stairs": "Cầu thang gỗ phong",
   "item.byg.maple_trapdoor": "Cửa sập gỗ phong",
   "item.byg.maple_wood": "Gỗ phong",
-  "item.byg.medium_subzero_crystal_bud": "Nụ pha lê băng giá trung bình",
+
   "item.byg.mini_cactus": "Xương rồng mini",
   "item.byg.mossy_red_rock_brick_slab": "Phiến gạch đá đỏ phủ rêu",
   "item.byg.mossy_red_rock_brick_stairs": "Cầu thang gạch đá đỏ phủ rêu",
@@ -2044,10 +2044,10 @@
   "item.byg.polished_soapstone_slab": "Phiến đá xà phòng được đánh bóng",
   "item.byg.polished_soapstone_stairs": "Cầu thang đá xà phòng được đánh bóng",
   "item.byg.polished_soapstone_wall": "Tường đá xà phòng được đánh bóng",
-  "item.byg.polished_travertine": "Đá travectin được đánh bóng",
-  "item.byg.polished_travertine_slab": "Phiến đá travectin được đánh bóng",
-  "item.byg.polished_travertine_stairs": "Cầu thang đá travectin được đánh bóng",
-  "item.byg.polished_travertine_wall": "Tường đá travectin được đánh bóng",
+
+
+
+
   "item.byg.pollen_block": "Khối phấn hoa",
   "item.byg.pollen_dust": "Bụi phấn hoa",
   "item.byg.prairie_grass": "Cỏ thảo nguyên",
@@ -2180,7 +2180,7 @@
   "item.byg.skyris_trapdoor": "Cửa sập gỗ Skyris",
   "item.byg.skyris_vine": "Dây leo Skyris",
   "item.byg.skyris_wood": "Gỗ Skyris",
-  "item.byg.small_subzero_crystal_bud": "Nụ pha lê băng giá nhỏ",
+
   "item.byg.smooth_windswept_sandstone": "Cát kết gợn sóng mịn",
   "item.byg.smooth_windswept_sandstone_slab": "Phiến cát kết gợn sóng mịn",
   "item.byg.smooth_windswept_sandstone_stairs": "Cầu thang cát kết gợn sóng mịn",
@@ -2261,11 +2261,11 @@
   "item.byg.stripped_witch_hazel_wood": "Gỗ phỉ đã cạo vỏ",
   "item.byg.stripped_zelkova_log": "Thân cây Zelkova đã cạo vỏ",
   "item.byg.stripped_zelkova_wood": "Gỗ Zelkova đã cạo vỏ",
-  "item.byg.subzero_ash": "Tro băng giá",
-  "item.byg.subzero_ash_block": "Khối tro băng giá",
-  "item.byg.subzero_crystal_block": "Khối pha lê băng giá",
-  "item.byg.subzero_crystal_cluster": "Cụm pha lê băng giá",
-  "item.byg.subzero_crystal_shard": "Mảnh pha lê băng giá",
+
+
+
+
+
   "item.byg.sythian_bookshelf": "Kệ sách Sythian",
   "item.byg.sythian_button": "Nút Sythian",
   "item.byg.sythian_crafting_table": "Bàn chế tạo Sythian",
@@ -2303,10 +2303,10 @@
   "item.byg.therium_lantern": "Đèn lồng Therium",
   "item.byg.therium_shard": "Mảnh Therium",
   "item.byg.tiny_lilypads": "Lá súng nhỏ",
-  "item.byg.travertine": "Đá travectin được đánh bóng",
-  "item.byg.travertine_slab": "Phiến đá travectin được đánh bóng",
-  "item.byg.travertine_stairs": "Cầu thang đá travectin được đánh bóng",
-  "item.byg.travertine_wall": "Tường đá travectin được đánh bóng",
+
+
+
+
   "item.byg.vermilion_sculk": "Khối xúc tác Sculk đỏ son",
   "item.byg.vermilion_sculk_growth": "Mạch Sculk đỏ son",
   "item.byg.vermilion_sculk_tendrils": "Sculk đỏ son",
@@ -2325,7 +2325,7 @@
   "item.byg.water_silk": "Tảo nước",
   "item.byg.weeping_milkcap": "Nấm sữa",
   "item.byg.weeping_milkcap_mushroom_block": "Khối nấm sữa",
-  "item.byg.weeping_roots": "Rễ than khóc",
+
   "item.byg.white_anemone": "Hoa cỏ chân ngỗng trắng",
   "item.byg.white_cherry_foliage": "Lá anh đào trắng",
   "item.byg.white_cherry_leaves": "Lá anh đào trắng",

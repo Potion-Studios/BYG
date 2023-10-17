@@ -22,7 +22,7 @@
   "biomepedia.biome.byg.coconino_meadow.desc": "A open vibrant highland meadow with shrubs, sunflowers, tulips, lots of vegetation and Lush Grass Blocks/Lush Dirt. Ancient Ruin Villages can be found here as well as Spruce Villages. In the real world, the Coconino Meadow is located in Arizona, USA in the Northern Region near the Grand Canyon.",
   "biomepedia.biome.byg.coniferous_forest.desc": "A dense taiga with towering Confierous trees, occasional Spruce trees can also be found here. Mossy Boulders and lush cold vegetation/flora can be found here. Spruce Villages can also be seen commonly.",
   "biomepedia.biome.byg.crag_gardens.desc": "A magical tropical garden located in warm regions of the world. Players can find an abundance of tropical vegetation and Rainbow Eucalyptus trees.",
-  "biomepedia.biome.byg.crimson_gardens.desc": "A blissful garden deep within the Nether Caverns. Players can find Crimson Berry Bushes, Bastion Remnants, & Nether Fortresses here as well.",
+
   "biomepedia.biome.byg.cryptic_wastes.desc": "A desolate scorched area with Cryptic Fire and Cryptic Stone. Players can find unique Cryptic Vents throughout the biome as well as Therium Deposits.",
   "biomepedia.biome.byg.cypress_swamplands.desc": "A lush swampland with Cypress trees. Players can find swamp vegetation & flora here along with unique mobs like Frogs. Witch Huts have also been spotted in the area.",
   "biomepedia.biome.byg.dacite_ridges.desc": "A highland mountain biome with large Holly & Spruce trees. Players can find unique Dacite Stone and plenty of taiga vegetation.",
@@ -127,7 +127,7 @@
   "byg.worldgenexport.singleplayer": "World generation export command must be used in single player!",
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
-  "container.hypogeal_imperium_container": "Hypogeal Imperium",
+
   "death.attack.byg.cattail_campfire": "%s got too curious",
   "dimension.minecraft.overworld": "Overworld",
   "dimension.minecraft.the_end": "The End",

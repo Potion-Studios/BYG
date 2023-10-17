@@ -1,5 +1,5 @@
 {
-  "container.hypogeal_imperium_container": "Imperio hipogeo",
+
   "itemGroup.byg": "BYG",
   "biome.byg.allium_fields": "Campo de alliums",
   "biome.byg.alps": "Alpes",
@@ -157,12 +157,12 @@
   "biome.byg.twilight_meadow_hills": "Colinas de valle crepuscular",
   "biome.byg.red_spruce_taiga": "Taiga de abetos rojos",
   "biome.byg.brimstone_caverns": "Cavernas de azufre",
-  "biome.byg.crimson_gardens": "Jardín carmesí",
+
   "biome.byg.magma_wastes": "Baldíos magmáticos",
-  "biome.byg.subzero_hypogeal": "Hipogeo bajo cero",
+
   "biome.byg.wailing_garth": "Jardín de los lamentos",
 
-  "biome.byg.weeping_mire": "Ciénaga llorona",
+
   "biome.byg.quartz_desert": "Desierto de cuarzo",
   "biome.byg.nightshade_forest": "Bosque de belladonas",
   "biome.byg.ethereal_islands": "Islas etéreas",
@@ -652,8 +652,8 @@
   "block.byg.blueberry_bush": "Arbusto de arándanos",
   "block.byg.tiny_lilypads": "Nenúfares pequeños",
   "block.byg.water_silk": "Seda de agua",
-  "block.byg.weeping_roots": "Raíces lloronas",
-  "block.byg.weeping_roots_plant": "Planta de raíces lloronas",
+
+
   "block.byg.winter_grass": "Pasto invernal",
   "block.byg.weed_grass": "Maleza",
   "block.byg.wilted_grass": "Pasto marchito",
@@ -667,7 +667,7 @@
   "block.byg.anthracite_block": "Bloque de antracita",
   "block.byg.anthracite_ore": "Mineral de antracita",
   "block.byg.nether_bristle": "Cerda del Nether",
-  "block.byg.crimson_berry_bush": "Arbusto de bayas carmesí",
+
   "block.byg.tall_crimson_roots": "Raíces carmesí altas",
   "block.byg.brimstone": "Azufre",
   "block.byg.yellow_nether_bricks": "Ladrillos del Nether amarillos",
@@ -800,15 +800,15 @@
   "block.byg.glowstone_lantern": "Farol de piedra luminosa",
   "block.byg.packed_black_ice": "Hielo negro comprimido",
   "block.byg.black_ice": "Hielo negro",
-  "block.byg.frost_magma": "Magma glacial",
-  "block.byg.subzero_ash": "Ceniza bajo cero",
-  "block.byg.subzero_ash_block": "Bloque de ceniza bajo cero",
-  "block.byg.subzero_crystal_block": "Bloque de cristal bajo cero",
-  "block.byg.budding_subzero_crystal": "Brotador de cristal bajo cero",
-  "block.byg.subzero_crystal_cluster": "Racimo de cristal bajo cero",
-  "block.byg.large_subzero_crystal_bud": "Brote de cristal bajo cero grande",
-  "block.byg.medium_subzero_crystal_bud": "Brote de cristal bajo cero mediano",
-  "block.byg.small_subzero_crystal_bud": "Brote de cristal bajo cero pequeño",
+
+
+
+
+
+
+
+
+
 
 
 
@@ -982,18 +982,18 @@
   "block.byg.rocky_stone_slab": "Losa de piedra rocosa",
   "block.byg.rocky_stone_stairs": "Escaleras de piedra rocosa",
   "block.byg.rocky_stone_wall": "Pared de piedra rocosa",
-  "block.byg.travertine": "Travertino",
-  "block.byg.travertine_slab": "Losa de travertino",
-  "block.byg.travertine_stairs": "Escaleras de travertino",
-  "block.byg.travertine_wall": "Pared de travertino",
-  "block.byg.polished_travertine": "Travertino pulido",
-  "block.byg.polished_travertine_slab": "Losa de travertino pulido",
-  "block.byg.polished_travertine_stairs": "Escaleras de travertino pulido",
-  "block.byg.polished_travertine_wall": "Pared de travertino pulido",
-  "block.byg.chiseled_travertine": "Travertino grabado",
-  "block.byg.chiseled_travertine_slab": "Losa de travertino grabado",
-  "block.byg.chiseled_travertine_stairs": "Escaleras de travertino grabado",
-  "block.byg.chiseled_travertine_wall": "Pared de travertino grabado",
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1164,7 +1164,7 @@
   "block.byg.meadow_grass_path": "Camino de pasto de prado",
   "block.byg.bulbis_phycelium": "Filio de bulbis",
   "block.byg.imparius_phylium": "Filio de impario",
-  "block.byg.hypogeal_imperium": "Imperio hipogeo",
+
   "block.byg.potted_araucaria_sapling": "Maceta con retoño de araucaria",
   "block.byg.potted_aspen_sapling": "Maceta con retoño de álamo",
   "block.byg.potted_baobab_sapling": "Maceta con retoño de baobab",
@@ -1362,18 +1362,18 @@
   "item.byg.rocky_stone_stairs": "Escaleras de piedra rocosa",
   "item.byg.rocky_stone_slab": "Losa de piedra rocosa",
   "item.byg.rocky_stone_wall": "Pared de piedra rocosa",
-  "item.byg.travertine": "Travertino",
-  "item.byg.travertine_stairs": "Escaleras de travertino",
-  "item.byg.travertine_slab": "Losa de travertino",
-  "item.byg.travertine_wall": "Pared de travertino",
-  "item.byg.polished_travertine": "Travertino pulido",
-  "item.byg.polished_travertine_stairs": "Escaleras de travertino pulido",
-  "item.byg.polished_travertine_slab": "Losa de travertino pulido",
-  "item.byg.polished_travertine_wall": "Pared de travertino pulido",
-  "item.byg.chiseled_travertine": "Travertino grabado",
-  "item.byg.chiseled_travertine_stairs": "Escaleras de travertino grabado",
-  "item.byg.chiseled_travertine_slab": "Losa de travertino grabado",
-  "item.byg.chiseled_travertine_wall": "Pared de travertino grabado",
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2055,8 +2055,8 @@
   "item.byg.yellow_glowshroom_stem": "Tallo de brillongo amarillo",
   "item.byg.overgrown_crimson_blackstone": "Piedra negra carmesí",
   "item.byg.tall_crimson_roots": "Raíces carmesí altas",
-  "item.byg.crimson_berries": "Bayas carmesí",
-  "item.byg.crimson_berry_pie": "Pastel de bayas carmesí",
+
+
   "item.byg.warped_cactus": "Cactus distorsionado",
   "item.byg.warped_bush": "Arbusto distorsionado",
   "item.byg.warped_coral_block": "Bloque de coral distorsionado",
@@ -2064,17 +2064,17 @@
   "item.byg.warped_coral_fan": "Gorgonia de coral distorsionado",
   "item.byg.warped_soul_sand": "Nilio de arena de almas",
   "item.byg.warped_soul_soil": "Nilio de tierra de almas",
-  "item.byg.frost_magma": "Magma glacial",
-  "item.byg.subzero_ash": "Ceniza bajo cero",
-  "item.byg.subzero_ash_block": "Bloque de ceniza bajo cero",
-  "item.byg.subzero_crystal_block": "Bloque de cristal bajo cero",
-  "item.byg.budding_subzero_crystal": "Brotador de cristal bajo cero",
-  "item.byg.small_subzero_crystal_bud": "Brote de cristal bajo cero pequeño",
-  "item.byg.medium_subzero_crystal_bud": "Brote de cristal bajo cero mediano",
-  "item.byg.large_subzero_crystal_bud": "Brote de cristal bajo cero grande",
-  "item.byg.subzero_crystal_cluster": "Racimo de cristal bajo cero",
-  "item.byg.subzero_crystal_shard": "Fragmento de cristal bajo cero",
-  "item.byg.hypogeal_imperium": "Imperio hipogeo",
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.anthracite": "Antracita",
   "item.byg.anthracite_block": "Bloque de antracita",
   "item.byg.anthracite_ore": "Mineral de antracita",
@@ -2106,7 +2106,7 @@
   "item.byg.soul_shroom_block": "Bloque de hongo de almas",
   "item.byg.death_cap": "Oronja mortal",
   "item.byg.death_cap_mushroom_block": "Bloque de hongo de oronja mortal",
-  "item.byg.weeping_roots": "Raíces lloronas",
+
   "item.byg.nether_bristle": "Cerda del Nether",
 
   "item.byg.pervaded_netherrack": "Netherrack impregnada",

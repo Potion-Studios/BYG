@@ -22,7 +22,7 @@
     "biome.byg.coconino_meadow":"Prado Coconino",
     "biome.byg.coniferous_forest":"Floresta de coniferas",
     "biome.byg.crag_gardens":"Jardins do rochedo",
-    "biome.byg.crimson_gardens":"Jardins Carmesim",
+
     "biome.byg.cryptic_wastes":"Resíduos Crípticos",
     "biome.byg.cypress_swamplands":"Pântanos de Cipreste",
     "biome.byg.dacite_ridges":"Cumes Dacita",
@@ -59,7 +59,7 @@
     "biome.byg.shulkren_forest":"Floresta Shulkren",
     "biome.byg.sierra_badlands":"Serra de Badlands",
     "biome.byg.skyris_vale":"Vale de Skyris",
-    "biome.byg.subzero_hypogeal":"Hipógeo subzero",
+
     "biome.byg.sythian_torrids":"Tórridas Sítias",
     "biome.byg.temperate_grove":"Bosque Temperado",
     "biome.byg.forgotten_forest":"Floresta temperada",
@@ -68,7 +68,7 @@
     "biome.byg.viscal_isles":"Ilhas Viscais",
     "biome.byg.wailing_garth":"Garth das Lamentações",
     "biome.byg.warped_desert":"Deserto Deformado",
-    "biome.byg.weeping_mire":"Pântano Choroso",
+
     "biome.byg.weeping_witch_forest":"Floresta da Bruxa Chorosa",
     "biome.byg.white_mangrove_marshes":"Pântanos de mangue branco",
     "biome.byg.windswept_desert":"Deserto varrido pelo vento",
@@ -219,7 +219,7 @@
     "block.byg.brown_zelkova_leaves":"Folhas Marrons de Zelkova",
     "block.byg.brown_zelkova_sapling":"Muda de Zelkova marrom",
     "block.byg.budding_ametrine_ore":"Brotamento de minério de ametrino",
-    "block.byg.budding_subzero_crystal":"Cristal Subzero em Brotamento",
+
     "block.byg.bulbis_anomaly":"Anomalia de bulbos",
     "block.byg.bulbis_bookshelf":"Estante Bulbis",
     "block.byg.bulbis_button":"Botão Bulbis",
@@ -275,10 +275,10 @@
     "block.byg.chiseled_therium_slab":"Laje de Therium Cinzelada",
     "block.byg.chiseled_therium_stairs":"Escadas Therium Cinzeladas",
     "block.byg.chiseled_therium_wall":"Muro de Therium esculpido",
-    "block.byg.chiseled_travertine":"Travertino esculpido",
-    "block.byg.chiseled_travertine_slab":"Laje de travertino esculpido",
-    "block.byg.chiseled_travertine_stairs":"Escadas de travertino cinzeladas",
-    "block.byg.chiseled_travertine_wall":"Muro de travertino esculpido",
+
+
+
+
     "block.byg.chiseled_windswept_sandstone":"Arenito varrido pelo vento esculpido",
     "block.byg.chiseled_windswept_sandstone_slab":"Laje de arenito cinzelada varrida pelo vento",
     "block.byg.chiseled_windswept_sandstone_stairs":"Escadas de arenito varridas pelo vento cinzeladas",
@@ -309,7 +309,7 @@
     "block.byg.cracked_red_rock_bricks":"Tijolos de pedra vermelha rachados",
     "block.byg.cracked_red_sand":"Areia vermelha rachada",
 
-    "block.byg.crimson_berry_bush":"Carmesim Berry Bush",
+
     "block.byg.crocus":"Açafrão",
     "block.byg.cryptic_bramble":"Espinheiro Críptico",
     "block.byg.cryptic_campfire":"Fogueira Críptica",
@@ -462,7 +462,7 @@
     "block.byg.flowering_tiny_lily_pads":"Pequenas almofadas de lírio floridas",
     "block.byg.foragers_table":"Tabela de Forrageadoras",
     "block.byg.foxglove":"Dedaleira",
-    "block.byg.frost_magma":"Magma de Gelo",
+
     "block.byg.fungal_imparius":"Imparius fúngico",
     "block.byg.fungal_imparius_block":"Bloco Imparius Fúngico",
     "block.byg.fungal_imparius_filament":"Filamento Fúngico Imparius",
@@ -515,7 +515,7 @@
     "block.byg.horseweed":"buva",
     "block.byg.hydrangea_bush":"Arbusto de Hortênsia",
     "block.byg.hydrangea_hedge":"Sebe de Hortênsia",
-    "block.byg.hypogeal_imperium":"Império Hipógeo",
+
     "block.byg.imbued_blue_enchanted_log":"Tronco Encantado Azul Imbuído",
     "block.byg.imbued_green_enchanted_log":"Tronco Encantado Verde Imbuído",
     "block.byg.imbued_nightshade_log":"Registro de Nightshade Imbuído",
@@ -585,7 +585,7 @@
 
 
 
-    "block.byg.large_subzero_crystal_bud":"Grande botão de cristal subzero",
+
     "block.byg.lazarus_bellflower":"Campainha de Lázaro",
     "block.byg.leaf_pile":"Pilha de folhas",
     "block.byg.lollipop_flower":"Flor de pirulito",
@@ -626,7 +626,7 @@
     "block.byg.maple_stairs":"Escadas de bordo",
     "block.byg.maple_trapdoor":"Alçapão de bordo",
     "block.byg.maple_wood":"Madeira de bordo",
-    "block.byg.medium_subzero_crystal_bud":"Broto de Cristal Subzero Médio",
+
     "block.byg.mini_cactus":"Mini cacto",
     "block.byg.mossy_red_rock_brick_slab":"Laje de tijolo de rocha vermelha musgosa",
     "block.byg.mossy_red_rock_brick_stairs":"Escadas de tijolo vermelho musgoso",
@@ -731,10 +731,10 @@
     "block.byg.polished_soapstone_slab":"Laje de pedra-sabão polida",
     "block.byg.polished_soapstone_stairs":"Escadas de pedra-sabão polida",
     "block.byg.polished_soapstone_wall":"Parede de pedra-sabão polida",
-    "block.byg.polished_travertine":"Travertino Polido",
-    "block.byg.polished_travertine_slab":"Laje de travertino polido",
-    "block.byg.polished_travertine_stairs":"Escadas de travertino polido",
-    "block.byg.polished_travertine_wall":"Parede de travertino polido",
+
+
+
+
     "block.byg.pollen_block":"Bloco de pólen",
     "block.byg.potted_alpine_bellflower":"Campânula Alpina em vaso",
     "block.byg.potted_angelica":"Angélica em vaso",
@@ -969,7 +969,7 @@
     "block.byg.skyris_trapdoor":"Alçapão Skyris",
     "block.byg.skyris_vine":"Vinha Skyris",
     "block.byg.skyris_wood":"Skyris Wood",
-    "block.byg.small_subzero_crystal_bud":"Botão de cristal subzero pequeno",
+
     "block.byg.smooth_windswept_sandstone":"Arenito liso varrido pelo vento",
     "block.byg.smooth_windswept_sandstone_slab":"Laje de arenito lisa varrida pelo vento",
     "block.byg.smooth_windswept_sandstone_stairs":"Escadas de arenito lisas varridas pelo vento",
@@ -1051,10 +1051,10 @@
     "block.byg.stripped_witch_hazel_wood":"Madeira de hamamélis descascada",
     "block.byg.stripped_zelkova_log":"Tronco de Zelkova despojado",
     "block.byg.stripped_zelkova_wood":"Madeira despojada de Zelkova",
-    "block.byg.subzero_ash":"cinzas subzero",
-    "block.byg.subzero_ash_block":"Bloco de cinzas subzero",
-    "block.byg.subzero_crystal_block":"Bloco de Cristal Subzero",
-    "block.byg.subzero_crystal_cluster":"Aglomerado de Cristal Subzero",
+
+
+
+
     "block.byg.sythian_bookshelf":"Estante Sythian",
     "block.byg.sythian_button":"Botão Sythian",
     "block.byg.sythian_crafting_table":"Mesa de artesanato Sythian",
@@ -1092,10 +1092,10 @@
     "block.byg.therium_lamp":"Lâmpada de Therium",
     "block.byg.therium_lantern":"Therium Lantern",
     "block.byg.tiny_lilypads":"Pequenos lírios",
-    "block.byg.travertine":"Travertino",
-    "block.byg.travertine_slab":"Laje de travertino",
-    "block.byg.travertine_stairs":"Escadas de travertino",
-    "block.byg.travertine_wall":"Muro de travertino",
+
+
+
+
     "block.byg.vermilion_sculk":"Sculk Vermelhão",
     "block.byg.vermilion_sculk_growth":"Crescimento de Sculk Vermelhão",
     "block.byg.vermilion_sculk_tendrils":"Gavinhas de Sculk Vermelhão",
@@ -1116,8 +1116,8 @@
     "block.byg.water_silk":"Seda d'água",
     "block.byg.weeping_milkcap":"Leite Chorão",
     "block.byg.weeping_milkcap_mushroom_block":"Bloco de Cogumelo Milkcap Chorão",
-    "block.byg.weeping_roots":"Raízes que Choram",
-    "block.byg.weeping_roots_plant":"Planta de Raízes Choroso",
+
+
     "block.byg.white_anemone":"Anêmona Branca",
     "block.byg.white_cherry_foliage":"Folhagem de cerejeira branca",
     "block.byg.white_cherry_leaves":"Folhas de Cereja Branca",
@@ -1269,7 +1269,7 @@
     "byg.worldgenexport.singleplayer":"O comando de exportação da geração mundial deve ser usado no single player!",
     "byg.worldgenexport.starting":"Iniciando a exportação da geração mundial, espere o atraso do servidor",
     "byg.worldgenexport.success":"Exportação da geração mundial bem sucedida! ",
-    "container.hypogeal_imperium_container":"Império Hipógeo",
+
     "death.attack.byg.cattail_campfire":"%s ficou muito curioso",
     "dimension.minecraft.overworld":"Mundo Superior",
     "dimension.minecraft.the_end":"O fim",
@@ -1395,7 +1395,7 @@
     "item.byg.brown_zelkova_leaves":"Folhas Marrons de Zelkova",
     "item.byg.brown_zelkova_sapling":"Muda de Zelkova marrom",
     "item.byg.budding_ametrine_ore":"Brotamento de minério de ametrino",
-    "item.byg.budding_subzero_crystal":"Cristal Subzero em Brotamento",
+
     "item.byg.bulbis_anomaly":"Anomalia de bulbos",
     "item.byg.bulbis_bookshelf":"Estante Bulbis",
     "item.byg.bulbis_button":"Botão Bulbis",
@@ -1454,10 +1454,10 @@
     "item.byg.chiseled_therium_slab":"Laje de Therium Cinzelada",
     "item.byg.chiseled_therium_stairs":"Escadas Therium Cinzeladas",
     "item.byg.chiseled_therium_wall":"Muro de Therium esculpido",
-    "item.byg.chiseled_travertine":"Travertino esculpido",
-    "item.byg.chiseled_travertine_slab":"Laje de travertino esculpido",
-    "item.byg.chiseled_travertine_stairs":"Escadas de travertino cinzeladas",
-    "item.byg.chiseled_travertine_wall":"Muro de travertino esculpido",
+
+
+
+
     "item.byg.chiseled_windswept_sandstone":"Arenito varrido pelo vento esculpido",
     "item.byg.chiseled_windswept_sandstone_slab":"Laje de arenito cinzelada varrida pelo vento",
     "item.byg.chiseled_windswept_sandstone_stairs":"Escadas de arenito varridas pelo vento cinzeladas",
@@ -1492,8 +1492,8 @@
     "item.byg.cracked_red_rock_bricks":"Tijolos de pedra vermelha rachados",
     "item.byg.cracked_red_sand":"Areia vermelha rachada",
 
-    "item.byg.crimson_berries":"Bagas Carmesim",
-    "item.byg.crimson_berry_pie":"Torta de frutas vermelhas",
+
+
     "item.byg.crocus":"Açafrão",
     "item.byg.cryptic_bramble":"Espinheiro Críptico",
     "item.byg.cryptic_bramble_branch":"Ramo Críptico de Amora",
@@ -1653,7 +1653,7 @@
     "item.byg.flowering_tiny_lily_pads":"Pequenas almofadas de lírio floridas",
     "item.byg.foragers_table":"Tabela de Forrageadoras",
     "item.byg.foxglove":"Dedaleira",
-    "item.byg.frost_magma":"Magma de Gelo",
+
     "item.byg.fungal_imparius":"Imparius fúngico",
     "item.byg.fungal_imparius_block":"Bloco Imparius Fúngico",
     "item.byg.fungal_imparius_filament":"Filamento Fúngico Imparius",
@@ -1710,7 +1710,7 @@
     "item.byg.horseweed":"buva",
     "item.byg.hydrangea_bush":"Arbusto de Hortênsia",
     "item.byg.hydrangea_hedge":"Sebe de Hortênsia",
-    "item.byg.hypogeal_imperium":"Império Hipógeo",
+
     "item.byg.imbued_blue_enchanted_log":"Tronco Encantado Azul Imbuído",
     "item.byg.imbued_green_enchanted_log":"Tronco Encantado Verde Imbuído",
     "item.byg.imbued_nightshade_log":"Registro de Nightshade Imbuído",
@@ -1781,7 +1781,7 @@
     ,
     ,
     ,
-    "item.byg.large_subzero_crystal_bud":"Grande botão de cristal subzero",
+
     "item.byg.lazarus_bellflower":"Campainha de Lázaro",
     "item.byg.leaf_pile":"Pilha de folhas",
     "item.byg.lollipop_flower":"Flor de pirulito",
@@ -1826,7 +1826,7 @@
     "item.byg.maple_stairs":"Escadas de bordo",
     "item.byg.maple_trapdoor":"Alçapão de bordo",
     "item.byg.maple_wood":"Madeira de bordo",
-    "item.byg.medium_subzero_crystal_bud":"Broto de Cristal Subzero Médio",
+
     "item.byg.mini_cactus":"Mini cacto",
     "item.byg.mossy_red_rock_brick_slab":"Laje de tijolo de rocha vermelha musgosa",
     "item.byg.mossy_red_rock_brick_stairs":"Escadas de tijolo vermelho musgoso",
@@ -1945,10 +1945,10 @@
     "item.byg.polished_soapstone_slab":"Laje de pedra-sabão polida",
     "item.byg.polished_soapstone_stairs":"Escadas de pedra-sabão polida",
     "item.byg.polished_soapstone_wall":"Parede de pedra-sabão polida",
-    "item.byg.polished_travertine":"Travertino Polido",
-    "item.byg.polished_travertine_slab":"Laje de travertino polido",
-    "item.byg.polished_travertine_stairs":"Escadas de travertino polido",
-    "item.byg.polished_travertine_wall":"Parede de travertino polido",
+
+
+
+
     "item.byg.pollen_block":"Bloco de pólen",
     "item.byg.pollen_dust":"Pólen",
     "item.byg.prairie_grass":"Grama da pradaria",
@@ -2079,7 +2079,7 @@
     "item.byg.skyris_trapdoor":"Alçapão Skyris",
     "item.byg.skyris_vine":"Vinha Skyris",
     "item.byg.skyris_wood":"Skyris Wood",
-    "item.byg.small_subzero_crystal_bud":"Botão de cristal subzero pequeno",
+
     "item.byg.smooth_windswept_sandstone":"Arenito liso varrido pelo vento",
     "item.byg.smooth_windswept_sandstone_slab":"Laje de arenito lisa varrida pelo vento",
     "item.byg.smooth_windswept_sandstone_stairs":"Escadas de arenito lisas varridas pelo vento",
@@ -2160,11 +2160,11 @@
     "item.byg.stripped_witch_hazel_wood":"Madeira de hamamélis descascada",
     "item.byg.stripped_zelkova_log":"Tronco de Zelkova despojado",
     "item.byg.stripped_zelkova_wood":"Madeira despojada de Zelkova",
-    "item.byg.subzero_ash":"cinzas subzero",
-    "item.byg.subzero_ash_block":"Bloco de cinzas subzero",
-    "item.byg.subzero_crystal_block":"Bloco de Cristal Subzero",
-    "item.byg.subzero_crystal_cluster":"Aglomerado de Cristal Subzero",
-    "item.byg.subzero_crystal_shard":"Fragmento de Cristal Subzero",
+
+
+
+
+
     "item.byg.sythian_bookshelf":"Estante Sythian",
     "item.byg.sythian_button":"Botão Sythian",
     "item.byg.sythian_crafting_table":"Mesa de artesanato Sythian",
@@ -2202,10 +2202,10 @@
     "item.byg.therium_lantern":"Therium Lantern",
     "item.byg.therium_shard":"Estilhaço de Therium",
     "item.byg.tiny_lilypads":"Pequenos lírios",
-    "item.byg.travertine":"Travertino",
-    "item.byg.travertine_slab":"Laje de travertino",
-    "item.byg.travertine_stairs":"Escadas de travertino",
-    "item.byg.travertine_wall":"Muro de travertino",
+
+
+
+
     "item.byg.vermilion_sculk":"Vermelhão Sculk",
     "item.byg.vermilion_sculk_growth":"Crescimento de Sculk Vermelhão",
     "item.byg.vermilion_sculk_tendrils":"Gavinhas de Sculk Vermelhão",
@@ -2224,7 +2224,7 @@
     "item.byg.water_silk":"Seda d'água",
     "item.byg.weeping_milkcap":"Leite Chorão",
     "item.byg.weeping_milkcap_mushroom_block":"Bloco de Cogumelo Milkcap Chorão",
-    "item.byg.weeping_roots":"Raízes que Choram",
+
     "item.byg.white_anemone":"Anêmona Branca",
     "item.byg.white_cherry_foliage":"Folhagem de cerejeira branca",
     "item.byg.white_cherry_leaves":"Folhas de Cereja Branca",

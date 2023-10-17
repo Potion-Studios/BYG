@@ -22,7 +22,7 @@
   "biome.byg.coconino_meadow": "코코니노 목초지",
   "biome.byg.coniferous_forest": "침엽수림",
   "biome.byg.crag_gardens": "바위산 정원",
-  "biome.byg.crimson_gardens": "진홍빛 정원",
+
   "biome.byg.cryptic_wastes": "토굴 황무지",
   "biome.byg.cypress_swamplands": "사이프러스 습지대",
   "biome.byg.dacite_ridges": "석영안산암 산마루",
@@ -59,7 +59,7 @@
   "biome.byg.shulkren_forest": "셜크 숲",
   "biome.byg.sierra_badlands": "시에라 악지 지형",
   "biome.byg.skyris_vale": "스카이리스 계곡",
-  "biome.byg.subzero_hypogeal": "얼어붙은 네더",
+
   "biome.byg.sythian_torrids": "시디안 염열",
   "biome.byg.temperate_grove": "온대 산림",
   "biome.byg.forgotten_forest": "온대 우림",
@@ -68,7 +68,7 @@
   "biome.byg.viscal_isles": "비스칼 섬",
   "biome.byg.wailing_garth": "울부짖는 회랑",
   "biome.byg.warped_desert": "뒤틀린 사막",
-  "biome.byg.weeping_mire": "진물이 나는 수렁",
+
   "biome.byg.weeping_witch_forest": "흐느끼는 마녀의 숲",
   "biome.byg.white_mangrove_marshes": "하얀 맹그로브 습지",
   "biome.byg.windswept_desert": "바람이 세찬 사막",
@@ -219,7 +219,7 @@
   "block.byg.brown_zelkova_leaves": "갈색 느티나무 잎",
   "block.byg.brown_zelkova_sapling": "갈색 느티나무 묘목",
   "block.byg.budding_ametrine_ore": "싹 틔우는 아메트린 광석",
-  "block.byg.budding_subzero_crystal": "싹 틔우는 얼어붙은 수정",
+
   "block.byg.bulbis_anomaly": "벌비스 이형",
   "block.byg.bulbis_bookshelf": "벌비스 책장",
   "block.byg.bulbis_button": "벌비스 버튼",
@@ -275,10 +275,10 @@
   "block.byg.chiseled_therium_slab": "조각된 테리움 반 블록",
   "block.byg.chiseled_therium_stairs": "조각된 테리움 계단",
   "block.byg.chiseled_therium_wall": "조각된 테리움 담장",
-  "block.byg.chiseled_travertine": "조각된 석회화",
-  "block.byg.chiseled_travertine_slab": "조각된 석회화 반 블록",
-  "block.byg.chiseled_travertine_stairs": "조각된 석회화 계단",
-  "block.byg.chiseled_travertine_wall": "조각된 석회화 담장",
+
+
+
+
   "block.byg.chiseled_windswept_sandstone": "조각된 풍화된 사암",
   "block.byg.chiseled_windswept_sandstone_slab": "조각된 풍화된 사암 반 블록",
   "block.byg.chiseled_windswept_sandstone_stairs": "조각된 풍화된 사암 계단",
@@ -309,7 +309,7 @@
   "block.byg.cracked_red_rock_bricks": "금 간 적암 벽돌",
   "block.byg.cracked_red_sand": "금 간 붉은 사암",
 
-  "block.byg.crimson_berry_bush": "진홍빛 베리 덤불",
+
   "block.byg.crocus": "크로커스",
   "block.byg.cryptic_bramble": "토굴 들장미",
   "block.byg.cryptic_campfire": "토굴 모닥불",
@@ -462,7 +462,7 @@
   "block.byg.flowering_tiny_lily_pads": "꽃 핀 작은 수련잎",
   "block.byg.foragers_table": "식품업자 작업대",
   "block.byg.foxglove": "디기탈리스",
-  "block.byg.frost_magma": "서리마그마",
+
   "block.byg.fungal_imparius": "임패리우스 균",
   "block.byg.fungal_imparius_block": "임패리우스 균 블록",
   "block.byg.fungal_imparius_filament": "임패리우스 균 섬유",
@@ -515,7 +515,7 @@
   "block.byg.horseweed": "쥐꼬리망초",
   "block.byg.hydrangea_bush": "수국 덤불",
   "block.byg.hydrangea_hedge": "수국 산울타리",
-  "block.byg.hypogeal_imperium": "지하세계의 지배",
+
   "block.byg.imbued_blue_enchanted_log": "물든 파란색 마법나무 원목",
   "block.byg.imbued_green_enchanted_log": "물든 초록색 마법나무 원목",
   "block.byg.imbued_nightshade_log": "물든 까마종이 원목",
@@ -585,7 +585,7 @@
 
 
 
-  "block.byg.large_subzero_crystal_bud": "큰 얼어붙은 수정 봉오리",
+
   "block.byg.lazarus_bellflower": "라자러스 초롱꽃",
   "block.byg.leaf_pile": "떨어진 잎",
   "block.byg.lollipop_flower": "막대사탕 꽃",
@@ -626,7 +626,7 @@
   "block.byg.maple_stairs": "단풍나무 계단",
   "block.byg.maple_trapdoor": "단풍나무 다락문",
   "block.byg.maple_wood": "단풍나무",
-  "block.byg.medium_subzero_crystal_bud": "중간 얼어붙은 수정 봉오리",
+
   "block.byg.mini_cactus": "작은 선인장",
   "block.byg.mossy_red_rock_brick_slab": "이끼 낀 적암 벽돌 반 블록",
   "block.byg.mossy_red_rock_brick_stairs": "이끼 낀 적암 벽돌 계단",
@@ -731,10 +731,10 @@
   "block.byg.polished_soapstone_slab": "윤나는 동석 반 블록",
   "block.byg.polished_soapstone_stairs": "윤나는 동석 계단",
   "block.byg.polished_soapstone_wall": "윤나는 동석 담장",
-  "block.byg.polished_travertine": "윤나는 석회화",
-  "block.byg.polished_travertine_slab": "윤나는 석회화 반 블록",
-  "block.byg.polished_travertine_stairs": "윤나는 석회화 계단",
-  "block.byg.polished_travertine_wall": "윤나는 석회화 담장",
+
+
+
+
   "block.byg.pollen_block": "꽃가루 블록",
   "block.byg.potted_alpine_bellflower": "화분에 심겨진 알프스 초롱꽃",
   "block.byg.potted_angelica": "화분에 심겨진 안젤리카",
@@ -969,7 +969,7 @@
   "block.byg.skyris_trapdoor": "스카이리스 다락문",
   "block.byg.skyris_vine": "스카이리스 덩굴",
   "block.byg.skyris_wood": "스카이리스 나무",
-  "block.byg.small_subzero_crystal_bud": "작은 얼어붙은 수정 봉오리",
+
   "block.byg.smooth_windswept_sandstone": "매끄러운 풍화된 사암",
   "block.byg.smooth_windswept_sandstone_slab": "매끄러운 풍화된 사암 반 블록",
   "block.byg.smooth_windswept_sandstone_stairs": "매끄러운 풍화된 사암 계단",
@@ -1051,10 +1051,10 @@
   "block.byg.stripped_witch_hazel_wood": "껍질 벗긴 하마멜리스 나무",
   "block.byg.stripped_zelkova_log": "껍질 벗긴 느티나무 원목",
   "block.byg.stripped_zelkova_wood": "껍질 벗긴 느티나무",
-  "block.byg.subzero_ash": "얼어붙은 재",
-  "block.byg.subzero_ash_block": "얼어붙은 재 블록",
-  "block.byg.subzero_crystal_block": "얼어붙은 수정 블록",
-  "block.byg.subzero_crystal_cluster": "얼어붙은 수정 군집",
+
+
+
+
   "block.byg.sythian_bookshelf": "시디안 책장",
   "block.byg.sythian_button": "시디안 버튼",
   "block.byg.sythian_crafting_table": "시디안 제작대",
@@ -1092,10 +1092,10 @@
   "block.byg.therium_lamp": "테리움 램프",
   "block.byg.therium_lantern": "테리움 랜턴",
   "block.byg.tiny_lilypads": "작은 수련잎",
-  "block.byg.travertine": "석회화",
-  "block.byg.travertine_slab": "석회화 반 블록",
-  "block.byg.travertine_stairs": "석회화 계단",
-  "block.byg.travertine_wall": "석회화 담장",
+
+
+
+
   "block.byg.vermilion_sculk": "주홍색 스컬크",
   "block.byg.vermilion_sculk_growth": "주홍색 스컬크 종양",
   "block.byg.vermilion_sculk_tendrils": "주홍색 스컬크 덩굴손",
@@ -1116,8 +1116,8 @@
   "block.byg.water_silk": "Water Silk",
   "block.byg.weeping_milkcap": "늘어진 맛젖버섯 갓",
   "block.byg.weeping_milkcap_mushroom_block": "늘어진 맛젖버섯 블록",
-  "block.byg.weeping_roots": "늘어진 뿌리",
-  "block.byg.weeping_roots_plant": "Weeping Roots Plant",
+
+
   "block.byg.white_anemone": "하얀색 아네모네",
   "block.byg.white_cherry_foliage": "하얀색 벚나무 낙엽",
   "block.byg.white_cherry_leaves": "하얀색 벚나무 잎",
@@ -1269,7 +1269,7 @@
   "byg.worldgenexport.singleplayer": "World generation export command must be used in single player!",
   "byg.worldgenexport.starting": "Starting world generation export, expect server lag & high ram usage...",
   "byg.worldgenexport.success": "World generation export successful! View the files here: %s!",
-  "container.hypogeal_imperium_container": "지하세계의 지배",
+
   "death.attack.byg.cattail_campfire": "%s의 호기심이 과했습니다.",
   "dimension.minecraft.overworld": "오버월드",
   "dimension.minecraft.the_end": "엔드",
@@ -1395,7 +1395,7 @@
   "item.byg.brown_zelkova_leaves": "갈색 느티나무 잎",
   "item.byg.brown_zelkova_sapling": "갈색 느티나무 묘목",
   "item.byg.budding_ametrine_ore": "싹 틔우는 아메트린 광석",
-  "item.byg.budding_subzero_crystal": "싹 틔우는 얼어붙은 수정",
+
   "item.byg.bulbis_anomaly": "벌비스 이형",
   "item.byg.bulbis_bookshelf": "벌비스 책장",
   "item.byg.bulbis_button": "벌비스 버튼",
@@ -1454,10 +1454,10 @@
   "item.byg.chiseled_therium_slab": "조각된 테리움 반 블록",
   "item.byg.chiseled_therium_stairs": "조각된 테리움 계단",
   "item.byg.chiseled_therium_wall": "조각된 테리움 담장",
-  "item.byg.chiseled_travertine": "조각된 석회화",
-  "item.byg.chiseled_travertine_slab": "조각된 석회화 반 블록",
-  "item.byg.chiseled_travertine_stairs": "조각된 석회화 계단",
-  "item.byg.chiseled_travertine_wall": "조각된 석회화 담장",
+
+
+
+
   "item.byg.chiseled_windswept_sandstone": "조각된 풍화된 사암",
   "item.byg.chiseled_windswept_sandstone_slab": "조각된 풍화된 사암 반 블록",
   "item.byg.chiseled_windswept_sandstone_stairs": "조각된 풍화된 사암 계단",
@@ -1492,8 +1492,8 @@
   "item.byg.cracked_red_rock_bricks": "금 간 적암 벽돌",
   "item.byg.cracked_red_sand": "금 간 붉은 사암",
 
-  "item.byg.crimson_berries": "진홍베리",
-  "item.byg.crimson_berry_pie": "진홍베리파이",
+
+
   "item.byg.crocus": "크로커스",
   "item.byg.cryptic_bramble": "토굴 들장미",
   "item.byg.cryptic_bramble_branch": "토굴 들장미 가지",
@@ -1653,7 +1653,7 @@
   "item.byg.flowering_tiny_lily_pads": "꽃 핀 작은 수련잎",
   "item.byg.foragers_table": "식품업자 작업대",
   "item.byg.foxglove": "디기탈리스",
-  "item.byg.frost_magma": "서리마그마",
+
   "item.byg.fungal_imparius": "임패리우스 균",
   "item.byg.fungal_imparius_block": "임패리우스 균 블록",
   "item.byg.fungal_imparius_filament": "임패리우스 균 섬유",
@@ -1710,7 +1710,7 @@
   "item.byg.horseweed": "쥐꼬리망초",
   "item.byg.hydrangea_bush": "수국 덤불",
   "item.byg.hydrangea_hedge": "수국 산울타리",
-  "item.byg.hypogeal_imperium": "지하세계의 지배",
+
   "item.byg.imbued_blue_enchanted_log": "물든 파란색 마법나무 원목",
   "item.byg.imbued_green_enchanted_log": "물든 초록색 마법나무 원목",
   "item.byg.imbued_nightshade_log": "물든 까마종이 원목",
@@ -1781,7 +1781,7 @@
   ,
   ,
   ,
-  "item.byg.large_subzero_crystal_bud": "큰 얼어붙은 수정 봉오리",
+
   "item.byg.lazarus_bellflower": "라자러스 초롱꽃",
   "item.byg.leaf_pile": "떨어진 잎",
   "item.byg.lollipop_flower": "막대사탕 꽃",
@@ -1826,7 +1826,7 @@
   "item.byg.maple_stairs": "단풍나무 계단",
   "item.byg.maple_trapdoor": "단풍나무 다락문",
   "item.byg.maple_wood": "단풍나무",
-  "item.byg.medium_subzero_crystal_bud": "중간 얼어붙은 수정 봉오리",
+
   "item.byg.mini_cactus": "작은 선인장",
   "item.byg.mossy_red_rock_brick_slab": "이끼 낀 적암 벽돌 반 블록",
   "item.byg.mossy_red_rock_brick_stairs": "이끼 낀 적암 벽돌 계단",
@@ -1945,10 +1945,10 @@
   "item.byg.polished_soapstone_slab": "윤나는 동석 반 블록",
   "item.byg.polished_soapstone_stairs": "윤나는 동석 계단",
   "item.byg.polished_soapstone_wall": "윤나는 동석 담장",
-  "item.byg.polished_travertine": "윤나는 석회화",
-  "item.byg.polished_travertine_slab": "윤나는 석회화 반 블록",
-  "item.byg.polished_travertine_stairs": "윤나는 석회화 계단",
-  "item.byg.polished_travertine_wall": "윤나는 석회화 담장",
+
+
+
+
   "item.byg.pollen_block": "꽃가루 블록",
   "item.byg.pollen_dust": "꽃가루",
   "item.byg.prairie_grass": "대초원 잔디",
@@ -2079,7 +2079,7 @@
   "item.byg.skyris_trapdoor": "스카이리스 다락문",
   "item.byg.skyris_vine": "스카이리스 덩굴",
   "item.byg.skyris_wood": "스카이리스 나무",
-  "item.byg.small_subzero_crystal_bud": "작은 얼어붙은 수정 봉오리",
+
   "item.byg.smooth_windswept_sandstone": "매끄러운 풍화된 사암",
   "item.byg.smooth_windswept_sandstone_slab": "매끄러운 풍화된 사암 반 블록",
   "item.byg.smooth_windswept_sandstone_stairs": "매끄러운 풍화된 사암 계단",
@@ -2160,11 +2160,11 @@
   "item.byg.stripped_witch_hazel_wood": "껍질 벗긴 하마멜리스 나무",
   "item.byg.stripped_zelkova_log": "껍질 벗긴 느티나무 원목",
   "item.byg.stripped_zelkova_wood": "껍질 벗긴 느티나무",
-  "item.byg.subzero_ash": "얼어붙은 재",
-  "item.byg.subzero_ash_block": "얼어붙은 재 블록",
-  "item.byg.subzero_crystal_block": "얼어붙은 수정 블록",
-  "item.byg.subzero_crystal_cluster": "얼어붙은 수정 군집",
-  "item.byg.subzero_crystal_shard": "얼어붙은 수정 조각",
+
+
+
+
+
   "item.byg.sythian_bookshelf": "시디안 책장",
   "item.byg.sythian_button": "시디안 버튼",
   "item.byg.sythian_crafting_table": "시디안 제작대",
@@ -2201,10 +2201,10 @@
   "item.byg.therium_lantern": "테리움 랜턴",
   "item.byg.therium_shard": "테리움 조각",
   "item.byg.tiny_lilypads": "작은 수련잎",
-  "item.byg.travertine": "석회화",
-  "item.byg.travertine_slab": "석회화 반 블록",
-  "item.byg.travertine_stairs": "석회화 계단",
-  "item.byg.travertine_wall": "석회화 담장",
+
+
+
+
   "item.byg.vermilion_sculk": "주홍색 스컬크",
   "item.byg.vermilion_sculk_growth": "주홍색 스컬크 종양",
   "item.byg.vermilion_sculk_tendrils": "주홍색 스컬크 덩굴손",
@@ -2223,7 +2223,7 @@
   "item.byg.water_silk": "Water Silk",
   "item.byg.weeping_milkcap": "늘어진 맛젖버섯 갓",
   "item.byg.weeping_milkcap_mushroom_block": "늘어진 맛젖버섯 블록",
-  "item.byg.weeping_roots": "늘어진 뿌리",
+
   "item.byg.white_anemone": "하얀색 아네모네",
   "item.byg.white_cherry_foliage": "하얀색 벚나무 낙엽",
   "item.byg.white_cherry_leaves": "하얀색 벚나무 잎",

@@ -22,7 +22,7 @@
   "biome.byg.coconino_meadow": "可可尼诺草甸",
   "biome.byg.coniferous_forest": "针叶林",
   "biome.byg.crag_gardens": "峭壁花园",
-  "biome.byg.crimson_gardens": "绯红花园",
+
   "biome.byg.cryptic_wastes": "隐秘荒地",
   "biome.byg.cypress_swamplands": "柏木沼泽",
   "biome.byg.dacite_ridges": "英安岩山脊",
@@ -59,7 +59,7 @@
   "biome.byg.shulkren_forest": "潜影森林",
   "biome.byg.sierra_badlands": "锯齿恶地",
   "biome.byg.skyris_vale": "天际木山谷",
-  "biome.byg.subzero_hypogeal": "负温地域",
+
   "biome.byg.sythian_torrids": "斯基泰炎林",
   "biome.byg.temperate_grove": "温带树林",
   "biome.byg.forgotten_forest": "温带雨林",
@@ -68,7 +68,7 @@
   "biome.byg.viscal_isles": "威斯克小岛",
   "biome.byg.wailing_garth": "哀嚎庭园",
   "biome.byg.warped_desert": "诡异沙漠",
-  "biome.byg.weeping_mire": "哭泣泥沼",
+
   "biome.byg.weeping_witch_forest": "哭泣女巫森林",
   "biome.byg.white_mangrove_marshes": "白色红树湿地",
   "biome.byg.windswept_desert": "风袭沙漠",
@@ -96,7 +96,7 @@
   "biomepedia.biome.byg.coconino_meadow.desc": "富有生机的开阔高地草甸，遍布灌木、向日葵、郁金香，和大量植被，土壤则是富壤土。远古遗迹村庄和针叶林村庄都能在此找到。现实生活中的可可尼诺草甸位于美国亚利桑那州北部，邻近大峡谷。",
   "biomepedia.biome.byg.coniferous_forest.desc": "长有擎天针叶树的茂密针叶林，偶能在此找到云杉。这里也会出现生苔的巨石和繁茂的寒带植被。常能在此找到针叶林村庄。",
   "biomepedia.biome.byg.crag_gardens.desc": "位于温暖地带的魔法般的热带花园。这里有极为丰富的热带植被，也是彩虹桉树的家园。",
-  "biomepedia.biome.byg.crimson_gardens.desc": "下界洞窟深处的福地花园。这里长有绯红浆果丛，也有散落地形的堡垒遗迹和下界要塞。",
+
   "biomepedia.biome.byg.cryptic_wastes.desc": "荒芜枯焦的地区，遍布隐秘火和隐秘石。常出现的隐秘喷口是这里的独特地物，也能在此找到空灵晶矿藏。",
   "biomepedia.biome.byg.cypress_swamplands.desc": "长有柏树的繁茂沼泽。可在此找到沼泽植被以及青蛙等独特生物。也有人在这里发现过女巫小屋。",
   "biomepedia.biome.byg.dacite_ridges.desc": "高原山地生物群系，长有巨大的冬青树和云杉。这里有独特的英安岩以及大量针叶林植被。",
@@ -250,7 +250,7 @@
   "block.byg.brown_zelkova_leaves": "棕色榉树树叶",
   "block.byg.brown_zelkova_sapling": "棕色榉树树苗",
   "block.byg.budding_ametrine_ore": "紫黄晶矿石母岩",
-  "block.byg.budding_subzero_crystal": "负温水晶母岩",
+
   "block.byg.budding_therium_crystal": "空灵晶母岩",
   "block.byg.bulbis_anomaly": "灯状菇反常体",
   "block.byg.bulbis_bookshelf": "灯状菇木书架",
@@ -311,10 +311,10 @@
   "block.byg.chiseled_therium_slab": "錾制空灵晶台阶",
   "block.byg.chiseled_therium_stairs": "錾制空灵晶楼梯",
   "block.byg.chiseled_therium_wall": "錾制空灵晶墙",
-  "block.byg.chiseled_travertine": "錾制石灰华",
-  "block.byg.chiseled_travertine_slab": "錾制石灰华台阶",
-  "block.byg.chiseled_travertine_stairs": "錾制石灰华楼梯",
-  "block.byg.chiseled_travertine_wall": "錾制石灰华墙",
+
+
+
+
   "block.byg.chiseled_windswept_sandstone": "錾制风化砂岩",
   "block.byg.chiseled_windswept_sandstone_slab": "錾制风化砂岩台阶",
   "block.byg.chiseled_windswept_sandstone_stairs": "錾制风化砂岩楼梯",
@@ -347,7 +347,7 @@
   "block.byg.cracked_red_rock_bricks": "裂纹红岩砖",
   "block.byg.cracked_red_sand": "裂纹红沙",
 
-  "block.byg.crimson_berry_bush": "绯红浆果丛",
+
   "block.byg.crocus": "番红花",
   "block.byg.cryptic_bramble": "隐秘荆棘",
   "block.byg.cryptic_campfire": "隐秘营火",
@@ -513,7 +513,7 @@
   "block.byg.flowering_tiny_lily_pads": "盛开的小型睡莲",
   "block.byg.foragers_table": "采集台",
   "block.byg.foxglove": "毛地黄",
-  "block.byg.frost_magma": "霜冻岩浆块",
+
   "block.byg.fungal_imparius": "菌态异蓝菇方块",
   "block.byg.fungal_imparius_block": "菌态异蓝菇方块",
   "block.byg.fungal_imparius_filament": "菌态异蓝菇菌褶",
@@ -571,7 +571,7 @@
   "block.byg.horseweed": "小蓬草",
   "block.byg.hydrangea_bush": "绣球花灌木",
   "block.byg.hydrangea_hedge": "绣球花丛",
-  "block.byg.hypogeal_imperium": "负温催生器",
+
   "block.byg.imbued_blue_enchanted_log": "盈满的蓝色魔法原木",
   "block.byg.imbued_green_enchanted_log": "盈满的绿色魔法原木",
   "block.byg.imbued_nightshade_log": "盈满的夜影原木",
@@ -648,7 +648,7 @@
 
 
 
-  "block.byg.large_subzero_crystal_bud": "大型负温水晶芽",
+
   "block.byg.large_therium_crystal_bud": "大型空灵晶芽",
   "block.byg.lazarus_bellflower": "阿尔泰贝母",
   "block.byg.leaf_pile": "落叶堆",
@@ -694,7 +694,7 @@
   "block.byg.maple_trapdoor": "枫木活板门",
   "block.byg.maple_wall_sign": "墙上的枫木告示牌",
   "block.byg.maple_wood": "枫木",
-  "block.byg.medium_subzero_crystal_bud": "中型负温水晶芽",
+
   "block.byg.medium_therium_crystal_bud": "中型空灵晶芽",
   "block.byg.mini_cactus": "小型仙人掌",
   "block.byg.mossy_red_rock_brick_slab": "苔红岩砖台阶",
@@ -806,10 +806,10 @@
   "block.byg.polished_soapstone_slab": "磨制皂石台阶",
   "block.byg.polished_soapstone_stairs": "磨制皂石楼梯",
   "block.byg.polished_soapstone_wall": "磨制皂石墙",
-  "block.byg.polished_travertine": "磨制石灰华",
-  "block.byg.polished_travertine_slab": "磨制石灰华台阶",
-  "block.byg.polished_travertine_stairs": "磨制石灰华楼梯",
-  "block.byg.polished_travertine_wall": "磨制石灰华墙",
+
+
+
+
   "block.byg.pollen_block": "花粉块",
   "block.byg.potted_alpine_bellflower": "高山风铃草盆栽",
   "block.byg.potted_angelica": "白芷盆栽",
@@ -1052,7 +1052,7 @@
   "block.byg.skyris_vine": "天际树藤",
   "block.byg.skyris_wall_sign": "墙上的天际木告示牌",
   "block.byg.skyris_wood": "天际木",
-  "block.byg.small_subzero_crystal_bud": "小型负温水晶芽",
+
   "block.byg.small_therium_crystal_bud": "小型空灵晶芽",
   "block.byg.smooth_windswept_sandstone": "平滑风化砂岩",
   "block.byg.smooth_windswept_sandstone_slab": "平滑风化砂岩台阶",
@@ -1135,10 +1135,10 @@
   "block.byg.stripped_witch_hazel_wood": "去皮金缕梅木",
   "block.byg.stripped_zelkova_log": "去皮榉木原木",
   "block.byg.stripped_zelkova_wood": "去皮榉木",
-  "block.byg.subzero_ash": "负温灰",
-  "block.byg.subzero_ash_block": "负温灰块",
-  "block.byg.subzero_crystal_block": "负温水晶块",
-  "block.byg.subzero_crystal_cluster": "负温水晶簇",
+
+
+
+
   "block.byg.sythian_bookshelf": "斯基泰木书架",
   "block.byg.sythian_button": "斯基泰木按钮",
   "block.byg.sythian_crafting_table": "斯基泰木工作台",
@@ -1178,10 +1178,10 @@
   "block.byg.therium_lamp": "空灵晶灯",
   "block.byg.therium_lantern": "空灵晶灯笼",
   "block.byg.tiny_lilypads": "小型睡莲",
-  "block.byg.travertine": "石灰华",
-  "block.byg.travertine_slab": "石灰华台阶",
-  "block.byg.travertine_stairs": "石灰华楼梯",
-  "block.byg.travertine_wall": "石灰华墙",
+
+
+
+
   "block.byg.vermilion_sculk": "朱红幽匿石",
   "block.byg.vermilion_sculk_growth": "朱红幽匿苔藻",
   "block.byg.vermilion_sculk_tendrils": "朱红幽匿卷须",
@@ -1202,8 +1202,8 @@
   "block.byg.water_silk": "水绵",
   "block.byg.weeping_milkcap": "多汁乳菇",
   "block.byg.weeping_milkcap_mushroom_block": "多汁乳菇方块",
-  "block.byg.weeping_roots": "哭泣菌索",
-  "block.byg.weeping_roots_plant": "哭泣菌索植株",
+
+
   "block.byg.white_anemone": "白色银莲花",
   "block.byg.white_cherry_foliage": "白色樱桃树落叶",
   "block.byg.white_cherry_leaves": "白色樱桃树叶",
@@ -1365,7 +1365,7 @@
   "byg.worldgenexport.singleplayer": "导出世界生成命令只能在单人模式下使用！",
   "byg.worldgenexport.starting": "开始导出世界生成，可能会导致服务端卡顿和RAM占用率过高……",
   "byg.worldgenexport.success": "世界生成导出成功！在这里查看文档：%s！",
-  "container.hypogeal_imperium_container": "负温催生器",
+
   "death.attack.byg.cattail_campfire": "%s太过好奇",
   "dimension.minecraft.overworld": "主世界",
   "dimension.minecraft.the_end": "末地",
@@ -1499,7 +1499,7 @@
   "item.byg.brown_zelkova_leaves": "棕色榉树树叶",
   "item.byg.brown_zelkova_sapling": "棕色榉树树苗",
   "item.byg.budding_ametrine_ore": "紫黄晶矿石母岩",
-  "item.byg.budding_subzero_crystal": "负温水晶母岩",
+
   "item.byg.budding_therium_crystal": "空灵晶母岩",
   "item.byg.bulbis_anomaly": "灯状菇反常体",
   "item.byg.bulbis_bookshelf": "灯状菇木书架",
@@ -1561,10 +1561,10 @@
   "item.byg.chiseled_therium_slab": "錾制空灵晶台阶",
   "item.byg.chiseled_therium_stairs": "錾制空灵晶楼梯",
   "item.byg.chiseled_therium_wall": "錾制空灵晶墙",
-  "item.byg.chiseled_travertine": "錾制石灰华",
-  "item.byg.chiseled_travertine_slab": "錾制石灰华台阶",
-  "item.byg.chiseled_travertine_stairs": "錾制石灰华楼梯",
-  "item.byg.chiseled_travertine_wall": "錾制石灰华墙",
+
+
+
+
   "item.byg.chiseled_windswept_sandstone": "錾制风化砂岩",
   "item.byg.chiseled_windswept_sandstone_slab": "錾制风化砂岩台阶",
   "item.byg.chiseled_windswept_sandstone_stairs": "錾制风化砂岩楼梯",
@@ -1600,8 +1600,8 @@
   "item.byg.cracked_red_rock_bricks": "裂纹红岩砖",
   "item.byg.cracked_red_sand": "裂纹红沙",
 
-  "item.byg.crimson_berries": "绯红浆果",
-  "item.byg.crimson_berry_pie": "绯红浆果派",
+
+
   "item.byg.crocus": "番红花",
   "item.byg.cryptic_bramble": "隐秘荆棘",
   "item.byg.cryptic_bramble_branch": "隐秘荆棘枝",
@@ -1769,7 +1769,7 @@
   "item.byg.flowering_tiny_lily_pads": "盛开的小型睡莲",
   "item.byg.foragers_table": "采集台",
   "item.byg.foxglove": "毛地黄",
-  "item.byg.frost_magma": "霜冻岩浆块",
+
   "item.byg.fungal_imparius": "菌态异蓝菇方块",
   "item.byg.fungal_imparius_block": "菌态异蓝菇方块",
   "item.byg.fungal_imparius_filament": "菌态异蓝菇菌褶",
@@ -1828,7 +1828,7 @@
   "item.byg.horseweed": "小蓬草",
   "item.byg.hydrangea_bush": "绣球花灌木",
   "item.byg.hydrangea_hedge": "绣球花丛",
-  "item.byg.hypogeal_imperium": "负温催生器",
+
   "item.byg.imbued_blue_enchanted_log": "盈满的蓝色魔法原木",
   "item.byg.imbued_green_enchanted_log": "盈满的绿色魔法原木",
   "item.byg.imbued_nightshade_log": "盈满的夜影原木",
@@ -1902,7 +1902,7 @@
   ,
   ,
   ,
-  "item.byg.large_subzero_crystal_bud": "大型负温水晶芽",
+
   "item.byg.large_therium_crystal_bud": "大型空灵晶芽",
   "item.byg.lazarus_bellflower": "阿尔泰贝母",
   "item.byg.leaf_pile": "落叶堆",
@@ -1952,7 +1952,7 @@
   "item.byg.maple_stairs": "枫木楼梯",
   "item.byg.maple_trapdoor": "枫木活板门",
   "item.byg.maple_wood": "枫木",
-  "item.byg.medium_subzero_crystal_bud": "中型负温水晶芽",
+
   "item.byg.medium_therium_crystal_bud": "中型空灵晶芽",
   "item.byg.mini_cactus": "小型仙人掌",
   "item.byg.mossy_red_rock_brick_slab": "苔红岩砖台阶",
@@ -2075,10 +2075,10 @@
   "item.byg.polished_soapstone_slab": "磨制皂石台阶",
   "item.byg.polished_soapstone_stairs": "磨制皂石楼梯",
   "item.byg.polished_soapstone_wall": "磨制皂石墙",
-  "item.byg.polished_travertine": "磨制石灰华",
-  "item.byg.polished_travertine_slab": "磨制石灰华台阶",
-  "item.byg.polished_travertine_stairs": "磨制石灰华楼梯",
-  "item.byg.polished_travertine_wall": "磨制石灰华墙",
+
+
+
+
   "item.byg.pollen_block": "花粉块",
   "item.byg.pollen_dust": "花粉",
   "item.byg.prairie_grass": "扁穗雀麦",
@@ -2215,7 +2215,7 @@
   "item.byg.skyris_trapdoor": "天际木活板门",
   "item.byg.skyris_vine": "天际树藤",
   "item.byg.skyris_wood": "天际木",
-  "item.byg.small_subzero_crystal_bud": "小型负温水晶芽",
+
   "item.byg.small_therium_crystal_bud": "小型空灵晶芽",
   "item.byg.smooth_windswept_sandstone": "平滑风化砂岩",
   "item.byg.smooth_windswept_sandstone_slab": "平滑风化砂岩台阶",
@@ -2297,11 +2297,11 @@
   "item.byg.stripped_witch_hazel_wood": "去皮金缕梅木",
   "item.byg.stripped_zelkova_log": "去皮榉木原木",
   "item.byg.stripped_zelkova_wood": "去皮榉木",
-  "item.byg.subzero_ash": "负温灰",
-  "item.byg.subzero_ash_block": "负温灰块",
-  "item.byg.subzero_crystal_block": "负温水晶块",
-  "item.byg.subzero_crystal_cluster": "负温水晶簇",
-  "item.byg.subzero_crystal_shard": "负温水晶碎片",
+
+
+
+
+
   "item.byg.sythian_bookshelf": "斯基泰木书架",
   "item.byg.sythian_button": "斯基泰木按钮",
   "item.byg.sythian_crafting_table": "斯基泰木工作台",
@@ -2339,10 +2339,10 @@
   "item.byg.therium_lamp": "空灵晶灯",
   "item.byg.therium_lantern": "空灵晶灯笼",
   "item.byg.tiny_lilypads": "小型睡莲",
-  "item.byg.travertine": "石灰华",
-  "item.byg.travertine_slab": "石灰华台阶",
-  "item.byg.travertine_stairs": "石灰华楼梯",
-  "item.byg.travertine_wall": "石灰华墙",
+
+
+
+
   "item.byg.vermilion_sculk": "朱红幽匿石",
   "item.byg.vermilion_sculk_growth": "朱红幽匿苔藻",
   "item.byg.vermilion_sculk_tendrils": "朱红幽匿卷须",
@@ -2361,7 +2361,7 @@
   "item.byg.water_silk": "水绵",
   "item.byg.weeping_milkcap": "多汁乳菇",
   "item.byg.weeping_milkcap_mushroom_block": "多汁乳菇方块",
-  "item.byg.weeping_roots": "哭泣菌索",
+
   "item.byg.white_anemone": "白色银莲花",
   "item.byg.white_cherry_foliage": "白色樱桃树落叶",
   "item.byg.white_cherry_leaves": "白色樱桃树叶",

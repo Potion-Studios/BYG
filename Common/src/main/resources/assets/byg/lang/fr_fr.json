@@ -39,7 +39,7 @@
   "biome.byg.coniferous_forest_hills": "Collines de Corinifères",
   "biome.byg.coral_white_mangroves": "Coraux de Mangroves",
   "biome.byg.crag_gardens": "Jardins Rocheux",
-  "biome.byg.crimson_gardens": "Jardins Cramoisis",
+
   "biome.byg.cryptic_wastes": "Déchets Cryptiques",
   "biome.byg.cypress_swamplands": "Marécage de Cyprès",
   "biome.byg.lush_stacks": "Mer Morte",
@@ -146,7 +146,7 @@
   "biome.byg.snowy_evergreen_taiga": "Taïga verdoyante Enneigée",
   "biome.byg.snowy_rocky_black_beach": "Plage de sable noire Rocheuse Enneigée",
   "biome.byg.stone_forest": "Forêt de Pierre",
-  "biome.byg.subzero_hypogeal": "Hypogée Subzéro",
+
   "biome.byg.sythian_torrids": "Torrides de Scythe",
   "biome.byg.the_black_forest": "La Forêt Obscure",
   "biome.byg.tropical_fungal_forest": "Forêt Fongique Tropicale",
@@ -160,7 +160,7 @@
   "biome.byg.viscal_isles": "Îlots",
   "biome.byg.wailing_garth": "Garth Gémissant",
   "biome.byg.warped_desert": "Désert Tourmenté",
-  "biome.byg.weeping_mire": "Marais des Lamentations",
+
   "biome.byg.weeping_witch_clearing": "Clairière de Sanglots Envoûtants",
   "biome.byg.weeping_witch_forest": "Forêt de Sanglots Envoûtants",
   "biome.byg.white_beach": "Plage de Sable Blanc",
@@ -322,7 +322,7 @@
   "block.byg.cracked_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Craquelée",
   "block.byg.cracked_red_rock_brick_wall": "Mur en Briques de Roche Rouge Craquelée",
   "block.byg.cracked_red_rock_bricks": "Briques de Roche Rouge Craquelée",
-  "block.byg.crimson_berry_bush": "Buisson de Baies Carmin",
+
   "block.byg.crocus": "Crocus",
   "block.byg.cryptic_campfire": "Feu de Camp Cryptique",
   "block.byg.cryptic_fire": "Feu Cryptique",
@@ -451,7 +451,7 @@
   "block.byg.flowering_orchard_leaves": "Feuilles de Verger Fleuri",
   "block.byg.flowering_palo_verde_leaves": "Feuilles de Palo Verde Fleuri",
   "block.byg.foxglove": "Foxglove",
-  "block.byg.frost_magma": "Magma Gelé",
+
   "block.byg.glowcelium_block": "Bloc de Glowcelium",
   "block.byg.glowstone_lamp": "Lampe en Glowcelium",
   "block.byg.glowstone_lantern": "Lanterne en Glowcelium",
@@ -1022,8 +1022,8 @@
   "block.byg.stripped_witch_hazel_wood": "Bois de Hamamélis Écorcé",
   "block.byg.stripped_zelkova_log": "Bûche de Zelkova Écorcée",
   "block.byg.stripped_zelkova_wood": "Bois de Zelkova Écorcé",
-  "block.byg.subzero_ash": "Cendres Subzéro",
-  "block.byg.subzero_ash_block": "Bloc de Cendres Subzéro",
+
+
   "block.byg.sythian_bookshelf": "Bibliothèque de Scythe",
   "block.byg.sythian_button": "Bouton de Scythe",
   "block.byg.sythian_crafting_table": "Établi de Scythe",
@@ -1068,8 +1068,8 @@
   "block.byg.weed_grass": "Mauvaise Herbe",
   "block.byg.weeping_milkcap": "Lactaire Pleureur",
   "block.byg.weeping_milkcap_mushroom_block": "Bloc de Champignon Lactaire Pleureur",
-  "block.byg.weeping_roots": "Racines Gémissantes",
-  "block.byg.weeping_roots_plant": "Plante de Racines Gémissantes",
+
+
   "block.byg.wailing_grass": "Herbe Baleinière",
   "block.byg.wailing_vine": "Lianes Baleinière",
   "block.byg.white_anemone": "Anémone Blanche",
@@ -1320,7 +1320,7 @@
   "item.byg.cracked_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Craquelée",
   "item.byg.cracked_red_rock_brick_wall": "Mur en Briques de Roche Rouge Craquelée",
   "item.byg.cracked_red_rock_bricks": "Briques de Roche Rouge Craquelée",
-  "item.byg.crimson_berries": "Baies Carmin",
+
   "item.byg.crocus": "Crocus",
   "item.byg.cryptic_campfire": "Feu de Camp Cryptique",
   "item.byg.cryptic_magma_block": "Bloc de Magma Cryptique",
@@ -1452,7 +1452,7 @@
   "item.byg.flowering_orchard_leaves": "Feuilles de Verger Fleuri",
   "item.byg.flowering_palo_verde_leaves": "Feuilles de Palo Verde Fleuri",
   "item.byg.foxglove": "Foxglove",
-  "item.byg.frost_magma": "Magma Gelé",
+
   "item.byg.glowcelium_block": "Bloc de Glowcelium",
   "item.byg.glowstone_lamp": "Lampe en Glowcelium",
   "item.byg.glowstone_lantern": "Lanterne en Glowcelium",
@@ -1945,8 +1945,8 @@
   "item.byg.stripped_witch_hazel_wood": "Bois de Hamamélis Écorcé",
   "item.byg.stripped_zelkova_log": "Bûche de Zelkova Écorcée",
   "item.byg.stripped_zelkova_wood": "Bois de Zelkova Écorcé",
-  "item.byg.subzero_ash": "Cendres Subzéro",
-  "item.byg.subzero_ash_block": "Bloc de Cendres Subzéro",
+
+
   "item.byg.sythian_bookshelf": "Bibliothèque de Scythe",
   "item.byg.sythian_button": "Bouton de Scythe",
   "item.byg.sythian_crafting_table": "Établi de Scythe",
@@ -1989,7 +1989,7 @@
   "item.byg.weed_grass": "Mauvaise Herbe",
   "item.byg.weeping_milkcap": "Lactaire Pleureur",
   "item.byg.weeping_milkcap_mushroom_block": "Bloc de Champignon Lactaire Pleureur",
-  "item.byg.weeping_roots": "Racines Gémissantes",
+
   "item.byg.wailing_grass": "Herbe Baleinière",
   "item.byg.wailing_vine": "Lianes Baleinière",
   "item.byg.white_anemone": "Anémone Blanche",

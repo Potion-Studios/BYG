@@ -40,7 +40,7 @@
 "biome.byg.coniferous_forest_hills":"針葉樹林の丘陵",
 "biome.byg.coral_white_mangroves":"サンゴマングローブ",
 "biome.byg.crag_gardens":"岩石森林",
-"biome.byg.crimson_gardens":"真紅の庭園",
+
 "biome.byg.cryptic_wastes":"不可解な荒れ地",
 "biome.byg.cypress_swamplands":"イトスギの沼地",
 "biome.byg.lush_stacks":"死海",
@@ -157,7 +157,7 @@
 "biome.byg.snowy_evergreen_taiga":"降雪する常緑タイガ",
 "biome.byg.snowy_rocky_black_beach":"降雪する黒色岩石海岸",
 "biome.byg.stone_forest":"石の森",
-"biome.byg.subzero_hypogeal":"零下の地下界",
+
 "biome.byg.sythian_torrids":"シシアンの焦熱地帯",
 "biome.byg.the_black_forest":"黒い森",
 "biome.byg.tropical_fungal_forest":"熱帯菌林",
@@ -171,7 +171,7 @@
 "biome.byg.viscal_isles":"ビスカルの島",
 "biome.byg.wailing_garth":"慟哭の中庭",
 "biome.byg.warped_desert":"歪んだ砂漠",
-"biome.byg.weeping_mire":"泣く泥沼",
+
 "biome.byg.weeping_witch_clearing":"開けた泣く魔女の森",
 "biome.byg.weeping_witch_forest":"泣く魔女の森",
 "biome.byg.white_beach":"白色海岸",
@@ -350,7 +350,7 @@
 "block.byg.cracked_red_rock_brick_stairs":"ひびの入った赤色岩レンガの階段",
 "block.byg.cracked_red_rock_brick_wall":"ひびの入った赤色岩レンガの塀",
 "block.byg.cracked_red_rock_bricks":"ひびの入った赤色岩レンガ",
-"block.byg.crimson_berry_bush":"真紅のベリーの低木",
+
 "block.byg.crocus":"クロッカス",
 "block.byg.cryptic_bramble":"不可解なキイチゴ",
 "block.byg.cryptic_campfire":"不可解な焚き火",
@@ -489,7 +489,7 @@
 "block.byg.flowering_orchard_leaves":"花咲く果樹の葉",
 "block.byg.flowering_palo_verde_leaves":"花咲くパロ・ベルデの葉",
 "block.byg.foxglove":"ジギタリス",
-"block.byg.frost_magma":"凍結マグマ",
+
 "block.byg.fungal_imparius":"真菌性インパリウス",
 "block.byg.fungal_imparius_block":"真菌性インパリウスブロック",
 "block.byg.fungal_imparius_filament":"真菌性インパリウスの菌糸",
@@ -1109,8 +1109,8 @@
 "block.byg.stripped_witch_hazel_wood":"樹皮を剝いだマンサクの木",
 "block.byg.stripped_zelkova_log":"樹皮を剝いだケヤキの原木",
 "block.byg.stripped_zelkova_wood":"樹皮を剝いだケヤキの木",
-"block.byg.subzero_ash":"氷点の灰",
-"block.byg.subzero_ash_block":"氷点の灰ブロック",
+
+
 "block.byg.sythian_bookshelf":"シシアンの本棚",
 "block.byg.sythian_button":"シシアンのボタン",
 "block.byg.sythian_crafting_table":"シシアンの作業台",
@@ -1161,8 +1161,8 @@
 "block.byg.weed_grass":"雑草",
 "block.byg.weeping_milkcap":"ウィーピングミルクキャップ",
 "block.byg.weeping_milkcap_mushroom_block":"チチタケのキノコブロック",
-"block.byg.weeping_roots":"しだれ根",
-"block.byg.weeping_roots_plant":"しだれ根の植物体",
+
+
 "block.byg.wailing_grass":"うねる草",
 "block.byg.wailing_vine":"うねるツタ",
 "block.byg.white_anemone":"白色のアネモネ",
@@ -1437,8 +1437,8 @@
 "item.byg.cracked_red_rock_brick_stairs":"ひびの入った赤色岩レンガの階段",
 "item.byg.cracked_red_rock_brick_wall":"ひびの入った赤色岩レンガの塀",
 "item.byg.cracked_red_rock_bricks":"ひびの入った赤色岩レンガ",
-"item.byg.crimson_berries":"真紅のベリー",
-"item.byg.crimson_berry_pie":"真紅のベリーのパイ",
+
+
 "item.byg.crocus":"クロッカス",
 "item.byg.cryptic_bramble":"不可解なキイチゴ",
 "item.byg.cryptic_bramble_branch":"不可解なキイチゴの枝",
@@ -1581,7 +1581,7 @@
 "item.byg.flowering_orchard_leaves":"花咲く果樹の葉",
 "item.byg.flowering_palo_verde_leaves":"花咲くパロ・ベルデの葉",
 "item.byg.foxglove":"ジギタリス",
-"item.byg.frost_magma":"凍結マグマ",
+
 "item.byg.fungal_imparius":"真菌性インパリウス",
 "item.byg.fungal_imparius_block":"真菌性インパリウスブロック",
 "item.byg.fungal_imparius_filament":"真菌性インパリウスの菌糸",
@@ -2110,8 +2110,8 @@
 "item.byg.stripped_witch_hazel_wood":"樹皮を剝いだマンサクの木",
 "item.byg.stripped_zelkova_log":"樹皮を剝いだケヤキの原木",
 "item.byg.stripped_zelkova_wood":"樹皮を剝いだケヤキの木",
-"item.byg.subzero_ash":"氷点の灰",
-"item.byg.subzero_ash_block":"氷点の灰ブロック",
+
+
 "item.byg.sythian_bookshelf":"シシアンの本棚",
 "item.byg.sythian_button":"シシアンのボタン",
 "item.byg.sythian_crafting_table":"シシアンの作業台",
@@ -2161,7 +2161,7 @@
 "item.byg.weed_grass":"雑草",
 "item.byg.weeping_milkcap":"ウィーピングミルクキャップ",
 "item.byg.weeping_milkcap_mushroom_block":"ウィーピングミルクキャップのキノコブロック",
-"item.byg.weeping_roots":"しだれる根",
+
 "item.byg.wailing_grass":"うねる草",
 "item.byg.wailing_vine":"うねるツタ",
 "item.byg.white_anemone":"白色のアネモネ",
