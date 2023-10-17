@@ -324,12 +324,6 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PINE_TREE2), 1)
                             .build())
             ));
-            map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.CHERRY_PINK_TREE2))),
-                    new GrowingPatternEntry(List.of(
-                            "xx",
-                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.CHERRY_PINK_TREE1)))
-            ));
             map.put(BYGWoodTypes.RAINBOW_EUCALYPTUS.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.RAINBOW_EUCALYPTUS_TREE1))),
                     new GrowingPatternEntry(List.of(
@@ -419,10 +413,10 @@ public record GrowingPatterns(boolean logGrowth,
                             .build())
             ));
             map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.CHERRY_WHITE_TREE2))),
+                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.WHITE_SAKURA_CHERRY_TREE2))),
                     new GrowingPatternEntry(List.of(
                             "xx",
-                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.CHERRY_WHITE_TREE1)))
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.WHITE_SAKURA_CHERRY_TREE1)))
             ));
             map.put(BYGWoodTypes.WILLOW.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of(

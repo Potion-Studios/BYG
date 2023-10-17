@@ -85,7 +85,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, "orange_spruce_sapling");
     public static final BlockRegistryObject<Block> ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, "orchard_sapling");
     public static final BlockRegistryObject<Block> PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, "palo_verde_sapling");
-    public static final BlockRegistryObject<Block> PINK_CHERRY_SAPLING = createSapling(BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, "pink_cherry_sapling");
     public static final BlockRegistryObject<Block> RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, "red_birch_sapling");
     public static final BlockRegistryObject<Block> RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, "red_maple_sapling");
     public static final BlockRegistryObject<Block> RED_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_RED_OAK_SAPLING, "red_oak_sapling");
@@ -125,7 +124,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "orange_spruce_leaves");
     public static final BlockRegistryObject<Block> ORCHARD_LEAVES = createLeaves(MapColor.COLOR_GREEN, "orchard_leaves");
     public static final BlockRegistryObject<Block> PALO_VERDE_LEAVES = createLeaves(MapColor.COLOR_GREEN, "palo_verde_leaves");
-    public static final BlockRegistryObject<Block> PINK_CHERRY_LEAVES = createLeaves(MapColor.COLOR_PINK, () -> BYGParticleTypes.PINK_CHERRY_BLOSSOM_LEAVES.get(), "pink_cherry_leaves");
     public static final BlockRegistryObject<Block> RED_BIRCH_LEAVES = createLeaves(MapColor.COLOR_RED, "red_birch_leaves");
     public static final BlockRegistryObject<Block> RED_MAPLE_LEAVES = createLeaves(MapColor.COLOR_RED, () -> BYGParticleTypes.RED_MAPLE_LEAVES.get(), "red_maple_leaves");
     public static final BlockRegistryObject<Block> RED_OAK_LEAVES = createLeaves(MapColor.COLOR_RED, "red_oak_leaves");
@@ -318,7 +316,6 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> PACKED_BLACK_ICE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)), "packed_black_ice");
     public static final BlockRegistryObject<Block> BLACK_ICE = createBlock(() -> new IceBlock(BlockBehaviour.Properties.copy(Blocks.ICE)), "black_ice");
-    public static final BlockRegistryObject<Block> PINK_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS)), "pink_cherry_foliage");
     public static final BlockRegistryObject<Block> WHITE_CHERRY_FOLIAGE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS)), "white_cherry_foliage");
 
     public static final BlockRegistryObject<Block> POLLEN_BLOCK = createBlock(BYGBlockProperties.BYGPollen::new, "pollen_block");

@@ -45,7 +45,6 @@ public class BYGCompostables {
         map.put(BYGItems.ORANGE_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.ORCHARD_LEAVES.get(), 0.3f);
         map.put(BYGItems.PALO_VERDE_LEAVES.get(), 0.3f);
-        map.put(BYGItems.PINK_CHERRY_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_MAPLE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RIPE_ORCHARD_LEAVES.get(), 0.6f);
         map.put(BYGItems.SILVER_MAPLE_LEAVES.get(), 0.3f);
@@ -78,7 +77,6 @@ public class BYGCompostables {
         map.put(BYGItems.ORANGE_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.ORCHARD_SAPLING.get(), 0.3f);
         map.put(BYGItems.PALO_VERDE_SAPLING.get(), 0.3f);
-        map.put(BYGItems.PINK_CHERRY_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_MAPLE_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
         map.put(BYGItems.SILVER_MAPLE_SAPLING.get(), 0.3f);

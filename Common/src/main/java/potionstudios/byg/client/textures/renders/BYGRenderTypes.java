@@ -37,7 +37,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.PRICKLY_PEAR_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_SUCCULENT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.NETHER_BRISTLE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_PINK_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_ALLIUM.get(), RenderType.cutoutMipped());
@@ -141,7 +140,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORCHARD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());

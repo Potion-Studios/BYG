@@ -210,9 +210,6 @@ public class BYGItems {
     public static final RegistryObject<Item> BULBIS_SHELL;
 
     //Cherry Woodtype
-    public static final RegistryObject<GrowerItem> PINK_CHERRY_SAPLING;
-    public static final RegistryObject<Item> PINK_CHERRY_FOLIAGE;
-    public static final RegistryObject<Item> PINK_CHERRY_LEAVES;
     public static final RegistryObject<GrowerItem> WHITE_CHERRY_SAPLING;
     public static final RegistryObject<Item> WHITE_CHERRY_FOLIAGE;
     public static final RegistryObject<Item> WHITE_CHERRY_LEAVES;
@@ -293,9 +290,6 @@ public class BYGItems {
         BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
         BYGWoodTypes.BULBIS.init();
 
-        PINK_CHERRY_SAPLING = createSaplingItem(BYGBlocks.PINK_CHERRY_SAPLING);
-        PINK_CHERRY_FOLIAGE = createItem(BYGBlocks.PINK_CHERRY_FOLIAGE);
-        PINK_CHERRY_LEAVES = createItem(BYGBlocks.PINK_CHERRY_LEAVES);
         WHITE_CHERRY_SAPLING = createSaplingItem(BYGBlocks.WHITE_CHERRY_SAPLING);
         WHITE_CHERRY_FOLIAGE = createItem(BYGBlocks.WHITE_CHERRY_FOLIAGE);
         WHITE_CHERRY_LEAVES = createItem(BYGBlocks.WHITE_CHERRY_LEAVES);
