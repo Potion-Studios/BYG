@@ -689,19 +689,19 @@ public record GrowingPatterns(boolean logGrowth,
                     new GrowingPatternEntry(List.of(
                             "xx",
                             "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE1)), 1)
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE2)), 1)
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE3)), 1)
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE4)), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE1), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE2), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE3), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE4), 1)
                             .build())
             ));
             map.put(Blocks.OAK_SAPLING, List.of(
                     new GrowingPatternEntry(List.of(
                             "xx",
                             "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE1)), 1)
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE2)), 1)
-                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE3)), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE1), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE2), 1)
+                            .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE3), 1)
                             .build())
             ));
             return map;
