@@ -471,9 +471,6 @@ public class BYGItems {
     public static final RegistryObject<Item> SOUL_SHROOM_BLOCK = createItem(BYGBlocks.SOUL_SHROOM_BLOCK);
     public static final RegistryObject<GrowerItem> DEATH_CAP = createGrowerItem(BYGBlocks.DEATH_CAP);
     public static final RegistryObject<Item> DEATH_CAP_MUSHROOM_BLOCK = createItem(BYGBlocks.DEATH_CAP_MUSHROOM_BLOCK);
-
-    public static final RegistryObject<Item> NETHER_BRISTLE = createItem(BYGBlocks.NETHER_BRISTLE);
-
     public static final RegistryObject<Item> SYTHIAN_NYLIUM = createItem(BYGBlocks.SYTHIAN_NYLIUM);
     public static final RegistryObject<Item> SYTHIAN_ROOTS = createItem(BYGBlocks.SYTHIAN_ROOTS);
     public static final RegistryObject<Item> SYTHIAN_SPROUT = createItem(BYGBlocks.SYTHIAN_SPROUT);

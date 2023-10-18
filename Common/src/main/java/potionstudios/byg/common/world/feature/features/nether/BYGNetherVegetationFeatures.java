@@ -24,14 +24,15 @@ import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.config.*;
+import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
+import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
+import potionstudios.byg.common.world.feature.config.WhitelistedSimpleBlockProviderConfig;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
 import java.util.ArrayList;
 
 import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createConfiguredFeature;
-import static potionstudios.byg.common.world.feature.features.BYGFeaturesUtil.createSimpleBlockConfiguredFeatureWithBlock;
 import static potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures.*;
 
 
@@ -47,7 +48,6 @@ public class BYGNetherVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> WARPED_CORAL_FAN = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("warped_coral_fan", BYGBlocks.WARPED_CORAL_FAN, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SOUL_SHROOM = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("soul_shroom", BYGBlocks.SOUL_SHROOM, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> DEATH_CAP = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("death_cap", BYGBlocks.DEATH_CAP, 15);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_BRISTLE = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("nether_bristle", BYGBlocks.NETHER_BRISTLE, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCORCHED_BUSH = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("scorched_bush", BYGBlocks.SCORCHED_BUSH, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> SCORCHED_GRASS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("scorched_grass", BYGBlocks.SCORCHED_GRASS, 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> WAILING_GRASS = BYGFeaturesUtil.createPatchConfiguredFeatureWithBlock("wailing_grass", BYGBlocks.WAILING_GRASS, 15);
@@ -198,16 +198,6 @@ public class BYGNetherVegetationFeatures {
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SYTHIAN_FUNGUS_TREE2)), 0.25F),
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SYTHIAN_FUNGUS_TREE3)), 0.25F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SYTHIAN_FUNGUS_TREE4)));
-            }
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWSTONE_GARDEN_VEGETATION = createConfiguredFeature("glowstone_garden_vegetation", () -> Feature.RANDOM_SELECTOR, (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SOUL_SHROOM)), 0.33F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(DEATH_CAP)), 0.33F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(NETHER_BRISTLE)));
             }
     );
 

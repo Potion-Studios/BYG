@@ -182,8 +182,6 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> ANTHRACITE_BLOCK = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_block");
     public static final BlockRegistryObject<Block> ANTHRACITE_ORE = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_ore");
-
-    public static final BlockRegistryObject<Block> NETHER_BRISTLE = createDoubleDamagePlantBlock("nether_bristle", BYGBlockTags.GROUND_NETHER_BRISTLE);
     public static final BlockRegistryObject<Block> BRIMSTONE = createNetherStone(MapColor.TERRACOTTA_YELLOW, "brimstone");
     public static final BlockRegistryObject<Block> BORIC_CAMPFIRE = createCampfireBlock(3, "boric_campfire");
     public static final BlockRegistryObject<Block> BORIC_FIRE = createBoricFireBlock(MapColor.COLOR_GREEN, "boric_fire");
