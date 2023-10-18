@@ -821,7 +821,7 @@
   "block.byg.light_blue_petal_block": "Bloque de pétalos azul claro",
   "block.byg.yellow_petal_block": "Bloque de pétalos amarillos",
   "block.byg.plant_stem": "Tallo de planta",
-  "block.byg.pollen_block": "Bloque de polen",
+
   "block.byg.black_sand": "Arena negra",
   "block.byg.black_sandstone": "Arenisca negra",
   "block.byg.black_chiseled_sandstone": "Arenisca negra grabada",
@@ -2253,8 +2253,8 @@
   "item.byg.red_petal_block": "Bloque de pétalos rojos",
   "item.byg.yellow_petal_block": "Bloque de pétalos amarillos",
   "item.byg.plant_stem": "Tallo de planta",
-  "item.byg.pollen_block": "Bloque de polen",
-  "item.byg.pollen_dust": "Polvo de polen",
+
+
   "item.byg.allium_flower_bush": "Arbusto de alliums",
   "item.byg.tall_allium": "Allium alta",
   "item.byg.alpine_bellflower": "Campanilla alpina",

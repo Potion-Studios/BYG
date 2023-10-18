@@ -9,7 +9,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.reg.RegistryObject;
 
 public class BYGMushroomConfig implements FeatureConfiguration {
@@ -23,8 +22,6 @@ public class BYGMushroomConfig implements FeatureConfiguration {
             return config.mushroomProvider;
         }), BlockStateProvider.CODEC.fieldOf("mushroom3_provider").forGetter((config) -> {
             return config.mushroomProvider;
-        }), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> {
-            return config.pollenProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
         }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
@@ -37,19 +34,17 @@ public class BYGMushroomConfig implements FeatureConfiguration {
     private final BlockStateProvider mushroomProvider;
     private final BlockStateProvider mushroom2Provider;
     private final BlockStateProvider mushroom3Provider;
-    private final BlockStateProvider pollenProvider;
     private final int minHeight;
     private final int maxPossibleHeight;
 
     private boolean forcedPlacement = false;
 
 
-    BYGMushroomConfig(BlockStateProvider stemProvider, BlockStateProvider mushroomProvider, BlockStateProvider mushroom2Provider, BlockStateProvider mushroom3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
+    BYGMushroomConfig(BlockStateProvider stemProvider, BlockStateProvider mushroomProvider, BlockStateProvider mushroom2Provider, BlockStateProvider mushroom3Provider, int minHeight, int maxPossibleHeight) {
         this.stemProvider = stemProvider;
         this.mushroomProvider = mushroomProvider;
         this.mushroom2Provider = mushroom2Provider;
         this.mushroom3Provider = mushroom3Provider;
-        this.pollenProvider = pollenProvider;
         this.minHeight = minHeight;
         this.maxPossibleHeight = maxPossibleHeight;
     }
@@ -78,10 +73,6 @@ public class BYGMushroomConfig implements FeatureConfiguration {
         return this.mushroom3Provider;
     }
 
-    public BlockStateProvider getPollenProvider() {
-        return this.pollenProvider;
-    }
-
     public int getMinHeight() {
         return minHeight;
     }
@@ -104,7 +95,6 @@ public class BYGMushroomConfig implements FeatureConfiguration {
         private BlockStateProvider mushroomProvider = SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider mushroom2Provider = this.mushroomProvider;
         private BlockStateProvider mushroom3Provider = this.mushroomProvider;
-        private BlockStateProvider pollenProvider = SimpleStateProvider.simple(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
 
@@ -229,12 +219,11 @@ public class BYGMushroomConfig implements FeatureConfiguration {
             this.mushroomProvider = config.mushroomProvider;
             this.mushroom2Provider = config.mushroom2Provider;
             this.mushroom3Provider = config.mushroom3Provider;
-            this.pollenProvider = config.pollenProvider;
             return this;
         }
 
         public BYGMushroomConfig build() {
-            return new BYGMushroomConfig(this.stemProvider, this.mushroomProvider, this.mushroom2Provider, this.mushroom3Provider, this.pollenProvider, this.minHeight, this.maxPossibleHeight);
+            return new BYGMushroomConfig(this.stemProvider, this.mushroomProvider, this.mushroom2Provider, this.mushroom3Provider, this.minHeight, this.maxPossibleHeight);
         }
     }
 }

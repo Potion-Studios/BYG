@@ -749,9 +749,6 @@ public class BYGItems {
     public static final RegistryObject<Item> CLOVER_PATCH = createItem(BYGBlocks.CLOVER_PATCH);
     public static final RegistryObject<Item> FLOWER_PATCH = createItem(BYGBlocks.FLOWER_PATCH);
 
-    public static final RegistryObject<Item> POLLEN_BLOCK = createItem(BYGBlocks.POLLEN_BLOCK);
-    public static final RegistryObject<Item> POLLEN_DUST = createItem(() -> new Item(new Properties()), "pollen_dust");
-
     //FlowerItems
     public static final RegistryObject<Item> ALLIUM_FLOWER_BUSH = createItem(BYGBlocks.ALLIUM_FLOWER_BUSH);
     public static final RegistryObject<Item> TALL_ALLIUM = createItem(BYGBlocks.TALL_ALLIUM);

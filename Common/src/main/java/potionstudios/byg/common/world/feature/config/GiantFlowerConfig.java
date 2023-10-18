@@ -22,8 +22,6 @@ public class GiantFlowerConfig implements FeatureConfiguration {
             return config.petalProvider;
         }), BlockStateProvider.CODEC.fieldOf("petal3_provider").forGetter((config) -> {
             return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> {
-            return config.pollenProvider;
         }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
             return config.minHeight;
         }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
@@ -36,19 +34,17 @@ public class GiantFlowerConfig implements FeatureConfiguration {
     private final BlockStateProvider petalProvider;
     private final BlockStateProvider petal2Provider;
     private final BlockStateProvider petal3Provider;
-    private final BlockStateProvider pollenProvider;
     private final int minHeight;
     private final int maxPossibleHeight;
 
     private boolean forcedPlacement = false;
 
 
-    GiantFlowerConfig(BlockStateProvider stemProvider, BlockStateProvider petalProvider, BlockStateProvider petal2Provider, BlockStateProvider petal3Provider, BlockStateProvider pollenProvider, int minHeight, int maxPossibleHeight) {
+    GiantFlowerConfig(BlockStateProvider stemProvider, BlockStateProvider petalProvider, BlockStateProvider petal2Provider, BlockStateProvider petal3Provider, int minHeight, int maxPossibleHeight) {
         this.stemProvider = stemProvider;
         this.petalProvider = petalProvider;
         this.petal2Provider = petal2Provider;
         this.petal3Provider = petal3Provider;
-        this.pollenProvider = pollenProvider;
         this.minHeight = minHeight;
         this.maxPossibleHeight = maxPossibleHeight;
     }
@@ -77,10 +73,6 @@ public class GiantFlowerConfig implements FeatureConfiguration {
         return this.petal3Provider;
     }
 
-    public BlockStateProvider getPollenProvider() {
-        return this.pollenProvider;
-    }
-
     public int getMinHeight() {
         return minHeight;
     }
@@ -103,7 +95,6 @@ public class GiantFlowerConfig implements FeatureConfiguration {
         private BlockStateProvider petalProvider = SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState());
         private BlockStateProvider petal2Provider = this.petalProvider;
         private BlockStateProvider petal3Provider = this.petalProvider;
-        private BlockStateProvider pollenProvider = SimpleStateProvider.simple(BYGBlocks.POLLEN_BLOCK.defaultBlockState());
         private int minHeight = 15;
         private int maxPossibleHeight = 1;
 
@@ -224,12 +215,11 @@ public class GiantFlowerConfig implements FeatureConfiguration {
             this.petalProvider = config.petalProvider;
             this.petal2Provider = config.petal2Provider;
             this.petal3Provider = config.petal3Provider;
-            this.pollenProvider = config.pollenProvider;
             return this;
         }
 
         public GiantFlowerConfig build() {
-            return new GiantFlowerConfig(this.stemProvider, this.petalProvider, this.petal2Provider, this.petal3Provider, this.pollenProvider, this.minHeight, this.maxPossibleHeight);
+            return new GiantFlowerConfig(this.stemProvider, this.petalProvider, this.petal2Provider, this.petal3Provider, this.minHeight, this.maxPossibleHeight);
         }
     }
 }
