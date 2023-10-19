@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "byg:block/sakura_cherry/stripped_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "byg:block/sakura_cherry/stripped_wood"
+    },
+    "axis=z": {
+      "model": "byg:block/sakura_cherry/stripped_wood",
+      "x": 90
+    }
+  }
+}

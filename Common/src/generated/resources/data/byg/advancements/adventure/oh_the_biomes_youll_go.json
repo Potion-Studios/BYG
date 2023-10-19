@@ -49,22 +49,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:arisian_undergrowth": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:arisian_undergrowth"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:aspen_forest": {
       "conditions": {
         "player": [
@@ -369,22 +353,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:crimson_gardens": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:crimson_gardens"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:cryptic_wastes": {
       "conditions": {
         "player": [
@@ -481,22 +449,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:embur_bog": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:embur_bog"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:ethereal_islands": {
       "conditions": {
         "player": [
@@ -586,22 +538,6 @@
             "predicate": {
               "location": {
                 "biome": "byg:frosted_taiga"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "byg:glowstone_gardens": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:glowstone_gardens"
               }
             }
           }
@@ -961,22 +897,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:subzero_hypogeal": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:subzero_hypogeal"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:sythian_torrids": {
       "conditions": {
         "player": [
@@ -1105,22 +1025,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "byg:weeping_mire": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "biome": "byg:weeping_mire"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "byg:weeping_witch_forest": {
       "conditions": {
         "player": [
@@ -1227,9 +1131,6 @@
       "byg:mojave_desert"
     ],
     [
-      "byg:glowstone_gardens"
-    ],
-    [
       "byg:red_oak_forest"
     ],
     [
@@ -1246,9 +1147,6 @@
     ],
     [
       "byg:black_forest"
-    ],
-    [
-      "byg:arisian_undergrowth"
     ],
     [
       "byg:atacama_desert"
@@ -1278,9 +1176,6 @@
       "byg:dacite_shore"
     ],
     [
-      "byg:crimson_gardens"
-    ],
-    [
       "byg:imparius_grove"
     ],
     [
@@ -1291,9 +1186,6 @@
     ],
     [
       "byg:basalt_barrera"
-    ],
-    [
-      "byg:embur_bog"
     ],
     [
       "byg:red_rock_valley"
@@ -1320,9 +1212,6 @@
       "byg:howling_peaks"
     ],
     [
-      "byg:weeping_mire"
-    ],
-    [
       "byg:redwood_thicket"
     ],
     [
@@ -1339,9 +1228,6 @@
     ],
     [
       "byg:wailing_garth"
-    ],
-    [
-      "byg:subzero_hypogeal"
     ],
     [
       "byg:crag_gardens"

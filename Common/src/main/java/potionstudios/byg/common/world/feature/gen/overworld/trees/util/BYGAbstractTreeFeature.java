@@ -64,9 +64,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public boolean isAnotherTreeHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
-        });
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES));
     }
 
     public boolean isAnotherTreeLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
@@ -596,10 +594,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_DACITE.get(), BYGBlocks.DACITE.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.PODZOL_DACITE.get(), BYGBlocks.DACITE.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_STONE.get(), Blocks.STONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_CRIMSON_BLACKSTONE.get(), Blocks.BLACKSTONE);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.OVERGROWN_NETHERRACK.get(), Blocks.NETHERRACK);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SYTHIAN_NYLIUM.get(), Blocks.NETHERRACK);
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.EMBUR_NYLIUM.get(), BYGBlocks.BLUE_NETHERRACK.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.IVIS_PHYLIUM.get(), Blocks.END_STONE);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.NIGHTSHADE_PHYLIUM.get(), Blocks.END_STONE);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.SHULKREN_PHYLIUM.get(), Blocks.END_STONE);

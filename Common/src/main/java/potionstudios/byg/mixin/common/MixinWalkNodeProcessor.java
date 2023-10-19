@@ -14,13 +14,6 @@ import potionstudios.byg.common.block.BYGBlocks;
 @Mixin(WalkNodeEvaluator.class)
 public class MixinWalkNodeProcessor {
 
-    @Inject(method = "isBurningBlock", at = @At("HEAD"), cancellable = true)
-    private static void byg_isBurningBlock(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (state.getBlock() == BYGBlocks.FROST_MAGMA.get()) {
-            cir.setReturnValue(true);
-        }
-    }
-
     @Inject(method = "getBlockPathTypeRaw", at = @At("RETURN"), cancellable = true)
     private static void byg_avoidQuartzCrystals(BlockGetter blockGetter, BlockPos blockPos, CallbackInfoReturnable<BlockPathTypes> cir) {
         BlockState blockState = blockGetter.getBlockState(blockPos);

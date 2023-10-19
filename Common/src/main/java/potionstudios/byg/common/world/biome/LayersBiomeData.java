@@ -62,17 +62,11 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(Biomes.BASALT_DELTAS, 2)
             .add(Biomes.WARPED_FOREST, 2)
             .add(BRIMSTONE_CAVERNS, 2)
-            .add(SUBZERO_HYPOGEAL, 2)
             .add(WARPED_DESERT, 2)
-            .add(WEEPING_MIRE, 2)
             .add(MAGMA_WASTES, 2)
-            .add(EMBUR_BOG, 2)
             .add(QUARTZ_DESERT, 2)
-            .add(CRIMSON_GARDENS, 2)
-            .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 
     public static final LayersBiomeData DEFAULT_NETHER_UPPER = new LayersBiomeData(
@@ -83,17 +77,11 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(Biomes.BASALT_DELTAS, 2)
             .add(Biomes.WARPED_FOREST, 2)
             .add(BRIMSTONE_CAVERNS, 2)
-            .add(SUBZERO_HYPOGEAL, 2)
-            .add(EMBUR_BOG, 2)
-            .add(WEEPING_MIRE, 2)
             .add(WARPED_DESERT, 2)
             .add(QUARTZ_DESERT, 2)
-            .add(CRIMSON_GARDENS, 2)
             .add(MAGMA_WASTES, 2)
-            .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 
 
@@ -104,17 +92,11 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(Biomes.SOUL_SAND_VALLEY, 2)
             .add(Biomes.BASALT_DELTAS, 2)
             .add(Biomes.WARPED_FOREST, 2)
-            .add(WEEPING_MIRE, 2)
-            .add(EMBUR_BOG, 2)
             .add(BRIMSTONE_CAVERNS, 2)
-            .add(SUBZERO_HYPOGEAL, 0)
             .add(WARPED_DESERT, 0)
             .add(MAGMA_WASTES, 2)
             .add(QUARTZ_DESERT, 0)
-            .add(CRIMSON_GARDENS, 2)
-            .add(GLOWSTONE_GARDENS, 2)
             .add(SYTHIAN_TORRIDS, 2)
             .add(WAILING_GARTH, 2)
-            .add(ARISIAN_UNDERGROWTH, 0)
             .build(), 4);
 }

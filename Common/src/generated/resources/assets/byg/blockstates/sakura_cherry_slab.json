@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "byg:block/sakura_cherry/slab"
+    },
+    "type=double": {
+      "model": "byg:block/sakura_cherry/planks"
+    },
+    "type=top": {
+      "model": "byg:block/sakura_cherry/slab_top"
+    }
+  }
+}

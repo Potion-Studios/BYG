@@ -50,6 +50,7 @@ public enum BYGWoodTypes {
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
     SAKURA_CHERRY("sakura_cherry", new Builder()
+            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING)
             .exclude(BlockType.SAPLING, BlockType.LEAVES)
             .boatType(BYGBoat.BYGType.SAKURA_CHERRY)),
     CIKA("cika", new Builder()
@@ -127,13 +128,6 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
             .growerItem(GrowerItemType.FUNGUS)
             .nether()),
-    EMBUR("embur", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_EMBUR_WART)
-            .growerItem(GrowerItemType.WART)
-            .exclude(BlockType.LEAVES)
-            .registryName(BlockType.LOG, "%s_pedu")
-            .registryName(BlockType.STRIPPED_LOG, "stripped_%s_pedu")
-            .nether()),
     NIGHTSHADE("nightshade", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_NIGHTSHADE_SAPLING)
             .MapColor(MapColor.COLOR_ORANGE).end()),
@@ -141,10 +135,6 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_SKYRIS_SAPLING)
             .MapColor(MapColor.COLOR_PINK)
             .boatType(BYGBoat.BYGType.SKYRIS)),
-    LAMENT("lament", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_LAMENT_SAPLING)
-            .MapColor(MapColor.COLOR_MAGENTA)
-            .notFlammable()),
     MAPLE("maple", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
             .MapColor(MapColor.COLOR_GREEN)

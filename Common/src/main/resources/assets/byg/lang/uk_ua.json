@@ -17,19 +17,19 @@
     "biome.byg.bulbis_gardens": "Бульбісовий сад",
     "biome.byg.canadian_shield": "Канадський щит",
     "biome.byg.cardinal_tundra": "Кардинальна тундра",
-    "biome.byg.sakura_grove": "Цвітучий вишневий ліс",
+    "biome.byg:sakura_grove": "Цвітучий вишневий ліс",
     "biome.byg.cika_woods": "Цикові ліси",
     "biome.byg.coconino_meadow": "Луг коконіно",
     "biome.byg.coniferous_forest": "Хвойний ліс",
     "biome.byg.crag_gardens": "Скелясті сади",
-    "biome.byg.crimson_gardens": "Багряні сади",
+
     "biome.byg.cryptic_wastes": "Таємничі порожнечі",
     "biome.byg.cypress_swamplands": "Кипарисові болота",
     "biome.byg.dacite_ridges": "Дацитові кряжі",
     "biome.byg.dacite_shore": "Дацитовий берег",
     "biome.byg.dead_sea": "Мертве море",
     "biome.byg.ebony_woods": "Ебенові ліси",
-    "biome.byg.embur_bog": "Тліюче болото",
+
     "biome.byg.ethereal_islands": "Етерні острови",
     "biome.byg.firecracker_shrubland": "Скреб",
     "biome.byg.enchanted_tangle": "Забутий ліс",
@@ -59,7 +59,7 @@
     "biome.byg.shulkren_forest": "Шалкреновий ліс",
     "biome.byg.sierra_badlands": "Помірно-безплідні землі",
     "biome.byg.skyris_vale": "Небесна долина",
-    "biome.byg.subzero_hypogeal": "Нульові землі",
+
     "biome.byg.sythian_torrids": "Бурхливі землі",
     "biome.byg.temperate_grove": "Помірний гай",
     "biome.byg.forgotten_forest": "Помірний дощоліс",
@@ -68,7 +68,7 @@
     "biome.byg.viscal_isles": "Віскальні острови",
     "biome.byg.wailing_garth": "Плачущий гарт",
     "biome.byg.warped_desert": "Химерна пустеля",
-    "biome.byg.weeping_mire": "Плакуче болото",
+
     "biome.byg.weeping_witch_forest": "Плакучий ліс відьом",
     "biome.byg.white_mangrove_marshes": "Білі мангрові болота",
     "biome.byg.windswept_desert": "Вітряна пустеля",
@@ -203,13 +203,13 @@
     "block.byg.blue_enchanted_stairs": "Сині магічні сходи",
     "block.byg.blue_enchanted_trapdoor": "Синій магічний люк",
     "block.byg.blue_enchanted_wood": "Синя магічна деревина",
-    "block.byg.blue_nether_brick_slab": "Синя плита з незерської цегли",
-    "block.byg.blue_nether_brick_stairs": "Сині сходи з незерської цегли",
-    "block.byg.blue_nether_brick_wall": "Синя стіна з незерської цегли",
-    "block.byg.blue_nether_bricks": "Синя незерська цегла",
-    "block.byg.blue_nether_gold_ore": "Синя незерська золота руда",
-    "block.byg.blue_nether_quartz_ore": "Синя незерська кварцова руда",
-    "block.byg.blue_netherrack": "Синій незерак",
+
+
+
+
+
+
+
     "block.byg.blue_rose_bush": "Синій трояндовий кущ",
     "block.byg.blue_sage": "Синя шавлія",
     "block.byg.blue_sand": "Блакитний пісок",
@@ -232,7 +232,7 @@
     "block.byg.brown_zelkova_leaves": "Коричневе дзелькове листя",
     "block.byg.brown_zelkova_sapling": "Паросток коричневої дзелькви",
     "block.byg.budding_ametrine_ore": "Родюча аметринова руда",
-    "block.byg.budding_subzero_crystal": "Родючий нульовий кристал",
+
     "block.byg.budding_therium_crystal": "Родючий кристал теріуму",
     "block.byg.bulbis_anomaly": "Бульбісова аномалія",
     "block.byg.bulbis_bookshelf": "Бульбісова книжкова полиця",
@@ -264,19 +264,19 @@
     "block.byg.cattail_thatch_carpet": "Рогозовий килим",
     "block.byg.cattail_thatch_slab": "Рогозова плита",
     "block.byg.cattail_thatch_stairs": "Рогозові сходи",
-    "block.byg.cherry_bookshelf": "Вишнева книжкова полиця",
-    "block.byg.cherry_button": "Вишнева кнопка",
-    "block.byg.cherry_crafting_table": "Вишневий верстак",
-    "block.byg.cherry_door": "Вишневі двері",
-    "block.byg.cherry_fence": "Вишневий паркан",
-    "block.byg.cherry_fence_gate": "Вишнева хвіртка",
-    "block.byg.cherry_log": "Вишнева колода",
-    "block.byg.cherry_planks": "Вишневі дошки",
-    "block.byg.cherry_pressure_plate": "Вишнева натискна плита",
-    "block.byg.cherry_slab": "Вишнева плита",
-    "block.byg.cherry_stairs": "Вишневі сходи",
-    "block.byg.cherry_trapdoor": "Вишневий люк",
-    "block.byg.cherry_wood": "Вишнева деревина",
+    "block.byg:sakura_cherry_bookshelf": "Вишнева книжкова полиця",
+    "block.byg:sakura_cherry_button": "Вишнева кнопка",
+    "block.byg:sakura_cherry_crafting_table": "Вишневий верстак",
+    "block.byg:sakura_cherry_door": "Вишневі двері",
+    "block.byg:sakura_cherry_fence": "Вишневий паркан",
+    "block.byg:sakura_cherry_fence_gate": "Вишнева хвіртка",
+    "block.byg:sakura_cherry_log": "Вишнева колода",
+    "block.byg:sakura_cherry_planks": "Вишневі дошки",
+    "block.byg:sakura_cherry_pressure_plate": "Вишнева натискна плита",
+    "block.byg:sakura_cherry_slab": "Вишнева плита",
+    "block.byg:sakura_cherry_stairs": "Вишневі сходи",
+    "block.byg:sakura_cherry_trapdoor": "Вишневий люк",
+    "block.byg:sakura_cherry_wood": "Вишнева деревина",
     "block.byg.chiseled_fungal_imparius": "Різьблений огриблений \"Імпаріус\"",
     "block.byg.chiseled_fungal_imparius_slab": "Плита з огрибленого \"Імпаріусу\"",
     "block.byg.chiseled_fungal_imparius_stairs": "Сходи з різьбленого огрибленого \"Імпаріусу\"",
@@ -289,10 +289,10 @@
     "block.byg.chiseled_therium_slab": "Плита з різьбленого теріуму",
     "block.byg.chiseled_therium_stairs": "Сходи з різьбленого теріуму",
     "block.byg.chiseled_therium_wall": "Стіна з різьбленого теріуму",
-    "block.byg.chiseled_travertine": "Різьблений травертин",
-    "block.byg.chiseled_travertine_slab": "Різьблена травертинова плита",
-    "block.byg.chiseled_travertine_stairs": "Різьблені травертинові сходи",
-    "block.byg.chiseled_travertine_wall": "Різьблена травертинова стіна",
+
+
+
+
     "block.byg.chiseled_windswept_sandstone": "Різьблений вітряний пісковик",
     "block.byg.chiseled_windswept_sandstone_slab": "Плита з різьбленого вітряного пісковику",
     "block.byg.chiseled_windswept_sandstone_stairs": "Сходи з різьбленого вітряного пісковику",
@@ -322,8 +322,8 @@
     "block.byg.cracked_red_rock_brick_wall": "Тріснута стіна з червоної кам'яної цегли",
     "block.byg.cracked_red_rock_bricks": "Тріснута червона кам'яна цегла",
     "block.byg.cracked_red_sand": "Затверділий червоний пісок",
-    "block.byg.cracked_scoria_stone_bricks": "Тріснута шлакова цегла",
-    "block.byg.crimson_berry_bush": "Багряний ягідний кущ",
+
+
     "block.byg.crocus": "Шафран",
     "block.byg.cryptic_bramble": "Таємничий кущ",
     "block.byg.cryptic_campfire": "Таємниче багаття",
@@ -396,29 +396,29 @@
     "block.byg.ebony_stairs": "Ебенові сходи",
     "block.byg.ebony_trapdoor": "Ебеновий люк",
     "block.byg.ebony_wood": "Ебенова деревина",
-    "block.byg.embur_bookshelf": "Тліюча книжкова полиця",
-    "block.byg.embur_button": "Тліюча кнопка",
-    "block.byg.embur_crafting_table": "Тліючий верстак",
-    "block.byg.embur_door": "Тліючі двері",
-    "block.byg.embur_fence": "Тліючий паркан",
-    "block.byg.embur_fence_gate": "Тліюча хвіртка",
-    "block.byg.embur_gel_block": "Тліюча оболонка",
-    "block.byg.embur_gel_branch": "Тліюче гілля",
-    "block.byg.embur_gel_vines": "Тліючі лози",
-    "block.byg.embur_gel_vines_plant": "Тліючі лози",
-    "block.byg.embur_hyphae": "Тліючі гіфи",
-    "block.byg.embur_lily": "Тліюче латаття",
-    "block.byg.embur_nylium": "Тліючий нілій",
-    "block.byg.embur_pedu": "Тліюче стебло",
-    "block.byg.embur_planks": "Тліючі дошки",
-    "block.byg.embur_pressure_plate": "Тліюча натискна плита",
-    "block.byg.embur_roots": "Тліюче коріння",
-    "block.byg.embur_slab": "Тліюча плита",
-    "block.byg.embur_sprouts": "Тліючі паростки",
-    "block.byg.embur_stairs": "Тліючі сходи",
-    "block.byg.embur_trapdoor": "Тліючий люк",
-    "block.byg.embur_wart": "Паросток тліючого дерева",
-    "block.byg.emeraldite_ore": "Смарагдитова руда",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.end_sand": "Пісок енду",
     "block.byg.ender_lily": "Латаття енду",
     "block.byg.ether_bookshelf": "Етерова книжкова полиця",
@@ -479,7 +479,7 @@
     "block.byg.flowering_tiny_lily_pads": "Цвітучі крихітні латаття",
     "block.byg.foragers_table": "Стіл дослідника",
     "block.byg.foxglove": "Наперстянка",
-    "block.byg.frost_magma": "Заморожена магма",
+
     "block.byg.fungal_imparius": "Темні гриби \"Імпаріус\"",
     "block.byg.fungal_imparius_block": "Блок темних грибів \"Імпаріус\"",
     "block.byg.fungal_imparius_filament": "Коріння \"Імпаріус\"",
@@ -533,7 +533,7 @@
     "block.byg.horseweed": "Злинка",
     "block.byg.hydrangea_bush": "Гортензія",
     "block.byg.hydrangea_hedge": "Кущ гортензії",
-    "block.byg.hypogeal_imperium": "Радіусний обморожувач",
+
     "block.byg.imbued_blue_enchanted_log": "Забруднена синя магічна колода",
     "block.byg.imbued_green_enchanted_log": "Забруднена зелена магічна колода",
     "block.byg.imbued_nightshade_log": "Збагачена темно-нічна колода",
@@ -586,25 +586,25 @@
     "block.byg.joshua_leaves": "Юкове листя",
     "block.byg.joshua_sapling": "Паросток юки",
     "block.byg.kovan_flower": "Червона конвалія",
-    "block.byg.lament_bookshelf": "Плакуча книжкова полиця",
-    "block.byg.lament_button": "Плакуча кнопка",
-    "block.byg.lament_crafting_table": "Плакучий верстак",
-    "block.byg.lament_door": "Плакучі двері",
-    "block.byg.lament_fence": "Плакучий паркан",
-    "block.byg.lament_fence_gate": "Плакуча хвіртка",
-    "block.byg.lament_leaves": "Плакуче листя",
-    "block.byg.lament_log": "Плакуча колода",
-    "block.byg.lament_planks": "Плакучі дошки",
-    "block.byg.lament_pressure_plate": "Плакуча натискна плита",
-    "block.byg.lament_sapling": "Паросток плакучого дерева",
-    "block.byg.lament_slab": "Плакуча плита",
-    "block.byg.lament_sprouts": "Плакучі паростки",
-    "block.byg.lament_stairs": "Плакучі сходи",
-    "block.byg.lament_trapdoor": "Плакучий люк",
-    "block.byg.lament_vine": "Кручена плакуча лоза",
-    "block.byg.lament_vine_plant": "Кручена плакуча лоза",
-    "block.byg.lament_wood": "Плакуча деревина",
-    "block.byg.large_subzero_crystal_bud": "Великий зародок нульового кристала",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.large_therium_crystal_bud": "Великий зародок теріуму",
     "block.byg.lazarus_bellflower": "Рябчик шаховий",
     "block.byg.leaf_pile": "Купа листя",
@@ -646,7 +646,7 @@
     "block.byg.maple_stairs": "Кленові сходи",
     "block.byg.maple_trapdoor": "Кленовий люк",
     "block.byg.maple_wood": "Кленова деревина",
-    "block.byg.medium_subzero_crystal_bud": "Середній зародок нульового кристала",
+
     "block.byg.medium_therium_crystal_bud": "Середній зародок теріуму",
     "block.byg.mini_cactus": "Крихітний кактус",
     "block.byg.mossy_red_rock_brick_slab": "Моховита плита з червоної кам'яної цегли",
@@ -657,7 +657,7 @@
     "block.byg.mossy_stone_slab": "Моховита кам'яна плита",
     "block.byg.mossy_stone_stairs": "Моховиті кам'яні сходи",
     "block.byg.mossy_stone_wall": "Моховита кам'яна стіна",
-    "block.byg.nether_bristle": "Незерська спіраль",
+
     "block.byg.nightshade_berry_bush": "Темно-нічний ягідний кущ",
     "block.byg.nightshade_bookshelf": "Темно-нічна книжкова полиця",
     "block.byg.nightshade_button": "Темно-нічна кнопка",
@@ -692,7 +692,7 @@
     "block.byg.osiria_rose": "Троянда \"Осірія\"",
     "block.byg.overgrown_crimson_blackstone": "Зарослий багряний чорнокамінь",
     "block.byg.overgrown_dacite": "Зарослий дацит",
-    "block.byg.overgrown_netherrack": "Зарослий незерак",
+
     "block.byg.overgrown_stone": "Зарослий камінь",
     "block.byg.packed_black_ice": "Чорний сухий лід",
     "block.byg.palm_bookshelf": "Пальмова книжкова полиця",
@@ -716,8 +716,8 @@
     "block.byg.palo_verde_wood": "Деревина \"Пало Верде\"",
     "block.byg.peach_leather_flower": "Клематіс техаський",
     "block.byg.peat": "Торф",
-    "block.byg.pendorite_block": "Пендоритовий блок",
-    "block.byg.pendorite_ore": "Пендоритова руда",
+
+
     "block.byg.pervaded_netherrack": "Світлокам'яна руда",
     "block.byg.pine_bookshelf": "Соснова книжкова полиця",
     "block.byg.pine_button": "Соснова кнопка",
@@ -752,10 +752,10 @@
     "block.byg.polished_soapstone_slab": "Полірована жировикова плита",
     "block.byg.polished_soapstone_stairs": "Поліровані жировикові сходи",
     "block.byg.polished_soapstone_wall": "Полірована жировикова стіна",
-    "block.byg.polished_travertine": "Полірований травертин",
-    "block.byg.polished_travertine_slab": "Полірована травертинова плита",
-    "block.byg.polished_travertine_stairs": "Поліровані травертинові сходи",
-    "block.byg.polished_travertine_wall": "Полірована травертинова стіна",
+
+
+
+
     "block.byg.pollen_block": "Пилок",
     "block.byg.potted_alpine_bellflower": "Альпійський дзвіночок в горщику",
     "block.byg.potted_angelica": "Дягель у горщику",
@@ -781,7 +781,7 @@
     "block.byg.potted_daffodil": "Нарцис в горщику",
     "block.byg.potted_death_cap": "Бліда поганка в горщику",
     "block.byg.potted_ebony_sapling": "Паросток ебоні в горщику",
-    "block.byg.potted_embur_wart": "Паросток тліючого дерева в горщику",
+
     "block.byg.potted_ether_sapling": "Паросток етерового дерева в горщику",
     "block.byg.potted_fir_sapling": "Паросток ялиці в горщику",
     "block.byg.potted_firecracker_flower_bush": "Кросандровий кущ в горщику",
@@ -805,7 +805,7 @@
     "block.byg.potted_jacaranda_sapling": "Паросток жакаранди в горщику",
     "block.byg.potted_joshua_sapling": "Паросток юки в горщику",
     "block.byg.potted_kovan_flower": "Червона конвалія в горщику",
-    "block.byg.potted_lament_sapling": "Паросток плакучого дерева в горщику",
+
     "block.byg.potted_lazarus_bellflower": "Рябчик шаховий в горщику",
     "block.byg.potted_lollipop_flower": "Пахістахіс в горщику",
     "block.byg.potted_magenta_tulip": "Пурпурний тюльпан в горщику",
@@ -861,7 +861,7 @@
     "block.byg.potted_winter_scilla": "Зимові проліски в горщику",
     "block.byg.potted_winter_succulent": "Зимовий сукулент в горщику",
     "block.byg.potted_witch_hazel_sapling": "Паросток гамамелісу в горщику",
-    "block.byg.potted_withering_oak_sapling": "Паросток сухого дуба в горщику",
+
     "block.byg.potted_wood_blewit": "Рядовка фіолетова в горщику",
     "block.byg.potted_yellow_birch_sapling": "Паросток жовтої берези в горщику",
     "block.byg.potted_yellow_daffodil": "Жовтий нарцис в горщику",
@@ -948,19 +948,19 @@
     "block.byg.rose": "Троянда",
     "block.byg.scorched_bush": "Випалений кущ",
     "block.byg.scorched_grass": "Випалена трава",
-    "block.byg.scoria_cobblestone": "Шлаковий кругляк",
-    "block.byg.scoria_cobblestone_slab": "Шлакова кам'яна плита",
-    "block.byg.scoria_cobblestone_stairs": "Шлакові кам'яні сходи",
-    "block.byg.scoria_cobblestone_wall": "Шлакова кам'яна стіна",
-    "block.byg.scoria_pillar": "Шлакова колона",
-    "block.byg.scoria_stone": "Шлаковий камінь",
-    "block.byg.scoria_stone_slab": "Шлакова кам'яна плита",
-    "block.byg.scoria_stone_stairs": "Шлакові кам'яні сходи",
-    "block.byg.scoria_stone_wall": "Шлакова кам'яна стіна",
-    "block.byg.scoria_stonebrick_slab": "Плита зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebrick_stairs": "Сходи зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebrick_wall": "Стіна зі шлакової кам'яної цегли",
-    "block.byg.scoria_stonebricks": "Шлакова кам'яна цегла",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "block.byg.shiny_chiseled_therium": "Блискучий різьблений теріум",
     "block.byg.shiny_chiseled_therium_slab": "Плита з блискучого різьбленого теріуму",
     "block.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",
@@ -991,7 +991,7 @@
     "block.byg.skyris_trapdoor": "Небесний люк",
     "block.byg.skyris_vine": "Небесна лоза",
     "block.byg.skyris_wood": "Небесна деревина",
-    "block.byg.small_subzero_crystal_bud": "Маленький зародок нульового кристала",
+
     "block.byg.small_therium_crystal_bud": "Маленький зародок теріуму",
     "block.byg.smooth_windswept_sandstone": "Глакий вітряний пісковик",
     "block.byg.smooth_windswept_sandstone_slab": "Плита з гладкого вітряного пісковику",
@@ -1024,16 +1024,16 @@
     "block.byg.stripped_blue_enchanted_wood": "Обтесана синя магічна деревина",
     "block.byg.stripped_bulbis_stem": "Обтесане бульбісове стебло",
     "block.byg.stripped_bulbis_wood": "Обтесана бульбісова деревина",
-    "block.byg.stripped_cherry_log": "Обтесана вишнева колода",
-    "block.byg.stripped_cherry_wood": "Обтесана вишнева деревина",
+    "block.byg.stripped_sakura_cherry_log": "Обтесана вишнева колода",
+    "block.byg.stripped_sakura_cherry_wood": "Обтесана вишнева деревина",
     "block.byg.stripped_cika_log": "Обтесана цикова колода",
     "block.byg.stripped_cika_wood": "Обтесана цикова деревина",
     "block.byg.stripped_cypress_log": "Обтесана кипарисова колода",
     "block.byg.stripped_cypress_wood": "Обтесана кипарисова деревина",
     "block.byg.stripped_ebony_log": "Обтесана ебенова колода",
     "block.byg.stripped_ebony_wood": "Обтесана ебенова деревина",
-    "block.byg.stripped_embur_hyphae": "Обтесані тліючі гіфи",
-    "block.byg.stripped_embur_pedu": "Обтесане тліюче стебло",
+
+
     "block.byg.stripped_ether_log": "Обтесана етерова колода",
     "block.byg.stripped_ether_wood": "Обтесана етерова деревина",
     "block.byg.stripped_fir_log": "Обтесана ялицева колода",
@@ -1044,8 +1044,8 @@
     "block.byg.stripped_holly_wood": "Обтесана падубова деревина",
     "block.byg.stripped_jacaranda_log": "Обтесана жакарандова колода",
     "block.byg.stripped_jacaranda_wood": "Обтесана жакарандова деревина",
-    "block.byg.stripped_lament_log": "Обтесана плакуча колода",
-    "block.byg.stripped_lament_wood": "Обтесана плакуча деревина",
+
+
     "block.byg.stripped_mahogany_log": "Обтесана махагонова колода",
     "block.byg.stripped_mahogany_wood": "Обтесана махагонова деревина",
     "block.byg.stripped_maple_log": "Обтесана кленова колода",
@@ -1074,10 +1074,10 @@
     "block.byg.stripped_witch_hazel_wood": "Обтесана гамамелісова деревина",
     "block.byg.stripped_zelkova_log": "Обтесана дзельквова колода",
     "block.byg.stripped_zelkova_wood": "Обтесана дзельквова деревина",
-    "block.byg.subzero_ash": "Нульовий пісок",
-    "block.byg.subzero_ash_block": "Блок нульового антигравітаційного піску",
-    "block.byg.subzero_crystal_block": "Нульовий кришталевий блок",
-    "block.byg.subzero_crystal_cluster": "Нульова кришталева друза",
+
+
+
+
     "block.byg.sythian_bookshelf": "Сифійська книжкова полиця",
     "block.byg.sythian_button": "Сифійська кнопка",
     "block.byg.sythian_crafting_table": "Сифійський верстак",
@@ -1103,7 +1103,7 @@
     "block.byg.tall_beach_grass": "Висока пляжна трава",
     "block.byg.tall_crimson_roots": "Високе багряне коріння",
     "block.byg.tall_cryptic_vent": "Велике таємниче жерло",
-    "block.byg.tall_embur_roots": "Високе тліюче коріння",
+
     "block.byg.tall_ether_grass": "Велика етерова трава",
     "block.byg.tall_pink_allium": "Високий рожевий різанцевий кущ",
     "block.byg.tall_prairie_grass": "Висока степова трава",
@@ -1115,10 +1115,10 @@
     "block.byg.therium_lamp": "Лампа з теріуму",
     "block.byg.therium_lantern": "Ліхтар з теріуму",
     "block.byg.tiny_lilypads": "Крихітні латаття",
-    "block.byg.travertine": "Травертин",
-    "block.byg.travertine_slab": "Травертинова плита",
-    "block.byg.travertine_stairs": "Травертинові сходи",
-    "block.byg.travertine_wall": "Травертинова стіна",
+
+
+
+
     "block.byg.vermilion_sculk": "Далекий скалк",
     "block.byg.vermilion_sculk_growth": "Далекі скалкові жили",
     "block.byg.vermilion_sculk_tendrils": "Далекий скалковий вусик",
@@ -1139,8 +1139,8 @@
     "block.byg.water_silk": "Ряска",
     "block.byg.weeping_milkcap": "Хрящ-молочник",
     "block.byg.weeping_milkcap_mushroom_block": "Блок хрящ-молочника",
-    "block.byg.weeping_roots": "Плакуче коріння",
-    "block.byg.weeping_roots_plant": "Плакуче коріння",
+
+
     "block.byg.white_anemone": "Біла анемона",
     "block.byg.white_cherry_foliage": "Біле вишневе наземне листя",
     "block.byg.white_cherry_leaves": "Біле вишневе листя",
@@ -1210,10 +1210,10 @@
     "block.byg.witch_hazel_stairs": "Гамамелісові сходи",
     "block.byg.witch_hazel_trapdoor": "Гамамелісовий люк",
     "block.byg.witch_hazel_wood": "Гамамелісова деревина",
-    "block.byg.withering_oak_leaves": "Сухе дубове листя",
-    "block.byg.withering_oak_log": "Суха дубова колода",
-    "block.byg.withering_oak_sapling": "Паросток сухого дуба",
-    "block.byg.withering_oak_wood": "Суха дубова деревина",
+
+
+
+
     "block.byg.wood_blewit": "Рядовка фіолетова",
     "block.byg.wood_blewit_mushroom_block": "Блок фіолетової рядовки",
     "block.byg.yellow_birch_leaves": "Жовте березове листя",
@@ -1294,7 +1294,7 @@
     "byg.worldgenexport.singleplayer": "Експорт генерації можна використовувати в грі наодинці!",
     "byg.worldgenexport.starting": "Початок експорту генерації світу, пам'ятайте, що будуть лаги й високе використання оперативної пам'яті...",
     "byg.worldgenexport.success": "Експорт генерації світу успішно вдався! Перегляньте файли тут: %s!",
-    "container.hypogeal_imperium_container": "Радіусний обморожувач",
+
     "death.attack.byg.cattail_campfire": "%s занадто зацікавився",
     "dimension.minecraft.overworld": "Верхній світ",
     "dimension.minecraft.the_end": "Енд",
@@ -1394,14 +1394,14 @@
     "item.byg.blue_enchanted_stairs": "Сині магічні сходи",
     "item.byg.blue_enchanted_trapdoor": "Синій магічний люк",
     "item.byg.blue_enchanted_wood": "Синя магічна деревина",
-    "item.byg.blue_nether_brick": "Синя незерська цегла",
-    "item.byg.blue_nether_brick_slab": "Плита з синьої незерської цегли",
-    "item.byg.blue_nether_brick_stairs": "Сходи з синьої незерської цегли",
-    "item.byg.blue_nether_brick_wall": "Стіна з синьої незерської цегли",
-    "item.byg.blue_nether_bricks": "Синя незерська цегла",
-    "item.byg.blue_nether_gold_ore": "Синя незерська золота руда",
-    "item.byg.blue_nether_quartz_ore": "Синя незерська кварцова руда",
-    "item.byg.blue_netherrack": "Синій незерак",
+
+
+
+
+
+
+
+
     "item.byg.blue_rose_bush": "Синій трояндовий кущ",
     "item.byg.blue_sage": "Синя шавлія",
     "item.byg.blue_sand": "Блакитний пісок",
@@ -1425,7 +1425,7 @@
     "item.byg.brown_zelkova_leaves": "Коричневе дзельквове листя",
     "item.byg.brown_zelkova_sapling": "Паросток коричневої дзелькви",
     "item.byg.budding_ametrine_ore": "Родюча аметринова руда",
-    "item.byg.budding_subzero_crystal": "Родючий нульовий кристал",
+
     "item.byg.budding_therium_crystal": "Родючий кристал теріуму",
     "item.byg.bulbis_anomaly": "Бульбісова аномалія",
     "item.byg.bulbis_bookshelf": "Бульбісова нижкова полиця",
@@ -1457,22 +1457,22 @@
     "item.byg.cattail_thatch_carpet": "Килимок з рогозу",
     "item.byg.cattail_thatch_slab": "Плита з рогозу",
     "item.byg.cattail_thatch_stairs": "Сходи з рогозу",
-    "item.byg.chain_plating": "Кольчуга",
-    "item.byg.cherry_boat": "Вишневий човен",
-    "item.byg.cherry_bookshelf": "Вишнева книжкова полиця",
-    "item.byg.cherry_button": "Вишнева кнопка",
-    "item.byg.cherry_chest_boat": "Вишневий човен зі скринею",
-    "item.byg.cherry_crafting_table": "Вишневий верстак",
-    "item.byg.cherry_door": "Вишневі двері",
-    "item.byg.cherry_fence": "Вишневий паркан",
-    "item.byg.cherry_fence_gate": "Вишнева хвіртка",
-    "item.byg.cherry_log": "Вишнева колода",
-    "item.byg.cherry_planks": "Вишневі дошки",
-    "item.byg.cherry_pressure_plate": "Вишнева натискна плита",
-    "item.byg.cherry_slab": "Вишнева плита",
-    "item.byg.cherry_stairs": "Вишневі сходи",
-    "item.byg.cherry_trapdoor": "Вишневий люк",
-    "item.byg.cherry_wood": "Вишнева деревина",
+
+    "item.byg:sakura_cherry_boat": "Вишневий човен",
+    "item.byg:sakura_cherry_bookshelf": "Вишнева книжкова полиця",
+    "item.byg:sakura_cherry_button": "Вишнева кнопка",
+    "item.byg:sakura_cherry_chest_boat": "Вишневий човен зі скринею",
+    "item.byg:sakura_cherry_crafting_table": "Вишневий верстак",
+    "item.byg:sakura_cherry_door": "Вишневі двері",
+    "item.byg:sakura_cherry_fence": "Вишневий паркан",
+    "item.byg:sakura_cherry_fence_gate": "Вишнева хвіртка",
+    "item.byg:sakura_cherry_log": "Вишнева колода",
+    "item.byg:sakura_cherry_planks": "Вишневі дошки",
+    "item.byg:sakura_cherry_pressure_plate": "Вишнева натискна плита",
+    "item.byg:sakura_cherry_slab": "Вишнева плита",
+    "item.byg:sakura_cherry_stairs": "Вишневі сходи",
+    "item.byg:sakura_cherry_trapdoor": "Вишневий люк",
+    "item.byg:sakura_cherry_wood": "Вишнева деревина",
     "item.byg.chiseled_fungal_imparius": "Різьблений темний гриб \"Імпаріус\"",
     "item.byg.chiseled_fungal_imparius_slab": "Плита з різьбленого темного гриба \"Імпаріус\"",
     "item.byg.chiseled_fungal_imparius_stairs": "Сходи з різьбленого темного гриба \"Імпаріус\"",
@@ -1485,10 +1485,10 @@
     "item.byg.chiseled_therium_slab": "Плита з різьбленого теріуму",
     "item.byg.chiseled_therium_stairs": "Сходи з різьбленого теріуму",
     "item.byg.chiseled_therium_wall": "Стіна з різьбленого теріуму",
-    "item.byg.chiseled_travertine": "Різьблений травертин",
-    "item.byg.chiseled_travertine_slab": "Різьблена травертинова плита",
-    "item.byg.chiseled_travertine_stairs": "Різьблені травертинові сходи",
-    "item.byg.chiseled_travertine_wall": "Різьблена травертинова стіна",
+
+
+
+
     "item.byg.chiseled_windswept_sandstone": "Різьблений вітряний пісковик",
     "item.byg.chiseled_windswept_sandstone_slab": "Плита з різьбленого вітряного пісковику",
     "item.byg.chiseled_windswept_sandstone_stairs": "Сходи з різьбленого вітряного пісковику",
@@ -1522,9 +1522,9 @@
     "item.byg.cracked_red_rock_brick_wall": "Стіна з тріснутої кам'яної цегли",
     "item.byg.cracked_red_rock_bricks": "Тріснута червона кам'яна цегла",
     "item.byg.cracked_red_sand": "Затверділий червоний пісок",
-    "item.byg.cracked_scoria_stone_bricks": "Тріснута шлакова цегла",
-    "item.byg.crimson_berries": "Багряні ягоди",
-    "item.byg.crimson_berry_pie": "Багряний ягідний пиріг",
+
+
+
     "item.byg.crocus": "Шафран",
     "item.byg.cryptic_bramble": "Таємничий кущ",
     "item.byg.cryptic_bramble_branch": "Таємниче гілля",
@@ -1601,30 +1601,30 @@
     "item.byg.ebony_stairs": "Ебенові сходи",
     "item.byg.ebony_trapdoor": "Ебеновий люк",
     "item.byg.ebony_wood": "Ебенова деревина",
-    "item.byg.embur_bookshelf": "Тліюча книжкова полиця",
-    "item.byg.embur_button": "Тліюча кнопка",
-    "item.byg.embur_crafting_table": "Тліючий верстак",
-    "item.byg.embur_door": "Тліючі двері",
-    "item.byg.embur_fence": "Тліючий паркан",
-    "item.byg.embur_fence_gate": "Тліюча хвіртка",
-    "item.byg.embur_gel_ball": "Тліюча куля",
-    "item.byg.embur_gel_block": "Тліюча оболонка",
-    "item.byg.embur_gel_branch": "Тліюче гілля",
-    "item.byg.embur_gel_vines": "Тліючі лози",
-    "item.byg.embur_hyphae": "Тліючі гіфи",
-    "item.byg.embur_lily": "Тліюче латаття",
-    "item.byg.embur_nylium": "Тліючий нілій",
-    "item.byg.embur_pedu": "Тліюче стебло",
-    "item.byg.embur_planks": "Тліючі дошки",
-    "item.byg.embur_pressure_plate": "Тліюча натискна плита",
-    "item.byg.embur_roots": "Тліюче коріння",
-    "item.byg.embur_slab": "Тліюча плита",
-    "item.byg.embur_sprouts": "Тліючі корні",
-    "item.byg.embur_stairs": "Тліючі сходи",
-    "item.byg.embur_trapdoor": "Тліючий люк",
-    "item.byg.embur_wart": "Паросток тліючого дерева",
-    "item.byg.emeraldite_ore": "Смарагдитова руда",
-    "item.byg.emeraldite_shards": "Смарагдитові уламки",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.end_sand": "Пісок енду",
     "item.byg.ender_lily": "Латаття енду",
     "item.byg.ether_bookshelf": "Етерова книжкова полиця",
@@ -1687,7 +1687,7 @@
     "item.byg.flowering_tiny_lily_pads": "Цвітучі крихітні латаття",
     "item.byg.foragers_table": "Стіл дослідника",
     "item.byg.foxglove": "Наперстянка",
-    "item.byg.frost_magma": "Заморожена магма",
+
     "item.byg.fungal_imparius": "Темні гриби \"Імпаріус\"",
     "item.byg.fungal_imparius_block": "Блок темних грибів \"Імпаріус\"",
     "item.byg.fungal_imparius_filament": "Коріння \"Імпаріус\"",
@@ -1744,7 +1744,7 @@
     "item.byg.horseweed": "Злинка",
     "item.byg.hydrangea_bush": "Гортензія",
     "item.byg.hydrangea_hedge": "Кущ гортензії",
-    "item.byg.hypogeal_imperium": "Радіусний обморожувач",
+
     "item.byg.imbued_blue_enchanted_log": "Забруднена синя магічна колода",
     "item.byg.imbued_green_enchanted_log": "Забруднена зелена магічна колода",
     "item.byg.imbued_nightshade_log": "Збагачена темно-нічна колода",
@@ -1798,24 +1798,24 @@
     "item.byg.joshua_leaves": "Юкове листя",
     "item.byg.joshua_sapling": "Паросток юки",
     "item.byg.kovan_flower": "Червона конвалія",
-    "item.byg.lament_bookshelf": "Плакуча книжкова полиця",
-    "item.byg.lament_button": "Плакуча кнопка",
-    "item.byg.lament_crafting_table": "Плакучий верстак",
-    "item.byg.lament_door": "Плакучі двері",
-    "item.byg.lament_fence": "Плакучий паркан",
-    "item.byg.lament_fence_gate": "Плакуча хвіртка",
-    "item.byg.lament_leaves": "Плакуче листя",
-    "item.byg.lament_log": "Плакуча колода",
-    "item.byg.lament_planks": "Плакучі дошки",
-    "item.byg.lament_pressure_plate": "Плакуча натискна плита",
-    "item.byg.lament_sapling": "Плакучий паросток",
-    "item.byg.lament_slab": "Плакуча плита",
-    "item.byg.lament_sprouts": "Плакучі паростки",
-    "item.byg.lament_stairs": "Плакучі сходи",
-    "item.byg.lament_trapdoor": "Плакучий люк",
-    "item.byg.lament_vine": "Кручена плакуча лоза",
-    "item.byg.lament_wood": "Плакуча деревина",
-    "item.byg.large_subzero_crystal_bud": "Великий зародок нульового кристала",
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+
     "item.byg.large_therium_crystal_bud": "Великий зародок теріуму",
     "item.byg.lazarus_bellflower": "Рябчик шаховий",
     "item.byg.leaf_pile": "Купа листя",
@@ -1863,7 +1863,7 @@
     "item.byg.maple_stairs": "Кленові сходи",
     "item.byg.maple_trapdoor": "Кленовий люк",
     "item.byg.maple_wood": "Кленова деревина",
-    "item.byg.medium_subzero_crystal_bud": "Середній зародок нульового кристала",
+
     "item.byg.medium_therium_crystal_bud": "Середній зародок теріуму",
     "item.byg.mini_cactus": "Крихітний кактус",
     "item.byg.mossy_red_rock_brick_slab": "Моховита плита з червоної кам'яної цегли",
@@ -1874,7 +1874,7 @@
     "item.byg.mossy_stone_slab": "Моховита кам'яна плита",
     "item.byg.mossy_stone_stairs": "Моховиті кам'яні сходи",
     "item.byg.mossy_stone_wall": "Моховита кам'яна стіна",
-    "item.byg.nether_bristle": "Колюча кручена лоза",
+
     "item.byg.nightshade_berries": "Темно-нічні ягоди",
     "item.byg.nightshade_berry_pie": "Темно-нічний ягідний пиріг",
     "item.byg.nightshade_bookshelf": "Темно-нічна книжкова полиця",
@@ -1910,7 +1910,7 @@
     "item.byg.osiria_rose": "Троянда \"Осірія\"",
     "item.byg.overgrown_crimson_blackstone": "Зарослий багряний чорнокамінь",
     "item.byg.overgrown_dacite": "Зарослий дацит",
-    "item.byg.overgrown_netherrack": "Зарослий незерак",
+
     "item.byg.overgrown_stone": "Зарослий камінь",
     "item.byg.packed_black_ice": "Чорний сухий лід",
     "item.byg.palm_boat": "Пальмовий човен",
@@ -1936,17 +1936,17 @@
     "item.byg.palo_verde_wood": "Деревина \"Пало Верде\"",
     "item.byg.peach_leather_flower": "Клематіс техаський",
     "item.byg.peat": "Торф",
-    "item.byg.pendorite_axe": "Пендоритова сокира",
-    "item.byg.pendorite_battleaxe": "Пендоритова бойова сокира",
-    "item.byg.pendorite_block": "Пендоритовий блок",
-    "item.byg.pendorite_hoe": "Пендоритова мотика",
-    "item.byg.pendorite_horse_armor": "Пендоритові кінські обладунки",
-    "item.byg.pendorite_ingot": "Пендоритовий злиток",
-    "item.byg.pendorite_ore": "Пендоритова руда",
-    "item.byg.pendorite_pickaxe": "Пендоритове кайло",
-    "item.byg.pendorite_scraps": "Пендоритовий уламок",
-    "item.byg.pendorite_shovel": "Пендоритова лопата",
-    "item.byg.pendorite_sword": "Пендоритовий меч",
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.pervaded_netherrack": "Світлокам'яна руда",
     "item.byg.pine_boat": "Сосновий човен",
     "item.byg.pine_bookshelf": "Соснова книжкова полиця",
@@ -1983,10 +1983,10 @@
     "item.byg.polished_soapstone_slab": "Полірована жировикова плита",
     "item.byg.polished_soapstone_stairs": "Поліровані жировикові сходи",
     "item.byg.polished_soapstone_wall": "Полірована жировикова стіна",
-    "item.byg.polished_travertine": "Полірований травертин",
-    "item.byg.polished_travertine_slab": "Полірована травертинова плита",
-    "item.byg.polished_travertine_stairs": "Поліровані травертинові сходи",
-    "item.byg.polished_travertine_wall": "Полірована травертинова стіна",
+
+
+
+
     "item.byg.pollen_block": "Блок пилку",
     "item.byg.pollen_dust": "Пилок",
     "item.byg.prairie_grass": "Степова трава",
@@ -2075,19 +2075,19 @@
     "item.byg.rose": "Троянда",
     "item.byg.scorched_bush": "Випалений кущ",
     "item.byg.scorched_grass": "Випалена трава",
-    "item.byg.scoria_cobblestone": "Шлаковий кругляк",
-    "item.byg.scoria_cobblestone_slab": "Шлакова круглякова плита",
-    "item.byg.scoria_cobblestone_stairs": "Шлакові круглякові сходи",
-    "item.byg.scoria_cobblestone_wall": "Шлакова круглякова стіна",
-    "item.byg.scoria_pillar": "Шлакова колона",
-    "item.byg.scoria_stone": "Шлаковий камінь",
-    "item.byg.scoria_stone_slab": "Шлакова плита",
-    "item.byg.scoria_stone_stairs": "Шлакові сходи",
-    "item.byg.scoria_stone_wall": "Шлакова стіна",
-    "item.byg.scoria_stonebrick_slab": "Плита зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebrick_stairs": "Сходи зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebrick_wall": "Стіна зі шлакової кам'яної цегли",
-    "item.byg.scoria_stonebricks": "Шлакова кам'яна цегла",
+
+
+
+
+
+
+
+
+
+
+
+
+
     "item.byg.shiny_chiseled_therium": "Блискучий різьблений теріум",
     "item.byg.shiny_chiseled_therium_slab": "Плита з блискучого різьбленого теріуму",
     "item.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",
@@ -2119,7 +2119,7 @@
     "item.byg.skyris_trapdoor": "Небесний люк",
     "item.byg.skyris_vine": "Небесна лоза",
     "item.byg.skyris_wood": "Небесна деревина",
-    "item.byg.small_subzero_crystal_bud": "Маленький зародок нульового кристала",
+
     "item.byg.small_therium_crystal_bud": "Маленький зародок теріуму",
     "item.byg.smooth_windswept_sandstone": "Гладкий вітряний пісковик",
     "item.byg.smooth_windswept_sandstone_slab": "Плита з гладкого вітряного пісковику",
@@ -2151,16 +2151,16 @@
     "item.byg.stripped_blue_enchanted_wood": "Обтесана синя магічна деревина",
     "item.byg.stripped_bulbis_stem": "Обтесане бульбісове стебло",
     "item.byg.stripped_bulbis_wood": "Обтесана бульбісова деревина",
-    "item.byg.stripped_cherry_log": "Обтесана вишнева колода",
-    "item.byg.stripped_cherry_wood": "Обтесана вишнева деревина",
+    "item.byg.stripped_sakura_cherry_log": "Обтесана вишнева колода",
+    "item.byg.stripped_sakura_cherry_wood": "Обтесана вишнева деревина",
     "item.byg.stripped_cika_log": "Обтесана цикова колода",
     "item.byg.stripped_cika_wood": "Обтесана цикова деревина",
     "item.byg.stripped_cypress_log": "Обтесана кипарисова колода",
     "item.byg.stripped_cypress_wood": "Обтесана кипарисова деревина",
     "item.byg.stripped_ebony_log": "Обтесана ебенова колода",
     "item.byg.stripped_ebony_wood": "Обтесана ебенова деревина",
-    "item.byg.stripped_embur_hyphae": "Обтесане тліюче стебло",
-    "item.byg.stripped_embur_pedu": "Обтесане тліюче стебло",
+
+
     "item.byg.stripped_ether_log": "Обтесана етерова колода",
     "item.byg.stripped_ether_wood": "Обтесана етерова деревина",
     "item.byg.stripped_fir_log": "Обтесана ялицева колода",
@@ -2171,8 +2171,8 @@
     "item.byg.stripped_holly_wood": "Обтесана падубова деревина",
     "item.byg.stripped_jacaranda_log": "Обтесана жакарандова колода",
     "item.byg.stripped_jacaranda_wood": "Обтесана жакарандова деревина",
-    "item.byg.stripped_lament_log": "Обтесана плакуча колода",
-    "item.byg.stripped_lament_wood": "Обтесана плакуча деревина",
+
+
     "item.byg.stripped_mahogany_log": "Обтесана махагонова колода",
     "item.byg.stripped_mahogany_wood": "Обтесана махагонова деревина",
     "item.byg.stripped_maple_log": "Обтесана кленова колода",
@@ -2201,11 +2201,11 @@
     "item.byg.stripped_witch_hazel_wood": "Обтесана гамамелісова деревина",
     "item.byg.stripped_zelkova_log": "Обтесана колода дзелькви",
     "item.byg.stripped_zelkova_wood": "Обтесана деревина дзелькви",
-    "item.byg.subzero_ash": "Нульовий пісок",
-    "item.byg.subzero_ash_block": "Блок нульового антигравітаційного піску",
-    "item.byg.subzero_crystal_block": "Нульовий кришталевий блок",
-    "item.byg.subzero_crystal_cluster": "Нульова кришталева друза",
-    "item.byg.subzero_crystal_shard": "Нульовий кришталевий уламок",
+
+
+
+
+
     "item.byg.sythian_bookshelf": "Книжкова полиця",
     "item.byg.sythian_button": "Кнопка",
     "item.byg.sythian_crafting_table": "Верстак",
@@ -2229,7 +2229,7 @@
     "item.byg.tall_allium": "Високий різанцевий кущ",
     "item.byg.tall_crimson_roots": "Високе багряне коріння",
     "item.byg.tall_cryptic_vent": "Велике таємниче жерло",
-    "item.byg.tall_embur_roots": "Високе тліюче коріння",
+
     "item.byg.tall_ether_grass": "Висока етерова трава",
     "item.byg.tall_pink_allium": "Високий рожевий різанцевий кущ",
     "item.byg.tall_prairie_grass": "Висока степова трава",
@@ -2242,10 +2242,10 @@
     "item.byg.therium_lamp": "Лампа з теріуму",
     "item.byg.therium_lantern": "Ліхтар з теріуму",
     "item.byg.tiny_lilypads": "Крихітні латаття",
-    "item.byg.travertine": "Травертин",
-    "item.byg.travertine_slab": "Травертинова плита",
-    "item.byg.travertine_stairs": "Травертинові сходи",
-    "item.byg.travertine_wall": "Травертинова стіна",
+
+
+
+
     "item.byg.vermilion_sculk": "Далекий скалк",
     "item.byg.vermilion_sculk_growth": "Далекі скалкові жили",
     "item.byg.vermilion_sculk_tendrils": "Далекий скалковий вусик",
@@ -2264,7 +2264,7 @@
     "item.byg.water_silk": "Ряска",
     "item.byg.weeping_milkcap": "Хрящ-молочник",
     "item.byg.weeping_milkcap_mushroom_block": "Грибний блок хрящ-молочника",
-    "item.byg.weeping_roots": "Плакуче коріння",
+
     "item.byg.white_anemone": "Біла анемона",
     "item.byg.white_cherry_foliage": "Біле вишневе наземне листя",
     "item.byg.white_cherry_leaves": "Біле вишневе листя",
@@ -2342,10 +2342,10 @@
     "item.byg.witch_hazel_stairs": "Гамамелісові сходи",
     "item.byg.witch_hazel_trapdoor": "Гамамелісовий люк",
     "item.byg.witch_hazel_wood": "Гамамелісова деревина",
-    "item.byg.withering_oak_leaves": "Сухе дубове листя",
-    "item.byg.withering_oak_log": "Суха дубова колода",
-    "item.byg.withering_oak_sapling": "Паросток сухого дуба",
-    "item.byg.withering_oak_wood": "Суха дубова деревина",
+
+
+
+
     "item.byg.wood_blewit": "Рядовка фіолетова",
     "item.byg.wood_blewit_mushroom_block": "Блок фіолетової рядовки",
     "item.byg.yellow_birch_leaves": "Жовте березове листя",

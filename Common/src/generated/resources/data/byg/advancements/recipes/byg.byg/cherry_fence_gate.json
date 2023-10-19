@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "byg:cherry_planks"
+              "byg:sakura_cherry_planks"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "byg:cherry_fence_gate"
+        "recipe": "byg:sakura_cherry_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "byg:cherry_fence_gate"
+      "byg:sakura_cherry_fence_gate"
     ]
   }
 }

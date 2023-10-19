@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/emeraldite_ore",
-    "particle": "byg:block/emeraldite_ore"
-  }
-}

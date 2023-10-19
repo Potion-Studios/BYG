@@ -21,3 +21,13 @@ build
 eclipse
 run
 Common/src/generated/resources/.cache
+
+Common/src/generated/resources/assets/byg/.DS_Store
+
+Common/src/generated/resources/assets/.DS_Store
+
+Common/src/generated/resources/assets/byg/models/.DS_Store
+
+Common/src/generated/resources/assets/byg/models/block/.DS_Store
+
+.DS_Store

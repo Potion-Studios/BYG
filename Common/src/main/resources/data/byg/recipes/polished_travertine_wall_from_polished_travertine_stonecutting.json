@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:polished_travertine"
-  },
-  "result": "byg:polished_travertine_wall",
-  "count": 1
-}

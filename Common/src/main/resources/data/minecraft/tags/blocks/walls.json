@@ -7,9 +7,6 @@
     "byg:dacite_brick_wall",
     "byg:mossy_stone_wall",
     "byg:rocky_stone_wall",
-    "byg:scoria_stone_wall",
-    "byg:scoria_cobblestone_wall",
-    "byg:scoria_stonebrick_wall",
     "byg:soapstone_wall",
     "byg:polished_soapstone_wall",
     "byg:soapstone_brick_wall",
@@ -26,16 +23,13 @@
     "byg:shiny_chiseled_therium_wall",
     "byg:cobbled_ether_stone_wall",
     "byg:carved_ether_stone_wall",
-    "byg:travertine_wall",
-    "byg:polished_travertine_wall",
-    "byg:chiseled_travertine_wall",
+
+
+
     "byg:chiseled_fungal_imparius_wall",
     "byg:windswept_sandstone_wall",
     "byg:cut_windswept_sandstone_wall",
     "byg:chiseled_windswept_sandstone_wall",
-    "byg:smooth_windswept_sandstone_wall",
-    "byg:blue_nether_brick_wall",
-    "byg:yellow_nether_brick_wall"
-
+    "byg:smooth_windswept_sandstone_wall"
   ]
 }

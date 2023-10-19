@@ -1,16 +1,9 @@
 package potionstudios.byg.common.world.biome;
 
-import com.google.common.base.Suppliers;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import potionstudios.byg.BYG;
-
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Supplier;
 
 public class BYGBiomeTags {
 

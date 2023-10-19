@@ -53,11 +53,6 @@ public class BYGVillagerTrades {
             }
         )));
 
-        map.put(getKeyOrThrow(VillagerProfession.ARMORER), toIntMap(ImmutableMap.of(
-            4, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.ItemsForEmeralds(BYGItems.CHAIN_PLATING.get(), 3, 7, 12, 2)
-            }
-        )));
         map.put(getKeyOrThrow(VillagerProfession.BUTCHER), toIntMap(ImmutableMap.of(
             2, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(BYGItems.BLUE_BERRY.get(), 10, 12, 2)

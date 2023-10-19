@@ -56,17 +56,14 @@
       "minecraft:ore_quartz_nether",
       "minecraft:ore_ancient_debris_large",
       "minecraft:ore_debris_small",
-      "byg:ore_emeraldite",
+
       "byg:mini_mushrooms",
-      "byg:wailing_vines",
-      "byg:chains"
+      "byg:wailing_vines"
     ],
     [],
     [
       "minecraft:nether_sprouts",
       "byg:wailing_vegetation",
-      "byg:hanging_chains",
-      "byg:hanging_lanterns",
       "byg:wailing_pillar"
     ]
   ],

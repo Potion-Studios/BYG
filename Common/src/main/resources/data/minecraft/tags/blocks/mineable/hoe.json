@@ -29,7 +29,7 @@
     "byg:orchard_leaves",
     "byg:palo_verde_leaves",
     "byg:pine_leaves",
-    "byg:pink_cherry_leaves",
+    "minecraft:cherry_leaves",
     "byg:rainbow_eucalyptus_leaves",
     "byg:red_birch_leaves",
     "byg:red_maple_leaves",
@@ -50,8 +50,6 @@
     "byg:palm_leaves",
     "byg:araucaria_leaves",
     "byg:brown_zelkova_leaves",
-    "byg:lament_leaves",
-    "byg:withering_oak_leaves",
     "byg:ether_leaves",
     "byg:nightshade_leaves",
     "byg:flowering_nightshade_leaves",
@@ -76,8 +74,6 @@
     "byg:blueberry_bush",
     "byg:tiny_lilypads",
     "byg:water_silk",
-    "byg:weeping_roots",
-    "byg:weeping_roots_plant",
     "byg:beach_grass",
     "byg:leaf_pile",
     "byg:clover_patch",
@@ -85,9 +81,6 @@
     "byg:baobab_fruit_block",
     "byg:apple_fruit_block",
     "byg:ether_bulbs_block",
-    "byg:nether_bristle",
-    "byg:crimson_berry_bush",
-    "byg:tall_crimson_roots",
     "byg:wailing_vine",
     "byg:wailing_grass",
     "byg:scorched_bush",
@@ -98,12 +91,12 @@
     "byg:sythian_sprout",
     "byg:hanging_sythian_roots",
     "byg:hanging_sythian_roots_plant",
-    "byg:embur_lily",
-    "byg:embur_gel_branch",
-    "byg:embur_sprouts",
-    "byg:embur_roots",
-    "byg:embur_wart",
-    "byg:tall_embur_roots",
+
+
+
+
+
+
     "byg:bulbis_sprouts",
     "byg:ivis_roots",
     "byg:ivis_sprout",
@@ -122,7 +115,7 @@
     "byg:imparius_mushroom_branch",
     "byg:imparius_bush",
     "byg:shulkren_moss_blanket",
-    "byg:lament_sprouts",
+
     "byg:white_puffball",
     "byg:weeping_milkcap",
     "byg:wood_blewit",

@@ -6,24 +6,13 @@
     "byg:anthracite_block",
     "byg:anthracite_ore",
     "byg:brimstone",
-    "byg:yellow_nether_bricks",
-    "byg:yellow_nether_brick_stairs",
-    "byg:yellow_nether_brick_wall",
-    "byg:yellow_nether_brick_slab",
-    "byg:blue_nether_brick_stairs",
-    "byg:blue_nether_brick_wall",
-    "byg:blue_nether_brick_slab",
     "byg:hanging_bones",
     "byg:quartz_crystal",
     "byg:raw_quartz_block",
-    "byg:blue_nether_quartz_ore",
-    "byg:blue_nether_gold_ore",
     "byg:brimstone_nether_quartz_ore",
     "byg:brimstone_nether_gold_ore",
     "byg:magmatic_stone",
     "byg:warped_coral_block",
-    "byg:blue_netherrack",
-    "byg:blue_nether_bricks",
     "byg:purpur_stone",
     "byg:purpur_stone_slab",
     "byg:purpur_stone_stairs",
@@ -61,12 +50,6 @@
     "byg:cryptic_vent",
     "byg:tall_cryptic_vent",
     "byg:cryptic_redstone_ore",
-    "byg:pervaded_netherrack",
-    "byg:glowstone_lantern",
-    "byg:frost_magma",
-    "byg:subzero_crystal_block",
-    "byg:budding_subzero_crystal",
-    "byg:subzero_crystal_cluster",
     "byg:black_sandstone",
     "byg:black_chiseled_sandstone",
     "byg:black_cut_sandstone",
@@ -104,10 +87,7 @@
     "byg:smooth_windswept_sandstone_stairs",
     "byg:smooth_windswept_sandstone_wall",
     "byg:windswept_sandstone_pillar",
-    "byg:raw_pendorite_block",
-    "byg:pendorite_ore",
     "byg:ametrine_ore",
-    "byg:pendorite_block",
     "byg:ametrine_block",
     "byg:budding_ametrine_ore",
     "byg:ametrine_cluster",
@@ -156,33 +136,33 @@
     "byg:rocky_stone_slab",
     "byg:rocky_stone_stairs",
     "byg:rocky_stone_wall",
-    "byg:travertine",
-    "byg:travertine_slab",
-    "byg:travertine_stairs",
-    "byg:travertine_wall",
-    "byg:polished_travertine",
-    "byg:polished_travertine_slab",
-    "byg:polished_travertine_stairs",
-    "byg:polished_travertine_wall",
-    "byg:chiseled_travertine",
-    "byg:chiseled_travertine_slab",
-    "byg:chiseled_travertine_stairs",
-    "byg:chiseled_travertine_wall",
-    "byg:scoria_stone",
-    "byg:scoria_stone_slab",
-    "byg:scoria_stone_stairs",
-    "byg:scoria_stone_wall",
-    "byg:scoria_cobblestone",
-    "byg:scoria_cobblestone_slab",
-    "byg:scoria_cobblestone_stairs",
-    "byg:scoria_cobblestone_wall",
-    "byg:scoria_pillar",
-    "byg:scoria_stonebricks",
-    "byg:scoria_stonebrick_slab",
-    "byg:scoria_stonebrick_stairs",
-    "byg:scoria_stonebrick_wall",
-    "byg:cracked_scoria_stone_bricks",
-    "byg:emeraldite_ore",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "byg:dusted_polished_blackstone_bricks",
     "byg:soapstone",
     "byg:soapstone_slab",
@@ -205,9 +185,9 @@
     "byg:overgrown_dacite",
     "byg:overgrown_stone",
     "byg:overgrown_crimson_blackstone",
-    "byg:overgrown_netherrack",
+
     "byg:ivis_phylium",
-    "byg:embur_nylium",
+
     "byg:sythian_nylium",
     "byg:nightshade_phylium",
     "byg:ether_phylium",
@@ -215,7 +195,6 @@
     "byg:shulkren_phylium",
     "byg:bulbis_phycelium",
     "byg:imparius_phylium",
-    "byg:hypogeal_imperium",
     "byg:packed_black_ice",
     "byg:black_ice",
     "byg:therium_crystal_block",
