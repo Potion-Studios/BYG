@@ -20,7 +20,6 @@ public class SythianFungusTree2 extends BYGAbstractMushroomFeature<BYGMushroomCo
         BlockState MUSHROOM = config.getMushroomProvider().getState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
         int randTreeHeight = 5 + rand.nextInt(5);
         BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
