@@ -595,18 +595,6 @@ public class BYGBlocks {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor).sound(SoundType.GLASS).lightLevel((state) -> 8).strength(1.5f, 1.5f).requiresCorrectToolForDrops()), id);
     }
 
-    private static BlockRegistryObject<Block> createTravertineSlab(String id) {
-        return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createTravertineStairs(String id) {
-        return createBlock(() -> StairBlockAccess.byg_create(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
-    private static BlockRegistryObject<Block> createTravertineWall(String id) {
-        return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
-    }
-
     private static BlockRegistryObject<Block> createWailingBellBlossom(String id) {
         return createBlock(() -> new WailingBulbBlossomBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SHROOMLIGHT).noOcclusion().lightLevel((state) -> 14)), id);
     }
@@ -753,10 +741,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createSoapstone(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLACK).sound(SoundType.STONE).requiresCorrectToolForDrops().strength(1.5f, 6.0f)), id);
-    }
-
-    private static BlockRegistryObject<Block> createTravertine(String id) {
-        return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
     }
 
     private static BlockRegistryObject<Block> createNetherStone(MapColor color, String id) {
