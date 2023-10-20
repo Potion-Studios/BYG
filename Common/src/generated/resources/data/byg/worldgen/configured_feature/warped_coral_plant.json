@@ -9,10 +9,10 @@
     },
     "whitelist": [
       {
-        "Name": "byg:warped_soul_soil"
+        "Name": "byg:warped_soul_sand"
       },
       {
-        "Name": "byg:warped_soul_sand"
+        "Name": "byg:warped_soul_soil"
       }
     ]
   }

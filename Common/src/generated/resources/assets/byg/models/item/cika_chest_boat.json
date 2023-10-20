@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "byg:item/cika/boat",
-    "layer1": "byg:item/chest_boat_overlay"
-  }
-}
