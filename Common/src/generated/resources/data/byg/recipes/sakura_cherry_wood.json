@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wood",
+  "key": {
+    "L": {
+      "item": "byg:sakura_cherry_log"
+    }
+  },
+  "pattern": [
+    "LL",
+    "LL"
+  ],
+  "result": {
+    "count": 3,
+    "item": "byg:sakura_cherry_wood"
+  }
+}

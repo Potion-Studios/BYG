@@ -30,8 +30,8 @@
 	"biome.byg.bulbis_gardens_edge": "Bulbisgärtenrand",
 	"biome.byg.canyon_edge": "Schluchtekante",
 	"biome.byg.canyons": "Schluchten",
-	"biome.byg.cherry_blossom_clearing": "Kirschblütewaldlichtung",
-	"biome.byg.sakura_grove": "Kirschblütewald",
+	"biome.byg:sakura_cherry_blossom_clearing": "Kirschblütewaldlichtung",
+	"biome.byg:sakura_grove": "Kirschblütewald",
 	"biome.byg.cika_mountains": "Cikaberge",
 	"biome.byg.cika_woods": "Cikawälder",
 	"biome.byg.cold_swamplands": "Kaltsumpfland",
@@ -40,7 +40,6 @@
 	"biome.byg.coniferous_forest_hills": "Nadelwaldhügel",
 	"biome.byg.coral_white_mangroves": "Korallewhite_mangroven",
 	"biome.byg.crag_gardens": "Felsgärten",
-	"biome.byg.crimson_gardens": "Karmesingärten",
 	"biome.byg.cryptic_wastes": "Mysteriöse Wüste",
 	"biome.byg.cypress_swamplands": "Zypressesumpfland",
 	"biome.byg.lush_stacks": "Totes Meer",
@@ -52,7 +51,7 @@
 	"biome.byg.dunes": "Dünen",
 	"biome.byg.ebony_hills": "Ebonhügel",
 	"biome.byg.ebony_woods": "Ebonwälder",
-	"biome.byg.embur_bog": "Emburmoor",
+
 	"biome.byg.enchanted_forest": "Verzauberter Wald",
 	"biome.byg.enchanted_forest_hills": "Verzauberter Waldhügel",
 	"biome.byg.enchanted_grove": "Verzaubertes Wäldchen",
@@ -150,7 +149,7 @@
 	"biome.byg.snowy_evergreen_taiga": "Schneeige Immergrüntaiga",
 	"biome.byg.snowy_rocky_black_beach": "Schneeiger Steiniger schwarzer Strand",
 	"biome.byg.stone_forest": "Steinwald",
-	"biome.byg.subzero_hypogeal": "Unterirdische gefrierende Höhlen",
+
 	"biome.byg.sythian_torrids": "Sythianwüste",
 	"biome.byg.the_black_forest": "Der Schwarzwald",
 	"biome.byg.tropical_fungal_forest": "Tropischer Pilziger Wald",
@@ -164,11 +163,11 @@
 	"biome.byg.viscal_isles": "Viscal Inseln",
 	"biome.byg.wailing_garth": "Wehklagender Garten",
 	"biome.byg.warped_desert": "Wirrwüste",
-	"biome.byg.weeping_mire": "Ausgebreiteter Sumpf",
+
 	"biome.byg.weeping_witch_clearing": "Ausgebreitete Hexewaldlichtung",
 	"biome.byg.weeping_witch_forest": "Ausgebreiteter Hexewald",
 	"biome.byg.white_beach": "Weißer Strand",
-	"biome.byg.withering_woods": "Verblühende Wälder",
+
 	"biome.byg.wooded_grassland_plateau": "Waldige Graslandhochebene",
 	"biome.byg.wooded_meadow": "Waldige Wiese",
 	"biome.byg.wooded_red_rock_mountains": "Waldige rote Gesteinberge",
@@ -252,8 +251,8 @@
 	"block.byg.blue_glowcane_block": "Blauer Glühenrohrblock",
 	"block.byg.blue_glowshroom": "Blauer Glühenpilz",
 	"block.byg.blue_glowshroom_block": "Blaues Glühenpilzblock",
-	"block.byg.blue_nether_bricks": "Blaue Netherziegel",
-	"block.byg.blue_netherrack": "Blaues Netherrack",
+
+
 	"block.byg.blue_petal_block": "Blauer Blumenblattblock",
 	"block.byg.blue_sage": "Mehliger Salbei",
 	"block.byg.blue_sand": "Blauer Sand",
@@ -292,19 +291,19 @@
 	"block.byg.bulbis_wood": "Bulbisholz",
 	"block.byg.california_poppy": "Goldmohn",
 	"block.byg.cattail": "Rohrkolben",
-	"block.byg.cherry_bookshelf": "Kirscheholzbücherregal",
-	"block.byg.cherry_button": "Kirscheholzknopf",
-	"block.byg.cherry_crafting_table": "Kirscheholzwerkbank",
-	"block.byg.cherry_door": "Kirscheholztür",
-	"block.byg.cherry_fence": "Kirscheholzzaun",
-	"block.byg.cherry_fence_gate": "Kirscheholzzauntor",
-	"block.byg.cherry_log": "Kirschestamm",
-	"block.byg.cherry_planks": "Kirscheholzbretter",
-	"block.byg.cherry_pressure_plate": "Kirscheholzdruckplatte",
-	"block.byg.cherry_slab": "Kirscheholzstufe",
-	"block.byg.cherry_stairs": "Kirschetreppe",
-	"block.byg.cherry_trapdoor": "Kirscheholzfalltür",
-	"block.byg.cherry_wood": "Kirscheholz",
+	"block.byg:sakura_cherry_bookshelf": "Kirscheholzbücherregal",
+	"block.byg:sakura_cherry_button": "Kirscheholzknopf",
+	"block.byg:sakura_cherry_crafting_table": "Kirscheholzwerkbank",
+	"block.byg:sakura_cherry_door": "Kirscheholztür",
+	"block.byg:sakura_cherry_fence": "Kirscheholzzaun",
+	"block.byg:sakura_cherry_fence_gate": "Kirscheholzzauntor",
+	"block.byg:sakura_cherry_log": "Kirschestamm",
+	"block.byg:sakura_cherry_planks": "Kirscheholzbretter",
+	"block.byg:sakura_cherry_pressure_plate": "Kirscheholzdruckplatte",
+	"block.byg:sakura_cherry_slab": "Kirscheholzstufe",
+	"block.byg:sakura_cherry_stairs": "Kirschetreppe",
+	"block.byg:sakura_cherry_trapdoor": "Kirscheholzfalltür",
+	"block.byg:sakura_cherry_wood": "Kirscheholz",
 	"block.byg.chiseled_red_rock_brick_slab": "Gemeißelte rote Steinziegelholzstufe",
 	"block.byg.chiseled_red_rock_brick_stairs": "Gemeißelt rote Steinziegeltreppe",
 	"block.byg.chiseled_red_rock_brick_wall": "Gemeißelte rote Steinziegelmauer",
@@ -329,7 +328,6 @@
 	"block.byg.cracked_red_rock_brick_stairs": "Rissige rote Steinziegeltreppe",
 	"block.byg.cracked_red_rock_brick_wall": "Rissige rote Steinziegelmauer",
 	"block.byg.cracked_red_rock_bricks": "Rissige rote Steinziegel",
-	"block.byg.crimson_berry_bush": "Karmesinbeerenstrauch",
 	"block.byg.crocus": "Krokus",
 	"block.byg.cryptic_campfire": "Mysteriöse Lagerfeuer",
 	"block.byg.cryptic_fire": "Mysteriöse Feuer",
@@ -394,26 +392,26 @@
 	"block.byg.ebony_stairs": "Ebontreppe",
 	"block.byg.ebony_trapdoor": "Ebonholzfalltür",
 	"block.byg.ebony_wood": "Ebonholz",
-	"block.byg.embur_bookshelf": "Emburholzbücherregal",
-	"block.byg.embur_button": "Emburholzknopf",
-	"block.byg.embur_crafting_table": "Emburholzwerkbank",
-	"block.byg.embur_door": "Emburholztür",
-	"block.byg.embur_fence": "Emburholzzaun",
-	"block.byg.embur_fence_gate": "Emburholzzauntor",
-	"block.byg.embur_gel_block": "Emburgelblock",
-	"block.byg.embur_gel_vines": "Emburgelranken",
-	"block.byg.embur_hyphae": "Emburhyphen",
-	"block.byg.embur_lily": "Emburlilie",
-	"block.byg.embur_nylium": "Emburnylium",
-	"block.byg.embur_pedu": "Emburpedustamm",
-	"block.byg.embur_planks": "Emburholzbretter",
-	"block.byg.embur_pressure_plate": "Emburholzdruckplatte",
-	"block.byg.embur_roots": "Emburwurzeln",
-	"block.byg.embur_slab": "Emburholzstufe",
-	"block.byg.embur_sprouts": "Emburschösslinge",
-	"block.byg.embur_stairs": "Emburtreppe",
-	"block.byg.embur_trapdoor": "Emburholzfalltür",
-	"block.byg.embur_wart": "Emburwarze",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"block.byg.ender_lily": "Enderlilie",
 	"block.byg.ether_bookshelf": "Etherholzbücherregal",
 	"block.byg.ether_bulbs_block": "Etherzwiebeln",
@@ -462,7 +460,7 @@
 	"block.byg.flowering_orchard_leaves": "Blühendes Fruchtgartenlaub",
 	"block.byg.flowering_palo_verde_leaves": "Blühender Palo Verde laub",
 	"block.byg.foxglove": "Fingerhut",
-	"block.byg.frost_magma": "Frostmagma",
+
 	"block.byg.glowcelium_block": "Glühenceliumblock",
 	"block.byg.glowstone_lamp": "Glowstone-Lampe",
 	"block.byg.glowstone_lantern": "Glowstone-Laterne",
@@ -534,24 +532,24 @@
 	"block.byg.joshua_leaves": "Josualaub",
 	"block.byg.joshua_sapling": "Josuasetzling",
 	"block.byg.kovan_flower": "Kovanblüme",
-	"block.byg.lament_bookshelf": "Klageholzbücherregal",
-	"block.byg.lament_button": "Klageholzknopf",
-	"block.byg.lament_crafting_table": "Klageholzwerkbank",
-	"block.byg.lament_door": "Klageholztür",
-	"block.byg.lament_fence": "Klageholzzaun",
-	"block.byg.lament_fence_gate": "Klageholzzauntor",
-	"block.byg.lament_leaves": "Klagelaub",
-	"block.byg.lament_log": "Klagestamm",
-	"block.byg.lament_planks": "Klageholzbretter",
-	"block.byg.lament_pressure_plate": "Klageholzdruckplatte",
-	"block.byg.lament_sapling": "Klagesetzling",
-	"block.byg.lament_slab": "Klageholzstufe",
-	"block.byg.lament_sprouts": "Klagesprossen",
-	"block.byg.lament_stairs": "Klagetreppe",
-	"block.byg.lament_trapdoor": "Klageholzfalltür",
-	"block.byg.lament_vine": "Klageranken",
-	"block.byg.lament_vine_plant": "Klagerebepflanze",
-	"block.byg.lament_wood": "Klageholz",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"block.byg.lazarus_bellflower": "Lazarusglockenblume",
 	"block.byg.leaf_pile": "Laubstapel",
 	"block.byg.light_blue_petal_block": "Hellblauer Blumenblattblock",
@@ -620,7 +618,7 @@
 	"block.byg.mossy_stone_wall": "Bemooste Steinmauer",
 	"block.byg.mud_block": "Dreckblock",
 	"block.byg.mud_bricks": "Dreckziegel",
-	"block.byg.nether_bristle": "Netherborste",
+
 	"block.byg.nightshade_berry_bush": "Nachtschattenstrauch",
 	"block.byg.nightshade_bookshelf": "Nachtschattenholzbücherregal",
 	"block.byg.nightshade_button": "Nachtschattenholzknopf",
@@ -657,7 +655,7 @@
 	"block.byg.osiria_rose": "Osiria-Rose",
 	"block.byg.overgrown_crimson_blackstone": "Verwilderter Karmesinschwarzstein",
 	"block.byg.overgrown_dacite": "Verwilderter Dacit",
-	"block.byg.overgrown_netherrack": "Verwildertes Netherrack",
+
 	"block.byg.overgrown_stone": "Verwilderter Stein",
 	"block.byg.packed_black_ice": "Blitzpackeis",
 	"block.byg.palm_bookshelf": "Palmeholzbücherregal",
@@ -681,8 +679,8 @@
 	"block.byg.palo_verde_wood": "Palo Verde Holz",
 	"block.byg.peach_leather_flower": "Pfirsichfarbenleder Blume",
 	"block.byg.peat": "Torf",
-	"block.byg.pendorite_block": "Pendoriteblock",
-	"block.byg.pendorite_ore": "Pendoriteerz",
+
+
 	"block.byg.pervaded_netherrack": "Durchdrungenes Netherrack",
 	"block.byg.pine_bookshelf": "Kieferholzbücherregal",
 	"block.byg.pine_button": "Kieferholzknopf",
@@ -721,7 +719,7 @@
 	"block.byg.polished_soapstone_slab": "Polierte Specksteinholzstufe",
 	"block.byg.polished_soapstone_stairs": "Polierte Specksteintreppe",
 	"block.byg.polished_soapstone_wall": "Polierte Specksteinmauer",
-	"block.byg.pollen_block": "Blütenstaubblock",
+
 	"block.byg.prairie_grass": "Präriegras",
 	"block.byg.prickly_pear_cactus": "Engelmanns Feigenkaktus",
 	"block.byg.protea_flower": "Proteaceen-Blume",
@@ -817,19 +815,19 @@
 	"block.byg.rose": "Rose",
 	"block.byg.scorched_bush": "Verbrannter Busch",
 	"block.byg.scorched_grass": "Verbranntes Gras",
-	"block.byg.scoria_cobblestone": "Schlackebruchstein",
-	"block.byg.scoria_cobblestone_slab": "Schlackebruchsteinholzstufe",
-	"block.byg.scoria_cobblestone_stairs": "Schlackebruchsteintreppe",
-	"block.byg.scoria_cobblestone_wall": "Schlackebruchsteinmauer",
-	"block.byg.scoria_pillar": "Schlackesäule",
-	"block.byg.scoria_stone": "Schlackestein",
-	"block.byg.scoria_stone_slab": "Schlackesteinholzstufe",
-	"block.byg.scoria_stone_stairs": "Schlackesteintreppe",
-	"block.byg.scoria_stone_wall": "Schlackesteinmauer",
-	"block.byg.scoria_stonebrick_slab": "Schlackesteinziegelholzstufe",
-	"block.byg.scoria_stonebrick_stairs": "Schlackesteinziegeltreppe",
-	"block.byg.scoria_stonebrick_wall": "Schlackesteinziegelmauer",
-	"block.byg.scoria_stonebricks": "Schlackesteinbricks",
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"block.byg.short_beach_grass": "Kleines Strandgras",
 	"block.byg.short_grass": "Kleines Gras",
 	"block.byg.shulkren_fungus": "Shulkrenschmarotzerpilz",
@@ -884,16 +882,16 @@
 	"block.byg.stripped_blue_enchanted_wood": "Entrindetes blaues verzaubertes Holz",
 	"block.byg.stripped_bulbis_stem": "Entrindeter Bulbisstiel",
 	"block.byg.stripped_bulbis_wood": "Entrindetes Bulbisholz",
-	"block.byg.stripped_cherry_log": "Entrindeter Kirschestamm",
-	"block.byg.stripped_cherry_wood": "Entrindetes Kirscheholz",
+	"block.byg.stripped_sakura_cherry_log": "Entrindeter Kirschestamm",
+	"block.byg.stripped_sakura_cherry_wood": "Entrindetes Kirscheholz",
 	"block.byg.stripped_cika_log": "Entrindeter Cikastamm",
 	"block.byg.stripped_cika_wood": "Entrindetes Cikaholz",
 	"block.byg.stripped_cypress_log": "Entrindeter Zypressestamm",
 	"block.byg.stripped_cypress_wood": "Entrindetes Zypresseholz",
 	"block.byg.stripped_ebony_log": "Entrindetes Ebonstamm",
 	"block.byg.stripped_ebony_wood": "Entrindetes Ebonholz",
-	"block.byg.stripped_embur_hyphae": "Entrindeter Emburhyphen",
-	"block.byg.stripped_embur_pedu": "Entrindetes Emburpedu",
+
+
 	"block.byg.stripped_ether_log": "Entrindeter Etherstamm",
 	"block.byg.stripped_ether_wood": "Entrindetes Etherholz",
 	"block.byg.stripped_fir_log": "Entrindeter Tannestamm",
@@ -904,8 +902,8 @@
 	"block.byg.stripped_holly_wood": "Entrindetes Stechpalmeholz",
 	"block.byg.stripped_jacaranda_log": "Entrindeter Jacarandastamm",
 	"block.byg.stripped_jacaranda_wood": "Entrindetes Jacarandaholz",
-	"block.byg.stripped_lament_log": "Entrindeter Klagestamm",
-	"block.byg.stripped_lament_wood": "Entrindetes Klageholz",
+
+
 	"block.byg.stripped_mahogany_log": "Entrindeter Mahagonistamm",
 	"block.byg.stripped_mahogany_wood": "Entrindetes Mahagoniholz",
 	"block.byg.stripped_white_mangrove_log": "Entrindeter Mangrovestamm",
@@ -934,8 +932,8 @@
 	"block.byg.stripped_witch_hazel_wood": "Entrindetes Hexehaselholz",
 	"block.byg.stripped_zelkova_log": "Entrindeter Zelkovenstamm",
 	"block.byg.stripped_zelkova_wood": "Entrindetes Zelkovenholz",
-	"block.byg.subzero_ash": "Gefrierende Asche",
-	"block.byg.subzero_ash_block": "Gefrierendes Ascheblock",
+
+
 	"block.byg.sythian_bookshelf": "Sythianholzbücherregal",
 	"block.byg.sythian_button": "Sythianholzknopf",
 	"block.byg.sythian_crafting_table": "Sythianholzwerkbank",
@@ -958,9 +956,8 @@
 	"block.byg.sythian_trapdoor": "Sythianholzfalltür",
 	"block.byg.sythian_wart_block": "Sythianwarzeblock",
 	"block.byg.tall_allium": "Hoches Allium",
-	"block.byg.tall_crimson_roots": "Hoche Karmesinwurzeln",
 	"block.byg.tall_cryptic_vent": "Hocher mysteriöser Schlot",
-	"block.byg.tall_embur_roots": "Hoche Emburwurzeln",
+
 	"block.byg.tall_ether_grass": "Hoches Ethergras",
 	"block.byg.tall_pink_allium": "Hoches rosa Allium",
 	"block.byg.tall_prairie_grass": "Hoches Präriegras",
@@ -984,8 +981,8 @@
 	"block.byg.weed_grass": "Ungräser",
 	"block.byg.weeping_milkcap": "Birnenmilchling",
 	"block.byg.weeping_milkcap_mushroom_block": "Birnenmilchlingblock",
-	"block.byg.weeping_roots": "Ausgebreitetewurzeln",
-	"block.byg.weeping_roots_plant": "Ausgebreitetewurzelnpflanze",
+
+
 	"block.byg.wailing_grass": "Walfanggras",
 	"block.byg.wailing_vine": "Walfgangranken",
 	"block.byg.white_anemone": "Weisßes Windröschen",
@@ -1036,10 +1033,10 @@
 	"block.byg.witch_hazel_stairs": "Hexehaseltreppe",
 	"block.byg.witch_hazel_trapdoor": "Hexehaselholzfalltür",
 	"block.byg.witch_hazel_wood": "Hexehaselholz",
-	"block.byg.withering_oak_leaves": "Verblühender Eichelaub",
-	"block.byg.withering_oak_log": "Verblühender Eichestamm",
-	"block.byg.withering_oak_sapling": "Verblühender Eichesetzling",
-	"block.byg.withering_oak_wood": "Verblühendes Eicheholz",
+
+
+
+
 	"block.byg.wood_blewit": "Nackter Rötelritterling",
 	"block.byg.wood_blewit_mushroom_block": "Nackter Rötelritterlingblock",
 	"block.byg.yellow_birch_leaves": "Gelber Birkelaub",
@@ -1158,9 +1155,9 @@
 	"item.byg.blue_glowcane_dust": "Blauer Glühenrohrstaub",
 	"item.byg.blue_glowshroom": "Blauer Glühenpilz",
 	"item.byg.blue_glowshroom_block": "Blauer Glühenpilzblock",
-	"item.byg.blue_nether_brick": "Blauer Netherziegel",
-	"item.byg.blue_nether_bricks": "Blaue Netherziegel",
-	"item.byg.blue_netherrack": "Blauer Netherrack",
+
+
+
 	"item.byg.blue_petal_block": "Blauer Blumenblattblock",
 	"item.byg.blue_sage": "Mehliger Salbei",
 	"item.byg.blue_sand": "Blauer Sand",
@@ -1200,21 +1197,21 @@
 	"item.byg.byg_logo": "Byg stammo",
 	"item.byg.california_poppy": "Goldmohn",
 	"item.byg.cattail": "Rohrkolben",
-	"item.byg.chain_plating": "Ketten-Schlaufen",
-	"item.byg.cherry_boat": "Kirscheholzboot",
-	"item.byg.cherry_bookshelf": "Kirscheholzbücherregal",
-	"item.byg.cherry_button": "Kirscheholzknopf",
-	"item.byg.cherry_crafting_table": "Kirscheholzwerkbank",
-	"item.byg.cherry_door": "Kirscheholztür",
-	"item.byg.cherry_fence": "Kirscheholzzaun",
-	"item.byg.cherry_fence_gate": "Kirscheholzzauntor",
-	"item.byg.cherry_log": "Kirschestamm",
-	"item.byg.cherry_planks": "Kirscheholzbretter",
-	"item.byg.cherry_pressure_plate": "Kirscheholzdruckplatte",
-	"item.byg.cherry_slab": "Kirscheholzstufe",
-	"item.byg.cherry_stairs": "Kirschetreppe",
-	"item.byg.cherry_trapdoor": "Kirscheholzfalltür",
-	"item.byg.cherry_wood": "Kirscheholz",
+
+	"item.byg:sakura_cherry_boat": "Kirscheholzboot",
+	"item.byg:sakura_cherry_bookshelf": "Kirscheholzbücherregal",
+	"item.byg:sakura_cherry_button": "Kirscheholzknopf",
+	"item.byg:sakura_cherry_crafting_table": "Kirscheholzwerkbank",
+	"item.byg:sakura_cherry_door": "Kirscheholztür",
+	"item.byg:sakura_cherry_fence": "Kirscheholzzaun",
+	"item.byg:sakura_cherry_fence_gate": "Kirscheholzzauntor",
+	"item.byg:sakura_cherry_log": "Kirschestamm",
+	"item.byg:sakura_cherry_planks": "Kirscheholzbretter",
+	"item.byg:sakura_cherry_pressure_plate": "Kirscheholzdruckplatte",
+	"item.byg:sakura_cherry_slab": "Kirscheholzstufe",
+	"item.byg:sakura_cherry_stairs": "Kirschetreppe",
+	"item.byg:sakura_cherry_trapdoor": "Kirscheholzfalltür",
+	"item.byg:sakura_cherry_wood": "Kirscheholz",
 	"item.byg.chiseled_red_rock_brick_slab": "Gemeißelte rote Steinziegelholzstufe",
 	"item.byg.chiseled_red_rock_brick_stairs": "Gemeißelte rote Steinziegeltreppe",
 	"item.byg.chiseled_red_rock_brick_wall": "Gemeißelte rote Steinziegelmauer",
@@ -1241,7 +1238,6 @@
 	"item.byg.cracked_red_rock_brick_stairs": "Rissige rote Steinziegeltreppe",
 	"item.byg.cracked_red_rock_brick_wall": "Rissige rote Steinziegelmauer",
 	"item.byg.cracked_red_rock_bricks": "Rissige rote Steinziegel",
-	"item.byg.crimson_berries": "Karmesinbeeren",
 	"item.byg.crocus": "Krokus",
 	"item.byg.cryptic_campfire": "Mysteriöse Lagerfeuer",
 	"item.byg.cryptic_magma_block": "Mysteriöser Magmablock",
@@ -1307,27 +1303,27 @@
 	"item.byg.ebony_stairs": "Ebontreppe",
 	"item.byg.ebony_trapdoor": "Ebonholzfalltür",
 	"item.byg.ebony_wood": "Ebonholz",
-	"item.byg.embur_bookshelf": "Emburholzbücherregal",
-	"item.byg.embur_button": "Emburholzknopf",
-	"item.byg.embur_crafting_table": "Emburholzwerkbank",
-	"item.byg.embur_door": "Emburholztür",
-	"item.byg.embur_fence": "Emburholzzaun",
-	"item.byg.embur_fence_gate": "Emburholzzauntor",
-	"item.byg.embur_gel_ball": "Emburgel",
-	"item.byg.embur_gel_block": "Emburgelblock",
-	"item.byg.embur_gel_vines": "Emburgelrankens",
-	"item.byg.embur_hyphae": "Emburhyphen",
-	"item.byg.embur_lily": "Emburlilie",
-	"item.byg.embur_nylium": "Emburnylium",
-	"item.byg.embur_pedu": "Emburpedu",
-	"item.byg.embur_planks": "Emburholzbretter",
-	"item.byg.embur_pressure_plate": "Emburholzdruckplatte",
-	"item.byg.embur_roots": "Emburwurzeln",
-	"item.byg.embur_slab": "Emburholzstufe",
-	"item.byg.embur_sprouts": "Embursprossen",
-	"item.byg.embur_stairs": "Emburtreppe",
-	"item.byg.embur_trapdoor": "Emburholzfalltür",
-	"item.byg.embur_wart": "Emburwarze",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"item.byg.ender_lily": "Enderlilie",
 	"item.byg.ether_bookshelf": "Etherholzbücherregal",
 	"item.byg.ether_bulbs": "Etherzwiebeln",
@@ -1377,7 +1373,7 @@
 	"item.byg.flowering_orchard_leaves": "Blühender Fruchtgartenlaub",
 	"item.byg.flowering_palo_verde_leaves": "Blühender Palo Verde Laub",
 	"item.byg.foxglove": "Fingerhut",
-	"item.byg.frost_magma": "Frostmagma",
+
 	"item.byg.glowcelium_block": "Glühenceliumblock",
 	"item.byg.glowstone_lamp": "Glowstone-Lampe",
 	"item.byg.glowstone_lantern": "Glowstone-Laterne",
@@ -1454,23 +1450,6 @@
 	"item.byg.joshua_leaves": "Josualaub",
 	"item.byg.joshua_sapling": "Josuasetzling",
 	"item.byg.kovan_flower": "Kovanblume",
-	"item.byg.lament_bookshelf": "Klageholzbücherregal",
-	"item.byg.lament_button": "Klageholzknopf",
-	"item.byg.lament_crafting_table": "Klageholzwerkbank",
-	"item.byg.lament_door": "Klageholztür",
-	"item.byg.lament_fence": "Klageholzzaun",
-	"item.byg.lament_fence_gate": "Klageholzzauntor",
-	"item.byg.lament_leaves": "Klagelaub",
-	"item.byg.lament_log": "Klagestamm",
-	"item.byg.lament_planks": "Klageholzbretter",
-	"item.byg.lament_pressure_plate": "Klageholzdruckplatte",
-	"item.byg.lament_sapling": "Klagesetzling",
-	"item.byg.lament_slab": "Klageholzstufe",
-	"item.byg.lament_sprouts": "KlageSprossen",
-	"item.byg.lament_stairs": "Klagetreppe",
-	"item.byg.lament_trapdoor": "Klageholzfalltür",
-	"item.byg.lament_vine": "KlageRanken",
-	"item.byg.lament_wood": "Klageholz",
 	"item.byg.lazarus_bellflower": "Lazarusglockenblume",
 	"item.byg.leaf_pile": "Laubstapel",
 	"item.byg.light_blue_petal_block": "Hellblauer Blumenblattblock",
@@ -1544,7 +1523,7 @@
 	"item.byg.mud_ball": "Druckball",
 	"item.byg.mud_block": "Druckblock",
 	"item.byg.mud_bricks": "Druckziegel",
-	"item.byg.nether_bristle": "Netherborste",
+
 	"item.byg.nightshade_berries": "Nachtschattenbeeren",
 	"item.byg.nightshade_bookshelf": "Nachtschattenholzbücherregal",
 	"item.byg.nightshade_button": "Nachtschattenholzknopf",
@@ -1581,7 +1560,7 @@
 	"item.byg.osiria_rose": "Osiriarose",
 	"item.byg.overgrown_crimson_blackstone": "Verwilderter Karmesinschwarzstone",
 	"item.byg.overgrown_dacite": "Verwilderter Dacit",
-	"item.byg.overgrown_netherrack": "Verwildertes Netherrack",
+
 	"item.byg.overgrown_stone": "Verwilderter Stein",
 	"item.byg.packed_black_ice": "Blitzpackeis",
 	"item.byg.palm_boat": "Palmeholzboot",
@@ -1606,16 +1585,16 @@
 	"item.byg.palo_verde_wood": "Palo Verde Holz",
 	"item.byg.peach_leather_flower": "Pfirsichfarbenleder Blume",
 	"item.byg.peat": "Torf",
-	"item.byg.pendorite_axe": "Pendoriteaxt",
-	"item.byg.pendorite_battleaxe": "Pendoritestreitaxt",
-	"item.byg.pendorite_block": "Pendoriteblock",
-	"item.byg.pendorite_hoe": "Pendoritehakce",
-	"item.byg.pendorite_horse_armor": "Pendoriterossharnisch",
-	"item.byg.pendorite_ore": "Pendoriteerz",
-	"item.byg.pendorite_pickaxe": "Pendoritespitzhacke",
-	"item.byg.pendorite_scraps": "Pendoritestücke",
-	"item.byg.pendorite_shovel": "Pendoriteschaufel",
-	"item.byg.pendorite_sword": "Pendoriteschwert",
+
+
+
+
+
+
+
+
+
+
 	"item.byg.pervaded_netherrack": "Durchdrungenes Netherrack",
 	"item.byg.pine_boat": "Kieferholzboot",
 	"item.byg.pine_bookshelf": "Kieferholzbücherregal",
@@ -1656,8 +1635,8 @@
 	"item.byg.polished_soapstone_slab": "Polierte Specksteinholzstufe",
 	"item.byg.polished_soapstone_stairs": "Polierte Specksteintreppe",
 	"item.byg.polished_soapstone_wall": "Polierte Specksteinmauer",
-	"item.byg.pollen_block": "Blütenstaubblock",
-	"item.byg.pollen_dust": "Blütenstaub",
+
+
 	"item.byg.prairie_grass": "Präriegras",
 	"item.byg.prickly_pear_cactus": "Engelmanns Feigenkaktus",
 	"item.byg.protea_flower": "Proteaceen-Blume",
@@ -1757,19 +1736,19 @@
 	"item.byg.rose": "Rose",
 	"item.byg.scorched_bush": "Verbrannter Busch",
 	"item.byg.scorched_grass": "Verbranntes Gras",
-	"item.byg.scoria_cobblestone": "Schlackebruchstein",
-	"item.byg.scoria_cobblestone_slab": "Schlackebruchsteinholzstufe",
-	"item.byg.scoria_cobblestone_stairs": "Schlackebruchsteintreppe",
-	"item.byg.scoria_cobblestone_wall": "Schlackebruchsteinmauer",
-	"item.byg.scoria_pillar": "Schlackesäule",
-	"item.byg.scoria_stone": "Schlackestein",
-	"item.byg.scoria_stone_slab": "Schlackesteinholzstufe",
-	"item.byg.scoria_stone_stairs": "Schlackesteintreppe",
-	"item.byg.scoria_stone_wall": "Schlackesteinmauer",
-	"item.byg.scoria_stonebrick_slab": "Schlackesteinbrick Holzstufe",
-	"item.byg.scoria_stonebrick_stairs": "Schlackesteinbrick Holztreppe",
-	"item.byg.scoria_stonebrick_wall": "Schlackesteinbrick mauer",
-	"item.byg.scoria_stonebricks": "Schlackesteinbricks",
+
+
+
+
+
+
+
+
+
+
+
+
+
 	"item.byg.short_beach_grass": "Kleines Strandgras",
 	"item.byg.short_grass": "Kleines Gras",
 	"item.byg.shulkren_fungus": "Shulkrenschmarotzerpilz",
@@ -1823,16 +1802,16 @@
 	"item.byg.stripped_blue_enchanted_wood": "Entrindetes blaues verzaubertes Holz",
 	"item.byg.stripped_bulbis_stem": "Entrindeter Bulbisstiel",
 	"item.byg.stripped_bulbis_wood": "Entrindetes Bulbisholz",
-	"item.byg.stripped_cherry_log": "Entrindeter Kirschestamm",
-	"item.byg.stripped_cherry_wood": "Entrindetes Kirscheholz",
+	"item.byg.stripped_sakura_cherry_log": "Entrindeter Kirschestamm",
+	"item.byg.stripped_sakura_cherry_wood": "Entrindetes Kirscheholz",
 	"item.byg.stripped_cika_log": "Entrindeter Cikastamm",
 	"item.byg.stripped_cika_wood": "Entrindetes Cikaholz",
 	"item.byg.stripped_cypress_log": "Entrindeter Zypressestamm",
 	"item.byg.stripped_cypress_wood": "Entrindetes Zypresseholz",
 	"item.byg.stripped_ebony_log": "Entrindeter Ebonstamm",
 	"item.byg.stripped_ebony_wood": "Entrindetes Ebonholz",
-	"item.byg.stripped_embur_hyphae": "Entrindeter Emburhyphen",
-	"item.byg.stripped_embur_pedu": "Entrindetes Emburpedu",
+
+
 	"item.byg.stripped_ether_log": "Entrindeter Etherstamm",
 	"item.byg.stripped_ether_wood": "Entrindetes Etherholz",
 	"item.byg.stripped_fir_log": "Entrindeter Tannestamm",
@@ -1843,8 +1822,8 @@
 	"item.byg.stripped_holly_wood": "Entrindetes Stechpalmeholz",
 	"item.byg.stripped_jacaranda_log": "Entrindeter Jacarandastamm",
 	"item.byg.stripped_jacaranda_wood": "Entrindetes Jacarandaholz",
-	"item.byg.stripped_lament_log": "Entrindeter Klagestamm",
-	"item.byg.stripped_lament_wood": "Entrindetes Klageholz",
+
+
 	"item.byg.stripped_mahogany_log": "Entrindeter Mahagonistamm",
 	"item.byg.stripped_mahogany_wood": "Entrindetes Mahagoniholz",
 	"item.byg.stripped_white_mangrove_log": "Entrindeter Mangrovestamm",
@@ -1873,8 +1852,8 @@
 	"item.byg.stripped_witch_hazel_wood": "Entrindetes Hexehaselholz",
 	"item.byg.stripped_zelkova_log": "Entrindeter Zelkovenstamm",
 	"item.byg.stripped_zelkova_wood": "Entrindetes Zelkovenholz",
-	"item.byg.subzero_ash": "Gefrierende Asche",
-	"item.byg.subzero_ash_block": "Gefrierendes Ascheblock",
+
+
 	"item.byg.sythian_bookshelf": "Sythianholzbücherregal",
 	"item.byg.sythian_button": "Sythianholzknopf",
 	"item.byg.sythian_crafting_table": "Sythianholzwerkbank",
@@ -1896,9 +1875,8 @@
 	"item.byg.sythian_trapdoor": "Sythianholzfalltür",
 	"item.byg.sythian_wart_block": "Sythianwarzeblock",
 	"item.byg.tall_allium": "Hoches Allium",
-	"item.byg.tall_crimson_roots": "Hoche Karmesinwurzeln",
 	"item.byg.tall_cryptic_vent": "Hocher mysteriöser Schlot",
-	"item.byg.tall_embur_roots": "Hoche Emburwurzeln",
+
 	"item.byg.tall_ether_grass": "Hoches Ethergras",
 	"item.byg.tall_pink_allium": "Hoches rosa Allium",
 	"item.byg.tall_prairie_grass": "Hoches Präriegras",
@@ -1922,7 +1900,7 @@
 	"item.byg.weed_grass": "Ungräser",
 	"item.byg.weeping_milkcap": "Birnenmilchling",
 	"item.byg.weeping_milkcap_mushroom_block": "Birnenmilchling Pilzblock",
-	"item.byg.weeping_roots": "Ausgebreitetewurzeln",
+
 	"item.byg.wailing_grass": "Walfanggras",
 	"item.byg.wailing_vine": "Walfgangranken",
 	"item.byg.white_anemone": "Weisßes Windröschen",
@@ -1975,10 +1953,10 @@
 	"item.byg.witch_hazel_stairs": "Hexehaseltreppe",
 	"item.byg.witch_hazel_trapdoor": "Hexehaselholzfalltür",
 	"item.byg.witch_hazel_wood": "Hexehaselholz",
-	"item.byg.withering_oak_leaves": "Verblühend Eichelaub",
-	"item.byg.withering_oak_log": "Verblühend Eichestamm",
-	"item.byg.withering_oak_sapling": "Verblühend Eichesetzling",
-	"item.byg.withering_oak_wood": "Verblühend Eicheholz",
+
+
+
+
 	"item.byg.wood_blewit": "Nackter Rötelritterling",
 	"item.byg.wood_blewit_mushroom_block": "Nackter Rötelritterling Pilzblock",
 	"item.byg.yellow_birch_leaves": "Gelber Birkelaub",

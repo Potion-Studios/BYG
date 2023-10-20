@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "byg:block/scoria_pillar_top",
-    "side": "byg:block/scoria_pillar_side"
-  }
-}
-

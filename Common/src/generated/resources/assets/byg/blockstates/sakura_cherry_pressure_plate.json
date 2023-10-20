@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "byg:block/sakura_cherry/pressure_plate"
+    },
+    "powered=true": {
+      "model": "byg:block/sakura_cherry/pressure_plate_down"
+    }
+  }
+}

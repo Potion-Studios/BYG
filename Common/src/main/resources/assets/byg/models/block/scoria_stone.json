@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "byg:block/scoria_stone_top",
-    "bottom": "byg:block/scoria_stone_top",
-    "side": "byg:block/scoria_stone"
-  }
-}

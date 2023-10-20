@@ -68,10 +68,6 @@ public class BYGOverworldFeatures {
             BYGFeatures.WIDE_LAKE, () -> new SimpleBlockProviderConfig(SimpleStateProvider.simple(Blocks.WATER.defaultBlockState()))
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FROST_MAGMA_LAKE = createConfiguredFeature("wide_frost_magma_lake",
-            BYGFeatures.WIDE_LAKE, () -> new SimpleBlockProviderConfig(SimpleStateProvider.simple(BYGBlocks.FROST_MAGMA.defaultBlockState()))
-    );
-
 
     private static final Supplier<WeightedStateProvider> LUSH_SPIKE_PROVIDER = () -> new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
             .add(Blocks.STONE.defaultBlockState(), 6)

@@ -36,21 +36,9 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.MINI_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PRICKLY_PEAR_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_SUCCULENT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NETHER_BRISTLE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEEPING_ROOTS_PLANT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WEEPING_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_PINK_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_ALLIUM.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.TALL_EMBUR_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_GEL_BLOCK.get(), RenderType.translucent());
-        map.put(BYGBlocks.EMBUR_GEL_VINES.get(), RenderType.translucent());
-        map.put(BYGBlocks.EMBUR_GEL_VINES_PLANT.get(), RenderType.translucent());
-        map.put(BYGBlocks.EMBUR_GEL_BRANCH.get(), RenderType.translucent());
-        map.put(BYGBlocks.EMBUR_SPROUTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.EMBUR_LILY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_BONE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.QUARTZ_CRYSTAL.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WAILING_BELL_BLOSSOM.get(), RenderType.cutoutMipped());
@@ -60,24 +48,12 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SCORCHED_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BORIC_CAMPFIRE.get(), RenderType.cutoutMipped());
         //Nether
-        map.put(BYGBlocks.OVERGROWN_NETHERRACK.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM_SPORE_END.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SOUL_SHROOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.DEATH_CAP.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LAMENT_VINE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LAMENT_VINE_PLANT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LAMENT_SPROUTS.get(), RenderType.cutoutMipped());
-
-        map.put(BYGBlocks.SUBZERO_CRYSTAL_CLUSTER.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.LARGE_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.MEDIUM_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SMALL_SUBZERO_CRYSTAL_BUD.get(), RenderType.cutoutMipped());
 
         map.put(BYGBlocks.ARISIAN_BLOOM_BRANCH.get(), RenderType.cutoutMipped());
-
-        map.put(BYGBlocks.TALL_CRIMSON_ROOTS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.CRIMSON_BERRY_BUSH.get(), RenderType.cutoutMipped());
 
         map.put(BYGBlocks.WARPED_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WARPED_CACTUS.get(), RenderType.cutoutMipped());
@@ -163,7 +139,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORCHARD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.PINK_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());
@@ -174,7 +149,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WITHERING_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_SAPLING.get(), RenderType.cutout());
 
         //Mushrooms

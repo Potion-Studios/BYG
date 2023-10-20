@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:travertine"
-  },
-  "result": "byg:travertine_slab",
-  "count": 2
-}

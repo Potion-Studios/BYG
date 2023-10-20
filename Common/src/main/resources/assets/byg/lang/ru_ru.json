@@ -18,13 +18,13 @@
   "biome.byg.bluff_peaks": "Отвесный пик",
   "biome.byg.bluff_steeps": "Обрывистая гора",
   "biome.byg.bog": "Трясины",
-  "item.byg.embur_gel_ball": "Тлеющий гелиевый шарик",
+
   "biome.byg.boreal_clearing": "Бореальная поляна",
   "biome.byg.boreal_forest": "Бореальный лес",
   "biome.byg.boreal_forest_hills": "Холмистый бореальный лес",
   "biome.byg.canyons": "Каньоны",
-  "biome.byg.cherry_blossom_clearing": "Вишнёвая поляна",
-  "biome.byg.sakura_grove": "Вишнёвый лес",
+  "biome.byg:sakura_cherry_blossom_clearing": "Вишнёвая поляна",
+  "biome.byg:sakura_grove": "Вишнёвый лес",
   "biome.byg.cika_mountains": "Осенние хвойные горы",
   "biome.byg.cika_woods": "Осенний хвойный лес",
   "biome.byg.cold_swamplands": "Холодные болота",
@@ -42,7 +42,7 @@
   "biome.byg.dunes": "Дюны",
   "biome.byg.ebony_hills": "Эбеновые холмы",
   "biome.byg.ebony_woods": "Эбеновые леса",
-  "biome.byg.embur_bog": "Тлеющая трясина",
+
   "biome.byg.enchanted_forest": "Магический лес",
   "biome.byg.enchanted_forest_hills": "Холмистый магический лес",
   "biome.byg.enchanted_grove": "Магический лесок",
@@ -227,8 +227,8 @@
   "block.byg.blue_glowcane_block": "Голубой блок светростника",
   "block.byg.blue_glowshroom": "Голубой светогриб",
   "block.byg.blue_glowshroom_block": "Синий блок светогриба",
-  "block.byg.blue_nether_bricks": "Синие незеритовые кирпичи",
-  "block.byg.blue_netherrack": "Синий незерак",
+
+
   "block.byg.blue_petal_block": "Синий блок лепестка",
   "block.byg.blue_sage": "Голубой шалфей",
   "block.byg.blue_sand": "Голубой песок",
@@ -243,20 +243,20 @@
   "block.byg.brown_oak_sapling": "Саженец коричневого дуба",
   "block.byg.california_poppy": "Эшшольция калифорнийская",
   "block.byg.cattail": "Рогоз",
-  "block.byg.cherry_bookshelf": "Вишнёвая книжная полка",
-  "block.byg.cherry_button": "Вишнёвая кнопка",
-  "block.byg.cherry_crafting_table": "Вишнёвый верстак",
-  "block.byg.cherry_door": "Вишнёвая дверь",
-  "block.byg.cherry_fence": "Вишнёвый забор",
-  "block.byg.cherry_fence_gate": "Вишнёвая калитка",
-  "block.byg.cherry_log": "Вишнёвое бревно",
-  "block.byg.cherry_planks": "Вишнёвые доски",
-  "block.byg.cherry_pressure_plate": "Вишнёвая нажимная плита",
-  "block.byg.cherry_slab": "Вишнёвая плита",
-  "block.byg.cherry_stairs": "Вишнёвые ступеньки",
-  "block.byg.cherry_trapdoor": "Вишнёвый люк",
-  "block.byg.cherry_wall": "Вишнёвая ограда",
-  "block.byg.cherry_wood": "Вишнёвое дерево",
+  "block.byg:sakura_cherry_bookshelf": "Вишнёвая книжная полка",
+  "block.byg:sakura_cherry_button": "Вишнёвая кнопка",
+  "block.byg:sakura_cherry_crafting_table": "Вишнёвый верстак",
+  "block.byg:sakura_cherry_door": "Вишнёвая дверь",
+  "block.byg:sakura_cherry_fence": "Вишнёвый забор",
+  "block.byg:sakura_cherry_fence_gate": "Вишнёвая калитка",
+  "block.byg:sakura_cherry_log": "Вишнёвое бревно",
+  "block.byg:sakura_cherry_planks": "Вишнёвые доски",
+  "block.byg:sakura_cherry_pressure_plate": "Вишнёвая нажимная плита",
+  "block.byg:sakura_cherry_slab": "Вишнёвая плита",
+  "block.byg:sakura_cherry_stairs": "Вишнёвые ступеньки",
+  "block.byg:sakura_cherry_trapdoor": "Вишнёвый люк",
+  "block.byg:sakura_cherry_wall": "Вишнёвая ограда",
+  "block.byg:sakura_cherry_wood": "Вишнёвое дерево",
   "block.byg.chiseled_red_rock_brick_slab": "Резная плита из красного кирпича",
   "block.byg.chiseled_red_rock_brick_stairs": "Резные ступеньки из красного кирпича",
   "block.byg.chiseled_red_rock_brick_wall": "Резная ограда из красного кирпича",
@@ -339,13 +339,13 @@
   "block.byg.ebony_trapdoor": "Эбоновый люк",
   "block.byg.ebony_wall": "Эбоновая ограда",
   "block.byg.ebony_wood": "Эбен",
-  "block.byg.embur_gel_block": "Тлеющий гелиевый блок",
-  "block.byg.embur_gel_vines": "Тлеющие гелиевые лианы",
-  "block.byg.embur_lily": "Тлеющая кувшинка",
-  "block.byg.embur_nylium": "Тлеющий нилий",
-  "block.byg.embur_pedu": "Тлеющий стебель",
-  "block.byg.embur_roots": "Тлеющие корни",
-  "block.byg.embur_wart": "Тлеющий цветок",
+
+
+
+
+
+
+
   "block.byg.fairy_slipper": "Калипсо клубневая",
   "block.byg.fir_bookshelf": "Пихтовая книжная полка",
   "block.byg.fir_button": "Пихтовая кнопка",
@@ -370,7 +370,7 @@
   "block.byg.flowering_palo_verde_leaves": "Листва цветущей акации",
   "block.byg.flowering_sonoran_cactus": "Цветущая Карнегия",
   "block.byg.foxglove": "Наперстянка",
-  "block.byg.frost_magma": "Морозная магма",
+
   "block.byg.glowcelium_block": "Свецелий",
   "block.byg.glowstone_lamp": "Фонарь из светокамня",
   "block.byg.glowstone_lantern": "Лампа из светокамня",
@@ -510,7 +510,7 @@
   "block.byg.mossy_stone_wall": "Замшелая каменная ограда",
   "block.byg.mud_block": "Грязь",
   "block.byg.mud_bricks": "Блок грязи",
-  "block.byg.nether_bristle": "Адская щетина",
+
   "block.byg.warped_soul_sand": "Нилийевый песок душ",
   "block.byg.warped_soul_soil": "Нилийевая почва душ",
   "block.byg.orange_amaranth": "Оранжевый куст амаранта",
@@ -525,7 +525,7 @@
   "block.byg.orchard_sapling": "Саженец фруктового дерева",
   "block.byg.osiria_rose": "Ассирийская роза",
   "block.byg.overgrown_dacite": "Заросший дацит",
-  "block.byg.overgrown_netherrack": "Заросший незерак",
+
   "block.byg.overgrown_stone": "Заросший камень",
   "block.byg.packed_black_ice": "Плотный чёрный лёд",
   "block.byg.palo_verde_leaves": "Листва Пало Верде",
@@ -536,7 +536,7 @@
   "block.byg.peach_leather_flower": "Peach Leather Flower",
   "block.byg.peat": "Торф",
   "block.byg.peat_grass_block": "Заросший торф",
-  "block.byg.pendorite_ore": "Пендоритовая руда",
+
   "block.byg.pervaded_netherrack": "Светящийся незерак",
   "block.byg.pine_bookshelf": "Сосновая книжная полка",
   "block.byg.pine_button": "Сосновая кнопка",
@@ -576,7 +576,7 @@
   "block.byg.polished_soapstone_slab": "Полированная талькохлоритовая плита",
   "block.byg.polished_soapstone_stairs": "Полированные талькохлоритовые ступеньки",
   "block.byg.polished_soapstone_wall": "Полированная талькохлоритовая ограда",
-  "block.byg.pollen_block": "Блок пыльцы",
+
   "block.byg.prairie_grass": "Степной дёрн",
   "block.byg.prickly_pear_cactus": "Опунция",
   "block.byg.protea_flower": "Протея",
@@ -658,22 +658,22 @@
   "block.byg.rocky_stone_stairs": "Скалистые ступеньки",
   "block.byg.rocky_stone_wall": "Скалистая ограда",
   "block.byg.rose": "Роза",
-  "block.byg.scoria": "Магматит",
-  "block.byg.scoria_cobblestone": "Магматитовый булыжник",
-  "block.byg.scoria_cobblestone_slab": "Плита из магматитового булыжника",
-  "block.byg.scoria_cobblestone_stairs": "Ступеньки из магматитового булыжника",
-  "block.byg.scoria_cobblestone_wall": "Ограда из магматитового булыжника",
-  "block.byg.scoria_pillar": "Магматитовый столб",
-  "block.byg.scoria_stairs": "Магматитовые ступеньки",
-  "block.byg.scoria_stone": "Магматитовый камень",
-  "block.byg.scoria_stone_slab": "Магматитовая плита",
-  "block.byg.scoria_stone_stairs": "Магматитовые ступеньки",
-  "block.byg.scoria_stone_wall": "Магматитовая ограда",
-  "block.byg.scoria_stonebrick_slab": "Плита из магматитового кирпича",
-  "block.byg.scoria_stonebrick_stairs": "Ступеньки из магматитового кирпича",
-  "block.byg.scoria_stonebrick_wall": "Ограда из магматитового кирпича",
-  "block.byg.scoria_stonebricks": "Магматитовый кирпич",
-  "block.byg.scoria_wall": "Магматитовая ограда",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.short_beach_grass": "Короткая пляжная трава",
   "block.byg.short_grass": "Короткая трава",
   "block.byg.silver_maple_leaves": "Листва серебристого клёна",
@@ -718,8 +718,8 @@
   "block.byg.stripped_baobab_wood": "Обтёсанный баобаб",
   "block.byg.stripped_blue_enchanted_log": "Обтёсанное синиее магическое бревно",
   "block.byg.stripped_blue_enchanted_wood": "Обтёсанное синее магическое дерево",
-  "block.byg.stripped_cherry_log": "Обтёсанное вишнёвое бревно",
-  "block.byg.stripped_cherry_wood": "Обтёсанная вишня",
+  "block.byg.stripped_sakura_cherry_log": "Обтёсанное вишнёвое бревно",
+  "block.byg.stripped_sakura_cherry_wood": "Обтёсанная вишня",
   "block.byg.stripped_cika_log": "Бревно из светлой ели",
   "block.byg.stripped_cika_wood": "Обтёсанная светлая ель",
   "block.byg.stripped_cypress_log": "Обтёсанное кипарисовое бревно",
@@ -763,7 +763,7 @@
   "block.byg.sythian_sprout": "Скифский росток",
   "block.byg.sythian_stalk_block": "Скифский стебель",
   "block.byg.tall_allium": "Высокий фиолетовый лук",
-  "block.byg.tall_embur_roots": "Высокие тлеющие корни",
+
   "block.byg.tall_pink_allium": "Высокий розовый лук",
   "block.byg.tall_prairie_grass": "Высокая луговая трава",
   "block.byg.tiny_lily_pads": "Маленькие кувшинки",
@@ -779,7 +779,7 @@
   "block.byg.weed_grass": "Сорняк",
   "block.byg.weeping_milkcap": "Груздь красно-коричневая",
   "block.byg.weeping_milkcap_mushroom_block": "Блок красно-коричневой грузди",
-  "block.byg.weeping_roots_plant": "Висячие корни",
+
   "block.byg.white_anemone": "Белый Анемонаструм",
   "block.byg.white_cherry_foliage": "Опавшие листья белой вишни",
   "block.byg.white_cherry_leaves": "Листва белой вишни",
@@ -874,11 +874,11 @@
   "item.byg.baobab_boat": "Лодка из баобаба",
   "item.byg.blue_enchanted_boat": "Синяя магическая лодка",
   "item.byg.blue_glowcane_dust": "Синяя светростниковая пыль",
-  "item.byg.blue_nether_brick": "Синий адский кирпич",
+
   "item.byg.blueberries": "Черника",
   "item.byg.byglogo": "Byg Логотип",
-  "item.byg.chain_plating": "Chain Plating",
-  "item.byg.cherry_boat": "Вишнёвая лодка",
+
+  "item.byg:sakura_cherry_boat": "Вишнёвая лодка",
   "item.byg.cika_boat": "Лодка из светлой ели",
   "item.byg.cooked_joshua_fruit": "Приготовленный фрукт юкки",
   "item.byg.cypress_boat": "Кипарисовая лодка",
@@ -895,17 +895,17 @@
   "item.byg.white_mangrove_boat": "Мангровая лодка",
   "item.byg.maple_boat": "Кленовая лодка",
   "item.byg.mud": "Грязь",
-  "item.byg.pendorite_axe": "Пендоритовый топор",
-  "item.byg.pendorite_battleaxe": "Пендоритовый боевой топор",
-  "item.byg.pendorite_hoe": "Пендоритовая мотыга",
-  "item.byg.pendorite_horse_armor": "Пендоритовая конская броня",
-  "item.byg.pendorite_pickaxe": "Пендоритовая кирка",
-  "item.byg.pendorite_scraps": "Пендоритовый лом",
-  "item.byg.pendorite_shovel": "Пендоритовая лопата",
-  "item.byg.pendorite_sword": "Пендоритовый меч",
+
+
+
+
+
+
+
+
   "item.byg.pine_boat": "Сосновая лодка",
   "item.byg.pink_glowcane_dust": "Розовая светростниковая пыль",
-  "item.byg.pollen_dust": "Пыльца",
+
   "item.byg.purple_glowcane_dust": "Фиолетовый",
   "item.byg.rainbow_eucalyptus_boat": "Лодка из радужного эвкалипта",
   "item.byg.red_glowcane_dust": "Красная светростниковая пыль",

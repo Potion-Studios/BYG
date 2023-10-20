@@ -45,7 +45,6 @@ public class BYGCompostables {
         map.put(BYGItems.ORANGE_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.ORCHARD_LEAVES.get(), 0.3f);
         map.put(BYGItems.PALO_VERDE_LEAVES.get(), 0.3f);
-        map.put(BYGItems.PINK_CHERRY_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_MAPLE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RIPE_ORCHARD_LEAVES.get(), 0.6f);
         map.put(BYGItems.SILVER_MAPLE_LEAVES.get(), 0.3f);
@@ -55,7 +54,6 @@ public class BYGCompostables {
         map.put(BYGItems.YELLOW_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.BROWN_ZELKOVA_LEAVES.get(), 0.3f);
-        map.put(BYGItems.WITHERING_OAK_LEAVES.get(), 0.3f);
         map.put(BYGItems.FIRECRACKER_LEAVES.get(), 0.3f);
         map.put(BYGItems.JOSHUA_LEAVES.get(), 0.3f);
         map.put(BYGItems.RIPE_JOSHUA_LEAVES.get(), 0.6f);
@@ -79,7 +77,6 @@ public class BYGCompostables {
         map.put(BYGItems.ORANGE_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.ORCHARD_SAPLING.get(), 0.3f);
         map.put(BYGItems.PALO_VERDE_SAPLING.get(), 0.3f);
-        map.put(BYGItems.PINK_CHERRY_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_MAPLE_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
         map.put(BYGItems.SILVER_MAPLE_SAPLING.get(), 0.3f);
@@ -88,7 +85,6 @@ public class BYGCompostables {
         map.put(BYGItems.YELLOW_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.BROWN_ZELKOVA_SAPLING.get(), 0.3f);
-        map.put(BYGItems.WITHERING_OAK_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_BIRCH_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
         map.put(BYGItems.JOSHUA_SAPLING.get(), 0.3f);
@@ -159,10 +155,8 @@ public class BYGCompostables {
         map.put(BYGItems.VERMILION_SCULK_GROWTH.get(), 0.65f);
         map.put(BYGItems.SHULKREN_MOSS_BLANKET.get(), 0.65f);
         map.put(BYGItems.SHULKREN_VINE.get(), 0.65f);
-        map.put(BYGItems.LAMENT_VINE.get(), 0.65f);
         map.put(BYGItems.SKYRIS_VINE.get(), 0.65f);
         map.put(BYGItems.WAILING_VINES.get(), 0.65f);
-        map.put(BYGItems.EMBUR_GEL_VINES.get(), 0.65f);
 
         //Mushroom Blocks
         map.put(BYGItems.GREEN_MUSHROOM_BLOCK.get(), 0.85f);
@@ -179,8 +173,6 @@ public class BYGCompostables {
         map.put(BYGItems.BULBIS_SHELL.get(), 0.85f);
 
         //Foods
-        map.put(BYGItems.CRIMSON_BERRIES.get(), 0.65f);
-        map.put(BYGItems.CRIMSON_BERRY_PIE.get(), 0.65f);
         map.put(BYGItems.JOSHUA_FRUIT.get(), 0.65f);
         map.put(BYGItems.COOKED_JOSHUA_FRUIT.get(), 0.65f);
         map.put(BYGItems.GREEN_APPLE.get(), 0.65f);
@@ -213,7 +205,6 @@ public class BYGCompostables {
         map.put(BYGItems.POISON_IVY.get(), 0.75f);
         map.put(BYGItems.TINY_LILYPADS.get(), 0.65f);
         map.put(BYGItems.ENDER_LILY.get(), 0.65f);
-        map.put(BYGItems.EMBUR_LILY.get(), 0.65f);
 
         return map;
     });

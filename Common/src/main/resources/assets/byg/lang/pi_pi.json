@@ -20,14 +20,14 @@
   "biome.byg.bluff_peaks": "Luffbay Eakspay",
   "biome.byg.bluff_steeps": "Luffbay Eepsstay",
   "biome.byg.bog": "Ogbay",
-  "item.byg.embur_gel_ball": "Buremay Elgay Allbay",
+
   "biome.byg.boreal_clearing": "Orealbay Learingcay",
   "biome.byg.boreal_forest": "Orealbay Orestfay",
   "biome.byg.boreal_forest_hills": "Orealbay Orestfay Illshay",
   "biome.byg.canyons": "Anyonscay",
   "biome.byg.chapparal_coastals": "Apparalchay Oastalscay",
-  "biome.byg.cherry_blossom_clearing": "Errychay Lossombay Learingcay",
-  "biome.byg.sakura_grove": "Errychay Lossombay Orestfay",
+  "biome.byg:sakura_cherry_blossom_clearing": "Errychay Lossombay Learingcay",
+  "biome.byg:sakura_grove": "Errychay Lossombay Orestfay",
   "biome.byg.cika_mountains": "Ikacay Ountainsmay",
   "biome.byg.cika_woods": "Ikacay Oodsway",
   "biome.byg.cika_wooded_mountains": "Ikacay Oodedway Ountainsmay",
@@ -47,7 +47,7 @@
   "biome.byg.dunes": "Unesday",
   "biome.byg.ebony_hills": "Onyebay Illshay",
   "biome.byg.ebony_woods": "Onyebay Oodsway",
-  "biome.byg.embur_bog": "Buremay Ogbay",
+
   "biome.byg.enchanted_forest": "Chantedenay Orestfay",
   "biome.byg.enchanted_forest_hills": "Chantedenay Orestfay Illshay",
   "biome.byg.enchanted_grove": "Chantedenay Rovegay",
@@ -233,8 +233,8 @@
   "block.byg.blue_glowcane_block": "Luebay Lowcanegay Lockbay",
   "block.byg.blue_glowshroom": "Luebay Lowshroomgay",
   "block.byg.blue_glowshroom_block": "Luebay Lowshroomgay Lockbay",
-  "block.byg.blue_nether_bricks": "Luebay Ethernay Ricksbay",
-  "block.byg.blue_netherrack": "Luebay Etherracknay",
+
+
   "block.byg.blue_petal_block": "Luebay Etalpay Lockbay",
   "block.byg.blue_sage": "Luebay Agesay",
   "block.byg.blue_sand": "Luebay Andsay",
@@ -250,20 +250,20 @@
   "block.byg.brown_oak_sapling": "Rownbay Oakay Aplingsay",
   "block.byg.california_poppy": "Aliforniacay Oppypay",
   "block.byg.cattail": "Attailcay",
-  "block.byg.cherry_bookshelf": "Errychay Ookshelfbay",
-  "block.byg.cherry_button": "Errychay Uttonbay",
-  "block.byg.cherry_crafting_table": "Errychay Raftingcay Abletay",
-  "block.byg.cherry_door": "Errychay Oorday",
-  "block.byg.cherry_fence": "Errychay Encefay",
-  "block.byg.cherry_fence_gate": "Errychay Encefay Ategay",
-  "block.byg.cherry_log": "Errychay Oglay",
-  "block.byg.cherry_planks": "Errychay Lankspay",
-  "block.byg.cherry_pressure_plate": "Errychay Ressurepay Latepay",
-  "block.byg.cherry_slab": "Errychay Labsay",
-  "block.byg.cherry_stairs": "Errychay Tairssay",
-  "block.byg.cherry_trapdoor": "Errychay Rapdoortay",
-  "block.byg.cherry_wall": "Errychay Allway",
-  "block.byg.cherry_wood": "Errychay Oodway",
+  "block.byg:sakura_cherry_bookshelf": "Errychay Ookshelfbay",
+  "block.byg:sakura_cherry_button": "Errychay Uttonbay",
+  "block.byg:sakura_cherry_crafting_table": "Errychay Raftingcay Abletay",
+  "block.byg:sakura_cherry_door": "Errychay Oorday",
+  "block.byg:sakura_cherry_fence": "Errychay Encefay",
+  "block.byg:sakura_cherry_fence_gate": "Errychay Encefay Ategay",
+  "block.byg:sakura_cherry_log": "Errychay Oglay",
+  "block.byg:sakura_cherry_planks": "Errychay Lankspay",
+  "block.byg:sakura_cherry_pressure_plate": "Errychay Ressurepay Latepay",
+  "block.byg:sakura_cherry_slab": "Errychay Labsay",
+  "block.byg:sakura_cherry_stairs": "Errychay Tairssay",
+  "block.byg:sakura_cherry_trapdoor": "Errychay Rapdoortay",
+  "block.byg:sakura_cherry_wall": "Errychay Allway",
+  "block.byg:sakura_cherry_wood": "Errychay Oodway",
   "block.byg.chiseled_red_rock_brick_slab": "Iseledchay Edray Ockray Rickbay Labsay",
   "block.byg.chiseled_red_rock_brick_stairs": "Iseledchay Edray Ockray Rickbay Tairssay",
   "block.byg.chiseled_red_rock_brick_wall": "Iseledchay Edray Ockray Rickbay Allway",
@@ -346,13 +346,13 @@
   "block.byg.ebony_trapdoor": "Onyebay Rapdoortay",
   "block.byg.ebony_wall": "Onyebay Allway",
   "block.byg.ebony_wood": "Onyebay Oodway",
-  "block.byg.embur_gel_block": "Buremay Elgay Lockbay",
-  "block.byg.embur_gel_vines": "Buremay Elgay Inesvay",
-  "block.byg.embur_lily": "Buremay Ilylay",
-  "block.byg.embur_nylium": "Buremay Liumnyay",
-  "block.byg.embur_pedu": "Buremay Edupay",
-  "block.byg.embur_roots": "Buremay Ootsray",
-  "block.byg.embur_wart": "Buremay Artway",
+
+
+
+
+
+
+
   "block.byg.fairy_slipper": "Airyfay Lippersay",
   "block.byg.fir_bookshelf": "Irfay Ookshelfbay",
   "block.byg.fir_button": "Irfay Uttonbay",
@@ -377,7 +377,7 @@
   "block.byg.flowering_palo_verde_leaves": "Loweringfay Alopay Erdevay Eaveslay",
   "block.byg.flowering_sonoran_cactus": "Loweringfay Onoransay Actuscay",
   "block.byg.foxglove": "Oxglovefay",
-  "block.byg.frost_magma": "Rostfay Agmamay",
+
   "block.byg.glowcelium_block": "Lowceliumgay Lockbay",
   "block.byg.glowstone_lamp": "Lowstonegay Amplay",
   "block.byg.glowstone_lantern": "Lowstonegay Anternlay",
@@ -517,7 +517,7 @@
   "block.byg.mossy_stone_wall": "Ossymay Tonesay Allway",
   "block.byg.mud_block": "Udmay",
   "block.byg.mud_bricks": "Udmay Ricksbay",
-  "block.byg.nether_bristle": "Ethernay Ristlebay",
+
   "block.byg.warped_soul_sand": "Liumnyay Oulsay Andsay",
   "block.byg.warped_soul_soil": "Liumnyay Oulsay Oilsay",
   "block.byg.orange_amaranth": "Angeoray Aranthamay Ushbay",
@@ -532,7 +532,7 @@
   "block.byg.orchard_sapling": "Chardoray Aplingsay",
   "block.byg.osiria_rose": "Iriaosay Oseray",
   "block.byg.overgrown_dacite": "Ergrownovay Aciteday",
-  "block.byg.overgrown_netherrack": "Ergrownovay Etherracknay",
+
   "block.byg.overgrown_stone": "Ergrownovay Tonesay",
   "block.byg.packed_black_ice": "Ackedpay Lackbay Ceiay",
   "block.byg.palo_verde_leaves": "Alopay Erdevay Eaveslay",
@@ -543,8 +543,8 @@
   "block.byg.peach_leather_flower": "Eachpay Eatherlay Lowerfay",
   "block.byg.peat": "Eatpay",
   "block.byg.peat_grass_block": "Eatpay Rassgay Lockbay",
-  "block.byg.pendorite_block": "Endoritepay Lockbay",
-  "block.byg.pendorite_ore": "Endoritepay Eoray",
+
+
   "block.byg.pervaded_netherrack": "Ervadedpay Etherracknay",
   "block.byg.pine_bookshelf": "Inepay Ookshelfbay",
   "block.byg.pine_button": "Inepay Uttonbay",
@@ -584,7 +584,7 @@
   "block.byg.polished_soapstone_slab": "Olishedpay Oapstonesay Labsay",
   "block.byg.polished_soapstone_stairs": "Olishedpay Oapstonesay Tairssay",
   "block.byg.polished_soapstone_wall": "Olishedpay Oapstonesay Allway",
-  "block.byg.pollen_block": "Ollenpay Lockbay",
+
   "block.byg.prairie_grass": "Rairiepay Rassgay",
   "block.byg.prickly_pear_cactus": "Ricklypay Earpay Actuscay",
   "block.byg.protea_flower": "Roteapay Lowerfay",
@@ -666,22 +666,22 @@
   "block.byg.rocky_stone_stairs": "Ockyray Tonesay Tairssay",
   "block.byg.rocky_stone_wall": "Ockyray Tonesay Allway",
   "block.byg.rose": "Oseray",
-  "block.byg.scoria": "Coriasay",
-  "block.byg.scoria_cobblestone": "Coriasay Obblestonecay",
-  "block.byg.scoria_cobblestone_slab": "Coriasay Obblestonecay Labsay",
-  "block.byg.scoria_cobblestone_stairs": "Coriasay Obblestonecay Tairssay",
-  "block.byg.scoria_cobblestone_wall": "Coriasay Obblestonecay Allway",
-  "block.byg.scoria_pillar": "Coriasay Illarpay",
-  "block.byg.scoria_stairs": "Coriasay Tairssay",
-  "block.byg.scoria_stone": "Coriasay Tonesay",
-  "block.byg.scoria_stone_slab": "Coriasay Tonesay Labsay",
-  "block.byg.scoria_stone_stairs": "Coriasay Tonesay Tairssay",
-  "block.byg.scoria_stone_wall": "Coriasay Tonesay Allway",
-  "block.byg.scoria_stonebrick_slab": "Coriasay Iletay Labsay",
-  "block.byg.scoria_stonebrick_stairs": "Coriasay Tonesay Rickbay Tairssay",
-  "block.byg.scoria_stonebrick_wall": "Coriasay Tonesay Rickbay Allway",
-  "block.byg.scoria_stonebricks": "Coriasay Tonesay Ricksbay",
-  "block.byg.scoria_wall": "Coriasay Allway",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.short_beach_grass": "Ortshay Eachbay Rassgay",
   "block.byg.short_grass": "Ortshay Rassgay",
   "block.byg.silver_maple_leaves": "Ilversay Aplemay Eaveslay",
@@ -726,8 +726,8 @@
   "block.byg.stripped_baobab_wood": "Trippedsay Aobabbay Oodway",
   "block.byg.stripped_blue_enchanted_log": "Trippedsay Luebay Chantedenay Oglay",
   "block.byg.stripped_blue_enchanted_wood": "Trippedsay Luebay Chantedenay Oodway",
-  "block.byg.stripped_cherry_log": "Trippedsay Errychay Oglay",
-  "block.byg.stripped_cherry_wood": "Trippedsay Errychay Oodway",
+  "block.byg.stripped_sakura_cherry_log": "Trippedsay Errychay Oglay",
+  "block.byg.stripped_sakura_cherry_wood": "Trippedsay Errychay Oodway",
   "block.byg.stripped_cika_log": "Trippedsay Ikacay Oglay",
   "block.byg.stripped_cika_wood": "Trippedsay Ikacay Oodway",
   "block.byg.stripped_cypress_log": "Trippedsay Ypresscay Oglay",
@@ -771,7 +771,7 @@
   "block.byg.sythian_sprout": "Thiansyay Proutsay",
   "block.byg.sythian_stalk_block": "Thiansyay Stalk",
   "block.byg.tall_allium": "Alltay Urplepay Iumallay",
-  "block.byg.tall_embur_roots": "Alltay Buremay Ootsray",
+
   "block.byg.tall_pink_allium": "Alltay Inkpay Iumallay",
   "block.byg.tall_prairie_grass": "Alltay Rairiepay Rassgay",
   "block.byg.tiny_lily_pads": "Inytay Ilylay Adspay",
@@ -787,7 +787,7 @@
   "block.byg.weed_grass": "Eedway Rassgay",
   "block.byg.weeping_milkcap": "Eepingway Ilkcapmay",
   "block.byg.weeping_milkcap_mushroom_block": "Eepingway Ilkcapmay Ushroommay Lockbay",
-  "block.byg.weeping_roots_plant": "Eepingway Ootsray",
+
   "block.byg.white_anemone": "Itewhay Emoneanay",
   "block.byg.white_cherry_foliage": "Itewhay Errychay Oliagefay",
   "block.byg.white_cherry_leaves": "Itewhay Errychay Eaveslay",
@@ -882,11 +882,11 @@
   "item.byg.baobab_boat": "Aobabbay Oatbay",
   "item.byg.blue_enchanted_boat": "Luebay Chantedenay Oatbay",
   "item.byg.blue_glowcane_dust": "Luebay Lowcanegay Ustday",
-  "item.byg.blue_nether_brick": "Luebay Ethernay Rickbay",
+
   "item.byg.blueberries": "Lueberriesbay",
   "item.byg.byglogo": "IOO Ogolat",
-  "item.byg.chain_plating": "Ainchay Latingpay",
-  "item.byg.cherry_boat": "Errychay Oatbay",
+
+  "item.byg:sakura_cherry_boat": "Errychay Oatbay",
   "item.byg.cika_boat": "Ikacay Oatbay",
   "item.byg.cooked_joshua_fruit": "Cooked Oshuajay Ruitfay",
   "item.byg.cypress_boat": "Ypresscay Oatbay",
@@ -903,17 +903,17 @@
   "item.byg.white_mangrove_boat": "Angrovemay Oatbay",
   "item.byg.maple_boat": "Aplemay Oatbay",
   "item.byg.mud": "Udmay",
-  "item.byg.pendorite_axe": "Endoritepay Eaxay",
-  "item.byg.pendorite_battleaxe": "Endoritepay Attleaxebay",
-  "item.byg.pendorite_hoe": "Endoritepay Oehay",
-  "item.byg.pendorite_horse_armor": "Endoritepay Orsehay Moraray",
-  "item.byg.pendorite_pickaxe": "Endoritepay Ickaxepay",
-  "item.byg.pendorite_scraps": "Endoritepay Crapssay",
-  "item.byg.pendorite_shovel": "Endoritepay Hovelsay",
-  "item.byg.pendorite_sword": "Endoritepay Wordsay",
+
+
+
+
+
+
+
+
   "item.byg.pine_boat": "Inepay Oatbay",
   "item.byg.pink_glowcane_dust": "Inkpay Lowcanegay Ustday",
-  "item.byg.pollen_dust": "Ollenpay Ustday",
+
   "item.byg.purple_glowcane_dust": "Urplepay Lowcanegay Ustday",
   "item.byg.rainbow_eucalyptus_boat": "Ainbowray Alyptuseucay Oatbay",
   "item.byg.red_glowcane_dust": "Edray Lowcanegay Ustday",

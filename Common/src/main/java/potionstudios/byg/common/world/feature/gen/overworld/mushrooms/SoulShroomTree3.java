@@ -21,12 +21,11 @@ public class SoulShroomTree3 extends BYGAbstractMushroomFeature<BYGMushroomConfi
         BlockState MUSHROOM = config.getMushroomProvider().getState(rand, pos);
         BlockState MUSHROOM2 = config.getMushroom2Provider().getState(rand, pos);
         BlockState MUSHROOM3 = config.getMushroom3Provider().getState(rand, pos);
-        BlockState POLLEN = config.getPollenProvider().getState(rand, pos);
         int randTreeHeight = 12 + rand.nextInt(5);
         BlockPos.MutableBlockPos mainmutable = new BlockPos.MutableBlockPos().set(pos);
 
         if (pos.getY() + randTreeHeight + 1 < worldIn.getMaxBuildHeight()) {
-            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), Blocks.GRASS_BLOCK, Blocks.WARPED_NYLIUM, BYGBlocks.OVERGROWN_NETHERRACK.get())) {
+            if (!isDesiredGroundwDirtTag(config, worldIn, pos.below(), Blocks.GRASS_BLOCK, Blocks.WARPED_NYLIUM)) {
                 return false;
             } else if (!this.isAnotherMushroomLikeThisNearby(worldIn, pos, randTreeHeight, 0, STEM.getBlock(), MUSHROOM.getBlock(), isMushroom)) {
                 return false;

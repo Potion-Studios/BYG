@@ -600,56 +600,30 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_PINK_TREE1 = createConfiguredFeature("pink_cherry_tree1",
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_CHERRY_TREE1 = createConfiguredFeature("white_cherry_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
-                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    SAKURA_CHERRY.log().get(),
-                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
-                    BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
-            )
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_PINK_TREE2 = createConfiguredFeature("pink_cherry_tree2",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
-                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
-                    BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PINK_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    SAKURA_CHERRY.log().get(),
-                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
-                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
-            )
-    );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_WHITE_TREE1 = createConfiguredFeature("white_cherry_tree1",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk1"),
-                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy1"),
+                    BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_trunk1"),
+                    BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
                     SAKURA_CHERRY.log().get(),
-                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
+                    BYGBlocks.WHITE_CHERRY_LEAVES.get(),
                     BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
             )
     );
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CHERRY_WHITE_TREE2 = createConfiguredFeature("white_cherry_tree2",
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_CHERRY_TREE2 = createConfiguredFeature("white_cherry_tree2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/cherry/cherry_tree_trunk2"),
-                    BYG.createLocation("features/trees/cherry/cherry_tree_canopy2"),
+                    BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_trunk2"),
+                    BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
                     SAKURA_CHERRY.log().get(),
-                    BYGBlocks.PINK_CHERRY_LEAVES.get(),
-                    BYGBlockTags.GROUND_PINK_CHERRY_SAPLING, 5, ImmutableList.of()
+                    BYGBlocks.WHITE_CHERRY_LEAVES.get(),
+                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
             )
     );
 
@@ -3866,10 +3840,8 @@ public class BYGOverworldTreeFeatures {
             (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
                 return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CHERRY_PINK_TREE1)), 0.25F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CHERRY_PINK_TREE2)), 0.25F),
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CHERRY_WHITE_TREE1)), 0.25F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CHERRY_WHITE_TREE2)));
+                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SAKURA_CHERRY_TREE1)), 0.5F)),
+                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SAKURA_CHERRY_TREE2)));
             }
     );
 

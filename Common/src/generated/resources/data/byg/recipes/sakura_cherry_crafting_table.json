@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "crafting_table",
+  "key": {
+    "P": {
+      "item": "byg:sakura_cherry_planks"
+    }
+  },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "result": {
+    "item": "byg:sakura_cherry_crafting_table"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/blue_nether_gold_ore",
-    "particle": "byg:block/blue_nether_gold_ore"
-  }
-}

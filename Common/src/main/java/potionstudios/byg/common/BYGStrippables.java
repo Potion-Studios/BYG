@@ -21,13 +21,11 @@ public class BYGStrippables {
         }
 
         handler.accept(BYGBlocks.PALO_VERDE_LOG.get(), BYGBlocks.STRIPPED_PALO_VERDE_LOG.get());
-        handler.accept(BYGBlocks.WITHERING_OAK_LOG.get(), Blocks.STRIPPED_OAK_LOG);
         handler.accept(BYGBlocks.FUNGAL_IMPARIUS_STEM.get(), BYGWoodTypes.IMPARIUS.log().get());
         handler.accept(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.get(), BYGWoodTypes.GREEN_ENCHANTED.log().get());
         handler.accept(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG.get(), BYGWoodTypes.BLUE_ENCHANTED.log().get());
 
         handler.accept(BYGBlocks.PALO_VERDE_WOOD.get(), BYGBlocks.STRIPPED_PALO_VERDE_WOOD.get());
-        handler.accept(BYGBlocks.WITHERING_OAK_WOOD.get(), Blocks.STRIPPED_OAK_WOOD);
         handler.accept(BYGBlocks.FUNGAL_IMPARIUS_HYPHAE.get(), BYGWoodTypes.IMPARIUS.wood().get());
         BYG.logInfo("BYG: Added strippable Blocks...");
 

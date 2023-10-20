@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "byg:block/scoria_cobblestone",
-    "top": "byg:block/scoria_cobblestone",
-    "side": "byg:block/scoria_cobblestone"
-  }
-}

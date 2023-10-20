@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.presets.WorldPreset;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.world.biome.BYGBiomeTags;
 import potionstudios.byg.common.world.biome.BYGDebugBiomeSource;
 
 import java.util.Map;

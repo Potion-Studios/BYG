@@ -14,8 +14,6 @@ public class BYGBlockEntities {
 
     private static final RegistrationProvider<BlockEntityType<?>> PROVIDER = RegistrationProvider.get(Registries.BLOCK_ENTITY_TYPE, BYG.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<HypogealImperiumBlockEntity>> HYPOGEAL = register("hypogeal", () -> BlockEntityType.Builder.of(HypogealImperiumBlockEntity::new, BYGBlocks.HYPOGEAL_IMPERIUM.get()));
-
     private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(String key, Supplier<BlockEntityType.Builder<T>> builder) {
         return PROVIDER.register(key, () -> builder.get().build(null));
     }

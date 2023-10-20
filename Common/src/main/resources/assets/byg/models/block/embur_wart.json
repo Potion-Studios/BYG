@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "byg:block/embur_wart",
-    "particle": "byg:block/embur_wart"
-  }
-}

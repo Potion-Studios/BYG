@@ -21,12 +21,6 @@
         "Name": "minecraft:warped_wart_block"
       }
     },
-    "pollen_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "byg:pollen_block"
-      }
-    },
     "stem_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

@@ -32,7 +32,7 @@
                       "condition": "minecraft:match_tool"
                     }
                   ],
-                  "condition": "minecraft:alternative"
+                  "condition": "minecraft:any_of"
                 }
               ]
             },
@@ -117,7 +117,7 @@
                 "condition": "minecraft:match_tool"
               }
             ],
-            "condition": "minecraft:alternative"
+            "condition": "minecraft:any_of"
           },
           "condition": "minecraft:inverted"
         }

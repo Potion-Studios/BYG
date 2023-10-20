@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/scoria_stone_bricks",
-    "particle": "byg:block/scoria_stone_bricks"
-  }
-}

@@ -29,8 +29,8 @@
   "biome.byg.bulbis_gardens": "Jardins de Bulbes",
   "biome.byg.canyon_edge": "Bord du Canyon",
   "biome.byg.canyons": "Canyons",
-  "biome.byg.cherry_blossom_clearing": "Clairière de Cerisiers Fleuris",
-  "biome.byg.sakura_grove": "Forêt de Cerisiers Fleuris",
+  "biome.byg:sakura_cherry_blossom_clearing": "Clairière de Cerisiers Fleuris",
+  "biome.byg:sakura_grove": "Forêt de Cerisiers Fleuris",
   "biome.byg.cika_mountains": "Montagnes de Cycas",
   "biome.byg.cika_woods": "Bois de Cycas",
   "biome.byg.cold_swamplands": "Marécage Gelés",
@@ -39,7 +39,7 @@
   "biome.byg.coniferous_forest_hills": "Collines de Corinifères",
   "biome.byg.coral_white_mangroves": "Coraux de Mangroves",
   "biome.byg.crag_gardens": "Jardins Rocheux",
-  "biome.byg.crimson_gardens": "Jardins Cramoisis",
+
   "biome.byg.cryptic_wastes": "Déchets Cryptiques",
   "biome.byg.cypress_swamplands": "Marécage de Cyprès",
   "biome.byg.lush_stacks": "Mer Morte",
@@ -51,7 +51,7 @@
   "biome.byg.dunes": "Dunes",
   "biome.byg.ebony_hills": "Colline d'Ébènes",
   "biome.byg.ebony_woods": "Bois d'Ébènes",
-  "biome.byg.embur_bog": "Marais d'Embur",
+
   "biome.byg.enchanted_forest": "Forêt Enchantée",
   "biome.byg.enchanted_forest_hills": "Collines Boisées Enchantées",
   "biome.byg.enchanted_grove": "Bosquet Enchanté",
@@ -146,7 +146,7 @@
   "biome.byg.snowy_evergreen_taiga": "Taïga verdoyante Enneigée",
   "biome.byg.snowy_rocky_black_beach": "Plage de sable noire Rocheuse Enneigée",
   "biome.byg.stone_forest": "Forêt de Pierre",
-  "biome.byg.subzero_hypogeal": "Hypogée Subzéro",
+
   "biome.byg.sythian_torrids": "Torrides de Scythe",
   "biome.byg.the_black_forest": "La Forêt Obscure",
   "biome.byg.tropical_fungal_forest": "Forêt Fongique Tropicale",
@@ -160,11 +160,11 @@
   "biome.byg.viscal_isles": "Îlots",
   "biome.byg.wailing_garth": "Garth Gémissant",
   "biome.byg.warped_desert": "Désert Tourmenté",
-  "biome.byg.weeping_mire": "Marais des Lamentations",
+
   "biome.byg.weeping_witch_clearing": "Clairière de Sanglots Envoûtants",
   "biome.byg.weeping_witch_forest": "Forêt de Sanglots Envoûtants",
   "biome.byg.white_beach": "Plage de Sable Blanc",
-  "biome.byg.withering_woods": "Bois Dépérissant",
+
   "biome.byg.wooded_grassland_plateau": "Plateau Boisé de Pâturages",
   "biome.byg.wooded_meadow": "Prairie Boisée",
   "biome.byg.wooded_red_rock_mountains": "Montagnes Boisées de Roches Rouges",
@@ -248,8 +248,8 @@
   "block.byg.blue_glowcane_block": "Bloc de Glowcane Bleue",
   "block.byg.blue_glowshroom": "Glowshroom Bleu",
   "block.byg.blue_glowshroom_block": "Bloc de Glowshroom Bleu",
-  "block.byg.blue_nether_bricks": "Briques du Nether Bleue",
-  "block.byg.blue_netherrack": "Netherrack Bleue",
+
+
   "block.byg.blue_petal_block": "Bloc de Pétale Bleu",
   "block.byg.blue_sage": "Sauge Bleue",
   "block.byg.blue_sand": "Sable Bleu",
@@ -285,19 +285,19 @@
   "block.byg.bulbis_wood": "Bois de Bulbe",
   "block.byg.california_poppy": "Coquelicot Californien",
   "block.byg.cattail": "Quenouille d'Afrique Sud",
-  "block.byg.cherry_bookshelf": "Bibliothèque en Cerisier",
-  "block.byg.cherry_button": "Bouton en Cerisier",
-  "block.byg.cherry_crafting_table": "Établi en Cerisier",
-  "block.byg.cherry_door": "Porte en Cerisier",
-  "block.byg.cherry_fence": "Barrière en Cerisier",
-  "block.byg.cherry_fence_gate": "Portillon en Cerisier",
-  "block.byg.cherry_log": "Bûche de Cerisier",
-  "block.byg.cherry_planks": "Planches de Cerisier",
-  "block.byg.cherry_pressure_plate": "Plaque de Pression en Cerisier",
-  "block.byg.cherry_slab": "Dalle en Cerisier",
-  "block.byg.cherry_stairs": "Escalier en Cerisier",
-  "block.byg.cherry_trapdoor": "Trappe en Cerisier",
-  "block.byg.cherry_wood": "Bois de Cerisier",
+  "block.byg:sakura_cherry_bookshelf": "Bibliothèque en Cerisier",
+  "block.byg:sakura_cherry_button": "Bouton en Cerisier",
+  "block.byg:sakura_cherry_crafting_table": "Établi en Cerisier",
+  "block.byg:sakura_cherry_door": "Porte en Cerisier",
+  "block.byg:sakura_cherry_fence": "Barrière en Cerisier",
+  "block.byg:sakura_cherry_fence_gate": "Portillon en Cerisier",
+  "block.byg:sakura_cherry_log": "Bûche de Cerisier",
+  "block.byg:sakura_cherry_planks": "Planches de Cerisier",
+  "block.byg:sakura_cherry_pressure_plate": "Plaque de Pression en Cerisier",
+  "block.byg:sakura_cherry_slab": "Dalle en Cerisier",
+  "block.byg:sakura_cherry_stairs": "Escalier en Cerisier",
+  "block.byg:sakura_cherry_trapdoor": "Trappe en Cerisier",
+  "block.byg:sakura_cherry_wood": "Bois de Cerisier",
   "block.byg.chiseled_red_rock_brick_slab": "Dalle en Briques de Roche Rouge Sculptée",
   "block.byg.chiseled_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Sculptée",
   "block.byg.chiseled_red_rock_brick_wall": "Mur en Briques de Roche Rouge Sculptée",
@@ -322,7 +322,7 @@
   "block.byg.cracked_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Craquelée",
   "block.byg.cracked_red_rock_brick_wall": "Mur en Briques de Roche Rouge Craquelée",
   "block.byg.cracked_red_rock_bricks": "Briques de Roche Rouge Craquelée",
-  "block.byg.crimson_berry_bush": "Buisson de Baies Carmin",
+
   "block.byg.crocus": "Crocus",
   "block.byg.cryptic_campfire": "Feu de Camp Cryptique",
   "block.byg.cryptic_fire": "Feu Cryptique",
@@ -385,26 +385,26 @@
   "block.byg.ebony_stairs": "Escalier d'Ébène",
   "block.byg.ebony_trapdoor": "Trappe d'Ébène",
   "block.byg.ebony_wood": "Bois d'Ébène",
-  "block.byg.embur_bookshelf": "Bibliothèque d'Embur",
-  "block.byg.embur_button": "Bouton d'Embur",
-  "block.byg.embur_crafting_table": "Établi d'Embur",
-  "block.byg.embur_door": "Porte d'Embur",
-  "block.byg.embur_fence": "Barrière d'Embur",
-  "block.byg.embur_fence_gate": "Portillon d'Embur",
-  "block.byg.embur_gel_block": "Bloc de Gel d'Embur",
-  "block.byg.embur_gel_vines": "Lianes de Gel d'Embur",
-  "block.byg.embur_hyphae": "Hyphe d'Embur",
-  "block.byg.embur_lily": "Nénuphare d'Embur",
-  "block.byg.embur_nylium": "Nylium d'Embur",
-  "block.byg.embur_pedu": "Pedu d'Embur",
-  "block.byg.embur_planks": "Planches d'Embur",
-  "block.byg.embur_pressure_plate": "Plaque de Pression d'Embur",
-  "block.byg.embur_roots": "Racines d'Embur",
-  "block.byg.embur_slab": "Dalle d'Embur",
-  "block.byg.embur_sprouts": "Bourgeon d'Embur",
-  "block.byg.embur_stairs": "Escalier d'Embur",
-  "block.byg.embur_trapdoor": "Trappe d'Embur",
-  "block.byg.embur_wart": "Verrue d'Embur",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.ender_lily": "Nénuphare de l'End",
   "block.byg.ether_bookshelf": "Bibliothèque d'Ether",
   "block.byg.ether_bush": "Buisson d'Ether",
@@ -451,7 +451,7 @@
   "block.byg.flowering_orchard_leaves": "Feuilles de Verger Fleuri",
   "block.byg.flowering_palo_verde_leaves": "Feuilles de Palo Verde Fleuri",
   "block.byg.foxglove": "Foxglove",
-  "block.byg.frost_magma": "Magma Gelé",
+
   "block.byg.glowcelium_block": "Bloc de Glowcelium",
   "block.byg.glowstone_lamp": "Lampe en Glowcelium",
   "block.byg.glowstone_lantern": "Lanterne en Glowcelium",
@@ -522,24 +522,24 @@
   "block.byg.joshua_leaves": "Feuilles de Josué",
   "block.byg.joshua_sapling": "Pousse de Josué",
   "block.byg.kovan_flower": "Fleur Kovane",
-  "block.byg.lament_bookshelf": "Bibliothèque Lamente",
-  "block.byg.lament_button": "Bouton Lamente",
-  "block.byg.lament_crafting_table": "Établi Lamente",
-  "block.byg.lament_door": "Porte Lamente",
-  "block.byg.lament_fence": "Barrière Lamente",
-  "block.byg.lament_fence_gate": "Portillon Lamente",
-  "block.byg.lament_leaves": "Feuilles Lamentes",
-  "block.byg.lament_log": "Bûche Lamente",
-  "block.byg.lament_planks": "Planches Lamentes",
-  "block.byg.lament_pressure_plate": "Plaque de Pression Lamente",
-  "block.byg.lament_sapling": "Pousse Lamente",
-  "block.byg.lament_slab": "Dalle Lamente",
-  "block.byg.lament_sprouts": "Bourgeons Lamentes",
-  "block.byg.lament_stairs": "Escalier Lamente",
-  "block.byg.lament_trapdoor": "Trappe Lamente",
-  "block.byg.lament_vine": "Lianes Lamentes",
-  "block.byg.lament_vine_plant": "Vignes Lamentes",
-  "block.byg.lament_wood": "Bois Lamente",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.lazarus_bellflower": "Clochettes Lazarus",
   "block.byg.leaf_pile": "Pile de Feuillage",
   "block.byg.light_blue_petal_block": "Bloc de Pétales Bleues Claires",
@@ -607,7 +607,7 @@
   "block.byg.mossy_stone_wall": "Mur en Roche Moussue",
   "block.byg.mud_block": "Bloc de Boue",
   "block.byg.mud_bricks": "Briques de Boue",
-  "block.byg.nether_bristle": "Soie du Nether",
+
   "block.byg.nightshade_berry_bush": "Buisson de Baies de Belladone",
   "block.byg.nightshade_bookshelf": "Bibliothèque en Belladone",
   "block.byg.nightshade_button": "Bouton en Belladone",
@@ -644,7 +644,7 @@
   "block.byg.osiria_rose": "Rose Osiria",
   "block.byg.overgrown_crimson_blackstone": "Roche Noire envahi de Carmin",
   "block.byg.overgrown_dacite": "Dacite Démesurée",
-  "block.byg.overgrown_netherrack": "Netherrack Démesurée",
+
   "block.byg.overgrown_stone": "Roche Démesurée",
   "block.byg.packed_black_ice": "Glace Noire Compactée",
   "block.byg.palm_bookshelf": "Bibliothèque en Palmier",
@@ -668,8 +668,8 @@
   "block.byg.palo_verde_wood": "Bois de Palo Verde",
   "block.byg.peach_leather_flower": "Fleur de Peau de Pêche",
   "block.byg.peat": "Tourbe",
-  "block.byg.pendorite_block": "Bloc de Pendorite",
-  "block.byg.pendorite_ore": "Minerai de Pendorite",
+
+
   "block.byg.pervaded_netherrack": "Netherrack Imprégnée",
   "block.byg.pine_bookshelf": "Bibliothèque en Pin",
   "block.byg.pine_button": "Bouton en Pin",
@@ -708,7 +708,7 @@
   "block.byg.polished_soapstone_slab": "Dalles de Stéatite Polie",
   "block.byg.polished_soapstone_stairs": "Escalier de Stéatite Polie",
   "block.byg.polished_soapstone_wall": "Mur de Stéatite Polie",
-  "block.byg.pollen_block": "Bloc de Pollen",
+
   "block.byg.potted_alpine_bellflower": "Clochettes Alpines en Pot",
   "block.byg.potted_angelica": "Angélique en Pot",
   "block.byg.potted_araucaria_sapling": "Pousse d'Araucaria en Pot",
@@ -735,7 +735,7 @@
   "block.byg.potted_daffodil": "Jonquille en Pot",
   "block.byg.potted_death_cap": "Calice de la Mort en Pot",
   "block.byg.potted_ebony_sapling": "Pousse d'Ébène en Pot",
-  "block.byg.potted_embur_wart": "Verrue d'Embur en Pot",
+
   "block.byg.potted_ether_sapling": "Pousse d'Ether en Pot",
   "block.byg.potted_fir_sapling": "Pousse de Sapin en Pot",
   "block.byg.potted_firecracker_flower_bush": "Buisson de Fleur Pétard en Pot",
@@ -751,7 +751,7 @@
   "block.byg.potted_jacaranda_sapling": "Pousse de Jaracanda en Pot",
   "block.byg.potted_joshua_sapling": "Pousse de Josué en Pot",
   "block.byg.potted_kovan_flower": "Fleur Kovane en Pot",
-  "block.byg.potted_lament_sapling": "Pousse d'Arbre Gémissant en Pot",
+
   "block.byg.potted_lazarus_bellflower": "Clochette Lazarus en Pot",
   "block.byg.potted_lollipop_flower": "Lollipop en Pot",
   "block.byg.potted_magenta_tulip": "Tulipe Magenta en Pot",
@@ -804,7 +804,7 @@
   "block.byg.potted_willow_sapling": "Pousse de Saule en Pot",
   "block.byg.potted_winter_succulent": "Succulente Hivernale en Pot",
   "block.byg.potted_witch_hazel_sapling": "Pousse d'Hamamélis en Pot",
-  "block.byg.potted_withering_oak_sapling": "Pousse de Chêne Dépérissant en Pot",
+
   "block.byg.potted_wood_blewit": "Pied Bleu en Pot",
   "block.byg.potted_yellow_birch_sapling": "Pousse de Bouleau Jaune en Pot",
   "block.byg.potted_yellow_daffodil": "Jonquille Jaune en Pot",
@@ -905,19 +905,19 @@
   "block.byg.rose": "Rose",
   "block.byg.scorched_bush": "Buisson Brûlé",
   "block.byg.scorched_grass": "Herbe Brûlée",
-  "block.byg.scoria_cobblestone": "Pierres de Scorie",
-  "block.byg.scoria_cobblestone_slab": "Dalle en Pierres de Scorie",
-  "block.byg.scoria_cobblestone_stairs": "Escalier en Pierres de Scorie",
-  "block.byg.scoria_cobblestone_wall": "Mur en Pierres de Scorie",
-  "block.byg.scoria_pillar": "Pilier en Scorie",
-  "block.byg.scoria_stone": "Roche Scorie",
-  "block.byg.scoria_stone_slab": "Dalle en Roche Scorie",
-  "block.byg.scoria_stone_stairs": "Escalier en Roche Scorie",
-  "block.byg.scoria_stone_wall": "Mur en Roche Scorie",
-  "block.byg.scoria_stonebrick_slab": "Dalle en Roche Scorie Taillée",
-  "block.byg.scoria_stonebrick_stairs": "Escalier en Roche Scorie Taillée",
-  "block.byg.scoria_stonebrick_wall": "Mur en Roche Scorie Taillée",
-  "block.byg.scoria_stonebricks": "Roche Scorie Taillée",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "block.byg.short_beach_grass": "Herbe de Plage Courte",
   "block.byg.short_grass": "Herbe Courte",
   "block.byg.shulkren_fungus": "Fongus Shulkren",
@@ -972,16 +972,16 @@
   "block.byg.stripped_blue_enchanted_wood": "Bois Bleu Enchanté Écorcé",
   "block.byg.stripped_bulbis_stem": "Tige de Bulbe Écorcée",
   "block.byg.stripped_bulbis_wood": "Bois de Bulbe Écorcé",
-  "block.byg.stripped_cherry_log": "Bûche de Cerisier Écorcée",
-  "block.byg.stripped_cherry_wood": "Bois de Cerisier Écorcé",
+  "block.byg.stripped_sakura_cherry_log": "Bûche de Cerisier Écorcée",
+  "block.byg.stripped_sakura_cherry_wood": "Bois de Cerisier Écorcé",
   "block.byg.stripped_cika_log": "Bûche de Cycas Écorcée",
   "block.byg.stripped_cika_wood": "Bois de Cycas Écorcé",
   "block.byg.stripped_cypress_log": "Bûche de Cyprès Écorcée",
   "block.byg.stripped_cypress_wood": "Bois de Cyrpès Écorcé",
   "block.byg.stripped_ebony_log": "Bûche d'Ébène Écorcée",
   "block.byg.stripped_ebony_wood": "Bois d'Ébène Écorcé",
-  "block.byg.stripped_embur_hyphae": "Hyphes d'Embur Écorcés",
-  "block.byg.stripped_embur_pedu": "Pedu d'Embur Écorcé",
+
+
   "block.byg.stripped_ether_log": "Bûche d'Ether Écorcée",
   "block.byg.stripped_ether_wood": "Bois d'Ether Écorcé",
   "block.byg.stripped_fir_log": "Bûche de Sapin Écorcée",
@@ -992,8 +992,8 @@
   "block.byg.stripped_holly_wood": "Bois de Houx Écorcé",
   "block.byg.stripped_jacaranda_log": "Bûche Jacaranda Écorcée",
   "block.byg.stripped_jacaranda_wood": "Bois de Jacaranda Écorcé",
-  "block.byg.stripped_lament_log": "Bûche Lamente Écorcée",
-  "block.byg.stripped_lament_wood": "Bois Lamente Écorcé",
+
+
   "block.byg.stripped_mahogany_log": "Bûche d'Acajou Écorcée",
   "block.byg.stripped_mahogany_wood": "Bois d'Acajou Écorcé",
   "block.byg.stripped_white_mangrove_log": "Bûche de Mangrove Écorcée",
@@ -1022,8 +1022,8 @@
   "block.byg.stripped_witch_hazel_wood": "Bois de Hamamélis Écorcé",
   "block.byg.stripped_zelkova_log": "Bûche de Zelkova Écorcée",
   "block.byg.stripped_zelkova_wood": "Bois de Zelkova Écorcé",
-  "block.byg.subzero_ash": "Cendres Subzéro",
-  "block.byg.subzero_ash_block": "Bloc de Cendres Subzéro",
+
+
   "block.byg.sythian_bookshelf": "Bibliothèque de Scythe",
   "block.byg.sythian_button": "Bouton de Scythe",
   "block.byg.sythian_crafting_table": "Établi de Scythe",
@@ -1047,7 +1047,7 @@
   "block.byg.sythian_wart_block": "Bloc de Verrues de Scythe",
   "block.byg.tall_allium": "Haut Allium",
   "block.byg.tall_crimson_roots": "Hautes Racines Carmin",
-  "block.byg.tall_embur_roots": "Hautes Racines d'Embur",
+
   "block.byg.tall_pink_allium": "Haut Allium Rose",
   "block.byg.tall_prairie_grass": "Hautes Herbes de Prairie",
   "block.byg.thereal_bellflower": "Clochette Ordinaire",
@@ -1068,8 +1068,8 @@
   "block.byg.weed_grass": "Mauvaise Herbe",
   "block.byg.weeping_milkcap": "Lactaire Pleureur",
   "block.byg.weeping_milkcap_mushroom_block": "Bloc de Champignon Lactaire Pleureur",
-  "block.byg.weeping_roots": "Racines Gémissantes",
-  "block.byg.weeping_roots_plant": "Plante de Racines Gémissantes",
+
+
   "block.byg.wailing_grass": "Herbe Baleinière",
   "block.byg.wailing_vine": "Lianes Baleinière",
   "block.byg.white_anemone": "Anémone Blanche",
@@ -1120,10 +1120,10 @@
   "block.byg.witch_hazel_stairs": "Escalier en Hamamélis",
   "block.byg.witch_hazel_trapdoor": "Trappe en Hamamélis",
   "block.byg.witch_hazel_wood": "Bois d'Hamamélis",
-  "block.byg.withering_oak_leaves": "Feuilles de Chêne Dépérissant",
-  "block.byg.withering_oak_log": "Bûche de Chêne Dépérissant",
-  "block.byg.withering_oak_sapling": "Pousse de Chêne Dépérissant",
-  "block.byg.withering_oak_wood": "Bois de Chêne Dépérissant",
+
+
+
+
   "block.byg.wood_blewit": "Pied Bleu",
   "block.byg.wood_blewit_mushroom_block": "Bloc de Champignon Pied bleu",
   "block.byg.yellow_birch_leaves": "Feuilles de Bouleau Jaune",
@@ -1240,9 +1240,9 @@
   "item.byg.blue_glowcane_dust": "Poudre de Glowcane Bleue",
   "item.byg.blue_glowshroom": "Glowshroom Bleu",
   "item.byg.blue_glowshroom_block": "Bloc de Glowshroom Bleu",
-  "item.byg.blue_nether_brick": "Brique du Nether Bleue",
-  "item.byg.blue_nether_bricks": "Briques du Nether Bleues",
-  "item.byg.blue_netherrack": "Netherrack Bleue",
+
+
+
   "item.byg.blue_petal_block": "Bloc de Pétale Bleu",
   "item.byg.blue_sage": "Sauge Bleue",
   "item.byg.blue_sand": "Sable Bleu",
@@ -1279,21 +1279,21 @@
   "item.byg.byg_logo": "Logo Byg",
   "item.byg.california_poppy": "Coquelicot Californien",
   "item.byg.cattail": "Quenouille d'Afrique Sud",
-  "item.byg.chain_plating": "Revêtement de Chaînes",
-  "item.byg.cherry_boat": "Bateau en Cerisier",
-  "item.byg.cherry_bookshelf": "Bibliothèque en Cerisier",
-  "item.byg.cherry_button": "Bouton en Cerisier",
-  "item.byg.cherry_crafting_table": "Établi en Cerisier",
-  "item.byg.cherry_door": "Porte en Cerisier",
-  "item.byg.cherry_fence": "Barrière en Cerisier",
-  "item.byg.cherry_fence_gate": "Portillon en Cerisier",
-  "item.byg.cherry_log": "Bûche de Cerisier",
-  "item.byg.cherry_planks": "Planches de Cerisier",
-  "item.byg.cherry_pressure_plate": "Plaque de Pression en Cerisier",
-  "item.byg.cherry_slab": "Dalle en Cerisier",
-  "item.byg.cherry_stairs": "Escalier en Cerisier",
-  "item.byg.cherry_trapdoor": "Trappe en Cerisier",
-  "item.byg.cherry_wood": "Bois de Cerisier",
+
+  "item.byg:sakura_cherry_boat": "Bateau en Cerisier",
+  "item.byg:sakura_cherry_bookshelf": "Bibliothèque en Cerisier",
+  "item.byg:sakura_cherry_button": "Bouton en Cerisier",
+  "item.byg:sakura_cherry_crafting_table": "Établi en Cerisier",
+  "item.byg:sakura_cherry_door": "Porte en Cerisier",
+  "item.byg:sakura_cherry_fence": "Barrière en Cerisier",
+  "item.byg:sakura_cherry_fence_gate": "Portillon en Cerisier",
+  "item.byg:sakura_cherry_log": "Bûche de Cerisier",
+  "item.byg:sakura_cherry_planks": "Planches de Cerisier",
+  "item.byg:sakura_cherry_pressure_plate": "Plaque de Pression en Cerisier",
+  "item.byg:sakura_cherry_slab": "Dalle en Cerisier",
+  "item.byg:sakura_cherry_stairs": "Escalier en Cerisier",
+  "item.byg:sakura_cherry_trapdoor": "Trappe en Cerisier",
+  "item.byg:sakura_cherry_wood": "Bois de Cerisier",
   "item.byg.chiseled_red_rock_brick_slab": "Dalle en Briques de Roche Rouge Sculptée",
   "item.byg.chiseled_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Sculptée",
   "item.byg.chiseled_red_rock_brick_wall": "Mur en Briques de Roche Rouge Sculptée",
@@ -1320,7 +1320,7 @@
   "item.byg.cracked_red_rock_brick_stairs": "Escalier en Briques de Roche Rouge Craquelée",
   "item.byg.cracked_red_rock_brick_wall": "Mur en Briques de Roche Rouge Craquelée",
   "item.byg.cracked_red_rock_bricks": "Briques de Roche Rouge Craquelée",
-  "item.byg.crimson_berries": "Baies Carmin",
+
   "item.byg.crocus": "Crocus",
   "item.byg.cryptic_campfire": "Feu de Camp Cryptique",
   "item.byg.cryptic_magma_block": "Bloc de Magma Cryptique",
@@ -1384,27 +1384,27 @@
   "item.byg.ebony_stairs": "Escalier d'Ébène",
   "item.byg.ebony_trapdoor": "Trappe d'Ébène",
   "item.byg.ebony_wood": "Bois d'Ébène",
-  "item.byg.embur_bookshelf": "Bibliothèque en Embur",
-  "item.byg.embur_button": "Bouton en Embur",
-  "item.byg.embur_crafting_table": "Établi en Embur",
-  "item.byg.embur_door": "Porte en Embur",
-  "item.byg.embur_fence": "Barrière en Embur",
-  "item.byg.embur_fence_gate": "Portillon en Embur",
-  "item.byg.embur_gel_ball": "Balle de Gel d'Embur",
-  "item.byg.embur_gel_block": "Block de Gel d'Embur",
-  "item.byg.embur_gel_vines": "Lianes de Gel d'Embur",
-  "item.byg.embur_hyphae": "Hyphe d'Embur",
-  "item.byg.embur_lily": "Nénuphare d'Embur",
-  "item.byg.embur_nylium": "Nylium d'Embur",
-  "item.byg.embur_pedu": "Pedu d'Embur",
-  "item.byg.embur_planks": "Planches d'Embur",
-  "item.byg.embur_pressure_plate": "Plaque de Pression en Embur",
-  "item.byg.embur_roots": "Racines d'Embur",
-  "item.byg.embur_slab": "Dalle en Embur",
-  "item.byg.embur_sprouts": "Bourgeon d'Embur",
-  "item.byg.embur_stairs": "Escalier en Embur",
-  "item.byg.embur_trapdoor": "Trappe d'Embur",
-  "item.byg.embur_wart": "Verrue d'Embur",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.ender_lily": "Nénuphare de l'End",
   "item.byg.ether_bookshelf": "Bibliothèque d'Ether",
   "item.byg.ether_bush": "Buisson d'Ether",
@@ -1452,7 +1452,7 @@
   "item.byg.flowering_orchard_leaves": "Feuilles de Verger Fleuri",
   "item.byg.flowering_palo_verde_leaves": "Feuilles de Palo Verde Fleuri",
   "item.byg.foxglove": "Foxglove",
-  "item.byg.frost_magma": "Magma Gelé",
+
   "item.byg.glowcelium_block": "Bloc de Glowcelium",
   "item.byg.glowstone_lamp": "Lampe en Glowcelium",
   "item.byg.glowstone_lantern": "Lanterne en Glowcelium",
@@ -1528,23 +1528,23 @@
   "item.byg.joshua_leaves": "Feuilles de Josué",
   "item.byg.joshua_sapling": "Pousse de Josué",
   "item.byg.kovan_flower": "Fleur Kovane",
-  "item.byg.lament_bookshelf": "Bibliothèque Lamente",
-  "item.byg.lament_button": "Bouton Lamente",
-  "item.byg.lament_crafting_table": "Établi Lamente",
-  "item.byg.lament_door": "Porte Lamente",
-  "item.byg.lament_fence": "Barrière Lamente",
-  "item.byg.lament_fence_gate": "Portillon Lamente",
-  "item.byg.lament_leaves": "Feuilles Lamentes",
-  "item.byg.lament_log": "Bûche Lamente",
-  "item.byg.lament_planks": "Planches Lamentes",
-  "item.byg.lament_pressure_plate": "Plaque de Pression Lamente",
-  "item.byg.lament_sapling": "Pousse Lamente",
-  "item.byg.lament_slab": "Dalle Lamente",
-  "item.byg.lament_sprouts": "Bourgeons Lamentes",
-  "item.byg.lament_stairs": "Escalier Lamente",
-  "item.byg.lament_trapdoor": "Trappe Lamente",
-  "item.byg.lament_vine": "Lianes Lamentes",
-  "item.byg.lament_wood": "Bois Lamente",
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
   "item.byg.lazarus_bellflower": "Clochettes Lazarus",
   "item.byg.leaf_pile": "Pile de Feuillage",
   "item.byg.light_blue_petal_block": "Bloc de Pétales Bleues Claires",
@@ -1617,7 +1617,7 @@
   "item.byg.mud_ball": "Balle de Boue",
   "item.byg.mud_block": "Bloc de Boue",
   "item.byg.mud_bricks": "Briques de Boue",
-  "item.byg.nether_bristle": "Soie du Nether",
+
   "item.byg.nightshade_berries": "Buisson de Baies de Belladone",
   "item.byg.nightshade_bookshelf": "Bibliothèque en Belladone",
   "item.byg.nightshade_button": "Bouton en Belladone",
@@ -1654,7 +1654,7 @@
   "item.byg.osiria_rose": "Rose Osiria",
   "item.byg.overgrown_crimson_blackstone": "Roche Noire envahi de Carmin",
   "item.byg.overgrown_dacite": "Dacite Démesurée",
-  "item.byg.overgrown_netherrack": "Netherrack Démesurée",
+
   "item.byg.overgrown_stone": "Roche Démesurée",
   "item.byg.packed_black_ice": "Glace Noire Compactée",
   "item.byg.palm_boat": "Bateau en Palmier",
@@ -1679,16 +1679,16 @@
   "item.byg.palo_verde_wood": "Bois de Palo Verde",
   "item.byg.peach_leather_flower": "Fleur de Peau Cuir de Pêche",
   "item.byg.peat": "Tourbe",
-  "item.byg.pendorite_axe": "Hache en Pendorite",
-  "item.byg.pendorite_battleaxe": "Hache Valekienne en Pendorite",
-  "item.byg.pendorite_block": "Bloc de Pendorite",
-  "item.byg.pendorite_hoe": "Houe en Pendorite",
-  "item.byg.pendorite_horse_armor": "Armure en Pendorite pour cheval",
-  "item.byg.pendorite_ore": "Minerai de Pendorite",
-  "item.byg.pendorite_pickaxe": "Pioche en Pendorite",
-  "item.byg.pendorite_scraps": "Débris de Pendorite",
-  "item.byg.pendorite_shovel": "Pelle en Pendorite",
-  "item.byg.pendorite_sword": "Épée en Pendorite",
+
+
+
+
+
+
+
+
+
+
   "item.byg.pervaded_netherrack": "Netherrack Imprégnée",
   "item.byg.pine_boat": "Bateau en Pin",
   "item.byg.pine_bookshelf": "Bibliothèque en Pin",
@@ -1729,8 +1729,8 @@
   "item.byg.polished_soapstone_slab": "Dalles de Stéatite Polie",
   "item.byg.polished_soapstone_stairs": "Escalier de Stéatite Polie",
   "item.byg.polished_soapstone_wall": "Mur de Stéatite Polie",
-  "item.byg.pollen_block": "Bloc de Pollen",
-  "item.byg.pollen_dust": "Poudre de Pollen",
+
+
   "item.byg.prairie_grass": "Herbe de Prairie",
   "item.byg.prickly_pear_cactus": "Cactus de Figue de Barbarie",
   "item.byg.protea_flower": "Fleur de Protea",
@@ -1829,19 +1829,19 @@
   "item.byg.rose": "Rose",
   "item.byg.scorched_bush": "Buisson Brûlé",
   "item.byg.scorched_grass": "Herbe Brûlée",
-  "item.byg.scoria_cobblestone": "Pierres de Scorie",
-  "item.byg.scoria_cobblestone_slab": "Dalle en Pierres de Scorie",
-  "item.byg.scoria_cobblestone_stairs": "Escalier en Pierres de Scorie",
-  "item.byg.scoria_cobblestone_wall": "Mur en Pierres de Scorie",
-  "item.byg.scoria_pillar": "Pilier en Scorie",
-  "item.byg.scoria_stone": "Roche Scorie",
-  "item.byg.scoria_stone_slab": "Dalle en Roche Scorie",
-  "item.byg.scoria_stone_stairs": "Escalier en Roche Scorie",
-  "item.byg.scoria_stone_wall": "Mur en Roche Scorie",
-  "item.byg.scoria_stonebrick_slab": "Dalle en Roche Scorie Taillée",
-  "item.byg.scoria_stonebrick_stairs": "Escalier en Roche Scorie Taillée",
-  "item.byg.scoria_stonebrick_wall": "Mur en Roche Scorie Taillée",
-  "item.byg.scoria_stonebricks": "Roche Scorie Taillée",
+
+
+
+
+
+
+
+
+
+
+
+
+
   "item.byg.short_beach_grass": "Herbe de Plage Courte",
   "item.byg.short_grass": "Herbe Courte",
   "item.byg.shulkren_fungus": "Fongus Shulkren",
@@ -1895,16 +1895,16 @@
   "item.byg.stripped_blue_enchanted_wood": "Bois Bleu Enchanté Écorcé",
   "item.byg.stripped_bulbis_stem": "Tige de Bulbe Écorcée",
   "item.byg.stripped_bulbis_wood": "Bois de Bulbe Écorcé",
-  "item.byg.stripped_cherry_log": "Bûche de Cerisier Écorcée",
-  "item.byg.stripped_cherry_wood": "Bois de Cerisier Écorcé",
+  "item.byg.stripped_sakura_cherry_log": "Bûche de Cerisier Écorcée",
+  "item.byg.stripped_sakura_cherry_wood": "Bois de Cerisier Écorcé",
   "item.byg.stripped_cika_log": "Bûche de Cika Écorcée",
   "item.byg.stripped_cika_wood": "Bois de Cika Écorcé",
   "item.byg.stripped_cypress_log": "Bûche de Cyprès Écorcée",
   "item.byg.stripped_cypress_wood": "Bois de Cyprès Écorcé",
   "item.byg.stripped_ebony_log": "Bûche d'Ébène Écorcée",
   "item.byg.stripped_ebony_wood": "Bois d'Ébène Écorcé",
-  "item.byg.stripped_embur_hyphae": "Hyphes d'Embur Écorcés",
-  "item.byg.stripped_embur_pedu": "Pedu d'Embur Écorcé",
+
+
   "item.byg.stripped_ether_log": "Bûche d'Ether Écorcée",
   "item.byg.stripped_ether_wood": "Bois d'Ether Écorcé",
   "item.byg.stripped_fir_log": "Bûche de Sapin Écorcée",
@@ -1915,8 +1915,8 @@
   "item.byg.stripped_holly_wood": "Bois de Houx Écorcé",
   "item.byg.stripped_jacaranda_log": "Bûche Jacaranda Écorcée",
   "item.byg.stripped_jacaranda_wood": "Bois de Jacaranda Écorcé",
-  "item.byg.stripped_lament_log": "Bûche Lamente Écorcée",
-  "item.byg.stripped_lament_wood": "Bois Lamente Écorcé",
+
+
   "item.byg.stripped_mahogany_log": "Bûche d'Acajou Écorcée",
   "item.byg.stripped_mahogany_wood": "Bois d'Acajou Écorcé",
   "item.byg.stripped_white_mangrove_log": "Bûche de Mangrove Écorcée",
@@ -1945,8 +1945,8 @@
   "item.byg.stripped_witch_hazel_wood": "Bois de Hamamélis Écorcé",
   "item.byg.stripped_zelkova_log": "Bûche de Zelkova Écorcée",
   "item.byg.stripped_zelkova_wood": "Bois de Zelkova Écorcé",
-  "item.byg.subzero_ash": "Cendres Subzéro",
-  "item.byg.subzero_ash_block": "Bloc de Cendres Subzéro",
+
+
   "item.byg.sythian_bookshelf": "Bibliothèque de Scythe",
   "item.byg.sythian_button": "Bouton de Scythe",
   "item.byg.sythian_crafting_table": "Établi de Scythe",
@@ -1969,7 +1969,7 @@
   "item.byg.sythian_wart_block": "Bloc de Verrues de Scythe",
   "item.byg.tall_allium": "Haut Allium",
   "item.byg.tall_crimson_roots": "Hautes Racines Carmin",
-  "item.byg.tall_embur_roots": "Hautes Racines d'Embur",
+
   "item.byg.tall_pink_allium": "Haut Allium Rose",
   "item.byg.tall_prairie_grass": "Hautes Herbes de Prairie",
   "item.byg.thereal_bellflower": "Clochette Ordinaire",
@@ -1989,7 +1989,7 @@
   "item.byg.weed_grass": "Mauvaise Herbe",
   "item.byg.weeping_milkcap": "Lactaire Pleureur",
   "item.byg.weeping_milkcap_mushroom_block": "Bloc de Champignon Lactaire Pleureur",
-  "item.byg.weeping_roots": "Racines Gémissantes",
+
   "item.byg.wailing_grass": "Herbe Baleinière",
   "item.byg.wailing_vine": "Lianes Baleinière",
   "item.byg.white_anemone": "Anémone Blanche",
@@ -2042,10 +2042,10 @@
   "item.byg.witch_hazel_stairs": "Escalier en Hamamélis",
   "item.byg.witch_hazel_trapdoor": "Trappe en Hamamélis",
   "item.byg.witch_hazel_wood": "Bois d'Hamamélis",
-  "item.byg.withering_oak_leaves": "Feuilles de Chêne Dépérissant",
-  "item.byg.withering_oak_log": "Bûche de Chêne Dépérissant",
-  "item.byg.withering_oak_sapling": "Pousse de Chêne Dépérissant",
-  "item.byg.withering_oak_wood": "Bois de Chêne Dépérissant",
+
+
+
+
   "item.byg.wood_blewit": "Pied Bleu",
   "item.byg.wood_blewit_mushroom_block": "Bloc de Champignon Pied bleu",
   "item.byg.yellow_birch_leaves": "Feuilles de Bouleau Jaune",
