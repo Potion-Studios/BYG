@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "byg:block/shulkren_wart_block_nodots",
-    "particle": "byg:block/shulkren_wart_block_nodots"
-  }
-}

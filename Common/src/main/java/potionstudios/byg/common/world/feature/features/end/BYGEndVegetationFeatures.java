@@ -14,7 +14,6 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -30,10 +29,11 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeave
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.*;
+import potionstudios.byg.common.block.BYGBlockTags;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.block.BaobabFruitBlock;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
-import potionstudios.byg.common.world.feature.BYGFeatures;
-import potionstudios.byg.common.world.feature.config.HangingColumnWithBaseConfig;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
@@ -71,8 +71,6 @@ public class BYGEndVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeatureWithBlock("imparius_mushroom", BYGWoodTypes.IMPARIUS.growerItem(), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeatureWithBlock("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPARIUS_BUSH = createPatchConfiguredFeatureWithBlock("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_FUNGUS = createPatchConfiguredFeatureWithBlock("shulkren_fungus", BYGBlocks.SHULKREN_FUNGUS, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_MOSS = createPatchConfiguredFeatureWithBlock("shulkren_moss", BYGBlocks.SHULKREN_MOSS_BLANKET, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> THEREAL_BELLFLOWER = createFlowerConfiguredFeature("thereal_bellflower", BYGBlocks.THEREAL_BELLFLOWER);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_ETHER_GRASS = createPatchConfiguredFeatureWithBlock("tall_ether_grass", BYGBlocks.TALL_ETHER_GRASS, 32);
@@ -80,18 +78,6 @@ public class BYGEndVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH = createPatchConfiguredFeatureWithBlock("ether_bush", BYGBlocks.ETHER_BUSH, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_FOLIAGE = createPatchConfiguredFeatureWithBlock("ether_foliage", BYGBlocks.ETHER_FOLIAGE, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BULB = createSimpleBlockConfiguredFeatureWithBlock("ether_bulb", BYGBlocks.ETHER_BULB);
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_SHULKREN_VINE = createConfiguredFeature("hanging_shulkren_vine",
-            BYGFeatures.HANGING_FEATURE,
-            () -> new HangingColumnWithBaseConfig.Builder()
-                    .setBaseBlock(Blocks.END_STONE)
-                    .setBlock(BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState())
-                    .setEndBlock(BYGBlocks.SHULKREN_VINE.defaultBlockState().setValue(BlockStateProperties.AGE_25, 23))
-                    .setMinLength(1)
-                    .setMaxLength(8)
-                    .setPlacementFilter(BlockPredicate.anyOf(BlockPredicate.matchesTag(BYGBlockTags.END_STONE), BlockPredicate.matchesBlocks(Blocks.END_STONE, BYGBlocks.SHULKREN_PHYLIUM.get())))
-                    .build()
-    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ENDER_LILY = createConfiguredFeature("ender_lily",
             () -> Feature.RANDOM_PATCH,
@@ -338,38 +324,10 @@ public class BYGEndVegetationFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> SHULKREN_VINE_PLANT = () -> new AttachedToLeavesDecorator(0.3F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_VINE_PLANT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN));
-    public static final Supplier<AttachedToLeavesDecorator> SHULKREN_VINE = () -> new AttachedToLeavesDecorator(0.3F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.SHULKREN_VINE.defaultBlockState()), EtherBulbsBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
     public static final Supplier<AttachedToLeavesDecorator> PURPLE_SHROOMLIGHT = () -> new AttachedToLeavesDecorator(0.13F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.PURPLE_SHROOMLIGHT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN, Direction.UP));
 
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_TREE1 = createConfiguredFeature("shulkren_tree1",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/generic_trunk"),
-                    BYG.createLocation("features/fungi/shulkren/shulkren_canopy1"),
-                    BiasedToBottomInt.of(3, 7),
-                    BlockStateProvider.simple(BYGBlocks.WHITE_MUSHROOM_STEM.get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_WART_BLOCK.defaultBlockState(), 1).build()),
-                    BYGBlocks.WHITE_MUSHROOM_STEM.get(),
-                    BYGBlocks.SHULKREN_WART_BLOCK.get(),
-                    BYGBlockTags.GROUND_SHULKREN_FUNGUS, 5, ImmutableList.of(PURPLE_SHROOMLIGHT.get(), SHULKREN_VINE_PLANT.get(), SHULKREN_VINE.get())
-            )
-    );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_TREE2 = createConfiguredFeature("shulkren_tree2",
-            CorgiLibFeatures.TREE_FROM_NBT,
-            () -> new TreeFromStructureNBTConfig(
-                    BYG.createLocation("features/trees/generic_trunk"),
-                    BYG.createLocation("features/fungi/shulkren/shulkren_canopy2"),
-                    BiasedToBottomInt.of(3, 4),
-                    BlockStateProvider.simple(BYGBlocks.WHITE_MUSHROOM_STEM.get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SHULKREN_WART_BLOCK.defaultBlockState(), 1).build()),
-                    BYGBlocks.WHITE_MUSHROOM_STEM.get(),
-                    BYGBlocks.SHULKREN_WART_BLOCK.get(),
-                    BYGBlockTags.GROUND_SHULKREN_FUNGUS, 5, ImmutableList.of(PURPLE_SHROOMLIGHT.get(), SHULKREN_VINE_PLANT.get(), SHULKREN_VINE.get())
-            )
-    );
 
     public static final Supplier<AttachedToLogsDecorator> IMPARIUS_MUSHROOM_BRANCH = () -> new AttachedToLogsDecorator(0.43F, 0, 1, SimpleStateProvider.simple(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH.defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
     public static final Supplier<AttachedToLeavesDecorator> IMPARIUS_VINE_PLANT = () -> new AttachedToLeavesDecorator(0.15F, 2, 0, new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMPARIUS_VINE_PLANT.defaultBlockState(), 1).build()), 2, List.of(Direction.DOWN));
@@ -838,17 +796,6 @@ public class BYGEndVegetationFeatures {
             }
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_TREES = createConfiguredFeature("shulkren_trees",
-            () -> Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHULKREN_TREE1)), 0.5F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHULKREN_TREE2)));
-            }
-    );
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_SHRUBS = createConfiguredFeature("nightshade_shrubs",
             () -> Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstapContext) -> {
@@ -919,16 +866,6 @@ public class BYGEndVegetationFeatures {
                 return new RandomFeatureConfiguration(ImmutableList.of(
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BULBIS_ANOMALY)), 0.5F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(PURPLE_BULBIS_ANOMALY)));
-            }
-    );
-
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHULKREN_PLANTS = createConfiguredFeature("shulkren_plants", () -> Feature.RANDOM_SELECTOR,
-            (configuredFeatureBootstapContext) -> {
-                HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-
-                return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHULKREN_FUNGUS)), 0.5F)),
-                        BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(SHULKREN_MOSS)));
             }
     );
 

@@ -26,7 +26,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_DEATH_CAP = createNetherPlantTag("may_place_on/death_cap");
     public static final TagKey<Block> GROUND_BULBIS_ODDITY = createEndPlantTag("may_place_on/bulbis_oddity");
     public static final TagKey<Block> GROUND_PURPLE_BULBIS_ODDITY = createEndPlantTag("may_place_on/purple_bulbis_oddity");
-    public static final TagKey<Block> GROUND_SHULKREN_FUNGUS = createEndPlantTag("may_place_on/shulkren_fungus");
     public static final TagKey<Block> GROUND_IMPARIUS_MUSHROOM = createEndPlantTag("may_place_on/imparius_mushroom");
     public static final TagKey<Block> GROUND_FUNGAL_IMPARIUS = createEndPlantTag("may_place_on/fungal_imparius");
     public static final TagKey<Block> GROUND_BEACH_GRASS = createDesertPlantTag("may_place_on/beach_grass");

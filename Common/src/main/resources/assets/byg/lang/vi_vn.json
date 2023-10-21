@@ -56,7 +56,7 @@
   "biome.byg.redwood_thicket": "Rừng gỗ đỏ rậm rạp",
   "biome.byg.rose_fields": "Cánh đồng hoa",
   "biome.byg.shattered_glacier": "Sông băng tan vỡ",
-  "biome.byg.shulkren_forest": "Rừng Shulkren",
+
   "biome.byg.sierra_badlands": "Sierra Badlands",
   "biome.byg.skyris_vale": "Skyris Vale",
 
@@ -887,7 +887,7 @@
   "block.byg.potted_richea": "Chậu hoa Richea",
   "block.byg.potted_rose": "Chậu hoa hồng",
   "block.byg.potted_shrub": "Chậu cây bụi",
-  "block.byg.potted_shulkren_fungus": "Chậu nấm Shulkren",
+
   "block.byg.potted_silver_maple_sapling": "Chậu chồi cây phong lá bạc",
   "block.byg.potted_silver_vase_flower": "Chậu dứa cảnh gai hồng",
   "block.byg.potted_skyris_sapling": "Chậu chồi cây Skyris",
@@ -1016,12 +1016,12 @@
   "block.byg.shiny_chiseled_therium_stairs": "Cầu thang Therium được đục sáng bóng",
   "block.byg.shiny_chiseled_therium_wall": "Tường Therium được đục sáng bóng",
   "block.byg.shrub": "Cây bụi",
-  "block.byg.shulkren_fungus": "Nấm Shulkren",
-  "block.byg.shulkren_moss_blanket": "Mốc nấm Shulkren",
-  "block.byg.shulkren_phylium": "Đá Shulkren Phylium",
-  "block.byg.shulkren_vine": "Dây leo Shulkren",
-  "block.byg.shulkren_vine_plant": "Dây leo Shulkren",
-  "block.byg.shulkren_wart_block": "Khối bướu Shulkren",
+
+
+
+
+
+
   "block.byg.silver_maple_leaves": "Lá phong bạc",
   "block.byg.silver_maple_sapling": "Chồi cây phong lá bạc",
   "block.byg.silver_vase_flower": "Dứa cảnh gai hồng",
@@ -2154,11 +2154,11 @@
   "item.byg.shiny_chiseled_therium_stairs": "Cầu thang Therium được đục sáng bóng",
   "item.byg.shiny_chiseled_therium_wall": "Tường Therium được đục sáng bóng",
   "item.byg.shrub": "Cây bụi",
-  "item.byg.shulkren_fungus": "Nấm Shulkren",
-  "item.byg.shulkren_moss_blanket": "Mốc nấm Shulkren",
-  "item.byg.shulkren_phylium": "Đá Shulkren Phylium",
-  "item.byg.shulkren_vine": "Dây leo Shulkren",
-  "item.byg.shulkren_wart_block": "Khối bướu Shulkren",
+
+
+
+
+
   "item.byg.silver_maple_leaves": "Lá phong bạc",
   "item.byg.silver_maple_sapling": "Chồi cây phong lá bạc",
   "item.byg.silver_vase_flower": "Dứa cảnh gai hồng",

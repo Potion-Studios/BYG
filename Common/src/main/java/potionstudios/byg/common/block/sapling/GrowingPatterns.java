@@ -605,12 +605,6 @@ public record GrowingPatterns(boolean logGrowth,
                             .build())
             ));
 
-            map.put(BYGBlocks.SHULKREN_FUNGUS.get(), List.of(
-                    new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                            .add(new FeatureSpawner(BYGEndVegetationFeatures.SHULKREN_TREE1), 1)
-                            .add(new FeatureSpawner(BYGEndVegetationFeatures.SHULKREN_TREE2), 1)
-                            .build())
-            ));
             map.put(BYGWoodTypes.IMPARIUS.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
