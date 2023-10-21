@@ -56,7 +56,7 @@
   "biome.byg.redwood_thicket": "红杉树林",
   "biome.byg.rose_fields": "玫瑰原野",
   "biome.byg.shattered_glacier": "破碎的冰川",
-  "biome.byg.shulkren_forest": "潜影森林",
+
   "biome.byg.sierra_badlands": "锯齿恶地",
   "biome.byg.skyris_vale": "天际木山谷",
 
@@ -895,7 +895,7 @@
   "block.byg.potted_richea": "彩穗花盆栽",
   "block.byg.potted_rose": "玫瑰盆栽",
   "block.byg.potted_shrub": "灌木盆栽",
-  "block.byg.potted_shulkren_fungus": "潜影菌盆栽",
+
   "block.byg.potted_silver_maple_sapling": "银色枫树树苗盆栽",
   "block.byg.potted_silver_vase_flower": "美叶光萼荷盆栽",
   "block.byg.potted_skyris_sapling": "天际树苗盆栽",
@@ -1025,12 +1025,12 @@
   "block.byg.shiny_chiseled_therium_stairs": "闪亮的錾制空灵晶楼梯",
   "block.byg.shiny_chiseled_therium_wall": "闪亮的錾制空灵晶墙",
   "block.byg.shrub": "灌木",
-  "block.byg.shulkren_fungus": "潜影菌",
-  "block.byg.shulkren_moss_blanket": "潜影苔藓地毯",
-  "block.byg.shulkren_phylium": "潜影藻石",
-  "block.byg.shulkren_vine": "潜影藤",
-  "block.byg.shulkren_vine_plant": "潜影藤植株",
-  "block.byg.shulkren_wart_block": "潜影疣块",
+
+
+
+
+
+
   "block.byg.silver_maple_leaves": "银色枫树树叶",
   "block.byg.silver_maple_sapling": "银色枫树树苗",
   "block.byg.silver_vase_flower": "美叶光萼荷",
@@ -2188,11 +2188,11 @@
   "item.byg.shiny_chiseled_therium_stairs": "闪亮的錾制空灵晶楼梯",
   "item.byg.shiny_chiseled_therium_wall": "闪亮的錾制空灵晶墙",
   "item.byg.shrub": "灌木",
-  "item.byg.shulkren_fungus": "潜影菌",
-  "item.byg.shulkren_moss_blanket": "潜影苔藓地毯",
-  "item.byg.shulkren_phylium": "潜影藻石",
-  "item.byg.shulkren_vine": "潜影藤",
-  "item.byg.shulkren_wart_block": "潜影疣块",
+
+
+
+
+
   "item.byg.silver_maple_leaves": "银色枫树树叶",
   "item.byg.silver_maple_sapling": "银色枫树树苗",
   "item.byg.silver_vase_flower": "美叶光萼荷",

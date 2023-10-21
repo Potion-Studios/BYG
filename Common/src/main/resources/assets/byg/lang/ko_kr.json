@@ -56,7 +56,7 @@
   "biome.byg.redwood_thicket": "삼나무 숲",
   "biome.byg.rose_fields": "장미 들판",
   "biome.byg.shattered_glacier": "산산이 조각난 빙하",
-  "biome.byg.shulkren_forest": "셜크 숲",
+
   "biome.byg.sierra_badlands": "시에라 악지 지형",
   "biome.byg.skyris_vale": "스카이리스 계곡",
 
@@ -820,7 +820,7 @@
   "block.byg.potted_richea": "화분에 심겨진 리치",
   "block.byg.potted_rose": "화분에 심겨진 장미",
   "block.byg.potted_shrub": "화분에 심겨진 관목",
-  "block.byg.potted_shulkren_fungus": "화분에 심겨진 셜크 균",
+
   "block.byg.potted_silver_maple_sapling": "화분에 심겨진 은색 단풍나무 묘목",
   "block.byg.potted_silver_vase_flower": "화분에 심겨진 은색 베이스 꽃",
   "block.byg.potted_skyris_sapling": "화분에 심겨진 스카이리스 묘목",
@@ -944,12 +944,12 @@
   "block.byg.shiny_chiseled_therium_stairs": "반짝거리는 조각된 테리움 계단",
   "block.byg.shiny_chiseled_therium_wall": "반짝거리는 조각된 테리움 담장",
   "block.byg.shrub": "관목",
-  "block.byg.shulkren_fungus": "셜크 균",
-  "block.byg.shulkren_moss_blanket": "셜크 이끼 덮개",
-  "block.byg.shulkren_phylium": "셜크 엔사체",
-  "block.byg.shulkren_vine": "셜크 덩굴",
-  "block.byg.shulkren_vine_plant": "셜크 덩굴 열매",
-  "block.byg.shulkren_wart_block": "셜크 사마귀 블록",
+
+
+
+
+
+
   "block.byg.silver_maple_leaves": "은색 단풍나무 잎",
   "block.byg.silver_maple_sapling": "은색 단풍나무 묘목",
   "block.byg.silver_vase_flower": "은색 베이스 꽃",
@@ -2053,11 +2053,11 @@
   "item.byg.shiny_chiseled_therium_stairs": "반짝거리는 조각된 테리움 계단",
   "item.byg.shiny_chiseled_therium_wall": "반짝거리는 조각된 테리움 담장",
   "item.byg.shrub": "관목",
-  "item.byg.shulkren_fungus": "셜크 균",
-  "item.byg.shulkren_moss_blanket": "셜크 이끼 덮개",
-  "item.byg.shulkren_phylium": "셜크 엔사체",
-  "item.byg.shulkren_vine": "셜크 덩굴",
-  "item.byg.shulkren_wart_block": "셜크 사마귀 블록",
+
+
+
+
+
   "item.byg.silver_maple_leaves": "은색 단풍나무 잎",
   "item.byg.silver_maple_sapling": "은색 단풍나무 묘목",
   "item.byg.silver_vase_flower": "은색 베이스 꽃",

@@ -127,7 +127,7 @@
   "biome.byg.shattered_desert": "Désert Dévasté",
   "biome.byg.shattered_glacier": "Glacier Fragmenté",
   "biome.byg.shrublands": "Fruticée",
-  "biome.byg.shulkren_forest": "Forêt Shulkren",
+
   "biome.byg.sierra_range": "Chaîne de Montagnes",
   "biome.byg.sierra_badlands": "Vallée de Montagnes",
   "biome.byg.skyris_highlands": "Hautes Terres Skyris",
@@ -790,7 +790,7 @@
   "block.byg.potted_redwood_sapling": "Pousse de Séquoia en Pot",
   "block.byg.potted_richea": "Richea en Pot",
   "block.byg.potted_rose": "Rose en Pot",
-  "block.byg.potted_shulkren_fungus": "Champignon Shulkren en Pot",
+
   "block.byg.potted_silver_maple_sapling": "Pousse d'Érable Argenté en Pot",
   "block.byg.potted_silver_vase_flower": "Fleur de Vase Argentée en Pot",
   "block.byg.potted_skyris_sapling": "Pousse de Skyris en Pot",
@@ -920,12 +920,12 @@
 
   "block.byg.short_beach_grass": "Herbe de Plage Courte",
   "block.byg.short_grass": "Herbe Courte",
-  "block.byg.shulkren_fungus": "Fongus Shulkren",
-  "block.byg.shulkren_moss_blanket": "Couverture en Mousse Shulkren",
-  "block.byg.shulkren_phylium": "Phylium Shulkren",
-  "block.byg.shulkren_vine": "Lianes Shulkren",
-  "block.byg.shulkren_vine_plant": "Vignes Shulkren",
-  "block.byg.shulkren_wart_block": "Bloc de Verrues Shulkren",
+
+
+
+
+
+
   "block.byg.silver_maple_leaves": "Feuilles d'Érable Argenté",
   "block.byg.silver_maple_sapling": "Pousse d'Érable Argenté",
   "block.byg.silver_vase_flower": "Fleur de vase Argentée",
@@ -1844,11 +1844,11 @@
 
   "item.byg.short_beach_grass": "Herbe de Plage Courte",
   "item.byg.short_grass": "Herbe Courte",
-  "item.byg.shulkren_fungus": "Fongus Shulkren",
-  "item.byg.shulkren_moss_blanket": "Couverture en Mousse Shulkren",
-  "item.byg.shulkren_phylium": "Phylium Shulkren",
-  "item.byg.shulkren_vine": "Lianes Shulkren",
-  "item.byg.shulkren_wart_block": "Bloc de Verrues Shulkren",
+
+
+
+
+
   "item.byg.silver_maple_leaves": "Feuilles d'Érable Argenté",
   "item.byg.silver_maple_sapling": "Pousse d'Érable Argenté",
   "item.byg.silver_vase_flower": "Fleur de vase Argentée",

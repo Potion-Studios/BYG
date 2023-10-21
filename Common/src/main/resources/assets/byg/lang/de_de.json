@@ -130,7 +130,7 @@
 	"biome.byg.shattered_glacier": "Zerbrochender Gletscher",
 	"biome.byg.shattered_viscal_isles": "Zerbrochende viscale Inseln",
 	"biome.byg.shrublands": "Buschland",
-	"biome.byg.shulkren_forest": "Shulkrenwald",
+
 	"biome.byg.sierra_range": "Sierragebirgskette",
 	"biome.byg.sierra_badlands": "Sierratal",
 	"biome.byg.skyris_highlands": "Skyrishochland",
@@ -830,12 +830,12 @@
 
 	"block.byg.short_beach_grass": "Kleines Strandgras",
 	"block.byg.short_grass": "Kleines Gras",
-	"block.byg.shulkren_fungus": "Shulkrenschmarotzerpilz",
-	"block.byg.shulkren_moss_blanket": "Shulkrenmoosdecke",
-	"block.byg.shulkren_phylium": "Shulkrenphylium",
-	"block.byg.shulkren_vine": "Shulkrenranken",
-	"block.byg.shulkren_vine_plant": "Shulkrenrankenpflanze",
-	"block.byg.shulkren_wart_block": "Shulkrenwarzeblock",
+
+
+
+
+
+
 	"block.byg.silver_maple_leaves": "Silberner Ahornlaub",
 	"block.byg.silver_maple_sapling": "Silberner Ahornsetzling",
 	"block.byg.silver_vase_flower": "Silberner Vaseblume",
@@ -1751,11 +1751,11 @@
 
 	"item.byg.short_beach_grass": "Kleines Strandgras",
 	"item.byg.short_grass": "Kleines Gras",
-	"item.byg.shulkren_fungus": "Shulkrenschmarotzerpilz",
-	"item.byg.shulkren_moss_blanket": "Shulkrenmoosdecke",
-	"item.byg.shulkren_phylium": "Shulkrenphylium",
-	"item.byg.shulkren_vine": "Shulkrenranken",
-	"item.byg.shulkren_wart_block": "Shulkrenwarzeblock",
+
+
+
+
+
 	"item.byg.silver_maple_leaves": "Silberner Ahornlaub",
 	"item.byg.silver_maple_sapling": "Silberner Ahornsetzling",
 	"item.byg.silver_vase_flower": "Silberne Vaseblume",

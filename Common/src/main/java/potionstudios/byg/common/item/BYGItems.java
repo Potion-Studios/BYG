@@ -556,11 +556,6 @@ public class BYGItems {
     public static final RegistryObject<Item> VERMILION_SCULK_GROWTH = createItem(BYGBlocks.VERMILION_SCULK_GROWTH);
     public static final RegistryObject<Item> VERMILION_SCULK = createItem(BYGBlocks.VERMILION_SCULK);
 
-    public static final RegistryObject<GrowerItem> SHULKREN_FUNGUS = createGrowerItem(BYGBlocks.SHULKREN_FUNGUS);
-    public static final RegistryObject<Item> SHULKREN_WART_BLOCK = createItem(BYGBlocks.SHULKREN_WART_BLOCK);
-    public static final RegistryObject<Item> SHULKREN_MOSS_BLANKET = createItem(BYGBlocks.SHULKREN_MOSS_BLANKET);
-    public static final RegistryObject<Item> SHULKREN_VINE = createItem(BYGBlocks.SHULKREN_VINE);
-    public static final RegistryObject<Item> SHULKREN_PHYLIUM = createItem(BYGBlocks.SHULKREN_PHYLIUM);
     public static final RegistryObject<Item> PURPLE_SHROOMLIGHT = createItem(BYGBlocks.PURPLE_SHROOMLIGHT);
 
     public static final RegistryObject<Item> CRYPTIC_END_ROD = createItem(BYGBlocks.CRYPTIC_END_ROD);
