@@ -63,6 +63,22 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 .forInstance(LeavesBlock.class, bygTag(LEAVES))
                 .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
 //                .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
+
+                // Mineable With Shovel
+                .checkRegistryName(name -> name.endsWith("_sand"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.contains("_thatch"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> (name.contains("fungal_imparius_")
+                        && !name.contains("potted") && !name.contains("hyphae")
+                        && !name.contains("stem")) || (name.contains("chiseled_fungal_")), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("imparius_mushroom_block"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.contains("lush_"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("peat"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("purple_shroomlight"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("sythian_wart_block"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("wailing_bell_blossom"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("ether_soil"), BlockTags.MINEABLE_WITH_SHOVEL)
+                .checkRegistryName(name -> name.endsWith("warped_soul_soil"), BlockTags.MINEABLE_WITH_SHOVEL)
+
                 .run(super::tag);
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(WAILING_NYLIUM.get());
@@ -73,7 +89,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         tag(BYGBlockTags.GROUND_CYPRESS_SAPLING).addTags(BlockTags.SAND).add(Blocks.CLAY, Blocks.MUD);
         tag(BYGBlockTags.GROUND_PALO_VERDE_SAPLING).addTags(BlockTags.SAND).addTag(TERRACOTTA);
 
-        tag(BYGBlockTags.END_STONE).add(ETHER_STONE.get(), BULBIS_PHYCELIUM.get(), NIGHTSHADE_PHYLIUM.get(), IMPARIUS_PHYLIUM.get(), IVIS_PHYLIUM.get(), SHULKREN_PHYLIUM.get(), Blocks.END_STONE);
+        tag(BYGBlockTags.END_STONE).add(ETHER_STONE.get(), BULBIS_PHYCELIUM.get(), NIGHTSHADE_PHYLIUM.get(), IMPARIUS_PHYLIUM.get(), IVIS_PHYLIUM.get(), Blocks.END_STONE);
 
         for (TagKey<Block> endPlantTag : BYGBlockTags.END_PLANT_TAGS) {
             tag(endPlantTag).add(Blocks.END_STONE).addTag(BYGBlockTags.END_STONE)
