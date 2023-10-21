@@ -91,10 +91,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.CRYPTIC_END_ROD.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ODDITY_BUSH.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHULKREN_MOSS_BLANKET.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHULKREN_FUNGUS.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHULKREN_VINE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SHULKREN_VINE_PLANT.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_CAMPFIRE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ENDER_LILY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.CRYPTIC_BRAMBLE.get(), RenderType.cutoutMipped());

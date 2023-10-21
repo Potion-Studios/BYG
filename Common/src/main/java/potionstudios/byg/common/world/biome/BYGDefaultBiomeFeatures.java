@@ -501,12 +501,7 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.NIGHTSHADE_PLANTS);
     }
 
-    public static void addShulkrenPlants(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SHULKREN_PLANTS);
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SHULKREN_HANGING_VINES);
-    }
-
-    public static void addImpariusPlants(BiomeGenerationSettings.Builder gen) {
+     public static void addImpariusPlants(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.IMPARIUS_PLANTS);
     }
 
@@ -919,11 +914,6 @@ public class BYGDefaultBiomeFeatures {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SPARSE_ETHER_TREES);
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.ETHER_BUSHES);
     }
-
-    public static void addShulkrenTrees(BiomeGenerationSettings.Builder gen) {
-        gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.SHULKREN_TREES);
-    }
-
     public static void addLargeImpariusMushrooms(BiomeGenerationSettings.Builder gen) {
         gen.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, BYGPlacedFeatures.IMPARIUS_MUSHROOMS);
     }
