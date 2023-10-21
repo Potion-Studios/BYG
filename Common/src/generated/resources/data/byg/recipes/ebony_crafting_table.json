@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "group": "crafting_table",
   "key": {
     "P": {
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "byg:ebony_crafting_table"
-  }
+  },
+  "show_notification": true
 }

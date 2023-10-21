@@ -30,7 +30,7 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
         BYGBiomes.BIOMES_BY_TAG.asMap()
                 .forEach((tag, ros) -> {
                     if (tag.location().getNamespace().equals(BYG.MOD_ID)) {
-                        this.tag(tag).add(ros.stream().toArray(ResourceKey[]::new));
+                        this.tag(tag).add(ros.stream().toArray(ResourceKey[]::new)).replace(false);
                     } else {
                         this.bygTagWrap(tag, ros.stream().toArray(ResourceKey[]::new));
                     }
@@ -41,13 +41,13 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
     public Pair<TagKey<Biome>, TagAppender<Biome>> bygTagWrap(TagKey<Biome> targetTag, ResourceKey<Biome>... values) {
         ResourceLocation targetLocation = targetTag.location();
         TagKey<Biome> bygTag = TagKey.create(Registries.BIOME, createLocation(targetLocation.getPath()));
-        TagAppender<Biome> tag = tag(bygTag, values);
-        tag(targetTag).addTag(bygTag);
+        TagAppender<Biome> tag = tag(bygTag, values).replace(false);
+        tag(targetTag).addTag(bygTag).replace(false);
 
         if (targetLocation.getNamespace().equals("forge")) {
-            tag(TagKey.create(Registries.BIOME, new ResourceLocation("c", targetLocation.getPath()))).addTag(bygTag);
+            tag(TagKey.create(Registries.BIOME, new ResourceLocation("c", targetLocation.getPath()))).addTag(bygTag).replace(false);
         } else if (targetLocation.getNamespace().equals("c")) {
-            tag(TagKey.create(Registries.BIOME, new ResourceLocation("forge", targetLocation.getPath()))).addTag(bygTag);
+            tag(TagKey.create(Registries.BIOME, new ResourceLocation("forge", targetLocation.getPath()))).addTag(bygTag).replace(false);
         }
 
         return Pair.of(bygTag, tag);

@@ -1,7 +1,7 @@
 {
   "type": "corgilib:tree_from_nbt",
   "config": {
-    "base_location": "byg:features/trees/sakura_cherry/sakura_cherry_tree_trunk2",
+    "base_location": "byg:features/trees/sakura_cherry/white_sakura_cherry_tree_trunk2",
     "can_grow_on_filter": {
       "type": "minecraft:matching_block_tag",
       "tag": "byg:may_place_on/white_cherry_sapling"
@@ -9,7 +9,7 @@
     "can_leaves_place_filter": {
       "type": "minecraft:replaceable"
     },
-    "canopy_location": "byg:features/trees/sakura_cherry/sakura_cherry_tree_canopy2",
+    "canopy_location": "byg:features/trees/sakura_cherry/white_sakura_cherry_tree_canopy2",
     "height": {
       "type": "minecraft:biased_to_bottom",
       "value": {

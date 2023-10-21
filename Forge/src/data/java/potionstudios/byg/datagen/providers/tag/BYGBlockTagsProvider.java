@@ -60,7 +60,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
                 .checkRegistryName(name -> name.endsWith("_sand"), bygTag(SAND))
                 .checkRegistryName(name -> name.endsWith("_ice"), bygTag(ICE))
-                .checkRegistryName(name -> name.endsWith("_leaves"), bygTag(LEAVES))
+                .forInstance(LeavesBlock.class, bygTag(LEAVES))
                 .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
 //                .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
                 .run(super::tag);

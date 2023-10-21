@@ -3,16 +3,24 @@
   "criteria": {
     "cattail_sprout": {
       "conditions": {
-        "item": {
-          "items": [
-            "byg:cattail_sprout"
-          ]
-        },
-        "location": {
-          "block": {
-            "tag": "minecraft:campfires"
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "tag": "minecraft:campfires"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": [
+                "byg:cattail_sprout"
+              ]
+            }
           }
-        }
+        ]
       },
       "trigger": "minecraft:item_used_on_block"
     }
@@ -36,5 +44,6 @@
     [
       "cattail_sprout"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }
