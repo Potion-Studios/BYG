@@ -1275,15 +1275,6 @@ public class BYGBiomes {
             CLIMATE_COLD
     );
 
-    public static final ResourceKey<Biome> SHULKREN_FOREST = createBiome("shulkren_forest", BYGEndBiomes::shulkrenForest,
-            // Dimensions
-            IS_END,
-            // Climate
-            IS_COLD_END,
-            IS_COLD,
-            CLIMATE_COLD
-    );
-
     public static final ResourceKey<Biome> CRYPTIC_WASTES = createBiome("cryptic_wastes", BYGEndBiomes::crypticWastes,
             // Dimensions
             IS_END,

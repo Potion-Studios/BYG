@@ -56,7 +56,7 @@
   "biome.byg.redwood_thicket": "Redwood Thicket",
   "biome.byg.rose_fields": "Rose Fields",
   "biome.byg.shattered_glacier": "Shattered Glacier",
-  "biome.byg.shulkren_forest": "Shulkren Forest",
+
   "biome.byg.sierra_badlands": "Sierra Badlands",
   "biome.byg.skyris_vale": "Skyris Vale",
   "biome.byg.subzero_hypogeal": "Subzero Hypogeal",
@@ -892,7 +892,7 @@
   "block.byg.potted_richea": "Potted Richea",
   "block.byg.potted_rose": "Potted Rose",
   "block.byg.potted_shrub": "Potted Shrub",
-  "block.byg.potted_shulkren_fungus": "Potted Shulkren Fungus",
+
   "block.byg.potted_silver_maple_sapling": "Potted Silver Maple Sapling",
   "block.byg.potted_silver_vase_flower": "Potted Silver Vase Flower",
   "block.byg.potted_skyris_sapling": "Potted Skyris Sapling",
@@ -1022,12 +1022,12 @@
   "block.byg.shiny_chiseled_therium_stairs": "Shiny Chiseled Therium Stairs",
   "block.byg.shiny_chiseled_therium_wall": "Shiny Chiseled Therium Wall",
   "block.byg.shrub": "Shrub",
-  "block.byg.shulkren_fungus": "Shulkren Fungus",
-  "block.byg.shulkren_moss_blanket": "Shulkren Moss Blanket",
-  "block.byg.shulkren_phylium": "Shulkren Phylium",
-  "block.byg.shulkren_vine": "Shulkren Vine",
-  "block.byg.shulkren_vine_plant": "Shulkren Vine Plant",
-  "block.byg.shulkren_wart_block": "Shulkren Wart Block",
+
+
+
+
+
+
   "block.byg.silver_maple_leaves": "Silver Maple Leaves",
   "block.byg.silver_maple_sapling": "Silver Maple Sapling",
   "block.byg.silver_vase_flower": "Silver Vase Flower",
@@ -2189,11 +2189,11 @@
   "item.byg.shiny_chiseled_therium_stairs": "Shiny Chiseled Therium Stairs",
   "item.byg.shiny_chiseled_therium_wall": "Shiny Chiseled Therium Wall",
   "item.byg.shrub": "Shrub",
-  "item.byg.shulkren_fungus": "Shulkren Fungus",
-  "item.byg.shulkren_moss_blanket": "Shulkren Moss Blanket",
-  "item.byg.shulkren_phylium": "Shulkren Phylium",
-  "item.byg.shulkren_vine": "Shulkren Vine",
-  "item.byg.shulkren_wart_block": "Shulkren Wart Block",
+
+
+
+
+
   "item.byg.silver_maple_leaves": "Silver Maple Leaves",
   "item.byg.silver_maple_sapling": "Silver Maple Sapling",
   "item.byg.silver_vase_flower": "Silver Vase Flower",

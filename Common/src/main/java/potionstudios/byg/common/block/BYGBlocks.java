@@ -30,8 +30,6 @@ import potionstudios.byg.common.block.end.impariusgrove.ImpariusVinePlantBlock;
 import potionstudios.byg.common.block.end.impariusgrove.TreeBranchBlock;
 import potionstudios.byg.common.block.end.nightshade.NightshadeBerryBushBlock;
 import potionstudios.byg.common.block.end.shattereddesert.OddityCactusBlock;
-import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVineBlock;
-import potionstudios.byg.common.block.end.shulkrenforest.ShulkrenVinePlantBlock;
 import potionstudios.byg.common.block.end.therium.BuddingTheriumCrystalBlock;
 import potionstudios.byg.common.block.end.viscalisle.SculkGrowthBlock;
 import potionstudios.byg.common.block.nether.BoricFireBlock;
@@ -306,10 +304,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> IMPARIUS_VINE_PLANT = createImpariusVinePlant("imparius_vine_plant");
     public static final BlockRegistryObject<Block> IMPARIUS_BUSH = createImpariusPlant("imparius_bush");
 
-    public static final BlockRegistryObject<Block> SHULKREN_MOSS_BLANKET = createSculkGrowth("shulkren_moss_blanket");
-    public static final BlockRegistryObject<Block> SHULKREN_WART_BLOCK = createBlock(BYGBlockProperties.BYGWartBlock::new, "shulkren_wart_block");
-    public static final BlockRegistryObject<Block> SHULKREN_VINE = createShulkrenVine("shulkren_vine");
-    public static final BlockRegistryObject<Block> SHULKREN_VINE_PLANT = createShulkrenVinePlant("shulkren_vine_plant");
     public static final BlockRegistryObject<Block> PURPLE_SHROOMLIGHT = createShroomlight("purple_shroomlight");
 
     public static final BlockRegistryObject<Block> PACKED_BLACK_ICE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.PACKED_ICE)), "packed_black_ice");
@@ -390,7 +384,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> DEATH_CAP = createFungus(BYGBlockTags.GROUND_DEATH_CAP, "death_cap");
 
     public static final BlockRegistryObject<Block> PURPLE_BULBIS_ODDITY = createMushroom(BYGBlockTags.GROUND_PURPLE_BULBIS_ODDITY, "purple_bulbis_oddity");
-    public static final BlockRegistryObject<Block> SHULKREN_FUNGUS = createMushroom(BYGBlockTags.GROUND_SHULKREN_FUNGUS, "shulkren_fungus");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS = createMushroom(BYGBlockTags.GROUND_FUNGAL_IMPARIUS, "fungal_imparius");
 
     public static final BlockRegistryObject<Block> BULBIS_ANOMALY = createTallBulbis("bulbis_anomaly");
@@ -552,7 +545,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> NIGHTSHADE_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS, "nightshade_phylium");
     public static final BlockRegistryObject<Block> ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MapColor.COLOR_MAGENTA, () -> BYGEndVegetationFeatures.ETHER_PLANTS, "ether_phylium");
     public static final BlockRegistryObject<Block> VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MapColor.COLOR_RED, () -> BYGEndFeatures.GROWABLE_SCULK, "vermilion_sculk");
-    public static final BlockRegistryObject<Block> SHULKREN_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.COLOR_LIGHT_GREEN, () -> BYGEndVegetationFeatures.SHULKREN_PLANTS, "shulkren_phylium");
     public static final BlockRegistryObject<DirtPathBlock> LUSH_GRASS_PATH = createBlock(() -> DirtPathBlockAccess.byg_create(BlockBehaviour.Properties.of().strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
     public static final BlockRegistryObject<Block> BULBIS_PHYCELIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.TERRACOTTA_WHITE, () -> BYGEndVegetationFeatures.BULBIS_ANOMALIES, "bulbis_phycelium");
     public static final BlockRegistryObject<Block> IMPARIUS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.COLOR_CYAN, () -> BYGEndVegetationFeatures.IMPARIUS_PLANTS, "imparius_phylium");
@@ -1064,14 +1056,6 @@ public class BYGBlocks {
 
     private static BlockRegistryObject<Block> createFungalImparius(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_WART_BLOCK).strength(0.2F).sound(SoundType.HONEY_BLOCK)), id);
-    }
-
-    private static BlockRegistryObject<Block> createShulkrenVine(String id) {
-        return createBlock(() -> new ShulkrenVineBlock(BlockBehaviour.Properties.of().instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission()), id);
-    }
-
-    private static BlockRegistryObject<Block> createShulkrenVinePlant(String id) {
-        return createBlock(() -> new ShulkrenVinePlantBlock(BlockBehaviour.Properties.of().instabreak().randomTicks().sound(SoundType.WEEPING_VINES).noCollission()), id);
     }
 
     static BlockRegistryObject<Block> createLeaves(MapColor color, String id) {

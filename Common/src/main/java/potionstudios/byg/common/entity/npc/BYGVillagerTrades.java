@@ -48,7 +48,6 @@ public class BYGVillagerTrades {
             },
             5, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.EmeraldForItems(BYGWoodTypes.IMPARIUS.growerItem().asItem(), 10, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.SHULKREN_FUNGUS.get(), 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(BYGItems.FUNGAL_IMPARIUS.get(), 10, 12, 2),
             }
         )));

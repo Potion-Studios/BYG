@@ -56,7 +56,7 @@
     "biome.byg.redwood_thicket":"Mata de Redwood",
     "biome.byg.rose_fields":"Campos de Rosas",
     "biome.byg.shattered_glacier":"Glaciar Despedaçada",
-    "biome.byg.shulkren_forest":"Floresta Shulkren",
+
     "biome.byg.sierra_badlands":"Serra de Badlands",
     "biome.byg.skyris_vale":"Vale de Skyris",
 
@@ -820,7 +820,7 @@
     "block.byg.potted_richea":"Richea em vaso",
     "block.byg.potted_rose":"Rosa em vaso",
     "block.byg.potted_shrub":"Arbusto em vaso",
-    "block.byg.potted_shulkren_fungus":"Fungo Shulkren em vaso",
+
     "block.byg.potted_silver_maple_sapling":"Rebento de bordo prateado em vaso",
     "block.byg.potted_silver_vase_flower":"Flor vaso de prata em vaso",
     "block.byg.potted_skyris_sapling":"Rebento Skyris em vaso",
@@ -944,12 +944,12 @@
     "block.byg.shiny_chiseled_therium_stairs":"Escadas Therium Cinzeladas Brilhantes",
     "block.byg.shiny_chiseled_therium_wall":"Parede de Therium cinzelada brilhante",
     "block.byg.shrub":"Arbusto",
-    "block.byg.shulkren_fungus":"Fungo Shulkren",
-    "block.byg.shulkren_moss_blanket":"Cobertor de Musgo Shulkren",
-    "block.byg.shulkren_phylium":"Shulkren Phylium",
-    "block.byg.shulkren_vine":"Cipó Shulkren",
-    "block.byg.shulkren_vine_plant":"Planta de Videira Shulkren",
-    "block.byg.shulkren_wart_block":"Bloqueio de Verrugas Shulkren",
+
+
+
+
+
+
     "block.byg.silver_maple_leaves":"Folhas de bordo prateadas",
     "block.byg.silver_maple_sapling":"Rebento de bordo prateado",
     "block.byg.silver_vase_flower":"Flor vaso de prata",
@@ -2053,11 +2053,11 @@
     "item.byg.shiny_chiseled_therium_stairs":"Escadas Therium Cinzeladas Brilhantes",
     "item.byg.shiny_chiseled_therium_wall":"Parede de Therium cinzelada brilhante",
     "item.byg.shrub":"Arbusto",
-    "item.byg.shulkren_fungus":"Fungo Shulkren",
-    "item.byg.shulkren_moss_blanket":"Cobertor de Musgo Shulkren",
-    "item.byg.shulkren_phylium":"Shulkren Phylium",
-    "item.byg.shulkren_vine":"Cipó Shulkren",
-    "item.byg.shulkren_wart_block":"Bloqueio de Verrugas Shulkren",
+
+
+
+
+
     "item.byg.silver_maple_leaves":"Folhas de bordo prateadas",
     "item.byg.silver_maple_sapling":"Rebento de bordo prateado",
     "item.byg.silver_vase_flower":"Flor vaso de prata",

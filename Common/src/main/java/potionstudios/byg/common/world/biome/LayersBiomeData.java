@@ -35,7 +35,6 @@ public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biome
             .add(NIGHTSHADE_FOREST, 3)
             .add(ETHEREAL_ISLANDS, 3)
             .add(BULBIS_GARDENS, 3)
-            .add(SHULKREN_FOREST, 3)
             .add(CRYPTIC_WASTES, 1)
             .add(IMPARIUS_GROVE, 3)
             .add(Biomes.SMALL_END_ISLANDS, 0)

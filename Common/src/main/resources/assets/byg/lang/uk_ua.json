@@ -56,7 +56,7 @@
     "biome.byg.redwood_thicket": "Зарослі секвої",
     "biome.byg.rose_fields": "Трояндові поля",
     "biome.byg.shattered_glacier": "Зруйновані льодовики",
-    "biome.byg.shulkren_forest": "Шалкреновий ліс",
+
     "biome.byg.sierra_badlands": "Помірно-безплідні землі",
     "biome.byg.skyris_vale": "Небесна долина",
 
@@ -841,7 +841,7 @@
     "block.byg.potted_richea": "Річея в горщику",
     "block.byg.potted_rose": "Троянда в горщику",
     "block.byg.potted_shrub": "Кущик в горщику",
-    "block.byg.potted_shulkren_fungus": "Шалкреновий гриб в горщику",
+
     "block.byg.potted_silver_maple_sapling": "Паросток срібного клену в горщику",
     "block.byg.potted_silver_vase_flower": "Ехмея смугаста в горщику",
     "block.byg.potted_skyris_sapling": "Паросток небесного дерева у горщику",
@@ -966,12 +966,12 @@
     "block.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",
     "block.byg.shiny_chiseled_therium_wall": "Стіна з блискучого різьбленого теріуму",
     "block.byg.shrub": "Кущик",
-    "block.byg.shulkren_fungus": "Шалкреновий гриб",
-    "block.byg.shulkren_moss_blanket": "Шалкренові гіфи",
-    "block.byg.shulkren_phylium": "Шалкреновий філій",
-    "block.byg.shulkren_vine": "Шалкренова лоза",
-    "block.byg.shulkren_vine_plant": "Шалкренова лоза",
-    "block.byg.shulkren_wart_block": "Блок шалкренового наросту",
+
+
+
+
+
+
     "block.byg.silver_maple_leaves": "Срібне кленове листя",
     "block.byg.silver_maple_sapling": "Паросток срібного клену",
     "block.byg.silver_vase_flower": "Ехмея смугаста",
@@ -2093,11 +2093,11 @@
     "item.byg.shiny_chiseled_therium_stairs": "Сходи з блискучого різьбленого теріуму",
     "item.byg.shiny_chiseled_therium_wall": "Стіна з блискучого різьбленого теріуму",
     "item.byg.shrub": "Кущик",
-    "item.byg.shulkren_fungus": "Шалкреновий гриб",
-    "item.byg.shulkren_moss_blanket": "Шалкренові гіфи",
-    "item.byg.shulkren_phylium": "Шалкреновий філій",
-    "item.byg.shulkren_vine": "Шалкренова лоза",
-    "item.byg.shulkren_wart_block": "Блок шалкренового наросту",
+
+
+
+
+
     "item.byg.silver_maple_leaves": "Срібне кленове листя",
     "item.byg.silver_maple_sapling": "Паросток срібного клену",
     "item.byg.silver_vase_flower": "Ехмея смугаста",

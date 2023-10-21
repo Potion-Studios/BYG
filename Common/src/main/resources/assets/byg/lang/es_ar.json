@@ -169,7 +169,7 @@
   "biome.byg.viscal_isles": "Islas viscales",
   "biome.byg.bulbis_gardens": "Jardín de bulbis",
   "biome.byg.shattered_desert": "Desierto accidentado",
-  "biome.byg.shulkren_forest": "Bosque de shulkren",
+
   "biome.byg.purpur_peaks": "Cumbres de púrpur",
   "biome.byg.cryptic_wastes": "Baldíos crípticos",
   "biome.byg.canyons": "Cañones",
@@ -786,10 +786,10 @@
   "block.byg.imparius_vine": "Enredaderas de impario",
   "block.byg.imparius_vine_plant": "Planta de enredaderas de impario",
   "block.byg.imparius_bush": "Arbusto de impario",
-  "block.byg.shulkren_moss_blanket": "Alfombra de musgo de shulkren",
-  "block.byg.shulkren_wart_block": "Bloque de verrugas de shulkren",
-  "block.byg.shulkren_vine": "Enredaderas de shulkren",
-  "block.byg.shulkren_vine_plant": "Planta de enredaderas de shulkren",
+
+
+
+
   "block.byg.purple_shroomlight": "Hongo luminoso violeta",
   "block.byg.blue_glowcane_block": "Bloque de caña luminosa azul",
   "block.byg.red_glowcane_block": "Bloque de caña luminosa roja",
@@ -923,7 +923,7 @@
   "block.byg.death_cap": "Oronja mortal",
   "block.byg.bulbis_oddity": "Rareza de bulbis",
   "block.byg.purple_bulbis_oddity": "Rareza de bulbis violeta",
-  "block.byg.shulkren_fungus": "Hongo de shulkren",
+
   "block.byg.imparius_mushroom": "Hongo de impario",
   "block.byg.fungal_imparius": "Impario fúngico",
   "block.byg.bulbis_anomaly": "Anomalía de bulbis",
@@ -1160,7 +1160,7 @@
   "block.byg.nightshade_phylium": "Filio de belladona",
   "block.byg.ether_phylium": "Filio de éter",
   "block.byg.vermilion_sculk": "Sculk bermellón",
-  "block.byg.shulkren_phylium": "Filio de shulkren",
+
   "block.byg.meadow_grass_path": "Camino de pasto de prado",
   "block.byg.bulbis_phycelium": "Filio de bulbis",
   "block.byg.imparius_phylium": "Filio de impario",
@@ -1231,7 +1231,7 @@
   "block.byg.potted_death_cap": "Maceta con oronja mortal",
   "block.byg.potted_bulbis_oddity": "Maceta con rareza de bulbis",
   "block.byg.potted_purple_bulbis_oddity": "Maceta con rareza de bulbis violeta",
-  "block.byg.potted_shulkren_fungus": "Maceta con hongo de shulkren",
+
   "block.byg.potted_imparius_mushroom": "Maceta con hongo de impario",
   "block.byg.potted_fungal_imparius": "Maceta con impario fúngico",
   "block.byg.potted_alpine_bellflower": "Maceta con campanilla alpina",
@@ -2190,11 +2190,11 @@
   "item.byg.vermilion_sculk_tendrils": "Zarcillos de sculk bermellón",
   "item.byg.vermilion_sculk_growth": "Crecimiento de sculk bermellón",
   "item.byg.vermilion_sculk": "Sculk bermellón",
-  "item.byg.shulkren_fungus": "Hongo de shulkren",
-  "item.byg.shulkren_wart_block": "Bloque de verrugas de shulkren",
-  "item.byg.shulkren_moss_blanket": "Alfombra de musgo de shulkren",
-  "item.byg.shulkren_vine": "Enredaderas de shulkren",
-  "item.byg.shulkren_phylium": "Filio de shulkren",
+
+
+
+
+
   "item.byg.purple_shroomlight": "Hongo luminoso violeta",
   "item.byg.cryptic_campfire": "Fogata críptica",
   "item.byg.cryptic_magma_block": "Bloque de magma críptico",
