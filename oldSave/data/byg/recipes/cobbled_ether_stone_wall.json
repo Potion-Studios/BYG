@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cobbled_ether_stone"
+    }
+  },
+  "result": {
+    "item": "byg:cobbled_ether_stone_wall",
+    "count": 6
+  }
+}

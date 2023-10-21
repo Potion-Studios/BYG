@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "byg:peat",
+    "byg:lush_grass_block",
+    "byg:lush_dirt",
+    "byg:overgrown_stone",
+    "byg:overgrown_dacite",
+
+    "byg:podzol_dacite",
+    "#byg:sand"
+  ]
+}

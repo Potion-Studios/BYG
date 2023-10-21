@@ -1,0 +1,128 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "byg:flowering_nightshade_leaves",
+              "conditions": [
+                {
+                  "terms": [
+                    {
+                      "predicate": {
+                        "items": ["minecraft:shears"]
+                      },
+                      "condition": "minecraft:match_tool"
+                    },
+                    {
+                      "predicate": {
+                        "enchantments": [
+                          {
+                            "enchantment": "minecraft:silk_touch",
+                            "levels": {
+                              "min": 1
+                            }
+                          }
+                        ]
+                      },
+                      "condition": "minecraft:match_tool"
+                    }
+                  ],
+                  "condition": "minecraft:any_of"
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "byg:nightshade_sapling",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "enchantment": "minecraft:fortune",
+                  "chances": [
+                    0.05,
+                    0.0625,
+                    0.83333336,
+                    0.1
+                  ],
+                  "condition": "minecraft:table_bonus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "conditions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "chances": [
+                0.02,
+                0.022222223,
+                0.025,
+                0.033333335,
+                0.1
+              ],
+              "condition": "minecraft:table_bonus"
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "term": {
+            "terms": [
+              {
+                "predicate": {
+                  "items": ["minecraft:shears"]
+                },
+                "condition": "minecraft:match_tool"
+              },
+              {
+                "predicate": {
+                  "enchantments": [
+                    {
+                      "enchantment": "minecraft:silk_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                },
+                "condition": "minecraft:match_tool"
+              }
+            ],
+            "condition": "minecraft:any_of"
+          },
+          "condition": "minecraft:inverted"
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:block"
+}

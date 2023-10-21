@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "purple_dye",
+  "ingredients": [
+    {
+      "tag": "byg:purple_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:purple_dye"
+  }
+}

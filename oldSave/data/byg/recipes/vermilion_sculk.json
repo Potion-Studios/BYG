@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:vermilion_sculk_growth"
+    },
+    "X": {
+      "item": "byg:ether_stone"
+    }
+  },
+  "result": {
+    "item": "byg:vermilion_sculk"
+  }
+}

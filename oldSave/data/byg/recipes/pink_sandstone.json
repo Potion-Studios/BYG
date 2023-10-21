@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "tag": "c:sand/pink"
+    }
+  },
+  "result": {
+    "item": "byg:pink_sandstone"
+  }
+}

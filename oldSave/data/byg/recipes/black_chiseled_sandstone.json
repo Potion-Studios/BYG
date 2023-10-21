@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:black_sandstone"
+  },
+  "result": "byg:black_chiseled_sandstone",
+  "count": 1
+}

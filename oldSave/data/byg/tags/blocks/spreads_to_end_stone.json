@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "byg:ivis_phylium",
+    "byg:nightshade_phylium",
+    "byg:vermilion_sculk",
+    "byg:shulkren_phylium",
+    "byg:bulbis_phycelium",
+    "byg:imparius_phylium"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "byg:warped_cactus"
+  },
+  "result": "minecraft:cyan_dye",
+  "experience": 1.0,
+  "cookingtime": 200
+}

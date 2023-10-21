@@ -1,0 +1,34 @@
+{
+  "replace": false,
+  "values": [
+    "byg:aspen_fence_gate",
+    "byg:baobab_fence_gate",
+    "byg:blue_enchanted_fence_gate",
+    "byg:sakura_cherry_fence_gate",
+    "byg:cika_fence_gate",
+    "byg:cypress_fence_gate",
+    "byg:ebony_fence_gate",
+    "byg:fir_fence_gate",
+    "byg:green_enchanted_fence_gate",
+    "byg:holly_fence_gate",
+    "byg:jacaranda_fence_gate",
+    "byg:mahogany_fence_gate",
+    "byg:white_mangrove_fence_gate",
+    "byg:maple_fence_gate",
+    "byg:pine_fence_gate",
+    "byg:rainbow_eucalyptus_fence_gate",
+    "byg:redwood_fence_gate",
+    "byg:skyris_fence_gate",
+    "byg:willow_fence_gate",
+    "byg:witch_hazel_fence_gate",
+    "byg:zelkova_fence_gate",
+    "byg:sythian_fence_gate",
+
+    "byg:palm_fence_gate",
+
+    "byg:ether_fence_gate",
+    "byg:bulbis_fence_gate",
+    "byg:nightshade_fence_gate",
+    "byg:imparius_fence_gate"
+  ]
+}

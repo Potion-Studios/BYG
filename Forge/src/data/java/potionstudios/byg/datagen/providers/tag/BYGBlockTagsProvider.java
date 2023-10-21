@@ -50,9 +50,9 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
 
 
         new PredicatedTagProvider<>(PROVIDER)
-                .checkRegistryName(name -> name.endsWith("_slab"), bygTag(SLABS))
-                .checkRegistryName(name -> name.endsWith("_stairs"), bygTag(STAIRS))
-                .checkRegistryName(name -> name.endsWith("_button"), bygTag(BUTTONS))
+                .forInstance(SlabBlock.class, bygTag(SLABS))
+                .forInstance(StairBlock.class, bygTag(STAIRS))
+                .forInstance(ButtonBlock.class, bygTag(BUTTONS))
                 .forInstance(BYGSaplingBlock.class, bygTag(SAPLINGS))
                 .forInstance(BYGMushroomBlock.class, BYGBlockTags.MUSHROOMS)
                 .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)

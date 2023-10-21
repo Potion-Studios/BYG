@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cryptic_stone"
+    }
+  },
+  "result": {
+    "item": "byg:cryptic_stone_stairs",
+    "count": 4
+  }
+}

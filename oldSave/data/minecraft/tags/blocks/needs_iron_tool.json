@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "byg:brimstone_nether_quartz_ore",
+    "byg:brimstone_nether_gold_ore",
+    "byg:anthracite_ore",
+    "byg:cryptic_redstone_ore",
+    "byg:therium_crystal_block",
+    "byg:therium_crystal_cluster",
+    "byg:large_therium_crystal_bud",
+    "byg:medium_therium_crystal_bud",
+    "byg:small_therium_crystal_bud"
+  ]
+}

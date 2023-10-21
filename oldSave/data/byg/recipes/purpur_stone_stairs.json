@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:purpur_stone"
+    }
+  },
+  "result": {
+    "item": "byg:purpur_stone_stairs",
+    "count": 4
+  }
+}

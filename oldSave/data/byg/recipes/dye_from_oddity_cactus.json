@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "byg:oddity_cactus"
+  },
+  "result": "minecraft:white_dye",
+  "experience": 1.0,
+  "cookingtime": 200
+}
