@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "group": "bookshelf",
   "key": {
     "B": {
@@ -16,5 +17,6 @@
   ],
   "result": {
     "item": "byg:redwood_bookshelf"
-  }
+  },
+  "show_notification": true
 }

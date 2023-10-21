@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:stripped_holly_log"
+    }
+  },
+  "result": {
+    "item": "byg:stripped_holly_wood",
+    "count": 3
+  }
+}

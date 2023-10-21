@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "byg:blue_rose_bush",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "byg:blue_rose_bush"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}

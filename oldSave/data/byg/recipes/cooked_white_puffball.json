@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "byg:white_puffball_cap"
+  },
+  "result": "byg:cooked_white_puffball_cap",
+  "experience": 0.35,
+  "cookingtime": 200
+}

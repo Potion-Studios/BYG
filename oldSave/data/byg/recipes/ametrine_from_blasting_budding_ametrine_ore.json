@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "byg:budding_ametrine_ore"
+  },
+  "result": "byg:ametrine_gems",
+  "experience": 0.7,
+  "cookingtime": 150
+}

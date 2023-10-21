@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "byg:blue_sandstone"
+  },
+  "result": "byg:blue_smooth_sandstone",
+  "count": 1
+}

@@ -58,11 +58,11 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
                 .forInstance(BYGBlockProperties.BYGWartBlock.class, BlockTags.WART_BLOCKS)
                 .forInstance(CampfireBlock.class, bygTag(CAMPFIRES))
                 .forInstance(BYGScaffoldingBlock.class, bygTag(SCAFFOLDING))
+                .checkRegistryName(name -> name.endsWith("_sand"), bygTag(SAND))
+                .checkRegistryName(name -> name.endsWith("_ice"), bygTag(ICE))
+                .forInstance(LeavesBlock.class, bygTag(LEAVES))
                 .checkRegistryName(name -> name.endsWith("_ore"), bygTag(ORES))
 //                .add(isMaterial(shovelMaterials), BlockTags.MINEABLE_WITH_SHOVEL)
-//                .add(isMaterial(Material.LEAVES), bygTag(LEAVES))
-//                .add(isMaterial(Material.SAND), bygTag(SAND))
-//                .add(isMaterial(Material.ICE, Material.ICE_SOLID), bygTag(ICE))
                 .run(super::tag);
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL).add(WAILING_NYLIUM.get());
@@ -110,7 +110,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         }
         add(axeMineable,
                 BORIC_CAMPFIRE, SOUL_SHROOM_BLOCK, SOUL_SHROOM_STEM, GREEN_MUSHROOM_BLOCK, IMBUED_NIGHTSHADE_LOG,
-                WITHERING_OAK_LOG, WITHERING_OAK_WOOD, DEATH_CAP_MUSHROOM_BLOCK, CRYPTIC_CAMPFIRE,
+                DEATH_CAP_MUSHROOM_BLOCK, CRYPTIC_CAMPFIRE,
                 PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD,
                 MILKCAP_MUSHROOM_BLOCK, BROWN_MUSHROOM_STEM, FUNGAL_IMPARIUS_HYPHAE, FUNGAL_IMPARIUS_STEM,
                 BLEWIT_MUSHROOM_BLOCK, WHITE_MUSHROOM_STEM, SYTHIAN_SCAFFOLDING, FORAGERS_TABLE
@@ -152,14 +152,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.FENCE_GATES).addTag(BYGBlockTags.WOODEN_FENCE_GATES);
 
 
-        wood("withering_oak_logs", WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
         wood("palo_verde_logs", PALO_VERDE_LOG, PALO_VERDE_WOOD, STRIPPED_PALO_VERDE_LOG, STRIPPED_PALO_VERDE_WOOD);
         wood("imbued_blue_enchanted_logs", IMBUED_BLUE_ENCHANTED_LOG);
         wood("imbued_green_enchanted_log", IMBUED_GREEN_ENCHANTED_LOG);
         wood("imbued_nightshade_log", IMBUED_NIGHTSHADE_LOG);
-
-
-        tag(BlockTags.OAK_LOGS, WITHERING_OAK_LOG, WITHERING_OAK_WOOD);
 
         for (BYGTags tag : BYGTags.values()) {
             DatagenUtils.addBYGTag(this::tag, tag, Registries.BLOCK);

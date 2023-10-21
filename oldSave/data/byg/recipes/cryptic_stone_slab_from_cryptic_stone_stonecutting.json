@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:cryptic_stone"
+  },
+  "result": "byg:cryptic_stone_slab",
+  "count": 2
+}

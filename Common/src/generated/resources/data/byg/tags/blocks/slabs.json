@@ -6,7 +6,6 @@
     "byg:bulbis_slab",
     "byg:carved_ether_stone_slab",
     "byg:cattail_thatch_slab",
-    "byg:sakura_cherry_slab",
     "byg:chiseled_fungal_imparius_slab",
     "byg:chiseled_red_rock_brick_slab",
     "byg:chiseled_therium_slab",
@@ -43,9 +42,7 @@
     "byg:red_rock_slab",
     "byg:redwood_slab",
     "byg:rocky_stone_slab",
-
-
-
+    "byg:sakura_cherry_slab",
     "byg:shiny_chiseled_therium_slab",
     "byg:skyris_slab",
     "byg:smooth_windswept_sandstone_slab",
@@ -57,7 +54,6 @@
     "byg:willow_slab",
     "byg:windswept_sandstone_slab",
     "byg:witch_hazel_slab",
-
     "byg:zelkova_slab"
   ]
 }

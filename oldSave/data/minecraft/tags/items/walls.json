@@ -1,0 +1,38 @@
+{
+  "replace": false,
+  "values": [
+    "byg:dacite_cobblestone_wall",
+    "byg:dacite_wall",
+    "byg:dacite_tile_wall",
+    "byg:dacite_brick_wall",
+    "byg:mossy_stone_wall",
+    "byg:rocky_stone_wall",
+
+
+
+    "byg:soapstone_wall",
+    "byg:polished_soapstone_wall",
+    "byg:soapstone_brick_wall",
+    "byg:soapstone_tile_wall",
+    "byg:red_rock_wall",
+    "byg:red_rock_brick_wall",
+    "byg:mossy_red_rock_brick_wall",
+    "byg:cracked_red_rock_brick_wall",
+    "byg:chiseled_red_rock_brick_wall",
+    "byg:ether_stone_wall",
+    "byg:purpur_stone_wall",
+    "byg:cryptic_stone_wall",
+    "byg:chiseled_therium_wall",
+    "byg:shiny_chiseled_therium_wall",
+    "byg:cobbled_ether_stone_wall",
+    "byg:carved_ether_stone_wall",
+
+
+
+    "byg:chiseled_fungal_imparius_wall",
+    "byg:windswept_sandstone_wall",
+    "byg:cut_windswept_sandstone_wall",
+    "byg:chiseled_windswept_sandstone_wall",
+    "byg:smooth_windswept_sandstone_wall"
+  ]
+}

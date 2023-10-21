@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "byg:windswept_sandstone"
+  },
+  "result": "byg:chiseled_windswept_sandstone_slab"
+}

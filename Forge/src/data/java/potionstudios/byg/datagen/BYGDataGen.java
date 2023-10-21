@@ -1,13 +1,19 @@
 package potionstudios.byg.datagen;
 
+import com.google.common.collect.Sets;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.RegistryDataLoader;
+import net.minecraft.resources.ResourceKey;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DataPackRegistriesHooks;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.BYGDamageTypes;
 import potionstudios.byg.common.world.biome.BYGBiomes;
@@ -27,6 +33,7 @@ import potionstudios.byg.datagen.providers.tag.*;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = BYG.MOD_ID)
 public class BYGDataGen {
@@ -82,7 +89,7 @@ public class BYGDataGen {
 
         // Server:
         gen.addProvider(event.includeServer(), new BYGLootTablesProvider(gen));
-        CompletableFuture<HolderLookup.Provider> completablefuture = event.getLookupProvider();
+        CompletableFuture<HolderLookup.Provider> completablefuture = event.getLookupProvider().thenApply(BYGDataGen::createLookup);
 //
         final var blockTags = new BYGBlockTagsProvider(completablefuture, gen , existingFileHelper);
         gen.addProvider(event.includeServer(), blockTags);
@@ -102,6 +109,28 @@ public class BYGDataGen {
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(gen.getPackOutput(), event.getLookupProvider(), BUILDER, Set.of(BYG.MOD_ID)));
 
 //        StructureTemplateUtil.removeBlocks(existingFileHelper);
+    }
+
+    private static HolderLookup.Provider createLookup(final HolderLookup.Provider vanillaLookupProvider) {
+        final var registryAccess = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
+
+        @SuppressWarnings("UnstableApiUsage")
+        final var allKeys = DataPackRegistriesHooks.getDataPackRegistries()
+                .stream()
+                .map(RegistryDataLoader.RegistryData::key)
+                .collect(Collectors.toSet());
+
+        final var modKeys = Set.copyOf(BUILDER.getEntryKeys());
+
+        final var missingKeys = Sets.difference(allKeys, modKeys);
+
+        missingKeys.forEach(key -> BUILDER.add(
+                ResourceKey.create(ResourceKey.createRegistryKey(key.registry()), key.location()),
+                context -> {
+                }
+        ));
+
+        return BUILDER.buildPatch(registryAccess, vanillaLookupProvider);
     }
 
 }

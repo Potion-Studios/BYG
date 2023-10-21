@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "byg:anthracite_ore"
+  },
+  "result": "byg:anthracite",
+  "experience": 0.7,
+  "cookingtime": 150
+}

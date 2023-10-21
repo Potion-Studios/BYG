@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:purpur_stone"
+  },
+  "result": "byg:purpur_stone_stairs",
+  "count": 1
+}

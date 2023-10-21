@@ -33,5 +33,6 @@
     [
       "white_puffball_cap"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

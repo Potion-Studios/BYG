@@ -14,14 +14,15 @@ import java.util.function.Predicate;
 
 public class PredicatedTagProvider<T> {
     private final RegistrationProvider<T> provider;
-    private final List<Info<T>> predicates = new ArrayList<>();
+    private final List<InstanceInfo<T>> instancePredicates = new ArrayList<>();
+    private final List<NamingInfo<T>> namingPredicates = new ArrayList<>();
 
     public PredicatedTagProvider(RegistrationProvider<T> provider) {
         this.provider = provider;
     }
 
     public PredicatedTagProvider<T> forInstance(Class<?> clazz, TagKey<T> tag) {
-        this.predicates.add(new Info<>(clazz::isInstance, tag));
+        this.instancePredicates.add(new InstanceInfo<>(clazz::isInstance, tag));
         return this;
     }
 
@@ -30,18 +31,24 @@ public class PredicatedTagProvider<T> {
     }
 
     public PredicatedTagProvider<T> add(Predicate<? super ResourceKey<T>> predicate, TagKey<T> tag) {
-        this.predicates.add(new Info<>(predicate, tag));
+        this.namingPredicates.add(new NamingInfo<>(predicate, tag));
         return this;
     }
 
     public void run(Function<TagKey<T>, TagsProvider.TagAppender<T>> function) {
         this.provider.getEntries().stream()
-                .map(RegistryObject::getResourceKey)
-                .forEach(obj -> predicates.forEach(info -> {
-                    if (info.predicate.test(obj))
-                        function.apply(info.tag()).add(obj);
-                }));
+                .forEach(obj -> {
+                    namingPredicates.forEach(info -> {
+                        if (info.predicate.test(obj.getResourceKey()))
+                            function.apply(info.tag()).add(obj.getResourceKey());
+                    });
+                    instancePredicates.forEach(info -> {
+                        if (info.predicate.test(obj.get()))
+                            function.apply(info.tag()).add(obj.getResourceKey());
+                    });
+                });
     }
 
-    private record Info<T>(Predicate<? super ResourceKey <T>> predicate, TagKey<T> tag) {}
+    private record InstanceInfo<T>(Predicate<T> predicate, TagKey<T> tag) {}
+    private record NamingInfo<T>(Predicate<? super ResourceKey<T>> predicate, TagKey<T> tag) {}
 }

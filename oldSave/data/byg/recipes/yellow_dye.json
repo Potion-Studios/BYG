@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "yellow_dye",
+  "ingredients": [
+    {
+      "tag": "byg:yellow_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_dye"
+  }
+}

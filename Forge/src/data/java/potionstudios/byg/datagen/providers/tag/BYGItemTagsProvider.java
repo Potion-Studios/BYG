@@ -73,8 +73,8 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
         copy(BYGBlockTags.MUSHROOMS, bygTag("mushrooms"));
 
         new PredicatedTagProvider<>(BYGItems.PROVIDER)
-//                .add(isBlockMaterial(Material.LEAVES), LEAVES.byg(RegistryType.ITEMS)) // Can't copy this one due to slight differences
-                .run(this::tag);
+                .checkRegistryName(name -> name.endsWith("_leaves"), bygTag(LEAVES))
+              .run(this::tag);
 
         tag(STICKS.byg(RegistryType.ITEMS)).add(Items.STICK);
         tag(SHEARS.byg(RegistryType.ITEMS)).add(Items.SHEARS);
@@ -92,6 +92,10 @@ public class BYGItemTagsProvider extends ItemTagsProvider {
 
     private static TagKey<Item> bygTag(String path) {
         return create(createLocation(path));
+    }
+
+    private static TagKey<Item> bygTag(BYGTags tags) {
+        return tags.byg(RegistryType.ITEMS);
     }
 
     @SafeVarargs

@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "byg:lush_grass_block",
+    "byg:lush_dirt",
+    "byg:peat",
+    "byg:cracked_red_sand",
+    "byg:overgrown_stone",
+    "byg:overgrown_dacite",
+
+    "byg:overgrown_crimson_blackstone",
+    "byg:podzol_dacite",
+    "byg:ether_soil",
+    "byg:ether_phylium",
+    "byg:vermilion_sculk",
+    "byg:ivis_phylium",
+    "byg:nightshade_phylium",
+    "byg:shulkren_phylium",
+    "byg:bulbis_phycelium",
+    "byg:imparius_phylium",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium"
+  ]
+}

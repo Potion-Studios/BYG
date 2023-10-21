@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:cooked_white_puffball_cap"
+    },
+    {
+      "item": "byg:cooked_white_puffball_cap"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "byg:white_puffball_stew"
+  }
+}

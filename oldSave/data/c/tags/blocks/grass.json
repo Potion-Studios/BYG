@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "byg:prairie_grass",
+    "byg:ether_grass",
+    "byg:tall_ether_grass",
+    "byg:scorched_grass",
+    "byg:beach_grass",
+    "byg:tall_prairie_grass"
+  ]
+}

@@ -40,7 +40,6 @@ public class BYGHusbandryAdvancements implements BYGAdvancementConsumer {
             .requirements(RequirementsStrategy.OR)
             .addCriterion("blueberry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.BLUEBERRY_PIE.get()))
             .addCriterion("green_apple_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.GREEN_APPLE_PIE.get()))
-            .addCriterion("crimson_berry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.CRIMSON_BERRY_PIE.get()))
             .addCriterion("nightshade_berry_pie", InventoryChangeTrigger.TriggerInstance.hasItems(BYGItems.NIGHTSHADE_BERRY_PIE.get()))
             .save(advancementConsumer, "byg:husbandry/just_like_grandmas");
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:dacite_cobblestone"
+    }
+  },
+  "result": {
+    "item": "byg:dacite_cobblestone_stairs",
+    "count": 4
+  }
+}

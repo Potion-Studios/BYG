@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "byg:imbued_nightshade_log"
+  },
+  "result": "byg:therium_crystal_shard",
+  "experience": 0.7,
+  "cookingtime": 200
+}

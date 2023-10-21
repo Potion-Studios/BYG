@@ -6,11 +6,9 @@
     "byg:bulbis_stairs",
     "byg:carved_ether_stone_stairs",
     "byg:cattail_thatch_stairs",
-    "byg:sakura_cherry_stairs",
     "byg:chiseled_fungal_imparius_stairs",
     "byg:chiseled_red_rock_brick_stairs",
     "byg:chiseled_therium_stairs",
-
     "byg:chiseled_windswept_sandstone_stairs",
     "byg:cika_stairs",
     "byg:cobbled_ether_stone_stairs",
@@ -38,16 +36,13 @@
     "byg:palm_stairs",
     "byg:pine_stairs",
     "byg:polished_soapstone_stairs",
-
     "byg:purpur_stone_stairs",
     "byg:rainbow_eucalyptus_stairs",
     "byg:red_rock_brick_stairs",
     "byg:red_rock_stairs",
     "byg:redwood_stairs",
     "byg:rocky_stone_stairs",
-
-
-
+    "byg:sakura_cherry_stairs",
     "byg:shiny_chiseled_therium_stairs",
     "byg:skyris_stairs",
     "byg:smooth_windswept_sandstone_stairs",
@@ -55,12 +50,10 @@
     "byg:soapstone_stairs",
     "byg:soapstone_tile_stairs",
     "byg:sythian_stairs",
-
     "byg:white_mangrove_stairs",
     "byg:willow_stairs",
     "byg:windswept_sandstone_stairs",
     "byg:witch_hazel_stairs",
-
     "byg:zelkova_stairs"
   ]
 }

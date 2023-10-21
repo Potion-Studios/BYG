@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:shiny_chiseled_therium"
+  },
+  "result": "byg:shiny_chiseled_therium_slab",
+  "count": 2
+}

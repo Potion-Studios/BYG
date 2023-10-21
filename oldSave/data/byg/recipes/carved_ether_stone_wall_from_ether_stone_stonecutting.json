@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:carved_ether_stone"
+  },
+  "result": "byg:carved_ether_stone_wall",
+  "count": 1
+}

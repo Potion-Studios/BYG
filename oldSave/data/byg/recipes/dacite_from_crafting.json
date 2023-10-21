@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AQ",
+    "QA"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "A": {
+      "item": "minecraft:andesite"
+    }
+  },
+  "result": {
+    "item": "byg:dacite",
+    "count": 4
+  }
+}

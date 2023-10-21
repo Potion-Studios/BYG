@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:stripped_sakura_cherry_log"
+    }
+  },
+  "result": {
+    "item": "byg:stripped_sakura_cherry_wood",
+    "count": 3
+  }
+}

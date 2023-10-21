@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "byg:soapstone_bricks",
+
+    "byg:red_rock_bricks",
+    "byg:carved_ether_stone",
+    "byg:chiseled_therium",
+    "byg:shiny_chiseled_therium"
+  ]
+}

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "group": "wood",
   "key": {
     "L": {
@@ -13,5 +14,6 @@
   "result": {
     "count": 3,
     "item": "byg:green_enchanted_wood"
-  }
+  },
+  "show_notification": true
 }

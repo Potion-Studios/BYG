@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "byg:cracked_red_sand"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_sand",
+    "count": 1
+  }
+}

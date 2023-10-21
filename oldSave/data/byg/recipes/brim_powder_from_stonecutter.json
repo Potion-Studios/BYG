@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "byg:brimstone"
+  },
+  "result": "byg:brim_powder",
+  "count": 1
+}

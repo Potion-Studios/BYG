@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "byg:red_rock",
+    "byg:dacite_cobblestone",
+
+    "byg:soapstone",
+    "byg:cobbled_ether_stone"
+  ]
+}

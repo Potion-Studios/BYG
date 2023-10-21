@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "byg:cattail_thatch"
+    }
+  },
+  "result": {
+    "item": "byg:cattail_thatch_stairs",
+    "count": 4
+  }
+}

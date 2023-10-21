@@ -59,5 +59,6 @@
       "green_apple_pie",
       "nightshade_berry_pie"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

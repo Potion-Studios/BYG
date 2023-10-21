@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "byg:windswept_sandstone_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "byg:chiseled_windswept_sandstone"
+  }
+}

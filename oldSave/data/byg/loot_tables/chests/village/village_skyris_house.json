@@ -1,0 +1,120 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 3.0,
+        "max": 8.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:beetroot_soup"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:lead"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 7.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "byg:skyris_vine"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "byg:fairy_slipper"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:writable_book"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:book"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "byg:green_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "byg:skyris_sapling"
+        }
+      ]
+    }
+  ]
+}

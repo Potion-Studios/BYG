@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "byg:white_cherry_tree2",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": {
+          "feature": "byg:white_cherry_tree1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

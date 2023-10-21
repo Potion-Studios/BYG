@@ -1292,7 +1292,9 @@
       "byg:canadian_shield"
     ]
   ],
+  "requirements": [],
   "rewards": {
     "experience": 1000
-  }
+  },
+  "sends_telemetry_event": true
 }

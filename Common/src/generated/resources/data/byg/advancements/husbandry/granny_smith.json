@@ -33,5 +33,6 @@
     [
       "green_apple"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

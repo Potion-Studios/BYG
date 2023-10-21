@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "blue_dye",
+  "ingredients": [
+    {
+      "tag": "byg:double_blue_dye"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye",
+    "count": 2
+  }
+}

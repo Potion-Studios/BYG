@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "result": {
+    "item": "byg:blue_sand",
+    "count": 1
+  }
+}
