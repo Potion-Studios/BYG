@@ -1,8 +1,13 @@
 package potionstudios.byg.datagen.providers.lang;
 
 import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.locale.Language;
+import net.minecraft.resources.ResourceKey;
 import net.minecraftforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.text.WordUtils;
 import potionstudios.byg.BYG;
@@ -15,6 +20,7 @@ import potionstudios.byg.reg.RegistrationProvider;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 public class EnUsLanguageProvider extends LanguageProvider {
 
@@ -32,6 +38,12 @@ public class EnUsLanguageProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
+
+        BYGBiomes.BIOME_FACTORIES.keySet().forEach(biomeResourceKey -> {
+            add(biomeResourceKey.location().toLanguageKey("biome"),
+                    WordUtils.capitalize(biomeResourceKey.location().getPath().replace("_", " ")));
+        });
+
         PROVIDER_TO_ID.forEach((provider, id) -> provider.getEntries().forEach(entry -> {
             final var descId = Util.makeDescriptionId(id, entry.getId());
             add(descId, WordUtils.capitalize(entry.getId().getPath().replace("_", " ")));

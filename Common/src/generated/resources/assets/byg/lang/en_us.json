@@ -2,7 +2,6 @@
   "biome.byg.allium_fields": "Allium Fields",
   "biome.byg.amaranth_fields": "Amaranth Fields",
   "biome.byg.araucaria_savanna": "Araucaria Savanna",
-  "biome.byg.arisian_undergrowth": "Arisian Undergrowth",
   "biome.byg.aspen_forest": "Aspen Forest",
   "biome.byg.atacama_desert": "Atacama Desert",
   "biome.byg.autumnal_forest": "Autumnal Forest",
@@ -17,26 +16,23 @@
   "biome.byg.bulbis_gardens": "Bulbis Gardens",
   "biome.byg.canadian_shield": "Canadian Shield",
   "biome.byg.cardinal_tundra": "Cardinal Tundra",
-  "biome.byg:sakura_grove": "Sakura Grove",
   "biome.byg.cika_woods": "Cika Woods",
   "biome.byg.coconino_meadow": "Coconino Meadow",
   "biome.byg.coniferous_forest": "Coniferous Forest",
   "biome.byg.crag_gardens": "Crag Gardens",
-  "biome.byg.crimson_gardens": "Crimson Gardens",
   "biome.byg.cryptic_wastes": "Cryptic Wastes",
   "biome.byg.cypress_swamplands": "Cypress Swamplands",
   "biome.byg.dacite_ridges": "Dacite Ridges",
   "biome.byg.dacite_shore": "Dacite Shore",
   "biome.byg.dead_sea": "Dead Sea",
   "biome.byg.ebony_woods": "Ebony Woods",
-
+  "biome.byg.enchanted_tangle": "Enchanted Tangle",
   "biome.byg.ethereal_islands": "Ethereal Islands",
   "biome.byg.firecracker_shrubland": "Firecracker Shrubland",
-  "biome.byg.enchanted_tangle": "Enchanted Tangle",
+  "biome.byg.forgotten_forest": "Forgotten Forest",
   "biome.byg.fragment_forest": "Fragment Forest",
   "biome.byg.frosted_coniferous_forest": "Frosted Coniferous Forest",
   "biome.byg.frosted_taiga": "Frosted Taiga",
-  "biome.byg.glowstone_gardens": "Glowstone Gardens",
   "biome.byg.guiana_shield": "Guiana Shield",
   "biome.byg.howling_peaks": "Howling Peaks",
   "biome.byg.imparius_grove": "Imparius Grove",
@@ -55,20 +51,17 @@
   "biome.byg.red_rock_valley": "Red Rock Valley",
   "biome.byg.redwood_thicket": "Redwood Thicket",
   "biome.byg.rose_fields": "Rose Fields",
+  "biome.byg.sakura_grove": "Sakura Grove",
   "biome.byg.shattered_glacier": "Shattered Glacier",
-
   "biome.byg.sierra_badlands": "Sierra Badlands",
   "biome.byg.skyris_vale": "Skyris Vale",
-  "biome.byg.subzero_hypogeal": "Subzero Hypogeal",
   "biome.byg.sythian_torrids": "Sythian Torrids",
   "biome.byg.temperate_grove": "Temperate Grove",
-  "biome.byg.forgotten_forest": "Forgotten Forest",
   "biome.byg.tropical_rainforest": "Tropical Rainforest",
   "biome.byg.twilight_meadow": "Twilight Meadow",
   "biome.byg.viscal_isles": "Viscal Isles",
   "biome.byg.wailing_garth": "Wailing Garth",
   "biome.byg.warped_desert": "Warped Desert",
-  "biome.byg.weeping_mire": "Weeping Mire",
   "biome.byg.weeping_witch_forest": "Weeping Witch Forest",
   "biome.byg.white_mangrove_marshes": "White Mangrove Marshes",
   "biome.byg.windswept_desert": "Windswept Desert",
@@ -834,7 +827,6 @@
   "block.byg.potted_richea": "Potted Richea",
   "block.byg.potted_rose": "Potted Rose",
   "block.byg.potted_shrub": "Potted Shrub",
-
   "block.byg.potted_silver_maple_sapling": "Potted Silver Maple Sapling",
   "block.byg.potted_silver_vase_flower": "Potted Silver Vase Flower",
   "block.byg.potted_skyris_sapling": "Potted Skyris Sapling",
@@ -971,12 +963,6 @@
   "block.byg.shiny_chiseled_therium_stairs": "Shiny Chiseled Therium Stairs",
   "block.byg.shiny_chiseled_therium_wall": "Shiny Chiseled Therium Wall",
   "block.byg.shrub": "Shrub",
-
-
-
-
-
-
   "block.byg.silver_maple_leaves": "Silver Maple Leaves",
   "block.byg.silver_maple_sapling": "Silver Maple Sapling",
   "block.byg.silver_vase_flower": "Silver Vase Flower",
@@ -2039,11 +2025,6 @@
   "item.byg.shiny_chiseled_therium_stairs": "Shiny Chiseled Therium Stairs",
   "item.byg.shiny_chiseled_therium_wall": "Shiny Chiseled Therium Wall",
   "item.byg.shrub": "Shrub",
-
-
-
-
-
   "item.byg.silver_maple_leaves": "Silver Maple Leaves",
   "item.byg.silver_maple_sapling": "Silver Maple Sapling",
   "item.byg.silver_vase_flower": "Silver Vase Flower",
