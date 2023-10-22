@@ -103,8 +103,10 @@ public class BYGDataGen {
 
         gen.addProvider(event.includeServer(), new ForgeAdvancementProvider(gen.getPackOutput(), completablefuture,  existingFileHelper, List.of(new BYGAdvancementProvider())));
 
-         Client:
-        gen.addProvider(event.includeServer(), new BYGWoodAssetsProvider(gen, existingFileHelper));
+         //Client:
+        BYGWoodAssetsProvider bygWoodAssetsProvider = new BYGWoodAssetsProvider(gen, existingFileHelper);
+        gen.addProvider(event.includeServer(), bygWoodAssetsProvider);
+        gen.addProvider(event.includeServer(), bygWoodAssetsProvider.getItemProvider());
         gen.addProvider(event.includeClient(), new EnUsLanguageProvider(gen));
         gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(gen.getPackOutput(), event.getLookupProvider(), BUILDER, Set.of(BYG.MOD_ID)));
 
