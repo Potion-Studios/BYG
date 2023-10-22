@@ -104,7 +104,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             fenceGateBlock((FenceGateBlock) type.fenceGate().get(), fenceGate, fenceGateOpen, fenceGateWall, fenceGateWallOpen);
 
             if (type.leaves() != null) {
-                // So.. leaves are fun.
+                // So... leaves are fun.
                 final var leavesLoc = rl(typeLoc + "leaves");
                 final BlockModelBuilder leaves;
                 if (type.leavesHaveOverlay()) {
@@ -316,10 +316,8 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 
 
             for(var type: BYGWoodTypes.values()) {
-                final var typeName = "block/" + type;
                 final var typeLoc = "block/" + type + "/";
                 final var typeLocItem = "item/" + type + "/";
-                final var planksLoc = rl(typeLoc + "planks");
 
                 if (type.boat() != null) {
                     withExistingParent(type.boat().getId().getPath(), generatedParent)
