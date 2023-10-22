@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "byg:item/bulbis/hanging_sign"
+  }
+}

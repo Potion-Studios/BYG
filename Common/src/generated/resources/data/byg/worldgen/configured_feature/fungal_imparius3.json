@@ -44,8 +44,8 @@
       "byg:fungal_imparius_stem"
     ],
     "place_from_nbt": [
-      "byg:fungal_imparius",
-      "byg:fungal_imparius_filament_block"
+      "byg:fungal_imparius_filament_block",
+      "byg:fungal_imparius"
     ]
   }
 }

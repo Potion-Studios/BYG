@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "byg:item/cypress/hanging_sign"
+  }
+}

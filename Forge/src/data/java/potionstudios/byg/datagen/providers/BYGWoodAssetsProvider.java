@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class BYGWoodAssetsProvider extends BlockStateProvider {
-    // private final ItemProvider item;
+
     public final Map<String, ResourceLocation> itemParents;
 
     private final DataGenerator dataGenerator;
@@ -193,6 +193,12 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 signBlock((StandingSignBlock) type.sign().get(), (WallSignBlock) type.wallSign().get(), model);
             }
 
+            if (type.hangingSign() != null) {
+                final var model = models().sign(typeName + "/hanging_sign", planksLoc);
+                hangingSign((CeilingHangingSignBlock) type.hangingSign().get(),
+                        (WallHangingSignBlock) type.wallHangingSign().get(), model);
+            }
+
 // No wood walls for now
 //            final var logLocation = rl(typeLoc + "log");
 //            final var wallInv = models().wallInventory(typeName + "/wall_inventory", logLocation)
@@ -204,6 +210,13 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 //                    .texture("particle", logLocation);
 //            wallBlock(type.wall().get(), wallPost, wall, wall);
         }
+    }
+
+    private void hangingSign(CeilingHangingSignBlock ceilingHangingSignBlock,
+                            WallHangingSignBlock wallHangingSignBlock,
+                            ModelFile sign) {
+        simpleBlock(ceilingHangingSignBlock, sign);
+        simpleBlock(wallHangingSignBlock, sign);
     }
 
     private void door(String typeLocation, Block door, ResourceLocation bottom, ResourceLocation top) {
@@ -341,8 +354,13 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 }
 
                 if (type.sign() != null) {
-                    itemModels().withExistingParent(type.sign().getId().getPath(), generatedParent)
+                    withExistingParent(type.sign().getId().getPath(), generatedParent)
                             .texture("layer0", rl(typeLocItem + "sign"));
+                }
+
+                if (type.hangingSign() != null) {
+                    withExistingParent(type.hangingSign().getId().getPath(), generatedParent)
+                            .texture("layer0", rl(typeLocItem + "hanging_sign"));
                 }
             }
 
