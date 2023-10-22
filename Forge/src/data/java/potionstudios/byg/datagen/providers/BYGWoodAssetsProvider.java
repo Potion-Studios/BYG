@@ -43,7 +43,6 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
         for (final var type : BYGWoodTypes.values()) {
             final var typeName = "block/" + type;
             final var typeLoc = "block/" + type + "/";
-            final var typeLocItem = "item/" + type + "/";
             final var topPlanksLoc = rl(typeLoc + "planks_top");
             final var topPlanks = models().existingFileHelper.exists(topPlanksLoc, ModelProviderAccess.getTexture());
             final var log = models().cubeColumn(typeName + "/log", BYG.createLocation(typeLoc + "log"), BYG.createLocation(typeLoc + "log_top"));
