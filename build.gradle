@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 plugins {
     id 'java'
     id 'idea'
-    id 'com.matyrobbrt.mc.registrationutils' version '1.19-1.3.0'
+    id 'com.matyrobbrt.mc.registrationutils' version '1.19-1.3.1'
 }
 
 registrationUtils {
@@ -25,8 +25,8 @@ subprojects {
     java.withJavadocJar()
 
     dependencies {
-        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
-        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
+        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
+        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
     }
 
     jar {
