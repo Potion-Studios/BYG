@@ -25,8 +25,8 @@ subprojects {
     java.withJavadocJar()
 
     dependencies {
-        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
-        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
+        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
+        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
     }
 
     jar {
