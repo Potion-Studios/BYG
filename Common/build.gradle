@@ -36,7 +36,7 @@ dependencies {
     compileOnly("org.ow2.asm:asm-tree:9.5")
     compileOnly("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
     compileOnly("maven.modrinth:corgilib:${minecraft_version}-${corgilib_version}-forge")
-    compileOnly("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
+    compileOnly("com.github.glitchfiend:TerraBlender-common${terrablender_version}")
 }
 
 processResources {
