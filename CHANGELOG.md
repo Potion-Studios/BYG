@@ -16,6 +16,9 @@
 
 # End 1.19, start 1.19.3
 ***
+# 2.0.1.5
+Fix Broken Sandstone Recipes
+Fix Wall Sign Drops. Fixes #1240
 
 # 2.0.1.4
 * Fix broken NBT files. Fixes #1206 and #1207

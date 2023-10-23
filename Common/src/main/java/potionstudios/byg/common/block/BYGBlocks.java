@@ -1335,12 +1335,12 @@ public class BYGBlocks {
         return signBlock;
     }
 
-    static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color) {
-        return createWallSign(id, type, () -> color.get().defaultMaterialColor());
+    static BlockRegistryObject<Block> createWallSign(String id, WoodType type, BlockRegistryObject<Block> color, BlockRegistryObject<Block> sign) {
+        return createWallSign(id, type, () -> color.get().defaultMaterialColor(), sign);
     }
 
-    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()), type), id) : null;
+    private static BlockRegistryObject<Block> createWallSign(String id, WoodType type, Supplier<? extends MaterialColor> color, BlockRegistryObject<Block> sign) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).dropsLike(sign.get()), type), id) : null;
         if (signBlock != null) {
             SIGN_BLOCKS.add(signBlock);
         }
