@@ -10,6 +10,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -1348,23 +1350,22 @@ public class BYGBlocks {
     }
 
     static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
-        return createHangingSign(id, type, () -> color.get().defaultMapColor());
+        return createHangingSign(id, type, () -> color.get().defaultMaterialColor());
     }
 
-    private static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
-        if (signBlock != null) {
-            SIGN_BLOCKS.add(signBlock);
-        }
+    private static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).requiredFeatures(new FeatureFlag[]{FeatureFlags.UPDATE_1_20}), type), id) : null;
+        if (signBlock != null) SIGN_BLOCKS.add(signBlock);
+
         return signBlock;
     }
 
     static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, BlockRegistryObject<Block> color, BlockRegistryObject<Block> hangingSign) {
-        return createWallHangingSign(id, type, () -> color.get().defaultMapColor(), hangingSign);
+        return createWallHangingSign(id, type, () -> color.get().defaultMaterialColor(), hangingSign);
     }
 
-    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MapColor> color, BlockRegistryObject<Block> hangingSign) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()).dropsLike(hangingSign.get()), type), id) : null;
+    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MaterialColor> color, BlockRegistryObject<Block> hangingSign) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).dropsLike(hangingSign.get()).requiredFeatures(new FeatureFlag[]{FeatureFlags.UPDATE_1_20}), type), id) : null;
         if (signBlock != null) SIGN_BLOCKS.add(signBlock);
 
         return signBlock;
