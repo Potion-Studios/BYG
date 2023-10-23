@@ -30,8 +30,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static net.minecraft.tags.BlockTags.TERRACOTTA;
-import static net.minecraft.tags.BlockTags.create;
 import static potionstudios.byg.BYG.createLocation;
 import static potionstudios.byg.common.BYGTags.*;
 import static potionstudios.byg.common.block.BYGBlocks.*;
@@ -77,7 +75,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         tag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING).addTags(BlockTags.SAND).add(Blocks.CLAY, Blocks.MUD);
         tag(BYGBlockTags.GROUND_WILLOW_SAPLING).addTags(BlockTags.SAND).add(Blocks.CLAY, Blocks.MUD);
         tag(BYGBlockTags.GROUND_CYPRESS_SAPLING).addTags(BlockTags.SAND).add(Blocks.CLAY, Blocks.MUD);
-        tag(BYGBlockTags.GROUND_PALO_VERDE_SAPLING).addTags(BlockTags.SAND).addTag(TERRACOTTA);
+        tag(BYGBlockTags.GROUND_PALO_VERDE_SAPLING).addTags(BlockTags.SAND).addTag(BlockTags.TERRACOTTA);
 
         tag(BYGBlockTags.END_STONE).add(ETHER_STONE.get(), BULBIS_PHYCELIUM.get(), NIGHTSHADE_PHYLIUM.get(), IMPARIUS_PHYLIUM.get(), IVIS_PHYLIUM.get(), SHULKREN_PHYLIUM.get(), Blocks.END_STONE);
 
@@ -190,7 +188,7 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
     @SafeVarargs
     private void wood(String name, Supplier<? extends Block>... blocks) {
         final var loc = createLocation(name);
-        final var tag = create(loc);
+        final var tag = BlockTags.create(loc);
         tag(tag, blocks);
         tag(BlockTags.LOGS).addTag(tag);
         tag(BlockTags.LOGS_THAT_BURN).addTag(tag);
