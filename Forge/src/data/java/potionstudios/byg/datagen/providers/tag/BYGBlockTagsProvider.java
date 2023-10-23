@@ -140,7 +140,6 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             planksTag.add(type.planks().get());
             bookselvesTag.add(type.bookshelf().get());
 
-            planksTag.add(type.planks().get());
             trapdoorsTag.add(type.trapdoor().get());
             woodenButtonsTag.add(type.button().get());
             woodenDoorsTag.add(type.door().get());
