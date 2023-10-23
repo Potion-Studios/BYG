@@ -146,7 +146,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     compileOnly project(":Common")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender_version}")
+    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${minecraft_version}-${terrablender_version}")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19.3:${geckolib_version}")
     implementation fg.deobf("maven.modrinth:corgilib:${minecraft_version}-${corgilib_version}-forge")
 
