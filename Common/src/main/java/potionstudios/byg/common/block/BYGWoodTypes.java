@@ -259,7 +259,7 @@ public enum BYGWoodTypes {
         BYGItems.createItem(button);
 
         this.sign = BYGBlocks.createSign(name + "_sign", woodType, planks);
-        this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks);
+        this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks, this.sign);
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
 
         if (builder.boatType != null) {
