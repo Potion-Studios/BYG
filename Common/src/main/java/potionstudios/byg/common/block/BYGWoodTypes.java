@@ -261,7 +261,7 @@ public enum BYGWoodTypes {
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
 
         this.hangingSign = BYGBlocks.createHangingSign(name + "_hanging_sign", woodType, planks);
-        this.wallHangingSign = BYGBlocks.createWallHangingSign(name + "_wall_hanging_sign", woodType, planks);
+        this.wallHangingSign = BYGBlocks.createWallHangingSign(name + "_wall_hanging_sign", woodType, planks, hangingSign);
         this.hangingSignItem = BYGItems.createHangingSign(name + "_hanging_sign", hangingSign, wallHangingSign);
 
 

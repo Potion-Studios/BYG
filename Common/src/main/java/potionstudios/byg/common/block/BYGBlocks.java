@@ -1166,15 +1166,14 @@ public class BYGBlocks {
         return signBlock;
     }
 
-    static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, BlockRegistryObject<Block> color) {
-        return createWallHangingSign(id, type, () -> color.get().defaultMapColor());
+    static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, BlockRegistryObject<Block> color, BlockRegistryObject<Block> hangingSign) {
+        return createWallHangingSign(id, type, () -> color.get().defaultMapColor(), hangingSign);
     }
 
-    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MapColor> color) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()), type), id) : null;
-        if (signBlock != null) {
-            SIGN_BLOCKS.add(signBlock);
-        }
+    private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MapColor> color, BlockRegistryObject<Block> hangingSign) {
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()).dropsLike(hangingSign.get()), type), id) : null;
+        if (signBlock != null) SIGN_BLOCKS.add(signBlock);
+
         return signBlock;
     }
 
