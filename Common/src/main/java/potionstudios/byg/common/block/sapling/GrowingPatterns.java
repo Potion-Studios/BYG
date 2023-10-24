@@ -14,6 +14,7 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlocks;
@@ -682,6 +683,26 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS3)), 1)
                             .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS4)), 1)
                             .add(new FeatureSpawner(Holder.hackyErase(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5)), 1)
+                            .build())
+            ));
+            // kept empty not to override vanilla logic, unless for special patterns
+            map.put(Blocks.BIRCH_SAPLING, List.of(
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE3)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE4)), 1)
+                            .build())
+            ));
+            map.put(Blocks.OAK_SAPLING, List.of(
+                    new GrowingPatternEntry(List.of(
+                            "xx",
+                            "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE1)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE2)), 1)
+                            .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE3)), 1)
                             .build())
             ));
             return map;
