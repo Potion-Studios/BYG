@@ -43,17 +43,20 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
                 return;
             }
 
-            this.growFeature(this, level, pos, random);
+            // accept vanilla method if no pattern was found
+            if (!this.growFeature(this, level, pos, random)) {
+                super.advanceTree(level, pos, state, random);
+            }
         }
     }
 
     @Override
-    public ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns() {
+    public ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg_getPatterns() {
         return this.patternsToSpawner;
     }
 
     @Override
-    public void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map) {
+    public void byg_setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map) {
         this.patternsToSpawner = map;
     }
 }

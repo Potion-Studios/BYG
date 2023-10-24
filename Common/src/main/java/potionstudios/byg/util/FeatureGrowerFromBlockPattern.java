@@ -28,9 +28,9 @@ public interface FeatureGrowerFromBlockPattern {
         this.serializePatterns(block);
     }
 
-    ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> getPatterns();
+    ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg_getPatterns();
 
-    void setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map);
+    void byg_setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map);
 
 
     default void serializePatterns(Block key) {
@@ -89,14 +89,14 @@ public interface FeatureGrowerFromBlockPattern {
         });
         Collections.reverse(list);
 
-        this.setPatterns(ImmutableList.copyOf(list));
+        this.byg_setPatterns(ImmutableList.copyOf(list));
     }
 
     default boolean growFeature(Block block, ServerLevel level, BlockPos pos, RandomSource rand) {
         BlockPos.MutableBlockPos mutableBlockPos = pos.mutable();
         int range = (GrowingPatterns.MAX_PATTERN_SIZE - 1) / 2;
 
-        for (var entry : this.getPatterns()) {
+        for (var entry : this.byg_getPatterns()) {
             for (int xMove = -range; xMove <= range; xMove++) {
                 for (int zMove = -range; zMove <= range; zMove++) {
                     BlockPos.MutableBlockPos mutableBlockPos1 = new BlockPos.MutableBlockPos().set(mutableBlockPos.set(pos).move(xMove, 0, zMove));
