@@ -201,6 +201,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                         .texture("layer0", rl(typeLocItem + "sign"));
             }
 
+
 // No wood walls for now
 //            final var logLocation = rl(typeLoc + "log");
 //            final var wallInv = models().wallInventory(typeName + "/wall_inventory", logLocation)

@@ -131,6 +131,10 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
         final var woodenSlabsTag = tag(BlockTags.WOODEN_SLABS);
         final var woodenStairsTag = tag(BlockTags.WOODEN_STAIRS);
         final var woodenTrapdoorsTag = tag(BlockTags.WOODEN_TRAPDOORS);
+        final var signTag = tag(BlockTags.SIGNS);
+        final var wallSignTag = tag(BlockTags.WALL_SIGNS);
+        final var hangingSignTag = tag(BlockTags.CEILING_HANGING_SIGNS);
+        final var hangingWallSignTag = tag(BlockTags.WALL_HANGING_SIGNS);
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             tag(type.logTag().block(), type.log(), type.strippedLog(), type.wood(), type.strippedWood());
             logs.addTag(type.logTag().block());
@@ -149,6 +153,12 @@ public class BYGBlockTagsProvider extends BlockTagsProvider {
             woodenSlabsTag.add(type.slab().get());
             woodenStairsTag.add(type.stairs().get());
             woodenTrapdoorsTag.add(type.trapdoor().get());
+            if (type.sign() != null){
+                signTag.add(type.sign().get());
+                wallSignTag.add(type.wallSign().get());
+                hangingSignTag.add(type.hangingSign().get());
+                hangingWallSignTag.add(type.wallHangingSign().get());
+            }
         }
         //TODO for 1.20 remove
         bookselvesTag.add(Blocks.BOOKSHELF);
