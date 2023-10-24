@@ -1,3 +1,10 @@
+# 4.0.0.3
+* Fix Broken Sandstone Recipes. Fixes #1204 (1.19.4)
+* Fix Wall Sign Drops. Fixes #1240 (1.19.4)
+* Fix Duplicate planks in planks block tag
+* Fix a client Crash. Fixes #1224
+* Add Hanging signs (Must have 1.20 Vanilla Data pack enabled)
+
 # 4.0.0.2
 * Fix broken NBT files. Fixes #1206 and #1207
 * Fix broken audio files.
@@ -17,8 +24,8 @@
 # End 1.19, start 1.19.3
 ***
 # 2.0.1.5
-Fix Broken Sandstone Recipes
-Fix Wall Sign Drops. Fixes #1240
+* Fix Broken Sandstone Recipes
+* Fix Wall Sign Drops. Fixes #1240
 
 # 2.0.1.4
 * Fix broken NBT files. Fixes #1206 and #1207
