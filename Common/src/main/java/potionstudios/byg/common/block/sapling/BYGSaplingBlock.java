@@ -39,7 +39,10 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
             world.setBlock(pos, state.cycle(STAGE), 4);
         } else {
             if (!ModPlatform.INSTANCE.canTreeGrowWithEvent(world, rand, pos)) return;
-            FeatureGrowerFromBlockPattern.growFeature(this, world, pos, rand, this.patternsToSpawner);
+            // accept vanilla method if no pattern was found
+            if (!FeatureGrowerFromBlockPattern.growFeature(this, world, pos, rand, this.patternsToSpawner)) {
+                super.advanceTree(world, pos, state, rand);
+            }
         }
     }
 
