@@ -77,6 +77,7 @@ class BYGBlockLootProvider extends BlockLootSubProvider {
             dropSelf(type.stairs());
             dropSelf(type.trapdoor());
             dropSelf(type.sign());
+            dropSelf(type.hangingSign());
 
             if (type.growerItem() != null) {
                 final var growerName = type.growerItem().getId().getPath();

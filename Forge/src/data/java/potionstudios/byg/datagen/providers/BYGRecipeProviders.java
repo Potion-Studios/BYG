@@ -134,6 +134,17 @@ public class BYGRecipeProviders extends RecipeProvider {
                     .unlockedBy("has_planks", has(type.planks()))
                     .save(consumer, BYG.createLocation(prefix + type + "_sign"));
             }
+            if (type.hangingSign() != null) {
+                ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, type.hangingSign(), 6)
+                        .group("hanging_sign")
+                        .pattern("S S")
+                        .pattern("PPP")
+                        .pattern("PPP")
+                        .define('P', type.strippedLog())
+                        .define('S', Items.CHAIN)
+                        .unlockedBy("has_stripped_logs", has(type.strippedLog()))
+                        .save(consumer, BYG.createLocation(prefix + type + "hanging_sign"));
+            }
         }
     }
 
