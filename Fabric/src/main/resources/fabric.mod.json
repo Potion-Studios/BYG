@@ -35,6 +35,9 @@
     "main": [
       "potionstudios.byg.BYGFabric"
     ],
+    "fabric-datagen": [
+      "potionstudios.byg.datagen.BYGDataGenerator"
+    ],
     "client": [
       "potionstudios.byg.client.BYGFabricClient"
     ],
