@@ -91,10 +91,6 @@ minecraft {
             args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Client'
-            def output = sourceSets.main.output
-            def commonOutput = project(":Common").sourceSets.main.output
-            environment("MOD_CLASSES", [output.classesDirs.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
-
             mods {
                 modClientRun {
                     source sourceSets.main
@@ -109,10 +105,6 @@ minecraft {
             args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             ideaModule "${rootProject.name}.${project.name}.main"
             taskName 'Server'
-            def output = sourceSets.main.output
-            def commonOutput = project(":Common").sourceSets.main.output
-            environment("MOD_CLASSES", [output.classesDirs.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
-
             mods {
                 modServerRun {
                     source sourceSets.main
@@ -127,10 +119,6 @@ minecraft {
             ideaModule "${rootProject.name}.${project.name}.main"
             args '--mod', mod_id, '--all', '--output', project(':Common').file('src/generated/resources'), '--existing', project(':Common').file('src/main/resources'), "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}_forge.mixins.json"
             taskName 'Data'
-            def output = sourceSets.main.output
-            def commonOutput = project(":Common").sourceSets.main.output
-            environment("MOD_CLASSES", [output.classesDirs.asPath, sourceSets.data.output.asPath, output.resourcesDir.path, commonOutput.classesDirs.asPath, commonOutput.resourcesDir.path].join(";"))
-
             mods {
                 byg {
                     source sourceSets.main as SourceSet
