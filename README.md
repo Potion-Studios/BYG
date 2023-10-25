@@ -1,7 +1,7 @@
 # Oh The Biomes You'll Go
 ![image](https://user-images.githubusercontent.com/66983020/163863611-bd761c5f-07ff-474a-b3b9-21116f69e4f9.png "Oh The Biomes You'll Go")
 
-Oh The Biomes You'll Go is an exploration and adventure mod designed to take you on a road trip across Minecraft like no other! Explore over 80 magical, realistic, and breathtaking biomes across the overworld, nether, end dimensions.
+Oh The Biomes You'll Go is an exploration and adventure mod designed to take you on a road trip across Minecraft like no other! Explore over 80 magical, realistic and breathtaking biomes across the overworld, nether, end dimensions.
 
 ---
 
