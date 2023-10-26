@@ -27,14 +27,26 @@ public class BYGModelGenerator extends FabricModelProvider {
             BlockFamilyProviderMethod>> SHAPE_CONSUMERS = ImmutableMap.builder()
             .put(BYGBlockFamily.Variant.BUTTON, BYGModelGenerator.BlockFamilyProvider::button)
             .put(BYGBlockFamily.Variant.DOOR, BYGModelGenerator.BlockFamilyProvider::door)
+            .put(BYGBlockFamily.Variant.CUT_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
+            .put(BYGBlockFamily.Variant.CUT_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
+            .put(BYGBlockFamily.Variant.CUT_WALL, BYGModelGenerator.BlockFamilyProvider::wall)
             .put(BYGBlockFamily.Variant.CHISELED, BYGModelGenerator.BlockFamilyProvider::fullBlockVariant)
+            .put(BYGBlockFamily.Variant.CHISELED_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
+            .put(BYGBlockFamily.Variant.CHISELED_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
+            .put(BYGBlockFamily.Variant.CHISELED_WALL, BYGModelGenerator.BlockFamilyProvider::wall)
             .put(BYGBlockFamily.Variant.CRACKED, BYGModelGenerator.BlockFamilyProvider::fullBlockVariant)
+            .put(BYGBlockFamily.Variant.CRACKED_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
+            .put(BYGBlockFamily.Variant.CRACKED_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
+            .put(BYGBlockFamily.Variant.CRACKED_WALL, BYGModelGenerator.BlockFamilyProvider::wall)
             .put(BYGBlockFamily.Variant.FENCE, BYGModelGenerator.BlockFamilyProvider::fence)
             .put(BYGBlockFamily.Variant.FENCE_GATE, BYGModelGenerator.BlockFamilyProvider::fenceGate)
             .put(BYGBlockFamily.Variant.SIGN, BYGModelGenerator.BlockFamilyProvider::sign)
             .put(BYGBlockFamily.Variant.SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
             .put(BYGBlockFamily.Variant.STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
             .put(BYGBlockFamily.Variant.PRESSURE_PLATE, BYGModelGenerator.BlockFamilyProvider::pressurePlate)
+            .put(BYGBlockFamily.Variant.POLISHED_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
+            .put(BYGBlockFamily.Variant.POLISHED_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
+            .put(BYGBlockFamily.Variant.POLISHED_WALL, BYGModelGenerator.BlockFamilyProvider::wall)
             .put(BYGBlockFamily.Variant.TRAPDOOR, BYGModelGenerator.BlockFamilyProvider::trapdoor)
             .put(BYGBlockFamily.Variant.WALL, BYGModelGenerator.BlockFamilyProvider::wall).build();
 
@@ -74,7 +86,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         private final TextureMapping mapping;
         private final Map<ModelTemplate, ResourceLocation> models = Maps.newHashMap();
         @Nullable
-        private BlockFamily family;
+        private BYGBlockFamily family;
         @Nullable
         private ResourceLocation fullBlock;
 
@@ -233,7 +245,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this.models.computeIfAbsent(modelTemplate, template -> template.create(block, this.mapping, generators.modelOutput));
         }
 
-        public BYGModelGenerator.BlockFamilyProvider generateFor(BlockModelGenerators generators, BlockFamily blockFamily) {
+        public BYGModelGenerator.BlockFamilyProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
             blockFamily.getVariants().forEach((variant, block) -> {
                 BiConsumer<BYGModelGenerator.BlockFamilyProvider, BlockFamilyProviderMethod> blockFamilyProviderBlockBiConsumer = BYGModelGenerator.SHAPE_CONSUMERS.get(variant);

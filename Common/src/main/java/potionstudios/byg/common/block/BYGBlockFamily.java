@@ -1,12 +1,8 @@
 package potionstudios.byg.common.block;
 
 import com.google.common.collect.Maps;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Supplier;
-import javax.annotation.Nullable;
-
 import net.minecraft.Util;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
@@ -15,6 +11,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import potionstudios.byg.BYG;
+import potionstudios.byg.mixin.access.StairBlockAccess;
+
+import javax.annotation.Nullable;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
@@ -63,6 +66,12 @@ public class BYGBlockFamily {
         return Util.isBlank(this.recipeUnlockedBy) ? Optional.empty() : Optional.of(this.recipeUnlockedBy);
     }
 
+    public static class WoodBuilder {
+        private final BYGBlockFamily family;
+        private final String baseName;
+        private final WoodType woodType;
+    }
+
     public static class Builder {
         private final BYGBlockFamily family;
         private final String baseName;
@@ -90,16 +99,52 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public Builder chiseled_stairs(BlockBehaviour.Properties properties) {
+            return subType_stairs("chiseled_", Variant.CHISELED_STAIRS, properties);
+        }
+
+        public Builder chiseled_slab(BlockBehaviour.Properties properties) {
+            return subType_slab("chiseled_", Variant.CHISELED_SLAB, properties);
+        }
+
+        public Builder chiseled_wall(BlockBehaviour.Properties properties) {
+            return subType_wall("chiseled_", Variant.CHISELED_WALL, properties);
+        }
+
         public Builder cracked(BlockBehaviour.Properties properties) {
             this.family.variants.put(BYGBlockFamily.Variant.CRACKED,
                     BYGBlocks.createBlock(() -> new Block(properties), "cracked_" + baseName + "_block").get());
             return this;
         }
 
+        public Builder cracked_stairs(BlockBehaviour.Properties properties) {
+            return subType_stairs("cracked_", Variant.CRACKED_STAIRS, properties);
+        }
+
+        public Builder cracked_slab(BlockBehaviour.Properties properties) {
+            return subType_slab("cracked_", Variant.CRACKED_SLAB, properties);
+        }
+
+        public Builder cracked_wall(BlockBehaviour.Properties properties) {
+            return subType_wall("cracked_", Variant.CRACKED_WALL, properties);
+        }
+
         public Builder cut(BlockBehaviour.Properties properties) {
             this.family.variants.put(BYGBlockFamily.Variant.CUT,
                     BYGBlocks.createBlock(() -> new Block(properties), "cut_" + baseName + "_block").get());
             return this;
+        }
+
+        public Builder cut_stairs(BlockBehaviour.Properties properties) {
+            return subType_stairs("cut_", Variant.CUT_STAIRS, properties);
+        }
+
+        public Builder cut_slab(BlockBehaviour.Properties properties) {
+            return subType_slab("cut_", Variant.CUT_SLAB, properties);
+        }
+
+        public Builder cut_wall(BlockBehaviour.Properties properties) {
+            return subType_wall("cut_", Variant.CUT_WALL, properties);
         }
 
         public Builder door() {
@@ -176,6 +221,18 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public Builder polished_stairs(BlockBehaviour.Properties properties) {
+            return subType_stairs("polished_", Variant.POLISHED_STAIRS, properties);
+        }
+
+        public Builder polished_slab(BlockBehaviour.Properties properties) {
+            return subType_slab("polished_", Variant.POLISHED_SLAB, properties);
+        }
+
+        public Builder polished_wall(BlockBehaviour.Properties properties) {
+            return subType_wall("polished_", Variant.POLISHED_WALL, properties);
+        }
+
         public Builder trapdoor(Block block) {
             this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
                     BYGBlocks.createTrapDoor(baseName + "_trapdoor", blockSetType).get());
@@ -185,6 +242,31 @@ public class BYGBlockFamily {
         public Builder wall(BlockBehaviour.Properties properties) {
             this.family.variants.put(BYGBlockFamily.Variant.WALL,
                     BYGBlocks.createBlock(() -> new WallBlock(properties), baseName + "_wall").get());
+            return this;
+        }
+
+        private Builder subType_stairs(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+            String id = prefix + baseName + "_stairs";
+            this.family.variants.put(variant,
+                    BYGBlocks.createBlock(
+                            () -> StairBlockAccess.byg_create(BuiltInRegistries.BLOCK
+                                            .get(BYG.createLocation(id.replace("_stairs", "block"))).defaultBlockState(),
+                                    properties), id).get());
+            return this;
+        }
+
+        private Builder subType_slab(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+            String id = prefix + baseName + "_slab";
+            this.family.variants.put(variant,
+                    BYGBlocks.createBlock(() -> new SlabBlock(properties), id).get()
+            );
+            return this;
+        }
+
+        private Builder subType_wall(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+            String id = prefix + baseName + "_wall";
+            this.family.variants.put(variant,
+                    BYGBlocks.createBlock(() -> new WallBlock(properties), id).get());
             return this;
         }
 
@@ -217,8 +299,17 @@ public class BYGBlockFamily {
     public enum Variant {
         BUTTON("button"),
         CHISELED("chiseled"),
+        CHISELED_STAIRS("chiseled_stairs"),
+        CHISELED_SLAB("chiseled_slab"),
+        CHISELED_WALL("chiseled_wall"),
         CRACKED("cracked"),
+        CRACKED_STAIRS("cracked_stairs"),
+        CRACKED_SLAB("cracked_slab"),
+        CRACKED_WALL("cracked_wall"),
         CUT("cut"),
+        CUT_STAIRS("cut_stairs"),
+        CUT_SLAB("cut_slab"),
+        CUT_WALL("cut_wall"),
         DOOR("door"),
         FENCE("fence"),
         FENCE_GATE("fence_gate"),
@@ -228,6 +319,9 @@ public class BYGBlockFamily {
         STAIRS("stairs"),
         PRESSURE_PLATE("pressure_plate"),
         POLISHED("polished"),
+        POLISHED_STAIRS("polished_stairs"),
+        POLISHED_SLAB("polished_slab"),
+        POLISHED_WALL("polished_wall"),
         TRAPDOOR("trapdoor"),
         WALL("wall"),
         WALL_HANGING_SIGN("wall_hanging_sign"),
