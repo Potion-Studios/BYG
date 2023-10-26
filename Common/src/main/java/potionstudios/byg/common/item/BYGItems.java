@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
+import potionstudios.byg.common.block.BYGBlockFamilies;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
@@ -274,6 +275,7 @@ public class BYGItems {
 
     static {
         BYGWoodTypes.ASPEN.init();
+        BYGBlockFamilies.register();
 
         FLOWERING_BAOBAB_LEAVES = createItem(BYGBlocks.FLOWERING_BAOBAB_LEAVES);
         RIPE_BAOBAB_LEAVES = createItem(BYGBlocks.RIPE_BAOBAB_LEAVES);
@@ -307,7 +309,7 @@ public class BYGItems {
         BYGWoodTypes.GREEN_ENCHANTED.init();
 
         HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
-        BYGWoodTypes.HOLLY.init();
+        // BYGWoodTypes.HOLLY.init();
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
         IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);

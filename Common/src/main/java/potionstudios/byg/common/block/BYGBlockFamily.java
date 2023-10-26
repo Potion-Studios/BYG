@@ -84,17 +84,22 @@ public class BYGBlockFamily {
         private final BYGBlockFamily family;
         private final String baseName;
         private final WoodType woodType;
+        private final Supplier<? extends MapColor> color;
 
-        private final boolean isNether;
+        private final boolean isNotOverworld;
 
-        public WoodBuilder(Block block, String baseName, WoodType woodType, boolean isNether) {
-            this.family = new BYGBlockFamily(block);
+        public WoodBuilder(String baseName, WoodType woodType, Supplier<? extends MapColor> color,
+                           boolean isNotOverworld) {
+            Block planks = BYGBlocks.createPlanks(baseName + "_planks").get();
+            this.family = new BYGBlockFamily(planks);
+            this.family.variants.put(Variant.PLANKS, planks);
             this.baseName = baseName;
             this.woodType = woodType;
-            this.isNether = isNether;
+            this.color = color;
+            this.isNotOverworld = isNotOverworld;
         }
 
-        public BYGBlockFamily getFamily() {
+        public BYGBlockFamily build() {
             return this.family;
         }
 
@@ -151,7 +156,7 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public WoodBuilder hangingSign(Supplier<? extends MapColor> color, WoodType woodType) {
+        public WoodBuilder hangingSign() {
             this.family.variants.put(Variant.HANGING_SIGN,
                     BYGBlocks.createBlock(
                             () -> new CeilingHangingSignBlock(
@@ -177,12 +182,12 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public WoodBuilder leaves(Supplier<? extends MapColor> color) {
+        public WoodBuilder leaves() {
             if(this.family.variants.containsKey(Variant.LEAVES)) {
                 return this;
             }
             this.family.variants.put(Variant.LEAVES,
-                    isNether ?
+                    isNotOverworld ?
                             BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block").get()
                             : BYGBlocks.createLeaves(color.get(), baseName + "_leaves").get()
                     );
@@ -193,15 +198,9 @@ public class BYGBlockFamily {
 
         public WoodBuilder log() {
             this.family.variants.put(Variant.LOG,
-                    isNether ?
+                    isNotOverworld ?
                             BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem").get()
                             : BYGBlocks.createLog(baseName + "_log").get());
-            return this;
-        }
-
-        public WoodBuilder planks() {
-            this.family.variants.put(Variant.PLANKS,
-                    BYGBlocks.createPlanks(baseName + "_planks").get());
             return this;
         }
 
@@ -211,7 +210,7 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public WoodBuilder sign(Supplier<? extends MapColor> color, WoodType woodType) {
+        public WoodBuilder sign() {
             this.family.variants.put(BYGBlockFamily.Variant.SIGN,
                     BYGBlocks.createBlock(
                             () -> new StandingSignBlock(
@@ -243,7 +242,7 @@ public class BYGBlockFamily {
 
         public WoodBuilder strippedLog() {
             this.family.variants.put(Variant.STRIPPED_LOG,
-                    isNether ?
+                    isNotOverworld ?
                             BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem").get()
                             : BYGBlocks.createLog("stripped_" + baseName + "_log").get());
             return this;
@@ -253,13 +252,13 @@ public class BYGBlockFamily {
 
         public WoodBuilder strippedWood() {
             this.family.variants.put(Variant.STRIPPED_WOOD,
-                    isNether ?
+                    isNotOverworld ?
                             BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae").get()
                             : BYGBlocks.createLog("stripped_" + baseName + "_wood").get());
             return this;
         }
 
-        public WoodBuilder trapdoor(Block block) {
+        public WoodBuilder trapdoor() {
             this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
                     BYGBlocks.createTrapDoor(baseName + "_trapdoor", woodType.setType()).get());
             return this;
@@ -269,7 +268,7 @@ public class BYGBlockFamily {
 
         public WoodBuilder wood() {
             this.family.variants.put(Variant.WOOD,
-                    isNether ?
+                    isNotOverworld ?
                             BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae").get()
                             : BYGBlocks.createLog(baseName + "_wood").get());
             return this;
@@ -291,7 +290,7 @@ public class BYGBlockFamily {
             this.blockSetType = blockSetType;
         }
 
-        public BYGBlockFamily getFamily() {
+        public BYGBlockFamily build() {
             return this.family;
         }
 
@@ -373,38 +372,6 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public Builder hangingSign(Supplier<? extends MapColor> color, WoodType woodType) {
-            this.family.variants.put(Variant.HANGING_SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new CeilingHangingSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_hanging_sign").get());
-            this.family.variants.put(Variant.WALL_HANGING_SIGN,
-                    BYGBlocks.createBlock(
-                    () -> new WallHangingSignBlock(
-                            BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                            woodType),
-                    baseName + "_wall_hanging_sign").get());
-            return this;
-        }
-
-        public Builder sign(Supplier<? extends MapColor> color, WoodType woodType) {
-            this.family.variants.put(BYGBlockFamily.Variant.SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new StandingSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_sign").get());
-            this.family.variants.put(BYGBlockFamily.Variant.WALL_SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new WallSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_wall_sign").get());
-            return this;
-        }
-
         public Builder slab() {
             this.family.variants.put(BYGBlockFamily.Variant.SLAB,
                     BYGBlocks.createWoodSlab(baseName + "_slab").get());
@@ -441,7 +408,7 @@ public class BYGBlockFamily {
             return subType_wall("polished_", Variant.POLISHED_WALL, properties);
         }
 
-        public Builder trapdoor(Block block) {
+        public Builder trapdoor() {
             this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
                     BYGBlocks.createTrapDoor(baseName + "_trapdoor", blockSetType).get());
             return this;

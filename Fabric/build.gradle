@@ -98,7 +98,7 @@ loom {
             inherit server
             name "Data Generation"
             vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${project(':Common').file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.output-dir=${project(':Common').file("src/test/generated")}"
             vmArg "-Dfabric-api.datagen.modid=byg"
 
             runDir "build/datagen"

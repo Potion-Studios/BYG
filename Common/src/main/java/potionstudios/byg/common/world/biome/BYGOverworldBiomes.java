@@ -583,7 +583,7 @@ public class BYGOverworldBiomes {
         BiomeDefaultFeatures.addMossyStoneBlock(generationSettings);
 
         BYGDefaultBiomeFeatures.addDaciteRidgeTrees(generationSettings);
-        BYGDefaultBiomeFeatures.addHollyTrees(generationSettings);
+        // BYGDefaultBiomeFeatures.addHollyTrees(generationSettings);
         BYGDefaultBiomeFeatures.addLushBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addBlueberries(generationSettings);
         BYGDefaultBiomeFeatures.addCrocus(generationSettings);

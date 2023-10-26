@@ -11,6 +11,9 @@ import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.common.block.BYGBlockFamilies;
 import potionstudios.byg.common.block.BYGBlockFamily;
 
 import javax.annotation.Nullable;
@@ -21,9 +24,9 @@ import java.util.function.Supplier;
 
 
 public class BYGModelGenerator extends FabricModelProvider {
-    private static final Map<BYGBlockFamily.Variant, BiConsumer<BYGModelGenerator.BlockFamilyProvider,
-            BlockFamilyProviderMethod>> BLOCK_SHAPE_CONSUMERS = ImmutableMap.builder()
-            .put(BYGBlockFamily.Variant.BOOKSHELF, BYGModelGenerator.WoodProvider::bookshelf)
+    private static final Map<BYGBlockFamily.Variant,
+            BiConsumer<BYGModelGenerator.BlockFamilyProvider, BYGModelGenerator.BlockFamilyProviderMethod>> BLOCK_SHAPE_CONSUMERS =
+            ImmutableMap.builder()
             .put(BYGBlockFamily.Variant.BUTTON, BYGModelGenerator.BlockFamilyProvider::button)
             .put(BYGBlockFamily.Variant.DOOR, BYGModelGenerator.BlockFamilyProvider::door)
             .put(BYGBlockFamily.Variant.CUT_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
@@ -37,10 +40,8 @@ public class BYGModelGenerator extends FabricModelProvider {
             .put(BYGBlockFamily.Variant.CRACKED_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
             .put(BYGBlockFamily.Variant.CRACKED_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
             .put(BYGBlockFamily.Variant.CRACKED_WALL, BYGModelGenerator.BlockFamilyProvider::wall)
-            .put(BYGBlockFamily.Variant.CRAFTING_TABLE, BYGModelGenerator.WoodProvider::craftingTable)
             .put(BYGBlockFamily.Variant.FENCE, BYGModelGenerator.BlockFamilyProvider::fence)
             .put(BYGBlockFamily.Variant.FENCE_GATE, BYGModelGenerator.BlockFamilyProvider::fenceGate)
-            .put(BYGBlockFamily.Variant.LOG, BYGModelGenerator.WoodProvider::log)
             .put(BYGBlockFamily.Variant.PRESSURE_PLATE, BYGModelGenerator.BlockFamilyProvider::pressurePlate)
             .put(BYGBlockFamily.Variant.POLISHED_STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
             .put(BYGBlockFamily.Variant.POLISHED_SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
@@ -48,15 +49,13 @@ public class BYGModelGenerator extends FabricModelProvider {
             .put(BYGBlockFamily.Variant.SIGN, BYGModelGenerator.BlockFamilyProvider::sign)
             .put(BYGBlockFamily.Variant.SLAB, BYGModelGenerator.BlockFamilyProvider::slab)
             .put(BYGBlockFamily.Variant.STAIRS, BYGModelGenerator.BlockFamilyProvider::stairs)
-            .put(BYGBlockFamily.Variant.STRIPPED_LOG, BYGModelGenerator.WoodProvider::log)
-            .put(BYGBlockFamily.Variant.STRIPPED_WOOD, BYGModelGenerator.WoodProvider::wood)
             .put(BYGBlockFamily.Variant.TRAPDOOR, BYGModelGenerator.BlockFamilyProvider::trapdoor)
             .put(BYGBlockFamily.Variant.WALL, BYGModelGenerator.BlockFamilyProvider::wall)
-            .put(BYGBlockFamily.Variant.WOOD, BYGModelGenerator.WoodProvider::wood)
             .build();
 
-    private static final Map<BYGBlockFamily.Variant, BiConsumer<BYGModelGenerator.WoodProvider,
-            BlockFamilyProviderMethod>> WOOD_SHAPE_CONSUMERS = ImmutableMap.builder()
+    private static final Map<BYGBlockFamily.Variant,
+            BiConsumer<BYGModelGenerator.WoodProvider, BYGModelGenerator.BlockFamilyProviderMethod>> WOOD_SHAPE_CONSUMERS =
+            ImmutableMap.builder()
             .put(BYGBlockFamily.Variant.BOOKSHELF, BYGModelGenerator.WoodProvider::bookshelf)
             .put(BYGBlockFamily.Variant.BUTTON, BYGModelGenerator.WoodProvider::button)
             .put(BYGBlockFamily.Variant.DOOR, BYGModelGenerator.WoodProvider::door)
@@ -92,11 +91,23 @@ public class BYGModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
+        woodFamily().generateFor(blockStateModelGenerator, BYGBlockFamilies.HOLLY);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 
+    }
+
+    public final BYGModelGenerator.BlockFamilyProvider family(BlockModelGenerators generators, Block block) {
+        TexturedModel texturedModel = this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
+        return new BYGModelGenerator.BlockFamilyProvider(texturedModel.getMapping())
+                .fullBlock(block, texturedModel.getTemplate(), generators);
+    }
+
+    @Contract(" -> new")
+    public final BYGModelGenerator.@NotNull WoodProvider woodFamily() {
+        return new BYGModelGenerator.WoodProvider();
     }
 
     public interface BlockFamilyProviderMethod {
@@ -253,7 +264,7 @@ public class BYGModelGenerator extends FabricModelProvider {
     }
 
     public final class WoodProvider {
-        private final TextureMapping mapping;
+        private TextureMapping mapping;
         private final Map<ModelTemplate, ResourceLocation> models = new HashMap<>();
         @Nullable
         private BYGBlockFamily family;
@@ -261,12 +272,11 @@ public class BYGModelGenerator extends FabricModelProvider {
         @Nullable
         private ResourceLocation fullBlock;
 
-        public WoodProvider(TextureMapping textureMapping) {
-            this.mapping = textureMapping;
+        public WoodProvider() {
         }
 
         @SuppressWarnings("unused")
-        public BYGModelGenerator.WoodProvider fullBlock(Block block, ModelTemplate modelTemplate,
+        private BYGModelGenerator.WoodProvider fullBlock(Block block, ModelTemplate modelTemplate,
                                                                BlockModelGenerators generator) {
             this.fullBlock = modelTemplate.create(block, this.mapping, generator.modelOutput);
             if (fullBlockModelCustomGenerators.containsKey(block)) {
@@ -277,7 +287,6 @@ public class BYGModelGenerator extends FabricModelProvider {
             }
             return this;
         }
-
 
         public BYGModelGenerator.WoodProvider bookshelf(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.column(TextureMapping.getBlockTexture(arguments.getBlock()), TextureMapping.getBlockTexture(Blocks.OAK_PLANKS));
@@ -353,12 +362,11 @@ public class BYGModelGenerator extends FabricModelProvider {
         public BYGModelGenerator.WoodProvider potted(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping
                     .plant(this.family.get(BYGBlockFamily.Variant.GROWER));
-            ResourceLocation $$4 = BlockModelGenerators.TintState.NOT_TINTED
+            ResourceLocation resourceLocation = BlockModelGenerators.TintState.NOT_TINTED
                     .getCrossPot().create(arguments.getBlock(), textureMapping, arguments
                     .getGenerators().modelOutput);
             arguments.getGenerators()
-                    .blockStateOutput.accept(arguments.getGenerators()
-                            .createSimpleBlock(arguments.getBlock(), $$4));
+                    .blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
             return this;
         }
 
@@ -422,6 +430,11 @@ public class BYGModelGenerator extends FabricModelProvider {
         @SuppressWarnings("unused")
         public BYGModelGenerator.WoodProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
+            Block plank = family.get(BYGBlockFamily.Variant.PLANKS);
+            TexturedModel planksModel = texturedModels
+                    .getOrDefault(plank, TexturedModel.CUBE.get(plank));
+            mapping = planksModel.getMapping();
+            fullBlock(plank, planksModel.getTemplate(), generators);
             blockFamily.getVariants().forEach((variant, block) -> {
                 BiConsumer<BYGModelGenerator.WoodProvider, BlockFamilyProviderMethod> blockFamilyProviderBlockBiConsumer =
                         BYGModelGenerator.WOOD_SHAPE_CONSUMERS.get(variant);
@@ -437,6 +450,11 @@ public class BYGModelGenerator extends FabricModelProvider {
                             return generators;
                         }
                     });
+                } else {
+                    TexturedModel texturedModel = texturedModels
+                            .getOrDefault(family.get(BYGBlockFamily.Variant.PLANKS),
+                                    TexturedModel.CUBE.get(family.get(BYGBlockFamily.Variant.PLANKS)));
+                    fullBlock(block, texturedModel.getTemplate(), generators);
                 }
             });
             return this;

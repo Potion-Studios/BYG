@@ -1033,7 +1033,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
+    /* public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
@@ -1084,7 +1084,7 @@ public class BYGOverworldTreeFeatures {
                     HOLLY.leaves(),
                     BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
             )
-    );
+    ); */
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -3881,6 +3881,7 @@ public class BYGOverworldTreeFeatures {
             }
     );
 
+    /*
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREES = createConfiguredFeature("holly_trees",
             () -> Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstapContext) -> {
@@ -3891,7 +3892,7 @@ public class BYGOverworldTreeFeatures {
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HOLLY_TREE3)), 0.25F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HOLLY_TREE4)));
             }
-    );
+    ); */
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MANGROVE_TREES = createConfiguredFeature("white_mangrove_trees",
             () -> Feature.RANDOM_SELECTOR,

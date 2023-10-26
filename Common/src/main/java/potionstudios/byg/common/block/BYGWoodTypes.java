@@ -77,10 +77,10 @@ public enum BYGWoodTypes {
             .boatType(BYGBoat.BYGType.GREEN_ENCHANTED)
             .MapColor(MapColor.COLOR_GREEN)
             .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))),
-    HOLLY("holly", new Builder()
+    /* HOLLY("holly", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_HOLLY_SAPLING)
             .MapColor(MapColor.TERRACOTTA_GREEN)
-            .boatType(BYGBoat.BYGType.HOLLY)),
+            .boatType(BYGBoat.BYGType.HOLLY)), */
     IMPARIUS("imparius", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
             .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)

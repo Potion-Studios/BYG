@@ -201,6 +201,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE2), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE3), 1).build())
             ));
+            /*
             map.put(BYGWoodTypes.HOLLY.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.HOLLY_TREE1), 1)
@@ -212,7 +213,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.HOLLY_TREE3), 1)
                             .build())
-            ));
+            )); */
             map.put(BYGWoodTypes.JACARANDA.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.JACARANDA_TREE1), 1)
