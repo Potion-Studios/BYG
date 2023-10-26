@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.NetherFeatures;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -49,7 +50,9 @@ import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistrationProvider;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -57,7 +60,7 @@ import java.util.function.ToIntFunction;
 public class BYGBlocks {
     public static final RegistrationProvider<Block> PROVIDER = RegistrationProvider.get(Registries.BLOCK, BYG.MOD_ID);
 
-    public static final List<BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new ArrayList<>();
+    public static final Map<ResourceLocation, BlockRegistryObject<Block>> FLOWER_POT_BLOCKS = new HashMap<>();
     public static final List<BlockRegistryObject<Block>> SIGN_BLOCKS = new ArrayList<>();
 
     public static final BlockRegistryObject<Block> FORAGERS_TABLE = createBlock(() -> new Block(BlockBehaviour.Properties.copy(Blocks.FLETCHING_TABLE)), "foragers_table");
@@ -1014,7 +1017,7 @@ public class BYGBlocks {
     public static BlockRegistryObject<Block> createPottedBlock(Supplier<Block> blockForPot, String id) {
         final var b = createBlock(blockForPot, id);
         final BlockRegistryObject<Block> potted = createBlock(() -> BYGBlockFactory.INSTANCE.createPottedBlock(b, BlockBehaviour.Properties.of().instabreak().noOcclusion()), "potted_" + id);
-        FLOWER_POT_BLOCKS.add(potted);
+        FLOWER_POT_BLOCKS.put(b.getId(), potted);
         return b;
     }
 

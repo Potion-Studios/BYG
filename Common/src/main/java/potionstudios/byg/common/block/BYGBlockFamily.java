@@ -139,12 +139,15 @@ public class BYGBlockFamily {
             TagKey<Block> tagKey = createTag(BYG.createLocation("may_place_on/" + itemName));
             this.family.tagKeyMap
                     .put(growerItemType, tagKey);
-            this.family.variants.put(Variant.GROWER,
+            BlockRegistryObject<Block> growerBlock =
                     switch (growerItemType) {
-                        case NETHER_PLANT -> BYGBlocks.createFungus(tagKey, itemName).get();
-                        case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName).get();
-                        default -> BYGBlocks.createSapling(tagKey, itemName).get();
-                    });
+                        case NETHER_PLANT -> BYGBlocks.createFungus(tagKey, itemName);
+                        case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName);
+                        default -> BYGBlocks.createSapling(tagKey, itemName);
+                    };
+            this.family.variants.put(Variant.GROWER, growerBlock.get());
+            this.family.variants.put(Variant.POTTED,
+                    BYGBlocks.FLOWER_POT_BLOCKS.get(growerBlock.getId()).get());
             return this;
         }
 
@@ -444,12 +447,6 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public Builder wall(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.WALL,
-                    BYGBlocks.createBlock(() -> new WallBlock(properties), baseName + "_wall").get());
-            return this;
-        }
-
         private Builder subType_stairs(String prefix, Variant variant, BlockBehaviour.Properties properties) {
             String id = prefix + baseName + "_stairs";
             this.family.variants.put(variant,
@@ -472,6 +469,12 @@ public class BYGBlockFamily {
             String id = prefix + baseName + "_wall";
             this.family.variants.put(variant,
                     BYGBlocks.createBlock(() -> new WallBlock(properties), id).get());
+            return this;
+        }
+
+        public Builder wall(BlockBehaviour.Properties properties) {
+            this.family.variants.put(BYGBlockFamily.Variant.WALL,
+                    BYGBlocks.createBlock(() -> new WallBlock(properties), baseName + "_wall").get());
             return this;
         }
 
@@ -539,6 +542,7 @@ public class BYGBlockFamily {
         POLISHED_STAIRS("polished_stairs"),
         POLISHED_SLAB("polished_slab"),
         POLISHED_WALL("polished_wall"),
+        POTTED("potted"),
         SIGN("sign"),
         SLAB("slab"),
         STAIRS("stairs"),
