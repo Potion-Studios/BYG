@@ -213,6 +213,9 @@ public enum BYGWoodTypes {
             };
             BYGItems.createGrowerItem(growerItem, builder.growerItemType == GrowerItemType.SAPLING);
         }
+
+        // In Block Family
+
         if (!builder.excludes.contains(BlockType.LEAVES)) {
             if (builder.isNether)
                 this.leaves = BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, nameOr("%s_wart_block", BlockType.LEAVES));
@@ -220,7 +223,11 @@ public enum BYGWoodTypes {
                 this.leaves = builder.leavesFactory.apply(name + "_leaves");
             }
             BYGItems.createItem(leaves);
+
+
         }
+
+        // In Block Family
 
         this.log = ifAllowed(BlockType.LOG, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("%s_stem", BlockType.LOG)) : BYGBlocks.createLog(nameOr("%s_log", BlockType.LOG)));
         BYGItems.createItem(log);
@@ -231,36 +238,45 @@ public enum BYGWoodTypes {
         this.strippedWood = ifAllowed(BlockType.STRIPPED_WOOD, () -> builder.isNether ? BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, nameOr("stripped_%s_hyphae", BlockType.STRIPPED_WOOD)) : BYGBlocks.createWood(nameOr("stripped_%s_wood", BlockType.STRIPPED_WOOD)));
         BYGItems.createItem(strippedWood);
 
+        // In Block Family
+
         this.planks = BYGBlocks.createPlanks(name + "_planks");
         BYGItems.createItem(planks);
         this.bookshelf = BYGBlocks.createBookshelf(name + "_bookshelf");
         BYGItems.createItem(bookshelf);
         this.craftingTable = BYGBlocks.createCraftingTable(name + "_crafting_table");
         BYGItems.createItem(craftingTable);
+
+        // In Block Family
         this.stairs = BYGBlocks.createWoodStairs(name + "_stairs");
         BYGItems.createItem(stairs);
         this.slab = BYGBlocks.createWoodSlab(name + "_slab");
         BYGItems.createItem(slab);
 
+        // In Block Family
         this.fence = BYGBlocks.createFence(name + "_fence");
         BYGItems.createItem(fence);
         this.fenceGate = BYGBlocks.createFenceGate(name + "_fence_gate", woodType);
         BYGItems.createItem(fenceGate);
 
+        // In Block Family
         this.door = BYGBlocks.createDoor(name + "_door", this.woodType.setType());
         BYGItems.createItem(door);
         this.trapdoor = BYGBlocks.createTrapDoor(name + "_trapdoor", this.woodType.setType());
         BYGItems.createItem(trapdoor);
 
+        // In Block Family
         this.pressurePlate = BYGBlocks.createWoodPressurePlate(name + "_pressure_plate", this.woodType.setType());
         BYGItems.createItem(pressurePlate);
         this.button = BYGBlocks.createWoodButton(name + "_button", this.woodType.setType());
         BYGItems.createItem(button);
 
+        // In Block Family
         this.sign = BYGBlocks.createSign(name + "_sign", woodType, planks);
         this.wallSign = BYGBlocks.createWallSign(name + "_wall_sign", woodType, planks, sign);
         this.signItem = BYGItems.createSign(name + "_sign", sign, wallSign);
 
+        // In Block Family
         this.hangingSign = BYGBlocks.createHangingSign(name + "_hanging_sign", woodType, planks);
         this.wallHangingSign = BYGBlocks.createWallHangingSign(name + "_wall_hanging_sign", woodType, planks, hangingSign);
         this.hangingSignItem = BYGItems.createHangingSign(name + "_hanging_sign", hangingSign, wallHangingSign);

@@ -23,7 +23,7 @@ import java.util.function.Supplier;
 
 
 public class BYGModelGenerator extends FabricModelProvider {
-    private static final Map<BlockFamily.Variant, BiConsumer<BYGModelGenerator.BlockFamilyProvider,
+    private static final Map<BYGBlockFamily.Variant, BiConsumer<BYGModelGenerator.BlockFamilyProvider,
             BlockFamilyProviderMethod>> SHAPE_CONSUMERS = ImmutableMap.builder()
             .put(BYGBlockFamily.Variant.BUTTON, BYGModelGenerator.BlockFamilyProvider::button)
             .put(BYGBlockFamily.Variant.DOOR, BYGModelGenerator.BlockFamilyProvider::door)
@@ -194,7 +194,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             if (this.family == null) {
                 throw new IllegalStateException("Family not defined");
             } else {
-                Block block1 = this.family.getVariants().get(BlockFamily.Variant.WALL_SIGN);
+                Block block1 = this.family.getVariants().get(BYGBlockFamily.Variant.WALL_SIGN);
                 ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(arguments.getBlock(), this.mapping, arguments.getGenerators().modelOutput);
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block1, resourceLocation));

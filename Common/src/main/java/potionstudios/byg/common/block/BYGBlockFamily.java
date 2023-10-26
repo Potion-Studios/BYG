@@ -1,8 +1,10 @@
 package potionstudios.byg.common.block;
 
-import com.google.common.collect.Maps;
 import net.minecraft.Util;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
@@ -13,25 +15,29 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.StairBlockAccess;
+import potionstudios.byg.reg.BlockRegistryObject;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
     private final Block baseBlock;
-    final Map<Variant, Block> variants = Maps.newHashMap();
-    FeatureFlagSet requiredFeatures;
-    boolean generateModel;
-    boolean generateRecipe;
+    private final Map<Variant, Block> variants = new HashMap<>();
+    private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new HashMap<>();
+    private FeatureFlagSet requiredFeatures;
+    private boolean generateModel;
+    private boolean generateRecipe;
     @Nullable
     String recipeGroupPrefix;
     @Nullable
     String recipeUnlockedBy;
 
-    public BYGBlockFamily(Block block) {
+    private BYGBlockFamily(Block block) {
         this.requiredFeatures = FeatureFlags.VANILLA_SET;
         this.generateModel = true;
         this.generateRecipe = true;
@@ -46,8 +52,16 @@ public class BYGBlockFamily {
         return this.variants;
     }
 
+    public Map<GrowerItemType, TagKey<Block>> getTagKeyMap() {
+        return tagKeyMap;
+    }
+
     public Block get(Variant variant) {
         return this.variants.get(variant);
+    }
+
+    public TagKey<Block> getTag(GrowerItemType growerItemType) {
+        return this.tagKeyMap.get(growerItemType);
     }
 
     public boolean shouldGenerateModel() {
@@ -70,6 +84,197 @@ public class BYGBlockFamily {
         private final BYGBlockFamily family;
         private final String baseName;
         private final WoodType woodType;
+
+        private final boolean isNether;
+
+        public WoodBuilder(Block block, String baseName, WoodType woodType, boolean isNether) {
+            this.family = new BYGBlockFamily(block);
+            this.baseName = baseName;
+            this.woodType = woodType;
+            this.isNether = isNether;
+        }
+
+        public BYGBlockFamily getFamily() {
+            return this.family;
+        }
+
+        // Needs special model
+        public WoodBuilder bookshelf() {
+            this.family.variants.put(Variant.BOOKSHELF,
+                    BYGBlocks.createBookshelf(baseName + "_bookshelf").get());
+            return this;
+        }
+
+        public WoodBuilder button() {
+            this.family.variants.put(BYGBlockFamily.Variant.BUTTON,
+                    BYGBlocks.createWoodButton(baseName + "_button", woodType.setType()).get());
+            return this;
+        }
+
+        public WoodBuilder craftingTable() {
+            this.family.variants.put(Variant.CRAFTING_TABLE,
+                    BYGBlocks.createCraftingTable(baseName + "_crafting_table").get());
+            return this;
+        }
+
+        public WoodBuilder door() {
+            this.family.variants.put(BYGBlockFamily.Variant.DOOR,
+                    BYGBlocks.createDoor(baseName + "_door", woodType.setType()).get());
+            return this;
+        }
+
+        public WoodBuilder fence() {
+            this.family.variants.put(BYGBlockFamily.Variant.FENCE,
+                    BYGBlocks.createFence(baseName + "_fence").get());
+            return this;
+        }
+
+        public WoodBuilder fenceGate() {
+            this.family.variants.put(BYGBlockFamily.Variant.FENCE_GATE,
+                    BYGBlocks.createFence(baseName + "_fence_gate").get());
+            return this;
+        }
+
+        public WoodBuilder growerItem(GrowerItemType growerItemType, String itemName) {
+            TagKey<Block> tagKey = createTag(BYG.createLocation("may_place_on/" + itemName));
+            this.family.tagKeyMap
+                    .put(growerItemType, tagKey);
+            this.family.variants.put(Variant.GROWER,
+                    switch (growerItemType) {
+                        case NETHER_PLANT -> BYGBlocks.createFungus(tagKey, itemName).get();
+                        case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName).get();
+                        default -> BYGBlocks.createSapling(tagKey, itemName).get();
+                    });
+            return this;
+        }
+
+        public WoodBuilder hangingSign(Supplier<? extends MapColor> color, WoodType woodType) {
+            this.family.variants.put(Variant.HANGING_SIGN,
+                    BYGBlocks.createBlock(
+                            () -> new CeilingHangingSignBlock(
+                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                                    woodType),
+                            baseName + "_hanging_sign").get());
+            this.family.variants.put(Variant.WALL_HANGING_SIGN,
+                    BYGBlocks.createBlock(
+                            () -> new WallHangingSignBlock(
+                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                                    woodType),
+                            baseName + "_wall_hanging_sign").get());
+            return this;
+        }
+
+        public WoodBuilder leaves(Function<String, BlockRegistryObject<Block>> leavesFactory) {
+            if(this.family.variants.containsKey(Variant.LEAVES)) {
+                return this;
+            }
+            this.family.variants.put(Variant.LEAVES,
+                    leavesFactory.apply(baseName + "_leaves").get()
+                    );
+            return this;
+        }
+
+        public WoodBuilder leaves(Supplier<? extends MapColor> color) {
+            if(this.family.variants.containsKey(Variant.LEAVES)) {
+                return this;
+            }
+            this.family.variants.put(Variant.LEAVES,
+                    isNether ?
+                            BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block").get()
+                            : BYGBlocks.createLeaves(color.get(), baseName + "_leaves").get()
+                    );
+            return this;
+        }
+
+        // Need custom model
+
+        public WoodBuilder log() {
+            this.family.variants.put(Variant.LOG,
+                    isNether ?
+                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem").get()
+                            : BYGBlocks.createLog(baseName + "_log").get());
+            return this;
+        }
+
+        public WoodBuilder planks() {
+            this.family.variants.put(Variant.PLANKS,
+                    BYGBlocks.createPlanks(baseName + "_planks").get());
+            return this;
+        }
+
+        public WoodBuilder pressurePlate() {
+            this.family.variants.put(BYGBlockFamily.Variant.PRESSURE_PLATE,
+                    BYGBlocks.createWoodPressurePlate(baseName + "_pressure_plate", woodType.setType()).get());
+            return this;
+        }
+
+        public WoodBuilder sign(Supplier<? extends MapColor> color, WoodType woodType) {
+            this.family.variants.put(BYGBlockFamily.Variant.SIGN,
+                    BYGBlocks.createBlock(
+                            () -> new StandingSignBlock(
+                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                                    woodType),
+                            baseName + "_sign").get());
+            this.family.variants.put(BYGBlockFamily.Variant.WALL_SIGN,
+                    BYGBlocks.createBlock(
+                            () -> new WallSignBlock(
+                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                                    woodType),
+                            baseName + "_wall_sign").get());
+            return this;
+        }
+
+        public WoodBuilder slab() {
+            this.family.variants.put(BYGBlockFamily.Variant.SLAB,
+                    BYGBlocks.createWoodSlab(baseName + "_slab").get());
+            return this;
+        }
+
+        public WoodBuilder stairs() {
+            this.family.variants.put(BYGBlockFamily.Variant.STAIRS,
+                    BYGBlocks.createWoodStairs(baseName + "_stairs").get());
+            return this;
+        }
+
+        // Need custom model
+
+        public WoodBuilder strippedLog() {
+            this.family.variants.put(Variant.STRIPPED_LOG,
+                    isNether ?
+                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem").get()
+                            : BYGBlocks.createLog("stripped_" + baseName + "_log").get());
+            return this;
+        }
+
+        // Need custom model
+
+        public WoodBuilder strippedWood() {
+            this.family.variants.put(Variant.STRIPPED_WOOD,
+                    isNether ?
+                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae").get()
+                            : BYGBlocks.createLog("stripped_" + baseName + "_wood").get());
+            return this;
+        }
+
+        public WoodBuilder trapdoor(Block block) {
+            this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
+                    BYGBlocks.createTrapDoor(baseName + "_trapdoor", woodType.setType()).get());
+            return this;
+        }
+
+        // Need custom model
+
+        public WoodBuilder wood() {
+            this.family.variants.put(Variant.WOOD,
+                    isNether ?
+                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae").get()
+                            : BYGBlocks.createLog(baseName + "_wood").get());
+            return this;
+        }
+
+        private static TagKey<Block> createTag(ResourceLocation location) {
+            return TagKey.create(Registries.BLOCK, location);
+        }
     }
 
     public static class Builder {
@@ -296,7 +501,17 @@ public class BYGBlockFamily {
         }
     }
 
+
+    public enum GrowerItemType {
+        SAPLING,
+        MUSHROOM,
+        NETHER_PLANT,
+        END_PLANT,
+        DESERT_PLANT
+    }
+
     public enum Variant {
+        BOOKSHELF("bookshelf"),
         BUTTON("button"),
         CHISELED("chiseled"),
         CHISELED_STAIRS("chiseled_stairs"),
@@ -306,26 +521,34 @@ public class BYGBlockFamily {
         CRACKED_STAIRS("cracked_stairs"),
         CRACKED_SLAB("cracked_slab"),
         CRACKED_WALL("cracked_wall"),
+        CRAFTING_TABLE("crafting_table"),
         CUT("cut"),
         CUT_STAIRS("cut_stairs"),
         CUT_SLAB("cut_slab"),
         CUT_WALL("cut_wall"),
         DOOR("door"),
+        HANGING_SIGN("hanging_sign"),
         FENCE("fence"),
         FENCE_GATE("fence_gate"),
-        HANGING_SIGN("hanging_sign"),
-        SIGN("sign"),
-        SLAB("slab"),
-        STAIRS("stairs"),
+        GROWER("grower"),
+        LEAVES("leaves"),
+        LOG("log"),
+        PLANKS("planks"),
         PRESSURE_PLATE("pressure_plate"),
         POLISHED("polished"),
         POLISHED_STAIRS("polished_stairs"),
         POLISHED_SLAB("polished_slab"),
         POLISHED_WALL("polished_wall"),
+        SIGN("sign"),
+        SLAB("slab"),
+        STAIRS("stairs"),
+        STRIPPED_LOG("stripped_log"),
+        STRIPPED_WOOD("stripped_wood"),
         TRAPDOOR("trapdoor"),
         WALL("wall"),
         WALL_HANGING_SIGN("wall_hanging_sign"),
-        WALL_SIGN("wall_sign");
+        WALL_SIGN("wall_sign"),
+        WOOD("wood");
 
         private final String name;
 
