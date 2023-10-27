@@ -21,14 +21,15 @@ import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
     private final Block baseBlock;
-    private final Map<Variant, Block> variants = new HashMap<>();
-    private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new HashMap<>();
+    private final Map<Variant, Block> variants = new ConcurrentHashMap<>();
+    private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
     private boolean generateRecipe;
@@ -136,7 +137,7 @@ public class BYGBlockFamily {
 
         public WoodBuilder fenceGate() {
             this.family.variants.put(BYGBlockFamily.Variant.FENCE_GATE,
-                    BYGBlocks.createFence(baseName + "_fence_gate").get());
+                    BYGBlocks.createFenceGate(baseName + "_fence_gate", woodType).get());
             return this;
         }
 
@@ -363,12 +364,6 @@ public class BYGBlockFamily {
         public Builder fence() {
             this.family.variants.put(BYGBlockFamily.Variant.FENCE,
                     BYGBlocks.createFence(baseName + "_fence").get());
-            return this;
-        }
-
-        public Builder fenceGate() {
-            this.family.variants.put(BYGBlockFamily.Variant.FENCE_GATE,
-                    BYGBlocks.createFence(baseName + "_fence_gate").get());
             return this;
         }
 

@@ -30,7 +30,6 @@ public class BYGBlockFamilies {
             .sign()
             .slab()
             .stairs()
-            .stairs()
             .strippedLog()
             .strippedWood()
             .trapdoor()
