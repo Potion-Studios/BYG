@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.StairBlockAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
@@ -318,6 +319,18 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder boat() {
+            RegistryObject<Item> item = BYGItems.createItem(() ->
+                    new BYGBoatItem(false, family,
+                            new Item.Properties().stacksTo(1)), baseName + "_boat");
+            this.family.itemVariants.put(ItemVariant.BOAT, item.get());
+            return this;
+        }
+
+        public WoodBuilder chestBoat() {
+            RegistryObject<Item> item = BYGItems.createItem(() ->
+                    new BYGBoatItem(true, family,
+                            new Item.Properties().stacksTo(1)), baseName + "_chest_boat");
+            this.family.itemVariants.put(ItemVariant.CHEST_BOAT, item.get());
             return this;
         }
 

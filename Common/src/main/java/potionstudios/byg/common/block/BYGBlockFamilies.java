@@ -20,8 +20,10 @@ public class BYGBlockFamilies {
 
     public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,false)
+            .boat()
             .bookshelf()
             .button()
+            .chestBoat()
             .craftingTable()
             .door()
             .fence()
