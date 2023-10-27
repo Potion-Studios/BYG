@@ -370,15 +370,10 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         public BYGModelGenerator.WoodProvider log(BlockFamilyProviderMethod arguments) {
-            ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), this.mapping, arguments.getGenerators().modelOutput);
+            TexturedModel logColumn = texturedModels
+                    .getOrDefault(arguments.getBlock(), TexturedModel.COLUMN.get(arguments.getBlock()));
+            ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), logColumn.getMapping(), arguments.getGenerators().modelOutput);
             arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createAxisAlignedPillarBlock(arguments.getBlock(), resourceLocation));
-            return this;
-        }
-
-        public BYGModelGenerator.WoodProvider logWithHorizontal(BlockModelGenerators generators, Block block) {
-            ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(block, this.mapping, generators.modelOutput);
-            ResourceLocation resourceLocation1 = ModelTemplates.CUBE_COLUMN_HORIZONTAL.create(block, this.mapping, generators.modelOutput);
-            generators.blockStateOutput.accept(BlockModelGenerators.createRotatedPillarWithHorizontalVariant(block, resourceLocation, resourceLocation1));
             return this;
         }
 
@@ -456,8 +451,9 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         public BYGModelGenerator.WoodProvider wood(BlockFamilyProviderMethod arguments) {
-            TextureMapping textureMapping = this.mapping.copyAndUpdate(TextureSlot.END, this.mapping.get(TextureSlot.SIDE));
-            ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), textureMapping, arguments.getGenerators().modelOutput);
+            TexturedModel logColumn = texturedModels
+                    .getOrDefault(arguments.getBlock(), TexturedModel.COLUMN.get(arguments.getBlock()));
+            ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), logColumn.getMapping(), arguments.getGenerators().modelOutput);
             arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createAxisAlignedPillarBlock(arguments.getBlock(), resourceLocation));
             return this;
         }
