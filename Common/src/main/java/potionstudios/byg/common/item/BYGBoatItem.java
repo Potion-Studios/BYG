@@ -15,6 +15,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import potionstudios.byg.common.block.BYGBlockFamily;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.common.entity.boat.BYGChestBoat;
 
@@ -25,9 +26,9 @@ public class BYGBoatItem extends Item {
     private static final Predicate<Entity> ENTITY_PREDICATE = EntitySelector.NO_SPECTATORS.and(Entity::isPickable);
 
     private final boolean hasChest;
-    private final BYGBoat.BYGType type;
+    private final BYGBlockFamily type;
 
-    public BYGBoatItem(boolean hasChest, BYGBoat.BYGType typeIn, Properties properties) {
+    public BYGBoatItem(boolean hasChest, BYGBlockFamily typeIn, Properties properties) {
         super(properties);
         this.hasChest = hasChest;
         this.type = typeIn;

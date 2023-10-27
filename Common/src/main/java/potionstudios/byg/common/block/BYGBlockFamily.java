@@ -8,17 +8,19 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.StairBlockAccess;
 import potionstudios.byg.reg.BlockRegistryObject;
+import potionstudios.byg.reg.RegistryObject;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,7 +30,9 @@ import java.util.function.Supplier;
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
     private final Block baseBlock;
-    private final Map<Variant, Block> variants = new ConcurrentHashMap<>();
+    private final String baseName;
+    private final Map<BlockVariant, Block> variants = new ConcurrentHashMap<>();
+    private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
     private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
@@ -38,7 +42,8 @@ public class BYGBlockFamily {
     @Nullable
     String recipeUnlockedBy;
 
-    private BYGBlockFamily(Block block) {
+    private BYGBlockFamily(String baseName, Block block) {
+        this.baseName = baseName;
         this.requiredFeatures = FeatureFlags.VANILLA_SET;
         this.generateModel = true;
         this.generateRecipe = true;
@@ -49,17 +54,23 @@ public class BYGBlockFamily {
         return this.baseBlock;
     }
 
-    public Map<Variant, Block> getVariants() {
+    public Map<BlockVariant, Block> getVariants() {
         return this.variants;
+    }
+
+    public Map<ItemVariant, Item> getItemVariants() {
+        return itemVariants;
     }
 
     public Map<GrowerItemType, TagKey<Block>> getTagKeyMap() {
         return tagKeyMap;
     }
 
-    public Block get(Variant variant) {
-        return this.variants.get(variant);
+    public Block get(BlockVariant blockVariant) {
+        return this.variants.get(blockVariant);
     }
+
+    public Item get(ItemVariant itemVariant) { return this.itemVariants.get(itemVariant); }
 
     public TagKey<Block> getTag(GrowerItemType growerItemType) {
         return this.tagKeyMap.get(growerItemType);
@@ -71,6 +82,9 @@ public class BYGBlockFamily {
 
     public boolean shouldGenerateRecipe(FeatureFlagSet featureFlagSet) {
         return this.generateRecipe && this.requiredFeatures.isSubsetOf(featureFlagSet);
+    }
+    public String getBaseName() {
+        return baseName;
     }
 
     public Optional<String> getRecipeGroupPrefix() {
@@ -91,9 +105,10 @@ public class BYGBlockFamily {
 
         public WoodBuilder(String baseName, WoodType woodType, Supplier<? extends MapColor> color,
                            boolean isNotOverworld) {
-            Block planks = BYGBlocks.createPlanks(baseName + "_planks").get();
-            this.family = new BYGBlockFamily(planks);
-            this.family.variants.put(Variant.PLANKS, planks);
+            RegistryObject<? extends Block> planks = BYGBlocks.createPlanks(baseName + "_planks");
+            this.family = new BYGBlockFamily(baseName, planks.get());
+            this.family.variants.put(BlockVariant.PLANKS, planks.get());
+            BYGItems.createItem(planks);
             this.baseName = baseName;
             this.woodType = woodType;
             this.color = color;
@@ -106,38 +121,50 @@ public class BYGBlockFamily {
 
         // Needs special model
         public WoodBuilder bookshelf() {
-            this.family.variants.put(Variant.BOOKSHELF,
-                    BYGBlocks.createBookshelf(baseName + "_bookshelf").get());
+            RegistryObject<? extends Block> block = BYGBlocks.createBookshelf(baseName + "_bookshelf");
+            this.family.variants.put(BlockVariant.BOOKSHELF,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder button() {
-            this.family.variants.put(BYGBlockFamily.Variant.BUTTON,
-                    BYGBlocks.createWoodButton(baseName + "_button", woodType.setType()).get());
+            RegistryObject<? extends Block> block = BYGBlocks.createWoodButton(baseName + "_button", woodType.setType());
+            this.family.variants.put(BlockVariant.BUTTON,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder craftingTable() {
-            this.family.variants.put(Variant.CRAFTING_TABLE,
-                    BYGBlocks.createCraftingTable(baseName + "_crafting_table").get());
+            RegistryObject<? extends Block> block = BYGBlocks.createCraftingTable(baseName + "_crafting_table");
+            this.family.variants.put(BlockVariant.CRAFTING_TABLE,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder door() {
-            this.family.variants.put(BYGBlockFamily.Variant.DOOR,
-                    BYGBlocks.createDoor(baseName + "_door", woodType.setType()).get());
+            RegistryObject<? extends Block> block = BYGBlocks.createDoor(baseName + "_door", woodType.setType());
+            this.family.variants.put(BlockVariant.DOOR,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder fence() {
-            this.family.variants.put(BYGBlockFamily.Variant.FENCE,
-                    BYGBlocks.createFence(baseName + "_fence").get());
+            RegistryObject<? extends Block> block = BYGBlocks.createFence(baseName + "_fence");
+            this.family.variants.put(BlockVariant.FENCE,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder fenceGate() {
-            this.family.variants.put(BYGBlockFamily.Variant.FENCE_GATE,
-                    BYGBlocks.createFenceGate(baseName + "_fence_gate", woodType).get());
+            RegistryObject<? extends Block> block = BYGBlocks.createFenceGate(baseName + "_fence_gate", woodType);
+            this.family.variants.put(BlockVariant.FENCE_GATE,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
@@ -151,116 +178,129 @@ public class BYGBlockFamily {
                         case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName);
                         default -> BYGBlocks.createSapling(tagKey, itemName);
                     };
-            this.family.variants.put(Variant.GROWER, growerBlock.get());
-            this.family.variants.put(Variant.POTTED,
+            this.family.variants.put(BlockVariant.GROWER, growerBlock.get());
+            this.family.variants.put(BlockVariant.POTTED,
                     BYGBlocks.FLOWER_POT_BLOCKS.get(growerBlock.getId()).get());
+            BYGItems.createGrowerItem(growerBlock, growerItemType == BYGBlockFamily.GrowerItemType.SAPLING);
             return this;
         }
 
         public WoodBuilder hangingSign() {
-            this.family.variants.put(Variant.HANGING_SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new CeilingHangingSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_hanging_sign").get());
-            this.family.variants.put(Variant.WALL_HANGING_SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new WallHangingSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_wall_hanging_sign").get());
+            RegistryObject<? extends Block> sign = BYGBlocks.createBlock(
+                    () -> new CeilingHangingSignBlock(
+                            BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                            woodType),
+                    baseName + "_hanging_sign");
+            RegistryObject<? extends Block> wallSign = BYGBlocks.createBlock(
+                    () -> new WallHangingSignBlock(
+                            BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                            woodType),
+                    baseName + "_wall_hanging_sign");
+            this.family.variants.put(BlockVariant.HANGING_SIGN,
+                    sign.get());
+            this.family.variants.put(BlockVariant.WALL_HANGING_SIGN,
+                    wallSign.get());
+            BYGItems.createHangingSign(baseName + "_hanging_sign", sign, wallSign);
             return this;
         }
 
         public WoodBuilder leaves(Function<String, BlockRegistryObject<Block>> leavesFactory) {
-            if(this.family.variants.containsKey(Variant.LEAVES)) {
+            if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
             }
-            this.family.variants.put(Variant.LEAVES,
-                    leavesFactory.apply(baseName + "_leaves").get()
+            RegistryObject<? extends Block> registryObject = leavesFactory.apply(baseName + "_leaves");
+            this.family.variants.put(BlockVariant.LEAVES,
+                    registryObject.get()
                     );
+            BYGItems.createItem(registryObject);
             return this;
         }
 
         public WoodBuilder leaves() {
-            if(this.family.variants.containsKey(Variant.LEAVES)) {
+            if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
             }
-            this.family.variants.put(Variant.LEAVES,
-                    isNotOverworld ?
-                            BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block").get()
-                            : BYGBlocks.createLeaves(color.get(), baseName + "_leaves").get()
+            RegistryObject<? extends Block> registryObject = isNotOverworld ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block")
+                    : BYGBlocks.createLeaves(color.get(), baseName + "_leaves");
+            this.family.variants.put(BlockVariant.LEAVES,
+                        registryObject.get()
                     );
+            BYGItems.createItem(registryObject);
             return this;
         }
 
-        // Need custom model
-
         public WoodBuilder log() {
-            this.family.variants.put(Variant.LOG,
-                    isNotOverworld ?
-                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem").get()
-                            : BYGBlocks.createLog(baseName + "_log").get());
+            RegistryObject<? extends Block> block = isNotOverworld ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem")
+                    : BYGBlocks.createLog(baseName + "_log");
+            this.family.variants.put(BlockVariant.LOG,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder pressurePlate() {
-            this.family.variants.put(BYGBlockFamily.Variant.PRESSURE_PLATE,
-                    BYGBlocks.createWoodPressurePlate(baseName + "_pressure_plate", woodType.setType()).get());
+            RegistryObject<? extends Block> block = BYGBlocks.createWoodPressurePlate(baseName + "_pressure_plate", woodType.setType());
+            this.family.variants.put(BlockVariant.PRESSURE_PLATE,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder sign() {
-            this.family.variants.put(BYGBlockFamily.Variant.SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new StandingSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_sign").get());
-            this.family.variants.put(BYGBlockFamily.Variant.WALL_SIGN,
-                    BYGBlocks.createBlock(
-                            () -> new WallSignBlock(
-                                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
-                                    woodType),
-                            baseName + "_wall_sign").get());
+            RegistryObject<? extends Block> signBlock = BYGBlocks.createBlock(() -> new StandingSignBlock(
+                    BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                    woodType), baseName + "_sign");
+            RegistryObject<? extends Block> wallSign = BYGBlocks.createBlock(() -> new WallSignBlock(
+                            BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).mapColor(color.get()),
+                            woodType), baseName + "_wall_sign");
+            this.family.variants.put(BlockVariant.SIGN,
+                    signBlock.get());
+            this.family.variants.put(BlockVariant.WALL_SIGN,
+                    wallSign.get());
+            BYGItems.createSign(baseName + "_sign", signBlock, wallSign);
             return this;
         }
 
         public WoodBuilder slab() {
-            this.family.variants.put(BYGBlockFamily.Variant.SLAB,
-                    BYGBlocks.createWoodSlab(baseName + "_slab").get());
+            RegistryObject<? extends Block> block = BYGBlocks.createWoodSlab(baseName + "_slab");
+            this.family.variants.put(BlockVariant.SLAB,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder stairs() {
-            this.family.variants.put(BYGBlockFamily.Variant.STAIRS,
-                    BYGBlocks.createWoodStairs(baseName + "_stairs").get());
+            RegistryObject<? extends Block> block = BYGBlocks.createWoodStairs(baseName + "_stairs");
+            this.family.variants.put(BlockVariant.STAIRS,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
-
-        // Need custom model
 
         public WoodBuilder strippedLog() {
-            this.family.variants.put(Variant.STRIPPED_LOG,
-                    isNotOverworld ?
-                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem").get()
-                            : BYGBlocks.createLog("stripped_" + baseName + "_log").get());
+            RegistryObject<? extends Block> block = isNotOverworld ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem")
+                    : BYGBlocks.createLog("stripped_" + baseName + "_log");
+            this.family.variants.put(BlockVariant.STRIPPED_LOG,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
-        // Need custom model
-
         public WoodBuilder strippedWood() {
-            this.family.variants.put(Variant.STRIPPED_WOOD,
-                    isNotOverworld ?
-                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae").get()
-                            : BYGBlocks.createLog("stripped_" + baseName + "_wood").get());
+            RegistryObject<? extends Block> block = isNotOverworld ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae")
+                    : BYGBlocks.createLog("stripped_" + baseName + "_wood");
+            this.family.variants.put(BlockVariant.STRIPPED_WOOD,
+                    block.get());
+            BYGItems.createItem(block);
             return this;
         }
 
         public WoodBuilder trapdoor() {
-            this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
+            this.family.variants.put(BlockVariant.TRAPDOOR,
                     BYGBlocks.createTrapDoor(baseName + "_trapdoor", woodType.setType()).get());
             return this;
         }
@@ -268,10 +308,16 @@ public class BYGBlockFamily {
         // Need custom model
 
         public WoodBuilder wood() {
-            this.family.variants.put(Variant.WOOD,
-                    isNotOverworld ?
-                            BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae").get()
-                            : BYGBlocks.createLog(baseName + "_wood").get());
+            RegistryObject<? extends Block> block = isNotOverworld ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae")
+                    : BYGBlocks.createLog(baseName + "_wood");
+            this.family.variants.put(BlockVariant.WOOD,
+                    block.get());
+            BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder boat() {
             return this;
         }
 
@@ -286,7 +332,7 @@ public class BYGBlockFamily {
         private final BlockSetType blockSetType;
 
         public Builder(Block block, String baseName, BlockSetType blockSetType) {
-            this.family = new BYGBlockFamily(block);
+            this.family = new BYGBlockFamily(baseName, block);
             this.baseName = baseName;
             this.blockSetType = blockSetType;
         }
@@ -296,122 +342,122 @@ public class BYGBlockFamily {
         }
 
         public Builder button() {
-            this.family.variants.put(BYGBlockFamily.Variant.BUTTON,
+            this.family.variants.put(BlockVariant.BUTTON,
                     BYGBlocks.createWoodButton(baseName + "_button", blockSetType).get());
             return this;
         }
 
         public Builder chiseled(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.CHISELED,
+            this.family.variants.put(BlockVariant.CHISELED,
                     BYGBlocks.createBlock(() -> new Block(properties), "chiseled_" + baseName + "_block").get());
             return this;
         }
 
         public Builder chiseled_stairs(BlockBehaviour.Properties properties) {
-            return subType_stairs("chiseled_", Variant.CHISELED_STAIRS, properties);
+            return subType_stairs("chiseled_", BlockVariant.CHISELED_STAIRS, properties);
         }
 
         public Builder chiseled_slab(BlockBehaviour.Properties properties) {
-            return subType_slab("chiseled_", Variant.CHISELED_SLAB, properties);
+            return subType_slab("chiseled_", BlockVariant.CHISELED_SLAB, properties);
         }
 
         public Builder chiseled_wall(BlockBehaviour.Properties properties) {
-            return subType_wall("chiseled_", Variant.CHISELED_WALL, properties);
+            return subType_wall("chiseled_", BlockVariant.CHISELED_WALL, properties);
         }
 
         public Builder cracked(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.CRACKED,
+            this.family.variants.put(BlockVariant.CRACKED,
                     BYGBlocks.createBlock(() -> new Block(properties), "cracked_" + baseName + "_block").get());
             return this;
         }
 
         public Builder cracked_stairs(BlockBehaviour.Properties properties) {
-            return subType_stairs("cracked_", Variant.CRACKED_STAIRS, properties);
+            return subType_stairs("cracked_", BlockVariant.CRACKED_STAIRS, properties);
         }
 
         public Builder cracked_slab(BlockBehaviour.Properties properties) {
-            return subType_slab("cracked_", Variant.CRACKED_SLAB, properties);
+            return subType_slab("cracked_", BlockVariant.CRACKED_SLAB, properties);
         }
 
         public Builder cracked_wall(BlockBehaviour.Properties properties) {
-            return subType_wall("cracked_", Variant.CRACKED_WALL, properties);
+            return subType_wall("cracked_", BlockVariant.CRACKED_WALL, properties);
         }
 
         public Builder cut(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.CUT,
+            this.family.variants.put(BlockVariant.CUT,
                     BYGBlocks.createBlock(() -> new Block(properties), "cut_" + baseName + "_block").get());
             return this;
         }
 
         public Builder cut_stairs(BlockBehaviour.Properties properties) {
-            return subType_stairs("cut_", Variant.CUT_STAIRS, properties);
+            return subType_stairs("cut_", BlockVariant.CUT_STAIRS, properties);
         }
 
         public Builder cut_slab(BlockBehaviour.Properties properties) {
-            return subType_slab("cut_", Variant.CUT_SLAB, properties);
+            return subType_slab("cut_", BlockVariant.CUT_SLAB, properties);
         }
 
         public Builder cut_wall(BlockBehaviour.Properties properties) {
-            return subType_wall("cut_", Variant.CUT_WALL, properties);
+            return subType_wall("cut_", BlockVariant.CUT_WALL, properties);
         }
 
         public Builder door() {
-            this.family.variants.put(BYGBlockFamily.Variant.DOOR,
+            this.family.variants.put(BlockVariant.DOOR,
                     BYGBlocks.createDoor(baseName + "_door", blockSetType).get());
             return this;
         }
 
         public Builder fence() {
-            this.family.variants.put(BYGBlockFamily.Variant.FENCE,
+            this.family.variants.put(BlockVariant.FENCE,
                     BYGBlocks.createFence(baseName + "_fence").get());
             return this;
         }
 
         public Builder slab() {
-            this.family.variants.put(BYGBlockFamily.Variant.SLAB,
+            this.family.variants.put(BlockVariant.SLAB,
                     BYGBlocks.createWoodSlab(baseName + "_slab").get());
             return this;
         }
 
         public Builder stairs() {
-            this.family.variants.put(BYGBlockFamily.Variant.STAIRS,
+            this.family.variants.put(BlockVariant.STAIRS,
                     BYGBlocks.createWoodStairs(baseName + "_stairs").get());
             return this;
         }
 
         public Builder pressurePlate() {
-            this.family.variants.put(BYGBlockFamily.Variant.PRESSURE_PLATE,
+            this.family.variants.put(BlockVariant.PRESSURE_PLATE,
                     BYGBlocks.createWoodPressurePlate(baseName + "_pressure_plate", blockSetType).get());
             return this;
         }
 
         public Builder polished(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.POLISHED,
+            this.family.variants.put(BlockVariant.POLISHED,
                     BYGBlocks.createBlock(() -> new Block(properties), "polished_" + baseName + "_block").get());
             return this;
         }
 
         public Builder polished_stairs(BlockBehaviour.Properties properties) {
-            return subType_stairs("polished_", Variant.POLISHED_STAIRS, properties);
+            return subType_stairs("polished_", BlockVariant.POLISHED_STAIRS, properties);
         }
 
         public Builder polished_slab(BlockBehaviour.Properties properties) {
-            return subType_slab("polished_", Variant.POLISHED_SLAB, properties);
+            return subType_slab("polished_", BlockVariant.POLISHED_SLAB, properties);
         }
 
         public Builder polished_wall(BlockBehaviour.Properties properties) {
-            return subType_wall("polished_", Variant.POLISHED_WALL, properties);
+            return subType_wall("polished_", BlockVariant.POLISHED_WALL, properties);
         }
 
         public Builder trapdoor() {
-            this.family.variants.put(BYGBlockFamily.Variant.TRAPDOOR,
+            this.family.variants.put(BlockVariant.TRAPDOOR,
                     BYGBlocks.createTrapDoor(baseName + "_trapdoor", blockSetType).get());
             return this;
         }
 
-        private Builder subType_stairs(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+        private Builder subType_stairs(String prefix, BlockVariant blockVariant, BlockBehaviour.Properties properties) {
             String id = prefix + baseName + "_stairs";
-            this.family.variants.put(variant,
+            this.family.variants.put(blockVariant,
                     BYGBlocks.createBlock(
                             () -> StairBlockAccess.byg_create(BuiltInRegistries.BLOCK
                                             .get(BYG.createLocation(id.replace("_stairs", "block"))).defaultBlockState(),
@@ -419,23 +465,23 @@ public class BYGBlockFamily {
             return this;
         }
 
-        private Builder subType_slab(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+        private Builder subType_slab(String prefix, BlockVariant blockVariant, BlockBehaviour.Properties properties) {
             String id = prefix + baseName + "_slab";
-            this.family.variants.put(variant,
+            this.family.variants.put(blockVariant,
                     BYGBlocks.createBlock(() -> new SlabBlock(properties), id).get()
             );
             return this;
         }
 
-        private Builder subType_wall(String prefix, Variant variant, BlockBehaviour.Properties properties) {
+        private Builder subType_wall(String prefix, BlockVariant blockVariant, BlockBehaviour.Properties properties) {
             String id = prefix + baseName + "_wall";
-            this.family.variants.put(variant,
+            this.family.variants.put(blockVariant,
                     BYGBlocks.createBlock(() -> new WallBlock(properties), id).get());
             return this;
         }
 
         public Builder wall(BlockBehaviour.Properties properties) {
-            this.family.variants.put(BYGBlockFamily.Variant.WALL,
+            this.family.variants.put(BlockVariant.WALL,
                     BYGBlocks.createBlock(() -> new WallBlock(properties), baseName + "_wall").get());
             return this;
         }
@@ -475,7 +521,23 @@ public class BYGBlockFamily {
         DESERT_PLANT
     }
 
-    public enum Variant {
+    public enum ItemVariant {
+
+        BOAT("boat"),
+        CHEST_BOAT("chest_boat");
+
+        private final String name;
+
+        ItemVariant(String string) {
+            this.name = string;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+    }
+
+    public enum BlockVariant {
         BOOKSHELF("bookshelf"),
         BUTTON("button"),
         CHISELED("chiseled"),
@@ -518,7 +580,7 @@ public class BYGBlockFamily {
 
         private final String name;
 
-        Variant(String string) {
+        BlockVariant(String string) {
             this.name = string;
         }
 

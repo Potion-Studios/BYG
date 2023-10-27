@@ -10,11 +10,15 @@ import potionstudios.byg.BYG;
 import potionstudios.byg.mixin.access.BlockSetTypeAccess;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class BYGBlockFamilies {
+    public static Map<String, BYGBlockFamily> woodFamilyMap = new HashMap<>();
+    public static Map<String, BYGBlockFamily> blockFamilyMap = new HashMap<>();
 
-    public static BYGBlockFamily HOLLY = new BYGBlockFamily.WoodBuilder("holly",
+    public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,false)
             .bookshelf()
             .button()
@@ -33,9 +37,19 @@ public class BYGBlockFamilies {
             .strippedLog()
             .strippedWood()
             .trapdoor()
-            .wood()
-            .build();
+            .wood());
 
+
+    private static BYGBlockFamily register(BYGBlockFamily.WoodBuilder builder) {
+        BYGBlockFamily bygBlockFamily = builder.build();
+        woodFamilyMap.put(bygBlockFamily.getBaseName(), bygBlockFamily);
+        return bygBlockFamily;
+    }
+    private static BYGBlockFamily register(BYGBlockFamily.Builder builder) {
+        BYGBlockFamily bygBlockFamily = builder.build();
+        blockFamilyMap.put(bygBlockFamily.getBaseName(), bygBlockFamily);
+        return bygBlockFamily;
+    }
 
     private static @NotNull WoodType getOverworldWoodType(String name){
         String id = BYG.createLocation(name).toString().replace(':', '/');

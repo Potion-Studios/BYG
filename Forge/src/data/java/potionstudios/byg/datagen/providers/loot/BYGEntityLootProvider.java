@@ -8,7 +8,8 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.block.BYGBlockFamilies;
+import potionstudios.byg.common.block.BYGBlockFamily;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 
 import java.util.function.BiConsumer;
@@ -24,26 +25,23 @@ public class BYGEntityLootProvider extends EntityLootSubProvider {
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-        for (final BYGWoodTypes type : BYGWoodTypes.values()) {
-            if (type.boatType() == null) {
-                continue;
-            }
-
+        for (final BYGBlockFamily type : BYGBlockFamilies.woodFamilyMap.values()) {
             for (boolean isChest : new Boolean[]{true, false}) {
-                consumer.accept(BYGBoat.getLootLocation(type.boatType(), isChest, false), LootTable.lootTable()
+                consumer.accept(BYGBoat.getLootLocation(type, isChest, false), LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                                .add(LootItem.lootTableItem(isChest ? type.chestBoat().get() : type.boat().get()))));
+                                .add(LootItem.lootTableItem(isChest ? type.get(BYGBlockFamily.ItemVariant.CHEST_BOAT)
+                                        : type.get(BYGBlockFamily.ItemVariant.BOAT)))));
                 var loot = LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(exactly(2))
                                 .add(lootTableItem(Items.STICK)))
                         .withPool(LootPool.lootPool().setRolls(exactly(3))
-                                .add(lootTableItem(type.planks().get())));
+                                .add(lootTableItem(type.get(BYGBlockFamily.BlockVariant.PLANKS))));
                 if (isChest) {
                     loot.withPool(LootPool.lootPool().setRolls(exactly(1))
                             .add(lootTableItem(Items.CHEST)));
                 }
 
-                consumer.accept(BYGBoat.getLootLocation(type.boatType(), isChest, true), loot);
+                consumer.accept(BYGBoat.getLootLocation(type, isChest, true), loot);
             }
         }
     }

@@ -283,8 +283,8 @@ public enum BYGWoodTypes {
 
 
         if (builder.boatType != null) {
-            this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().stacksTo(1)), name + "_boat");
-            this.chestBoat = BYGItems.createItem(() -> new BYGBoatItem(true, builder.boatType, new Item.Properties().stacksTo(1)), name + "_chest_boat");
+            // this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().stacksTo(1)), name + "_boat");
+            // this.chestBoat = BYGItems.createItem(() -> new BYGBoatItem(true, builder.boatType, new Item.Properties().stacksTo(1)), name + "_chest_boat");
         }
         initialized = true;
     }

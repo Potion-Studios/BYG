@@ -9,7 +9,6 @@ import net.minecraft.data.models.blockstates.BlockStateGenerator;
 import net.minecraft.data.models.model.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlockFamilies;
@@ -137,7 +136,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             if (this.family == null) {
                 throw new IllegalStateException("Family not defined");
             } else {
-                Block block1 = this.family.getVariants().get(BYGBlockFamily.Variant.WALL_SIGN);
+                Block block1 = this.family.getVariants().get(BYGBlockFamily.BlockVariant.WALL_SIGN);
                 ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(arguments.getBlock(), this.mapping, arguments.getGenerators().modelOutput);
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block1, resourceLocation));
@@ -213,10 +212,10 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this.models.computeIfAbsent(modelTemplate, template -> template.create(block, this.mapping, generators.modelOutput));
         }
 
-        private BYGModelGenerator.BlockFamilyProvider executeGeneration(BYGBlockFamily.Variant variant,
-                                                                 BlockFamilyProviderMethod providerMethod) {
+        private BYGModelGenerator.BlockFamilyProvider executeGeneration(BYGBlockFamily.BlockVariant blockVariant,
+                                                                        BlockFamilyProviderMethod providerMethod) {
 
-            return switch (variant) {
+            return switch (blockVariant) {
                 case BUTTON -> button(providerMethod);
                 case CRACKED_STAIRS, CUT_STAIRS, CHISELED_STAIRS, POLISHED_STAIRS, STAIRS -> stairs(providerMethod);
                 case CRACKED_SLAB, CUT_SLAB, CHISELED_SLAB, POLISHED_SLAB, SLAB -> slab(providerMethod);
@@ -233,7 +232,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         @SuppressWarnings("unused")
         public BYGModelGenerator.BlockFamilyProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
-            blockFamily.getVariants().forEach((variant, block) -> executeGeneration(variant,
+            blockFamily.getVariants().forEach((blockVariant, block) -> executeGeneration(blockVariant,
                     new BlockFamilyProviderMethod() {
                         @Override
                         public Block getBlock() {
@@ -294,7 +293,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         @SuppressWarnings("DataFlowIssue")
         public BYGModelGenerator.WoodProvider craftingTable(BlockFamilyProviderMethod arguments) {
             arguments.getGenerators().createCraftingTableLike(arguments.getBlock(),
-                    family.get(BYGBlockFamily.Variant.PLANKS), TextureMapping::craftingTable);
+                    family.get(BYGBlockFamily.BlockVariant.PLANKS), TextureMapping::craftingTable);
             return this;
         }
 
@@ -358,8 +357,8 @@ public class BYGModelGenerator extends FabricModelProvider {
 
         public BYGModelGenerator.WoodProvider hangingSign(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.particle(this.family.getVariants()
-                    .get(BYGBlockFamily.Variant.STRIPPED_LOG));
-            Block block1 = this.family.getVariants().get(BYGBlockFamily.Variant.WALL_HANGING_SIGN);
+                    .get(BYGBlockFamily.BlockVariant.STRIPPED_LOG));
+            Block block1 = this.family.getVariants().get(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN);
             ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(arguments.getBlock(),
                     textureMapping, arguments.getGenerators().modelOutput);
             arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
@@ -385,7 +384,7 @@ public class BYGModelGenerator extends FabricModelProvider {
 
         public BYGModelGenerator.WoodProvider potted(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping
-                    .plant(this.family.get(BYGBlockFamily.Variant.GROWER));
+                    .plant(this.family.get(BYGBlockFamily.BlockVariant.GROWER));
             ResourceLocation resourceLocation = BlockModelGenerators.TintState.NOT_TINTED
                     .getCrossPot().create(arguments.getBlock(), textureMapping, arguments
                     .getGenerators().modelOutput);
@@ -405,7 +404,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             if (this.family == null) {
                 throw new IllegalStateException("Family not defined");
             } else {
-                Block block1 = this.family.getVariants().get(BYGBlockFamily.Variant.WALL_SIGN);
+                Block block1 = this.family.getVariants().get(BYGBlockFamily.BlockVariant.WALL_SIGN);
                 ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(arguments.getBlock(), this.mapping, arguments.getGenerators().modelOutput);
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
                 arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block1, resourceLocation));
@@ -458,9 +457,9 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider executeGeneration(BYGBlockFamily.Variant variant,
+        private BYGModelGenerator.WoodProvider executeGeneration(BYGBlockFamily.BlockVariant blockVariant,
                                                                  BlockFamilyProviderMethod providerMethod) {
-            return switch (variant) {
+            return switch (blockVariant) {
                 case BOOKSHELF -> bookshelf(providerMethod);
                 case BUTTON -> button(providerMethod);
                 case DOOR -> door(providerMethod);
@@ -484,17 +483,17 @@ public class BYGModelGenerator extends FabricModelProvider {
         @SuppressWarnings("unused")
         public BYGModelGenerator.WoodProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
-            Block plank = family.get(BYGBlockFamily.Variant.PLANKS);
+            Block plank = family.get(BYGBlockFamily.BlockVariant.PLANKS);
             TexturedModel planksModel = texturedModels
                     .getOrDefault(plank, TexturedModel.CUBE.get(plank));
             mapping = planksModel.getMapping();
             fullBlock(plank, planksModel.getTemplate(), generators);
-            blockFamily.getVariants().forEach((variant, block) -> {
-                if(!(variant.equals(BYGBlockFamily.Variant.PLANKS) ||
-                        variant.equals(BYGBlockFamily.Variant.WALL_SIGN) ||
-                        variant.equals(BYGBlockFamily.Variant.WALL_HANGING_SIGN))) {
-                    System.out.println(variant.getName() + " " + block.getName().getString());
-                    executeGeneration(variant,
+            blockFamily.getVariants().forEach((blockVariant, block) -> {
+                if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.PLANKS) ||
+                        blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_SIGN) ||
+                        blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN))) {
+                    System.out.println(blockVariant.getName() + " " + block.getName().getString());
+                    executeGeneration(blockVariant,
                             new BlockFamilyProviderMethod() {
                                 @Override
                                 public Block getBlock() {

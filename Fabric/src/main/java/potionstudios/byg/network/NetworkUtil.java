@@ -12,9 +12,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockFamilies;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.mixin.access.client.ClientLevelAccess;
 
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class NetworkUtil {
@@ -35,15 +37,18 @@ public class NetworkUtil {
         //buf.writeByte(MathHelper.floor(e.pitch * 256.0F / 360.0F));
         buf.writeFloat(e.getYRot());
         //buf.writeByte(MathHelper.floor(e.yaw * 256.0F / 360.0F));
-        int owner = 0;
         if (e instanceof Projectile) {
             Entity ownerEntity = ((Projectile) e).getOwner();
-            owner = ownerEntity != null ? ownerEntity.getId() : 0;
+            int owner = ownerEntity != null ? ownerEntity.getId() : 0;
+            buf.writeInt(owner);
         }
-        if (e instanceof BYGBoat) { // because the datatracker doesnt seem to be sending the data at the right time?
-            owner = ((BYGBoat) e).getBYGBoatType().ordinal();
+        if (e instanceof BYGBoat) { // because the datatracker doesn't seem to be sending the data at the right time?
+            String owner = ((BYGBoat) e).getBYGBoatType().getBaseName();
+            byte[] byteArray = owner.getBytes(StandardCharsets.UTF_8);
+            buf.writeInt(byteArray.length);
+            buf.writeByteArray(byteArray);
         }
-        buf.writeInt(owner);
+
         Vec3 velocity = e.getDeltaMovement();
         buf.writeDouble(velocity.x);
         buf.writeDouble(velocity.y);
@@ -65,9 +70,6 @@ public class NetworkUtil {
         float pitch = buf.readFloat();
         float yaw = buf.readFloat();
         int entityData = buf.readInt();
-        double velocityX = buf.readDouble();
-        double velocityY = buf.readDouble();
-        double velocityZ = buf.readDouble();
 
         Entity entity = entityTypeId.create(client.level);
 
@@ -78,8 +80,14 @@ public class NetworkUtil {
         if (entity instanceof Projectile) {
             ((Projectile) entity).setOwner(client.level.getEntity(entityData));
         } else if (entity instanceof BYGBoat) {
-            ((BYGBoat) entity).setBYGBoatType(BYGBoat.BYGType.byId(entityData));
+            ((BYGBoat) entity).setBYGBoatType(BYGBlockFamilies.woodFamilyMap
+                    .get(new String(buf.readByteArray(entityData), StandardCharsets.UTF_8)));
         }
+
+        double velocityX = buf.readDouble();
+        double velocityY = buf.readDouble();
+        double velocityZ = buf.readDouble();
+
         entity.setId(id);
         entity.setUUID(uuid);
         entity.absMoveTo(x, y, z);

@@ -28,6 +28,8 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+import potionstudios.byg.common.block.BYGBlockFamilies;
+import potionstudios.byg.common.block.BYGBlockFamily;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.loot.BYGLootContextParams;
@@ -37,7 +39,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class BYGBoat extends Boat {
-    private static final EntityDataAccessor<Integer> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoat.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<String> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoat.class, EntityDataSerializers.STRING);
     private static final LootContextParamSet LOOT_CONTEXT_PARAM_SETS = LootContextParamSet.builder()
             .required(BYGLootContextParams.BOAT_TYPE)
             .required(LootContextParams.THIS_ENTITY)
@@ -58,9 +60,9 @@ public class BYGBoat extends Boat {
         super(boatEntityType, worldType);
     }
 
-    public static ResourceLocation getLootLocation(BYGType type, boolean isChest, boolean isFall) {
+    public static ResourceLocation getLootLocation(BYGBlockFamily type, boolean isChest, boolean isFall) {
         final var regName = BYGEntities.BOAT.getId();
-        String typeName = type + (isChest ? "_chest" : "");
+        String typeName = type.getBaseName() + (isChest ? "_chest" : "");
         return isFall ? new ResourceLocation(regName.getNamespace(), "boats/" + typeName + "_fall") : new ResourceLocation(regName.getNamespace(), "boats/" + typeName);
     }
 
@@ -78,7 +80,8 @@ public class BYGBoat extends Boat {
             if (any != LootTable.EMPTY)
                 return any.getRandomItems(lootContext);
 
-            final var lootTable = serverLevel.getServer().getLootData().getLootTable(getLootLocation(getBYGBoatType(), this instanceof BYGChestBoat, isFall));
+            final var lootTable = serverLevel.getServer().getLootData()
+                    .getLootTable(getLootLocation(getBYGBoatType(), this instanceof BYGChestBoat, isFall));
             return lootTable.getRandomItems(lootContext);
         }
         return List.of();
@@ -86,43 +89,43 @@ public class BYGBoat extends Boat {
 
     @Override
     public @NotNull Item getDropItem() {
-        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
+        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getBaseName());
         if (type != null)
             return type.boat().get();
         return BYGWoodTypes.ASPEN.boat().get();
     }
 
     public Block getPlanks() {
-        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getName());
+        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getBaseName());
         if (type != null)
             return type.planks().get();
         return BYGWoodTypes.ASPEN.planks().get();
     }
 
-    public BYGType getBYGBoatType() {
-        return BYGType.byId(this.entityData.get(BYG_BOAT_TYPE));
+    public BYGBlockFamily getBYGBoatType() {
+        return BYGBlockFamilies.woodFamilyMap.get(this.entityData.get(BYG_BOAT_TYPE));
     }
 
-    public void setBYGBoatType(BYGType boatBYGType) {
-        this.entityData.set(BYG_BOAT_TYPE, boatBYGType.ordinal());
+    public void setBYGBoatType(BYGBlockFamily boatBYGType) {
+        this.entityData.set(BYG_BOAT_TYPE, boatBYGType.getBaseName());
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(BYG_BOAT_TYPE, BYGType.ASPEN.ordinal());
+        this.entityData.define(BYG_BOAT_TYPE, BYGBlockFamilies.HOLLY.getBaseName());
     }
 
 
     @Override
     protected void addAdditionalSaveData(CompoundTag compound) {
-        compound.putString("BYGType", this.getBYGBoatType().getName());
+        compound.putString("BYGType", this.getBYGBoatType().getBaseName());
     }
 
     @Override
     protected void readAdditionalSaveData(CompoundTag compound) {
         if (compound.contains("BYGType", 8)) {
-            this.setBYGBoatType(BYGType.getTypeFromString(compound.getString("BYGType")));
+            this.setBYGBoatType(BYGBlockFamilies.woodFamilyMap.get(compound.getString("BYGType")));
         }
     }
 
