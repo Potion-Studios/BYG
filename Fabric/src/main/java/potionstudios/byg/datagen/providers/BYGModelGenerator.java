@@ -275,7 +275,8 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         public BYGModelGenerator.WoodProvider bookshelf(BlockFamilyProviderMethod arguments) {
-            TextureMapping textureMapping = TextureMapping.column(TextureMapping.getBlockTexture(arguments.getBlock()), TextureMapping.getBlockTexture(Blocks.OAK_PLANKS));
+            TextureMapping textureMapping = TextureMapping.column(TextureMapping.getBlockTexture(arguments.getBlock()),
+                    TextureMapping.getBlockTexture(this.family.getBaseBlock()));
             ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), textureMapping, arguments.getGenerators().modelOutput);
             arguments.getGenerators().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
             return this;
