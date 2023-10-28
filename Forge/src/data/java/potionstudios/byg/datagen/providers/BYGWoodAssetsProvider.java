@@ -206,7 +206,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
                 simpleBlock(type.wallHangingSign().get(), model);
 
                 itemModels().withExistingParent(type.hangingSign().getId().getPath(), generatedParent)
-                        .texture("layer0", rl(typeLocItem + "sign"));
+                        .texture("layer0", rl(typeLocItem + "hanging_sign"));
             }
 
 
