@@ -194,10 +194,18 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             trapdoorBlock((TrapDoorBlock) type.trapdoor().get(), trapdoor, trapdoorTop, trapdoorOpen, true);
 
             if (type.sign() != null) {
-                final var model = models().sign(typeName + "/sign", planksLoc);
+                var model = models().sign(typeName + "/sign", planksLoc);
                 signBlock((StandingSignBlock) type.sign().get(), (WallSignBlock) type.wallSign().get(), model);
 
                 itemModels().withExistingParent(type.sign().getId().getPath(), generatedParent)
+                        .texture("layer0", rl(typeLocItem + "sign"));
+
+                model = models().sign(typeName + "/sign/hanging", rl(typeLoc + "stripped_log"));
+
+                simpleBlock(type.hangingSign().get(), model);
+                simpleBlock(type.wallHangingSign().get(), model);
+
+                itemModels().withExistingParent(type.hangingSign().getId().getPath(), generatedParent)
                         .texture("layer0", rl(typeLocItem + "sign"));
             }
 
