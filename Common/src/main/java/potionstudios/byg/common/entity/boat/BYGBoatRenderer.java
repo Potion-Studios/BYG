@@ -17,42 +17,45 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.joml.Quaternionf;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockFamilies;
+import potionstudios.byg.common.block.BYGBlockFamily;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
 
-    private final Map<BYGBoat.BYGType, Pair<ResourceLocation, BoatModel>> boatResources;
+    private final Map<BYGBlockFamily, Pair<ResourceLocation, BoatModel>> boatResources;
 
     public BYGBoatRenderer(EntityRendererProvider.Context context, boolean hasChest) {
         super(context);
         this.shadowRadius = 0.8F;
         this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() :
-                Stream.of(BYGBoat.BYGType.values()).collect(ImmutableMap.toImmutableMap((bygType) -> {
+                BYGBlockFamilies.woodFamilyMap.values().stream()
+                        .collect(ImmutableMap.toImmutableMap((bygType) -> {
                     return bygType;
                 }, (bygType) -> {
                     return Pair.of(BYG.createLocation(getTextureLocation(bygType, hasChest)), this.createBoatModel(context, bygType, hasChest));
                 }));
     }
 
-    private BoatModel createBoatModel(EntityRendererProvider.Context context, BYGBoat.BYGType bygType, boolean hasChest) {
+    private BoatModel createBoatModel(EntityRendererProvider.Context context, BYGBlockFamily bygType, boolean hasChest) {
         ModelLayerLocation modellayerlocation = hasChest ? createChestBoatModelName(bygType) : createBoatModelName(bygType);
         return hasChest ? new ChestBoatModel(context.bakeLayer(modellayerlocation)) : new BoatModel(context.bakeLayer(modellayerlocation));
     }
 
-    public static ModelLayerLocation createChestBoatModelName(BYGBoat.BYGType type) {
-        return new ModelLayerLocation(BYG.createLocation("chest_boat/" + type.getName()), "main");
+    public static ModelLayerLocation createChestBoatModelName(BYGBlockFamily type) {
+        return new ModelLayerLocation(BYG.createLocation("chest_boat/" + type.getBaseName()), "main");
     }
 
-    public static ModelLayerLocation createBoatModelName(BYGBoat.BYGType type) {
-        return new ModelLayerLocation(BYG.createLocation("boat/" + type.getName()), "main");
+    public static ModelLayerLocation createBoatModelName(BYGBlockFamily type) {
+        return new ModelLayerLocation(BYG.createLocation("boat/" + type.getBaseName()), "main");
     }
 
-    private static String getTextureLocation(BYGBoat.BYGType bygType, boolean hasChest) {
-        return hasChest ? "textures/entity/chest_boat/" + bygType.getName() + ".png" : "textures/entity/boat/" + bygType.getName() + ".png";
+    private static String getTextureLocation(BYGBlockFamily bygType, boolean hasChest) {
+        return hasChest ? "textures/entity/chest_boat/" + bygType.getBaseName() + ".png" : "textures/entity/boat/"
+                + bygType.getBaseName() + ".png";
     }
 
     @Override
