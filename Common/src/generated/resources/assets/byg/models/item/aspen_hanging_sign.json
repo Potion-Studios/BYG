@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "byg:item/aspen/sign"
+    "layer0": "byg:item/aspen/hanging_sign"
   }
 }
