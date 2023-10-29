@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.gui.HypogealImperiumContainer;
 import potionstudios.byg.common.block.nether.HypogealImperiumBlock;
 import potionstudios.byg.common.item.BYGItems;
@@ -64,7 +65,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     /*********************** Packets Start ***********************/
 
     @Override
-    public CompoundTag getUpdateTag() {
+    public @NotNull CompoundTag getUpdateTag() {
         CompoundTag nbtTag = super.getUpdateTag();
         nbtTag.putInt("Crystal", this.getCrystal());
         nbtTag.putShort("Fuel", (short) this.fuel);
@@ -81,7 +82,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     /*********************** Disk Start ***********************/
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         readData(nbt);
     }
@@ -111,11 +112,11 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
 
     public static void tick(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumBlockEntity hypogealImperiumBlockEntity) {
         playSound(level, blockPos, blockState, hypogealImperiumBlockEntity);
-        hypogealImperiumBlockEntity.addEffectsToMobs(level, blockPos, blockState, hypogealImperiumBlockEntity);
-        hypogealImperiumBlockEntity.changeBlocksInRadius(level, blockPos, blockState, hypogealImperiumBlockEntity);
-        hypogealImperiumBlockEntity.doCrystalLoad(level, blockPos, blockState, hypogealImperiumBlockEntity);
-        hypogealImperiumBlockEntity.addParticles(level, blockPos, blockState, hypogealImperiumBlockEntity);
-        hypogealImperiumBlockEntity.setLit(level, blockPos, blockState, hypogealImperiumBlockEntity);
+        addEffectsToMobs(level, blockPos, blockState, hypogealImperiumBlockEntity);
+        changeBlocksInRadius(level, blockPos, blockState, hypogealImperiumBlockEntity);
+        doCrystalLoad(level, blockPos, blockState, hypogealImperiumBlockEntity);
+        addParticles(level, blockPos, blockState, hypogealImperiumBlockEntity);
+        setLit(level, blockPos, blockState, hypogealImperiumBlockEntity);
     }
 
     public static void playSound(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumBlockEntity hypogealImperiumBlockEntity) {
@@ -127,8 +128,9 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     }
 
     public static void setLit(Level level, BlockPos blockPos, BlockState blockState, HypogealImperiumBlockEntity hypogealImperiumBlockEntity) {
-        if (hypogealImperiumBlockEntity.isLit()) {
-            level.setBlock(hypogealImperiumBlockEntity.worldPosition, level.getBlockState(hypogealImperiumBlockEntity.worldPosition).setValue(HypogealImperiumBlock.LIT, hypogealImperiumBlockEntity.isLit()), 3);
+        BlockState state = hypogealImperiumBlockEntity.getBlockState();
+        if (hypogealImperiumBlockEntity.isLit() && state.getBlock() instanceof HypogealImperiumBlock) {
+            level.setBlock(hypogealImperiumBlockEntity.worldPosition, state.setValue(HypogealImperiumBlock.LIT, hypogealImperiumBlockEntity.isLit()), 3);
             hypogealImperiumBlockEntity.setChanged();
         }
     }
@@ -231,7 +233,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
 
     @Override
     protected Component getDefaultName() {
-        return new TranslatableComponent("container.hypogeal_imperium_container");
+        return Component.translatable("container.hypogeal_imperium_container");
     }
 
     @Override
