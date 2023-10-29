@@ -132,6 +132,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             } else {
                 generator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, this.fullBlock));
             }
+            generator.delegateItemModel(block, this.fullBlock);
             return this;
         }
 
@@ -139,8 +140,8 @@ public class BYGModelGenerator extends FabricModelProvider {
             ResourceLocation resourceLocation = ModelTemplates.BUTTON.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.BUTTON_PRESSED.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createButton(arguments.getBlock(), resourceLocation, resourceLocation1));
-            // ResourceLocation resourceLocation2 = ModelTemplates.BUTTON_INVENTORY.create(arguments.getBlock(), this.mapping, arguments.getGenerators().modelOutput);
-            // arguments.getGenerators().delegateItemModel(arguments.getBlock(), resourceLocation2);
+            ResourceLocation resourceLocation2 = ModelTemplates.BUTTON_INVENTORY.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation2);
             return this;
         }
 
@@ -168,7 +169,10 @@ public class BYGModelGenerator extends FabricModelProvider {
             ResourceLocation resourceLocation1 = ModelTemplates.FENCE_GATE_CLOSED.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation2 = ModelTemplates.FENCE_GATE_WALL_OPEN.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation3 = ModelTemplates.FENCE_GATE_WALL_CLOSED.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
-            arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createFenceGate(arguments.getBlock(), resourceLocation, resourceLocation1, resourceLocation2, resourceLocation3, true));
+            arguments.getGenerator().blockStateOutput.accept(
+                    BlockModelGenerators.createFenceGate(arguments.getBlock(), resourceLocation, resourceLocation1,
+                            resourceLocation2, resourceLocation3, true));
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation1);
             return this;
         }
 
@@ -176,21 +180,8 @@ public class BYGModelGenerator extends FabricModelProvider {
             ResourceLocation resourceLocation = ModelTemplates.PRESSURE_PLATE_UP.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.PRESSURE_PLATE_DOWN.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createPressurePlate(arguments.getBlock(), resourceLocation, resourceLocation1));
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation);
             return this;
-        }
-
-        public BYGModelGenerator.BlockFamilyProvider sign(BlockFamilyProviderMethod arguments) {
-            if (this.family == null) {
-                throw new IllegalStateException("Family not defined");
-            } else {
-                Block block1 = this.family.getVariants().get(BYGBlockFamily.BlockVariant.WALL_SIGN);
-                ResourceLocation resourceLocation = ModelTemplates.PARTICLE_ONLY.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
-                arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
-                arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block1, resourceLocation));
-                // arguments.getGenerators().createSimpleFlatItemModel(arguments.getBlock().asItem());
-                // arguments.getGenerators().skipAutoItemBlock(block1);
-                return this;
-            }
         }
 
         public BYGModelGenerator.BlockFamilyProvider slab(BlockFamilyProviderMethod arguments) {
@@ -200,7 +191,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                 ResourceLocation resourceLocation = getOrCreateModel(arguments.getGenerator(), ModelTemplates.SLAB_BOTTOM, arguments.getBlock());
                 ResourceLocation resourceLocation1 = getOrCreateModel(arguments.getGenerator(), ModelTemplates.SLAB_TOP, arguments.getBlock());
                 arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSlab(arguments.getBlock(), resourceLocation, resourceLocation1, this.fullBlock));
-                // arguments.getGenerators().delegateItemModel(arguments.getBlock(), resourceLocation);
+                arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation);
                 return this;
             }
         }
@@ -210,14 +201,16 @@ public class BYGModelGenerator extends FabricModelProvider {
             ResourceLocation resourceLocation1 = getOrCreateModel(arguments.getGenerator(), ModelTemplates.STAIRS_STRAIGHT, arguments.getBlock());
             ResourceLocation resourceLocation2 = getOrCreateModel(arguments.getGenerator(), ModelTemplates.STAIRS_OUTER, arguments.getBlock());
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createStairs(arguments.getBlock(), resourceLocation, resourceLocation1, resourceLocation2));
-            // arguments.getGenerators().delegateItemModel(arguments.getBlock(), resourceLocation1);
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation1);
             return this;
         }
 
         private BYGModelGenerator.BlockFamilyProvider fullBlockVariant(BlockFamilyProviderMethod arguments) {
             TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(), TexturedModel.CUBE.get(arguments.getBlock()));
+            ResourceLocation template = texturedModel.getTemplate().create(arguments.getBlock(), texturedModel.getMapping(), arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput
                     .accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput)));
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), template);
             return this;
         }
 
@@ -239,7 +232,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                     textureMapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation8 = ModelTemplates.DOOR_TOP_RIGHT_OPEN.create(arguments.getBlock(),
                     textureMapping, arguments.getGenerator().modelOutput);
-            // this.createSimpleFlatItemModel(doorBlock.asItem());
+            arguments.getGenerator().createSimpleFlatItemModel(arguments.getBlock().asItem());
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createDoor(arguments.getBlock(), resourceLocation, resourceLocation2, resourceLocation3, resourceLocation4, resourceLocation5, resourceLocation6, resourceLocation7, resourceLocation8));
 
             return this;
@@ -251,7 +244,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             ResourceLocation resourceLocation2 = ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation3 = ModelTemplates.ORIENTABLE_TRAPDOOR_OPEN.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createOrientableTrapdoor(arguments.getBlock(), resourceLocation, resourceLocation2, resourceLocation3));
-            // this.delegateItemModel(orientableTrapdoorBlock, resourceLocation2);
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation2);
             return this;
         }
 
