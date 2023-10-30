@@ -20,6 +20,11 @@ public abstract class MixinSheets {
         throw new Error("Mixin did not apply!");
     }
 
+    @Shadow
+    private static Material createHangingSignMaterial(WoodType woodType) {
+        throw new Error("Mixin did not apply!");
+    }
+
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void emergencyCreateSignMaterials(CallbackInfo ci) {
         boolean missingWoodTypeMaterial = false;
@@ -31,11 +36,15 @@ public abstract class MixinSheets {
                     Sheets.SIGN_MATERIALS.put(woodType, createSignMaterial(woodType));
                     BYG.logWarning("BYG WoodType \"%s\" was not in `Sheets.SIGN_MATERIALS`, registering it now in Sheets static initializer...".formatted(woodType.name()));
                 }
+                if (!Sheets.HANGING_SIGN_MATERIALS.containsKey(woodType)) {
+                    missingWoodTypeMaterial = true;
+                    Sheets.HANGING_SIGN_MATERIALS.put(woodType, createHangingSignMaterial(woodType));
+                    BYG.logWarning("BYG WoodType \"%s\" was not in `Sheets.HANGING_SIGN_MATERIALS`, registering it now in Sheets static initializer...".formatted(woodType.name()));
+                }
             }
         }
 
-        if (missingWoodTypeMaterial) {
+        if (missingWoodTypeMaterial)
             new Throwable("BYG: Sheets Class loaded early. View stacktrace to see culprit mod and report it...").printStackTrace();
-        }
     }
 }

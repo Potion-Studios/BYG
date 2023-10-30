@@ -35,7 +35,7 @@ public enum BYGWoodTypes {
     BAOBAB("baobab", new Builder()
             .boatType(BYGBoat.BYGType.BAOBAB)
             .growerItemGroundTag(BYGBlockTags.GROUND_BAOBAB_SAPLING)
-            .MapColor(MapColor.TERRACOTTA_GREEN).leavesFactory(id -> BYGBlocks.createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, 0), id, 0.01F))),
+            .MapColor(MapColor.TERRACOTTA_GREEN).leavesFactory(id -> BYGBlocks.createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, 0), id, 0.01F))),
     BLUE_ENCHANTED("blue_enchanted", new Builder()
             .boatType(BYGBoat.BYGType.BLUE_ENCHANTED)
             .growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING)

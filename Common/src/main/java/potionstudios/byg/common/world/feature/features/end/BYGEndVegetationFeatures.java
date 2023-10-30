@@ -29,10 +29,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeave
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlockTags;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.block.BaobabFruitBlock;
+import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
@@ -87,7 +84,7 @@ public class BYGEndVegetationFeatures {
                     ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.relative(Direction.DOWN), Fluids.WATER))))
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), BaobabFruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
