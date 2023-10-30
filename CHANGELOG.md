@@ -1,9 +1,12 @@
 # 4.0.0.3
-* Fix Broken Sandstone Recipes. Fixes #1204 (1.19.4)
-* Fix Wall Sign Drops. Fixes #1240 (1.19.4)
+* Fix Broken Sandstone Recipes. Fixes #1204
+* Fix Wall Sign Drops. Fixes #1240
 * Fix Duplicate planks in planks block tag
 * Fix a client Crash. Fixes #1224
 * Add Hanging signs (Must have 1.20 Vanilla Data pack enabled)
+* Fix Therium Lamp having same recipe of Therium Lantern. Fixes #1237
+* Fix Hypogeal Imperium causing crash. Fixes #1231
+* Fix EnderLily not being placeable on Water. Fixes #1258
 
 # 4.0.0.2
 * Fix broken NBT files. Fixes #1206 and #1207
