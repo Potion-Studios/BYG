@@ -1045,7 +1045,7 @@ public class BYGItems {
     public static final RegistryObject<Item> EMBUR_SPROUTS = createItem(BYGBlocks.EMBUR_SPROUTS);
     public static final RegistryObject<Item> EMBUR_ROOTS = createItem(BYGBlocks.EMBUR_ROOTS);
     public static final RegistryObject<Item> TALL_EMBUR_ROOTS = createItem(BYGBlocks.TALL_EMBUR_ROOTS);
-    public static final RegistryObject<Item> EMBUR_LILY = createItem(BYGBlocks.EMBUR_LILY);
+    public static final RegistryObject<Item> EMBUR_LILY = createItem(() -> new WaterLilyBlockItem(BYGBlocks.EMBUR_LILY.get(), new Properties()), "embur_lily");
 
     public static final RegistryObject<Item> BLUE_NETHER_BRICK = createItem(() -> new Item(new Properties().tab(BYGCreativeTab.CREATIVE_TAB)), "blue_nether_brick");
     public static final RegistryObject<Item> BLUE_NETHERRACK = createItem(BYGBlocks.BLUE_NETHERRACK);
@@ -1059,7 +1059,7 @@ public class BYGItems {
     public static final RegistryObject<Item> IVIS_PHYLIUM = createItem(BYGBlocks.IVIS_PHYLIUM);
     public static final RegistryObject<Item> IVIS_ROOTS = createItem(BYGBlocks.IVIS_ROOTS);
     public static final RegistryObject<Item> IVIS_SPROUT = createItem(BYGBlocks.IVIS_SPROUT);
-    public static final RegistryObject<Item> ENDER_LILY = createItem(BYGBlocks.ENDER_LILY);
+    public static final RegistryObject<Item> ENDER_LILY = createItem(() -> new WaterLilyBlockItem(BYGBlocks.ENDER_LILY.get(), new Properties()), "ender_lily");
 
     public static final RegistryObject<Item> IMPARIUS_BUSH = createItem(BYGBlocks.IMPARIUS_BUSH);
     public static final RegistryObject<Item> IMPARIUS_PHYLIUM = createItem(BYGBlocks.IMPARIUS_PHYLIUM);
