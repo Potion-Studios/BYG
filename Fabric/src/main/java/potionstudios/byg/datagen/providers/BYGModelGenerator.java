@@ -46,8 +46,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             woodFamily().generateFor(blockStateModelGenerator, blockFamily);
         }
         for(BYGBlockFamily blockFamily: BYGBlockFamilies.blockFamilyMap.values()) {
-            family(blockStateModelGenerator, blockFamily.getBaseBlock())
-                    .generateFor(blockStateModelGenerator, blockFamily);
+            family().generateFor(blockStateModelGenerator, blockFamily);
         }
     }
 
@@ -58,10 +57,8 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
     }
 
-    public final BYGModelGenerator.BlockFamilyProvider family(BlockModelGenerators generators, Block block) {
-        TexturedModel texturedModel = this.texturedModels.getOrDefault(block, TexturedModel.CUBE.get(block));
-        return new BYGModelGenerator.BlockFamilyProvider(texturedModel.getMapping())
-                .fullBlock(block, texturedModel.getTemplate(), generators);
+    public final BYGModelGenerator.BlockFamilyProvider family() {
+        return new BYGModelGenerator.BlockFamilyProvider();
     }
 
     @Contract(" -> new")
@@ -111,16 +108,14 @@ public class BYGModelGenerator extends FabricModelProvider {
     }
 
     public final class BlockFamilyProvider {
-        private final TextureMapping mapping;
+        private TextureMapping mapping;
         private final Map<ModelTemplate, ResourceLocation> models = new HashMap<>();
         @Nullable
         private BYGBlockFamily family;
         @Nullable
         private ResourceLocation fullBlock;
 
-        public BlockFamilyProvider(TextureMapping textureMapping) {
-            this.mapping = textureMapping;
-        }
+        public BlockFamilyProvider() {}
 
         @SuppressWarnings("unused")
         public BYGModelGenerator.BlockFamilyProvider fullBlock(Block block, ModelTemplate modelTemplate,
@@ -272,6 +267,11 @@ public class BYGModelGenerator extends FabricModelProvider {
         @SuppressWarnings("unused")
         public BYGModelGenerator.BlockFamilyProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
+            Block baseBlock = family.get(BYGBlockFamily.BlockVariant.BASE_BLOCK);
+            TexturedModel baseBlockModel = texturedModels
+                    .getOrDefault(baseBlock, TexturedModel.CUBE.get(baseBlock));
+            mapping = baseBlockModel.getMapping();
+            fullBlock(baseBlock, baseBlockModel.getTemplate(), generators);
             blockFamily.getVariants().forEach((blockVariant, block) -> executeGeneration(blockVariant,
                     new BlockFamilyProviderMethod() {
                         @Override
@@ -293,7 +293,6 @@ public class BYGModelGenerator extends FabricModelProvider {
         private final Map<ModelTemplate, ResourceLocation> models = new HashMap<>();
         @Nullable
         private BYGBlockFamily family;
-
         @Nullable
         private ResourceLocation fullBlock;
 

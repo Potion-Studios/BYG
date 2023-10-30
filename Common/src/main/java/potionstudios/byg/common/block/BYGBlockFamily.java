@@ -109,6 +109,7 @@ public class BYGBlockFamily {
             RegistryObject<? extends Block> planks = BYGBlocks.createPlanks(baseName + "_planks");
             this.family = new BYGBlockFamily(baseName, planks.get());
             this.family.variants.put(BlockVariant.PLANKS, planks.get());
+            this.family.variants.put(BlockVariant.BASE_BLOCK, planks.get());
             BYGItems.createItem(planks);
             this.baseName = baseName;
             this.woodType = woodType;
@@ -343,8 +344,11 @@ public class BYGBlockFamily {
         private final String baseName;
         private final BlockSetType blockSetType;
 
-        public Builder(Block block, String baseName, BlockSetType blockSetType) {
-            this.family = new BYGBlockFamily(baseName, block);
+        public Builder(String baseName, BlockSetType blockSetType, Supplier<? extends Block> supplier) {
+            RegistryObject<? extends Block> baseBlock = BYGBlocks.createBlock(supplier, baseName + "_block");
+            this.family = new BYGBlockFamily(baseName, baseBlock.get());
+            this.family.variants.put(BlockVariant.BASE_BLOCK, baseBlock.get());
+            BYGItems.createItem(baseBlock);
             this.baseName = baseName;
             this.blockSetType = blockSetType;
         }
@@ -569,7 +573,6 @@ public class BYGBlockFamily {
     }
 
     public enum ItemVariant {
-
         BOAT("boat"),
         CHEST_BOAT("chest_boat");
 
@@ -585,6 +588,7 @@ public class BYGBlockFamily {
     }
 
     public enum BlockVariant {
+        BASE_BLOCK("base_block"),
         BOOKSHELF("bookshelf"),
         BUTTON("button"),
         CHISELED("chiseled"),

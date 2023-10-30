@@ -4,7 +4,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -282,10 +281,10 @@ public enum BYGWoodTypes {
         this.hangingSignItem = BYGItems.createHangingSign(name + "_hanging_sign", hangingSign, wallHangingSign);
 
 
-        if (builder.boatType != null) {
+        // if (builder.boatType != null) {
             // this.boat = BYGItems.createItem(() -> new BYGBoatItem(false, builder.boatType, new Item.Properties().stacksTo(1)), name + "_boat");
             // this.chestBoat = BYGItems.createItem(() -> new BYGBoatItem(true, builder.boatType, new Item.Properties().stacksTo(1)), name + "_chest_boat");
-        }
+        // }
         initialized = true;
     }
 
@@ -407,9 +406,9 @@ public enum BYGWoodTypes {
         return logTag;
     }
 
-    public BYGBoat.BYGType boatType() {
+    /* public BYGBoat.BYGType boatType() {
         return builder.boatType;
-    }
+    } */
 
     public boolean isNether() {
         return builder.isNether;
@@ -452,7 +451,7 @@ public enum BYGWoodTypes {
         private GrowerItemType growerItemType = GrowerItemType.SAPLING;
         private final EnumSet<BlockType> excludes = EnumSet.noneOf(BlockType.class);
         private TagKey<Block> growerItemGroundTag = BlockTags.DIRT;
-        private BYGBoat.BYGType boatType;
+        // private BYGBoat.BYGType boatType;
         private MapColor mapColor;
         private Function<String, BlockRegistryObject<Block>> leavesFactory = id -> BYGBlocks.createLeaves(mapColor, id);
         private boolean isNether;
@@ -475,7 +474,7 @@ public enum BYGWoodTypes {
         }
 
         public Builder boatType(BYGBoat.BYGType type) {
-            this.boatType = type;
+            // this.boatType = type;
             return this;
         }
 
