@@ -619,7 +619,7 @@ public class BYGItems {
     public static final RegistryObject<Item> IVIS_PHYLIUM = createItem(BYGBlocks.IVIS_PHYLIUM);
     public static final RegistryObject<Item> IVIS_ROOTS = createItem(BYGBlocks.IVIS_ROOTS);
     public static final RegistryObject<Item> IVIS_SPROUT = createItem(BYGBlocks.IVIS_SPROUT);
-    public static final RegistryObject<Item> ENDER_LILY = createItem(BYGBlocks.ENDER_LILY);
+    public static final RegistryObject<Item> ENDER_LILY = createItem(() -> new PlaceOnWaterBlockItem(BYGBlocks.ENDER_LILY.get(), new Properties()), "ender_lily");
 
     public static final RegistryObject<Item> IMPARIUS_BUSH = createItem(BYGBlocks.IMPARIUS_BUSH);
     public static final RegistryObject<Item> IMPARIUS_PHYLIUM = createItem(BYGBlocks.IMPARIUS_PHYLIUM);

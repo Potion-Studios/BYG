@@ -5,9 +5,11 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.material.PushReaction;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.nether.DoubleNetherPlantBlock;
 import potionstudios.byg.common.block.nether.embur.EmburPlantBlock;
 import potionstudios.byg.common.block.nether.glowstonegardens.HangingVinesBlock;
@@ -52,25 +54,22 @@ public class BYGBlockProperties {
         }
     }
 
-    public static class BYGEmburLily extends NetherLilyBlock {
+    public static class BYGEmburLily extends BYGLilyBlock {
         public BYGEmburLily() {
             super(BlockBehaviour.Properties.of(FIREPROOF_PLANT)
                     .sound(SoundType.LILY_PAD)
                     .instabreak()
-                    .noOcclusion()
+                    .noOcclusion(),
+                    Fluids.LAVA
             );
-            
         }
     }
 
-    public static class BYGEnderLily extends WaterlilyBlock {
+    public static class BYGEnderLily extends BYGLilyBlock {
         public BYGEnderLily() {
-            super(BlockBehaviour.Properties.of(Material.PLANT)
-                    .sound(SoundType.LILY_PAD)
-                    .instabreak()
-                    .noOcclusion()
+            super(BlockBehaviour.Properties.copy(Blocks.LILY_PAD),
+                    Fluids.WATER
             );
-            
         }
     }
 
@@ -84,7 +83,6 @@ public class BYGBlockProperties {
                     .requiresCorrectToolForDrops()
 
             );
-            
         }
     }
 
@@ -583,7 +581,7 @@ public class BYGBlockProperties {
         }
 
         
-        public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
+        public boolean skipRendering(@NotNull BlockState state, BlockState adjacentBlockState, @NotNull Direction side) {
             return adjacentBlockState.getBlock() == this || super.skipRendering(state, adjacentBlockState, side);
         }
     }
@@ -599,7 +597,7 @@ public class BYGBlockProperties {
         }
 
         
-        public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
+        public boolean skipRendering(@NotNull BlockState state, BlockState adjacentBlockState, @NotNull Direction side) {
             return adjacentBlockState.getBlock() == this || super.skipRendering(state, adjacentBlockState, side);
         }
     }
@@ -617,7 +615,7 @@ public class BYGBlockProperties {
         }
 
         
-        public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
+        public boolean skipRendering(@NotNull BlockState state, BlockState adjacentBlockState, @NotNull Direction side) {
             return adjacentBlockState.getBlock() == this || super.skipRendering(state, adjacentBlockState, side);
         }
     }
