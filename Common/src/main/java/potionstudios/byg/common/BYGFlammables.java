@@ -36,6 +36,7 @@ public class BYGFlammables {
                 flammableBlock(type.stairs(), 5, 20);
                 flammableBlock(type.planks(), 5, 20);
                 flammableBlock(type.fence(), 5, 20);
+                flammableBlock(type.fenceGate(), 5, 20);
                 flammableBlock(type.leaves(), 30, 60);
             }
         }
