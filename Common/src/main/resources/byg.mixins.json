@@ -78,6 +78,7 @@
     "common.block.MixinBlockBehaviourBlockStateBase",
     "common.block.MixinCactusBlock",
     "common.block.MixinFarmBlock",
+    "common.block.MixinGrassBlock",
     "common.block.MixinNetherrackBlock",
     "common.block.MixinPointedDripstoneBlock",
     "common.block.MixinSugarCaneBlock",

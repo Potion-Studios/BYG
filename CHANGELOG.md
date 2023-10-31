@@ -5,6 +5,7 @@
 * Update Included Dependencies.
 * Require Forge 40.2.0 or higher.
 * Require TerraBlender 1.2.0.0 or higher.
+* Make Prairie Grass grow when bone mealing grass blocks in the Prairie Biomes. Closes #1044
 
 ## 1.4.7
 * Update Chinese translation.
