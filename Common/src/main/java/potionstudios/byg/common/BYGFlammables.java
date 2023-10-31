@@ -12,13 +12,13 @@ import potionstudios.byg.reg.RegistryObject;
 import javax.annotation.Nullable;
 
 public class BYGFlammables {
-    public static void flammableBlock(@Nullable Block block, int flameOdds, int burnOdds) {
+    private static void flammableBlock(@Nullable Block block, int flameOdds, int burnOdds) {
         if (block != null) {
             FireBlock fire = (FireBlock) Blocks.FIRE;
             ((FireBlockAccess) fire).byg_setFlammable(block, flameOdds, burnOdds);
         }
     }
-    public static void flammableBlock(@Nullable RegistryObject<? extends Block> block, int flameOdds, int burnOdds) {
+    private static void flammableBlock(@Nullable RegistryObject<? extends Block> block, int flameOdds, int burnOdds) {
         flammableBlock(block == null ? null : block.get(), flameOdds, burnOdds);
     }
 
