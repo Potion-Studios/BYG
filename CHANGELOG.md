@@ -7,6 +7,7 @@
 * Fix Hypogeal Imperium causing crash. Fixes #1231
 * Fix EnderLily not being placeable on Water. Fixes #1258
 * Make Wood Fence Gates Flammable
+Make NonFlammable woodtypes unable to be used as fuel. Fixes #1249
 
 # 2.0.1.4
 * Fix broken NBT files. Fixes #1206 and #1207
