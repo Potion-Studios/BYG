@@ -6,6 +6,7 @@
 * Fix Therium Lamp having same recipe of Therium Lantern. Fixes #1237
 * Fix Hypogeal Imperium causing crash. Fixes #1231
 * Fix EnderLily not being placeable on Water. Fixes #1258
+* Make Wood Fence Gates Flammable
 
 # 2.0.1.4
 * Fix broken NBT files. Fixes #1206 and #1207
