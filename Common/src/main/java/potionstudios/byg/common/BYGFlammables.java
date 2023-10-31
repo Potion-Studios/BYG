@@ -226,6 +226,30 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.WITCH_HAZEL_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.ZELKOVA_FENCE.get(), 5, 20);
         flammableBlock(BYGBlocks.ZELKOVA_FENCE.get(), 5, 20);
+        
+        //Fence Gates
+        flammableBlock(BYGBlocks.ASPEN_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.BAOBAB_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.BLUE_ENCHANTED_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.CHERRY_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.CIKA_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.CYPRESS_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.EBONY_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.FIR_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.GREEN_ENCHANTED_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.HOLLY_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.JACARANDA_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.MAHOGANY_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.MANGROVE_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.MAPLE_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.PINE_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.RAINBOW_EUCALYPTUS_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.REDWOOD_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.SKYRIS_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.WILLOW_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.WITCH_HAZEL_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.ZELKOVA_FENCE_GATE.get(), 5, 20);
+        flammableBlock(BYGBlocks.ZELKOVA_FENCE_GATE.get(), 5, 20);
 
         //Leaves
         flammableBlock(BYGBlocks.ASPEN_LEAVES.get(), 30, 60);
