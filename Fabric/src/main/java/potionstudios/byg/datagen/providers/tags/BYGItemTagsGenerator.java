@@ -10,6 +10,8 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Fabric Item Tag Provider for BYG
  * @see FabricTagProvider.ItemTagProvider
+ * @see net.minecraft.world.item.Item
+ * @see net.minecraft.tags.ItemTags
  * @author Joseph T. McQuigg
  */
 public class BYGItemTagsGenerator extends FabricTagProvider.ItemTagProvider {

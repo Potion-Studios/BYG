@@ -9,6 +9,8 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Fabric Block Tag Provider for BYG
  * @see FabricTagProvider.BlockTagProvider
+ * @see net.minecraft.world.level.block.Block
+ * @see net.minecraft.tags.BlockTags
  * @author Joseph T. McQuigg
  */
 public class BYGBlockTagsGenerator extends FabricTagProvider.BlockTagProvider {
