@@ -21,7 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
-import potionstudios.byg.common.block.BYGBlockFamily;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.entity.BYGEntities;
 
 import javax.annotation.Nullable;

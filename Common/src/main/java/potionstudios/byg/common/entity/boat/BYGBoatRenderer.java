@@ -17,8 +17,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import org.joml.Quaternionf;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlockFamilies;
-import potionstudios.byg.common.block.BYGBlockFamily;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.HashMap;

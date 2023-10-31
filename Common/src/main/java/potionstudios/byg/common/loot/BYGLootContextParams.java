@@ -2,7 +2,7 @@ package potionstudios.byg.common.loot;
 
 import net.minecraft.world.level.storage.loot.parameters.LootContextParam;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlockFamily;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 
 public class BYGLootContextParams {
 

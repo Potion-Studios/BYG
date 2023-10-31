@@ -3,6 +3,9 @@ package potionstudios.byg.client.textures.renders;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamiliesClient;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
@@ -15,9 +18,50 @@ public class BYGRenderTypes {
         BYG.logDebug("BYG: Rendering Texture Cutouts...");
         Map<Block, RenderType> map = new HashMap<>();
 
+
+
+        for(BYGBlockFamily family: BYGBlockFamilies.woodFamilyMap.values()) {
+            RenderType renderType = RenderType.cutoutMipped();
+            if(BYGBlockFamiliesClient.renderTypes.containsKey(family)) {
+                renderType = BYGBlockFamiliesClient.renderTypes.get(family);
+            }
+            Block door = family.get(BYGBlockFamily.BlockVariant.DOOR);
+            if(door != null) {
+                map.put(door, renderType);
+            }
+            Block trapdoor = family.get(BYGBlockFamily.BlockVariant.TRAPDOOR);
+            if(trapdoor != null) {
+                map.put(trapdoor, renderType);
+            }
+            Block grower = family.get(BYGBlockFamily.BlockVariant.GROWER);
+            if(grower != null) {
+                map.put(grower, RenderType.cutoutMipped());
+            }
+            Block leaves = family.get(BYGBlockFamily.BlockVariant.LEAVES);
+            if(leaves != null) {
+                map.put(leaves, RenderType.cutoutMipped());
+            }
+            Block fruitLeaves = family.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES);
+            if(fruitLeaves != null) {
+                map.put(fruitLeaves, RenderType.cutoutMipped());
+            }
+            Block floweringLeaves = family.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES);
+            if(floweringLeaves != null) {
+                map.put(floweringLeaves, RenderType.cutoutMipped());
+            }
+            Block fruitBlock = family.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK);
+            if(fruitBlock != null) {
+                map.put(fruitBlock, RenderType.cutoutMipped());
+            }
+            Block vine = family.get(BYGBlockFamily.BlockVariant.VINE);
+            if(vine != null) {
+                map.put(vine, RenderType.cutoutMipped());
+            }
+        }
+
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
             final var renderType = switch (type) {
-                case ASPEN, SKYRIS, MAPLE -> RenderType.translucent();
+                case ASPEN, MAPLE -> RenderType.translucent();
                 default -> RenderType.cutoutMipped();
             };
             map.put(type.door().get(), renderType);
@@ -129,11 +173,9 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.FLOWERING_JACARANDA_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.FLOWERING_INDIGO_JACARANDA_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.INDIGO_JACARANDA_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.JOSHUA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ORANGE_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ORCHARD_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PALO_VERDE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
@@ -228,15 +270,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_BULB.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.APPLE_FRUIT_BLOCK.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.JOSHUA_FRUIT_BLOCK.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FLOWERING_SKYRIS_LEAVES.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FLOWERING_BAOBAB_LEAVES.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.FLOWERING_JOSHUA_LEAVES.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RIPE_BAOBAB_LEAVES.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.RIPE_JOSHUA_LEAVES.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLACK_ICE.get(), RenderType.translucent());
         map.put(BYGBlocks.AMETRINE_BLOCK.get(), RenderType.translucent());
         map.put(BYGBlocks.BLUEBERRY_BUSH.get(), RenderType.cutoutMipped());
@@ -246,7 +279,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.PRAIRIE_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.LUSH_GRASS_BLOCK.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.POISON_IVY.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.SKYRIS_VINE.get(), RenderType.cutoutMipped());
 
         for (final var potBlock : BYGBlocks.FLOWER_POT_BLOCKS.values())
             map.put(potBlock.get(), RenderType.cutoutMipped());

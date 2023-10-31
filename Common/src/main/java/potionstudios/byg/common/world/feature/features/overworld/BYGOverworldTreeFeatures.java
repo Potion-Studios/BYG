@@ -31,6 +31,8 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.LeaveVineDecora
 import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecorator;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.*;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTrunkVineDecorator;
@@ -208,7 +210,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -216,15 +218,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk1"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_BAOBAB_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.RIPE_BAOBAB_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    BAOBAB.log(),
-                    BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.BAOBAB.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE2 = createConfiguredFeature("baobab_tree2",
@@ -233,15 +235,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk2"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_BAOBAB_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.RIPE_BAOBAB_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    BAOBAB.log(),
-                    BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.BAOBAB.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> BAOBAB_TREE3 = createConfiguredFeature("baobab_tree3",
@@ -250,15 +252,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/baobab/baobab_tree_trunk3"),
                     BYG.createLocation("features/trees/baobab/baobab_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(BAOBAB.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BAOBAB.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_BAOBAB_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.RIPE_BAOBAB_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    BAOBAB.log(),
-                    BAOBAB.leaves(),
-                    BYGBlockTags.GROUND_BAOBAB_SAPLING, 5, ImmutableList.of(BAOBAB_FRUIT.get())
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.BAOBAB.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(BAOBAB_FRUIT.get())
             )
     );
 
@@ -1033,17 +1035,17 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    /* public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE1 = createConfiguredFeature("holly_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/holly/holly_canopy1"),
                     BiasedToBottomInt.of(10, 16),
-                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
-                    HOLLY.log(),
-                    HOLLY.leaves(),
-                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE2 = createConfiguredFeature("holly_tree2",
@@ -1052,11 +1054,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/holly/holly_canopy2"),
                     BiasedToBottomInt.of(8, 14),
-                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
-                    HOLLY.log(),
-                    HOLLY.leaves(),
-                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE3 = createConfiguredFeature("holly_tree3",
@@ -1065,11 +1067,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_trunk3"),
                     BYG.createLocation("features/trees/holly/holly_canopy3"),
                     BiasedToBottomInt.of(2, 12),
-                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
-                    HOLLY.log(),
-                    HOLLY.leaves(),
-                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREE4 = createConfiguredFeature("holly_tree4",
@@ -1078,13 +1080,13 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/holly/holly_canopy4"),
                     BiasedToBottomInt.of(10, 16),
-                    BlockStateProvider.simple(HOLLY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(HOLLY.leaves().defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
-                    HOLLY.log(),
-                    HOLLY.leaves(),
-                    BYGBlockTags.GROUND_HOLLY_SAPLING, 6, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
             )
-    ); */
+    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_ENCHANTED_TREE1 = createConfiguredFeature("blue_enchanted_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -1312,7 +1314,9 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> JOSHUA_FRUIT = () -> new AttachedToLeavesDecorator(0.1F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.JOSHUA_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> JOSHUA_FRUIT = () ->
+            new AttachedToLeavesDecorator(0.1F, 2, 0,
+                    new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -1322,13 +1326,13 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(1, 2),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_JOSHUA_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
-                    BYGBlocks.JOSHUA_LEAVES.get(),
-                    BYGBlockTags.GROUND_JOSHUA_SAPLING, 4, ImmutableList.of(JOSHUA_FRUIT.get())
+                    BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.JOSHUA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 4, ImmutableList.of(JOSHUA_FRUIT.get())
             )
     );
 
@@ -1340,13 +1344,13 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 8),
                     BlockStateProvider.simple(Blocks.OAK_LOG.defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BYGBlocks.JOSHUA_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_JOSHUA_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.RIPE_JOSHUA_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
-                    BYGBlocks.JOSHUA_LEAVES.get(),
-                    BYGBlockTags.GROUND_JOSHUA_SAPLING, 6, ImmutableList.of(JOSHUA_FRUIT.get())
+                    BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.JOSHUA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of(JOSHUA_FRUIT.get())
             )
     );
 
@@ -2007,13 +2011,13 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(6, 11),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
-                    BYGBlocks.ORCHARD_LEAVES.get(),
-                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ORCHARD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE2 = createConfiguredFeature("orchard_tree2",
@@ -2024,13 +2028,13 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(7, 12),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
-                    BYGBlocks.ORCHARD_LEAVES.get(),
-                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ORCHARD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORCHARD_TREE3 = createConfiguredFeature("orchard_tree3",
@@ -2041,13 +2045,13 @@ public class BYGOverworldTreeFeatures {
                     UniformInt.of(9, 12),
                     BlockStateProvider.simple(Blocks.OAK_LOG),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(BYGBlocks.ORCHARD_LEAVES.defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_ORCHARD_LEAVES.defaultBlockState(), 1)
-                            .add(BYGBlocks.RIPE_ORCHARD_LEAVES.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1)
+                            .add(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
                     Blocks.OAK_LOG,
-                    BYGBlocks.ORCHARD_LEAVES.get(),
-                    BYGBlockTags.GROUND_ORCHARD_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ORCHARD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -2310,7 +2314,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToLeavesDecorator(0.1F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToLeavesDecorator(0.1F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -2318,15 +2322,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_1"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
 
@@ -2336,15 +2340,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_2"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
 
@@ -2354,15 +2358,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_3"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE4 = createConfiguredFeature("skyris_tree4",
@@ -2371,15 +2375,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_4"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_4"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKYRIS_TREE5 = createConfiguredFeature("skyris_tree5",
@@ -2388,15 +2392,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_5"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_5"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
 
@@ -2406,15 +2410,15 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/skyris/skyris_trunk_6"),
                     BYG.createLocation("features/trees/skyris/skyris_canopy_6"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SKYRIS.log().defaultBlockState()),
+                    BlockStateProvider.simple(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                            .add(SKYRIS.leaves().defaultBlockState(), 10)
-                            .add(BYGBlocks.FLOWERING_SKYRIS_LEAVES.defaultBlockState(), 2)
-                            .add(BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.defaultBlockState(), 1).build()
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 10)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 2)
+                            .add(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES).defaultBlockState(), 1).build()
                     ),
-                    SKYRIS.log(),
-                    SKYRIS.leaves(),
-                    BYGBlockTags.GROUND_SKYRIS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.1F), new BYGTrunkVineDecorator(BYGBlocks.SKYRIS_VINE.get(), 0.3F), GREEN_APPLE_FRUIT.get())
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.SKYRIS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.1F), new BYGTrunkVineDecorator((VineBlock) BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE), 0.3F), GREEN_APPLE_FRUIT.get())
             )
     );
 
@@ -3881,7 +3885,6 @@ public class BYGOverworldTreeFeatures {
             }
     );
 
-    /*
     public static final ResourceKey<ConfiguredFeature<?, ?>> HOLLY_TREES = createConfiguredFeature("holly_trees",
             () -> Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstapContext) -> {
@@ -3892,7 +3895,7 @@ public class BYGOverworldTreeFeatures {
                         new WeightedPlacedFeature(BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HOLLY_TREE3)), 0.25F)),
                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(HOLLY_TREE4)));
             }
-    ); */
+    );
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MANGROVE_TREES = createConfiguredFeature("white_mangrove_trees",
             () -> Feature.RANDOM_SELECTOR,

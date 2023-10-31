@@ -1,8 +1,9 @@
-package potionstudios.byg.common.block;
+package potionstudios.byg.common.registration;
 
 import net.minecraft.Util;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlag;
@@ -13,8 +14,14 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.MapColor;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlockProperties;
+import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.StairBlockAccess;
@@ -22,9 +29,12 @@ import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -32,8 +42,16 @@ import java.util.function.Supplier;
 public class BYGBlockFamily {
     private final Block baseBlock;
     private final String baseName;
+
+    private final ResourceKey<DimensionType> dimension;
+
+    // There is a separation between additional blocks and items and variants,
+    // to make it clear which the "MAIN" block of that variant is supposed to be
+    // Ex. Which of the 20 leaf blocks is the main one, the one in variants!
     private final Map<BlockVariant, Block> variants = new ConcurrentHashMap<>();
+    private final Map<BlockRenderVariant, List<Block>> additionalBlocks = new ConcurrentHashMap<>();
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
+    private final Map<ItemVariant, List<Item>> additionalItems = new ConcurrentHashMap<>();
     private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
@@ -43,12 +61,13 @@ public class BYGBlockFamily {
     @Nullable
     String recipeUnlockedBy;
 
-    private BYGBlockFamily(String baseName, Block block) {
+    private BYGBlockFamily(String baseName, Block block, ResourceKey<DimensionType> dimension) {
         this.baseName = baseName;
         this.requiredFeatures = FeatureFlags.VANILLA_SET;
         this.generateModel = true;
         this.generateRecipe = true;
         this.baseBlock = block;
+        this.dimension = dimension;
     }
 
     public Block getBaseBlock() {
@@ -96,25 +115,26 @@ public class BYGBlockFamily {
         return Util.isBlank(this.recipeUnlockedBy) ? Optional.empty() : Optional.of(this.recipeUnlockedBy);
     }
 
+    public ResourceKey<DimensionType> getDimension() {
+        return dimension;
+    }
+
     public static class WoodBuilder {
         private final BYGBlockFamily family;
         private final String baseName;
         private final WoodType woodType;
         private final Supplier<? extends MapColor> color;
 
-        private final boolean isNotOverworld;
-
         public WoodBuilder(String baseName, WoodType woodType, Supplier<? extends MapColor> color,
-                           boolean isNotOverworld) {
+                           ResourceKey<DimensionType> dimension) {
             RegistryObject<? extends Block> planks = BYGBlocks.createPlanks(baseName + "_planks");
-            this.family = new BYGBlockFamily(baseName, planks.get());
+            this.family = new BYGBlockFamily(baseName, planks.get(), dimension);
             this.family.variants.put(BlockVariant.PLANKS, planks.get());
             this.family.variants.put(BlockVariant.BASE_BLOCK, planks.get());
             BYGItems.createItem(planks);
             this.baseName = baseName;
             this.woodType = woodType;
             this.color = color;
-            this.isNotOverworld = isNotOverworld;
         }
 
         public BYGBlockFamily build() {
@@ -169,6 +189,47 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public WoodBuilder floweringLeaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leavesFactory) {
+            if(this.family.variants.containsKey(BlockVariant.FLOWERING_LEAVES)) {
+                return this;
+            }
+            RegistryObject<? extends Block> registryObject = leavesFactory.apply(baseName + "_leaves", family);
+            this.family.variants.put(BlockVariant.FLOWERING_LEAVES,
+                    registryObject.get()
+            );
+            BYGItems.createItem(registryObject);
+            return this;
+        }
+
+
+        // Registers Fruit Block, Fruit Item and Fruit Leaves
+        public WoodBuilder fruit(String fruitBlockName, String fruitItemName, String leafName, Function<Block, Item> itemGenerator) {
+            RegistryObject<? extends Block> block =
+                    BYGBlocks.createFruitBlock(fruitBlockName, family);
+            family.variants.put(BlockVariant.FRUIT_BLOCK, block.get());
+            if(itemGenerator != null) {
+                RegistryObject<? extends Item> item =
+                        BYGItems.createItem(() -> itemGenerator.apply(block.get()), fruitItemName);
+                family.itemVariants.put(ItemVariant.FRUIT, item.get());
+            }
+            fruitLeaves((s, family) -> BYGBlocks.createFruitLeaves(MapColor.COLOR_GREEN,
+                    () -> block.get().defaultBlockState().setValue(FruitBlock.AGE, 0),
+                    leafName, 0.04F), leafName);
+            return this;
+        }
+
+        private WoodBuilder fruitLeaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leavesFactory, String name) {
+            if(this.family.variants.containsKey(BlockVariant.FRUIT_LEAVES)) {
+                return this;
+            }
+            RegistryObject<? extends Block> registryObject = leavesFactory.apply(name, family);
+            this.family.variants.put(BlockVariant.FRUIT_LEAVES,
+                    registryObject.get()
+            );
+            BYGItems.createItem(registryObject);
+            return this;
+        }
+
         public WoodBuilder growerItem(GrowerItemType growerItemType, String itemName) {
             TagKey<Block> tagKey = createTag(BYG.createLocation("may_place_on/" + itemName));
             this.family.tagKeyMap
@@ -205,11 +266,11 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public WoodBuilder leaves(Function<String, BlockRegistryObject<Block>> leavesFactory) {
+        public WoodBuilder leaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leavesFactory) {
             if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
             }
-            RegistryObject<? extends Block> registryObject = leavesFactory.apply(baseName + "_leaves");
+            RegistryObject<? extends Block> registryObject = leavesFactory.apply(baseName + "_leaves", family);
             this.family.variants.put(BlockVariant.LEAVES,
                     registryObject.get()
                     );
@@ -217,11 +278,29 @@ public class BYGBlockFamily {
             return this;
         }
 
+        @SafeVarargs
+        public final WoodBuilder additionalLeaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> @NotNull ... leavesFactories) {
+            for(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leaveFactory: leavesFactories) {
+                RegistryObject<? extends Block> block = leaveFactory.apply(baseName + "_leaves", family);
+                List<Block> leafBlocks = this.family.additionalBlocks.get(BlockRenderVariant.FULL_BLOCK);
+                if(leafBlocks != null) {
+                    leafBlocks.add(block.get());
+                    this.family.additionalBlocks.replace(BlockRenderVariant.FULL_BLOCK, leafBlocks);
+                } else {
+                    this.family.additionalBlocks.put(BlockRenderVariant.FULL_BLOCK, new ArrayList<>(){{
+                        add(block.get());
+                    }});
+                }
+                BYGItems.createItem(block);
+            }
+            return this;
+        }
+
         public WoodBuilder leaves() {
             if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
             }
-            RegistryObject<? extends Block> registryObject = isNotOverworld ?
+            RegistryObject<? extends Block> registryObject = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
                     BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block")
                     : BYGBlocks.createLeaves(color.get(), baseName + "_leaves");
             this.family.variants.put(BlockVariant.LEAVES,
@@ -232,7 +311,7 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder log() {
-            RegistryObject<? extends Block> block = isNotOverworld ?
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
                     BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem")
                     : BYGBlocks.createLog(baseName + "_log");
             this.family.variants.put(BlockVariant.LOG,
@@ -246,6 +325,13 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.PRESSURE_PLATE,
                     block.get());
             BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder processedFood(String itemName, Supplier<? extends Item> supplier) {
+            RegistryObject<? extends Item> item = BYGItems.createItem(supplier, itemName);
+            this.family.itemVariants.put(ItemVariant.PROCESSED_FOOD,
+                    item.get());
             return this;
         }
 
@@ -281,7 +367,7 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder strippedLog() {
-            RegistryObject<? extends Block> block = isNotOverworld ?
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
                     BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem")
                     : BYGBlocks.createLog("stripped_" + baseName + "_log");
             this.family.variants.put(BlockVariant.STRIPPED_LOG,
@@ -291,7 +377,7 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder strippedWood() {
-            RegistryObject<? extends Block> block = isNotOverworld ?
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
                     BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae")
                     : BYGBlocks.createLog("stripped_" + baseName + "_wood");
             this.family.variants.put(BlockVariant.STRIPPED_WOOD,
@@ -308,8 +394,15 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public WoodBuilder vine(Supplier<Block> supplier, String id) {
+            RegistryObject<? extends Block> block = BYGBlocks.createBlock(supplier, id);
+            family.variants.put(BlockVariant.VINE, block.get());
+            BYGItems.createItem(block);
+            return this;
+        }
+
         public WoodBuilder wood() {
-            RegistryObject<? extends Block> block = isNotOverworld ?
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
                     BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae")
                     : BYGBlocks.createLog(baseName + "_wood");
             this.family.variants.put(BlockVariant.WOOD,
@@ -344,9 +437,10 @@ public class BYGBlockFamily {
         private final String baseName;
         private final BlockSetType blockSetType;
 
-        public Builder(String baseName, BlockSetType blockSetType, Supplier<? extends Block> supplier) {
+        public Builder(String baseName, BlockSetType blockSetType, Supplier<? extends Block> supplier,
+                       ResourceKey<DimensionType> dimension) {
             RegistryObject<? extends Block> baseBlock = BYGBlocks.createBlock(supplier, baseName + "_block");
-            this.family = new BYGBlockFamily(baseName, baseBlock.get());
+            this.family = new BYGBlockFamily(baseName, baseBlock.get(), dimension);
             this.family.variants.put(BlockVariant.BASE_BLOCK, baseBlock.get());
             BYGItems.createItem(baseBlock);
             this.baseName = baseName;
@@ -445,7 +539,7 @@ public class BYGBlockFamily {
         }
 
         public Builder slab() {
-            RegistryObject<? extends Block> block = BYGBlocks.createWoodSlab(baseName + "_slab");
+            RegistryObject<? extends Block> block = BYGBlocks.createStoneSlab(baseName + "_slab");
             this.family.variants.put(BlockVariant.SLAB,
                     block.get());
             BYGItems.createItem(block);
@@ -574,11 +668,27 @@ public class BYGBlockFamily {
 
     public enum ItemVariant {
         BOAT("boat"),
-        CHEST_BOAT("chest_boat");
+        CHEST_BOAT("chest_boat"),
+        FRUIT("fruit"),
+        PROCESSED_FOOD("processed_food");
 
         private final String name;
 
         ItemVariant(String string) {
+            this.name = string;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+    }
+
+    public enum BlockRenderVariant {
+        FULL_BLOCK("full_block");
+
+        private final String name;
+
+        BlockRenderVariant(String string) {
             this.name = string;
         }
 
@@ -608,6 +718,9 @@ public class BYGBlockFamily {
         HANGING_SIGN("hanging_sign"),
         FENCE("fence"),
         FENCE_GATE("fence_gate"),
+        FLOWERING_LEAVES("flowering_leaves"),
+        FRUIT_BLOCK("fruit_block"),
+        FRUIT_LEAVES("fruit_leaves"),
         GROWER("grower"),
         LEAVES("leaves"),
         LOG("log"),
@@ -627,7 +740,8 @@ public class BYGBlockFamily {
         WALL("wall"),
         WALL_HANGING_SIGN("wall_hanging_sign"),
         WALL_SIGN("wall_sign"),
-        WOOD("wood");
+        WOOD("wood"),
+        VINE("vine");
 
         private final String name;
 

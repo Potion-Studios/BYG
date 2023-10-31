@@ -12,8 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import potionstudios.byg.common.block.BYGBlockFamilies;
-import potionstudios.byg.common.block.BYGBlockFamily;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.datagen.providers.interfaces.BlockFamilyProviderMethod;
 import potionstudios.byg.datagen.providers.interfaces.ItemFamilyProviderMethod;
 
@@ -74,7 +74,7 @@ public class BYGModelGenerator extends FabricModelProvider {
 
         private BYGBlockFamily family;
 
-        public BYGModelGenerator.ItemFamilyProvider boat(ItemFamilyProviderMethod arguments) {
+        public BYGModelGenerator.ItemFamilyProvider flatItem(ItemFamilyProviderMethod arguments) {
             arguments.getGenerator().generateFlatItem(arguments.getItem(), ModelTemplates.FLAT_ITEM);
             return this;
         }
@@ -83,7 +83,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                                                                         ItemFamilyProviderMethod providerMethod) {
 
             return switch (itemVariant) {
-                case BOAT, CHEST_BOAT -> boat(providerMethod);
+                default -> flatItem(providerMethod);
             };
         }
 
@@ -395,6 +395,15 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
+        private BYGModelGenerator.WoodProvider fullBlockVariantNoItem(BlockFamilyProviderMethod arguments) {
+            TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(),
+                    TexturedModel.CUBE.get(arguments.getBlock()));
+            ResourceLocation resourceLocation = texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput);
+            arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(),
+                    resourceLocation));
+            return this;
+        }
+
         public BYGModelGenerator.WoodProvider growerItem(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createCrossBlock(arguments.getBlock(),
                     BlockModelGenerators.TintState.NOT_TINTED);
@@ -507,6 +516,11 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
+        public BYGModelGenerator.WoodProvider vine(BlockFamilyProviderMethod arguments) {
+            arguments.getGenerator().createMultiface(arguments.getBlock());
+            return this;
+        }
+
         private BYGModelGenerator.WoodProvider executeGeneration(BYGBlockFamily.BlockVariant blockVariant,
                                                                  BlockFamilyProviderMethod providerMethod) {
             return switch (blockVariant) {
@@ -516,6 +530,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case CRAFTING_TABLE -> craftingTable(providerMethod);
                 case FENCE -> fence(providerMethod);
                 case FENCE_GATE -> fenceGate(providerMethod);
+                case FRUIT_BLOCK -> fullBlockVariantNoItem(providerMethod);
                 case GROWER -> growerItem(providerMethod);
                 case HANGING_SIGN -> hangingSign(providerMethod);
                 case LOG, STRIPPED_LOG -> log(providerMethod);
@@ -526,6 +541,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case STAIRS -> stairs(providerMethod);
                 case STRIPPED_WOOD, WOOD -> wood(providerMethod);
                 case TRAPDOOR -> trapdoor(providerMethod);
+                case VINE -> vine(providerMethod);
                 default -> fullBlockVariant(providerMethod);
             };
         }
@@ -539,7 +555,9 @@ public class BYGModelGenerator extends FabricModelProvider {
             mapping = planksModel.getMapping();
             fullBlock(plank, planksModel.getTemplate(), generators);
             blockFamily.getVariants().forEach((blockVariant, block) -> {
+                System.out.println(blockVariant.getName());
                 if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.PLANKS) ||
+                        blockVariant.equals(BYGBlockFamily.BlockVariant.BASE_BLOCK) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_SIGN) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN))) {
                     executeGeneration(blockVariant,

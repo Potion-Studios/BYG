@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
@@ -76,7 +78,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ASPEN_TREE5), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.BAOBAB.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             "xxx",
                             "xxx",
@@ -201,8 +203,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE2), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.GREEN_ENCHANTED_TREE3), 1).build())
             ));
-            /*
-            map.put(BYGWoodTypes.HOLLY.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.HOLLY_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.HOLLY_TREE2), 1)
@@ -213,7 +214,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.HOLLY_TREE3), 1)
                             .build())
-            )); */
+            ));
             map.put(BYGWoodTypes.JACARANDA.growerItem().get(), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.JACARANDA_TREE1), 1)
@@ -226,7 +227,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.INDIGO_JACARANDA_TREE2), 1)
                             .build())
             ));
-            map.put(BYGBlocks.JOSHUA_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.JOSHUA_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.JOSHUA_TREE2), 1)
@@ -298,7 +299,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "xxx",
                             "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(BYGOverworldTreeFeatures.SPRUCE_ORANGE_TREE_LARGE1)))
             ));
-            map.put(BYGBlocks.ORCHARD_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.ORCHARD.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ORCHARD_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ORCHARD_TREE3), 1)
@@ -405,7 +406,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SILVER_MAPLE_TREE2), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.SKYRIS.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SKYRIS_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SKYRIS_TREE2), 1)

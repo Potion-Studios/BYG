@@ -14,6 +14,8 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.util.BYGUtil;
@@ -62,12 +64,12 @@ public class BYGVillagerTrades {
                 new VillagerTrades.EmeraldForItems(BYGItems.CATTAIL_SPROUT.get(), 24, 12, 2)
             },
             2, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.BAOBAB_FRUIT.get(), 10, 12, 2),
+                new VillagerTrades.EmeraldForItems(BYGBlockFamilies.BAOBAB.get(BYGBlockFamily.ItemVariant.FRUIT), 10, 12, 2),
                 new VillagerTrades.EmeraldForItems(BYGItems.ALOE_VERA.get(), 16, 12, 2),
-                new VillagerTrades.EmeraldForItems(BYGItems.GREEN_APPLE.get(), 24, 12, 2)
+                new VillagerTrades.EmeraldForItems(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.ItemVariant.FRUIT), 24, 12, 2)
             },
             3, new VillagerTrades.ItemListing[]{
-                new VillagerTrades.EmeraldForItems(BYGItems.JOSHUA_FRUIT.get(), 10, 12, 2)
+                new VillagerTrades.EmeraldForItems(BYGBlockFamilies.JOSHUA.get(BYGBlockFamily.ItemVariant.FRUIT), 10, 12, 2)
             },
             4, new VillagerTrades.ItemListing[]{
                 new VillagerTrades.ItemsAndEmeraldsToItems(Items.DIRT, 16, 2, BYGItems.LUSH_DIRT.get(), 16, 4, 4)
@@ -116,7 +118,7 @@ public class BYGVillagerTrades {
                         for (final var sapling : BYGItems.SAPLINGS) {
                             list.add(new VillagerTrades.ItemsForEmeralds(sapling.get(), 5, 1, 2));
                         }
-                        list.add(new VillagerTrades.ItemsForEmeralds(BYGItems.SKYRIS_VINE.get(), 5, 2, 2));
+                        list.add(new VillagerTrades.ItemsForEmeralds(BYGBlockFamilies.SKYRIS.get(BYGBlockFamily.BlockVariant.VINE).asItem(), 5, 2, 2));
                         list.add(new VillagerTrades.ItemsForEmeralds(BYGItems.POISON_IVY.get(), 5, 2, 2));
                     }).toArray(VillagerTrades.ItemListing[]::new),
                     2, new VillagerTrades.ItemListing[]{}

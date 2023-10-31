@@ -12,7 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.Vec3;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.block.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 import potionstudios.byg.mixin.access.client.ClientLevelAccess;
 

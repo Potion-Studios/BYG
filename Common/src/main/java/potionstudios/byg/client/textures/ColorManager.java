@@ -14,10 +14,15 @@ import potionstudios.byg.common.item.BYGItems;
 
 public class ColorManager {
 
+    //TODO Figure out why this is important and if it is find a way to replace it
+
     public static synchronized void onBlockColorsInit(BlockColors blockColors) {
         //registers the colors for blocks that changes colors based on biome
         blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageGrassColor(lightReader, pos) : GrassColor.get(0.5D, 1.0D),  BYGBlocks.FLOWER_PATCH.get(), BYGBlocks.LUSH_GRASS_BLOCK.get(), BYGBlocks.OVERGROWN_STONE.get(), BYGBlocks.TINY_LILYPADS.get(), BYGBlocks.FLOWERING_TINY_LILY_PADS.get(), BYGBlocks.OVERGROWN_DACITE.get());
-        blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageFoliageColor(lightReader, pos) : FoliageColor.get(0.5D, 1.0D), BYGBlocks.CLOVER_PATCH.get(), BYGWoodTypes.MAHOGANY.leaves().get(),BYGBlocks.LEAF_PILE.get(), BYGBlocks.POISON_IVY.get(), BYGWoodTypes.WILLOW.leaves().get(), BYGWoodTypes.MAPLE.leaves().get(), BYGBlocks.JOSHUA_LEAVES.get(), BYGBlocks.FLOWERING_JOSHUA_LEAVES.get(), BYGBlocks.RIPE_JOSHUA_LEAVES.get(), BYGWoodTypes.CYPRESS.leaves().get());
+        /* blockColors.register((unknown, lightReader, pos, unknown2) ->
+                        lightReader != null && pos != null ? BiomeColors.getAverageFoliageColor(lightReader, pos) :
+                        FoliageColor.get(0.5D, 1.0D), BYGBlocks.CLOVER_PATCH.get(), BYGWoodTypes.MAHOGANY.leaves().get(),BYGBlocks.LEAF_PILE.get(), BYGBlocks.POISON_IVY.get(), BYGWoodTypes.WILLOW.leaves().get(), BYGWoodTypes.MAPLE.leaves().get(),
+                BYGBlocks.JOSHUA_LEAVES.get(), BYGBlocks.FLOWERING_JOSHUA_LEAVES.get(), BYGBlocks.RIPE_JOSHUA_LEAVES.get(), BYGWoodTypes.CYPRESS.leaves().get()); */
         blockColors.register((unknown, lightReader, pos, unknown2) -> lightReader != null && pos != null ? BiomeColors.getAverageWaterColor(lightReader, pos) : -1, BYGBlocks.WATER_BARREL_CACTUS.get());
     }
 
@@ -28,11 +33,11 @@ public class ColorManager {
             return blockColors.getColor(state, null, null, tintIndex);
         };
 
-        itemColors.register(itemBlockColourHandler,
+        /* itemColors.register(itemBlockColourHandler,
                 BYGItems.CLOVER_PATCH.get(), BYGItems.LUSH_GRASS_BLOCK.get(), BYGWoodTypes.MAHOGANY.leaves().get(),
             BYGItems.POISON_IVY.get(), BYGItems.OVERGROWN_STONE.get(),
             BYGItems.TINY_LILYPADS.get(), BYGItems.FLOWERING_TINY_LILY_PADS.get(), BYGItems.OVERGROWN_DACITE.get(), BYGItems.LEAF_PILE.get(),
             BYGWoodTypes.WILLOW.leaves(), BYGWoodTypes.CYPRESS.leaves().get(),
-            BYGWoodTypes.MAPLE.leaves(), BYGItems.JOSHUA_LEAVES.get(), BYGItems.FLOWERING_JOSHUA_LEAVES.get(), BYGItems.RIPE_JOSHUA_LEAVES.get());
+            BYGWoodTypes.MAPLE.leaves(), BYGItems.JOSHUA_LEAVES.get(), BYGItems.FLOWERING_JOSHUA_LEAVES.get(), BYGItems.RIPE_JOSHUA_LEAVES.get()); */
     }
 }

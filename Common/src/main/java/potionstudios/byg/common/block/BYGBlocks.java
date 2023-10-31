@@ -40,6 +40,7 @@ import potionstudios.byg.common.block.nether.wailing.WailingPlantBlock;
 import potionstudios.byg.common.block.nether.warped.WarpedCactusBlock;
 import potionstudios.byg.common.block.sapling.BYGSaplingBlock;
 import potionstudios.byg.common.entity.BYGEntityTags;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
@@ -80,11 +81,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, TreeSpawners.JACARANDA, "flowering_jacaranda_bush");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, TreeSpawners.INDIGO_JACARANDA, "flowering_indigo_jacaranda_bush");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, "indigo_jacaranda_sapling");
-    public static final BlockRegistryObject<Block> JOSHUA_SAPLING = createSapling(BYGBlockTags.GROUND_JOSHUA_SAPLING, "joshua_sapling");
     public static final BlockRegistryObject<Block> ORANGE_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_BIRCH_SAPLING, "orange_birch_sapling");
     public static final BlockRegistryObject<Block> ORANGE_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_OAK_SAPLING, "orange_oak_sapling");
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_ORANGE_SPRUCE_SAPLING, "orange_spruce_sapling");
-    public static final BlockRegistryObject<Block> ORCHARD_SAPLING = createSapling(BYGBlockTags.GROUND_ORCHARD_SAPLING, "orchard_sapling");
     public static final BlockRegistryObject<Block> PALO_VERDE_SAPLING = createSapling(BYGBlockTags.GROUND_PALO_VERDE_SAPLING, "palo_verde_sapling");
     public static final BlockRegistryObject<Block> RED_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_RED_BIRCH_SAPLING, "red_birch_sapling");
     public static final BlockRegistryObject<Block> RED_MAPLE_SAPLING = createSapling(BYGBlockTags.GROUND_RED_MAPLE_SAPLING, "red_maple_sapling");
@@ -104,35 +103,25 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SHELF_FUNGI = createTreeBranchBlock(MapColor.TERRACOTTA_ORANGE, "shelf_fungi");
 
     public static final BlockRegistryObject<Block> ARAUCARIA_LEAVES = createLeaves(MapColor.COLOR_GREEN, "araucaria_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_BAOBAB_LEAVES = createChangingLeaves(MapColor.COLOR_GREEN, () -> (LeavesBlock) BYGBlocks.RIPE_BAOBAB_LEAVES.get(), 0.02F, "flowering_baobab_leaves");
-    public static final BlockRegistryObject<Block> RIPE_BAOBAB_LEAVES = createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, 0), "ripe_baobab_leaves", 0.04F);
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_LIGHT_BLUE, "blue_spruce_leaves");
     public static final BlockRegistryObject<Block> BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "blooming_witch_hazel_leaves");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_birch_leaves");
     public static final BlockRegistryObject<Block> BROWN_OAK_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_oak_leaves");
     public static final BlockRegistryObject<Block> BROWN_ZELKOVA_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_zelkova_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_ORCHARD_LEAVES = createChangingLeaves(MapColor.COLOR_GREEN, () -> (LeavesBlock) BYGBlocks.RIPE_ORCHARD_LEAVES.get(), 0.02F, "flowering_orchard_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MapColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
     public static final BlockRegistryObject<Block> HOLLY_BERRY_LEAVES = createLeaves(MapColor.TERRACOTTA_GREEN, "holly_berry_leaves");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_BLUE, "indigo_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_PURPLE, "flowering_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_BLUE, "flowering_indigo_jacaranda_leaves");
-    public static final BlockRegistryObject<Block> JOSHUA_LEAVES = createLeaves(MapColor.COLOR_GREEN, "joshua_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_JOSHUA_LEAVES = createChangingLeaves(MapColor.COLOR_GREEN, () -> (LeavesBlock) BYGBlocks.RIPE_JOSHUA_LEAVES.get(), 0.02F, "flowering_joshua_leaves");
-    public static final BlockRegistryObject<Block> RIPE_JOSHUA_LEAVES = createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.JOSHUA_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, 0), "ripe_joshua_leaves", 0.04F);
     public static final BlockRegistryObject<Block> ORANGE_BIRCH_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "orange_birch_leaves");
     public static final BlockRegistryObject<Block> ORANGE_OAK_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "orange_oak_leaves");
     public static final BlockRegistryObject<Block> ORANGE_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "orange_spruce_leaves");
-    public static final BlockRegistryObject<Block> ORCHARD_LEAVES = createLeaves(MapColor.COLOR_GREEN, "orchard_leaves");
     public static final BlockRegistryObject<Block> PALO_VERDE_LEAVES = createLeaves(MapColor.COLOR_GREEN, "palo_verde_leaves");
     public static final BlockRegistryObject<Block> RED_BIRCH_LEAVES = createLeaves(MapColor.COLOR_RED, "red_birch_leaves");
     public static final BlockRegistryObject<Block> RED_MAPLE_LEAVES = createLeaves(MapColor.COLOR_RED, () -> BYGParticleTypes.RED_MAPLE_LEAVES.get(), "red_maple_leaves");
     public static final BlockRegistryObject<Block> RED_OAK_LEAVES = createLeaves(MapColor.COLOR_RED, "red_oak_leaves");
     public static final BlockRegistryObject<Block> RED_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_RED, "red_spruce_leaves");
-    public static final BlockRegistryObject<Block> RIPE_ORCHARD_LEAVES = createFruitLeaves(MapColor.COLOR_GREEN, () -> BYGBlocks.APPLE_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, 0), "ripe_orchard_leaves", 0.04F);
     public static final BlockRegistryObject<Block> SILVER_MAPLE_LEAVES = createLeaves(MapColor.COLOR_LIGHT_GRAY, () -> BYGParticleTypes.SILVER_MAPLE_LEAVES.get(), "silver_maple_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_SKYRIS_LEAVES = createChangingLeaves(MapColor.COLOR_PINK, () -> (LeavesBlock) BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), 0.02F, "flowering_skyris_leaves");
-    public static final BlockRegistryObject<Block> SKYRIS_LEAVES_GREEN_APPLE = createFruitLeaves(MapColor.COLOR_PINK, () -> BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, 0), "green_apple_skyris_leaves", 0.04F);
     public static final BlockRegistryObject<Block> WHITE_CHERRY_LEAVES = createLeaves(MapColor.COLOR_LIGHT_GRAY, () -> BYGParticleTypes.WHITE_CHERRY_BLOSSOM_LEAVES.get(), "white_cherry_leaves");
     public static final BlockRegistryObject<Block> YELLOW_BIRCH_LEAVES = createLeaves(MapColor.COLOR_YELLOW, "yellow_birch_leaves");
     public static final BlockRegistryObject<Block> YELLOW_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_YELLOW, "yellow_spruce_leaves");
@@ -164,7 +153,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WINTER_SUCCULENT = createFlower("winter_succulent", BYGBlockTags.GROUND_WINTER_SUCCULENT);
     public static final BlockRegistryObject<BYGDoublePlantBlock> TALL_PRAIRIE_GRASS = createBlock(() -> new BYGDoublePlantBlock(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS), BYGBlockTags.GROUND_TALL_PRAIRIE_GRASS), "tall_prairie_grass");
     public static final BlockRegistryObject<Block> POISON_IVY = createBlock(BYGBlockProperties.BYGPoisonIvy::new, "poison_ivy");
-    public static final BlockRegistryObject<BYGBlockProperties.BYGSkyrisVine> SKYRIS_VINE = createBlock(BYGBlockProperties.BYGSkyrisVine::new, "skyris_vine");
     public static final BlockRegistryObject<Block> BLUEBERRY_BUSH = createBlueBerryBush("blueberry_bush");
     public static final BlockRegistryObject<Block> TINY_LILYPADS = createWaterLilyBlock(MapColor.TERRACOTTA_GREEN, "tiny_lilypads");
     public static final BlockRegistryObject<Block> FLOWERING_TINY_LILY_PADS = createWaterLilyBlock(MapColor.COLOR_PINK, "flowering_tiny_lily_pads");
@@ -174,13 +162,7 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> LEAF_PILE = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS)), "leaf_pile");
     public static final BlockRegistryObject<Block> CLOVER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS), BYGBlockTags.GROUND_CLOVER_PATCH), "clover_patch");
     public static final BlockRegistryObject<Block> FLOWER_PATCH = createBlock(() -> new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.GRASS), BYGBlockTags.GROUND_FLOWER_PATCH), "flower_patch");
-    public static final BlockRegistryObject<Block> BAOBAB_FRUIT_BLOCK = createFruitBlock("baobab_fruit_block", FruitBlock.FruitType.BAOBAB);
-    public static final BlockRegistryObject<Block> APPLE_FRUIT_BLOCK = createFruitBlock("apple_fruit_block", FruitBlock.FruitType.APPLE);
-    public static final BlockRegistryObject<Block> GREEN_APPLE_FRUIT_BLOCK = createFruitBlock("green_apple_fruit_block", FruitBlock.FruitType.GREEN_APPLE);
-    public static final BlockRegistryObject<Block> JOSHUA_FRUIT_BLOCK = createFruitBlock("joshua_fruit_block", FruitBlock.FruitType.JOSHUA);
-
     public static final BlockRegistryObject<Block> ETHER_BULB = createEtherBulbBlock("ether_bulbs_block");
-
     public static final BlockRegistryObject<Block> ANTHRACITE_BLOCK = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_block");
     public static final BlockRegistryObject<Block> ANTHRACITE_ORE = createBlock(BYGBlockProperties.AnthraciteOre::new, "anthracite_ore");
     public static final BlockRegistryObject<Block> BRIMSTONE = createNetherStone(MapColor.TERRACOTTA_YELLOW, "brimstone");
@@ -646,11 +628,11 @@ public class BYGBlocks {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel((state) -> 12).strength(1.5f, 9.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createFence(String id) {
+    public static BlockRegistryObject<Block> createFence(String id) {
         return createBlock(() -> new FenceBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createFenceGate(String id, WoodType woodType) {
+    public static BlockRegistryObject<Block> createFenceGate(String id, WoodType woodType) {
         return createBlock(() -> new FenceGateBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0f, 3.0f), woodType), id);
     }
 
@@ -678,59 +660,59 @@ public class BYGBlocks {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(0.8F).sound(SoundType.STONE)), id);
     }
 
-    static BlockRegistryObject<Block> createWoodSlab(String id) {
+    public static BlockRegistryObject<Block> createWoodSlab(String id) {
         return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createStoneSlab(String id) {
+    public static BlockRegistryObject<Block> createStoneSlab(String id) {
         return createBlock(() -> new SlabBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
-    private static BlockRegistryObject<Block> createStoneWall(String id) {
+    public static BlockRegistryObject<Block> createStoneWall(String id) {
         return createBlock(() -> new WallBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops()), id);
     }
 
-    static BlockRegistryObject<Block> createWoodPressurePlate(String id, BlockSetType blockSetType) {
+    public static BlockRegistryObject<Block> createWoodPressurePlate(String id, BlockSetType blockSetType) {
         return createBlock(() -> PressurePlateBlockAccess.byg_create(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().sound(SoundType.WOOD).noCollission().strength(0.5F), blockSetType), id);
     }
 
-    static BlockRegistryObject<Block> createWoodStairs(String id) {
+    public static BlockRegistryObject<Block> createWoodStairs(String id) {
         return createBlock(() -> StairBlockAccess.byg_create(BuiltInRegistries.BLOCK.get(BYG.createLocation(id.replace("_stairs", "planks"))).defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createTrapDoor(String id, BlockSetType blockSetType) {
+    public static BlockRegistryObject<Block> createTrapDoor(String id, BlockSetType blockSetType) {
         return createBlock(() -> TrapDoorBlockAccess.byg_create(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), blockSetType), id);
     }
 
-    static BlockRegistryObject<Block> createCraftingTable(String id) {
+    public static BlockRegistryObject<Block> createCraftingTable(String id) {
         return createBlock(() -> new BYGCraftingTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)), id);
     }
 
-    static BlockRegistryObject<Block> createWoodButton(String id, BlockSetType blockSetType) {
+    public static BlockRegistryObject<Block> createWoodButton(String id, BlockSetType blockSetType) {
         return createBlock(() -> WoodButtonBlockAccess.byg_create(blockSetType, FeatureFlags.VANILLA), id);
     }
 
-    static BlockRegistryObject<Block> createBookshelf(String id) {
+    public static BlockRegistryObject<Block> createBookshelf(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createDoor(String id, BlockSetType blockSetType) {
+    public static BlockRegistryObject<Block> createDoor(String id, BlockSetType blockSetType) {
         return createBlock(() -> DoorBlockAccess.byg_create(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f).noOcclusion(), blockSetType), id);
     }
 
-    static BlockRegistryObject<Block> createPlanks(String id) {
+    public static BlockRegistryObject<Block> createPlanks(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD).strength(2.0f, 3.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createWood(String id) {
+    public static BlockRegistryObject<Block> createWood(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createStrippedLog(String id) {
+    public static BlockRegistryObject<Block> createStrippedLog(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
-    static BlockRegistryObject<Block> createLog(String id) {
+    public static BlockRegistryObject<Block> createLog(String id) {
         return createBlock(() -> new RotatedPillarBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD).strength(2.0f)), id);
     }
 
@@ -854,11 +836,11 @@ public class BYGBlocks {
         return createPottedBlock(() -> new WhitePuffballBlock(BlockBehaviour.Properties.of().mapColor(color).sound(sound).noOcclusion().noCollission().strength(0.0f).randomTicks()), id);
     }
 
-    static BlockRegistryObject<Block> createMushroom(TagKey<Block> blockTagKey, String id) {
+    public static BlockRegistryObject<Block> createMushroom(TagKey<Block> blockTagKey, String id) {
         return createPottedBlock(() -> new BYGMushroomBlock(BlockBehaviour.Properties.copy(Blocks.RED_MUSHROOM), blockTagKey), id);
     }
 
-    static BlockRegistryObject<Block> createFungus(TagKey<Block> blockTagKey, String id) {
+    public static BlockRegistryObject<Block> createFungus(TagKey<Block> blockTagKey, String id) {
         return createPottedBlock(() -> new BYGFungusBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_FUNGUS), blockTagKey), id);
     }
 
@@ -960,7 +942,7 @@ public class BYGBlocks {
         return createBlock(() -> new BlueBerryBush(BlockBehaviour.Properties.of().sound(SoundType.SWEET_BERRY_BUSH).randomTicks().instabreak().noCollission()), id);
     }
 
-    private static BlockRegistryObject<Block> createFruitBlock(String id, FruitBlock.FruitType fruitType) {
+    public static BlockRegistryObject<Block> createFruitBlock(String id, BYGBlockFamily fruitType) {
         return createBlock(() -> new FruitBlock(fruitType, BlockBehaviour.Properties.of().sound(SoundType.SWEET_BERRY_BUSH).randomTicks().instabreak().noCollission()), id);
     }
 
@@ -976,7 +958,7 @@ public class BYGBlocks {
         return createBlock(() -> new NightshadeBerryBushBlock(BlockBehaviour.Properties.of().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((state) -> lightLevel).randomTicks().instabreak().noCollission()), id);
     }
 
-    static BlockRegistryObject<Block> createSapling(TagKey<Block> groundTag, String id) {
+    public static BlockRegistryObject<Block> createSapling(TagKey<Block> groundTag, String id) {
         final Supplier<Block> createBlock = () -> new BYGSaplingBlock(BlockBehaviour.Properties.of().sound(SoundType.GRASS).strength(0.0f).noCollission().randomTicks(), groundTag);
         final var blockRo = createPottedBlock(createBlock, id);
         return blockRo;
@@ -1049,31 +1031,31 @@ public class BYGBlocks {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_WART_BLOCK).strength(0.2F).sound(SoundType.HONEY_BLOCK)), id);
     }
 
-    static BlockRegistryObject<Block> createLeaves(MapColor color, String id) {
+    public static BlockRegistryObject<Block> createLeaves(MapColor color, String id) {
         return createLeaves(color, null, id);
     }
 
-    static BlockRegistryObject<Block> createLeaves(MapColor color, Supplier<ParticleOptions> particleOptions, String id) {
+    public static BlockRegistryObject<Block> createLeaves(MapColor color, Supplier<ParticleOptions> particleOptions, String id) {
         return createBlock(() -> new BYGLeavesBlock(BlockBehaviour.Properties.of().mapColor(color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false), particleOptions), id);
     }
 
-    static BlockRegistryObject<Block> createChangingLeaves(MapColor color, Supplier<LeavesBlock> next, float chance, String id) {
+    public static BlockRegistryObject<Block> createChangingLeaves(MapColor color, Supplier<LeavesBlock> next, float chance, String id) {
         return createChangingLeaves(color, next, chance, null, id);
     }
 
-    static BlockRegistryObject<Block> createChangingLeaves(MapColor color, Supplier<LeavesBlock> next, float chance, Supplier<ParticleOptions> particleOptions, String id) {
+    public static BlockRegistryObject<Block> createChangingLeaves(MapColor color, Supplier<LeavesBlock> next, float chance, Supplier<ParticleOptions> particleOptions, String id) {
         return createBlock(() -> new ChangingLeavesBlock(BlockBehaviour.Properties.of().mapColor(color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false), next, chance, particleOptions), id);
     }
 
-    static BlockRegistryObject<Block> createGlowingLeaves(MapColor color, int lightLevel, String id) {
+    public static BlockRegistryObject<Block> createGlowingLeaves(MapColor color, int lightLevel, String id) {
         return createBlock(() -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).lightLevel((state) -> lightLevel)), id);
     }
 
-    static BlockRegistryObject<Block> createFruitLeaves(MapColor color, Supplier<BlockState> fruit, String id, float tickSpawnChance) {
+    public static BlockRegistryObject<Block> createFruitLeaves(MapColor color, Supplier<BlockState> fruit, String id, float tickSpawnChance) {
         return createFruitLeaves(color, fruit, null, id, tickSpawnChance);
     }
 
-    static BlockRegistryObject<Block> createFruitLeaves(MapColor color, Supplier<BlockState> fruit, Supplier<ParticleOptions> particleOptions, String id, float tickSpawnChance) {
+    public static BlockRegistryObject<Block> createFruitLeaves(MapColor color, Supplier<BlockState> fruit, Supplier<ParticleOptions> particleOptions, String id, float tickSpawnChance) {
         return createBlock(() -> new HangingFruitLeavesBlock(BlockBehaviour.Properties.of().mapColor(color).strength(0.2F).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false), fruit, particleOptions, tickSpawnChance), id);
     }
 
