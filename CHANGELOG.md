@@ -9,6 +9,7 @@
 * Make Wood Fence Gates Flammable
 * Make NonFlammable woodtypes unable to be used as fuel. Fixes #1249
 * Make Palo Verde Logs able to be used as fuel. Fixes #1250
+* Make Prairie Grass grow when bone mealing grass blocks in the Prairie Biomes. Closes #1044
 
 # 2.0.1.4
 * Fix broken NBT files. Fixes #1206 and #1207
