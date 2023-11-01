@@ -32,11 +32,6 @@ public enum BYGWoodTypes {
             .MapColor(MapColor.TERRACOTTA_YELLOW)
             .growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
 
-    BLUE_ENCHANTED("blue_enchanted", new Builder()
-            // .boatType(BYGBoat.BYGType.BLUE_ENCHANTED)
-            .growerItemGroundTag(BYGBlockTags.GROUND_BLUE_ENCHANTED_SAPLING)
-            .MapColor(MapColor.COLOR_BLUE)
-            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))),
     BULBIS("bulbis", new Builder()
             .MapColor(MapColor.COLOR_BLUE)
             .growerItemGroundTag(BYGBlockTags.GROUND_BULBIS_ODDITY)

@@ -192,13 +192,6 @@ public class BYGItems {
 
     public static final RegistryObject<Item> CRACKED_RED_SAND = createItem(BYGBlocks.CRACKED_RED_SAND);
 
-    //Baobab Woodtype
-    // public static final RegistryObject<Item> BAOBAB_FRUIT;
-    // public static final RegistryObject<Item> FLOWERING_BAOBAB_LEAVES;
-    // public static final RegistryObject<Item> RIPE_BAOBAB_LEAVES;
-
-    //Blue Enchanted Woodtype
-    public static final RegistryObject<Item> IMBUED_BLUE_ENCHANTED_LOG;
 
     //Green Enchanted Woodtype
     public static final RegistryObject<Item> IMBUED_GREEN_ENCHANTED_LOG;
@@ -269,14 +262,6 @@ public class BYGItems {
     static {
         BYGWoodTypes.ASPEN.init();
         BYGBlockFamilies.register();
-
-        // FLOWERING_BAOBAB_LEAVES = createItem(BYGBlocks.FLOWERING_BAOBAB_LEAVES);
-        // RIPE_BAOBAB_LEAVES = createItem(BYGBlocks.RIPE_BAOBAB_LEAVES);
-        // BAOBAB_FRUIT = createItem(() -> new BaobabFruitItem(BYGBlocks.BAOBAB_FRUIT_BLOCK.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.5f).alwaysEat().build())), "baobab_fruit");
-        // BYGWoodTypes.BAOBAB.init();
-
-        IMBUED_BLUE_ENCHANTED_LOG = createItem(BYGBlocks.IMBUED_BLUE_ENCHANTED_LOG);
-        BYGWoodTypes.BLUE_ENCHANTED.init();
 
         PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
         PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);

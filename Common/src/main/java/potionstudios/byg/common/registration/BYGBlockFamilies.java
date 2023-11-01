@@ -62,6 +62,35 @@ public class BYGBlockFamilies {
             .wood()
     );
 
+    public static BYGBlockFamily BLUE_ENCHANTED = register(new BYGBlockFamily.WoodBuilder("blue_enchanted",
+            getOverworldWoodType("blue_enchanted"), () -> MapColor.COLOR_BLUE, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "blue_enchanted_sapling")
+            .hangingSign()
+            .imbuedLog()
+            .leaves((id, family) -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .strippables((consumer, family) -> {
+                consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
+                        family.get(BYGBlockFamily.BlockVariant.LOG));
+            })
+            .trapdoor()
+            .wood()
+    );
+
     public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,BuiltinDimensionTypes.OVERWORLD)
             .boat()

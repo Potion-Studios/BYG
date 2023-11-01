@@ -36,7 +36,6 @@ import potionstudios.byg.common.loot.BYGLootContextParams;
 import potionstudios.byg.mixin.access.BoatEntityAccess;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class BYGBoat extends Boat {
     private static final EntityDataAccessor<String> BYG_BOAT_TYPE = SynchedEntityData.defineId(BYGBoat.class, EntityDataSerializers.STRING);

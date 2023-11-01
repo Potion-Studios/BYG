@@ -87,7 +87,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.BAOBAB_TREE2), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.BLUE_ENCHANTED.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
                             "xxx",

@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -53,6 +54,7 @@ public class BYGBlockFamily {
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
     private final Map<ItemVariant, List<Item>> additionalItems = new ConcurrentHashMap<>();
     private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
+    private BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> strippables = null;
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
     private boolean generateRecipe;
@@ -94,6 +96,10 @@ public class BYGBlockFamily {
 
     public TagKey<Block> getTag(GrowerItemType growerItemType) {
         return this.tagKeyMap.get(growerItemType);
+    }
+
+    public BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> getStrippables() {
+        return strippables;
     }
 
     public boolean shouldGenerateModel() {
@@ -266,6 +272,16 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public WoodBuilder imbuedLog() {
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem")
+                    : BYGBlocks.createLog("imbued_" + baseName + "_log");
+            this.family.variants.put(BlockVariant.IMBUED_LOG,
+                    block.get());
+            BYGItems.createItem(block);
+            return this;
+        }
+
         public WoodBuilder leaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leavesFactory) {
             if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
@@ -373,6 +389,11 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.STRIPPED_LOG,
                     block.get());
             BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder strippables(BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> consumer) {
+            family.strippables = consumer;
             return this;
         }
 
@@ -722,6 +743,7 @@ public class BYGBlockFamily {
         FRUIT_BLOCK("fruit_block"),
         FRUIT_LEAVES("fruit_leaves"),
         GROWER("grower"),
+        IMBUED_LOG("imbued"),
         LEAVES("leaves"),
         LOG("log"),
         PLANKS("planks"),
