@@ -84,7 +84,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.DARK_OAK_LEAVES.defaultBlockState(), 1).build()),
                     Blocks.DARK_OAK_LOG,
                     Blocks.DARK_OAK_LEAVES,
-                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.EBONY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -94,11 +94,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/ancient/ancient_tree_trunk2"),
                     BYG.createLocation("features/trees/ancient/ancient_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
-                    EBONY.log(),
-                    EBONY.leaves(),
-                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.EBONY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_TREE3 = createConfiguredFeature("ancient_tree3",
@@ -111,7 +111,7 @@ public class BYGOverworldTreeFeatures {
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.SILVER_MAPLE_LEAVES.defaultBlockState(), 1).build()),
                     MAPLE.log(),
                     BYGBlocks.SILVER_MAPLE_LEAVES,
-                    BYGBlockTags.GROUND_EBONY_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.EBONY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -791,11 +791,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cypress/cypress_trunk1"),
                     BYG.createLocation("features/trees/cypress/cypress_canopy1"),
                     BiasedToBottomInt.of(14, 16),
-                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
-                    CYPRESS.log().get(),
-                    CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CYPRESS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE2 = createConfiguredFeature("cypress_tree2",
@@ -804,11 +804,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cypress/cypress_trunk2"),
                     BYG.createLocation("features/trees/cypress/cypress_canopy2"),
                     BiasedToBottomInt.of(10, 13),
-                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
-                    CYPRESS.log().get(),
-                    CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CYPRESS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE3 = createConfiguredFeature("cypress_tree3",
@@ -817,11 +817,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cypress/cypress_trunk3"),
                     BYG.createLocation("features/trees/cypress/cypress_canopy3"),
                     BiasedToBottomInt.of(10, 13),
-                    BlockStateProvider.simple(CYPRESS.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CYPRESS.leaves().defaultBlockState(), 1).build()),
-                    CYPRESS.log().get(),
-                    CYPRESS.leaves().get(),
-                    BYGBlockTags.GROUND_CYPRESS_SAPLING, 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CYPRESS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator(), MOSS_CARPET.get())
             )
     );
 
@@ -1001,10 +1001,10 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/ebony/ebony_canopy2"),
                     ConstantInt.of(0)
                     ,
-                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
-                    EBONY.log(),
-                    EBONY.leaves(),
+                    BlockStateProvider.simple(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
             )
     );
@@ -1014,23 +1014,24 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/ebony/ebony_trunk1"),
                     BYG.createLocation("features/trees/ebony/ebony_canopy1"),
                     BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
-                    EBONY.log(),
-                    EBONY.leaves(),
+                    BlockStateProvider.simple(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
             )
     );
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> EBONY_TREE2 = createConfiguredFeature("ebony_tree2",
             CorgiLibFeatures.TREE_FROM_NBT,
             () -> new TreeFromStructureNBTConfig(
                     BYG.createLocation("features/trees/ebony/ebony_trunk2"),
                     BYG.createLocation("features/trees/ebony/ebony_canopy2"),
                     BiasedToBottomInt.of(4, 6),
-                    BlockStateProvider.simple(EBONY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(EBONY.leaves().defaultBlockState(), 1).build()),
-                    EBONY.log(),
-                    EBONY.leaves(),
+                    BlockStateProvider.simple(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockTags.GROUND_BROWN_OAK_SAPLING, 6, ImmutableList.of()
             )
     );

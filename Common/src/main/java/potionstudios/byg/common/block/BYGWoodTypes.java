@@ -40,14 +40,7 @@ public enum BYGWoodTypes {
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
-    CYPRESS("cypress", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_CYPRESS_SAPLING)
-            // .boatType(BYGBoat.BYGType.CYPRESS)
-            .MapColor(MapColor.TERRACOTTA_LIGHT_GREEN)),
-    EBONY("ebony", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_EBONY_SAPLING)
-            // .boatType(BYGBoat.BYGType.EBONY)
-            .MapColor(MapColor.COLOR_GREEN)),
+
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
             .MapColor(MapColor.COLOR_CYAN).end()),

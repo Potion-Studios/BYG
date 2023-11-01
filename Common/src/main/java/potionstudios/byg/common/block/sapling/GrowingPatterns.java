@@ -156,7 +156,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.CIKA_TREE3), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.CYPRESS.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.CYPRESS.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             "  x  ",
                             "  x  ",
@@ -168,7 +168,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.CYPRESS_TREE3), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.EBONY.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.EBONY.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             "xx",
                             "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
