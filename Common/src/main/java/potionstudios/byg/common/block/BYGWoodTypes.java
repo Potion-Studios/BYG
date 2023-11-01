@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
-import potionstudios.byg.common.entity.boat.BYGBoat;
-import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.mixin.access.BlockSetTypeAccess;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
@@ -21,10 +19,12 @@ import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 import potionstudios.byg.util.MultiTag;
 
-import java.util.*;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public enum BYGWoodTypes {
     ASPEN("aspen", new Builder()
@@ -40,10 +40,6 @@ public enum BYGWoodTypes {
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
-    CIKA("cika", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_CIKA_SAPLING)
-            // .boatType(BYGBoat.BYGType.CIKA)
-            .MapColor(MapColor.TERRACOTTA_ORANGE)),
     CYPRESS("cypress", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_CYPRESS_SAPLING)
             // .boatType(BYGBoat.BYGType.CYPRESS)
@@ -163,9 +159,6 @@ public enum BYGWoodTypes {
     private BlockRegistryObject<Block> hangingSign;
     private BlockRegistryObject<Block> wallHangingSign;
     private RegistryObject<HangingSignItem> hangingSignItem;
-
-    private RegistryObject<BYGBoatItem> boat;
-    private RegistryObject<BYGBoatItem> chestBoat;
 
     BYGWoodTypes(String name, Builder builder) {
         this.name = name;
@@ -376,17 +369,9 @@ public enum BYGWoodTypes {
         return hangingSignItem;
     }
 
-    public RegistryObject<BYGBoatItem> boat() {
-        return boat;
-    }
-
     public MultiTag logTag() {
         return logTag;
     }
-
-    /* public BYGBoat.BYGType boatType() {
-        return builder.boatType;
-    } */
 
     public boolean isNether() {
         return builder.isNether;
@@ -398,10 +383,6 @@ public enum BYGWoodTypes {
 
     public boolean leavesHaveOverlay() {
         return builder.leavesHaveOverlay;
-    }
-
-    public RegistryObject<BYGBoatItem> chestBoat() {
-        return chestBoat;
     }
 
     public enum GrowerItemType {

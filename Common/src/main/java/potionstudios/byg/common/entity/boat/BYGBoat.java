@@ -91,14 +91,14 @@ public class BYGBoat extends Boat {
         final var type = getBYGBoatType().get(BYGBlockFamily.ItemVariant.BOAT);
         if (type != null)
             return type;
-        return BYGWoodTypes.ASPEN.boat().get();
+        return BYGBlockFamilies.CIKA.get(BYGBlockFamily.ItemVariant.BOAT);
     }
 
     public Block getPlanks() {
         final var type = getBYGBoatType().get(BYGBlockFamily.BlockVariant.PLANKS);
         if (type != null)
             return type;
-        return BYGWoodTypes.ASPEN.planks().get();
+        return BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.PLANKS);
     }
 
     public BYGBlockFamily getBYGBoatType() {

@@ -635,11 +635,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cika/cika_trunk1"),
                     BYG.createLocation("features/trees/cika/cika_canopy1"),
                     BiasedToBottomInt.of(14, 21),
-                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
-                    CIKA.log().get(),
-                    CIKA.leaves().get(),
-                    BYGBlockTags.GROUND_CIKA_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CIKA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE2 = createConfiguredFeature("cika_tree2",
@@ -648,11 +648,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cika/cika_trunk2"),
                     BYG.createLocation("features/trees/cika/cika_canopy2"),
                     BiasedToBottomInt.of(5, 12),
-                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
-                    CIKA.log().get(),
-                    CIKA.leaves().get(),
-                    BYGBlockTags.GROUND_CIKA_SAPLING, 12, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CIKA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 12, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> CIKA_TREE3 = createConfiguredFeature("cika_tree3",
@@ -661,11 +661,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/cika/cika_trunk3"),
                     BYG.createLocation("features/trees/cika/cika_canopy3"),
                     BiasedToBottomInt.of(7, 18),
-                    BlockStateProvider.simple(CIKA.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(CIKA.leaves().defaultBlockState(), 1).build()),
-                    CIKA.log().get(),
-                    CIKA.leaves().get(),
-                    BYGBlockTags.GROUND_CIKA_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.CIKA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
     );
 

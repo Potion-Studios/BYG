@@ -90,6 +90,30 @@ public class BYGBlockFamilies {
             .wood()
     );
 
+    public static BYGBlockFamily CIKA = register(new BYGBlockFamily.WoodBuilder("cika",
+            getOverworldWoodType("cika"), () -> MapColor.TERRACOTTA_ORANGE, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "cika_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
     public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,BuiltinDimensionTypes.OVERWORLD)
             .boat()

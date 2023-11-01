@@ -146,7 +146,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE3), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.CIKA.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.CIKA.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
                             "xxx",

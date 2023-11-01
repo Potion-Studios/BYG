@@ -265,7 +265,6 @@ public class BYGItems {
         BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
         BYGWoodTypes.BULBIS.init();
 
-        BYGWoodTypes.CIKA.init();
         BYGWoodTypes.CYPRESS.init();
         BYGWoodTypes.EBONY.init();
 
