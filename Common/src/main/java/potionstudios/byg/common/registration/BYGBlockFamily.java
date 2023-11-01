@@ -1,6 +1,8 @@
 package potionstudios.byg.common.registration;
 
 import net.minecraft.Util;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -19,8 +21,10 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
+import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.common.block.BYGBlockProperties;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.FlatVegetationBlock;
 import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BYGBoatItem;
 import potionstudios.byg.common.item.BYGItems;
@@ -53,6 +57,7 @@ public class BYGBlockFamily {
     private final Map<BlockRenderVariant, List<Block>> additionalBlocks = new ConcurrentHashMap<>();
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
     private final Map<ItemVariant, List<Item>> additionalItems = new ConcurrentHashMap<>();
+    private final Map<ParticleVariant, SimpleParticleType> particleVariants = new ConcurrentHashMap<>();
     private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> strippables = null;
     private FeatureFlagSet requiredFeatures;
@@ -93,6 +98,10 @@ public class BYGBlockFamily {
     }
 
     public Item get(ItemVariant itemVariant) { return this.itemVariants.get(itemVariant); }
+
+    public SimpleParticleType get(ParticleVariant variant) {
+        return this.particleVariants.get(variant);
+    }
 
     public TagKey<Block> getTag(GrowerItemType growerItemType) {
         return this.tagKeyMap.get(growerItemType);
@@ -191,6 +200,15 @@ public class BYGBlockFamily {
             RegistryObject<? extends Block> block = BYGBlocks.createFenceGate(baseName + "_fence_gate", woodType);
             this.family.variants.put(BlockVariant.FENCE_GATE,
                     block.get());
+            BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder foliage() {
+            RegistryObject<? extends Block> block = BYGBlocks.createBlock(() ->
+                    new FlatVegetationBlock(BlockBehaviour.Properties.of().noCollission()
+                            .instabreak().sound(SoundType.GRASS)), baseName + "_foliage");
+            family.variants.put(BlockVariant.FOLIAGE, block.get());
             BYGItems.createItem(block);
             return this;
         }
@@ -323,6 +341,12 @@ public class BYGBlockFamily {
                         registryObject.get()
                     );
             BYGItems.createItem(registryObject);
+            return this;
+        }
+
+        public WoodBuilder leafParticles(Supplier<SimpleParticleType> particle, String id) {
+            RegistryObject<? extends ParticleType<?>> particles = BYGParticleTypes.createSimpleParticle(particle, id);
+            family.particleVariants.put(ParticleVariant.LEAVES, (SimpleParticleType) particles.get());
             return this;
         }
 
@@ -687,6 +711,11 @@ public class BYGBlockFamily {
         DESERT_PLANT
     }
 
+    public enum ParticleVariant {
+        LEAVES,
+        GLINT
+    }
+
     public enum ItemVariant {
         BOAT("boat"),
         CHEST_BOAT("chest_boat"),
@@ -739,6 +768,7 @@ public class BYGBlockFamily {
         HANGING_SIGN("hanging_sign"),
         FENCE("fence"),
         FENCE_GATE("fence_gate"),
+        FOLIAGE("foliage"),
         FLOWERING_LEAVES("flowering_leaves"),
         FRUIT_BLOCK("fruit_block"),
         FRUIT_LEAVES("fruit_leaves"),

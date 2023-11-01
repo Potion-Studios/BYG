@@ -25,6 +25,8 @@ import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BlueBerryBush;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.config.PumpkinConfig;
@@ -88,7 +90,7 @@ public class BYGOverworldVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> JACARANDA_BUSH = createPatchConfiguredFeatureWithBlock("jacaranda_bush", () -> BYGBlocks.JACARANDA_BUSH.get(), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> PRICKLY_PEAR_CACTI = createPatchConfiguredFeatureWithBlock("prickly_pear_cacti", () -> BYGBlocks.PRICKLY_PEAR_CACTUS.get(), 5);
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_SPINED_CACTI = createPatchConfiguredFeatureWithBlock("golden_spined_cacti", () -> BYGBlocks.GOLDEN_SPINED_CACTUS.get(), 5);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_CHERRY_FOLIAGE = createPatchConfiguredFeatureWithBlock("white_cherry_foliage", () -> BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), 15);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_CHERRY_FOLIAGE = createPatchConfiguredFeatureWithBlock("white_cherry_foliage", () -> BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.FOLIAGE), 15);
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_BLUEBERRY = createPatchConfiguredFeatureState("blue_berry_bush", () -> BYGBlocks.BLUEBERRY_BUSH.defaultBlockState().setValue(BlueBerryBush.AGE, 3), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROSE = createFlowerConfiguredFeature("rose", () -> BYGBlocks.ROSE.get());
     public static final ResourceKey<ConfiguredFeature<?, ?>> CROCUS = createFlowerConfiguredFeature("crocus", () -> BYGBlocks.CROCUS.get());

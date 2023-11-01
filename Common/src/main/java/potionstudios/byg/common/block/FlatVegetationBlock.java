@@ -17,11 +17,11 @@ public class FlatVegetationBlock extends BushBlock {
     @Nullable
     private final TagKey<Block> blockTagKey;
 
-    protected FlatVegetationBlock(Properties builder) {
+    public FlatVegetationBlock(Properties builder) {
         this(builder, null);
     }
 
-    protected FlatVegetationBlock(Properties builder, @Nullable TagKey<Block> blockTagKey) {
+    FlatVegetationBlock(Properties builder, @Nullable TagKey<Block> blockTagKey) {
         super(builder);
         this.blockTagKey = blockTagKey;
     }

@@ -415,7 +415,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SKYRIS_TREE5), 1)
                             .build())
             ));
-            map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.SAKURA_CHERRY_TREE2))),
                     new GrowingPatternEntry(List.of(
                             "xx",

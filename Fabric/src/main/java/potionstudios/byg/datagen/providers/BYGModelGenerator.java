@@ -272,8 +272,11 @@ public class BYGModelGenerator extends FabricModelProvider {
                     .getOrDefault(baseBlock, TexturedModel.CUBE.get(baseBlock));
             mapping = baseBlockModel.getMapping();
             fullBlock(baseBlock, baseBlockModel.getTemplate(), generators);
-            blockFamily.getVariants().forEach((blockVariant, block) -> executeGeneration(blockVariant,
-                    new BlockFamilyProviderMethod() {
+
+            blockFamily.getVariants().forEach((blockVariant, block) ->  {
+
+                if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.BASE_BLOCK))) {
+                    executeGeneration(blockVariant, new BlockFamilyProviderMethod() {
                         @Override
                         public Block getBlock() {
                             return block;
@@ -283,7 +286,9 @@ public class BYGModelGenerator extends FabricModelProvider {
                         public BlockModelGenerators getGenerator() {
                             return generators;
                         }
-                    }));
+                    });
+                }
+            });
             return this;
         }
     }
@@ -382,6 +387,16 @@ public class BYGModelGenerator extends FabricModelProvider {
                     BlockModelGenerators.createFenceGate(arguments.getBlock(), resourceLocation, resourceLocation1,
                             resourceLocation2, resourceLocation3, true));
             arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation1);
+            return this;
+        }
+
+        public BYGModelGenerator.WoodProvider carpet(BlockFamilyProviderMethod arguments) {
+            ResourceLocation resourceLocation = TexturedModel.CARPET
+                    .get(family.get(BYGBlockFamily.BlockVariant.LEAVES))
+                    .create(arguments.getBlock(), arguments.getGenerator().modelOutput);
+            arguments.getGenerator().blockStateOutput
+                    .accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation);
             return this;
         }
 
@@ -530,10 +545,11 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case CRAFTING_TABLE -> craftingTable(providerMethod);
                 case FENCE -> fence(providerMethod);
                 case FENCE_GATE -> fenceGate(providerMethod);
+                case FOLIAGE -> carpet(providerMethod);
                 case FRUIT_BLOCK -> fullBlockVariantNoItem(providerMethod);
                 case GROWER -> growerItem(providerMethod);
                 case HANGING_SIGN -> hangingSign(providerMethod);
-                case LOG, STRIPPED_LOG -> log(providerMethod);
+                case IMBUED_LOG, LOG, STRIPPED_LOG -> log(providerMethod);
                 case POTTED -> potted(providerMethod);
                 case PRESSURE_PLATE -> pressurePlate(providerMethod);
                 case SIGN -> sign(providerMethod);
@@ -555,7 +571,6 @@ public class BYGModelGenerator extends FabricModelProvider {
             mapping = planksModel.getMapping();
             fullBlock(plank, planksModel.getTemplate(), generators);
             blockFamily.getVariants().forEach((blockVariant, block) -> {
-                System.out.println(blockVariant.getName());
                 if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.PLANKS) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.BASE_BLOCK) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_SIGN) ||

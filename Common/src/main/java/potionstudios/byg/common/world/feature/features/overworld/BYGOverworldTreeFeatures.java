@@ -608,11 +608,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_trunk1"),
                     BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    SAKURA_CHERRY.log().get(),
-                    BYGBlocks.WHITE_CHERRY_LEAVES.get(),
-                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.WHITE_SAKURA_CHERRY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAKURA_CHERRY_TREE2 = createConfiguredFeature("white_cherry_tree2",
@@ -621,11 +621,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_trunk2"),
                     BYG.createLocation("features/trees/sakura_cherry/white_sakura_cherry_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(SAKURA_CHERRY.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.WHITE_CHERRY_LEAVES.defaultBlockState(), 1).build()),
-                    SAKURA_CHERRY.log().get(),
-                    BYGBlocks.WHITE_CHERRY_LEAVES.get(),
-                    BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.WHITE_SAKURA_CHERRY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 

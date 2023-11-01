@@ -119,7 +119,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_RED_SPRUCE_SAPLING = createPlantTag("may_place_on/red_spruce_sapling");
     public static final TagKey<Block> GROUND_REDWOOD_SAPLING = createPlantTag("may_place_on/redwood_sapling");
     public static final TagKey<Block> GROUND_SILVER_MAPLE_SAPLING = createPlantTag("may_place_on/silver_maple_sapling");
-    public static final TagKey<Block> GROUND_WHITE_CHERRY_SAPLING = createPlantTag("may_place_on/white_cherry_sapling");
     public static final TagKey<Block> GROUND_WILLOW_SAPLING = createPlantTag("may_place_on/willow_sapling");
     public static final TagKey<Block> GROUND_WITCH_HAZEL_SAPLING = createPlantTag("may_place_on/witch_hazel_sapling");
     public static final TagKey<Block> GROUND_YELLOW_BIRCH_SAPLING = createPlantTag("may_place_on/yellow_birch_sapling");

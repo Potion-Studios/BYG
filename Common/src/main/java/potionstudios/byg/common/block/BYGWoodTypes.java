@@ -40,10 +40,6 @@ public enum BYGWoodTypes {
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
-    SAKURA_CHERRY("sakura_cherry", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_CHERRY_SAPLING)
-            .exclude(BlockType.SAPLING, BlockType.LEAVES)),
-            // .boatType(BYGBoat.BYGType.SAKURA_CHERRY)),
     CIKA("cika", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_CIKA_SAPLING)
             // .boatType(BYGBoat.BYGType.CIKA)
@@ -127,8 +123,6 @@ public enum BYGWoodTypes {
             // .boatType(BYGBoat.BYGType.JACARANDA)
             .MapColor(MapColor.TERRACOTTA_PURPLE));
 
-    public static final Map<String, BYGWoodTypes> LOOKUP = Arrays.stream(values())
-            .collect(Collectors.toUnmodifiableMap(BYGWoodTypes::toString, Function.identity()));
 
 	private final String name;
     private final WoodType woodType;

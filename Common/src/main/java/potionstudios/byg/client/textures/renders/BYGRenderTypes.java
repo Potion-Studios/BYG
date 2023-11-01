@@ -57,6 +57,10 @@ public class BYGRenderTypes {
             if(vine != null) {
                 map.put(vine, RenderType.cutoutMipped());
             }
+            Block foliage = family.get(BYGBlockFamily.BlockVariant.FOLIAGE);
+            if(foliage != null) {
+                map.put(foliage, RenderType.cutoutMipped());
+            }
         }
 
         for (BYGWoodTypes type : BYGWoodTypes.values()) {
@@ -80,7 +84,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.MINI_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PRICKLY_PEAR_CACTUS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WINTER_SUCCULENT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WHITE_CHERRY_FOLIAGE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_PINK_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.TALL_ALLIUM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.HANGING_BONE.get(), RenderType.cutoutMipped());
@@ -182,7 +185,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.RED_OAK_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.RED_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.WHITE_CHERRY_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());

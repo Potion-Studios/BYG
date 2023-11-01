@@ -18,6 +18,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BaobabFruitItem;
 import potionstudios.byg.mixin.access.BlockSetTypeAccess;
+import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
 
 import java.util.HashMap;
@@ -83,10 +84,8 @@ public class BYGBlockFamilies {
             .stairs()
             .strippedLog()
             .strippedWood()
-            .strippables((consumer, family) -> {
-                consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
-                        family.get(BYGBlockFamily.BlockVariant.LOG));
-            })
+            .strippables((consumer, family) -> consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
+                    family.get(BYGBlockFamily.BlockVariant.LOG)))
             .trapdoor()
             .wood()
     );
@@ -140,6 +139,39 @@ public class BYGBlockFamilies {
                     () -> (LeavesBlock) family.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES),
                     0.02F, "flowering_orchard_leaves"))
             .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "orchard_sapling")
+    );
+
+    public static BYGBlockFamily SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("sakura_cherry",
+            getOverworldWoodType("sakura_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .hangingSign()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily WHITE_SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("white_sakura_cherry",
+            getOverworldWoodType("white_sakura_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD)
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "white_sakura_cherry_sapling")
+            .leafParticles(() -> SimpleParticleTypeAccess.byg_create(false), "white_cherry_blossom_leaves")
+            .leaves((id, family) -> BYGBlocks.createLeaves(MapColor.COLOR_LIGHT_GRAY, () ->
+                    family.get(BYGBlockFamily.ParticleVariant.LEAVES), id)
+
+            )
+            .foliage()
     );
 
     public static BYGBlockFamily SKYRIS = register(new BYGBlockFamily.WoodBuilder("skyris",
