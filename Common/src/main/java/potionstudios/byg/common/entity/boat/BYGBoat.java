@@ -88,16 +88,16 @@ public class BYGBoat extends Boat {
 
     @Override
     public @NotNull Item getDropItem() {
-        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getBaseName());
+        final var type = getBYGBoatType().get(BYGBlockFamily.ItemVariant.BOAT);
         if (type != null)
-            return type.boat().get();
+            return type;
         return BYGWoodTypes.ASPEN.boat().get();
     }
 
     public Block getPlanks() {
-        final var type = BYGWoodTypes.LOOKUP.get(getBYGBoatType().getBaseName());
+        final var type = getBYGBoatType().get(BYGBlockFamily.BlockVariant.PLANKS);
         if (type != null)
-            return type.planks().get();
+            return type;
         return BYGWoodTypes.ASPEN.planks().get();
     }
 
