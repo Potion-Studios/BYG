@@ -202,9 +202,6 @@ public class BYGItems {
     //Ether Woodtype
     public static final RegistryObject<Item> ETHER_BULBS;
 
-    // Holly Woodtype
-    public static final RegistryObject<Item> HOLLY_BERRY_LEAVES;
-
     //Imparius Woodtype
     public static final RegistryObject<Item> IMPARIUS_VINE;
     public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BRANCH;
@@ -263,8 +260,6 @@ public class BYGItems {
 
         ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
         BYGWoodTypes.ETHER.init();
-
-        HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
         IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);

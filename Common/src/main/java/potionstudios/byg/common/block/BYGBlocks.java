@@ -108,7 +108,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> BROWN_OAK_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_oak_leaves");
     public static final BlockRegistryObject<Block> BROWN_ZELKOVA_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_zelkova_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MapColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
-    public static final BlockRegistryObject<Block> HOLLY_BERRY_LEAVES = createLeaves(MapColor.TERRACOTTA_GREEN, "holly_berry_leaves");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_BLUE, "indigo_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_PURPLE, "flowering_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_BLUE, "flowering_indigo_jacaranda_leaves");

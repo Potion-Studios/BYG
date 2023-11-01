@@ -1043,7 +1043,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy1"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1).build()),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
@@ -1056,7 +1056,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy2"),
                     BiasedToBottomInt.of(8, 14),
                     BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1).build()),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
@@ -1069,7 +1069,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy3"),
                     BiasedToBottomInt.of(2, 12),
                     BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1).build()),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()
@@ -1082,7 +1082,7 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/holly/holly_canopy4"),
                     BiasedToBottomInt.of(10, 16),
                     BlockStateProvider.simple(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlocks.HOLLY_BERRY_LEAVES.defaultBlockState(), 1).build()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 7).add(BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 1).build()),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.HOLLY.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockFamilies.HOLLY.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 6, ImmutableList.of()

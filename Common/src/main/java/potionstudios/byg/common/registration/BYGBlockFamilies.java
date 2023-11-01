@@ -227,6 +227,7 @@ public class BYGBlockFamilies {
             .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "holly_sapling")
             .hangingSign()
             .leaves()
+            .floweringLeaves((id, family) -> BYGBlocks.createLeaves(MapColor.TERRACOTTA_GREEN, "holly_berry_leaves"))
             .log()
             .pressurePlate()
             .sign()
