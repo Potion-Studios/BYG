@@ -675,11 +675,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy1"),
                     BiasedToBottomInt.of(19, 25),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -689,11 +689,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy2"),
                     BiasedToBottomInt.of(23, 30),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -703,11 +703,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy3"),
                     BiasedToBottomInt.of(26, 35),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -717,11 +717,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy4"),
                     BiasedToBottomInt.of(25, 35),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -731,11 +731,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy5"),
                     BiasedToBottomInt.of(7, 11),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -745,11 +745,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy6"),
                     BiasedToBottomInt.of(10, 15),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -759,11 +759,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk1"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy7"),
                     BiasedToBottomInt.of(11, 18),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
 
     );
@@ -773,11 +773,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/conifer/conifer_trunk8"),
                     BYG.createLocation("features/trees/conifer/conifer_canopy8"),
                     BiasedToBottomInt.of(12, 18),
-                    BlockStateProvider.simple(FIR.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(FIR.leaves().defaultBlockState(), 1).build()),
-                    FIR.log().get(),
-                    FIR.leaves().get(),
-                    BYGBlockTags.GROUND_FIR_SAPLING, 14, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.FIR.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 14, ImmutableList.of()
             )
     );
 
@@ -1152,11 +1152,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_1"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_1"),
                     BiasedToBottomInt.of(3, 8),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
-                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1).add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState()),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.GREEN_ENCHANTED.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -1166,11 +1166,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_2"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_2"),
                     BiasedToBottomInt.of(3, 8),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
-                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1).add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState()),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.GREEN_ENCHANTED.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -1180,11 +1180,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/enchanted/enchanted_trunk_3"),
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_3"),
                     BiasedToBottomInt.of(3, 8),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
-                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1).add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState()),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.GREEN_ENCHANTED.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -1195,11 +1195,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/enchanted/enchanted_canopy_4"),
                     ConstantInt.of(0)
                     ,
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG.defaultBlockState(), 1).add(GREEN_ENCHANTED.log().defaultBlockState(), 4).build()),
-                    BlockStateProvider.simple(GREEN_ENCHANTED.leaves().defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1).add(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 4).build()),
+                    BlockStateProvider.simple(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState()),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.BLUE_ENCHANTED.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.GREEN_ENCHANTED.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 

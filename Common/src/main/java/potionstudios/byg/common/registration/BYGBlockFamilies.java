@@ -162,6 +162,58 @@ public class BYGBlockFamilies {
             .wood()
     );
 
+    public static BYGBlockFamily FIR = register(new BYGBlockFamily.WoodBuilder("fir",
+            getOverworldWoodType("fir"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "fir_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily GREEN_ENCHANTED = register(new BYGBlockFamily.WoodBuilder("green_enchanted",
+            getOverworldWoodType("green_enchanted"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "green_enchanted_sapling")
+            .hangingSign()
+            .imbuedLog()
+            .leaves((id, family) -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .strippables((consumer, family) -> consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
+                    family.get(BYGBlockFamily.BlockVariant.LOG)))
+            .trapdoor()
+            .wood()
+    );
+
+
     public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,BuiltinDimensionTypes.OVERWORLD)
             .boat()

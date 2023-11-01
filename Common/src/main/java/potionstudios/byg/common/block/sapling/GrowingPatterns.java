@@ -177,7 +177,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.EBONY_TREE2), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.FIR.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.FIR.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.CONIFER_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.CONIFER_TREE2), 1)
@@ -194,7 +194,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .build())
 
             ));
-            map.put(BYGWoodTypes.GREEN_ENCHANTED.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.GREEN_ENCHANTED.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
                             "xxx",

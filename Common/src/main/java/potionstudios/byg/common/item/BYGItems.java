@@ -192,10 +192,6 @@ public class BYGItems {
 
     public static final RegistryObject<Item> CRACKED_RED_SAND = createItem(BYGBlocks.CRACKED_RED_SAND);
 
-
-    //Green Enchanted Woodtype
-    public static final RegistryObject<Item> IMBUED_GREEN_ENCHANTED_LOG;
-
     //Bulbis Woodtype
     public static final RegistryObject<GrowerItem> PURPLE_BULBIS_ODDITY;
     public static final RegistryObject<Item> PURPLE_BULBIS_ANOMALY;
@@ -267,13 +263,8 @@ public class BYGItems {
 
         ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
         BYGWoodTypes.ETHER.init();
-        BYGWoodTypes.FIR.init();
-
-        IMBUED_GREEN_ENCHANTED_LOG = createItem(BYGBlocks.IMBUED_GREEN_ENCHANTED_LOG);
-        BYGWoodTypes.GREEN_ENCHANTED.init();
 
         HOLLY_BERRY_LEAVES = createItem(BYGBlocks.HOLLY_BERRY_LEAVES);
-        // BYGWoodTypes.HOLLY.init();
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
         IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);

@@ -44,15 +44,6 @@ public enum BYGWoodTypes {
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
             .MapColor(MapColor.COLOR_CYAN).end()),
-    FIR("fir", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_FIR_SAPLING)
-            .MapColor(MapColor.COLOR_GREEN)),
-            // .boatType(BYGBoat.BYGType.FIR)),
-    GREEN_ENCHANTED("green_enchanted", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_GREEN_ENCHANTED_SAPLING)
-            // .boatType(BYGBoat.BYGType.GREEN_ENCHANTED)
-            .MapColor(MapColor.COLOR_GREEN)
-            .leavesFactory(id -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))),
     IMPARIUS("imparius", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
             .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)
