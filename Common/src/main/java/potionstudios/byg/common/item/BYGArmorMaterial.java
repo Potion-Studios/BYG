@@ -2,20 +2,16 @@ package potionstudios.byg.common.item;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 public class BYGArmorMaterial implements ArmorMaterial {
-    public static final BYGArmorMaterial AMETRINE = new BYGArmorMaterial("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.2F, () -> {
-        return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
-    });
-    public static final BYGArmorMaterial PENDORITE = new BYGArmorMaterial("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, () -> {
-        return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
-    });
+    public static final BYGArmorMaterial AMETRINE = new BYGArmorMaterial("ametrine", 39, new int[]{4, 7, 9, 4}, 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.2F, () -> Ingredient.of(BYGItems.AMETRINE_GEMS.get()));
+    public static final BYGArmorMaterial PENDORITE = new BYGArmorMaterial("pendorite", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, () -> Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()));
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;
@@ -24,7 +20,7 @@ public class BYGArmorMaterial implements ArmorMaterial {
     private final int enchantability;
     private final SoundEvent soundEvent;
     private final float toughness;
-    private final LazyLoadedValue<Ingredient> repairMaterial;
+    private final Ingredient repairMaterial;
 
     public BYGArmorMaterial(String nameIn, int maxDamageFactorIn, int[] damageReductionAmountsIn, int enchantabilityIn, SoundEvent equipSoundIn, float toughnessIn, Supplier<Ingredient> repairMaterialSupplier) {
         this.name = nameIn;
@@ -33,7 +29,7 @@ public class BYGArmorMaterial implements ArmorMaterial {
         this.enchantability = enchantabilityIn;
         this.soundEvent = equipSoundIn;
         this.toughness = toughnessIn;
-        this.repairMaterial = new LazyLoadedValue<>(repairMaterialSupplier);
+        this.repairMaterial = repairMaterialSupplier.get();
     }
 
     public int getDurabilityForSlot(EquipmentSlot slotIn) {
@@ -48,15 +44,15 @@ public class BYGArmorMaterial implements ArmorMaterial {
         return this.enchantability;
     }
 
-    public SoundEvent getEquipSound() {
+    public @NotNull SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
-    public Ingredient getRepairIngredient() {
-        return this.repairMaterial.get();
+    public @NotNull Ingredient getRepairIngredient() {
+        return this.repairMaterial;
     }
 
-    public String getName() {
+    public @NotNull String getName() {
         return this.name;
     }
 
