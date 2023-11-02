@@ -1,3 +1,8 @@
+## 1.5.0
+* Fix Broken Sandstone Recipes. Fixes #1204
+* Fix Therium Lamp having same recipe of Therium Lantern. Fixes #1237
+* Fix Broken Cut Sandstone Recipes. Fixes #1279
+
 ## 1.4.7
 * Update Chinese translation.
 * Don't log every time biome parameter points are mapped.
