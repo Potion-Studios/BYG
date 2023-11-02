@@ -1,7 +1,6 @@
 package potionstudios.byg.mixin.client;
 
 import com.google.common.collect.ImmutableMap;
-import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -11,8 +10,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import potionstudios.byg.client.BYGClient;
-import potionstudios.byg.common.entity.boat.BYGBoatEntity;
-import potionstudios.byg.common.entity.boat.BYGBoatRenderer;
 
 import java.util.Map;
 

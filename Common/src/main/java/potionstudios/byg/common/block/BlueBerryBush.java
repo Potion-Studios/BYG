@@ -23,7 +23,7 @@ public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBl
 
     public BlueBerryBush(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override

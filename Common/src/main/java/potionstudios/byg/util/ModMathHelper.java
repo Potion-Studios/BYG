@@ -62,8 +62,8 @@ import java.util.Random;
         }
         else
         {
-            float var6 = (hue - (float) Math.floor((double) hue)) * 6.0F;
-            float var7 = var6 - (float) Math.floor((double) var6);
+            float var6 = (hue - (float) Math.floor(hue)) * 6.0F;
+            float var7 = var6 - (float) Math.floor(var6);
             float var8 = brightness * (1.0F - saturation);
             float var9 = brightness * (1.0F - saturation * var7);
             float var10 = brightness * (1.0F - saturation * (1.0F - var7));

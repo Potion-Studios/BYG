@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.progress.ChunkProgressListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.minecraft.world.level.CustomSpawner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -60,7 +61,7 @@ public abstract class MixinServerLevel extends Level implements DuneCache {
 
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void getWorldFolder(MinecraftServer $$0, Executor $$1, LevelStorageSource.LevelStorageAccess storageAccess, ServerLevelData $$3, ResourceKey<Level> levelResourceKey, Holder $$5, ChunkProgressListener $$6, ChunkGenerator $$7, boolean $$8, long $$9, List $$10, boolean $$11, CallbackInfo ci) {
+    private void getWorldFolder(MinecraftServer $$0, Executor $$1, LevelStorageSource.LevelStorageAccess storageAccess, ServerLevelData $$3, ResourceKey<Level> levelResourceKey, Holder<DimensionType> $$5, ChunkProgressListener $$6, ChunkGenerator $$7, boolean $$8, long $$9, List<CustomSpawner> $$10, boolean $$11, CallbackInfo ci) {
         this.worldPath = storageAccess.getDimensionPath(levelResourceKey);
     }
 

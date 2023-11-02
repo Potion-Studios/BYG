@@ -32,15 +32,15 @@ public class BYGScaffoldingBlock extends ScaffoldingBlock implements SimpleWater
         BlockPos $$1 = $$0.getClickedPos();
         Level $$2 = $$0.getLevel();
         int $$3 = getBlockDistance($$2, $$1);
-        return (BlockState)((BlockState)((BlockState)this.defaultBlockState().setValue(WATERLOGGED, $$2.getFluidState($$1).getType() == Fluids.WATER)).setValue(DISTANCE, $$3)).setValue(BOTTOM, this.isBottom($$2, $$1, $$3));
+        return this.defaultBlockState().setValue(WATERLOGGED, $$2.getFluidState($$1).getType() == Fluids.WATER).setValue(DISTANCE, $$3).setValue(BOTTOM, this.isBottom($$2, $$1, $$3));
     }
 
     @Override
     public void tick(@NotNull BlockState $$0, ServerLevel $$1, BlockPos $$2, Random $$3) {
         int $$4 = getBlockDistance($$1, $$2);
-        BlockState $$5 = (BlockState)((BlockState)$$0.setValue(DISTANCE, $$4)).setValue(BOTTOM, this.isBottom($$1, $$2, $$4));
-        if ((Integer)$$5.getValue(DISTANCE) == 7) {
-            if ((Integer)$$0.getValue(DISTANCE) == 7) {
+        BlockState $$5 = $$0.setValue(DISTANCE, $$4).setValue(BOTTOM, this.isBottom($$1, $$2, $$4));
+        if ($$5.getValue(DISTANCE) == 7) {
+            if ($$0.getValue(DISTANCE) == 7) {
                 FallingBlockEntity.fall($$1, $$2, $$5);
             } else {
                 $$1.destroyBlock($$2, true);

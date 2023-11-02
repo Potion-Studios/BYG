@@ -54,7 +54,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
             int j = 1;
             popResource(worldIn, pos, new ItemStack(BYGItems.ETHER_BULBS.get(), j));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

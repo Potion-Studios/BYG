@@ -33,7 +33,7 @@ public class HypogealImperiumBlock extends BaseEntityBlock {
 
     public HypogealImperiumBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.FALSE));
     }
 
     @Override

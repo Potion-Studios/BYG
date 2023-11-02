@@ -16,8 +16,10 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 
 public class SubzeroAshBlock extends Block {
     public static final IntegerProperty LAYERS = BlockStateProperties.LAYERS;
@@ -25,20 +27,14 @@ public class SubzeroAshBlock extends Block {
 
     protected SubzeroAshBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, Integer.valueOf(1)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
     }
 
-    public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
-        switch (type) {
-            case LAND:
-                return state.getValue(LAYERS) < 5;
-            case WATER:
-                return false;
-            case AIR:
-                return false;
-            default:
-                return false;
+    public boolean isPathfindable(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull PathComputationType type) {
+        if (Objects.requireNonNull(type) == PathComputationType.LAND) {
+            return state.getValue(LAYERS) < 5;
         }
+        return false;
     }
 
     public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
@@ -96,7 +92,7 @@ public class SubzeroAshBlock extends Block {
         BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
         if (blockstate.is(this)) {
             int i = blockstate.getValue(LAYERS);
-            return blockstate.setValue(LAYERS, Integer.valueOf(Math.min(8, i + 1)));
+            return blockstate.setValue(LAYERS, Math.min(8, i + 1));
         } else {
             return super.getStateForPlacement(context);
         }

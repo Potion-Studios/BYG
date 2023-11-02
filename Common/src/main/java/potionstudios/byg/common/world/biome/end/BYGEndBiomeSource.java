@@ -112,7 +112,7 @@ public abstract class BYGEndBiomeSource extends BiomeSource {
 
         String ignored = BYGUtil.dumpCollection(missingBiomes);
         if (!ignored.isEmpty()) {
-            BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored.toString()));
+            BYG.LOGGER.warn(String.format("Config \"%s\" warned:\nThe following biome entries were ignored due to not being in this world's biome registry:\n%s", EndBiomesConfig.CONFIG_PATH.get(), ignored));
         }
 
         List<Holder<Biome>> biomesFromBiomeData = createBiomesFromBiomeData(biomeRegistry, usedIslandLayer, usedVoidLayer, usedSkyLayer);

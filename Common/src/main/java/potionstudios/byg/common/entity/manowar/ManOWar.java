@@ -74,7 +74,7 @@ public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(3, new AvoidEntityGoal(this, Player.class, 8.0F, 1.0D, 1.0D));
+        this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Player.class, 8.0F, 1.0D, 1.0D));
         this.goalSelector.addGoal(2, new ManOWarRandomMovementGoal(this));
         this.goalSelector.addGoal(45, new LookAtPlayerGoal(this, Player.class, 6.0F));
     }
@@ -130,7 +130,7 @@ public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
 
     public void aiStep() {
         if (!this.isInWater() && this.onGround && this.verticalCollision) {
-            this.setDeltaMovement(this.getDeltaMovement().add((double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F), 0.4000000059604645D, (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F)));
+            this.setDeltaMovement(this.getDeltaMovement().add((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F, 0.4000000059604645D, (this.random.nextFloat() * 2.0F - 1.0F) * 0.05F));
             this.onGround = false;
             this.hasImpulse = true;
             this.playSound(SoundEvents.SALMON_FLOP, this.getSoundVolume(), this.getVoicePitch());
@@ -172,7 +172,7 @@ public class ManOWar extends WaterAnimal /*implements IAnimatable*/ {
             }
 
             if (!this.level.isClientSide) {
-                this.setDeltaMovement((double)(this.tx * this.speed), (double)(this.ty * this.speed), (double)(this.tz * this.speed));
+                this.setDeltaMovement(this.tx * this.speed, this.ty * this.speed, this.tz * this.speed);
             }
 
             Vec3 vec3 = this.getDeltaMovement();

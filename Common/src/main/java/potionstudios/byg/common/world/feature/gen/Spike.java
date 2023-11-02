@@ -133,7 +133,7 @@ public class Spike extends Feature<NoisySphereConfig> {
             if (verifiedHeight) {
 //                xRadius = Math.max(xRadius / config.radiusDivisorPerStack(), 1);
 //                yRadius = Math.max(yRadius * 0.1F, 1);
-                mutable.setY((int) (mutable.getY() + yRadius));
+                mutable.setY(mutable.getY() + yRadius);
 //                zRadius = Math.max(zRadius / config.radiusDivisorPerStack(), 1);
                 stackIDX++;
             }

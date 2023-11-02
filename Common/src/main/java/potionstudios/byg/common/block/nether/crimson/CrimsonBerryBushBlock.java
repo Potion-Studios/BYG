@@ -31,7 +31,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements Boneme
 
     public CrimsonBerryBushBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
     @Override
@@ -49,7 +49,7 @@ public class CrimsonBerryBushBlock extends SweetBerryBushBlock implements Boneme
             int j = 1 + worldIn.random.nextInt(2);
             popResource(worldIn, pos, new ItemStack(BYGItems.CRIMSON_BERRIES.get(), j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
-            worldIn.setBlock(pos, state.setValue(AGE, Integer.valueOf(1)), 2);
+            worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return InteractionResult.SUCCESS;
         } else {
             return super.use(state, worldIn, pos, player, handIn, hit);

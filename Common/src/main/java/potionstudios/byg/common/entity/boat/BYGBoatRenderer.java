@@ -61,8 +61,8 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoatEntity> {
         }
 
         Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBYGBoatType());
-        ResourceLocation resourceLocation = (ResourceLocation) pair.getFirst();
-        BoatModel boatModel = (BoatModel) pair.getSecond();
+        ResourceLocation resourceLocation = pair.getFirst();
+        BoatModel boatModel = pair.getSecond();
         matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(90.0F));
         boatModel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);

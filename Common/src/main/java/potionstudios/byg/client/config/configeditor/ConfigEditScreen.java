@@ -37,7 +37,7 @@ public class ConfigEditScreen extends Screen {
     }
 
     public ConfigEditScreen(Screen parent, ConfigEntriesSerializer<?> element, String relativizedPath, @Nullable Path filePath, boolean reloadsOnSave) {
-        super(new TextComponent(String.format("Editing config file: \"%s\"", relativizedPath.toString())));
+        super(new TextComponent(String.format("Editing config file: \"%s\"", relativizedPath)));
         this.parent = parent;
         this.file = element;
         this.shownPath = relativizedPath;
