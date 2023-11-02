@@ -248,9 +248,6 @@ public class BYGItems {
     public static final RegistryObject<Item> BLOOMING_WITCH_HAZEL_LEAVES;
 
     static {
-        BYGWoodTypes.ASPEN.init();
-        BYGBlockFamilies.register();
-
         PURPLE_BULBIS_ODDITY = createGrowerItem(BYGBlocks.PURPLE_BULBIS_ODDITY);
         PURPLE_BULBIS_ANOMALY = createItem(BYGBlocks.PURPLE_BULBIS_ANOMALY);
         PURPLE_BULBIS_SHELL = createItem(BYGBlocks.PURPLE_BULBIS_SHELL);
@@ -302,10 +299,6 @@ public class BYGItems {
         STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
         STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
 
-
-        BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
-        BYGWoodTypes.REDWOOD.init();
-
         BYGWoodTypes.WILLOW.init();
 
         WITCH_HAZEL_BLOSSOM = createItem(BYGBlocks.WITCH_HAZEL_BLOSSOM);
@@ -313,7 +306,6 @@ public class BYGItems {
         BLOOMING_WITCH_HAZEL_LEAVES = createItem(BYGBlocks.BLOOMING_WITCH_HAZEL_LEAVES);
         BYGWoodTypes.WITCH_HAZEL.init();
 
-        BYGWoodTypes.ZELKOVA.init();
         BYGWoodTypes.SYTHIAN.init();
 
     }
@@ -326,8 +318,6 @@ public class BYGItems {
 
     public static final RegistryObject<GrowerItem> BROWN_OAK_SAPLING = createSaplingItem(BYGBlocks.BROWN_OAK_SAPLING);
     public static final RegistryObject<Item> BROWN_OAK_LEAVES = createItem(BYGBlocks.BROWN_OAK_LEAVES);
-    public static final RegistryObject<GrowerItem> BROWN_ZELKOVA_SAPLING = createSaplingItem(BYGBlocks.BROWN_ZELKOVA_SAPLING);
-    public static final RegistryObject<Item> BROWN_ZELKOVA_LEAVES = createItem(BYGBlocks.BROWN_ZELKOVA_LEAVES);
     public static final RegistryObject<GrowerItem> ORANGE_BIRCH_SAPLING = createSaplingItem(BYGBlocks.ORANGE_BIRCH_SAPLING);
     public static final RegistryObject<Item> ORANGE_BIRCH_LEAVES = createItem(BYGBlocks.ORANGE_BIRCH_LEAVES);
 

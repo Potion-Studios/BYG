@@ -59,7 +59,7 @@ public record GrowingPatterns(boolean logGrowth,
                                     .add(new FeatureSpawner(BYGOverworldTreeFeatures.ARAUCARIA_TREE2), 1)
                                     .build())
             ));
-            map.put(BYGWoodTypes.ASPEN.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ASPEN_TREE2), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ASPEN_TREE3), 1)
@@ -139,7 +139,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.BROWN_OAK_TREE_LARGE3), 1)
                             .build())
             ));
-            map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.BROWN_ZELKOVA.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE2), 1)
@@ -327,7 +327,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PINE_TREE2), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.RAINBOW_EUCALYPTUS.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.RAINBOW_EUCALYPTUS_TREE1))),
                     new GrowingPatternEntry(List.of(
                             " x ",
@@ -382,7 +382,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "xxx",
                             "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(BYGOverworldTreeFeatures.SPRUCE_RED_TREE_LARGE1)))
             ));
-            map.put(BYGWoodTypes.REDWOOD.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
                             "xxx",
@@ -471,7 +471,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "xxx",
                             "xxx"), SimpleWeightedRandomList.single(new FeatureSpawner(BYGOverworldTreeFeatures.SPRUCE_YELLOW_TREE_LARGE1)))
             ));
-            map.put(BYGWoodTypes.ZELKOVA.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_TREE2), 1)

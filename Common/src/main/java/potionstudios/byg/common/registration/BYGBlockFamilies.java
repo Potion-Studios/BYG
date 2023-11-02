@@ -30,6 +30,30 @@ public class BYGBlockFamilies {
     public static Map<String, BYGBlockFamily> woodFamilyMap = new HashMap<>();
     public static Map<String, BYGBlockFamily> blockFamilyMap = new HashMap<>();
 
+    public static BYGBlockFamily ASPEN = register(new BYGBlockFamily.WoodBuilder("aspen",
+            getOverworldWoodType("aspen"), () -> MapColor.TERRACOTTA_YELLOW, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "aspen_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
     public static BYGBlockFamily BAOBAB = register(new BYGBlockFamily.WoodBuilder("baobab",
             getOverworldWoodType("baobab"), () -> MapColor.TERRACOTTA_GREEN, BuiltinDimensionTypes.OVERWORLD)
             .boat()
@@ -320,6 +344,54 @@ public class BYGBlockFamilies {
             .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "araucaria_sapling")
     );
 
+    public static BYGBlockFamily RAINBOW_EUCALYPTUS = register(new BYGBlockFamily.WoodBuilder("rainbow_eucalyptus",
+            getOverworldWoodType("rainbow_eucalyptus"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "rainbow_eucalyptus_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily REDWOOD = register(new BYGBlockFamily.WoodBuilder("redwood",
+            getOverworldWoodType("redwood"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "redwood_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
     public static BYGBlockFamily SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("sakura_cherry",
             getOverworldWoodType("sakura_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD)
             .boat()
@@ -413,6 +485,36 @@ public class BYGBlockFamilies {
             .strippedWood()
             .trapdoor()
             .wood()
+    );
+
+    public static BYGBlockFamily ZELKOVA = register(new BYGBlockFamily.WoodBuilder("zelkova",
+            getOverworldWoodType("zelkova"), () -> MapColor.TERRACOTTA_RED, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "zelkova_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily BROWN_ZELKOVA = register(new BYGBlockFamily.WoodBuilder("brown_zelkova",
+            getOverworldWoodType("brown_zelkova"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .leaves()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "brown_zelkova_sapling")
     );
 
 

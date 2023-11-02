@@ -12,6 +12,7 @@ public class BYGBlockFamiliesClient {
     public static Map<BYGBlockFamily, RenderType> renderTypes = new ConcurrentHashMap<>();
 
     static {
+        register(BYGBlockFamilies.ASPEN, RenderType.translucent());
         register(BYGBlockFamilies.SKYRIS, RenderType.translucent());
     }
 

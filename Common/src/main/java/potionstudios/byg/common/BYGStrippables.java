@@ -14,13 +14,6 @@ public class BYGStrippables {
     public static void strippableLogsBYG(BiConsumer<Block, Block> handler) {
         BYG.logDebug("BYG: Adding strippable Blocks...");
 
-        for (final BYGWoodTypes type : BYGWoodTypes.values()) {
-            if (type.strippedLog() != null && type.log() != null)
-                handler.accept(type.log().get(), type.strippedLog().get());
-            if (type.wood() != null && type.strippedWood() != null)
-                handler.accept(type.wood().get(), type.strippedWood().get());
-        }
-
         for(BYGBlockFamily family: BYGBlockFamilies.woodFamilyMap.values()) {
             Block log = family.get(BYGBlockFamily.BlockVariant.LOG);
             Block strippedLog = family.get(BYGBlockFamily.BlockVariant.STRIPPED_LOG);

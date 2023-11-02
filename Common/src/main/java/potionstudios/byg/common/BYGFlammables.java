@@ -28,21 +28,6 @@ public class BYGFlammables {
     public static void flammablesBYG() {
         BYG.logDebug("BYG: Adding Flammables...");
 
-        for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            if (type.isFlammable()) {
-                flammableBlock(type.log(), 5, 5);
-                flammableBlock(type.strippedLog(), 5, 5);
-                flammableBlock(type.wood(), 5, 5);
-                flammableBlock(type.strippedWood(), 5, 5);
-                flammableBlock(type.bookshelf(), 5, 20);
-                flammableBlock(type.slab(), 5, 20);
-                flammableBlock(type.stairs(), 5, 20);
-                flammableBlock(type.planks(), 5, 20);
-                flammableBlock(type.fence(), 5, 20);
-                flammableBlock(type.leaves(), 30, 60);
-            }
-        }
-
         for(BYGBlockFamily family: BYGBlockFamilies.woodFamilyMap.values()) {
             if (family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD)) {
                 flammableBlock(family.get(BYGBlockFamily.BlockVariant.LOG), 5, 5);

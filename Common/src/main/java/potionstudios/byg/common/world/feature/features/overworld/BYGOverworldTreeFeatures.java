@@ -121,11 +121,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy1"),
                     ConstantInt.of(0),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 1, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_SHRUB2 = createConfiguredFeature("aspen_shrub2",
@@ -134,11 +134,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy2"),
                     ConstantInt.of(0),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 1, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 1, ImmutableList.of()
             )
     );
 
@@ -150,11 +150,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen/aspen_trunk1"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy1"),
                     BiasedToBottomInt.of(7, 12),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE2 = createConfiguredFeature("aspen_tree2",
@@ -163,11 +163,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen/aspen_trunk2"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy2"),
                     BiasedToBottomInt.of(7, 12),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 8, ImmutableList.of(SHELF_FUNGI.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 8, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE3 = createConfiguredFeature("aspen_tree3",
@@ -176,11 +176,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen/aspen_trunk3"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy3"),
                     BiasedToBottomInt.of(6, 10),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE4 = createConfiguredFeature("aspen_tree4",
@@ -189,11 +189,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen/aspen_trunk4"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy4"),
                     BiasedToBottomInt.of(6, 10),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ASPEN_TREE5 = createConfiguredFeature("aspen_tree5",
@@ -202,11 +202,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/aspen/aspen_trunk5"),
                     BYG.createLocation("features/trees/aspen/aspen_canopy5"),
                     BiasedToBottomInt.of(6, 12),
-                    BlockStateProvider.simple(ASPEN.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ASPEN.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
-                    BYGBlockTags.GROUND_ASPEN_SAPLING, 4, ImmutableList.of(SHELF_FUNGI.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ASPEN.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 4, ImmutableList.of(SHELF_FUNGI.get())
             )
     );
 
@@ -598,7 +598,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(Blocks.OAK_LEAVES),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -934,7 +934,7 @@ public class BYGOverworldTreeFeatures {
                     BlockStateProvider.simple(BYGBlocks.FIRECRACKER_LEAVES.get().defaultBlockState()),
                     Blocks.OAK_LOG,
                     Blocks.OAK_LEAVES,
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -1432,7 +1432,7 @@ public class BYGOverworldTreeFeatures {
                     BiasedToBottomInt.of(5, 15),
                     BlockStateProvider.simple(BYGBlockFamilies.WHITE_MANGROVE.get(BYGBlockFamily.BlockVariant.LOG)),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(Blocks.AZALEA_LEAVES.defaultBlockState(), 4).add(Blocks.FLOWERING_AZALEA_LEAVES.defaultBlockState(), 1).build()),
-                    ASPEN.log(),
+                    () -> BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
                     () -> Blocks.AZALEA_LEAVES,
                     BYGBlockFamilies.WHITE_MANGROVE.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new LeaveVineDecorator(1), new TrunkVineDecorator())
             )
@@ -2195,11 +2195,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(RAINBOW_EUCALYPTUS.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
-                    RAINBOW_EUCALYPTUS.log(),
-                    RAINBOW_EUCALYPTUS.leaves(),
-                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F))
+                    BlockStateProvider.simple(BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F))
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> RAINBOW_EUCALYPTUS_LARGE_TREE1 = createConfiguredFeature("rainbow_eucalyptus_large_tree1",
@@ -2208,11 +2208,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_trunk1"),
                     BYG.createLocation("features/trees/rainbow-eucalyptus/rainbow_eucalyptus_tree_large_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(RAINBOW_EUCALYPTUS.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(RAINBOW_EUCALYPTUS.leaves().defaultBlockState(), 1).build()),
-                    RAINBOW_EUCALYPTUS.log(),
-                    RAINBOW_EUCALYPTUS.leaves(),
-                    BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING, 5, ImmutableList.of(new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F))
+                    BlockStateProvider.simple(BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.RAINBOW_EUCALYPTUS.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of(new BYGTrunkVineDecorator((VineBlock) Blocks.VINE, 0.05F), new BYGLeavesVineDecorator((VineBlock) Blocks.VINE, 0.05F))
             )
     );
 
@@ -2222,11 +2222,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/redwood/redwood_tree_trunk1"),
                     BYG.createLocation("features/trees/redwood/redwood_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
-                    REDWOOD.log(),
-                    REDWOOD.leaves(),
-                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.REDWOOD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE2 = createConfiguredFeature("redwood_tree2",
@@ -2235,11 +2235,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/redwood/redwood_tree_trunk2"),
                     BYG.createLocation("features/trees/redwood/redwood_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
-                    REDWOOD.log(),
-                    REDWOOD.leaves(),
-                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.REDWOOD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> REDWOOD_TREE3 = createConfiguredFeature("redwood_tree3",
@@ -2248,11 +2248,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/redwood/redwood_tree_trunk3"),
                     BYG.createLocation("features/trees/redwood/redwood_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(REDWOOD.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(REDWOOD.leaves().defaultBlockState(), 1).build()),
-                    REDWOOD.log(),
-                    REDWOOD.leaves(),
-                    BYGBlockTags.GROUND_REDWOOD_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.REDWOOD.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -3179,11 +3179,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE2 = createConfiguredFeature("zelkova_tree2",
@@ -3192,11 +3192,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_TREE3 = createConfiguredFeature("zelkova_tree3",
@@ -3205,11 +3205,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(ZELKOVA.leaves().get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 
@@ -3219,11 +3219,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy1"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.BROWN_ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE2 = createConfiguredFeature("brown_zelkova_tree2",
@@ -3232,11 +3232,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy2"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.BROWN_ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
     public static final ResourceKey<ConfiguredFeature<?, ?>> ZELKOVA_BROWN_TREE3 = createConfiguredFeature("brown_zelkova_tree3",
@@ -3245,11 +3245,11 @@ public class BYGOverworldTreeFeatures {
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_trunk1"),
                     BYG.createLocation("features/trees/zelkova/zelkova_tree_canopy3"),
                     BiasedToBottomInt.of(5, 15),
-                    BlockStateProvider.simple(ZELKOVA.log().get()),
-                    BlockStateProvider.simple(BYGBlocks.BROWN_ZELKOVA_LEAVES.get()),
-                    ZELKOVA.log(),
-                    ZELKOVA.leaves(),
-                    BYGBlockTags.GROUND_ZELKOVA_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG)),
+                    BlockStateProvider.simple(BYGBlockFamilies.BROWN_ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES)),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ZELKOVA.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ZELKOVA.getTag(BYGBlockFamily.GrowerItemType.SAPLING), 5, ImmutableList.of()
             )
     );
 

@@ -63,16 +63,7 @@ public class BYGRenderTypes {
             }
         }
 
-        for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            final var renderType = switch (type) {
-                case ASPEN, MAPLE -> RenderType.translucent();
-                default -> RenderType.cutoutMipped();
-            };
-            map.put(type.door().get(), renderType);
-            map.put(type.trapdoor().get(), renderType);
-            if (type.growerItem() != null)
-                map.put(type.growerItem().get(), RenderType.cutoutMipped());
-        }
+
         map.put(BYGBlocks.SHELF_FUNGI.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BLOSSOM.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.WITCH_HAZEL_BRANCH.get(), RenderType.cutoutMipped());
@@ -187,7 +178,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_BIRCH_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.YELLOW_SPRUCE_SAPLING.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.BROWN_ZELKOVA_SAPLING.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.SYTHIAN_SAPLING.get(), RenderType.cutout());
 
         //Mushrooms

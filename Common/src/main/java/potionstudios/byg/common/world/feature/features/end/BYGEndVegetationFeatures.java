@@ -31,6 +31,8 @@ import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.block.end.impariusgrove.ImpariusVineBlock;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.placement.BYGPlacedFeaturesUtil;
 
@@ -95,8 +97,8 @@ public class BYGEndVegetationFeatures {
                     ConstantInt.of(0),
                     BlockStateProvider.simple(ETHER.log().defaultBlockState()),
                     new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ASPEN.log(),
-                    ASPEN.leaves(),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
                     BYGBlockTags.GROUND_ETHER_SAPLING, 1, ImmutableList.of(ETHER_BULBS.get())
             )
     );

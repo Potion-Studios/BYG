@@ -27,10 +27,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public enum BYGWoodTypes {
-    ASPEN("aspen", new Builder()
-            // .boatType(BYGBoat.BYGType.ASPEN)
-            .MapColor(MapColor.TERRACOTTA_YELLOW)
-            .growerItemGroundTag(BYGBlockTags.GROUND_ASPEN_SAPLING)),
 
     BULBIS("bulbis", new Builder()
             .MapColor(MapColor.COLOR_BLUE)
@@ -40,7 +36,6 @@ public enum BYGWoodTypes {
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
-
     ETHER("ether", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
             .MapColor(MapColor.COLOR_CYAN).end()),
@@ -54,14 +49,6 @@ public enum BYGWoodTypes {
             // .boatType(BYGBoat.BYGType.MAHOGANY)
             .MapColor(MapColor.COLOR_GREEN)
             .leavesHaveOverlay()),
-    RAINBOW_EUCALYPTUS("rainbow_eucalyptus", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING)
-            // .boatType(BYGBoat.BYGType.RAINBOW_EUCALYPTUS)
-            .MapColor(MapColor.COLOR_GREEN)),
-    REDWOOD("redwood", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_REDWOOD_SAPLING)
-            // .boatType(BYGBoat.BYGType.REDWOOD)
-            .MapColor(MapColor.COLOR_GREEN)),
     WILLOW("willow", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_WILLOW_SAPLING)
             // .boatType(BYGBoat.BYGType.WILLOW)
@@ -71,10 +58,6 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_WITCH_HAZEL_SAPLING)
             // .boatType(BYGBoat.BYGType.WITCH_HAZEL)
             .MapColor(MapColor.COLOR_ORANGE)),
-    ZELKOVA("zelkova", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_ZELKOVA_SAPLING)
-            // .boatType(BYGBoat.BYGType.ZELKOVA)
-            .MapColor(MapColor.TERRACOTTA_RED)),
     SYTHIAN("sythian", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
             .growerItem(GrowerItemType.FUNGUS)

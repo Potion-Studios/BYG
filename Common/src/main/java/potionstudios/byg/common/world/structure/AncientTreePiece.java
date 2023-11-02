@@ -22,6 +22,8 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.mixin.access.StructureTemplateAccess;
 
 import java.util.HashSet;
@@ -66,15 +68,15 @@ public class AncientTreePiece extends StructurePiece {
         structureTemplate.getBoundingBox(placeSettings, offsettedPlacePos);
 
         StructureTemplate.Palette randomPalette = placeSettings.getRandomPalette(basePalettes, offsettedPlacePos);
-        TreeFromStructureNBTFeature.fillLogsUnder(randomSource, SimpleStateProvider.simple(BYGWoodTypes.REDWOOD.log().defaultBlockState()), worldGenLevel, this.placePos, placeSettings, localOffset, randomPalette.blocks(Blocks.RED_WOOL), 200, BlockPredicate.matchesTag(BlockTags.DIRT));
+        TreeFromStructureNBTFeature.fillLogsUnder(randomSource, SimpleStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()), worldGenLevel, this.placePos, placeSettings, localOffset, randomPalette.blocks(Blocks.RED_WOOL), 200, BlockPredicate.matchesTag(BlockTags.DIRT));
 
         HashSet<BlockPos> trunkPositions = new HashSet<>();
 
-        TreeFromStructureNBTFeature.placeLogsWithRotation(SimpleStateProvider.simple(BYGWoodTypes.REDWOOD.log().defaultBlockState()), worldGenLevel, this.placePos, randomSource, placeSettings, localOffset, randomPalette.blocks(BYGWoodTypes.REDWOOD.log().get()), trunkPositions);
+        TreeFromStructureNBTFeature.placeLogsWithRotation(SimpleStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()), worldGenLevel, this.placePos, randomSource, placeSettings, localOffset, randomPalette.blocks(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG)), trunkPositions);
 
         HashSet<BlockPos> leavePositions = new HashSet<>();
 
-        TreeFromStructureNBTFeature.placeLeavesWithCalculatedDistanceAndRotation(SimpleStateProvider.simple(BYGWoodTypes.REDWOOD.leaves().defaultBlockState()), worldGenLevel, this.placePos, randomSource, placeSettings, randomPalette.blocks(BYGWoodTypes.REDWOOD.leaves().get()), leavePositions, localOffset, BlockPredicate.replaceable());
+        TreeFromStructureNBTFeature.placeLeavesWithCalculatedDistanceAndRotation(SimpleStateProvider.simple(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState()), worldGenLevel, this.placePos, randomSource, placeSettings, randomPalette.blocks(BYGBlockFamilies.REDWOOD.get(BYGBlockFamily.BlockVariant.LOG)), leavePositions, localOffset, BlockPredicate.replaceable());
 
         TreeFromStructureNBTFeature.placeTreeDecorations(List.of(), worldGenLevel, randomSource, leavePositions, trunkPositions);
 

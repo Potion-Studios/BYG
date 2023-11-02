@@ -16,16 +16,6 @@ public class BYGCompostables {
 
     public static final Supplier<Object2FloatOpenHashMap<Item>> COMPOSTABLES = Suppliers.memoize(() -> {
         Object2FloatOpenHashMap<Item> map = new Object2FloatOpenHashMap<>();
-        for (BYGWoodTypes type : BYGWoodTypes.values()) {
-            BlockRegistryObject<Block> leaves = type.leaves();
-            if (leaves != null) {
-                map.put(leaves.asItem(), 0.3f);
-            }
-            BlockRegistryObject<Block> growerItem = type.growerItem();
-            if (growerItem != null) {
-                map.put(growerItem.asItem(), 0.3f);
-            }
-        }
 
         for(BYGBlockFamily family: BYGBlockFamilies.woodFamilyMap.values()) {
             Block leaves = family.get(BYGBlockFamily.BlockVariant.LEAVES);
@@ -76,7 +66,6 @@ public class BYGCompostables {
         map.put(BYGItems.YELLOW_BIRCH_LEAVES.get(), 0.3f);
         map.put(BYGItems.YELLOW_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_SPRUCE_LEAVES.get(), 0.3f);
-        map.put(BYGItems.BROWN_ZELKOVA_LEAVES.get(), 0.3f);
         map.put(BYGItems.FIRECRACKER_LEAVES.get(), 0.3f);
         map.put(BYGItems.FLOWERING_NIGHTSHADE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_OAK_LEAVES.get(), 0.3f);
@@ -102,7 +91,6 @@ public class BYGCompostables {
         map.put(BYGItems.YELLOW_BIRCH_SAPLING.get(), 0.3f);
         map.put(BYGItems.YELLOW_SPRUCE_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_SPRUCE_SAPLING.get(), 0.3f);
-        map.put(BYGItems.BROWN_ZELKOVA_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_BIRCH_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
 

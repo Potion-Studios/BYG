@@ -76,7 +76,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, "blue_spruce_sapling");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, "brown_birch_sapling");
     public static final BlockRegistryObject<Block> BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, "brown_oak_sapling");
-    public static final BlockRegistryObject<Block> BROWN_ZELKOVA_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_ZELKOVA_SAPLING, "brown_zelkova_sapling");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_BUSH = createFloweringJacarandaBush(1, TreeSpawners.JACARANDA, "flowering_jacaranda_bush");
     public static final BlockRegistryObject<Block> FLOWERING_INDIGO_JACARANDA_BUSH = createFloweringIndigoJacarandaBush(1, TreeSpawners.INDIGO_JACARANDA, "flowering_indigo_jacaranda_bush");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_SAPLING = createSapling(BYGBlockTags.GROUND_INDIGO_JACARANDA_SAPLING, "indigo_jacaranda_sapling");
@@ -104,7 +103,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "blooming_witch_hazel_leaves");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_birch_leaves");
     public static final BlockRegistryObject<Block> BROWN_OAK_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_oak_leaves");
-    public static final BlockRegistryObject<Block> BROWN_ZELKOVA_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_zelkova_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_PALO_VERDE_LEAVES = createFloweringPaloVerdeLeaves(MapColor.COLOR_YELLOW, "flowering_palo_verde_leaves");
     public static final BlockRegistryObject<Block> INDIGO_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_BLUE, "indigo_jacaranda_leaves");
     public static final BlockRegistryObject<Block> FLOWERING_JACARANDA_LEAVES = createLeaves(MapColor.TERRACOTTA_PURPLE, "flowering_jacaranda_leaves");
