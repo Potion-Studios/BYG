@@ -2,6 +2,9 @@
 * Fix Broken Sandstone Recipes. Fixes #1204
 * Fix Therium Lamp having same recipe of Therium Lantern. Fixes #1237
 * Fix Broken Cut Sandstone Recipes. Fixes #1279
+* Update Included Dependencies.
+* Require Forge 40.2.0 or higher.
+* Require TerraBlender 1.2.0.0 or higher.
 
 ## 1.4.7
 * Update Chinese translation.
