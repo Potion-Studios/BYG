@@ -8,7 +8,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.mixin.access.FireBlockAccess;
 
 public class BYGFlammables {
-    public static void flammableBlock(Block block, int flameOdds, int burnOdds) {
+    private static void flammableBlock(Block block, int flameOdds, int burnOdds) {
         FireBlock fire = (FireBlock) Blocks.FIRE;
         ((FireBlockAccess) fire).byg_setFlammable(block, flameOdds, burnOdds);
     }
