@@ -45,7 +45,6 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
-    private final Block baseBlock;
     private final String baseName;
 
     private final ResourceKey<DimensionType> dimension;
@@ -68,17 +67,12 @@ public class BYGBlockFamily {
     @Nullable
     String recipeUnlockedBy;
 
-    private BYGBlockFamily(String baseName, Block block, ResourceKey<DimensionType> dimension) {
+    private BYGBlockFamily(String baseName, ResourceKey<DimensionType> dimension) {
         this.baseName = baseName;
         this.requiredFeatures = FeatureFlags.VANILLA_SET;
         this.generateModel = true;
         this.generateRecipe = true;
-        this.baseBlock = block;
         this.dimension = dimension;
-    }
-
-    public Block getBaseBlock() {
-        return this.baseBlock;
     }
 
     public Map<BlockVariant, Block> getVariants() {
@@ -141,12 +135,14 @@ public class BYGBlockFamily {
         private final Supplier<? extends MapColor> color;
 
         public WoodBuilder(String baseName, WoodType woodType, Supplier<? extends MapColor> color,
-                           ResourceKey<DimensionType> dimension) {
-            RegistryObject<? extends Block> planks = BYGBlocks.createPlanks(baseName + "_planks");
-            this.family = new BYGBlockFamily(baseName, planks.get(), dimension);
-            this.family.variants.put(BlockVariant.PLANKS, planks.get());
-            this.family.variants.put(BlockVariant.BASE_BLOCK, planks.get());
-            BYGItems.createItem(planks);
+                           ResourceKey<DimensionType> dimension, boolean hasPlanks) {
+            this.family = new BYGBlockFamily(baseName, dimension);
+            if(hasPlanks) {
+                RegistryObject<? extends Block> planks = BYGBlocks.createPlanks(baseName + "_planks");
+                this.family.variants.put(BlockVariant.PLANKS, planks.get());
+                this.family.variants.put(BlockVariant.BASE_BLOCK, planks.get());
+                BYGItems.createItem(planks);
+            }
             this.baseName = baseName;
             this.woodType = woodType;
             this.color = color;
@@ -291,9 +287,9 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder imbuedLog() {
-            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem")
-                    : BYGBlocks.createLog("imbued_" + baseName + "_log");
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLog("imbued_" + baseName + "_log") :
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "imbued_" + baseName + "_stem");
             this.family.variants.put(BlockVariant.IMBUED_LOG,
                     block.get());
             BYGItems.createItem(block);
@@ -334,9 +330,9 @@ public class BYGBlockFamily {
             if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
             }
-            RegistryObject<? extends Block> registryObject = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block")
-                    : BYGBlocks.createLeaves(color.get(), baseName + "_leaves");
+            RegistryObject<? extends Block> registryObject = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLeaves(color.get(), baseName + "_leaves") :
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGWartBlock::new, baseName + "_wart_block");
             this.family.variants.put(BlockVariant.LEAVES,
                         registryObject.get()
                     );
@@ -351,9 +347,9 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder log() {
-            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem")
-                    : BYGBlocks.createLog(baseName + "_log");
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLog(baseName + "_log")
+                    : BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_stem");
             this.family.variants.put(BlockVariant.LOG,
                     block.get());
             BYGItems.createItem(block);
@@ -407,9 +403,9 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder strippedLog() {
-            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem")
-                    : BYGBlocks.createLog("stripped_" + baseName + "_log");
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLog("stripped_" + baseName + "_log")
+                    : BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_stem");
             this.family.variants.put(BlockVariant.STRIPPED_LOG,
                     block.get());
             BYGItems.createItem(block);
@@ -422,9 +418,9 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder strippedWood() {
-            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae")
-                    : BYGBlocks.createLog("stripped_" + baseName + "_wood");
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLog("stripped_" + baseName + "_wood")
+                    : BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, "stripped_" + baseName + "_hyphae");
             this.family.variants.put(BlockVariant.STRIPPED_WOOD,
                     block.get());
             BYGItems.createItem(block);
@@ -447,9 +443,9 @@ public class BYGBlockFamily {
         }
 
         public WoodBuilder wood() {
-            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.OVERWORLD) ?
-                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae")
-                    : BYGBlocks.createLog(baseName + "_wood");
+            RegistryObject<? extends Block> block = !family.getDimension().equals(BuiltinDimensionTypes.NETHER) ?
+                    BYGBlocks.createLog(baseName + "_wood") :
+                    BYGBlocks.createBlock(BYGBlockProperties.BYGNetherLog::new, baseName + "_hyphae");
             this.family.variants.put(BlockVariant.WOOD,
                     block.get());
             BYGItems.createItem(block);
@@ -485,7 +481,7 @@ public class BYGBlockFamily {
         public Builder(String baseName, BlockSetType blockSetType, Supplier<? extends Block> supplier,
                        ResourceKey<DimensionType> dimension) {
             RegistryObject<? extends Block> baseBlock = BYGBlocks.createBlock(supplier, baseName + "_block");
-            this.family = new BYGBlockFamily(baseName, baseBlock.get(), dimension);
+            this.family = new BYGBlockFamily(baseName, dimension);
             this.family.variants.put(BlockVariant.BASE_BLOCK, baseBlock.get());
             BYGItems.createItem(baseBlock);
             this.baseName = baseName;

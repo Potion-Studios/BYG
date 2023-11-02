@@ -319,7 +319,7 @@ public class BYGModelGenerator extends FabricModelProvider {
 
         public BYGModelGenerator.WoodProvider bookshelf(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.column(TextureMapping.getBlockTexture(arguments.getBlock()),
-                    TextureMapping.getBlockTexture(this.family.getBaseBlock()));
+                    TextureMapping.getBlockTexture(this.family.get(BYGBlockFamily.BlockVariant.PLANKS)));
             ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), resourceLocation));
             arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation);
@@ -566,10 +566,12 @@ public class BYGModelGenerator extends FabricModelProvider {
         public BYGModelGenerator.WoodProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
             Block plank = family.get(BYGBlockFamily.BlockVariant.PLANKS);
-            TexturedModel planksModel = texturedModels
-                    .getOrDefault(plank, TexturedModel.CUBE.get(plank));
-            mapping = planksModel.getMapping();
-            fullBlock(plank, planksModel.getTemplate(), generators);
+            if(plank != null) {
+                TexturedModel planksModel = texturedModels
+                        .getOrDefault(plank, TexturedModel.CUBE.get(plank));
+                mapping = planksModel.getMapping();
+                fullBlock(plank, planksModel.getTemplate(), generators);
+            }
             blockFamily.getVariants().forEach((blockVariant, block) -> {
                 if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.PLANKS) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.BASE_BLOCK) ||
