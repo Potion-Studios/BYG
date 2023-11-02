@@ -7,7 +7,8 @@
   "authors": [
     "Corgi Taco",
     "AOCAWOL",
-    "YaBoiChips"
+    "YaBoiChips",
+    "JT122406"
   ],
   "contact": {
     "homepage": "https://bygmc.weebly.com/",
@@ -36,7 +37,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "minecraft": ">=1.18.2",
-    "terrablender": ">=1.1.0.99"
+    "terrablender": ">=1.2.0.0"
   },
   "accessWidener": "byg.aw"
 }

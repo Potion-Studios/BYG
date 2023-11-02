@@ -9,7 +9,7 @@ displayName = "Oh The Biomes You'll Go"
 displayURL = "https://oh-the-biomes-youll-go.fandom.com/wiki/Oh_The_Biomes_You%27ll_Go_Wiki"
 logoFile = "logo_text.png"
 credits = "Some Artwork: CupOfJoe, SaltySeaDoggo, Spare, Paul; Some Code: TelepathicGrunt, Paul, HauntedPasta"
-authors = "AOCAWOL, Corgi Taco, YaBoiChips"
+authors = "AOCAWOL, Corgi Taco, YaBoiChips, JT122406"
 description = '''
 An Adventure and Exploration mod with over 80 new biomes!
 
@@ -18,7 +18,7 @@ Notice: The linked wiki is not owned by BYG, the wiki is open for anyone to edit
 [[dependencies.byg]]
 modId = "forge"
 mandatory = true
-versionRange = "[40.0.0,)"
+versionRange = "[40.2.0,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -32,6 +32,6 @@ side = "BOTH"
 [[dependencies.byg]]
 modId = "terrablender"
 mandatory = true
-versionRange = "[1.1.0.99,)"
+versionRange = "[1.2.0.0,)"
 ordering = "NONE"
 side = "BOTH"
