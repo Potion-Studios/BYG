@@ -1,8 +1,17 @@
 {
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "byg:blue_sandstone"
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "byg:blue_sandstone"
+    }
   },
-  "result": "byg:blue_cut_sandstone",
-  "count": 1
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "byg:blue_cut_sandstone"
+  }
 }
