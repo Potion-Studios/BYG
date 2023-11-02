@@ -12,6 +12,7 @@
 * Make Palo Verde Logs able to be used as fuel. Fixes #1250
 * Make Prairie Grass grow when bone mealing grass blocks in the Prairie Biomes. Closes #1044
 * Made non-BYG saplings usable in growth patterns
+* Fix Broken Cut Sandstone Recipes. Fixes #1279
 
 # 3.0.0.2
 * Fix broken NBT files. Fixes #1206 and #1207
