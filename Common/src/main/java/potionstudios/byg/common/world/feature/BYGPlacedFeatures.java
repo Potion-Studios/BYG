@@ -19,6 +19,8 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGWoodTypes;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.features.BYGGlobalFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
@@ -188,7 +190,7 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PALO_VERDE_TREES = createPlacedFeature("palo_verde_trees", BYGOverworldTreeFeatures.PALO_VERDE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> MIXED_COLOR_BULBIS_TREES = createPlacedFeature("mixed_color_bulbis_trees", BYGEndVegetationFeatures.MIXED_COLOR_BULBIS_TREES, () -> treePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_BULBIS_TREES = createPlacedFeature("sparse_purple_bulbis_trees", BYGEndVegetationFeatures.PURPLE_BULBIS_TREES, () -> treePlacement(PlacementUtils.countExtra(0, 0.1F, 1)));
-    public static final ResourceKey<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, () -> Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGWoodTypes.PALM.growerItem().get())), (list) -> {
+    public static final ResourceKey<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, () -> Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGBlockFamilies.PALM.get(BYGBlockFamily.BlockVariant.GROWER))), (list) -> {
         list.add(new NearWaterPlacementFilter(4));
     }));
     public static final ResourceKey<PlacedFeature> RED_OAK_TREES = createPlacedFeature("red_oak_trees", BYGOverworldTreeFeatures.RED_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));

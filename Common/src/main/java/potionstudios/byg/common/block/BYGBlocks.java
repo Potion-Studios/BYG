@@ -73,7 +73,6 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> ETHER_SOIL = createDirt("ether_soil");
 
-    public static final BlockRegistryObject<Block> ARAUCARIA_SAPLING = createSapling(BYGBlockTags.GROUND_ARAUCARIA_SAPLING, "araucaria_sapling");
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_SAPLING = createSapling(BYGBlockTags.GROUND_BLUE_SPRUCE_SAPLING, "blue_spruce_sapling");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_BIRCH_SAPLING, "brown_birch_sapling");
     public static final BlockRegistryObject<Block> BROWN_OAK_SAPLING = createSapling(BYGBlockTags.GROUND_BROWN_OAK_SAPLING, "brown_oak_sapling");
@@ -101,7 +100,6 @@ public class BYGBlocks {
 
     public static final BlockRegistryObject<Block> SHELF_FUNGI = createTreeBranchBlock(MapColor.TERRACOTTA_ORANGE, "shelf_fungi");
 
-    public static final BlockRegistryObject<Block> ARAUCARIA_LEAVES = createLeaves(MapColor.COLOR_GREEN, "araucaria_leaves");
     public static final BlockRegistryObject<Block> BLUE_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_LIGHT_BLUE, "blue_spruce_leaves");
     public static final BlockRegistryObject<Block> BLOOMING_WITCH_HAZEL_LEAVES = createLeaves(MapColor.COLOR_ORANGE, "blooming_witch_hazel_leaves");
     public static final BlockRegistryObject<Block> BROWN_BIRCH_LEAVES = createLeaves(MapColor.COLOR_BROWN, "brown_birch_leaves");

@@ -108,7 +108,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
             fenceGateBlock((FenceGateBlock) type.fenceGate().get(), fenceGate, fenceGateOpen, fenceGateWall, fenceGateWallOpen);
 
             if (type.leaves() != null) {
-                // So.. leaves are fun.
+                // So... leaves are fun.
                 final var leavesLoc = rl(typeLoc + "leaves");
                 final BlockModelBuilder leaves;
                 if (type.leavesHaveOverlay()) {

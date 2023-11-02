@@ -64,7 +64,6 @@ public class BYGCompostables {
         map.put(BYGItems.BROWN_BIRCH_LEAVES.get(), 0.3f);
         map.put(BYGItems.BROWN_OAK_LEAVES.get(), 0.3f);
         map.put(BYGItems.FLOWERING_PALO_VERDE_LEAVES.get(), 0.3f);
-        map.put(BYGItems.HOLLY_BERRY_LEAVES.get(), 0.3f);
         map.put(BYGItems.INDIGO_JACARANDA_LEAVES.get(), 0.3f);
         map.put(BYGItems.FLOWERING_INDIGO_JACARANDA_LEAVES.get(), 0.3f);
         map.put(BYGItems.FLOWERING_JACARANDA_LEAVES.get(), 0.3f);

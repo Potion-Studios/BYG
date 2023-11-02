@@ -266,6 +266,60 @@ public class BYGBlockFamilies {
             .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "orchard_sapling")
     );
 
+    public static BYGBlockFamily PALM = register(new BYGBlockFamily.WoodBuilder("palm",
+            getOverworldWoodType("palm"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "palm_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily PINE = register(new BYGBlockFamily.WoodBuilder("pine",
+            getOverworldWoodType("pine"), () -> MapColor.TERRACOTTA_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "pine_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily ARAUCARIA = register(new BYGBlockFamily.WoodBuilder("araucaria",
+            getOverworldWoodType("araucaria"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .leaves()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "araucaria_sapling")
+    );
+
     public static BYGBlockFamily SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("sakura_cherry",
             getOverworldWoodType("sakura_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD)
             .boat()
@@ -334,6 +388,30 @@ public class BYGBlockFamilies {
             .strippedWood()
             .trapdoor()
             .vine(BYGBlockProperties.BYGSkyrisVine::new, "skyris_vine")
+            .wood()
+    );
+
+    public static BYGBlockFamily WHITE_MANGROVE = register(new BYGBlockFamily.WoodBuilder("white_mangrove",
+            getOverworldWoodType("white_mangrove"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerItemType.SAPLING, "white_mangrove_sapling")
+            .hangingSign()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
             .wood()
     );
 

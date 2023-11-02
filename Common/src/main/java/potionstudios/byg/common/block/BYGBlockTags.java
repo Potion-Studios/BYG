@@ -89,7 +89,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_YELLOW_TULIP = createPlantTag("may_place_on/yellow_tulip");
     public static final TagKey<Block> GROUND_HYDRANGEA_BUSH = createPlantTag("may_place_on/hydrangea_bush");
 
-    public static final TagKey<Block> GROUND_ARAUCARIA_SAPLING = createPlantTag("may_place_on/araucaria_sapling");
     public static final TagKey<Block> GROUND_ASPEN_SAPLING = createPlantTag("may_place_on/aspen_sapling");
     public static final TagKey<Block> GROUND_BLUE_SPRUCE_SAPLING = createPlantTag("may_place_on/blue_spruce_sapling");
     public static final TagKey<Block> GROUND_BROWN_BIRCH_SAPLING = createPlantTag("may_place_on/brown_birch_sapling");
@@ -100,13 +99,11 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_JACARANDA_SAPLING = createPlantTag("may_place_on/jacaranda_sapling");
     public static final TagKey<Block> GROUND_INDIGO_JACARANDA_SAPLING = createPlantTag("may_place_on/indigo_jacaranda_sapling");
     public static final TagKey<Block> GROUND_MAHOGANY_SAPLING = createPlantTag("may_place_on/mahogany_sapling");
-    public static final TagKey<Block> GROUND_WHITE_MANGROVE_SAPLING = createPlantTag("may_place_on/white_mangrove_sapling");
     public static final TagKey<Block> GROUND_MAPLE_SAPLING = createPlantTag("may_place_on/maple_sapling");
     public static final TagKey<Block> GROUND_ORANGE_BIRCH_SAPLING = createPlantTag("may_place_on/orange_birch_sapling");
     public static final TagKey<Block> GROUND_ORANGE_OAK_SAPLING = createPlantTag("may_place_on/orange_oak_sapling");
     public static final TagKey<Block> GROUND_ORANGE_SPRUCE_SAPLING = createPlantTag("may_place_on/orange_spruce_sapling");
     public static final TagKey<Block> GROUND_PALO_VERDE_SAPLING = createPlantTag("may_place_on/palo_verde_sapling");
-    public static final TagKey<Block> GROUND_PINE_SAPLING = createPlantTag("may_place_on/pine_sapling");
     public static final TagKey<Block> GROUND_RAINBOW_EUCALYPTUS_SAPLING = createPlantTag("may_place_on/rainbow_eucalyptus_sapling");
     public static final TagKey<Block> GROUND_RED_BIRCH_SAPLING = createPlantTag("may_place_on/red_birch_sapling");
     public static final TagKey<Block> GROUND_RED_MAPLE_SAPLING = createPlantTag("may_place_on/red_maple_sapling");
@@ -119,7 +116,6 @@ public class BYGBlockTags {
     public static final TagKey<Block> GROUND_YELLOW_BIRCH_SAPLING = createPlantTag("may_place_on/yellow_birch_sapling");
     public static final TagKey<Block> GROUND_YELLOW_SPRUCE_SAPLING = createPlantTag("may_place_on/yellow_spruce_sapling");
     public static final TagKey<Block> GROUND_ZELKOVA_SAPLING = createPlantTag("may_place_on/zelkova_sapling");
-    public static final TagKey<Block> GROUND_PALM_SAPLING = createTag("may_place_on/palm_sapling");
     public static final TagKey<Block> GROUND_ETHER_SAPLING = createPlantTag("may_place_on/ether_sapling");
     public static final TagKey<Block> GROUND_NIGHTSHADE_SAPLING = createEndPlantTag("may_place_on/nightshade_sapling");
 

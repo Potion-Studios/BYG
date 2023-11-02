@@ -283,7 +283,6 @@ public class BYGItems {
         BYGWoodTypes.JACARANDA.init();
 
         BYGWoodTypes.MAHOGANY.init();
-        BYGWoodTypes.WHITE_MANGROVE.init();
 
         RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
         RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
@@ -294,8 +293,6 @@ public class BYGItems {
         FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
         IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
         BYGWoodTypes.NIGHTSHADE.init();
-
-        BYGWoodTypes.PALM.init();
 
         FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
         PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);

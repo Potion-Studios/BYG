@@ -241,7 +241,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.MAHOGANY_TREE4), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.WHITE_MANGROVE.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.WHITE_MANGROVE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of(
                             " x ",
                             "x x",
@@ -321,7 +321,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PALO_VERDE_TREE2), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.PINE.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.PINE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PINE_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PINE_TREE2), 1)
@@ -481,7 +481,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.ZELKOVA_BROWN_TREE3), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.PALM.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.PALM.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PALM_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PALM_TREE2), 1)

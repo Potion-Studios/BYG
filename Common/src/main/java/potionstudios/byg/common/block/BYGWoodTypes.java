@@ -50,22 +50,10 @@ public enum BYGWoodTypes {
             .growerItem(GrowerItemType.MUSHROOM)
             .nether()),
     MAHOGANY("mahogany", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
+            // .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
             // .boatType(BYGBoat.BYGType.MAHOGANY)
             .MapColor(MapColor.COLOR_GREEN)
             .leavesHaveOverlay()),
-    WHITE_MANGROVE("white_mangrove", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_WHITE_MANGROVE_SAPLING)
-            // .boatType(BYGBoat.BYGType.MANGROVE)
-            .MapColor(MapColor.COLOR_GREEN)),
-    PALM("palm", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_PALM_SAPLING)
-            // .boatType(BYGBoat.BYGType.PALM)
-            .MapColor(MapColor.COLOR_GREEN)),
-    PINE("pine", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_PINE_SAPLING)
-            // .boatType(BYGBoat.BYGType.PINE)
-            .MapColor(MapColor.TERRACOTTA_GREEN)),
     RAINBOW_EUCALYPTUS("rainbow_eucalyptus", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_RAINBOW_EUCALYPTUS_SAPLING)
             // .boatType(BYGBoat.BYGType.RAINBOW_EUCALYPTUS)
