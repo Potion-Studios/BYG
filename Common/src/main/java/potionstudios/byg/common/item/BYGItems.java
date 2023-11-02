@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.BYG;
 import potionstudios.byg.BYGConstants;
-import potionstudios.byg.common.registration.BYGBlockFamilies;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.BYGEntities;
@@ -229,9 +228,6 @@ public class BYGItems {
     public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING;
     public static final RegistryObject<Item> SILVER_MAPLE_LEAVES;
 
-    //Nightshade Woodtype
-    public static final RegistryObject<Item> FLOWERING_NIGHTSHADE_LEAVES;
-    public static final RegistryObject<Item> IMBUED_NIGHTSHADE_LOG;
 
     //Palo Verde Woodtype
     public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES;
@@ -286,10 +282,6 @@ public class BYGItems {
         SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
         SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
         BYGWoodTypes.MAPLE.init();
-
-        FLOWERING_NIGHTSHADE_LEAVES = createItem(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES);
-        IMBUED_NIGHTSHADE_LOG = createItem(BYGBlocks.IMBUED_NIGHTSHADE_LOG);
-        BYGWoodTypes.NIGHTSHADE.init();
 
         FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
         PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);

@@ -222,14 +222,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy1"),
                     BiasedToBottomInt.of(0, 1),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 
@@ -240,14 +240,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_shrub_canopy2"),
                     BiasedToBottomInt.of(0, 1),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 
@@ -258,14 +258,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_canopy1"),
                     BiasedToBottomInt.of(3, 5),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 
@@ -276,14 +276,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_canopy2"),
                     BiasedToBottomInt.of(2, 4),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 
@@ -294,14 +294,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_canopy3"),
                     BiasedToBottomInt.of(2, 4),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 
@@ -312,14 +312,14 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/nightshade/nightshade_canopy4"),
                     BiasedToBottomInt.of(2, 4),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGWoodTypes.NIGHTSHADE.log().defaultBlockState(), 9)
-                            .add(BYGBlocks.IMBUED_NIGHTSHADE_LOG.defaultBlockState(), 1)),
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState(), 9)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.IMBUED_LOG).defaultBlockState(), 1)),
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
-                            .add(BYGBlocks.FLOWERING_NIGHTSHADE_LEAVES.defaultBlockState(), 3)
-                            .add(BYGWoodTypes.NIGHTSHADE.leaves().defaultBlockState(), 8).build()),
-                    NIGHTSHADE.log().get(),
-                    NIGHTSHADE.leaves().get(),
-                    BYGBlockTags.GROUND_NIGHTSHADE_SAPLING, 5, ImmutableList.of()
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.FLOWERING_LEAVES).defaultBlockState(), 3)
+                            .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
             )
     );
 

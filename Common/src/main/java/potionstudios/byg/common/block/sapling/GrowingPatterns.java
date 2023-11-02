@@ -498,7 +498,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.ETHER_TREE5), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.NIGHTSHADE.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.NIGHTSHADE_TREE1), 1)
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.NIGHTSHADE_TREE2), 1)

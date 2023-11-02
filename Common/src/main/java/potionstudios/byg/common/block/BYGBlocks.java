@@ -118,7 +118,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> SILVER_MAPLE_LEAVES = createLeaves(MapColor.COLOR_LIGHT_GRAY, () -> BYGParticleTypes.SILVER_MAPLE_LEAVES.get(), "silver_maple_leaves");
     public static final BlockRegistryObject<Block> YELLOW_BIRCH_LEAVES = createLeaves(MapColor.COLOR_YELLOW, "yellow_birch_leaves");
     public static final BlockRegistryObject<Block> YELLOW_SPRUCE_LEAVES = createLeaves(MapColor.COLOR_YELLOW, "yellow_spruce_leaves");
-    public static final BlockRegistryObject<Block> FLOWERING_NIGHTSHADE_LEAVES = createGlowingLeaves(MapColor.COLOR_ORANGE, 15, "flowering_nightshade_leaves");
     public static final BlockRegistryObject<Block> FIRECRACKER_LEAVES = createFirecrackerLeavesBlock(MapColor.COLOR_GREEN, "firecracker_leaves");
 
     public static final BlockRegistryObject<Block> GREEN_MUSHROOM_BLOCK = createBlock(BYGBlockProperties.BlockHugeMushroom::new, "green_mushroom_block");
@@ -343,7 +342,6 @@ public class BYGBlocks {
 
 
     public static final BlockRegistryObject<Block> PALO_VERDE_LOG = createLog("palo_verde_log");
-    public static final BlockRegistryObject<Block> IMBUED_NIGHTSHADE_LOG = createLog("imbued_nightshade_log");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_STEM = createBlock(BYGBlockProperties.BYGNetherLog::new, "fungal_imparius_stem");
     public static final BlockRegistryObject<Block> PALO_VERDE_WOOD = createWood("palo_verde_wood");
     public static final BlockRegistryObject<Block> FUNGAL_IMPARIUS_HYPHAE = createBlock(BYGBlockProperties.BYGNetherWood::new, "fungal_imparius_hyphae");

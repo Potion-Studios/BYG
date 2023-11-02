@@ -58,7 +58,7 @@ public class BYGBlockFamily {
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
     private final Map<ItemVariant, List<Item>> additionalItems = new ConcurrentHashMap<>();
     private final Map<ParticleVariant, SimpleParticleType> particleVariants = new ConcurrentHashMap<>();
-    private final Map<GrowerItemType, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
+    private final Map<BlockTags, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> strippables = null;
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
@@ -89,7 +89,7 @@ public class BYGBlockFamily {
         return itemVariants;
     }
 
-    public Map<GrowerItemType, TagKey<Block>> getTagKeyMap() {
+    public Map<BlockTags, TagKey<Block>> getTagKeyMap() {
         return tagKeyMap;
     }
 
@@ -103,8 +103,8 @@ public class BYGBlockFamily {
         return this.particleVariants.get(variant);
     }
 
-    public TagKey<Block> getTag(GrowerItemType growerItemType) {
-        return this.tagKeyMap.get(growerItemType);
+    public TagKey<Block> getTag(BlockTags blockTags) {
+        return this.tagKeyMap.get(blockTags);
     }
 
     public BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> getStrippables() {
@@ -254,12 +254,12 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public WoodBuilder growerItem(GrowerItemType growerItemType, String itemName) {
+        public WoodBuilder growerItem(BlockTags blockTags, String itemName) {
             TagKey<Block> tagKey = createTag(BYG.createLocation("may_place_on/" + itemName));
             this.family.tagKeyMap
-                    .put(growerItemType, tagKey);
+                    .put(blockTags, tagKey);
             BlockRegistryObject<Block> growerBlock =
-                    switch (growerItemType) {
+                    switch (blockTags) {
                         case NETHER_PLANT -> BYGBlocks.createFungus(tagKey, itemName);
                         case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName);
                         default -> BYGBlocks.createSapling(tagKey, itemName);
@@ -267,7 +267,7 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.GROWER, growerBlock.get());
             this.family.variants.put(BlockVariant.POTTED,
                     BYGBlocks.FLOWER_POT_BLOCKS.get(growerBlock.getId()).get());
-            BYGItems.createGrowerItem(growerBlock, growerItemType == BYGBlockFamily.GrowerItemType.SAPLING);
+            BYGItems.createGrowerItem(growerBlock, blockTags == BlockTags.PLANT);
             return this;
         }
 
@@ -703,8 +703,8 @@ public class BYGBlockFamily {
     }
 
 
-    public enum GrowerItemType {
-        SAPLING,
+    public enum BlockTags {
+        PLANT,
         MUSHROOM,
         NETHER_PLANT,
         END_PLANT,
