@@ -78,7 +78,6 @@ public class BYGCompostables {
         map.put(BYGItems.RED_SPRUCE_LEAVES.get(), 0.3f);
         map.put(BYGItems.BROWN_ZELKOVA_LEAVES.get(), 0.3f);
         map.put(BYGItems.FIRECRACKER_LEAVES.get(), 0.3f);
-        map.put(BYGItems.ARAUCARIA_LEAVES.get(), 0.3f);
         map.put(BYGItems.FLOWERING_NIGHTSHADE_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_OAK_LEAVES.get(), 0.3f);
         map.put(BYGItems.RED_BIRCH_LEAVES.get(), 0.3f);
@@ -106,7 +105,6 @@ public class BYGCompostables {
         map.put(BYGItems.BROWN_ZELKOVA_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_BIRCH_SAPLING.get(), 0.3f);
         map.put(BYGItems.RED_OAK_SAPLING.get(), 0.3f);
-        map.put(BYGItems.ARAUCARIA_SAPLING.get(), 0.3f);
 
         //Flowers
         map.put(BYGItems.ALLIUM_FLOWER_BUSH.get(), 0.65f);

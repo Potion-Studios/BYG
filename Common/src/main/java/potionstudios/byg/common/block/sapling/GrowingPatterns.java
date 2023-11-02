@@ -52,7 +52,7 @@ public record GrowingPatterns(boolean logGrowth,
         return new GrowingPatterns(false, Suppliers.memoize(() -> {
             Map<Block, List<GrowingPatternEntry>> map = new TreeMap<>(Comparator.comparing(BuiltInRegistries.BLOCK::getKey));
 
-            map.put(BYGBlocks.ARAUCARIA_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.ARAUCARIA.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"),
                             SimpleWeightedRandomList.<FeatureSpawner>builder()
                                     .add(new FeatureSpawner(BYGOverworldTreeFeatures.ARAUCARIA_TREE1), 1)

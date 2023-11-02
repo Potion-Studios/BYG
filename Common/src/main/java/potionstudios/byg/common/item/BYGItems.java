@@ -302,7 +302,7 @@ public class BYGItems {
         STRIPPED_PALO_VERDE_LOG = createItem(BYGBlocks.STRIPPED_PALO_VERDE_LOG);
         STRIPPED_PALO_VERDE_WOOD = createItem(BYGBlocks.STRIPPED_PALO_VERDE_WOOD);
 
-        BYGWoodTypes.PINE.init();
+
         BYGWoodTypes.RAINBOW_EUCALYPTUS.init();
         BYGWoodTypes.REDWOOD.init();
 
@@ -317,9 +317,6 @@ public class BYGItems {
         BYGWoodTypes.SYTHIAN.init();
 
     }
-
-    public static final RegistryObject<GrowerItem> ARAUCARIA_SAPLING = createSaplingItem(BYGBlocks.ARAUCARIA_SAPLING);
-    public static final RegistryObject<Item> ARAUCARIA_LEAVES = createItem(BYGBlocks.ARAUCARIA_LEAVES);
 
     public static final RegistryObject<GrowerItem> BLUE_SPRUCE_SAPLING = createSaplingItem(BYGBlocks.BLUE_SPRUCE_SAPLING);
     public static final RegistryObject<Item> BLUE_SPRUCE_LEAVES = createItem(BYGBlocks.BLUE_SPRUCE_LEAVES);
