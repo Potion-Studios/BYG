@@ -172,7 +172,7 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
                             Random rand = new Random();
                             int i = rand.nextInt(7);
                             if (i >= 4) {
-                                level.addParticle(ParticleTypes.WHITE_ASH, (double) x1, (double) y1, (double) z1, 0D, 5.0E-4D, 0D);
+                                level.addParticle(ParticleTypes.WHITE_ASH, x1, y1, z1, 0D, 5.0E-4D, 0D);
                             }
                         }
                     }
@@ -232,12 +232,12 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Component.translatable("container.hypogeal_imperium_container");
+    protected @NotNull Component getDefaultName() {
+        return new TranslatableComponent("container.hypogeal_imperium_container");
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory player) {
+    protected @NotNull AbstractContainerMenu createMenu(int id, @NotNull Inventory player) {
         return new HypogealImperiumContainer(id, player, this, dataAccess);
     }
 
@@ -289,12 +289,12 @@ public class HypogealImperiumBlockEntity extends RandomizableContainerBlockEntit
     }
 
     @Override
-    public NonNullList<ItemStack> getItems() {
+    public @NotNull NonNullList<ItemStack> getItems() {
         return this.contents;
     }
 
     @Override
-    protected void setItems(NonNullList<ItemStack> itemsIn) {
+    protected void setItems(@NotNull NonNullList<ItemStack> itemsIn) {
         this.contents = itemsIn;
     }
 

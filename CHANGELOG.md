@@ -8,6 +8,7 @@
 * Make Prairie Grass grow when bone mealing grass blocks in the Prairie Biomes. Closes #1044
 * Make Wood Fence Gates Flammable
 * Make Ender and Embur Lily's Placeable
+* Fixed a crash related to HypogealImperium
 
 ## 1.4.7
 * Update Chinese translation.
