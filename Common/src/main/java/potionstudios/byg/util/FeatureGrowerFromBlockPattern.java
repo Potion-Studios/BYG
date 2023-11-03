@@ -21,7 +21,6 @@ public interface FeatureGrowerFromBlockPattern {
 
     void load();
 
-
     static void serializePatterns(ResourceLocation key, List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> patternsToSpawner) {
         patternsToSpawner.clear();
         Map<ResourceLocation, List<GrowingPatterns.GrowingPatternEntry>> patterns = GrowingPatterns.getConfig().patternsForBlock();
@@ -103,6 +102,7 @@ public interface FeatureGrowerFromBlockPattern {
                             break;
                         }
                     }
+
                     if (matchedPattern) {
                         // Set tree
                         Optional<Registry<ConfiguredFeature<?, ?>>> configuredFeaturesOptionalRegistry = world.registryAccess().ownedRegistry(Registry.CONFIGURED_FEATURE_REGISTRY);

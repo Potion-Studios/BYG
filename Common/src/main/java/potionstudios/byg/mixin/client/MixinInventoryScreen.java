@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -20,9 +21,10 @@ import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 @Mixin(InventoryScreen.class)
 public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> extends AbstractContainerScreen<T> {
 
-    private ImageButton biomePedia;
+    @Unique
+    private ImageButton byg$biomePedia;
 
-    public MixinInventoryScreen(T menu, Inventory inventory, Component narrationTitle) {
+    MixinInventoryScreen(T menu, Inventory inventory, Component narrationTitle) {
         super(menu, inventory, narrationTitle);
     }
 
@@ -44,18 +46,17 @@ public abstract class MixinInventoryScreen<T extends AbstractContainerMenu> exte
 
                 biomePedia.visible = BiomepediaInventoryConfig.server_value;
                 biomePedia.active = BiomepediaInventoryConfig.server_value;
-                addRenderableWidget(this.biomePedia = biomePedia);
+                this.byg$biomePedia = biomePedia;
+                addRenderableWidget(biomePedia);
             }
         }
     }
 
-    @Inject(method = "lambda$init$0(Lnet/minecraft/client/gui/components/Button;)V", at = @At("RETURN"))
-    protected void updateGuiSize(CallbackInfo ci) {
-        if (BYGConstants.BIOMEPEDIA) {
-            if (biomePedia != null) {
-                BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
-                biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
-            }
+    @Inject(method = "init", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/client/gui/screens/inventory/InventoryScreen;addWidget(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;"))
+    private void initUpdateGuiSizeInjector(CallbackInfo ci) {
+        if (BYGConstants.BIOMEPEDIA && byg$biomePedia != null) {
+            BiomepediaInventoryConfig biomepediaInventoryConfig = BiomepediaInventoryConfig.getConfig();
+            byg$biomePedia.setPosition(this.leftPos + biomepediaInventoryConfig.settings().widthOffset(), this.height / 2 - biomepediaInventoryConfig.settings().heightOffset());
         }
     }
 }
