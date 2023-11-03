@@ -9,6 +9,8 @@
 * Make Wood Fence Gates Flammable
 * Make Ender and Embur Lily's Placeable
 * Fixed a crash related to HypogealImperium
+* Make saplings of all kinds usable in growth patterns
+* Fix inventory book mixin being unable to apply
 
 ## 1.4.7
 * Update Chinese translation.
