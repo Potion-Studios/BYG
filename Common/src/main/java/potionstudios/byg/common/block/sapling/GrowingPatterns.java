@@ -9,12 +9,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.common.world.feature.features.nether.BYGNetherVegetationFeatures;
+import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldTreeFeatures;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldVegetationFeatures;
 import potionstudios.byg.util.ModPlatform;
 import potionstudios.byg.util.codec.CommentedCodec;
@@ -649,23 +647,23 @@ public record GrowingPatterns(boolean logGrowth, Map<ResourceLocation, List<Grow
                         .add(new FeatureSpawner(BYGEndVegetationFeatures.FUNGAL_IMPARIUS5), 1)
                         .build())
         ));
-        map.put(Blocks.BIRCH_SAPLING, List.of(
+        map.put(new ResourceLocation("birch_sapling"), List.of(
                 new GrowingPatternEntry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE1)), 1)
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE2)), 1)
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE3)), 1)
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.BIRCH_TREE4)), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE1), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE2), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE3), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_TREE4), 1)
                         .build())
         ));
-        map.put(Blocks.OAK_SAPLING, List.of(
+        map.put(new ResourceLocation("oak_sapling"), List.of(
                 new GrowingPatternEntry(List.of(
                         "xx",
                         "xx"), SimpleWeightedRandomList.<FeatureSpawner>builder()
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE1)), 1)
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE2)), 1)
-                        .add(new FeatureSpawner(Holder.hackyErase(BYGOverworldTreeFeatures.OAK_TREE3)), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE1), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE2), 1)
+                        .add(new FeatureSpawner(BYGOverworldTreeFeatures.OAK_TREE3), 1)
                         .build())
         ));
     }));

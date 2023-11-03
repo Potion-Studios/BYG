@@ -3,10 +3,10 @@ package potionstudios.byg.mixin.common.block;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
+import net.minecraft.core.Registry;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -25,12 +25,13 @@ import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.ModPlatform;
 
 import java.util.List;
+import java.util.Random;
 
 @Mixin(SaplingBlock.class)
 public class SaplingBlockMixin implements FeatureGrowerFromBlockPattern {
     @Shadow @Final public static IntegerProperty STAGE;
     @Unique
-    private ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg$patterns = ImmutableList.of();
+    private ImmutableList<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg$patterns = ImmutableList.of();
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onInitTailInjector(AbstractTreeGrower $$0, BlockBehaviour.Properties $$1, CallbackInfo ci) {
@@ -38,7 +39,7 @@ public class SaplingBlockMixin implements FeatureGrowerFromBlockPattern {
     }
 
     @Inject(method = "advanceTree", at = @At("HEAD"), cancellable = true)
-    private void onAdvanceTreeHeadInjector(ServerLevel level, BlockPos pos, BlockState state, RandomSource random, CallbackInfo ci) {
+    private void onAdvanceTreeHeadInjector(ServerLevel level, BlockPos pos, BlockState state, Random random, CallbackInfo ci) {
         if (!(((Object)this) instanceof BYGSaplingBlock)) {
             if (state.getValue(STAGE) == 0) {
                 level.setBlock(pos, state.cycle(STAGE), 4);
@@ -47,7 +48,7 @@ public class SaplingBlockMixin implements FeatureGrowerFromBlockPattern {
                     ci.cancel();
                     return;
                 }
-                if (this.growFeature((SaplingBlock)((Object)this), level, pos, random)) {
+                if (FeatureGrowerFromBlockPattern.growFeature((SaplingBlock)((Object)this), level, pos, random, byg$patterns)) {
                     ci.cancel();
                 }
             }
@@ -55,12 +56,7 @@ public class SaplingBlockMixin implements FeatureGrowerFromBlockPattern {
     }
 
     @Override
-    public ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg_getPatterns() {
-        return byg$patterns;
-    }
-
-    @Override
-    public void byg_setPatterns(ImmutableList<Pair<List<Vec3i>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> map) {
-        this.byg$patterns = map;
+    public void load() {
+        FeatureGrowerFromBlockPattern.serializePatterns(Registry.BLOCK.getKey((Block) ((Object)this)), this.byg$patterns);
     }
 }
