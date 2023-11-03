@@ -152,6 +152,7 @@ public class BYGBlockFamily {
         }
         this.variants.put(BlockVariant.SPREAD_TO, blockToSpreadToo.get());
         this.variants.put(BlockVariant.SPREADABLE, block.get());
+        BYGItems.createItem(block);
         return this;
     }
 
