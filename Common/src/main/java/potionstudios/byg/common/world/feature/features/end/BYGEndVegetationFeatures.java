@@ -64,9 +64,9 @@ public class BYGEndVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BULBIS_ANOMALY = createPatchConfiguredFeatureWithBlock("bulbis_anomaly", BYGBlocks.BULBIS_ANOMALY, 48);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_BULBIS_ANOMALY = createPatchConfiguredFeatureWithBlock("purple_bulbis_anomaly", BYGBlocks.PURPLE_BULBIS_ANOMALY, 48);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_SPROUTS = createPatchConfiguredFeatureWithBlock("nightshade_sprouts", BYGBlocks.NIGHTSHADE_SPROUTS, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_ROOTS = createPatchConfiguredFeatureWithBlock("nightshade_roots", BYGBlocks.NIGHTSHADE_ROOTS, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeatureWithBlock("nightshade_berry_bush", BYGBlocks.NIGHTSHADE_BERRY_BUSH, 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_SPROUTS = createPatchConfiguredFeatureWithBlock("nightshade_sprouts", () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPROUTS), 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_ROOTS = createPatchConfiguredFeatureWithBlock("nightshade_roots", () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.ROOTS), 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NIGHTSHADE_BERRY_BUSH = createPatchConfiguredFeatureWithBlock("nightshade_berry_bush", () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.BUSH), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPARIUS_MUSHROOM = createPatchConfiguredFeatureWithBlock("imparius_mushroom", BYGWoodTypes.IMPARIUS.growerItem(), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> FUNGAL_IMPARIUS_PATCH = createPatchConfiguredFeatureWithBlock("fungal_imparius_patch", BYGBlocks.FUNGAL_IMPARIUS, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPARIUS_BUSH = createPatchConfiguredFeatureWithBlock("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);

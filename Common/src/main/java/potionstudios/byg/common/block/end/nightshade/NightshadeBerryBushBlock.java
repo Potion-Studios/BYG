@@ -28,6 +28,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.util.MLBlockTags;
 
 public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements BonemealableBlock {
@@ -40,7 +42,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.NIGHTSHADE_BERRIES.get());
+        return new ItemStack(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.ItemVariant.FRUIT));
     }
 
     @Override
@@ -59,7 +61,7 @@ public class NightshadeBerryBushBlock extends SweetBerryBushBlock implements Bon
             return InteractionResult.PASS;
         } else if (i > 1) {
             int j = 1 + worldIn.random.nextInt(2);
-            popResource(worldIn, pos, new ItemStack(BYGItems.NIGHTSHADE_BERRIES.get(), j + (flag ? 1 : 0)));
+            popResource(worldIn, pos, new ItemStack(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.ItemVariant.FRUIT), j + (flag ? 1 : 0)));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 1), 2);
             return InteractionResult.SUCCESS;

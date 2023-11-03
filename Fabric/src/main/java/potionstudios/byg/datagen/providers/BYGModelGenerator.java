@@ -419,10 +419,21 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider growerItem(BlockFamilyProviderMethod arguments) {
+        public BYGModelGenerator.WoodProvider crossBlock(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createCrossBlock(arguments.getBlock(),
                     BlockModelGenerators.TintState.NOT_TINTED);
-            // Missing Item
+            arguments.getGenerator().createSimpleFlatItemModel(arguments.getBlock().asItem());
+            return this;
+        }
+
+        public BYGModelGenerator.WoodProvider crossBlockNoItem(BlockFamilyProviderMethod arguments) {
+            arguments.getGenerator().createCrossBlock(arguments.getBlock(),
+                    BlockModelGenerators.TintState.NOT_TINTED);
+            return this;
+        }
+
+        public BYGModelGenerator.WoodProvider doublePlant(BlockFamilyProviderMethod arguments) {
+            arguments.getGenerator().createDoublePlant(arguments.getBlock(), BlockModelGenerators.TintState.TINTED);
             return this;
         }
 
@@ -487,6 +498,17 @@ public class BYGModelGenerator extends FabricModelProvider {
             }
         }
 
+        public BYGModelGenerator.WoodProvider spreadable(BlockFamilyProviderMethod arguments) {
+            TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM,
+                    TextureMapping.getBlockTexture(family.get(BYGBlockFamily.BlockVariant.SPREAD_TO)))
+                    .put(TextureSlot.TOP, TextureMapping.getBlockTexture(arguments.getBlock()))
+                    .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(arguments.getBlock(), "_side"));
+            arguments.getGenerator().blockStateOutput
+                    .accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), ModelTemplates.CUBE_BOTTOM_TOP
+                            .create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput)));
+            return this;
+        }
+
         public BYGModelGenerator.WoodProvider slab(BlockFamilyProviderMethod arguments) {
             if (this.fullBlock == null) {
                 throw new IllegalStateException("Full block not generated yet");
@@ -540,6 +562,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                                                                  BlockFamilyProviderMethod providerMethod) {
             return switch (blockVariant) {
                 case BOOKSHELF -> bookshelf(providerMethod);
+                case BUSH -> crossBlockNoItem(providerMethod);
                 case BUTTON -> button(providerMethod);
                 case DOOR -> door(providerMethod);
                 case CRAFTING_TABLE -> craftingTable(providerMethod);
@@ -547,12 +570,14 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case FENCE_GATE -> fenceGate(providerMethod);
                 case FOLIAGE -> carpet(providerMethod);
                 case FRUIT_BLOCK -> fullBlockVariantNoItem(providerMethod);
-                case GROWER -> growerItem(providerMethod);
+                case GROWER, SPROUTS -> crossBlock(providerMethod);
                 case HANGING_SIGN -> hangingSign(providerMethod);
                 case IMBUED_LOG, LOG, STRIPPED_LOG -> log(providerMethod);
                 case POTTED -> potted(providerMethod);
                 case PRESSURE_PLATE -> pressurePlate(providerMethod);
+                case ROOTS -> doublePlant(providerMethod);
                 case SIGN -> sign(providerMethod);
+                case SPREADABLE -> spreadable(providerMethod);
                 case SLAB -> slab(providerMethod);
                 case STAIRS -> stairs(providerMethod);
                 case STRIPPED_WOOD, WOOD -> wood(providerMethod);

@@ -7,6 +7,8 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.biome.BYGBiomes;
 import potionstudios.byg.common.world.surfacerules.rulesource.BYGRuleSources;
 import potionstudios.byg.common.world.surfacerules.rulesource.BetweenRepeatingNoiseRange;
@@ -298,7 +300,7 @@ public class BYGSurfaceRules {
     public static final SurfaceRules.RuleSource OVERWORLD_SURFACE_RULES = SurfaceRules.sequence(OVERWORLD_ABOVE_PRELIMINARY_SURFACE);
 
     public static final SurfaceRules.RuleSource BULBIS_PHYCELIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.BULBIS_GARDENS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.BULBIS_PHYCELIUM.defaultBlockState())))));
-    public static final SurfaceRules.RuleSource NIGHTSHADE_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.NIGHTSHADE_FOREST), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.NIGHTSHADE_PHYLIUM.defaultBlockState())))));
+    public static final SurfaceRules.RuleSource NIGHTSHADE_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.NIGHTSHADE_FOREST), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE).defaultBlockState())))));
     public static final SurfaceRules.RuleSource IMPARIUS_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.IMPARIUS_GROVE), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.IMPARIUS_PHYLIUM.defaultBlockState())))));
     public static final SurfaceRules.RuleSource IVIS_PHYLIUM = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.IVIS_FIELDS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.IVIS_PHYLIUM.defaultBlockState())))));
     public static final SurfaceRules.RuleSource ETHEREAL_ISLANDS = SurfaceRules.ifTrue(SurfaceRules.isBiome(BYGBiomes.ETHEREAL_ISLANDS), SurfaceRules.sequence(SurfaceRules.ifTrue(WATER_CHECK, SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, SurfaceRules.state(BYGBlocks.ETHER_PHYLIUM.defaultBlockState()))), SurfaceRules.state(BYGBlocks.ETHER_STONE.defaultBlockState())));

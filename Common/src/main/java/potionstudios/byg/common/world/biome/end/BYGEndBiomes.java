@@ -50,6 +50,7 @@ public class BYGEndBiomes {
     }
 
     public static Biome etherealIslands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        System.out.println("Etheral Islands Builder was Called");
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
 
@@ -96,6 +97,7 @@ public class BYGEndBiomes {
     }
 
     public static Biome nightshadeForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        System.out.println("Nightshade Islands Builder was Called");
         MobSpawnSettings.Builder spawnSettings = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder generationSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
 

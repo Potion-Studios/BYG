@@ -3,11 +3,10 @@ package potionstudios.byg.client.textures.renders;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import potionstudios.byg.BYG;
+import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.registration.BYGBlockFamilies;
 import potionstudios.byg.common.registration.BYGBlockFamiliesClient;
 import potionstudios.byg.common.registration.BYGBlockFamily;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +60,18 @@ public class BYGRenderTypes {
             if(foliage != null) {
                 map.put(foliage, RenderType.cutoutMipped());
             }
+            Block bush = family.get(BYGBlockFamily.BlockVariant.BUSH);
+            if(bush != null) {
+                map.put(bush, RenderType.cutoutMipped());
+            }
+            Block sprouts = family.get(BYGBlockFamily.BlockVariant.SPROUTS);
+            if(sprouts != null) {
+                map.put(sprouts, RenderType.cutoutMipped());
+            }
+            Block roots = family.get(BYGBlockFamily.BlockVariant.ROOTS);
+            if(roots != null) {
+                map.put(roots, RenderType.cutoutMipped());
+            }
         }
 
 
@@ -109,15 +120,12 @@ public class BYGRenderTypes {
         //End
         map.put(BYGBlocks.IVIS_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IVIS_SPROUT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NIGHTSHADE_SPROUTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_BUSH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.ETHER_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THEREAL_BELLFLOWER.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_SHELL.get(), RenderType.translucent());
         map.put(BYGBlocks.BULBIS_SHELL.get(), RenderType.translucent());
-        map.put(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.NIGHTSHADE_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.VERMILION_SCULK_GROWTH.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_LANTERN.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_CRYSTAL_CLUSTER.get(), RenderType.cutoutMipped());

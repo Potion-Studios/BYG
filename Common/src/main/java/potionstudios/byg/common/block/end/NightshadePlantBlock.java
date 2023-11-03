@@ -10,6 +10,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 
 public class NightshadePlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -30,7 +32,7 @@ public class NightshadePlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.NIGHTSHADE_PHYLIUM.get()) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE)) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

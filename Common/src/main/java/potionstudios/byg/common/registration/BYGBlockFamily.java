@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
@@ -33,8 +34,6 @@ import potionstudios.byg.reg.BlockRegistryObject;
 import potionstudios.byg.reg.RegistryObject;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -53,9 +52,7 @@ public class BYGBlockFamily {
     // to make it clear which the "MAIN" block of that variant is supposed to be
     // Ex. Which of the 20 leaf blocks is the main one, the one in variants!
     private final Map<BlockVariant, Block> variants = new ConcurrentHashMap<>();
-    private final Map<BlockRenderVariant, List<Block>> additionalBlocks = new ConcurrentHashMap<>();
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
-    private final Map<ItemVariant, List<Item>> additionalItems = new ConcurrentHashMap<>();
     private final Map<ParticleVariant, SimpleParticleType> particleVariants = new ConcurrentHashMap<>();
     private final Map<BlockTags, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
     private BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> strippables = null;
@@ -128,6 +125,36 @@ public class BYGBlockFamily {
         return dimension;
     }
 
+    public BYGBlockFamily spreadable(SpreadableTypes spreadableType,
+                                  Supplier<? extends Block> blockToSpreadToo,
+                                  MapColor color,
+                                  Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature,
+                                  String id) {
+        RegistryObject<? extends Block> block;
+        if(dimension.equals(BuiltinDimensionTypes.END)) {
+            if(SpreadableTypes.DIRT.equals(spreadableType)) {
+                block = BYGBlocks.createEndDirtSpreadable(blockToSpreadToo, color, feature, id);
+            } else {
+                block = BYGBlocks.createEndStoneSpreadable(blockToSpreadToo, color, feature, id);
+            }
+        } else if(dimension.equals(BuiltinDimensionTypes.NETHER)) {
+            if(SpreadableTypes.DIRT.equals(spreadableType)) {
+                block = BYGBlocks.createNetherSpreadable(blockToSpreadToo, color, feature, id);
+            } else {
+                block = BYGBlocks.createNetherStoneSpreadable(blockToSpreadToo, color, feature, id);
+            }
+        } else {
+            if(SpreadableTypes.DIRT.equals(spreadableType)) {
+                block = BYGBlocks.createDirtSpreadable(blockToSpreadToo, color, id);
+            } else {
+                block = BYGBlocks.createStoneSpreadable(blockToSpreadToo, color, id);
+            }
+        }
+        this.variants.put(BlockVariant.SPREAD_TO, blockToSpreadToo.get());
+        this.variants.put(BlockVariant.SPREADABLE, block.get());
+        return this;
+    }
+
     public static class WoodBuilder {
         private final BYGBlockFamily family;
         private final String baseName;
@@ -157,6 +184,17 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.BOOKSHELF,
                     block.get());
             BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder bush(Supplier<RegistryObject<? extends Block>> supplier,
+                                String fruitName,
+                                Function<Block, Item> bushItem) {
+            RegistryObject<? extends Block> block = supplier.get();
+            this.family.variants.put(BlockVariant.BUSH,
+                    block.get());
+            Item fruit = BYGItems.createItem(() -> bushItem.apply(block.get()), fruitName).get();
+            this.family.itemVariants.put(ItemVariant.FRUIT, fruit);
             return this;
         }
 
@@ -308,24 +346,6 @@ public class BYGBlockFamily {
             return this;
         }
 
-        @SafeVarargs
-        public final WoodBuilder additionalLeaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> @NotNull ... leavesFactories) {
-            for(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leaveFactory: leavesFactories) {
-                RegistryObject<? extends Block> block = leaveFactory.apply(baseName + "_leaves", family);
-                List<Block> leafBlocks = this.family.additionalBlocks.get(BlockRenderVariant.FULL_BLOCK);
-                if(leafBlocks != null) {
-                    leafBlocks.add(block.get());
-                    this.family.additionalBlocks.replace(BlockRenderVariant.FULL_BLOCK, leafBlocks);
-                } else {
-                    this.family.additionalBlocks.put(BlockRenderVariant.FULL_BLOCK, new ArrayList<>(){{
-                        add(block.get());
-                    }});
-                }
-                BYGItems.createItem(block);
-            }
-            return this;
-        }
-
         public WoodBuilder leaves() {
             if(this.family.variants.containsKey(BlockVariant.LEAVES)) {
                 return this;
@@ -368,6 +388,13 @@ public class BYGBlockFamily {
             RegistryObject<? extends Item> item = BYGItems.createItem(supplier, itemName);
             this.family.itemVariants.put(ItemVariant.PROCESSED_FOOD,
                     item.get());
+            return this;
+        }
+
+        public WoodBuilder roots(@NotNull Supplier<? extends RegistryObject<? extends Block>> supplier) {
+            RegistryObject<? extends Block> registryObject = supplier.get();
+            this.family.variants.put(BlockVariant.ROOTS, registryObject.get());
+            BYGItems.createItem(registryObject);
             return this;
         }
 
@@ -424,6 +451,13 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.STRIPPED_WOOD,
                     block.get());
             BYGItems.createItem(block);
+            return this;
+        }
+
+        public WoodBuilder sprouts(@NotNull Supplier<? extends RegistryObject<? extends Block>> supplier) {
+            RegistryObject<? extends Block> registryObject = supplier.get();
+            this.family.variants.put(BlockVariant.SPROUTS, registryObject.get());
+            BYGItems.createItem(registryObject);
             return this;
         }
 
@@ -698,6 +732,11 @@ public class BYGBlockFamily {
         }
     }
 
+    public enum SpreadableTypes {
+        STONE,
+        DIRT
+    }
+
 
     public enum BlockTags {
         PLANT,
@@ -729,23 +768,10 @@ public class BYGBlockFamily {
         }
     }
 
-    public enum BlockRenderVariant {
-        FULL_BLOCK("full_block");
-
-        private final String name;
-
-        BlockRenderVariant(String string) {
-            this.name = string;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
-
     public enum BlockVariant {
         BASE_BLOCK("base_block"),
         BOOKSHELF("bookshelf"),
+        BUSH("bush"),
         BUTTON("button"),
         CHISELED("chiseled"),
         CHISELED_STAIRS("chiseled_stairs"),
@@ -779,8 +805,12 @@ public class BYGBlockFamily {
         POLISHED_SLAB("polished_slab"),
         POLISHED_WALL("polished_wall"),
         POTTED("potted"),
+        ROOTS("roots"),
         SIGN("sign"),
         SLAB("slab"),
+        SPREADABLE("spreadable"),
+        SPREAD_TO("spread_to"),
+        SPROUTS("sprouts"),
         STAIRS("stairs"),
         STRIPPED_LOG("stripped_log"),
         STRIPPED_WOOD("stripped_wood"),

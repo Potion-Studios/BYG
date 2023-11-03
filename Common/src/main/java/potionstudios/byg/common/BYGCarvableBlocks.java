@@ -2,6 +2,8 @@ package potionstudios.byg.common;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.util.lazy.LazyCollection;
 
 import java.util.stream.Collectors;
@@ -23,7 +25,7 @@ public class BYGCarvableBlocks {
             BUDDING_AMETRINE_ORE, CRYPTIC_REDSTONE_ORE, CRYPTIC_STONE,
             MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, ETHER_STONE,
             VERMILION_SCULK, IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
-            ETHER_PHYLIUM, NIGHTSHADE_PHYLIUM,
+            ETHER_PHYLIUM, () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE),
             () -> Blocks.MAGMA_BLOCK
         );
     }

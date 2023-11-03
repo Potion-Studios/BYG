@@ -5,6 +5,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -17,6 +19,7 @@ import potionstudios.byg.common.block.BYGBlockProperties;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BaobabFruitItem;
+import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.mixin.access.BlockSetTypeAccess;
 import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
 import potionstudios.byg.mixin.access.WoodTypeAccess;
@@ -293,8 +296,12 @@ public class BYGBlockFamilies {
             getOverworldWoodType("nightshade"), () -> MapColor.COLOR_ORANGE, BuiltinDimensionTypes.END
             , true)
             .bookshelf()
+            .bush(() -> BYGBlocks.createNightshadeBerryBush("nightshade_berry_bush"),
+                    "nightshade_berries",
+                    (block) -> new ItemNameBlockItem(block,
+                            new Item.Properties().food(new FoodProperties.Builder().nutrition(3)
+                                    .saturationMod(0.4f).build())))
             .button()
-            .chestBoat()
             .craftingTable()
             .door()
             .fence()
@@ -307,6 +314,13 @@ public class BYGBlockFamilies {
             .leaves()
             .log()
             .pressurePlate()
+            .processedFood("nightshade_berry_pie",
+                    () -> new Item(new Item.Properties()
+                            .food(new FoodProperties.Builder().nutrition(6)
+                                    .saturationMod(0.3f)
+                                    .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F)
+                                    .build())))
+            .roots(() -> BYGBlocks.createTallNightshadePlant("nightshade_roots"))
             .sign()
             .slab()
             .stairs()
@@ -314,9 +328,12 @@ public class BYGBlockFamilies {
             .strippedWood()
             .strippables((consumer, family) -> consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
                     family.get(BYGBlockFamily.BlockVariant.LOG)))
+            .sprouts(() -> BYGBlocks.createNightshadePlant("nightshade_sprouts"))
             .trapdoor()
             .wood()
-    );
+    ).spreadable(BYGBlockFamily.SpreadableTypes.STONE, () -> Blocks.END_STONE,
+            MapColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS,
+            "nightshade_phylium");
 
     public static BYGBlockFamily ORCHARD = register(new BYGBlockFamily.WoodBuilder("orchard",
             getOverworldWoodType("orchard"), ()-> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD

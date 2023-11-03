@@ -424,12 +424,6 @@ public class BYGItems {
     public static final RegistryObject<Item> ETHER_BUSH = createItem(BYGBlocks.ETHER_BUSH);
     public static final RegistryObject<Item> THEREAL_BELLFLOWER = createItem(BYGBlocks.THEREAL_BELLFLOWER);
 
-    public static final RegistryObject<Item> NIGHTSHADE_BERRIES = createItem(() -> new ItemNameBlockItem(BYGBlocks.NIGHTSHADE_BERRY_BUSH.get(), new Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(0.4f).build())), "nightshade_berries");
-    public static final RegistryObject<Item> NIGHTSHADE_BERRY_PIE = createItem(() -> new Item(new Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1.0F).build())), "nightshade_berry_pie");
-    public static final RegistryObject<Item> NIGHTSHADE_PHYLIUM = createItem(BYGBlocks.NIGHTSHADE_PHYLIUM);
-    public static final RegistryObject<Item> NIGHTSHADE_SPROUTS = createItem(BYGBlocks.NIGHTSHADE_SPROUTS);
-    public static final RegistryObject<Item> NIGHTSHADE_ROOTS = createItem(BYGBlocks.NIGHTSHADE_ROOTS);
-
     public static final RegistryObject<Item> PURPUR_STONE = createItem(BYGBlocks.PURPUR_STONE);
     public static final RegistryObject<Item> PURPUR_STONE_SLAB = createItem(BYGBlocks.PURPUR_STONE_SLAB);
     public static final RegistryObject<Item> PURPUR_STONE_STAIRS = createItem(BYGBlocks.PURPUR_STONE_STAIRS);
