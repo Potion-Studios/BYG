@@ -11,6 +11,7 @@
 * Fixed a crash related to HypogealImperium
 * Make saplings of all kinds usable in growth patterns
 * Fix inventory book mixin being unable to apply
+* Add Windswept Sandstone Pallet Recipes. Fixes #1278
 
 ## 1.4.7
 * Update Chinese translation.
