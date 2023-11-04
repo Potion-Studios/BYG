@@ -542,7 +542,7 @@ public class BYGBlockFamily {
 
         public InorganicBuilder carved(BlockBehaviour.Properties properties) {
             RegistryObject<? extends Block> block =
-                    BYGBlocks.createBlock(() -> new Block(properties), "carved_" + baseName + "_block");
+                    BYGBlocks.createBlock(() -> new Block(properties), "carved_" + baseName );
             this.family.variants.put(BlockVariant.CARVED,
                     block.get());
             BYGItems.createItem(block);
@@ -584,7 +584,7 @@ public class BYGBlockFamily {
 
         public InorganicBuilder cobbled(BlockBehaviour.Properties properties) {
             RegistryObject<? extends Block> block =
-                    BYGBlocks.createBlock(() -> new Block(properties), "cobbled_" + baseName + "_block");
+                    BYGBlocks.createBlock(() -> new Block(properties), "cobbled_" + baseName);
             this.family.variants.put(BlockVariant.COBBLED,
                     block.get());
             BYGItems.createItem(block);
