@@ -10,6 +10,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 
 public class SculkPlantBlock extends BushBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -30,7 +32,8 @@ public class SculkPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.VERMILION_SCULK.get()) || state.is(BYGBlocks.ETHER_STONE.get()) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)) ||
+                state.is(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override

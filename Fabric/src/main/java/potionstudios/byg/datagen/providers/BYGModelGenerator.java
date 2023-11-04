@@ -62,8 +62,8 @@ public class BYGModelGenerator extends FabricModelProvider {
     }
 
     @Contract(" -> new")
-    public final BYGModelGenerator.@NotNull WoodProvider woodFamily() {
-        return new BYGModelGenerator.WoodProvider();
+    public final @NotNull OrganicProvider woodFamily() {
+        return new OrganicProvider();
     }
 
     public final BYGModelGenerator.ItemFamilyProvider itemFamily() {
@@ -201,11 +201,12 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         private BYGModelGenerator.BlockFamilyProvider fullBlockVariant(BlockFamilyProviderMethod arguments) {
-            TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(), TexturedModel.CUBE.get(arguments.getBlock()));
-            ResourceLocation template = texturedModel.getTemplate().create(arguments.getBlock(), texturedModel.getMapping(), arguments.getGenerator().modelOutput);
-            arguments.getGenerator().blockStateOutput
-                    .accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(), texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput)));
-            arguments.getGenerator().delegateItemModel(arguments.getBlock(), template);
+            TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(),
+                    TexturedModel.CUBE.get(arguments.getBlock()));
+            ResourceLocation resourceLocation = texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput);
+            arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(arguments.getBlock(),
+                    resourceLocation));
+            arguments.getGenerator().delegateItemModel(arguments.getBlock(), resourceLocation);
             return this;
         }
 
@@ -243,6 +244,10 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
+        private BYGModelGenerator.BlockFamilyProvider none(BlockFamilyProviderMethod arguments) {
+            return this;
+        }
+
         private ResourceLocation getOrCreateModel(BlockModelGenerators generators, ModelTemplate modelTemplate, Block block) {
             return this.models.computeIfAbsent(modelTemplate, template -> template.create(block, this.mapping, generators.modelOutput));
         }
@@ -252,12 +257,13 @@ public class BYGModelGenerator extends FabricModelProvider {
 
             return switch (blockVariant) {
                 case BUTTON -> button(providerMethod);
-                case CRACKED_STAIRS, CUT_STAIRS, CHISELED_STAIRS, POLISHED_STAIRS, STAIRS -> stairs(providerMethod);
-                case CRACKED_SLAB, CUT_SLAB, CHISELED_SLAB, POLISHED_SLAB, SLAB -> slab(providerMethod);
-                case CRACKED_WALL, CUT_WALL, CHISELED_WALL, POLISHED_WALL, WALL -> wall(providerMethod);
+                case CARVED_STAIRS, COBBLED_STAIRS, CRACKED_STAIRS, CUT_STAIRS, CHISELED_STAIRS, POLISHED_STAIRS, STAIRS -> stairs(providerMethod);
+                case CARVED_SLAB, COBBLED_SLAB, CRACKED_SLAB, CUT_SLAB, CHISELED_SLAB, POLISHED_SLAB, SLAB -> slab(providerMethod);
+                case CARVED_WALL, COBBLED_WALL, CRACKED_WALL, CUT_WALL, CHISELED_WALL, POLISHED_WALL, WALL -> wall(providerMethod);
                 case DOOR -> door(providerMethod);
                 case FENCE -> fence(providerMethod);
                 case FENCE_GATE -> fenceGate(providerMethod);
+                case GROWTH, TENDRILS -> none(providerMethod);
                 case PRESSURE_PLATE -> pressurePlate(providerMethod);
                 case TRAPDOOR -> trapdoor(providerMethod);
                 default -> fullBlockVariant(providerMethod);
@@ -293,7 +299,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
     }
 
-    public final class WoodProvider {
+    public final class OrganicProvider {
         private TextureMapping mapping;
         private final Map<ModelTemplate, ResourceLocation> models = new HashMap<>();
         @Nullable
@@ -301,11 +307,11 @@ public class BYGModelGenerator extends FabricModelProvider {
         @Nullable
         private ResourceLocation fullBlock;
 
-        public WoodProvider() {}
+        public OrganicProvider() {}
 
         @SuppressWarnings("unused")
-        private BYGModelGenerator.WoodProvider fullBlock(Block block, ModelTemplate modelTemplate,
-                                                               BlockModelGenerators generator) {
+        private OrganicProvider fullBlock(Block block, ModelTemplate modelTemplate,
+                                          BlockModelGenerators generator) {
             this.fullBlock = modelTemplate.create(block, this.mapping, generator.modelOutput);
             if (fullBlockModelCustomGenerators.containsKey(block)) {
                 generator.blockStateOutput.accept(fullBlockModelCustomGenerators.get(block).create(block, this.fullBlock,
@@ -317,7 +323,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider bookshelf(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider bookshelf(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.column(TextureMapping.getBlockTexture(arguments.getBlock()),
                     TextureMapping.getBlockTexture(this.family.get(BYGBlockFamily.BlockVariant.PLANKS)));
             ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
@@ -326,7 +332,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider button(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider button(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = ModelTemplates.BUTTON.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.BUTTON_PRESSED.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createButton(arguments.getBlock(), resourceLocation, resourceLocation1));
@@ -336,7 +342,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         @SuppressWarnings("DataFlowIssue")
-        public BYGModelGenerator.WoodProvider craftingTable(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider craftingTable(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.craftingTable(arguments.getBlock(),
                     family.get(BYGBlockFamily.BlockVariant.PLANKS));
             ResourceLocation resourceLocation = ModelTemplates.CUBE.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
@@ -345,7 +351,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider door(BlockFamilyProviderMethod arguments) {
+        private OrganicProvider door(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.door(arguments.getBlock());
             ResourceLocation resourceLocation = ModelTemplates.DOOR_BOTTOM_LEFT.create(arguments.getBlock(),
                     textureMapping, arguments.getGenerator().modelOutput);
@@ -369,7 +375,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider fence(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider fence(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = ModelTemplates.FENCE_POST.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.FENCE_SIDE.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createFence(arguments.getBlock(), resourceLocation, resourceLocation1));
@@ -378,7 +384,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider fenceGate(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider fenceGate(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = ModelTemplates.FENCE_GATE_OPEN.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.FENCE_GATE_CLOSED.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation2 = ModelTemplates.FENCE_GATE_WALL_OPEN.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
@@ -390,7 +396,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider carpet(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider carpet(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = TexturedModel.CARPET
                     .get(family.get(BYGBlockFamily.BlockVariant.LEAVES))
                     .create(arguments.getBlock(), arguments.getGenerator().modelOutput);
@@ -400,7 +406,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider fullBlockVariant(BlockFamilyProviderMethod arguments) {
+        private OrganicProvider fullBlockVariant(BlockFamilyProviderMethod arguments) {
             TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(),
                     TexturedModel.CUBE.get(arguments.getBlock()));
             ResourceLocation resourceLocation = texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput);
@@ -410,7 +416,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider fullBlockVariantNoItem(BlockFamilyProviderMethod arguments) {
+        private OrganicProvider fullBlockVariantNoItem(BlockFamilyProviderMethod arguments) {
             TexturedModel texturedModel = texturedModels.getOrDefault(arguments.getBlock(),
                     TexturedModel.CUBE.get(arguments.getBlock()));
             ResourceLocation resourceLocation = texturedModel.create(arguments.getBlock(), arguments.getGenerator().modelOutput);
@@ -419,25 +425,25 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider crossBlock(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider crossBlock(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createCrossBlock(arguments.getBlock(),
                     BlockModelGenerators.TintState.NOT_TINTED);
             arguments.getGenerator().createSimpleFlatItemModel(arguments.getBlock().asItem());
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider crossBlockNoItem(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider crossBlockNoItem(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createCrossBlock(arguments.getBlock(),
                     BlockModelGenerators.TintState.NOT_TINTED);
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider doublePlant(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider doublePlant(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createDoublePlant(arguments.getBlock(), BlockModelGenerators.TintState.TINTED);
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider hangingSign(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider hangingSign(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.particle(this.family.getVariants()
                     .get(BYGBlockFamily.BlockVariant.STRIPPED_LOG));
             Block block1 = this.family.getVariants().get(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN);
@@ -450,7 +456,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider log(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider log(BlockFamilyProviderMethod arguments) {
             TexturedModel logColumn = texturedModels
                     .getOrDefault(arguments.getBlock(), TexturedModel.COLUMN.get(arguments.getBlock()));
             ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), logColumn.getMapping(), arguments.getGenerator().modelOutput);
@@ -459,13 +465,13 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider logUVLocked(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider logUVLocked(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().blockStateOutput
                     .accept(BlockModelGenerators.createPillarBlockUVLocked(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput));
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider potted(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider potted(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping
                     .plant(this.family.get(BYGBlockFamily.BlockVariant.GROWER));
             ResourceLocation resourceLocation = BlockModelGenerators.TintState.NOT_TINTED
@@ -476,7 +482,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider pressurePlate(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider pressurePlate(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = ModelTemplates.PRESSURE_PLATE_UP.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation1 = ModelTemplates.PRESSURE_PLATE_DOWN.create(arguments.getBlock(), this.mapping, arguments.getGenerator().modelOutput);
             arguments.getGenerator().blockStateOutput.accept(BlockModelGenerators.createPressurePlate(arguments.getBlock(), resourceLocation, resourceLocation1));
@@ -484,7 +490,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider sign(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider sign(BlockFamilyProviderMethod arguments) {
             if (this.family == null) {
                 throw new IllegalStateException("Family not defined");
             } else {
@@ -498,7 +504,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             }
         }
 
-        public BYGModelGenerator.WoodProvider spreadable(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider spreadable(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = new TextureMapping().put(TextureSlot.BOTTOM,
                     TextureMapping.getBlockTexture(family.get(BYGBlockFamily.BlockVariant.SPREAD_TO)))
                     .put(TextureSlot.TOP, TextureMapping.getBlockTexture(arguments.getBlock()))
@@ -509,7 +515,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider slab(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider slab(BlockFamilyProviderMethod arguments) {
             if (this.fullBlock == null) {
                 throw new IllegalStateException("Full block not generated yet");
             } else {
@@ -521,7 +527,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             }
         }
 
-        public BYGModelGenerator.WoodProvider stairs(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider stairs(BlockFamilyProviderMethod arguments) {
             ResourceLocation resourceLocation = getOrCreateModel(arguments.getGenerator(), ModelTemplates.STAIRS_INNER, arguments.getBlock());
             ResourceLocation resourceLocation1 = getOrCreateModel(arguments.getGenerator(), ModelTemplates.STAIRS_STRAIGHT, arguments.getBlock());
             ResourceLocation resourceLocation2 = getOrCreateModel(arguments.getGenerator(), ModelTemplates.STAIRS_OUTER, arguments.getBlock());
@@ -530,7 +536,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider trapdoor(BlockFamilyProviderMethod arguments) {
+        private OrganicProvider trapdoor(BlockFamilyProviderMethod arguments) {
             TextureMapping textureMapping = TextureMapping.defaultTexture(arguments.getBlock());
             ResourceLocation resourceLocation = ModelTemplates.ORIENTABLE_TRAPDOOR_TOP.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
             ResourceLocation resourceLocation2 = ModelTemplates.ORIENTABLE_TRAPDOOR_BOTTOM.create(arguments.getBlock(), textureMapping, arguments.getGenerator().modelOutput);
@@ -544,7 +550,7 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this.models.computeIfAbsent(modelTemplate, template -> template.create(block, this.mapping, generators.modelOutput));
         }
 
-        public BYGModelGenerator.WoodProvider wood(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider wood(BlockFamilyProviderMethod arguments) {
             TexturedModel logColumn = texturedModels
                     .getOrDefault(arguments.getBlock(), TexturedModel.COLUMN.get(arguments.getBlock()));
             ResourceLocation resourceLocation = ModelTemplates.CUBE_COLUMN.create(arguments.getBlock(), logColumn.getMapping(), arguments.getGenerator().modelOutput);
@@ -553,13 +559,13 @@ public class BYGModelGenerator extends FabricModelProvider {
             return this;
         }
 
-        public BYGModelGenerator.WoodProvider vine(BlockFamilyProviderMethod arguments) {
+        public OrganicProvider vine(BlockFamilyProviderMethod arguments) {
             arguments.getGenerator().createMultiface(arguments.getBlock());
             return this;
         }
 
-        private BYGModelGenerator.WoodProvider executeGeneration(BYGBlockFamily.BlockVariant blockVariant,
-                                                                 BlockFamilyProviderMethod providerMethod) {
+        private OrganicProvider executeGeneration(BYGBlockFamily.BlockVariant blockVariant,
+                                                  BlockFamilyProviderMethod providerMethod) {
             return switch (blockVariant) {
                 case BOOKSHELF -> bookshelf(providerMethod);
                 case BUSH -> crossBlockNoItem(providerMethod);
@@ -570,7 +576,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case FENCE_GATE -> fenceGate(providerMethod);
                 case FOLIAGE -> carpet(providerMethod);
                 case FRUIT_BLOCK -> fullBlockVariantNoItem(providerMethod);
-                case GROWER, SPROUTS -> crossBlock(providerMethod);
+                case GRASS, GROWER, SPROUTS -> crossBlock(providerMethod);
                 case HANGING_SIGN -> hangingSign(providerMethod);
                 case IMBUED_LOG, LOG, STRIPPED_LOG -> log(providerMethod);
                 case POTTED -> potted(providerMethod);
@@ -588,7 +594,7 @@ public class BYGModelGenerator extends FabricModelProvider {
         }
 
         @SuppressWarnings("unused")
-        public BYGModelGenerator.WoodProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
+        public OrganicProvider generateFor(BlockModelGenerators generators, BYGBlockFamily blockFamily) {
             this.family = blockFamily;
             Block plank = family.get(BYGBlockFamily.BlockVariant.PLANKS);
             if(plank != null) {

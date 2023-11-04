@@ -400,20 +400,6 @@ public class BYGItems {
 
     public static final RegistryObject<Item> ETHER_PHYLIUM = createItem(BYGBlocks.ETHER_PHYLIUM);
     public static final RegistryObject<Item> ETHER_SOIL = createItem(BYGBlocks.ETHER_SOIL);
-    public static final RegistryObject<Item> ETHER_STONE = createItem(BYGBlocks.ETHER_STONE);
-    public static final RegistryObject<Item> ETHER_STONE_SLAB = createItem(BYGBlocks.ETHER_STONE_SLAB);
-    public static final RegistryObject<Item> ETHER_STONE_STAIRS = createItem(BYGBlocks.ETHER_STONE_STAIRS);
-    public static final RegistryObject<Item> ETHER_STONE_WALL = createItem(BYGBlocks.ETHER_STONE_WALL);
-
-    public static final RegistryObject<Item> COBBLED_ETHER_STONE = createItem(BYGBlocks.COBBLED_ETHER_STONE);
-    public static final RegistryObject<Item> COBBLED_ETHER_STONE_SLAB = createItem(BYGBlocks.COBBLED_ETHER_STONE_SLAB);
-    public static final RegistryObject<Item> COBBLED_ETHER_STONE_STAIRS = createItem(BYGBlocks.COBBLED_ETHER_STONE_STAIRS);
-    public static final RegistryObject<Item> COBBLED_ETHER_STONE_WALL = createItem(BYGBlocks.COBBLED_ETHER_STONE_WALL);
-
-    public static final RegistryObject<Item> CARVED_ETHER_STONE = createItem(BYGBlocks.CARVED_ETHER_STONE);
-    public static final RegistryObject<Item> CARVED_ETHER_STONE_SLAB = createItem(BYGBlocks.CARVED_ETHER_STONE_SLAB);
-    public static final RegistryObject<Item> CARVED_ETHER_STONE_STAIRS = createItem(BYGBlocks.CARVED_ETHER_STONE_STAIRS);
-    public static final RegistryObject<Item> CARVED_ETHER_STONE_WALL = createItem(BYGBlocks.CARVED_ETHER_STONE_WALL);
 
     public static final RegistryObject<Item> BULBIS_SPROUTS = createItem(BYGBlocks.BULBIS_SPROUTS);
     public static final RegistryObject<Item> BULBIS_PHYCELIUM = createItem(BYGBlocks.BULBIS_PHYCELIUM);
@@ -452,10 +438,6 @@ public class BYGItems {
     public static final RegistryObject<Item> THERIUM_GLASS_PANE = createItem(BYGBlocks.THERIUM_GLASS_PANE);
     public static final RegistryObject<Item> THERIUM_LANTERN = createItem(BYGBlocks.THERIUM_LANTERN);
     public static final RegistryObject<Item> THERIUM_LAMP = createItem(BYGBlocks.THERIUM_LAMP);
-
-    public static final RegistryObject<Item> VERMILION_SCULK_TENDRILS = createItem(BYGBlocks.VERMILION_SCULK_TENDRILS);
-    public static final RegistryObject<Item> VERMILION_SCULK_GROWTH = createItem(BYGBlocks.VERMILION_SCULK_GROWTH);
-    public static final RegistryObject<Item> VERMILION_SCULK = createItem(BYGBlocks.VERMILION_SCULK);
 
     public static final RegistryObject<Item> PURPLE_SHROOMLIGHT = createItem(BYGBlocks.PURPLE_SHROOMLIGHT);
 

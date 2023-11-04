@@ -23,8 +23,8 @@ public class BYGCarvableBlocks {
             WARPED_SOUL_SAND, WARPED_SOUL_SOIL, BRIMSTONE,
             QUARTZITE_SAND, AMETRINE_ORE,
             BUDDING_AMETRINE_ORE, CRYPTIC_REDSTONE_ORE, CRYPTIC_STONE,
-            MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, ETHER_STONE,
-            VERMILION_SCULK, IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
+            MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, () -> BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK),
+                () -> BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK), IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
             ETHER_PHYLIUM, () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE),
             () -> Blocks.MAGMA_BLOCK
         );

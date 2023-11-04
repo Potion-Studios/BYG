@@ -24,6 +24,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTes
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.Fluids;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 import potionstudios.byg.common.world.feature.BYGFeatures;
 import potionstudios.byg.common.world.feature.config.*;
 import potionstudios.byg.common.world.feature.features.overworld.BYGOverworldFeatures;
@@ -160,10 +162,10 @@ public class BYGEndFeatures {
             () -> new NoisySphereConfig.Builder()
                     .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 8)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 2))
+                            .add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 2))
                     ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 6)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 4))
+                            .add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 4))
                     )
                     .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(8, 15), BiasedToBottomInt.of(5, 10), 0, BiasedToBottomInt.of(8, 15)))
                     .withNoiseFrequency(0.5F).withVerifiesHeight(false).withBelowSurfaceDepth(ConstantInt.of(Integer.MIN_VALUE)).withRadiusMatcher(RadiusMatcher.XZ).withPointed(true)
@@ -183,11 +185,11 @@ public class BYGEndFeatures {
                     .withTopBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 2)
                             .add(BYGBlocks.BUDDING_THERIUM_CRYSTAL.defaultBlockState(), 3)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 5))
+                            .add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 5))
                     ).withBlockProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                             .add(BYGBlocks.THERIUM_CRYSTAL_BLOCK.defaultBlockState(), 3)
                             .add(BYGBlocks.BUDDING_THERIUM_CRYSTAL.defaultBlockState(), 2)
-                            .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 5))
+                            .add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 5))
                     )
                     .withStackHeight(ConstantInt.of(1)).withRadiusSettings(new NoisySphereConfig.RadiusSettings(BiasedToBottomInt.of(13, 20), BiasedToBottomInt.of(20, 27), 0, BiasedToBottomInt.of(13, 20)))
                     .withNoiseFrequency(0.2F).withRadiusMatcher(RadiusMatcher.NONE).withPointed(true)
@@ -209,20 +211,20 @@ public class BYGEndFeatures {
             )
     );
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlocks.ETHER_STONE.get()).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(BYGBlocks.ETHER_STONE.get())).build());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> HANGING_THERIUM_LANTERNS = createConfiguredFeature("hanging_therium_lanterns", BYGFeatures.HANGING_FEATURE, () -> new HangingColumnWithBaseConfig.Builder().setBaseBlock(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)).setBlock(Blocks.CHAIN.defaultBlockState()).setEndBlock(BYGBlocks.THERIUM_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true)).setMinLength(1).setMaxLength(8).setPlacementFilter(BlockPredicate.matchesBlocks(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK))).build());
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeature("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeature("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlocks.VERMILION_SCULK.get()).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlocks.ETHER_STONE.defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND1 = createConfiguredFeature("shattered_floating_island1", BYGFeatures.SHATTERED_FLOATING_ISLAND1, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND2 = createConfiguredFeature("shattered_floating_island2", BYGFeatures.SHATTERED_FLOATING_ISLAND2, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND3 = createConfiguredFeature("shattered_floating_island3", BYGFeatures.SHATTERED_FLOATING_ISLAND3, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 45))).setMinRadius(11).setMaxRadius(13).build());
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SHATTERED_FLOATING_ISLAND4 = createConfiguredFeature("shattered_floating_island4", BYGFeatures.SHATTERED_FLOATING_ISLAND4, () -> new FloatingIslandConfig.Builder().setTopBlock(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK)).setBlock(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 45))).setMinRadius(13).setMaxRadius(17).build());
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROWABLE_SCULK = createConfiguredFeature("growabble_sculk",
             () -> Feature.RANDOM_PATCH,
             () -> new RandomPatchConfiguration(64, 16, 4, BYGPlacedFeaturesUtil.createPlacedFeatureDirect(createConfiguredFeature(
                             Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                                    .add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 5)
-                                    .add(BYGBlocks.VERMILION_SCULK_TENDRILS.defaultBlockState(), 5)
+                                    .add(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.GROWTH).defaultBlockState(), 5)
+                                    .add(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.TENDRILS).defaultBlockState(), 5)
                                     .build()
                             )))
                     , PlacementUtils.HEIGHTMAP)
@@ -239,8 +241,8 @@ public class BYGEndFeatures {
             new RandomPatchConfiguration(64, 16, 4, BYGPlacedFeaturesUtil.createPlacedFeatureDirect(createConfiguredFeature(
                             Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>()
-                                    .add(BYGBlocks.VERMILION_SCULK_GROWTH.defaultBlockState(), 5)
-                                    .add(BYGBlocks.VERMILION_SCULK_TENDRILS.defaultBlockState(), 5)
+                                    .add(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.GROWTH).defaultBlockState(), 5)
+                                    .add(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.TENDRILS).defaultBlockState(), 5)
                                     .build()
                             )))
                     , PlacementUtils.HEIGHTMAP)
@@ -248,14 +250,14 @@ public class BYGEndFeatures {
 
     public static final Supplier<WeightedStateProvider> ISLAND_SURFACE_PROVIDER = () -> new WeightedStateProvider(
             new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.VERMILION_SCULK.defaultBlockState(), 25)
+                    .add(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 25)
                     .add(BYGBlocks.BUDDING_AMETRINE_ORE.defaultBlockState(), 1)
                     .add(BYGBlocks.AMETRINE_ORE.defaultBlockState(), 4)
                     .build()
     );
     public static final Supplier<WeightedStateProvider> ISLAND_BLOCK_PROVIDER = () -> new WeightedStateProvider(
             new SimpleWeightedRandomList.Builder<BlockState>()
-                    .add(BYGBlocks.ETHER_STONE.defaultBlockState(), 25)
+                    .add(BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK).defaultBlockState(), 25)
                     .add(BYGBlocks.BUDDING_AMETRINE_ORE.defaultBlockState(), 1)
                     .add(BYGBlocks.AMETRINE_ORE.defaultBlockState(), 4)
                     .build()

@@ -4,11 +4,9 @@ import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import potionstudios.byg.common.item.BYGItems;
 import potionstudios.byg.common.registration.BYGBlockFamilies;
 import potionstudios.byg.common.registration.BYGBlockFamily;
-import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.item.BYGItems;
-import potionstudios.byg.reg.BlockRegistryObject;
 
 import java.util.function.Supplier;
 
@@ -45,6 +43,10 @@ public class BYGCompostables {
             Block grower = family.get(BYGBlockFamily.BlockVariant.GROWER);
             if(grower != null) {
                 map.put(grower.asItem(), 0.3f);
+            }
+            Block growth = family.get(BYGBlockFamily.BlockVariant.GROWTH);
+            if(growth != null) {
+                map.put(growth.asItem(), 0.65f);
             }
         }
 
@@ -155,7 +157,6 @@ public class BYGCompostables {
         map.put(BYGItems.YELLOW_DAFFODIL.get(), 0.65f);
         map.put(BYGItems.YELLOW_TULIP.get(), 0.65f);
         map.put(BYGItems.THEREAL_BELLFLOWER.get(), 0.65f);
-        map.put(BYGItems.VERMILION_SCULK_GROWTH.get(), 0.65f);
         map.put(BYGItems.WAILING_VINES.get(), 0.65f);
 
         //Mushroom Blocks

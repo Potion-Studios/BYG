@@ -208,28 +208,9 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> PURPUR_STONE_SLAB = createStoneSlab("purpur_stone_slab");
     public static final BlockRegistryObject<Block> PURPUR_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "purpur_stone_stairs");
     public static final BlockRegistryObject<Block> PURPUR_STONE_WALL = createStoneWall("purpur_stone_wall");
-    public static final BlockRegistryObject<Block> ETHER_STONE = createEtherStone("ether_stone");
-    public static final BlockRegistryObject<Block> ETHER_STONE_SLAB = createStoneSlab("ether_stone_slab");
-    public static final BlockRegistryObject<Block> ETHER_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "ether_stone_stairs");
-    public static final BlockRegistryObject<Block> ETHER_STONE_WALL = createStoneWall("ether_stone_wall");
-
-    public static final BlockRegistryObject<Block> COBBLED_ETHER_STONE = createEtherStone("cobbled_ether_stone");
-    public static final BlockRegistryObject<Block> COBBLED_ETHER_STONE_SLAB = createStoneSlab("cobbled_ether_stone_slab");
-    public static final BlockRegistryObject<Block> COBBLED_ETHER_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "cobbled_ether_stone_stairs");
-    public static final BlockRegistryObject<Block> COBBLED_ETHER_STONE_WALL = createStoneWall("cobbled_ether_stone_wall");
-
-    public static final BlockRegistryObject<Block> CARVED_ETHER_STONE = createEtherStone("carved_ether_stone");
-    public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_SLAB = createStoneSlab("carved_ether_stone_slab");
-    public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_STAIRS = createBlock(BYGBlockProperties.BYGStoneStairs::new, "carved_ether_stone_stairs");
-    public static final BlockRegistryObject<Block> CARVED_ETHER_STONE_WALL = createStoneWall("carved_ether_stone_wall");
-
     public static final BlockRegistryObject<Block> ODDITY_CACTUS = createOddityCactus("oddity_cactus");
     public static final BlockRegistryObject<Block> ODDITY_BUSH = createOddityDesertPlant("oddity_bush");
     public static final BlockRegistryObject<Block> END_SAND = createSand(MapColor.SAND, 16053687, "end_sand");
-
-    public static final BlockRegistryObject<Block> VERMILION_SCULK_TENDRILS = createSculkPlant("vermilion_sculk_tendrils");
-    public static final BlockRegistryObject<Block> VERMILION_SCULK_GROWTH = createSculkGrowth("vermilion_sculk_growth");
-
 
     public static final BlockRegistryObject<Block> THERIUM_CRYSTAL_BLOCK = createCrystalBlock(MapColor.COLOR_YELLOW, "therium_crystal_block");
     public static final BlockRegistryObject<Block> BUDDING_THERIUM_CRYSTAL = createTheriumBuddingCrystalBlock(MapColor.COLOR_YELLOW, "budding_therium_crystal");
@@ -511,7 +492,6 @@ public class BYGBlocks {
     public static final BlockRegistryObject<Block> WAILING_NYLIUM = createNetherSpreadable(() -> Blocks.SOUL_SOIL, MapColor.COLOR_PURPLE, () -> BYGNetherVegetationFeatures.WAILING_VEGETATION, "wailing_nylium");
     public static final BlockRegistryObject<Block> LUSH_GRASS_BLOCK = createDirtSpreadable(LUSH_DIRT, MapColor.COLOR_GREEN, "lush_grass_block");
     public static final BlockRegistryObject<Block> ETHER_PHYLIUM = createEndDirtSpreadable(BYGBlocks.ETHER_SOIL, MapColor.COLOR_MAGENTA, () -> BYGEndVegetationFeatures.ETHER_PLANTS, "ether_phylium");
-    public static final BlockRegistryObject<Block> VERMILION_SCULK = createEndStoneSpreadable(BYGBlocks.ETHER_STONE, MapColor.COLOR_RED, () -> BYGEndFeatures.GROWABLE_SCULK, "vermilion_sculk");
     public static final BlockRegistryObject<DirtPathBlock> LUSH_GRASS_PATH = createBlock(() -> DirtPathBlockAccess.byg_create(BlockBehaviour.Properties.of().strength(0.65F).sound(SoundType.GRASS).isViewBlocking((state, reader, pos) -> true).isSuffocating((state, reader, pos) -> true)), "lush_grass_path");
     public static final BlockRegistryObject<Block> BULBIS_PHYCELIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.TERRACOTTA_WHITE, () -> BYGEndVegetationFeatures.BULBIS_ANOMALIES, "bulbis_phycelium");
     public static final BlockRegistryObject<Block> IMPARIUS_PHYLIUM = createEndStoneSpreadable(() -> Blocks.END_STONE, MapColor.COLOR_CYAN, () -> BYGEndVegetationFeatures.IMPARIUS_PLANTS, "imparius_phylium");
@@ -730,7 +710,7 @@ public class BYGBlocks {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
     }
 
-    private static BlockRegistryObject<Block> createEtherStone(String id) {
+    public static BlockRegistryObject<Block> createEtherStone(String id) {
         return createBlock(() -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f)), id);
     }
 
@@ -876,7 +856,7 @@ public class BYGBlocks {
         return createBlock(() -> new CrystalBlock(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(0.1f).noOcclusion().noCollission().requiresCorrectToolForDrops(), noInjury), id);
     }
 
-    private static BlockRegistryObject<Block> createSculkGrowth(String id) {
+    public static BlockRegistryObject<Block> createSculkGrowth(String id) {
         return createBlock(() -> new SculkGrowthBlock(BlockBehaviour.Properties.of().sound(SoundType.TWISTING_VINES).instabreak().randomTicks().noOcclusion().noCollission()), id);
     }
 
@@ -900,7 +880,7 @@ public class BYGBlocks {
         return createBlock(() -> new TallNightshadePlantBlock(BlockBehaviour.Properties.of().sound(SoundType.ROOTS).instabreak().noOcclusion().noCollission()), id);
     }
 
-    private static BlockRegistryObject<Block> createSculkPlant(String id) {
+    public static BlockRegistryObject<Block> createSculkPlant(String id) {
         return createBlock(() -> new SculkPlantBlock(BlockBehaviour.Properties.of().sound(SoundType.TWISTING_VINES).instabreak().noOcclusion().noCollission()), id);
     }
 

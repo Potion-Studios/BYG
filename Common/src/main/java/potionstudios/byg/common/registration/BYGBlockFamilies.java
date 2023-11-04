@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
@@ -19,6 +20,7 @@ import potionstudios.byg.common.block.BYGBlockProperties;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BaobabFruitItem;
+import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
 import potionstudios.byg.common.world.feature.features.end.BYGEndVegetationFeatures;
 import potionstudios.byg.mixin.access.BlockSetTypeAccess;
 import potionstudios.byg.mixin.access.SimpleParticleTypeAccess;
@@ -33,7 +35,7 @@ public class BYGBlockFamilies {
     public static Map<String, BYGBlockFamily> woodFamilyMap = new HashMap<>();
     public static Map<String, BYGBlockFamily> blockFamilyMap = new HashMap<>();
 
-    public static BYGBlockFamily ASPEN = register(new BYGBlockFamily.WoodBuilder("aspen",
+    public static BYGBlockFamily ASPEN = register(new BYGBlockFamily.OrganicBuilder("aspen",
             getOverworldWoodType("aspen"), () -> MapColor.TERRACOTTA_YELLOW, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -58,7 +60,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily BAOBAB = register(new BYGBlockFamily.WoodBuilder("baobab",
+    public static BYGBlockFamily BAOBAB = register(new BYGBlockFamily.OrganicBuilder("baobab",
             getOverworldWoodType("baobab"), () -> MapColor.TERRACOTTA_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -92,7 +94,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily BLUE_ENCHANTED = register(new BYGBlockFamily.WoodBuilder("blue_enchanted",
+    public static BYGBlockFamily BLUE_ENCHANTED = register(new BYGBlockFamily.OrganicBuilder("blue_enchanted",
             getOverworldWoodType("blue_enchanted"), () -> MapColor.COLOR_BLUE, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -120,7 +122,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily CIKA = register(new BYGBlockFamily.WoodBuilder("cika",
+    public static BYGBlockFamily CIKA = register(new BYGBlockFamily.OrganicBuilder("cika",
             getOverworldWoodType("cika"), () -> MapColor.TERRACOTTA_ORANGE, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -145,7 +147,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily CYPRESS = register(new BYGBlockFamily.WoodBuilder("cypress",
+    public static BYGBlockFamily CYPRESS = register(new BYGBlockFamily.OrganicBuilder("cypress",
             getOverworldWoodType("cypress"), () -> MapColor.TERRACOTTA_LIGHT_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -170,7 +172,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily EBONY = register(new BYGBlockFamily.WoodBuilder("ebony",
+    public static BYGBlockFamily EBONY = register(new BYGBlockFamily.OrganicBuilder("ebony",
             getOverworldWoodType("ebony"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -195,7 +197,30 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily FIR = register(new BYGBlockFamily.WoodBuilder("fir",
+    public static BYGBlockFamily ETHER_STONE = register(new BYGBlockFamily.InorganicBuilder("ether_stone",
+            getBlockSetType(() -> new BlockSetType("ether_stone")), BYGBlocks.createEtherStone("ether_stone"),
+            BuiltinDimensionTypes.END)
+            .slab()
+            .stairs()
+            .wall(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .cobbled(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f))
+            .cobbled_slab(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .cobbled_stairs(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .cobbled_wall(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .carved(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops().sound(SoundType.STONE).strength(1.5f, 6.0f))
+            .carved_slab(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .carved_stairs(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE).sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+            .carved_wall(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(2.0f, 6.0f).requiresCorrectToolForDrops())
+    );
+
+    public static BYGBlockFamily VERMILION_SCULK = register(new BYGBlockFamily.InorganicBuilder("vermilion_sculk",
+            getBlockSetType(() -> new BlockSetType("vermilion_sculk")), BYGBlocks.createEndStoneSpreadable(() -> ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK),
+            MapColor.COLOR_RED, () -> BYGEndFeatures.GROWABLE_SCULK, "vermilion_sculk"), BuiltinDimensionTypes.END)
+            .growth(() -> BYGBlocks.createSculkGrowth("vermilion_sculk_growth"))
+            .tendrils(() -> BYGBlocks.createSculkPlant("vermilion_sculk_tendrils"))
+    );
+
+    public static BYGBlockFamily FIR = register(new BYGBlockFamily.OrganicBuilder("fir",
             getOverworldWoodType("fir"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -220,7 +245,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily GREEN_ENCHANTED = register(new BYGBlockFamily.WoodBuilder("green_enchanted",
+    public static BYGBlockFamily GREEN_ENCHANTED = register(new BYGBlockFamily.OrganicBuilder("green_enchanted",
             getOverworldWoodType("green_enchanted"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -249,7 +274,7 @@ public class BYGBlockFamilies {
     );
 
 
-    public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.WoodBuilder("holly",
+    public static BYGBlockFamily HOLLY = register(new BYGBlockFamily.OrganicBuilder("holly",
             getOverworldWoodType("holly"), () -> MapColor.TERRACOTTA_GREEN,BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -275,7 +300,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily JOSHUA = register(new BYGBlockFamily.WoodBuilder("joshua",
+    public static BYGBlockFamily JOSHUA = register(new BYGBlockFamily.OrganicBuilder("joshua",
             getOverworldWoodType("joshua"), ()-> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .fruit("joshua_fruit_block", "joshua_fruit", "ripe_joshua_leaves",
@@ -292,7 +317,7 @@ public class BYGBlockFamilies {
                             .saturationMod(0.4f).build())))
     );
 
-    public static BYGBlockFamily NIGHTSHADE = register(new BYGBlockFamily.WoodBuilder("nightshade",
+    public static BYGBlockFamily NIGHTSHADE = register(new BYGBlockFamily.OrganicBuilder("nightshade",
             getOverworldWoodType("nightshade"), () -> MapColor.COLOR_ORANGE, BuiltinDimensionTypes.END
             , true)
             .bookshelf()
@@ -335,7 +360,7 @@ public class BYGBlockFamilies {
             MapColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS,
             "nightshade_phylium");
 
-    public static BYGBlockFamily ORCHARD = register(new BYGBlockFamily.WoodBuilder("orchard",
+    public static BYGBlockFamily ORCHARD = register(new BYGBlockFamily.OrganicBuilder("orchard",
             getOverworldWoodType("orchard"), ()-> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , false)
             .fruit("apple_fruit_block", "", "ripe_orchard_leaves",
@@ -347,7 +372,7 @@ public class BYGBlockFamilies {
             .growerItem(BYGBlockFamily.BlockTags.PLANT, "orchard_sapling")
     );
 
-    public static BYGBlockFamily PALM = register(new BYGBlockFamily.WoodBuilder("palm",
+    public static BYGBlockFamily PALM = register(new BYGBlockFamily.OrganicBuilder("palm",
             getOverworldWoodType("palm"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -372,7 +397,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily PINE = register(new BYGBlockFamily.WoodBuilder("pine",
+    public static BYGBlockFamily PINE = register(new BYGBlockFamily.OrganicBuilder("pine",
             getOverworldWoodType("pine"), () -> MapColor.TERRACOTTA_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -397,14 +422,14 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily ARAUCARIA = register(new BYGBlockFamily.WoodBuilder("araucaria",
+    public static BYGBlockFamily ARAUCARIA = register(new BYGBlockFamily.OrganicBuilder("araucaria",
             getOverworldWoodType("araucaria"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , false)
             .leaves()
             .growerItem(BYGBlockFamily.BlockTags.PLANT, "araucaria_sapling")
     );
 
-    public static BYGBlockFamily RAINBOW_EUCALYPTUS = register(new BYGBlockFamily.WoodBuilder("rainbow_eucalyptus",
+    public static BYGBlockFamily RAINBOW_EUCALYPTUS = register(new BYGBlockFamily.OrganicBuilder("rainbow_eucalyptus",
             getOverworldWoodType("rainbow_eucalyptus"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -429,7 +454,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily REDWOOD = register(new BYGBlockFamily.WoodBuilder("redwood",
+    public static BYGBlockFamily REDWOOD = register(new BYGBlockFamily.OrganicBuilder("redwood",
             getOverworldWoodType("redwood"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -454,7 +479,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("sakura_cherry",
+    public static BYGBlockFamily SAKURA_CHERRY = register(new BYGBlockFamily.OrganicBuilder("sakura_cherry",
             getOverworldWoodType("sakura_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -477,7 +502,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily WHITE_SAKURA_CHERRY = register(new BYGBlockFamily.WoodBuilder("white_cherry",
+    public static BYGBlockFamily WHITE_SAKURA_CHERRY = register(new BYGBlockFamily.OrganicBuilder("white_cherry",
             getOverworldWoodType("white_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD
             ,false)
             .growerItem(BYGBlockFamily.BlockTags.PLANT, "white_cherry_sapling")
@@ -488,7 +513,7 @@ public class BYGBlockFamilies {
             .foliage()
     );
 
-    public static BYGBlockFamily SKYRIS = register(new BYGBlockFamily.WoodBuilder("skyris",
+    public static BYGBlockFamily SKYRIS = register(new BYGBlockFamily.OrganicBuilder("skyris",
             getOverworldWoodType("skyris"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -527,7 +552,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily WHITE_MANGROVE = register(new BYGBlockFamily.WoodBuilder("white_mangrove",
+    public static BYGBlockFamily WHITE_MANGROVE = register(new BYGBlockFamily.OrganicBuilder("white_mangrove",
             getOverworldWoodType("white_mangrove"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -552,7 +577,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily ZELKOVA = register(new BYGBlockFamily.WoodBuilder("zelkova",
+    public static BYGBlockFamily ZELKOVA = register(new BYGBlockFamily.OrganicBuilder("zelkova",
             getOverworldWoodType("zelkova"), () -> MapColor.TERRACOTTA_RED, BuiltinDimensionTypes.OVERWORLD
             , true)
             .boat()
@@ -577,7 +602,7 @@ public class BYGBlockFamilies {
             .wood()
     );
 
-    public static BYGBlockFamily BROWN_ZELKOVA = register(new BYGBlockFamily.WoodBuilder("brown_zelkova",
+    public static BYGBlockFamily BROWN_ZELKOVA = register(new BYGBlockFamily.OrganicBuilder("brown_zelkova",
             getOverworldWoodType("brown_zelkova"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , false)
             .leaves()
@@ -585,13 +610,13 @@ public class BYGBlockFamilies {
     );
 
 
-    private static BYGBlockFamily register(BYGBlockFamily.WoodBuilder builder) {
+    private static BYGBlockFamily register(BYGBlockFamily.OrganicBuilder builder) {
         BYGBlockFamily bygBlockFamily = builder.build();
         woodFamilyMap.put(bygBlockFamily.getBaseName(), bygBlockFamily);
         return bygBlockFamily;
     }
-    private static BYGBlockFamily register(BYGBlockFamily.Builder builder) {
-        BYGBlockFamily bygBlockFamily = builder.build();
+    private static BYGBlockFamily register(BYGBlockFamily.InorganicBuilder inorganicBuilder) {
+        BYGBlockFamily bygBlockFamily = inorganicBuilder.build();
         blockFamilyMap.put(bygBlockFamily.getBaseName(), bygBlockFamily);
         return bygBlockFamily;
     }
