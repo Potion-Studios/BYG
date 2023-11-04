@@ -12,9 +12,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SignBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -148,16 +146,22 @@ public class BYG {
         campfireBuilderAccess.byg_setValidBlocks(validCampfireBlocks);
 
         BlockEntityTypeAccess signBuilderAccess = (BlockEntityTypeAccess) BlockEntityType.SIGN;
+        BlockEntityTypeAccess hangingSignBuilderAccess = (BlockEntityTypeAccess) BlockEntityType.HANGING_SIGN;
         Set<Block> signValidBlocks = new ObjectOpenHashSet<>(signBuilderAccess.byg_getValidBlocks());
+        Set<Block> hangingSignValidBlocks = new ObjectOpenHashSet<>(hangingSignBuilderAccess.byg_getValidBlocks());
         for (BlockRegistryObject<Block> signBlock : BYGBlocks.SIGN_BLOCKS) {
             Block block = signBlock.get();
             if (block instanceof SignBlock) {
-                signValidBlocks.add(block);
+                if (block instanceof CeilingHangingSignBlock || block instanceof WallHangingSignBlock)
+                    hangingSignValidBlocks.add(block);
+                else
+                    signValidBlocks.add(block);
             } else {
                 throw new IllegalArgumentException("Attempting to add block to sign block entity that is not a type of SignBlock");
             }
         }
         signBuilderAccess.byg_setValidBlocks(signValidBlocks);
+        hangingSignBuilderAccess.byg_setValidBlocks(hangingSignValidBlocks);
     }
 
     public static void threadSafeLoadFinish() {
