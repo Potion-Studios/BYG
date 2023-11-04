@@ -23,7 +23,7 @@ public class BYGSaplingBlock extends SaplingBlock implements FeatureGrowerFromBl
     private final TagKey<Block> groundTag;
 
     public BYGSaplingBlock(Properties properties, TagKey<Block> groundTag) {
-        super(null, properties);
+        super(new BYGTreeGrower(), properties);
         this.groundTag = groundTag;
         ENTRIES.add(() -> this);
     }
