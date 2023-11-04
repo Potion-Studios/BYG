@@ -42,7 +42,7 @@ public class BYGConfigHandler {
         }
         errors.append(tryCatchErrors(() -> BiomepediaConfig.getConfig(serialize, recreate)));
         errors.append(tryCatchErrors(() -> ConfigVersionTracker.getConfig(new ConfigVersionTracker(BYGConstants.CONFIG_VERSION), recreate)));
-        errors.append(tryCatchErrors(() -> makeREADME()));
+        errors.append(tryCatchErrors(BYGConfigHandler::makeREADME));
 
         if (!errors.isEmpty()) {
             return String.format("Config errors were found:\n\n%s", errors.toString());
@@ -59,6 +59,7 @@ public class BYGConfigHandler {
         } catch (Exception e) {
             error = e.getMessage();
         }
+        if (error == null) return "";
         return error + (!error.isEmpty() ? "\n" : "");
     }
 
