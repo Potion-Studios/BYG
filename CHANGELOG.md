@@ -1,5 +1,6 @@
 # 2.0.1.6
 * Fix Broken Cut Sandstone Recipes. Fixes #1279
+* Fix a crash involving Sapling Growth
 
 # 2.0.1.5
 * Fix Broken Sandstone Recipes. Fixes #1204
