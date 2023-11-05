@@ -37,10 +37,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 @SuppressWarnings("unused")
 public class BYGBlockFamily {
@@ -54,7 +51,7 @@ public class BYGBlockFamily {
     private final Map<BlockVariant, Block> variants = new ConcurrentHashMap<>();
     private final Map<ItemVariant, Item> itemVariants = new ConcurrentHashMap<>();
     private final Map<ParticleVariant, SimpleParticleType> particleVariants = new ConcurrentHashMap<>();
-    private final Map<BlockTags, TagKey<Block>> tagKeyMap = new ConcurrentHashMap<>();
+    private final Map<BlockVariant, TagKey<Block>> blockTagKeyMap = new ConcurrentHashMap<>();
     private BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> strippables = null;
     private FeatureFlagSet requiredFeatures;
     private boolean generateModel;
@@ -80,8 +77,8 @@ public class BYGBlockFamily {
         return itemVariants;
     }
 
-    public Map<BlockTags, TagKey<Block>> getTagKeyMap() {
-        return tagKeyMap;
+    public Map<BlockVariant, TagKey<Block>> getBlockTagKeyMap() {
+        return blockTagKeyMap;
     }
 
     public Block get(BlockVariant blockVariant) {
@@ -94,8 +91,8 @@ public class BYGBlockFamily {
         return this.particleVariants.get(variant);
     }
 
-    public TagKey<Block> getTag(BlockTags blockTags) {
-        return this.tagKeyMap.get(blockTags);
+    public TagKey<Block> getTag(BlockVariant blockVariant) {
+        return this.blockTagKeyMap.get(blockVariant);
     }
 
     public BiConsumer<BiConsumer<Block, Block>, BYGBlockFamily> getStrippables() {
@@ -126,31 +123,31 @@ public class BYGBlockFamily {
     }
 
     public BYGBlockFamily spreadable(SpreadableTypes spreadableType,
-                                  Supplier<? extends Block> blockToSpreadToo,
+                                  Function<BYGBlockFamily, ? extends Block> blockToSpreadToo,
                                   MapColor color,
                                   Supplier<ResourceKey<ConfiguredFeature<?, ?>>> feature,
                                   String id) {
         RegistryObject<? extends Block> block;
         if(dimension.equals(BuiltinDimensionTypes.END)) {
             if(SpreadableTypes.DIRT.equals(spreadableType)) {
-                block = BYGBlocks.createEndDirtSpreadable(blockToSpreadToo, color, feature, id);
+                block = BYGBlocks.createEndDirtSpreadable(() -> blockToSpreadToo.apply(this), color, feature, id);
             } else {
-                block = BYGBlocks.createEndStoneSpreadable(blockToSpreadToo, color, feature, id);
+                block = BYGBlocks.createEndStoneSpreadable(() -> blockToSpreadToo.apply(this), color, feature, id);
             }
         } else if(dimension.equals(BuiltinDimensionTypes.NETHER)) {
             if(SpreadableTypes.DIRT.equals(spreadableType)) {
-                block = BYGBlocks.createNetherSpreadable(blockToSpreadToo, color, feature, id);
+                block = BYGBlocks.createNetherSpreadable(() -> blockToSpreadToo.apply(this), color, feature, id);
             } else {
-                block = BYGBlocks.createNetherStoneSpreadable(blockToSpreadToo, color, feature, id);
+                block = BYGBlocks.createNetherStoneSpreadable(() -> blockToSpreadToo.apply(this), color, feature, id);
             }
         } else {
             if(SpreadableTypes.DIRT.equals(spreadableType)) {
-                block = BYGBlocks.createDirtSpreadable(blockToSpreadToo, color, id);
+                block = BYGBlocks.createDirtSpreadable(() -> blockToSpreadToo.apply(this), color, id);
             } else {
-                block = BYGBlocks.createStoneSpreadable(blockToSpreadToo, color, id);
+                block = BYGBlocks.createStoneSpreadable(() -> blockToSpreadToo.apply(this), color, id);
             }
         }
-        this.variants.put(BlockVariant.SPREAD_TO, blockToSpreadToo.get());
+        this.variants.put(BlockVariant.SPREAD_TO, blockToSpreadToo.apply(this));
         this.variants.put(BlockVariant.SPREADABLE, block.get());
         BYGItems.createItem(block);
         return this;
@@ -194,8 +191,11 @@ public class BYGBlockFamily {
             RegistryObject<? extends Block> block = supplier.get();
             this.family.variants.put(BlockVariant.BUSH,
                     block.get());
-            Item fruit = BYGItems.createItem(() -> bushItem.apply(block.get()), fruitName).get();
-            this.family.itemVariants.put(ItemVariant.FRUIT, fruit);
+            Item unregisteredItem = bushItem.apply(block.get());
+            if(unregisteredItem != null) {
+                Item fruit = BYGItems.createItem(() -> unregisteredItem, fruitName).get();
+                this.family.itemVariants.put(ItemVariant.FRUIT, fruit);
+            }
             return this;
         }
 
@@ -296,11 +296,13 @@ public class BYGBlockFamily {
             return this;
         }
 
-        public OrganicBuilder growerItem(BlockTags blockTags, String itemName) {
+        public OrganicBuilder growerItem(GrowerTypes growerType, String itemName,
+                                         Consumer<TagKey<Block>> additionalTags) {
             TagKey<Block> tagKey = createTag(BYG.createLocation("may_place_on/" + itemName));
-            this.family.tagKeyMap.put(blockTags, tagKey);
+            additionalTags.accept(tagKey);
+            this.family.blockTagKeyMap.put(BlockVariant.GROWER, tagKey);
             BlockRegistryObject<Block> growerBlock =
-                    switch (blockTags) {
+                    switch (growerType) {
                         case NETHER_PLANT -> BYGBlocks.createFungus(tagKey, itemName);
                         case MUSHROOM -> BYGBlocks.createMushroom(tagKey, itemName);
                         default -> BYGBlocks.createSapling(tagKey, itemName);
@@ -308,7 +310,7 @@ public class BYGBlockFamily {
             this.family.variants.put(BlockVariant.GROWER, growerBlock.get());
             this.family.variants.put(BlockVariant.POTTED,
                     BYGBlocks.FLOWER_POT_BLOCKS.get(growerBlock.getId()).get());
-            BYGItems.createGrowerItem(growerBlock, blockTags == BlockTags.PLANT);
+            BYGItems.createGrowerItem(growerBlock, growerType == GrowerTypes.PLANT);
             return this;
         }
 
@@ -420,6 +422,13 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public OrganicBuilder soil() {
+            RegistryObject<? extends Block> soil = BYGBlocks.createDirt(baseName + "_soil");
+            this.family.variants.put(BlockVariant.SOIL, soil.get());
+            BYGItems.createItem(soil);
+            return this;
+        }
+
         public OrganicBuilder slab() {
             RegistryObject<? extends Block> block = BYGBlocks.createWoodSlab(baseName + "_slab");
             this.family.variants.put(BlockVariant.SLAB,
@@ -464,6 +473,13 @@ public class BYGBlockFamily {
         public OrganicBuilder sprouts(@NotNull Supplier<? extends RegistryObject<? extends Block>> supplier) {
             RegistryObject<? extends Block> registryObject = supplier.get();
             this.family.variants.put(BlockVariant.SPROUTS, registryObject.get());
+            BYGItems.createItem(registryObject);
+            return this;
+        }
+
+        public OrganicBuilder tallGrass(@NotNull Supplier<? extends RegistryObject<? extends Block>> supplier) {
+            RegistryObject<? extends Block> registryObject = supplier.get();
+            this.family.variants.put(BlockVariant.TALL_GRASS, registryObject.get());
             BYGItems.createItem(registryObject);
             return this;
         }
@@ -805,7 +821,7 @@ public class BYGBlockFamily {
     }
 
 
-    public enum BlockTags {
+    public enum GrowerTypes {
         PLANT,
         MUSHROOM,
         NETHER_PLANT,
@@ -885,12 +901,14 @@ public class BYGBlockFamily {
         ROOTS("roots"),
         SIGN("sign"),
         SLAB("slab"),
+        SOIL("soil"),
         SPREADABLE("spreadable"),
         SPREAD_TO("spread_to"),
         SPROUTS("sprouts"),
         STAIRS("stairs"),
         STRIPPED_LOG("stripped_log"),
         STRIPPED_WOOD("stripped_wood"),
+        TALL_GRASS("tall_grass"),
         TENDRILS("tendrils"),
         TRAPDOOR("trapdoor"),
         WALL("wall"),

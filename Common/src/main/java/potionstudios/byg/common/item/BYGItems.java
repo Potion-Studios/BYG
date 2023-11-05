@@ -252,7 +252,6 @@ public class BYGItems {
         BYGWoodTypes.BULBIS.init();
 
         ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
-        BYGWoodTypes.ETHER.init();
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
         IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);
@@ -398,16 +397,9 @@ public class BYGItems {
     public static final RegistryObject<Item> CHISELED_FUNGAL_IMPARIUS_STAIRS = createItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_STAIRS);
     public static final RegistryObject<Item> CHISELED_FUNGAL_IMPARIUS_WALL = createItem(BYGBlocks.CHISELED_FUNGAL_IMPARIUS_WALL);
 
-    public static final RegistryObject<Item> ETHER_PHYLIUM = createItem(BYGBlocks.ETHER_PHYLIUM);
-    public static final RegistryObject<Item> ETHER_SOIL = createItem(BYGBlocks.ETHER_SOIL);
-
     public static final RegistryObject<Item> BULBIS_SPROUTS = createItem(BYGBlocks.BULBIS_SPROUTS);
     public static final RegistryObject<Item> BULBIS_PHYCELIUM = createItem(BYGBlocks.BULBIS_PHYCELIUM);
 
-    public static final RegistryObject<Item> ETHER_FOLIAGE = createItem(BYGBlocks.ETHER_FOLIAGE);
-    public static final RegistryObject<Item> TALL_ETHER_GRASS = createItem(BYGBlocks.TALL_ETHER_GRASS);
-    public static final RegistryObject<Item> ETHER_GRASS = createItem(BYGBlocks.ETHER_GRASS);
-    public static final RegistryObject<Item> ETHER_BUSH = createItem(BYGBlocks.ETHER_BUSH);
     public static final RegistryObject<Item> THEREAL_BELLFLOWER = createItem(BYGBlocks.THEREAL_BELLFLOWER);
 
     public static final RegistryObject<Item> PURPUR_STONE = createItem(BYGBlocks.PURPUR_STONE);

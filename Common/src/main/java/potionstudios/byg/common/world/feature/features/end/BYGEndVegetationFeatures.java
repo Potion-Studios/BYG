@@ -229,7 +229,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -247,7 +247,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -265,7 +265,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -283,7 +283,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -301,7 +301,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -319,7 +319,7 @@ public class BYGEndVegetationFeatures {
                             .add(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 8).build()),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockTags.END_PLANT), 5, ImmutableList.of()
+                    BYGBlockFamilies.NIGHTSHADE.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 

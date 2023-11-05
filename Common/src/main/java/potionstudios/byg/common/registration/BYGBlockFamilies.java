@@ -46,7 +46,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "aspen_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "aspen_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -75,7 +75,7 @@ public class BYGBlockFamilies {
                     (block) -> new BaobabFruitItem(block,
                             new Item.Properties().food(new FoodProperties.Builder().nutrition(3)
                                     .saturationMod(0.5f).alwaysEat().build())))
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "baobab_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "baobab_sapling", (tag) -> {})
             .hangingSign()
             .leaves((id, family) -> BYGBlocks.createFruitLeaves(MapColor.COLOR_GREEN,
                     () -> family.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState()
@@ -105,7 +105,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "blue_enchanted_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "blue_enchanted_sapling", (tag) -> {})
             .hangingSign()
             .imbuedLog()
             .leaves((id, family) -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))
@@ -133,7 +133,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "cika_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "cika_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -158,7 +158,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "cypress_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "cypress_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -183,7 +183,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "ebony_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "ebony_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -220,6 +220,40 @@ public class BYGBlockFamilies {
             .tendrils(() -> BYGBlocks.createSculkPlant("vermilion_sculk_tendrils"))
     );
 
+    public static BYGBlockFamily ETHER = register(new BYGBlockFamily.OrganicBuilder("ether",
+            getNotOverworldWoodType("ether"), () -> MapColor.COLOR_CYAN, BuiltinDimensionTypes.END, true)
+            .soil()
+            .bookshelf()
+            .bush(() -> BYGBlocks.createEtherPlant("ether_grass"),
+                    "nightshade_berries",
+                    (block) -> null)
+            .button()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .foliage()
+            .grass(() -> BYGBlocks.createEtherPlant("ether_grass"))
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "ether_sapling", (tag) -> {})
+            .hangingSign()
+            .imbuedLog()
+            .leaves()
+            .log()
+            .pressurePlate()
+            .tallGrass(() -> BYGBlocks.createTallEtherPlant("tall_ether_grass"))
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .strippables((consumer, family) -> consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
+                    family.get(BYGBlockFamily.BlockVariant.LOG)))
+            .trapdoor()
+            .wood()
+    ).spreadable(BYGBlockFamily.SpreadableTypes.DIRT, (family) -> family.get(BYGBlockFamily.BlockVariant.SOIL),
+            MapColor.COLOR_MAGENTA, () -> BYGEndVegetationFeatures.ETHER_PLANTS,
+            "ether_phylium");
+
     public static BYGBlockFamily FIR = register(new BYGBlockFamily.OrganicBuilder("fir",
             getOverworldWoodType("fir"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , true)
@@ -231,7 +265,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "fir_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "fir_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -256,7 +290,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "green_enchanted_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "green_enchanted_sapling", (tag) -> {})
             .hangingSign()
             .imbuedLog()
             .leaves((id, family) -> BYGBlocks.createGlowingLeaves(MapColor.COLOR_GREEN, 15, id))
@@ -285,7 +319,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "holly_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "holly_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .floweringLeaves((id, family) -> BYGBlocks.createLeaves(MapColor.TERRACOTTA_GREEN, "holly_berry_leaves"))
@@ -311,14 +345,14 @@ public class BYGBlockFamilies {
             .floweringLeaves((s, family) -> BYGBlocks.createChangingLeaves(MapColor.COLOR_GREEN,
                     () -> (LeavesBlock) family.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES),
                     0.02F, "flowering_joshua_leaves"))
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "joshua_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "joshua_sapling", (tag) -> {})
             .processedFood("cooked_joshua_fruit", () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder().nutrition(5)
                             .saturationMod(0.4f).build())))
     );
 
     public static BYGBlockFamily NIGHTSHADE = register(new BYGBlockFamily.OrganicBuilder("nightshade",
-            getOverworldWoodType("nightshade"), () -> MapColor.COLOR_ORANGE, BuiltinDimensionTypes.END
+            getNotOverworldWoodType("nightshade"), () -> MapColor.COLOR_ORANGE, BuiltinDimensionTypes.END
             , true)
             .bookshelf()
             .bush(() -> BYGBlocks.createNightshadeBerryBush("nightshade_berry_bush"),
@@ -333,7 +367,7 @@ public class BYGBlockFamilies {
             .fenceGate()
             .floweringLeaves((s, family) -> BYGBlocks
                             .createGlowingLeaves(MapColor.COLOR_ORANGE, 15, "flowering_nightshade_leaves"))
-            .growerItem(BYGBlockFamily.BlockTags.END_PLANT, "nightshade_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.END_PLANT, "nightshade_sapling", (tag) -> {})
             .hangingSign()
             .imbuedLog()
             .leaves()
@@ -356,7 +390,7 @@ public class BYGBlockFamilies {
             .sprouts(() -> BYGBlocks.createNightshadePlant("nightshade_sprouts"))
             .trapdoor()
             .wood()
-    ).spreadable(BYGBlockFamily.SpreadableTypes.STONE, () -> Blocks.END_STONE,
+    ).spreadable(BYGBlockFamily.SpreadableTypes.STONE, (family) -> Blocks.END_STONE,
             MapColor.COLOR_BLUE, () -> BYGEndVegetationFeatures.NIGHTSHADE_PLANTS,
             "nightshade_phylium");
 
@@ -369,7 +403,7 @@ public class BYGBlockFamilies {
             .floweringLeaves((s, family) -> BYGBlocks.createChangingLeaves(MapColor.COLOR_GREEN,
                     () -> (LeavesBlock) family.get(BYGBlockFamily.BlockVariant.FRUIT_LEAVES),
                     0.02F, "flowering_orchard_leaves"))
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "orchard_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "orchard_sapling", (tag) -> {})
     );
 
     public static BYGBlockFamily PALM = register(new BYGBlockFamily.OrganicBuilder("palm",
@@ -383,7 +417,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "palm_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "palm_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -408,7 +442,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "pine_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "pine_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -426,7 +460,7 @@ public class BYGBlockFamilies {
             getOverworldWoodType("araucaria"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , false)
             .leaves()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "araucaria_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "araucaria_sapling", (tag) -> {})
     );
 
     public static BYGBlockFamily RAINBOW_EUCALYPTUS = register(new BYGBlockFamily.OrganicBuilder("rainbow_eucalyptus",
@@ -440,7 +474,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "rainbow_eucalyptus_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "rainbow_eucalyptus_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -465,7 +499,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "redwood_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "redwood_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -505,7 +539,7 @@ public class BYGBlockFamilies {
     public static BYGBlockFamily WHITE_SAKURA_CHERRY = register(new BYGBlockFamily.OrganicBuilder("white_cherry",
             getOverworldWoodType("white_cherry"), () -> MapColor.COLOR_PINK, BuiltinDimensionTypes.OVERWORLD
             ,false)
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "white_cherry_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "white_cherry_sapling", (tag) -> {})
             .leafParticles(() -> SimpleParticleTypeAccess.byg_create(false), "white_cherry_blossom_leaves")
             .leaves((id, family) -> BYGBlocks.createLeaves(MapColor.COLOR_LIGHT_GRAY, () ->
                     family.get(BYGBlockFamily.ParticleVariant.LEAVES), id)
@@ -528,7 +562,7 @@ public class BYGBlockFamilies {
                     (block) -> new BaobabFruitItem(block,
                             new Item.Properties().food(new FoodProperties.Builder().nutrition(3)
                                     .saturationMod(0.5f).alwaysEat().build())))
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "skyris_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "skyris_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .floweringLeaves((s, family) -> BYGBlocks.createChangingLeaves(MapColor.COLOR_PINK,
@@ -563,7 +597,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "white_mangrove_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "white_mangrove_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -588,7 +622,7 @@ public class BYGBlockFamilies {
             .door()
             .fence()
             .fenceGate()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "zelkova_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "zelkova_sapling", (tag) -> {})
             .hangingSign()
             .leaves()
             .log()
@@ -606,7 +640,7 @@ public class BYGBlockFamilies {
             getOverworldWoodType("brown_zelkova"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
             , false)
             .leaves()
-            .growerItem(BYGBlockFamily.BlockTags.PLANT, "brown_zelkova_sapling")
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "brown_zelkova_sapling", (tag) -> {})
     );
 
 

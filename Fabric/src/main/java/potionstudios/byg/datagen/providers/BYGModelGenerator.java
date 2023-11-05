@@ -581,7 +581,7 @@ public class BYGModelGenerator extends FabricModelProvider {
                 case IMBUED_LOG, LOG, STRIPPED_LOG -> log(providerMethod);
                 case POTTED -> potted(providerMethod);
                 case PRESSURE_PLATE -> pressurePlate(providerMethod);
-                case ROOTS -> doublePlant(providerMethod);
+                case ROOTS, TALL_GRASS -> doublePlant(providerMethod);
                 case SIGN -> sign(providerMethod);
                 case SPREADABLE -> spreadable(providerMethod);
                 case SLAB -> slab(providerMethod);

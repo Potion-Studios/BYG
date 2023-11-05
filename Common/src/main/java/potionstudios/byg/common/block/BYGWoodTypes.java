@@ -36,9 +36,6 @@ public enum BYGWoodTypes {
             .registryName(BlockType.WOOD, "%s_wood")
             .registryName(BlockType.STRIPPED_WOOD, "stripped_%s_wood")
             .nether()),
-    ETHER("ether", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_ETHER_SAPLING)
-            .MapColor(MapColor.COLOR_CYAN).end()),
     IMPARIUS("imparius", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_IMPARIUS_MUSHROOM)
             .exclude(BlockType.LEAVES, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD)
