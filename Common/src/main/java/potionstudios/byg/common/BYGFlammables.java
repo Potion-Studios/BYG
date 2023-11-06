@@ -70,8 +70,6 @@ public class BYGFlammables {
         flammableBlock(BYGBlocks.PALO_VERDE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.RED_OAK_LEAVES.get(), 30, 60);
 
-        flammableBlock(BYGBlocks.SILVER_MAPLE_LEAVES.get(), 30, 60);
-        flammableBlock(BYGBlocks.RED_MAPLE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_BIRCH_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.YELLOW_SPRUCE_LEAVES.get(), 30, 60);
         flammableBlock(BYGBlocks.FIRECRACKER_LEAVES.get(), 60, 30);

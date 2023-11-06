@@ -38,8 +38,8 @@ public class BYGClient {
         strategy.register(BYGParticleTypes.THERIUM_GLINT.get(), TheriumGlint.Provider::new);
         strategy.register(BYGParticleTypes.WITCH_HAZEL_LEAVES.get(), FallingLeafParticle.Provider::new);
         strategy.register(BYGBlockFamilies.WHITE_SAKURA_CHERRY.get(BYGBlockFamily.ParticleVariant.LEAVES), FallingLeafParticle.Provider::new);
-        strategy.register(BYGParticleTypes.SILVER_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
-        strategy.register(BYGParticleTypes.RED_MAPLE_LEAVES.get(), FallingLeafParticle.Provider::new);
+        strategy.register(BYGBlockFamilies.SILVER_MAPLE.get(BYGBlockFamily.ParticleVariant.LEAVES), FallingLeafParticle.Provider::new);
+        strategy.register(BYGBlockFamilies.RED_MAPLE.get(BYGBlockFamily.ParticleVariant.LEAVES), FallingLeafParticle.Provider::new);
     }
 
     public interface ParticleStrategy {

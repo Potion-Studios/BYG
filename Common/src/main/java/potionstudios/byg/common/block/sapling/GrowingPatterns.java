@@ -254,7 +254,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .build())
             ));
 
-            map.put(BYGWoodTypes.MAPLE.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.MAPLE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>single(new FeatureSpawner(BYGOverworldTreeFeatures.MAPLE_TREE1)))
             ));
             map.put(BYGBlocks.ORANGE_BIRCH_SAPLING.get(), List.of(
@@ -342,7 +342,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.BIRCH_RED_TREE4), 1)
                             .build())
             ));
-            map.put(BYGBlocks.RED_MAPLE_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.RED_MAPLE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.RED_MAPLE_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.RED_MAPLE_TREE2), 1)
@@ -400,7 +400,7 @@ public record GrowingPatterns(boolean logGrowth,
                             "  x  "
                     ), SimpleWeightedRandomList.single(new FeatureSpawner(BYGOverworldTreeFeatures.REDWOOD_TREE2)))
             ));
-            map.put(BYGBlocks.SILVER_MAPLE_SAPLING.get(), List.of(
+            map.put(BYGBlockFamilies.SILVER_MAPLE.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SILVER_MAPLE_TREE1), 1)
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.SILVER_MAPLE_TREE2), 1)
