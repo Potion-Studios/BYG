@@ -359,6 +359,50 @@ public class BYGBlockFamilies {
                             .saturationMod(0.4f).build())))
     );
 
+    public static BYGBlockFamily MAPLE = register(new BYGBlockFamily.OrganicBuilder("maple",
+            getOverworldWoodType("maple"), () -> MapColor.COLOR_GREEN, BuiltinDimensionTypes.OVERWORLD
+            , true)
+            .boat()
+            .bookshelf()
+            .button()
+            .chestBoat()
+            .craftingTable()
+            .door()
+            .fence()
+            .fenceGate()
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "maple_sapling", (tag) -> {})
+            .hangingSign()
+            .log()
+            .pressurePlate()
+            .sign()
+            .slab()
+            .stairs()
+            .strippedLog()
+            .strippedWood()
+            .trapdoor()
+            .wood()
+    );
+
+    public static BYGBlockFamily RED_MAPLE = register(new BYGBlockFamily.OrganicBuilder("red_maple",
+            getOverworldWoodType("red_maple"), () -> MapColor.COLOR_RED, BuiltinDimensionTypes.OVERWORLD
+            ,false)
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "red_maple_sapling", (tag) -> {})
+            .leafParticles(() -> SimpleParticleTypeAccess.byg_create(false), "red_maple_leaves")
+            .leaves((id, family) -> BYGBlocks.createLeaves(MapColor.COLOR_RED, () ->
+                    family.get(BYGBlockFamily.ParticleVariant.LEAVES), id)
+            )
+    );
+
+    public static BYGBlockFamily SILVER_MAPLE = register(new BYGBlockFamily.OrganicBuilder("silver_maple",
+            getOverworldWoodType("silver_maple"), () -> MapColor.COLOR_LIGHT_GRAY, BuiltinDimensionTypes.OVERWORLD
+            ,false)
+            .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "silver_maple_sapling", (tag) -> {})
+            .leafParticles(() -> SimpleParticleTypeAccess.byg_create(false), "silver_maple_leaves")
+            .leaves((id, family) -> BYGBlocks.createLeaves(MapColor.COLOR_LIGHT_GRAY, () ->
+                    family.get(BYGBlockFamily.ParticleVariant.LEAVES), id)
+            )
+    );
+
     public static BYGBlockFamily NIGHTSHADE = register(new BYGBlockFamily.OrganicBuilder("nightshade",
             getNotOverworldWoodType("nightshade"), () -> MapColor.COLOR_ORANGE, BuiltinDimensionTypes.END
             , true)

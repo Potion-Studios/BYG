@@ -219,12 +219,6 @@ public class BYGItems {
     public static final RegistryObject<Item> INDIGO_JACARANDA_LEAVES;
     public static final RegistryObject<Item> FLOWERING_INDIGO_JACARANDA_LEAVES;
 
-    //Maple Woodtype
-    public static final RegistryObject<GrowerItem> RED_MAPLE_SAPLING;
-    public static final RegistryObject<Item> RED_MAPLE_LEAVES;
-    public static final RegistryObject<GrowerItem> SILVER_MAPLE_SAPLING;
-    public static final RegistryObject<Item> SILVER_MAPLE_LEAVES;
-
 
     //Palo Verde Woodtype
     public static final RegistryObject<Item> FLOWERING_PALO_VERDE_LEAVES;
@@ -270,12 +264,6 @@ public class BYGItems {
         BYGWoodTypes.JACARANDA.init();
 
         BYGWoodTypes.MAHOGANY.init();
-
-        RED_MAPLE_SAPLING = createSaplingItem(BYGBlocks.RED_MAPLE_SAPLING);
-        RED_MAPLE_LEAVES = createItem(BYGBlocks.RED_MAPLE_LEAVES);
-        SILVER_MAPLE_SAPLING = createSaplingItem(BYGBlocks.SILVER_MAPLE_SAPLING);
-        SILVER_MAPLE_LEAVES = createItem(BYGBlocks.SILVER_MAPLE_LEAVES);
-        BYGWoodTypes.MAPLE.init();
 
         FLOWERING_PALO_VERDE_LEAVES = createItem(BYGBlocks.FLOWERING_PALO_VERDE_LEAVES);
         PALO_VERDE_SAPLING = createSaplingItem(BYGBlocks.PALO_VERDE_SAPLING);

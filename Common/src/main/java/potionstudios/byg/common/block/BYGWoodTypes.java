@@ -59,10 +59,6 @@ public enum BYGWoodTypes {
             .growerItemGroundTag(BYGBlockTags.GROUND_SYTHIAN_FUNGUS)
             .growerItem(GrowerItemType.FUNGUS)
             .nether()),
-    MAPLE("maple", new Builder()
-            .growerItemGroundTag(BYGBlockTags.GROUND_MAPLE_SAPLING)
-            .MapColor(MapColor.COLOR_GREEN)),
-            // .boatType(BYGBoat.BYGType.MAPLE)),
     JACARANDA("jacaranda", new Builder()
             .growerItemGroundTag(BYGBlockTags.GROUND_JACARANDA_SAPLING)
             // .boatType(BYGBoat.BYGType.JACARANDA)
