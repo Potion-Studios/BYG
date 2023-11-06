@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold"
+    },
+    "X": {
+      "item": "byg:green_apple"
+    }
+  },
+  "result": {
+    "item": "minecraft:golden_apple"
+  }
+}
