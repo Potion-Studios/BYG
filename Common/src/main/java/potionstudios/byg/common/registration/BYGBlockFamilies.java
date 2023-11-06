@@ -224,7 +224,7 @@ public class BYGBlockFamilies {
             getNotOverworldWoodType("ether"), () -> MapColor.COLOR_CYAN, BuiltinDimensionTypes.END, true)
             .soil()
             .bookshelf()
-            .bush(() -> BYGBlocks.createEtherPlant("ether_grass"),
+            .bush(() -> BYGBlocks.createEtherPlant("ether_bush"),
                     "nightshade_berries",
                     (block) -> null)
             .button()
@@ -236,7 +236,6 @@ public class BYGBlockFamilies {
             .grass(() -> BYGBlocks.createEtherPlant("ether_grass"))
             .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "ether_sapling", (tag) -> {})
             .hangingSign()
-            .imbuedLog()
             .leaves()
             .log()
             .pressurePlate()
@@ -246,8 +245,6 @@ public class BYGBlockFamilies {
             .stairs()
             .strippedLog()
             .strippedWood()
-            .strippables((consumer, family) -> consumer.accept(family.get(BYGBlockFamily.BlockVariant.IMBUED_LOG),
-                    family.get(BYGBlockFamily.BlockVariant.LOG)))
             .trapdoor()
             .wood()
     ).spreadable(BYGBlockFamily.SpreadableTypes.DIRT, (family) -> family.get(BYGBlockFamily.BlockVariant.SOIL),

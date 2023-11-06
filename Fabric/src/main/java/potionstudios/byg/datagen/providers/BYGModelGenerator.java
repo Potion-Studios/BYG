@@ -604,10 +604,14 @@ public class BYGModelGenerator extends FabricModelProvider {
                 fullBlock(plank, planksModel.getTemplate(), generators);
             }
             blockFamily.getVariants().forEach((blockVariant, block) -> {
+                // Planks and Base Block are the same for this case
+                // Wall Sign and Wall Hanging Sign are generated with Sign and Hanging Sign
+                // Spread To does not have to be generated it is a value stored for other purposes
                 if(!(blockVariant.equals(BYGBlockFamily.BlockVariant.PLANKS) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.BASE_BLOCK) ||
                         blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_SIGN) ||
-                        blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN))) {
+                        blockVariant.equals(BYGBlockFamily.BlockVariant.WALL_HANGING_SIGN) ||
+                        blockVariant.equals(BYGBlockFamily.BlockVariant.SPREAD_TO))) {
                     executeGeneration(blockVariant,
                             new BlockFamilyProviderMethod() {
                                 @Override

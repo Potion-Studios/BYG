@@ -14,7 +14,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 
 public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -35,7 +36,9 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.is(BYGBlocks.ETHER_PHYLIUM.get()) || state.is(BYGBlocks.ETHER_SOIL.get()) || super.mayPlaceOn(state, worldIn, pos);
+        return state.is(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.SPREADABLE))
+                || state.is(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.SOIL))
+                || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
@@ -55,7 +58,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState blockState) {
-        DoublePlantBlock doubleplantblock = BYGBlocks.TALL_ETHER_GRASS.get();
+        DoublePlantBlock doubleplantblock = (DoublePlantBlock) BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.TALL_GRASS);
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, blockState, pos, 2);
         }

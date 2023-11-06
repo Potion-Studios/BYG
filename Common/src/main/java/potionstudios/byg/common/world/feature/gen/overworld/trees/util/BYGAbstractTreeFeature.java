@@ -598,7 +598,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE), Blocks.END_STONE);
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK),
                 BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK));
-        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.ETHER_PHYLIUM.get(), BYGBlocks.ETHER_SOIL.get());
+        SPREADABLE_TO_NON_SPREADABLE.put(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.SPREADABLE), BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.SOIL));
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_BLOCK.get(), BYGBlocks.LUSH_DIRT.get());
         SPREADABLE_TO_NON_SPREADABLE.put(BYGBlocks.LUSH_GRASS_PATH.get(), BYGBlocks.LUSH_DIRT.get());
     }

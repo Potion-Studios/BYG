@@ -25,7 +25,7 @@ public class BYGCarvableBlocks {
             BUDDING_AMETRINE_ORE, CRYPTIC_REDSTONE_ORE, CRYPTIC_STONE,
             MAGMATIC_STONE, CRYPTIC_MAGMA_BLOCK, () -> BYGBlockFamilies.ETHER_STONE.get(BYGBlockFamily.BlockVariant.BASE_BLOCK),
                 () -> BYGBlockFamilies.VERMILION_SCULK.get(BYGBlockFamily.BlockVariant.BASE_BLOCK), IMPARIUS_PHYLIUM, IVIS_PHYLIUM,
-            ETHER_PHYLIUM, () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE),
+                () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.SPREADABLE), () -> BYGBlockFamilies.NIGHTSHADE.get(BYGBlockFamily.BlockVariant.SPREADABLE),
             () -> Blocks.MAGMA_BLOCK
         );
     }

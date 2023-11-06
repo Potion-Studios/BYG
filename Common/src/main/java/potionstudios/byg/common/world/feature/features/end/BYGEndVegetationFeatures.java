@@ -72,10 +72,10 @@ public class BYGEndVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPARIUS_BUSH = createPatchConfiguredFeatureWithBlock("imparius_bush", BYGBlocks.IMPARIUS_BUSH, 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> THEREAL_BELLFLOWER = createFlowerConfiguredFeature("thereal_bellflower", BYGBlocks.THEREAL_BELLFLOWER);
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_ETHER_GRASS = createPatchConfiguredFeatureWithBlock("tall_ether_grass", BYGBlocks.TALL_ETHER_GRASS, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_GRASS = createPatchConfiguredFeatureWithBlock("ether_grass", BYGBlocks.ETHER_GRASS, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH = createPatchConfiguredFeatureWithBlock("ether_bush", BYGBlocks.ETHER_BUSH, 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_FOLIAGE = createPatchConfiguredFeatureWithBlock("ether_foliage", BYGBlocks.ETHER_FOLIAGE, 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TALL_ETHER_GRASS = createPatchConfiguredFeatureWithBlock("tall_ether_grass", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.TALL_GRASS), 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_GRASS = createPatchConfiguredFeatureWithBlock("ether_grass", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.GRASS), 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH = createPatchConfiguredFeatureWithBlock("ether_bush", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.BUSH), 32);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_FOLIAGE = createPatchConfiguredFeatureWithBlock("ether_foliage", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.FOLIAGE), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BULB = createSimpleBlockConfiguredFeatureWithBlock("ether_bulb", BYGBlocks.ETHER_BULB);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ENDER_LILY = createConfiguredFeature("ender_lily",
@@ -95,11 +95,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_trunk1"),
                     BYG.createLocation("features/trees/aspen-shrub/aspen_shrub_canopy1"),
                     ConstantInt.of(0),
-                    BlockStateProvider.simple(ETHER.log().defaultBlockState()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG).defaultBlockState()),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
                     BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LOG),
                     BYGBlockFamilies.ASPEN.get(BYGBlockFamily.BlockVariant.LEAVES),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 1, ImmutableList.of(ETHER_BULBS.get())
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 1, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -109,11 +109,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy1"),
                     BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -123,11 +123,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy2"),
                     BiasedToBottomInt.of(5, 13),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -137,11 +137,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy3"),
                     BiasedToBottomInt.of(5, 13),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -151,11 +151,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/ether/ether_trunk4"),
                     BYG.createLocation("features/trees/ether/ether_canopy4"),
                     BiasedToBottomInt.of(5, 13),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -165,11 +165,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/ether/ether_trunk4"),
                     BYG.createLocation("features/trees/ether/ether_canopy4"),
                     BiasedToBottomInt.of(5, 13),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of(ETHER_BULBS.get())
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of(ETHER_BULBS.get())
             )
     );
 
@@ -179,11 +179,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy1"),
                     BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -193,11 +193,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy2"),
                     BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(ETHER.log().get()),
-                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(ETHER.leaves().defaultBlockState(), 1).build()),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
+                    new WeightedStateProvider(new SimpleWeightedRandomList.Builder<BlockState>().add(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES).defaultBlockState(), 1).build()),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 
@@ -207,11 +207,11 @@ public class BYGEndVegetationFeatures {
                     BYG.createLocation("features/trees/generic_trunk"),
                     BYG.createLocation("features/trees/ether/ether_canopy3"),
                     BiasedToBottomInt.of(5, 10),
-                    BlockStateProvider.simple(ETHER.log().get()),
+                    BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG)),
                     BlockStateProvider.simple(Blocks.AIR),
-                    ETHER.log().get(),
-                    ETHER.leaves().get(),
-                    BYGBlockTags.GROUND_ETHER_SAPLING, 5, ImmutableList.of()
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LOG),
+                    BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES),
+                    BYGBlockFamilies.ETHER.getTag(BYGBlockFamily.BlockVariant.GROWER), 5, ImmutableList.of()
             )
     );
 

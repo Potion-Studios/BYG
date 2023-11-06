@@ -489,7 +489,7 @@ public record GrowingPatterns(boolean logGrowth,
                             .add(new FeatureSpawner(BYGOverworldTreeFeatures.PALM_TREE4), 1)
                             .build())
             ));
-            map.put(BYGWoodTypes.ETHER.growerItem().get(), List.of(
+            map.put(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.GROWER), List.of(
                     new GrowingPatternEntry(List.of("x"), SimpleWeightedRandomList.<FeatureSpawner>builder()
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.ETHER_TREE1), 1)
                             .add(new FeatureSpawner(BYGEndVegetationFeatures.ETHER_TREE2), 1)

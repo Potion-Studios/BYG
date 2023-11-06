@@ -28,6 +28,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import potionstudios.byg.common.item.BYGItems;
+import potionstudios.byg.common.registration.BYGBlockFamilies;
+import potionstudios.byg.common.registration.BYGBlockFamily;
 
 public class EtherBulbsBlock extends Block implements BonemealableBlock {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
@@ -65,7 +67,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         Block block = blockstate.getBlock();
-            return block == BYGWoodTypes.ETHER.leaves().get();
+            return block == BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.LEAVES);
     }
 
     @Override

@@ -80,6 +80,14 @@ public class BYGRenderTypes {
             if(tendrils != null) {
                 map.put(tendrils, RenderType.cutoutMipped());
             }
+            Block grass = family.get(BYGBlockFamily.BlockVariant.GRASS);
+            if(grass != null) {
+                map.put(grass, RenderType.cutoutMipped());
+            }
+            Block tallGrass = family.get(BYGBlockFamily.BlockVariant.TALL_GRASS);
+            if(tallGrass != null) {
+                map.put(tallGrass, RenderType.cutoutMipped());
+            }
         }
 
 
@@ -128,8 +136,6 @@ public class BYGRenderTypes {
         //End
         map.put(BYGBlocks.IVIS_ROOTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.IVIS_SPROUT.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_BUSH.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THEREAL_BELLFLOWER.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ODDITY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_SHELL.get(), RenderType.translucent());
@@ -269,8 +275,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.CRYPTIC_FIRE.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.THERIUM_GLASS.get(), RenderType.translucent());
         map.put(BYGBlocks.THERIUM_GLASS_PANE.get(), RenderType.translucent());
-        map.put(BYGBlocks.ETHER_FOLIAGE.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.TALL_ETHER_GRASS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BULBIS_SPROUTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
