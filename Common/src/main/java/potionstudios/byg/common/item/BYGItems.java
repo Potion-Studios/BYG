@@ -198,9 +198,6 @@ public class BYGItems {
     public static final RegistryObject<Item> BULBIS_ANOMALY;
     public static final RegistryObject<Item> BULBIS_SHELL;
 
-    //Ether Woodtype
-    public static final RegistryObject<Item> ETHER_BULBS;
-
     //Imparius Woodtype
     public static final RegistryObject<Item> IMPARIUS_VINE;
     public static final RegistryObject<Item> IMPARIUS_MUSHROOM_BRANCH;
@@ -250,8 +247,6 @@ public class BYGItems {
         BULBIS_ANOMALY = createItem(BYGBlocks.BULBIS_ANOMALY);
         BULBIS_SHELL = createItem(BYGBlocks.BULBIS_SHELL);
         BYGWoodTypes.BULBIS.init();
-
-        ETHER_BULBS = createItem(() -> new BlockItem(BYGBlocks.ETHER_BULB.get(), new Properties().food(new FoodProperties.Builder().saturationMod(5.0f).effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F).alwaysEat().build())), "ether_bulbs");
 
         IMPARIUS_VINE = createItem(BYGBlocks.IMPARIUS_VINE);
         IMPARIUS_MUSHROOM_BRANCH = createItem(BYGBlocks.IMPARIUS_MUSHROOM_BRANCH);

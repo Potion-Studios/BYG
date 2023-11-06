@@ -4,6 +4,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Blocks;
@@ -18,6 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGBlockProperties;
 import potionstudios.byg.common.block.BYGBlocks;
+import potionstudios.byg.common.block.EtherBulbsBlock;
 import potionstudios.byg.common.block.FruitBlock;
 import potionstudios.byg.common.item.BaobabFruitItem;
 import potionstudios.byg.common.world.feature.features.end.BYGEndFeatures;
@@ -233,6 +235,15 @@ public class BYGBlockFamilies {
             .fence()
             .fenceGate()
             .foliage()
+            .fruitBlock("ether_bulbs_block",
+                    () -> new EtherBulbsBlock(BlockBehaviour.Properties.of().sound(SoundType.SWEET_BERRY_BUSH)
+                            .randomTicks().instabreak()
+                            .lightLevel((state) -> state.getValue(EtherBulbsBlock.AGE) >= 2 ? 15 : 4)
+                            .noCollission()), "ether_bulbs",
+                    (block) -> new BlockItem(block, new Item.Properties()
+                            .food(new FoodProperties.Builder().saturationMod(5.0f)
+                                    .effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1.0F)
+                                    .alwaysEat().build())))
             .grass(() -> BYGBlocks.createEtherPlant("ether_grass"))
             .growerItem(BYGBlockFamily.GrowerTypes.PLANT, "ether_sapling", (tag) -> {})
             .hangingSign()

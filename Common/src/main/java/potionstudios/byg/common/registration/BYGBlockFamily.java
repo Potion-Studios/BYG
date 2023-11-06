@@ -277,6 +277,15 @@ public class BYGBlockFamily {
             return this;
         }
 
+        public OrganicBuilder fruitBlock(String fruitBlockName, Supplier<Block> blockGenerator, String fruitItemName, Function<Block, Item> itemGenerator) {
+            RegistryObject<? extends Block> block = BYGBlocks.createBlock(blockGenerator, fruitBlockName);
+            family.variants.put(BlockVariant.FRUIT_BLOCK, block.get());
+            RegistryObject<? extends Item> item =
+                    BYGItems.createItem(() -> itemGenerator.apply(block.get()), fruitItemName);
+            family.itemVariants.put(ItemVariant.FRUIT, item.get());
+            return this;
+        }
+
         private OrganicBuilder fruitLeaves(BiFunction<String, BYGBlockFamily, BlockRegistryObject<Block>> leavesFactory, String name) {
             if(this.family.variants.containsKey(BlockVariant.FRUIT_LEAVES)) {
                 return this;

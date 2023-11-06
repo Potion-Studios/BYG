@@ -42,7 +42,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(BYGItems.ETHER_BULBS.get());
+        return new ItemStack(BYGBlockFamilies.ETHER.get(BYGBlockFamily.ItemVariant.FRUIT));
     }
 
     @Override
@@ -53,7 +53,7 @@ public class EtherBulbsBlock extends Block implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (i > 2) {
             int j = 1;
-            popResource(worldIn, pos, new ItemStack(BYGItems.ETHER_BULBS.get(), j));
+            popResource(worldIn, pos, new ItemStack(BYGBlockFamilies.ETHER.get(BYGBlockFamily.ItemVariant.FRUIT), j));
             worldIn.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + worldIn.random.nextFloat() * 0.4F);
             worldIn.setBlock(pos, state.setValue(AGE, 0), 2);
             return InteractionResult.SUCCESS;

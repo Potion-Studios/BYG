@@ -278,7 +278,6 @@ public class BYGRenderTypes {
         map.put(BYGBlocks.BULBIS_SPROUTS.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.PURPLE_BULBIS_ANOMALY.get(), RenderType.cutoutMipped());
-        map.put(BYGBlocks.ETHER_BULB.get(), RenderType.cutoutMipped());
         map.put(BYGBlocks.BLACK_ICE.get(), RenderType.translucent());
         map.put(BYGBlocks.AMETRINE_BLOCK.get(), RenderType.translucent());
         map.put(BYGBlocks.BLUEBERRY_BUSH.get(), RenderType.cutoutMipped());

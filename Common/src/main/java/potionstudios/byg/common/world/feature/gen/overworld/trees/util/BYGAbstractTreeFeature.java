@@ -120,7 +120,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
 
     public void etherBulbs(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
-        this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.ETHER_BULB.defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
+        this.setFinalBlockState(blockSet, reader, pos, BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState().setValue(EtherBulbsBlock.AGE, random.nextInt(4)), boundingBox);
     }
 
     public void baobabFruit(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {

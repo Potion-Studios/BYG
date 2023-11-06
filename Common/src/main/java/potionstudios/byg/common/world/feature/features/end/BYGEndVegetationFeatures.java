@@ -76,7 +76,7 @@ public class BYGEndVegetationFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_GRASS = createPatchConfiguredFeatureWithBlock("ether_grass", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.GRASS), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH = createPatchConfiguredFeatureWithBlock("ether_bush", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.BUSH), 32);
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_FOLIAGE = createPatchConfiguredFeatureWithBlock("ether_foliage", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.FOLIAGE), 32);
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BULB = createSimpleBlockConfiguredFeatureWithBlock("ether_bulb", BYGBlocks.ETHER_BULB);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BULB = createSimpleBlockConfiguredFeatureWithBlock("ether_bulb", () -> BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ENDER_LILY = createConfiguredFeature("ender_lily",
             () -> Feature.RANDOM_PATCH,
@@ -86,7 +86,7 @@ public class BYGEndVegetationFeatures {
                     ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.relative(Direction.DOWN), Fluids.WATER))))
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlockFamilies.ETHER.get(BYGBlockFamily.BlockVariant.FRUIT_BLOCK).defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
