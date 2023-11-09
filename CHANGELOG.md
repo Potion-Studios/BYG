@@ -13,6 +13,7 @@
 * Fix inventory book mixin being unable to apply
 * Add Windswept Sandstone Pallet Recipes. Fixes #1278
 * Add Ender and Embur Lily's to Creative Tab
+* Possible Ether grass crash fix
 
 ## 1.4.7
 * Update Chinese translation.
