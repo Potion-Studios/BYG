@@ -12,6 +12,7 @@
 * Make saplings of all kinds usable in growth patterns
 * Fix inventory book mixin being unable to apply
 * Add Windswept Sandstone Pallet Recipes. Fixes #1278
+* Add Ender and Embur Lily's to Creative Tab
 
 ## 1.4.7
 * Update Chinese translation.

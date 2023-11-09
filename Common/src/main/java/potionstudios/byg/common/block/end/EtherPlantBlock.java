@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.common.block.BYGBlocks;
 
@@ -29,37 +30,37 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
         this.tallPlant = tallPlant;
     }
 
-    public OffsetType getOffsetType() {
+    public @NotNull OffsetType getOffsetType() {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos map, CollisionContext ctx) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter reader, @NotNull BlockPos map, @NotNull CollisionContext ctx) {
         Vec3 Vector3d = state.getOffset(reader, map);
         return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return state.is(BYGBlocks.ETHER_PHYLIUM.get()) || state.is(BYGBlocks.ETHER_SOIL.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.below();
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
     @Override
-    public boolean isValidBonemealTarget(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean bl) {
         return tallPlant != null && blockGetter.getBlockState(blockPos.above()).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, Random random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull Random random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return tallPlant != null && level.random.nextFloat() < 0.45F;
     }
 
-    public void performBonemeal(ServerLevel world, Random random, BlockPos pos, BlockState blockState) {
+    public void performBonemeal(@NotNull ServerLevel world, @NotNull Random random, @NotNull BlockPos pos, @NotNull BlockState blockState) {
         if (tallPlant == null)
             return;
         DoublePlantBlock doubleplantblock = tallPlant.get();
