@@ -11,6 +11,9 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -18,6 +21,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 
 public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
     public EtherPlantBlock(Properties builder) {
         super(builder);
@@ -28,7 +32,7 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos map, CollisionContext ctx) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter reader, @NotNull BlockPos map, @NotNull CollisionContext ctx) {
         Vec3 Vector3d = state.getOffset(reader, map);
         return SHAPE.move(Vector3d.x, Vector3d.y, Vector3d.z);
     }
