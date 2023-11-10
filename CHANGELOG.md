@@ -14,6 +14,7 @@
 * Made non-BYG saplings usable in growth patterns
 * Fix Broken Cut Sandstone Recipes. Fixes #1279
 * New Wood Textures (Baobab, Cika, Cypress, Ether, Redwood, White Mangrove, Willow)
+* Golden Apples from Green Apples Recipe
 
 # 4.0.0.2
 * Fix broken NBT files. Fixes #1206 and #1207
