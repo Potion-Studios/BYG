@@ -859,7 +859,7 @@ public class BYGItems {
     }
 
     public static RegistryObject<HangingSignItem> createHangingSign(String id, RegistryObject<? extends Block> signBlock, RegistryObject<? extends Block> wallSignBlock) {
-        return BYGConstants.SIGNS ? createItem(() -> new HangingSignItem(signBlock.get(), wallSignBlock.get(), new Properties().stacksTo(16).requiredFeatures(new FeatureFlag[]{FeatureFlags.UPDATE_1_20})), id) : null;
+        return BYGConstants.SIGNS ? createItem(() -> new HangingSignItem(signBlock.get(), wallSignBlock.get(), new Properties().stacksTo(16).requiredFeatures(FeatureFlags.UPDATE_1_20)), id) : null;
     }
 
     public static <T extends Item> RegistryObject<T> createItem(Supplier<? extends T> item, RegistryObject<? extends Block> block) {

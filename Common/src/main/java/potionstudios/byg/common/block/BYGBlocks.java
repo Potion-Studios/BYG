@@ -1354,7 +1354,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createHangingSign(String id, WoodType type, Supplier<? extends MaterialColor> color) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).requiredFeatures(new FeatureFlag[]{FeatureFlags.UPDATE_1_20}), type), id) : null;
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new CeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).requiredFeatures(FeatureFlags.UPDATE_1_20), type), id) : null;
         if (signBlock != null) SIGN_BLOCKS.add(signBlock);
 
         return signBlock;
@@ -1365,7 +1365,7 @@ public class BYGBlocks {
     }
 
     private static BlockRegistryObject<Block> createWallHangingSign(String id, WoodType type, Supplier<? extends MaterialColor> color, BlockRegistryObject<Block> hangingSign) {
-        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).dropsLike(hangingSign.get()).requiredFeatures(new FeatureFlag[]{FeatureFlags.UPDATE_1_20}), type), id) : null;
+        BlockRegistryObject<Block> signBlock = BYGConstants.SIGNS ? createBlock(() -> new WallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN).color(color.get()).dropsLike(hangingSign.get()).requiredFeatures(FeatureFlags.UPDATE_1_20), type), id) : null;
         if (signBlock != null) SIGN_BLOCKS.add(signBlock);
 
         return signBlock;
