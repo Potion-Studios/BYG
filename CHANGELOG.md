@@ -1,4 +1,4 @@
-# 4.0.0.3
+# 4.0.1.0
 * Fix Broken Sandstone Recipes. Fixes #1204
 * Fix Wall Sign Drops. Fixes #1240
 * Fix Duplicate planks in planks block tag
