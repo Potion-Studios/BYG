@@ -313,9 +313,7 @@ public class BYGWoodAssetsProvider extends BlockStateProvider {
 
     @Override
     public CompletableFuture<?> run(CachedOutput cache) {
-        return super.run(cache).thenRun(() -> {
-            item.generateAll(cache);
-        });
+        return super.run(cache).thenRun(() -> item.generateAll(cache));
     }
 
 

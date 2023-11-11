@@ -106,20 +106,18 @@ public class BiomepediaHomeScreen extends AbstractBiomepediaScreen {
 
     @NotNull
     private Button.OnPress consumeLink(String url) {
-        return button -> {
-            this.minecraft.setScreen(new ConfirmLinkScreen(confirmed -> {
-                if (confirmed) {
-                    try {
-                        ((ScreenAccess) this).byg_invokeOpenLink(new URI(url));
-                        this.minecraft.setScreen(this);
-                    } catch (URISyntaxException e) {
-                        e.printStackTrace();
-                    }
-                } else {
+        return button -> this.minecraft.setScreen(new ConfirmLinkScreen(confirmed -> {
+            if (confirmed) {
+                try {
+                    ((ScreenAccess) this).byg_invokeOpenLink(new URI(url));
                     this.minecraft.setScreen(this);
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
                 }
-            }, url, false));
-        };
+            } else {
+                this.minecraft.setScreen(this);
+            }
+        }, url, false));
     }
 
     @Override

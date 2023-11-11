@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class BlueNetherrackBlock extends Block implements BonemealableBlock {
@@ -23,7 +24,7 @@ public class BlueNetherrackBlock extends Block implements BonemealableBlock {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, @NotNull BlockState state, boolean isClient) {
         if (worldIn.getBlockState(pos.above()).propagatesSkylightDown(worldIn, pos)) {
             for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))) {
                 if (worldIn.getBlockState(blockpos).is(BlockTags.NYLIUM)) {
@@ -35,11 +36,11 @@ public class BlueNetherrackBlock extends Block implements BonemealableBlock {
         return false;
     }
 
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level worldIn, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel worldIn, @NotNull RandomSource rand, BlockPos pos, @NotNull BlockState state) {
         boolean flag = false;
         boolean flag1 = false;
 

@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class TallNightshadePlantBlock extends DoublePlantBlock {
@@ -17,7 +18,7 @@ public class TallNightshadePlantBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return state.is(BYGBlocks.NIGHTSHADE_PHYLIUM.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 }

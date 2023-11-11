@@ -11,6 +11,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Comparator;
@@ -48,12 +49,12 @@ public class BYGDebugBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    protected Codec<? extends BiomeSource> codec() {
+    protected @NotNull Codec<? extends BiomeSource> codec() {
         return CODEC;
     }
 
     @Override
-    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+    public @NotNull Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.@NotNull Sampler sampler) {
         if (this.possibleBiomesSorted == null) {
             this.possibleBiomesSorted = this.possibleBiomes().stream().filter(biomeHolder -> biomeHolder.is(biomeTagKey)).sorted(Comparator.comparing(biomeHolder -> biomeHolder.unwrapKey().orElseThrow().location())).toList();
         }

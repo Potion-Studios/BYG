@@ -20,6 +20,7 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class WarpedCactusBlock extends Block {
@@ -32,7 +33,7 @@ public class WarpedCactusBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
+    public void tick(@NotNull BlockState state, ServerLevel worldIn, @NotNull BlockPos pos, @NotNull RandomSource rand) {
         if (!worldIn.isLoaded(pos))
             return; // Forge: prevent growing cactus from loading unloaded chunks with block update
         if (!state.canSurvive(worldIn, pos)) {
@@ -41,7 +42,7 @@ public class WarpedCactusBlock extends Block {
 
     }
 
-    public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, ServerLevel worldIn, BlockPos pos, @NotNull RandomSource random) {
         BlockPos blockpos = pos.above();
         if (worldIn.isEmptyBlock(blockpos)) {
             int i;
@@ -62,15 +63,15 @@ public class WarpedCactusBlock extends Block {
         }
     }
 
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return COLLISION_SHAPE;
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return OUTLINE_SHAPE;
     }
 
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public @NotNull BlockState updateShape(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         if (!stateIn.canSurvive(worldIn, currentPos)) {
             worldIn.scheduleTick(currentPos, this, 1);
         }
@@ -79,7 +80,7 @@ public class WarpedCactusBlock extends Block {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader worldIn, @NotNull BlockPos pos) {
         for (Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = worldIn.getBlockState(pos.relative(direction));
             Material material = blockstate.getMaterial();
@@ -91,7 +92,7 @@ public class WarpedCactusBlock extends Block {
         return worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_SOUL_SOIL.get() || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_SOUL_SAND.get() || worldIn.getBlockState(pos.below()).getBlock() == BYGBlocks.WARPED_CACTUS.get() && !worldIn.getBlockState(pos.above()).getMaterial().isLiquid();
     }
 
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, Entity entityIn) {
         entityIn.hurt(DamageSource.CACTUS, 2.0F);
     }
 
@@ -99,7 +100,7 @@ public class WarpedCactusBlock extends Block {
         builder.add(AGE);
     }
 
-    public boolean isPathfindable(BlockState state, BlockGetter worldIn, BlockPos pos, PathComputationType type) {
+    public boolean isPathfindable(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull PathComputationType type) {
         return false;
     }
 

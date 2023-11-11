@@ -13,6 +13,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FungusBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
@@ -30,17 +31,17 @@ public class BYGFungusBlock extends FungusBlock implements FeatureGrowerFromBloc
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter blockGetter, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
         return state.is(this.groundTag);
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader blockGetter, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel serverLevel, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         this.growFeature(this, serverLevel, pos, random);
     }
 

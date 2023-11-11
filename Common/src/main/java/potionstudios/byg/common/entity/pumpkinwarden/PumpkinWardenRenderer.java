@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -20,11 +21,11 @@ public class PumpkinWardenRenderer<T extends PumpkinWarden> extends GeoEntityRen
     public static final ModelLayerLocation MODEL_LAYER = new ModelLayerLocation(BYG.createLocation("pumpkinwarden"), "main");
 
     public PumpkinWardenRenderer(EntityRendererProvider.Context context) {
-        super(context, new PumpkinWardenModel<T>());
+        super(context, new PumpkinWardenModel<>());
     }
 
     @Override
-    public void render(T entity, float entityYaw, float partialTicks, PoseStack stack, MultiBufferSource bufferIn, int packedLightIn) {
+    public void render(@NotNull T entity, float entityYaw, float partialTicks, PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
         stack.scale(0.5f, 0.5f, 0.5f);
         shadowRadius = 0.8f;
         super.render(entity, entityYaw, partialTicks, stack, bufferIn, packedLightIn);

@@ -146,7 +146,7 @@ public class LargeLakeFeatureOld extends Feature<LargeLakeFeatureConfig> {
             }
         }
 
-        double aspect = ((double) radius / (double) depth);
+        double aspect = (radius / depth);
 
         for (int x = blockPos.getX() - dist; x <= blockPos.getX() + dist; x++) {
             POS.setX(x);

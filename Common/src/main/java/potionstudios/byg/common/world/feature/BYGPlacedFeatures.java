@@ -191,9 +191,7 @@ public class BYGPlacedFeatures {
     public static final ResourceKey<PlacedFeature> PALO_VERDE_TREES = createPlacedFeature("palo_verde_trees", BYGOverworldTreeFeatures.PALO_VERDE_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(0, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> MIXED_COLOR_BULBIS_TREES = createPlacedFeature("mixed_color_bulbis_trees", BYGEndVegetationFeatures.MIXED_COLOR_BULBIS_TREES, () -> treePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> SPARSE_PURPLE_BULBIS_TREES = createPlacedFeature("sparse_purple_bulbis_trees", BYGEndVegetationFeatures.PURPLE_BULBIS_TREES, () -> treePlacement(PlacementUtils.countExtra(0, 0.1F, 1)));
-    public static final ResourceKey<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, () -> Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGWoodTypes.PALM.growerItem().get())), (list) -> {
-        list.add(new NearWaterPlacementFilter(4));
-    }));
+    public static final ResourceKey<PlacedFeature> PALM_TREES = createPlacedFeature("palm_trees", BYGOverworldTreeFeatures.PALM_TREES, () -> Util.make(new ArrayList<>(clearingTreePlacement(PlacementUtils.countExtra(4, 0.2F, 1), BYGWoodTypes.PALM.growerItem().get())), (list) -> list.add(new NearWaterPlacementFilter(4))));
     public static final ResourceKey<PlacedFeature> RED_OAK_TREES = createPlacedFeature("red_oak_trees", BYGOverworldTreeFeatures.RED_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> ORANGE_OAK_TREES = createPlacedFeature("orange_oak_trees", BYGOverworldTreeFeatures.ORANGE_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));
     public static final ResourceKey<PlacedFeature> BROWN_OAK_TREES = createPlacedFeature("brown_oak_trees", BYGOverworldTreeFeatures.BROWN_OAK_TREES, () -> clearingTreePlacement(PlacementUtils.countExtra(1, 0.2F, 1)));

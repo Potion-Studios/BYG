@@ -29,6 +29,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYGConstants;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.block.BYGWoodTypes;
@@ -65,9 +66,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     }
 
     public boolean isAnotherTreeHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
-        });
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES));
     }
 
     public boolean isAnotherTreeLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
@@ -158,9 +157,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
      * @return Determine whether or not the pos can support a sapling's tree.
      */
     public boolean canSaplingGrowHere(LevelSimulatedReader reader, BlockPos pos) {
-        return reader.isStateAtPosition(pos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
-        });
+        return reader.isStateAtPosition(pos, (state) -> state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT);
     }
 
     /**
@@ -642,15 +639,15 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
             return new PooledMutable(x, y, z);
         }
 
-        public PooledMutable set(int i, int j, int k) {
+        public @NotNull PooledMutable set(int i, int j, int k) {
             return (PooledMutable) super.set(i, j, k);
         }
 
-        public PooledMutable set(double d, double e, double f) {
+        public @NotNull PooledMutable set(double d, double e, double f) {
             return (PooledMutable) super.set(d, e, f);
         }
 
-        public PooledMutable set(Vec3i vec3i) {
+        public @NotNull PooledMutable set(@NotNull Vec3i vec3i) {
             return (PooledMutable) super.set(vec3i);
         }
 

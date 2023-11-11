@@ -14,13 +14,7 @@ import java.util.stream.Collectors;
 
 public class WhitelistedSimpleBlockProviderConfig implements FeatureConfiguration {
 
-    public static final Codec<WhitelistedSimpleBlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
-        })).apply(codecRecorder, WhitelistedSimpleBlockProviderConfig::new);
-    });
+    public static final Codec<WhitelistedSimpleBlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()))).apply(codecRecorder, WhitelistedSimpleBlockProviderConfig::new));
 
     private final BlockStateProvider blockProvider;
     private final Set<Block> whitelist;

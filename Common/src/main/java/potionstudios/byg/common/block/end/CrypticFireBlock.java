@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class CrypticFireBlock extends BaseFireBlock {
@@ -17,11 +18,11 @@ public class CrypticFireBlock extends BaseFireBlock {
         super(properties, 3.5F);
     }
 
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public @NotNull BlockState updateShape(@NotNull BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         return this.canSurvive(stateIn, worldIn, currentPos) ? this.defaultBlockState() : Blocks.AIR.defaultBlockState();
     }
 
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader worldIn, BlockPos pos) {
         return shouldLightCrypticFire(worldIn.getBlockState(pos.below()).getBlock());
     }
 
@@ -29,15 +30,15 @@ public class CrypticFireBlock extends BaseFireBlock {
         return block == BYGBlocks.CRYPTIC_STONE.get() || block == BYGBlocks.CRYPTIC_MAGMA_BLOCK.get();
     }
 
-    protected boolean canBurn(BlockState state) {
+    protected boolean canBurn(@NotNull BlockState state) {
         return true;
     }
 
-    public boolean isSignalSource(BlockState state) {
+    public boolean isSignalSource(@NotNull BlockState state) {
         return true;
     }
 
-    public int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
+    public int getSignal(@NotNull BlockState blockState, @NotNull BlockGetter blockAccess, @NotNull BlockPos pos, @NotNull Direction side) {
         return 10;
     }
 }

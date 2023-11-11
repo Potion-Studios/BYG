@@ -6,6 +6,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.ContainerObjectSelectionList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
 import java.util.List;
@@ -26,17 +27,17 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void render(@NotNull PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
         super.renderList(poseStack, mouseX, mouseY, partialTick);
     }
 
     @Override
-    protected void renderList(PoseStack $$0, int $$1, int $$2, float $$3) {
+    protected void renderList(@NotNull PoseStack $$0, int $$1, int $$2, float $$3) {
     }
 
     @Override
-    protected int addEntry(Entry $$0) {
+    protected int addEntry(@NotNull Entry $$0) {
         return super.addEntry($$0);
     }
 
@@ -49,19 +50,19 @@ public class WidgetList extends BYGContainerObjectSelectionList<WidgetList.Entry
         }
 
         @Override
-        public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
+        public void render(@NotNull PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
             this.widget.setX(pLeft);
             this.widget.setY(pTop);
             this.widget.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         }
 
         @Override
-        public List<? extends GuiEventListener> children() {
+        public @NotNull List<? extends GuiEventListener> children() {
             return ImmutableList.of(this.widget);
         }
 
         @Override
-        public List<? extends NarratableEntry> narratables() {
+        public @NotNull List<? extends NarratableEntry> narratables() {
             return ImmutableList.of(this.widget);
         }
     }

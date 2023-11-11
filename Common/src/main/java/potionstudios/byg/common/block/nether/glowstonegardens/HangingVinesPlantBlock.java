@@ -5,6 +5,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GrowingPlantBodyBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class HangingVinesPlantBlock extends GrowingPlantBodyBlock {
@@ -14,7 +15,7 @@ public class HangingVinesPlantBlock extends GrowingPlantBodyBlock {
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    protected GrowingPlantHeadBlock getHeadBlock() {
+    protected @NotNull GrowingPlantHeadBlock getHeadBlock() {
         return (GrowingPlantHeadBlock) BYGBlocks.WEEPING_ROOTS.get();
     }
 }

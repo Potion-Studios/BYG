@@ -42,7 +42,7 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean b) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean b) {
         return true;
     }
 
@@ -71,15 +71,13 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
         serverLevel.neighborChanged(blockPos, BYGBlocks.FLOWERING_BARREL_CACTUS.get(), blockPos);
     }
 
-    public InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos $$2, @NotNull Player $$3, @NotNull InteractionHand $$4, @NotNull BlockHitResult $$5) {
         ItemStack $$6 = $$3.getItemInHand($$4);
         if ($$6.is(BYGTags.SHEARS.all(BYGTags.RegistryType.ITEMS))) {
             if (!world.isClientSide) {
                 world.playSound(null, $$2, SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 world.setBlock($$2, BYGBlocks.CARVED_BARREL_CACTUS.defaultBlockState(), 11);
-                $$6.hurtAndBreak(1, $$3, ($$1x) -> {
-                    $$1x.broadcastBreakEvent($$4);
-                });
+                $$6.hurtAndBreak(1, $$3, ($$1x) -> $$1x.broadcastBreakEvent($$4));
                 world.gameEvent($$3, GameEvent.SHEAR, $$2);
                 $$3.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
             }
@@ -95,11 +93,11 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
         return ($$6.is(BlockTags.SAND)) && !$$1.getBlockState($$2.above()).getMaterial().isLiquid();
     }
 
-    public boolean canSurvive(BlockState $$0, LevelReader $$1, @NotNull BlockPos $$2) {
+    public boolean canSurvive(@NotNull BlockState $$0, @NotNull LevelReader $$1, @NotNull BlockPos $$2) {
         return this.mayPlaceOn($$1.getBlockState($$2.above()), $$1, $$2);
     }
 
-    public BlockState updateShape(BlockState $$0, Direction $$1, BlockState $$2, LevelAccessor $$3, BlockPos $$4, BlockPos $$5) {
+    public @NotNull BlockState updateShape(BlockState $$0, @NotNull Direction $$1, @NotNull BlockState $$2, @NotNull LevelAccessor $$3, @NotNull BlockPos $$4, @NotNull BlockPos $$5) {
         if (!$$0.canSurvive($$3, $$4)) {
             return Blocks.AIR.defaultBlockState();
         }
@@ -110,11 +108,11 @@ public class AbstractBarrelCactusBlock extends Block implements BonemealableBloc
         return false;
     }
 
-    public VoxelShape getCollisionShape(BlockState $$0, BlockGetter $$1, BlockPos $$2, CollisionContext $$3) {
+    public @NotNull VoxelShape getCollisionShape(@NotNull BlockState $$0, @NotNull BlockGetter $$1, @NotNull BlockPos $$2, @NotNull CollisionContext $$3) {
         return COLLISION_SHAPE;
     }
 
-    public VoxelShape getShape(BlockState $$0, BlockGetter $$1, BlockPos $$2, CollisionContext $$3) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState $$0, @NotNull BlockGetter $$1, @NotNull BlockPos $$2, @NotNull CollisionContext $$3) {
         return OUTLINE_SHAPE;
     }
 

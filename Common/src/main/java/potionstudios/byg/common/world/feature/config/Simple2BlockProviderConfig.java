@@ -7,13 +7,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 
 public class Simple2BlockProviderConfig implements FeatureConfiguration {
 
-    public static final Codec<Simple2BlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("block_provider2").forGetter((config) -> {
-            return config.blockProvider;
-        })).apply(codecRecorder, Simple2BlockProviderConfig::new);
-    });
+    public static final Codec<Simple2BlockProviderConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), BlockStateProvider.CODEC.fieldOf("block_provider2").forGetter((config) -> config.blockProvider)).apply(codecRecorder, Simple2BlockProviderConfig::new));
 
     private final BlockStateProvider blockProvider;
     private final BlockStateProvider blockProvider2;

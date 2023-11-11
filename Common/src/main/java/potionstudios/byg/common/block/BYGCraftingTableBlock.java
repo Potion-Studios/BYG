@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.container.BYGWorkbenchContainer;
 
 public class BYGCraftingTableBlock extends CraftingTableBlock {
@@ -18,7 +19,7 @@ public class BYGCraftingTableBlock extends CraftingTableBlock {
     }
 
     @Override
-    public MenuProvider getMenuProvider(BlockState state, Level worldIn, BlockPos pos) {
+    public MenuProvider getMenuProvider(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos) {
         return new SimpleMenuProvider((id, inventory, entity) -> new BYGWorkbenchContainer(id, inventory, ContainerLevelAccess.create(worldIn, pos), this), GUI_TITLE);
     }
 }

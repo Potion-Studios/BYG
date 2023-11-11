@@ -11,15 +11,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProv
 
 public class PumpkinConfig implements FeatureConfiguration {
 
-    public static final Codec<PumpkinConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("pumpkin_provider").forGetter((config) -> {
-            return config.pumpkinProvider;
-        }), BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
-            return config.stemProvider;
-        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter((config) -> {
-            return config.leavesProvider;
-        })).apply(codecRecorder, PumpkinConfig::new);
-    });
+    public static final Codec<PumpkinConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("pumpkin_provider").forGetter((config) -> config.pumpkinProvider), BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> config.stemProvider), BlockStateProvider.CODEC.fieldOf("leaves_provider").forGetter((config) -> config.leavesProvider)).apply(codecRecorder, PumpkinConfig::new));
 
 
     private final BlockStateProvider pumpkinProvider;

@@ -14,23 +14,7 @@ import potionstudios.byg.reg.RegistryObject;
 
 public class BYGMushroomConfig implements FeatureConfiguration {
 
-    public static final Codec<BYGMushroomConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
-            return config.stemProvider;
-        }), BlockStateProvider.CODEC.fieldOf("mushroom_provider").forGetter((config) -> {
-            return config.mushroomProvider;
-        }), BlockStateProvider.CODEC.fieldOf("mushroom2_provider").forGetter((config) -> {
-            return config.mushroomProvider;
-        }), BlockStateProvider.CODEC.fieldOf("mushroom3_provider").forGetter((config) -> {
-            return config.mushroomProvider;
-        }), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> {
-            return config.pollenProvider;
-        }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
-            return config.minHeight;
-        }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
-            return config.maxPossibleHeight;
-        })).apply(codecRecorder, BYGMushroomConfig::new);
-    });
+    public static final Codec<BYGMushroomConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> config.stemProvider), BlockStateProvider.CODEC.fieldOf("mushroom_provider").forGetter((config) -> config.mushroomProvider), BlockStateProvider.CODEC.fieldOf("mushroom2_provider").forGetter((config) -> config.mushroomProvider), BlockStateProvider.CODEC.fieldOf("mushroom3_provider").forGetter((config) -> config.mushroomProvider), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> config.pollenProvider), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> config.minHeight), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> config.maxPossibleHeight)).apply(codecRecorder, BYGMushroomConfig::new));
 
 
     private final BlockStateProvider stemProvider;

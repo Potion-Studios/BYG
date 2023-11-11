@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class HangingSythanRootsBlock extends GrowingPlantHeadBlock {
@@ -24,15 +25,15 @@ public class HangingSythanRootsBlock extends GrowingPlantHeadBlock {
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
      * return a RandomSource value at least 1.
      */
-    protected int getBlocksToGrowWhenBonemealed(RandomSource rand) {
+    protected int getBlocksToGrowWhenBonemealed(@NotNull RandomSource rand) {
         return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 
-    protected Block getBodyBlock() {
+    protected @NotNull Block getBodyBlock() {
         return BYGBlocks.HANGING_SYTHIAN_ROOTS_PLANT.get();
     }
 
-    protected boolean canGrowInto(BlockState state) {
+    protected boolean canGrowInto(@NotNull BlockState state) {
         return NetherVines.isValidGrowthState(state);
     }
 
@@ -51,7 +52,7 @@ public class HangingSythanRootsBlock extends GrowingPlantHeadBlock {
 //
 //    }
 
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, Entity entityIn) {
         entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
     }
 }

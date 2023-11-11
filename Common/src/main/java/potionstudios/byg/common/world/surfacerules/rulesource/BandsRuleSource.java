@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.SurfaceSystem;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.mixin.access.SurfaceRuleContextAccess;
 import potionstudios.byg.mixin.access.SurfaceSystemAccess;
 
@@ -41,7 +42,7 @@ public final class BandsRuleSource implements SurfaceRules.RuleSource {
     }
 
     @Override
-    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
+    public @NotNull KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 

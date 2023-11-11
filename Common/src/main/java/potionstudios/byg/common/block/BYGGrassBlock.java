@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.mixin.access.SpreadableSnowyDirtBlockAccess;
 
 public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
@@ -20,7 +21,7 @@ public class BYGGrassBlock extends GrassBlock implements BonemealableBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel world, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (!SpreadableSnowyDirtBlockAccess.byg_invokeCanBeGrass(state, world, pos)) {
             world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
             return;

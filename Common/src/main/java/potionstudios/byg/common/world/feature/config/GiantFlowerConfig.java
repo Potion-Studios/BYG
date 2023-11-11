@@ -13,23 +13,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 
 public class GiantFlowerConfig implements FeatureConfiguration {
 
-    public static final Codec<GiantFlowerConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> {
-            return config.stemProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal_provider").forGetter((config) -> {
-            return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal2_provider").forGetter((config) -> {
-            return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("petal3_provider").forGetter((config) -> {
-            return config.petalProvider;
-        }), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> {
-            return config.pollenProvider;
-        }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
-            return config.minHeight;
-        }), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> {
-            return config.maxPossibleHeight;
-        })).apply(codecRecorder, GiantFlowerConfig::new);
-    });
+    public static final Codec<GiantFlowerConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("stem_provider").forGetter((config) -> config.stemProvider), BlockStateProvider.CODEC.fieldOf("petal_provider").forGetter((config) -> config.petalProvider), BlockStateProvider.CODEC.fieldOf("petal2_provider").forGetter((config) -> config.petalProvider), BlockStateProvider.CODEC.fieldOf("petal3_provider").forGetter((config) -> config.petalProvider), BlockStateProvider.CODEC.fieldOf("pollen_provider").forGetter((config) -> config.pollenProvider), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> config.minHeight), Codec.INT.fieldOf("max_height").orElse(1).forGetter((config) -> config.maxPossibleHeight)).apply(codecRecorder, GiantFlowerConfig::new));
 
 
     private final BlockStateProvider stemProvider;

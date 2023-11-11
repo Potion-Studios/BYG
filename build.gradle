@@ -68,7 +68,7 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
-        it.options.release = 17
+        it.options.release.set(17)
     }
 
     if (project.name != 'Common')

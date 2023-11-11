@@ -21,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.entity.BYGEntities;
 
 import javax.annotation.Nullable;
@@ -64,12 +65,12 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
         this.readChestVehicleSaveData(p_219901_);
     }
 
-    public void destroy(DamageSource p_219892_) {
+    public void destroy(@NotNull DamageSource p_219892_) {
         super.destroy(p_219892_);
         this.chestVehicleDestroyed(p_219892_, this.level, this);
     }
 
-    public void remove(Entity.RemovalReason p_219894_) {
+    public void remove(Entity.@NotNull RemovalReason p_219894_) {
         if (!this.level.isClientSide && p_219894_.shouldDestroy()) {
             Containers.dropContents(this.level, this, this);
         }
@@ -77,7 +78,7 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
         super.remove(p_219894_);
     }
 
-    public InteractionResult interact(Player p_219898_, InteractionHand p_219899_) {
+    public @NotNull InteractionResult interact(@NotNull Player p_219898_, @NotNull InteractionHand p_219899_) {
         return this.canAddPassenger(p_219898_) && !p_219898_.isSecondaryUseActive() ? super.interact(p_219898_, p_219899_) : this.interactWithChestVehicle(this::gameEvent, p_219898_);
     }
 
@@ -91,7 +92,7 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
     }
 
     @Override
-    public Item getDropItem() {
+    public @NotNull Item getDropItem() {
         return this.getBYGBoatType().chestBoatItem().get();
     }
 
@@ -109,32 +110,32 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
     /**
      * Returns the stack in the given slot.
      */
-    public ItemStack getItem(int p_219880_) {
+    public @NotNull ItemStack getItem(int p_219880_) {
         return this.getChestVehicleItem(p_219880_);
     }
 
     /**
      * Removes up to a specified number of items from an inventory slot and returns them in a new stack.
      */
-    public ItemStack removeItem(int p_219882_, int p_219883_) {
+    public @NotNull ItemStack removeItem(int p_219882_, int p_219883_) {
         return this.removeChestVehicleItem(p_219882_, p_219883_);
     }
 
     /**
      * Removes a stack from the given slot and returns it.
      */
-    public ItemStack removeItemNoUpdate(int p_219904_) {
+    public @NotNull ItemStack removeItemNoUpdate(int p_219904_) {
         return this.removeChestVehicleItemNoUpdate(p_219904_);
     }
 
     /**
      * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
      */
-    public void setItem(int p_219885_, ItemStack p_219886_) {
+    public void setItem(int p_219885_, @NotNull ItemStack p_219886_) {
         this.setChestVehicleItem(p_219885_, p_219886_);
     }
 
-    public SlotAccess getSlot(int p_219918_) {
+    public @NotNull SlotAccess getSlot(int p_219918_) {
         return this.getChestVehicleSlot(p_219918_);
     }
 
@@ -148,12 +149,12 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
     /**
      * Don't rename this method to canInteractWith due to conflicts with Container
      */
-    public boolean stillValid(Player p_219896_) {
+    public boolean stillValid(@NotNull Player p_219896_) {
         return this.isChestVehicleStillValid(p_219896_);
     }
 
     @Nullable
-    public AbstractContainerMenu createMenu(int p_219910_, Inventory p_219911_, Player p_219912_) {
+    public AbstractContainerMenu createMenu(int p_219910_, @NotNull Inventory p_219911_, @NotNull Player p_219912_) {
         if (this.lootTable != null && p_219912_.isSpectator()) {
             return null;
         } else {
@@ -183,7 +184,7 @@ public class BYGChestBoat extends BYGBoat implements HasCustomInventoryScreen, C
         this.lootTableSeed = p_219888_;
     }
 
-    public NonNullList<ItemStack> getItemStacks() {
+    public @NotNull NonNullList<ItemStack> getItemStacks() {
         return this.itemStacks;
     }
 

@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.BYGTags;
@@ -19,7 +20,7 @@ public class BYGEntityTagsProvider extends EntityTypeTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         final var boatTag = BYGTags.BOATS.byg(BYGTags.RegistryType.ENTITY_TYPES);
         tag(boatTag).add(BYGEntities.BOAT.get());
         tag(boatTag).add(BYGEntities.CHEST_BOAT.get());

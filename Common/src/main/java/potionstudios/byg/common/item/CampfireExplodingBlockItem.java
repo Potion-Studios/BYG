@@ -9,6 +9,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.CampfireBlockEntity;
+import org.jetbrains.annotations.NotNull;
 
 public class CampfireExplodingBlockItem extends BlockItem {
     private final String translationComponent;
@@ -19,7 +20,7 @@ public class CampfireExplodingBlockItem extends BlockItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NotNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         BlockPos clickedPos = context.getClickedPos();
         if (!level.isClientSide) {

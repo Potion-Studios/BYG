@@ -14,6 +14,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Material;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.world.feature.config.BYGMushroomConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.util.MLBlockTags;
@@ -30,9 +31,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     }
 
     public boolean isAnotherMushroomHere(LevelSimulatedReader worldReader, BlockPos blockPos) {
-        return worldReader.isStateAtPosition(blockPos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES);
-        });
+        return worldReader.isStateAtPosition(blockPos, (state) -> state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES));
     }
 
     public boolean isAnotherMushroomLikeThisHere(LevelSimulatedReader worldReader, BlockPos blockPos, Block logBlock, Block leafBlock) {
@@ -69,9 +68,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
      * @return Determine whether or not the pos can support a sapling's tree.
      */
     public boolean canGiantMushroomGrowHere(LevelSimulatedReader reader, BlockPos pos) {
-        return reader.isStateAtPosition(pos, (state) -> {
-            return state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT;
-        });
+        return reader.isStateAtPosition(pos, (state) -> state.is(BlockTags.LOGS) || state.is(BlockTags.LEAVES) || state.isAir() || state.getMaterial() == Material.PLANT || state.getMaterial() == Material.REPLACEABLE_PLANT || state.getMaterial() == Material.WATER_PLANT || state.getMaterial() == Material.LEAVES || state.getMaterial() == Material.DIRT);
     }
 
     /**
@@ -216,7 +213,7 @@ public abstract class BYGAbstractMushroomFeature<T extends BYGMushroomConfig> ex
     }
 
     @Override
-    protected void setBlock(LevelWriter worldIn, BlockPos pos, BlockState state) {
+    protected void setBlock(@NotNull LevelWriter worldIn, @NotNull BlockPos pos, @NotNull BlockState state) {
         this.setBlockStateWithoutUpdates(worldIn, pos, state);
     }
 

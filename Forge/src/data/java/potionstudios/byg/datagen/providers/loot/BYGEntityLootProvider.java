@@ -8,6 +8,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGWoodTypes;
 import potionstudios.byg.common.entity.boat.BYGBoat;
 
@@ -23,7 +24,7 @@ public class BYGEntityLootProvider extends EntityLootSubProvider {
     }
 
     @Override
-    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
+    public void generate(@NotNull BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
         for (final BYGWoodTypes type : BYGWoodTypes.values()) {
             if (type.boatType() == null) {
                 continue;

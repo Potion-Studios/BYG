@@ -58,7 +58,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public VoxelShape getInteractionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    public @NotNull VoxelShape getInteractionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
         return makeShape();
     }
 
@@ -77,7 +77,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
         ItemStack item = player.getItemInHand(handIn);
         if (item.is(Items.WATER_BUCKET)) {
             player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.BUCKET.getDefaultInstance()));
@@ -99,12 +99,12 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public boolean isRandomlyTicking(BlockState $$0) {
+    public boolean isRandomlyTicking(@NotNull BlockState $$0) {
         return true;
     }
 
     @Override
-    public void randomTick(BlockState $$0, ServerLevel world, BlockPos $$2, RandomSource $$3) {
+    public void randomTick(@NotNull BlockState $$0, @NotNull ServerLevel world, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
         super.randomTick($$0, world, $$2, $$3);
         if (world.getLevel().isRaining()){
             world.setBlockAndUpdate($$2, BYGBlocks.WATER_BARREL_CACTUS.defaultBlockState());
@@ -113,7 +113,7 @@ public class CarvedBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+    public void tick(@NotNull BlockState pState, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
         BlockPos blockpos = PointedDripstoneBlock.findStalactiteTipAboveCauldron(pLevel, pPos);
         if (blockpos != null) {
             Fluid fluid = PointedDripstoneBlock.getCauldronFillFluidType(pLevel, blockpos);

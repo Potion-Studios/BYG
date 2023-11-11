@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
 
 public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
@@ -36,11 +37,11 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
 
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return new ItemStack(BYGItems.WHITE_PUFFBALL_SPORES.get());
     }
 
-    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    public @NotNull VoxelShape getShape(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         if (blockState.getValue(AGE) == 0) {
             return BABY_SHAPE;
         } else {
@@ -52,7 +53,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         return blockState.getValue(AGE) < 3;
     }
 
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource random) {
+    public void randomTick(BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
         int i = blockState.getValue(AGE);
         if (i < 3 && random.nextInt(5) == 0 && serverLevel.getRawBrightness(blockPos.above(), 0) < 13) {
             serverLevel.setBlock(blockPos, blockState.setValue(AGE, i + 1), 2);
@@ -60,7 +61,7 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
 
     }
 
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int i = blockState.getValue(AGE);
         boolean bl = i == 3;
         if (!bl && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
@@ -78,11 +79,11 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         }
     }
 
-    protected boolean mayPlaceOn(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+    protected boolean mayPlaceOn(BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos) {
         return blockState.isSolidRender(blockGetter, blockPos);
     }
 
-    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
+    public boolean canSurvive(@NotNull BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
         BlockPos blockPos2 = blockPos.below();
         BlockState blockState2 = levelReader.getBlockState(blockPos2);
         if (blockState2.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
@@ -96,15 +97,15 @@ public class WhitePuffballBlock extends BushBlock implements BonemealableBlock {
         builder.add(AGE);
     }
 
-    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader blockGetter, @NotNull BlockPos blockPos, BlockState blockState, boolean bl) {
         return blockState.getValue(AGE) < 3;
     }
 
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, @NotNull RandomSource random, @NotNull BlockPos blockPos, BlockState blockState) {
         int i = Math.min(3, blockState.getValue(AGE) + 1);
         serverLevel.setBlock(blockPos, blockState.setValue(AGE, i), 2);
     }

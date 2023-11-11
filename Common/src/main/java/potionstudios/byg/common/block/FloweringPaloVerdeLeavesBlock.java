@@ -14,7 +14,7 @@ public class FloweringPaloVerdeLeavesBlock extends LeavesBlock {
     }
 
     @Override
-    public void animateTick(BlockState $$0, @NotNull Level $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
+    public void animateTick(@NotNull BlockState $$0, @NotNull Level $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
         int $$4 = $$2.getX();
         int $$5 = $$2.getY();
         int $$6 = $$2.getZ();

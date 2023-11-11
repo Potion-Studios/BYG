@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.item.BYGItems;
 
 public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBlock {
@@ -27,12 +28,12 @@ public class BlueBerryBush extends SweetBerryBushBlock implements BonemealableBl
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull BlockState state) {
         return new ItemStack(BYGItems.BLUE_BERRY.get());
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
+    public @NotNull InteractionResult use(BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
         int age = state.getValue(AGE);
         boolean isMaxAge = age == 3;
         if (!isMaxAge && player.getItemInHand(handIn).getItem() == Items.BONE_MEAL) {

@@ -17,17 +17,7 @@ import java.util.stream.Collectors;
 
 public class HangingColumnConfig implements FeatureConfiguration {
 
-    public static final Codec<HangingColumnConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), Codec.INT.fieldOf("min_length").forGetter((config) -> {
-            return config.minLength;
-        }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
-            return config.maxLength;
-        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
-        })).apply(codecRecorder, HangingColumnConfig::new);
-    });
+    public static final Codec<HangingColumnConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), Codec.INT.fieldOf("min_length").forGetter((config) -> config.minLength), Codec.INT.fieldOf("max_length").forGetter((config) -> config.maxLength), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()))).apply(codecRecorder, HangingColumnConfig::new));
 
     private final BlockStateProvider blockProvider;
     private final int minLength;

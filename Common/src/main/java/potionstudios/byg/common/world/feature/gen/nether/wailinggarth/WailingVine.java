@@ -51,6 +51,6 @@ public class WailingVine extends Feature<NoneFeatureConfiguration> {
                     mainMutable.move(Direction.DOWN);
                 }
             }
-            return true;
+        return true;
         }
     }

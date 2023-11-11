@@ -26,19 +26,17 @@ public record LargeLakeFeatureConfig(int minRadius, int maxRadius, int minDepth,
                                      BlockStateProvider lakeFloorStateProvider,
                                      BlockStateProvider borderStateProvider, HolderSet<PlacedFeature> lakeSurfaceFeatures, HolderSet<PlacedFeature> lakeEdgeFeatures, List<PlacementModifier> modifiers) implements FeatureConfiguration {
 
-    public static final Codec<LargeLakeFeatureConfig> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-                Codec.INT.fieldOf("minRadius").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.minRadius),
-                Codec.INT.fieldOf("maxRadius").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.maxRadius),
-                Codec.INT.fieldOf("minDepth").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.minDepth),
-                Codec.INT.fieldOf("maxDepth").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.maxDepth),
-                BlockStateProvider.CODEC.fieldOf("floorStateProvider").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeFloorStateProvider),
-                BlockStateProvider.CODEC.fieldOf("edgeStateProvider").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.borderStateProvider),
-                PlacedFeature.LIST_CODEC.fieldOf("surface_features").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeSurfaceFeatures),
-                PlacedFeature.LIST_CODEC.fieldOf("edge_features").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeEdgeFeatures),
-                PlacementModifier.CODEC.listOf().fieldOf("edgeStateProvider_placement").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.modifiers)
-        ).apply(builder, LargeLakeFeatureConfig::new);
-    });
+    public static final Codec<LargeLakeFeatureConfig> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+            Codec.INT.fieldOf("minRadius").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.minRadius),
+            Codec.INT.fieldOf("maxRadius").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.maxRadius),
+            Codec.INT.fieldOf("minDepth").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.minDepth),
+            Codec.INT.fieldOf("maxDepth").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.maxDepth),
+            BlockStateProvider.CODEC.fieldOf("floorStateProvider").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeFloorStateProvider),
+            BlockStateProvider.CODEC.fieldOf("edgeStateProvider").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.borderStateProvider),
+            PlacedFeature.LIST_CODEC.fieldOf("surface_features").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeSurfaceFeatures),
+            PlacedFeature.LIST_CODEC.fieldOf("edge_features").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.lakeEdgeFeatures),
+            PlacementModifier.CODEC.listOf().fieldOf("edgeStateProvider_placement").forGetter(largeLakeFeatureConfig -> largeLakeFeatureConfig.modifiers)
+    ).apply(builder, LargeLakeFeatureConfig::new));
 
     public int getRandomRadius(RandomSource random) {
         return random.nextInt(Math.max(1, this.maxRadius - this.minRadius)) + this.minRadius;

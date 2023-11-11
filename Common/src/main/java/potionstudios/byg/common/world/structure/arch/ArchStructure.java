@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
 
 import java.util.HashSet;
@@ -30,11 +31,7 @@ import static net.minecraft.util.Mth.lerp;
 
 public class ArchStructure extends Structure {
 
-    public static final Codec<ArchStructure> CODEC = RecordCodecBuilder.<ArchStructure>mapCodec((archStructureInstance) -> {
-        return archStructureInstance.group(settingsCodec(archStructureInstance), ArchConfiguration.CODEC.fieldOf("settings").forGetter((p_227656_) -> {
-            return p_227656_.archConfiguration;
-        })).apply(archStructureInstance, ArchStructure::new);
-    }).codec();
+    public static final Codec<ArchStructure> CODEC = RecordCodecBuilder.<ArchStructure>mapCodec((archStructureInstance) -> archStructureInstance.group(settingsCodec(archStructureInstance), ArchConfiguration.CODEC.fieldOf("settings").forGetter((p_227656_) -> p_227656_.archConfiguration)).apply(archStructureInstance, ArchStructure::new)).codec();
 
 
     public static final int PIECE_BB_EXPANSION = 5;
@@ -185,14 +182,12 @@ public class ArchStructure extends Structure {
 
 
     @Override
-    public Optional<GenerationStub> findGenerationPoint(GenerationContext generationContext) {
-        return onTopOfChunkCenter(generationContext, Heightmap.Types.WORLD_SURFACE_WG, (piecesBuilder) -> {
-            generatePieces(piecesBuilder, generationContext, this.archConfiguration);
-        });
+    public @NotNull Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext generationContext) {
+        return onTopOfChunkCenter(generationContext, Heightmap.Types.WORLD_SURFACE_WG, (piecesBuilder) -> generatePieces(piecesBuilder, generationContext, this.archConfiguration));
     }
 
     @Override
-    public StructureType<?> type() {
+    public @NotNull StructureType<?> type() {
         return BYGStructureTypes.ARCH.get();
     }
 }

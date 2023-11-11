@@ -45,7 +45,7 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
 
 
     @Override
-    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+    public @NotNull Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.@NotNull Sampler sampler) {
         int quartX = QuartPos.toBlock(x);
         int quartY = QuartPos.toBlock(y);
         int quartZ = QuartPos.toBlock(z);
@@ -72,7 +72,7 @@ public class BYGEndBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    protected Codec<? extends BiomeSource> codec() {
+    protected @NotNull Codec<? extends BiomeSource> codec() {
         return CODEC;
     }
 

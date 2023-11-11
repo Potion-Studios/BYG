@@ -27,12 +27,12 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter $$1, BlockPos $$2) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter $$1, @NotNull BlockPos $$2) {
         return state.is(BlockTags.SAND);
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
         BlockPos blockPos3 = blockPos.above();
@@ -54,7 +54,7 @@ public class BloomingAloeVeraBlock extends DoublePlantBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState) {
+    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return new ItemStack(BYGItems.ALOE_VERA.get());
     }
 

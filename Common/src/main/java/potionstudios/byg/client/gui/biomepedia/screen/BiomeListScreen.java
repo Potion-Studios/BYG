@@ -196,9 +196,7 @@ public class BiomeListScreen extends AbstractBiomepediaScreen {
                         break;
                     }
                     ResourceKey<Biome> biome = biomes.get(registryIdx);
-                    page[yPos] = this.addWidget(new BiomeWidget(biome, xOffset + startX, yOffset, (int) (IMAGE_WIDTH / 2.5F), (int) (IMAGE_HEIGHT / 2.7), button -> {
-                        this.minecraft.setScreen(new BiomeAboutScreen(biome, this));
-                    }));
+                    page[yPos] = this.addWidget(new BiomeWidget(biome, xOffset + startX, yOffset, (int) (IMAGE_WIDTH / 2.5F), (int) (IMAGE_HEIGHT / 2.7), button -> this.minecraft.setScreen(new BiomeAboutScreen(biome, this))));
                     registryIdx++;
                     yOffset += (IMAGE_HEIGHT / 2.7) + 10;
                 }

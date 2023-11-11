@@ -10,6 +10,7 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FastColor;
 import net.minecraft.util.FormattedCharSequence;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.gui.screen.BYGContainerObjectSelectionList;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableTe
     }
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void render(@NotNull PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         super.render(poseStack, mouseX, mouseY, partialTick);
         if (DEBUG) {
             GuiComponent.fill(poseStack, this.x0, this.y0, this.x1, this.y1, FastColor.ARGB32.color(50, 0, 255, 0));
@@ -53,18 +54,18 @@ public class ScrollableText extends BYGContainerObjectSelectionList<ScrollableTe
         }
 
         @Override
-        public void render(PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
+        public void render(@NotNull PoseStack pPoseStack, int pIndex, int pTop, int pLeft, int rowWidth, int pHeight, int pMouseX, int pMouseY, boolean pIsMouseOver, float pPartialTick) {
             float textHeightOffset = (float) (pTop + pHeight - Minecraft.getInstance().font.lineHeight);
             Minecraft.getInstance().font.draw(pPoseStack, this.text, (pLeft) + rowWidth - this.textMaxWidth, textHeightOffset, this.textColor);
         }
 
         @Override
-        public List<? extends GuiEventListener> children() {
+        public @NotNull List<? extends GuiEventListener> children() {
             return ImmutableList.of();
         }
 
         @Override
-        public List<? extends NarratableEntry> narratables() {
+        public @NotNull List<? extends NarratableEntry> narratables() {
             return ImmutableList.of();
         }
     }

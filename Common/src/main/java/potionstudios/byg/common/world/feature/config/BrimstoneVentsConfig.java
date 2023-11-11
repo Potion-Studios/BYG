@@ -12,13 +12,7 @@ import potionstudios.byg.common.block.BYGBlocks;
 
 public class BrimstoneVentsConfig implements FeatureConfiguration {
 
-    public static final Codec<BrimstoneVentsConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("lava_provider").forGetter((config) -> {
-            return config.lavaProvider;
-        })).apply(codecRecorder, BrimstoneVentsConfig::new);
-    });
+    public static final Codec<BrimstoneVentsConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), BlockStateProvider.CODEC.fieldOf("lava_provider").forGetter((config) -> config.lavaProvider)).apply(codecRecorder, BrimstoneVentsConfig::new));
 
 
     private final BlockStateProvider blockProvider;

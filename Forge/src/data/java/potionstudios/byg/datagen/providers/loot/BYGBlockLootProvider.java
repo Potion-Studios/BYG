@@ -10,6 +10,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.BYGWoodTypes;
 
@@ -45,13 +46,13 @@ class BYGBlockLootProvider extends BlockLootSubProvider {
     }
 
     @Override
-    protected void add(Block pBlock, Function<Block, LootTable.Builder> pFactory) {
+    protected void add(@NotNull Block pBlock, @NotNull Function<Block, LootTable.Builder> pFactory) {
         super.add(pBlock, pFactory);
         blocks.add(pBlock);
     }
 
     @Override
-    protected void add(Block pBlock, LootTable.Builder pBuilder) {
+    protected void add(@NotNull Block pBlock, LootTable.@NotNull Builder pBuilder) {
         super.add(pBlock, pBuilder);
         blocks.add(pBlock);
     }
@@ -82,21 +83,19 @@ class BYGBlockLootProvider extends BlockLootSubProvider {
             if (type.growerItem() != null) {
                 final var growerName = type.growerItem().getId().getPath();
                 final var potted = ForgeRegistries.BLOCKS.getDelegate(BYG.createLocation("potted_" + growerName));
-                potted.ifPresent(blockReference -> {
-                    add(blockReference.value(), LootTable.lootTable()
-                            .withPool(applyExplosionCondition(type.growerItem(), LootPool.lootPool()
-                                    .setRolls(ConstantValue.exactly(1.0F))
-                                    .add(LootItem.lootTableItem(type.growerItem()))))
-                            .withPool(applyExplosionCondition(Items.FLOWER_POT, LootPool.lootPool()
-                                    .setRolls(ConstantValue.exactly(1.0F))
-                                    .add(LootItem.lootTableItem(Items.FLOWER_POT)))));
-                });
+                potted.ifPresent(blockReference -> add(blockReference.value(), LootTable.lootTable()
+                        .withPool(applyExplosionCondition(type.growerItem(), LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(type.growerItem()))))
+                        .withPool(applyExplosionCondition(Items.FLOWER_POT, LootPool.lootPool()
+                                .setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(Items.FLOWER_POT))))));
             }
         }
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
+    protected @NotNull Iterable<Block> getKnownBlocks() {
         return blocks;
     }
 }

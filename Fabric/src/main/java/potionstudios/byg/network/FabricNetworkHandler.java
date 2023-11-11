@@ -63,9 +63,7 @@ public class FabricNetworkHandler {
         FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
         encoder.accept(packet, buf);
 
-        players.forEach(player -> {
-            ServerPlayNetworking.send(player, packetId, buf);
-        });
+        players.forEach(player -> ServerPlayNetworking.send(player, packetId, buf));
     }
 
     public static class ClientProxy {

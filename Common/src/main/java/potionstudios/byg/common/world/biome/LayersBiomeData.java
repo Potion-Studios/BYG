@@ -15,12 +15,10 @@ import java.util.function.BiPredicate;
 import static potionstudios.byg.common.world.biome.BYGBiomes.*;
 
 public record LayersBiomeData(SimpleWeightedRandomList<ResourceKey<Biome>> biomeWeights, int biomeSize) {
-    public static final Codec<LayersBiomeData> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-            SimpleWeightedRandomList.wrappedCodec(CodecUtil.BIOME_CODEC).fieldOf("biomeWeights").forGetter(layersBiomeData -> layersBiomeData.biomeWeights),
-            Codec.INT.fieldOf("biomeSize").forGetter(layersBiomeData -> layersBiomeData.biomeSize)
-        ).apply(builder, LayersBiomeData::new);
-    });
+    public static final Codec<LayersBiomeData> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        SimpleWeightedRandomList.wrappedCodec(CodecUtil.BIOME_CODEC).fieldOf("biomeWeights").forGetter(layersBiomeData -> layersBiomeData.biomeWeights),
+        Codec.INT.fieldOf("biomeSize").forGetter(layersBiomeData -> layersBiomeData.biomeSize)
+    ).apply(builder, LayersBiomeData::new));
 
     public LayersBiomeData filter(BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter) {
         return new LayersBiomeData(BYGUtil.combineWeightedRandomLists(filter, biomeWeights), biomeSize);

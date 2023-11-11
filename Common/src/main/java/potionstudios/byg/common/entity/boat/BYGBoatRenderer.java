@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Quaternionf;
 import potionstudios.byg.BYG;
 import potionstudios.byg.util.ModPlatform;
@@ -31,11 +32,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
         super(context);
         this.shadowRadius = 0.8F;
         this.boatResources = ModPlatform.INSTANCE.hasLoadErrors() ? new HashMap<>() :
-                Stream.of(BYGBoat.BYGType.values()).collect(ImmutableMap.toImmutableMap((bygType) -> {
-                    return bygType;
-                }, (bygType) -> {
-                    return Pair.of(BYG.createLocation(getTextureLocation(bygType, hasChest)), this.createBoatModel(context, bygType, hasChest));
-                }));
+                Stream.of(BYGBoat.BYGType.values()).collect(ImmutableMap.toImmutableMap((bygType) -> bygType, (bygType) -> Pair.of(BYG.createLocation(getTextureLocation(bygType, hasChest)), this.createBoatModel(context, bygType, hasChest))));
     }
 
     private BoatModel createBoatModel(EntityRendererProvider.Context context, BYGBoat.BYGType bygType, boolean hasChest) {
@@ -56,7 +53,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
     }
 
     @Override
-    public void render(BYGBoat boat, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource multiBufferSource, int packedLightIn) {
+    public void render(BYGBoat boat, float entityYaw, float partialTicks, PoseStack matrixStackIn, @NotNull MultiBufferSource multiBufferSource, int packedLightIn) {
         matrixStackIn.pushPose();
         matrixStackIn.translate(0.0D, 0.375D, 0.0D);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(180.0F - entityYaw));
@@ -74,8 +71,8 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
             matrixStackIn.mulPose(new Quaternionf().setAngleAxis(boat.getBubbleAngle(partialTicks) * ((float)Math.PI / 180F), 1.0F, 0.0F, 1.0F));
         }
         Pair<ResourceLocation, BoatModel> pair = this.boatResources.get(boat.getBYGBoatType());
-        ResourceLocation resourceLocation = (ResourceLocation) pair.getFirst();
-        BoatModel boatModel = (BoatModel) pair.getSecond();
+        ResourceLocation resourceLocation = pair.getFirst();
+        BoatModel boatModel = pair.getSecond();
         matrixStackIn.scale(-1.0F, -1.0F, 1.0F);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(90.0F));
         boatModel.setupAnim(boat, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
@@ -92,7 +89,7 @@ public class BYGBoatRenderer extends EntityRenderer<BYGBoat> {
     /**
      * Returns the location of an entity's texture.
      */
-    public ResourceLocation getTextureLocation(BYGBoat boat) {
+    public @NotNull ResourceLocation getTextureLocation(BYGBoat boat) {
         return this.boatResources.get(boat.getBYGBoatType()).getFirst();
     }
 }

@@ -81,9 +81,7 @@ public class BiomeAboutScreen extends AbstractBiomepediaScreen {
         this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 22;
         this.textStartHeight = (this.bottomPos + IMAGE_HEIGHT / 2) - 5;
 
-        this.addRenderableWidget(new PageButton(pageButtonForwardX, pageButtonY, true, button -> {
-            this.minecraft.setScreen(new BiomeAboutScreen2(this.biomeKey, this.parent));
-        }, true));
+        this.addRenderableWidget(new PageButton(pageButtonForwardX, pageButtonY, true, button -> this.minecraft.setScreen(new BiomeAboutScreen2(this.biomeKey, this.parent)), true));
 
 
         int dimensionTextTop = this.bottomPos + 15;

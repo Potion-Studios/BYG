@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.OverworldBiomeBuilder;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.mixin.access.OverworldBiomeBuilderAccess;
 
 public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
@@ -35,12 +36,12 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    public ResourceKey<Biome> pickBeachBiome(int temp, int humidity) {
+    public @NotNull ResourceKey<Biome> pickBeachBiome(int temp, int humidity) {
         return beachBiomes[temp][humidity];
     }
 
     @Override
-    public ResourceKey<Biome> pickPeakBiome(int temp, int humidity, Climate.Parameter weirdness) {
+    public @NotNull ResourceKey<Biome> pickPeakBiome(int temp, int humidity, Climate.Parameter weirdness) {
         ResourceKey<Biome> peakBiome = this.peakBiomes[temp][humidity];
         if (weirdness.max() < 0L) {
             return peakBiome;
@@ -51,7 +52,7 @@ public class BYGOverworldBiomeBuilder extends OverworldBiomeBuilder {
     }
 
     @Override
-    public ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
+    public @NotNull ResourceKey<Biome> pickSlopeBiome(int temp, int humidity, Climate.Parameter weirdness) {
         ResourceKey<Biome> slopeBiome = this.slopeBiomes[temp][humidity];
         if (weirdness.max() < 0L) {
             return slopeBiome;

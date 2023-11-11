@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
 public class BYGFrostMagmaBlock extends Block {
@@ -18,7 +19,7 @@ public class BYGFrostMagmaBlock extends Block {
         super(properties);
     }
 
-    public void stepOn(Level block, BlockPos pos, BlockState state, Entity entity) {
+    public void stepOn(@NotNull Level block, @NotNull BlockPos pos, @NotNull BlockState state, Entity entity) {
         if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
             entity.hurt(DamageSource.HOT_FLOOR, 1.0F);
         }
@@ -26,7 +27,7 @@ public class BYGFrostMagmaBlock extends Block {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
+    public void randomTick(@NotNull BlockState state, ServerLevel world, BlockPos pos, @NotNull RandomSource rand) {
         BlockState blockAbove = world.getBlockState(pos.above());
         if (blockAbove.getBlock() == Blocks.WATER) {
             world.setBlock(pos.above(), Blocks.ICE.defaultBlockState(), 2);
@@ -43,7 +44,7 @@ public class BYGFrostMagmaBlock extends Block {
         return 20;
     }
 
-    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState state2, boolean isMoving) {
+    public void onPlace(@NotNull BlockState state, Level world, @NotNull BlockPos pos, @NotNull BlockState state2, boolean isMoving) {
         world.scheduleTick(pos, this, this.tickRate());
     }
 

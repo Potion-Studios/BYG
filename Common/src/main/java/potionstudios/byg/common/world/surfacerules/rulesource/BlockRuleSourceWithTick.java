@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.ticks.ScheduledTick;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.mixin.access.ChunkAccessAccess;
 import potionstudios.byg.mixin.access.SurfaceRuleContextAccess;
 import potionstudios.byg.mixin.access.SurfaceRulesStateRuleAccess;
@@ -30,7 +31,7 @@ public record BlockRuleSourceWithTick(BlockState state, int tickDelay,
     }
 
     @Override
-    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
+    public @NotNull KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 
