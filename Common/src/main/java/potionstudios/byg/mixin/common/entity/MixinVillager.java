@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -49,7 +50,7 @@ public class MixinVillager extends AbstractVillager {
     }
 
     @Shadow
-    protected void rewardTradeXp(MerchantOffer var1) {
+    protected void rewardTradeXp(@NotNull MerchantOffer var1) {
     }
 
     @Shadow
@@ -60,7 +61,7 @@ public class MixinVillager extends AbstractVillager {
 
     @Nullable
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel $$0, AgeableMob $$1) {
+    public AgeableMob getBreedOffspring(@NotNull ServerLevel $$0, @NotNull AgeableMob $$1) {
         double $$2 = this.random.nextDouble();
         VillagerType $$3;
         if ($$2 < 0.5D) {
@@ -72,7 +73,7 @@ public class MixinVillager extends AbstractVillager {
         }
 
         Villager $$6 = new Villager(EntityType.VILLAGER, $$0, $$3);
-        $$6.finalizeSpawn($$0, $$0.getCurrentDifficultyAt($$6.blockPosition()), MobSpawnType.BREEDING, (SpawnGroupData)null, (CompoundTag)null);
+        $$6.finalizeSpawn($$0, $$0.getCurrentDifficultyAt($$6.blockPosition()), MobSpawnType.BREEDING, null, null);
         return $$6;
     }
 }

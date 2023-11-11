@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class EmburVineBlock extends GrowingPlantHeadBlock {
@@ -22,15 +23,15 @@ public class EmburVineBlock extends GrowingPlantHeadBlock {
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
      * return a RandomSource value at least 1.
      */
-    protected int getBlocksToGrowWhenBonemealed(RandomSource rand) {
+    protected int getBlocksToGrowWhenBonemealed(@NotNull RandomSource rand) {
         return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 
-    protected Block getBodyBlock() {
+    protected @NotNull Block getBodyBlock() {
         return BYGBlocks.EMBUR_GEL_VINES_PLANT.get();
     }
 
-    protected boolean canGrowInto(BlockState state) {
+    protected boolean canGrowInto(@NotNull BlockState state) {
         return NetherVines.isValidGrowthState(state);
     }
 }

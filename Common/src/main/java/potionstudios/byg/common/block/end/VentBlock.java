@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 public class VentBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
@@ -25,7 +26,7 @@ public class VentBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any());
     }
 
-    public void stepOn(Level worldIn, BlockPos pos, BlockState state, Entity entityIn) {
+    public void stepOn(@NotNull Level worldIn, @NotNull BlockPos pos, @NotNull BlockState state, Entity entityIn) {
         if (!entityIn.fireImmune() && entityIn instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entityIn)) {
             entityIn.hurt(entityIn.damageSources().hotFloor(), 1.0F);
         }
@@ -33,7 +34,7 @@ public class VentBlock extends Block {
         super.stepOn(worldIn, pos, state, entityIn);
     }
 
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public @NotNull BlockState updateShape(@NotNull BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         if (facing == Direction.DOWN && !stateIn.canSurvive(worldIn, currentPos)) {
             return Blocks.AIR.defaultBlockState();
         } else {
@@ -42,7 +43,7 @@ public class VentBlock extends Block {
     }
 
     
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource random) {
+    public void animateTick(@NotNull BlockState stateIn, Level worldIn, @NotNull BlockPos pos, @NotNull RandomSource random) {
         RandomSource RandomSource = worldIn.getRandom();
         for (int lvt_11_1_ = 0; lvt_11_1_ < 3; ++lvt_11_1_) {
             if (random.nextBoolean()) {
@@ -57,7 +58,7 @@ public class VentBlock extends Block {
     }
 
 
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
     }
 }

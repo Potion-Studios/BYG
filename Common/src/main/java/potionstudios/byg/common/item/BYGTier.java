@@ -3,16 +3,13 @@ package potionstudios.byg.common.item;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 public class BYGTier implements Tier {
-   public static final BYGTier AMETRINE = new BYGTier("ametrine", 4, 64, 16.0F, 0.8F, 25, () -> {
-        return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
-    });
-    public static final BYGTier PENDORITE = new BYGTier("pendorite", 5, 2500, 10.0F, 4.0F, 15, () -> {
-        return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
-    });
+   public static final BYGTier AMETRINE = new BYGTier("ametrine", 4, 64, 16.0F, 0.8F, 25, () -> Ingredient.of(BYGItems.AMETRINE_GEMS.get()));
+    public static final BYGTier PENDORITE = new BYGTier("pendorite", 5, 2500, 10.0F, 4.0F, 15, () -> Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()));
 
     private final String id;
     private final int harvestLevel;
@@ -52,7 +49,7 @@ public class BYGTier implements Tier {
         return this.enchantability;
     }
 
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
 

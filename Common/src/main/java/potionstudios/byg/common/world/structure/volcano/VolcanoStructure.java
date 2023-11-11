@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.world.structure.BYGStructureTypes;
 
 import java.util.Optional;
@@ -82,14 +83,12 @@ public class VolcanoStructure extends Structure {
 
 
     @Override
-    public Optional<GenerationStub> findGenerationPoint(GenerationContext generationContext) {
-        return onTopOfChunkCenter(generationContext, Heightmap.Types.WORLD_SURFACE_WG, (piecesBuilder) -> {
-            generatePieces(piecesBuilder, generationContext);
-        });
+    public @NotNull Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext generationContext) {
+        return onTopOfChunkCenter(generationContext, Heightmap.Types.WORLD_SURFACE_WG, (piecesBuilder) -> generatePieces(piecesBuilder, generationContext));
     }
 
     @Override
-    public StructureType<?> type() {
+    public @NotNull StructureType<?> type() {
         return BYGStructureTypes.VOLCANO.get();
     }
 

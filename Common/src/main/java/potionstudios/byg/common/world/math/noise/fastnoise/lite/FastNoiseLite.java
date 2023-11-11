@@ -316,7 +316,8 @@ public class FastNoiseLite
             case OpenSimplex2:
             case OpenSimplex2S:
                 {
-                    final /*FMLdouble*/ double SQRT3 = (/*FMLdouble*/ double)1.7320508075688772935274463415059;
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double SQRT3 = 1.7320508075688772935274463415059;
                     final /*FMLdouble*/ double F2 = 0.5f * (SQRT3 - 1);
                     /*FMLdouble*/ double t = (x + y) * F2;
                     x += t;
@@ -327,17 +328,12 @@ public class FastNoiseLite
                 break;
         }
 
-        switch (mFractalType)
-        {
-            default:
-                return GenNoiseSingle(mSeed, x, y);
-            case FBm:
-                return GenFractalFBm(x, y);
-            case Ridged:
-                return GenFractalRidged(x, y);
-            case PingPong:
-                return GenFractalPingPong(x, y);
-        }
+	    return switch (mFractalType) {
+		    default -> GenNoiseSingle(mSeed, x, y);
+		    case FBm -> GenFractalFBm(x, y);
+		    case Ridged -> GenFractalRidged(x, y);
+		    case PingPong -> GenFractalPingPong(x, y);
+	    };
     }
 
     /// <summary>
@@ -358,25 +354,30 @@ public class FastNoiseLite
                 {
                     /*FMLdouble*/ double xy = x + y;
                     /*FMLdouble*/ double s2 = xy * -(/*FMLdouble*/ double)0.211324865405187;
-                    z *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                z *= 0.577350269189626;
                     x += s2 - z;
                     y = y + s2 - z;
-                    z += xy * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                z += xy * 0.577350269189626;
                 }
                 break;
             case ImproveXZPlanes:
                 {
                     /*FMLdouble*/ double xz = x + z;
                     /*FMLdouble*/ double s2 = xz * -(/*FMLdouble*/ double)0.211324865405187;
-                    y *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                y *= 0.577350269189626;
                     x += s2 - y;
                     z += s2 - y;
-                    y += xz * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                y += xz * 0.577350269189626;
                 }
                 break;
             case DefaultOpenSimplex2:
                 {
-                    final /*FMLdouble*/ double R3 = (/*FMLdouble*/ double)(2.0 / 3.0);
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double R3 = 2.0 / 3.0;
                     /*FMLdouble*/ double r = (x + y + z) * R3; // Rotation, not skew
                     x = r - x;
                     y = r - y;
@@ -387,17 +388,12 @@ public class FastNoiseLite
                 break;
         }
 
-        switch (mFractalType)
-        {
-            default:
-                return GenNoiseSingle(mSeed, x, y, z);
-            case FBm:
-                return GenFractalFBm(x, y, z);
-            case Ridged:
-                return GenFractalRidged(x, y, z);
-            case PingPong:
-                return GenFractalPingPong(x, y, z);
-        }
+	    return switch (mFractalType) {
+		    default -> GenNoiseSingle(mSeed, x, y, z);
+		    case FBm -> GenFractalFBm(x, y, z);
+		    case Ridged -> GenFractalRidged(x, y, z);
+		    case PingPong -> GenFractalPingPong(x, y, z);
+	    };
     }
 
 
@@ -687,44 +683,28 @@ public class FastNoiseLite
 
     private float GenNoiseSingle(int seed, /*FMLdouble*/ double x, /*FMLdouble*/ double y)
     {
-        switch (mNoiseType)
-        {
-            case OpenSimplex2:
-                return SingleSimplex(seed, x, y);
-            case OpenSimplex2S:
-                return SingleOpenSimplex2S(seed, x, y);
-            case Cellular:
-                return SingleCellular(seed, x, y);
-            case Perlin:
-                return SinglePerlin(seed, x, y);
-            case ValueCubic:
-                return SingleValueCubic(seed, x, y);
-            case Value:
-                return SingleValue(seed, x, y);
-            default:
-                return 0;
-        }
+	    return switch (mNoiseType) {
+		    case OpenSimplex2 -> SingleSimplex(seed, x, y);
+		    case OpenSimplex2S -> SingleOpenSimplex2S(seed, x, y);
+		    case Cellular -> SingleCellular(seed, x, y);
+		    case Perlin -> SinglePerlin(seed, x, y);
+		    case ValueCubic -> SingleValueCubic(seed, x, y);
+		    case Value -> SingleValue(seed, x, y);
+		    default -> 0;
+	    };
     }
 
     private float GenNoiseSingle(int seed, /*FMLdouble*/ double x, /*FMLdouble*/ double y, /*FMLdouble*/ double z)
     {
-        switch (mNoiseType)
-        {
-            case OpenSimplex2:
-                return SingleOpenSimplex2(seed, x, y, z);
-            case OpenSimplex2S:
-                return SingleOpenSimplex2S(seed, x, y, z);
-            case Cellular:
-                return SingleCellular(seed, x, y, z);
-            case Perlin:
-                return SinglePerlin(seed, x, y, z);
-            case ValueCubic:
-                return SingleValueCubic(seed, x, y, z);
-            case Value:
-                return SingleValue(seed, x, y, z);
-            default:
-                return 0;
-        }
+	    return switch (mNoiseType) {
+		    case OpenSimplex2 -> SingleOpenSimplex2(seed, x, y, z);
+		    case OpenSimplex2S -> SingleOpenSimplex2S(seed, x, y, z);
+		    case Cellular -> SingleCellular(seed, x, y, z);
+		    case Perlin -> SinglePerlin(seed, x, y, z);
+		    case ValueCubic -> SingleValueCubic(seed, x, y, z);
+		    case Value -> SingleValue(seed, x, y, z);
+		    default -> 0;
+	    };
     }
 
 
@@ -935,8 +915,8 @@ public class FastNoiseLite
         float yi = (float)(y - j);
 
         float t = (xi + yi) * G2;
-        float x0 = (float)(xi - t);
-        float y0 = (float)(yi - t);
+        float x0 = xi - t;
+        float y0 = yi - t;
 
         i *= PrimeX;
         j *= PrimeY;
@@ -950,19 +930,19 @@ public class FastNoiseLite
             n0 = (a * a) * (a * a) * GradCoord(seed, i, j, x0, y0);
         }
 
-        float c = (float)(2 * (1 - 2 * G2) * (1 / G2 - 2)) * t + ((float)(-2 * (1 - 2 * G2) * (1 - 2 * G2)) + a);
+        float c = 2 * (1 - 2 * G2) * (1 / G2 - 2) * t + ((-2 * (1 - 2 * G2) * (1 - 2 * G2)) + a);
         if (c <= 0) n2 = 0;
         else
         {
-            float x2 = x0 + (2 * (float)G2 - 1);
-            float y2 = y0 + (2 * (float)G2 - 1);
+            float x2 = x0 + (2 * G2 - 1);
+            float y2 = y0 + (2 * G2 - 1);
             n2 = (c * c) * (c * c) * GradCoord(seed, i + PrimeX, j + PrimeY, x2, y2);
         }
 
         if (y0 > x0)
         {
-            float x1 = x0 + (float)G2;
-            float y1 = y0 + ((float)G2 - 1);
+            float x1 = x0 + G2;
+            float y1 = y0 + (G2 - 1);
             float b = 0.5f - x1 * x1 - y1 * y1;
             if (b <= 0) n1 = 0;
             else
@@ -972,8 +952,8 @@ public class FastNoiseLite
         }
         else
         {
-            float x1 = x0 + ((float)G2 - 1);
-            float y1 = y0 + (float)G2;
+            float x1 = x0 + (G2 - 1);
+            float y1 = y0 + G2;
             float b = 0.5f - x1 * x1 - y1 * y1;
             if (b <= 0) n1 = 0;
             else
@@ -1086,7 +1066,8 @@ public class FastNoiseLite
     {
         // 2D OpenSimplex2S case is a modified 2D simplex noise.
 
-        final /*FMLdouble*/ double SQRT3 = (/*FMLdouble*/ double)1.7320508075688772935274463415059;
+	    /*FMLdouble*/
+	    final /*FMLdouble*/ double SQRT3 = 1.7320508075688772935274463415059;
         final /*FMLdouble*/ double G2 = (3 - SQRT3) / 6;
 
         /*
@@ -1515,25 +1496,16 @@ public class FastNoiseLite
             }
         }
 
-        switch (mCellularReturnType)
-        {
-            case CellValue:
-                return closestHash * (1 / 2147483648.0f);
-            case Distance:
-                return distance0 - 1;
-            case Distance2:
-                return distance1 - 1;
-            case Distance2Add:
-                return (distance1 + distance0) * 0.5f - 1;
-            case Distance2Sub:
-                return distance1 - distance0 - 1;
-            case Distance2Mul:
-                return distance1 * distance0 * 0.5f - 1;
-            case Distance2Div:
-                return distance0 / distance1 - 1;
-            default:
-                return 0;
-        }
+	    return switch (mCellularReturnType) {
+		    case CellValue -> closestHash * (1 / 2147483648.0f);
+		    case Distance -> distance0 - 1;
+		    case Distance2 -> distance1 - 1;
+		    case Distance2Add -> (distance1 + distance0) * 0.5f - 1;
+		    case Distance2Sub -> distance1 - distance0 - 1;
+		    case Distance2Mul -> distance1 * distance0 * 0.5f - 1;
+		    case Distance2Div -> distance0 / distance1 - 1;
+		    default -> 0;
+	    };
     }
 
     private float SingleCellular(int seed, /*FMLdouble*/ double x, /*FMLdouble*/ double y, /*FMLdouble*/ double z)
@@ -1668,25 +1640,16 @@ public class FastNoiseLite
             }
         }
 
-        switch (mCellularReturnType)
-        {
-            case CellValue:
-                return closestHash * (1 / 2147483648.0f);
-            case Distance:
-                return distance0 - 1;
-            case Distance2:
-                return distance1 - 1;
-            case Distance2Add:
-                return (distance1 + distance0) * 0.5f - 1;
-            case Distance2Sub:
-                return distance1 - distance0 - 1;
-            case Distance2Mul:
-                return distance1 * distance0 * 0.5f - 1;
-            case Distance2Div:
-                return distance0 / distance1 - 1;
-            default:
-                return 0;
-        }
+	    return switch (mCellularReturnType) {
+		    case CellValue -> closestHash * (1 / 2147483648.0f);
+		    case Distance -> distance0 - 1;
+		    case Distance2 -> distance1 - 1;
+		    case Distance2Add -> (distance1 + distance0) * 0.5f - 1;
+		    case Distance2Sub -> distance1 - distance0 - 1;
+		    case Distance2Mul -> distance1 * distance0 * 0.5f - 1;
+		    case Distance2Div -> distance0 / distance1 - 1;
+		    default -> 0;
+	    };
     }
 
 
@@ -1937,7 +1900,8 @@ public class FastNoiseLite
             case OpenSimplex2:
             case OpenSimplex2Reduced:
                 {
-                    final /*FMLdouble*/ double SQRT3 = (/*FMLdouble*/ double)1.7320508075688772935274463415059;
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double SQRT3 = 1.7320508075688772935274463415059;
                     final /*FMLdouble*/ double F2 = 0.5f * (SQRT3 - 1);
                     /*FMLdouble*/ double t = (xs + ys) * F2;
                     xs += t; ys += t;
@@ -1965,24 +1929,29 @@ public class FastNoiseLite
                 {
                     /*FMLdouble*/ double xy = xs + ys;
                     /*FMLdouble*/ double s2 = xy * -(/*FMLdouble*/ double)0.211324865405187;
-                    zs *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                zs *= 0.577350269189626;
                     xs += s2 - zs;
                     ys = ys + s2 - zs;
-                    zs += xy * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                zs += xy * 0.577350269189626;
                 }
                 break;
             case ImproveXZPlanes:
                 {
                     /*FMLdouble*/ double xz = xs + zs;
                     /*FMLdouble*/ double s2 = xz * -(/*FMLdouble*/ double)0.211324865405187;
-                    ys *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                ys *= 0.577350269189626;
                     xs += s2 - ys; zs += s2 - ys;
-                    ys += xz * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                ys += xz * 0.577350269189626;
                 }
                 break;
             case DefaultOpenSimplex2:
                 {
-                    final /*FMLdouble*/ double R3 = (/*FMLdouble*/ double)(2.0 / 3.0);
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double R3 = 2.0 / 3.0;
                     /*FMLdouble*/ double r = (xs + ys + zs) * R3; // Rotation, not skew
                     xs = r - xs;
                     ys = r - ys;
@@ -2014,7 +1983,8 @@ public class FastNoiseLite
                 case OpenSimplex2:
                 case OpenSimplex2Reduced:
                     {
-                        final /*FMLdouble*/ double SQRT3 = (/*FMLdouble*/ double)1.7320508075688772935274463415059;
+	                    /*FMLdouble*/
+	                    final /*FMLdouble*/ double SQRT3 = 1.7320508075688772935274463415059;
                         final /*FMLdouble*/ double F2 = 0.5f * (SQRT3 - 1);
                         /*FMLdouble*/ double t = (xs + ys) * F2;
                         xs += t; ys += t;
@@ -2049,24 +2019,29 @@ public class FastNoiseLite
                     {
                         /*FMLdouble*/ double xy = xs + ys;
                         /*FMLdouble*/ double s2 = xy * -(/*FMLdouble*/ double)0.211324865405187;
-                        zs *= (/*FMLdouble*/ double)0.577350269189626;
+	                    /*FMLdouble*/
+	                    zs *= 0.577350269189626;
                         xs += s2 - zs;
                         ys = ys + s2 - zs;
-                        zs += xy * (/*FMLdouble*/ double)0.577350269189626;
+	                    /*FMLdouble*/
+	                    zs += xy * 0.577350269189626;
                     }
                     break;
                 case ImproveXZPlanes:
                     {
                         /*FMLdouble*/ double xz = xs + zs;
                         /*FMLdouble*/ double s2 = xz * -(/*FMLdouble*/ double)0.211324865405187;
-                        ys *= (/*FMLdouble*/ double)0.577350269189626;
+	                    /*FMLdouble*/
+	                    ys *= 0.577350269189626;
                         xs += s2 - ys; zs += s2 - ys;
-                        ys += xz * (/*FMLdouble*/ double)0.577350269189626;
+	                    /*FMLdouble*/
+	                    ys += xz * 0.577350269189626;
                     }
                     break;
                 case DefaultOpenSimplex2:
                     {
-                        final /*FMLdouble*/ double R3 = (/*FMLdouble*/ double)(2.0 / 3.0);
+	                    /*FMLdouble*/
+	                    final /*FMLdouble*/ double R3 = 2.0 / 3.0;
                         /*FMLdouble*/ double r = (xs + ys + zs) * R3; // Rotation, not skew
                         xs = r - xs;
                         ys = r - ys;
@@ -2096,7 +2071,8 @@ public class FastNoiseLite
             case OpenSimplex2:
             case OpenSimplex2Reduced:
                 {
-                    final /*FMLdouble*/ double SQRT3 = (/*FMLdouble*/ double)1.7320508075688772935274463415059;
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double SQRT3 = 1.7320508075688772935274463415059;
                     final /*FMLdouble*/ double F2 = 0.5f * (SQRT3 - 1);
                     /*FMLdouble*/ double t = (xs + ys) * F2;
                     xs += t; ys += t;
@@ -2131,24 +2107,29 @@ public class FastNoiseLite
                 {
                     /*FMLdouble*/ double xy = xs + ys;
                     /*FMLdouble*/ double s2 = xy * -(/*FMLdouble*/ double)0.211324865405187;
-                    zs *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                zs *= 0.577350269189626;
                     xs += s2 - zs;
                     ys = ys + s2 - zs;
-                    zs += xy * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                zs += xy * 0.577350269189626;
                 }
                 break;
             case ImproveXZPlanes:
                 {
                     /*FMLdouble*/ double xz = xs + zs;
                     /*FMLdouble*/ double s2 = xz * -(/*FMLdouble*/ double)0.211324865405187;
-                    ys *= (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                ys *= 0.577350269189626;
                     xs += s2 - ys; zs += s2 - ys;
-                    ys += xz * (/*FMLdouble*/ double)0.577350269189626;
+	                /*FMLdouble*/
+	                ys += xz * 0.577350269189626;
                 }
                 break;
             case DefaultOpenSimplex2:
                 {
-                    final /*FMLdouble*/ double R3 = (/*FMLdouble*/ double)(2.0 / 3.0);
+	                /*FMLdouble*/
+	                final /*FMLdouble*/ double R3 = 2.0 / 3.0;
                     /*FMLdouble*/ double r = (xs + ys + zs) * R3; // Rotation, not skew
                     xs = r - xs;
                     ys = r - ys;
@@ -2289,8 +2270,8 @@ public class FastNoiseLite
         float yi = (float)(y - j);
 
         float t = (xi + yi) * G2;
-        float x0 = (float)(xi - t);
-        float y0 = (float)(yi - t);
+        float x0 = xi - t;
+        float y0 = yi - t;
 
         i *= PrimeX;
         j *= PrimeY;
@@ -2326,11 +2307,11 @@ public class FastNoiseLite
             vy += aaaa * yo;
         }
 
-        float c = (float)(2 * (1 - 2 * G2) * (1 / G2 - 2)) * t + ((float)(-2 * (1 - 2 * G2) * (1 - 2 * G2)) + a);
+        float c = 2 * (1 - 2 * G2) * (1 / G2 - 2) * t + ((-2 * (1 - 2 * G2) * (1 - 2 * G2)) + a);
         if (c > 0)
         {
-            float x2 = x0 + (2 * (float)G2 - 1);
-            float y2 = y0 + (2 * (float)G2 - 1);
+            float x2 = x0 + (2 * G2 - 1);
+            float y2 = y0 + (2 * G2 - 1);
             float cccc = (c * c) * (c * c);
             float xo, yo;
             if (outGradOnly)
@@ -2358,8 +2339,8 @@ public class FastNoiseLite
 
         if (y0 > x0)
         {
-            float x1 = x0 + (float)G2;
-            float y1 = y0 + ((float)G2 - 1);
+            float x1 = x0 + G2;
+            float y1 = y0 + (G2 - 1);
             float b = 0.5f - x1 * x1 - y1 * y1;
             if (b > 0)
             {
@@ -2390,8 +2371,8 @@ public class FastNoiseLite
         }
         else
         {
-            float x1 = x0 + ((float)G2 - 1);
-            float y1 = y0 + (float)G2;
+            float x1 = x0 + (G2 - 1);
+            float y1 = y0 + G2;
             float b = 0.5f - x1 * x1 - y1 * y1;
             if (b > 0)
             {

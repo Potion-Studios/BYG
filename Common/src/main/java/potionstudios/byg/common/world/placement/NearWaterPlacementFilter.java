@@ -8,15 +8,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.stream.Stream;
 
 public class NearWaterPlacementFilter extends PlacementModifier {
-    public static Codec<NearWaterPlacementFilter> CODEC = RecordCodecBuilder.create(builder -> {
-      return   builder.group(
-              Codec.INT.fieldOf("searchRange").forGetter(nearWaterPlacementFilter -> nearWaterPlacementFilter.waterSearchRange)
-      ).apply(builder, NearWaterPlacementFilter::new);
-    });
+    public static Codec<NearWaterPlacementFilter> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+            Codec.INT.fieldOf("searchRange").forGetter(nearWaterPlacementFilter -> nearWaterPlacementFilter.waterSearchRange)
+    ).apply(builder, NearWaterPlacementFilter::new));
     private final int waterSearchRange;
 
 
@@ -26,7 +25,7 @@ public class NearWaterPlacementFilter extends PlacementModifier {
 
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
+    public @NotNull Stream<BlockPos> getPositions(@NotNull PlacementContext placementContext, @NotNull RandomSource random, @NotNull BlockPos blockPos) {
         for (int xMove = -waterSearchRange; xMove <= waterSearchRange; xMove++) {
             for (int zMove = -waterSearchRange; zMove <= waterSearchRange; zMove++) {
                 if (placementContext.getLevel().getBlockState(blockPos.offset(xMove, -1, zMove)).is(Blocks.WATER)) {
@@ -39,7 +38,7 @@ public class NearWaterPlacementFilter extends PlacementModifier {
     }
 
     @Override
-    public PlacementModifierType<?> type() {
+    public @NotNull PlacementModifierType<?> type() {
         return BYGPlacementModifierType.NEAR_WATER_FILTER.get();
     }
 }

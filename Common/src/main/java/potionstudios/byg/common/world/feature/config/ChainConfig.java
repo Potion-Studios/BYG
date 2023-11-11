@@ -17,19 +17,7 @@ import java.util.stream.Collectors;
 
 public class ChainConfig implements FeatureConfiguration {
 
-    public static final Codec<ChainConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("x_axis_block_provider").forGetter((config) -> {
-            return config.xAxisBlockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("z_axis_block_provider").forGetter((config) -> {
-            return config.zAxisBlockProvider;
-        }), Codec.INT.fieldOf("min_length").forGetter((config) -> {
-            return config.minLength;
-        }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
-            return config.maxLength;
-        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
-        })).apply(codecRecorder, ChainConfig::new);
-    });
+    public static final Codec<ChainConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("x_axis_block_provider").forGetter((config) -> config.xAxisBlockProvider), BlockStateProvider.CODEC.fieldOf("z_axis_block_provider").forGetter((config) -> config.zAxisBlockProvider), Codec.INT.fieldOf("min_length").forGetter((config) -> config.minLength), Codec.INT.fieldOf("max_length").forGetter((config) -> config.maxLength), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()))).apply(codecRecorder, ChainConfig::new));
 
     private final BlockStateProvider xAxisBlockProvider;
     private final BlockStateProvider zAxisBlockProvider;

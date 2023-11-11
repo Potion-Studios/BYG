@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import org.jetbrains.annotations.NotNull;
 
 public class AbstractBiomepediaScreen extends Screen {
 
@@ -39,7 +40,7 @@ public class AbstractBiomepediaScreen extends Screen {
 
 
     @Override
-    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+    public void render(@NotNull PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
         renderBackgroundAndBiomepedia(poseStack);
 
         super.render(poseStack, mouseX, mouseY, partialTick);

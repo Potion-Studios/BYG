@@ -10,6 +10,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class HydrangeaBushBlock extends BYGFlowerBlock implements BonemealableBlock {
     private final TagKey<Block> validGround;
@@ -26,17 +27,17 @@ public class HydrangeaBushBlock extends BYGFlowerBlock implements BonemealableBl
 
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean b) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader blockGetter, @NotNull BlockPos blockPos, @NotNull BlockState blockState, boolean b) {
         return true;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(@NotNull Level level, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return true;
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource random, BlockPos blockPos, BlockState blockState) {
+    public void performBonemeal(ServerLevel serverLevel, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         serverLevel.setBlockAndUpdate(blockPos, BYGBlocks.HYDRANGEA_HEDGE.defaultBlockState());
         serverLevel.neighborChanged(blockPos, BYGBlocks.HYDRANGEA_HEDGE.get(), blockPos);
     }

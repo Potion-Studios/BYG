@@ -59,9 +59,7 @@ public final class LevelBiomeTracker {
 
                 for (MobCategory category : MobCategory.values()) {
                     WeightedRandomList<MobSpawnSettings.SpawnerData> mobs = possibleBiome.value().getMobSettings().getMobs(category);
-                    ((WeightedListAccess<MobSpawnSettings.SpawnerData>) mobs).byg_getItems().stream().map(spawnerData -> spawnerData.type).map(entityType -> BuiltInRegistries.ENTITY_TYPE.getResourceKey(entityType).orElseThrow()).forEach(entityTypeResourceKey -> {
-                        entitySpawns.computeIfAbsent(biomeResourceKey, key -> new ObjectOpenHashSet<>()).add(entityTypeResourceKey);
-                    });
+                    ((WeightedListAccess<MobSpawnSettings.SpawnerData>) mobs).byg_getItems().stream().map(spawnerData -> spawnerData.type).map(entityType -> BuiltInRegistries.ENTITY_TYPE.getResourceKey(entityType).orElseThrow()).forEach(entityTypeResourceKey -> entitySpawns.computeIfAbsent(biomeResourceKey, key -> new ObjectOpenHashSet<>()).add(entityTypeResourceKey));
 
                 }
             });

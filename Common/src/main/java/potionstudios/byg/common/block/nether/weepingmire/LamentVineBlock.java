@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class LamentVineBlock extends GrowingPlantHeadBlock {
@@ -26,20 +27,20 @@ public class LamentVineBlock extends GrowingPlantHeadBlock {
      * Used to determine how much to grow the plant when using bonemeal. Kelp always returns 1, where as the nether vines
      * return a RandomSource value at least 1.
      */
-    protected int getBlocksToGrowWhenBonemealed(RandomSource rand) {
+    protected int getBlocksToGrowWhenBonemealed(@NotNull RandomSource rand) {
         return NetherVines.getBlocksToGrowWhenBonemealed(rand);
     }
 
-    protected Block getBodyBlock() {
+    protected @NotNull Block getBodyBlock() {
         return BYGBlocks.LAMENT_VINE_PLANT.get();
     }
 
-    protected boolean canGrowInto(BlockState state) {
+    protected boolean canGrowInto(@NotNull BlockState state) {
         return NetherVines.isValidGrowthState(state);
     }
 
     
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
+    public void animateTick(@NotNull BlockState stateIn, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull RandomSource rand) {
         VoxelShape lvt_5_1_ = this.getShape(stateIn, worldIn, pos, CollisionContext.empty());
         Vec3 lvt_6_1_ = lvt_5_1_.bounds().getCenter();
         double lvt_7_1_ = (double) pos.getX() + lvt_6_1_.x;
@@ -53,7 +54,7 @@ public class LamentVineBlock extends GrowingPlantHeadBlock {
 
     }
 
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, Entity entityIn) {
         entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
     }
 }

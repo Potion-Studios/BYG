@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -28,12 +29,12 @@ public class IsDimensionFilter extends PlacementModifier {
     }
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
+    public @NotNull Stream<BlockPos> getPositions(PlacementContext placementContext, @NotNull RandomSource random, @NotNull BlockPos blockPos) {
         return this.validDimensions.contains(placementContext.getLevel().getLevel().dimension()) ? Stream.of(blockPos) : Stream.empty();
     }
 
     @Override
-    public PlacementModifierType<?> type() {
+    public @NotNull PlacementModifierType<?> type() {
         return BYGPlacementModifierType.IS_DIMENSION_FILTER.get();
     }
 }

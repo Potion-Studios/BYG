@@ -51,7 +51,7 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
+    public @NotNull Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.@NotNull Sampler sampler) {
         if (y < bottomTopY + this.lowerLayerRoughnessNoise.GetNoise(x, z) * 5) {
             return this.bottomResolver.getNoiseBiome(x, y, z, sampler);
         } else if (y > bottomTopY + bottomTopY + this.upperLayerRoughnessNoise.GetNoise(x, z) * 5) {
@@ -62,12 +62,12 @@ public class BYGNetherBiomeSource extends BiomeSource implements LazyLoadSeed {
     }
 
     @Override
-    protected Codec<? extends BiomeSource> codec() {
+    protected @NotNull Codec<? extends BiomeSource> codec() {
         return CODEC;
     }
 
     @Override
-    protected Stream<Holder<Biome>> collectPossibleBiomes() {
+    protected @NotNull Stream<Holder<Biome>> collectPossibleBiomes() {
         return Stream.empty();
     }
 

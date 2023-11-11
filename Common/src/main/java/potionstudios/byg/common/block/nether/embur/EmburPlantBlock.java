@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class EmburPlantBlock extends BushBlock implements BonemealableBlock {
@@ -25,16 +26,16 @@ public class EmburPlantBlock extends BushBlock implements BonemealableBlock {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader worldIn, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         return true;
     }
 
-    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(@NotNull Level worldIn, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
 
-    public void performBonemeal(ServerLevel worldIn, RandomSource rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(@NotNull ServerLevel worldIn, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
         DoublePlantBlock doubleplantblock = BYGBlocks.TALL_EMBUR_ROOTS.get();
         if (doubleplantblock.defaultBlockState().canSurvive(worldIn, pos) && worldIn.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(worldIn, doubleplantblock.defaultBlockState(), pos, Block.UPDATE_CLIENTS);
@@ -46,18 +47,18 @@ public class EmburPlantBlock extends BushBlock implements BonemealableBlock {
         return OffsetType.XZ;
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext ctx) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter reader, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
         Vec3 vector = state.getOffset(reader, pos);
         return SHAPE.move(vector.x, vector.y, vector.z);
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return state.is(BlockTags.NYLIUM) || state.is(Blocks.MYCELIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.below();
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }

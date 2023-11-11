@@ -6,6 +6,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class BYGTallFlowerBlock extends TallFlowerBlock {
     private final TagKey<Block> validGround;
@@ -16,7 +17,7 @@ public class BYGTallFlowerBlock extends TallFlowerBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos) {
         return state.is(validGround);
     }
 }

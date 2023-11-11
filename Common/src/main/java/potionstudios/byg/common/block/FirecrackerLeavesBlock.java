@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.BYGTags;
 
 public class FirecrackerLeavesBlock extends LeavesBlock {
@@ -20,7 +21,7 @@ public class FirecrackerLeavesBlock extends LeavesBlock {
         super(properties);
     }
 
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, Level level, BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 

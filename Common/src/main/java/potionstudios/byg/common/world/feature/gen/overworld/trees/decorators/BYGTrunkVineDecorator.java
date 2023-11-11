@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
 import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import org.jetbrains.annotations.NotNull;
 
 public class BYGTrunkVineDecorator extends TreeDecorator {
 
@@ -28,7 +29,7 @@ public class BYGTrunkVineDecorator extends TreeDecorator {
         this.probability = probability;
     }
 
-    protected TreeDecoratorType<?> type() {
+    protected @NotNull TreeDecoratorType<?> type() {
         return BYGTreeDecoratorTypes.TRUNK_VINE.get();
     }
 

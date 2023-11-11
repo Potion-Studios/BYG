@@ -86,13 +86,13 @@ public class WaterBarrelCactusBlock extends AbstractBarrelCactusBlock {
     }
 
     @Override
-    public VoxelShape getInteractionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    public @NotNull VoxelShape getInteractionShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos) {
         return makeShape();
     }
 
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, @NotNull BlockHitResult hit) {
         ItemStack item = player.getItemInHand(handIn);
         if (item.is(Items.BUCKET)) {
             player.setItemInHand(handIn, ItemUtils.createFilledResult(item, player, Items.WATER_BUCKET.getDefaultInstance()));

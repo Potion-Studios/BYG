@@ -6,16 +6,13 @@ import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
 public class BYGArmorMaterial implements ArmorMaterial {
-    public static final BYGArmorMaterial AMETRINE = new BYGArmorMaterial("ametrine", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
-        return Ingredient.of(BYGItems.AMETRINE_GEMS.get());
-    });
-    public static final BYGArmorMaterial PENDORITE = new BYGArmorMaterial("pendorite", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> {
-        return Ingredient.of(BYGItems.PENDORITE_SCRAPS.get());
-    });
+    public static final BYGArmorMaterial AMETRINE = new BYGArmorMaterial("ametrine", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> Ingredient.of(BYGItems.AMETRINE_GEMS.get()));
+    public static final BYGArmorMaterial PENDORITE = new BYGArmorMaterial("pendorite", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, () -> Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()));
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[]{13, 15, 16, 11};
     private final String name;
@@ -50,15 +47,15 @@ public class BYGArmorMaterial implements ArmorMaterial {
         return this.enchantability;
     }
 
-    public SoundEvent getEquipSound() {
+    public @NotNull SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
-    public Ingredient getRepairIngredient() {
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
 
-    public String getName() {
+    public @NotNull String getName() {
         return this.name;
     }
 

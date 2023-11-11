@@ -3,6 +3,7 @@ package potionstudios.byg.common.particles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class TheriumGlint extends TextureSheetParticle {
@@ -22,7 +23,7 @@ public class TheriumGlint extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() {
+    public @NotNull ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_OPAQUE;
     }
 
@@ -57,7 +58,7 @@ public class TheriumGlint extends TextureSheetParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(SimpleParticleType var1, ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+        public Particle createParticle(@NotNull SimpleParticleType var1, @NotNull ClientLevel world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             TheriumGlint glint = new TheriumGlint(world, x, y, z, xSpeed, ySpeed, zSpeed);
             glint.setColor(1.0f, 1.0f, 1.0f);
             glint.setSpriteFromAge(this.sprite);

@@ -18,19 +18,7 @@ import java.util.List;
 
 public class FloatingIslandConfig implements FeatureConfiguration {
 
-    public static final Codec<FloatingIslandConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("top_block_provider").forGetter((config) -> {
-            return config.topBlockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), Codec.INT.fieldOf("min_radius").orElse(13).forGetter((config) -> {
-            return config.minRadius;
-        }), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> {
-            return config.maxRadius;
-        }), PlacedFeature.LIST_CODEC.fieldOf("island_features").forGetter(floatingIslandConfig -> {
-            return floatingIslandConfig.features;
-        })).apply(codecRecorder, FloatingIslandConfig::new);
-    });
+    public static final Codec<FloatingIslandConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("top_block_provider").forGetter((config) -> config.topBlockProvider), BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), Codec.INT.fieldOf("min_radius").orElse(13).forGetter((config) -> config.minRadius), Codec.INT.fieldOf("max_radius").orElse(15).forGetter((config) -> config.maxRadius), PlacedFeature.LIST_CODEC.fieldOf("island_features").forGetter(floatingIslandConfig -> floatingIslandConfig.features)).apply(codecRecorder, FloatingIslandConfig::new));
 
     private final BlockStateProvider topBlockProvider;
     private final BlockStateProvider blockProvider;

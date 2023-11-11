@@ -8,6 +8,7 @@ import net.minecraft.util.KeyDispatchDataCodec;
 import net.minecraft.util.valueproviders.FloatProvider;
 import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public final class BetweenRepeatingNoiseRange implements SurfaceRules.RuleSource
     }
 
     @Override
-    public KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
+    public @NotNull KeyDispatchDataCodec<? extends SurfaceRules.RuleSource> codec() {
         return CODEC;
     }
 

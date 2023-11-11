@@ -35,27 +35,23 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
     public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-end-biomes.json");
     public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("end-biomes.json5");
 
-    public static final Codec<EndBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.forceBYGEndBiomeSource),
-            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries),
-            Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
-            LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
-            LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
-            LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers)
-        ).apply(builder, EndBiomesConfig::new);
-    });
+    public static final Codec<EndBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(overworldBiomeConfig -> overworldBiomeConfig.forceBYGEndBiomeSource),
+        Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries),
+        Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
+        LayersBiomeData.CODEC.fieldOf("islandLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
+        LayersBiomeData.CODEC.fieldOf("voidLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
+        LayersBiomeData.CODEC.fieldOf("skyLayerData").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers)
+    ).apply(builder, EndBiomesConfig::new));
 
-    public static final Codec<EndBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-            Codec.BOOL.fieldOf("forceBYGEndBiomeSource").forGetter(overworldBiomeConfig -> overworldBiomeConfig.forceBYGEndBiomeSource),
-            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries),
-            Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
-            LayersBiomeData.CODEC.fieldOf("islandLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
-            LayersBiomeData.CODEC.fieldOf("voidLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
-            LayersBiomeData.CODEC.fieldOf("skyLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers)
-        ).apply(builder, EndBiomesConfig::new);
-    });
+    public static final Codec<EndBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        Codec.BOOL.fieldOf("forceBYGEndBiomeSource").forGetter(overworldBiomeConfig -> overworldBiomeConfig.forceBYGEndBiomeSource),
+        Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(overworldBiomeConfig -> overworldBiomeConfig.addAllEndBiomeCategoryEntries),
+        Codec.INT.fieldOf("skyLayerStartY").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayerStartY),
+        LayersBiomeData.CODEC.fieldOf("islandLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.islandLayers),
+        LayersBiomeData.CODEC.fieldOf("voidLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.voidLayers),
+        LayersBiomeData.CODEC.fieldOf("skyLayer").forGetter(overworldBiomeConfig -> overworldBiomeConfig.skyLayers)
+    ).apply(builder, EndBiomesConfig::new));
 
     public static EndBiomesConfig INSTANCE = null;
 
@@ -76,9 +72,7 @@ public record EndBiomesConfig(boolean forceBYGEndBiomeSource, boolean addAllEndB
         }
 
         if (additional != null && INSTANCE.addAllEndBiomeCategoryEntries()) {
-            SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_END)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
-            }).build();
+            SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_END)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2))).build();
 
             BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added);
 

@@ -36,27 +36,23 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
     public static final Supplier<Path> LEGACY_CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve(BYG.MOD_ID + "-nether-biomes.json");
     public static final Supplier<Path> CONFIG_PATH = () -> ModPlatform.INSTANCE.configPath().resolve("nether-biomes.json5");
 
-    public static final Codec<NetherBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-            Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
-            Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
-            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
-            LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
-            LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
-            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
-        ).apply(builder, NetherBiomesConfig::new);
-    });
+    public static final Codec<NetherBiomesConfig> LEGACY_CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        Codec.BOOL.fieldOf("useBYGNetherBiomeSourceInNewWorlds").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
+        Codec.BOOL.fieldOf("addAllEndBiomeCategoryEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
+        Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
+        LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
+        LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
+        LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
+    ).apply(builder, NetherBiomesConfig::new));
 
-    public static final Codec<NetherBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> {
-        return builder.group(
-            Codec.BOOL.fieldOf("forceBYGNetherBiomeSource").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
-            Codec.BOOL.fieldOf("addAllNetherBiomeTagEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
-            Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
-            LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
-            LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
-            LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
-        ).apply(builder, NetherBiomesConfig::new);
-    });
+    public static final Codec<NetherBiomesConfig> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+        Codec.BOOL.fieldOf("forceBYGNetherBiomeSource").forGetter(netherBiomesConfig -> netherBiomesConfig.forceBYGNetherBiomeSource),
+        Codec.BOOL.fieldOf("addAllNetherBiomeTagEntries").forGetter(netherBiomesConfig -> netherBiomesConfig.addAllNetherBiomeTagEntries),
+        Codec.INT.fieldOf("layerSizeInBlocks").forGetter(netherBiomesConfig -> netherBiomesConfig.layerSize),
+        LayersBiomeData.CODEC.fieldOf("upperLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.upperLayer),
+        LayersBiomeData.CODEC.fieldOf("middleLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.middleLayer),
+        LayersBiomeData.CODEC.fieldOf("bottomLayer").forGetter(netherBiomesConfig -> netherBiomesConfig.bottomLayer)
+    ).apply(builder, NetherBiomesConfig::new));
     public static NetherBiomesConfig INSTANCE = null;
 
     public static final NetherBiomesConfig DEFAULT = new NetherBiomesConfig(true, true, 40, LayersBiomeData.DEFAULT_NETHER_UPPER, LayersBiomeData.DEFAULT_NETHER_MIDDLE, LayersBiomeData.DEFAULT_NETHER_LOWER);
@@ -75,9 +71,7 @@ public record NetherBiomesConfig(boolean forceBYGNetherBiomeSource, boolean addA
         }
 
         if (additional != null && INSTANCE.addAllNetherBiomeTagEntries()) {
-            SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> {
-                additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2));
-            }).build();
+            SimpleWeightedRandomList<ResourceKey<Biome>> registryDefaults = Util.make((SimpleWeightedRandomList.<ResourceKey<Biome>>builder()), builder -> additional.stream().map(additional::getResourceKey).map(Optional::get).map(additional::getHolderOrThrow).filter(biomeHolder -> biomeHolder.is(BiomeTags.IS_NETHER)).map(biomeHolder -> biomeHolder.unwrapKey().orElseThrow()).forEach(biomeResourceKey -> builder.add(biomeResourceKey, 2))).build();
 
             BiPredicate<Collection<ResourceKey<Biome>>, ResourceKey<Biome>> filter = (existing, added) -> !existing.contains(added);
 

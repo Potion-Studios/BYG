@@ -21,23 +21,7 @@ import java.util.stream.Collectors;
 
 public class BYGTreeConfig implements FeatureConfiguration {
 
-    public static final Codec<BYGTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(SimpleStateProvider.simple(Blocks.OAK_LOG.defaultBlockState())).forGetter((config) -> {
-            return config.trunkProvider;
-        }), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> {
-            return config.leavesProvider;
-        }), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(SimpleStateProvider.simple(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> {
-            return config.diskProvider;
-        }), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> {
-            return config.minHeight;
-        }), Codec.INT.fieldOf("max_height").orElse(15).forGetter((config) -> {
-            return config.maxHeight;
-        }), Codec.INT.fieldOf("disk_radius").orElse(0).forGetter((config) -> {
-            return config.diskRadius;
-        }), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> {
-            return config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList());
-        })).apply(codecRecorder, BYGTreeConfig::new);
-    });
+    public static final Codec<BYGTreeConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("trunk_provider").orElse(SimpleStateProvider.simple(Blocks.OAK_LOG.defaultBlockState())).forGetter((config) -> config.trunkProvider), BlockStateProvider.CODEC.fieldOf("leaves_provider").orElse(SimpleStateProvider.simple(Blocks.OAK_LEAVES.defaultBlockState())).forGetter((config) -> config.leavesProvider), BlockStateProvider.CODEC.fieldOf("disk_provider").orElse(SimpleStateProvider.simple(Blocks.PODZOL.defaultBlockState())).forGetter((config) -> config.diskProvider), Codec.INT.fieldOf("min_height").orElse(15).forGetter((config) -> config.minHeight), Codec.INT.fieldOf("max_height").orElse(15).forGetter((config) -> config.maxHeight), Codec.INT.fieldOf("disk_radius").orElse(0).forGetter((config) -> config.diskRadius), BlockState.CODEC.listOf().fieldOf("whitelist").forGetter((config) -> config.whitelist.stream().map(Block::defaultBlockState).collect(Collectors.toList()))).apply(codecRecorder, BYGTreeConfig::new));
 
 
     private final BlockStateProvider trunkProvider;

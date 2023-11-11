@@ -9,13 +9,14 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TallFlowerBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class TallBulbisBlock extends TallFlowerBlock {
     public TallBulbisBlock(Properties builder) {
         super(builder);
     }
 
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Entity entityIn) {
             if (entityIn instanceof LivingEntity livingentity && !EnchantmentHelper.hasSoulSpeed((LivingEntity)entityIn)) {
 	            livingentity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 160, 0, false, false));
             }

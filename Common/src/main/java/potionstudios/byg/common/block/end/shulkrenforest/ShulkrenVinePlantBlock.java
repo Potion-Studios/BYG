@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class ShulkrenVinePlantBlock extends GrowingPlantBodyBlock {
@@ -19,11 +20,11 @@ public class ShulkrenVinePlantBlock extends GrowingPlantBodyBlock {
         super(properties, Direction.DOWN, SHAPE, false);
     }
 
-    protected GrowingPlantHeadBlock getHeadBlock() {
+    protected @NotNull GrowingPlantHeadBlock getHeadBlock() {
         return (GrowingPlantHeadBlock) BYGBlocks.SHULKREN_VINE.get();
     }
 
-    public void entityInside(BlockState state, Level worldIn, BlockPos pos, Entity entityIn) {
+    public void entityInside(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, Entity entityIn) {
         entityIn.makeStuckInBlock(state, new Vec3(0.8F, 0.75D, 0.8F));
     }
 }

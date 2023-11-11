@@ -32,6 +32,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.entity.BYGEntities;
 import potionstudios.byg.common.item.BYGItems;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -80,7 +81,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return true;
     }
 
-    public MobType getMobType() {
+    public @NotNull MobType getMobType() {
         return MobType.WATER;
     }
 
@@ -123,7 +124,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         return false;
     }
 
-    public boolean canBeLeashed(Player $$0) {
+    public boolean canBeLeashed(@NotNull Player $$0) {
         return false;
     }
 
@@ -143,7 +144,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public InteractionResult mobInteract(Player $$0, InteractionHand $$1) {
+    public @NotNull InteractionResult mobInteract(@NotNull Player $$0, @NotNull InteractionHand $$1) {
         if (this.isBaby()) {
             return Bucketable.bucketMobPickup($$0, $$1, this).orElse(super.mobInteract($$0, $$1));
         }
@@ -151,7 +152,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public void playerTouch(Player player) {
+    public void playerTouch(@NotNull Player player) {
         if (player instanceof ServerPlayer && player.hurt(player.damageSources().mobAttack(this), (float) (1))) {
             RandomSource rand = player.getRandom();
             int i = rand.nextInt(4);
@@ -166,11 +167,11 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
         }
     }
 
-    protected Entity.MovementEmission getMovementEmission() {
+    protected Entity.@NotNull MovementEmission getMovementEmission() {
         return Entity.MovementEmission.EVENTS;
     }
 
-    public void travel(Vec3 vec3) {
+    public void travel(@NotNull Vec3 vec3) {
         this.move(MoverType.SELF, this.getDeltaMovement());
     }
 
@@ -204,7 +205,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor serverLevelAccessor, @NotNull DifficultyInstance difficultyInstance, @NotNull MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
         spawnGroupData = super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
         if (mobSpawnType == MobSpawnType.BUCKET && compoundTag != null && compoundTag.contains("BucketVariantTag", 3)) {
             this.setRawFlag(compoundTag.getInt("BucketVariantTag"));
@@ -218,7 +219,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     @org.jetbrains.annotations.Nullable
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+    public AgeableMob getBreedOffspring(@NotNull ServerLevel serverLevel, @NotNull AgeableMob ageableMob) {
         ManOWar manOWar = BYGEntities.MAN_O_WAR.get().create(serverLevel);
         manOWar.setColor(getRandColor(serverLevel.getRandom()));
         return manOWar;
@@ -232,14 +233,14 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag compoundTag) {
+    public void addAdditionalSaveData(@NotNull CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putInt("Flag", this.getRawFlag());
         compoundTag.putBoolean("FromBucket", this.fromBucket());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag compoundTag) {
+    public void readAdditionalSaveData(@NotNull CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         this.setRawFlag(compoundTag.getInt("Flag"));
         this.setFromBucket(compoundTag.getBoolean("FromBucket"));
@@ -248,7 +249,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
     public void aiStep() {
         if (!this.isInWater() && this.onGround && this.verticalCollision) {
-            this.setDeltaMovement(this.getDeltaMovement().add((double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F), 0.4000000059604645D, (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F)));
+            this.setDeltaMovement(this.getDeltaMovement().add((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F, 0.4000000059604645D, (this.random.nextFloat() * 2.0F - 1.0F) * 0.05F));
             this.onGround = false;
             this.hasImpulse = true;
             this.playSound(SoundEvents.SALMON_FLOP, this.getSoundVolume(), this.getVoicePitch());
@@ -290,7 +291,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
             }
 
             if (!this.level.isClientSide) {
-                this.setDeltaMovement(this.tx * this.speed, (double) (this.ty * this.speed), (double) (this.tz * this.speed));
+                this.setDeltaMovement(this.tx * this.speed, this.ty * this.speed, this.tz * this.speed);
             }
             Vec3 vec3 = this.getDeltaMovement();
             double d = vec3.horizontalDistance();
@@ -378,7 +379,7 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
 
 
     @Override
-    public void spawnChildFromBreeding(ServerLevel level, Animal animal) {
+    public void spawnChildFromBreeding(ServerLevel level, @NotNull Animal animal) {
         RandomSource rand = level.getRandom();
         int i = rand.nextIntBetweenInclusive(1, 3);
         for (int j = 0; j < i; j++) {
@@ -403,26 +404,26 @@ public class ManOWar extends Animal implements GeoEntity, Bucketable {
     }
 
     @Override
-    public void saveToBucketTag(ItemStack var1) {
+    public void saveToBucketTag(@NotNull ItemStack var1) {
         Bucketable.saveDefaultDataToBucketTag(this, var1);
         CompoundTag compoundtag = var1.getOrCreateTag();
         compoundtag.putInt("BucketVariantTag", this.getRawFlag());
     }
 
     @Override
-    public void loadFromBucketTag(CompoundTag pTag) {
+    public void loadFromBucketTag(@NotNull CompoundTag pTag) {
         Bucketable.loadDefaultDataFromBucketTag(this, pTag);
         pTag.putInt("BucketVariantTag", this.getRawFlag());
     }
 
     @Override
-    public ItemStack getBucketItemStack() {
+    public @NotNull ItemStack getBucketItemStack() {
         return BYGItems.MAN_O_WAR_BUCKET.get().getDefaultInstance();
     }
 
 
     @Override
-    public SoundEvent getPickupSound() {
+    public @NotNull SoundEvent getPickupSound() {
         return SoundEvents.BUCKET_FILL_AXOLOTL;
     }
 

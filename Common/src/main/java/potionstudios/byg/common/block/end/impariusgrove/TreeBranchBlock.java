@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.Map;
@@ -32,27 +33,27 @@ public class TreeBranchBlock extends BaseCoralPlantTypeBlock implements Bonemeal
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
 
-    public boolean isValidBonemealTarget(LevelReader $$0, BlockPos $$1, BlockState $$2, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader $$0, @NotNull BlockPos $$1, @NotNull BlockState $$2, boolean $$3) {
         return true;
     }
 
-    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
+    public boolean isBonemealSuccess(@NotNull Level $$0, @NotNull RandomSource $$1, @NotNull BlockPos $$2, @NotNull BlockState $$3) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
+    public void performBonemeal(@NotNull ServerLevel $$0, @NotNull RandomSource $$1, @NotNull BlockPos $$2, @NotNull BlockState $$3) {
         popResource($$0, $$2, new ItemStack(this));
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPES.get(state.getValue(FACING));
     }
 
-    public BlockState rotate(BlockState state, Rotation rot) {
+    public @NotNull BlockState rotate(BlockState state, Rotation rot) {
         return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }
 
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+    public @NotNull BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
     }
 
@@ -60,7 +61,7 @@ public class TreeBranchBlock extends BaseCoralPlantTypeBlock implements Bonemeal
         builder.add(FACING, WATERLOGGED);
     }
 
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, LevelAccessor worldIn, BlockPos currentPos, BlockPos facingPos) {
+    public @NotNull BlockState updateShape(BlockState stateIn, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor worldIn, @NotNull BlockPos currentPos, @NotNull BlockPos facingPos) {
         if (stateIn.getValue(WATERLOGGED)) {
             worldIn.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(worldIn));
         }
@@ -76,7 +77,7 @@ public class TreeBranchBlock extends BaseCoralPlantTypeBlock implements Bonemeal
     }
 
     @Nullable
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext context) {
         BlockState blockstate = super.getStateForPlacement(context);
         LevelReader iworldreader = context.getLevel();
         BlockPos blockpos = context.getClickedPos();

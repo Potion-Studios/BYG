@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.client.util.BYGClientUtil;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
@@ -30,7 +31,7 @@ public class GrowerItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack $$0, @Nullable Level $$1, List<Component> components, TooltipFlag $$3) {
+    public void appendHoverText(@NotNull ItemStack $$0, @Nullable Level $$1, @NotNull List<Component> components, @NotNull TooltipFlag $$3) {
         super.appendHoverText($$0, $$1, components, $$3);
 
         GrowingPatterns.getConfig().getPatterns(this.getBlock()).ifPresent(patternEntries -> {

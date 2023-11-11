@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.world.feature.stateproviders.BetweenNoiseThresholdProvider;
 import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
@@ -42,13 +43,13 @@ public class VolcanoPiece extends StructurePiece {
     }
 
     @Override
-    protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag compoundTag) {
+    protected void addAdditionalSaveData(@NotNull StructurePieceSerializationContext context, CompoundTag compoundTag) {
         compoundTag.put("volcano_info", VolcanoStructure.PieceStructureInfo.CODEC.encodeStart(NbtOps.INSTANCE, this.structureInfo).result().orElseThrow());
     }
 
 
     @Override
-    public void postProcess(WorldGenLevel worldGenLevel, StructureManager structureManager, ChunkGenerator chunkGenerator, RandomSource randomSource, BoundingBox boundingBox, ChunkPos chunkPos, BlockPos blockPos) {
+    public void postProcess(@NotNull WorldGenLevel worldGenLevel, @NotNull StructureManager structureManager, @NotNull ChunkGenerator chunkGenerator, @NotNull RandomSource randomSource, @NotNull BoundingBox boundingBox, ChunkPos chunkPos, @NotNull BlockPos blockPos) {
         BetweenNoiseThresholdProvider weightedBlockStateProvider = new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
                 List.of(UniformFloat.of(-0.0045F - 0.9F, 0.0045F - 0.9F), UniformFloat.of(-0.0045F, 0.0045F)), BlockStateProvider.simple(Blocks.MAGMA_BLOCK), new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(Blocks.BASALT.defaultBlockState(), 9)

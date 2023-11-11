@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
@@ -26,12 +27,12 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
 
 
     public ManOWarRenderer(EntityRendererProvider.Context context) {
-        super(context, new ManOWarModel<T>());
+        super(context, new ManOWarModel<>());
         this.addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override
-    public void render(T entity, float entityYaw, float partialTicks, PoseStack stack, MultiBufferSource bufferIn, int packedLightIn) {
+    public void render(T entity, float entityYaw, float partialTicks, @NotNull PoseStack stack, @NotNull MultiBufferSource bufferIn, int packedLightIn) {
         if (entity.isBaby()) {
             stack.scale(0.5f, 0.5f, 0.5f);
             shadowRadius = 0.5f;
@@ -45,7 +46,7 @@ public class ManOWarRenderer<T extends ManOWar> extends GeoEntityRenderer<T> {
      * Returns the location of an entity's texture.
      */
     @Override
-    public ResourceLocation getTextureLocation(T entity) {
+    public @NotNull ResourceLocation getTextureLocation(T entity) {
         return TEXTURES.get(entity.getColor());
     }
 

@@ -15,7 +15,7 @@ public class WitchHazelBlossomBlock extends SporeBlossomBlock {
     }
 
     @Override
-    public void animateTick(BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
+    public void animateTick(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
         int $$4 = blockPos.getX();
         int $$5 = blockPos.getY();
         int $$6 = blockPos.getZ();

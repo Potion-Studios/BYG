@@ -11,22 +11,21 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseBasedStateProvider;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
 
-    public static final Codec<BetweenNoiseThresholdProvider> CODEC = RecordCodecBuilder.create((builder) -> {
-        return noiseCodec(builder).and(
-                builder.group(
-                        FloatProvider.CODEC.listOf().fieldOf("thresholds").forGetter((stateProvider) -> stateProvider.thresholds),
-                        BlockStateProvider.CODEC.fieldOf("within_noise_state_provider").forGetter((stateProvider) -> stateProvider.withinNoiseStateProvider),
-                        BlockStateProvider.CODEC.fieldOf("outside_noise_state_provider").forGetter((stateProvider) -> stateProvider.outsideNoiseStateProvider),
-                        Codec.BOOL.fieldOf("use_3d_noise").forGetter(stateprovider -> stateprovider.use3D)
-                )
-        ).apply(builder, BetweenNoiseThresholdProvider::new);
-    });
+    public static final Codec<BetweenNoiseThresholdProvider> CODEC = RecordCodecBuilder.create((builder) -> noiseCodec(builder).and(
+            builder.group(
+                    FloatProvider.CODEC.listOf().fieldOf("thresholds").forGetter((stateProvider) -> stateProvider.thresholds),
+                    BlockStateProvider.CODEC.fieldOf("within_noise_state_provider").forGetter((stateProvider) -> stateProvider.withinNoiseStateProvider),
+                    BlockStateProvider.CODEC.fieldOf("outside_noise_state_provider").forGetter((stateProvider) -> stateProvider.outsideNoiseStateProvider),
+                    Codec.BOOL.fieldOf("use_3d_noise").forGetter(stateprovider -> stateprovider.use3D)
+            )
+    ).apply(builder, BetweenNoiseThresholdProvider::new));
 
     private final List<FloatProvider> thresholds;
     private final BlockStateProvider withinNoiseStateProvider;
@@ -43,7 +42,7 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
 
 
     @Override
-    public BlockState getState(RandomSource random, BlockPos pos) {
+    public @NotNull BlockState getState(@NotNull RandomSource random, @NotNull BlockPos pos) {
         double noiseValue = this.use3D ? getNoiseValue2D(pos, 4) : this.getNoiseValue(pos, this.scale);
 //        BYG.logInfo(noiseValue);
 
@@ -60,7 +59,7 @@ public class BetweenNoiseThresholdProvider extends NoiseBasedStateProvider {
     }
 
     @Override
-    protected BlockStateProviderType<?> type() {
+    protected @NotNull BlockStateProviderType<?> type() {
         return BYGStateProviders.BETWEEN_NOISE_THRESHOLD_PROVIDER.get();
     }
 

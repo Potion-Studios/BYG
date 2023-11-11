@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.biome.BYGBiomes;
@@ -18,7 +19,7 @@ public class BYGBiomeTagsProvider extends BiomeTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         BYGBiomes.BIOMES_BY_TAG.asMap()
                 .forEach((tag, ros) -> {
                     this.tag(tag).add(ros.stream().toArray(ResourceKey[]::new));

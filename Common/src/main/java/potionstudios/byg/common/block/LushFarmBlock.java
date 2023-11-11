@@ -7,6 +7,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.textures.renders.BYGParticleTypes;
 import potionstudios.byg.util.BYGUtil;
 
@@ -21,7 +22,7 @@ public class LushFarmBlock extends FarmBlock {
     }
 
     @Override
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource random) {
+    public void randomTick(@NotNull BlockState blockState, @NotNull ServerLevel serverLevel, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
         boolean foundTheriumLamp = BYGUtil.isNearby(serverLevel, blockPos, THERIUM_LANTERN_SEARCH_RANGE, IS_THERIUM_LANTERN);
 
         if (!foundTheriumLamp) {
@@ -32,7 +33,7 @@ public class LushFarmBlock extends FarmBlock {
     }
 
     @Override
-    public void animateTick(BlockState blockState, Level level, BlockPos blockPos, RandomSource random) {
+    public void animateTick(@NotNull BlockState blockState, @NotNull Level level, @NotNull BlockPos blockPos, @NotNull RandomSource random) {
         super.animateTick(blockState, level, blockPos, random);
 
         if (random.nextInt(10) == 0 && BYGUtil.isNearby(level, blockPos, THERIUM_LANTERN_SEARCH_RANGE, IS_THERIUM_LANTERN)) {

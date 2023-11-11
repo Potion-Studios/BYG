@@ -40,9 +40,7 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
 
         Map<ResourceKey<Biome>, ObjectOpenHashSet<ResourceKey<EntityType<?>>>> biomeMobs = levelBiomeTracker.getBiomeMobs();
         if (biomeMobs.containsKey(biomeKey)) {
-            biomeMobs.get(biomeKey).stream().sorted(Comparator.comparing(key -> key.location().toString())).forEach(entityTypeResourceKey -> {
-                mobSpawnsText.append("\n").append(BuiltInRegistries.ENTITY_TYPE.getOrThrow(entityTypeResourceKey).getDescription());
-            });
+            biomeMobs.get(biomeKey).stream().sorted(Comparator.comparing(key -> key.location().toString())).forEach(entityTypeResourceKey -> mobSpawnsText.append("\n").append(BuiltInRegistries.ENTITY_TYPE.getOrThrow(entityTypeResourceKey).getDescription()));
         } else {
             mobSpawnsText.append("\n").append(Component.translatable("biomepedia.biomeabout.mobspawns.none"));
         }
@@ -85,9 +83,7 @@ public class BiomeAboutScreen2 extends AbstractBiomepediaScreen {
         int mobSpawnsTextBottom = mobSpawnsTextTop + size;
         this.toolTipMaxWidth = (IMAGE_WIDTH / 2) - 22;
 
-        this.addRenderableWidget(new PageButton(pageBackButtonX, pageButtonY, false, button -> {
-            this.minecraft.setScreen(new BiomeAboutScreen(this.biomeKey, this.parent));
-        }, true));
+        this.addRenderableWidget(new PageButton(pageBackButtonX, pageButtonY, false, button -> this.minecraft.setScreen(new BiomeAboutScreen(this.biomeKey, this.parent)), true));
 
         ScrollableText mobSpawns = new ScrollableText(this.mobSpawns, this.toolTipMaxWidth, mobSpawnsTextTop, mobSpawnsTextTop, mobSpawnsTextBottom);
         mobSpawns.setLeftPos(startXLeftPage);

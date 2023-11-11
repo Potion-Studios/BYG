@@ -267,12 +267,12 @@ public class OpenSimplex2 {
                 }
                 i += grad2.length;
             }
-            for (int f = 0; f < grad2FillIndices.length; f++) {
-                int gi = grad2FillIndices[f] * 2;
-                GRADIENTS_2D[i | 0] = grad2[gi | 0];
-                GRADIENTS_2D[i | 1] = grad2[gi | 1];
-                i += 2;
-            }
+	        for (int grad2FillIndex : grad2FillIndices) {
+		        int gi = grad2FillIndex * 2;
+		        GRADIENTS_2D[i | 0] = grad2[gi | 0];
+		        GRADIENTS_2D[i | 1] = grad2[gi | 1];
+		        i += 2;
+	        }
         }
 
         int[] grad3FillIndices = new int[] { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 44, 45, 46, 47 };
@@ -338,13 +338,13 @@ public class OpenSimplex2 {
                 }
                 i += grad3.length;
             }
-            for (int f = 0; f < grad3FillIndices.length; f++) {
-                int gi = grad3FillIndices[f] * 4;
-                GRADIENTS_3D[i | 0] = grad3[gi | 0];
-                GRADIENTS_3D[i | 1] = grad3[gi | 1];
-                GRADIENTS_3D[i | 2] = grad3[gi | 2];
-                i += 4;
-            }
+	        for (int grad3FillIndex : grad3FillIndices) {
+		        int gi = grad3FillIndex * 4;
+		        GRADIENTS_3D[i | 0] = grad3[gi | 0];
+		        GRADIENTS_3D[i | 1] = grad3[gi | 1];
+		        GRADIENTS_3D[i | 2] = grad3[gi | 2];
+		        i += 4;
+	        }
         }
     }
 

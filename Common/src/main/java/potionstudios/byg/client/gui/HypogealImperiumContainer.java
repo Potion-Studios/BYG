@@ -9,6 +9,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.container.BYGMenuTypes;
 
 public class HypogealImperiumContainer extends AbstractContainerMenu {
@@ -51,7 +52,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
@@ -75,7 +76,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
 
 
     @Override
-    public boolean stillValid(Player playerIn) {
+    public boolean stillValid(@NotNull Player playerIn) {
         return this.inventory.stillValid(playerIn);
     }
 
@@ -88,7 +89,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
             super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
         }
 
-        public boolean mayPlace(ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return true;
         }
 
@@ -102,7 +103,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
             super(p_i47069_1_, p_i47069_2_, p_i47069_3_, p_i47069_4_);
         }
 
-        public boolean mayPlace(ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return false;
         }
 
@@ -111,7 +112,7 @@ public class HypogealImperiumContainer extends AbstractContainerMenu {
         }
 
         @Override
-        public boolean mayPickup(Player p_82869_1_) {
+        public boolean mayPickup(@NotNull Player p_82869_1_) {
             return false;
         }
     }

@@ -31,6 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -165,7 +166,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
 
     @Override
-    public void setRecordPlayingNearby(BlockPos pPos, boolean pIsPartying) {
+    public void setRecordPlayingNearby(@NotNull BlockPos pPos, boolean pIsPartying) {
         this.jukebox = pPos;
         this.party = pIsPartying;
     }
@@ -210,7 +211,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public boolean canBeLeashed(Player $$0) {
+    public boolean canBeLeashed(@NotNull Player $$0) {
         return true;
     }
 
@@ -222,7 +223,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
 
     @org.jetbrains.annotations.Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource $$0) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource $$0) {
         return SoundEvents.VILLAGER_HURT;
     }
 
@@ -318,7 +319,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected int nextStartTick(PathfinderMob $$0) {
+        protected int nextStartTick(@NotNull PathfinderMob $$0) {
             return 0;
         }
 
@@ -336,7 +337,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected boolean isValidTarget(LevelReader level, BlockPos pos) {
+        protected boolean isValidTarget(LevelReader level, @NotNull BlockPos pos) {
             BlockState positionState = level.getBlockState(pos);
             if (positionState.is(Blocks.PUMPKIN)) {
                 return level.getBlockState(pos.relative(Direction.Axis.X, 1)).getBlock() instanceof AttachedStemBlock || level.getBlockState(pos.relative(Direction.Axis.Z, 1)).getBlock() instanceof AttachedStemBlock;
@@ -373,7 +374,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected int nextStartTick(PathfinderMob $$0) {
+        protected int nextStartTick(@NotNull PathfinderMob $$0) {
             return 0;
         }
 
@@ -421,7 +422,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected boolean isValidTarget(LevelReader var1, BlockPos var2) {
+        protected boolean isValidTarget(LevelReader var1, @NotNull BlockPos var2) {
             BlockState pos = var1.getBlockState(var2);
             return (pos.is(Blocks.CARVED_PUMPKIN));
         }
@@ -436,7 +437,7 @@ public class PumpkinWarden extends PathfinderMob implements GeoEntity {
         }
 
         @Override
-        protected boolean isValidTarget(LevelReader world, BlockPos var2) {
+        protected boolean isValidTarget(LevelReader world, @NotNull BlockPos var2) {
             List<BlockState> blockStates = world.getBlockStates(new AABB(warden.blockPosition()).inflate(30)).toList();
             return !blockStates.get(warden.random.nextInt(blockStates.size())).isAir();
         }

@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.NyliumBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.mixin.access.NyliumBlockAccess;
 
 import java.util.function.Supplier;
@@ -27,24 +28,24 @@ public class BYGNylium extends NyliumBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel world, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (!NyliumBlockAccess.byg_invokeCanBeNylium(state, world, pos)) {
             world.setBlockAndUpdate(pos, this.dirtBlock.defaultBlockState());
         }
     }
 
     @Override
-    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
+    public boolean isBonemealSuccess(@NotNull Level $$0, @NotNull RandomSource $$1, @NotNull BlockPos $$2, @NotNull BlockState $$3) {
         return this.feature.get() != null;
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader $$0, BlockPos $$1, BlockState $$2, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader $$0, @NotNull BlockPos $$1, @NotNull BlockState $$2, boolean $$3) {
         return this.feature.get() != null;
     }
 
     @Override
-    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, @NotNull RandomSource rand, @NotNull BlockPos pos, @NotNull BlockState state) {
         ConfiguredFeature<?, ?> configuredFeature = world.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).get(this.feature.get());
         configuredFeature.place(world, world.getChunkSource().getGenerator(), rand, pos);
     }

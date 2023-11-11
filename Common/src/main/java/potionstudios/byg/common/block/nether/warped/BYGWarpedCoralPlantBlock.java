@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
 public class BYGWarpedCoralPlantBlock extends BaseCoralPlantTypeBlock {
@@ -18,7 +19,7 @@ public class BYGWarpedCoralPlantBlock extends BaseCoralPlantTypeBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, false));
     }
 
-    public VoxelShape getShape(BlockState state, BlockGetter reader, BlockPos blockPos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter reader, @NotNull BlockPos blockPos, @NotNull CollisionContext context) {
         return SHAPE;
     }
 
@@ -27,7 +28,7 @@ public class BYGWarpedCoralPlantBlock extends BaseCoralPlantTypeBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader worldIn, BlockPos pos) {
         BlockPos posDown = pos.below();
         return this.isValidGround(worldIn.getBlockState(posDown));
     }

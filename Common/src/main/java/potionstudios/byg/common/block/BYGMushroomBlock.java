@@ -12,6 +12,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 
@@ -29,12 +30,12 @@ public class BYGMushroomBlock extends MushroomBlock implements FeatureGrowerFrom
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter blockGetter, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
         return state.is(this.groundTag);
     }
 
     @Override
-    public boolean growMushroom(ServerLevel serverLevel, BlockPos pos, BlockState state, RandomSource random) {
+    public boolean growMushroom(@NotNull ServerLevel serverLevel, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull RandomSource random) {
         return this.growFeature(this, serverLevel, pos, random);
     }
 

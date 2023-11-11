@@ -44,9 +44,7 @@ public record BiomepediaConfig(boolean biomepediaInventoryButtonEnabled, boolean
         final Path path = ModPlatform.INSTANCE.configPath().resolve("biomepedia.json5");
 
         if (!path.toFile().exists() || recreate) {
-            JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> {
-                map.put("inventory_enabled", "");
-            }), JanksonJsonOps.INSTANCE, DEFAULT);
+            JanksonUtil.createConfig(path, CODEC, JanksonUtil.HEADER_CLOSED, Util.make(new HashMap<>(), map -> map.put("inventory_enabled", "")), JanksonJsonOps.INSTANCE, DEFAULT);
         }
         BYG.logInfo(String.format("\"%s\" was read.", path));
 

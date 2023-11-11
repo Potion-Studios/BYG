@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.StructureTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.world.structure.BYGStructureTags;
 import potionstudios.byg.common.world.structure.BYGStructures;
@@ -16,7 +17,7 @@ public class BYGStructureTagsProvider extends StructureTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
         this.tag(BYGStructureTags.ON_ANCIENT_SEQUOIA_EXPLORER_MAPS).add(BYGStructures.ANCIENT_SEQUOIA);
     }
 }

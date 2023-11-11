@@ -8,6 +8,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.client.gui.biomepedia.screen.BiomepediaHomeScreen;
 
 public class BiomepediaItem extends Item {
@@ -16,7 +17,7 @@ public class BiomepediaItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, @NotNull Player player, @NotNull InteractionHand interactionHand) {
         if (level.isClientSide) {
             Client.openScreen();
 

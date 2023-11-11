@@ -13,19 +13,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProv
 
 public class HangingColumnWithBaseConfig implements FeatureConfiguration {
 
-    public static final Codec<HangingColumnWithBaseConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("base_block_provider").forGetter((config) -> {
-            return config.baseBlockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), BlockStateProvider.CODEC.fieldOf("end_block_provider").forGetter((config) -> {
-            return config.endBlockProvider;
-        }), Codec.INT.fieldOf("min_length").forGetter((config) -> {
-            return config.minLength;
-        }), Codec.INT.fieldOf("max_length").forGetter((config) -> {
-            return config.maxLength;
-        }), BlockPredicate.CODEC.fieldOf("placement_filter").forGetter(HangingColumnWithBaseConfig::getPlacementFilter)).apply(codecRecorder, HangingColumnWithBaseConfig::new);
-    });
+    public static final Codec<HangingColumnWithBaseConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("base_block_provider").forGetter((config) -> config.baseBlockProvider), BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), BlockStateProvider.CODEC.fieldOf("end_block_provider").forGetter((config) -> config.endBlockProvider), Codec.INT.fieldOf("min_length").forGetter((config) -> config.minLength), Codec.INT.fieldOf("max_length").forGetter((config) -> config.maxLength), BlockPredicate.CODEC.fieldOf("placement_filter").forGetter(HangingColumnWithBaseConfig::getPlacementFilter)).apply(codecRecorder, HangingColumnWithBaseConfig::new));
 
     private final BlockStateProvider baseBlockProvider;
     private final BlockStateProvider blockProvider;

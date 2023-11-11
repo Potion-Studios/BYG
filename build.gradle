@@ -25,8 +25,8 @@ subprojects {
     java.withJavadocJar()
 
     dependencies {
-        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
-        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.0'
+        compileOnly group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
+        annotationProcessor group: 'com.google.auto.service', name: 'auto-service', version: '1.1.1'
     }
 
     jar {
@@ -68,7 +68,7 @@ subprojects {
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
-        it.options.release = 17
+        it.options.release.set(17)
     }
 
     if (project.name != 'Common')

@@ -10,6 +10,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.stream.Stream;
 
@@ -27,12 +28,12 @@ public class IsBiomeTagFilter extends PlacementModifier {
     }
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
+    public @NotNull Stream<BlockPos> getPositions(PlacementContext placementContext, @NotNull RandomSource random, @NotNull BlockPos blockPos) {
         return placementContext.getLevel().getBiome(blockPos).is(this.biomeTag) ? Stream.of(blockPos) : Stream.of();
     }
 
     @Override
-    public PlacementModifierType<?> type() {
+    public @NotNull PlacementModifierType<?> type() {
         return BYGPlacementModifierType.IS_BIOME_TAG_FILTER.get();
     }
 }

@@ -21,6 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.BYGTags;
 
 public class HydrangeaHedgeBlock extends AzaleaBlock {
@@ -34,18 +35,18 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return state.is(validGround);
     }
 
 
     @Override
-    public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+    public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter blockGetter, @NotNull BlockPos blockPos, @NotNull CollisionContext collisionContext) {
         return SHAPE;
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState blockState, Level level, BlockPos blockPos, Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         RandomSource random = level.random;
         BlockPos blockPos2 = blockPos.below();
 
@@ -63,16 +64,16 @@ public class HydrangeaHedgeBlock extends AzaleaBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader $$0, BlockPos $$1, BlockState $$2, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader $$0, @NotNull BlockPos $$1, @NotNull BlockState $$2, boolean $$3) {
         return false;
     }
 
     @Override
-    public boolean isBonemealSuccess(Level $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
+    public boolean isBonemealSuccess(@NotNull Level $$0, @NotNull RandomSource $$1, @NotNull BlockPos $$2, @NotNull BlockState $$3) {
         return false;
     }
 
     @Override
-    public void performBonemeal(ServerLevel $$0, RandomSource $$1, BlockPos $$2, BlockState $$3) {
+    public void performBonemeal(@NotNull ServerLevel $$0, @NotNull RandomSource $$1, @NotNull BlockPos $$2, @NotNull BlockState $$3) {
     }
 }

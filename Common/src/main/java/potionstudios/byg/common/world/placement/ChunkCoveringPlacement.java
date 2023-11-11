@@ -7,6 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class ChunkCoveringPlacement extends PlacementModifier {
     public static final Codec<ChunkCoveringPlacement> CODEC = Codec.unit(() -> INSTANCE);
 
     @Override
-    public Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
+    public @NotNull Stream<BlockPos> getPositions(@NotNull PlacementContext placementContext, @NotNull RandomSource random, @NotNull BlockPos blockPos) {
         List<BlockPos> positions = new ArrayList<>();
 
         for (int x = 0; x < 16; x++) {
@@ -31,7 +32,7 @@ public class ChunkCoveringPlacement extends PlacementModifier {
     }
 
     @Override
-    public PlacementModifierType<?> type() {
+    public @NotNull PlacementModifierType<?> type() {
         return BYGPlacementModifierType.CHUNK_COVERING_PLACEMENT.get();
     }
 }

@@ -14,17 +14,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
 
 public class PointyRockConfig implements FeatureConfiguration {
 
-    public static final Codec<PointyRockConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> {
-        return codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> {
-            return config.blockProvider;
-        }), Codec.INT.fieldOf("seed").orElse(0).forGetter((config) -> {
-            return config.seed;
-        }), Codec.DOUBLE.fieldOf("height_multiplier").orElse(1.0).forGetter((config) -> {
-            return config.heightMultiplier;
-        }), PlacedFeature.LIST_CODEC.fieldOf("post_features").forGetter((config) -> {
-            return config.placedFeatureHolderSet;
-        })).apply(codecRecorder, PointyRockConfig::new);
-    });
+    public static final Codec<PointyRockConfig> CODEC = RecordCodecBuilder.create((codecRecorder) -> codecRecorder.group(BlockStateProvider.CODEC.fieldOf("block_provider").forGetter((config) -> config.blockProvider), Codec.INT.fieldOf("seed").orElse(0).forGetter((config) -> config.seed), Codec.DOUBLE.fieldOf("height_multiplier").orElse(1.0).forGetter((config) -> config.heightMultiplier), PlacedFeature.LIST_CODEC.fieldOf("post_features").forGetter((config) -> config.placedFeatureHolderSet)).apply(codecRecorder, PointyRockConfig::new));
 
 
     private final BlockStateProvider blockProvider;
