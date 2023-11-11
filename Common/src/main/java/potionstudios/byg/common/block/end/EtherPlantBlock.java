@@ -17,9 +17,10 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.common.block.BYGBlocks;
 
-public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
+public class EtherPlantBlock extends BushBlock implements BonemealableBlock {
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
@@ -38,27 +39,27 @@ public class EtherPlantBlock extends BushBlock implements BonemealableBlock{
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
         return state.is(BYGBlocks.ETHER_PHYLIUM.get()) || state.is(BYGBlocks.ETHER_SOIL.get()) || super.mayPlaceOn(state, worldIn, pos);
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader worldIn, BlockPos pos) {
         BlockPos blockpos = pos.below();
         return this.mayPlaceOn(worldIn.getBlockState(blockpos), worldIn, blockpos);
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, @NotNull BlockState blockState, boolean bl) {
         return blockGetter.getBlockState(blockPos.above()).isAir();
     }
 
     @Override
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos blockPos, BlockState blockState) {
+    public boolean isBonemealSuccess(Level level, @NotNull RandomSource random, @NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return (double)level.random.nextFloat() < 0.45D;
     }
 
-    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState blockState) {
+    public void performBonemeal(@NotNull ServerLevel world, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState blockState) {
         DoublePlantBlock doubleplantblock = BYGBlocks.TALL_ETHER_GRASS.get();
         if (doubleplantblock.defaultBlockState().canSurvive(world, pos) && world.isEmptyBlock(pos.above())) {
             DoublePlantBlock.placeAt(world, blockState, pos, 2);
