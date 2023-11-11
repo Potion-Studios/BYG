@@ -8,6 +8,7 @@ import net.minecraft.util.random.WeightedRandom;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import potionstudios.byg.mixin.access.WeightedListAccess;
+import terrablender.worldgen.noise.*;
 
 import java.nio.file.Path;
 import java.util.List;
