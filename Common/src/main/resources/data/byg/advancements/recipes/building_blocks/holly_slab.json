@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+	"recipes": [
+	  "byg:holly_slab"
+	]
+  },
+  "criteria": {
+	"has_planks": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"items": "byg:holly_planks"
+		  }
+		]
+	  }
+	},
+	"has_the_recipe": {
+	  "trigger": "minecraft:recipe_unlocked",
+	  "conditions": {
+		"recipe": "byg:holly_slab"
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_planks",
+	  "has_the_recipe"
+	]
+  ]
+}

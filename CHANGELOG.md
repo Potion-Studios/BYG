@@ -1,6 +1,7 @@
 ## 1.5.1
 * Fix Sapling Growth Issues. Closes #1293
 * Add Wood Plank Recipes Unlock Advancement
+* Add Wood Slab Recipes Unlock Advancement
 
 ## 1.5.0
 * Fix Broken Sandstone Recipes. Fixes #1204
