@@ -31,7 +31,7 @@ import java.util.Random;
 public class SaplingBlockMixin implements FeatureGrowerFromBlockPattern {
     @Shadow @Final public static IntegerProperty STAGE;
     @Unique
-    private ImmutableList<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg$patterns = ImmutableList.of();
+    private List<Pair<List<BlockPos>, SimpleWeightedRandomList<GrowingPatterns.FeatureSpawner>>> byg$patterns = new ArrayList<>();
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void onInitTailInjector(AbstractTreeGrower $$0, BlockBehaviour.Properties $$1, CallbackInfo ci) {
