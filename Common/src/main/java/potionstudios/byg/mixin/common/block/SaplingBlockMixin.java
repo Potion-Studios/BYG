@@ -1,6 +1,5 @@
 package potionstudios.byg.mixin.common.block;
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
@@ -24,6 +23,7 @@ import potionstudios.byg.common.block.sapling.GrowingPatterns;
 import potionstudios.byg.util.FeatureGrowerFromBlockPattern;
 import potionstudios.byg.util.ModPlatform;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
