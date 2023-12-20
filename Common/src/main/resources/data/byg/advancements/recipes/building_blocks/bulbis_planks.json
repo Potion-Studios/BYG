@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+	"recipes": [
+	  "byg:bulbis_planks"
+	]
+  },
+  "criteria": {
+	"has_logs": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"tag": "byg:bulbis_logs"
+		  }
+		]
+	  }
+	},
+	"has_the_recipe": {
+	  "trigger": "minecraft:recipe_unlocked",
+	  "conditions": {
+		"recipe": "byg:bulbis_planks"
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_logs",
+	  "has_the_recipe"
+	]
+  ]
+}

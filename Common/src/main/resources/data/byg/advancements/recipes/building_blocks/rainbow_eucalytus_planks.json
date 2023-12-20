@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+	"recipes": [
+	  "byg:rainbow_eucalyptus_planks"
+	]
+  },
+  "criteria": {
+	"has_logs": {
+	  "trigger": "minecraft:inventory_changed",
+	  "conditions": {
+		"items": [
+		  {
+			"tag": "byg:rainbow_eucalyptus_logs"
+		  }
+		]
+	  }
+	},
+	"has_the_recipe": {
+	  "trigger": "minecraft:recipe_unlocked",
+	  "conditions": {
+		"recipe": "byg:rainbow_eucalyptus_planks"
+	  }
+	}
+  },
+  "requirements": [
+	[
+	  "has_logs",
+	  "has_the_recipe"
+	]
+  ]
+}
