@@ -1,3 +1,6 @@
+## 1.5.1
+* Fix Sapling Growth Issues. Closes #1293
+
 ## 1.5.0
 * Fix Broken Sandstone Recipes. Fixes #1204
 * Fix Therium Lamp having same recipe of Therium Lantern. Fixes #1237
