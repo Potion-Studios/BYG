@@ -19,7 +19,7 @@ buildscript {
 
 plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
-    id "net.darkhax.curseforgegradle" version "1.1.16"
+    id "net.darkhax.curseforgegradle" version "1.1.18"
     id "com.modrinth.minotaur" version "2.+"
 }
 apply plugin: 'java'
