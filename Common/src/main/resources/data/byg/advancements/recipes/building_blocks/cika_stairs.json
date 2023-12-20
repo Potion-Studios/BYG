@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
 	"recipes": [
-	  "byg:ebony_slab"
+	  "byg:cika_stairs"
 	]
   },
   "criteria": {
@@ -11,7 +11,7 @@
 	  "conditions": {
 		"items": [
 		  {
-			"items": "byg:ebony_planks"
+			"items": ["byg:cika_planks"]
 		  }
 		]
 	  }
@@ -19,7 +19,7 @@
 	"has_the_recipe": {
 	  "trigger": "minecraft:recipe_unlocked",
 	  "conditions": {
-		"recipe": "byg:ebony_slab"
+		"recipe": "byg:cika_stairs"
 	  }
 	}
   },

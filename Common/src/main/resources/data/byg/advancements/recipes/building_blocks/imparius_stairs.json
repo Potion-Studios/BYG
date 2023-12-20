@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
 	"recipes": [
-	  "byg:cherry_slab"
+	  "byg:imparius_stairs"
 	]
   },
   "criteria": {
@@ -11,7 +11,7 @@
 	  "conditions": {
 		"items": [
 		  {
-			"items": "byg:cherry_planks"
+			"items": ["byg:imparius_planks"]
 		  }
 		]
 	  }
@@ -19,7 +19,7 @@
 	"has_the_recipe": {
 	  "trigger": "minecraft:recipe_unlocked",
 	  "conditions": {
-		"recipe": "byg:cherry_slab"
+		"recipe": "byg:imparius_stairs"
 	  }
 	}
   },

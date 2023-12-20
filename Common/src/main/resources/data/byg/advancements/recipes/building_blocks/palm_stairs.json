@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
 	"recipes": [
-	  "byg:skyris_slab"
+	  "byg:palm_stairs"
 	]
   },
   "criteria": {
@@ -11,7 +11,7 @@
 	  "conditions": {
 		"items": [
 		  {
-			"items": "byg:skyris_planks"
+			"items": ["byg:palm_planks"]
 		  }
 		]
 	  }
@@ -19,7 +19,7 @@
 	"has_the_recipe": {
 	  "trigger": "minecraft:recipe_unlocked",
 	  "conditions": {
-		"recipe": "byg:skyris_slab"
+		"recipe": "byg:palm_stairs"
 	  }
 	}
   },

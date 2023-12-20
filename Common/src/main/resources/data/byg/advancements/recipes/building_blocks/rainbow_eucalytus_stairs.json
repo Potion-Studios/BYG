@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
 	"recipes": [
-	  "byg:pine_slab"
+	  "byg:rainbow_eucalyptus_stairs"
 	]
   },
   "criteria": {
@@ -11,7 +11,7 @@
 	  "conditions": {
 		"items": [
 		  {
-			"items": "byg:pine_planks"
+			"items": ["byg:rainbow_eucalyptus_planks"]
 		  }
 		]
 	  }
@@ -19,7 +19,7 @@
 	"has_the_recipe": {
 	  "trigger": "minecraft:recipe_unlocked",
 	  "conditions": {
-		"recipe": "byg:pine_slab"
+		"recipe": "byg:rainbow_eucalyptus_stairs"
 	  }
 	}
   },

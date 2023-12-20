@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
 	"recipes": [
-	  "byg:holly_slab"
+	  "byg:nightshade_stairs"
 	]
   },
   "criteria": {
@@ -11,7 +11,7 @@
 	  "conditions": {
 		"items": [
 		  {
-			"items": "byg:holly_planks"
+			"items": ["byg:nightshade_planks"]
 		  }
 		]
 	  }
@@ -19,7 +19,7 @@
 	"has_the_recipe": {
 	  "trigger": "minecraft:recipe_unlocked",
 	  "conditions": {
-		"recipe": "byg:holly_slab"
+		"recipe": "byg:nightshade_stairs"
 	  }
 	}
   },
