@@ -202,7 +202,7 @@ public class BYGEndFeatures {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_LAKE = createConfiguredFeature("large_end_lake", BYGFeatures.LARGE_LAKE,
-            () -> new LargeLakeFeatureConfig(15, 22, 7, 12, SimpleStateProvider.simple(Blocks.END_STONE), SimpleStateProvider.simple(Blocks.END_STONE),
+            () -> new LargeLakeFeatureConfig(9, 14, 4, 9, SimpleStateProvider.simple(Blocks.END_STONE), SimpleStateProvider.simple(Blocks.END_STONE),
                     HolderSet.direct(),
                     HolderSet.direct(),
                     List.of()

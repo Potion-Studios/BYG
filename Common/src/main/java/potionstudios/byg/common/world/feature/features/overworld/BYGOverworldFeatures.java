@@ -151,7 +151,7 @@ public class BYGOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE,
             (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-                return   new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
+                return   new LargeLakeFeatureConfig(9, 14, 4, 9, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
                         HolderSet.direct(
                                 BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BYGOverworldVegetationFeatures.TINY_LILY_PAD), RarityFilter.onAverageOnceEvery(95), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(new BlockPos(0, -1, 0), Fluids.WATER))),
                                 LargeLakeFeatureConfig.createDripLeavesPlacedFeature(lookup, 80, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)

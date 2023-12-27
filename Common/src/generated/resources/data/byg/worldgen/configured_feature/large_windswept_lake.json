@@ -95,10 +95,10 @@
         "Name": "byg:windswept_sand"
       }
     },
-    "maxDepth": 10,
-    "maxRadius": 22,
+    "maxDepth": 9,
+    "maxRadius": 14,
     "minDepth": 4,
-    "minRadius": 15,
+    "minRadius": 9,
     "surface_features": [
       {
         "feature": "byg:tiny_lily_pad",
