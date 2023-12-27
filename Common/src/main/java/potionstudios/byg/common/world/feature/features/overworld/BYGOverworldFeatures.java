@@ -168,7 +168,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 16), UniformInt.of(7, 10), 0, UniformInt.of(10, 16))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(Blocks.STONE.defaultBlockState(), 4)
@@ -181,6 +181,7 @@ public class BYGOverworldFeatures {
                                     .add(Blocks.ANDESITE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1F)
                     .build()
     );
 
@@ -188,7 +189,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(5, 9), UniformInt.of(5, 9), 0, UniformInt.of(5, 9))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 4)
@@ -201,6 +202,7 @@ public class BYGOverworldFeatures {
                                     .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1875F)
                     .build()
     );
 
@@ -208,7 +210,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(5, 9), UniformInt.of(5, 9), 0, UniformInt.of(5, 9))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 4)
@@ -223,6 +225,7 @@ public class BYGOverworldFeatures {
                                     .add(BYGBlocks.WINDSWEPT_SAND.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1875F)
                     .build()
     );
 
@@ -230,7 +233,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 16), UniformInt.of(7, 10), 0, UniformInt.of(10, 16))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(Blocks.GRANITE.defaultBlockState(), 4)
@@ -243,6 +246,7 @@ public class BYGOverworldFeatures {
                                     .add(Blocks.POLISHED_GRANITE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1F)
                     .build()
     );
 

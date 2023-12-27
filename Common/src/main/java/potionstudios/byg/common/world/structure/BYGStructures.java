@@ -57,7 +57,7 @@ public class BYGStructures {
         );
         builder.withSphereConfig(new NoisySphereConfig.Builder()
                 .withRadiusSettings(
-                        new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 15), UniformInt.of(10, 15), 0, UniformInt.of(10, 15))
+                        new NoisySphereConfig.RadiusSettings(UniformInt.of(6, 10), UniformInt.of(6, 10), 0, UniformInt.of(6, 10))
                 ).withBlockProvider(
                         blockProvider
                 ).withNoiseFrequency(0.1F)
@@ -82,7 +82,7 @@ public class BYGStructures {
             );
             builder.withSphereConfig(new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 15), UniformInt.of(10, 15), 0, UniformInt.of(10, 15))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(6, 10), UniformInt.of(6, 10), 0, UniformInt.of(6, 10))
                     ).withBlockProvider(
                             blockProvider
                     ).withNoiseFrequency(0.1F)
@@ -106,7 +106,7 @@ public class BYGStructures {
         );
         builder.withSphereConfig(new NoisySphereConfig.Builder()
                 .withRadiusSettings(
-                        new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 15), UniformInt.of(10, 15), 0, UniformInt.of(10, 15))
+                        new NoisySphereConfig.RadiusSettings(UniformInt.of(6, 10), UniformInt.of(6, 10), 0, UniformInt.of(6, 10))
                 ).withBlockProvider(
                         blockProvider
                 ).withNoiseFrequency(0.1F)
@@ -130,7 +130,7 @@ public class BYGStructures {
         );
         builder.withSphereConfig(new NoisySphereConfig.Builder()
                 .withRadiusSettings(
-                        new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 15), UniformInt.of(10, 15), 0, UniformInt.of(10, 15))
+                        new NoisySphereConfig.RadiusSettings(UniformInt.of(6, 10), UniformInt.of(6, 10), 0, UniformInt.of(6, 10))
                 ).withBlockProvider(
                         blockProvider
                 ).withNoiseFrequency(0.1F)
