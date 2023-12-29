@@ -53,10 +53,10 @@ public class BYGOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", () -> Feature.FOREST_ROCK, () -> new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", () -> Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_GEN = createConfiguredFeature("crag_gen",
-            BYGFeatures.CRAG_FEATURE, () -> new SimpleBlockProviderConfig(
-                    new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
-                            BetweenNoiseThresholdProvider.createThresholds(0.0125F, -0.5F, 0.5F),
-                            SimpleStateProvider.simple(Blocks.TUFF), SimpleStateProvider.simple(Blocks.DEEPSLATE), false)
+            BYGFeatures.CRAG_FEATURE, () -> new CragFeatureConfig(
+                    BlockStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()),
+                    BlockStateProvider.simple(Blocks.STONE),
+                    Fluids.WATER
             ));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), UniformInt.of(1, 3)));

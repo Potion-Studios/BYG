@@ -52,7 +52,7 @@ public class BYGFeatures {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> BEEHIVE = createFeature("beehive", () -> new BeeHiveFeature(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> HUH = createFeature("river_feature", () -> new RiverThingy(NoneFeatureConfiguration.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> VOLCANO = createFeature("volcano", () -> new VolcanoFeature(SimpleBlockProviderConfig.CODEC.stable()));
-    public static final RegistryObject<Feature<SimpleBlockProviderConfig>> CRAG_FEATURE = createFeature("crag_feature", () -> new CragFeature(SimpleBlockProviderConfig.CODEC.stable()));
+    public static final RegistryObject<Feature<CragFeatureConfig>> CRAG_FEATURE = createFeature("crag_feature", () -> new CragFeature(CragFeatureConfig.CODEC.stable()));
     public static final RegistryObject<Feature<SimpleBlockProviderConfig>> ARCH = createFeature("arch", () -> new ArchFeature(SimpleBlockProviderConfig.CODEC.stable()));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> DUNE_TERRAIN = createFeature("dune_terrain", () -> new DuneFeature(NoneFeatureConfiguration.CODEC.stable()));
 
