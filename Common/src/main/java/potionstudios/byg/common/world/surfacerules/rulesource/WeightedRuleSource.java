@@ -36,15 +36,9 @@ public final class WeightedRuleSource implements SurfaceRules.RuleSource {
     public SurfaceRules.SurfaceRule apply(SurfaceRules.Context context) {
         SurfaceSystem surfaceSystem = ((SurfaceRuleContextAccess) (Object) context).byg_getSystem();
         PositionalRandomFactory random = ((SeedGetter) surfaceSystem).getRandom();
-        SurfaceRules.SurfaceRule[][] rules = new SurfaceRules.SurfaceRule[16][16];
 
-        for (int x = 0; x < rules.length; x++) {
-            for (int z = 0; z < rules[x].length; z++) {
-                SurfaceRules.SurfaceRule apply = this.ruleSources.getRandomValue(random.at(x, 0, z)).get().apply(context);
-                rules[x][z] = apply;
-            }
-        }
-        return (x, y, z) -> rules[x & 15][z & 15].tryApply(x, y, z);
+        return (x, y, z) -> this.ruleSources.getRandomValue(random.at(x, y, z)).get()
+                .apply(context).tryApply(x, y, z);
     }
 
     public SimpleWeightedRandomList<SurfaceRules.RuleSource> ruleSources() {
