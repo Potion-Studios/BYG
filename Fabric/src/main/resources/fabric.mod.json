@@ -52,5 +52,8 @@
     "corgilib": ">=3.0.0.0",
     "geckolib": ">=4.2.0"
   },
+  "suggests": {
+    "soulfired": ">=3.2.0.0"
+  },
   "accessWidener": "byg.aw"
 }
