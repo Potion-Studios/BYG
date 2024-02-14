@@ -1,0 +1,13 @@
+{
+  "mod": "byg",
+  "fires": [
+    {
+      "fire": "boric",
+      "damage": 3.5
+    },
+    {
+      "fire": "cryptic",
+      "damage": 3.5
+    }
+  ]
+}

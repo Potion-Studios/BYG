@@ -39,5 +39,8 @@
     "minecraft": ">=1.18.2",
     "terrablender": ">=1.2.0.0"
   },
+  "suggests": {
+    "soulfired": ">=3.2.0.0"
+  },
   "accessWidener": "byg.aw"
 }
