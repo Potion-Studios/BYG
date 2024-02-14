@@ -49,3 +49,10 @@ mandatory = true
 versionRange = "[4.0.6,)"
 ordering = "BEFORE"
 side = "BOTH"
+
+[[dependencies.byg]]
+modId = "soulfired"
+mandatory = false
+versionRange = "[3.2,)"
+ordering = "NONE"
+side = "BOTH"
