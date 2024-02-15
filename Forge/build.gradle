@@ -5,39 +5,17 @@ import com.modrinth.minotaur.dependencies.DependencyType
 
 import java.util.stream.Collectors
 
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url "https://plugins.gradle.org/m2/" }
-        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-        maven {
-            name = "Modrinth"
-            url = "https://api.modrinth.com/maven"
-            content {
-                includeGroup "maven.modrinth"
-            }
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-        classpath 'org.parchmentmc:librarian:1.+'
-    }
-}
-
 plugins {
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "net.minecraftforge.gradle" version "[6.0,6.2.)"
+    id "org.parchmentmc.librarian.forgegradle" version "1.+"
+    id "org.spongepowered.mixin" version "0.7-SNAPSHOT"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
     id "net.darkhax.curseforgegradle" version "1.1.18"
     id "com.modrinth.minotaur" version "2.+"
-
 }
+
 apply plugin: 'java'
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
 
 tasks.build.dependsOn(tasks.shadowJar)
 

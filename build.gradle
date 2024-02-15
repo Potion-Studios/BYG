@@ -63,6 +63,7 @@ subprojects {
                 includeGroup "maven.modrinth"
             }
         }
+        maven { url = 'https://maven.parchmentmc.org' }
     }
 
 
