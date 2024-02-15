@@ -22,7 +22,8 @@
         "vine_block": "byg:skyris_vine"
       },
       {
-        "type": "minecraft:attached_to_leaves",
+        "type": "byg:attached_to_fruit_leaves",
+        "leaves_block": "byg:green_apple_skyris_leaves",
         "block_provider": {
           "type": "minecraft:randomized_int_state_provider",
           "property": "age",

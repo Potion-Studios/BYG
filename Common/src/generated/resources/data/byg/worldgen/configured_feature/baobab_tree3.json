@@ -12,7 +12,8 @@
     "canopy_location": "byg:features/trees/baobab/baobab_tree_canopy3",
     "decorators": [
       {
-        "type": "minecraft:attached_to_leaves",
+        "type": "byg:attached_to_fruit_leaves",
+        "leaves_block": "byg:ripe_baobab_leaves",
         "block_provider": {
           "type": "minecraft:randomized_int_state_provider",
           "property": "age",
