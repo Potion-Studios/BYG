@@ -99,7 +99,7 @@ public class BYGEndVegetationFeatures {
                     ), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(BlockPos.ZERO.relative(Direction.DOWN), Fluids.WATER))))
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), BaobabFruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> ETHER_BULBS = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.ETHER_BULB.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 1, List.of(Direction.DOWN));
 
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> ETHER_BUSH1 = createConfiguredFeature("ether_bush1",
