@@ -1,3 +1,9 @@
+# 4.0.1.1
+* Add Soul Fire'd Support
+* Remove Duplicate FruitBlock Code
+* Prevent Fruits from generating under wrong leaves
+* (Fabric) Remove use of LegacyMixinAP and use Tiny Remapper to remap Mixin classes in place
+
 # 4.0.1.0
 * Fix Broken Sandstone Recipes. Fixes #1204
 * Fix Wall Sign Drops. Fixes #1240
