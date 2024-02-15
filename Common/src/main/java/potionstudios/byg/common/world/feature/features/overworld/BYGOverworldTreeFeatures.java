@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.feature.treedecorators.TrunkVineDecora
 import potionstudios.byg.BYG;
 import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.world.feature.features.BYGFeaturesUtil;
+import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToFruitLeavesDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.AttachedToLogsDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGLeavesVineDecorator;
 import potionstudios.byg.common.world.feature.gen.overworld.trees.decorators.BYGTrunkVineDecorator;
@@ -207,7 +208,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToLeavesDecorator(0.2F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> BAOBAB_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.2F, 2, 0, BYGBlocks.RIPE_BAOBAB_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> BAOBAB_TREE1 = createConfiguredFeature("baobab_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -1337,7 +1338,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> JOSHUA_FRUIT = () -> new AttachedToLeavesDecorator(0.1F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.JOSHUA_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> JOSHUA_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BYGBlocks.RIPE_JOSHUA_LEAVES.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.JOSHUA_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> JOSHUA_TREE1 = createConfiguredFeature("joshua_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,
@@ -2335,7 +2336,7 @@ public class BYGOverworldTreeFeatures {
             )
     );
 
-    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToLeavesDecorator(0.1F, 2, 0, new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
+    public static final Supplier<AttachedToLeavesDecorator> GREEN_APPLE_FRUIT = () -> new AttachedToFruitLeavesDecorator(0.1F, 2, 0, BYGBlocks.SKYRIS_LEAVES_GREEN_APPLE.get(), new RandomizedIntStateProvider(BlockStateProvider.simple(BYGBlocks.GREEN_APPLE_FRUIT_BLOCK.defaultBlockState()), FruitBlock.AGE, UniformInt.of(0, 3)), 2, List.of(Direction.DOWN));
 
     public static final Holder<ConfiguredFeature<TreeFromStructureNBTConfig, ?>> SKYRIS_TREE1 = createConfiguredFeature("skyris_tree1",
             CorgiLibFeatures.TREE_FROM_NBT,

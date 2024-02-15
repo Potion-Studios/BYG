@@ -16,6 +16,7 @@ public class BYGTreeDecoratorTypes {
     public static final RegistryObject<TreeDecoratorType<BYGTrunkVineDecorator>> TRUNK_VINE = register("trunk_vine", BYGTrunkVineDecorator.CODEC);
     public static final RegistryObject<TreeDecoratorType<BYGLeavesVineDecorator>> LEAVE_VINE = register("leave_vine", BYGLeavesVineDecorator.CODEC);
     public static final RegistryObject<TreeDecoratorType<AttachedToLogsDecorator>> ATTACHED_TO_LOGS = register("attached_to_logs", AttachedToLogsDecorator.CODEC);
+    public static final RegistryObject<TreeDecoratorType<AttachedToFruitLeavesDecorator>> ATTACHED_TO_FRUIT_LEAVES = register("attached_to_fruit_leaves", AttachedToFruitLeavesDecorator.CODEC);
 
     private static <P extends TreeDecorator> RegistryObject<TreeDecoratorType<P>> register(String id, Codec<P> codec) {
         return PROVIDER.register(id, () -> TreeDecoratorTypeAccess.byg_create(codec));
