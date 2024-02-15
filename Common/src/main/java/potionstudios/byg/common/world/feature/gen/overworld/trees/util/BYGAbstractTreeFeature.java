@@ -31,10 +31,7 @@ import net.minecraft.world.phys.shapes.BitSetDiscreteVoxelShape;
 import net.minecraft.world.phys.shapes.DiscreteVoxelShape;
 import org.jetbrains.annotations.NotNull;
 import potionstudios.byg.BYGConstants;
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.block.BYGWoodTypes;
-import potionstudios.byg.common.block.BaobabFruitBlock;
-import potionstudios.byg.common.block.EtherBulbsBlock;
+import potionstudios.byg.common.block.*;
 import potionstudios.byg.common.world.feature.config.BYGTreeConfig;
 import potionstudios.byg.common.world.feature.gen.FeatureGenUtil;
 import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
@@ -129,7 +126,7 @@ public abstract class BYGAbstractTreeFeature<TFC extends BYGTreeConfig> extends 
     public void baobabFruit(BlockPos startPos, BYGTreeConfig config, RandomSource random, Set<BlockPos> blockSet, WorldGenLevel reader, BlockPos pos, BoundingBox boundingBox) {
         pos = getTransformedPos(config, startPos, pos);
         if (isAir(reader, pos) && reader.getBlockState(pos.above()).getBlock() == BYGWoodTypes.BAOBAB.leaves().get()) {
-            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(BaobabFruitBlock.AGE, random.nextInt(4)), boundingBox);
+            this.setFinalBlockState(blockSet, reader, pos, BYGBlocks.BAOBAB_FRUIT_BLOCK.defaultBlockState().setValue(FruitBlock.AGE, random.nextInt(4)), boundingBox);
         }
     }
 
