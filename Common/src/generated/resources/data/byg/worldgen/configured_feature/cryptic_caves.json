@@ -306,7 +306,7 @@
       }
     },
     "fluid_start_y": -2147483648,
-    "noise_frequency": 0.04,
+    "noise_frequency": 0.06,
     "pointed": false,
     "radius_divisor_per_stack": 1.0,
     "radius_matcher": "NONE",
@@ -315,22 +315,22 @@
       "x_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 24,
-          "min_inclusive": 16
+          "max_inclusive": 15,
+          "min_inclusive": 9
         }
       },
       "y_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 16,
-          "min_inclusive": 10
+          "max_inclusive": 8,
+          "min_inclusive": 6
         }
       },
       "z_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 24,
-          "min_inclusive": 16
+          "max_inclusive": 15,
+          "min_inclusive": 9
         }
       }
     },

@@ -53,10 +53,10 @@ public class BYGOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_TERRACOTTA_BOULDER = createConfiguredFeature("orange_terracotta_boulder", () -> Feature.FOREST_ROCK, () -> new BlockStateConfiguration(Blocks.ORANGE_TERRACOTTA.defaultBlockState()));
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_ICE = createConfiguredFeature("black_ice_snow", () -> Feature.SIMPLE_BLOCK, () -> new SimpleBlockConfiguration(SimpleStateProvider.simple(BYGBlocks.BLACK_ICE.get())));
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_GEN = createConfiguredFeature("crag_gen",
-            BYGFeatures.CRAG_FEATURE, () -> new SimpleBlockProviderConfig(
-                    new BetweenNoiseThresholdProvider(123, new NormalNoise.NoiseParameters(-9, 1.0D, 1.0D, 1.0D, 1.0D), 1,
-                            BetweenNoiseThresholdProvider.createThresholds(0.0125F, -0.5F, 0.5F),
-                            SimpleStateProvider.simple(Blocks.TUFF), SimpleStateProvider.simple(Blocks.DEEPSLATE), false)
+            BYGFeatures.CRAG_FEATURE, () -> new CragFeatureConfig(
+                    BlockStateProvider.simple(BYGBlocks.OVERGROWN_STONE.get()),
+                    BlockStateProvider.simple(Blocks.STONE),
+                    Fluids.WATER
             ));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> CRAG_DELTA = createConfiguredFeature("crag_delta", () -> Feature.DELTA_FEATURE, () -> new DeltaFeatureConfiguration(Blocks.WATER.defaultBlockState(), BYGBlocks.OVERGROWN_STONE.defaultBlockState(), UniformInt.of(7, 15), UniformInt.of(1, 3)));
@@ -151,7 +151,7 @@ public class BYGOverworldFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_WINDSWEPT_LAKE = createConfiguredFeature("large_windswept_lake", BYGFeatures.LARGE_LAKE,
             (configuredFeatureBootstapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstapContext.lookup(Registries.CONFIGURED_FEATURE);
-                return   new LargeLakeFeatureConfig(15, 22, 4, 10, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
+                return   new LargeLakeFeatureConfig(9, 14, 4, 9, SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()), SimpleStateProvider.simple(BYGBlocks.WINDSWEPT_SAND.get()),
                         HolderSet.direct(
                                 BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BYGOverworldVegetationFeatures.TINY_LILY_PAD), RarityFilter.onAverageOnceEvery(95), BlockPredicateFilter.forPredicate(BlockPredicate.matchesFluids(new BlockPos(0, -1, 0), Fluids.WATER))),
                                 LargeLakeFeatureConfig.createDripLeavesPlacedFeature(lookup, 80, PlacementUtils.HEIGHTMAP_OCEAN_FLOOR)
@@ -168,7 +168,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 16), UniformInt.of(7, 10), 0, UniformInt.of(10, 16))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(Blocks.STONE.defaultBlockState(), 4)
@@ -181,6 +181,7 @@ public class BYGOverworldFeatures {
                                     .add(Blocks.ANDESITE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1F)
                     .build()
     );
 
@@ -188,7 +189,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(5, 9), UniformInt.of(5, 9), 0, UniformInt.of(5, 9))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(BYGBlocks.ROCKY_STONE.defaultBlockState(), 4)
@@ -201,6 +202,7 @@ public class BYGOverworldFeatures {
                                     .add(BYGBlocks.MOSSY_STONE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1875F)
                     .build()
     );
 
@@ -208,7 +210,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 14), UniformInt.of(9, 14), 0, UniformInt.of(9, 14))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(5, 9), UniformInt.of(5, 9), 0, UniformInt.of(5, 9))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(BYGBlocks.WINDSWEPT_SANDSTONE.defaultBlockState(), 4)
@@ -223,6 +225,7 @@ public class BYGOverworldFeatures {
                                     .add(BYGBlocks.WINDSWEPT_SAND.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1875F)
                     .build()
     );
 
@@ -230,7 +233,7 @@ public class BYGOverworldFeatures {
             BYGFeatures.BOULDER,
             () -> new NoisySphereConfig.Builder()
                     .withRadiusSettings(
-                            new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                            new NoisySphereConfig.RadiusSettings(UniformInt.of(10, 16), UniformInt.of(7, 10), 0, UniformInt.of(10, 16))
                     ).withBlockProvider(
                             new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                                     .add(Blocks.GRANITE.defaultBlockState(), 4)
@@ -243,6 +246,7 @@ public class BYGOverworldFeatures {
                                     .add(Blocks.POLISHED_GRANITE.defaultBlockState(), 1)
                             )
                     )
+                    .withNoiseFrequency(0.1F)
                     .build()
     );
 

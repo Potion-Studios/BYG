@@ -34,22 +34,22 @@
       "x_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 24,
-          "min_inclusive": 16
+          "max_inclusive": 16,
+          "min_inclusive": 10
         }
       },
       "y_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 16,
-          "min_inclusive": 10
+          "max_inclusive": 10,
+          "min_inclusive": 7
         }
       },
       "z_radius": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 24,
-          "min_inclusive": 16
+          "max_inclusive": 16,
+          "min_inclusive": 10
         }
       }
     },

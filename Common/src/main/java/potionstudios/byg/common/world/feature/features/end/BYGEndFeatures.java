@@ -107,7 +107,7 @@ public class BYGEndFeatures {
 
                 return new NoisySphereConfig.Builder()
                         .withRadiusSettings(
-                                new NoisySphereConfig.RadiusSettings(UniformInt.of(16, 24), UniformInt.of(10, 16), 0, UniformInt.of(16, 24))
+                                new NoisySphereConfig.RadiusSettings(UniformInt.of(9, 15), UniformInt.of(6, 8), 0, UniformInt.of(9, 15))
                         ).withBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR))
                         .withFluidState(Fluids.LAVA.defaultFluidState())
                         .withTopBlockProvider(SimpleStateProvider.simple(Blocks.CAVE_AIR))
@@ -117,7 +117,9 @@ public class BYGEndFeatures {
                                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(CRYPTIC_VENTS), List.of(RarityFilter.onAverageOnceEvery(10), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER.get()))),
                                         BYGPlacedFeaturesUtil.createPlacedFeatureDirect(lookup.getOrThrow(BYGEndVegetationFeatures.CRYPTIC_BRAMBLE), List.of(RarityFilter.onAverageOnceEvery(12), createSolidDownAndAirAllAroundFilter(CRYPTIC_STONE_UNDER.get())))
                                 )
-                        ).build();
+                        )
+                        .withNoiseFrequency(0.06F)
+                        .build();
             }
     );
 
@@ -202,7 +204,7 @@ public class BYGEndFeatures {
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_LAKE = createConfiguredFeature("large_end_lake", BYGFeatures.LARGE_LAKE,
-            () -> new LargeLakeFeatureConfig(15, 22, 7, 12, SimpleStateProvider.simple(Blocks.END_STONE), SimpleStateProvider.simple(Blocks.END_STONE),
+            () -> new LargeLakeFeatureConfig(9, 14, 4, 9, SimpleStateProvider.simple(Blocks.END_STONE), SimpleStateProvider.simple(Blocks.END_STONE),
                     HolderSet.direct(),
                     HolderSet.direct(),
                     List.of()

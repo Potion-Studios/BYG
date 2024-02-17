@@ -15,7 +15,7 @@ import potionstudios.byg.common.world.math.noise.fastnoise.lite.FastNoiseLite;
 
 public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
 
-    FastNoiseLite perlin = null;
+    FastNoiseLite spongeNoise = null;
 
     public FloatingIslands3(Codec<FloatingIslandConfig> codec) {
         super(codec);
@@ -36,7 +36,7 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         for (double x = -radius - 5; x <= radius + 5; x++) {
             for (double y = -radius - 5; y <= radius + 5; y++) {
                 for (double z = -radius - 5; z <= radius + 5; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    double noise = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(x, y, z));
                     double distanceSqt1 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt1 <= radius * radius) {
                         mutable.set(pos).move((int) x, (int) y, (int) z);
@@ -55,7 +55,7 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
         for (double x = -thirdRadius; x <= thirdRadius; x++) {
             for (double y = -thirdRadius; y <= thirdRadius; y++) {
                 for (double z = -thirdRadius; z <= thirdRadius; z++) {
-                    double noise = FastNoiseLite.getSpongePerlinValue(perlin.GetNoise(x, y, z));
+                    double noise = FastNoiseLite.getSpongeNoiseValue(spongeNoise.GetNoise(x, y, z));
                     double distanceSqt2 = x * x + y * y + z * z + noise * noise;
                     if (distanceSqt2 <= radius * (thirdRadius + 2)) {
                         if (y <= 1 && y >= -1) {
@@ -80,9 +80,9 @@ public class FloatingIslands3 extends Feature<FloatingIslandConfig> {
 
 
     public void setSeed(long seed) {
-        if (perlin == null) {
-            perlin = FastNoiseLite.createSpongePerlin((int) seed);
-            perlin.SetFrequency(0.2F);
+        if (spongeNoise == null) {
+            spongeNoise = FastNoiseLite.createSpongeNoise((int) seed);
+            spongeNoise.SetFrequency(0.2F);
         }
     }
 }

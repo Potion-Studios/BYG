@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,16 +13,16 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import potionstudios.byg.common.world.feature.config.NoisySphereConfig;
-import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
+import potionstudios.byg.common.world.math.EllipsoidWithHorizontalRotation;
+import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
 
 public class Boulder extends Feature<NoisySphereConfig> {
-    protected static FastNoise fastNoise;
-    protected long seed;
+    private static final float NOISE_MODULATION_THRESHOLD_LOWER_BOUND = 0.35f;
+    private static final long SEED_FLIP_MASK = 0x686BF60CDB362A13L;
 
     public Boulder(Codec<NoisySphereConfig> configCodec) {
         super(configCodec);
     }
-
 
     @Override
     public boolean place(FeaturePlaceContext<NoisySphereConfig> featurePlaceContext) {
@@ -62,62 +63,76 @@ public class Boulder extends Feature<NoisySphereConfig> {
     }
 
 
-    public boolean place(Application application, long seed, RandomSource random, BlockPos origin, NoisySphereConfig config) {
-        setSeed(seed);
+    public boolean place(Application application, long worldSeed, RandomSource random, BlockPos origin, NoisySphereConfig config) {
+        long noiseSeed = worldSeed ^ SEED_FLIP_MASK;
 
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(origin);
-        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int stackHeight = config.stackHeight().sample(random);
+        BlockPos.MutableBlockPos originMutable = new BlockPos.MutableBlockPos().set(origin);
+        BlockPos.MutableBlockPos positionBeingEvaluatedMutable = new BlockPos.MutableBlockPos().set(originMutable);
+
+        // All configs.
         NoisySphereConfig.RadiusSettings radiusSettings = config.radiusSettings();
-        int xRadius = radiusSettings.xRadius().sample(random) / 2;
-        int yRadius = radiusSettings.yRadius().sample(random) / 2;
-        int zRadius = radiusSettings.zRadius().sample(random) / 2;
-        fastNoise.SetFrequency(config.noiseFrequency());
+        int stackHeight = config.stackHeight().sample(random);
+        float uRadius = radiusSettings.xRadius().sample(random);
+        float vRadius = radiusSettings.zRadius().sample(random);
+        float yRadius = radiusSettings.yRadius().sample(random);
+        double noiseFrequency = config.noiseFrequency();
 
-        double xRadiusSquared = xRadius * xRadius;
-        double yRadiusSquared = yRadius * yRadius;
-        double zRadiusSquared = zRadius * zRadius;
+        // Isotropy as a design principle: enable all possible XZ rotations,
+        // rather than just two axis-aligned scalings.
+        float angle = random.nextFloat() * Mth.TWO_PI;
 
-        for (int stackIDX = 0; stackIDX < stackHeight; stackIDX++) {
-            for (int x = -xRadius; x <= xRadius; x++) {
-                for (int z = -zRadius; z <= zRadius; z++) {
-                    for (int y = yRadius; y >= -yRadius; y--) {
-                        mutable2.set(mutable).move(x, y, z);
+        // Set up for ellipsoid.
+        EllipsoidWithHorizontalRotation ellipsoid = EllipsoidWithHorizontalRotation.create(
+                uRadius, vRadius, yRadius, angle
+        );
+        int xzRadiusLoopBound = Mth.floor(Math.max(uRadius, vRadius));
+        int yRadiusLoopBound = Mth.floor(yRadius);
 
-                        if (application.isOccupied(mutable2)) {
+        for (int indexInStack = 0; indexInStack < stackHeight; indexInStack++) {
+            for (int x = -xzRadiusLoopBound; x <= xzRadiusLoopBound; x++) {
+                for (int z = -xzRadiusLoopBound; z <= xzRadiusLoopBound; z++) {
+                    for (int y = yRadiusLoopBound; y >= -yRadiusLoopBound; y--) {
+                        positionBeingEvaluatedMutable.set(originMutable).move(x, y, z);
+
+                        if (application.isOccupied(positionBeingEvaluatedMutable)) {
                             continue;
                         }
-                        //Credits to Hex_26 for this equation!
-                        double equationResult = (x * x) / xRadiusSquared + (y * y) / yRadiusSquared + (z * z) / zRadiusSquared;
-                        double threshold = 1 + 0.7 * fastNoise.GetNoise(mutable2.getX(), mutable2.getY(), mutable2.getZ());
-                        if (equationResult >= threshold)
-                            continue;
 
-                        BlockState state = config.blockProvider().getState(random, mutable2);
-                        application.apply(mutable2, state);
+                        // 1 marks the ellipsoid boundary. No placing outside regardless of noise value.
+                        float ellipsoidValue = ellipsoid.getValue(x, y, z);
+                        if (ellipsoidValue > 1) {
+                            continue;
+                        }
+
+                        // NOISE_MODULATION_THRESHOLD_LOWER_BOUND marks the soonest boundary with max noise modulation.
+                        if (ellipsoidValue > NOISE_MODULATION_THRESHOLD_LOWER_BOUND) {
+                            float noiseValue = OpenSimplex2.noise3_ImproveXZ(noiseSeed,
+                                    positionBeingEvaluatedMutable.getX() * noiseFrequency,
+                                    positionBeingEvaluatedMutable.getY() * noiseFrequency,
+                                    positionBeingEvaluatedMutable.getZ() * noiseFrequency
+                            );
+                            noiseValue = noiseValue * 0.5f + 0.5f;
+                            float noisyEllipsoidValue = ellipsoidValue + noiseValue * (1 - NOISE_MODULATION_THRESHOLD_LOWER_BOUND);
+
+                            // If the noise has us skip this block, don't place.
+                            if (noisyEllipsoidValue > 1) {
+                                continue;
+                            }
+                        }
+
+                        // Place the block.
+                        BlockState state = config.blockProvider().getState(random, positionBeingEvaluatedMutable);
+                        application.apply(positionBeingEvaluatedMutable, state);
                     }
                 }
             }
-
-
         }
         return true;
     }
 
-
-    public void setSeed(long seed) {
-        if (this.seed != seed || fastNoise == null) {
-            fastNoise = new FastNoise((int) seed);
-            fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
-            this.seed = seed;
-        }
-    }
-
     public interface Application {
         void apply(BlockPos pos, BlockState state);
-
         boolean isOccupied(BlockPos blockPos);
     }
-
 
 }

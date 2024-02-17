@@ -15,10 +15,10 @@
         "Name": "minecraft:end_stone"
       }
     },
-    "maxDepth": 12,
-    "maxRadius": 22,
-    "minDepth": 7,
-    "minRadius": 15,
+    "maxDepth": 9,
+    "maxRadius": 14,
+    "minDepth": 4,
+    "minRadius": 9,
     "surface_features": []
   }
 }

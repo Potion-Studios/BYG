@@ -1,16 +1,14 @@
 package potionstudios.byg.common.world.feature.gen.overworld;
 
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -18,10 +16,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import potionstudios.byg.common.world.feature.config.LargeLakeFeatureConfig;
-import potionstudios.byg.common.world.math.noise.fastnoise.FastNoise;
-import potionstudios.byg.util.MLBlockTags;
+import potionstudios.byg.common.world.math.EllipsoidWithHorizontalRotation;
+import potionstudios.byg.common.world.math.noise.simplex.OpenSimplex2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +28,13 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
 
     public static final boolean DEBUG = false;
 
-    public static Direction[] DIRECTIONS = new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.DOWN};
-    public static FastNoise fastNoise;
-    protected static long seed;
+    private static final int NOISE_RADIUS_MODULATION_RANGE = 4;
+    private static final int SURROUNDING_FEATURE_BUFFER = 1;
+    private static final float NOISE_FREQUENCY = 0.08f;
+    private static final float NOISE_VERTICAL_RELATIVE_FREQUENCY = 2.0f;
+    private static final long SEED_FLIP_MASK = 0x5CFB46994DBD1E27L;
+
+    public static Direction[] DIRECTIONS = new Direction[]{ Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.DOWN };
 
     public LargeLakeFeature(Codec<LargeLakeFeatureConfig> $$0) {
         super($$0);
@@ -44,104 +45,148 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         return place(featurePlaceContext.level(), featurePlaceContext.chunkGenerator(), featurePlaceContext.random(), featurePlaceContext.origin(), featurePlaceContext.config());
     }
 
-    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos blockPos, LargeLakeFeatureConfig config) {
-        setSeed(world.getSeed());
+    public boolean place(WorldGenLevel world, ChunkGenerator chunkGenerator, RandomSource random, BlockPos origin, LargeLakeFeatureConfig config) {
+        long noiseSeed = world.getSeed() ^ SEED_FLIP_MASK;
 
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
-        BlockPos.MutableBlockPos mutable2 = new BlockPos.MutableBlockPos().set(mutable);
-        int xRadius = config.getRandomRadius(random) / 2;
+        BlockPos.MutableBlockPos originMutable = new BlockPos.MutableBlockPos().set(origin);
+        BlockPos.MutableBlockPos positionBeingEvaluatedMutable = new BlockPos.MutableBlockPos().set(originMutable);
+
+        // Sample ellipse parameters.
+        int uRadius = config.getRandomRadius(random);
+        int vRadius = config.getRandomRadius(random);
         int yRadius = config.getRandomDepth(random);
-        int zRadius = config.getRandomRadius(random) / 2;
 
-        List<BlockPos> positions = new ArrayList<>();
-        List<BlockPos> edgePositions = new ArrayList<>();
-        Function<BlockPos, BlockState> lakeBorderStateFunction = (blockPos3) -> config.borderStateProvider().getState(random, blockPos3);
-        Function<BlockPos, BlockState> lakeFloorStateFunction = (blockPos3) -> config.lakeFloorStateProvider().getState(random, blockPos3);
+        // Isotropy as a design principle: enable all possible XZ rotations,
+        // rather than just two axis-aligned scalings.
+        float angle = random.nextFloat() * Mth.TWO_PI;
 
-        for (int x = -xRadius; x <= xRadius; x++) {
-            for (int z = -zRadius; z <= zRadius; z++) {
-                for (int y = -yRadius; y <= 0; y++) {
-                    mutable2.set(mutable).move(x, y, z);
+        // Pre-computations for ellipse formula.
+        EllipsoidWithHorizontalRotation ellipsoid = EllipsoidWithHorizontalRotation.create(uRadius, vRadius, yRadius, angle);
 
-                    //Credits to Hex_26 for this equation!
-                    double xSquared = Math.pow(x, 2);
-                    double ySquared = Math.pow(y, 2);
-                    double zSquared = Math.pow(z, 2);
-                    double squaredDistance = xSquared + ySquared + zSquared;
-                    double equationResult = xSquared / Math.pow(xRadius, 2) + ySquared / Math.pow(yRadius, 2) + zSquared / Math.pow(zRadius, 2);
-                    double threshold = 1 + 1.4 * fastNoise.GetNoise(mutable2.getX(), mutable2.getY() * 2, mutable2.getZ());
-                    if (equationResult >= threshold) {
+        // To modulate the radius by at most NOISE_RADIUS_MODULATION_RANGE, by basing off of the larger horizontal component.
+        float equationResultAtNoiseMinimumRadius = ellipsoid.getHorizontalComponentForMaximumRadiusVariation(-NOISE_RADIUS_MODULATION_RANGE);
+        float equationResultAtNoiseMinimumRadiusDifference = 1 - equationResultAtNoiseMinimumRadius;
+
+        // Place edge features outward by approximately at most SURROUNDING_FEATURE_BUFFER, using a similar calculation to the above.
+        float equationResultAtSurroundingFeatureBufferBoundary = ellipsoid.getHorizontalComponentForMaximumRadiusVariation(SURROUNDING_FEATURE_BUFFER);
+        float equationResultAtSurroundingFeatureBufferBoundaryDifference = equationResultAtSurroundingFeatureBufferBoundary - 1;
+
+        List<BlockPos> carvePositions = new ArrayList<>();
+        List<BlockPos> lakeEdgePositions = new ArrayList<>();
+        Function<BlockPos, BlockState> lakeBorderStateFunction = (targetBlockPos) -> config.borderStateProvider().getState(random, targetBlockPos);
+        Function<BlockPos, BlockState> lakeFloorStateFunction = (targetBlockPos) -> config.lakeFloorStateProvider().getState(random, targetBlockPos);
+
+        // Bounds.
+        int radiusUVBound = Math.max(uRadius, vRadius) + SURROUNDING_FEATURE_BUFFER;
+
+        // Initial horizontal loop to decide water level.
+        int waterLevel = origin.getY();
+        for (int x = -radiusUVBound; x <= radiusUVBound; x++) {
+            for (int z = -radiusUVBound; z <= radiusUVBound; z++) {
+
+                // Check if within the widest part of the ellipsoid.
+                float ellipsoidDensityXZComponent = ellipsoid.getAdditiveHorizontalComponent(x, z);
+                if (ellipsoidDensityXZComponent > 1) continue;
+
+                // Update water level to not be higher than the terrain height here.
+                int worldHeightHere = world.getHeight(Heightmap.Types.WORLD_SURFACE, x + origin.getX(), z + origin.getZ());
+                waterLevel = Math.min(waterLevel, worldHeightHere - 1);
+            }
+        }
+
+        // Bounding box loop to choose carve locations.
+        int lowestCarve = Integer.MAX_VALUE;
+        for (int x = -radiusUVBound; x <= radiusUVBound; x++) {
+            for (int z = -radiusUVBound; z <= radiusUVBound; z++) {
+                int worldHeightHere = world.getHeight(Heightmap.Types.WORLD_SURFACE, x + origin.getX(), z + origin.getZ());
+
+                // This value applies to the whole column.
+                float ellipsoidDensityXZComponent = ellipsoid.getAdditiveHorizontalComponent(x, z);
+
+                // Y loop must be innermost, and it must run in increasing order,
+                // so that the consumer of the list this produces can easily check if the block below was carved.
+                for (int y = -yRadius; y <= yRadius; y++) {
+                    positionBeingEvaluatedMutable.set(originMutable).move(x, y, z);
+
+                    // Y component to complete the ellipsoid formula,
+                    // with a modification to the top half to create steeper vertical sloping on the sides.
+                    float ellipsoidDensityYComponent = ellipsoid.getAdditiveVerticalComponent(y);
+                    if (y > 0) {
+                        ellipsoidDensityYComponent *= ellipsoidDensityYComponent;
+                    }
+                    float ellipsoidDensity = ellipsoidDensityXZComponent + ellipsoidDensityYComponent;
+
+                    // No block modifications or features outside this range at all.
+                    if (ellipsoidDensity >= equationResultAtSurroundingFeatureBufferBoundary) {
                         continue;
                     }
 
-                    if (squaredDistance <= xRadius * zRadius) {
-                        BlockPos immutable = mutable2.immutable();
-                        if (y < 0) {
-                            positions.add(immutable);
-                        }
-                    } else {
-                        double sizeAmplifier = 1.6;
-                        if (y >= 0 && squaredDistance <= ((xRadius + (xRadius * sizeAmplifier)) * (zRadius + (zRadius * sizeAmplifier)))) {
-                            edgePositions.add(mutable2.immutable());
+                    // Definitely block modifications inside this range.
+                    boolean isInLakeRange = (ellipsoidDensity <= equationResultAtNoiseMinimumRadius);
+
+                    // Noise-involved lake shaping
+                    // (or start the calculation for the boundary feature placement range)
+                    float noisedTargetFormulaResult = 0;
+                    if ((!isInLakeRange && ellipsoidDensity < 1) || y >= 0) {
+                        float noiseValue = OpenSimplex2.noise3_ImproveXZ(noiseSeed,
+                                positionBeingEvaluatedMutable.getX() * NOISE_FREQUENCY,
+                                positionBeingEvaluatedMutable.getY() * (NOISE_FREQUENCY * NOISE_VERTICAL_RELATIVE_FREQUENCY),
+                                positionBeingEvaluatedMutable.getZ() * NOISE_FREQUENCY
+                        );
+                        noiseValue = noiseValue * 0.5f + 0.5f; // [-1, 1] to [0, 1]
+                        noisedTargetFormulaResult = equationResultAtNoiseMinimumRadius + noiseValue * equationResultAtNoiseMinimumRadiusDifference;
+                        isInLakeRange = (ellipsoidDensity <= noisedTargetFormulaResult);
+                    }
+
+                    // Queue for lake modification if that's what we're here for.
+                    if (isInLakeRange) {
+                        carvePositions.add(positionBeingEvaluatedMutable.immutable());
+                        lowestCarve = Math.min(lowestCarve, positionBeingEvaluatedMutable.getY());
+                        continue;
+                    }
+
+                    // Otherwise queue for surrounding feature placement if inside that range.
+                    if (positionBeingEvaluatedMutable.getY() == worldHeightHere && worldHeightHere > waterLevel) {
+                        noisedTargetFormulaResult += equationResultAtSurroundingFeatureBufferBoundaryDifference;
+                        if (ellipsoidDensity <= noisedTargetFormulaResult) {
+                            lakeEdgePositions.add(positionBeingEvaluatedMutable.immutable());
                         }
                     }
                 }
             }
         }
 
-        int waterLevel = blockPos.getY();
-        for (BlockPos position : positions) {
-            waterLevel = Math.min(world.getHeight(Heightmap.Types.WORLD_SURFACE, position.getX(), position.getZ()) - 1, waterLevel);
-        }
+        // If the water level is lower than the lowest carved block, skip placement.
+        if (waterLevel < lowestCarve) return false;
 
-        ArrayList<Pair<BlockPos, BlockState>> fallingBlocks = new ArrayList<>();
+        // Carve lake.
         ArrayList<BlockPos> lakeSurfacePositions = new ArrayList<>();
-        BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
-        for (BlockPos position : positions) {
-            BlockPos.MutableBlockPos mutable3 = mutableBlockPos.set(position.getX(), Math.min(position.getY(), waterLevel), position.getZ());
-
-            for (int i = mutable3.getY(); i <= waterLevel; i++) {
-                setLakeBlocks(world, mutable3.getY() == waterLevel ? lakeBorderStateFunction : lakeFloorStateFunction, mutable3);
-                mutable3.move(Direction.UP);
-            }
-            lakeSurfacePositions.add(mutable3.immutable());
-
-
-            BlockPos.MutableBlockPos mutable4 = new BlockPos.MutableBlockPos().set(mutable3);
-            for (int i = 0; i < 10; i++) {
-                BlockState blockStateAbove = world.getBlockState(mutable4);
-                Block stateAboveBlock = blockStateAbove.getBlock();
-                if (stateAboveBlock instanceof FallingBlock) {
-                    fallingBlocks.add(new Pair<>(mutable4.immutable(), blockStateAbove));
-                    world.removeBlock(mutable4, false);
-                } else if (canReplace(blockStateAbove)) {
-                    world.removeBlock(mutable4, false);
+        BlockPos carvePositionPrevious = null;
+        for (BlockPos carvePosition : carvePositions) {
+            if (canReplace(world.getBlockState(carvePosition))) {
+                if (carvePosition.getY() <= waterLevel) {
+                    setLakeBlocks(world, carvePosition.getY() == waterLevel ? lakeBorderStateFunction : lakeFloorStateFunction, carvePosition);
                 } else {
-                    break;
+                    world.removeBlock(carvePosition, false);
+                    if (carvePosition.getY() == waterLevel + 1 && carvePosition.below().equals(carvePositionPrevious)) {
+                        lakeSurfacePositions.add(carvePosition);
+                    }
                 }
-                mutable4.move(Direction.UP);
             }
+            carvePositionPrevious = carvePosition;
         }
 
-
-//        for (Pair<BlockPos, BlockState> fallingBlock : fallingBlocks) {
-//            BlockPos pos = fallingBlock.getFirst();
-//            BlockPos.MutableBlockPos fallingMutable = new BlockPos.MutableBlockPos().set(pos);
-//            while (!world.getBlockState(fallingMutable).canOcclude()) {
-//                fallingMutable.move(Direction.DOWN);
-//            }
-//            world.setBlock(fallingMutable.move(Direction.UP), fallingBlock.getSecond(), 2);
-//        }
-
+        // Place surface features.
         for (BlockPos lakeSurfacePosition : lakeSurfacePositions) {
             for (Holder<PlacedFeature> lakeSurfaceFeature : config.lakeSurfaceFeatures()) {
                 lakeSurfaceFeature.value().place(world, chunkGenerator, random, lakeSurfacePosition);
             }
         }
 
-        for (BlockPos lakeEdgePosition : edgePositions) {
-            for (Holder<PlacedFeature> lakeSurfaceFeature : config.lakeEdgeFeatures()) {
-                lakeSurfaceFeature.value().place(world, chunkGenerator, random, lakeEdgePosition);
+        // Place surrounding features.
+        for (BlockPos lakeEdgePosition : lakeEdgePositions) {
+            for (Holder<PlacedFeature> lakeEdgeFeature : config.lakeEdgeFeatures()) {
+                lakeEdgeFeature.value().place(world, chunkGenerator, random, lakeEdgePosition);
             }
 
             if (DEBUG) {
@@ -151,48 +196,20 @@ public class LargeLakeFeature extends Feature<LargeLakeFeatureConfig> {
         return true;
     }
 
-    private void setLakeBlocks(WorldGenLevel world, Function<BlockPos, BlockState> stateFunction, BlockPos mutable2) {
-        world.setBlock(mutable2, Blocks.WATER.defaultBlockState(), 2);
-        world.scheduleTick(mutable2, Fluids.WATER, 0);
+    private void setLakeBlocks(WorldGenLevel world, Function<BlockPos, BlockState> stateFunction, BlockPos blockPos) {
+        world.setBlock(blockPos, Blocks.WATER.defaultBlockState(), 2);
+        world.scheduleTick(blockPos, Fluids.WATER, 0);
 
-        BlockPos.MutableBlockPos mutable3 = new BlockPos.MutableBlockPos().set(mutable2);
+        BlockPos.MutableBlockPos neighborBlockPos = new BlockPos.MutableBlockPos().set(blockPos);
         for (Direction value : DIRECTIONS) {
-            mutable3.setWithOffset(mutable2, value);
-            if (world.getBlockState(mutable3).getBlock() != Blocks.WATER) {
-                world.setBlock(mutable3, stateFunction.apply(mutable3), 2);
+            neighborBlockPos.setWithOffset(blockPos, value);
+            if (world.getBlockState(neighborBlockPos).getBlock() != Blocks.WATER) {
+                world.setBlock(neighborBlockPos, stateFunction.apply(neighborBlockPos), 2);
             }
         }
     }
 
-    private void fillDownwards(WorldGenLevel world, Function<BlockPos, BlockState> stateFunction, BlockPos.MutableBlockPos mutable3) {
-        while (mutable3.getY() > world.getMinBuildHeight()) {
-            world.setBlock(mutable3, stateFunction.apply(mutable3), 2);
-            mutable3.move(Direction.DOWN);
-        }
-    }
-
-    public static void setSeed(long worldSeed) {
-        if (seed != worldSeed || fastNoise == null) {
-            fastNoise = new FastNoise((int) worldSeed);
-            fastNoise.SetNoiseType(FastNoise.NoiseType.Simplex);
-            fastNoise.SetFrequency(0.8f);
-            seed = worldSeed;
-        }
-    }
-
     private static boolean canReplace(BlockState state) {
-        Material material = state.getMaterial();
-        return (!state.isAir() && material.isReplaceable())
-                || state.is(BlockTags.BASE_STONE_OVERWORLD)
-                || state.is(MLBlockTags.END_STONES)
-                || state.is(MLBlockTags.SANDSTONE)
-                || state.is(BlockTags.FLOWERS)
-                || state.is(MLBlockTags.ORES) // Handles floating ores
-                || state.is(BlockTags.DIRT)
-                || state.is(BlockTags.TERRACOTTA)
-                || material == Material.PLANT
-                || material == Material.WATER_PLANT
-                || material == Material.REPLACEABLE_WATER_PLANT
-                || material == Material.CACTUS;
+        return !state.is(BlockTags.FEATURES_CANNOT_REPLACE);
     }
 }

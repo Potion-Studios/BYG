@@ -2588,7 +2588,7 @@ public class FastNoiseLite
         }
     }
 
-    public static FastNoiseLite createSpongePerlin(int seed) {
+    public static FastNoiseLite createSpongeNoise(int seed) {
         FastNoiseLite fnlNoise = new FastNoiseLite(seed);
         fnlNoise.SetNoiseType(NoiseType.Perlin); // We will use 3D with a domain rotation to improve the look.
         fnlNoise.SetRotationType3D(RotationType3D.ImproveXZPlanes); // Make the Perlin look better than Simplex, but only in 2D slices of 3D.
@@ -2597,12 +2597,11 @@ public class FastNoiseLite
         return fnlNoise;
     }
 
-    private static final double SPONGE_COMPATIBILITY_RATIO = 2 * Math.sqrt(3.0) / 1.7252359327388492;
+    private static final double SPONGE_COMPATIBILITY_RATIO = 2.0 * Math.sqrt(3.0) / 1.7252359327388492;
+    private static final double SPONGE_FRACTAL_RESCALE_COUNTER = (1.0 + 0.5 + 0.25 + 0.125 + 0.0625 + 0.03125);
+    private static final float SPONGE_MULTIPLIER = (float)(SPONGE_COMPATIBILITY_RATIO * SPONGE_FRACTAL_RESCALE_COUNTER);
 
-    public static float getSpongePerlinValue(float noise3) {
-        noise3 = noise3 * 0.5f + 0.5f; // Rescale to 0 to 1 to match new Sponge
-        noise3 *= (1.0f + 0.5f + 0.25f + 0.125f + 0.0625 + 0.03125); // Counter FastNoiseLite fractal range rescale.
-        noise3 *= SPONGE_COMPATIBILITY_RATIO; // Now make it match old Sponge.
-        return noise3;
+    public static float getSpongeNoiseValue(float noise3) {
+        return noise3 * (SPONGE_MULTIPLIER / 2) + (SPONGE_MULTIPLIER / 2);
     }
 }
