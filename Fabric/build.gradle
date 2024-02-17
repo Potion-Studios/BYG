@@ -160,7 +160,7 @@ task fabric_publishCurseForge(type: TaskPublishCurseForge) {
     mainFile.addRequirement("corgilib")
     mainFile.addRequirement("fabric-api")
     mainFile.addGameVersion("${project.minecraft_version}")
-    mainFile.addModLoader("fabric")
+    mainFile.addModLoader("fabric", "quilt")
 }
 
 // Make sure it runs after build!
@@ -172,13 +172,13 @@ task fabric_publishModrinth (type: TaskModrinthUpload){
         versionNumber = "${project.minecraft_version}-${project.version}-fabric"
         versionType = "${project.release_type}"
         uploadFile = remapJar
-        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED), new ModDependency("P7dR8mSH", DependencyType.REQUIRED)] //TODO: Add terrablender when available.
+        dependencies = [new ModDependency("ziOp6EO8", DependencyType.REQUIRED), new ModDependency("8BmcQJ2H", DependencyType.REQUIRED), new ModDependency("P7dR8mSH", DependencyType.REQUIRED), new ModDependency("kkmrDlKT", DependencyType.REQUIRED)]
 
         String modrinthChangelogText = dependencyText + changelogText.substring(0, changelogText.indexOf("# 2", changelogText.indexOf("# 2") + 1)).trim()
         changelog = modrinthChangelogText
 
         gameVersions = ["${project.minecraft_version}"]
-        loaders = ['fabric']
+        loaders = ['fabric', 'quilt']
     }
 }
 
