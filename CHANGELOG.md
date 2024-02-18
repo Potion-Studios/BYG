@@ -1,3 +1,9 @@
+# 2.0.1.7
+* Add Soul Fire'd Support
+* Remove Duplicate FruitBlock Code
+* Prevent Fruits from generating under wrong leaves
+* (Fabric) Remove use of LegacyMixinAP and use Tiny Remapper to remap Mixin classes in place
+
 # 2.0.1.6
 * Fix Broken Cut Sandstone Recipes. Fixes #1279
 * Fix a crash involving Sapling Growth
